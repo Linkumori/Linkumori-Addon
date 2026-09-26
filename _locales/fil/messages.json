@@ -4727,1688 +4727,704 @@
     "message": "Available ang mga kontrol sa Rule ID kapag valid na ang provider na JSON.",
     "description": "Di-wastong estado ng JSON para sa mga kontrol ng rule-id ng provider"
   },
-  "guide_0001": {
-    "message": "Linkumori Extension — Documentation ng Mga Panuntunan",
+  "guide_page_title": {
+    "message": "Linkumori — Gabay sa mga Panuntunan",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Format ng Provider JSON",
+  "guide_toc_label": {
+    "message": "Nilalaman",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Provider JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Kabanata 1: Basic JSON Hugis",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Kabanata 2: Ano ang Isang Provider?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Kabanata 3: Mga Field ng Provider na Magagamit Mo",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Kabanata 4: Pagtutugma ng mga Domain",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Itugma ang Isang Domain At Lahat ng Subdomain",
+  "guide_title": {
+    "message": "Pagsulat ng mga panuntunan ng Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Itugma ang Parehong Pangalan sa Anumang Pampublikong Suffix",
+  "guide_intro_1": {
+    "message": "Nililinis ng Linkumori ang mga URL gamit ang mga panuntunan. Ipinapakita ng gabay na ito kung paano isulat ang mga ito, mula sa unang panuntunan hanggang sa bawat opsyon, na may mga halimbawang maaari mong kopyahin.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Itugma ang mga Subdomain",
+  "guide_intro_2": {
+    "message": "Ang mga panuntunan ay JSON. Isinusulat mo ang mga ito sa custom rules editor, na sinusuri ang mga ito kapag nag-save ka. Ang bundled rule list at mga remote rule list ay gumagamit ng parehong format.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Gumamit ng Higit sa Isang Pattern ng Domain",
+  "guide_file_title": {
+    "message": "1. Ang rules file",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Kabanata 5: Mga Simbolo ng Pattern ng Domain",
+  "guide_file_p1": {
+    "message": "Ang rules file ay isang JSON object. Ang <code>providers</code> object nito ay nag-uugnay ng pangalang napili mo sa isang Provider:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Kabanata 6: Pagtutugma ng URLs Sa urlPattern",
+  "guide_file_p2": {
+    "message": "Sinasabi ng isang Provider kung aling mga URL ang hinahawakan nito at kung ano ang gagawin sa mga ito. Tinatanggal nito ang <code>utm_source</code> at <code>utm_medium</code> mula sa bawat URL sa <code>example.com</code> at sa mga subdomain nito:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Kabanata 7: Alisin ang Mga Simpleng Parameter ng Query",
+  "guide_file_p3": {
+    "message": "Ang pangalan ay isang label lamang. Ang mga URL na hinahawakan ng isang Provider ay itinatakda ng <code>domainPatterns</code> o <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Kabanata 8: Sumulat ng Isang Bagay sa Panuntunan",
+  "guide_fields_title": {
+    "message": "2. Mga field ng Provider",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Kabanata 9: Mga Panuntunan ng $removeparam",
+  "guide_th_field": {
+    "message": "Field",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Alisin ang Isang Parameter",
+  "guide_th_meaning": {
+    "message": "Ano ang ginagawa nito",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Alisin ang Lahat ng Parameter",
+  "guide_field_domainpatterns": {
+    "message": "Aling mga URL ang pinangangasiwaan ng Provider, bilang mga domain pattern (kabanata 3). Gamitin ito o ang <code>urlPattern</code>, huwag pareho.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Alisin ang Mga Parameter Ayon sa Regex",
+  "guide_field_urlpattern": {
+    "message": "Aling mga URL ang pinangangasiwaan ng Provider, bilang isang regular expression na itinutugma sa buong URL. Hindi isinasaalang-alang ang case.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Alisin Lahat Maliban sa Isang Parameter",
+  "guide_field_indexpattern": {
+    "message": "Para lamang sa <code>urlPattern</code>: mga host hint gaya ng <code>||example.com^</code>, upang ang Provider ay suriin lamang para sa mga host na iyon. Kung wala ito, ang Provider ay sinusuri sa bawat URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Ilapat ang $removeparam Lamang Sa Isang Domain",
+  "guide_field_rules": {
+    "message": "Mga parameter na tatanggalin (kabanata 4 at 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Magdagdag ng Mga Limitasyon ng Domain",
+  "guide_field_referral": {
+    "message": "Mga referral at affiliate parameter na tatanggalin. Nilalaktawan ang mga ito habang naka-on ang <em>Payagan ang referral marketing</em> (kabanata 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Magdagdag ng Mga Limitasyon ng Paraan",
+  "guide_field_rawrules": {
+    "message": "Mga regular expression na pinapatakbo sa buong URL; bawat tugma ay binubura (kabanata 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Kabanata 10: $removeparam Exceptions",
+  "guide_field_exceptions": {
+    "message": "Mga URL na hinahayaan lang ng Provider (kabanata 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Kabanata 11: Rewrite Parameter Values",
+  "guide_field_redirections": {
+    "message": "Kung saan ipapadala ang request sa halip (kabanata 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Kabanata 12: Raw Rules",
+  "guide_field_fieldredirections": {
+    "message": "I-redirect sa value ng isang parameter (kabanata 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Kabanata 13: Mga Panuntunan sa Pag-redirect",
+  "guide_field_completeprovider": {
+    "message": "Hiniharang ng <code>true</code> ang bawat request na tumutugma sa Provider, habang naka-on ang <em>Payagan ang pag-block ng domain</em>.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Kabanata 14: Mga Panuntunan sa Pag-redirect ng Domain",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: kapag ang mismong pahina ay na-redirect, bubuksan ng tab ang bagong address.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Kabanata 15: Mga Pagbubukod",
+  "guide_field_methods": {
+    "message": "Asikasuhin lamang ang mga HTTP method na ito, halimbawa <code>[\"GET\"]</code>. Default: lahat.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Kabanata 16: Mga Panuntunan sa Referral Marketing",
+  "guide_field_resourcetypes": {
+    "message": "Asikasuhin lamang ang mga request type na ito, halimbawa <code>[\"main_frame\"]</code>. Default: ang mga type na pinili sa settings.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Kabanata 17: HTTP Mga Paraan",
+  "guide_field_history": {
+    "message": "Nilalaktawan ng <code>false</code> ang Provider kapag binago ng isang pahina ang sarili nitong address gamit ang History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Kabanata 18: Mga Uri ng Mapagkukunan ng Browser",
+  "guide_field_active": {
+    "message": "Pinapatay ng <code>false</code> ang Provider.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Kabanata 19: Mga Preprocessor",
+  "guide_match_title": {
+    "message": "3. Aling mga URL ang hinahawakan ng isang provider",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Kabanata 20: Pinapayagan JSON Kumbinasyon",
+  "guide_match_p1": {
+    "message": "Ang <code>domainPatterns</code> ay isang listahan ng mga domain pattern. Ang isang URL ay tumutugma kung alinman sa mga ito ay tumutugma:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kumbinasyon 1: Maraming Provider Sa Isang File",
+  "guide_th_pattern": {
+    "message": "Pattern",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kumbinasyon 2: Global Defaults Plus Provider",
+  "guide_th_matches": {
+    "message": "Tumutugma",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kumbinasyon 3: DomainPatterns Provider",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> at lahat ng subdomain",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kumbinasyon 4: urlPattern Provider With indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> sa anumang public suffix (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kumbinasyon 5: domainPatterns And urlPattern Together",
+  "guide_pat_path": {
+    "message": "ang host na iyon at ang mga subdomain nito, kapag ang path ay nagsisimula sa <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kumbinasyon 6: Mga pinaghalong panuntunan[] Mga entry",
+  "guide_pat_star": {
+    "message": "katulad ng <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kumbinasyon 7: Mga Kanonikal na Bagay sa loob ng mga panuntunan[]",
+  "guide_pat_start": {
+    "message": "mga URL na nagsisimula nang eksakto sa tekstong ito",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kumbinasyon 8: Legacy Arrays Plus Canonical rules[]",
+  "guide_pat_end": {
+    "message": "mga URL na nagtatapos nang eksakto sa tekstong ito",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kumbinasyon 9: Mga Paraan at Uri ng Resource na Malawak ng Provider",
+  "guide_pat_regex": {
+    "message": "ang buong URL, bilang isang regular expression (mahalaga ang case maliban kung magdagdag ka ng <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kumbinasyon 10: Mga Uri ng Kahilingan sa Antas ng Panuntunan",
+  "guide_pat_contains": {
+    "message": "mga URL na naglalaman ng tekstong ito kahit saan",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kumbinasyon 11: Mga Pagbubukod sa Iba't ibang Lugar",
+  "guide_pat_all": {
+    "message": "bawat URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kumbinasyon 12: Pag-block sa Mga Panuntunan ng Provider Plus",
+  "guide_match_p2": {
+    "message": "Ang <code>^</code> ay nagmamarka ng katapusan ng host name, o isang separator gaya ng <code>/</code>, <code>?</code> o <code>:</code>. Ang <code>*</code> ay tumutugma sa kahit ano. Maliban sa <code>/regex/</code>, binabalewala ng mga pattern ang case.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kumbinasyon 13: Redirect Provider Plus Mga Panuntunan sa Paglilinis",
+  "guide_match_p3": {
+    "message": "Ang <code>||</code> ay kumakatawan sa isang domain, habang ang isang <code>|</code> ay kumakatawan sa mismong simula ng URL at dapat sundan ng isang scheme gaya ng <code>https://</code>. Ang <code>|example.com^</code> ay hindi kailanman maaaring tumugma, kaya tinatanggihan ito ng editor.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kumbinasyon 14: Domain Redirections Plus Regex Redirections",
+  "guide_match_p4": {
+    "message": "Para tumugma sa isang regular expression sa halip, gamitin ang <code>urlPattern</code>, at magdagdag ng <code>indexPattern</code> upang ang Provider ay suriin lamang sa mga host na iyon:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kumbinasyon 15: Mga Panuntunan na Naka-disable o Hindi Aktibo",
+  "guide_match_p5": {
+    "message": "Ang isang Provider ay may <code>domainPatterns</code> o <code>urlPattern</code>, hindi kailanman pareho. Kung kailangan mo ang dalawang uri ng pagtutugma, gumawa ng dalawang Provider.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kumbinasyon 16: Full Mixed Provider Halimbawa",
+  "guide_rules_title": {
+    "message": "4. Pag-aalis ng mga parameter",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Kabanata 21: Mga Kumpletong Halimbawa",
+  "guide_rules_p1": {
+    "message": "Ang bawat entry sa <code>rules</code> ay nag-aalis ng mga parameter mula sa query (<code>?a=1</code>) at mula sa fragment (<code>#a=1</code>). Ang isang entry ay isa sa mga sumusunod:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Halimbawa 1: Basic Tracker Cleaner",
+  "guide_th_entry": {
+    "message": "Entry",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Halimbawa 2: Alisin ang Lahat ng Mga Parameter ng UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Halimbawa 3: Panatilihin ang Isang Kinakailangang Parameter Sa Pag-login",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Halimbawa 4: I-redirect ang Mga Pag-click sa Pagsubaybay",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Halimbawa 5: Clean Only API Requests",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Kabanata 22: Quick Copy Templates",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mixed Provider JSON Format Guide",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Ipinapaliwanag ng gabay na ito kung paano magsulat ng data ng provider JSON na mababasa ng <code>Linkumori extension</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Ito ay hindi isang gabay sa JavaScript code. Nakatuon lang ito sa JSON na mga hugis, mga format ng panuntunan, at mga halimbawang kailangan ng mga may-akda.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Ang gabay na ito ay batay sa kasalukuyang <code>clearurls.js</code> runtime na gawi. Sa partikular, ang paghahanap ng provider ay gumagamit ng mga bucket ng kandidato ng <code>providersByToken</code> mula sa <code>domainPatterns</code> o <code>indexPattern</code>, at tumatakbo pa rin ang panghuling pagtutugma sa <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Kabanata 1: Basic JSON Hugis",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "Inaasahan ng <code>Linkumori extension</code> ang data ng provider sa ganitong pangkalahatang hugis:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Ang mahalagang bahagi ay <code>providers</code>. Ang bawat key sa loob ng <code>providers</code> ay isang pangalan ng provider.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Halimbawa:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Kabanata 2: Ano ang Isang Provider?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Ang provider ay isang pinangalanang runtime container para sa isang website, kumpanya, tracker, set ng pattern ng domain, o regex ng URL. Ang pangalan ng provider ay isang label/key; Ang pagtutugma ay ginagawa ng <code>domainPatterns</code> o <code>urlPattern</code>, hindi ng pangalan ng provider.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimal na provider:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Ano ang ginagawa nito:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Kabanata 3: Mga Field ng Provider na Magagamit Mo",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Mga field ng provider na tinanggap ng <code>clearurls.js</code>. Para sa pagtutugma, may-akda alinman sa <code>domainPatterns</code> o <code>urlPattern</code> na may opsyonal na <code>indexPattern</code>; huwag umasa sa parehong hinihiling na magkasama.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Payak na kahulugan:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON field",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Pinagmulan",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Para saan mo isinulat ito",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Itakda ang <code>false</code> upang i-disable ang provider na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Itakda ang <code>true</code> na harangan ang mga tumutugmang domain sa halip na maglinis lamang.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Itakda ang <code>true</code> upang pilitin ang mga pag-redirect sa pangunahing pahina sa pamamagitan ng tab ng browser.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Inirerekomendang paraan para sabihin kung aling mga domain ang tumutugma sa provider na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript regex string para sa URL na tumutugma.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Opsyonal na pahiwatig ng bilis kapag gumagamit ng <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical; <code>$removeparam</code> ay Linkumori karagdagan dito",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Normal na mga panuntunan sa pag-alis ng parameter at <code>$removeparam</code> na panuntunan ng provider-local.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs addon legacy; canonical-style na mga bagay dito ay Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Mga panuntunang nag-e-edit ng buong URL na teksto.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs addon legacy; canonical-style na mga bagay dito ay Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Opsyonal na mga panuntunan sa parameter ng referral/marketing.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical; Ang mga anyo ng bagay dito ay Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regex rules kung saan hindi dapat tumakbo ang provider na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Mga panuntunan sa pattern ng domain kung saan hindi dapat tumakbo ang provider na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs addon legacy; canonical-style na mga bagay dito ay Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Mga panuntunan sa pag-redirect ng regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Mga panuntunan sa pag-redirect ng pattern ng domain.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon legacy at ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Patakbuhin lamang ang mga HTTP na pamamaraang ito.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori karagdagan",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Patakbuhin lamang ang mga uri ng kahilingan sa browser na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Kabanata 4: Pagtutugma ng mga Domain",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "Ang <code>domainPatterns</code> ay isang Linkumori na karagdagan at mas gusto para sa karamihan ng mga custom na provider. Sa <code>clearurls.js</code>, ang walang laman na <code>domainPatterns</code> ay ginagamit para sa pagtutugma bago ang <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Itugma ang Isang Domain At Lahat ng Subdomain",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Mga tugma:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Hindi tumutugma sa:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Itugma ang Parehong Pangalan sa Anumang Pampublikong Suffix",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Maaaring tumugma sa:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Itugma ang mga Subdomain",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Maaaring tumugma sa:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Gumamit ng Higit sa Isang Pattern ng Domain",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Kabanata 5: Mga Simbolo ng Pattern ng Domain",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Ito ang mga simbolo na magagamit mo sa <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Simbolo",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Ibig sabihin",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Halimbawa",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Nag-aalis ng",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Itugma sa isang hangganan ng domain.",
+  "guide_rules_name": {
+    "message": "isang pangalan ng parameter",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "isang name regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "bawat parameter na ang buong pangalan ay tumutugma; ang <code>^…$</code> ay idinaragdag para sa iyo, at binabalewala ang case",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Separator o dulong hangganan.",
+  "guide_rules_filter": {
+    "message": "isang <code>$removeparam</code> filter",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "tingnan ang kabanata 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "Ang <code>\"fbclid\"</code> at <code>\"$removeparam=fbclid\"</code> ay nag-aalis ng parehong bagay. Gamitin ang plain name maliban kung kailangan mo ng isang bagay mula sa kabanata 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Wildcard.",
+  "guide_rules_part_title": {
+    "message": "Mga panuntunan para sa bahagi ng isang Provider",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Ang isang plain name ay nalalapat sa bawat URL na tumutugma ang Provider. Upang mag-alis ng parameter sa ilan lamang sa mga ito, maglagay ng pattern sa harap ng isang <code>$removeparam</code> filter:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Dito, ang <code>qid</code> ay inaalis sa bawat Amazon site, ang <code>tag</code> ay sa <code>amazon.de</code> lamang, ang <code>sr</code> ay sa <code>smile.amazon</code> lamang, at ang <code>ref_</code> ay sa ilalim ng <code>/gp/</code> lamang. Pinapakitid ng pattern ang sariling mga pattern ng Provider; hindi nito maaaring palawakin ang mga ito.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Simulan o tapusin ang anchor.",
+  "guide_rp_title": {
+    "message": "5. Mga $removeparam filter",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Ang isang <code>$removeparam</code> filter ay may ganitong anyo; ang mga bahagi sa loob ng bracket ay optional:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Ang value",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex literal.",
+  "guide_rp_p2": {
+    "message": "Ang unang character ng value ang nagtatakda kung ano ang kahulugan nito:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filter",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Ang pinakakaraniwang pattern:",
+  "guide_rp_v_all": {
+    "message": "bawat parameter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Gamitin ito kapag gusto mo:",
+  "guide_rp_v_except": {
+    "message": "bawat parameter maliban sa <code>ref</code> (gumagana rin sa <code>~/regex/</code> at <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Kabanata 6: Pagtutugma ng URLs Sa <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "mga parameter na ang pangalan, o <code>name=value</code>, ay tumutugma sa regular expression; mahalaga ang case maliban kung idaragdag mo ang <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Gamitin lang ang <code>urlPattern</code> kapag hindi sapat ang pagtutugma ng domain, gaya ng kapag dapat tumugma ang provider sa isang partikular na path o buong regex ng URL.",
+  "guide_rp_v_prefix": {
+    "message": "mga parameter na ang pangalan ay nagsisimula sa <code>utm_</code>; hindi mahalaga ang case",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Maaari itong tumugma sa:",
+  "guide_rp_v_name": {
+    "message": "eksaktong parameter na iyon; hindi mahalaga ang case maliban kung idaragdag mo ang <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "Ang <code>urlPattern</code> ay ClearURLs addon legacy at ClearURLs core v2 canonical syntax. Ang Linkumori ay nagdagdag lamang ng <code>indexPattern</code> bilang pahiwatig ng paghahanap ng kandidato upang ang mga regex provider ay mahahanap ng mga token ng hostname nang mas mabilis.",
+  "guide_rp_options_title": {
+    "message": "Mga Option",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Mahalaga: Hindi nagpapasya ang <code>indexPattern</code> kung tumutugma ang isang provider. Pagkatapos ng paghahanap ng kandidato, sinusubok pa rin ng <code>clearurls.js</code> ang tunay na <code>urlPattern</code> sa <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Ang mga option ay kasunod ng value, na hinihiwalay ng mga kuwit. Ihiwalay ang ilang value ng isang option gamit ang <code>|</code>, at maglagay ng <code>~</code> sa harap ng isang value upang ibukod ito:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Kabanata 7: Alisin ang Mga Simpleng Parameter ng Query",
+  "guide_th_option": {
+    "message": "Option",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Ilagay ang mga pangalan ng parameter sa <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "sa mga pahina lamang mula sa mga domain na ito",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Resulta:",
+  "guide_rp_o_to": {
+    "message": "para lamang sa mga request sa mga domain na ito",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Alisin ang maraming parameter:",
+  "guide_rp_o_method": {
+    "message": "para lamang sa mga HTTP method na ito",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Resulta:",
+  "guide_rp_o_party": {
+    "message": "para lamang sa mga request sa parehong site ng pahina, o para lamang sa ibang mga site",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Kabanata 8: Sumulat ng Isang Bagay sa Panuntunan",
+  "guide_rp_o_strict": {
+    "message": "katulad nito, ngunit ikinukumpara ang eksaktong host sa halip na ang site",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Sa halip na isang payak na string, ang isang panuntunan ay maaaring maging isang bagay.",
+  "guide_rp_o_types": {
+    "message": "para lamang sa mga uri ng request na ito; ang <code>~type</code> ay nagbubukod ng isa",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Gamitin ito kapag kailangan mo:",
+  "guide_rp_o_matchcase": {
+    "message": "ang mga pangalan ng parameter ay case-sensitive",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Isang rule ID.",
+  "guide_rp_o_history": {
+    "message": "laktawan ang filter na ito kapag binago ng isang pahina ang sarili nitong address gamit ang History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Mga alyas.",
+  "guide_rp_p4": {
+    "message": "Ang bawat opsyon ay may isang baybay. Ang mga magkakasalungat na opsyon, gaya ng <code>first-party,third-party</code>, ay tinatanggihan.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Mga pagbubukod.",
+  "guide_rp_keep_title": {
+    "message": "Pagpapanatili ng isang parameter gamit ang @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Mga limitasyon sa uri ng kahilingan.",
+  "guide_rp_p5": {
+    "message": "Ang filter na nagsisimula sa <code>@@</code> ay pinapanatili ang parameter sa halip na tanggalin ito. Dito, ang <code>ref</code> ay tinatanggal kahit saan maliban sa GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Isulat muli ang pag-uugali.",
+  "guide_rp_p6": {
+    "message": "Ang isang <code>@@</code> filter ay sumasaklaw din sa mga request na ginawa ng isang pahinang tumutugma sa Provider na ito, kahit na may ibang Provider na humahawak sa mga ito.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Halimbawa sa loob ng isang provider:",
+  "guide_raw_title": {
+    "message": "6. Raw Rules",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Resulta:",
+  "guide_raw_p1": {
+    "message": "Ang isang raw rule ay isang regular expression na tumatakbo sa buong URL; bawat tugma ay binubura. Gamitin ito para sa text na hindi isang <code>name=value</code> parameter, gaya ng <code>/ref=…</code> path segment ng Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "Ang <code>flags</code> sa mga object ng panuntunan ng provider ay isang Linkumori na karagdagan. Ginagawang case-insensitive ng <code>flags: \"i\"</code> ang tugma.",
+  "guide_raw_p2": {
+    "message": "Binabalewala ng mga Raw Rules ang case at pinapalitan ang bawat tugma. Sa JSON, isulat ang bawat backslash nang dalawang beses.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Kabanata 9: <code>$removeparam</code> Mga Panuntunan",
+  "guide_raw_scope_title": {
+    "message": "Sa ilang mga URL lamang",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Alisin ang Isang Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Alisin ang Lahat ng Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Alisin ang Mga Parameter Ayon sa Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Alisin Lahat Maliban sa Isang Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Ilapat ang <code>$removeparam</code> Sa Isang Domain Lamang",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Nilinis:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Hindi nalinis:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Magdagdag ng Mga Limitasyon ng Domain",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Ibukod ang isang domain:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Magdagdag ng Mga Limitasyon ng Paraan",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "<code>GET</code> lang:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Hindi <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Kabanata 10: <code>$removeparam</code> Mga Pagbubukod",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Magsimula ng <code>$removeparam</code> na panuntunan gamit ang <code>@@</code> para makagawa ng exception.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Halimbawa ng pagbubukod sa konteksto:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Mapoprotektahan nito ang <code>ei</code> sa mga subrequest na sinimulan ng isang page na <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Kabanata 11: Rewrite Parameter Values",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Gamitin ang <code>action.type: \"rewrite\"</code> para palitan ang isang tumutugmang value ng parameter.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Sa loob ng isang provider:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Gamitin ang <code>§1§</code> kapag gusto mong gamitin muli ang kasalukuyang halaga:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Kabanata 12: Raw Rules",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Gamitin ang <code>rawRules</code> para i-edit ang buong URL na text.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Simple raw na panuntunan:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Object raw na panuntunan:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Raw rewrite rule:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Kabanata 13: Mga Panuntunan sa Pag-redirect",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Gamitin ang <code>redirections</code> upang ipadala ang browser sa isang bagong URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Kung nawawala ang <code>replacePattern</code>, gagamitin ang unang pangkat ng pagkuha.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Kabanata 14: Mga Panuntunan sa Pag-redirect ng Domain",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "Ang <code>domainRedirections</code> ay isang Linkumori na karagdagan para sa mga simpleng domain-pattern na pag-redirect.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori karagdagan — string form:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori karagdagan — anyo ng bagay:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Kabanata 15: Mga Pagbubukod",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "Ang <code>exceptions</code> ay ClearURLs addon legacy at ClearURLs core v2 canonical syntax. Tumatanggap din ang Linkumori ng mga canonical-style na bagay sa legacy na array ng provider na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Halimbawa:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "Ang <code>domainExceptions</code> ay isang Linkumori na karagdagan para sa mga pagbubukod ng domain-pattern.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Nilaktawan:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Kabanata 16: Mga Panuntunan sa Referral Marketing",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "Gumagana ang <code>referralMarketing</code> tulad ng mga panuntunan sa field, ngunit kinokontrol ito ng setting ng extension para sa referral marketing.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Halimbawa:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Kabanata 17: HTTP Mga Paraan",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Gumamit ng <code>methods</code> upang magpatakbo ng isang provider sa mga partikular na pamamaraang HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Ito ay tumatakbo sa:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Hindi ito tumatakbo sa:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Kabanata 18: Mga Uri ng Mapagkukunan ng Browser",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "Ang <code>resourceTypes</code> ay isang Linkumori na karagdagan. Gamitin ito upang magpatakbo ng isang provider lamang sa mga partikular na uri ng kahilingan sa browser.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Mga karaniwang halaga:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Halimbawa:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Ibig sabihin:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Kabanata 19: Mga Preprocessor",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Ang mga preprocessor ay nagbabago ng mga nakuhang halaga bago gamitin ang mga ito sa <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Halimbawa:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Mga sinusuportahang uri:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> ay maaaring:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Kabanata 20: Pinapayagan JSON Kumbinasyon",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Ipinapakita ng kabanatang ito ang Linkumori mixed-provider JSON: ClearURLs addon legacy arrays, ClearURLs core v2 canonical objects, at Linkumori na mga file ng mga karagdagan ay maaaring umiral nang magkasama.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kumbinasyon 1: Maraming Provider Sa Isang File",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "Ang <code>providers</code> ay ClearURLs addon legacy at ClearURLs core v2 canonical top-level syntax. Pinapanatili ng Linkumori ang hugis na iyon at pinapayagan ang maraming provider sa ilalim nito.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Ang bawat provider ay hiwalay na nilo-load.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kumbinasyon 2: Global Defaults Plus Provider",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "Ang <code>defaults</code> ay ClearURLs core v2 canonical syntax. Linkumori tinatanggap ito sa tabi ng legacy-style na <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Maaaring magmana ng mga default na value ang mga panuntunan kapag nawawala ang mga field na iyon sa panuntunan.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kumbinasyon 3: <code>domainPatterns</code> Provider",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Ito ay Linkumori na karagdagan. Karamihan sa Linkumori provider ay dapat gumamit ng form na ito.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kumbinasyon 4: <code>urlPattern</code> Provider Sa <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "Ang <code>urlPattern</code> ay upstream ClearURLs syntax. Ang <code>indexPattern</code> ay isang Linkumori lookup hint para sa regex URL providers; dapat itong tumuro sa mga hostname na maaaring itugma ng regex.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "Ang <code>indexPattern</code> ay opsyonal, ngunit kapaki-pakinabang para sa bilis. Ini-index nito ang provider sa mga bucket ng kandidatong hostname-token; hindi nito pinapalitan ang huling <code>urlPattern</code> na laban.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kumbinasyon 5: Huwag Paghaluin ang <code>domainPatterns</code> At <code>urlPattern</code> Bilang Pinagsamang Kinakailangan",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Ang hugis na ito ay maaaring lumitaw sa mas luma o sulat-kamay na data, ngunit hindi ito nangangahulugan na ang parehong tumutugma ay dapat pumasa:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Kasalukuyang <code>clearurls.js</code> na gawi:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Kung ang <code>domainPatterns</code> ay naroroon at hindi walang laman, ginagamit ito ng <code>clearurls.js</code> para sa pagtutugma ng provider at binabalewala ang <code>urlPattern</code> para sa provider na iyon. Tinatanggihan ng custom na editor/import path ang mga provider na naglalaman ng pareho. Kung kailangan mo ng kundisyon ng path, gamitin ang <code>urlPattern</code> kasama ang <code>indexPattern</code>, o saklawin ang mga indibidwal na <code>$removeparam</code>/mga entry ng panuntunan sa loob ng <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kumbinasyon 6: Mixed <code>rules[]</code> Entries",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Sa Linkumori, <code>rules</code> ay maaaring maglaman ng ClearURLs legacy string, Linkumori <code>$removeparam</code> string, Linkumori 928006650006 9280374 object at object ClearURLs core v2 canonical na mga bagay na magkasama.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Lahat ng apat na entry ay tinatanggap.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kumbinasyon 7: Mga Canonical na Bagay sa Loob <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Ang ClearURLs core v2 canonical object ay maaaring kumatawan sa iba't ibang uri ng panuntunan. Sa halimbawang Linkumori na ito, inilalagay sila sa loob ng isang provider na gumagamit ng <code>domainPatterns</code>, na Linkumori-lamang.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> pinag-uuri ang mga ito ayon sa kahulugan:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kumbinasyon 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "Gumagana pa rin ang ClearURLs addon legacy provider arrays. Hinahayaan ng Linkumori ang mga array na iyon na maupo sa tabi ng ClearURLs core v2 canonical rule object.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Ito ay may bisa. Binabasa ng engine ang lahat ng mga array na ito para sa parehong provider.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kumbinasyon 9: Mga Paraan at Uri ng Resource na Malawak ng Provider",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> ay upstream ClearURLs syntax. Ang <code>resourceTypes</code> ay isang Linkumori na karagdagan. Parehong nalalapat sa buong provider.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Parehong <code>rules</code> at <code>rawRules</code> ay limitado ng paraan/uri ng pagtutugma ng provider.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kumbinasyon 10: Mga Uri ng Kahilingan sa Antas ng Panuntunan",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "Maaaring tukuyin ng ClearURLs core v2 canonical rules ang antas ng panuntunan <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Ang antas ng provider na <code>resourceTypes</code> ay unang nagpapaliit sa provider. Ang antas ng panuntunan <code>requestTypes</code> ay nagpapaliit ng mga indibidwal na panuntunan pagkatapos noon.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kumbinasyon 11: Mga Pagbubukod sa Iba't ibang Lugar",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Hinahayaan ka ng Linkumori na pagsamahin ang ClearURLs na mga pagbubukod sa provider, Linkumori na mga pagbubukod sa domain, ClearURLs na mga pagbubukod sa pangunahing v2 na panuntunan, at Linkumori na mga pagbubukod sa lokal na tagapagbigay ng 95083006.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Payak na kahulugan:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kumbinasyon 12: Pag-block sa Mga Panuntunan ng Provider Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "Minamarkahan ng <code>completeProvider: true</code> ang isang provider bilang pagkansela/pagba-block.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Kapag pinagana ang pag-block ng domain sa mga setting, maaaring i-block ang mga pagtutugma ng kahilingan. Maaaring umiral pa rin ang mga panuntunan, ngunit ang pagharang ay ang mas malakas na gawi para sa provider na iyon.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kumbinasyon 13: Redirect Provider Plus Mga Panuntunan sa Paglilinis",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Ang isang provider ay maaaring maglaman ng mga pag-redirect at mga panuntunan sa paglilinis.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Kung tumugma ang isang pag-redirect, unang ibabalik ang pag-redirect.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kumbinasyon 14: Domain Redirections Plus Regex Redirections",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Parehong maaaring umiral sa isang provider.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Sinusuri muna ang mga pag-redirect ng regex. Sinusuri ang mga pag-redirect ng domain kung walang tumugma na pag-redirect ng regex.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kumbinasyon 15: Mga Panuntunan na Naka-disable o Hindi Aktibo",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Maaaring hindi aktibo ang mga provider:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Maaaring hindi aktibo ang mga panuntunan:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Binabalewala ang mga hindi aktibong provider at hindi aktibong panuntunan.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kumbinasyon 16: Full Mixed Provider Halimbawa",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Ang halimbawang Linkumori na ito ay sadyang pinagsama ang karamihan sa mga sinusuportahang feature ng provider: ClearURLs addon legacy array, ClearURLs core v2 canonical rule object, at Linkumori-only matcher at domain-pattern na feature.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Ito ay may bisa Linkumori mixed provider JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Kabanata 21: Mga Kumpletong Halimbawa",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Halimbawa 1: Basic Tracker Cleaner",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Halimbawa 2: Alisin ang Lahat ng Mga Parameter ng UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Halimbawa 3: Panatilihin ang Isang Kinakailangang Parameter Sa Pag-login",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Halimbawa 4: I-redirect ang Mga Pag-click sa Pagsubaybay",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Resulta:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Halimbawa 5: Clean Only API Requests",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Ibig sabihin:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Kabanata 22: Quick Copy Templates",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Alisin ang isang parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Alisin ang maraming parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Gamitin ang <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Alisin ang lahat ng <code>utm_</code> parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Magdagdag ng exception:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Itugma ang isang domain:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Mag-redirect ng tracker URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Ang isang raw rule ay maaaring gumamit ng pattern at mga opsyon ng isang <code>$removeparam</code> filter, na may <code>rawrule=</code> sa huli. Ang lahat pagkatapos ng <code>rawrule=</code> ay ang regular expression:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Ang pattern at mga opsyon ang nagpapasya kung saan tatakbo ang panuntunan; ang regular expression pa rin ang binubura. Ginagawa itong case-sensitive ng <code>match-case</code>.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Pagpigil sa mga raw rules sa ilang mga URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Ang isang entry na nagsisimula sa <code>@@</code> ay pinipigilan ang mga Raw Rules na tumakbo kung saan tumutugma ang pattern nito. Bigyan ang raw rule ng <code>id</code> at pangalanan ito gamit ang <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Kapag walang anuman pagkatapos ng <code>rawrule=</code> at walang <code>targetId</code>, pinapatigil ng entry ang bawat raw rule ng Provider sa mga URL na iyon. Upang laktawan ang buong Provider, gamitin ang <code>exceptions</code> sa halip.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Mga pagbubukod",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Kung ang isang URL ay tumutugma sa isang entry sa <code>exceptions</code>, wala sa mga panuntunan ng Provider ang tatakbo. Ang isang entry ay isang regular expression, o isang domain pattern na nagsisimula sa <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Ang mga pagbubukod ay hindi sensitibo sa case (ignore case).",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Mga pag-redirect",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Ang mga panuntunan sa pag-redirect ay nilalaktawan ang mga tracking page sa pamamagitan ng direktang pagpunta sa tunay na destinasyon. Tatakbo lamang ang mga ito habang naka-on ang <em>Paganahin ang Third-Party Redirect Bypass</em>.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Pag-redirect sa bahagi ng URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Ang isang entry sa <code>redirections</code> ay isang regular expression na may eksaktong isang capture group, <code>( … )</code>. Ang request ay pupunta sa kung ano ang nakuhang (captured) ng grupo, na URL-decoded. Isulat ang anumang iba pang grupo bilang <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Pag-redirect sa isang permanenteng address",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Ang isang entry na nagsisimula sa <code>|</code> ay nagpapadala ng bawat tumutugmang URL sa isang address:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Pag-redirect sa value ng isang parameter",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "Pinapangalanan ng <code>fieldRedirections</code> ang parameter na naglalaman ng destinasyon, kaya hindi na kailangan ng regular expression. Tinatanggap nito ang parehong mga entry gaya ng <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Ang unang tumutugmang parameter na may value ang mananaig. Ang isang pag-redirect ay nagpapatigil sa lahat ng iba pang pagproseso para sa request.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Mga rule object",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Ang anumang entry ay maaaring maging isang object sa halip na isang string. Gumamit nito kapag ang isang panuntunan ay nangangailangan ng id, dapat magsimulang naka-off, dapat mag-rewrite sa halip na mag-remove, o dapat tumakbo lamang sa ilang mga kaso:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Susi",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "ang tekstong isusulat mo bilang isang plain entry",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "isang stable na pangalan (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) na ginagamit upang i-on at i-off ang panuntunan",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "ang mga nakaraang id ng panuntunan, upang ang panuntunang i-off mo ay manatiling off pagkatapos ng pagpapangalan muli",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "i-rewrite sa halip na tanggalin; ang <code>§1§</code>, <code>§2§</code>, … ay ang mga captured value",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "baguhin muna ang mga captured value",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "para lamang sa mga request type na ito, halimbawa <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "mga URL kung saan ang panuntunang ito ay hindi tumatakbo",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "mga regular expression flag, bilang isang string (default <code>i</code>; <code>gi</code> sa <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "patakbuhin ang panuntunan nang mas maaga o mas huli",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: ang isang panuntunan sa <code>rules</code> ay itinuturing na isang referral-marketing rule",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: laktawan ang panuntunang ito kapag binago ng isang pahina ang sarili nitong address gamit ang History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: ang panuntunan ay magsisimulang naka-off",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "malayang teksto",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "sa <code>@@…$rawrule=</code> entries lamang: ang Raw Rule na pinipigilan nito",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Pag-rewrite sa halip na pagtanggal",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Gamit ang <code>replacePattern</code>, ang isang panuntunan sa <code>rules</code> ay pinapanatili ang parameter at pinapalitan ang value nito, na siyang <code>§1§</code>. Sa <code>rawRules</code> at <code>redirections</code>, ang <code>§1§</code>, <code>§2§</code>, … ay ang mga capture group:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Mga Preprocessor",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Binabago ng mga Preprocessor ang mga captured value bago sila gamitin ng <code>replacePattern</code>. Ang <code>inputs</code> ay <code>\"all\"</code> o isang listahan ng mga numero ng grupo:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Ang mga uri ay <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> at <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Mga Rule id",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Bawat panuntunan ay may id. Ang panuntunan na walang <code>id</code> ay nakakakuha nito mula sa listahan nito at sa text nito: ang <code>\"utm_source\"</code> sa <code>rules</code> ay nagiging <code>field-utm-source</code>. Kung ang dalawang panuntunan ay makakakuha ng parehong id, pareho silang magkakaroon ng maikling hash sa dulo.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Ang isang generated id ay nagbabago kapag nagbago ang text ng panuntunan. Bigyan ang panuntunan ng sarili nitong <code>id</code> kapag kailangan nitong panatilihin ang on/off setting nito sa kabila ng mga edit.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Pagpapatakbo ng panuntunan nang mas maaga o mas huli",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Ang mga Raw Rules ay karaniwang tumatakbo muna, pagkatapos ay ang <code>rules</code> at <code>referralMarketing</code>. Ang panuntunan na may <code>order</code> ay tumatakbo bago ang mga panuntunang wala nito, pinakamababa muna. Dito, ang token ay pinapalitan muna, at pagkatapos ay binubura:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "Ang <code>order</code> ay gumagana sa <code>rules</code>, <code>rawRules</code> at <code>referralMarketing</code>, ngunit hindi sa mga <code>$removeparam</code> filter, na laging tumatakbo sa huli.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referral marketing",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "Ang <code>referralMarketing</code> ay tumatanggap ng parehong mga entry gaya ng <code>rules</code>. Nilalaktawan ang mga ito habang naka-on ang <em>Payagan ang referral marketing</em>, kaya ang mga affiliate link ay patuloy na gumagana kung gusto mo:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Ang isang panuntunan ay maaaring manatili sa <code>rules</code> at maituturing pa ring referral marketing, gamit ang <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Mga Method at uri ng request",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Nililimitahan ng mga ito kung kailan tatakbo ang isang Provider o isang panuntunan:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js na pag-uugali: kung umiiral ang domainPatterns at walang laman, gumagamit ang Linkumori ng domainPatterns para sa pagtutugma ng provider. Ginagamit lang ang urlPattern kapag nawawala o walang laman ang domainPattern. Tinatanggihan ng custom na editor/import path ang mixed matcher na ito, kaya gamitin lang ito para maunawaan ang legacy na data.",
+  "guide_req_methods": {
+    "message": "Mga HTTP method na pinangangasiwaan ng Provider",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "mga uri ng request na hinahawakan ng Provider",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "mga uri ng request na hinahawakan ng isang rule object",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "pareho para sa isang <code>$removeparam</code> filter o raw rule",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Ang mga uri ng Request ay gumagamit ng mga pangalan ng browser: <code>main_frame</code> (isang pahina), <code>sub_frame</code> (isang frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> at iba pa. Tinatawag ng mga opsyon ng filter ang unang dalawa bilang <code>document</code> at <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Paano pinoproseso ang isang URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Para sa bawat Provider na tumutugma sa URL at pinapayagan ang request:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: kung may tumugma, lalaktawan ang Provider.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, pagkatapos ay <code>fieldRedirections</code>: ang pagtutugma ay nag-redirect sa request, at wala nang iba pang tatakbo.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: ang request ay hinarang.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "Ang <code>rawRules</code> ay tumatakbo sa buong URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "Ang <code>rules</code> at <code>referralMarketing</code> ay nag-aalis ng mga parameter.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Tumatakbo ang mga <code>$removeparam</code> filter, maliban kung pananatilihin ng isang <code>@@</code> filter ang parameter.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Ang unang Provider na nagbabago, nag-redirect o humaharang sa request ang nagdedesisyon sa resulta. Ang bagong URL ay dadaan muli sa parehong mga hakbang.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Kumpletong mga halimbawa",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Linisin ang isang shop",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Nag-aalis ng mga tracking parameter at isang affiliate id sa isang shop, at hinahayaan ang mga checkout page nito:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Alisin ang mga UTM parameter kahit saan",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Ang pattern na <code>*</code> ay tumutugma sa bawat URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Laktawan ang isang click tracker",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Ipinapadala ang mga link mula sa isang click tracker nang direkta sa kanilang destinasyon, na nasa <code>url</code> parameter:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Panatilihin ang isang parameter sa isang pahina",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Inaalis ang <code>ref</code> kahit saan sa site maliban sa login page, na nangangailangan nito:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Pag-check sa iyong mga panuntunan",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Sinisuri ng custom rules editor ang mga panuntunan kapag sine-save o ini-import mo ang mga ito. Bukod sa sirang JSON at mga invalid na regular expression, tinatanggihan nito ang mga panuntunan na maaaring mag-load ngunit tahimik na gumagawa ng maling bagay, gaya ng:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> at <code>urlPattern</code> sa isang provider",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "isang pattern na may iisang <code>|</code> at walang scheme, gaya ng <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "isang regular-expression redirect na walang eksaktong isang capture group",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "hindi kilalang mga field, key at option",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> o <code>referralMarketing</code> kung saan wala itong gagawin",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "isang <code>@@…$rawrule=</code> entry na walang pinipigilang raw rule",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Kung nabigo ang pag-save, pinapangalanan ng mensahe ang provider, ang listahan at ang entry.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

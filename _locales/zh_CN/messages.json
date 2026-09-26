@@ -3854,1688 +3854,704 @@
     "message": "一旦提供者 JSON 有效，规则 ID 控制就可用。",
     "description": "提供程序规则 ID 控件的 JSON 状态无效"
   },
-  "guide_0001": {
-    "message": "Linkumori 分机 — 规则文档",
+  "guide_page_title": {
+    "message": "Linkumori — 规则指南",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "主题",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "提供商 JSON 格式",
+  "guide_toc_label": {
+    "message": "目录",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori 提供商 JSON",
+  "guide_theme_midnight": {
+    "message": "午夜",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "第一章：基本JSON形状",
+  "guide_theme_light": {
+    "message": "明亮",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "第 2 章：什么是提供商？",
+  "guide_theme_icecold": {
+    "message": "冰冷",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "第 3 章：您可以使用的提供者字段",
+  "guide_theme_zen_grey": {
+    "message": "禅灰",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "第 4 章：匹配域",
+  "guide_theme_sunset": {
+    "message": "日落",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "匹配一个域和所有子域",
+  "guide_title": {
+    "message": "编写 Linkumori 规则",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "在任何公共后缀上匹配相同的名称",
+  "guide_intro_1": {
+    "message": "Linkumori 使用规则来清理 URL。本指南将向您展示如何编写规则，从第一条规则到所有选项，并提供可复制的示例。",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "匹配子域",
+  "guide_intro_2": {
+    "message": "规则采用 JSON 格式。您在自定义规则编辑器中编写它们，编辑器会在您保存时进行检查。内置规则列表和远程规则列表使用相同的格式。",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "使用多个域模式",
+  "guide_file_title": {
+    "message": "1. 规则文件",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "第 5 章：域模式符号",
+  "guide_file_p1": {
+    "message": "规则文件是一个 JSON 对象。其 <code>providers</code> 对象将您自定义的名称映射到一个提供者：",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "第 6 章：将 URLs 与 urlPattern 匹配",
+  "guide_file_p2": {
+    "message": "提供者定义它处理哪些 URL 以及如何处理。这个提供者会删除 <code>example.com</code> 及其子域名下每个 URL 中的 <code>utm_source</code> 和 <code>utm_medium</code>：",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "第 7 章：删除简单查询参数",
+  "guide_file_p3": {
+    "message": "名称仅作为标签。提供者处理哪些 URL 由 <code>domainPatterns</code> 或 <code>urlPattern</code> 决定。",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "第 8 章：编写规则对象",
+  "guide_fields_title": {
+    "message": "2. 提供者字段",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "第 9 章：$removeparam 规则",
+  "guide_th_field": {
+    "message": "字段",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "删除一个参数",
+  "guide_th_meaning": {
+    "message": "功能描述",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "删除所有参数",
+  "guide_field_domainpatterns": {
+    "message": "提供者处理哪些 URL，以域名模式形式定义（第 3 章）。使用此项或 <code>urlPattern</code>，不可两者同时使用。",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "通过正则表达式删除参数",
+  "guide_field_urlpattern": {
+    "message": "提供者处理哪些 URL，以针对完整 URL 匹配的正则表达式形式定义。忽略大小写。",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "删除除一个参数之外的所有参数",
+  "guide_field_indexpattern": {
+    "message": "仅配合 <code>urlPattern</code> 使用：主机提示，例如 <code>||example.com^</code>，这样提供者仅针对这些主机进行检查。如果不设置，提供者将针对每个 URL 进行检查。",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "仅将 $removeparam 应用于一个域",
+  "guide_field_rules": {
+    "message": "要移除的参数（第 4 章和第 5 章）。",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "添加域限制",
+  "guide_field_referral": {
+    "message": "要移除的推荐和联盟参数。当 <em>允许引荐营销</em> 开启时，这些参数将被跳过（第 10 章）。",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "添加方法限制",
+  "guide_field_rawrules": {
+    "message": "在完整 URL 上运行的正则表达式；每个匹配项都将被删除（第 6 章）。",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "第 10 章：$removeparam 异常",
+  "guide_field_exceptions": {
+    "message": "提供者不处理的 URL（第 7 章）。",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "第 11 章：重写参数值",
+  "guide_field_redirections": {
+    "message": "改为将请求发送到何处（第 8 章）。",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "第12章：原始规则",
+  "guide_field_fieldredirections": {
+    "message": "重定向到某个参数的值（第 8 章）。",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "第 13 章：重定向规则",
+  "guide_field_completeprovider": {
+    "message": "当 <em>允许域名屏蔽</em> 开启时，<code>true</code> 会拦截提供者匹配的所有请求。",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "第 14 章：域重定向规则",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>：当页面本身被重定向时，标签页将打开新地址。",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "第15章：例外",
+  "guide_field_methods": {
+    "message": "仅处理这些 HTTP 方法，例如 <code>[\"GET\"]</code>。默认：全部。",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "第 16 章：推荐营销规则",
+  "guide_field_resourcetypes": {
+    "message": "仅处理这些请求类型，例如 <code>[\"main_frame\"]</code>。默认：在设置中选择的类型。",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "第17章：HTTP方法",
+  "guide_field_history": {
+    "message": "当页面通过 History API 更改自身地址时，<code>false</code> 会跳过该提供者。",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "第 18 章：浏览器资源类型",
+  "guide_field_active": {
+    "message": "<code>false</code> 将提供者关闭。",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "第 19 章：预处理器",
+  "guide_match_title": {
+    "message": "3. 提供者处理哪些 URL",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "第20章：允许的JSON组合",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> 是一个域名模式列表。如果其中任何一个匹配，则 URL 匹配：",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "组合 1：一个文件中包含多个提供者",
+  "guide_th_pattern": {
+    "message": "模式",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "组合 2：全球默认加提供商",
+  "guide_th_matches": {
+    "message": "匹配",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "组合3：domainPatterns Provider",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> 及其所有子域名",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "组合4：urlPattern Provider 与indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "任何公共后缀上的 <code>example</code> (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "组合5：domainPatterns 和 urlPattern 在一起",
+  "guide_pat_path": {
+    "message": "当路径以 <code>/path</code> 开始时，匹配该主机及其子域名",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "组合6：混合规则[]条目",
+  "guide_pat_star": {
+    "message": "与 <code>||example.com^</code> 相同",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "组合 7：规则内的规范对象[]",
+  "guide_pat_start": {
+    "message": "恰好以此文本开头的 URL",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "组合 8：遗留数组加上规范规则[]",
+  "guide_pat_end": {
+    "message": "恰好以此文本结尾的 URL",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "组合 9：提供者范围内的方法和资源类型",
+  "guide_pat_regex": {
+    "message": "完整的 URL，作为正则表达式（除非您添加 <code>i</code>，否则区分大小写）",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "组合10：规则级请求类型",
+  "guide_pat_contains": {
+    "message": "任何位置包含此文本的 URL",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "组合11：不同地方的异常",
+  "guide_pat_all": {
+    "message": "所有 URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "组合 12：阻止 Provider Plus 规则",
+  "guide_match_p2": {
+    "message": "<code>^</code> 标记主机名的结尾，或像 <code>/</code>, <code>?</code> 或 <code>:</code> 这样的分隔符。<code>*</code> 匹配任何内容。除 <code>/regex/</code> 之外，模式不区分大小写。",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "组合 13：重定向提供商加清理规则",
+  "guide_match_p3": {
+    "message": "<code>||</code> 代表一个域名，而单个 <code>|</code> 代表 URL 的最开始，且必须后接像 <code>https://</code> 这样的协议。<code>|example.com^</code> 永远无法匹配，因此编辑器会将其拒绝。",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "组合 14：域重定向加正则表达式重定向",
+  "guide_match_p4": {
+    "message": "若要改为使用正则表达式匹配，请使用 <code>urlPattern</code>，并添加 <code>indexPattern</code> 以使提供者仅在这些主机上被检查：",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "组合 15：禁用或不活动的规则",
+  "guide_match_p5": {
+    "message": "一个提供者拥有 <code>domainPatterns</code> 或 <code>urlPattern</code>，绝不会同时拥有。如果您需要两种匹配方式，请创建两个提供者。",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "组合 16：完全混合提供商示例",
+  "guide_rules_title": {
+    "message": "4. 移除参数",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "第 21 章：完整示例",
+  "guide_rules_p1": {
+    "message": "<code>rules</code> 中的每个条目都会从查询 (<code>?a=1</code>) 和片段 (<code>#a=1</code>) 中移除参数。条目可以是以下之一：",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "示例 1：基本跟踪器清理器",
+  "guide_th_entry": {
+    "message": "条目",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "示例 2：删除所有 UTM 参数",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "示例 3：保留登录时所需的参数",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "示例 4：重定向跟踪点击",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "示例 5：仅清理 API 请求",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "第22章：快速复制模板",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori 混合提供商 JSON 格式指南",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "本指南说明如何编写 <code>Linkumori extension</code> 可以读取的提供者 JSON 数据。",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "它不是 JavaScript 代码的指南。它仅关注规则作者需要的 JSON 形状、规则格式和示例。",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "本指南基于当前的 <code>clearurls.js</code> 运行时行为。特别是，提供者查找使用来自 <code>domainPatterns</code> 或 <code>indexPattern</code> 的 <code>providersByToken</code> 候选存储桶，最终匹配仍然通过 <code>provider.matchRequestURL()</code> 运行。",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "第一章：基本JSON形状",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> 期望提供商数据采用以下一般形式：",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "重要的部分是 <code>providers</code>。 <code>providers</code> 中的每个密钥都是一个提供商名称。",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "示例：",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "第 2 章：什么是提供商？",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "提供程序是一个网站、公司、跟踪器、域模式集或 URL 正则表达式的命名运行时容器。提供者名称是一个标签/键；匹配是通过 <code>domainPatterns</code> 或 <code>urlPattern</code> 完成的，而不是通过提供者名称完成的。",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "最小提供者：",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "这是做什么的：",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "第 3 章：您可以使用的提供者字段",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> 接受的提供者字段。为了进行匹配，请编写 <code>domainPatterns</code> 或 <code>urlPattern</code> 以及可选的 <code>indexPattern</code>；不要依赖两者同时需要。",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "简单的意思：",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON 场",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "来源",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "你写它的目的",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "设置 <code>false</code> 以禁用此提供程序。",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs 插件旧版和 ClearURLs 核心 v2 规范",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "设置 <code>true</code> 以阻止匹配的域，而不仅仅是清理。",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs 插件旧版和 ClearURLs 核心 v2 规范",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "设置 <code>true</code> 以强制通过浏览器选项卡进行主页重定向。",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "推荐的方式来说明该提供商匹配哪些域。",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs 插件旧版和 ClearURLs 核心 v2 规范",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript URL 匹配的正则表达式字符串。",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "使用 <code>urlPattern</code> 时可选速度提示。",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs 旧版插件和 ClearURLs 核心 v2 规范； <code>$removeparam</code> 是 Linkumori 在这里添加",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "正常参数删除规则和提供商本地 <code>$removeparam</code> 规则。",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs 插件遗留；这里的规范风格对象是 Linkumori 加法",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "编辑整个 URL 文本的规则。",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs 插件遗留；这里的规范风格对象是 Linkumori 加法",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "可选的推荐/营销参数规则。",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs 旧版插件和 ClearURLs 核心 v2 规范；这里的对象形式是 Linkumori 加法",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL 正则表达式规则此提供程序不应运行。",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "域模式规则规定该提供程序不应运行。",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs 插件遗留；这里的规范风格对象是 Linkumori 加法",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "正则表达式重定向规则。",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "域模式重定向规则。",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs 插件旧版和 ClearURLs 核心 v2 规范",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "仅运行这些 HTTP 方法。",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori 加",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "仅针对这些浏览器请求类型运行。",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "第 4 章：匹配域",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> 是 Linkumori 的补充，是大多数定制提供商的首选。在<code>clearurls.js</code>中，在<code>urlPattern</code>之前使用非空的<code>domainPatterns</code>进行匹配。",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "匹配一个域和所有子域",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "比赛：",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "不匹配：",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "在任何公共后缀上匹配相同的名称",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "可以匹配：",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "匹配子域",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "可以匹配：",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "使用多个域模式",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "第 5 章：域模式符号",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "这些是您可以在 <code>domainPatterns</code> 中使用的符号。",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "符号",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "含义",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "示例",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "移除",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "在域边界处匹配。",
+  "guide_rules_name": {
+    "message": "参数名称",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "名称正则表达式",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "所有完整名称匹配的参数；系统会为您添加 <code>^…$</code>，且忽略大小写",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "分隔符或结束边界。",
+  "guide_rules_filter": {
+    "message": "一个 <code>$removeparam</code> 过滤器",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "参见第 5 章",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> 和 <code>\"$removeparam=fbclid\"</code> 移除的内容相同。除非您需要第 5 章中的功能，否则请使用纯名称。",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "通配符。",
+  "guide_rules_part_title": {
+    "message": "提供者部分规则",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "纯名称适用于提供者匹配的每个 URL。若要仅在其中一部分 URL 上移除参数，请在 <code>$removeparam</code> 过滤器前放置一个模式：",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "这里 <code>qid</code> 在每个 Amazon 站点上都被移除，<code>tag</code> 仅在 <code>amazon.de</code> 上移除，<code>sr</code> 仅在 <code>smile.amazon</code> 上移除，而 <code>ref_</code> 仅在 <code>/gp/</code> 下移除。该模式会缩小提供者自身的模式范围；它不能扩大范围。",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "开始或结束锚点。",
+  "guide_rp_title": {
+    "message": "5. $removeparam 过滤器",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "一个 <code>$removeparam</code> 过滤器具有这种形式；括号中的部分是可选的：",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "值",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript 正则表达式文字。",
+  "guide_rp_p2": {
+    "message": "值的第一个字符决定了它的含义：",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "过滤器",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "最常见的模式：",
+  "guide_rp_v_all": {
+    "message": "每个参数",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "当你需要时使用它：",
+  "guide_rp_v_except": {
+    "message": "除 <code>ref</code> 以外的每个参数（同样适用于 <code>~/regex/</code> 和 <code>~|prefix</code>）",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "第6章：将URLs与<code>urlPattern</code>相匹配",
+  "guide_rp_v_regex": {
+    "message": "其名称或 <code>name=value</code> 符合正则表达式的参数；除非添加 <code>i</code>，否则区分大小写",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "仅当域匹配不够时才使用 <code>urlPattern</code>，例如当提供程序必须匹配特定路径或完整 URL 正则表达式时。",
+  "guide_rp_v_prefix": {
+    "message": "名称以 <code>utm_</code> 开头的参数；忽略大小写",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "这可以匹配：",
+  "guide_rp_v_name": {
+    "message": "正是该参数；除非添加 <code>match-case</code>，否则忽略大小写",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> 是 ClearURLs 插件遗留和 ClearURLs 核心 v2 规范语法。 Linkumori 添加 <code>indexPattern</code> 仅作为候选查找提示，因此可以通过主机名标记更快地找到正则表达式提供程序。",
+  "guide_rp_options_title": {
+    "message": "选项",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "重要提示：<code>indexPattern</code> 不决定提供商是否匹配。候选查找后，<code>clearurls.js</code> 仍然在 <code>provider.matchRequestURL()</code> 中测试真实的 <code>urlPattern</code>。",
+  "guide_rp_p3": {
+    "message": "选项位于值之后，用逗号分隔。使用 <code>|</code> 分隔一个选项的多个值，并在值前面加上 <code>~</code> 以将其排除：",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "第 7 章：删除简单查询参数",
+  "guide_th_option": {
+    "message": "选项",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "将参数名称放入 <code>rules</code>。",
+  "guide_rp_o_domain": {
+    "message": "仅在来自这些域名的页面上",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "结果：",
+  "guide_rp_o_to": {
+    "message": "仅针对发往这些域名的请求",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "删除许多参数：",
+  "guide_rp_o_method": {
+    "message": "仅针对这些 HTTP 方法",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "结果：",
+  "guide_rp_o_party": {
+    "message": "仅适用于与页面相同站点的请求，或仅适用于其他站点",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "第 8 章：编写规则对象",
+  "guide_rp_o_strict": {
+    "message": "相同，但比较的是精确的主机而非站点",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "规则可以是对象，而不是普通字符串。",
+  "guide_rp_o_types": {
+    "message": "仅适用于这些请求类型；<code>~type</code> 将排除其中一个",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "当你需要时使用这个：",
+  "guide_rp_o_matchcase": {
+    "message": "参数名称区分大小写",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "规则 ID。",
+  "guide_rp_o_history": {
+    "message": "当页面通过 History API 更改其自身地址时，跳过此过滤器",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "别名。",
+  "guide_rp_p4": {
+    "message": "每个选项只有一种拼写方式。矛盾的选项（如 <code>first-party,third-party</code>）将被拒绝。",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "例外情况。",
+  "guide_rp_keep_title": {
+    "message": "使用 @@ 保留参数",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "请求类型限制。",
+  "guide_rp_p5": {
+    "message": "以 <code>@@</code> 开头的过滤器会保留参数而不是将其删除。在此示例中，<code>ref</code> 在除 GitHub 以外的所有地方都被删除：",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "重写行为。",
+  "guide_rp_p6": {
+    "message": "即使由另一个提供者处理，<code>@@</code> 过滤器也涵盖由匹配此提供者的页面发出的请求。",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "提供者内部的示例：",
+  "guide_raw_title": {
+    "message": "6. 原始规则",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "结果：",
+  "guide_raw_p1": {
+    "message": "原始规则是对完整 URL 运行的正则表达式；每个匹配项都会被删除。请将其用于非 <code>name=value</code> 参数的文本，例如 Amazon 的 <code>/ref=…</code> 路径段：",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "提供程序规则对象上的 <code>flags</code> 是 Linkumori 的添加。 <code>flags: \"i\"</code> 使匹配不区分大小写。",
+  "guide_raw_p2": {
+    "message": "原始规则忽略大小写并替换每个匹配项。在 JSON 中，请将每个反斜杠写两次。",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "第9章：<code>$removeparam</code>规则",
+  "guide_raw_scope_title": {
+    "message": "仅在某些 URL 上",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "删除一个参数",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "删除所有参数",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "通过正则表达式删除参数",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "删除除一个参数之外的所有参数",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "仅将 <code>$removeparam</code> 应用于一个域",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "已清洁：",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "未清洁：",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "添加域限制",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "排除一个域：",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "添加方法限制",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "仅<code>GET</code>：",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "不是 <code>POST</code>：",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "第 10 章：<code>$removeparam</code> 例外情况",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "使用 <code>@@</code> 启动 <code>$removeparam</code> 规则以进行例外。",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "上下文异常示例：",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "这可以保护 <code>gemini.google.com</code> 页面启动的子请求上的 <code>ei</code>。",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "第 11 章：重写参数值",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "使用 <code>action.type: \"rewrite\"</code> 替换匹配的参数值。",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "提供商内部：",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "当您想重用当前值时，请使用 <code>§1§</code>：",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "第12章：原始规则",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "使用 <code>rawRules</code> 编辑整个 URL 文本。",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "简单的原始规则：",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "对象原始规则：",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "原始重写规则：",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "第 13 章：重定向规则",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "使用 <code>redirections</code> 将浏览器发送到新的 URL。",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "如果缺少 <code>replacePattern</code>，则使用第一个捕获组。",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "第 14 章：域重定向规则",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> 是 Linkumori 的补充，用于简单的域模式重定向。",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori 加法 — 字符串形式：",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori 加法 — 对象形式：",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "第15章：例外",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> 是 ClearURLs 插件旧版和 ClearURLs 核心 v2 规范语法。 Linkumori 还接受此旧提供程序数组中的规范样式对象。",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "示例：",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> 是 Linkumori 的补充，用于域模式例外。",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "跳过：",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "第 16 章：推荐营销规则",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> 的工作方式与字段规则类似，但它由推荐营销的分机设置控制。",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "示例：",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "第17章：HTTP方法",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "使用 <code>methods</code> 仅在特定的 HTTP 方法上运行提供程序。",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "This runs on:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "This does not run on:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "第 18 章：浏览器资源类型",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> 是 Linkumori 的补充。使用它仅在特定浏览器请求类型上运行提供程序。",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "共同价值观：",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "示例：",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "含义：",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "第 19 章：预处理器",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "预处理器在使用 <code>replacePattern</code> 中的值之前会更改捕获的值。",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "示例：",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "支持的类型：",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> 可以是：",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "第20章：允许的JSON组合",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "This chapter shows Linkumori mixed-provider JSON: ClearURLs addon legacy arrays, ClearURLs core v2 canonical objects, and Linkumori additions can exist together in one rules file.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "组合 1：一个文件中包含多个提供者",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> 是 ClearURLs 插件旧版，ClearURLs 是核心 v2 规范顶级语法。 Linkumori 保持这种形状并允许许多提供商在其下。",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Each provider is loaded separately.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "组合 2：全球默认加提供商",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> 是 ClearURLs 核心 v2 规范语法。 Linkumori 在旧式 <code>providers</code> 旁边接受它。",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "当规则中缺少这些字段时，规则可以继承默认值。",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Combination 3: <code>domainPatterns</code> Provider",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "这是 Linkumori 加法。大多数 Linkumori 提供商应使用此表格。",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "组合 4：<code>urlPattern</code> 提供商与 <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> 是上游 ClearURLs 语法。 <code>indexPattern</code> 是正则表达式 URL 提供程序的 Linkumori 查找提示；它应该指向正则表达式可以匹配的主机名。",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> 是可选的，但对于速度很有用。它将提供者索引到主机名令牌候选存储桶中；它永远不会取代最终的 <code>urlPattern</code> 匹配。",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "组合 5：不要将 <code>domainPatterns</code> 和 <code>urlPattern</code> 混合作为组合要求",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "这种形状可能会出现在较旧的或手写的数据中，但这并不意味着两个匹配器都必须通过：",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "当前 <code>clearurls.js</code> 行为：",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "如果 <code>domainPatterns</code> 存在且非空，则 <code>clearurls.js</code> 将其用于提供程序匹配并忽略该提供程序的 <code>urlPattern</code>。自定义编辑器/导入路径拒绝包含两者的提供程序。如果您需要路径条件，请将 <code>urlPattern</code> 与 <code>indexPattern</code> 结合使用，或在 <code>rules</code> 内限定单个 <code>$removeparam</code>/规则条目。",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "组合 6：混合 <code>rules[]</code> 条目",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "在 Linkumori 中，<code>rules</code> 可以包含 ClearURLs 个旧字符串、Linkumori <code>$removeparam</code> 个字符串、Linkumori <code>matchPattern</code> 个对象和 ClearURLs 个核心v2 规范对象在一起。",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "所有四个参赛作品均被接受。",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "组合7：<code>rules[]</code>内的规范对象",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs core v2 规范对象可以表示不同类型的规则。在这个 Linkumori 示例中，它们被放置在使用 <code>domainPatterns</code>（仅限 Linkumori）的提供程序中。",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> 按含义对这些进行排序：",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "组合 8：传统阵列加上 Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs 插件旧提供程序阵列仍然有效。 Linkumori 让这些数组位于 ClearURLs 核心 v2 规范规则对象旁边。",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "This is valid.引擎读取同一提供者的所有这些数组。",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "组合 9：提供者范围内的方法和资源类型",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> 是上游 ClearURLs 语法。 <code>resourceTypes</code> 是 Linkumori 的补充。两者都适用于整个提供商。",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code> 和 <code>rawRules</code> 均受提供程序方法/类型匹配的限制。",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "组合10：规则级请求类型",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs core v2规范规则可以定义规则级别<code>requestTypes</code>。",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "提供商级别 <code>resourceTypes</code> 首先缩小提供商范围。之后规则级别 <code>requestTypes</code> 缩小了各个规则的范围。",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "组合11：不同地方的异常",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori 允许您组合 ClearURLs 提供程序例外、Linkumori 域例外、ClearURLs 核心 v2 规则例外和 Linkumori 提供程序本地 <code>$removeparam</code> 例外。",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "简单的意思：",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "组合 12：阻止 Provider Plus 规则",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> 将提供商标记为取消/阻止。",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "当在设置中启用域阻止时，可以阻止匹配的请求。规则可能仍然存在，但阻止对于该提供商来说是更强的行为。",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "组合 13：重定向提供商加清理规则",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "提供程序可以包含重定向和清理规则。",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "如果重定向匹配，则首先返回重定向。",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "组合 14：域重定向加正则表达式重定向",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "两者都可以存在于一个提供商中。",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex redirections are checked first.如果没有匹配的正则表达式重定向，则检查域重定向。",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "组合 15：禁用或不活动的规则",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Providers can be inactive:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "规则可以处于非活动状态：",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "不活动的提供者和不活动的规则将被忽略。",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "组合 16：完全混合提供商示例",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "此 Linkumori 示例有意结合了大多数受支持的提供程序功能：ClearURLs 附加遗留数组、ClearURLs 核心 v2 规范规则对象以及 Linkumori 仅匹配器和域模式功能。",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "这是有效的 Linkumori 混合提供商 JSON。",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "第 21 章：完整示例",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "示例 1：基本跟踪器清理器",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "示例 2：删除所有 UTM 参数",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "示例 3：保留登录时所需的参数",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "示例 4：重定向跟踪点击",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "结果：",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "示例 5：仅清理 API 请求",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "含义：",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "第22章：快速复制模板",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "删除一个参数：",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "删除许多参数：",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "使用<code>$removeparam</code>：",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "删除所有 <code>utm_</code> 参数：",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "添加例外：",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "匹配域名：",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "重定向跟踪器 URL：",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "原始规则可以采用 <code>$removeparam</code> 过滤器的模式和选项，且 <code>rawrule=</code> 在最后。<code>rawrule=</code> 之后的所有内容均为正则表达式：",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "模式和选项决定规则在何处运行；正则表达式仍然是被删除的内容。<code>match-case</code> 使其区分大小写。",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "在某些 URL 上停止原始规则",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "以 <code>@@</code> 开头的条目会在其模式匹配时阻止原始规则运行。为原始规则提供 <code>id</code> 并使用 <code>targetId</code> 为其命名：",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "如果 <code>rawrule=</code> 之后没有任何内容且没有 <code>targetId</code>，该条目将停止提供者在这些 URL 上的所有原始规则。要跳过整个提供者，请改用 <code>exceptions</code>。",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. 例外",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "如果 URL 匹配 <code>exceptions</code> 中的条目，则提供者的任何规则都不会运行。条目是一个正则表达式，或者是以 <code>|</code> 开头的域名模式：",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "例外不区分大小写。",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. 重定向",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "重定向规则通过直接跳转到真实目的地来跳过跟踪页面。它们仅在 <em>启用第三方重定向绕过</em> 开启时运行。",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "重定向到 URL 的一部分",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code> 中的条目是一个具有且仅有一个捕获组 <code>( … )</code> 的正则表达式。请求将发送到该组捕获的内容（经过 URL 解码）。将任何其他组写为 <code>(?: … )</code>：",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "重定向到固定地址",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "以 <code>|</code> 开头的条目将所有匹配的 URL 发送到一个地址：",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "重定向到参数值",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> 指定包含目的地的参数名称，因此不需要正则表达式。它接受与 <code>rules</code> 相同的条目：",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "第一个匹配且有值的参数将生效。重定向会停止该请求的所有其他处理。",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. 规则对象",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "任何条目都可以是对象而不是字符串。当规则需要 ID、应在关闭状态下启动、应执行重写而非删除，或仅在某些情况下运行的时候，请使用对象：",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "键",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "您将作为普通条目编写的文本",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "用于开启和关闭规则的稳定名称 (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "规则之前的 ID，以便在重命名后，您关闭的规则依然保持关闭状态",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "重写而非删除；<code>§1§</code>, <code>§2§</code>, … 是捕获的值",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "先更改捕获的值",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "仅适用于这些请求类型，例如 <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "此规则不运行的 URL",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "正则表达式标志，以字符串形式表示 (默认 <code>i</code>；<code>rawRules</code> 中的 <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "提前或延后运行规则",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>：<code>rules</code> 中的规则被视为推荐营销规则",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>：当页面使用 History API 更改其自身地址时，跳过此规则",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>：规则初始状态为关闭",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "自由文本",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "仅适用于 <code>@@…$rawrule=</code> 条目：它所停止的原始规则",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "重写而非删除",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "通过 <code>replacePattern</code>，<code>rules</code> 中的规则会保留参数并替换其值，即 <code>§1§</code>。在 <code>rawRules</code> 和 <code>redirections</code> 中，<code>§1§</code>, <code>§2§</code>, … 是捕获组：",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "预处理器",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "预处理器在 <code>replacePattern</code> 使用捕获值之前对其进行更改。<code>inputs</code> 是 <code>\"all\"</code> 或一组组号：",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "类型包括 <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> 和 <code>base64Decode</code>。",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "规则 ID",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "每条规则都有一个 ID。没有 <code>id</code> 的规则将根据其列表和文本生成一个：<code>rules</code> 中的 <code>\"utm_source\"</code> 变为 <code>field-utm-source</code>。如果两条规则获得相同的 ID，两者末尾都会加上一个短哈希值。",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "当规则文本更改时，生成的 ID 也会随之更改。如果规则在编辑后必须保持其开启/关闭设置，请为其指定一个 <code>id</code>。",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "提前或延后运行规则",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "原始规则通常首先运行，然后是 <code>rules</code> 和 <code>referralMarketing</code>。带有 <code>order</code> 的规则在没有该项的规则之前运行，数值最低的优先。在这种情况下，令牌先被替换，然后被删除：",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> 适用于 <code>rules</code>, <code>rawRules</code> 和 <code>referralMarketing</code>，但不适用于 <code>$removeparam</code> 过滤器，后者总是最后运行。",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. 推荐营销",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> 采用与 <code>rules</code> 相同的条目。当 <em>允许引荐营销</em> 开启时，这些条目会被跳过，因此如果您需要，联盟链接将继续有效：",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "一条规则可以留在 <code>rules</code> 中，且通过 <code>\"referralMarketing\": true</code> 仍被视为推荐营销。",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. 方法和请求类型",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "这些项用于缩小提供者或规则运行的范围：",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js 行为：如果domainPatterns 存在且不为空，Linkumori 将使用domainPatterns 进行提供商匹配。仅当domainPatterns 缺失或为空时才使用urlPattern。自定义编辑器/导入路径拒绝这种混合匹配器形状，因此仅使用它来理解遗留数据。",
+  "guide_req_methods": {
+    "message": "提供者处理的 HTTP 方法",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "提供者处理的请求类型",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "单个规则对象处理的请求类型",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "单个 <code>$removeparam</code> 过滤器或原始规则也是如此",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "请求类型使用浏览器的名称：<code>main_frame</code>（页面）、<code>sub_frame</code>（框架）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> 等。过滤器选项将前两个称为 <code>document</code> 和 <code>subdocument</code>。",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. URL 如何被处理",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "对于每个匹配该 URL 且允许该请求的提供者：",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>：如果其中一个匹配，则跳过该提供者。",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>，然后 <code>fieldRedirections</code>：匹配将重定向请求，且不再运行其他内容。",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>：请求被拦截。",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> 在完整 URL 上运行。",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> 和 <code>referralMarketing</code> 移除参数。",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> 过滤器运行，除非 <code>@@</code> 过滤器保留了该参数。",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "第一个更改、重定向或拦截请求的提供者决定结果。随后新 URL 将再次经过相同的步骤。",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. 完整示例",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "清理单个商店",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "移除单个商店的追踪参数和联盟 ID，并保持其结账页面不变：",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "在所有地方移除 UTM 参数",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "模式 <code>*</code> 匹配所有 URL：",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "跳过点击追踪器",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "将通过点击追踪器的链接直接发送到其目的地，目的地位于 <code>url</code> 参数中：",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "在某个页面保留参数",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "在网站所有地方移除 <code>ref</code>，但登录页面除外，因为登录页面需要它：",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. 检查您的规则",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "自定义规则编辑器在您保存或导入规则时会进行检查。除了损坏的 JSON 和无效的正则表达式外，它还会拒绝那些虽然能加载但会悄悄产生错误效果的规则，例如：",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "一个提供者拥有 <code>domainPatterns</code> 和 <code>urlPattern</code>",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "仅包含单个 <code>|</code> 且没有 scheme 的模式，例如 <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "没有恰好包含一个捕获组的正则表达式重定向",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "未知的字段、键和选项",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "在没有任何作用的地方使用 <code>order</code> 或 <code>referralMarketing</code>",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "一个没有停止任何原始规则的 <code>@@…$rawrule=</code> 条目",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "如果保存失败，消息会指明提供者、列表和条目。",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

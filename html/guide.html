@@ -60,7 +60,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="guide_0001"></title>
+<title data-i18n="guide_page_title"></title>
 <style>
 @font-face {
     font-family:'Old-Country-Nobility';
@@ -409,7 +409,7 @@ li { margin-bottom:.2em; }
 
 <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
 
-<div id="theme-bar"><span class="bar-label" data-i18n-html="guide_0002"></span></div>
+<div id="theme-bar"><span class="bar-label" data-i18n-html="guide_theme_label"></span></div>
 
 <div class="header">
     <div class="header-content">
@@ -427,524 +427,391 @@ li { margin-bottom:.2em; }
 </div>
 
 <div class="wrapper">
-  <!-- Sidebar: guide TOC -->
-  <nav class="sidebar">
+  <!-- Sidebar: guide contents -->
+  <nav class="sidebar" aria-labelledby="guide-toc-label">
     <div class="sidebar-section">
-      <p class="sidebar-section-label" data-i18n-html="guide_0003"></p>
-      <div class="toc"><div class="toc">
+      <p class="sidebar-section-label" id="guide-toc-label" data-i18n-html="guide_toc_label"></p>
+      <div class="toc">
 <ul>
-<li><a href="#guide1-clearurls-json-writing-guide" data-i18n-html="guide_0004"></a><ul>
-<li><a href="#guide1-chapter-1-basic-json-shape" data-i18n-html="guide_0005"></a></li>
-<li><a href="#guide1-chapter-2-what-is-a-provider" data-i18n-html="guide_0006"></a></li>
-<li><a href="#guide1-chapter-3-provider-fields-you-can-use" data-i18n-html="guide_0007"></a></li>
-<li><a href="#guide1-chapter-4-matching-domains" data-i18n-html="guide_0008"></a><ul>
-<li><a href="#guide1-match-one-domain-and-all-subdomains" data-i18n-html="guide_0009"></a></li>
-<li><a href="#guide1-match-the-same-name-on-any-public-suffix" data-i18n-html="guide_0010"></a></li>
-<li><a href="#guide1-match-subdomains" data-i18n-html="guide_0011"></a></li>
-<li><a href="#guide1-use-more-than-one-domain-pattern" data-i18n-html="guide_0012"></a></li>
-</ul>
-</li>
-<li><a href="#guide1-chapter-5-domain-pattern-symbols" data-i18n-html="guide_0013"></a></li>
-<li><a href="#guide1-chapter-6-matching-urls-with-urlpattern" data-i18n-html="guide_0014"></a></li>
-<li><a href="#guide1-chapter-7-remove-simple-query-parameters" data-i18n-html="guide_0015"></a></li>
-<li><a href="#guide1-chapter-8-write-a-rule-object" data-i18n-html="guide_0016"></a></li>
-<li><a href="#guide1-chapter-9-removeparam-rules" data-i18n-html="guide_0017"></a><ul>
-<li><a href="#guide1-remove-one-parameter" data-i18n-html="guide_0018"></a></li>
-<li><a href="#guide1-remove-all-parameters" data-i18n-html="guide_0019"></a></li>
-<li><a href="#guide1-remove-parameters-by-regex" data-i18n-html="guide_0020"></a></li>
-<li><a href="#guide1-remove-all-except-one-parameter" data-i18n-html="guide_0021"></a></li>
-<li><a href="#guide1-apply-removeparam-only-to-one-domain" data-i18n-html="guide_0022"></a></li>
-<li><a href="#guide1-add-domain-limits" data-i18n-html="guide_0023"></a></li>
-<li><a href="#guide1-add-method-limits" data-i18n-html="guide_0024"></a></li>
-<li><a href="#guide1-skip-a-rule-during-in-page-navigation" data-i18n-html="guide_0446"></a></li>
-</ul>
-</li>
-<li><a href="#guide1-chapter-10-removeparam-exceptions" data-i18n-html="guide_0025"></a></li>
-<li><a href="#guide1-chapter-11-rewrite-parameter-values" data-i18n-html="guide_0026"></a></li>
-<li><a href="#guide1-chapter-12-raw-rules" data-i18n-html="guide_0027"></a></li>
-<li><a href="#guide1-chapter-13-redirect-rules" data-i18n-html="guide_0028"></a></li>
-<li><a href="#guide1-chapter-14-domain-redirect-rules" data-i18n-html="guide_0029"></a></li>
-<li><a href="#guide1-chapter-15-exceptions" data-i18n-html="guide_0030"></a></li>
-<li><a href="#guide1-chapter-16-referral-marketing-rules" data-i18n-html="guide_0031"></a></li>
-<li><a href="#guide1-chapter-17-http-methods" data-i18n-html="guide_0032"></a></li>
-<li><a href="#guide1-chapter-18-browser-resource-types" data-i18n-html="guide_0033"></a></li>
-<li><a href="#guide1-chapter-19-preprocessors" data-i18n-html="guide_0034"></a></li>
-<li><a href="#guide1-chapter-20-allowed-json-combinations" data-i18n-html="guide_0037"></a><ul>
-<li><a href="#guide1-combination-1-many-providers-in-one-file" data-i18n-html="guide_0038"></a></li>
-<li><a href="#guide1-combination-2-global-defaults-plus-providers" data-i18n-html="guide_0039"></a></li>
-<li><a href="#guide1-combination-3-domainpatterns-provider" data-i18n-html="guide_0040"></a></li>
-<li><a href="#guide1-combination-4-urlpattern-provider-with-indexpattern" data-i18n-html="guide_0041"></a></li>
-<li><a href="#guide1-combination-5-domainpatterns-and-urlpattern-together" data-i18n-html="guide_0042"></a></li>
-<li><a href="#guide1-combination-6-mixed-rules-entries" data-i18n-html="guide_0043"></a></li>
-<li><a href="#guide1-combination-7-canonical-objects-inside-rules" data-i18n-html="guide_0044"></a></li>
-<li><a href="#guide1-combination-8-legacy-arrays-plus-canonical-rules" data-i18n-html="guide_0045"></a></li>
-<li><a href="#guide1-combination-9-provider-wide-methods-and-resource-types" data-i18n-html="guide_0046"></a></li>
-<li><a href="#guide1-combination-10-rule-level-request-types" data-i18n-html="guide_0047"></a></li>
-<li><a href="#guide1-combination-11-exceptions-in-different-places" data-i18n-html="guide_0048"></a></li>
-<li><a href="#guide1-combination-12-blocking-provider-plus-rules" data-i18n-html="guide_0049"></a></li>
-<li><a href="#guide1-combination-13-redirect-provider-plus-cleanup-rules" data-i18n-html="guide_0050"></a></li>
-<li><a href="#guide1-combination-14-domain-redirections-plus-regex-redirections" data-i18n-html="guide_0051"></a></li>
-<li><a href="#guide1-combination-15-disabled-or-inactive-rules" data-i18n-html="guide_0052"></a></li>
-<li><a href="#guide1-combination-16-full-mixed-provider-example" data-i18n-html="guide_0053"></a></li>
-</ul>
-</li>
-<li><a href="#guide1-chapter-21-complete-examples" data-i18n-html="guide_0069"></a><ul>
-<li><a href="#guide1-example-1-basic-tracker-cleaner" data-i18n-html="guide_0070"></a></li>
-<li><a href="#guide1-example-2-remove-all-utm-parameters" data-i18n-html="guide_0071"></a></li>
-<li><a href="#guide1-example-3-keep-a-needed-parameter-on-login" data-i18n-html="guide_0072"></a></li>
-<li><a href="#guide1-example-4-redirect-tracking-clicks" data-i18n-html="guide_0073"></a></li>
-<li><a href="#guide1-example-5-clean-only-api-requests" data-i18n-html="guide_0074"></a></li>
-</ul>
-</li>
-<li><a href="#guide1-chapter-22-quick-copy-templates" data-i18n-html="guide_0075"></a></li>
-</ul>
+<li><a href="#rules-file" data-i18n-html="guide_file_title"></a></li>
+<li><a href="#provider-fields" data-i18n-html="guide_fields_title"></a></li>
+<li><a href="#matching" data-i18n-html="guide_match_title"></a></li>
+<li><a href="#removing-parameters" data-i18n-html="guide_rules_title"></a>
+<ul>
+<li><a href="#rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title"></a></li>
+</ul></li>
+<li><a href="#removeparam-filters" data-i18n-html="guide_rp_title"></a>
+<ul>
+<li><a href="#removeparam-value" data-i18n-html="guide_rp_value_title"></a></li>
+<li><a href="#removeparam-options" data-i18n-html="guide_rp_options_title"></a></li>
+<li><a href="#removeparam-keep" data-i18n-html="guide_rp_keep_title"></a></li>
+</ul></li>
+<li><a href="#raw-rules" data-i18n-html="guide_raw_title"></a>
+<ul>
+<li><a href="#raw-rules-scope" data-i18n-html="guide_raw_scope_title"></a></li>
+<li><a href="#raw-rules-stop" data-i18n-html="guide_raw_stop_title"></a></li>
+</ul></li>
+<li><a href="#exceptions" data-i18n-html="guide_exc_title"></a></li>
+<li><a href="#redirects" data-i18n-html="guide_redir_title"></a>
+<ul>
+<li><a href="#redirect-regex" data-i18n-html="guide_redir_regex_title"></a></li>
+<li><a href="#redirect-fixed" data-i18n-html="guide_redir_fixed_title"></a></li>
+<li><a href="#redirect-field" data-i18n-html="guide_redir_field_title"></a></li>
+</ul></li>
+<li><a href="#rule-objects" data-i18n-html="guide_obj_title"></a>
+<ul>
+<li><a href="#rewriting" data-i18n-html="guide_obj_rewrite_title"></a></li>
+<li><a href="#preprocessors" data-i18n-html="guide_obj_pre_title"></a></li>
+<li><a href="#rule-ids" data-i18n-html="guide_obj_ids_title"></a></li>
+<li><a href="#order" data-i18n-html="guide_obj_order_title"></a></li>
+</ul></li>
+<li><a href="#referral-marketing" data-i18n-html="guide_ref_title"></a></li>
+<li><a href="#request-types" data-i18n-html="guide_req_title"></a></li>
+<li><a href="#processing-order" data-i18n-html="guide_order_title"></a></li>
+<li><a href="#examples" data-i18n-html="guide_ex_title"></a>
+<ul>
+<li><a href="#example-shop" data-i18n-html="guide_ex1_title"></a></li>
+<li><a href="#example-utm" data-i18n-html="guide_ex2_title"></a></li>
+<li><a href="#example-click-tracker" data-i18n-html="guide_ex3_title"></a></li>
+<li><a href="#example-keep" data-i18n-html="guide_ex4_title"></a></li>
+</ul></li>
+<li><a href="#checking" data-i18n-html="guide_check_title"></a>
 </li>
 </ul>
-</div>
-</div>
+      </div>
     </div>
   </nav>
 
   <main id="main-content" tabindex="-1" class="content">
-    <!-- Guide 1 -->
-    <div class="guide1-section">
-<h1 id="guide1-clearurls-json-writing-guide" data-i18n-html="guide_0108"></h1>
-<p data-i18n-html="guide_0109"></p>
-<p data-i18n-html="guide_0110"></p>
-<p data-i18n-html="guide_0111"></p>
-<p class="source-note" data-i18n-html="guide_runtime_source_note"></p>
-<h2 id="guide1-chapter-1-basic-json-shape" data-i18n-html="guide_0112"></h2>
-<p data-i18n-html="guide_0113"></p>
-<pre><code class="language-json" data-i18n-text="guide_0624"></code></pre>
-<p data-i18n-html="guide_0114"></p>
-<p data-i18n-html="guide_0115"></p>
-<pre><code class="language-json" data-i18n-text="guide_0625"></code></pre>
-<h2 id="guide1-chapter-2-what-is-a-provider" data-i18n-html="guide_0116"></h2>
-<p data-i18n-html="guide_0117"></p>
-<p data-i18n-html="guide_0118"></p>
-<pre><code class="language-json" data-i18n-text="guide_0626"></code></pre>
-<p data-i18n-html="guide_0119"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0627"></code></pre>
-<h2 id="guide1-chapter-3-provider-fields-you-can-use" data-i18n-html="guide_0120"></h2>
-<p data-i18n-html="guide_0121"></p>
-<pre><code class="language-json" data-i18n-text="guide_0628"></code></pre>
-<p data-i18n-html="guide_0122"></p>
+<h1 id="guide-top" data-i18n-html="guide_title"></h1>
+<p data-i18n-html="guide_intro_1"></p>
+<p data-i18n-html="guide_intro_2"></p>
+<h2 id="rules-file" data-i18n-html="guide_file_title"></h2>
+<p data-i18n-html="guide_file_p1"></p>
+<pre><code class="language-json">{
+  "providers": {
+    "example": {
+      "domainPatterns": ["||example.com^"],
+      "rules": ["utm_source", "utm_medium"]
+    }
+  }
+}</code></pre>
+<p data-i18n-html="guide_file_p2"></p>
+<pre><code class="language-txt">https://www.example.com/page?utm_source=news&amp;utm_medium=mail&amp;id=10
+→ https://www.example.com/page?id=10</code></pre>
+<p data-i18n-html="guide_file_p3"></p>
+<h2 id="provider-fields" data-i18n-html="guide_fields_title"></h2>
 <table>
-<thead>
-<tr>
-<th data-i18n-html="guide_0123"></th>
-<th data-i18n-html="guide_0124"></th>
-<th data-i18n-html="guide_0125"></th>
-</tr>
-</thead>
+<thead><tr><th data-i18n-html="guide_th_field"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
 <tbody>
-<tr>
-<td data-i18n-html="guide_0126"></td>
-<td data-i18n-html="guide_0127"></td>
-<td data-i18n-html="guide_0128"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0132"></td>
-<td data-i18n-html="guide_0133"></td>
-<td data-i18n-html="guide_0134"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0135"></td>
-<td data-i18n-html="guide_0136"></td>
-<td data-i18n-html="guide_0137"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0447"></td>
-<td data-i18n-html="guide_0448"></td>
-<td data-i18n-html="guide_0449"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0138"></td>
-<td data-i18n-html="guide_0139"></td>
-<td data-i18n-html="guide_0140"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0141"></td>
-<td data-i18n-html="guide_0142"></td>
-<td data-i18n-html="guide_0143"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0144"></td>
-<td data-i18n-html="guide_0145"></td>
-<td data-i18n-html="guide_0146"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0147"></td>
-<td data-i18n-html="guide_0148"></td>
-<td data-i18n-html="guide_0149"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0150"></td>
-<td data-i18n-html="guide_0151"></td>
-<td data-i18n-html="guide_0152"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0153"></td>
-<td data-i18n-html="guide_0154"></td>
-<td data-i18n-html="guide_0155"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0156"></td>
-<td data-i18n-html="guide_0157"></td>
-<td data-i18n-html="guide_0158"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0159"></td>
-<td data-i18n-html="guide_0160"></td>
-<td data-i18n-html="guide_0161"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0162"></td>
-<td data-i18n-html="guide_0163"></td>
-<td data-i18n-html="guide_0164"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0165"></td>
-<td data-i18n-html="guide_0166"></td>
-<td data-i18n-html="guide_0167"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0168"></td>
-<td data-i18n-html="guide_0169"></td>
-<td data-i18n-html="guide_0170"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0171"></td>
-<td data-i18n-html="guide_0172"></td>
-<td data-i18n-html="guide_0173"></td>
-</tr>
+<tr><td><code>domainPatterns</code></td><td data-i18n-html="guide_field_domainpatterns"></td></tr>
+<tr><td><code>urlPattern</code></td><td data-i18n-html="guide_field_urlpattern"></td></tr>
+<tr><td><code>indexPattern</code></td><td data-i18n-html="guide_field_indexpattern"></td></tr>
+<tr><td><code>rules</code></td><td data-i18n-html="guide_field_rules"></td></tr>
+<tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_field_referral"></td></tr>
+<tr><td><code>rawRules</code></td><td data-i18n-html="guide_field_rawrules"></td></tr>
+<tr><td><code>exceptions</code></td><td data-i18n-html="guide_field_exceptions"></td></tr>
+<tr><td><code>redirections</code></td><td data-i18n-html="guide_field_redirections"></td></tr>
+<tr><td><code>fieldRedirections</code></td><td data-i18n-html="guide_field_fieldredirections"></td></tr>
+<tr><td><code>completeProvider</code></td><td data-i18n-html="guide_field_completeprovider"></td></tr>
+<tr><td><code>forceRedirection</code></td><td data-i18n-html="guide_field_forceredirection"></td></tr>
+<tr><td><code>methods</code></td><td data-i18n-html="guide_field_methods"></td></tr>
+<tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_field_resourcetypes"></td></tr>
+<tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_field_history"></td></tr>
+<tr><td><code>active</code></td><td data-i18n-html="guide_field_active"></td></tr>
 </tbody>
 </table>
-<h2 id="guide1-chapter-4-matching-domains" data-i18n-html="guide_0174"></h2>
-<p data-i18n-html="guide_0175"></p>
-<h3 id="guide1-match-one-domain-and-all-subdomains" data-i18n-html="guide_0176"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0629"></code></pre>
-<p data-i18n-html="guide_0177"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0630"></code></pre>
-<p data-i18n-html="guide_0178"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0631"></code></pre>
-<h3 id="guide1-match-the-same-name-on-any-public-suffix" data-i18n-html="guide_0179"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0632"></code></pre>
-<p data-i18n-html="guide_0180"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0633"></code></pre>
-<h3 id="guide1-match-subdomains" data-i18n-html="guide_0181"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0634"></code></pre>
-<p data-i18n-html="guide_0182"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0635"></code></pre>
-<h3 id="guide1-use-more-than-one-domain-pattern" data-i18n-html="guide_0183"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0636"></code></pre>
-<h2 id="guide1-chapter-5-domain-pattern-symbols" data-i18n-html="guide_0184"></h2>
-<p data-i18n-html="guide_0185"></p>
+<h2 id="matching" data-i18n-html="guide_match_title"></h2>
+<p data-i18n-html="guide_match_p1"></p>
+<pre><code class="language-json">"domainPatterns": ["||example.com^", "||example.*^", "||shop.example.org^/cart"]</code></pre>
 <table>
-<thead>
-<tr>
-<th data-i18n-html="guide_0186"></th>
-<th data-i18n-html="guide_0187"></th>
-<th data-i18n-html="guide_0188"></th>
-</tr>
-</thead>
+<thead><tr><th data-i18n-html="guide_th_pattern"></th><th data-i18n-html="guide_th_matches"></th></tr></thead>
 <tbody>
-<tr>
-<td data-i18n-html="guide_0189"></td>
-<td data-i18n-html="guide_0190"></td>
-<td data-i18n-html="guide_0191"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0192"></td>
-<td data-i18n-html="guide_0193"></td>
-<td data-i18n-html="guide_0194"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0195"></td>
-<td data-i18n-html="guide_0196"></td>
-<td data-i18n-html="guide_0197"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0198"></td>
-<td data-i18n-html="guide_0199"></td>
-<td data-i18n-html="guide_0200"></td>
-</tr>
-<tr>
-<td data-i18n-html="guide_0201"></td>
-<td data-i18n-html="guide_0202"></td>
-<td data-i18n-html="guide_0203"></td>
-</tr>
+<tr><td><code>||example.com^</code></td><td data-i18n-html="guide_pat_domain"></td></tr>
+<tr><td><code>||example.*^</code></td><td data-i18n-html="guide_pat_anysuffix"></td></tr>
+<tr><td><code>||example.com^/path</code></td><td data-i18n-html="guide_pat_path"></td></tr>
+<tr><td><code>||*.example.com^</code></td><td data-i18n-html="guide_pat_star"></td></tr>
+<tr><td><code>|https://example.com/</code></td><td data-i18n-html="guide_pat_start"></td></tr>
+<tr><td><code>…/page.html|</code></td><td data-i18n-html="guide_pat_end"></td></tr>
+<tr><td><code>/regex/i</code></td><td data-i18n-html="guide_pat_regex"></td></tr>
+<tr><td><code>example.com/path</code></td><td data-i18n-html="guide_pat_contains"></td></tr>
+<tr><td><code>*</code></td><td data-i18n-html="guide_pat_all"></td></tr>
 </tbody>
 </table>
-<p data-i18n-html="guide_0204"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0637"></code></pre>
-<p data-i18n-html="guide_0205"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0638"></code></pre>
-<h2 id="guide1-chapter-6-matching-urls-with-urlpattern" data-i18n-html="guide_0206"></h2>
-<p data-i18n-html="guide_0207"></p>
-<pre><code class="language-json" data-i18n-text="guide_0639"></code></pre>
-<p data-i18n-html="guide_0208"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0640"></code></pre>
-<p data-i18n-html="guide_0209"></p>
-<pre><code class="language-json" data-i18n-text="guide_0641"></code></pre>
-<p data-i18n-html="guide_0210"></p>
-<h2 id="guide1-chapter-7-remove-simple-query-parameters" data-i18n-html="guide_0211"></h2>
-<p data-i18n-html="guide_0212"></p>
-<pre><code class="language-json" data-i18n-text="guide_0642"></code></pre>
-<p data-i18n-html="guide_0213"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0643"></code></pre>
-<p data-i18n-html="guide_0214"></p>
-<pre><code class="language-json" data-i18n-text="guide_0644"></code></pre>
-<p data-i18n-html="guide_0215"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0645"></code></pre>
-<h2 id="guide1-chapter-8-write-a-rule-object" data-i18n-html="guide_0216"></h2>
-<p data-i18n-html="guide_0217"></p>
-<pre><code class="language-json" data-i18n-text="guide_0646"></code></pre>
-<p data-i18n-html="guide_0218"></p>
+<p data-i18n-html="guide_match_p2"></p>
+<p data-i18n-html="guide_match_p3"></p>
+<p data-i18n-html="guide_match_p4"></p>
+<pre><code class="language-json">"news": {
+  "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?news\\.example\\.com\\/article",
+  "indexPattern": ["||news.example.com^"],
+  "rules": ["share_id"]
+}</code></pre>
+<p data-i18n-html="guide_match_p5"></p>
+<h2 id="removing-parameters" data-i18n-html="guide_rules_title"></h2>
+<p data-i18n-html="guide_rules_p1"></p>
+<table>
+<thead><tr><th data-i18n-html="guide_th_entry"></th><th data-i18n-html="guide_th_example"></th><th data-i18n-html="guide_th_removes"></th></tr></thead>
+<tbody>
+<tr><td data-i18n-html="guide_rules_name"></td><td><code>"utm_source"</code></td><td><code>utm_source</code></td></tr>
+<tr><td data-i18n-html="guide_rules_regex"></td><td><code>"utm_[a-z]+"</code></td><td data-i18n-html="guide_rules_regex_removes"></td></tr>
+<tr><td data-i18n-html="guide_rules_filter"></td><td><code>"$removeparam=fbclid"</code></td><td data-i18n-html="guide_rules_filter_removes"></td></tr>
+</tbody>
+</table>
+<p data-i18n-html="guide_rules_p2"></p>
+<h3 id="rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title"></h3>
+<p data-i18n-html="guide_rules_p3"></p>
+<pre><code class="language-json">"amazon": {
+  "domainPatterns": ["||amazon.*^"],
+  "rules": [
+    "qid",
+    "||amazon.de^$removeparam=tag",
+    "||smile.amazon.*^$removeparam=sr",
+    "||amazon.*^/gp/$removeparam=ref_"
+  ]
+}</code></pre>
+<p data-i18n-html="guide_rules_p4"></p>
+<h2 id="removeparam-filters" data-i18n-html="guide_rp_title"></h2>
+<p data-i18n-html="guide_rp_p1"></p>
+<pre><code class="language-txt">[@@][pattern]$removeparam[=value][,option…]</code></pre>
+<h3 id="removeparam-value" data-i18n-html="guide_rp_value_title"></h3>
+<p data-i18n-html="guide_rp_p2"></p>
+<table>
+<thead><tr><th data-i18n-html="guide_th_filter"></th><th data-i18n-html="guide_th_removes"></th></tr></thead>
+<tbody>
+<tr><td><code>$removeparam</code></td><td data-i18n-html="guide_rp_v_all"></td></tr>
+<tr><td><code>$removeparam=~ref</code></td><td data-i18n-html="guide_rp_v_except"></td></tr>
+<tr><td><code>$removeparam=/^utm_/i</code></td><td data-i18n-html="guide_rp_v_regex"></td></tr>
+<tr><td><code>$removeparam=|utm_</code></td><td data-i18n-html="guide_rp_v_prefix"></td></tr>
+<tr><td><code>$removeparam=fbclid</code></td><td data-i18n-html="guide_rp_v_name"></td></tr>
+</tbody>
+</table>
+<h3 id="removeparam-options" data-i18n-html="guide_rp_options_title"></h3>
+<p data-i18n-html="guide_rp_p3"></p>
+<pre><code class="language-json">"rules": [
+  "||example.com^/search$removeparam=q,domain=example.com|~shop.example.com",
+  "$removeparam=sid,third-party,method=get,~xmlhttprequest"
+]</code></pre>
+<table>
+<thead><tr><th data-i18n-html="guide_th_option"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
+<tbody>
+<tr><td><code>domain=a.com|~b.com</code></td><td data-i18n-html="guide_rp_o_domain"></td></tr>
+<tr><td><code>to=a.com|~b.com</code></td><td data-i18n-html="guide_rp_o_to"></td></tr>
+<tr><td><code>method=get|~post</code></td><td data-i18n-html="guide_rp_o_method"></td></tr>
+<tr><td><code>first-party, third-party</code></td><td data-i18n-html="guide_rp_o_party"></td></tr>
+<tr><td><code>strict-first-party, strict-third-party</code></td><td data-i18n-html="guide_rp_o_strict"></td></tr>
+<tr><td><code>document, subdocument, script, stylesheet, image, imageset, media, font, object, xmlhttprequest, websocket, ping, other</code></td><td data-i18n-html="guide_rp_o_types"></td></tr>
+<tr><td><code>match-case</code></td><td data-i18n-html="guide_rp_o_matchcase"></td></tr>
+<tr><td><code>history-bypass-protection=false</code></td><td data-i18n-html="guide_rp_o_history"></td></tr>
+</tbody>
+</table>
+<p data-i18n-html="guide_rp_p4"></p>
+<h3 id="removeparam-keep" data-i18n-html="guide_rp_keep_title"></h3>
+<p data-i18n-html="guide_rp_p5"></p>
+<pre><code class="language-json">"rules": [
+  "$removeparam=ref",
+  "@@||github.com^$removeparam=ref"
+]</code></pre>
+<p data-i18n-html="guide_rp_p6"></p>
+<h2 id="raw-rules" data-i18n-html="guide_raw_title"></h2>
+<p data-i18n-html="guide_raw_p1"></p>
+<pre><code class="language-json">"rawRules": ["\\/ref=[^/?]*"]</code></pre>
+<p data-i18n-html="guide_raw_p2"></p>
+<h3 id="raw-rules-scope" data-i18n-html="guide_raw_scope_title"></h3>
+<p data-i18n-html="guide_raw_p3"></p>
+<pre><code class="language-json">"rawRules": [
+  "||amazon.*^/dp/$rawrule=\\/ref=[^/?]*",
+  "||example.com^$third-party,method=get,rawrule=\\/sid=[^/?]*"
+]</code></pre>
+<p data-i18n-html="guide_raw_p4"></p>
+<h3 id="raw-rules-stop" data-i18n-html="guide_raw_stop_title"></h3>
+<p data-i18n-html="guide_raw_p5"></p>
+<pre><code class="language-json">"rawRules": [
+  { "id": "ref-strip", "matchPattern": "\\/ref=[^/?]*" },
+  { "matchPattern": "@@||smile.example.com^$rawrule=", "targetId": "ref-strip" },
+  "@@||example.com^/checkout/$rawrule="
+]</code></pre>
+<p data-i18n-html="guide_raw_p6"></p>
+<h2 id="exceptions" data-i18n-html="guide_exc_title"></h2>
+<p data-i18n-html="guide_exc_p1"></p>
+<pre><code class="language-json">"exceptions": [
+  "^https?:\\/\\/mail\\.google\\.com\\/mail\\/",
+  "||accounts.google.com^",
+  "||example.com^/login"
+]</code></pre>
+<p data-i18n-html="guide_exc_p2"></p>
+<h2 id="redirects" data-i18n-html="guide_redir_title"></h2>
+<p data-i18n-html="guide_redir_p1"></p>
+<h3 id="redirect-regex" data-i18n-html="guide_redir_regex_title"></h3>
+<p data-i18n-html="guide_redir_p2"></p>
+<pre><code class="language-json">"redirections": [
+  "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/url\\?.*?(?:url|q)=(https?[^&amp;]+)"
+]</code></pre>
+<h3 id="redirect-fixed" data-i18n-html="guide_redir_fixed_title"></h3>
+<p data-i18n-html="guide_redir_p3"></p>
+<pre><code class="language-json">"redirections": ["||go.example.com^$redirect=https://example.com/"]</code></pre>
+<h3 id="redirect-field" data-i18n-html="guide_redir_field_title"></h3>
+<p data-i18n-html="guide_redir_p4"></p>
+<pre><code class="language-json">"fieldRedirections": ["redirect", "continue_url", "$removeparam=/^(u|dest)$/i"]</code></pre>
+<p data-i18n-html="guide_redir_p5"></p>
+<h2 id="rule-objects" data-i18n-html="guide_obj_title"></h2>
+<p data-i18n-html="guide_obj_p1"></p>
+<pre><code class="language-json">"rules": [
+  "utm_source",
+  {
+    "id": "session-token",
+    "matchPattern": "token",
+    "active": false,
+    "requestTypes": ["main_frame"],
+    "exceptions": ["^https:\\/\\/example\\.com\\/account"],
+    "description": "Session token; off until switched on"
+  }
+]</code></pre>
+<table>
+<thead><tr><th data-i18n-html="guide_th_key"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
+<tbody>
+<tr><td><code>matchPattern</code></td><td data-i18n-html="guide_key_matchpattern"></td></tr>
+<tr><td><code>id</code></td><td data-i18n-html="guide_key_id"></td></tr>
+<tr><td><code>aliases</code></td><td data-i18n-html="guide_key_aliases"></td></tr>
+<tr><td><code>replacePattern</code></td><td data-i18n-html="guide_key_replacepattern"></td></tr>
+<tr><td><code>preprocessors</code></td><td data-i18n-html="guide_key_preprocessors"></td></tr>
+<tr><td><code>requestTypes</code></td><td data-i18n-html="guide_key_requesttypes"></td></tr>
+<tr><td><code>exceptions</code></td><td data-i18n-html="guide_key_exceptions"></td></tr>
+<tr><td><code>flags</code></td><td data-i18n-html="guide_key_flags"></td></tr>
+<tr><td><code>order</code></td><td data-i18n-html="guide_key_order"></td></tr>
+<tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_key_referral"></td></tr>
+<tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_key_history"></td></tr>
+<tr><td><code>active</code></td><td data-i18n-html="guide_key_active"></td></tr>
+<tr><td><code>description</code></td><td data-i18n-html="guide_key_description"></td></tr>
+<tr><td><code>targetId</code></td><td data-i18n-html="guide_key_targetid"></td></tr>
+</tbody>
+</table>
+<h3 id="rewriting" data-i18n-html="guide_obj_rewrite_title"></h3>
+<p data-i18n-html="guide_obj_p2"></p>
+<pre><code class="language-json">"rules": [
+  { "id": "wrap-token", "matchPattern": "token", "replacePattern": "clean-§1§" }
+],
+"rawRules": [
+  { "id": "ref-to-path", "matchPattern": "\\/ref=([^/?]*)", "replacePattern": "/r/§1§" }
+]</code></pre>
+<h3 id="preprocessors" data-i18n-html="guide_obj_pre_title"></h3>
+<p data-i18n-html="guide_obj_p3"></p>
+<pre><code class="language-json">"redirections": [
+  {
+    "id": "unwrap-base64",
+    "matchPattern": "^https?:\\/\\/out\\.example\\.com\\/\\?u=([^&amp;]+)",
+    "preprocessors": [{ "type": "base64Decode", "inputs": [1] }],
+    "replacePattern": "§1§"
+  }
+]</code></pre>
+<p data-i18n-html="guide_obj_p4"></p>
+<h3 id="rule-ids" data-i18n-html="guide_obj_ids_title"></h3>
+<p data-i18n-html="guide_obj_p5"></p>
+<p data-i18n-html="guide_obj_p6"></p>
+<h3 id="order" data-i18n-html="guide_obj_order_title"></h3>
+<p data-i18n-html="guide_obj_p7"></p>
+<pre><code class="language-json">"rules": [
+  { "id": "mark-token", "matchPattern": "token", "replacePattern": "secret", "order": 1 }
+],
+"rawRules": [
+  { "id": "strip-secret", "matchPattern": "secret", "order": 2 }
+]</code></pre>
+<p data-i18n-html="guide_obj_p8"></p>
+<h2 id="referral-marketing" data-i18n-html="guide_ref_title"></h2>
+<p data-i18n-html="guide_ref_p1"></p>
+<pre><code class="language-json">"referralMarketing": ["tag", "$removeparam=/^aff_/"],
+"rules": [
+  { "matchPattern": "ref_id", "referralMarketing": true }
+]</code></pre>
+<p data-i18n-html="guide_ref_p2"></p>
+<h2 id="request-types" data-i18n-html="guide_req_title"></h2>
+<p data-i18n-html="guide_req_p1"></p>
+<table>
+<thead><tr><th data-i18n-html="guide_th_field"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
+<tbody>
+<tr><td><code>methods</code></td><td data-i18n-html="guide_req_methods"></td></tr>
+<tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_req_resourcetypes"></td></tr>
+<tr><td><code>requestTypes</code></td><td data-i18n-html="guide_req_requesttypes"></td></tr>
+<tr><td><code>method=…, document, xmlhttprequest, …</code></td><td data-i18n-html="guide_req_options"></td></tr>
+</tbody>
+</table>
+<pre><code class="language-json">"example": {
+  "domainPatterns": ["||example.com^"],
+  "methods": ["GET", "POST"],
+  "resourceTypes": ["main_frame", "sub_frame", "xmlhttprequest"],
+  "rules": [
+    { "matchPattern": "ref_src", "requestTypes": ["main_frame"] },
+    "$removeparam=trk,xmlhttprequest,method=post"
+  ]
+}</code></pre>
+<p data-i18n-html="guide_req_p2"></p>
+<h2 id="processing-order" data-i18n-html="guide_order_title"></h2>
+<p data-i18n-html="guide_order_p1"></p>
+<ol>
+<li data-i18n-html="guide_order_1"></li>
+<li data-i18n-html="guide_order_2"></li>
+<li data-i18n-html="guide_order_3"></li>
+<li data-i18n-html="guide_order_4"></li>
+<li data-i18n-html="guide_order_5"></li>
+<li data-i18n-html="guide_order_6"></li>
+</ol>
+<p data-i18n-html="guide_order_p2"></p>
+<h2 id="examples" data-i18n-html="guide_ex_title"></h2>
+<h3 id="example-shop" data-i18n-html="guide_ex1_title"></h3>
+<p data-i18n-html="guide_ex1_p"></p>
+<pre><code class="language-json">{
+  "providers": {
+    "shop": {
+      "domainPatterns": ["||shop.example^"],
+      "rules": ["utm_source", "utm_medium", "utm_campaign", "$removeparam=/^pk_/"],
+      "referralMarketing": ["aff_id"],
+      "exceptions": ["||shop.example^/checkout"]
+    }
+  }
+}</code></pre>
+<h3 id="example-utm" data-i18n-html="guide_ex2_title"></h3>
+<p data-i18n-html="guide_ex2_p"></p>
+<pre><code class="language-json">{
+  "providers": {
+    "everywhere": {
+      "domainPatterns": ["*"],
+      "rules": ["$removeparam=/^utm_/i"]
+    }
+  }
+}</code></pre>
+<h3 id="example-click-tracker" data-i18n-html="guide_ex3_title"></h3>
+<p data-i18n-html="guide_ex3_p"></p>
+<pre><code class="language-json">{
+  "providers": {
+    "click-tracker": {
+      "domainPatterns": ["||click.example.net^"],
+      "fieldRedirections": ["url"]
+    }
+  }
+}</code></pre>
+<h3 id="example-keep" data-i18n-html="guide_ex4_title"></h3>
+<p data-i18n-html="guide_ex4_p"></p>
+<pre><code class="language-json">{
+  "providers": {
+    "site": {
+      "domainPatterns": ["||example.com^"],
+      "rules": [
+        "$removeparam=ref",
+        "@@||example.com^/login$removeparam=ref"
+      ]
+    }
+  }
+}</code></pre>
+<h2 id="checking" data-i18n-html="guide_check_title"></h2>
+<p data-i18n-html="guide_check_p1"></p>
 <ul>
-<li data-i18n-html="guide_0219"></li>
-<li data-i18n-html="guide_0220"></li>
-<li data-i18n-html="guide_0221"></li>
-<li data-i18n-html="guide_0222"></li>
-<li data-i18n-html="guide_0223"></li>
+<li data-i18n-html="guide_check_1"></li>
+<li data-i18n-html="guide_check_2"></li>
+<li data-i18n-html="guide_check_3"></li>
+<li data-i18n-html="guide_check_4"></li>
+<li data-i18n-html="guide_check_5"></li>
+<li data-i18n-html="guide_check_6"></li>
 </ul>
-<p data-i18n-html="guide_0224"></p>
-<pre><code class="language-json" data-i18n-text="guide_0647"></code></pre>
-<p data-i18n-html="guide_0225"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0648"></code></pre>
-<p data-i18n-html="guide_0226"></p>
-<h2 id="guide1-chapter-9-removeparam-rules" data-i18n-html="guide_0227"></h2>
-<p data-i18n-html="guide_0228"></p>
-<h3 id="guide1-remove-one-parameter" data-i18n-html="guide_0229"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0649"></code></pre>
-<p data-i18n-html="guide_0230"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0650"></code></pre>
-<h3 id="guide1-remove-all-parameters" data-i18n-html="guide_0231"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0651"></code></pre>
-<p data-i18n-html="guide_0232"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0652"></code></pre>
-<h3 id="guide1-remove-parameters-by-regex" data-i18n-html="guide_0233"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0653"></code></pre>
-<p data-i18n-html="guide_0234"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0654"></code></pre>
-<h3 id="guide1-remove-all-except-one-parameter" data-i18n-html="guide_0235"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0655"></code></pre>
-<p data-i18n-html="guide_0236"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0656"></code></pre>
-<h3 id="guide1-apply-removeparam-only-to-one-domain" data-i18n-html="guide_0237"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0657"></code></pre>
-<p data-i18n-html="guide_0238"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0658"></code></pre>
-<p data-i18n-html="guide_0239"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0659"></code></pre>
-<h3 id="guide1-add-domain-limits" data-i18n-html="guide_0240"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0660"></code></pre>
-<p data-i18n-html="guide_0241"></p>
-<pre><code class="language-json" data-i18n-text="guide_0661"></code></pre>
-<h3 id="guide1-add-method-limits" data-i18n-html="guide_0242"></h3>
-<p data-i18n-html="guide_0243"></p>
-<pre><code class="language-json" data-i18n-text="guide_0662"></code></pre>
-<p data-i18n-html="guide_0244"></p>
-<pre><code class="language-json" data-i18n-text="guide_0663"></code></pre>
-<h3 id="guide1-skip-a-rule-during-in-page-navigation" data-i18n-html="guide_0450"></h3>
-<p data-i18n-html="guide_0451"></p>
-<pre><code class="language-json" data-i18n-text="guide_0799"></code></pre>
-<p data-i18n-html="guide_0452"></p>
-<pre><code class="language-json" data-i18n-text="guide_0800"></code></pre>
-<p data-i18n-html="guide_0453"></p>
-<pre><code class="language-json" data-i18n-text="guide_0801"></code></pre>
-<h2 id="guide1-chapter-10-removeparam-exceptions" data-i18n-html="guide_0245"></h2>
-<p data-i18n-html="guide_0246"></p>
-<pre><code class="language-json" data-i18n-text="guide_0664"></code></pre>
-<p data-i18n-html="guide_0247"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0665"></code></pre>
-<p data-i18n-html="guide_0248"></p>
-<pre><code class="language-json" data-i18n-text="guide_0666"></code></pre>
-<p data-i18n-html="guide_0249"></p>
-<h2 id="guide1-chapter-11-rewrite-parameter-values" data-i18n-html="guide_0250"></h2>
-<p data-i18n-html="guide_0251"></p>
-<pre><code class="language-json" data-i18n-text="guide_0667"></code></pre>
-<p data-i18n-html="guide_0252"></p>
-<pre><code class="language-json" data-i18n-text="guide_0668"></code></pre>
-<p data-i18n-html="guide_0253"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0669"></code></pre>
-<p data-i18n-html="guide_0254"></p>
-<pre><code class="language-json" data-i18n-text="guide_0670"></code></pre>
-<h2 id="guide1-chapter-12-raw-rules" data-i18n-html="guide_0255"></h2>
-<p data-i18n-html="guide_0256"></p>
-<p data-i18n-html="guide_0257"></p>
-<pre><code class="language-json" data-i18n-text="guide_0671"></code></pre>
-<p data-i18n-html="guide_0258"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0672"></code></pre>
-<p data-i18n-html="guide_0259"></p>
-<pre><code class="language-json" data-i18n-text="guide_0673"></code></pre>
-<p data-i18n-html="guide_0260"></p>
-<pre><code class="language-json" data-i18n-text="guide_0674"></code></pre>
-<p data-i18n-html="guide_0261"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0675"></code></pre>
-<h2 id="guide1-chapter-13-redirect-rules" data-i18n-html="guide_0262"></h2>
-<p data-i18n-html="guide_0263"></p>
-<pre><code class="language-json" data-i18n-text="guide_0676"></code></pre>
-<p data-i18n-html="guide_0264"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0677"></code></pre>
-<p data-i18n-html="guide_0265"></p>
-<h2 id="guide1-chapter-14-domain-redirect-rules" data-i18n-html="guide_0266"></h2>
-<p data-i18n-html="guide_0267"></p>
-<p data-i18n-html="guide_0268"></p>
-<pre><code class="language-json" data-i18n-text="guide_0678"></code></pre>
-<p data-i18n-html="guide_0269"></p>
-<pre><code class="language-json" data-i18n-text="guide_0679"></code></pre>
-<h2 id="guide1-chapter-15-exceptions" data-i18n-html="guide_0270"></h2>
-<p data-i18n-html="guide_0271"></p>
-<pre><code class="language-json" data-i18n-text="guide_0680"></code></pre>
-<p data-i18n-html="guide_0272"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0681"></code></pre>
-<p data-i18n-html="guide_0273"></p>
-<pre><code class="language-json" data-i18n-text="guide_0682"></code></pre>
-<p data-i18n-html="guide_0274"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0683"></code></pre>
-<h2 id="guide1-chapter-16-referral-marketing-rules" data-i18n-html="guide_0275"></h2>
-<p data-i18n-html="guide_0276"></p>
-<pre><code class="language-json" data-i18n-text="guide_0684"></code></pre>
-<p data-i18n-html="guide_0277"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0685"></code></pre>
-<h2 id="guide1-chapter-17-http-methods" data-i18n-html="guide_0278"></h2>
-<p data-i18n-html="guide_0279"></p>
-<pre><code class="language-json" data-i18n-text="guide_0686"></code></pre>
-<p data-i18n-html="guide_0280"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0687"></code></pre>
-<p data-i18n-html="guide_0281"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0688"></code></pre>
-<h2 id="guide1-chapter-18-browser-resource-types" data-i18n-html="guide_0282"></h2>
-<p data-i18n-html="guide_0283"></p>
-<pre><code class="language-json" data-i18n-text="guide_0689"></code></pre>
-<p data-i18n-html="guide_0284"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0690"></code></pre>
-<p data-i18n-html="guide_0285"></p>
-<pre><code class="language-json" data-i18n-text="guide_0691"></code></pre>
-<p data-i18n-html="guide_0286"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0692"></code></pre>
-<h2 id="guide1-chapter-19-preprocessors" data-i18n-html="guide_0287"></h2>
-<p data-i18n-html="guide_0288"></p>
-<p data-i18n-html="guide_0289"></p>
-<pre><code class="language-json" data-i18n-text="guide_0693"></code></pre>
-<p data-i18n-html="guide_0290"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0694"></code></pre>
-<p data-i18n-html="guide_0291"></p>
-<pre><code class="language-json" data-i18n-text="guide_0695"></code></pre>
-<pre><code class="language-json" data-i18n-text="guide_0696"></code></pre>
-<pre><code class="language-json" data-i18n-text="guide_0697"></code></pre>
-<h2 id="guide1-chapter-20-allowed-json-combinations" data-i18n-html="guide_0299"></h2>
-<p data-i18n-html="guide_0300"></p>
-<h3 id="guide1-combination-1-many-providers-in-one-file" data-i18n-html="guide_0301"></h3>
-<p data-i18n-html="guide_0302"></p>
-<pre><code class="language-json" data-i18n-text="guide_0702"></code></pre>
-<p data-i18n-html="guide_0303"></p>
-<h3 id="guide1-combination-2-global-defaults-plus-providers" data-i18n-html="guide_0304"></h3>
-<p data-i18n-html="guide_0305"></p>
-<pre><code class="language-json" data-i18n-text="guide_0703"></code></pre>
-<p data-i18n-html="guide_0306"></p>
-<h3 id="guide1-combination-3-domainpatterns-provider" data-i18n-html="guide_0307"></h3>
-<p data-i18n-html="guide_0308"></p>
-<pre><code class="language-json" data-i18n-text="guide_0704"></code></pre>
-<h3 id="guide1-combination-4-urlpattern-provider-with-indexpattern" data-i18n-html="guide_0309"></h3>
-<p data-i18n-html="guide_0310"></p>
-<pre><code class="language-json" data-i18n-text="guide_0705"></code></pre>
-<p data-i18n-html="guide_0311"></p>
-<h3 id="guide1-combination-5-domainpatterns-and-urlpattern-together" data-i18n-html="guide_0312"></h3>
-<p data-i18n-html="guide_0313"></p>
-<pre><code class="language-json" data-i18n-text="guide_0706"></code></pre>
-<p data-i18n-html="guide_0314"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0707"></code></pre>
-<p data-i18n-html="guide_0315"></p>
-<h3 id="guide1-combination-6-mixed-rules-entries" data-i18n-html="guide_0316"></h3>
-<p data-i18n-html="guide_0317"></p>
-<pre><code class="language-json" data-i18n-text="guide_0708"></code></pre>
-<p data-i18n-html="guide_0318"></p>
-<h3 id="guide1-combination-7-canonical-objects-inside-rules" data-i18n-html="guide_0319"></h3>
-<p data-i18n-html="guide_0320"></p>
-<pre><code class="language-json" data-i18n-text="guide_0709"></code></pre>
-<p data-i18n-html="guide_0321"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0710"></code></pre>
-<h3 id="guide1-combination-8-legacy-arrays-plus-canonical-rules" data-i18n-html="guide_0322"></h3>
-<p data-i18n-html="guide_0323"></p>
-<pre><code class="language-json" data-i18n-text="guide_0711"></code></pre>
-<p data-i18n-html="guide_0324"></p>
-<h3 id="guide1-combination-9-provider-wide-methods-and-resource-types" data-i18n-html="guide_0325"></h3>
-<p data-i18n-html="guide_0326"></p>
-<pre><code class="language-json" data-i18n-text="guide_0712"></code></pre>
-<p data-i18n-html="guide_0327"></p>
-<h3 id="guide1-combination-10-rule-level-request-types" data-i18n-html="guide_0328"></h3>
-<p data-i18n-html="guide_0329"></p>
-<pre><code class="language-json" data-i18n-text="guide_0713"></code></pre>
-<p data-i18n-html="guide_0330"></p>
-<h3 id="guide1-combination-11-exceptions-in-different-places" data-i18n-html="guide_0331"></h3>
-<p data-i18n-html="guide_0332"></p>
-<pre><code class="language-json" data-i18n-text="guide_0714"></code></pre>
-<p data-i18n-html="guide_0333"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0715"></code></pre>
-<h3 id="guide1-combination-12-blocking-provider-plus-rules" data-i18n-html="guide_0334"></h3>
-<p data-i18n-html="guide_0335"></p>
-<pre><code class="language-json" data-i18n-text="guide_0716"></code></pre>
-<p data-i18n-html="guide_0336"></p>
-<h3 id="guide1-combination-13-redirect-provider-plus-cleanup-rules" data-i18n-html="guide_0337"></h3>
-<p data-i18n-html="guide_0338"></p>
-<pre><code class="language-json" data-i18n-text="guide_0717"></code></pre>
-<p data-i18n-html="guide_0339"></p>
-<h3 id="guide1-combination-14-domain-redirections-plus-regex-redirections" data-i18n-html="guide_0340"></h3>
-<p data-i18n-html="guide_0341"></p>
-<pre><code class="language-json" data-i18n-text="guide_0718"></code></pre>
-<p data-i18n-html="guide_0342"></p>
-<h3 id="guide1-combination-15-disabled-or-inactive-rules" data-i18n-html="guide_0343"></h3>
-<p data-i18n-html="guide_0344"></p>
-<pre><code class="language-json" data-i18n-text="guide_0719"></code></pre>
-<p data-i18n-html="guide_0345"></p>
-<pre><code class="language-json" data-i18n-text="guide_0720"></code></pre>
-<p data-i18n-html="guide_0346"></p>
-<h3 id="guide1-combination-16-full-mixed-provider-example" data-i18n-html="guide_0347"></h3>
-<p data-i18n-html="guide_0348"></p>
-<pre><code class="language-json" data-i18n-text="guide_0721"></code></pre>
-<p data-i18n-html="guide_0349"></p>
-<h2 id="guide1-chapter-21-complete-examples" data-i18n-html="guide_0427"></h2>
-<h3 id="guide1-example-1-basic-tracker-cleaner" data-i18n-html="guide_0428"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0782"></code></pre>
-<p data-i18n-html="guide_0429"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0783"></code></pre>
-<h3 id="guide1-example-2-remove-all-utm-parameters" data-i18n-html="guide_0430"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0784"></code></pre>
-<p data-i18n-html="guide_0431"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0785"></code></pre>
-<h3 id="guide1-example-3-keep-a-needed-parameter-on-login" data-i18n-html="guide_0432"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0786"></code></pre>
-<p data-i18n-html="guide_0433"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0787"></code></pre>
-<h3 id="guide1-example-4-redirect-tracking-clicks" data-i18n-html="guide_0434"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0788"></code></pre>
-<p data-i18n-html="guide_0435"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0789"></code></pre>
-<h3 id="guide1-example-5-clean-only-api-requests" data-i18n-html="guide_0436"></h3>
-<pre><code class="language-json" data-i18n-text="guide_0790"></code></pre>
-<p data-i18n-html="guide_0437"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0791"></code></pre>
-<h2 id="guide1-chapter-22-quick-copy-templates" data-i18n-html="guide_0438"></h2>
-<p data-i18n-html="guide_0439"></p>
-<pre><code class="language-json" data-i18n-text="guide_0792"></code></pre>
-<p data-i18n-html="guide_0440"></p>
-<pre><code class="language-json" data-i18n-text="guide_0793"></code></pre>
-<p data-i18n-html="guide_0441"></p>
-<pre><code class="language-json" data-i18n-text="guide_0794"></code></pre>
-<p data-i18n-html="guide_0442"></p>
-<pre><code class="language-json" data-i18n-text="guide_0795"></code></pre>
-<p data-i18n-html="guide_0443"></p>
-<pre><code class="language-json" data-i18n-text="guide_0796"></code></pre>
-<p data-i18n-html="guide_0444"></p>
-<pre><code class="language-json" data-i18n-text="guide_0797"></code></pre>
-<p data-i18n-html="guide_0445"></p>
-<pre><code class="language-json" data-i18n-text="guide_0798"></code></pre>
-    </div>
-
-
-
+<p data-i18n-html="guide_check_p2"></p>
   </main>
 </div>
 

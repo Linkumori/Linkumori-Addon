@@ -4727,1688 +4727,704 @@
     "message": "Los controles de ID de regla están disponibles una vez que el proveedor JSON sea válido.",
     "description": "Estado JSON no válido para los controles de ID de regla del proveedor"
   },
-  "guide_0001": {
-    "message": "Linkumori Extensión — Documentación de reglas",
+  "guide_page_title": {
+    "message": "Linkumori — Guía de reglas",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Proveedor JSON Formato",
+  "guide_toc_label": {
+    "message": "Contenido",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Proveedor JSON",
+  "guide_theme_midnight": {
+    "message": "Medianoche",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Capítulo 1: Forma básica JSON",
+  "guide_theme_light": {
+    "message": "Claro",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Capítulo 2: ¿Qué es un proveedor?",
+  "guide_theme_icecold": {
+    "message": "Glacial",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Capítulo 3: Campos de proveedor que puede utilizar",
+  "guide_theme_zen_grey": {
+    "message": "Gris zen",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Capítulo 4: Dominios coincidentes",
+  "guide_theme_sunset": {
+    "message": "Atardecer",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Haga coincidir un dominio y todos los subdominios",
+  "guide_title": {
+    "message": "Cómo escribir reglas de Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Haga coincidir el mismo nombre en cualquier sufijo público",
+  "guide_intro_1": {
+    "message": "Linkumori limpia las URL mediante reglas. Esta guía muestra cómo escribirlas, desde la primera regla hasta cada opción, con ejemplos que puedes copiar.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Coincidir subdominios",
+  "guide_intro_2": {
+    "message": "Las reglas se escriben en JSON. Las escribes en el editor de reglas personalizadas, que las comprueba al guardarlas. La lista de reglas incluida y las listas de reglas remotas usan el mismo formato.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Utilice más de un patrón de dominio",
+  "guide_file_title": {
+    "message": "1. El archivo de reglas",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Capítulo 5: Símbolos de patrón de dominio",
+  "guide_file_p1": {
+    "message": "Un archivo de reglas es un objeto JSON. Su objeto <code>providers</code> asocia un nombre elegido por ti a un proveedor:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Capítulo 6: Coincidencia de URLs con urlPattern",
+  "guide_file_p2": {
+    "message": "Un proveedor indica qué URL trata y qué hacer con ellas. Este elimina <code>utm_source</code> y <code>utm_medium</code> de todas las URL de <code>example.com</code> y sus subdominios:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Capítulo 7: Eliminar parámetros de consulta simples",
+  "guide_file_p3": {
+    "message": "El nombre es solo una etiqueta. Las URL que trata un proveedor las determinan <code>domainPatterns</code> o <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Capítulo 8: Escribir un objeto de regla",
+  "guide_fields_title": {
+    "message": "2. Campos del proveedor",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Capítulo 9: Reglas de $removeparam",
+  "guide_th_field": {
+    "message": "Campo",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Eliminar un parámetro",
+  "guide_th_meaning": {
+    "message": "Qué hace",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Eliminar todos los parámetros",
+  "guide_field_domainpatterns": {
+    "message": "Qué URL trata el proveedor, como patrones de dominio (capítulo 3). Usa esto o <code>urlPattern</code>, nunca ambos.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Eliminar parámetros por expresiones regulares",
+  "guide_field_urlpattern": {
+    "message": "Qué URL trata el proveedor, como expresión regular aplicada a la URL completa. No distingue mayúsculas de minúsculas.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Eliminar todos los parámetros excepto uno",
+  "guide_field_indexpattern": {
+    "message": "Solo con <code>urlPattern</code>: indicaciones de host como <code>||example.com^</code>, para que el proveedor solo se compruebe en esos hosts. Sin ellas, se comprueba con cada URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Aplicar $removeparam solo a un dominio",
+  "guide_field_rules": {
+    "message": "Parámetros que se eliminan (capítulos 4 y 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Agregar límites de dominio",
+  "guide_field_referral": {
+    "message": "Parámetros de referencia y afiliados que se eliminan. Se omiten mientras <em>Permitir marketing de referencia</em> está activado (capítulo 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Agregar límites de método",
+  "guide_field_rawrules": {
+    "message": "Expresiones regulares aplicadas a la URL completa; cada coincidencia se elimina (capítulo 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Capítulo 10: Excepciones de $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL que el proveedor deja sin cambios (capítulo 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Capítulo 11: Reescribir valores de parámetros",
+  "guide_field_redirections": {
+    "message": "Adónde enviar la solicitud en su lugar (capítulo 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Capítulo 12: Reglas crudas",
+  "guide_field_fieldredirections": {
+    "message": "Redirigir al valor de un parámetro (capítulo 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Capítulo 13: Reglas de redireccionamiento",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> bloquea todas las solicitudes que coinciden con el proveedor, mientras <em>Permitir bloqueo de dominio</em> está activado.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Capítulo 14: Reglas de redireccionamiento de dominio",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: cuando se redirige la propia página, la pestaña abre la nueva dirección.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Capítulo 15: Excepciones",
+  "guide_field_methods": {
+    "message": "Tratar solo estos métodos HTTP, por ejemplo <code>[\"GET\"]</code>. Por defecto: todos.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Capítulo 16: Reglas de marketing de referencia",
+  "guide_field_resourcetypes": {
+    "message": "Tratar solo estos tipos de solicitud, por ejemplo <code>[\"main_frame\"]</code>. Por defecto: los tipos elegidos en la configuración.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Capítulo 17: HTTP Métodos",
+  "guide_field_history": {
+    "message": "<code>false</code> omite el proveedor cuando una página cambia su propia dirección con la API History.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Capítulo 18: Tipos de recursos del navegador",
+  "guide_field_active": {
+    "message": "<code>false</code> desactiva el proveedor.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Capítulo 19: Preprocesadores",
+  "guide_match_title": {
+    "message": "3. Qué URL trata un proveedor",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Capítulo 20: Combinaciones JSON permitidas",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> es una lista de patrones de dominio. Una URL coincide si coincide alguno de ellos:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Combinación 1: muchos proveedores en un solo archivo",
+  "guide_th_pattern": {
+    "message": "Patrón",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Combinación 2: Proveedores Global Defaults Plus",
+  "guide_th_matches": {
+    "message": "Coincide con",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Combinación 3: proveedor de patrones de dominio",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> y todos sus subdominios",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Combinación 4: proveedor urlPattern con indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> con cualquier sufijo público (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Combinación 5: patrones de dominio y patrón de URL juntos",
+  "guide_pat_path": {
+    "message": "ese host y sus subdominios, cuando la ruta empieza por <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Combinación 6: Reglas mixtas[] Entradas",
+  "guide_pat_star": {
+    "message": "lo mismo que <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Combinación 7: Reglas internas de objetos canónicos[]",
+  "guide_pat_start": {
+    "message": "URL que empiezan exactamente por este texto",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Combinación 8: Legacy Arrays Plus reglas canónicas[]",
+  "guide_pat_end": {
+    "message": "URL que terminan exactamente en este texto",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Combinación 9: métodos y tipos de recursos para todo el proveedor",
+  "guide_pat_regex": {
+    "message": "la URL completa, como expresión regular (distingue mayúsculas salvo que añadas <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Combinación 10: tipos de solicitudes a nivel de regla",
+  "guide_pat_contains": {
+    "message": "URL que contienen este texto en cualquier lugar",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Combinación 11: Excepciones en diferentes lugares",
+  "guide_pat_all": {
+    "message": "todas las URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Combinación 12: Bloqueo de reglas de Proveedor Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> marca el final del nombre de host, o un separador como <code>/</code>, <code>?</code> o <code>:</code>. <code>*</code> coincide con cualquier cosa. Salvo <code>/regex/</code>, los patrones no distinguen mayúsculas de minúsculas.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Combinación 13: Reglas de limpieza de proveedor de redirección más",
+  "guide_match_p3": {
+    "message": "<code>||</code> representa un dominio, mientras que un solo <code>|</code> representa el inicio exacto de la URL y debe ir seguido de un esquema como <code>https://</code>. <code>|example.com^</code> nunca puede coincidir, por eso el editor lo rechaza.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Combinación 14: redirecciones de dominio más redirecciones de expresiones regulares",
+  "guide_match_p4": {
+    "message": "Para usar una expresión regular en su lugar, utiliza <code>urlPattern</code> y añade <code>indexPattern</code> para que el proveedor solo se compruebe en esos hosts:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Combinación 15: Reglas deshabilitadas o inactivas",
+  "guide_match_p5": {
+    "message": "Un proveedor tiene <code>domainPatterns</code> o <code>urlPattern</code>, nunca ambos. Si necesitas los dos tipos de coincidencia, crea dos proveedores.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Combinación 16: Ejemplo de proveedor mixto completo",
+  "guide_rules_title": {
+    "message": "4. Eliminar parámetros",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Capítulo 21: Ejemplos completos",
+  "guide_rules_p1": {
+    "message": "Cada entrada de <code>rules</code> elimina parámetros de la consulta (<code>?a=1</code>) y del fragmento (<code>#a=1</code>). Una entrada es una de estas:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Ejemplo 1: Limpiador de rastreadores básico",
+  "guide_th_entry": {
+    "message": "Entrada",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Ejemplo 2: eliminar todos los parámetros UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Ejemplo 3: Mantener un parámetro necesario al iniciar sesión",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Ejemplo 4: Clics de seguimiento de redirección",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Ejemplo 5: Solicitudes de API de solo limpieza",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Capítulo 22: Plantillas de copia rápida",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Proveedor mixto JSON Guía de formato",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Esta guía explica cómo escribir datos del proveedor JSON que <code>Linkumori extension</code> pueda leer.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "No es una guía para el código JavaScript. Se centra únicamente en las JSON formas, formatos de reglas y ejemplos que los autores de reglas necesitan.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Esta guía se basa en el comportamiento actual del tiempo de ejecución de <code>clearurls.js</code>. En particular, la búsqueda de proveedores utiliza depósitos de candidatos <code>providersByToken</code> de <code>domainPatterns</code> o <code>indexPattern</code>, y la coincidencia final aún se ejecuta a través de <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Capítulo 1: Forma básica JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> espera datos del proveedor en esta forma general:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "La parte importante es <code>providers</code>. Cada clave dentro de <code>providers</code> es el nombre de un proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Ejemplo:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Capítulo 2: ¿Qué es un proveedor?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Un proveedor es un contenedor de tiempo de ejecución con nombre para un sitio web, empresa, rastreador, conjunto de patrones de dominio o expresión regular de URL. El nombre del proveedor es una etiqueta/clave; la coincidencia se realiza mediante <code>domainPatterns</code> o <code>urlPattern</code>, no por el nombre del proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Proveedor mínimo:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Qué hace esto:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Capítulo 3: Campos de proveedor que puede utilizar",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Campos de proveedor aceptados por <code>clearurls.js</code>. Para hacer coincidir, cree <code>domainPatterns</code> o <code>urlPattern</code> con <code>indexPattern</code> opcional; no confíe en que ambos se requieran juntos.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Significado simple:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON campo",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Fuente",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Para qué lo escribes",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Configure <code>false</code> para deshabilitar este proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Configure <code>true</code> para bloquear dominios coincidentes en lugar de solo limpiarlos.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Configure <code>true</code> para forzar redirecciones de la página principal a través de la pestaña del navegador.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Forma recomendada de decir con qué dominios coincide este proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript cadena de expresiones regulares para URL coincidencia.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Pista de velocidad opcional al usar <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico; <code>$removeparam</code> es Linkumori además aquí",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Reglas normales de eliminación de parámetros y reglas <code>$removeparam</code> locales del proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs legado adicional; Los objetos de estilo canónico aquí son Linkumori además.",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Reglas que editan todo el texto URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs legado adicional; Los objetos de estilo canónico aquí son Linkumori además.",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Reglas de parámetros de marketing/referencia opcionales.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico; Las formas de objeto aquí son Linkumori además.",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL reglas de expresiones regulares donde este proveedor no debería ejecutarse.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Reglas de patrón de dominio donde este proveedor no debería ejecutarse.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs legado adicional; Los objetos de estilo canónico aquí son Linkumori además.",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Reglas de redireccionamiento de expresiones regulares.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Reglas de redireccionamiento de patrones de dominio.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs complemento heredado y ClearURLs core v2 canónico",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Ejecute solo para estos métodos HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori adición",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Ejecútelo solo para estos tipos de solicitudes del navegador.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Capítulo 4: Dominios coincidentes",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> es una adición de Linkumori y es el preferido por la mayoría de los proveedores personalizados. En <code>clearurls.js</code>, los <code>domainPatterns</code> no vacíos se utilizan para hacer coincidir antes de <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Haga coincidir un dominio y todos los subdominios",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Partidos:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "No coincide:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Haga coincidir el mismo nombre en cualquier sufijo público",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Puede coincidir:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Coincidir subdominios",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Puede coincidir:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Utilice más de un patrón de dominio",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Capítulo 5: Símbolos de patrón de dominio",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Estos son los símbolos que puedes utilizar en <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Símbolo",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Significado",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Ejemplo",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Elimina",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Coincidencia en el límite de un dominio.",
+  "guide_rules_name": {
+    "message": "un nombre de parámetro",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "una expresión regular de nombre",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "cada parámetro cuyo nombre completo coincide; <code>^…$</code> se añade automáticamente y no distingue mayúsculas",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Separador o límite final.",
+  "guide_rules_filter": {
+    "message": "un filtro <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "ver el capítulo 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> y <code>\"$removeparam=fbclid\"</code> eliminan lo mismo. Usa el nombre simple salvo que necesites algo del capítulo 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Comodín.",
+  "guide_rules_part_title": {
+    "message": "Reglas para una parte de un proveedor",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Un nombre simple se aplica a todas las URL que coinciden con el proveedor. Para eliminar un parámetro solo en algunas, pon un patrón delante de un filtro <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Aquí <code>qid</code> se elimina en todos los sitios de Amazon, <code>tag</code> solo en <code>amazon.de</code>, <code>sr</code> solo en <code>smile.amazon</code> y <code>ref_</code> solo bajo <code>/gp/</code>. El patrón restringe los patrones del proveedor; no puede ampliarlos.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Anclaje inicial o final.",
+  "guide_rp_title": {
+    "message": "5. Filtros $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Un filtro <code>$removeparam</code> tiene esta forma; las partes entre corchetes son opcionales:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "El valor",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript expresión regular literal.",
+  "guide_rp_p2": {
+    "message": "El primer carácter del valor determina su significado:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtro",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Patrón más común:",
+  "guide_rp_v_all": {
+    "message": "todos los parámetros",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Úsalo cuando quieras:",
+  "guide_rp_v_except": {
+    "message": "todos los parámetros excepto <code>ref</code> (también funciona con <code>~/regex/</code> y <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Capítulo 6: Coincidencia de URLs con <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parámetros cuyo nombre, o <code>name=value</code>, coincide con la expresión regular; distingue mayúsculas salvo que añadas <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Utilice <code>urlPattern</code> solo cuando la coincidencia de dominio no sea suficiente, como cuando el proveedor debe coincidir con una ruta específica o una expresión regular de URL completa.",
+  "guide_rp_v_prefix": {
+    "message": "parámetros cuyo nombre empieza por <code>utm_</code>; no distingue mayúsculas",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Esto puede coincidir:",
+  "guide_rp_v_name": {
+    "message": "exactamente ese parámetro; no distingue mayúsculas salvo que añadas <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> es el complemento heredado de ClearURL y la sintaxis canónica principal de ClearURL v2. Linkumori agrega <code>indexPattern</code> solo como una sugerencia de búsqueda de candidatos para que los tokens de nombre de host puedan encontrar proveedores de expresiones regulares más rápido.",
+  "guide_rp_options_title": {
+    "message": "Opciones",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Importante: <code>indexPattern</code> no decide si un proveedor coincide. Después de la búsqueda de candidatos, <code>clearurls.js</code> aún prueba el <code>urlPattern</code> real en <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Las opciones van después del valor, separadas por comas. Separa varios valores de una opción con <code>|</code> y pon <code>~</code> delante de un valor para excluirlo:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Capítulo 7: Eliminar parámetros de consulta simples",
+  "guide_th_option": {
+    "message": "Opción",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Coloque los nombres de los parámetros en <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "solo en páginas de estos dominios",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Resultado:",
+  "guide_rp_o_to": {
+    "message": "solo para solicitudes a estos dominios",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Eliminar muchos parámetros:",
+  "guide_rp_o_method": {
+    "message": "solo para estos métodos HTTP",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Resultado:",
+  "guide_rp_o_party": {
+    "message": "solo para solicitudes al mismo sitio que la página, o solo a otros sitios",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Capítulo 8: Escribir un objeto de regla",
+  "guide_rp_o_strict": {
+    "message": "lo mismo, pero comparando el host exacto en lugar del sitio",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "En lugar de una simple cadena, una regla puede ser un objeto.",
+  "guide_rp_o_types": {
+    "message": "solo para estos tipos de solicitud; <code>~type</code> excluye uno",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Utilízalo cuando necesites:",
+  "guide_rp_o_matchcase": {
+    "message": "los nombres de parámetros distinguen mayúsculas de minúsculas",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Un ID de regla.",
+  "guide_rp_o_history": {
+    "message": "omitir este filtro cuando una página cambia su propia dirección con la API History",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Alias.",
+  "guide_rp_p4": {
+    "message": "Cada opción tiene una sola forma de escribirse. Las opciones contradictorias, como <code>first-party,third-party</code>, se rechazan.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Excepciones.",
+  "guide_rp_keep_title": {
+    "message": "Conservar un parámetro con @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Límites de tipo de solicitud.",
+  "guide_rp_p5": {
+    "message": "Un filtro que empieza por <code>@@</code> conserva el parámetro en lugar de eliminarlo. Aquí <code>ref</code> se elimina en todas partes excepto en GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Reescribir el comportamiento.",
+  "guide_rp_p6": {
+    "message": "Un filtro <code>@@</code> también cubre las solicitudes que hace una página que coincide con este proveedor, aunque las trate otro proveedor.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Ejemplo dentro de un proveedor:",
+  "guide_raw_title": {
+    "message": "6. Reglas crudas",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Resultado:",
+  "guide_raw_p1": {
+    "message": "Una regla cruda es una expresión regular aplicada a la URL completa; cada coincidencia se elimina. Úsala para texto que no es un parámetro <code>name=value</code>, como el segmento de ruta <code>/ref=…</code> de Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> en objetos de regla de proveedor es una adición Linkumori. <code>flags: \"i\"</code> hace que la coincidencia no distinga entre mayúsculas y minúsculas.",
+  "guide_raw_p2": {
+    "message": "Las reglas crudas no distinguen mayúsculas y reemplazan cada coincidencia. En JSON, escribe cada barra invertida dos veces.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Capítulo 9: <code>$removeparam</code> Reglas",
+  "guide_raw_scope_title": {
+    "message": "Solo en algunas URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Eliminar un parámetro",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Eliminar todos los parámetros",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Eliminar parámetros por expresiones regulares",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Eliminar todos los parámetros excepto uno",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Aplicar <code>$removeparam</code> solo a un dominio",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Limpiado:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "No limpiado:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Agregar límites de dominio",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Excluir un dominio:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Agregar límites de método",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Sólo <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "No <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Capítulo 10: <code>$removeparam</code> Excepciones",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Inicie una regla <code>$removeparam</code> con <code>@@</code> para hacer una excepción.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Ejemplo de excepción de contexto:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Esto puede proteger <code>ei</code> en subsolicitudes iniciadas por una página <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Capítulo 11: Reescribir valores de parámetros",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Utilice <code>action.type: \"rewrite\"</code> para reemplazar un valor de parámetro coincidente.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Dentro de un proveedor:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Utilice <code>§1§</code> cuando desee reutilizar el valor actual:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Capítulo 12: Reglas crudas",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Utilice <code>rawRules</code> para editar todo el texto URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Regla simple y cruda:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Regla sin formato de objeto:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Regla de reescritura sin formato:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Capítulo 13: Reglas de redireccionamiento",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Utilice <code>redirections</code> para enviar el navegador a un nuevo URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Si falta <code>replacePattern</code>, se utiliza el primer grupo de captura.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Capítulo 14: Reglas de redireccionamiento de dominio",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> es una adición de Linkumori para redireccionamientos de patrones de dominio simples.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori suma - forma de cadena:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori adición — forma de objeto:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Capítulo 15: Excepciones",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> es el complemento heredado ClearURLs y la sintaxis canónica principal ClearURLs v2. Linkumori también acepta objetos de estilo canónico en esta matriz de proveedores heredada.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Ejemplo:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> es una adición de Linkumori para excepciones de patrones de dominio.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Saltado:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Capítulo 16: Reglas de marketing de referencia",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> funciona como reglas de campo, pero está controlado por la configuración de extensión para marketing de referencia.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Ejemplo:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Capítulo 17: HTTP Métodos",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Utilice <code>methods</code> para ejecutar un proveedor solo en métodos HTTP específicos.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Esto se ejecuta en:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Esto no se ejecuta en:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Capítulo 18: Tipos de recursos del navegador",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> es una adición de Linkumori. Úselo para ejecutar un proveedor solo en tipos de solicitudes de navegador específicos.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Valores comunes:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Ejemplo:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Significado:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Capítulo 19: Preprocesadores",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Los preprocesadores cambian los valores capturados antes de usarlos en <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Ejemplo:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Tipos soportados:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> puede ser:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Capítulo 20: Combinaciones JSON permitidas",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Este capítulo muestra Linkumori proveedores mixtos JSON: ClearURLs matrices heredadas de complementos, ClearURLs objetos canónicos principales v2 y Linkumori adiciones que pueden coexistir en un archivo de reglas.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Combinación 1: muchos proveedores en un solo archivo",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> es el complemento ClearURLs heredado y la sintaxis canónica de nivel superior ClearURLs core v2. Linkumori mantiene esa forma y permite que muchos proveedores se adhieran a ella.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Cada proveedor se carga por separado.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Combinación 2: Proveedores Global Defaults Plus",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> es la sintaxis canónica de ClearURLs core v2. Linkumori lo acepta junto al estilo heredado <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Las reglas pueden heredar valores predeterminados cuando esos campos faltan en la regla.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Combinación 3: <code>domainPatterns</code> Proveedor",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Esta es una adición de Linkumori. La mayoría de los proveedores del Linkumori deben utilizar este formulario.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Combinación 4: Proveedor <code>urlPattern</code> con <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> es la sintaxis ClearURLs ascendente. <code>indexPattern</code> es una sugerencia de búsqueda de Linkumori para proveedores de URL de expresiones regulares; debería apuntar a los nombres de host que la expresión regular puede coincidir.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> es opcional, pero útil para aumentar la velocidad. Indexa el proveedor en depósitos candidatos de token de nombre de host; nunca reemplaza la coincidencia final <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Combinación 5: No mezcle <code>domainPatterns</code> y <code>urlPattern</code> como requisito combinado",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Esta forma puede aparecer en datos más antiguos o escritos a mano, pero no significa que ambos comparadores deban aprobar:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Comportamiento actual de <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Si <code>domainPatterns</code> está presente y no está vacío, <code>clearurls.js</code> lo usa para buscar coincidencias de proveedores e ignora <code>urlPattern</code> para ese proveedor. La ruta de importación/editor personalizado rechaza los proveedores que contienen ambos. Si necesita una condición de ruta, use <code>urlPattern</code> con <code>indexPattern</code>, o alcance entradas de reglas/<code>$removeparam</code> individuales dentro de <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Combinación 6: Entradas mixtas <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "En Linkumori, <code>rules</code> puede contener ClearURLs cadenas heredadas, Linkumori <code>$removeparam</code> cadenas, Linkumori <code>matchPattern</code> objetos y ClearURLs objetos canónicos core v2 juntos.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Se aceptan las cuatro inscripciones.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Combinación 7: Objetos canónicos dentro <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs Los objetos canónicos principales v2 pueden representar diferentes tipos de reglas. En este ejemplo de Linkumori, se colocan dentro de un proveedor que usa <code>domainPatterns</code>, que es solo Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> los ordena por significado:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Combinación 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs matrices de proveedores heredados del complemento todavía funcionan. Linkumori permite que esas matrices se coloquen junto a ClearURLs objetos de reglas canónicas principales v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Esto es válido. El motor lee todas estas matrices para el mismo proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Combinación 9: métodos y tipos de recursos para todo el proveedor",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> es la sintaxis ClearURLs ascendente. <code>resourceTypes</code> es una adición de Linkumori. Ambos se aplican a todo el proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Tanto <code>rules</code> como <code>rawRules</code> están limitados por la coincidencia de tipo/método del proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Combinación 10: tipos de solicitudes a nivel de regla",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs Las reglas canónicas principales v2 pueden definir el nivel de regla <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "El nivel de proveedor <code>resourceTypes</code> limita primero el proveedor. El nivel de regla <code>requestTypes</code> limita las reglas individuales después de eso.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Combinación 11: Excepciones en diferentes lugares",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori le permite combinar ClearURLs excepciones de proveedor, Linkumori excepciones de dominio, ClearURLs excepciones de reglas principales v2 y Linkumori excepciones de proveedor local <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Significado simple:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Combinación 12: Bloqueo de reglas de Proveedor Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> marca a un proveedor como cancelando/bloqueando.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Cuando el bloqueo de dominio está habilitado en la configuración, se pueden bloquear las solicitudes coincidentes. Es posible que aún existan reglas, pero el bloqueo es el comportamiento más fuerte para ese proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Combinación 13: Reglas de limpieza de proveedor de redirección más",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Un proveedor puede contener redirecciones y reglas de limpieza.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Si una redirección coincide, la redirección se devuelve primero.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Combinación 14: redirecciones de dominio más redirecciones de expresiones regulares",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Ambos pueden existir en un solo proveedor.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Las redirecciones de expresiones regulares se verifican primero. Las redirecciones de dominio se verifican si no coincide ninguna redirección de expresiones regulares.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Combinación 15: Reglas deshabilitadas o inactivas",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Los proveedores pueden estar inactivos:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Las reglas pueden estar inactivas:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Se ignoran los proveedores y las reglas inactivas.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Combinación 16: Ejemplo de proveedor mixto completo",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Este ejemplo de Linkumori combina intencionalmente la mayoría de las características del proveedor admitidas: ClearURLs matrices heredadas complementarias, ClearURLs objetos de reglas canónicas principales v2 y características de patrón de dominio y comparación exclusivas de Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Esto es válido Linkumori proveedor mixto JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Capítulo 21: Ejemplos completos",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Ejemplo 1: Limpiador de rastreadores básico",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Ejemplo 2: eliminar todos los parámetros UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Ejemplo 3: Mantener un parámetro necesario al iniciar sesión",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Ejemplo 4: Clics de seguimiento de redirección",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Resultado:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Ejemplo 5: Solicitudes de API de solo limpieza",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Significado:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Capítulo 22: Plantillas de copia rápida",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Eliminar un parámetro:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Eliminar muchos parámetros:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Utilice <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Elimine todos los parámetros <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Agregue una excepción:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Coincidir con un dominio:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Redirigir un rastreador URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Una regla cruda puede usar el patrón y las opciones de un filtro <code>$removeparam</code>, con <code>rawrule=</code> al final. Todo lo que sigue a <code>rawrule=</code> es la expresión regular:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "El patrón y las opciones deciden dónde se aplica la regla; lo que se elimina sigue siendo lo que encuentra la expresión regular. <code>match-case</code> hace que distinga mayúsculas.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Detener reglas crudas en algunas URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Una entrada que empieza por <code>@@</code> impide que las reglas crudas se apliquen donde coincide su patrón. Dale a la regla cruda un <code>id</code> y nómbrala con <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Sin nada después de <code>rawrule=</code> y sin <code>targetId</code>, la entrada detiene todas las reglas crudas del proveedor en esas URL. Para omitir todo el proveedor, usa <code>exceptions</code> en su lugar.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Excepciones",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Si una URL coincide con una entrada de <code>exceptions</code>, no se aplica ninguna regla del proveedor. Una entrada es una expresión regular, o un patrón de dominio que empieza por <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Las excepciones no distinguen mayúsculas de minúsculas.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Redirecciones",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Las reglas de redirección evitan las páginas de seguimiento yendo directamente al destino real. Solo se aplican mientras <em>Habilitar la omisión de redireccionamiento de terceros</em> está activado.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Redirigir a una parte de la URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Una entrada de <code>redirections</code> es una expresión regular con exactamente un grupo de captura, <code>( … )</code>. La solicitud va a lo que capturó el grupo, decodificado. Escribe cualquier otro grupo como <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Redirigir a una dirección fija",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Una entrada que empieza por <code>|</code> envía cada URL que coincide a una misma dirección:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Redirigir al valor de un parámetro",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> nombra el parámetro que contiene el destino, así que no hace falta una expresión regular. Admite las mismas entradas que <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Gana el primer parámetro que coincide y tiene un valor. Una redirección detiene cualquier otro procesamiento de la solicitud.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Objetos de regla",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Cualquier entrada puede ser un objeto en lugar de una cadena. Usa uno cuando una regla necesite un identificador, deba empezar desactivada, deba reescribir en lugar de eliminar o solo deba aplicarse en algunos casos:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Clave",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "el texto que escribirías como entrada simple",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "un nombre estable (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) para activar y desactivar la regla",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "los identificadores anteriores de la regla, para que una regla desactivada siga así tras un cambio de nombre",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "reescribir en lugar de eliminar; <code>§1§</code>, <code>§2§</code>, … son los valores capturados",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "transformar primero los valores capturados",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "solo para estos tipos de solicitud, por ejemplo <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL donde esta regla no se aplica",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "indicadores de la expresión regular, como cadena (por defecto <code>i</code>; <code>gi</code> en <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "ejecutar la regla antes o después",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: una regla de <code>rules</code> cuenta como regla de marketing de referencia",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: omitir esta regla cuando una página cambia su propia dirección con la API History",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: la regla empieza desactivada",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "texto libre",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "solo en entradas <code>@@…$rawrule=</code>: la regla cruda que detiene",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Reescribir en lugar de eliminar",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Con <code>replacePattern</code>, una regla de <code>rules</code> conserva el parámetro y reemplaza su valor, que es <code>§1§</code>. En <code>rawRules</code> y <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … son los grupos de captura:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocesadores",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Los preprocesadores transforman los valores capturados antes de que <code>replacePattern</code> los use. <code>inputs</code> es <code>\"all\"</code> o una lista de números de grupo:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Los tipos son <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> y <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Identificadores de regla",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Cada regla tiene un identificador. Una regla sin <code>id</code> recibe uno a partir de su lista y su texto: <code>\"utm_source\"</code> en <code>rules</code> se convierte en <code>field-utm-source</code>. Si dos reglas fueran a recibir el mismo identificador, ambas reciben un hash corto al final.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Un identificador generado cambia cuando cambia el texto de la regla. Da a una regla su propio <code>id</code> cuando deba conservar su estado activado/desactivado tras las ediciones.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Ejecutar una regla antes o después",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Normalmente las reglas crudas se aplican primero, y después <code>rules</code> y <code>referralMarketing</code>. Una regla con <code>order</code> se aplica antes que las que no lo tienen, la más baja primero. Aquí el token se reemplaza primero y después se elimina:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> funciona en <code>rules</code>, <code>rawRules</code> y <code>referralMarketing</code>, pero no en los filtros <code>$removeparam</code>, que siempre se aplican al final.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Marketing de referencia",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> admite las mismas entradas que <code>rules</code>. Se omiten mientras <em>Permitir marketing de referencia</em> está activado, para que los enlaces de afiliados sigan funcionando si lo deseas:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Una regla puede quedarse en <code>rules</code> y aun así contar como marketing de referencia, con <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Métodos y tipos de solicitud",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Estos campos limitan cuándo se aplica un proveedor o una regla:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "Comportamiento de clearurls.js: si domainPatterns existe y no está vacío, Linkumori usa domainPatterns para la coincidencia de proveedores. urlPattern se usa solo cuando falta domainPatterns o está vacío. La ruta de importación/editor personalizado rechaza esta forma de coincidencia mixta, así que úsela solo para comprender los datos heredados.",
+  "guide_req_methods": {
+    "message": "métodos HTTP que trata el proveedor",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "tipos de solicitud que trata el proveedor",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "tipos de solicitud que trata un objeto de regla",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "lo mismo para un filtro <code>$removeparam</code> o una regla cruda",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Los tipos de solicitud usan los nombres del navegador: <code>main_frame</code> (una página), <code>sub_frame</code> (un marco), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code>, etc. Las opciones de filtro llaman a los dos primeros <code>document</code> y <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Cómo se procesa una URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Para cada proveedor que coincide con la URL y admite la solicitud:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: si coincide una, se omite el proveedor.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code> y después <code>fieldRedirections</code>: una coincidencia redirige la solicitud y no se aplica nada más.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: la solicitud se bloquea.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> se aplican a la URL completa.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> y <code>referralMarketing</code> eliminan parámetros.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Se aplican los filtros <code>$removeparam</code>, salvo donde un filtro <code>@@</code> conserva el parámetro.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "El primer proveedor que modifica, redirige o bloquea la solicitud decide el resultado. La nueva URL vuelve a pasar después por los mismos pasos.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Ejemplos completos",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Limpiar una tienda",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Elimina los parámetros de seguimiento y un identificador de afiliado en una tienda, y deja sin cambios sus páginas de pago:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Eliminar los parámetros UTM en todas partes",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "El patrón <code>*</code> coincide con todas las URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Evitar un rastreador de clics",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Envía los enlaces que pasan por un rastreador de clics directamente a su destino, que está en el parámetro <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Conservar un parámetro en una página",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Elimina <code>ref</code> en todo el sitio excepto en la página de inicio de sesión, que lo necesita:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Comprobar tus reglas",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "El editor de reglas personalizadas comprueba las reglas al guardarlas o importarlas. Además de JSON dañado y expresiones regulares no válidas, rechaza reglas que se cargarían pero harían algo incorrecto sin avisar, por ejemplo:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> y <code>urlPattern</code> en un mismo proveedor",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "un patrón con un solo <code>|</code> y sin esquema, como <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "una redirección con expresión regular que no tiene exactamente un grupo de captura",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "campos, claves y opciones desconocidos",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> o <code>referralMarketing</code> donde no harían nada",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "una entrada <code>@@…$rawrule=</code> que no detiene ninguna regla cruda",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Si no se puede guardar, el mensaje indica el proveedor, la lista y la entrada.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

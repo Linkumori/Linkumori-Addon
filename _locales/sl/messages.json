@@ -4727,1688 +4727,704 @@
     "message": "Kontrolniki ID-ja pravila so na voljo, ko je ponudnik JSON veljaven.",
     "description": "Neveljavno stanje JSON za kontrolnike ID-jev pravil ponudnika"
   },
-  "guide_0001": {
-    "message": "Linkumori Razširitev — Dokumentacija pravil",
+  "guide_page_title": {
+    "message": "Linkumori — Vodnik po pravilih",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Oblika ponudnika JSON",
+  "guide_toc_label": {
+    "message": "Vsebina",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Ponudnik JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Poglavje 1: Osnovna oblika JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "2. poglavje: Kaj je ponudnik?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Poglavje 3: Polja ponudnika, ki jih lahko uporabite",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Poglavje 4: Ujemanje domen",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Ujemite eno domeno in vse poddomene",
+  "guide_title": {
+    "message": "Pisanje pravil Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Ujemanje z istim imenom na kateri koli javni priponi",
+  "guide_intro_1": {
+    "message": "Linkumori čisti URL-je s pravili. Ta vodnik prikazuje, kako jih pisati, od prvega pravila do vseh možnosti, z primeri, ki jih lahko kopirate.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Ujemanje poddomen",
+  "guide_intro_2": {
+    "message": "Pravila so v JSON formatu. Pišete jih v urejevalniku za Pravila po meri, ki jih preveri ob shranjevanju. Vgrajen seznam pravil in zdaljenji seznami pravil uporabljajo isti format.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Uporabite več kot en vzorec domene",
+  "guide_file_title": {
+    "message": "1. Datoteka s pravili",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Poglavje 5: Simboli vzorcev domen",
+  "guide_file_p1": {
+    "message": "Datoteka s pravili je en JSON objekt. Njegov objekt <code>providers</code> mapira ime po vaši izbiri do Ponudnika:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Poglavje 6: Ujemanje URLs z urlPattern",
+  "guide_file_p2": {
+    "message": "Ponudnik določa, katere URL-je obdeluje in kaj storiti z njimi. Ta tukaj odstrani <code>utm_source</code> in <code>utm_medium</code> iz vsakega URL-ja na <code>example.com</code> in njegovih poddomenah:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Poglavje 7: Odstranite preproste parametre poizvedbe",
+  "guide_file_p3": {
+    "message": "Ime je le oznaka. To, katere URL-je Ponudnik obdeluje, določita <code>domainPatterns</code> ali <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Poglavje 8: Napišite objekt pravila",
+  "guide_fields_title": {
+    "message": "2. Polja Ponudnika",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Poglavje 9: Pravila $removeparam",
+  "guide_th_field": {
+    "message": "Polje",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Odstrani en parameter",
+  "guide_th_meaning": {
+    "message": "Kaj počne",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Odstrani vse parametre",
+  "guide_field_domainpatterns": {
+    "message": "Kateri URL-ji, ki jih Ponudnik obdeluje, kot vzorci domen (ogl. poglavje 3). Uporabite to ali <code>urlPattern</code>, nikoli obojeh.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Odstrani parametre z regularnim izrazom",
+  "guide_field_urlpattern": {
+    "message": "Kateri URL-ji, ki jih Ponudnik obdeluje, kot regularni izraz, ki se ujema s celotnim URL-jem. Velikost znakov ni pomembna.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Odstrani vse razen enega parametra",
+  "guide_field_indexpattern": {
+    "message": "Le z <code>urlPattern</code>: namigi za gostitelje, kot je <code>||example.com^</code>, tako da se Ponudnik preveri le za te gostitelje. Brez tega se Ponudnik preveri za vsak URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Uporabi $removeparam samo za eno domeno",
+  "guide_field_rules": {
+    "message": "Parametri za odstranitev (ogl. poglavja 4 in 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Dodajte omejitve domene",
+  "guide_field_referral": {
+    "message": "Referalni in partnerski parametri za odstranitev. Ti so preskočeni, ko je <em>Dovoli napotitveno trženje</em> vklopljen (ogl. poglavje 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Dodajte meje metode",
+  "guide_field_rawrules": {
+    "message": "Regularni izrazi se izvedejo na celotnem URL-ju; vsako ujemanje je izbrisano (ogl. poglavje 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Poglavje 10: Izjeme $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL-ji, ki jih Ponudnik pusti nedotaknene (ogl. poglavje 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Poglavje 11: Ponovno pisanje vrednosti parametrov",
+  "guide_field_redirections": {
+    "message": "Kam namesto tega poslati zahtevo (ogl. poglavje 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Poglavje 12: Neobdelana pravila",
+  "guide_field_fieldredirections": {
+    "message": "Preusmeritev na vrednost parametra (ogl. poglavje 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Poglavje 13: Pravila preusmeritve",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> blokira vsako zahtevo, ki se ujema s Ponudnikom, medtem ko je <em>Dovoli blokiranje domen</em> vklopljen.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Poglavje 14: Pravila za preusmeritev domene",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: ko je preusmerjena sama stran, zavihek odpre nov naslov.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Poglavje 15: Izjeme",
+  "guide_field_methods": {
+    "message": "Obdeluj le te HTTP metode, na primer <code>[\"GET\"]</code>. Privzeto: vse.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Poglavje 16: Pravila priporočenega trženja",
+  "guide_field_resourcetypes": {
+    "message": "Obdeluj le te vrste zahtev, na primer <code>[\"main_frame\"]</code>. Privzeto: vrste, izbrane v nastavitvah.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Poglavje 17: HTTP Metode",
+  "guide_field_history": {
+    "message": "<code>false</code> preskoči Ponudnika, ko stran spremeni svoj naslov s History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Poglavje 18: Vrste virov brskalnika",
+  "guide_field_active": {
+    "message": "<code>false</code> izklopi ponudnika.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Poglavje 19: Predprocesorji",
+  "guide_match_title": {
+    "message": "3. Katere URL-je obravnava ponudnik",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Poglavje 20: Dovoljene JSON kombinacije",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> je seznam vzorcev domen. URL ustreza, če ustreza katerikoli izmed njih:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kombinacija 1: Veliko ponudnikov v eni datoteki",
+  "guide_th_pattern": {
+    "message": "Vzorec",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kombinacija 2: Globalne privzete vrednosti in ponudniki",
+  "guide_th_matches": {
+    "message": "Ustreza",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kombinacija 3: ponudnik domainPatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> in vsak poddomen",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kombinacija 4: ponudnik urlPattern z indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> na katerem koli javnem pripanku (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kombinacija 5: domainPatterns in urlPattern skupaj",
+  "guide_pat_path": {
+    "message": "tem gostitelju in njegovim poddomenam, ko pot začne z <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kombinacija 6: Mešana pravila [] Vnosi",
+  "guide_pat_star": {
+    "message": "enako kot <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kombinacija 7: Notranja pravila kanoničnih predmetov[]",
+  "guide_pat_start": {
+    "message": "URL-ji, ki se začnejo natanko s tem besedilom",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kombinacija 8: Legacy Arrays Plus Canonical rules[]",
+  "guide_pat_end": {
+    "message": "URL-ji, ki končajo natanko s tem besedilom",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kombinacija 9: metode in vrste virov za celotnega ponudnika",
+  "guide_pat_regex": {
+    "message": "celoten URL kot regularni izraz (veljavnost velikih in malih črk velja, razen če dodate <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kombinacija 10: Vrste zahtev na ravni pravil",
+  "guide_pat_contains": {
+    "message": "URL-ji, ki vsebujejo to besedilo kjerkoli",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kombinacija 11: Izjeme na različnih mestih",
+  "guide_pat_all": {
+    "message": "vsak URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kombinacija 12: Pravila za blokiranje Provider Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> označuje konec imena gostitelja ali ločilec, kot so <code>/</code>, <code>?</code> ali <code>:</code>. <code>*</code> ustreza čemu koli. Razen <code>/regex/</code> vzorci ne upoštevajo velikih in malih črk.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kombinacija 13: Pravila za čiščenje ponudnika preusmeritve Plus",
+  "guide_match_p3": {
+    "message": "<code>||</code> stoji za domeno, medtem ko enojni <code>|</code> stoji za sam začetek URL-ja in mu mora slediti shema, kot je <code>https://</code>. <code>|example.com^</code> nikoli ne more ustrezati, zato ga urednik zavrne.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kombinacija 14: Preusmeritve domene in preusmeritve regularnih izrazov",
+  "guide_match_p4": {
+    "message": "Če želite namesto tega uporabiti regularni izraz, uporabite <code>urlPattern</code> in dodajte <code>indexPattern</code>, da Ponudnik preveri samo te gostitelje:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kombinacija 15: Onemogočena ali neaktivna pravila",
+  "guide_match_p5": {
+    "message": "Ponudnik ima <code>domainPatterns</code> ali <code>urlPattern</code>, nikoli obojeh. Če potrebujete obe vrsti ujemanj, ustvarite dva ponudnika.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kombinacija 16: Primer popolnega mešanega ponudnika",
+  "guide_rules_title": {
+    "message": "4. Odstranjevanje parametrov",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Poglavje 21: Popolni primeri",
+  "guide_rules_p1": {
+    "message": "Vsak vnos v <code>rules</code> odstrani parametre iz poleta (<code>?a=1</code>) in iz fragmenta (<code>#a=1</code>). Vnos je eden od naslednjih:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Primer 1: Osnovni čistilec sledilnika",
+  "guide_th_entry": {
+    "message": "Vnos",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Primer 2: Odstranite vse parametre UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Primer 3: Obdrži potreben parameter ob prijavi",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "4. primer: kliki za preusmeritev sledenja",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Primer 5: Zahteve API samo za čiste",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Poglavje 22: Predloge za hitro kopiranje",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mešani ponudnik JSON Format Guide",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Ta priročnik pojasnjuje, kako napisati podatke ponudnika JSON, ki jih <code>Linkumori extension</code> lahko prebere.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "To ni vodnik po kodi JavaScript. Osredotoča se le na JSON oblike, oblike pravil in primere, ki jih potrebujejo avtorji pravil.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Ta vodnik temelji na trenutnem obnašanju izvajalnega okolja <code>clearurls.js</code>. Zlasti iskanje ponudnika uporablja vedra kandidatov <code>providersByToken</code> iz <code>domainPatterns</code> ali <code>indexPattern</code>, končno ujemanje pa še vedno poteka prek <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Poglavje 1: Osnovna oblika JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> pričakuje podatke ponudnika v tej splošni obliki:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Pomemben del je <code>providers</code>. Vsak ključ znotraj <code>providers</code> je ime ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "primer:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "2. poglavje: Kaj je ponudnik?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Ponudnik je en imenovani izvajalni vsebnik za eno spletno mesto, podjetje, sledilnik, nabor vzorcev domene ali regularni izraz URL. Ime ponudnika je oznaka/ključ; ujemanje izvede <code>domainPatterns</code> ali <code>urlPattern</code>, ne pa ime ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimalni ponudnik:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Kaj to naredi:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Poglavje 3: Polja ponudnika, ki jih lahko uporabite",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Polja ponudnika sprejema <code>clearurls.js</code>. Za ujemanje avtor <code>domainPatterns</code> ali <code>urlPattern</code> z izbirnim <code>indexPattern</code>; ne zanašajte se na to, da bosta potrebna oboje skupaj.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Preprost pomen:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON polje",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Vir",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Za kaj pišeš",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Nastavite <code>false</code>, da onemogočite tega ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 kanoničen",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Nastavite <code>true</code> za blokiranje ujemajočih se domen namesto samo za čiščenje.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 kanoničen",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Nastavite <code>true</code> za vsiljevanje preusmeritev na glavno stran prek zavihka brskalnika.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Priporočen način povedati, katerim domenam se ta ponudnik ujema.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 kanoničen",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "Niz regularnega izraza JavaScript za ujemanje URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Izbirni namig za hitrost pri uporabi <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 canonical; <code>$removeparam</code> je Linkumori dodatek tukaj",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Običajna pravila za odstranjevanje parametrov in pravila lokalnega ponudnika <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs zapuščina dodatka; predmeti v kanoničnem slogu so tukaj Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Pravila, ki urejajo celotno besedilo URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs zapuščina dodatka; predmeti v kanoničnem slogu so tukaj Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Izbirna pravila referenčnih/marketinških parametrov.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 kanoničen; obrazci predmetov so tukaj Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL pravila regularnega izraza, kjer se ta ponudnik ne bi smel izvajati.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Pravila vzorca domene, kjer se ta ponudnik ne bi smel izvajati.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs zapuščina dodatka; predmeti v kanoničnem slogu so tukaj Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Pravila preusmeritve regularnih izrazov.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Pravila preusmeritve vzorca domene.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs podedovan dodatek in ClearURLs core v2 kanoničen",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Zaženite samo za te HTTP metode.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori dodatek",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Zaženi samo za te vrste zahtev brskalnika.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Poglavje 4: Ujemanje domen",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> je dodatek Linkumorija in je prednostna za večino ponudnikov po meri. V <code>clearurls.js</code> se neprazni <code>domainPatterns</code> uporabljajo za ujemanje pred <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Ujemite eno domeno in vse poddomene",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Ujema se:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Ne ujema se z:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Ujemanje z istim imenom na kateri koli javni priponi",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Lahko se ujema z:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Ujemanje poddomen",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Lahko se ujema z:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Uporabite več kot en vzorec domene",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Poglavje 5: Simboli vzorcev domen",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "To so simboli, ki jih lahko uporabite v <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Simbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Pomen",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Primer",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Odstrani",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Ujemanje na meji domene.",
+  "guide_rules_name": {
+    "message": "ime parametra",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex imena",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "vsak parameter, osebe ime se ujema; <code>^…$</code> je dodano avtomatsko, velikost znakov pa se ne upošteva",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Ločilo ali končna meja.",
+  "guide_rules_filter": {
+    "message": "filter <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "glej poglavje 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> in <code>\"$removeparam=fbclid\"</code> odstranita isto stvar. Uporabite navadno ime, razen če potrebujete nekaj iz poglavja 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Nadomestni znak.",
+  "guide_rules_part_title": {
+    "message": "Pravila za del ponudnika",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Navadno ime velja za vsak URL, ki ga Ponudnik ujema. Če želite odstraniti parameter samo pri nekaterih izmed njih, postavite vzorec pred filter <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Tukaj je <code>qid</code> odstranjen na vseh straneh Amazon, <code>tag</code> samo na <code>amazon.de</code>, <code>sr</code> samo na <code>smile.amazon</code> in <code>ref_</code> samo pod <code>/gp/</code>. Vzorec zoži lastne vzorce ponudnika; ne morem jih razširiti.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Začetno ali končno sidro.",
+  "guide_rp_title": {
+    "message": "5. $removeparam filtri",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Filter <code>$removeparam</code> ima obliko; deli v oklepajih so opcijonalni:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Vrednost",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript literal regularnega izraza.",
+  "guide_rp_p2": {
+    "message": "Prvi znak vrednosti določa njen pomen:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filter",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Najpogostejši vzorec:",
+  "guide_rp_v_all": {
+    "message": "vsak parameter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Uporabite ga, kadar želite:",
+  "guide_rp_v_except": {
+    "message": "vsak parameter razen <code>ref</code> (deluje tudi z <code>~/regex/</code> in <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Poglavje 6: Ujemanje URLs z <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parametri, katerih ime ali <code>name=value</code> ustreza regularnemu izrazu; velike in male črke so pomembne, razen če dodate <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Uporabite <code>urlPattern</code> samo, ko ujemanje domene ni dovolj, na primer, ko se mora ponudnik ujemati z določeno potjo ali celotnim regularnim izrazom URL.",
+  "guide_rp_v_prefix": {
+    "message": "parametri, katerih ime se začne z <code>utm_</code>; velike in male črke so prezrte",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "To se lahko ujema z:",
+  "guide_rp_v_name": {
+    "message": "natančno ta parameter; velike in male črke so prezrte, razen če dodate <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> je zapuščina dodatka ClearURLs in kanonična sintaksa jedra ClearURLs v2. Linkumori doda <code>indexPattern</code> le kot namig za iskanje kandidata, tako da je ponudnike regularnih izrazov mogoče hitreje najti z žetoni imena gostitelja.",
+  "guide_rp_options_title": {
+    "message": "Možnosti",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Pomembno: <code>indexPattern</code> ne odloči, ali se ponudnik ujema. Po iskanju kandidata <code>clearurls.js</code> še vedno preizkuša pravi <code>urlPattern</code> v <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Možnosti sledijo vrednosti in so ločene z vejicami. Več vrednosti ene možnosti ločite s <code>|</code>, pred vrednostjo pa postavite <code>~</code>, da jo izključite:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Poglavje 7: Odstranite preproste parametre poizvedbe",
+  "guide_th_option": {
+    "message": "Možnost",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Imena parametrov vnesite v <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "le na straneh iz teh domen",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "rezultat:",
+  "guide_rp_o_to": {
+    "message": "le za zahtevke do teh domen",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Odstranite številne parametre:",
+  "guide_rp_o_method": {
+    "message": "le za te HTTP metode",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "rezultat:",
+  "guide_rp_o_party": {
+    "message": "le za zahtevke na isto stran kot stran, ali le na druge strani",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Poglavje 8: Napišite objekt pravila",
+  "guide_rp_o_strict": {
+    "message": "enako, vendar primerja natančen gostitelj namesto strani",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Namesto navadnega niza je lahko pravilo predmet.",
+  "guide_rp_o_types": {
+    "message": "le za te vrste zahtevkov; <code>~type</code> izključi eno",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Uporabite to, ko potrebujete:",
+  "guide_rp_o_matchcase": {
+    "message": "imena parametrov so občutljiva na veliklikse",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ID pravila.",
+  "guide_rp_o_history": {
+    "message": "preskoči ta filter, ko stran s History API spremeni svoj naslov",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Vzdevki.",
+  "guide_rp_p4": {
+    "message": "Vsaka možnost ima en spellling. Protislovne možnosti, kot je <code>first-party,third-party</code>, niso sprejete.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Izjeme.",
+  "guide_rp_keep_title": {
+    "message": "Ohranitev parametra z @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Omejitve vrste zahtevka.",
+  "guide_rp_p5": {
+    "message": "Filter, ki se začne z <code>@@</code>, ohrani parameter namesto da ga odstrani. Tukaj je <code>ref</code> odstranjen povsod razen na GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Prepišite vedenje.",
+  "guide_rp_p6": {
+    "message": "Filter <code>@@</code> zajema tudi zahtevke, ki jih izvede stran, ki ustreza temu Ponudniku, tudi če jih obravnava drug Ponudnik.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Primer znotraj ponudnika:",
+  "guide_raw_title": {
+    "message": "6. Surova pravila",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "rezultat:",
+  "guide_raw_p1": {
+    "message": "Surovo pravilo je regularni izraz, ki se izvede na celotnem URL-ju; vsako ustrezanje je izbrisano. Uporabite ga za besedilo, ki ni <code>name=value</code> parametra, na primer segment poti <code>/ref=…</code> pri Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> za objekte pravil ponudnika je dodatek Linkumori. <code>flags: \"i\"</code> naredi ujemanje neobčutljivo za velike in male črke.",
+  "guide_raw_p2": {
+    "message": "Surova pravila ne upoštevujeta velikliks in zamenjata vsako ustrezanje. V JSON zapišite vsako koso črto dvakrat.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Poglavje 9: <code>$removeparam</code> Pravila",
+  "guide_raw_scope_title": {
+    "message": "Le na nekaterih URL-jih",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Odstrani en parameter",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Odstrani vse parametre",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Odstrani parametre z regularnim izrazom",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Odstrani vse razen enega parametra",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Uporabi <code>$removeparam</code> samo za eno domeno",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Očiščeno:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Neočiščeno:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Dodajte omejitve domene",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Izključi eno domeno:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Dodajte meje metode",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Samo <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Ne <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Poglavje 10: <code>$removeparam</code> Izjeme",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Začnite pravilo <code>$removeparam</code> z <code>@@</code>, da naredite izjemo.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Primer izjeme konteksta:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "To lahko zaščiti <code>ei</code> pri podzahtevah, ki jih začne stran <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Poglavje 11: Ponovno pisanje vrednosti parametrov",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Za zamenjavo ujemajoče se vrednosti parametra uporabite <code>action.type: \"rewrite\"</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Znotraj ponudnika:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Uporabite <code>§1§</code>, če želite ponovno uporabiti trenutno vrednost:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Poglavje 12: Neobdelana pravila",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Uporabite <code>rawRules</code> za urejanje celotnega besedila URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Preprosto surovo pravilo:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Surovo pravilo objekta:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Surovo pravilo prepisovanja:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Poglavje 13: Pravila preusmeritve",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Uporabite <code>redirections</code>, da brskalnik pošljete na novo URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Če <code>replacePattern</code> manjka, se uporabi prva skupina za zajemanje.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Poglavje 14: Pravila za preusmeritev domene",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> je dodatek Linkumori za preproste preusmeritve vzorca domene.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori dodatek — oblika niza:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori dodatek — oblika objekta:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Poglavje 15: Izjeme",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> je zapuščina dodatka ClearURLs in kanonična sintaksa ClearURLs jedra v2. Linkumori sprejema tudi objekte v kanoničnem slogu v tej matriki starega ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "primer:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> je dodatek Linkumori za izjeme vzorca domene.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "preskočeno:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Poglavje 16: Pravila priporočenega trženja",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> deluje kot pravila polja, vendar ga nadzira nastavitev razširitve za napotitveno trženje.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "primer:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Poglavje 17: HTTP Metode",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Uporabite <code>methods</code> za zagon ponudnika samo na določenih metodah HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "To deluje na:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "To ne deluje na:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Poglavje 18: Vrste virov brskalnika",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> je dodatek Linkumori. Uporabite ga za zagon ponudnika samo na določenih vrstah zahtev brskalnika.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Skupne vrednosti:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "primer:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Pomen:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Poglavje 19: Predprocesorji",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Predprocesorji spremenijo zajete vrednosti, preden jih uporabijo v <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "primer:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Podprte vrste:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> je lahko:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Poglavje 20: Dovoljene JSON kombinacije",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "V tem poglavju so prikazani Linkumori mešani ponudniki JSON: ClearURLs podedovana polja dodatkov, ClearURLs kanonični objekti jedra v2 in Linkumori dodatki lahko obstajajo skupaj v eni datoteki pravil.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kombinacija 1: Veliko ponudnikov v eni datoteki",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> je ClearURLs zapuščina dodatka in ClearURLs core v2 kanonična sintaksa najvišje ravni. Linkumori ohranja to obliko in omogoča številnim ponudnikom pod njo.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Vsak ponudnik se naloži posebej.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kombinacija 2: Globalne privzete vrednosti in ponudniki",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> je kanonična sintaksa ClearURLs core v2. Linkumori ga sprejme poleg podedovanega sloga <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Pravila lahko podedujejo privzete vrednosti, če ta polja v pravilu manjkajo.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kombinacija 3: <code>domainPatterns</code> Ponudnik",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "To je dodatek Linkumori. Večina ponudnikov Linkumori bi morala uporabiti ta obrazec.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kombinacija 4: <code>urlPattern</code> Ponudnik z <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> je sintaksa ClearURLs navzgor. <code>indexPattern</code> je namig za iskanje Linkumorija za ponudnike URL-jev regularnih izrazov; mora kazati na imena gostiteljev, s katerimi se lahko ujema regularni izraz.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> ni obvezen, vendar uporaben za hitrost. Ponudnika indeksira v vedra kandidatov za ime gostitelja in žeton; nikoli ne nadomesti končnega ujemanja <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kombinacija 5: Ne mešajte <code>domainPatterns</code> in <code>urlPattern</code> kot kombinirano zahtevo",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Ta oblika se lahko pojavi v starejših ali ročno napisanih podatkih, vendar to ne pomeni, da morata oba ujemanja prestati:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Trenutno vedenje <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Če je <code>domainPatterns</code> prisoten in ni prazen, ga <code>clearurls.js</code> uporabi za ujemanje ponudnika in ignorira <code>urlPattern</code> za tega ponudnika. Urejevalnik po meri/uvozna pot zavrne ponudnike, ki vsebujejo oboje. Če potrebujete pogoj poti, uporabite <code>urlPattern</code> z <code>indexPattern</code> ali določite obseg posameznih vnosov <code>$removeparam</code>/pravil znotraj <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kombinacija 6: Mešani vnosi <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "V Linkumori lahko <code>rules</code> vsebuje ClearURLs stare nize, Linkumori <code>$removeparam</code> nize, Linkumori <code>matchPattern</code> objekte in ClearURLs core v2 kanonični objekti skupaj.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Vsi štirje vnosi so sprejeti.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kombinacija 7: Kanonični predmeti znotraj <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs core v2 kanonični objekti lahko predstavljajo različne vrste pravil. V tem primeru Linkumori so postavljeni znotraj ponudnika, ki uporablja <code>domainPatterns</code>, ki je samo Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> jih razvrsti po pomenu:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kombinacija 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs Nizi podedovanih ponudnikov dodatkov še vedno delujejo. Linkumori dovoljuje, da ta polja sedijo poleg objektov kanoničnega pravila ClearURLs core v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "To velja. Motor bere vse te nize za istega ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kombinacija 9: metode in vrste virov za celotnega ponudnika",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> je navzgornja sintaksa ClearURLs. <code>resourceTypes</code> je dodatek Linkumori. Oboje velja za celotnega ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Tako <code>rules</code> kot <code>rawRules</code> sta omejena z ujemanjem metode/tipa ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kombinacija 10: Vrste zahtev na ravni pravil",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs core v2 kanonična pravila lahko definirajo raven pravila <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Raven ponudnika <code>resourceTypes</code> najprej zoži ponudnika. Raven pravila <code>requestTypes</code> po tem zoži posamezna pravila.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kombinacija 11: Izjeme na različnih mestih",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori vam omogoča kombiniranje ClearURLs izjem ponudnika, Linkumori izjem domene, ClearURLs izjem pravil core v2 in Linkumori izjem lokalnega ponudnika <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Preprost pomen:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kombinacija 12: Pravila za blokiranje Provider Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> označi ponudnika kot preklic/blokira.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Ko je v nastavitvah omogočeno blokiranje domene, je mogoče blokirati ujemajoče se zahteve. Pravila morda še vedno obstajajo, vendar je blokiranje močnejše vedenje za tega ponudnika.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kombinacija 13: Pravila za čiščenje ponudnika preusmeritve Plus",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Ponudnik lahko vsebuje preusmeritve in pravila čiščenja.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Če se preusmeritev ujema, se najprej vrne preusmeritev.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kombinacija 14: Preusmeritve domene in preusmeritve regularnih izrazov",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Oba lahko obstajata pri enem ponudniku.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Najprej se preverijo preusmeritve regularnih izrazov. Preusmeritve domen se preverijo, če se ne ujema nobena preusmeritev regularnega izraza.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kombinacija 15: Onemogočena ali neaktivna pravila",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Ponudniki so lahko neaktivni:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Pravila so lahko neaktivna:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Neaktivni ponudniki in neaktivna pravila so prezrta.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kombinacija 16: Primer popolnega mešanega ponudnika",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Ta primer Linkumori namerno združuje večino podprtih funkcij ponudnika: ClearURLs podedovana polja dodatkov, ClearURLs objekte kanoničnih pravil core v2 in Linkumori funkcije samo ujemanja in vzorcev domen.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "To velja Linkumori mešani ponudnik JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Poglavje 21: Popolni primeri",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Primer 1: Osnovni čistilec sledilnika",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Primer 2: Odstranite vse parametre UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Primer 3: Obdrži potreben parameter ob prijavi",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "4. primer: kliki za preusmeritev sledenja",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Primer 5: Zahteve API samo za čiste",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Pomen:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Poglavje 22: Predloge za hitro kopiranje",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Odstranite en parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Odstranite številne parametre:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Uporabi <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Odstranite vse parametre <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Dodajte izjemo:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Ujemanje z domeno:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Preusmeri sledilnik URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Surovo pravilo lahko prevzame vzorec in možnosti <code>$removeparam</code> filtra, pri čemer je <code>rawrule=</code> zadnje. Vse po <code>rawrule=</code> je regularni izraz:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Vzorec in možnosti določita, kje se pravilo izvede; regularni izraz je še vedno tisto, kar se izbriše. <code>match-case</code> ga naredi občutljivega na veliklikse.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Ustavitev surovih pravil na nekaterih URL-jih",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Vnos, ki se začne z <code>@@</code>, prepreči izvajanje surovih pravil tam, kjer ustreza njegov vzorec. Surovemu pravilu dodajte <code>id</code> in ga poimenujte z <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Če za <code>rawrule=</code> ni ničesar in ni prisotnega <code>targetId</code>, vnos ustavi vsa surova pravila ponudnika na teh URL-jih. Če želite preskočiti celotnega ponudnika, namesto tega uporabite <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Izvzetja",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Če URL ustreza vnosu v <code>exceptions</code>, se nobena pravila ponudnika ne izvede. Vnos je regularni izraz ali vzorec domene, ki se začne z <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Izvzetja ne upoštevajo velikih in malih črk.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Preusmeritve",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Pravila za preusmeritev preskočijo sledilne strani tako, da gredo neposredno do dejstvega cilja. Delujejo samo, ko je <em>Omogoči obhod preusmeritev tretjih oseb</em> vklopljen.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Preusmeritev na del URL-ja",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Vnos v <code>redirections</code> je regularni izraz z natanko eno zajetno skupino, <code>( … )</code>. Zahtevek gre na to, kar je skupina zajela, v URL-dekodiranem obliki. Vsako drugo skupino zapišite kot <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Preusmeritev na fiksni naslov",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Vnos, ki se začne z <code>|</code>, pošlje vsak ustrezajoč URL na en naslov:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Preusmeritev na vrednost parametra",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> poimenuje parameter, ki vsebuje cilj, zato ni potreben regularni izraz. Sprejme iste vnose kot <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Zmagajoči je prvi ustrezajoči parameter, ki ima vrednost. Preusmeritev ustavi vse ostalo obdelavo za ta zahtevek.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Objekti pravil",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Kateri koli vnos namesto niza lahko ste objekt. Uporabite ga, ko pravilo potrebuje id, mora biti na začetku izklopljeno, mora namesto odstranitve izvesti zapisovanje ali pa se mora izvesti samo v nekaterih primerih:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Ključ",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "besedilo, ki bi ga napisali kot navaden vnos",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "stabilno ime (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>), ki se uporablja za vklop in izklop pravila",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "prejšnji ID-ji pravila, tako da pravilo, ki ste ga izklopili, ostane izklopljeno tudi po preimenovanju",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "prepiši namesto odstrani; <code>§1§</code>, <code>§2§</code>, … so ujeta vrednosti",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "najprej spremeni ujete vrednosti",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "le za te vrste zahtevkov, na primer <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL-ji, kjer to pravilo ne teče",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "oznake regularnih izrazov v obliki niza (privzeto <code>i</code>; <code>gi</code> v <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "zaženi pravilo prej ali pozneje",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: pravilo v <code>rules</code> velja za pravilo za referenčni marketing",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: preskokuj to pravilo, ko stran z History API spremeni svoj naslov",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: pravilo se začne izklopljeno",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "prosto besedilo",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "le pri vnosih <code>@@…$rawrule=</code>: surova pravila, ki jih ustavi",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Prepisovanje namesto odstranjevanja",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Z <code>replacePattern</code> pravilo v <code>rules</code> ohrani parameter in nadomesti njegovo vrednost, kar je <code>§1§</code>. V <code>rawRules</code> in <code>redirections</code> so <code>§1§</code>, <code>§2§</code>, … skupine zajema:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Predprocesorji",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Predprocesorji spremenijo zajete vrednosti, preden jih <code>replacePattern</code> uporabi. <code>inputs</code> je <code>\"all\"</code> ali seznam številk skupin:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Tipi so <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> in <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID-ji pravil",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Vsako pravilo ima ID. Pravilo brez <code>id</code> ga prejme iz svojega seznama in besedila: <code>\"utm_source\"</code> v <code>rules</code> postane <code>field-utm-source</code>. Če bi dve pravili dobili isti ID, oba na koncu dobita kratek hash.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Generiran ID se spremeni, ko se spremeni besedilo pravila. Pravilu dodajte lasten <code>id</code>, če mora ohraniti nastavitev vklopljeno/izklopljeno skozi urejanja.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Težje ali poznejše izvajanje pravila",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Surova pravila običajno tečejo prvo, nato <code>rules</code> in <code>referralMarketing</code>. Pravilo z <code>order</code> teče pred pravili brez njega, najnižje prvo. Tukaj je žeton najprej nadomeščen in nato izbrisan:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> deluje v <code>rules</code>, <code>rawRules</code> in <code>referralMarketing</code>, vendar ne pri filtrih <code>$removeparam</code>, ki vedno tečejo zadnji.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referenčni marketing",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> sprejme iste vnose kot <code>rules</code>. Ti so preskočeni, ko je <em>Dovoli napotitveno trženje</em> vklopljen, tako da partnerski povezavi še vedno delujejo, če si to želite:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Pravilo lahko ostane v <code>rules</code> in še vedno velja za referenčni marketing z <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metode in vrste zahtev",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Te omejijo, kdaj Ponudnik ali pravilo teče:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "vedenje clearurls.js: če domainPatterns obstaja in ni prazen, Linkumori uporablja domainPatterns za ujemanje ponudnika. urlPattern se uporablja le, če domainPatterns manjka ali je prazen. Pot urejevalnika/uvoza po meri zavrača to obliko mešanega ujemanja, zato jo uporabite samo za razumevanje podedovanih podatkov.",
+  "guide_req_methods": {
+    "message": "HTTP metode, ki jih Ponudnik obravnava",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "vrste zahtevkov, ki jih obravnava Ponudnik",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "vrste zahtevkov, ki jih obravnava en objekt pravila",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "enako velja za en filter <code>$removeparam</code> ali Surova pravila",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Vrste zahtevkov uporabljajo imena brskalnika: <code>main_frame</code> (stran), <code>sub_frame</code> (okvir), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> in tako naprej. Možnosti filtrov prvih dve imenujeta <code>document</code> in <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Kako se obdela URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Za vsakega Ponudnika, ki ustreza URL-ju in dovoljuje zahtev:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: če eden ustreza, se Ponudnik preskoči.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, nato <code>fieldRedirections</code>: ustreznosť preusmeri zahtev in nič drugega se ne izvede.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: zahtev je blokiran.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> se izvedejo na celotnem URL-ju.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> in <code>referralMarketing</code> odstranita parametre.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> filtri se izvedejo, razen kjer <code>@@</code> filter ohrani parameter.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Prvi Ponudnik, ki spremeni, preusmeri ali blokira zahtev, odloči o rezultatu. Novi URL nato ponovno gre skozi iste korake.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Celostni primeri",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Čiščenje ene trgovine",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Odstrani parametre sledenja in partnersko ID v eni trgovini, stranov za zaključek nakupa pa ne dotika:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Odstrani UTM parametre povsod",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Vzorec <code>*</code> ustreza vsakemu URL-ju:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Preskoki sledilnika klikov",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Pošilja povezave prek sledilnika klikov neposredno do njihovega cilja, ki se nahaja v parametru <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Ohrani parameter na eni strani",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Odstrani <code>ref</code> povsod na spletnem mestu, razen na strani za prijavo, ki ga potrebuje:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Preverjanje vaših pravil",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Urednik za Pravila po meri preveri pravila ob shranjevanju ali uvozu. Poleg poškodovanega JSON-a in neveljavnih regularnih izrazov zavrne pravila, ki bi se sicer naložila, vendar bi tiho delovala napačno, kot so:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> in <code>urlPattern</code> pri enem Ponudniku",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "vzorec z enim samim <code>|</code> in brez sheme, na primer <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "preusmeritev z regularnim izrazom brez natanko ene zajetne skupine",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "neznana polja, ključi in možnosti",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> ali <code>referralMarketing</code> tam, kjer ne bi naredilo ničesar",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "vnos <code>@@…$rawrule=</code>, ki ne ustavi nobene Surove pravile",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Če shranjevanje ne uspe, sporočilo navede Ponudnika, seznam in vnos.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

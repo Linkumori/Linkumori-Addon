@@ -4727,1688 +4727,704 @@
     "message": "Ovládací prvky ID pravidel jsou k dispozici, jakmile je poskytovatel JSON platný.",
     "description": "Neplatný stav JSON pro ovládací prvky ID pravidla poskytovatele"
   },
-  "guide_0001": {
-    "message": "Linkumori Rozšíření — Dokumentace pravidel",
+  "guide_page_title": {
+    "message": "Linkumori — Průvodce pravidly",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "téma",
+  "guide_theme_label": {
+    "message": "Téma",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Poskytovatel JSON Formát",
+  "guide_toc_label": {
+    "message": "Obsah",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Poskytovatel JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Kapitola 1: Základní tvar JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Kapitola 2: Co je poskytovatel?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Kapitola 3: Pole poskytovatele, která můžete použít",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Kapitola 4: Párování domén",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Spojte jednu doménu a všechny subdomény",
+  "guide_title": {
+    "message": "Psaní pravidel Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Porovnejte stejný název s jakoukoli veřejnou příponou",
+  "guide_intro_1": {
+    "message": "Linkumori čistí URL pomocí pravidel. Tento průvodce ukazuje, jak je psát, od prvního pravidla až po každou možnost, s příklady, které můžete zkopírovat.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Porovnejte subdomény",
+  "guide_intro_2": {
+    "message": "Pravidla jsou ve formátu JSON. Píšete je v editoru Vlastní pravidla, který je při ukládání kontroluje. Balíček pravidel a vzdálené seznamy pravidel používají stejný formát.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Použijte více než jeden vzor domény",
+  "guide_file_title": {
+    "message": "1. Soubor pravidel",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Kapitola 5: Symboly vzoru domény",
+  "guide_file_p1": {
+    "message": "Soubor pravidel je jeden JSON objekt. Jeho objekt <code>providers</code> mapuje název vašeho choice na Poskytovatele:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Kapitola 6: Shoda URLs s urlPattern",
+  "guide_file_p2": {
+    "message": "Poskytovatel určuje, které URL zpracovává a co s nimi má dělat. Tento konkrétní odstraní <code>utm_source</code> a <code>utm_medium</code> z každé URL na <code>example.com</code> a jeho subdoménách:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Kapitola 7: Odebrání parametrů jednoduchého dotazu",
+  "guide_file_p3": {
+    "message": "Název je pouze štítkem. To, které URL Poskytovatel zpracovává, je určeno pomocí <code>domainPatterns</code> nebo <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Kapitola 8: Napište objekt pravidla",
+  "guide_fields_title": {
+    "message": "2. Pole Poskytovatele",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Kapitola 9: Pravidla $removeparam",
+  "guide_th_field": {
+    "message": "Pole",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Odebrat jeden parametr",
+  "guide_th_meaning": {
+    "message": "Co dělá",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Odebrat všechny parametry",
+  "guide_field_domainpatterns": {
+    "message": "Které URL Poskytovatel obsluhuje, definované jako vzory domén (kapitola 3). Použijte buď toto, nebo <code>urlPattern</code>, nikdy obojí.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Odebrat parametry podle regulárního výrazu",
+  "guide_field_urlpattern": {
+    "message": "Které URL Poskytovatel obsluhuje, definované jako regulární výraz shoda s celou URL. Velikost písmen je ignorována.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Odebrat vše kromě jednoho parametru",
+  "guide_field_indexpattern": {
+    "message": "Pouze s <code>urlPattern</code>: nápovědy pro hostitele jako <code>||example.com^</code>, aby byl Poskytovatel kontrolován pouze u těchto hostitelů. Bez toho je Poskytovatel kontrolován u každé URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Použít $removeparam pouze na jednu doménu",
+  "guide_field_rules": {
+    "message": "Parametry k odstranění (kapitoly 4 a 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Přidat omezení domény",
+  "guide_field_referral": {
+    "message": "Referral a affiliate parametry k odstranění. Jsou vynechány, pokud je zapnuto <em>Povolit marketing doporučení</em> (kapitola 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Přidat omezení metody",
+  "guide_field_rawrules": {
+    "message": "Regulární výrazy spuštěné na celé URL; každá shoda je smazána (kapitola 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Kapitola 10: $removeparam Výjimky",
+  "guide_field_exceptions": {
+    "message": "URL, které Poskytovatel ponechá beze změny (kapitola 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Kapitola 11: Přepsání hodnot parametrů",
+  "guide_field_redirections": {
+    "message": "Kam místo toho odeslat požadavek (kapitola 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Kapitola 12: Raw pravidla",
+  "guide_field_fieldredirections": {
+    "message": "Přesměrování na hodnotu parametru (kapitola 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Kapitola 13: Pravidla přesměrování",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> blokuje každý požadavek, který Poskytovatel vyhovuje, zatímco je zapnuto <em>Povolit blokování domény</em>.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Kapitola 14: Pravidla přesměrování domény",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: když je přesměrována samotná stránka, karta otevře novou adresu.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Kapitola 15: Výjimky",
+  "guide_field_methods": {
+    "message": "Obsluhovat pouze tyto HTTP metody, například <code>[\"GET\"]</code>. Výchozí: všechny.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Kapitola 16: Pravidla doporučujícího marketingu",
+  "guide_field_resourcetypes": {
+    "message": "Obsluhovat pouze tyto typy požadavků, například <code>[\"main_frame\"]</code>. Výchozí: typy zvolené v nastavení.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Kapitola 17: HTTP Metody",
+  "guide_field_history": {
+    "message": "<code>false</code> vynechá Poskytovatele, když stránka změní svou vlastní adresu pomocí History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Kapitola 18: Typy prostředků prohlížeče",
+  "guide_field_active": {
+    "message": "<code>false</code> vypne Poskytovatele.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Kapitola 19: Preprocesory",
+  "guide_match_title": {
+    "message": "3. Které URL Poskytovatel obsluhuje",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Kapitola 20: Povolené kombinace JSON",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> je seznam vzorů domén. URL odpovídá, pokud odpovídá kterýkoliv z nich:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kombinace 1: Mnoho poskytovatelů v jednom souboru",
+  "guide_th_pattern": {
+    "message": "Vzor",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kombinace 2: Global Defaults Plus Providers",
+  "guide_th_matches": {
+    "message": "Odpovídá",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kombinace 3: Poskytovatel doménových vzorů",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> a každé poddoméně",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kombinace 4: poskytovatel urlPattern s indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> na jakémkoliv veřejném suffixu (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kombinace 5: domainPatterns a urlPattern společně",
+  "guide_pat_path": {
+    "message": "tomuto hostiteli a jeho poddoménám, pokud cesta začíná na <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kombinace 6: Smíšená pravidla[] Záznamy",
+  "guide_pat_star": {
+    "message": "toté jako <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kombinace 7: Kanonické objekty uvnitř pravidel[]",
+  "guide_pat_start": {
+    "message": "URL, které začínají přesně tímto textem",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kombinace 8: Legacy Arrays Plus kanonická pravidla[]",
+  "guide_pat_end": {
+    "message": "URL, které končí přesně tímto textem",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kombinace 9: Metody a typy zdrojů na úrovni poskytovatele",
+  "guide_pat_regex": {
+    "message": "celá URL jako regulární výraz (velikost písmen hraje roli, pokud nepřidáte <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kombinace 10: Typy požadavků na úrovni pravidel",
+  "guide_pat_contains": {
+    "message": "URL, které obsahují tento text kdekoli",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kombinace 11: Výjimky na různých místech",
+  "guide_pat_all": {
+    "message": "každá URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kombinace 12: Pravidla blokování poskytovatele plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> označuje konec názvu hostitele nebo oddělovač jako <code>/</code>, <code>?</code> nebo <code>:</code>. <code>*</code> odpovídá čemukoli. Kromě <code>/regex/</code> vzory ignorují velikost písmen.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kombinace 13: Pravidla čištění poskytovatele přesměrování plus",
+  "guide_match_p3": {
+    "message": "<code>||</code> zastupuje doménu, zatímco samotné <code>|</code> zastupuje úplný začátek URL a musí být následováno schématem jako <code>https://</code>. <code>|example.com^</code> nemůže nikdy odpovídat, editor jej proto zamítne.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kombinace 14: Přesměrování domény Plus přesměrování Regex",
+  "guide_match_p4": {
+    "message": "Pro shodu pomocí regulárního výrazu použijte <code>urlPattern</code> a přidejte <code>indexPattern</code>, aby byl Poskytovatel kontrolován pouze na těchto hostech:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kombinace 15: Vypnutá nebo neaktivní pravidla",
+  "guide_match_p5": {
+    "message": "Poskytovatel má <code>domainPatterns</code> nebo <code>urlPattern</code>, nikdy obojí. Pokud potřebujete oba druhy shody, vytvořte dva Poskytovatele.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kombinace 16: Plně smíšený příklad poskytovatele",
+  "guide_rules_title": {
+    "message": "4. Odstraňování parametrů",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Kapitola 21: Kompletní příklady",
+  "guide_rules_p1": {
+    "message": "Každý záznam v <code>rules</code> odstraňuje parametry z dotazu (<code>?a=1</code>) a z fragmentu (<code>#a=1</code>). Záznam je jedním z následujících:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Příklad 1: Základní čistič stop",
+  "guide_th_entry": {
+    "message": "Záznam",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Příklad 2: Odeberte všechny parametry UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Příklad 3: Udržujte potřebný parametr při přihlášení",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Příklad 4: Sledování prokliků přesměrováním",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Příklad 5: Clean Only API Requests",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Kapitola 22: Šablony rychlého kopírování",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Smíšený poskytovatel JSON Průvodce formáty",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Tato příručka vysvětluje, jak zapsat data poskytovatele JSON, která může číst <code>Linkumori extension</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Není to návod na kód JavaScript. Zaměřuje se pouze na JSON tvary, formáty pravidel a příklady, které autoři pravidel potřebují.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Tato příručka je založena na aktuálním chování běhového prostředí <code>clearurls.js</code>. Zejména vyhledávání poskytovatelů používá segmenty kandidátů <code>providersByToken</code> ze <code>domainPatterns</code> nebo <code>indexPattern</code> a konečné párování stále probíhá přes <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Kapitola 1: Základní tvar JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> očekává data poskytovatele v tomto obecném tvaru:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Důležitá část je <code>providers</code>. Každý klíč uvnitř <code>providers</code> je název poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Kapitola 2: Co je poskytovatel?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Poskytovatel je jeden pojmenovaný běhový kontejner pro jeden web, společnost, sledovač, sadu vzorů domény nebo regulární výraz adresy URL. Jméno poskytovatele je štítek/klíč; párování se provádí pomocí <code>domainPatterns</code> nebo <code>urlPattern</code>, nikoli podle názvu poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimální poskytovatel:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Co dělá toto:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Kapitola 3: Pole poskytovatele, která můžete použít",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Pole poskytovatele akceptovaná <code>clearurls.js</code>. Pro párování vytvořte buď <code>domainPatterns</code> nebo <code>urlPattern</code> s volitelným <code>indexPattern</code>; nespoléhejte na to, že obojí bude vyžadováno společně.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Jasný význam:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON pole",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Zdroj",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "K čemu to píšeš",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Chcete-li tohoto poskytovatele deaktivovat, nastavte <code>false</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "Starší doplněk ClearURLs a ClearURLs jádro v2 kanonické",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Nastavte <code>true</code> na blokování odpovídajících domén namísto pouhého čištění.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "Starší doplněk ClearURLs a ClearURLs jádro v2 kanonické",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Nastavte <code>true</code>, abyste vynutili přesměrování hlavní stránky přes kartu prohlížeče.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Doporučený způsob, jak říci, které domény tento poskytovatel odpovídá.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "Starší doplněk ClearURLs a ClearURLs jádro v2 kanonické",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "Řetězec regulárního výrazu JavaScript pro shodu URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Volitelná nápověda k rychlosti při použití <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs legacy addon a ClearURLs jádro v2 kanonické; <code>$removeparam</code> je Linkumori zde",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Normální pravidla pro odstranění parametrů a pravidla pro místní poskytovatele <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "dědictví doplňku ClearURLs; objekty v kanonickém stylu jsou zde Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Pravidla, která upravují celý text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "dědictví doplňku ClearURLs; objekty v kanonickém stylu jsou zde Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Volitelná pravidla doporučení/marketingových parametrů.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs starší verze addonu a ClearURLs jádro v2 kanonické; objektové formuláře zde jsou Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "Pravidla regulárního výrazu URL, kde by tento poskytovatel neměl běžet.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Pravidla vzoru domény, kde by tento poskytovatel neměl běžet.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "dědictví doplňku ClearURLs; objekty v kanonickém stylu jsou zde Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Pravidla přesměrování regulárního výrazu.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Pravidla přesměrování podle vzoru domény.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "Starší doplněk ClearURLs a ClearURLs jádro v2 kanonické",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Spusťte pouze pro tyto metody HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori navíc",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Spouštět pouze pro tyto typy požadavků prohlížeče.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Kapitola 4: Párování domén",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> je doplněk Linkumori a je preferován pro většinu vlastních poskytovatelů. V <code>clearurls.js</code> se pro párování před <code>urlPattern</code> používají neprázdné <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Spojte jednu doménu a všechny subdomény",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Zápasy:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Neodpovídá:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Porovnejte stejný název s jakoukoli veřejnou příponou",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Může odpovídat:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Porovnejte subdomény",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Může odpovídat:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Použijte více než jeden vzor domény",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Kapitola 5: Symboly vzoru domény",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Toto jsou symboly, které můžete použít v <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Symbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Význam",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Příklad",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Odstraňuje",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Shoda na hranici domény.",
+  "guide_rules_name": {
+    "message": "název parametru",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex názvu",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "každý parametr, jehož celý název odpovídá; <code>^…$</code> je přidáno automaticky a velikost písmen je ignorována",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Oddělovač nebo koncová hranice.",
+  "guide_rules_filter": {
+    "message": "filtr <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "viz kapitola 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> a <code>\"$removeparam=fbclid\"</code> odstraňují totéž. Používejte prostý název, pokud nepotřebujete něco z kapitoly 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Zástupný znak.",
+  "guide_rules_part_title": {
+    "message": "Pravidla pro část Poskytovatele",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Prostý název se aplikuje na každou URL, se kterou Poskytovatel souhlasí. Chcete-li odstranit parametr pouze u některých z nich, umístěte vzor před filtr <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Zde je <code>qid</code> odstraněno na každém webu Amazon, <code>tag</code> pouze na <code>amazon.de</code>, <code>sr</code> pouze na <code>smile.amazon</code> a <code>ref_</code> pouze pod <code>/gp/</code>. Vzor zužuje vlastní vzory Poskytovatele; nemůže je rozšířit.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Začátek nebo konec kotvy.",
+  "guide_rp_title": {
+    "message": "5. filtry $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Filtr <code>$removeparam</code> má tento tvar; části v hranatých závorkách jsou volitelné:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Hodnota",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript doslovný regulární výraz.",
+  "guide_rp_p2": {
+    "message": "První znak hodnoty určuje její význam:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtr",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Nejběžnější vzorec:",
+  "guide_rp_v_all": {
+    "message": "každý parametr",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Použijte jej, když chcete:",
+  "guide_rp_v_except": {
+    "message": "každý parametr kromě <code>ref</code> (funguje také s <code>~/regex/</code> a <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Kapitola 6: Shoda URLs s <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parametry, jejichž název, nebo <code>name=value</code>, odpovídá regulárnímu výrazu; velikost písmen hraje roli, pokud nepřidáte <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "<code>urlPattern</code> použijte pouze v případě, že shoda domény nestačí, například když poskytovatel musí odpovídat konkrétní cestě nebo úplnému regulárnímu výrazu adresy URL.",
+  "guide_rp_v_prefix": {
+    "message": "parametry, jejichž název začíná na <code>utm_</code>; velikost písmen je ignorována",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "To se může shodovat:",
+  "guide_rp_v_name": {
+    "message": "právě tento parametr; velikost písmen je ignorována, pokud nepřidáte <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> je starší verze doplňku ClearURLs a kanonická syntaxe jádra ClearURLs v2. Linkumori přidává <code>indexPattern</code> pouze jako nápovědu pro vyhledávání kandidátů, takže poskytovatele regulárních výrazů lze rychleji najít podle tokenů názvu hostitele.",
+  "guide_rp_options_title": {
+    "message": "Možnosti",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Důležité: <code>indexPattern</code> nerozhoduje, zda se poskytovatel shoduje. Po vyhledání kandidátů <code>clearurls.js</code> stále testuje skutečný <code>urlPattern</code> v <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Možnosti následují po hodnotě a jsou odděleny čárkami. Více hodnot jedné možnosti oddělte pomocí <code>|</code> a před hodnotu, kterou chcete vyloučit, umístěte <code>~</code>:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Kapitola 7: Odebrání parametrů jednoduchého dotazu",
+  "guide_th_option": {
+    "message": "Možnost",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Zadejte názvy parametrů do <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "pouze na stránkách z těchto domén",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "výsledek:",
+  "guide_rp_o_to": {
+    "message": "pouze pro požadavky na tyto domény",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Odstraňte mnoho parametrů:",
+  "guide_rp_o_method": {
+    "message": "pouze pro tyto HTTP metody",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "výsledek:",
+  "guide_rp_o_party": {
+    "message": "pouze pro požadavky na stejný web jako stránka, nebo pouze na jiné weby",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Kapitola 8: Napište objekt pravidla",
+  "guide_rp_o_strict": {
+    "message": "totéž, ale s porovnáním přesného hostitele místo webu",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Místo prostého řetězce může být pravidlem objekt.",
+  "guide_rp_o_types": {
+    "message": "pouze pro tyto typy požadavků; <code>~type</code> jeden z nich vyloučí",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Použijte toto, když potřebujete:",
+  "guide_rp_o_matchcase": {
+    "message": "název parametrů rozlišuje velká a malá písmena",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ID pravidla.",
+  "guide_rp_o_history": {
+    "message": "přeskočit tento filtr, když stránka změní svou vlastní adresu pomocí History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Přezdívky.",
+  "guide_rp_p4": {
+    "message": "Každá možnost má jeden pravopis. Protichůdné možnosti, jako například <code>first-party,third-party</code>, jsou zamítnuty.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Výjimky.",
+  "guide_rp_keep_title": {
+    "message": "ponechání parametru pomocí @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Limity typu požadavku.",
+  "guide_rp_p5": {
+    "message": "Filtr, který začíná <code>@@</code>, parametr ponechá místo toho, aby jej odstranil. Zde je <code>ref</code> odstraněn všude kromě GitHubu:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Přepsat chování.",
+  "guide_rp_p6": {
+    "message": "Filtr <code>@@</code> pokrývá také požadavky odeslané stránkou, se kterou tento Poskytovatel souhlasí, i když je zpracovává jiný Poskytovatel.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Příklad uvnitř poskytovatele:",
+  "guide_raw_title": {
+    "message": "6. Raw Pravidla",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "výsledek:",
+  "guide_raw_p1": {
+    "message": "Raw pravidlo je regulární výraz spuštěný na celé URL; každá shoda je smazána. Používejte jej pro text, který není parametrem <code>name=value</code>, například segment cesty <code>/ref=…</code> u Amazonu:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> na objektech pravidel poskytovatele je přidáním Linkumori. <code>flags: \"i\"</code> nerozlišuje malá a velká písmena.",
+  "guide_raw_p2": {
+    "message": "Raw pravidla neřeší velikost písmen a nahrazují každou shodu. V JSONu napište každé zpětné lomítko dvakrát.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Kapitola 9: <code>$removeparam</code> Pravidla",
+  "guide_raw_scope_title": {
+    "message": "Pouze na některých URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Odebrat jeden parametr",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Odebrat všechny parametry",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Odebrat parametry podle regulárního výrazu",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Odebrat vše kromě jednoho parametru",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Použít <code>$removeparam</code> pouze na jednu doménu",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Vyčištěno:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Nečištěno:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Přidat omezení domény",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Vyloučit jednu doménu:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Přidat omezení metody",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Pouze <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Ne <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Kapitola 10: <code>$removeparam</code> Výjimky",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Spusťte pravidlo <code>$removeparam</code> s <code>@@</code> a udělejte výjimku.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Příklad kontextové výjimky:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "To může chránit <code>ei</code> u dílčích požadavků zahájených stránkou <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Kapitola 11: Přepsání hodnot parametrů",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Použijte <code>action.type: \"rewrite\"</code> k nahrazení odpovídající hodnoty parametru.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Uvnitř poskytovatele:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Pokud chcete znovu použít aktuální hodnotu, použijte <code>§1§</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Kapitola 12: Raw pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Pomocí <code>rawRules</code> upravte celý text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Jednoduché hrubé pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Pravidlo nezpracovaného objektu:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Nezpracované pravidlo přepisu:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Kapitola 13: Pravidla přesměrování",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Pomocí <code>redirections</code> odešlete prohlížeč na nové číslo URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Pokud chybí <code>replacePattern</code>, použije se první zachytávací skupina.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Kapitola 14: Pravidla přesměrování domény",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> je doplněk Linkumori pro jednoduchá přesměrování doménového vzoru.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori sčítání — tvar řetězce:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori přidání — formulář objektu:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Kapitola 15: Výjimky",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> je dědictví doplňku ClearURLs a kanonická syntaxe jádra v2 ClearURLs. Linkumori také přijímá objekty kanonického stylu v tomto starším poli poskytovatelů.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> je přídavek Linkumori pro výjimky typu doména.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Přeskočeno:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Kapitola 16: Pravidla doporučujícího marketingu",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> funguje jako pravidla pole, ale je řízeno nastavením rozšíření pro marketing doporučení.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Kapitola 17: HTTP Metody",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Použijte <code>methods</code> ke spuštění poskytovatele pouze na konkrétních metodách HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Toto běží na:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Toto neběží na:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Kapitola 18: Typy prostředků prohlížeče",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> je sčítání Linkumori. Použijte jej ke spuštění poskytovatele pouze na konkrétní typy požadavků prohlížeče.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Společné hodnoty:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Kapitola 19: Preprocesory",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Preprocesory mění zachycené hodnoty před jejich použitím v <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Podporované typy:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> může být:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Kapitola 20: Povolené kombinace JSON",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Tato kapitola ukazuje Linkumori smíšeného poskytovatele JSON: ClearURLs starší pole doplňků, kanonické objekty ClearURLs core v2 a Linkumori doplňky mohou existovat společně v jednom souboru pravidel.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kombinace 1: Mnoho poskytovatelů v jednom souboru",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> je dědictví doplňku ClearURLs a kanonická syntaxe nejvyšší úrovně ClearURLs core v2. Linkumori si zachovává tento tvar a umožňuje pod ním mnoho poskytovatelů.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Každý poskytovatel se načítá samostatně.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kombinace 2: Global Defaults Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> je kanonická syntaxe jádra v2 ClearURLs. Linkumori jej přijímá vedle staršího <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Pravidla mohou zdědit výchozí hodnoty, pokud tato pole v pravidle chybí.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kombinace 3: <code>domainPatterns</code> Poskytovatel",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Toto je sčítání Linkumori. Tento formulář by měla používat většina poskytovatelů Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kombinace 4: <code>urlPattern</code> Poskytovatel s <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> je upstream syntaxe ClearURLs. <code>indexPattern</code> je nápověda pro vyhledávání Linkumori pro poskytovatele regulárních URL; měl by ukazovat na názvy hostitelů, kterým se regulární výraz může shodovat.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> je volitelný, ale užitečný pro rychlost. Indexuje poskytovatele do segmentů kandidátů na název hostitele-tokenu; nikdy nenahrazuje poslední zápas <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kombinace 5: Nemíchejte <code>domainPatterns</code> a <code>urlPattern</code> jako kombinovaný požadavek",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Tento tvar se může objevit ve starších nebo ručně psaných datech, ale neznamená to, že oba porovnávači musí projít:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Aktuální chování <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Pokud je <code>domainPatterns</code> přítomen a není prázdný, <code>clearurls.js</code> jej použije pro párování poskytovatelů a ignoruje <code>urlPattern</code> pro tohoto poskytovatele. Vlastní cesta editoru/importu odmítne poskytovatele, kteří obsahují obojí. Pokud potřebujete podmínku cesty, použijte <code>urlPattern</code> s <code>indexPattern</code> nebo rozsah jednotlivých položek <code>$removeparam</code>/pravidel uvnitř <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kombinace 6: Smíšené <code>rules[]</code> záznamů",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "V Linkumori může <code>rules</code> obsahovat ClearURLs starších řetězců, Linkumori <code>$removeparam</code> řetězců, Linkumori 95080746 95080746 objektů ClearURLs kanonické objekty core v2 společně.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Všechny čtyři příspěvky jsou přijaty.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kombinace 7: Kanonické objekty uvnitř <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Kanonické objekty ClearURLs core v2 mohou představovat různé druhy pravidel. V tomto příkladu Linkumori jsou umístěny uvnitř poskytovatele, který používá <code>domainPatterns</code>, což je pouze Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> je třídí podle významu:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kombinace 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "Pole staršího poskytovatele doplňků ClearURLs stále fungují. Linkumori umožňuje těmto polím sedět vedle objektů kanonických pravidel ClearURLs core v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Toto platí. Modul čte všechna tato pole pro stejného poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kombinace 9: Metody a typy zdrojů na úrovni poskytovatele",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> je předřazená syntaxe ClearURLs. <code>resourceTypes</code> je sčítání Linkumori. Obojí platí pro celého poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Jak <code>rules</code>, tak <code>rawRules</code> jsou omezeny shodou metody/typu poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kombinace 10: Typy požadavků na úrovni pravidel",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "Kanonická pravidla ClearURLs core v2 mohou definovat úroveň pravidla <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Úroveň poskytovatele <code>resourceTypes</code> nejprve zúží poskytovatele. Úroveň pravidla <code>requestTypes</code> poté zužuje jednotlivá pravidla.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kombinace 11: Výjimky na různých místech",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori umožňuje kombinovat ClearURLs výjimky poskytovatele, Linkumori výjimky domény, ClearURLs výjimky pravidla core v2 a Linkumori výjimky poskytovatel-místní 920800746",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Jasný význam:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kombinace 12: Pravidla blokování poskytovatele plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> označí poskytovatele jako zrušení/blokování.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Když je v nastavení povoleno blokování domény, lze zablokovat odpovídající požadavky. Pravidla mohou stále existovat, ale blokování je pro daného poskytovatele silnější.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kombinace 13: Pravidla čištění poskytovatele přesměrování plus",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Poskytovatel může obsahovat přesměrování a pravidla čištění.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Pokud se přesměrování shoduje, je nejprve vráceno přesměrování.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kombinace 14: Přesměrování domény Plus přesměrování Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Oba mohou existovat u jednoho poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Nejprve se kontrolují přesměrování podle regulárního výrazu. Přesměrování domény se kontroluje, pokud neodpovídá žádné přesměrování regulárního výrazu.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kombinace 15: Vypnutá nebo neaktivní pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Poskytovatelé mohou být neaktivní:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Pravidla mohou být neaktivní:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Neaktivní poskytovatelé a neaktivní pravidla jsou ignorována.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kombinace 16: Plně smíšený příklad poskytovatele",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Tento příklad Linkumori záměrně kombinuje většinu podporovaných funkcí poskytovatele: starší pole doplňků ClearURLs, objekty kanonických pravidel jádra v2 ClearURLs a funkce porovnávání a vzoru domény pouze Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Toto je platné Linkumori smíšený poskytovatel JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Kapitola 21: Kompletní příklady",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Příklad 1: Základní čistič stop",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Příklad 2: Odeberte všechny parametry UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Příklad 3: Udržujte potřebný parametr při přihlášení",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Příklad 4: Sledování prokliků přesměrováním",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Příklad 5: Clean Only API Requests",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Kapitola 22: Šablony rychlého kopírování",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Odebrat jeden parametr:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Odstraňte mnoho parametrů:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Použijte <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Odebrat všechny parametry <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Přidat výjimku:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Přiřadit doménu:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Přesměrujte sledovač URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Raw pravidlo může převzít vzorec a možnosti filtru <code>$removeparam</code>, přičemž <code>rawrule=</code> bude poslední. Vše po <code>rawrule=</code> je regulární výraz:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Vzorec a možnosti rozhodují o tom, kde pravidlo běží; regulární výraz je stále to, co se smaže. <code>match-case</code> jej učiní citlivým na velikost písmen.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Zastavení raw pravidel na některých URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Zápis začínající <code>@@</code> zabrání spuštění Raw Pravidla tam, kde odpovídá jeho vzor. Raw Pravidlu přiřaďte <code>id</code> a pojmenujte jej pomocí <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Pokud za <code>rawrule=</code> nenásleduje nic a chybí <code>targetId</code>, zápis zastaví všechna Raw Pravidla daného Poskytovatele na těchto URL. Pro přeskočení celého Poskytovatele použijte místo toho <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Výjimky",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Pokud URL odpovídá zápisu v <code>exceptions</code>, nebudou spuštěna žádná pravidla Poskytovatele. Zápis je regulární výraz nebo vzor domény začínající <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Výjimky ignorují velikost písmen.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Přesměrování",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Pravidla pro Přesměrování přeskakují sledovací stránky tak, že vedou přímo na skutečnou destinaci. Fungují pouze v případě, že je <em>Povolit vynechání přesměrování třetí strany</em> zapnuto.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Přesměrování na část URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Zápis v <code>redirections</code> je regulární výraz s přesně jednou zachycovací skupinou, <code>( … )</code>. Požadavek je odeslán na to, co skupina zachytila, po URL-dekódování. Jakoukoli jinou skupinu zapište jako <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Přesměrování na pevnou adresu",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Zápis začínající <code>|</code> odešle každou odpovídající URL na jednu adresu:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Přesměrování na hodnotu parametru",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> pojmenovává parametr, který obsahuje destinaci, takže není potřeba regulární výraz. Přijímá stejné zápisy jako <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Vítězí první odpovídající parametr, který má hodnotu. Přesměrování zastaví veškeré další zpracování požadavku.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Objekty pravidel",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Jakýkoli zápis může být místo řetězce objektem. Použijte jej, pokud pravidlo vyžaduje id, má být na začátku vypnuté, má přepsat místo odstranit nebo má běžet pouze v určitých případech:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Klíč",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "text, který byste zapsali jako obyčejný záznam",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "stabilní název (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) použitý k zapnutí a vypnutí pravidla",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "předchozí ID pravidla, aby pravidlo, které jste vypnuli, zůstalo vypnuté i po přejmenování",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "přepsat místo odstranit; <code>§1§</code>, <code>§2§</code>, … jsou zachycené hodnoty",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "nejprve změnit zachycené hodnoty",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "pouze pro tyto typy požadavků, například <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL, kde toto konkrétní pravidlo neběží",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "příznaky regulárního výrazu jako řetězec (výchozí <code>i</code>; <code>gi</code> v <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "spustit pravidlo dříve nebo později",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: pravidlo v <code>rules</code> je považováno za pravidlo pro referral-marketing",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: přeskočit toto pravidlo, když stránka změní svou vlastní adresu pomocí History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: pravidlo začíná jako vypnuté",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "volný text",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "pouze u záznamů <code>@@…$rawrule=</code>: Raw Pravidla, která zastavuje",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Přepisování místo odstranění",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "S <code>replacePattern</code> pravidlo v <code>rules</code> zachovává parametr a nahrazuje jeho hodnotu, což je <code>§1§</code>. V <code>rawRules</code> a <code>redirections</code> jsou <code>§1§</code>, <code>§2§</code>, … zachycovacími skupinami:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocesory",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Preprocesory mění zachycené hodnoty předtím, než je <code>replacePattern</code> použije. <code>inputs</code> je <code>\"all\"</code> nebo seznam čísel skupin:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Typy jsou <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> a <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID pravidel",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Každé pravidlo má ID. Pravidlo bez <code>id</code> jej získá ze svého seznamu a textu: <code>\"utm_source\"</code> v <code>rules</code> se stane <code>field-utm-source</code>. Pokud by dvě pravidla dostala stejné ID, obě dostanou na konec krátký hash.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Vygenerované ID se změní, když se změní text pravidla. Pravidlu přiřaďte vlastní <code>id</code>, pokud si má zachovat nastavení zapnuto/vypnuto i po úpravách.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Spouštění pravidla dříve nebo později",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Raw Pravidla běží obvykle jako první, poté <code>rules</code> a <code>referralMarketing</code>. Pravidlo s <code>order</code> běží před pravidly bez něj, nejnižší první. Zde je token nejprve nahrazen a poté smazán:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> funguje v <code>rules</code>, <code>rawRules</code> a <code>referralMarketing</code>, ale ne u filtrů <code>$removeparam</code>, které běží vždy jako poslední.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referenční marketing",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> používá stejné záznamy jako <code>rules</code>. Jsou vynechány, pokud je <em>Povolit marketing doporučení</em> zapnuto, takže affiliate odkazy budou i nadále fungovat, pokud si to přejete:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Pravidlo může zůstat v <code>rules</code> a stále být považováno za referenční marketing s pomocí <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metody a typy požadavků",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Tyto možnosti zužují podmínky, za kterých Poskytovatel nebo pravidlo běží:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "chování clearurls.js: pokud domainPatterns existuje a není prázdné, Linkumori používá domainPatterns pro párování poskytovatelů. urlPattern se používá pouze v případě, že doménaPatterns chybí nebo je prázdná. Vlastní cesta editoru/importu tento tvar smíšeného porovnávače odmítá, takže jej používejte pouze k pochopení starších dat.",
+  "guide_req_methods": {
+    "message": "HTTP metody, které Poskytovatel obsluhuje",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "typy požadavků, které Poskytovatel zpracovává",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "typy požadavků, které zpracovává jeden objekt pravidla",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "toté platí pro jeden filtr <code>$removeparam</code> nebo Raw Pravidla",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Typy požadavků používají názvy prohlížeče: <code>main_frame</code> (stránka), <code>sub_frame</code> (rám), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> a tak dále. Možnosti filtrů první dva nazývají <code>document</code> a <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Jak je URL zpracovávána",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Pro každého Poskytovatele, který odpovídá URL a povoluje požadavek:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: pokud jeden odpovídá, Poskytovatel je přeskočen.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, poté <code>fieldRedirections</code>: shoda přesměruje požadavek a nic dalšího se nespustí.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: požadavek je blokován.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> běží na plné URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> a <code>referralMarketing</code> odstraňují parametry.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Filtry <code>$removeparam</code> běží, kromě případů, kdy filtr <code>@@</code> parametr ponechá.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "První Poskytovatel, který požadavek změní, přesměruje nebo zablokuje, rozhodne o výsledku. Nová URL poté znovu projde stejnými kroky.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Kompletní příklady",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Vyčištění jednoho obchodu",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Odstraňuje sledovací parametry a affiliate id v jednom obchodě a ponechává jeho stránky s pokladnou nedotčeny:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Odstranit UTM parametry všude",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Vzor <code>*</code> odpovídá každé URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Přeskočit click tracker",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Odesílá odkazy přes click tracker přímo na jejich cíl, který je v parametru <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "ponechat parametr na jedné stránce",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Odstraňuje <code>ref</code> všude na webu kromě přihlašovací stránky, která jej vyžaduje:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Kontrola vašich pravidel",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Editor Vlastních pravidel kontroluje pravidla při jejich ukládání nebo importu. Kromě poškozeného JSON a neplatných regulárních výrazů zamítá pravidla, která by se sice načetla, ale potichu by dělala špatnou věc, například:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> a <code>urlPattern</code> u jednoho Poskytovatele",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "vzor s jedním <code>|</code> a bez schématu, například <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "Přesměrování pomocí regulárního výrazu bez přesně jedné zachycovací skupiny",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "neznámá pole, klíče a možnosti",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> nebo <code>referralMarketing</code> tam, kde by to nemělo žádný efekt",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "záznam <code>@@…$rawrule=</code>, který nezastaví žádné Raw Pravidlo",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Pokud uložení selže, zpráva pojmenuje Poskytovatele, seznam a konkrétní záznam.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

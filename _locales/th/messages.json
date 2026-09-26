@@ -4727,1688 +4727,704 @@
     "message": "การควบคุมรหัสกฎจะพร้อมใช้งานเมื่อผู้ให้บริการ JSON ถูกต้อง",
     "description": "สถานะ JSON ไม่ถูกต้องสำหรับการควบคุมรหัสกฎของผู้ให้บริการ"
   },
-  "guide_0001": {
-    "message": "ส่วนขยาย Linkumori - เอกสารกฎ",
+  "guide_page_title": {
+    "message": "Linkumori — คู่มือการเขียนกฎ",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "ธีม",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "รูปแบบผู้ให้บริการ JSON",
+  "guide_toc_label": {
+    "message": "สารบัญ",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "ผู้ให้บริการ Linkumori JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "บทที่ 1: รูปร่างพื้นฐาน JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "บทที่ 2: ผู้ให้บริการคืออะไร?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "บทที่ 3: ฟิลด์ผู้ให้บริการที่คุณสามารถใช้ได้",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "บทที่ 4: การจับคู่โดเมน",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "จับคู่หนึ่งโดเมนและโดเมนย่อยทั้งหมด",
+  "guide_title": {
+    "message": "การเขียนกฎ Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "จับคู่ชื่อเดียวกันกับคำต่อท้ายสาธารณะใดๆ",
+  "guide_intro_1": {
+    "message": "Linkumori ทำความสะอาด URL ด้วยกฎ คู่มือนี้จะแสดงวิธีการเขียน ตั้งแต่กฎข้อแรกไปจนถึงทุกตัวเลือก พร้อมตัวอย่างที่คุณสามารถคัดลอกได้",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "จับคู่โดเมนย่อย",
+  "guide_intro_2": {
+    "message": "กฎอยู่ในรูปแบบ JSON คุณสามารถเขียนได้ในตัวแก้ไขกฎที่กำหนดเอง ซึ่งจะตรวจสอบความถูกต้องเมื่อคุณบันทึก รายการกฎที่มาพร้อมกับโปรแกรมและรายการกฎจากระยะไกลจะใช้รูปแบบเดียวกัน",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "ใช้รูปแบบโดเมนมากกว่าหนึ่งรูปแบบ",
+  "guide_file_title": {
+    "message": "1. ไฟล์กฎ",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "บทที่ 5: สัญลักษณ์รูปแบบโดเมน",
+  "guide_file_p1": {
+    "message": "ไฟล์กฎคือ JSON object หนึ่งชุด โดย <code>providers</code> object จะจับคู่ชื่อที่คุณเลือกเข้ากับผู้ให้บริการ:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "บทที่ 6: การจับคู่ URLs ด้วย urlPattern",
+  "guide_file_p2": {
+    "message": "ผู้ให้บริการจะระบุว่าจัดการกับ URL ใดและต้องทำอย่างไรกับ URL เหล่านั้น ตัวอย่างนี้จะลบ <code>utm_source</code> และ <code>utm_medium</code> ออกจากทุก URL บน <code>example.com</code> และโดเมนย่อยของมัน:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "บทที่ 7: ลบพารามิเตอร์แบบสอบถามอย่างง่าย",
+  "guide_file_p3": {
+    "message": "ชื่อเป็นเพียงป้ายกำกับเท่านั้น การที่ผู้ให้บริการจะจัดการกับ URL ใดนั้นถูกตัดสินโดย <code>domainPatterns</code> หรือ <code>urlPattern</code>",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "บทที่ 8: เขียนวัตถุกฎ",
+  "guide_fields_title": {
+    "message": "2. ฟิลด์ของผู้ให้บริการ",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "บทที่ 9: กฎ $removeparam",
+  "guide_th_field": {
+    "message": "ฟิลด์",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "ลบหนึ่งพารามิเตอร์",
+  "guide_th_meaning": {
+    "message": "การทำงาน",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "ลบพารามิเตอร์ทั้งหมด",
+  "guide_field_domainpatterns": {
+    "message": "URL ที่ผู้ให้บริการจัดการ ในรูปแบบรูปแบบโดเมน (บทที่ 3) ให้ใช้สิ่งนี้หรือ <code>urlPattern</code> อย่างใดอย่างหนึ่งเท่านั้น",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "ลบพารามิเตอร์โดย Regex",
+  "guide_field_urlpattern": {
+    "message": "URL ที่ผู้ให้บริการจัดการ ในรูปแบบ regular expression ที่จับคู่กับ URL ทั้งหมด โดยไม่คำนึงถึงตัวพิมพ์เล็กหรือใหญ่",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "ลบพารามิเตอร์ทั้งหมดยกเว้นหนึ่งรายการ",
+  "guide_field_indexpattern": {
+    "message": "ใช้ร่วมกับ <code>urlPattern</code> เท่านั้น: คำใบ้โฮสต์ เช่น <code>||example.com^</code> เพื่อให้ตรวจสอบผู้ให้บริการเฉพาะโฮสต์เหล่านั้น หากไม่มีสิ่งนี้ ผู้ให้บริการจะถูกตรวจสอบกับทุก URL",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "ใช้ $removeparam กับโดเมนเดียวเท่านั้น",
+  "guide_field_rules": {
+    "message": "พารามิเตอร์ที่ต้องการลบ (บทที่ 4 และ 5)",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "เพิ่มขีดจำกัดโดเมน",
+  "guide_field_referral": {
+    "message": "พารามิเตอร์การแนะนำและพาร์ทเนอร์ที่ต้องการลบ ซึ่งจะถูกข้ามไปเมื่อ <em>อนุญาตการตลาดแบบแนะนำ</em> เปิดใช้งาน (บทที่ 10)",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "เพิ่มขีดจำกัดวิธีการ",
+  "guide_field_rawrules": {
+    "message": "Regular expressions ที่ทำงานกับ URL ทั้งหมด โดยทุกส่วนที่จับคู่ได้จะถูกลบออก (บทที่ 6)",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "บทที่ 10: $removeparam ข้อยกเว้น",
+  "guide_field_exceptions": {
+    "message": "URL ที่ผู้ให้บริการจะไม่แตะต้อง (บทที่ 7)",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "บทที่ 11: เขียนค่าพารามิเตอร์ใหม่",
+  "guide_field_redirections": {
+    "message": "ตำแหน่งที่จะส่งคำขอไปแทน (บทที่ 8)",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "บทที่ 12: กฎดิบ",
+  "guide_field_fieldredirections": {
+    "message": "การเปลี่ยนเส้นทางไปยังค่าของพารามิเตอร์ (บทที่ 8)",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "บทที่ 13: กฎการเปลี่ยนเส้นทาง",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> จะบล็อกทุกคำขอที่ผู้ให้บริการจับคู่ได้ ในขณะที่ <em>อนุญาตการบล็อกโดเมน</em> เปิดใช้งาน",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "บทที่ 14: กฎการเปลี่ยนเส้นทางโดเมน",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: เมื่อหน้าเว็บถูกเปลี่ยนเส้นทาง แท็บจะเปิดที่อยู่ใหม่",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "บทที่ 15: ข้อยกเว้น",
+  "guide_field_methods": {
+    "message": "จัดการเฉพาะ HTTP methods เหล่านี้เท่านั้น เช่น <code>[\"GET\"]</code> ค่าเริ่มต้น: ทั้งหมด",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "บทที่ 16: กฎการตลาดอ้างอิง",
+  "guide_field_resourcetypes": {
+    "message": "จัดการเฉพาะประเภทคำขอเหล่านี้เท่านั้น เช่น <code>[\"main_frame\"]</code> ค่าเริ่มต้น: ประเภทที่เลือกในการตั้งค่า",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "บทที่ 17: วิธีการ HTTP",
+  "guide_field_history": {
+    "message": "<code>false</code> จะข้ามผู้ให้บริการเมื่อหน้าเว็บเปลี่ยนที่อยู่ของตัวเองด้วย History API",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "บทที่ 18: ประเภททรัพยากรเบราว์เซอร์",
+  "guide_field_active": {
+    "message": "<code>false</code> ปิดการทำงานของผู้ให้บริการ",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "บทที่ 19: โปรเซสเซอร์ล่วงหน้า",
+  "guide_match_title": {
+    "message": "3. URL ใดบ้างที่ผู้ให้บริการจัดการ",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "บทที่ 20: อนุญาต JSON ชุดค่าผสม",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> คือรายการรูปแบบโดเมน URL จะตรงกันหากมีรูปแบบใดรูปแบบหนึ่งตรงกัน:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "ชุดค่าผสม 1: ผู้ให้บริการหลายรายในไฟล์เดียว",
+  "guide_th_pattern": {
+    "message": "รูปแบบ",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "ชุดค่าผสม 2: ผู้ให้บริการ Global Defaults Plus",
+  "guide_th_matches": {
+    "message": "ตรงกับ",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "ชุดค่าผสม 3: ผู้ให้บริการรูปแบบโดเมน",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> และซับโดเมนทั้งหมด",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "ชุดค่าผสม 4: ผู้ให้บริการ urlPattern พร้อม indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> บน public suffix ใดๆ (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "ชุดค่าผสมที่ 5: รูปแบบโดเมนและรูปแบบ url รวมกัน",
+  "guide_pat_path": {
+    "message": "โฮสต์นั้นและซับโดเมน เมื่อเส้นทางเริ่มต้นด้วย <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "ชุดค่าผสม 6: รายการกฎผสม []",
+  "guide_pat_star": {
+    "message": "เหมือนกับ <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "ชุดค่าผสม 7: กฎ Canonical Objects Inside[]",
+  "guide_pat_start": {
+    "message": "URL ที่เริ่มต้นด้วยข้อความนี้พอดี",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "ชุดค่าผสม 8: กฎ Legacy Arrays Plus Canonical[]",
+  "guide_pat_end": {
+    "message": "URL ที่ลงท้ายด้วยข้อความนี้พอดี",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "ชุดค่าผสม 9: วิธีการของผู้ให้บริการและประเภททรัพยากร",
+  "guide_pat_regex": {
+    "message": "URL แบบเต็ม ในรูปแบบ regular expression (คำนึงถึงตัวพิมพ์เล็ก-ใหญ่ เว้นแต่คุณจะเพิ่ม <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "ชุดค่าผสม 10: ประเภทคำขอระดับกฎ",
+  "guide_pat_contains": {
+    "message": "URL ที่มีข้อความนี้อยู่ที่ใดก็ได้",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "ชุดค่าผสม 11: ข้อยกเว้นในสถานที่ต่างกัน",
+  "guide_pat_all": {
+    "message": "ทุก URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "ชุดค่าผสม 12: กฎเกณฑ์บวกของผู้ให้บริการบล็อก",
+  "guide_match_p2": {
+    "message": "<code>^</code> ระบุจุดสิ้นสุดของชื่อโฮสต์ หรือตัวคั่น เช่น <code>/</code>, <code>?</code> หรือ <code>:</code> ส่วน <code>*</code> ตรงกับอะไรก็ได้ นอกจาก <code>/regex/</code> แล้ว รูปแบบต่างๆ จะไม่คำนึงถึงตัวพิมพ์เล็ก-ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "ชุดค่าผสม 13: กฎการล้างข้อมูลผู้ให้บริการเปลี่ยนเส้นทางพร้อม",
+  "guide_match_p3": {
+    "message": "<code>||</code> แทนโดเมน ในขณะที่ <code>|</code> ตัวเดียวแทนจุดเริ่มต้นของ URL และต้องตามด้วย scheme เช่น <code>https://</code> ส่วน <code>|example.com^</code> ไม่สามารถตรงกับอะไรได้เลย ดังนั้นตัวแก้ไขจะปฏิเสธค่านี้",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "ชุดค่าผสม 14: การเปลี่ยนเส้นทางโดเมนพร้อมการเปลี่ยนเส้นทาง Regex",
+  "guide_match_p4": {
+    "message": "หากต้องการจับคู่ด้วย regular expression ให้ใช้ <code>urlPattern</code> และเพิ่ม <code>indexPattern</code> เพื่อให้ผู้ให้บริการถูกตรวจสอบเฉพาะในโฮสต์เหล่านั้น:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "ชุดค่าผสม 15: กฎที่ปิดใช้งานหรือไม่ใช้งาน",
+  "guide_match_p5": {
+    "message": "ผู้ให้บริการจะมี <code>domainPatterns</code> หรือ <code>urlPattern</code> อย่างใดอย่างหนึ่งเท่านั้น หากคุณต้องการการจับคู่ทั้งสองแบบ ให้สร้างผู้ให้บริการสองราย",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "ชุดค่าผสม 16: ตัวอย่างผู้ให้บริการแบบผสมแบบเต็ม",
+  "guide_rules_title": {
+    "message": "4. การลบพารามิเตอร์",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "บทที่ 21: ตัวอย่างที่สมบูรณ์",
+  "guide_rules_p1": {
+    "message": "แต่ละรายการใน <code>rules</code> จะลบพารามิเตอร์ออกจาก query (<code>?a=1</code>) และจาก fragment (<code>#a=1</code>) โดยรายการจะเป็นอย่างใดอย่างหนึ่งดังนี้:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "ตัวอย่างที่ 1: ตัวติดตามพื้นฐาน",
+  "guide_th_entry": {
+    "message": "รายการ",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "ตัวอย่างที่ 2: ลบพารามิเตอร์ UTM ทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "ตัวอย่างที่ 3: เก็บพารามิเตอร์ที่จำเป็นไว้ในการเข้าสู่ระบบ",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "ตัวอย่างที่ 4: การคลิกการติดตามการเปลี่ยนเส้นทาง",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "ตัวอย่างที่ 5: ล้างเฉพาะคำขอ API",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "บทที่ 22: เทมเพลตการคัดลอกด่วน",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "ผู้ให้บริการแบบผสม Linkumori คู่มือรูปแบบ JSON",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "คู่มือนี้อธิบายวิธีการเขียนข้อมูลผู้ให้บริการ JSON ที่ <code>Linkumori extension</code> สามารถอ่านได้",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "ไม่ใช่คำแนะนำสำหรับรหัส JavaScript โดยจะเน้นเฉพาะรูปร่าง JSON รูปแบบกฎ และตัวอย่างที่ผู้สร้างกฎต้องการเท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "คู่มือนี้อิงตามพฤติกรรมรันไทม์ของ <code>clearurls.js</code> ในปัจจุบัน โดยเฉพาะอย่างยิ่ง การค้นหาผู้ให้บริการใช้ที่เก็บข้อมูลผู้สมัคร <code>providersByToken</code> จาก <code>domainPatterns</code> หรือ <code>indexPattern</code> และการจับคู่ขั้นสุดท้ายยังคงดำเนินการผ่าน <code>provider.matchRequestURL()</code>",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "บทที่ 1: รูปร่างพื้นฐาน JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> คาดว่าข้อมูลของผู้ให้บริการจะอยู่ในรูปแบบทั่วไปนี้:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "ส่วนที่สำคัญคือ <code>providers</code> แต่ละคีย์ภายใน <code>providers</code> คือชื่อผู้ให้บริการ",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "ตัวอย่าง:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "บทที่ 2: ผู้ให้บริการคืออะไร?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "ผู้ให้บริการคือคอนเทนเนอร์รันไทม์ที่มีชื่อหนึ่งรายการสำหรับเว็บไซต์ บริษัท ตัวติดตาม ชุดรูปแบบโดเมน หรือ regex URL หนึ่งรายการ ชื่อผู้ให้บริการคือป้ายกำกับ/คีย์ การจับคู่ทำได้โดย <code>domainPatterns</code> หรือ <code>urlPattern</code> ไม่ใช่โดยชื่อผู้ให้บริการ",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "ผู้ให้บริการขั้นต่ำ:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "สิ่งนี้ทำอะไร:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "บทที่ 3: ฟิลด์ผู้ให้บริการที่คุณสามารถใช้ได้",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "ช่องผู้ให้บริการยอมรับโดย <code>clearurls.js</code> สำหรับการจับคู่ ให้เขียน <code>domainPatterns</code> หรือ <code>urlPattern</code> พร้อมด้วย <code>indexPattern</code> ซึ่งเป็นอุปกรณ์เสริม ไม่ต้องพึ่งทั้งความต้องการร่วมกัน",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "ความหมายธรรมดา:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "ฟิลด์ JSON",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "แหล่งที่มา",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "สิ่งที่คุณเขียนมันเพื่อ",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "ตั้งค่า <code>false</code> เพื่อปิดใช้งานผู้ให้บริการนี้",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "ตั้งค่า <code>true</code> เพื่อบล็อกโดเมนที่ตรงกัน แทนที่จะทำความสะอาดเพียงอย่างเดียว",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "ตั้งค่า <code>true</code> เพื่อบังคับให้เปลี่ยนเส้นทางหน้าหลักผ่านแท็บเบราว์เซอร์",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "วิธีที่แนะนำในการบอกว่าผู้ให้บริการรายนี้ตรงกับโดเมนใด",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "สตริง regex JavaScript สำหรับการจับคู่ URL",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "คำแนะนำความเร็วเสริมเมื่อใช้ <code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ <code>$removeparam</code> คือ Linkumori นอกจากนี้ที่นี่",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "กฎการลบพารามิเตอร์ปกติและกฎ <code>$removeparam</code> ของผู้ให้บริการภายในเครื่อง",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs มรดกเสริม; วัตถุสไตล์มาตรฐานที่นี่คือ Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "กฎการแก้ไขข้อความ URL ทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs มรดกเสริม; วัตถุสไตล์มาตรฐานที่นี่คือ Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "กฎพารามิเตอร์การอ้างอิง/การตลาดที่เป็นตัวเลือก",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ แบบฟอร์มวัตถุที่นี่คือ Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "กฎ regex URL ที่ผู้ให้บริการรายนี้ไม่ควรทำงาน",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "กฎรูปแบบโดเมนที่ไม่ควรเรียกใช้ผู้ให้บริการรายนี้",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs มรดกเสริม; วัตถุสไตล์มาตรฐานที่นี่คือ Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "กฎการเปลี่ยนเส้นทาง Regex",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "กฎการเปลี่ยนเส้นทางรูปแบบโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามบัญญัติ",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "เรียกใช้สำหรับวิธีการ HTTP เหล่านี้เท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori นอกจากนี้",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "เรียกใช้สำหรับประเภทคำขอเบราว์เซอร์เหล่านี้เท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "บทที่ 4: การจับคู่โดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> เป็นส่วนเสริมของ Linkumori และเป็นที่นิยมสำหรับผู้ให้บริการแบบกำหนดเองส่วนใหญ่ ใน <code>clearurls.js</code> นั้น <code>domainPatterns</code> ที่ไม่ว่างเปล่าจะถูกใช้สำหรับการจับคู่ก่อน <code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "จับคู่หนึ่งโดเมนและโดเมนย่อยทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "การแข่งขัน:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "ไม่ตรงกัน:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "จับคู่ชื่อเดียวกันกับคำต่อท้ายสาธารณะใดๆ",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "สามารถจับคู่:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "จับคู่โดเมนย่อย",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "สามารถจับคู่:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "ใช้รูปแบบโดเมนมากกว่าหนึ่งรูปแบบ",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "บทที่ 5: สัญลักษณ์รูปแบบโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "นี่คือสัญลักษณ์ที่คุณสามารถใช้ได้ใน <code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "สัญลักษณ์",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "ความหมาย",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "ตัวอย่าง",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "ลบ",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "จับคู่ที่ขอบเขตโดเมน",
+  "guide_rules_name": {
+    "message": "ชื่อพารามิเตอร์",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex ของชื่อ",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "พารามิเตอร์ทุกตัวที่ชื่อทั้งหมดตรงกัน โดย <code>^…$</code> จะถูกเพิ่มให้โดยอัตโนมัติ และไม่คำนึงถึงตัวพิมพ์เล็กพิมพ์ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "ตัวคั่นหรือขอบเขตสิ้นสุด",
+  "guide_rules_filter": {
+    "message": "ตัวกรอง <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "ดูบทที่ 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> และ <code>\"$removeparam=fbclid\"</code> ลบสิ่งเดียวกัน ให้ใช้ชื่อแบบธรรมดา เว้นแต่คุณต้องการฟังก์ชันบางอย่างจากบทที่ 5",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "ไวลด์การ์ด",
+  "guide_rules_part_title": {
+    "message": "กฎสำหรับส่วนหนึ่งของผู้ให้บริการ",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "ชื่อแบบธรรมดาจะใช้กับทุก URL ที่ผู้ให้บริการจับคู่ได้ หากต้องการลบพารามิเตอร์ในบาง URL เท่านั้น ให้ใส่รูปแบบไว้หน้าตัวกรอง <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "ในที่นี้ <code>qid</code> จะถูกลบในทุกไซต์ของ Amazon, <code>tag</code> เฉพาะใน <code>amazon.de</code>, <code>sr</code> เฉพาะใน <code>smile.amazon</code> และ <code>ref_</code> เฉพาะภายใต้ <code>/gp/</code> รูปแบบนี้จะช่วยจำกัดรูปแบบของผู้ให้บริการให้แคบลง แต่ไม่สามารถทำให้กว้างขึ้นได้",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "เริ่มหรือสิ้นสุดจุดยึด",
+  "guide_rp_title": {
+    "message": "5. ตัวกรอง $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "ตัวกรอง <code>$removeparam</code> มีรูปแบบดังนี้ โดยส่วนที่อยู่ในวงเล็บเป็นส่วนเสริม:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "ค่า (Value)",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript ตัวอักษร regex",
+  "guide_rp_p2": {
+    "message": "ตัวอักษรตัวแรกของค่าจะเป็นตัวกำหนดความหมาย:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "ตัวกรอง",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "รูปแบบที่พบบ่อยที่สุด:",
+  "guide_rp_v_all": {
+    "message": "ทุกพารามิเตอร์",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "ใช้มันเมื่อคุณต้องการ:",
+  "guide_rp_v_except": {
+    "message": "ทุกพารามิเตอร์ยกเว้น <code>ref</code> (ใช้งานได้กับ <code>~/regex/</code> และ <code>~|prefix</code> ด้วย)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "บทที่ 6: การจับคู่ URLs กับ <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "พารามิเตอร์ที่ชื่อ หรือ <code>name=value</code> ตรงกับ regular expression โดยจะคำนึงถึงตัวพิมพ์เล็ก-ใหญ่ เว้นแต่คุณจะเพิ่ม <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "ใช้ <code>urlPattern</code> เฉพาะเมื่อการจับคู่โดเมนไม่เพียงพอ เช่น เมื่อผู้ให้บริการต้องตรงกับเส้นทางเฉพาะหรือ regex URL แบบเต็ม",
+  "guide_rp_v_prefix": {
+    "message": "พารามิเตอร์ที่ชื่อเริ่มต้นด้วย <code>utm_</code> โดยไม่คำนึงถึงตัวพิมพ์เล็ก-ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "สิ่งนี้สามารถจับคู่ได้:",
+  "guide_rp_v_name": {
+    "message": "พารามิเตอร์นั้นโดยเฉพาะ โดยไม่คำนึงถึงตัวพิมพ์เล็ก-ใหญ่ เว้นแต่คุณจะเพิ่ม <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> คือ ClearURLs addon แบบเดิมและ ClearURLs core v2 canonical syntax Linkumori เพิ่ม <code>indexPattern</code> เป็นคำแนะนำในการค้นหาผู้สมัครเท่านั้น เพื่อให้ค้นหาผู้ให้บริการ regex ด้วยโทเค็นชื่อโฮสต์ได้เร็วขึ้น",
+  "guide_rp_options_title": {
+    "message": "ตัวเลือก (Options)",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "สำคัญ: <code>indexPattern</code> ไม่ได้ตัดสินใจว่าผู้ให้บริการจะตรงกันหรือไม่ หลังจากการค้นหาผู้สมัครแล้ว <code>clearurls.js</code> ยังคงทดสอบ <code>urlPattern</code> จริงใน <code>provider.matchRequestURL()</code>",
+  "guide_rp_p3": {
+    "message": "ตัวเลือกจะอยู่หลังค่า โดยคั่นด้วยเครื่องหมายจุลภาค หากมีหลายค่าในตัวเลือกเดียวให้คั่นด้วย <code>|</code> และใส่ <code>~</code> ไว้หน้าค่าที่ต้องการยกเว้น:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "บทที่ 7: ลบพารามิเตอร์แบบสอบถามอย่างง่าย",
+  "guide_th_option": {
+    "message": "ตัวเลือก",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "ใส่ชื่อพารามิเตอร์ใน <code>rules</code>",
+  "guide_rp_o_domain": {
+    "message": "เฉพาะในหน้าจากโดเมนเหล่านี้",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "ผลลัพธ์:",
+  "guide_rp_o_to": {
+    "message": "เฉพาะสำหรับการร้องขอไปยังโดเมนเหล่านี้",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "ลบพารามิเตอร์หลายตัว:",
+  "guide_rp_o_method": {
+    "message": "เฉพาะสำหรับ HTTP methods เหล่านี้",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "ผลลัพธ์:",
+  "guide_rp_o_party": {
+    "message": "เฉพาะคำขอที่ส่งไปยังไซต์เดียวกับหน้าเว็บ หรือเฉพาะไซต์อื่นเท่านั้น",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "บทที่ 8: เขียนวัตถุกฎ",
+  "guide_rp_o_strict": {
+    "message": "เหมือนกัน แต่เป็นการเปรียบเทียบโฮสต์ที่แน่นอนแทนที่จะเป็นไซต์",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "แทนที่จะเป็นสตริงธรรมดา กฎอาจเป็นออบเจ็กต์ได้",
+  "guide_rp_o_types": {
+    "message": "เฉพาะประเภทคำขอเหล่านี้ โดยที่ <code>~type</code> จะเป็นการยกเว้นหนึ่งรายการ",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "ใช้สิ่งนี้เมื่อคุณต้องการ:",
+  "guide_rp_o_matchcase": {
+    "message": "ชื่อพารามิเตอร์คำนึงถึงตัวพิมพ์เล็ก-ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "รหัสกฎ",
+  "guide_rp_o_history": {
+    "message": "ข้ามตัวกรองนี้เมื่อหน้าเว็บเปลี่ยนที่อยู่ของตัวเองด้วย History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "นามแฝง",
+  "guide_rp_p4": {
+    "message": "แต่ละตัวเลือกมีการสะกดแบบเดียว ตัวเลือกที่ขัดแย้งกัน เช่น <code>first-party,third-party</code> จะถูกปฏิเสธ",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "ข้อยกเว้น",
+  "guide_rp_keep_title": {
+    "message": "การเก็บพารามิเตอร์ไว้ด้วย @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "ขีดจำกัดประเภทคำขอ",
+  "guide_rp_p5": {
+    "message": "ตัวกรองที่เริ่มต้นด้วย <code>@@</code> จะเก็บพารามิเตอร์ไว้แทนที่จะลบออก ในที่นี้ <code>ref</code> จะถูกลบออกทุกที่ยกเว้นบน GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "เขียนพฤติกรรมใหม่",
+  "guide_rp_p6": {
+    "message": "ตัวกรอง <code>@@</code> ยังครอบคลุมถึงคำขอที่สร้างโดยหน้าเว็บที่ผู้ให้บริการนี้ตรงกัน แม้ว่าจะมีผู้ให้บริการรายอื่นเป็นผู้จัดการก็ตาม",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "ตัวอย่างภายในผู้ให้บริการ:",
+  "guide_raw_title": {
+    "message": "6. กฎดิบ",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "ผลลัพธ์:",
+  "guide_raw_p1": {
+    "message": "กฎดิบคือ regular expression ที่ทำงานบน URL แบบเต็ม โดยทุกส่วนที่ตรงกันจะถูกลบออก ใช้สำหรับข้อความที่ไม่ใช่พารามิเตอร์ <code>name=value</code> เช่น ส่วนของ path <code>/ref=…</code> ของ Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> บนออบเจ็กต์กฎของผู้ให้บริการคือส่วนเพิ่มเติม Linkumori <code>flags: \"i\"</code> ทำให้การจับคู่ไม่คำนึงถึงขนาดตัวพิมพ์",
+  "guide_raw_p2": {
+    "message": "กฎดิบไม่คำนึงถึงตัวพิมพ์เล็ก-ใหญ่และจะแทนที่ทุกส่วนที่ตรงกัน ใน JSON ให้เขียน backslash สองครั้ง",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "บทที่ 9: กฎ <code>$removeparam</code>",
+  "guide_raw_scope_title": {
+    "message": "เฉพาะบาง URL เท่านั้น",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "ลบหนึ่งพารามิเตอร์",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "ลบพารามิเตอร์ทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "ลบพารามิเตอร์โดย Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "ลบพารามิเตอร์ทั้งหมดยกเว้นหนึ่งรายการ",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "ใช้ <code>$removeparam</code> กับโดเมนเดียวเท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "ทำความสะอาดแล้ว:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "ไม่ได้ทำความสะอาด:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "เพิ่มขีดจำกัดโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "ยกเว้นหนึ่งโดเมน:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "เพิ่มขีดจำกัดวิธีการ",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "เพียง <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "ไม่ใช่ <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "บทที่ 10: <code>$removeparam</code> ข้อยกเว้น",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "เริ่มกฎ <code>$removeparam</code> ด้วย <code>@@</code> เพื่อสร้างข้อยกเว้น",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "ตัวอย่างข้อยกเว้นบริบท:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "สิ่งนี้สามารถป้องกัน <code>ei</code> ในคำขอย่อยที่เริ่มต้นโดยเพจ <code>gemini.google.com</code>",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "บทที่ 11: เขียนค่าพารามิเตอร์ใหม่",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "ใช้ <code>action.type: \"rewrite\"</code> เพื่อแทนที่ค่าพารามิเตอร์ที่ตรงกัน",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "ภายในผู้ให้บริการ:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "ใช้ <code>§1§</code> เมื่อคุณต้องการใช้ค่าปัจจุบันซ้ำ:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "บทที่ 12: กฎดิบ",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "ใช้ <code>rawRules</code> เพื่อแก้ไขข้อความ URL ทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "กฎดิบง่ายๆ:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "กฎดิบของวัตถุ:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "กฎการเขียนซ้ำแบบ Raw:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "บทที่ 13: กฎการเปลี่ยนเส้นทาง",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "ใช้ <code>redirections</code> เพื่อส่งเบราว์เซอร์ไปที่ URL ใหม่",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "หากไม่มี <code>replacePattern</code> จะใช้กลุ่มการจับกลุ่มแรก",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "บทที่ 14: กฎการเปลี่ยนเส้นทางโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> เป็นส่วนเพิ่มเติม Linkumori สำหรับการเปลี่ยนเส้นทางรูปแบบโดเมนแบบง่าย",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori นอกจากนี้ - รูปแบบสตริง:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori นอกจากนี้ - รูปแบบวัตถุ:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "บทที่ 15: ข้อยกเว้น",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> คือ ClearURLs addon Legacy และ ClearURLs core v2 canonical syntax Linkumori ยังยอมรับวัตถุสไตล์มาตรฐานในอาร์เรย์ผู้ให้บริการแบบดั้งเดิมนี้",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "ตัวอย่าง:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> คือ Linkumori นอกจากนี้สำหรับข้อยกเว้นรูปแบบโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "ข้าม:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "บทที่ 16: กฎการตลาดอ้างอิง",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> ทำงานเหมือนกับกฎของฟิลด์ แต่จะถูกควบคุมโดยการตั้งค่าส่วนขยายสำหรับการตลาดแบบอ้างอิง",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "ตัวอย่าง:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "บทที่ 17: วิธีการ HTTP",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "ใช้ <code>methods</code> เพื่อเรียกใช้ผู้ให้บริการเฉพาะกับวิธี HTTP ที่ระบุเท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "สิ่งนี้ทำงานบน:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "สิ่งนี้ไม่ทำงานบน:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "บทที่ 18: ประเภททรัพยากรเบราว์เซอร์",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> คือส่วนเพิ่มเติม Linkumori ใช้เพื่อเรียกใช้ผู้ให้บริการเฉพาะกับคำขอเบราว์เซอร์บางประเภทเท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "ค่าทั่วไป:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "ตัวอย่าง:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "ความหมาย:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "บทที่ 19: โปรเซสเซอร์ล่วงหน้า",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "ตัวประมวลผลล่วงหน้าเปลี่ยนค่าที่บันทึกไว้ก่อนที่จะใช้ใน <code>replacePattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "ตัวอย่าง:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "ประเภทที่รองรับ:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> สามารถ:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "บทที่ 20: อนุญาต JSON ชุดค่าผสม",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "บทนี้แสดง Linkumori ผู้ให้บริการแบบผสม JSON: ClearURLs addon อาร์เรย์ดั้งเดิม, ClearURLs core v2 canonical object และ Linkumori เพิ่มเติมสามารถอยู่ร่วมกันได้ในไฟล์กฎเดียว",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "ชุดค่าผสม 1: ผู้ให้บริการหลายรายในไฟล์เดียว",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> คือ ClearURLs addon ดั้งเดิมและ ClearURLs core v2 ตามรูปแบบบัญญัติระดับบนสุด Linkumori รักษารูปร่างนั้นไว้และอนุญาตให้ผู้ให้บริการหลายรายอยู่ภายใต้มัน",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "ผู้ให้บริการแต่ละรายจะโหลดแยกกัน",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "ชุดค่าผสม 2: ผู้ให้บริการ Global Defaults Plus",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> คือไวยากรณ์มาตรฐาน ClearURLs core v2 Linkumori ยอมรับนอกเหนือจาก <code>providers</code> แบบเดิม",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "กฎสามารถสืบทอดค่าเริ่มต้นได้เมื่อฟิลด์เหล่านั้นหายไปจากกฎ",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "ชุดค่าผสม 3: ผู้ให้บริการ <code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "นี่คือการบวก Linkumori ผู้ให้บริการ Linkumori ส่วนใหญ่ควรใช้แบบฟอร์มนี้",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "ชุดที่ 4: ผู้ให้บริการ <code>urlPattern</code> พร้อม <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> เป็นไวยากรณ์ ClearURLs อัปสตรีม <code>indexPattern</code> เป็นคำแนะนำในการค้นหา Linkumori สำหรับผู้ให้บริการ URL regex ควรชี้ไปที่ชื่อโฮสต์ที่ regex สามารถจับคู่ได้",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> เป็นทางเลือก แต่มีประโยชน์ในด้านความเร็ว โดยจะจัดทำดัชนีผู้ให้บริการลงในที่ฝากข้อมูลผู้สมัครโทเค็นชื่อโฮสต์ มันจะไม่แทนที่การแข่งขัน <code>urlPattern</code> สุดท้าย",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "ชุดค่าผสมที่ 5: ห้ามผสม <code>domainPatterns</code> และ <code>urlPattern</code> เป็นข้อกำหนดรวม",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "รูปร่างนี้อาจปรากฏในข้อมูลที่เก่ากว่าหรือเขียนด้วยลายมือ แต่ไม่ได้หมายความว่าผู้จับคู่ทั้งสองจะต้องผ่าน:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "พฤติกรรม <code>clearurls.js</code> ปัจจุบัน:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "หากมี <code>domainPatterns</code> อยู่และไม่ว่างเปล่า <code>clearurls.js</code> จะใช้ <code>clearurls.js</code> สำหรับการจับคู่ผู้ให้บริการ และละเว้น <code>urlPattern</code> สำหรับผู้ให้บริการรายนั้น ตัวแก้ไข/เส้นทางนำเข้าแบบกำหนดเองจะปฏิเสธผู้ให้บริการที่มีทั้งสองอย่าง หากคุณต้องการเงื่อนไขเส้นทาง ให้ใช้ <code>urlPattern</code> กับ <code>indexPattern</code> หรือกำหนดขอบเขต <code>$removeparam</code>/รายการกฎแต่ละรายการภายใน <code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "ชุดค่าผสม 6: รายการผสม <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "ใน Linkumori, <code>rules</code> สามารถมีสตริงดั้งเดิม ClearURLs, Linkumori <code>$removeparam</code> สตริง, Linkumori <code>matchPattern</code> อ็อบเจ็กต์ และ ClearURLs core v2 canonical object เข้าด้วยกัน",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "ยอมรับทั้งสี่รายการแล้ว",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "ชุดค่าผสม 7: วัตถุ Canonical ภายใน <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "อ็อบเจ็กต์ Canonical ClearURLs core v2 สามารถแสดงถึงกฎประเภทต่างๆ ได้ ในตัวอย่าง Linkumori นี้ จะมีการวางไว้ภายในผู้ให้บริการที่ใช้ <code>domainPatterns</code> ซึ่งเป็น Linkumori เท่านั้น",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> เรียงลำดับตามความหมาย:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "ชุดค่าผสม 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs อาร์เรย์ผู้ให้บริการเสริมแบบเดิมยังคงใช้งานได้ Linkumori อนุญาตให้อาร์เรย์เหล่านั้นอยู่ข้างวัตถุกฎมาตรฐานหลัก ClearURLs core v2",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "สิ่งนี้ถูกต้อง กลไกจะอ่านอาร์เรย์เหล่านี้ทั้งหมดสำหรับผู้ให้บริการรายเดียวกัน",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "ชุดค่าผสม 9: วิธีการของผู้ให้บริการและประเภททรัพยากร",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> เป็นไวยากรณ์ต้นน้ำ ClearURLs <code>resourceTypes</code> คือส่วนเพิ่มเติม Linkumori ทั้งสองใช้กับผู้ให้บริการทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "ทั้ง <code>rules</code> และ <code>rawRules</code> ถูกจำกัดโดยการจับคู่วิธีการ/ประเภทของผู้ให้บริการ",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "ชุดค่าผสม 10: ประเภทคำขอระดับกฎ",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "กฎมาตรฐาน ClearURLs core v2 สามารถกำหนดระดับกฎ <code>requestTypes</code> ได้",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "ระดับผู้ให้บริการ <code>resourceTypes</code> จะจำกัดผู้ให้บริการให้แคบลงก่อน ระดับกฎ <code>requestTypes</code> จะจำกัดกฎแต่ละรายการให้แคบลงหลังจากนั้น",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "ชุดค่าผสม 11: ข้อยกเว้นในสถานที่ต่างกัน",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori ช่วยให้คุณสามารถรวมข้อยกเว้นของผู้ให้บริการ ClearURLs, ข้อยกเว้นโดเมน Linkumori, ข้อยกเว้นกฎหลัก v2 ClearURLs และข้อยกเว้นของผู้ให้บริการภายในเครื่อง <code>$removeparam</code> <code>$removeparam</code>",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "ความหมายธรรมดา:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "ชุดค่าผสม 12: กฎเกณฑ์บวกของผู้ให้บริการบล็อก",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> ทำเครื่องหมายผู้ให้บริการว่าเป็นการยกเลิก/บล็อก",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "เมื่อเปิดใช้งานการบล็อกโดเมนในการตั้งค่า คำขอที่ตรงกันจะถูกบล็อกได้ กฎอาจยังคงมีอยู่ แต่การบล็อกเป็นพฤติกรรมที่รุนแรงกว่าสำหรับผู้ให้บริการรายนั้น",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "ชุดค่าผสม 13: กฎการล้างข้อมูลผู้ให้บริการเปลี่ยนเส้นทางพร้อม",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "ผู้ให้บริการสามารถมีกฎการเปลี่ยนเส้นทางและการล้างข้อมูลได้",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "หากการเปลี่ยนเส้นทางตรงกัน ระบบจะส่งคืนการเปลี่ยนเส้นทางก่อน",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "ชุดค่าผสม 14: การเปลี่ยนเส้นทางโดเมนพร้อมการเปลี่ยนเส้นทาง Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "ทั้งสองสามารถมีอยู่ในผู้ให้บริการรายเดียว",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "การเปลี่ยนเส้นทาง Regex จะถูกตรวจสอบก่อน การเปลี่ยนเส้นทางโดเมนจะถูกตรวจสอบหากไม่มีการเปลี่ยนเส้นทาง regex ที่ตรงกัน",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "ชุดค่าผสม 15: กฎที่ปิดใช้งานหรือไม่ใช้งาน",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "ผู้ให้บริการสามารถปิดการใช้งานได้:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "กฎสามารถใช้งานไม่ได้:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "ผู้ให้บริการที่ไม่ใช้งานและกฎที่ไม่ได้ใช้งานจะถูกละเว้น",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "ชุดค่าผสม 16: ตัวอย่างผู้ให้บริการแบบผสมแบบเต็ม",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "ตัวอย่าง Linkumori นี้ตั้งใจรวมคุณสมบัติผู้ให้บริการที่รองรับส่วนใหญ่: ClearURLs addon arrays ดั้งเดิม, ClearURLs core v2 canonical object และ Linkumori-only matcher และคุณสมบัติรูปแบบโดเมน",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "นี่คือผู้ให้บริการแบบผสมที่ถูกต้อง Linkumori JSON",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "บทที่ 21: ตัวอย่างที่สมบูรณ์",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "ตัวอย่างที่ 1: ตัวติดตามพื้นฐาน",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "ตัวอย่างที่ 2: ลบพารามิเตอร์ UTM ทั้งหมด",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "ตัวอย่างที่ 3: เก็บพารามิเตอร์ที่จำเป็นไว้ในการเข้าสู่ระบบ",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "ตัวอย่างที่ 4: การคลิกการติดตามการเปลี่ยนเส้นทาง",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "ผลลัพธ์:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "ตัวอย่างที่ 5: ล้างเฉพาะคำขอ API",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "ความหมาย:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "บทที่ 22: เทมเพลตการคัดลอกด่วน",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "ลบหนึ่งพารามิเตอร์:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "ลบพารามิเตอร์หลายตัว:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "ใช้ <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "ลบพารามิเตอร์ <code>utm_</code> ทั้งหมด:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "เพิ่มข้อยกเว้น:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "จับคู่โดเมน:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "เปลี่ยนเส้นทางตัวติดตาม URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "กฎดิบสามารถใช้รูปแบบและตัวเลือกของตัวกรอง <code>$removeparam</code> โดยมี <code>rawrule=</code> อยู่ท้ายสุด ทุกอย่างหลังจาก <code>rawrule=</code> คือ regular expression:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "รูปแบบและตัวเลือกจะเป็นตัวกำหนดว่ากฎจะทำงานที่ไหน แต่ regular expression ยังคงเป็นสิ่งที่ถูกลบออก <code>match-case</code> จะทำให้คำนึงถึงตัวพิมพ์เล็ก-ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "การหยุดกฎดิบบนบาง URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "รายการที่เริ่มต้นด้วย <code>@@</code> จะระงับไม่ให้กฎดิบทำงานในจุดที่รูปแบบตรงกัน ให้ระบุ <code>id</code> สำหรับกฎดิบและตั้งชื่อด้วย <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "หากไม่มีอะไรต่อท้าย <code>rawrule=</code> และไม่มี <code>targetId</code> รายการนั้นจะหยุดกฎดิบทุกข้อของผู้ให้บริการใน URL เหล่านั้น หากต้องการข้ามผู้ให้บริการทั้งหมด ให้ใช้ <code>exceptions</code> แทน",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. ข้อยกเว้น",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "หาก URL ตรงกับรายการใน <code>exceptions</code> จะไม่มีกฎใดๆ ของผู้ให้บริการทำงาน รายการจะเป็น regular expression หรือรูปแบบโดเมนที่เริ่มต้นด้วย <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "ข้อยกเว้นไม่คำนึงถึงตัวพิมพ์เล็กหรือตัวพิมพ์ใหญ่",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. การเปลี่ยนเส้นทาง",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "กฎการเปลี่ยนเส้นทางจะข้ามหน้าติดตามโดยไปยังปลายทางจริงโดยตรง ซึ่งจะทำงานเมื่อ <em>เปิดใช้งานการบายพาสการเปลี่ยนเส้นทางของบุคคลที่สาม</em> เปิดใช้งานอยู่เท่านั้น",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "การเปลี่ยนเส้นทางไปยังส่วนหนึ่งของ URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "รายการใน <code>redirections</code> คือ regular expression ที่มี capture group เพียงกลุ่มเดียวคือ <code>( … )</code> คำขอจะถูกส่งไปยังสิ่งที่กลุ่มนั้นจับได้ โดยจะถูก URL-decoded หากต้องการเขียนกลุ่มอื่นให้ใช้ <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "การเปลี่ยนเส้นทางไปยังที่อยู่ที่คงที่",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "รายการที่เริ่มต้นด้วย <code>|</code> จะส่งทุก URL ที่ตรงกันไปยังที่อยู่เดียว:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "การเปลี่ยนเส้นทางไปยังค่าของพารามิเตอร์",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> ระบุชื่อพารามิเตอร์ที่เก็บปลายทาง ดังนั้นจึงไม่จำเป็นต้องใช้ regular expression โดยจะใช้รายการแบบเดียวกับ <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "พารามิเตอร์แรกที่ตรงกันและมีค่าจะเป็นผู้ชนะ การเปลี่ยนเส้นทางจะหยุดการประมวลผลอื่นๆ ทั้งหมดสำหรับคำขอนั้น",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. วัตถุกฎ (Rule objects)",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "รายการใดๆ สามารถเป็น object แทนที่จะเป็น string ได้ ให้ใช้เมื่อกฎต้องการ id, ควรเริ่มต้นแบบปิดใช้งาน, ควรเขียนทับแทนการลบ หรือควรทำงานในบางกรณีเท่านั้น:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "คีย์",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "ข้อความที่คุณจะเขียนเป็นรายการปกติ",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "ชื่อที่คงที่ (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) ที่ใช้สำหรับเปิดและปิดการใช้งานกฎ",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "ไอดีก่อนหน้าของกฎ เพื่อให้กฎที่คุณปิดไว้ยังคงปิดอยู่หลังจากเปลี่ยนชื่อ",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "เขียนทับแทนการลบ; <code>§1§</code>, <code>§2§</code>, … คือค่าที่ถูกจับได้",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "เปลี่ยนค่าที่ถูกจับได้ก่อน",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "เฉพาะประเภทคำขอเหล่านี้ ตัวอย่างเช่น <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL ที่กฎข้อนี้จะไม่ทำงาน",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "แฟล็กของ regular expression ในรูปแบบสตริง (ค่าเริ่มต้น <code>i</code>; <code>gi</code> ใน <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "เรียกใช้กฎให้เร็วขึ้นหรือช้าลง",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: กฎใน <code>rules</code> จะถูกนับเป็นกฎการตลาดแบบส่งต่อ (referral-marketing rule)",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ข้ามกฎนี้เมื่อหน้าเว็บเปลี่ยนที่อยู่ของตัวเองด้วย History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: กฎนี้จะเริ่มต้นด้วยการปิดใช้งาน",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "ข้อความอิสระ",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "เฉพาะรายการ <code>@@…$rawrule=</code>: กฎดิบที่กฎนี้จะหยุดการทำงาน",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "การเขียนทับแทนการลบ",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "ด้วย <code>replacePattern</code> กฎใน <code>rules</code> จะคงพารามิเตอร์ไว้และแทนที่ค่าของมัน ซึ่งก็คือ <code>§1§</code> ใน <code>rawRules</code> และ <code>redirections</code> นั้น <code>§1§</code>, <code>§2§</code>, … คือกลุ่มที่ถูกจับไว้ (capture groups):",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "ตัวประมวลผลล่วงหน้า (Preprocessors)",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "ตัวประมวลผลล่วงหน้าจะเปลี่ยนค่าที่ถูกจับไว้ก่อนที่ <code>replacePattern</code> จะนำไปใช้ <code>inputs</code> คือ <code>\"all\"</code> หรือรายการหมายเลขกลุ่ม:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "ประเภทต่างๆ ได้แก่ <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> และ <code>base64Decode</code>",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ไอดีของกฎ (Rule ids)",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "ทุกกฎจะมีไอดี กฎที่ไม่มี <code>id</code> จะได้รับไอดีจากรายการและข้อความของกฎนั้น: <code>\"utm_source\"</code> ใน <code>rules</code> จะกลายเป็น <code>field-utm-source</code> หากกฎสองข้อได้รับไอดีเดียวกัน ทั้งคู่จะได้รับแฮชสั้นๆ ต่อท้าย",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "ไอดีที่ถูกสร้างขึ้นจะเปลี่ยนไปเมื่อข้อความของกฎเปลี่ยน ให้กำหนด <code>id</code> ของตัวเองแก่กฎเมื่อต้องการให้คงการตั้งค่าเปิด/ปิดไว้แม้จะมีการแก้ไข",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "การรันกฎให้เร็วขึ้นหรือช้าลง",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "โดยปกติ กฎดิบ จะรันก่อน จากนั้นตามด้วย <code>rules</code> และ <code>referralMarketing</code> กฎที่มี <code>order</code> จะรันก่อนกฎที่ไม่มี โดยเริ่มจากค่าต่ำสุดก่อน ในกรณีนี้ โทเคนจะถูกแทนที่ก่อนแล้วจึงถูกลบ:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> ใช้งานได้ใน <code>rules</code>, <code>rawRules</code> และ <code>referralMarketing</code> แต่ไม่ใช้งานกับฟิลเตอร์ <code>$removeparam</code> ซึ่งจะรันเป็นลำดับสุดท้ายเสมอ",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. การตลาดแบบแนะนำ (Referral marketing)",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> ใช้รายการเดียวกับ <code>rules</code> โดยรายการเหล่านี้จะถูกข้ามไปในขณะที่ <em>อนุญาตการตลาดแบบแนะนำ</em> เปิดอยู่ ดังนั้นลิงก์ Affiliate จะยังคงทำงานได้หากคุณต้องการ:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "กฎสามารถอยู่ใน <code>rules</code> และยังคงนับเป็นการตลาดแบบแนะนำได้ด้วย <code>\"referralMarketing\": true</code>",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. เมธอดและประเภทคำขอ",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "สิ่งเหล่านี้ช่วยจำกัดขอบเขตว่าผู้ให้บริการหรือกฎจะทำงานเมื่อใด:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "พฤติกรรม clearurls.js: หากมีรูปแบบโดเมนอยู่และไม่ว่างเปล่า Linkumori จะใช้รูปแบบโดเมนสำหรับการจับคู่ผู้ให้บริการ urlPattern ใช้เฉพาะเมื่อ domainPatterns หายไปหรือว่างเปล่า ตัวแก้ไข/เส้นทางการนำเข้าแบบกำหนดเองจะปฏิเสธรูปแบบการจับคู่แบบผสมนี้ ดังนั้นให้ใช้รูปแบบนี้เพื่อทำความเข้าใจข้อมูลเดิมเท่านั้น",
+  "guide_req_methods": {
+    "message": "เมธอด HTTP ที่ผู้ให้บริการจัดการ",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "ประเภทคำขอที่ผู้ให้บริการจัดการ",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "ประเภทคำขอที่ออบเจ็กต์กฎหนึ่งรายการจัดการ",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "เช่นเดียวกันสำหรับตัวกรอง <code>$removeparam</code> หนึ่งรายการหรือกฎดิบ",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "ประเภทคำขอใช้ชื่อของเบราว์เซอร์: <code>main_frame</code> (หน้าเว็บ), <code>sub_frame</code> (เฟรม), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> และอื่นๆ ตัวเลือกตัวกรองจะเรียกสองรายการแรกว่า <code>document</code> และ <code>subdocument</code>",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. วิธีการประมวลผล URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "สำหรับผู้ให้บริการแต่ละรายที่ตรงกับ URL และอนุญาตคำขอ:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: หากมีรายการที่ตรงกัน ผู้ให้บริการจะถูกข้ามไป",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code> จากนั้นตามด้วย <code>fieldRedirections</code>: หากตรงกันจะเกิดการเปลี่ยนเส้นทางคำขอ และจะไม่มีสิ่งอื่นทำงานต่อ",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: คำขอจะถูกบล็อก",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> ทำงานบน URL ฉบับเต็ม",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> และ <code>referralMarketing</code> จะลบพารามิเตอร์ออก",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "ตัวกรอง <code>$removeparam</code> จะทำงาน ยกเว้นในกรณีที่ตัวกรอง <code>@@</code> เก็บพารามิเตอร์นั้นไว้",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "ผู้ให้บริการรายแรกที่เปลี่ยนแปลง เปลี่ยนเส้นทาง หรือบล็อกคำขอจะเป็นผู้ตัดสินผลลัพธ์ จากนั้น URL ใหม่จะเข้าสู่ขั้นตอนเดิมซ้ำอีกครั้ง",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. ตัวอย่างที่สมบูรณ์",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "ล้างข้อมูลร้านค้าแห่งหนึ่ง",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "ลบพารามิเตอร์การติดตามและ affiliate id ในร้านค้าแห่งหนึ่ง และไม่แตะต้องหน้าชำระเงินของร้านนั้น:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "ลบพารามิเตอร์ UTM ในทุกที่",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "รูปแบบ <code>*</code> จะตรงกับทุก URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "ข้ามตัวติดตามการคลิก",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "ส่งลิงก์ผ่านตัวติดตามการคลิกไปยังปลายทางโดยตรง ซึ่งอยู่ในพารามิเตอร์ <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "เก็บพารามิเตอร์ไว้ในหน้าเดียว",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "ลบ <code>ref</code> ในทุกที่ของไซต์ ยกเว้นในหน้าเข้าสู่ระบบซึ่งจำเป็นต้องใช้:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. การตรวจสอบกฎของคุณ",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "ตัวแก้ไขกฎที่กำหนดเองจะตรวจสอบกฎเมื่อคุณบันทึกหรือนำเข้า นอกจาก JSON ที่เสียและนิพจน์เรกูลาร์ที่ไม่ถูกต้องแล้ว มันจะปฏิเสธกฎที่สามารถโหลดได้แต่ทำงานผิดพลาดอย่างเงียบๆ เช่น:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> และ <code>urlPattern</code> ในผู้ให้บริการรายเดียว",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "รูปแบบที่มี <code>|</code> เพียงตัวเดียวและไม่มี scheme เช่น <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "การเปลี่ยนเส้นทางด้วยนิพจน์เรกูลาร์ที่ไม่มีกลุ่มการจับคู่ (capture group) เพียงกลุ่มเดียวพอดี",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "ฟิลด์ คีย์ และตัวเลือกที่ไม่รู้จัก",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> หรือ <code>referralMarketing</code> ในจุดที่ไม่มีผลใดๆ",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "รายการ <code>@@…$rawrule=</code> ที่ไม่ได้หยุดกฎดิบใดๆ",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "หากการบันทึกล้มเหลว ข้อความจะระบุชื่อผู้ให้บริการ รายการ และรายการย่อย",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

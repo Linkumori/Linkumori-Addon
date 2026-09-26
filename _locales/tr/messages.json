@@ -4727,1688 +4727,704 @@
     "message": "Kural Kimliği kontrolleri JSON sağlayıcısı geçerli olduğunda kullanılabilir.",
     "description": "Sağlayıcı kural kimliği kontrolleri için geçersiz JSON durumu"
   },
-  "guide_0001": {
-    "message": "Linkumori Uzantı — Kural Belgeleri",
+  "guide_page_title": {
+    "message": "Linkumori — Kurallar Kılavuzu",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Sağlayıcı JSON Biçimi",
+  "guide_toc_label": {
+    "message": "İçindekiler",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Sağlayıcı JSON",
+  "guide_theme_midnight": {
+    "message": "Gece Yarısı",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Bölüm 1: Temel JSON Şekil",
+  "guide_theme_light": {
+    "message": "Açık",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Bölüm 2: Sağlayıcı Nedir?",
+  "guide_theme_icecold": {
+    "message": "Buz Gibi",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Bölüm 3: Kullanabileceğiniz Sağlayıcı Alanları",
+  "guide_theme_zen_grey": {
+    "message": "Zen Gri",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Bölüm 4: Etki Alanlarını Eşleştirme",
+  "guide_theme_sunset": {
+    "message": "Gün Batımı",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Bir Alan Adını ve Tüm Alt Alan Adlarını Eşleştir",
+  "guide_title": {
+    "message": "Linkumori kuralları yazmak",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Herhangi Bir Genel Ekte Aynı Adı Eşleştir",
+  "guide_intro_1": {
+    "message": "Linkumori, URL'leri kurallar ile temizler. Bu kılavuz, ilk kuraldan tüm seçeneklere kadar bunları nasıl yazacağınızı, kopyalayabileceğiniz örneklerle birlikte gösterir.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Alt Alan Adlarını Eşleştir",
+  "guide_intro_2": {
+    "message": "Kurallar JSON formatındadır. Bunları, kaydettiğinizde kontrol eden Özel Kurallar düzenleyicisinde yazarsınız. Paketlemiş kural listesi ve uzak kural listeleri aynı formatı kullanır.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Birden Fazla Etki Alanı Modeli Kullanın",
+  "guide_file_title": {
+    "message": "1. Kurallar dosyası",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Bölüm 5: Etki Alanı Deseni Sembolleri",
+  "guide_file_p1": {
+    "message": "Bir kurallar dosyası tek bir JSON nesnesidir. <code>providers</code> nesnesi, seçtiğiniz bir ismi bir Sağlayıcı ile eşleştirir:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Bölüm 6: URLs'i urlPattern ile Eşleştirme",
+  "guide_file_p2": {
+    "message": "Bir Sağlayıcı, hangi URL'leri işlediğini ve onlarla ne yapılacağını belirtir. Bu sağlayıcı, <code>example.com</code> ve alt alan adlarındaki her URL'den <code>utm_source</code> ve <code>utm_medium</code> kısımlarını kaldırır:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Bölüm 7: Basit Sorgu Parametrelerini Kaldırma",
+  "guide_file_p3": {
+    "message": "İsim sadece bir etikettir. Bir Sağlayıcının hangi URL'leri işleyeceği <code>domainPatterns</code> veya <code>urlPattern</code> tarafından belirlenir.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Bölüm 8: Bir Kural Nesnesi Yazın",
+  "guide_fields_title": {
+    "message": "2. Sağlayıcı alanları",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Bölüm 9: $removeparam Kuralları",
+  "guide_th_field": {
+    "message": "Alan",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Bir Parametreyi Kaldır",
+  "guide_th_meaning": {
+    "message": "Ne işe yarar",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Tüm Parametreleri Kaldır",
+  "guide_field_domainpatterns": {
+    "message": "Sağlayıcının hangi URL'leri işleyeceği, alan adı kalıpları olarak (bölüm 3). Bunu veya <code>urlPattern</code>'ı kullanın, asla her ikisini birden kullanmayın.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Regex'e Göre Parametreleri Kaldır",
+  "guide_field_urlpattern": {
+    "message": "Sağlayıcının hangi URL'leri işleyeceği, tam URL ile eşleşen bir düzenli ifade olarak. Büyük/küçük harf ayrımı gözetilmez.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Bir Parametre Hariç Tümünü Kaldır",
+  "guide_field_indexpattern": {
+    "message": "Yalnızca <code>urlPattern</code> ile: <code>||example.com^</code> gibi ana bilgisayar ipuçları, böylece Sağlayıcı yalnızca bu ana bilgisayarlar için kontrol edilir. Bu olmadan, Sağlayıcı her URL için kontrol edilir.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "$removeparam'ı Yalnızca Bir Etki Alanına Uygula",
+  "guide_field_rules": {
+    "message": "Kaldırılacak parametreler (bölüm 4 ve 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Etki Alanı Sınırları Ekle",
+  "guide_field_referral": {
+    "message": "Kaldırılacak yönlendirme ve ortaklık parametreleri. <em>Yönlendirme pazarlamasına izin ver</em> açıkken bunlar atlanır (bölüm 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Yöntem Sınırları Ekle",
+  "guide_field_rawrules": {
+    "message": "Tam URL üzerinde çalıştırılan düzenli ifadeler; her eşleşme silinir (bölüm 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Bölüm 10: $removeparam İstisnaları",
+  "guide_field_exceptions": {
+    "message": "Sağlayıcının dokunmadığı URL'ler (bölüm 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Bölüm 11: Parametre Değerlerini Yeniden Yazın",
+  "guide_field_redirections": {
+    "message": "İsteğin bunun yerine nereye gönderileceği (bölüm 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Bölüm 12: Ham Kurallar",
+  "guide_field_fieldredirections": {
+    "message": "Bir parametrenin değerine yönlendir (bölüm 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Bölüm 13: Yönlendirme Kuralları",
+  "guide_field_completeprovider": {
+    "message": "<em>Etki alanı engellemeye izin ver</em> açıkken, <code>true</code> Sağlayıcının eşleştiği her isteği engeller.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Bölüm 14: Etki Alanı Yönlendirme Kuralları",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: bir sayfanın kendisi yönlendirildiğinde, sekme yeni adresi açar.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Bölüm 15: İstisnalar",
+  "guide_field_methods": {
+    "message": "Yalnızca bu HTTP yöntemlerini işle, örneğin <code>[\"GET\"]</code>. Varsayılan: hepsi.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Bölüm 16: Tavsiye Pazarlama Kuralları",
+  "guide_field_resourcetypes": {
+    "message": "Yalnızca bu istek türlerini işle, örneğin <code>[\"main_frame\"]</code>. Varsayılan: ayarlarda seçilen türler.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Bölüm 17: HTTP Yöntemler",
+  "guide_field_history": {
+    "message": "<code>false</code>, bir sayfa History API ile kendi adresini değiştirdiğinde Sağlayıcıyı atlar.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Bölüm 18: Tarayıcı Kaynak Türleri",
+  "guide_field_active": {
+    "message": "<code>false</code> sağlayıcıyı kapatır.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Bölüm 19: Önişlemciler",
+  "guide_match_title": {
+    "message": "3. Bir sağlayıcının hangi URL'leri işlediği",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Bölüm 20: İzin Verilen JSON Kombinasyonlar",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> alan adı desenlerinin bir listesidir. Bunlardan herhangi biri eşleşirse URL eşleşmiş sayılır:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kombinasyon 1: Tek Dosyada Birçok Sağlayıcı",
+  "guide_th_pattern": {
+    "message": "Desen",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kombinasyon 2: Global Defaults Plus Sağlayıcıları",
+  "guide_th_matches": {
+    "message": "Eşleşmeler",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kombinasyon 3: domainPatterns Sağlayıcısı",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> ve tüm alt alan adları",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kombinasyon 4: indexPattern ile urlPattern Sağlayıcı",
+  "guide_pat_anysuffix": {
+    "message": "Herhangi bir genel sonekteki <code>example</code> (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kombinasyon 5: domainPatterns ve urlPattern Birlikte",
+  "guide_pat_path": {
+    "message": "yol <code>/path</code> ile başladığında, söz konusu ana bilgisayar ve alt alan adları",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kombinasyon 6: Karma kurallar[] Girişler",
+  "guide_pat_star": {
+    "message": "<code>||example.com^</code> ile aynı",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kombinasyon 7: Kanonik Nesnelerin İçi kuralları[]",
+  "guide_pat_start": {
+    "message": "Tam olarak bu metinle başlayan URL'ler",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kombinasyon 8: Eski Diziler Artı Kanonik kurallar[]",
+  "guide_pat_end": {
+    "message": "Tam olarak bu metinle biten URL'ler",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kombinasyon 9: Sağlayıcı Genelinde Yöntemler ve Kaynak Türleri",
+  "guide_pat_regex": {
+    "message": "düzenli ifade olarak tam URL (<code>i</code> eklemediğiniz sürece büyük/küçük harf duyarlıdır)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kombinasyon 10: Kural Düzeyinde İstek Türleri",
+  "guide_pat_contains": {
+    "message": "Herhangi bir yerinde bu metni içeren URL'ler",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kombinasyon 11: Farklı Yerlerdeki İstisnalar",
+  "guide_pat_all": {
+    "message": "tüm URL'ler",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kombinasyon 12: Sağlayıcı Artı Kurallarını Engelleme",
+  "guide_match_p2": {
+    "message": "<code>^</code> ana bilgisayar adının sonunu veya <code>/</code>, <code>?</code> ya da <code>:</code> gibi bir ayırıcıyı belirtir. <code>*</code> herhangi bir şeyle eşleşir. <code>/regex/</code> hariç, desenler büyük/küçük harf farkını göz ardı eder.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kombinasyon 13: Yönlendirme Sağlayıcısı Artı Temizleme Kuralları",
+  "guide_match_p3": {
+    "message": "<code>||</code> bir alan adını temsil ederken, tek bir <code>|</code> URL'nin tam başlangıcını temsil eder ve ardından <code>https://</code> gibi bir şema gelmelidir. <code>|example.com^</code> asla eşleşemez, bu nedenle düzenleyici bunu reddeder.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kombinasyon 14: Etki Alanı Yönlendirmeleri ve Regex Yönlendirmeleri",
+  "guide_match_p4": {
+    "message": "Bunun yerine bir düzenli ifade ile eşleşmek için <code>urlPattern</code> kullanın ve Sağlayıcının yalnızca bu ana bilgisayarlarda kontrol edilmesi için <code>indexPattern</code> ekleyin:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kombinasyon 15: Devre Dışı veya Etkin Olmayan Kurallar",
+  "guide_match_p5": {
+    "message": "Bir Sağlayıcının <code>domainPatterns</code> veya <code>urlPattern</code> vardır, asla her ikisi birden olmaz. Her iki eşleşme türüne de ihtiyacınız varsa, iki ayrı Sağlayıcı oluşturun.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kombinasyon 16: Tam Karma Sağlayıcı Örneği",
+  "guide_rules_title": {
+    "message": "4. Parametreleri kaldırma",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Bölüm 21: Tam Örnekler",
+  "guide_rules_p1": {
+    "message": "<code>rules</code> içindeki her giriş, sorgudan (<code>?a=1</code>) ve fragmandan (<code>#a=1</code>) parametreleri kaldırır. Bir giriş şunlardan biridir:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Örnek 1: Temel İzleyici Temizleyici",
+  "guide_th_entry": {
+    "message": "Giriş",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Örnek 2: Tüm UTM Parametrelerini Kaldırma",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Örnek 3: Giriş Sırasında Gerekli Bir Parametreyi Tutun",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Örnek 4: Yönlendirme İzleme Tıklamaları",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Örnek 5: Yalnızca Temizleme API İstekleri",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Bölüm 22: Hızlı Kopyalama Şablonları",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Karma Sağlayıcı JSON Format Kılavuzu",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Bu kılavuzda, <code>Linkumori extension</code> sağlayıcısının okuyabileceği JSON sağlayıcı verilerinin nasıl yazılacağı açıklanmaktadır.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "JavaScript koduna yönelik bir kılavuz değildir. Yalnızca kural yazarlarının ihtiyaç duyduğu JSON şekillerine, kural formatlarına ve örneklere odaklanır.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Bu kılavuz mevcut <code>clearurls.js</code> çalışma zamanı davranışını temel almaktadır. Özellikle sağlayıcı araması, <code>domainPatterns</code> veya <code>indexPattern</code>'ten <code>providersByToken</code> aday paketlerini kullanır ve son eşleştirme hala <code>provider.matchRequestURL()</code> üzerinden yürütülür.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Bölüm 1: Temel JSON Şekil",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code>, sağlayıcı verilerinin şu genel biçimde olmasını bekliyor:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Önemli kısım <code>providers</code>'dir. <code>providers</code>'in içindeki her anahtar bir sağlayıcı adıdır.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Örnek:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Bölüm 2: Sağlayıcı Nedir?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Sağlayıcı, bir web sitesi, şirket, izleyici, etki alanı modeli kümesi veya URL normal ifadesi için adlandırılmış bir çalışma zamanı kapsayıcısıdır. Sağlayıcı adı bir etiket/anahtardır; eşleştirme, sağlayıcı adına göre değil, <code>domainPatterns</code> veya <code>urlPattern</code> tarafından yapılır.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimum sağlayıcı:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Bu ne yapar:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Bölüm 3: Kullanabileceğiniz Sağlayıcı Alanları",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> tarafından kabul edilen sağlayıcı alanları. Eşleştirme için isteğe bağlı <code>indexPattern</code> ile <code>domainPatterns</code> veya <code>urlPattern</code> yazın; her ikisinin birlikte gerekli olmasına güvenmeyin.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Açık anlamı:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON alanı",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Kaynak",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Bunu ne için yazıyorsun",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Bu sağlayıcıyı devre dışı bırakmak için <code>false</code>'i ayarlayın.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Yalnızca temizlemek yerine eşleşen etki alanlarını engellemek için <code>true</code>'i ayarlayın.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Ana sayfa yönlendirmelerini tarayıcı sekmesinden zorlamak için <code>true</code> değerini ayarlayın.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Bu sağlayıcının hangi alan adlarıyla eşleştiğini söylemenin önerilen yolu.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript URL eşleşmesi için normal ifade dizesi.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "<code>urlPattern</code> kullanılırken isteğe bağlı hız ipucu.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik; <code>$removeparam</code>, Linkumori'tür buraya ek olarak",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Normal parametre kaldırma kuralları ve yerel sağlayıcı <code>$removeparam</code> kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs eklenti mirası; kanonik stildeki nesneler burada Linkumori ektir",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "URL metnin tamamını düzenleyen kurallar.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs eklenti mirası; kanonik stildeki nesneler burada Linkumori ektir",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "İsteğe bağlı yönlendirme/pazarlama parametresi kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik; buradaki nesne formları Linkumori ekidir",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL Bu sağlayıcının çalışmaması gereken normal ifade kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Bu sağlayıcının çalışmaması gereken etki alanı modeli kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs eklenti mirası; kanonik stildeki nesneler burada Linkumori ektir",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex yönlendirme kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Etki alanı modeli yönlendirme kuralları.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Yalnızca bu HTTP yöntemleri için çalıştırın.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori ekleme",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Yalnızca bu tarayıcı istek türleri için çalıştırın.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Bölüm 4: Etki Alanlarını Eşleştirme",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> bir Linkumori eklentisidir ve çoğu özel sağlayıcı tarafından tercih edilir. <code>clearurls.js</code>'te, <code>urlPattern</code>'ten önce eşleştirme için boş olmayan <code>domainPatterns</code> kullanılır.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Bir Alan Adını ve Tüm Alt Alan Adlarını Eşleştir",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Eşleşmeler:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Eşleşmiyor:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Herhangi Bir Genel Ekte Aynı Adı Eşleştir",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Eşleşebilir:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Alt Alan Adlarını Eşleştir",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Eşleşebilir:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Birden Fazla Etki Alanı Modeli Kullanın",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Bölüm 5: Etki Alanı Deseni Sembolleri",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Bunlar <code>domainPatterns</code>'de kullanabileceğiniz sembollerdir.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Sembol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Anlamı",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Örnek",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Kaldırır",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Etki alanı sınırında eşleştirin.",
+  "guide_rules_name": {
+    "message": "bir parametre adı",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "bir ad düzenli ifadesi",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "tüm adı eşleşen her parametreyi; <code>^…$</code> sizin için eklenir ve büyük/küçük harf göz ardı edilir",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Ayırıcı veya uç sınırı.",
+  "guide_rules_filter": {
+    "message": "bir <code>$removeparam</code> filtresi",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "bölüm 5'e bakın",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> ve <code>\"$removeparam=fbclid\"</code> aynı şeyi kaldırır. Bölüm 5'ten bir şeye ihtiyacınız olmadıkça düz adı kullanın.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Joker karakter.",
+  "guide_rules_part_title": {
+    "message": "Bir Sağlayıcının bir parçası için kurallar",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Düz bir ad, Sağlayıcının eşleştiği her URL için geçerlidir. Bir parametreyi yalnızca bazılarından kaldırmak için, <code>$removeparam</code> filtresinin önüne bir desen koyun:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Burada <code>qid</code> her Amazon sitesinde, <code>tag</code> yalnızca <code>amazon.de</code>'de, <code>sr</code> yalnızca <code>smile.amazon</code>'te ve <code>ref_</code> yalnızca <code>/gp/</code> altında kaldırılır. Desen, Sağlayıcının kendi desenlerini daraltır; onları genişletemez.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Bağlantıyı başlatın veya sonlandırın.",
+  "guide_rp_title": {
+    "message": "5. $removeparam filtreleri",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Bir <code>$removeparam</code> filtresi şu şekildedir; köşeli parantez içindeki kısımlar isteğe bağlıdır:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Değer",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript normal ifade değişmezi.",
+  "guide_rp_p2": {
+    "message": "Değerin ilk karakteri ne anlama geldiğine karar verir:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtre",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "En yaygın desen:",
+  "guide_rp_v_all": {
+    "message": "her parametre",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "İstediğiniz zaman kullanın:",
+  "guide_rp_v_except": {
+    "message": "<code>ref</code> dışındaki her parametre (<code>~/regex/</code> ve <code>~|prefix</code> ile de çalışır)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Bölüm 6: URLs'i <code>urlPattern</code> ile Eşleştirme",
+  "guide_rp_v_regex": {
+    "message": "adı veya <code>name=value</code> değeri düzenli ifadeyle eşleşen parametreler; <code>i</code> eklemediğiniz sürece büyük/küçük harf duyarlıdır",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "<code>urlPattern</code>'i yalnızca alan adı eşleştirmenin yeterli olmadığı durumlarda (örneğin, sağlayıcının belirli bir yolla veya tam URL normal ifadesiyle eşleşmesi gerektiğinde) kullanın.",
+  "guide_rp_v_prefix": {
+    "message": "adı <code>utm_</code> ile başlayan parametreler; büyük/küçük harf göz ardı edilir",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Bu eşleşebilir:",
+  "guide_rp_v_name": {
+    "message": "tam olarak o parametre; <code>match-case</code> eklemediğiniz sürece büyük/küçük harf göz ardı edilir",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code>, ClearURL'nin eski eklentisidir ve ClearURL'nin çekirdek v2 kanonik sözdizimidir. Linkumori, <code>indexPattern</code>'i yalnızca aday arama ipucu olarak ekler, böylece normal ifade sağlayıcıları ana bilgisayar adı belirteçleri tarafından daha hızlı bulunabilir.",
+  "guide_rp_options_title": {
+    "message": "Seçenekler",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Önemli: <code>indexPattern</code> bir sağlayıcının eşleşip eşleşmediğine karar vermez. Aday aramasının ardından <code>clearurls.js</code>, <code>provider.matchRequestURL()</code>'te gerçek <code>urlPattern</code>'i test etmeye devam ediyor.",
+  "guide_rp_p3": {
+    "message": "Seçenekler değerden sonra gelir ve virgülle ayrılır. Bir seçeneğin birkaç değerini <code>|</code> ile ayırın ve bir değeri hariç tutmak için önüne <code>~</code> koyun:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Bölüm 7: Basit Sorgu Parametrelerini Kaldırma",
+  "guide_th_option": {
+    "message": "Seçenek",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Parametre adlarını <code>rules</code>'e girin.",
+  "guide_rp_o_domain": {
+    "message": "yalnızca bu alan adlarından gelen sayfalarda",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Sonuç:",
+  "guide_rp_o_to": {
+    "message": "yalnızca bu alan adlarına yapılan istekler için",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Birçok parametreyi kaldırın:",
+  "guide_rp_o_method": {
+    "message": "yalnızca bu HTTP yöntemleri için",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Sonuç:",
+  "guide_rp_o_party": {
+    "message": "yalnızca sayfa ile aynı siteye yapılan istekler için veya yalnızca diğer siteler için",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Bölüm 8: Bir Kural Nesnesi Yazın",
+  "guide_rp_o_strict": {
+    "message": "aynısı, ancak site yerine tam ana bilgisayarı (host) karşılaştırır",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Kural, düz bir dize yerine bir nesne olabilir.",
+  "guide_rp_o_types": {
+    "message": "yalnızca bu istek türleri için; <code>~type</code> birini hariç tutar",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "İhtiyacınız olduğunda bunu kullanın:",
+  "guide_rp_o_matchcase": {
+    "message": "parametre adları büyük-küçük harfe duyarlıdır",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Bir kural kimliği.",
+  "guide_rp_o_history": {
+    "message": "bir sayfa History API ile kendi adresini değiştirdiğinde bu filtreyi atla",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Takma adlar.",
+  "guide_rp_p4": {
+    "message": "Her seçeneğin tek bir yazımı vardır. <code>first-party,third-party</code> gibi çelişkili seçenekler reddedilir.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "İstisnalar.",
+  "guide_rp_keep_title": {
+    "message": "@@ ile bir parametreyi tutmak",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "İstek türü sınırları.",
+  "guide_rp_p5": {
+    "message": "<code>@@</code> ile başlayan bir filtre, parametreyi kaldırmak yerine tutar. Burada <code>ref</code>, GitHub dışındaki her yerden kaldırılır:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Davranışı yeniden yazın.",
+  "guide_rp_p6": {
+    "message": "Bir <code>@@</code> filtresi, başka bir sağlayıcı tarafından işlense bile, bu sağlayıcının eşleştiği bir sayfa tarafından yapılan istekleri de kapsar.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Bir sağlayıcının içindeki örnek:",
+  "guide_raw_title": {
+    "message": "6. Ham Kurallar",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Sonuç:",
+  "guide_raw_p1": {
+    "message": "Ham kural, tam URL üzerinde çalıştırılan bir düzenli ifadedir; her eşleşme silinir. Bunu, Amazon'un <code>/ref=…</code> yol segmenti gibi <code>name=value</code> parametresi olmayan metinler için kullanın:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "Sağlayıcı kuralı nesnelerindeki <code>flags</code>, Linkumori ekidir. <code>flags: \"i\"</code>, eşleşmeyi büyük/küçük harfe duyarlı hale getirir.",
+  "guide_raw_p2": {
+    "message": "Ham kurallar büyük-küçük harf ayrımı yapmaz ve her eşleşmeyi değiştirir. JSON içinde her ters eğik çizgiyi iki kez yazın.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Bölüm 9: <code>$removeparam</code> Kurallar",
+  "guide_raw_scope_title": {
+    "message": "Yalnızca bazı URL'lerde",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Bir Parametreyi Kaldır",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Tüm Parametreleri Kaldır",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Regex'e Göre Parametreleri Kaldır",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Bir Parametre Hariç Tümünü Kaldır",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "<code>$removeparam</code>'ı Yalnızca Bir Etki Alanına Uygula",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Temizlendi:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Temizlenmemiş:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Etki Alanı Sınırları Ekle",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Bir alanı hariç tutun:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Yöntem Sınırları Ekle",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Yalnızca <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "<code>POST</code> değil:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Bölüm 10: <code>$removeparam</code> İstisnalar",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Bir istisna yapmak için <code>@@</code> ile <code>$removeparam</code> kuralını başlatın.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Bağlam istisnası örneği:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Bu, <code>gemini.google.com</code> sayfası tarafından başlatılan alt isteklerde <code>ei</code>'i koruyabilir.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Bölüm 11: Parametre Değerlerini Yeniden Yazın",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Eşleşen bir parametre değerini değiştirmek için <code>action.type: \"rewrite\"</code>'i kullanın.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Bir sağlayıcının içinde:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Geçerli değeri yeniden kullanmak istediğinizde <code>§1§</code>'i kullanın:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Bölüm 12: Ham Kurallar",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "URL metninin tamamını düzenlemek için <code>rawRules</code>'i kullanın.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Basit ham kural:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Nesne ham kuralı:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Ham yeniden yazma kuralı:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Bölüm 13: Yönlendirme Kuralları",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Tarayıcıyı yeni bir URL'e göndermek için <code>redirections</code>'i kullanın.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "<code>replacePattern</code> eksikse ilk yakalama grubu kullanılır.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Bölüm 14: Etki Alanı Yönlendirme Kuralları",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code>, basit etki alanı modeli yönlendirmelerine yönelik bir Linkumori eklentisidir.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori ekleme — dize biçimi:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori ekleme — nesne biçimi:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Bölüm 15: İstisnalar",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code>, ClearURLs eklenti mirası ve ClearURLs çekirdek v2 kanonik sözdizimidir. Linkumori, bu eski sağlayıcı dizisindeki kurallı stildeki nesneleri de kabul eder.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Örnek:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code>, etki alanı modeli istisnalarına yönelik bir Linkumori ekidir.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Atlandı:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Bölüm 16: Tavsiye Pazarlama Kuralları",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> alan kuralları gibi çalışır ancak yönlendirme pazarlamasına yönelik uzantı ayarı tarafından kontrol edilir.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Örnek:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Bölüm 17: HTTP Yöntemler",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Bir sağlayıcıyı yalnızca belirli HTTP yöntemlerinde çalıştırmak için <code>methods</code>'i kullanın.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Bu şu şekilde çalışır:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Bu şu durumlarda çalışmaz:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Bölüm 18: Tarayıcı Kaynak Türleri",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code>, Linkumori'in bir toplamıdır. Bir sağlayıcıyı yalnızca belirli tarayıcı istek türlerinde çalıştırmak için kullanın.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Ortak değerler:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Örnek:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Anlamı:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Bölüm 19: Önişlemciler",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Ön işlemciler, yakalanan değerleri <code>replacePattern</code>'de kullanmadan önce değiştirir.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Örnek:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Desteklenen türler:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> şunlar olabilir:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Bölüm 20: İzin Verilen JSON Kombinasyonlar",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Bu bölümde Linkumori karma sağlayıcı JSON: ClearURLs eklenti eski dizileri, ClearURLs çekirdek v2 kanonik nesneleri ve Linkumori eklemelerin tek bir kural dosyasında birlikte bulunabileceği gösterilmektedir.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kombinasyon 1: Tek Dosyada Birçok Sağlayıcı",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code>, ClearURLs eski eklenti ve ClearURLs çekirdek v2 kanonik üst düzey sözdizimidir. Linkumori bu şekli koruyor ve birçok sağlayıcının bu çatı altında olmasına izin veriyor.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Her sağlayıcı ayrı ayrı yüklenir.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kombinasyon 2: Global Defaults Plus Sağlayıcıları",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code>, ClearURLs çekirdek v2 kanonik sözdizimidir. Linkumori, eski stil <code>providers</code>'in yanında bunu kabul eder.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Kuralda bu alanlar eksik olduğunda kurallar varsayılan değerleri devralabilir.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kombinasyon 3: <code>domainPatterns</code> Sağlayıcı",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Bu Linkumori'lik bir eklemedir. Çoğu Linkumori sağlayıcısı bu formu kullanmalıdır.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kombinasyon 4: <code>urlPattern</code> Sağlayıcı ile <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code>, ClearURL'lerin yukarı akış sözdizimidir. <code>indexPattern</code>, normal ifade URL sağlayıcıları için bir Linkumori arama ipucudur; regex'in eşleşebileceği ana bilgisayar adlarını işaret etmelidir.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> isteğe bağlıdır ancak hız açısından kullanışlıdır. Sağlayıcıyı ana bilgisayar adı belirteci aday gruplarına indeksler; hiçbir zaman son <code>urlPattern</code> eşleşmesinin yerini almaz.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kombinasyon 5: Birleşik Bir Gereksinim Olarak <code>domainPatterns</code> ve <code>urlPattern</code>'i Karıştırmayın",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Bu şekil eski veya elle yazılmış verilerde görünebilir, ancak bu her iki eşleştiricinin de geçmesi gerektiği anlamına gelmez:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Mevcut <code>clearurls.js</code> davranışı:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "<code>domainPatterns</code> mevcutsa ve boş değilse, <code>clearurls.js</code> bunu sağlayıcı eşleştirmesi için kullanır ve bu sağlayıcı için <code>urlPattern</code>'i yok sayar. Özel düzenleyici/içe aktarma yolu, her ikisini de içeren sağlayıcıları reddeder. Bir yol koşuluna ihtiyacınız varsa <code>urlPattern</code>'i <code>indexPattern</code> ile kullanın veya <code>rules</code> içindeki ayrı ayrı <code>$removeparam</code>/kural girişlerini kapsayın.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kombinasyon 6: Karışık <code>rules[]</code> Giriş",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumori'te <code>rules</code>, ClearURLs eski dize, Linkumori <code>$removeparam</code> dize, Linkumori <code>matchPattern</code> nesne ve ClearURLs çekirdek v2 kanonik nesneleri bir arada.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Dört girişin tümü kabul edilir.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kombinasyon 7: İçerideki Kanonik Nesneler <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs core v2 kanonik nesneleri farklı kural türlerini temsil edebilir. Bu Linkumori örneğinde, yalnızca Linkumori olan <code>domainPatterns</code>'i kullanan bir sağlayıcının içine yerleştirilmişlerdir.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> bunları anlamlarına göre sıralıyor:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kombinasyon 8: Eski Diziler Artı Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs eklenti eski sağlayıcı dizileri hala çalışıyor. Linkumori, bu dizilerin ClearURLs çekirdek v2 kanonik kural nesnelerinin yanında bulunmasına izin verir.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Bu geçerlidir. Motor aynı sağlayıcı için tüm bu dizileri okur.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kombinasyon 9: Sağlayıcı Genelinde Yöntemler ve Kaynak Türleri",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code>, ClearURLs sözdiziminin yukarı akışıdır. <code>resourceTypes</code>, Linkumori'ün bir toplamıdır. Her ikisi de sağlayıcının tamamı için geçerlidir.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Hem <code>rules</code> hem de <code>rawRules</code>, sağlayıcı yöntemi/tür eşleşmesiyle sınırlıdır.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kombinasyon 10: Kural Düzeyinde İstek Türleri",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs çekirdek v2 kanonik kuralları, <code>requestTypes</code> kural düzeyini tanımlayabilir.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Sağlayıcı düzeyi <code>resourceTypes</code> önce sağlayıcıyı daraltır. Kural düzeyi <code>requestTypes</code> bundan sonra bireysel kuralları daraltır.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kombinasyon 11: Farklı Yerlerdeki İstisnalar",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori, ClearURLs sağlayıcı istisnalarını, Linkumori etki alanı istisnalarını, ClearURLs çekirdek v2 kural istisnalarını ve Linkumori sağlayıcı-yerel <code>$removeparam</code> istisnalarını birleştirmenize olanak tanır.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Açık anlamı:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kombinasyon 12: Sağlayıcı Artı Kurallarını Engelleme",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code>, bir sağlayıcıyı iptal ediyor/engelliyor olarak işaretler.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Ayarlarda alan adı engelleme etkinleştirildiğinde eşleşen istekler engellenebilir. Kurallar hâlâ mevcut olabilir ancak engelleme o sağlayıcı için daha güçlü bir davranıştır.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kombinasyon 13: Yönlendirme Sağlayıcısı Artı Temizleme Kuralları",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Bir sağlayıcı, yönlendirmeler ve temizleme kuralları içerebilir.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Bir yönlendirme eşleşirse ilk olarak yönlendirme döndürülür.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kombinasyon 14: Etki Alanı Yönlendirmeleri ve Regex Yönlendirmeleri",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Her ikisi de tek bir sağlayıcıda mevcut olabilir.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "İlk önce Regex yönlendirmeleri kontrol edilir. Eşleşen normal ifade yönlendirmesi yoksa etki alanı yönlendirmeleri kontrol edilir.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kombinasyon 15: Devre Dışı veya Etkin Olmayan Kurallar",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Sağlayıcılar etkin olmayabilir:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Kurallar etkin olmayabilir:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Etkin olmayan sağlayıcılar ve etkin olmayan kurallar göz ardı edilir.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kombinasyon 16: Tam Karma Sağlayıcı Örneği",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Bu Linkumori örneği, desteklenen sağlayıcı özelliklerinin çoğunu kasıtlı olarak birleştirir: ClearURLs eklenti eski dizileri, ClearURLs çekirdek v2 kanonik kural nesneleri ve yalnızca Linkumori eşleştirici ve etki alanı modeli özellikleri.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Bu, Linkumori karma sağlayıcı JSON için geçerlidir.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Bölüm 21: Tam Örnekler",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Örnek 1: Temel İzleyici Temizleyici",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Örnek 2: Tüm UTM Parametrelerini Kaldırma",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Örnek 3: Giriş Sırasında Gerekli Bir Parametreyi Tutun",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Örnek 4: Yönlendirme İzleme Tıklamaları",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Sonuç:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Örnek 5: Yalnızca Temizleme API İstekleri",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Anlamı:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Bölüm 22: Hızlı Kopyalama Şablonları",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Bir parametreyi kaldırın:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Birçok parametreyi kaldırın:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "<code>$removeparam</code>'i kullanın:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "<code>utm_</code> parametrenin tümünü kaldırın:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Bir istisna ekleyin:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Bir alan adını eşleştirin:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Bir izleyiciyi URL yönlendirin:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Bir ham kural, sonunda <code>rawrule=</code> olacak şekilde bir <code>$removeparam</code> filtresinin desenini ve seçeneklerini alabilir. <code>rawrule=</code> sonrasındaki her şey düzenli ifadedir:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Desen ve seçenekler kuralın nerede çalışacağına karar verir; silinen şey hala düzenli ifadedir. <code>match-case</code> bunu büyük-küçük harfe duyarlı hale getirir.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Bazı URL'lerde ham kuralları durdurmak",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "<code>@@</code> ile başlayan bir giriş, deseniyle eşleştiği yerlerde Ham Kurallar'ın çalışmasını engeller. Ham Kural'a bir <code>id</code> verin ve onu <code>targetId</code> ile adlandırın:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "<code>rawrule=</code> sonrası boş olduğunda ve <code>targetId</code> bulunmadığında, giriş o URL'lerdeki Sağlayıcı'nın tüm ham kurallarını durdurur. Sağlayıcının tamamını atlamak için bunun yerine <code>exceptions</code> kullanın.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. İstisnalar",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Bir URL, <code>exceptions</code> içindeki bir girişle eşleşirse, Sağlayıcı'nın hiçbir kuralı çalışmaz. Bir giriş, bir düzenli ifade veya <code>|</code> ile başlayan bir alan adı desenidir:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "İstisnalar büyük/küçük harf ayrımı gözetmez.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Yönlendirmeler",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Yönlendirme kuralları, doğrudan gerçek hedefe giderek takip sayfalarını atlar. Bunlar yalnızca <em>Üçüncü Taraf Yönlendirme Atlamasını Etkinleştir</em> açıkken çalışır.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "URL'nin bir kısmına yönlendir",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code> içindeki bir giriş, tam olarak bir yakalama grubuna <code>( … )</code> sahip olan bir düzenli ifadedir. İstek, grubun yakaladığı değere (URL-decoded olarak) gider. Diğer tüm grupları <code>(?: … )</code> olarak yazın:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Sabit bir adrese yönlendir",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "<code>|</code> ile başlayan bir giriş, eşleşen her URL'yi tek bir adrese gönderir:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Bir parametrenin değerine yönlendir",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code>, hedefi tutan parametreyi adlandırır, bu nedenle düzenli ifadeye gerek yoktur. <code>rules</code> ile aynı girişleri alır:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Değeri olan ilk eşleşen parametre kazanır. Bir yönlendirme, istek için diğer tüm işlemleri durdurur.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Kural nesneleri",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Herhangi bir giriş, bir dize yerine bir nesne olabilir. Bir kuralın kimliğe (id) ihtiyacı olduğunda, kapalı olarak başlaması gerektiğinde, kaldırmak yerine yeniden yazması gerektiğinde veya yalnızca bazı durumlarda çalışması gerektiğinde bir nesne kullanın:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Anahtar",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "düz bir giriş olarak yazacağınız metin",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "kuralı açıp kapatmak için kullanılan sabit bir isim (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "kuralın önceki kimlikleri; böylece kapattığınız bir kural, yeniden adlandırmadan sonra da kapalı kalır",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "kaldırmak yerine yeniden yaz; <code>§1§</code>, <code>§2§</code>, … yakalanan değerlerdir",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "önce yakalanan değerleri değiştir",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "yalnızca bu istek türleri için, örneğin <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "bu tek kuralın çalışmadığı URL'ler",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "bir dize olarak düzenli ifade bayrakları (varsayılan <code>i</code>; <code>rawRules</code> içinde <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "kuralı daha erken veya daha geç çalıştır",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: <code>rules</code> içindeki bir kural, yönlendirme pazarlaması kuralı olarak sayılır",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: bir sayfa kendi adresini History API ile değiştirdiğinde bu kuralı atla",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: kural kapalı olarak başlar",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "serbest metin",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "yalnızca <code>@@…$rawrule=</code> girişlerinde: durdurduğu Ham Kurallar",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Kaldırmak yerine yeniden yazma",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code> ile, <code>rules</code> içindeki bir kural parametreyi korur ve değerini <code>§1§</code> ile değiştirir. <code>rawRules</code> ve <code>redirections</code> içinde <code>§1§</code>, <code>§2§</code>, … yakalama gruplarıdır:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Önişlemciler",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Önişlemciler, yakalanan değerleri <code>replacePattern</code> kullanmadan önce değiştirir. <code>inputs</code>, <code>\"all\"</code> veya grup numaralarından oluşan bir listedir:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Türler <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> ve <code>base64Decode</code>'tir.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Kural kimlikleri",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Her kuralın bir kimliği vardır. <code>id</code> olmayan bir kural, kimliğini listesinden ve metninden alır: <code>rules</code> içindeki <code>\"utm_source\"</code>, <code>field-utm-source</code> olur. Eğer iki kural aynı kimliği alacaksa, her ikisinin sonuna kısa bir karma (hash) eklenir.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Kural metni değiştiğinde oluşturulan kimlik de değişir. Düzenlemeler boyunca açık/kapalı ayarını koruması gereken bir kurala kendi <code>id</code> değerini verin.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Bir kuralı daha erken veya daha geç çalıştırmak",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Ham Kurallar normalde önce çalışır, ardından <code>rules</code> ve <code>referralMarketing</code> gelir. <code>order</code> içeren bir kural, içermeyen kurallardan önce, en düşükten başlayarak çalışır. Burada belirteç önce değiştirilir ve ardından silinir:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code>, <code>rules</code>, <code>rawRules</code> ve <code>referralMarketing</code> içinde çalışır, ancak her zaman en son çalışan <code>$removeparam</code> filtrelerinde çalışmaz.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referans pazarlaması",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code>, <code>rules</code> ile aynı girişleri alır. <em>Yönlendirme pazarlamasına izin ver</em> açıkken bunlar atlanır, böylece isterseniz ortaklık bağlantıları çalışmaya devam eder:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Bir kural <code>rules</code> içinde kalabilir ve <code>\"referralMarketing\": true</code> ile hala referans pazarlaması olarak sayılabilir.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Yöntemler ve istek türleri",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Bunlar, bir Sağlayıcı veya bir kuralın ne zaman çalışacağını daraltır:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js davranışı: domainPatterns mevcutsa ve boş değilse Linkumori, sağlayıcı eşleştirmesi için domainPatterns'i kullanır. urlPattern yalnızca domainPatterns eksik veya boş olduğunda kullanılır. Özel düzenleyici/içe aktarma yolu bu karışık eşleştirici şeklini reddeder; bu nedenle onu yalnızca eski verileri anlamak için kullanın.",
+  "guide_req_methods": {
+    "message": "Sağlayıcının işlediği HTTP yöntemleri",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "Sağlayıcının işlediği istek türleri",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "bir kural nesnesinin işlediği istek türleri",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "bir <code>$removeparam</code> filtresi veya ham kural için de aynısı geçerlidir",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "İstek türleri tarayıcının isimlerini kullanır: <code>main_frame</code> (bir sayfa), <code>sub_frame</code> (bir çerçeve), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ve benzerleri. Filtre seçenekleri ilk ikisini <code>document</code> ve <code>subdocument</code> olarak adlandırır.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Bir URL'nin nasıl işlendiği",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "URL ile eşleşen ve isteğe izin veren her Sağlayıcı için:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: eğer biri eşleşirse, Sağlayıcı atlanır.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, ardından <code>fieldRedirections</code>: bir eşleşme isteği yönlendirir ve başka hiçbir şey çalışmaz.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: istek engellenir.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> tam URL üzerinde çalışır.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> ve <code>referralMarketing</code> parametreleri kaldırır.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> filtreleri çalışır, ancak bir <code>@@</code> filtresinin parametreyi tuttuğu durumlar İstisnalar arasındadır.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "İsteği değiştiren, yönlendiren veya engelleyen ilk Sağlayıcı sonucu belirler. Yeni URL daha sonra aynı adımlardan tekrar geçer.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Tam örnekler",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Tek bir mağazayı temizle",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Tek bir mağazadaki takip parametrelerini ve bir ortaklık kimliğini kaldırır ve ödeme sayfalarına dokunmaz:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "UTM parametrelerini her yerden kaldır",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "<code>*</code> deseni her URL ile eşleşir:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Bir tıklama takipçisini atla",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Bağlantıları bir tıklama takipçisi üzerinden doğrudan <code>url</code> parametresinde bulunan hedeflerine gönderir:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Bir parametreyi tek bir sayfada tut",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "<code>ref</code> parametresini, ona ihtiyaç duyan giriş sayfası hariç sitenin her yerinden kaldırır:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Kurallarınızı kontrol etme",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Özel Kurallar düzenleyicisi, kuralları kaydettiğinizde veya içe aktardığınızda kontrol eder. Bozuk JSON ve geçersiz düzenli ifadelerin yanı sıra, yüklenebilecek ancak sessizce yanlış işlem yapacak kuralları da reddeder, örneğin:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "Bir sağlayıcıda <code>domainPatterns</code> ve <code>urlPattern</code>",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "<code>|example.com^</code> gibi, tek bir <code>|</code> içeren ve şeması olmayan bir desen",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "Tam olarak bir yakalama grubu içermeyen düzenli ifade yönlendirmesi",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "Bilinmeyen alanlar, anahtarlar ve seçenekler",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "Hiçbir işlem yapmayacağı yerlerde <code>order</code> veya <code>referralMarketing</code>",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "Hiçbir Ham Kural'ı durdurmayan bir <code>@@…$rawrule=</code> girişi",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Kaydetme işlemi başarısız olursa, mesaj sağlayıcıyı, listeyi ve girişi belirtir.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

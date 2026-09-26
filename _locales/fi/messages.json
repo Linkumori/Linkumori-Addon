@@ -4727,1688 +4727,704 @@
     "message": "Sääntötunnus-ohjaimet ovat käytettävissä, kun toimittaja JSON on voimassa.",
     "description": "Virheellinen JSON-tila tarjoajan sääntötunnuksen ohjauksille"
   },
-  "guide_0001": {
-    "message": "Linkumori Laajennus – Sääntödokumentaatio",
+  "guide_page_title": {
+    "message": "Linkumori — Sääntöopas",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Teema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Tarjoajan JSON muoto",
+  "guide_toc_label": {
+    "message": "Sisältö",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Palveluntarjoaja JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Luku 1: Perus JSON Muoto",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Luku 2: Mikä on palveluntarjoaja?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Luku 3: Palveluntarjoajan kentät, joita voit käyttää",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Luku 4: Vastaavat verkkotunnukset",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Yhdistä yksi verkkotunnus ja kaikki aliverkkotunnukset",
+  "guide_title": {
+    "message": "Linkumori-sääntöjen kirjoittaminen",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Yhdistä sama nimi mihin tahansa julkiseen loppuliitteeseen",
+  "guide_intro_1": {
+    "message": "Linkumori puhdistaa URL-osoitteita sääntöjen avulla. Tämä opas näyttää, kuinka niitä kirjoitetaan ensimmäisestä säännöstä kaikkiin vaihtoehtoihin, kopioitavien esimerkkien kera.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Vastaa aliverkkotunnuksia",
+  "guide_intro_2": {
+    "message": "Säännöt ovat JSON-muodossa. Kirjoitat ne Mukautetut säännöt -editoriin, joka tarkistaa ne tallennuksen yhteydessä. Mukana tuleva sääntölista ja etäsääntölistat käyttävät samaa muotoa.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Käytä useampaa kuin yhtä verkkotunnusmallia",
+  "guide_file_title": {
+    "message": "1. Sääntötiedosto",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Luku 5: Toimialueen mallisymbolit",
+  "guide_file_p1": {
+    "message": "Sääntötiedosto on yksi JSON-olio. Sen <code>providers</code>-olio yhdistää valitsemasi nimen palveluntarjoajaan:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Luku 6: Vastaa URLs urlPatternilla",
+  "guide_file_p2": {
+    "message": "Palveluntarjoaja määrittää, mitä URL-osoitteita se käsittelee ja mitä niille tehdään. Tämä poistaa <code>utm_source</code>- ja <code>utm_medium</code>-osiot jokaisesta URL-osoitteesta osoitteessa <code>example.com</code> ja sen aliverkkotunnuksissa:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Luku 7: Poista yksinkertaiset kyselyparametrit",
+  "guide_file_p3": {
+    "message": "Nimi on vain tunniste. Se, mitä URL-osoitteita palveluntarjoaja käsittelee, määräytyy <code>domainPatterns</code>- tai <code>urlPattern</code>-kentän perusteella.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Luku 8: Kirjoita sääntöobjekti",
+  "guide_fields_title": {
+    "message": "2. Palveluntarjoajan kentät",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Luku 9: $removeparam säännöt",
+  "guide_th_field": {
+    "message": "Kenttä",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Poista yksi parametri",
+  "guide_th_meaning": {
+    "message": "Mitä se tekee",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Poista kaikki parametrit",
+  "guide_field_domainpatterns": {
+    "message": "Mitkä URL-osoitteet Palveluntarjoaja käsittelee domain-malleina (luku 3). Käytä tätä tai <code>urlPattern</code>, ei koskaan molempia.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Poista parametrit Regexillä",
+  "guide_field_urlpattern": {
+    "message": "Mitkä URL-osoitteet Palveluntarjoaja käsittelee säännöllisenä lausekkeena, joka täsmää koko URL-osoitteeseen. Isot ja pienet kirjaimet eivät vaikuta.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Poista kaikki paitsi yksi parametri",
+  "guide_field_indexpattern": {
+    "message": "Vain kohdassa <code>urlPattern</code>: isäntävihjeitä kuten <code>||example.com^</code>, jotta Palveluntarjoaja tarkistetaan vain näiden isäntien osalta. Ilman tätä Palveluntarjoaja tarkistetaan jokaisen URL-osoitteen kohdalla.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Käytä $removeparam vain yhteen verkkotunnukseen",
+  "guide_field_rules": {
+    "message": "Poistettavat parametrit (luvut 4 ja 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Lisää Domain Limits",
+  "guide_field_referral": {
+    "message": "Poistettavat suosittelu- ja kumppanuusparametrit. Ne ohitetaan, kun <em>Salli viittausmarkkinointi</em> on päällä (luku 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Lisää menetelmärajat",
+  "guide_field_rawrules": {
+    "message": "Säännölliset lausekkeet, jotka ajetaan koko URL-osoitteelle; jokainen osuma poistetaan (luku 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Luku 10: $removeparam Poikkeukset",
+  "guide_field_exceptions": {
+    "message": "URL-osoitteet, joihin Palveluntarjoaja ei koske (luku 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Luku 11: Kirjoita parametriarvot uudelleen",
+  "guide_field_redirections": {
+    "message": "Minne pyyntö lähetetään sen sijaan (luku 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Luku 12: Raakasäännöt",
+  "guide_field_fieldredirections": {
+    "message": "Uudelleenohjaus parametrin arvoon (luku 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Luku 13: Uudelleenohjaussäännöt",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> estää jokaisen pyynnön, johon Palveluntarjoaja täsmää, kun <em>Salli verkkotunnuksen esto</em> on päällä.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Luku 14: Verkkotunnuksen uudelleenohjaussäännöt",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: kun sivu itsessään ohjataan uudelleen, välilehti avaa uuden osoitteen.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Luku 15: Poikkeukset",
+  "guide_field_methods": {
+    "message": "Käsittele vain näitä HTTP-metodeja, esimerkiksi <code>[\"GET\"]</code>. Oletus: kaikki.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Luku 16: Viittausmarkkinointisäännöt",
+  "guide_field_resourcetypes": {
+    "message": "Käsittele vain näitä pyyntötyyppejä, esimerkiksi <code>[\"main_frame\"]</code>. Oletus: asetuksissa valitut tyypit.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Luku 17: HTTP Menetelmät",
+  "guide_field_history": {
+    "message": "<code>false</code> ohittaa Palveluntarjoajan, kun sivu muuttaa omaa osoitettaan History API:n avulla.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Luku 18: Selaimen resurssityypit",
+  "guide_field_active": {
+    "message": "<code>false</code> kytkee palveluntarjoajan pois päältä.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Luku 19: Esiprosessorit",
+  "guide_match_title": {
+    "message": "3. Mitä URL-osoitteita palveluntarjoaja käsittelee",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Luku 20: Sallitut JSON yhdistelmät",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> on luettelo verkkotunnusmalleista. URL-osoite täsmää, jos jokin niistä täsmää:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Yhdistelmä 1: Monet palveluntarjoajat yhdessä tiedostossa",
+  "guide_th_pattern": {
+    "message": "Malli",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Yhdistelmä 2: Global Defaults Plus Providers",
+  "guide_th_matches": {
+    "message": "Täsmäykset",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Yhdistelmä 3: domain Patterns Provider",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> ja kaikki sen aliverkkotunnukset",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Yhdistelmä 4: urlPattern Provider IndexPatternilla",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> missä tahansa julkisessa päätteessä (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Yhdistelmä 5: domainPatterns ja urlPattern yhdessä",
+  "guide_pat_path": {
+    "message": "kyseinen isäntä ja sen aliverkkotunnukset, kun polku alkaa merkkijonolla <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Yhdistelmä 6: Sekasäännöt[] Merkinnät",
+  "guide_pat_star": {
+    "message": "sama kuin <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Yhdistelmä 7: Kanoniset objektit sääntöjen sisällä[]",
+  "guide_pat_start": {
+    "message": "URL-osoitteet, jotka alkavat täsmälleen tällä tekstillä",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Yhdistelmä 8: Legacy Arrays Plus Canonical säännöt[]",
+  "guide_pat_end": {
+    "message": "URL-osoitteet, jotka päättyvät täsmälleen tähän tekstiin",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Yhdistelmä 9: Palveluntarjoajan laajuiset menetelmät ja resurssityypit",
+  "guide_pat_regex": {
+    "message": "koko URL-osoite säännöllisenä lausekkeena (iso- ja pienet kirjaimet huomioidaan, ellet lisää <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Yhdistelmä 10: Sääntötason pyyntötyypit",
+  "guide_pat_contains": {
+    "message": "URL-osoitteet, jotka sisältävät tämän tekstin missä tahansa",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Yhdistelmä 11: Poikkeukset eri paikoissa",
+  "guide_pat_all": {
+    "message": "jokainen URL-osoite",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Yhdistelmä 12: Esto Provider Plus -säännöt",
+  "guide_match_p2": {
+    "message": "<code>^</code> merkitsee isäntänimen loppua tai erotinta, kuten <code>/</code>, <code>?</code> tai <code>:</code>. <code>*</code> täsmää mihin tahansa. Lukuun ottamatta <code>/regex/</code>:tä, mallit eivät huomioi kirjainkoon eroja.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Yhdistelmä 13: Redirect Provider Plus Cleanup Rules",
+  "guide_match_p3": {
+    "message": "<code>||</code> tarkoittaa verkkotunnusta, kun taas yksittäinen <code>|</code> tarkoittaa URL-osoitteen aivan alkua ja sitä on seurattava protokollaa, kuten <code>https://</code>. <code>|example.com^</code> ei voi koskaan täsmätä, joten editori hylkää sen.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Yhdistelmä 14: Verkkotunnuksen uudelleenohjaukset ja säännölliset uudelleenohjaukset",
+  "guide_match_p4": {
+    "message": "Käytä sen sijaan <code>urlPattern</code>-merkintää kohdistamiseen säännöllisellä lausekkeella ja lisää <code>indexPattern</code>, jotta Palveluntarjoaja tarkistetaan vain kyseisissä isännissä:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Yhdistelmä 15: Pois käytöstä tai ei-aktiiviset säännöt",
+  "guide_match_p5": {
+    "message": "Palveluntarjoajalla on joko <code>domainPatterns</code> tai <code>urlPattern</code>, ei koskaan molempia. Jos tarvitset molemmat kohdistustavat, luo kaksi Palveluntarjoajaa.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Yhdistelmä 16: Esimerkki täydellisestä sekatoimittajasta",
+  "guide_rules_title": {
+    "message": "4. Parametrien poistaminen",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Luku 21: Täydelliset esimerkit",
+  "guide_rules_p1": {
+    "message": "Jokainen merkintä kohdassa <code>rules</code> poistaa parametreja kyselystä (<code>?a=1</code>) ja fragmentista (<code>#a=1</code>). Merkintä on jokin seuraavista:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Esimerkki 1: Basic Tracker Cleaner",
+  "guide_th_entry": {
+    "message": "Merkintä",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Esimerkki 2: Poista kaikki UTM-parametrit",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Esimerkki 3: Säilytä tarvittava parametri kirjautumisessa",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Esimerkki 4: Uudelleenohjauksen seurantaklikkaukset",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Esimerkki 5: Vain puhtaat API-pyynnöt",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Luku 22: Pikakopiomallit",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mixed Provider JSON Muotoopas",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Tämä opas selittää, kuinka kirjoitetaan palveluntarjoajan JSON tiedot, joita <code>Linkumori extension</code> voi lukea.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Se ei ole opas koodiin JavaScript. Se keskittyy vain JSON-muotoihin, sääntömuotoihin ja esimerkkeihin, joita sääntöjen kirjoittajat tarvitsevat.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Tämä opas perustuu nykyiseen <code>clearurls.js</code> ajonaikaiseen käyttäytymiseen. Erityisesti palveluntarjoajan haku käyttää <code>providersByToken</code>-ehdokasryhmiä <code>domainPatterns</code>:stä tai <code>indexPattern</code>:stä, ja lopullinen vastaavuus suoritetaan edelleen <code>provider.matchRequestURL()</code>:n kautta.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Luku 1: Perus JSON Muoto",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> odottaa palveluntarjoajan tietoja tässä yleisessä muodossa:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Tärkeä osa on <code>providers</code>. Jokainen tunnuksen <code>providers</code> sisällä oleva avain on palveluntarjoajan nimi.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Esimerkki:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Luku 2: Mikä on palveluntarjoaja?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Palveluntarjoaja on yksi nimetty suoritusaikasäilö yhdelle verkkosivustolle, yritykselle, seurannalle, verkkotunnusmallijoukolle tai URL-osoitteen regexille. Palveluntarjoajan nimi on tunniste/avain; täsmäämisen tekee <code>domainPatterns</code> tai <code>urlPattern</code>, ei palveluntarjoajan nimen mukaan.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Pienin tarjoaja:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Mitä tämä tekee:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Luku 3: Palveluntarjoajan kentät, joita voit käyttää",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code>:n hyväksymät tarjoajan kentät. Kirjoita joko <code>domainPatterns</code> tai <code>urlPattern</code> ja valinnainen <code>indexPattern</code>; Älä luota siihen, että molempia vaaditaan yhdessä.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Yksinkertainen merkitys:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON kenttä",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "lähde",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Mitä varten kirjoitat sen",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Aseta <code>false</code> poistaaksesi tämän palveluntarjoajan käytöstä.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Aseta <code>true</code> estämään vastaavat verkkotunnukset pelkän puhdistamisen sijaan.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Aseta <code>true</code> pakottaaksesi pääsivun uudelleenohjaukset selainvälilehden kautta.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Suositeltu tapa kertoa, mitä verkkotunnuksia tämä tarjoaja vastaa.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript regex-merkkijono URL vastaavuudelle.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Valinnainen nopeusvinkki käytettäessä numeroa <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy ja ClearURLs ydin v2 kanoninen; <code>$removeparam</code> on Linkumori lisäys tähän",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Normaalit parametrien poistosäännöt ja palveluntarjoajan paikalliset <code>$removeparam</code> säännöt.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs lisäosan perintö; Kanonisen tyyliset esineet ovat Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Säännöt, jotka muokkaavat koko URL tekstiä.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs lisäosan perintö; Kanonisen tyyliset esineet ovat Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Valinnaiset viittaus-/markkinointiparametrisäännöt.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs lisäosan perintö ja ClearURLs ydin v2 kanoninen; objektilomakkeet tässä ovat Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regex-säännöt, joissa tämän palveluntarjoajan ei pitäisi suorittaa.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Verkkotunnusmallisäännöt, joissa tämän palveluntarjoajan ei pitäisi toimia.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs lisäosan perintö; Kanonisen tyyliset esineet ovat Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex-uudelleenohjaussäännöt.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Verkkotunnusmallin uudelleenohjaussäännöt.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Suorita vain näille HTTP menetelmille.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori lisäys",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Suorita vain näille selainpyyntötyypeille.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Luku 4: Vastaavat verkkotunnukset",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> on Linkumori-lisäys, ja sitä suosivat useimmat mukautetut palveluntarjoajat. <code>clearurls.js</code>:ssä ei-tyhjiä <code>domainPatterns</code> käytetään sovitukseen ennen <code>urlPattern</code>:ää.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Yhdistä yksi verkkotunnus ja kaikki aliverkkotunnukset",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Ottelut:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Ei vastaa:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Yhdistä sama nimi mihin tahansa julkiseen loppuliitteeseen",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Voi vastata:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Vastaa aliverkkotunnuksia",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Voi vastata:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Käytä useampaa kuin yhtä verkkotunnusmallia",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Luku 5: Toimialueen mallisymbolit",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Näitä symboleja voit käyttää numerossa <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Symboli",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Merkitys",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Esimerkki",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Poistaa",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Vastaa verkkotunnuksen rajalla.",
+  "guide_rules_name": {
+    "message": "parametrin nimen",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "nimen säännöllinen lauseke",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "jokaisen parametrin, jonka koko nimi täsmää; <code>^…$</code> lisätään puolestasi ja kirjainkoon huomioimatta",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Erotin tai päätyraja.",
+  "guide_rules_filter": {
+    "message": "<code>$removeparam</code>-suodatin",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "katso luku 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> ja <code>\"$removeparam=fbclid\"</code> poistavat saman asian. Käytä tavallista nimeä, ellet tarvitse jotain luvusta 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Jokerimerkki.",
+  "guide_rules_part_title": {
+    "message": "Säännöt Palveluntarjoajan osalle",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Tavallinen nimi koskee jokaista URL-osoitetta, johon Palveluntarjoaja täsmää. Poistaaksesi parametrin vain joistakin niistä, aseta kuvio <code>$removeparam</code>-suodattimen eteen:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Tässä <code>qid</code> poistetaan jokaiselta Amazon-sivustolta, <code>tag</code> vain osoitteesta <code>amazon.de</code>, <code>sr</code> vain osoitteesta <code>smile.amazon</code> ja <code>ref_</code> vain kohdassa <code>/gp/</code>. Kuvio kaventaa Palveluntarjoajan omia kuvioita; se ei voi laajentaa niitä.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Aloitus- tai loppuankkuri.",
+  "guide_rp_title": {
+    "message": "5. $removeparam-suodattimet",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "<code>$removeparam</code>-suodatin on tällainen; hakasulkeissa olevat osat ovat valinnaisia:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Arvo",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex-literaali.",
+  "guide_rp_p2": {
+    "message": "Arvon ensimmäinen merkki määrittää sen merkityksen:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Suodatin",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Yleisin malli:",
+  "guide_rp_v_all": {
+    "message": "jokainen parametri",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Käytä sitä milloin haluat:",
+  "guide_rp_v_except": {
+    "message": "jokainen parametri paitsi <code>ref</code> (toimii myös <code>~/regex/</code>- ja <code>~|prefix</code>-merkkien kanssa)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Luku 6: URLs ja <code>urlPattern</code> yhdistäminen",
+  "guide_rp_v_regex": {
+    "message": "parametrit, joiden nimi tai <code>name=value</code> täsmää säännölliseen lausekkeeseen; kirjainkoko on merkityksellinen, ellet lisää <code>i</code>-merkkiä",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Käytä <code>urlPattern</code>:ää vain, kun verkkotunnuksen vastaavuus ei riitä, esimerkiksi kun palveluntarjoajan on vastattava tiettyä polkua tai koko URL-osoitteen regex.",
+  "guide_rp_v_prefix": {
+    "message": "parametrit, joiden nimi alkaa merkkijonolla <code>utm_</code>; kirjainkokoa ei huomioida",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Tämä voi vastata:",
+  "guide_rp_v_name": {
+    "message": "täsmälleen kyseinen parametri; kirjainkokoa ei huomioida, ellet lisää <code>match-case</code>-merkkiä",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> on ClearURL-lisäosien perintö ja ClearURL-ydin v2 kanoninen syntaksi. Linkumori lisää <code>indexPattern</code>:n vain ehdokashakuvihjeeksi, jotta regex-palveluntarjoajat voidaan löytää isäntänimen tunnisteilla nopeammin.",
+  "guide_rp_options_title": {
+    "message": "Valinnat",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Tärkeää: <code>indexPattern</code> ei päätä, sopiiko palveluntarjoaja. Ehdokashaun jälkeen <code>clearurls.js</code> testaa edelleen todellista <code>urlPattern</code>:ää <code>provider.matchRequestURL()</code>:ssä.",
+  "guide_rp_p3": {
+    "message": "Valinnat tulevat arvon jälkeen pilkuilla erotettuina. Erota yhden valinnan useat arvot <code>|</code>-merkillä ja aseta <code>~</code> arvon eteen poistaaksesi sen:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Luku 7: Poista yksinkertaiset kyselyparametrit",
+  "guide_th_option": {
+    "message": "Valinta",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Kirjoita parametrien nimet numeroon <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "vain näiden domainien sivuilta",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Tulos:",
+  "guide_rp_o_to": {
+    "message": "vain näille domaineille lähetettävissä pyynnöissä",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Poista monet parametrit:",
+  "guide_rp_o_method": {
+    "message": "vain näille HTTP-menetelmille",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Tulos:",
+  "guide_rp_o_party": {
+    "message": "vain pyynnöille samalle sivustolle kuin sivu, tai vain muille sivustoille",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Luku 8: Kirjoita sääntöobjekti",
+  "guide_rp_o_strict": {
+    "message": "sama, mutta vertaa tarkkaa isäntää sivuston sijaan",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Tavallisen merkkijonon sijasta sääntö voi olla objekti.",
+  "guide_rp_o_types": {
+    "message": "vain näille pyyntötyypeille; <code>~type</code> sulkee yhden pois",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Käytä tätä, kun tarvitset:",
+  "guide_rp_o_matchcase": {
+    "message": "parametrien nimet ovat kirjainkohtaisia",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Säännön tunnus.",
+  "guide_rp_o_history": {
+    "message": "ohita tämä suodatin, kun sivu muuttaa omaa osoitettaan History API:n avulla",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Aliakset.",
+  "guide_rp_p4": {
+    "message": "Jokaisella vaihtoehdolla on yksi kirjoitusasu. Ristiriitaiset vaihtoehdot, kuten <code>first-party,third-party</code>, hylätään.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Poikkeukset.",
+  "guide_rp_keep_title": {
+    "message": "Parametrin säilyttäminen @@:lla",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Pyyntötyypin rajoitukset.",
+  "guide_rp_p5": {
+    "message": "Suodatin, joka alkaa <code>@@</code>:lla, säilyttää parametrin sen poistamisen sijaan. Tässä <code>ref</code> poistetaan kaikkialla paitsi GitHubissa:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Kirjoita käyttäytyminen uudelleen.",
+  "guide_rp_p6": {
+    "message": "<code>@@</code>-suodatin kattaa myös pyynnöt, jotka tekee tämän Palveluntarjoajan vastaama sivu, vaikka toinen Palveluntarjoaja käsittelisi niitä.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Esimerkki palveluntarjoajan sisällä:",
+  "guide_raw_title": {
+    "message": "6. Raakasäännöt",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Tulos:",
+  "guide_raw_p1": {
+    "message": "Raakasääntö on koko URL-osoitteeseen kohdistuva säännöllinen ilmaisu; jokainen osuma poistetaan. Käytä sitä tekstiin, joka ei ole <code>name=value</code>-parametri, kuten Amazonin <code>/ref=…</code>-polun osa:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> toimittajasääntöobjekteissa on Linkumori lisäys. <code>flags: \"i\"</code> tekee ottelusta kirjainkoolla välin.",
+  "guide_raw_p2": {
+    "message": "Raakasäännöt eivät huomioi kirjainkohtaisuutta ja korvaavat jokaisen osuman. JSON-muodossa kirjoita jokainen takasvinviivana kaksi kertaa.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Luku 9: <code>$removeparam</code> Säännöt",
+  "guide_raw_scope_title": {
+    "message": "Vain joissakin URL-osoitteissa",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Poista yksi parametri",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Poista kaikki parametrit",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Poista parametrit Regexillä",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Poista kaikki paitsi yksi parametri",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Käytä <code>$removeparam</code> vain yhteen verkkotunnukseen",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Puhdistettu:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Ei puhdistettu:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Lisää Domain Limits",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Sulje yksi verkkotunnus pois:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Lisää menetelmärajat",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Vain <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Ei <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Luku 10: <code>$removeparam</code> Poikkeukset",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Aloita <code>$removeparam</code>-sääntö numerolla <code>@@</code> tehdäksesi poikkeuksen.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Esimerkki kontekstipoikkeuksesta:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Tämä voi suojata numeroa <code>ei</code> <code>gemini.google.com</code>-sivulla aloitetuissa alipyynnöissä.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Luku 11: Kirjoita parametriarvot uudelleen",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Käytä koodia <code>action.type: \"rewrite\"</code> korvataksesi vastaavan parametrin arvon.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Palveluntarjoajan sisällä:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Käytä numeroa <code>§1§</code>, kun haluat käyttää nykyistä arvoa uudelleen:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Luku 12: Raakasäännöt",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Käytä numeroa <code>rawRules</code> muokataksesi koko URL tekstiä.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Yksinkertainen raakasääntö:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Objektin raakasääntö:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Raaka uudelleenkirjoitussääntö:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Luku 13: Uudelleenohjaussäännöt",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Käytä numeroa <code>redirections</code> lähettääksesi selain uuteen numeroon URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Jos <code>replacePattern</code> puuttuu, käytetään ensimmäistä sieppausryhmää.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Luku 14: Verkkotunnuksen uudelleenohjaussäännöt",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> on Linkumori lisäys yksinkertaisiin verkkotunnusmallin uudelleenohjauksiin.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori lisäys — merkkijonomuoto:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori lisäys — objektimuoto:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Luku 15: Poikkeukset",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> on ClearURLs lisäyksen perintö ja ClearURLs ydin v2 kanoninen syntaksi. Linkumori hyväksyy myös kanonisen tyyliset objektit tässä vanhassa toimittajataulukossa.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Esimerkki:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> on Linkumori lisäys toimialuemallipoikkeuksiin.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Ohitettu:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Luku 16: Viittausmarkkinointisäännöt",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> toimii kuten kenttäsäännöt, mutta sitä ohjaa viittausmarkkinoinnin laajennusasetus.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Esimerkki:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Luku 17: HTTP Menetelmät",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Käytä numeroa <code>methods</code> suorittaaksesi palveluntarjoajan vain tietyillä HTTP menetelmillä.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Tämä toimii:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Tämä ei toimi:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Luku 18: Selaimen resurssityypit",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> on Linkumori lisäys. Käytä sitä palveluntarjoajan suorittamiseen vain tietyissä selainpyyntötyypeissä.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Yleiset arvot:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Esimerkki:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Merkitys:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Luku 19: Esiprosessorit",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Esiprosessorit muuttavat siepattuja arvoja ennen niiden käyttöä numerossa <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Esimerkki:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Tuetut tyypit:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> voi olla:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Luku 20: Sallitut JSON yhdistelmät",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Tässä luvussa esitetään Linkumori sekapalveluntarjoajan JSON: ClearURLs lisäosan vanhoja taulukoita, ClearURLs ytimen v2-kanonisia objekteja ja Linkumori lisäystä yhdessä sääntötiedostossa voi olla yhdessä.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Yhdistelmä 1: Monet palveluntarjoajat yhdessä tiedostossa",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> on ClearURLs lisäyksen perintö ja ClearURLs ydin v2 kanoninen huipputason syntaksi. Linkumori säilyttää tämän muodon ja sallii monet palveluntarjoajat sen alle.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Jokainen palveluntarjoaja ladataan erikseen.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Yhdistelmä 2: Global Defaults Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> on ClearURLs ydin v2 kanoninen syntaksi. Linkumori hyväksyy sen perinteisen tyylin <code>providers</code> rinnalla.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Säännöt voivat periä oletusarvot, jos kyseiset kentät puuttuvat säännöstä.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Yhdistelmä 3: <code>domainPatterns</code> Palveluntarjoaja",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Tämä on Linkumori lisäys. Useimpien Linkumori-palveluntarjoajien tulisi käyttää tätä lomaketta.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Yhdistelmä 4: <code>urlPattern</code> Palveluntarjoaja numerolla <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> on ylävirran ClearURL-syntaksi. <code>indexPattern</code> on Linkumori-hakuvinkki regex-URL-palveluntarjoajille; sen pitäisi osoittaa isäntänimiä, joita säännöllinen lauseke voi vastata.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> on valinnainen, mutta hyödyllinen nopeuden kannalta. Se indeksoi palveluntarjoajan isäntänimi-token-ehdokasryhmiin; se ei koskaan korvaa viimeistä <code>urlPattern</code>-ottelua.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Yhdistelmä 5: Älä sekoita <code>domainPatterns</code>:ää ja <code>urlPattern</code>:ää yhdistettynä vaatimuksena",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Tämä muoto voi esiintyä vanhemmissa tai käsinkirjoitetuissa tiedoissa, mutta se ei tarkoita, että molempien vastaajien on läpäistävä:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Nykyinen <code>clearurls.js</code>-käyttäytyminen:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Jos <code>domainPatterns</code> on läsnä eikä tyhjä, <code>clearurls.js</code> käyttää sitä palveluntarjoajan täsmäämiseen ja jättää huomioimatta kyseisen palveluntarjoajan <code>urlPattern</code>:n. Mukautettu muokkaus-/tuontipolku hylkää palveluntarjoajat, jotka sisältävät molemmat. Jos tarvitset polkuehdon, käytä <code>urlPattern</code>:ää <code>indexPattern</code>:n kanssa tai laajenna yksittäisiä <code>$removeparam</code>/sääntömerkintöjä <code>rules</code>:n sisällä.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Yhdistelmä 6: Yhdistelmä <code>rules[]</code> merkintää",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Numerossa Linkumori <code>rules</code> voi sisältää ClearURLs vanhaa merkkijonoa, Linkumori <code>$removeparam</code> merkkijonoa, Linkumori objektia 650,0006 ClearURLs ydin v2 kanonisia objekteja yhdessä.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Kaikki neljä ilmoittautumista hyväksytään.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Yhdistelmä 7: Kanoniset objektit sisällä <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs ydin v2 kanoniset objektit voivat edustaa erilaisia sääntöjä. Tässä esimerkissä Linkumori ne on sijoitettu palveluntarjoajan sisään, joka käyttää numeroa <code>domainPatterns</code>, joka on vain numero Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> lajittelee nämä merkityksen mukaan:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Yhdistelmä 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs lisäosan vanhat toimittajataulukot toimivat edelleen. Linkumori sallii näiden taulukoiden olla ClearURLs ydin v2:n kanonisten sääntöobjektien vieressä.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Tämä on voimassa. Moottori lukee kaikki nämä taulukot samalle tarjoajalle.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Yhdistelmä 9: Palveluntarjoajan laajuiset menetelmät ja resurssityypit",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> on ylävirran ClearURLs syntaksi. <code>resourceTypes</code> on Linkumori lisäys. Molemmat koskevat koko palveluntarjoajaa.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Sekä numeroita <code>rules</code> että <code>rawRules</code> rajoittavat palveluntarjoajan menetelmän/tyypin vastaavuus.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Yhdistelmä 10: Sääntötason pyyntötyypit",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs v2-ydinsäännöt voivat määrittää sääntötason <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Palveluntarjoajataso <code>resourceTypes</code> kaventaa ensin palveluntarjoajaa. Sääntötaso <code>requestTypes</code> kaventaa yksittäisiä sääntöjä sen jälkeen.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Yhdistelmä 11: Poikkeukset eri paikoissa",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori mahdollistaa ClearURLs palveluntarjoajan poikkeuksen, Linkumori verkkotunnuksen poikkeuksen, ClearURLs v2-ydinsäännön poikkeuksen ja Linkumori tarjoajan paikallisen poikkeuksen Linkumori yhdistämisen.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Yksinkertainen merkitys:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Yhdistelmä 12: Esto Provider Plus -säännöt",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> merkitsee palveluntarjoajan peruuttavaksi/estäväksi.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Kun verkkotunnuksen esto on käytössä asetuksissa, vastaavat pyynnöt voidaan estää. Säännöt voivat edelleen olla olemassa, mutta estäminen on vahvempi toiminta kyseiselle palveluntarjoajalle.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Yhdistelmä 13: Redirect Provider Plus Cleanup Rules",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Palveluntarjoaja voi sisältää uudelleenohjauksia ja puhdistussääntöjä.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Jos uudelleenohjaus vastaa, uudelleenohjaus palautetaan ensin.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Yhdistelmä 14: Verkkotunnuksen uudelleenohjaukset ja säännölliset uudelleenohjaukset",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Molemmat voivat olla samassa palveluntarjoajassa.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex-uudelleenohjaukset tarkistetaan ensin. Verkkotunnuksen uudelleenohjaukset tarkistetaan, jos säännöllisen lausekkeen uudelleenohjausta ei löydy.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Yhdistelmä 15: Pois käytöstä tai ei-aktiiviset säännöt",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Palveluntarjoajat voivat olla passiivisia:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Säännöt voivat olla epäaktiivisia:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Ei-aktiiviset palveluntarjoajat ja ei-aktiiviset säännöt ohitetaan.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Yhdistelmä 16: Esimerkki täydellisestä sekatoimittajasta",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Tämä Linkumori-esimerkki yhdistää tarkoituksella useimmat tuetut palveluntarjoajan ominaisuudet: ClearURLs-lisäosan vanhat taulukot, ClearURLs core v2 kanoniset sääntöobjektit ja Linkumori-vain täsmäys- ja verkkotunnusmalliominaisuudet.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Tämä on voimassa Linkumori sekapalveluntarjoaja JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Luku 21: Täydelliset esimerkit",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Esimerkki 1: Basic Tracker Cleaner",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Esimerkki 2: Poista kaikki UTM-parametrit",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Esimerkki 3: Säilytä tarvittava parametri kirjautumisessa",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Esimerkki 4: Uudelleenohjauksen seurantaklikkaukset",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Tulos:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Esimerkki 5: Vain puhtaat API-pyynnöt",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Merkitys:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Luku 22: Pikakopiomallit",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Poista yksi parametri:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Poista monet parametrit:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Käytä numeroa <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Poista kaikki <code>utm_</code> parametrit:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Lisää poikkeus:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Vastaa verkkotunnusta:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Ohjaa seurantalaite URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Raakasääntö voi käyttää <code>$removeparam</code>-suodattimen kuviota ja vaihtoehtoja, kun <code>rawrule=</code> on viimeisenä. Kaikki <code>rawrule=</code>:n jälkeen on säännöllinen ilmaisu:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Kuvio ja vaihtoehdot määrittävät, missä sääntö ajetaan; säännöllinen ilmaisu on silti se, mikä poistetaan. <code>match-case</code> tekee siitä kirjainkohtaisen.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Raakasääntöjen pysäyttäminen joissakin URL-osoitteissa",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Merkintä, joka alkaa <code>@@</code>:lla, estää raakasääntöjen suorittamisen kohdissa, joissa sen kuvio täsmää. Anna raakasäännölle <code>id</code> ja nimeä se <code>targetId</code>:lla:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Jos <code>rawrule=</code>:n jälkeen ei ole mitään eikä <code>targetId</code>:ää, merkintä pysäyttää palveluntarjoajan kaikki raakasäännöt kyseisillä URL-osoitteilla. Ohita koko palveluntarjoaja käyttämällä sen sijaan <code>exceptions</code>:ta.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Poikkeukset",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Jos URL täsmää merkintään <code>exceptions</code>:ssa, mikään palveluntarjoajan säännöistä ei suoritu. Merkintä on säännöllinen ilmaisu tai verkkotunnistokuvio, joka alkaa <code>|</code>:llä:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Poikkeukset eivät huomioi kirjainkoon eroja.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Uudelleenohjaukset",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Uudelleenohjaussäännöt ohittavat seurantasivut menemällä suoraan oikeaan kohteeseen. Ne toimivat vain, kun <em>Ota käyttöön kolmannen osapuolen uudelleenohjauksen ohitus</em> on päällä.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Uudelleenohjaus URL-osoitteen osaan",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Merkintä <code>redirections</code>:ssa on säännöllinen ilmaisu, jossa on täsmälleen yksi kaappausryhmä, <code>( … )</code>. Pyyntö ohjataan ryhmän kaappaamaan sisältöön URL-dekoodattuna. Kirjoita mikä tahansa muu ryhmä muodossa <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Uudelleenohjaus kiinteään osoitteeseen",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Merkintä, joka alkaa <code>|</code>:lla, lähettää jokaisen täsmäävän URL-osoitteen yhteen osoitteeseen:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Uudelleenohjaus parametrin arvoon",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> nimeää parametrin, joka sisältää kohteen, joten säännöllistä ilmaisua ei tarvita. Se hyväksyy samat merkinnät kuin <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Ensimmäinen täsmäävä parametri, jolla on arvo, voittaa. Uudelleenohjaus pysäyttää kaiken muun pyynnön käsittelyn.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Sääntöoliot",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Mikä tahansa merkintä voi olla olio merkkijonon sijasta. Käytä oliota, kun sääntö tarvitsee tunnisteen (id), sen tulee olla aluksi pois päältä, sen tulee kirjoittaa uudelleen poistamisen sijaan tai sen tulee toimia vain tietyissä tapauksissa:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Avain",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "teksti, jonka kirjoittaisit tavallisena merkintänä",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "vakaa nimi (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>), jota käytetään säännön kytkemiseen päälle ja pois",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "säännön aikaisemmat tunnisteet, jotta pois kytketty sääntö pysyy pois päältä nimen muuttamisen jälkeen",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "kirjoita uudelleen poistamisen sijaan; <code>§1§</code>, <code>§2§</code>, … ovat kaapatut arvot",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "muuta kaapatut arvot ensin",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "vain näille pyyntötyypeille, esimerkiksi <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL-osoitteet, joissa tämä sääntö ei suoriteta",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "säännöllisen ohjelman liput merkkijonona (oletus <code>i</code>; <code>gi</code> kohdassa <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "suorita sääntö aikaisemmin tai myöhemmin",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: sääntö kohdassa <code>rules</code> lasketaan referral-markkinointisäännöksi",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ohita tämä sääntö, kun sivu muuttaa omaa osoitettaan History API:n avulla",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: sääntö alkaa pois kytkettynä",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "vapaa teksti",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "vain <code>@@…$rawrule=</code>-merkinnöissä: raakasääntö, jonka se pysäyttää",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Uudelleenkirjoitus poistamisen sijaan",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code>:n avulla <code>rules</code>:n sääntö säilyttää parametrin ja korvaa sen arvon, joka on <code>§1§</code>. Kohdissa <code>rawRules</code> ja <code>redirections</code> <code>§1§</code>, <code>§2§</code>, … ovat kaappausryhmiä:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Esikäsittelijät",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Esikäsittelijät muuttavat kaapattuja arvoja ennen kuin <code>replacePattern</code> käyttää niitä. <code>inputs</code> on <code>\"all\"</code> tai lista ryhmänumeroista:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Tyypit ovat <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> ja <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Sääntö-id:t",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Jokaisella säännöllä on id. Sääntö, jolla ei ole <code>id</code>:ää, saa sellaisen listastaan ja tekstistään: <code>\"utm_source\"</code> kohdassa <code>rules</code> muuttuu muotoon <code>field-utm-source</code>. Jos kaksi sääntöä saisi saman id:n, molempien loppuun lisätään lyhyt tiiviste.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Generoidu id muuttuu, kun säännön teksti muuttuu. Anna säännölle oma <code>id</code>, kun sen on säilytettävä päälle/pois-asetuksensa muokkausten ajan.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Säännön suorittaminen aikaisemmin tai myöhemmin",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Raakasäännöt suoritetaan yleensä ensin, sitten <code>rules</code> ja <code>referralMarketing</code>. Sääntö, jolla on <code>order</code>, suoritetaan ennen sääntöjä, joilla ei ole sellaista, alhaisin numero ensin. Tässä tapauksessa token korvataan ensin ja sen jälkeen poistetaan:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> toimii kohdissa <code>rules</code>, <code>rawRules</code> ja <code>referralMarketing</code>, mutta ei <code>$removeparam</code>-suodattimissa, jotka suoritetaan aina viimeisenä.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Suosittelumarkkinointi",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> ottaa vastaan samat merkinnät kuin <code>rules</code>. Ne ohitetaan, kun <em>Salli viittausmarkkinointi</em> on päällä, jotta kumppanuuslinkit pysyvät toimivina, jos niin haluat:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Sääntö voi pysyä kohdassa <code>rules</code> ja silti laskea suosittelumarkkinointiksi, kohdassa <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metodit ja pyyntötyypit",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Nämä tarkentavat, milloin Palveluntarjoaja tai sääntö suoritetaan:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js-käyttäytyminen: jos domainPatterns on olemassa eikä se ole tyhjä, Linkumori käyttää domainPatterns-tunnusta tarjoajan täsmäykseen. urlPattern käytetään vain, kun domainPatterns puuttuu tai on tyhjä. Mukautettu muokkaus-/tuontipolku hylkää tämän sekavastausmuodon, joten käytä sitä vain vanhojen tietojen ymmärtämiseen.",
+  "guide_req_methods": {
+    "message": "HTTP-metodit, joita Palveluntarjoaja käsittelee",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "pyyntötyypit, joita Palveluntarjoaja käsittelee",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "pyyntötyypit, joita yksi sääntö-objekti käsittelee",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "sama pätee yhteen <code>$removeparam</code>-suodattimeen tai raakasääntöön",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Pyyntötyypit käyttävät selaimen nimiä: <code>main_frame</code> (sivu), <code>sub_frame</code> (kehys), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ja niin edelleen. Suodatinvaihtoehdot kutsuvat kahta ensimmäistä nimillä <code>document</code> ja <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Kuinka URL käsitellään",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Jokaista Palveluntarjoajaa kohden, joka vastaa URL-osoitetta ja sallii pyynnön:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: jos yksi täsmää, Palveluntarjoaja ohitetaan.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, sitten <code>fieldRedirections</code>: täsmäys ohjaa pyynnön uudelleen, eikä mitään muuta suoriteta.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: pyyntö estetään.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> suoritetaan koko URL-osoitteella.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> ja <code>referralMarketing</code> poistavat parametrit.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code>-suodattimet suoritetaan, paitsi jos <code>@@</code>-suodatin säilyttää parametrin.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Ensimmäinen Palveluntarjoaja, joka muuttaa, ohjaa uudelleen tai estää pyynnön, päättää lopputuloksen. Uusi URL kulkee tämän jälkeen samojen vaiheiden läpi uudelleen.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Täydelliset esimerkit",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Yhden kaupan puhdistus",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Poistaa seurantaparametrit ja kumppanuustunnuksen yhdestä kaupasta, mutta jättää sen kassasivut rauhaan:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Poista UTM-parametrit kaikkialta",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Kuvio <code>*</code> täsmää jokaiseen URL-osoitteeseen:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Ohita klikkausseurantatyökalu",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Lähettää klikkausseurantatyökalun kautta kulkevat linkit suoraan kohteeseen, joka on <code>url</code>-parametrin kohdalla:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Säilytä parametri yhdellä sivulla",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Poistaa <code>ref</code>:n kaikkialta sivustolta paitsi kirjautumissivulta, joka tarvitsee sitä:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Sääntöjesi tarkistaminen",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Mukautetut säännöt -editori tarkistaa säännöt, kun tallennat tai tuot ne. Rikkinäisten JSON-tiedostojen ja virheellisten säännöllisten lausekkeiden lisäksi se hylkää säännöt, jotka latautuisivat mutta tekisivät hiljaisesti väärän asian, kuten:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> ja <code>urlPattern</code> yhdellä Palveluntarjoajalla",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "kuvio, jossa on vain yksi <code>|</code> eikä skeemaa, kuten <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "säännöllisen lausekkeen uudelleenohjaus, jossa ei ole täsmälleen yhtä kaappausryhmää",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "tuntemattomat kentät, avaimet ja asetukset",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> tai <code>referralMarketing</code> kohdassa, jossa se ei tekisi mitään",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "<code>@@…$rawrule=</code>-merkintä, joka ei pysäytä mitään raakasääntöä",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Jos tallennus epäonnistuu, viestissä mainitaan Palveluntarjoaja, lista ja merkintä.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

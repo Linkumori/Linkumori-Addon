@@ -4727,1688 +4727,704 @@
     "message": "ప్రొవైడర్ JSON చెల్లుబాటు అయిన తర్వాత రూల్ ID నియంత్రణలు అందుబాటులో ఉంటాయి.",
     "description": "ప్రొవైడర్ రూల్-ఐడి నియంత్రణల కోసం చెల్లని JSON స్థితి"
   },
-  "guide_0001": {
-    "message": "Linkumori పొడిగింపు — నిబంధనల డాక్యుమెంటేషన్",
+  "guide_page_title": {
+    "message": "Linkumori — నియమాల మార్గదర్శి",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "థీమ్",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "ప్రొవైడర్ JSON ఫార్మాట్",
+  "guide_toc_label": {
+    "message": "విషయ సూచిక",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori ప్రొవైడర్ JSON",
+  "guide_theme_midnight": {
+    "message": "మిడ్‌నైట్",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "అధ్యాయం 1: ప్రాథమిక JSON ఆకారం",
+  "guide_theme_light": {
+    "message": "లైట్",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "చాప్టర్ 2: ప్రొవైడర్ అంటే ఏమిటి?",
+  "guide_theme_icecold": {
+    "message": "ఐస్ కోల్డ్",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "చాప్టర్ 3: మీరు ఉపయోగించగల ప్రొవైడర్ ఫీల్డ్‌లు",
+  "guide_theme_zen_grey": {
+    "message": "జెన్ గ్రే",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "చాప్టర్ 4: సరిపోలే డొమైన్‌లు",
+  "guide_theme_sunset": {
+    "message": "సన్‌సెట్",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "ఒక డొమైన్ మరియు అన్ని సబ్‌డొమైన్‌లను సరిపోల్చండి",
+  "guide_title": {
+    "message": "Linkumori నియమాలను రాయడం",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "ఏదైనా పబ్లిక్ సఫిక్స్‌లో అదే పేరుని సరిపోల్చండి",
+  "guide_intro_1": {
+    "message": "Linkumori నియమాల ద్వారా URLలను శుభ్రపరుస్తుంది. మొదటి నియమం నుండి ప్రతి ఆప్షన్ వరకు వాటిని ఎలా రాయాలో, మీరు కాపీ చేసుకోగలిగే ఉదాహరణలతో ఈ మార్గదర్శి చూపిస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "సబ్‌డొమైన్‌లను సరిపోల్చండి",
+  "guide_intro_2": {
+    "message": "నియమాలు JSON రూపంలో ఉంటాయి. మీరు వాటిని అనుకూల నియమాలు ఎడిటర్‌లో రాస్తారు, మీరు సేవ్ చేసినప్పుడు అది వాటిని తనిఖీ చేస్తుంది. బండిల్ చేయబడిన నియమాల జాబితా మరియు రిమోట్ నియమాల జాబితాలు కూడా ఇదే ఫార్మాట్‌ను ఉపయోగిస్తాయి.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "ఒకటి కంటే ఎక్కువ డొమైన్ నమూనాను ఉపయోగించండి",
+  "guide_file_title": {
+    "message": "1. నియమాల ఫైల్",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "చాప్టర్ 5: డొమైన్ నమూనా చిహ్నాలు",
+  "guide_file_p1": {
+    "message": "నియమాల ఫైల్ అనేది ఒక JSON ఆబ్జెక్ట్. దాని <code>providers</code> ఆబ్జెక్ట్ మీరు ఎంచుకున్న పేరును ఒక ప్రొవైడర్‌కు మ్యాప్ చేస్తుంది:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "చాప్టర్ 6: URLsని urlPatternతో సరిపోల్చడం",
+  "guide_file_p2": {
+    "message": "ఒక ప్రొవైడర్ ఏ URLలను హ్యాండిల్ చేయాలో మరియు వాటితో ఏమి చేయాలో చెబుతుంది. ఇది <code>example.com</code> మరియు దాని సబ్ డొమైన్‌లలోని ప్రతి URL నుండి <code>utm_source</code> మరియు <code>utm_medium</code>లను తొలగిస్తుంది:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "అధ్యాయం 7: సాధారణ ప్రశ్న పారామితులను తీసివేయండి",
+  "guide_file_p3": {
+    "message": "పేరు అనేది కేవలం ఒక లేబుల్ మాత్రమే. ప్రొవైడర్ ఏ URLలను హ్యాండిల్ చేయాలో <code>domainPatterns</code> లేదా <code>urlPattern</code> ద్వారా నిర్ణయించబడుతుంది.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "చాప్టర్ 8: ఒక రూల్ ఆబ్జెక్ట్ వ్రాయండి",
+  "guide_fields_title": {
+    "message": "2. ప్రొవైడర్ ఫీల్డ్స్",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "చాప్టర్ 9: $తొలగింపు నిబంధనలు",
+  "guide_th_field": {
+    "message": "ఫీల్డ్",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "ఒక పరామితిని తొలగించండి",
+  "guide_th_meaning": {
+    "message": "ఇది ఏమి చేస్తుంది",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "అన్ని పారామితులను తీసివేయండి",
+  "guide_field_domainpatterns": {
+    "message": "ప్రొవైడర్ ఏ URLలను నిర్వహిస్తుంది, డొమైన్ ప్యాటర్న్‌లుగా (అధ్యాయం 3). దీనిని లేదా <code>urlPattern</code>ని ఉపయోగించండి, రెండింటినీ ఎప్పుడూ ఉపయోగించవద్దు.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Regex ద్వారా పారామితులను తొలగించండి",
+  "guide_field_urlpattern": {
+    "message": "ప్రొవైడర్ ఏ URLలను నిర్వహిస్తుంది, పూర్తి URLతో సరిపోలే రెగ్యులర్ ఎక్స్‌ప్రెషన్‌గా. కేస్ (Case) పరిగణించబడదు.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "ఒక పరామితి తప్ప అన్నింటినీ తీసివేయండి",
+  "guide_field_indexpattern": {
+    "message": "కేవలం <code>urlPattern</code>తో మాత్రమే: <code>||example.com^</code> వంటి హోస్ట్ హింట్స్, తద్వారా ప్రొవైడర్ ఆ హోస్ట్‌ల కోసం మాత్రమే తనిఖీ చేయబడుతుంది. ఇది లేకపోతే, ప్రొవైడర్ ప్రతి URLకి తనిఖీ చేయబడుతుంది.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "ఒక డొమైన్‌కు మాత్రమే $removeparam వర్తింపజేయండి",
+  "guide_field_rules": {
+    "message": "తొలగించాల్సిన పారామీటర్లు (అధ్యాయాలు 4 మరియు 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "డొమైన్ పరిమితులను జోడించండి",
+  "guide_field_referral": {
+    "message": "తొలగించాల్సిన రిఫరల్ మరియు అఫిలియేట్ పారామీటర్లు. <em>రెఫరల్ మార్కెటింగ్‌ని అనుమతించండి</em> ఆన్‌లో ఉన్నప్పుడు వీటిని విస్మరిస్తారు (అధ్యాయం 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "పద్ధతి పరిమితులను జోడించండి",
+  "guide_field_rawrules": {
+    "message": "పూర్తి URLపై నడిచే రెగ్యులర్ ఎక్స్‌ప్రెషన్లు; ప్రతి మ్యాచ్ తొలగించబడుతుంది (అధ్యాయం 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "అధ్యాయం 10: $removeparam మినహాయింపులు",
+  "guide_field_exceptions": {
+    "message": "ప్రొవైడర్ ఏ URLలను అలాగే వదిలేస్తుంది (అధ్యాయం 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "అధ్యాయం 11: పారామీటర్ విలువలను తిరిగి వ్రాయండి",
+  "guide_field_redirections": {
+    "message": "బదులుగా రిక్వెస్ట్‌ను ఎక్కడికి పంపాలి (అధ్యాయం 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "అధ్యాయం 12: ముడి నియమాలు",
+  "guide_field_fieldredirections": {
+    "message": "పారామీటర్ విలువకు దారి మళ్లింపులు చేయండి (అధ్యాయం 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "అధ్యాయం 13: దారి మళ్లింపు నియమాలు",
+  "guide_field_completeprovider": {
+    "message": "<em>డొమైన్ నిరోధించడాన్ని అనుమతించు</em> ఆన్‌లో ఉన్నప్పుడు, <code>true</code> ప్రొవైడర్ సరిపోలే ప్రతి రిక్వెస్ట్‌ను బ్లాక్ చేస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "అధ్యాయం 14: డొమైన్ దారిమార్పు నియమాలు",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: పేజీ స్వయంగా దారి మళ్లించబడినప్పుడు, ట్యాబ్ కొత్త అడ్రస్‌ను తెరుస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "అధ్యాయం 15: మినహాయింపులు",
+  "guide_field_methods": {
+    "message": "కేవలం ఈ HTTP మెథడ్స్‌ను మాత్రమే నిర్వహించండి, ఉదాహరణకు <code>[\"GET\"]</code>. డిఫాల్ట్: అన్నీ.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "అధ్యాయం 16: రెఫరల్ మార్కెటింగ్ నియమాలు",
+  "guide_field_resourcetypes": {
+    "message": "కేవలం ఈ రిక్వెస్ట్ రకాలను మాత్రమే నిర్వహించండి, ఉదాహరణకు <code>[\"main_frame\"]</code>. డిఫాల్ట్: సెట్టింగ్స్‌లో ఎంచుకున్న రకాలు.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "అధ్యాయం 17: HTTP పద్ధతులు",
+  "guide_field_history": {
+    "message": "పేజీ తన స్వంత అడ్రస్‌ను History APIతో మార్చుకున్నప్పుడు <code>false</code> ప్రొవైడర్‌ను విస్మరిస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "చాప్టర్ 18: బ్రౌజర్ రిసోర్స్ రకాలు",
+  "guide_field_active": {
+    "message": "<code>false</code> ప్రొవైడర్‌ను ఆపివేస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "అధ్యాయం 19: ప్రీప్రాసెసర్లు",
+  "guide_match_title": {
+    "message": "3. ప్రొవైడర్ ఏ URLలను నిర్వహిస్తుంది",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "అధ్యాయం 20: JSON కలయికలు అనుమతించబడ్డాయి",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> అనేది డొమైన్ ప్యాటర్న్‌ల జాబితా. వీటిలో ఏ ఒక్కటి సరిపోలినా, URL సరిపోలుతుంది:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "కలయిక 1: ఒకే ఫైల్‌లో చాలా మంది ప్రొవైడర్లు",
+  "guide_th_pattern": {
+    "message": "ప్యాటర్న్",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "కలయిక 2: గ్లోబల్ డిఫాల్ట్ ప్లస్ ప్రొవైడర్స్",
+  "guide_th_matches": {
+    "message": "సరిపోలుతుంది",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "కలయిక 3: డొమైన్ ప్యాటర్న్స్ ప్రొవైడర్",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> మరియు ప్రతి సబ్ డొమైన్",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "కలయిక 4: urlPattern ప్రొవైడర్‌తో indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "ఏదైనా పబ్లిక్ సఫిక్స్ (<code>example.de</code>, <code>example.co.uk</code>, …) పై <code>example</code>",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "కలయిక 5: డొమైన్ నమూనాలు మరియు urlPattern కలిసి",
+  "guide_pat_path": {
+    "message": "పాత్ <code>/path</code> తో ప్రారంభమైనప్పుడు, ఆ హోస్ట్ మరియు దాని సబ్ డొమైన్‌లు",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "కలయిక 6: మిశ్రమ నియమాలు[] ఎంట్రీలు",
+  "guide_pat_star": {
+    "message": "<code>||example.com^</code> తో సమానంగా",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "కలయిక 7: కానానికల్ ఆబ్జెక్ట్స్ ఇన్‌సైడ్ రూల్స్[]",
+  "guide_pat_start": {
+    "message": "ఖచ్చితంగా ఈ టెక్స్ట్‌తో ప్రారంభమయ్యే URLలు",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "కలయిక 8: లెగసీ అర్రేస్ ప్లస్ కానానికల్ నియమాలు[]",
+  "guide_pat_end": {
+    "message": "ఖచ్చితంగా ఈ టెక్స్ట్‌తో ముగిసే URLలు",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "కలయిక 9: ప్రొవైడర్-వైడ్ మెథడ్స్ మరియు రిసోర్స్ రకాలు",
+  "guide_pat_regex": {
+    "message": "పూర్తి URL, రెగ్యులర్ ఎక్స్‌ప్రెషన్‌గా (మీరు <code>i</code>ని జోడించనంత వరకు కేస్ ముఖ్యం)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "కలయిక 10: నియమ-స్థాయి అభ్యర్థన రకాలు",
+  "guide_pat_contains": {
+    "message": "ఎక్కడైనా ఈ టెక్స్ట్‌ను కలిగి ఉన్న URLలు",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "కలయిక 11: వివిధ ప్రదేశాలలో మినహాయింపులు",
+  "guide_pat_all": {
+    "message": "ప్రతి URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "కలయిక 12: ప్రొవైడర్ ప్లస్ నియమాలను నిరోధించడం",
+  "guide_match_p2": {
+    "message": "<code>^</code> హోస్ట్ పేరు ముగింపును, లేదా <code>/</code>, <code>?</code> లేదా <code>:</code> వంటి సెపరేటర్‌ను సూచిస్తుంది. <code>*</code> దేనికైనా సరిపోలుతుంది. <code>/regex/</code> తప్ప, ప్యాటర్న్‌లు కేస్‌ను విస్మరిస్తాయి.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "కలయిక 13: దారిమార్పు ప్రొవైడర్ ప్లస్ క్లీనప్ నియమాలు",
+  "guide_match_p3": {
+    "message": "<code>||</code> డొమైన్‌ను సూచిస్తుంది, అయితే ఒక్క <code>|</code> URL యొక్క ప్రారంభాన్ని సూచిస్తుంది మరియు దాని తర్వాత <code>https://</code> వంటి స్కీమ్ ఉండాలి. <code>|example.com^</code> ఎప్పటికీ సరిపోలదు, కాబట్టి ఎడిటర్ దానిని తిరస్కరిస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "కలయిక 14: డొమైన్ మళ్లింపులు ప్లస్ రీజెక్స్ మళ్లింపులు",
+  "guide_match_p4": {
+    "message": "దీనికి బదులుగా రెగ్యులర్ ఎక్స్‌ప్రెషన్‌తో మ్యాచ్ చేయడానికి, <code>urlPattern</code> ఉపయోగించండి, మరియు ప్రొవైడర్ ఆ హోస్ట్‌లలో మాత్రమే తనిఖీ చేయబడటానికి <code>indexPattern</code> జోడించండి:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "కలయిక 15: డిసేబుల్ లేదా ఇన్‌యాక్టివ్ రూల్స్",
+  "guide_match_p5": {
+    "message": "ఒక ప్రొవైడర్‌కు <code>domainPatterns</code> లేదా <code>urlPattern</code> ఉంటుంది, రెండూ ఉండవు. మీకు రెండు రకాల మ్యాచ్‌లు కావాలంటే, రెండు ప్రొవైడర్‌లను సృష్టించండి.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "కలయిక 16: పూర్తి మిశ్రమ ప్రదాత ఉదాహరణ",
+  "guide_rules_title": {
+    "message": "4. పారామీటర్లను తొలగించడం",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "అధ్యాయం 21: పూర్తి ఉదాహరణలు",
+  "guide_rules_p1": {
+    "message": "<code>rules</code>లోని ప్రతి ఎంట్రీ క్వెరీ (<code>?a=1</code>) నుండి మరియు ఫ్రాగ్మెంట్ (<code>#a=1</code>) నుండి పారామీటర్లను తొలగిస్తుంది. ఎంట్రీ ఈ క్రింది వాటిలో ఒకటిగా ఉంటుంది:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "ఉదాహరణ 1: ప్రాథమిక ట్రాకర్ క్లీనర్",
+  "guide_th_entry": {
+    "message": "ఎంట్రీ",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "ఉదాహరణ 2: అన్ని UTM పారామితులను తీసివేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "ఉదాహరణ 3: లాగిన్‌లో అవసరమైన పరామితిని ఉంచండి",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "ఉదాహరణ 4: దారిమార్పు ట్రాకింగ్ క్లిక్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "ఉదాహరణ 5: API అభ్యర్థనలను మాత్రమే క్లీన్ చేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "చాప్టర్ 22: త్వరిత కాపీ టెంప్లేట్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori మిక్స్‌డ్ ప్రొవైడర్ JSON ఫార్మాట్ గైడ్",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "<code>Linkumori extension</code> చదవగలిగే ప్రొవైడర్ JSON డేటాను ఎలా వ్రాయాలో ఈ గైడ్ వివరిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "ఇది JavaScript కోడ్‌కు మార్గదర్శకం కాదు. ఇది రూల్ రచయితలకు అవసరమైన JSON ఆకారాలు, రూల్ ఫార్మాట్‌లు మరియు ఉదాహరణలపై మాత్రమే దృష్టి పెడుతుంది.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "ఈ గైడ్ ప్రస్తుత <code>clearurls.js</code> రన్‌టైమ్ ప్రవర్తనపై ఆధారపడి ఉంటుంది. ప్రత్యేకించి, ప్రొవైడర్ లుక్అప్ <code>domainPatterns</code> లేదా <code>indexPattern</code> నుండి <code>providersByToken</code> అభ్యర్థి బకెట్‌లను ఉపయోగిస్తుంది మరియు తుది సరిపోలిక ఇప్పటికీ <code>provider.matchRequestURL()</code> ద్వారా నడుస్తుంది.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "అధ్యాయం 1: ప్రాథమిక JSON ఆకారం",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> ఈ సాధారణ ఆకృతిలో ప్రొవైడర్ డేటాను ఆశిస్తోంది:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "ముఖ్యమైన భాగం <code>providers</code>. <code>providers</code> లోపల ఉన్న ప్రతి కీ ప్రొవైడర్ పేరు.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "చాప్టర్ 2: ప్రొవైడర్ అంటే ఏమిటి?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "ప్రొవైడర్ అనేది ఒక వెబ్‌సైట్, కంపెనీ, ట్రాకర్, డొమైన్ నమూనా సెట్ లేదా URL రీజెక్స్ కోసం రన్‌టైమ్ కంటైనర్ అని పేరు. ప్రొవైడర్ పేరు లేబుల్/కీ; మ్యాచింగ్ <code>domainPatterns</code> లేదా <code>urlPattern</code> ద్వారా చేయబడుతుంది, ప్రొవైడర్ పేరుతో కాదు.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "కనీస ప్రొవైడర్:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "ఇది ఏమి చేస్తుంది:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "చాప్టర్ 3: మీరు ఉపయోగించగల ప్రొవైడర్ ఫీల్డ్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> ద్వారా ఆమోదించబడిన ప్రొవైడర్ ఫీల్డ్‌లు. సరిపోలిక కోసం, ఐచ్ఛిక <code>indexPattern</code>తో <code>domainPatterns</code> లేదా <code>urlPattern</code> రచయిత; రెండూ కలిసి ఉండటంపై ఆధారపడవద్దు.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "సాధారణ అర్థం:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON ఫీల్డ్",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "మూలం",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "మీరు దేని కోసం వ్రాస్తారు",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "ఈ ప్రొవైడర్‌ని నిలిపివేయడానికి <code>false</code>ని సెట్ చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "క్లీనింగ్ మాత్రమే కాకుండా సరిపోలే డొమైన్‌లను బ్లాక్ చేయడానికి <code>true</code>ని సెట్ చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "బ్రౌజర్ ట్యాబ్ ద్వారా ప్రధాన పేజీ దారిమార్పులను నిర్బంధించడానికి <code>true</code>ని సెట్ చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "ఈ ప్రొవైడర్ ఏ డొమైన్‌లకు సరిపోతుందో చెప్పడానికి సిఫార్సు చేయబడిన మార్గం.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript రీజెక్స్ స్ట్రింగ్ URL మ్యాచింగ్.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "<code>urlPattern</code>ని ఉపయోగిస్తున్నప్పుడు ఐచ్ఛిక వేగం సూచన.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్; <code>$removeparam</code> ఇక్కడ Linkumori అదనంగా ఉంది",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "సాధారణ పరామితి-తొలగింపు నియమాలు మరియు ప్రొవైడర్-లోకల్ <code>$removeparam</code> నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ; ఇక్కడ కానానికల్-శైలి వస్తువులు Linkumori అదనంగా ఉన్నాయి",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "మొత్తం URL వచనాన్ని సవరించే నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ; ఇక్కడ కానానికల్-శైలి వస్తువులు Linkumori అదనంగా ఉన్నాయి",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "ఐచ్ఛిక రెఫరల్/మార్కెటింగ్ పరామితి నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్; ఇక్కడ ఆబ్జెక్ట్ ఫారమ్‌లు Linkumori అదనం",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "ఈ ప్రొవైడర్ అమలు చేయకూడని URL regex నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "ఈ ప్రొవైడర్ అమలు చేయకూడని డొమైన్-నమూనా నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ; ఇక్కడ కానానికల్-శైలి వస్తువులు Linkumori అదనంగా ఉన్నాయి",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex దారిమార్పు నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "డొమైన్-నమూనా దారి మళ్లింపు నియమాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "ఈ HTTP పద్ధతుల కోసం మాత్రమే అమలు చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori అదనంగా",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "ఈ బ్రౌజర్ అభ్యర్థన రకాల కోసం మాత్రమే అమలు చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "చాప్టర్ 4: సరిపోలే డొమైన్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> అనేది లింక్‌మోరి జోడింపు మరియు చాలా మంది అనుకూల ప్రొవైడర్‌లకు ప్రాధాన్యత ఇవ్వబడుతుంది. <code>clearurls.js</code>లో, <code>urlPattern</code> కంటే ముందు సరిపోలిక కోసం ఖాళీ కాని <code>domainPatterns</code> ఉపయోగించబడతాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "ఒక డొమైన్ మరియు అన్ని సబ్‌డొమైన్‌లను సరిపోల్చండి",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "మ్యాచ్‌లు:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "సరిపోలలేదు:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "ఏదైనా పబ్లిక్ సఫిక్స్‌లో అదే పేరుని సరిపోల్చండి",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "సరిపోలవచ్చు:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "సబ్‌డొమైన్‌లను సరిపోల్చండి",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "సరిపోలవచ్చు:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "ఒకటి కంటే ఎక్కువ డొమైన్ నమూనాను ఉపయోగించండి",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "చాప్టర్ 5: డొమైన్ నమూనా చిహ్నాలు",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "ఇవి మీరు <code>domainPatterns</code>లో ఉపయోగించగల చిహ్నాలు.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "చిహ్నం",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "అర్థం",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "ఉదాహరణ",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "తొలగిస్తుంది",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "డొమైన్ సరిహద్దు వద్ద మ్యాచ్.",
+  "guide_rules_name": {
+    "message": "ఒక పారామీటర్ పేరు",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "ఒక పేరు regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "పూర్తి పేరు మ్యాచ్ అయిన ప్రతి పారామీటర్; <code>^…$</code> మీ కోసం జోడించబడుతుంది మరియు కేస్ (case) విస్మరించబడుతుంది",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "సెపరేటర్ లేదా ముగింపు సరిహద్దు.",
+  "guide_rules_filter": {
+    "message": "ఒక <code>$removeparam</code> ఫిల్టర్",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "అధ్యాయం 5 చూడండి",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> మరియు <code>\"$removeparam=fbclid\"</code> ఒకే విషయాన్ని తొలగిస్తాయి. మీకు అధ్యాయం 5 నుండి ఏదైనా అవసరమైతే తప్ప, సాధారణ పేరును ఉపయోగించండి.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "వైల్డ్‌కార్డ్.",
+  "guide_rules_part_title": {
+    "message": "ప్రొవైడర్ యొక్క భాగానికి సంబంధించిన నియమాలు",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "సాధారణ పేరు ప్రొవైడర్ మ్యాచ్ చేసే ప్రతి URLకి వర్తిస్తుంది. కేవలం కొన్నింటిలో మాత్రమే పారామీటర్‌ను తొలగించడానికి, <code>$removeparam</code> ఫిల్టర్ ముందు ఒక ప్యాటర్న్‌ను ఉంచండి:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "ఇక్కడ ప్రతి Amazon సైట్‌లో <code>qid</code> తొలగించబడుతుంది, <code>tag</code> కేవలం <code>amazon.de</code> లో మాత్రమే, <code>sr</code> కేవలం <code>smile.amazon</code> లో మాత్రమే, మరియు <code>ref_</code> కేవలం <code>/gp/</code> కింద మాత్రమే తొలగించబడుతుంది. ప్యాటర్న్ ప్రొవైడర్ యొక్క స్వంత ప్యాటర్న్‌లను కుదిస్తుంది; అది వాటిని విస్తరించలేదు.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "యాంకర్‌ను ప్రారంభించండి లేదా ముగించండి.",
+  "guide_rp_title": {
+    "message": "5. $removeparam ఫిల్టర్లు",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "ఒక <code>$removeparam</code> ఫిల్టర్ ఈ రూపంలో ఉంటుంది; బ్రాకెట్లలో ఉన్న భాగాలు ఐచ్ఛికం:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "విలువ",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript రెజెక్స్ లిటరల్.",
+  "guide_rp_p2": {
+    "message": "విలువలోని మొదటి అక్షరం దాని అర్థాన్ని నిర్ణయిస్తుంది:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "ఫిల్టర్",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "అత్యంత సాధారణ నమూనా:",
+  "guide_rp_v_all": {
+    "message": "ప్రతి పారామీటర్",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "మీకు కావలసినప్పుడు దీన్ని ఉపయోగించండి:",
+  "guide_rp_v_except": {
+    "message": "<code>ref</code> తప్ప ప్రతి పారామీటర్ (<code>~/regex/</code> మరియు <code>~|prefix</code>లతో కూడా పనిచేస్తుంది)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "అధ్యాయం 6: URLsని <code>urlPattern</code>తో సరిపోల్చడం",
+  "guide_rp_v_regex": {
+    "message": "పేరు లేదా <code>name=value</code> రెగ్యులర్ ఎక్స్‌ప్రెషన్‌తో సరిపోలే పారామీటర్లు; మీరు <code>i</code>ని జోడించనంత వరకు కేస్ (case) ముఖ్యం",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "డొమైన్ సరిపోలిక సరిపోనప్పుడు మాత్రమే <code>urlPattern</code>ని ఉపయోగించండి, అంటే ప్రొవైడర్ తప్పనిసరిగా నిర్దిష్ట మార్గం లేదా పూర్తి URL రీజెక్స్‌తో సరిపోలాలి.",
+  "guide_rp_v_prefix": {
+    "message": "పేరు <code>utm_</code>తో ప్రారంభమయ్యే పారామీటర్లు; కేస్ (case) విస్మరించబడుతుంది",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "ఇది సరిపోలవచ్చు:",
+  "guide_rp_v_name": {
+    "message": "ఖచ్చితంగా ఆ పారామీటర్; మీరు <code>match-case</code>ని జోడించనంత వరకు కేస్ (case) విస్మరించబడుతుంది",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> అనేది ClearURLల యాడ్ఆన్ లెగసీ మరియు ClearURLల కోర్ v2 కానానికల్ సింటాక్స్. Linkumori <code>indexPattern</code>ని అభ్యర్థి శోధన సూచనగా మాత్రమే జోడిస్తుంది కాబట్టి హోస్ట్‌నేమ్ టోకెన్‌ల ద్వారా రెజెక్స్ ప్రొవైడర్‌లను వేగంగా కనుగొనవచ్చు.",
+  "guide_rp_options_title": {
+    "message": "ఆప్షన్లు",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "ముఖ్యమైనది: <code>indexPattern</code> ప్రొవైడర్ సరిపోలుతుందో లేదో నిర్ణయించదు. అభ్యర్థి శోధన తర్వాత, <code>clearurls.js</code> ఇప్పటికీ <code>provider.matchRequestURL()</code>లో నిజమైన <code>urlPattern</code>ని పరీక్షిస్తుంది.",
+  "guide_rp_p3": {
+    "message": "ఆప్షన్లు విలువ తర్వాత కామాలతో వేరు చేయబడి వస్తాయి. ఒక ఆప్షన్ యొక్క పలు విలువలను <code>|</code>తో వేరు చేయండి, మరియు ఒక విలువను మినహాయించడానికి దాని ముందు <code>~</code>ని ఉంచండి:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "అధ్యాయం 7: సాధారణ ప్రశ్న పారామితులను తీసివేయండి",
+  "guide_th_option": {
+    "message": "ఆప్షన్",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "<code>rules</code>లో పారామీటర్ పేర్లను ఉంచండి.",
+  "guide_rp_o_domain": {
+    "message": "ఈ డొమైన్‌ల నుండి వచ్చే పేజీలలో మాత్రమే",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "ఫలితం:",
+  "guide_rp_o_to": {
+    "message": "ఈ డొమైన్‌లకు చేసే రిక్వెస్ట్‌ల కోసం మాత్రమే",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "అనేక పారామితులను తొలగించండి:",
+  "guide_rp_o_method": {
+    "message": "ఈ HTTP మెథడ్స్ కోసం మాత్రమే",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "ఫలితం:",
+  "guide_rp_o_party": {
+    "message": "పేజీ ఉన్న అదే సైట్‌కు చేసే అభ్యర్థనలకు మాత్రమే, లేదా ఇతర సైట్‌లకు మాత్రమే",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "చాప్టర్ 8: ఒక రూల్ ఆబ్జెక్ట్ వ్రాయండి",
+  "guide_rp_o_strict": {
+    "message": "అదే విధంగా, కానీ సైట్‌కు బదులుగా ఖచ్చితమైన హోస్ట్‌ను పోల్చుతుంది",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "సాదా స్ట్రింగ్‌కు బదులుగా, ఒక నియమం ఒక వస్తువు కావచ్చు.",
+  "guide_rp_o_types": {
+    "message": "ఈ అభ్యర్థన రకాలకు మాత్రమే; <code>~type</code> ఒకటి మినహాయిస్తుంది",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "మీకు అవసరమైనప్పుడు దీన్ని ఉపయోగించండి:",
+  "guide_rp_o_matchcase": {
+    "message": "పారామీటర్ పేర్లు కేస్-సెన్సిటివ్",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ఒక నియమం ID.",
+  "guide_rp_o_history": {
+    "message": "పేజీ History API ద్వారా తన స్వంత చిరునామాను మార్చుకున్నప్పుడు ఈ ఫిల్టర్‌ను దాటవేయండి",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "మారుపేర్లు.",
+  "guide_rp_p4": {
+    "message": "ప్రతి ఎంపికకు ఒకే స్పెల్లింగ్ ఉంటుంది. <code>first-party,third-party</code> వంటి పరస్పర విరుద్ధమైన ఎంపికలు తిరస్కరించబడతాయి.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "మినహాయింపులు.",
+  "guide_rp_keep_title": {
+    "message": "@@ తో పారామీటర్‌ను ఉంచడం",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "అభ్యర్థన రకం పరిమితులు.",
+  "guide_rp_p5": {
+    "message": "<code>@@</code> తో ప్రారంభమయ్యే ఫిల్టర్ పారామీటర్‌ను తొలగించడానికి బదులుగా దానిని ఉంచుతుంది. ఇక్కడ <code>ref</code> GitHub తప్ప మిగిలిన అన్ని చోట్ల తొలగించబడింది:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "ప్రవర్తనను తిరిగి వ్రాయండి.",
+  "guide_rp_p6": {
+    "message": "ఒక <code>@@</code> ఫిల్టర్, ఈ ప్రొవైడర్ సరిపోలే పేజీ ద్వారా చేసిన అభ్యర్థనలను కూడా కవర్ చేస్తుంది, వేరే ప్రొవైడర్ వాటిని హ్యాండిల్ చేసినా సరే.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "ప్రొవైడర్ లోపల ఉదాహరణ:",
+  "guide_raw_title": {
+    "message": "6. ముడి నియమాలు",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "ఫలితం:",
+  "guide_raw_p1": {
+    "message": "ముడి నియమం అనేది పూర్తి URL పై రన్ అయ్యే రెగ్యులర్ ఎక్స్‌ప్రెషన్; ప్రతి మ్యాచ్ తొలగించబడుతుంది. Amazon యొక్క <code>/ref=…</code> పాత్ సెగ్మెంట్ వంటి <code>name=value</code> పారామీటర్ కాని టెక్స్ట్ కోసం దీనిని ఉపయోగించండి:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "ప్రొవైడర్ రూల్ ఆబ్జెక్ట్‌లపై <code>flags</code> Linkumori అదనం. <code>flags: \"i\"</code> మ్యాచ్‌ను కేస్-సెన్సిటివ్‌గా చేస్తుంది.",
+  "guide_raw_p2": {
+    "message": "ముడి నియమాలు కేస్‌ను విస్మరిస్తాయి మరియు ప్రతి మ్యాచ్‌ను భర్తీ చేస్తాయి. JSON లో, ప్రతి బ్యాక్‌స్లాష్‌ను రెండుసార్లు రాయండి.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "చాప్టర్ 9: <code>$removeparam</code> నియమాలు",
+  "guide_raw_scope_title": {
+    "message": "కొన్ని URLల పై మాత్రమే",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "ఒక పరామితిని తొలగించండి",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "అన్ని పారామితులను తీసివేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Regex ద్వారా పారామితులను తొలగించండి",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "ఒక పరామితి తప్ప అన్నింటినీ తీసివేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "ఒక డొమైన్‌కు మాత్రమే <code>$removeparam</code>ని వర్తించండి",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "శుభ్రం చేయబడింది:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "శుభ్రం చేయలేదు:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "డొమైన్ పరిమితులను జోడించండి",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "ఒక డొమైన్‌ను మినహాయించండి:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "పద్ధతి పరిమితులను జోడించండి",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "<code>GET</code> మాత్రమే:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "<code>POST</code> కాదు:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "చాప్టర్ 10: <code>$removeparam</code> మినహాయింపులు",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "మినహాయింపు చేయడానికి <code>$removeparam</code> నియమాన్ని <code>@@</code>తో ప్రారంభించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "సందర్భ మినహాయింపు ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "ఇది <code>gemini.google.com</code> పేజీ ద్వారా ప్రారంభించబడిన ఉప అభ్యర్థనలపై <code>ei</code>ని రక్షించగలదు.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "అధ్యాయం 11: పారామీటర్ విలువలను తిరిగి వ్రాయండి",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "సరిపోలే పరామితి విలువను భర్తీ చేయడానికి <code>action.type: \"rewrite\"</code>ని ఉపయోగించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "ప్రొవైడర్ లోపల:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "మీరు ప్రస్తుత విలువను మళ్లీ ఉపయోగించాలనుకున్నప్పుడు <code>§1§</code>ని ఉపయోగించండి:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "అధ్యాయం 12: ముడి నియమాలు",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "మొత్తం URL వచనాన్ని సవరించడానికి <code>rawRules</code> ఉపయోగించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "సాధారణ ముడి నియమం:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "ఆబ్జెక్ట్ ముడి నియమం:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "ముడి తిరిగి వ్రాసే నియమం:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "అధ్యాయం 13: దారి మళ్లింపు నియమాలు",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "బ్రౌజర్‌ను కొత్త URLకి పంపడానికి <code>redirections</code> ఉపయోగించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "<code>replacePattern</code> తప్పిపోయినట్లయితే, మొదటి సంగ్రహ సమూహం ఉపయోగించబడుతుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "అధ్యాయం 14: డొమైన్ దారిమార్పు నియమాలు",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> అనేది సాధారణ డొమైన్-నమూనా దారిమార్పుల కోసం Linkumori అదనం.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori అదనంగా — స్ట్రింగ్ ఫారమ్:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori అదనంగా — వస్తువు రూపం:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "అధ్యాయం 15: మినహాయింపులు",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> అనేది ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్ సింటాక్స్. Linkumori ఈ లెగసీ ప్రొవైడర్ శ్రేణిలో కానానికల్-శైలి వస్తువులను కూడా అంగీకరిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> అనేది డొమైన్-నమూనా మినహాయింపుల కోసం Linkumori అదనం.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "దాటవేయబడింది:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "అధ్యాయం 16: రెఫరల్ మార్కెటింగ్ నియమాలు",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> ఫీల్డ్ రూల్స్ లాగా పనిచేస్తుంది, అయితే ఇది రెఫరల్ మార్కెటింగ్ కోసం ఎక్స్‌టెన్షన్ సెట్టింగ్ ద్వారా నియంత్రించబడుతుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "అధ్యాయం 17: HTTP పద్ధతులు",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "నిర్దిష్ట HTTP పద్ధతుల్లో మాత్రమే ప్రొవైడర్‌ను అమలు చేయడానికి <code>methods</code> ఉపయోగించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "ఇది నడుస్తుంది:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "ఇది అమలు కాదు:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "చాప్టర్ 18: బ్రౌజర్ రిసోర్స్ రకాలు",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> అనేది Linkumori అదనం. నిర్దిష్ట బ్రౌజర్ అభ్యర్థన రకాలపై మాత్రమే ప్రొవైడర్‌ను అమలు చేయడానికి దీన్ని ఉపయోగించండి.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "సాధారణ విలువలు:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "అర్థం:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "అధ్యాయం 19: ప్రీప్రాసెసర్లు",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "ప్రిప్రాసెసర్‌లు <code>replacePattern</code>లో వాటిని ఉపయోగించే ముందు సంగ్రహించిన విలువలను మారుస్తాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "ఉదాహరణ:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "మద్దతు ఉన్న రకాలు:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> కావచ్చు:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "అధ్యాయం 20: JSON కలయికలు అనుమతించబడ్డాయి",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "ఈ అధ్యాయం Linkumori మిక్స్డ్ ప్రొవైడర్ JSON: ClearURLల యాడ్ఆన్ లెగసీ శ్రేణులు, ClearURLల కోర్ v2 కానానికల్ ఆబ్జెక్ట్‌లు మరియు Linkumori జోడింపులు ఒక నియమాల ఫైల్‌లో కలిసి ఉండవచ్చని చూపిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "కలయిక 1: ఒకే ఫైల్‌లో చాలా మంది ప్రొవైడర్లు",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> అనేది ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్ టాప్-లెవల్ సింటాక్స్. Linkumori ఆ ఆకారాన్ని ఉంచుతుంది మరియు దాని కింద చాలా మంది ప్రొవైడర్‌లను అనుమతిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "ప్రతి ప్రొవైడర్ విడిగా లోడ్ చేయబడుతుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "కలయిక 2: గ్లోబల్ డిఫాల్ట్ ప్లస్ ప్రొవైడర్స్",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> ClearURLs కోర్ v2 కానానికల్ సింటాక్స్. Linkumori లెగసీ-స్టైల్ <code>providers</code> పక్కన దాన్ని అంగీకరిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "రూల్‌లో ఆ ఫీల్డ్‌లు లేనప్పుడు రూల్స్ డిఫాల్ట్ విలువలను పొందగలవు.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "కలయిక 3: <code>domainPatterns</code> ప్రొవైడర్",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "ఇది Linkumori అదనం. చాలా మంది Linkumori ప్రొవైడర్లు ఈ ఫారమ్‌ని ఉపయోగించాలి.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "కాంబినేషన్ 4: <code>urlPattern</code> ప్రొవైడర్ విత్ <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> అనేది అప్‌స్ట్రీమ్ ClearURLల సింటాక్స్. <code>indexPattern</code> అనేది రీజెక్స్ URL ప్రొవైడర్ల కోసం లింక్మోరి లుక్అప్ సూచన; ఇది రీజెక్స్ సరిపోలగల హోస్ట్ పేర్లను సూచించాలి.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> ఐచ్ఛికం, కానీ వేగం కోసం ఉపయోగపడుతుంది. ఇది ప్రొవైడర్‌ను హోస్ట్‌నేమ్-టోకెన్ క్యాండిడేట్ బకెట్‌లలోకి సూచిక చేస్తుంది; ఇది చివరి <code>urlPattern</code> మ్యాచ్‌ను ఎప్పటికీ భర్తీ చేయదు.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "కలయిక 5: <code>domainPatterns</code> మరియు <code>urlPattern</code>లను కలిపి అవసరంగా కలపవద్దు",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "ఈ ఆకారం పాత లేదా చేతితో వ్రాసిన డేటాలో కనిపించవచ్చు, కానీ రెండు మ్యాచ్‌లు తప్పక ఉత్తీర్ణత సాధించాలని దీని అర్థం కాదు:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "ప్రస్తుత <code>clearurls.js</code> ప్రవర్తన:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "<code>domainPatterns</code> ఉన్నట్లయితే మరియు ఖాళీగా లేనట్లయితే, <code>clearurls.js</code> దానిని ప్రొవైడర్ మ్యాచింగ్ కోసం ఉపయోగిస్తుంది మరియు ఆ ప్రొవైడర్ కోసం <code>urlPattern</code>ని విస్మరిస్తుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం రెండింటినీ కలిగి ఉన్న ప్రొవైడర్‌లను తిరస్కరిస్తుంది. మీకు పాత్ కండిషన్ అవసరమైతే, <code>indexPattern</code>తో <code>urlPattern</code>ని ఉపయోగించండి లేదా <code>rules</code> లోపల వ్యక్తిగత <code>$removeparam</code>/రూల్ ఎంట్రీలను స్కోప్ చేయండి.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "కలయిక 6: మిశ్రమ <code>rules[]</code> ఎంట్రీలు",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumoriలో, <code>rules</code> ClearURLs లెగసీ స్ట్రింగ్‌లను కలిగి ఉండవచ్చు, Linkumori <code>$removeparam</code> స్ట్రింగ్‌లు, Linkumori 950306 6,28307 వస్తువులు ClearURLs కోర్ v2 కానానికల్ వస్తువులు కలిసి.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "మొత్తం నాలుగు ఎంట్రీలు ఆమోదించబడ్డాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "కలయిక 7: కానానికల్ ఆబ్జెక్ట్స్ ఇన్‌సైడ్ <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs కోర్ v2 కానానికల్ వస్తువులు వివిధ రకాల నియమాలను సూచిస్తాయి. ఈ Linkumori ఉదాహరణలో అవి Linkumori-మాత్రమే <code>domainPatterns</code>ని ఉపయోగించే ప్రొవైడర్‌లో ఉంచబడ్డాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> వీటిని అర్థం ద్వారా క్రమబద్ధీకరిస్తుంది:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "కలయిక 8: లెగసీ అర్రేస్ ప్లస్ కానానికల్ <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ ప్రొవైడర్ శ్రేణులు ఇప్పటికీ పని చేస్తున్నాయి. Linkumori ఆ శ్రేణులను ClearURLs కోర్ v2 కానానికల్ రూల్ ఆబ్జెక్ట్‌ల పక్కన ఉంచడానికి అనుమతిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "ఇది చెల్లుతుంది. ఇంజిన్ ఈ శ్రేణులన్నింటినీ ఒకే ప్రొవైడర్ కోసం రీడ్ చేస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "కలయిక 9: ప్రొవైడర్-వైడ్ మెథడ్స్ మరియు రిసోర్స్ రకాలు",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> అప్‌స్ట్రీమ్ ClearURLs సింటాక్స్. <code>resourceTypes</code> అనేది Linkumori అదనం. రెండూ మొత్తం ప్రొవైడర్‌కు వర్తిస్తాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code> మరియు <code>rawRules</code> రెండూ ప్రొవైడర్ పద్ధతి/రకం సరిపోలిక ద్వారా పరిమితం చేయబడ్డాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "కలయిక 10: నియమ-స్థాయి అభ్యర్థన రకాలు",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs కోర్ v2 కానానికల్ నియమాలు నియమ-స్థాయి <code>requestTypes</code>ని నిర్వచించగలవు.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "ప్రొవైడర్-స్థాయి <code>resourceTypes</code> ముందుగా ప్రొవైడర్‌ను తగ్గిస్తుంది. రూల్-లెవల్ <code>requestTypes</code> ఆ తర్వాత వ్యక్తిగత నియమాలను తగ్గిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "కలయిక 11: వివిధ ప్రదేశాలలో మినహాయింపులు",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori మిమ్మల్ని ClearURLs ప్రొవైడర్ మినహాయింపులు, Linkumori డొమైన్ మినహాయింపులు, ClearURLs కోర్ v2 నియమ మినహాయింపులు మరియు Linkumori ప్రొవైడర్-లోకల్ 4650005 ప్రొవైడర్-300 మినహాయింపులను కలపడానికి అనుమతిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "సాధారణ అర్థం:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "కలయిక 12: ప్రొవైడర్ ప్లస్ నియమాలను నిరోధించడం",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> అనేది ప్రొవైడర్‌ను రద్దు చేయడం/బ్లాక్ చేస్తున్నట్లు సూచిస్తుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "సెట్టింగ్‌లలో డొమైన్ బ్లాకింగ్ ప్రారంభించబడినప్పుడు, సరిపోలే అభ్యర్థనలు బ్లాక్ చేయబడతాయి. నియమాలు ఇప్పటికీ ఉండవచ్చు, కానీ నిరోధించడం అనేది ఆ ప్రొవైడర్ యొక్క బలమైన ప్రవర్తన.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "కలయిక 13: దారిమార్పు ప్రొవైడర్ ప్లస్ క్లీనప్ నియమాలు",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "ప్రొవైడర్ దారిమార్పులను మరియు శుభ్రపరిచే నియమాలను కలిగి ఉండవచ్చు.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "దారి మళ్లింపు సరిపోలితే, దారి మళ్లింపు ముందుగా అందించబడుతుంది.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "కలయిక 14: డొమైన్ మళ్లింపులు ప్లస్ రీజెక్స్ మళ్లింపులు",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "రెండూ ఒకే ప్రొవైడర్‌లో ఉండవచ్చు.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex దారి మళ్లింపులు ముందుగా తనిఖీ చేయబడతాయి. రీజెక్స్ దారి మళ్లింపు సరిపోలకపోతే డొమైన్ దారి మళ్లింపులు తనిఖీ చేయబడతాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "కలయిక 15: డిసేబుల్ లేదా ఇన్‌యాక్టివ్ రూల్స్",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "ప్రొవైడర్లు నిష్క్రియంగా ఉండవచ్చు:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "నియమాలు నిష్క్రియంగా ఉండవచ్చు:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "నిష్క్రియ ప్రదాతలు మరియు నిష్క్రియ నియమాలు విస్మరించబడతాయి.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "కలయిక 16: పూర్తి మిశ్రమ ప్రదాత ఉదాహరణ",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "ఈ Linkumori ఉదాహరణ ఉద్దేశపూర్వకంగా అత్యంత మద్దతు ఉన్న ప్రొవైడర్ ఫీచర్‌లను మిళితం చేస్తుంది: ClearURLs యాడ్ఆన్ లెగసీ శ్రేణులు, ClearURLs కోర్ v2 కానానికల్ రూల్ ఆబ్జెక్ట్‌లు మరియు Linkumori-మాత్రమే మ్యాచర్ మరియు డొమైన్ ఫీచర్లు.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "ఇది చెల్లుబాటు అయ్యే Linkumori మిశ్రమ ప్రదాత JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "అధ్యాయం 21: పూర్తి ఉదాహరణలు",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "ఉదాహరణ 1: ప్రాథమిక ట్రాకర్ క్లీనర్",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "ఉదాహరణ 2: అన్ని UTM పారామితులను తీసివేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "ఉదాహరణ 3: లాగిన్‌లో అవసరమైన పరామితిని ఉంచండి",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "ఉదాహరణ 4: దారిమార్పు ట్రాకింగ్ క్లిక్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "ఫలితం:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "ఉదాహరణ 5: API అభ్యర్థనలను మాత్రమే క్లీన్ చేయండి",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "అర్థం:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "చాప్టర్ 22: త్వరిత కాపీ టెంప్లేట్‌లు",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "ఒక పరామితిని తీసివేయండి:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "అనేక పారామితులను తొలగించండి:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "<code>$removeparam</code> ఉపయోగించండి:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "మొత్తం <code>utm_</code> పారామితులను తీసివేయండి:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "మినహాయింపును జోడించండి:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "డొమైన్‌ను సరిపోల్చండి:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "ట్రాకర్‌ని దారి మళ్లించండి URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "ముడి నియమం <code>$removeparam</code> ఫిల్టర్ యొక్క ప్యాటర్న్ మరియు ఆప్షన్లను తీసుకోవచ్చు, చివరగా <code>rawrule=</code> ఉంటుంది. <code>rawrule=</code> తర్వాత ఉన్నదంతా రెగ్యులర్ ఎక్స్‌ప్రెషన్:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "ప్యాటర్న్ మరియు ఆప్షన్లు నియమం ఎక్కడ రన్ అవ్వాలో నిర్ణయిస్తాయి; రెగ్యులర్ ఎక్స్‌ప్రెషన్ మాత్రమే తొలగించబడుతుంది. <code>match-case</code> దీనిని కేస్-సెన్సిటివ్‌గా చేస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "కొన్ని URLల పై ముడి నియమాలను నిలిపివేయడం",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "<code>@@</code> తో ప్రారంభమయ్యే ఎంట్రీ, దాని ప్యాటర్న్ మ్యాచ్ అయిన చోట ముడి నియమాలు రన్ అవ్వకుండా చేస్తుంది. ముడి నియమానికి <code>id</code> ఇవ్వండి మరియు దానిని <code>targetId</code> తో పేరు పెట్టండి:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "<code>rawrule=</code> తర్వాత ఏమీ లేనప్పుడు మరియు <code>targetId</code> లేనప్పుడు, ఆ ఎంట్రీ ఆ URLల వద్ద ప్రొవైడర్ యొక్క ప్రతి ముడి నియమాన్ని నిలిపివేస్తుంది. మొత్తం ప్రొవైడర్‌ను తప్పించుకోవడానికి, దానికి బదులుగా <code>exceptions</code> ఉపయోగించండి.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. మినహాయింపులు",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "ఒక URL <code>exceptions</code> లోని ఎంట్రీకి మ్యాచ్ అయితే, ప్రొవైడర్ యొక్క నియమాలు ఏవీ రన్ అవ్వవు. ఒక ఎంట్రీ అనేది రెగ్యులర్ ఎక్స్‌ప్రెషన్, లేదా <code>|</code> తో ప్రారంభమయ్యే డొమైన్ ప్యాటర్న్:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "మినహాయింపులు కేస్-సెన్సిటివిటీని పట్టించుకోవు.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. దారి మళ్లింపులు",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "దారి మళ్లింపు నియమాలు నేరుగా అసలు గమ్యస్థానానికి వెళ్లడం ద్వారా ట్రాకింగ్ పేజీలను తప్పించుకుంటాయి. ఇవి <em>మూడవ పక్షం దారి మళ్లింపు బైపాస్‌ని ప్రారంభించండి</em> ఆన్‌లో ఉన్నప్పుడు మాత్రమే రన్ అవుతాయి.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "URL లోని ఒక భాగానికి దారి మళ్లించండి",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code> లోని ఎంట్రీ అనేది ఖచ్చితంగా ఒక క్యాప్చర్ గ్రూప్ <code>( … )</code> కలిగిన రెగ్యులర్ ఎక్స్‌ప్రెషన్. రిక్వెస్ట్ అనేది ఆ గ్రూప్ క్యాప్చర్ చేసిన దానికి, URL-డీకోడ్ చేయబడి వెళుతుంది. ఇతర ఏవైనా గ్రూపులను <code>(?: … )</code> గా రాయండి:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "స్థిరమైన చిరునామాకు దారి మళ్లించండి",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "<code>|</code> తో ప్రారంభమయ్యే ఎంట్రీ, మ్యాచ్ అయిన ప్రతి URLని ఒకే చిరునామాకు పంపుతుంది:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "పారామీటర్ విలువకు దారి మళ్లించండి",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> గమ్యస్థానాన్ని కలిగి ఉన్న పారామీటర్‌కు పేరు పెడుతుంది, కాబట్టి రెగ్యులర్ ఎక్స్‌ప్రెషన్ అవసరం లేదు. ఇది <code>rules</code> లాంటి ఎంట్రీలనే తీసుకుంటుంది:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "విలువ కలిగిన మొదటి మ్యాచ్ అయిన పారామీటర్ విజయం సాధిస్తుంది. దారి మళ్లింపు రిక్వెస్ట్ కోసం ఇతర అన్ని ప్రాసెసింగ్‌లను నిలిపివేస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. రూల్ ఆబ్జెక్ట్‌లు",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "ఏ ఎంట్రీ అయినా స్ట్రింగ్‌కు బదులుగా ఆబ్జెక్ట్‌గా ఉండవచ్చు. ఒక నియమానికి id అవసరమైనప్పుడు, అది స్విచ్ ఆఫ్ చేయబడి ప్రారంభం కావాలన్నప్పుడు, తొలగించడానికి బదులుగా రీరైట్ చేయాలన్నప్పుడు, లేదా కొన్ని సందర్భాల్లో మాత్రమే రన్ కావాలన్నప్పుడు దీనిని ఉపయోగించండి:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "కీ",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "మీరు సాధారణ ఎంట్రీగా వ్రాసే టెక్స్ట్",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "నియమాన్ని ఆన్ మరియు ఆఫ్ చేయడానికి ఉపయోగించే ఒక స్థిరమైన పేరు (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "నియమం యొక్క మునుపటి ids, తద్వారా మీరు ఆఫ్ చేసిన నియమం పేరు మార్చిన తర్వాత కూడా ఆఫ్ గానే ఉంటుంది",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "తొలగించడానికి బదులుగా తిరిగి వ్రాయండి; <code>§1§</code>, <code>§2§</code>, … అనేవి క్యాప్చర్ చేయబడిన విలువలు",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "ముందుగా క్యాప్చర్ చేయబడిన విలువలను మార్చండి",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "ఈ రిక్వెస్ట్ రకాలకు మాత్రమే, ఉదాహరణకు <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "ఈ ఒక్క నియమం రన్ అవ్వని URLలు",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "రెగ్యులర్ ఎక్స్‌ప్రెషన్ ఫ్లాగ్‌లు, ఒక స్ట్రింగ్‌గా (డిఫాల్ట్ <code>i</code>; <code>rawRules</code> లో <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "నియమాన్ని ముందుగా లేదా తర్వాత రన్ చేయండి",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: <code>rules</code> లోని నియమం రిఫరల్-మార్కెటింగ్ నియమంగా పరిగణించబడుతుంది",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ఒక పేజీ History API ద్వారా తన స్వంత చిరునామాను మార్చుకున్నప్పుడు ఈ నియమాన్ని విస్మరించండి",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: నియమం ఆఫ్ చేయబడిన స్థితిలో ప్రారంభమవుతుంది",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "ఉచిత టెక్స్ట్",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "<code>@@…$rawrule=</code> ఎంట్రీలపై మాత్రమే: ఇది ఆపే ముడి నియమాలు",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "తొలగించడానికి బదులుగా తిరిగి వ్రాయడం",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code> తో, <code>rules</code> లోని నియమం పారామీటర్‌ను ఉంచుకుని దాని విలువను మారుస్తుంది, అది <code>§1§</code>. <code>rawRules</code> మరియు <code>redirections</code> లో, <code>§1§</code>, <code>§2§</code>, … అనేవి క్యాప్చర్ గ్రూపులు:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "ప్రీ-ప్రాసెసర్లు",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "ప్రీ-ప్రాసెసర్లు <code>replacePattern</code> వాటిని ఉపయోగించే ముందు క్యాప్చర్ చేసిన విలువలను మారుస్తాయి. <code>inputs</code> అనేది <code>\"all\"</code> లేదా గ్రూప్ నంబర్ల జాబితా:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "రకాలు <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> మరియు <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "నియమ ఐడిలు",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "ప్రతి నియమానికి ఒక ఐడి ఉంటుంది. <code>id</code> లేని నియమానికి దాని జాబితా మరియు దాని టెక్స్ట్ నుండి ఒకటి లభిస్తుంది: <code>rules</code> లోని <code>\"utm_source\"</code> అనేది <code>field-utm-source</code> అవుతుంది. రెండు నియమాలకు ఒకే ఐడి వస్తే, రెండింటి చివరిలో చిన్న హాష్ వస్తుంది.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "నియమం యొక్క టెక్స్ట్ మారినప్పుడు జనరేట్ అయిన ఐడి మారుతుంది. ఎడిట్స్ ద్వారా ఆన్/ఆఫ్ సెట్టింగ్‌ను అలాగే ఉంచవలసి ఉన్నప్పుడు, నియమానికి దాని స్వంత <code>id</code> ఇవ్వండి.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "నియమాన్ని ముందుగా లేదా తర్వాత రన్ చేయడం",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "ముడి నియమాలు సాధారణంగా ముందుగా రన్ అవుతాయి, ఆ తర్వాత <code>rules</code> మరియు <code>referralMarketing</code>. <code>order</code> ఉన్న నియమం, అది లేని నియమాల కంటే ముందుగా, అతి తక్కువ సంఖ్య నుండి రన్ అవుతుంది. ఇక్కడ టోకెన్ ముందుగా మార్చబడుతుంది, ఆపై తొలగించబడుతుంది:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> అనేది <code>rules</code>, <code>rawRules</code> మరియు <code>referralMarketing</code> లో పనిచేస్తుంది, కానీ <code>$removeparam</code> ఫిల్టర్లపై పనిచేయదు, అవి ఎల్లప్పుడూ చివరిగా రన్ అవుతాయి.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. రిఫరల్ మార్కెటింగ్",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> అనేది <code>rules</code> లాంటి ఎంట్రీలను తీసుకుంటుంది. <em>రెఫరల్ మార్కెటింగ్‌ని అనుమతించండి</em> ఆన్‌లో ఉన్నప్పుడు అవి తప్పిపోతాయి, కాబట్టి మీరు కోరుకుంటే అఫిలియేట్ లింకులు పనిచేస్తూనే ఉంటాయి:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "ఒక నియమం <code>rules</code> లో ఉండి కూడా, <code>\"referralMarketing\": true</code> తో రిఫరల్ మార్కెటింగ్‌గా పరిగణించబడవచ్చు.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. మెథడ్స్ మరియు రిక్వెస్ట్ రకాలు",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "ప్రొవైడర్ లేదా నియమం ఎప్పుడు రన్ అవ్వాలో ఇవి నిర్ణయిస్తాయి:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js ప్రవర్తన: డొమైన్‌ప్యాటర్న్‌లు ఉన్నట్లయితే మరియు ఖాళీగా లేకుంటే, లింక్మోరి ప్రొవైడర్ మ్యాచింగ్ కోసం డొమైన్‌ప్యాటర్న్‌లను ఉపయోగిస్తుంది. urlPattern డొమైన్ నమూనాలు లేనప్పుడు లేదా ఖాళీగా ఉన్నప్పుడు మాత్రమే ఉపయోగించబడుతుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం ఈ మిక్స్‌డ్ మ్యాచర్ ఆకారాన్ని తిరస్కరిస్తుంది, కాబట్టి లెగసీ డేటాను అర్థం చేసుకోవడానికి మాత్రమే దీన్ని ఉపయోగించండి.",
+  "guide_req_methods": {
+    "message": "ప్రొవైడర్ హ్యాండిల్ చేసే HTTP మెథడ్స్",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "ప్రొవైడర్ నిర్వహించే రిక్వెస్ట్ రకాలు",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "ఒక రూల్ ఆబ్జెక్ట్ నిర్వహించే రిక్వెస్ట్ రకాలు",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "ఒక <code>$removeparam</code> ఫిల్టర్ లేదా ముడి నియమాల కోసం కూడా ఇదే వర్తిస్తుంది",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "రిక్వెస్ట్ రకాలు బ్రౌజర్ పేర్లను ఉపయోగిస్తాయి: <code>main_frame</code> (ఒక పేజీ), <code>sub_frame</code> (ఒక ఫ్రేమ్), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> మరియు ఇలాగే కొనసాగుతాయి. ఫిల్టర్ ఆప్షన్లు మొదటి రెండింటిని <code>document</code> మరియు <code>subdocument</code> అని పిలుస్తాయి.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. URL ఎలా ప్రాసెస్ చేయబడుతుంది",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "URLతో సరిపోలి, రిక్వెస్ట్‌కు అనుమతించే ప్రతి ప్రొవైడర్ కోసం:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: ఒకటి సరిపోలితే, ప్రొవైడర్ తప్పివేయబడుతుంది.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, ఆపై <code>fieldRedirections</code>: సరిపోలితే రిక్వెస్ట్ దారి మళ్లింపులు చేయబడుతుంది, మరియు మరేదీ రన్ అవ్వదు.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: రిక్వెస్ట్ బ్లాక్ చేయబడుతుంది.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> పూర్తి URLపై రన్ అవుతాయి.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> మరియు <code>referralMarketing</code> పారామీటర్లను తొలగిస్తాయి.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> ఫిల్టర్లు రన్ అవుతాయి, అయితే <code>@@</code> ఫిల్టర్ పారామీటర్‌ను ఉంచిన చోట మినహాయింపులు ఉంటాయి.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "రిక్వెస్ట్‌ను మార్చే, దారి మళ్లించే లేదా బ్లాక్ చేసే మొదటి ప్రొవైడర్ ఫలితాన్ని నిర్ణయిస్తుంది. కొత్త URL అప్పుడు తిరిగి అదే దశల ద్వారా వెళుతుంది.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. పూర్తి ఉదాహరణలు",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "ఒక షాపును క్లీన్ చేయడం",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "ఒక షాపులోని ట్రాకింగ్ పారామీటర్లను మరియు అఫిలియేట్ ఐడిని తొలగిస్తుంది, మరియు దాని చెకౌట్ పేజీలను అలాగే ఉంచుతుంది:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "అన్ని చోట్లా UTM పారామీటర్లను తొలగించండి",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "ప్యాటర్న్ <code>*</code> ప్రతి URLతో సరిపోలుతుంది:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "క్లిక్ ట్రాకర్‌ను దాటవేయండి",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "లింక్‌లను క్లిక్ ట్రాకర్‌ ద్వారా నేరుగా వాటి గమ్యస్థానానికి పంపుతుంది, అది <code>url</code> పారామీటర్‌లో ఉంటుంది:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "ఒక పేజీలో పారామీటర్‌ను ఉంచండి",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "లాగిన్ పేజీ తప్ప సైట్‌లోని అన్ని చోట్లా <code>ref</code>ని తొలగిస్తుంది, లాగిన్ పేజీకి ఇది అవసరం:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. మీ నియమాలను తనిఖీ చేయడం",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "మీరు అనుకూల నియమాలను సేవ్ చేసినప్పుడు లేదా ఇంపోర్ట్ చేసినప్పుడు ఎడిటర్ వాటిని తనిఖీ చేస్తుంది. విరిగిన JSON మరియు చెల్లని రెగ్యులర్ ఎక్స్‌ప్రెషన్లతో పాటు, లోడ్ అయినప్పటికీ నిశ్శబ్దంగా తప్పుగా పనిచేసే నియమాలను ఇది తిరస్కరిస్తుంది, ఉదాహరణకు:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "ఒక ప్రొవైడర్‌పై <code>domainPatterns</code> మరియు <code>urlPattern</code>",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "ఒకే <code>|</code> ఉండి స్కీమ్ లేని ప్యాటర్న్, ఉదాహరణకు <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "ఖచ్చితంగా ఒక క్యాప్చర్ గ్రూప్ లేని రెగ్యులర్-ఎక్స్‌ప్రెషన్ దారి మళ్లింపులు",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "తెలియని ఫీల్డ్‌లు, కీలు మరియు ఆప్షన్లు",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "ఏమీ చేయని చోట <code>order</code> లేదా <code>referralMarketing</code>",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "ఏ ముడి నియమాన్ని ఆపని <code>@@…$rawrule=</code> ఎంట్రీ",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "సేవ్ చేయడం విఫలమైతే, సందేశం ప్రొవైడర్, జాబితా మరియు ఎంట్రీ పేరును తెలియజేస్తుంది.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

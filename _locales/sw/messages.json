@@ -4727,1688 +4727,704 @@
     "message": "Vidhibiti vya vitambulisho vya sheria vinapatikana mara tu mtoa huduma JSON anapokuwa halali.",
     "description": "Hali batili ya JSON kwa vidhibiti vya kitambulisho cha mtoa huduma"
   },
-  "guide_0001": {
-    "message": "Linkumori Ugani - Hati za Sheria",
+  "guide_page_title": {
+    "message": "Linkumori — Mwongozo wa Sheria",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Mandhari",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Umbizo la Mtoa huduma JSON",
+  "guide_toc_label": {
+    "message": "Yaliyomo",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Mtoa huduma JSON",
+  "guide_theme_midnight": {
+    "message": "Usiku wa Manane",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Sura ya 1: Msingi JSON Umbo",
+  "guide_theme_light": {
+    "message": "Nuru",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Sura ya 2: Mtoa Huduma ni Nini?",
+  "guide_theme_icecold": {
+    "message": "Baridi ya Barafu",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Sura ya 3: Sehemu za Watoa Huduma Unazoweza Kutumia",
+  "guide_theme_zen_grey": {
+    "message": "Kijivu cha Zen",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Sura ya 4: Vikoa Vinavyolingana",
+  "guide_theme_sunset": {
+    "message": "Machweo",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Linganisha Kikoa Kimoja na Vikoa Vidogo vyote",
+  "guide_title": {
+    "message": "Kuandika sheria za Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Linganisha Jina Lile Lile Kwenye Kiambishi Kiambishi Chochote cha Umma",
+  "guide_intro_1": {
+    "message": "Linkumori husafisha URL kwa kutumia sheria. Mwongozo huu unaonyesha jinsi ya kuziandika, kuanzia sheria ya kwanza hadi kila chaguo, ikiwa na mifano unayoweza kunakili.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Linganisha Vikoa vidogo",
+  "guide_intro_2": {
+    "message": "Sheria ni JSON. Unaziandika katika mhariri wa Sheria Maalum, ambao huzikagua unapohifadhi. Orodha ya sheria iliyojumuishwa na orodha za sheria za mbali hutumia muundo huo huo.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Tumia Zaidi ya Muundo wa Kikoa kimoja",
+  "guide_file_title": {
+    "message": "1. Faili la sheria",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Sura ya 5: Alama za Muundo wa Kikoa",
+  "guide_file_p1": {
+    "message": "Faili la sheria ni kitu kimoja cha JSON. Kitu chake cha <code>providers</code> huunganisha jina unalochagua na Mtoa huduma:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Sura ya 6: Kulinganisha URLs Na urlPattern",
+  "guide_file_p2": {
+    "message": "Mtoa huduma husema ni URL zipi anazoshughulikia na nini cha kufanya nazo. Huyu huondoa <code>utm_source</code> na <code>utm_medium</code> kutoka kwa kila URL kwenye <code>example.com</code> na kikoa chake kidogo:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Sura ya 7: Ondoa Vigezo vya Maswali Rahisi",
+  "guide_file_p3": {
+    "message": "Jina ni lebo tu. Ni URL zipi Mtoa huduma anashughulikia huamuliwa na <code>domainPatterns</code> au <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Sura ya 8: Andika Kitu cha Sheria",
+  "guide_fields_title": {
+    "message": "2. Sehemu za Mtoa huduma",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Sura ya 9: $removeparam Kanuni",
+  "guide_th_field": {
+    "message": "Uwanja",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Ondoa Parameta Moja",
+  "guide_th_meaning": {
+    "message": "Kazi yake",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Ondoa Vigezo Vyote",
+  "guide_field_domainpatterns": {
+    "message": "URL ambazo Mtoa huduma anashughulikia, kama mifumo ya kikoa (sura ya 3). Tumia hii au <code>urlPattern</code>, kamwe si zote mbili.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Ondoa Vigezo Kwa Regex",
+  "guide_field_urlpattern": {
+    "message": "URL ambazo Mtoa huduma anashughulikia, kama expression ya kawaida inayolingana na URL kamili. Herufi kubwa na ndogo hazizingatiwi.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Ondoa Zote Isipokuwa Parameta Moja",
+  "guide_field_indexpattern": {
+    "message": "Tu pamoja na <code>urlPattern</code>: vidokezo vya host kama <code>||example.com^</code>, ili Mtoa huduma akaguliwe kwa host hizo tu. Bila hivyo, Mtoa huduma hukaguliwa kwa kila URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Tumia $removeparam Kwa Kikoa Kimoja Pekee",
+  "guide_field_rules": {
+    "message": "Vigezo vya kuondoa (sura ya 4 na 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Ongeza Vikomo vya Kikoa",
+  "guide_field_referral": {
+    "message": "Vigezo vya rufaa na affiliate vya kuondoa. Hurukwa wakati <em>Ruhusu uuzaji wa rufaa</em> imewashwa (sura ya 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Ongeza Vikomo vya Njia",
+  "guide_field_rawrules": {
+    "message": "Expression za kawaida zinazofanya kazi kwenye URL kamili; kila linganifu hufutwa (sura ya 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Sura ya 10: $removeparam Vighairi",
+  "guide_field_exceptions": {
+    "message": "URL ambazo Mtoa huduma hazigusi (sura ya 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Sura ya 11: Andika Upya Maadili ya Vigezo",
+  "guide_field_redirections": {
+    "message": "Mahali pa kutuma ombi badala yake (sura ya 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Sura ya 12: Sheria Mbichi",
+  "guide_field_fieldredirections": {
+    "message": "Elekeza upya kwenye thamani ya kigezo (sura ya 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Sura ya 13: Kanuni za Kuelekeza Kwingine",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> huzuia kila ombi ambalo Mtoa huduma analinganisha, wakati <em>Ruhusu kuzuia kikoa</em> imewashwa.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Sura ya 14: Kanuni za Uelekezaji Upya wa Kikoa",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: wakati ukurasa wenyewe unapoelekezwa upya, tab hufungua anwani mpya.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Sura ya 15: Vighairi",
+  "guide_field_methods": {
+    "message": "Shughulikia tu mbinu hizi za HTTP, kwa mfano <code>[\"GET\"]</code>. Chaguo-msingi: zote.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Sura ya 16: Kanuni za Uuzaji wa Rufaa",
+  "guide_field_resourcetypes": {
+    "message": "Shughulikia tu aina hizi za maombi, kwa mfano <code>[\"main_frame\"]</code>. Chaguo-msingi: aina zilizochaguliwa kwenye mipangilio.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Sura ya 17: HTTP Mbinu",
+  "guide_field_history": {
+    "message": "<code>false</code> huruka Mtoa huduma wakati ukurasa unapobadilisha anwani yake mwenyewe kwa kutumia History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Sura ya 18: Aina za Nyenzo za Kivinjari",
+  "guide_field_active": {
+    "message": "<code>false</code> huzima Mtoa huduma.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Sura ya 19: Wasindikaji wa awali",
+  "guide_match_title": {
+    "message": "3. Ni URL zipi ambazo Mtoa huduma anashughulikia",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Sura ya 20: Inaruhusiwa JSON Mchanganyiko",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> ni orodha ya mifumo ya kikoa. URL inalingana ikiwa mojawapo ya hizi inalingana:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Mchanganyiko 1: Watoa Huduma Wengi Katika Faili Moja",
+  "guide_th_pattern": {
+    "message": "Mfumo",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Mchanganyiko 2: Global Defaults Plus Providers",
+  "guide_th_matches": {
+    "message": "Inalingana",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Mchanganyiko wa 3: Mtoa huduma za kikoa",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> na kila kikoa kidogo (subdomain)",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Mchanganyiko wa 4: UrlPattern Provider Na indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> kwenye kiambishi chochote cha umumumi (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Mchanganyiko 5: Miundo ya kikoa Na urlPattern Pamoja",
+  "guide_pat_path": {
+    "message": "host hiyo na vikikoa vyake vidogo, wakati njia inapoanza na <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Mchanganyiko wa 6: Sheria Mseto[] Maingizo",
+  "guide_pat_star": {
+    "message": "sawa na <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Mchanganyiko wa 7: Vitu vya Kisheria Ndani ya Sheria[]",
+  "guide_pat_start": {
+    "message": "URL zinazoanza na maandishi haya hasa",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Mchanganyiko wa 8: Mkusanyiko wa Urithi Pamoja na Sheria za Kanuni[]",
+  "guide_pat_end": {
+    "message": "URL zinazoishia na maandishi haya hasa",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Mchanganyiko 9: Mbinu za Watoa Huduma na Aina za Rasilimali",
+  "guide_pat_regex": {
+    "message": "URL kamili, kama expression ya kawaida (herufi kubwa na ndogo zina tofauti isipokuwa uongeze <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Mchanganyiko wa 10: Aina za Ombi la Kiwango cha Utawala",
+  "guide_pat_contains": {
+    "message": "URL zenye maandishi haya popote",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Mchanganyiko 11: Vighairi Katika Maeneo Tofauti",
+  "guide_pat_all": {
+    "message": "kila URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Mchanganyiko wa 12: Kuzuia Kanuni za Mtoa Huduma Zaidi",
+  "guide_match_p2": {
+    "message": "<code>^</code> huashiria mwisho wa jina la host, au kitenganishi kama <code>/</code>, <code>?</code> au <code>:</code>. <code>*</code> inalingana na chochote. Isipokuwa <code>/regex/</code>, mifumo haizingatii tofauti ya herufi kubwa na ndogo.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Mchanganyiko wa 13: Elekeza Upya Kanuni za Usafishaji za Mtoa Huduma Plus",
+  "guide_match_p3": {
+    "message": "<code>||</code> inawakilisha kikoa, wakati <code>|</code> moja inawakilisha mwanzo kabisa wa URL na lazima ifuatwe na scheme kama <code>https://</code>. <code>|example.com^</code> haiwezi kulingana kamwe, hivyo mhariri huikataa.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Mchanganyiko 14: Maelekezo Mengine ya Kikoa Pamoja na Maelekezo Kwengine ya Regex",
+  "guide_match_p4": {
+    "message": "Ili kuendana na usemi wa kawaida (regular expression) badala yake, tumia <code>urlPattern</code>, na ongeza <code>indexPattern</code> ili Mtoa huduma akaguliwe tu kwenye host hizo:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Mchanganyiko wa 15: Sheria za Walemavu au Zisizotumika",
+  "guide_match_p5": {
+    "message": "Mtoa huduma ana <code>domainPatterns</code> au <code>urlPattern</code>, si vyote viwili. Ikiwa unahitaji aina zote mbili za uendano, tengeneza watoa huduma wawili.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Mchanganyiko 16: Mfano Kamili wa Mtoa Huduma",
+  "guide_rules_title": {
+    "message": "4. Kuondoa vigezo",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Sura ya 21: Mifano Kamili",
+  "guide_rules_p1": {
+    "message": "Kila ingizo katika <code>rules</code> huondoa vigezo kutoka kwenye hoja (<code>?a=1</code>) na kutoka kwenye kipande (<code>#a=1</code>). Ingizo ni moja kati ya:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Mfano 1: Kisafishaji cha Msingi cha Kufuatilia",
+  "guide_th_entry": {
+    "message": "Ingizo",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Mfano wa 2: Ondoa Vigezo Vyote vya UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Mfano wa 3: Weka Kigezo Kinachohitajika Wakati wa Kuingia",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Mfano wa 4: Mibofyo ya Ufuatiliaji Elekezi Kwengine",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Mfano 5: Safisha Maombi ya API Pekee",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Sura ya 22: Violezo vya Nakala Haraka",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mtoa Huduma Mchanganyiko JSON Mwongozo wa Umbizo",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Mwongozo huu unaelezea jinsi ya kuandika data ya mtoa huduma JSON ambayo <code>Linkumori extension</code> inaweza kusoma.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Sio mwongozo wa nambari ya JavaScript. Inaangazia tu maumbo JSON, miundo ya sheria na mifano ambayo waandishi wa sheria wanahitaji.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Mwongozo huu unatokana na tabia ya sasa ya wakati wa utekelezaji ya <code>clearurls.js</code>. Hasa, utafutaji wa mtoa huduma hutumia ndoo za waombaji <code>providersByToken</code> kutoka <code>domainPatterns</code> au <code>indexPattern</code>, na ulinganishaji wa mwisho bado unaendelea kupitia <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Sura ya 1: Msingi JSON Umbo",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> inatarajia data ya mtoa huduma katika umbo hili la jumla:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Sehemu muhimu ni <code>providers</code>. Kila ufunguo ndani ya <code>providers</code> ni jina la mtoa huduma.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Mfano:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Sura ya 2: Mtoa Huduma ni Nini?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Mtoa huduma ni chombo kimoja cha wakati wa utekelezaji cha tovuti moja, kampuni, kifuatiliaji, seti ya muundo wa kikoa, au regex ya URL. Jina la mtoa huduma ni lebo/ufunguo; ulinganishaji unafanywa na <code>domainPatterns</code> au <code>urlPattern</code>, si kwa jina la mtoa huduma.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Mtoa huduma mdogo:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Hii inafanya nini:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Sura ya 3: Sehemu za Watoa Huduma Unazoweza Kutumia",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Sehemu za mtoaji zimekubaliwa na <code>clearurls.js</code>. Kwa kulinganisha, mwandishi aidha <code>domainPatterns</code> au <code>urlPattern</code> na <code>indexPattern</code> ya hiari; usitegemee zote mbili kuhitajika pamoja.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Maana wazi:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON uwanja",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Chanzo",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Unaandika nini",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Weka <code>false</code> ili kuzima mtoa huduma huyu.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Weka <code>true</code> ili kuzuia vikoa vinavyolingana badala ya kusafisha tu.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Weka <code>true</code> ili kulazimisha uelekezaji upya wa ukurasa kuu kupitia kichupo cha kivinjari.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Njia inayopendekezwa ya kusema ni vikoa gani vinavyolingana na mtoa huduma huyu.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript kamba ya regex kwa URL inayolingana.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Kidokezo cha hiari cha kasi unapotumia <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria; <code>$removeparam</code> ni Linkumori ongeza hapa",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Sheria za kawaida za uondoaji wa parameta na sheria za mtoa huduma-za mitaa <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs urithi wa addon; vitu vya mtindo wa kisheria hapa ni nyongeza ya Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Sheria zinazohariri maandishi yote URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs urithi wa addon; vitu vya mtindo wa kisheria hapa ni nyongeza ya Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Kanuni za kigezo cha hiari za rufaa/masoko.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria; fomu za kitu hapa ni Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL sheria za regex ambapo mtoaji huyu hapaswi kuendeshwa.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Sheria za muundo wa kikoa ambapo mtoa huduma huyu hatakiwi kufanya kazi.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs urithi wa addon; vitu vya mtindo wa kisheria hapa ni nyongeza ya Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Sheria za kuelekeza kwingine.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Sheria za uelekezaji upya wa muundo wa kikoa.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Endesha kwa njia hizi HTTP pekee.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori nyongeza",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Endesha aina hizi za maombi ya kivinjari pekee.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Sura ya 4: Vikoa Vinavyolingana",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> ni nyongeza ya Linkumori na inapendelewa kwa watoa huduma wengi maalum. Katika <code>clearurls.js</code>, <code>domainPatterns</code> isiyo tupu inatumika kwa kulinganisha kabla ya <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Linganisha Kikoa Kimoja na Vikoa Vidogo vyote",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Zinazolingana:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "hailingani:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Linganisha Jina Lile Lile Kwenye Kiambishi Kiambishi Chochote cha Umma",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Inaweza kuendana:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Linganisha Vikoa vidogo",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Inaweza kuendana:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Tumia Zaidi ya Muundo wa Kikoa kimoja",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Sura ya 5: Alama za Muundo wa Kikoa",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Hizi ndizo alama unazoweza kutumia katika <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Alama",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Maana",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Mfano",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Huondoa",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Linganisha kwenye mpaka wa kikoa.",
+  "guide_rules_name": {
+    "message": "jina la kipengele",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex ya jina",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "kila kipengele ambacho jina lake lote linaendana; <code>^…$</code> huongezwa kwa ajili yako, na herufi kubwa au ndogo hazizingatiwi",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Kitenganishi au mpaka wa mwisho.",
+  "guide_rules_filter": {
+    "message": "kichujio cha <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "tazama sura ya 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> na <code>\"$removeparam=fbclid\"</code> huondoa kitu kilekile. Tumia jina la kawaida isipokuwa kama unahitaji kitu kutoka sura ya 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Wildcard.",
+  "guide_rules_part_title": {
+    "message": "Sheria kwa sehemu ya mtoa huduma",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Jina la kawaida hutumika kwa kila URL ambayo mtoa huduma anaendana nayo. Ili kuondoa kipengele kwenye baadhi ya URL pekee, weka mfumo mbele ya kichujio cha <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Hapa <code>qid</code> huondolewa kwenye kila tovuti ya Amazon, <code>tag</code> kwenye <code>amazon.de</code> pekee, <code>sr</code> kwenye <code>smile.amazon</code> pekee, na <code>ref_</code> chini ya <code>/gp/</code> pekee. Mfumo huo hupunguza mifumo ya mtoa huduma mwenyewe; hauwezi kuipanua.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Anza au malizia nanga.",
+  "guide_rp_title": {
+    "message": "5. Vichujio vya $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Kichujio cha <code>$removeparam</code> kina muundo huu; sehemu zilizowekwa kwenye mabano ni za hiari:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Thamani",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex halisi.",
+  "guide_rp_p2": {
+    "message": "Herufi ya kwanza ya thamani huamua maana yake:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Kichujio",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Muundo wa kawaida zaidi:",
+  "guide_rp_v_all": {
+    "message": "kila parameter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Itumie unapotaka:",
+  "guide_rp_v_except": {
+    "message": "kila parameter isipokuwa <code>ref</code> (pia hufanya kazi na <code>~/regex/</code> na <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Sura ya 6: Kulinganisha URLs Na <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parameter ambazo jina lake, au <code>name=value</code>, zinaendana na regular expression; herufi kubwa na ndogo zina tofauti isipokuwa kama utaongeza <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Tumia <code>urlPattern</code> tu wakati ulinganishaji wa kikoa hautoshi, kama vile wakati lazima mtoaji alingane na njia mahususi au regex kamili ya URL.",
+  "guide_rp_v_prefix": {
+    "message": "parameter ambazo jina lake linaanza na <code>utm_</code>; herufi kubwa na ndogo hazizingatiwi",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Hii inaweza kuendana:",
+  "guide_rp_v_name": {
+    "message": "parameter hiyo hiyo hasa; herufi kubwa na ndogo hazizingatiwi isipokuwa kama utaongeza <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> ni ClearURLs addon legacy na ClearURLs core v2 canonical syntax. Linkumori inaongeza <code>indexPattern</code> tu kama kidokezo cha kutafuta mgombea ili watoa huduma wa regex waweze kupatikana kwa tokeni za jina la mwenyeji haraka.",
+  "guide_rp_options_title": {
+    "message": "Chaguzi",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Muhimu: <code>indexPattern</code> haiamui kama mtoa huduma analingana. Baada ya kutafutwa kwa mtahiniwa, <code>clearurls.js</code> bado hujaribu <code>urlPattern</code> halisi katika <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Chaguzi huja baada ya thamani, zikitenganishwa kwa koma. Tenganisha thamani kadhaa za chaguo moja kwa <code>|</code>, na weka <code>~</code> mbele ya thamani ili kuiondoa:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Sura ya 7: Ondoa Vigezo vya Maswali Rahisi",
+  "guide_th_option": {
+    "message": "Chaguo",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Weka majina ya vigezo katika <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "tu kwenye kurasa kutoka kwenye domain hizi",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Matokeo:",
+  "guide_rp_o_to": {
+    "message": "tu kwa maombi kwenda kwenye domain hizi",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Ondoa vigezo vingi:",
+  "guide_rp_o_method": {
+    "message": "tu kwa njia hizi za HTTP",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Matokeo:",
+  "guide_rp_o_party": {
+    "message": "kwa maombi ya tovuti hiyo hiyo na ukurasa, au kwa tovuti nyingine pekee",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Sura ya 8: Andika Kitu cha Sheria",
+  "guide_rp_o_strict": {
+    "message": "vilevile, lakini ikilinganisha host kamili badala ya tovuti",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Badala ya kamba wazi, sheria inaweza kuwa kitu.",
+  "guide_rp_o_types": {
+    "message": "kwa aina hizi za maombi pekee; <code>~type</code> huondoa moja",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Tumia hii wakati unahitaji:",
+  "guide_rp_o_matchcase": {
+    "message": "majina ya vigezo yanazingatia herufi kubwa na ndogo",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Kitambulisho cha sheria.",
+  "guide_rp_o_history": {
+    "message": "ruka kichujio hiki wakati ukurasa unapobadilisha anwani yake mwenyewe kwa kutumia History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Majina ya utani.",
+  "guide_rp_p4": {
+    "message": "Kila chaguo lina tahajia moja. Chaguo zinazopingana, kama vile <code>first-party,third-party</code>, hukataliwa.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Vighairi.",
+  "guide_rp_keep_title": {
+    "message": "Kubakiza kigezo kwa kutumia @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Omba vikomo vya aina.",
+  "guide_rp_p5": {
+    "message": "Kichujio kinachoanza na <code>@@</code> hubakiza kigezo badala ya kukiondoa. Hapa <code>ref</code> huondolewa kila mahali isipokuwa kwenye GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Andika upya tabia.",
+  "guide_rp_p6": {
+    "message": "Kichujio cha <code>@@</code> pia hujumuisha maombi yanayofanywa na ukurasa ambao Mtoa huduma huyu analingana nao, hata wakati Mtoa huduma mwingine anayashughulikia.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Mfano ndani ya mtoaji:",
+  "guide_raw_title": {
+    "message": "6. Sheria Mbichi",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Matokeo:",
+  "guide_raw_p1": {
+    "message": "Sheria mbichi ni usemi wa kawaida (regular expression) unaofanya kazi kwenye URL kamili; kila inayolingana hufutwa. Itumie kwa maandishi ambayo si kigezo cha <code>name=value</code>, kama vile sehemu ya njia ya <code>/ref=…</code> ya Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> kwenye vitu vya sheria ya mtoa huduma ni nyongeza ya Linkumori. <code>flags: \"i\"</code> hufanya kesi ya mechi kuwa isiyojali.",
+  "guide_raw_p2": {
+    "message": "Sheria Mbichi hazizingatii herufi kubwa na ndogo na zinabadilisha kila inayolingana. Katika JSON, andika kila mshazari (backslash) mara mbili.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Sura ya 9: Kanuni za <code>$removeparam</code>",
+  "guide_raw_scope_title": {
+    "message": "Kwenye baadhi ya URL pekee",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Ondoa Parameta Moja",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Ondoa Vigezo Vyote",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Ondoa Vigezo Kwa Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Ondoa Zote Isipokuwa Parameta Moja",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Omba <code>$removeparam</code> Kwa Kikoa Kimoja Pekee",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Imesafishwa:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Haijasafishwa:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Ongeza Vikomo vya Kikoa",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Usijumuishe kikoa kimoja:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Ongeza Vikomo vya Njia",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "<code>GET</code> pekee:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Sio <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Sura ya 10: <code>$removeparam</code> Vighairi",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Anzisha sheria ya <code>$removeparam</code> na <code>@@</code> kufanya ubaguzi.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Mfano wa ubaguzi wa muktadha:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Hii inaweza kulinda <code>ei</code> kwa maombi madogo yaliyoanzishwa na ukurasa wa <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Sura ya 11: Andika Upya Maadili ya Vigezo",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Tumia <code>action.type: \"rewrite\"</code> kuchukua nafasi ya thamani ya kigezo inayolingana.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Ndani ya mtoaji:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Tumia <code>§1§</code> unapotaka kutumia tena thamani ya sasa:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Sura ya 12: Sheria Mbichi",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Tumia <code>rawRules</code> kuhariri maandishi yote URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Sheria mbichi rahisi:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Sheria ya kitu ghafi:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Sheria ya kuandika upya ghafi:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Sura ya 13: Kanuni za Kuelekeza Kwingine",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Tumia <code>redirections</code> kutuma kivinjari kwa URL mpya.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Ikiwa <code>replacePattern</code> haipo, kikundi cha kwanza cha kukamata hutumiwa.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Sura ya 14: Kanuni za Uelekezaji Upya wa Kikoa",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> ni nyongeza ya Linkumori kwa uelekezaji upya wa muundo wa kikoa.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori - fomu ya kamba:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori - fomu ya kitu:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Sura ya 15: Vighairi",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> ni ClearURLs urithi wa addon na ClearURLs syntax ya msingi ya v2. Linkumori pia inakubali vipengee vya mtindo wa kisheria katika safu hii ya urithi wa watoa huduma.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Mfano:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> ni nyongeza ya Linkumori kwa vighairi vya muundo wa kikoa.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Imeruka:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Sura ya 16: Kanuni za Uuzaji wa Rufaa",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> hufanya kazi kama sheria za uga, lakini inadhibitiwa na mpangilio wa kiendelezi wa uuzaji wa rufaa.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Mfano:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Sura ya 17: HTTP Mbinu",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Tumia <code>methods</code> kuendesha mtoa huduma kwa mbinu mahususi HTTP pekee.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Hii inaendelea:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Hii haifanyiki kwa:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Sura ya 18: Aina za Nyenzo za Kivinjari",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> ni nyongeza ya Linkumori. Itumie kuendesha mtoa huduma kwa aina mahususi za ombi la kivinjari pekee.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Maadili ya kawaida:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Mfano:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Maana:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Sura ya 19: Wasindikaji wa awali",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Wachakataji awali hubadilisha thamani zilizonaswa kabla ya kuzitumia katika <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Mfano:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Aina zinazotumika:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> inaweza kuwa:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Sura ya 20: Inaruhusiwa JSON Mchanganyiko",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Sura hii inaonyesha Linkumori mtoaji-mchanganyiko JSON: ClearURLs safu za urithi wa addon, ClearURLs vitu vya kanuni v2 vya msingi, na Linkumori pamoja na sheria za nyongeza zinaweza kuwepo.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Mchanganyiko 1: Watoa Huduma Wengi Katika Faili Moja",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> ni ClearURLs urithi wa addon na ClearURLs msingi v2 sintaksia ya kiwango cha juu cha kanuni. Linkumori huweka sura hiyo na inaruhusu watoa huduma wengi chini yake.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Kila mtoa huduma hupakiwa tofauti.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Mchanganyiko 2: Global Defaults Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> ni ClearURLs syntax ya msingi ya v2. Linkumori inaikubali kando na mtindo wa urithi <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Sheria zinaweza kurithi maadili chaguo-msingi wakati sehemu hizo hazipo kwenye sheria.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Mchanganyiko 3: <code>domainPatterns</code> Mtoa huduma",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Hii ni nyongeza ya Linkumori. Watoa huduma wengi Linkumori wanapaswa kutumia fomu hii.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Mchanganyiko 4: <code>urlPattern</code> Mtoa Huduma Na <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> ni sintaksia ya ClearURLs ya juu. <code>indexPattern</code> ni kidokezo cha kutafuta Linumori kwa watoa huduma wa regex URL; inapaswa kuelekeza kwa majina ya mwenyeji ambayo regex inaweza kulinganisha.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> ni ya hiari, lakini ni muhimu kwa kasi. Huelekeza mtoa huduma kwenye ndoo za mgombea wa ishara ya jina la mpangishaji; haichukui nafasi ya mechi ya mwisho ya <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Mchanganyiko wa 5: Usichanganye <code>domainPatterns</code> na <code>urlPattern</code> Kama Mahitaji ya Pamoja",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Umbo hili linaweza kuonekana katika data ya zamani au iliyoandikwa kwa mkono, lakini haimaanishi kwamba vilinganishi vyote viwili lazima vipite:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Tabia ya sasa ya <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Ikiwa <code>domainPatterns</code> ipo na haina tupu, <code>clearurls.js</code> huitumia kwa kulinganisha mtoa huduma na inapuuza <code>urlPattern</code> kwa mtoa huduma huyo. Kihariri/njia maalum ya kuagiza inakataa watoa huduma ambao wana zote mbili. Iwapo unahitaji hali ya njia, tumia <code>urlPattern</code> na <code>indexPattern</code>, au weka maingizo <code>$removeparam</code>/rule mahususi ndani ya <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Mchanganyiko 6: Maingizo <code>rules[]</code> yaliyochanganywa",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Katika Linkumori, <code>rules</code> inaweza kuwa na ClearURLs kamba za urithi, Linkumori <code>$removeparam</code> kamba, Linkumori 928007 na vitu ClearURLs ClearURLs ClearURLs vitu vya kanuni v2 vya msingi pamoja.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Maingizo yote manne yanakubaliwa.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Mchanganyiko wa 7: Vitu vya Kanoni Ndani ya <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs vitu vya kanuni v2 vya msingi vinaweza kuwakilisha aina tofauti za sheria. Katika mfano huu wa Linkumori zimewekwa ndani ya mtoaji anayetumia <code>domainPatterns</code>, ambayo ni Linkumori-pekee.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> hupanga hizi kwa maana:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Mchanganyiko wa 8: Safu za Urithi Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs safu za mtoaji wa urithi wa addon bado zinafanya kazi. Linkumori huruhusu safu hizo kukaa kando ya vitu ClearURLs vya msingi v2 vya kanuni za kanuni.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Hii ni halali. Injini inasoma safu hizi zote kwa mtoaji sawa.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Mchanganyiko 9: Mbinu za Watoa Huduma na Aina za Rasilimali",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> iko juu ya mkondo ClearURLs syntax. <code>resourceTypes</code> ni nyongeza ya Linkumori. Zote mbili zinatumika kwa mtoa huduma mzima.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code> na <code>rawRules</code> zote mbili zimepunguzwa na mbinu ya mtoa huduma/aina ya mechi.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Mchanganyiko wa 10: Aina za Ombi la Kiwango cha Utawala",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs kanuni za kanuni za msingi za v2 zinaweza kufafanua kiwango cha sheria <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Kiwango cha mtoa huduma <code>resourceTypes</code> kinapunguza mtoa huduma kwanza. Kiwango cha sheria <code>requestTypes</code> hupunguza sheria za kibinafsi baada ya hapo.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Mchanganyiko 11: Vighairi Katika Maeneo Tofauti",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori hukuwezesha kuchanganya vighairi ClearURLs, Linkumori vighairi vya kikoa, ClearURLs vighairi vya sheria kuu v2, na Linkumori isipokuwa Linkumori 928374 za mtoa huduma-ndani 95030.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Maana wazi:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Mchanganyiko wa 12: Kuzuia Kanuni za Mtoa Huduma Zaidi",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> inaweka alama kwa mtoa huduma kama kughairi/kuzuia.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Wakati uzuiaji wa kikoa umewezeshwa katika mipangilio, maombi yanayolingana yanaweza kuzuiwa. Sheria bado zinaweza kuwepo, lakini kuzuia ni tabia dhabiti zaidi kwa mtoaji huduma huyo.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Mchanganyiko wa 13: Elekeza Upya Kanuni za Usafishaji za Mtoa Huduma Plus",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Mtoa huduma anaweza kuwa na uelekezaji kwingine na sheria za kusafisha.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Ikiwa uelekezaji upya unalingana, uelekezaji kwingine unarejeshwa kwanza.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Mchanganyiko 14: Maelekezo Mengine ya Kikoa Pamoja na Maelekezo Kwengine ya Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Zote mbili zinaweza kuwepo katika mtoaji mmoja.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Uelekezaji kwingine wa Regex huangaliwa kwanza. Uelekezaji upya wa kikoa huangaliwa ikiwa hakuna uelekezaji upya wa regex unaolingana.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Mchanganyiko wa 15: Sheria za Walemavu au Zisizotumika",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Watoa huduma wanaweza kuwa hawafanyi kazi:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Sheria zinaweza kutofanya kazi:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Watoa huduma wasiofanya kazi na sheria zisizotumika hupuuzwa.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Mchanganyiko 16: Mfano Kamili wa Mtoa Huduma",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Mfano huu wa Linkumori unachanganya kwa makusudi vipengele vingi vya mtoa huduma vinavyotumika: ClearURLs safu za urithi wa addon, ClearURLs vitu vya kanuni za kanuni za msingi za v2, na vipengele Linkumori-pekee vya kilinganishi na muundo wa kikoa.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Hii ni halali Linkumori mtoa huduma mchanganyiko JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Sura ya 21: Mifano Kamili",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Mfano 1: Kisafishaji cha Msingi cha Kufuatilia",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Mfano wa 2: Ondoa Vigezo Vyote vya UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Mfano wa 3: Weka Kigezo Kinachohitajika Wakati wa Kuingia",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Mfano wa 4: Mibofyo ya Ufuatiliaji Elekezi Kwengine",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Matokeo:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Mfano 5: Safisha Maombi ya API Pekee",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Maana:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Sura ya 22: Violezo vya Nakala Haraka",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Ondoa kigezo kimoja:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Ondoa vigezo vingi:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Tumia <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Ondoa vigezo vyote <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Ongeza ubaguzi:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Linganisha kikoa:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Elekeza kifuatiliaji upya URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Sheria mbichi inaweza kuchukua mfumo na chaguo za kichujio cha <code>$removeparam</code>, ikiwa na <code>rawrule=</code> mwishoni. Kila kitu baada ya <code>rawrule=</code> ni usemi wa kawaida:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Mfumo na chaguo huamua wapi sheria itafanya kazi; usemi wa kawaida ndio bado unafutwa. <code>match-case</code> huifanya izingatie herufi kubwa na ndogo.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Kuzuia Sheria Mbichi kwenye baadhi ya URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Kuingiza ambayo huanza na <code>@@</code> huzuia Sheria Mbichi zisifanye kazi pale ambapo muundo wake unalingana. Ipe sheria mbichi <code>id</code> na uipe jina kwa <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Kukiwa hakuna kitu baada ya <code>rawrule=</code> na hakuna <code>targetId</code>, kuingiza hiyo huzuia kila sheria mbichi ya Mtoa huduma kwenye URL hizo. Ili kuruka Mtoa huduma mzima, tumia <code>exceptions</code> badala yake.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Vighairi",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Ikiwa URL inalingana na kuingiza katika <code>exceptions</code>, hakuna sheria ya Mtoa huduma inayofanya kazi. Kuingiza ni usemi wa kawaida (regular expression), au muundo wa kikoa unaoanza na <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Vighairi havizingatii herufi kubwa au ndogo.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Maelekezo mengine",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Sheria za Maelekezo mengine huruka kurasa za ufuatiliaji kwa kwenda moja kwa moja kwenye hatima halisi. Zinafanya kazi tu wakati <em>Washa Njia ya Kuelekeza Upya ya Wahusika Wengine</em> imewashwa.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Elekeza kwenye sehemu ya URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Kuingiza katika <code>redirections</code> ni usemi wa kawaida wenye kikundi kimoja cha kunasa (capture group), <code>( … )</code>. Ombi huenda kwenye kile ambacho kikundi hicho kimenasa, ikiwa imedekodwa kutoka URL. Andika kikundi kingine chochote kama <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Elekeza kwenye anwani maalum",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Kuingiza ambayo huanza na <code>|</code> hutuma kila URL inayolingana kwenda kwenye anwani moja:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Elekeza kwenye thamani ya parameter",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> hutaja parameter inayoshikilia hatima, hivyo hakuna usemi wa kawaida unaohitajika. Inachukua kuingiza zilezile kama <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Parameter ya kwanza inayolingana ambayo ina thamani ndiyo inayoshinda. Maelekezo mengine huzuia usindikaji wote mwingine wa ombi hilo.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Vitu vya sheria (Rule objects)",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Kuingiza yoyote inaweza kuwa kitu (object) badala ya mfululizo wa herufi (string). Tumia kitu wakati sheria inahitaji id, inapaswa kuanza ikiwa imezimwa, inapaswa kuandika upya badala ya kuondoa, au inapaswa kufanya kazi katika baadhi ya visa tu:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Ufunguo",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "maandishi ambayo ungeandika kama ingizo la kawaida",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "jina thabiti (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) linalotumika kuwasha na kuzima sheria",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "id za awali za sheria, ili sheria uliyozima ibaki zima baada ya kubadilisha jina",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "andika upya badala ya kuondoa; <code>§1§</code>, <code>§2§</code>, … ni thamani zilizonaswa",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "badilisha thamani zilizonaswa kwanza",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "kwa aina hizi tu za maombi, kwa mfano <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL ambapo sheria hii moja haifanyi kazi",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "alama za expression ya kawaida, kama kamba (chaguo-msingi <code>i</code>; <code>gi</code> katika <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "endesha sheria mapema au baadaye",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: sheria katika <code>rules</code> inahesabiwa kama sheria ya masoko ya rufaa",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ruka sheria hii wakati ukurasa unapobadilisha anwani yake mwenyewe kwa kutumia History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: sheria huanza ikiwa imezimwa",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "maandishi huru",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "kwenye ingizo za <code>@@…$rawrule=</code> pekee: Sheria Mbichi ambayo inaizuia",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Kuandika upya badala ya kuondoa",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Kwa <code>replacePattern</code>, sheria katika <code>rules</code> hubaki na parameter na kubadilisha thamani yake, ambayo ni <code>§1§</code>. Katika <code>rawRules</code> na <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … ni vikundi vya kunasa (capture groups):",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocessors",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Preprocessors hubadilisha thamani zilizonaswa kabla ya <code>replacePattern</code> kuzitumia. <code>inputs</code> ni <code>\"all\"</code> au orodha ya namba za vikundi:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Aina ni <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> na <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Id za sheria",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Kila sheria ina id. Sheria isiyo na <code>id</code> hupata id kutoka kwenye orodha yake na maandishi yake: <code>\"utm_source\"</code> katika <code>rules</code> inakuwa <code>field-utm-source</code>. Ikiwa sheria mbili zitapata id sawa, zote hupata hash fupi mwishoni.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Id iliyozalishwa hubadilika wakati maandishi ya sheria yanapobadilika. Ipe sheria <code>id</code> yake mwenyewe wakati inapaswa kubaki na mpangilio wake wa kuwasha/kuzima wakati wa uhariri.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Kukimbiza sheria mapema au baadaye",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Sheria Mbichi kawaida hukimbizwa kwanza, kisha <code>rules</code> na <code>referralMarketing</code>. Sheria yenye <code>order</code> hukimbizwa kabla ya sheria zisizo nayo, kuanzia ndogo zaidi. Hapa token hubadilishwa kwanza, na kisha kufutwa:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> hufanya kazi katika <code>rules</code>, <code>rawRules</code> na <code>referralMarketing</code>, lakini si kwenye vichujio vya <code>$removeparam</code>, ambavyo kila wakati hukimbizwa mwishoni.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Masoko ya rufaa",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> huchukua entries sawa kama <code>rules</code>. Hurukwa wakati <em>Ruhusu uuzaji wa rufaa</em> ikiwa imewashwa, hivyo viungo vya affiliate vinaendelea kufanya kazi ikiwa unavitaka:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Sheria inaweza kubaki katika <code>rules</code> na bado kuhesabiwa kama masoko ya rufaa, kwa kutumia <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Mbinu na aina za maombi",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Hizi hupunguza wakati Mtoa huduma au sheria inapokimbizwa:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js tabia: kama domainPatterns zipo na si tupu, Linkumori hutumia domainPatterns kwa kulinganisha watoa huduma. urlPattern inatumika tu wakati domainPatterns inakosekana au tupu. Kihariri/njia maalum ya kuagiza inakataa umbo hili la kilinganishi, kwa hivyo litumie kuelewa data ya urithi pekee.",
+  "guide_req_methods": {
+    "message": "Mbinu za HTTP ambazo Mtoa huduma anashughulikia",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "aina za maombi ambazo Mtoa huduma anashughulikia",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "aina za maombi ambazo kitu kimoja cha sheria kinashughulikia",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "vivyo hivyo kwa chujio kimoja cha <code>$removeparam</code> au Sheria Mbichi",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Aina za maombi hutumia majina ya kivinjari: <code>main_frame</code> (ukurasa), <code>sub_frame</code> (fremu), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> na kuendelea. Chaguzi za chujio huita hizi mbili za kwanza <code>document</code> na <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Jinsi URL inavyochakatwa",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Kwa kila Mtoa huduma anayelingana na URL na kuruhusu ombi:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: ikiwa moja inalingana, Mtoa huduma anarukwa.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, kisha <code>fieldRedirections</code>: lingano huelekeza ombi kwenye Maelekezo mengine, na hakuna kitu kingine kinachofanya kazi.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: ombi limezuiwa.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> hufanya kazi kwenye URL kamili.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> na <code>referralMarketing</code> huondoa vigezo.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Chujio cha <code>$removeparam</code> hufanya kazi, isipokuwa pale chujio cha <code>@@</code> kinapohifadhi kigezo.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Mtoa huduma wa kwanza anayebadilisha, kuelekeza au kuzuia ombi huamua matokeo. Kisha URL mpya hupitia hatua zilezile tena.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Mifano kamili",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Safisha duka moja",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Huondoa vigezo vya ufuatiliaji na id ya affiliate kwenye duka moja, na kuacha kurasa zake za malipo bila kuguswa:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Ondoa vigezo vya UTM kila mahali",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Kiolezo <code>*</code> kinaendana na kila URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Ruka kifuatiliaji cha mbofyo",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Hutuma viungo kupitia kifuatiliaji cha mbofyo moja kwa moja hadi kwenye hatima yake, ambayo iko katika kipengele cha <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Baki na kipengele kwenye ukurasa mmoja",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Huondoa <code>ref</code> kila mahali kwenye tovuti isipokuwa kwenye ukurasa wa kuingia, ambao unahitaji kipengele hicho:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Kukagua sheria zako",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Kihariri cha Sheria Maalum hukagua sheria unapozihifadhi au kuziingiza. Mbali na JSON iliyoharibika na regular expressions zisizo sahihi, hukataa sheria ambazo zingepakiwa lakini zinafanya jambo lisilo sahihi kimyakimya, kama vile:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> na <code>urlPattern</code> kwenye Mtoa huduma mmoja",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "kiolezo chenye <code>|</code> moja na bila scheme, kama vile <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "uhamishaji wa regular-expression bila kundi moja kamili la kunasa",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "sehemu, funguo na chaguzi zisizojulikana",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> au <code>referralMarketing</code> ambapo haitafanya chochote",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "ingizo la <code>@@…$rawrule=</code> ambalo halisimamishi Sheria Mbichi yoyote",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Ikiwa hifadhi itashindwa, ujumbe utataja Mtoa huduma, orodha na ingizo.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

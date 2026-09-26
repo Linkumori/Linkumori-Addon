@@ -4727,1688 +4727,704 @@
     "message": "בקרות מזהה כללים זמינות ברגע שהספק JSON תקף.",
     "description": "מצב JSON לא חוקי עבור בקרות מזהה כללים של ספק"
   },
-  "guide_0001": {
-    "message": "Linkumori הרחבה - תיעוד כללים",
+  "guide_page_title": {
+    "message": "Linkumori — מדריך כללים",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "נושא",
+  "guide_theme_label": {
+    "message": "ערכת נושא",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "ספק JSON פורמט",
+  "guide_toc_label": {
+    "message": "תוכן עניינים",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori ספק JSON",
+  "guide_theme_midnight": {
+    "message": "חצות",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "פרק 1: צורה בסיסית JSON",
+  "guide_theme_light": {
+    "message": "בהיר",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "פרק 2: מהו ספק?",
+  "guide_theme_icecold": {
+    "message": "קרח",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "פרק 3: שדות ספק שבהם אתה יכול להשתמש",
+  "guide_theme_zen_grey": {
+    "message": "זן אפור",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "פרק 4: התאמת דומיינים",
+  "guide_theme_sunset": {
+    "message": "שקיעה",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "התאם דומיין אחד וכל תת-הדומיינים",
+  "guide_title": {
+    "message": "כתיבת כללי Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "התאם את אותו השם בכל סיומת ציבורית",
+  "guide_intro_1": {
+    "message": "Linkumori מנקה URL-ים באמצעות כללים. מדריך זה מראה כיצד לכתוב אותם, מהכלל הראשון ועד לכל אפשרות, עם דוגמאות שניתן להעתיק.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "התאם תת-דומיינים",
+  "guide_intro_2": {
+    "message": "כללים הם בפורמט JSON. כותבים אותם בעורך הכללים המותאמים אישית, שבודק אותם בעת השמירה. רשימת הכללים המובנית ורשימות כללים מרוחקות משתמשות באותו פורמט.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "השתמש ביותר מדומיין אחד",
+  "guide_file_title": {
+    "message": "1. קובץ הכללים",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "פרק 5: סמלי דפוסי תחום",
+  "guide_file_p1": {
+    "message": "קובץ כללים הוא אובייקט JSON אחד. אובייקט ה-<code>providers</code> שלו ממפה שם לבחירתך לספק:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "פרק 6: התאמת URLs עם urlPattern",
+  "guide_file_p2": {
+    "message": "ספק מגדיר אילו URL-ים הוא מטפל בהם ומה לעשות איתם. זהו ספק שמסיר את <code>utm_source</code> ו-<code>utm_medium</code> מכל URL ב-<code>example.com</code> ובסביבויות שלו:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "פרק 7: הסר פרמטרים של שאילתה פשוטה",
+  "guide_file_p3": {
+    "message": "השם הוא רק תווית. אילו URL-ים ספק מטפל בהם נקבע על ידי <code>domainPatterns</code> או <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "פרק 8: כתוב אובייקט כלל",
+  "guide_fields_title": {
+    "message": "2. שדות ספק",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "פרק 9: כללי $removeparam",
+  "guide_th_field": {
+    "message": "שדה",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "הסר פרמטר אחד",
+  "guide_th_meaning": {
+    "message": "מה הוא עושה",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "הסר את כל הפרמטרים",
+  "guide_field_domainpatterns": {
+    "message": "אילו URL-ים הספק מטפל בהם, כתבניות דומיין (פרק 3). השתמש בזה או ב-<code>urlPattern</code>, לעולם לא בשניהם.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "הסר פרמטרים לפי ביטוי רגיל",
+  "guide_field_urlpattern": {
+    "message": "אילו URL-ים הספק מטפל בהם, כביטוי רגולרי שמושווה ל-URL המלא. רגישות לאותיות גדולה/קטנה אינה נלקחת בחשבון.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "הסר הכל מלבד פרמטר אחד",
+  "guide_field_indexpattern": {
+    "message": "רק עם <code>urlPattern</code>: רמזי מארח (host hints) כגון <code>||example.com^</code>, כך שהספק ייבדק רק עבור אותם מארחים. בלעדיהם, הספק ייבדק מול כל URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "החל את $removeparam רק על דומיין אחד",
+  "guide_field_rules": {
+    "message": "פרמטרים להסרה (פרקים 4 ו-5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "הוסף מגבלות דומיין",
+  "guide_field_referral": {
+    "message": "פרמטרים של הפניות (referral) ושיווק שותפים להסרה. הם ידולגו כאשר <em>אפשר שיווק מפנים</em> פעיל (פרק 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "הוסף מגבלות שיטה",
+  "guide_field_rawrules": {
+    "message": "ביטויים רגולריים שרצים על ה-URL המלא; כל התאמה נמחקת (פרק 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "פרק 10: חריגים של $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL-ים שהספק משאיר כפי שהם (פרק 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "פרק 11: שכתוב ערכי פרמטרים",
+  "guide_field_redirections": {
+    "message": "לאן לשלוח את הבקשה במקום זאת (פרק 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "פרק 12: כללים גולמיים",
+  "guide_field_fieldredirections": {
+    "message": "הפניה מחדש לערך של פרמטר (פרק 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "פרק 13: כללי הפניה מחדש",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> חוסם כל בקשה שהספק מתאים לה, בזמן ש-<em>אפשר חסימת דומיין</em> פעיל.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "פרק 14: כללי הפניית דומיין",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: כאשר דף עצמו מופנה מחדש, הלשונית פותחת את הכתובת החדשה.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "פרק 15: חריגים",
+  "guide_field_methods": {
+    "message": "טיפול רק בשיטות HTTP אלו, לדוגמה <code>[\"GET\"]</code>. ברירת מחדל: כולן.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "פרק 16: כללי שיווק הפניות",
+  "guide_field_resourcetypes": {
+    "message": "טיפול רק בסוגי בקשות אלו, לדוגמה <code>[\"main_frame\"]</code>. ברירת מחדל: הסוגים שנבחרו בהגדרות.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "פרק 17: HTTP שיטות",
+  "guide_field_history": {
+    "message": "<code>false</code> מדלג על הספק כאשר דף משנה את הכתובת שלו באמצעות ה-History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "פרק 18: סוגי משאבי דפדפן",
+  "guide_field_active": {
+    "message": "<code>false</code> מכבה את הספק.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "פרק 19: מעבדי קדם",
+  "guide_match_title": {
+    "message": "3. אילו URL-ים ספק מטפל בהם",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "פרק 20: מותר JSON שילובים",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> הוא רשימה של תבניות דומיין. URL תואם אם אחת מהן תואמת:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "שילוב 1: ספקים רבים בקובץ אחד",
+  "guide_th_pattern": {
+    "message": "תבנית",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "שילוב 2: Global Defaults Plus ספקים",
+  "guide_th_matches": {
+    "message": "תואם ל-",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "שילוב 3: ספק domainPatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> וכל תת-דומיין",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "שילוב 4: ספק urlPattern עם indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> בכל סיומת ציבורית (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "שילוב 5: domainPatterns ו-urlPattern יחד",
+  "guide_pat_path": {
+    "message": "אותו מארח ותת-הדומיינים שלו, כאשר הנתיב מתחיל ב-<code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "שילוב 6: כללים מעורבים[] ערכים",
+  "guide_pat_star": {
+    "message": "בדיוק כמו <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "שילוב 7: אובייקטים קנוניים בתוך חוקים[]",
+  "guide_pat_start": {
+    "message": "URL-ים שמתחילים בדיוק בטקסט זה",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "שילוב 8: מערכים מדור קודם פלוס חוקים קנוניים[]",
+  "guide_pat_end": {
+    "message": "URL-ים שמסתיימים בדיוק בטקסט זה",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "שילוב 9: שיטות וסוגי משאבים לכל הספקים",
+  "guide_pat_regex": {
+    "message": "ה-URL המלא, כביטוי רגולרי (ההבחנה בין אותיות גדולות לקטנות משמעותית אלא אם תוסיף <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "שילוב 10: סוגי בקשות ברמת הכלל",
+  "guide_pat_contains": {
+    "message": "URL-ים המכילים טקסט זה בכל מקום",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "שילוב 11: חריגים במקומות שונים",
+  "guide_pat_all": {
+    "message": "כל URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "שילוב 12: חסימת כללי ספק פלוס",
+  "guide_match_p2": {
+    "message": "<code>^</code> מסמן את סוף שם המארח, או מפריד כגון <code>/</code>, <code>?</code> או <code>:</code>. <code>*</code> תואם לכל דבר. מלבד <code>/regex/</code>, תבניות אינן רגישות לאותיות גדולות/קטנות.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "שילוב 13: כללי ניקוי ספק פלוס הפניה מחדש",
+  "guide_match_p3": {
+    "message": "<code>||</code> מייצג דומיין, בעוד ש-<code>|</code> בודד מייצג את תחילתו המדויקת של ה-URL וחייב לבוא לפני סכימה כגון <code>https://</code>. <code>|example.com^</code> לעולם לא יכול להתאים, לכן העורך דוחה אותו.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "שילוב 14: ניתוב מחדש של דומיין בתוספת ניתוב Regex Redirections",
+  "guide_match_p4": {
+    "message": "כדי להתאים באמצעות ביטוי רגולרי במקום זאת, השתמש ב-<code>urlPattern</code>, והוסף <code>indexPattern</code> כך שהספק ייבדק רק במארחים אלו:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "שילוב 15: כללים מושבתים או לא פעילים",
+  "guide_match_p5": {
+    "message": "לספק יש <code>domainPatterns</code> או <code>urlPattern</code>, אף פעם לא את שניהם. אם אתה זקוק לשני סוגי ההתאמה, צור שני ספקים.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "שילוב 16: דוגמה לספק מעורב מלא",
+  "guide_rules_title": {
+    "message": "4. הסרת פרמטרים",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "פרק 21: דוגמאות מלאות",
+  "guide_rules_p1": {
+    "message": "כל רשומה ב-<code>rules</code> מסירה פרמטרים מהשאילתה (<code>?a=1</code>) ומהקטע (<code>#a=1</code>). רשומה היא אחד מהבאים:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "דוגמה 1: מנקה גשש בסיסי",
+  "guide_th_entry": {
+    "message": "רשומה",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "דוגמה 2: הסר את כל פרמטרי UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "דוגמה 3: שמור פרמטר נחוץ בעת הכניסה",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "דוגמה 4: קליקים במעקב אחר הפניה מחדש",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "דוגמה 5: נקי רק בקשות API",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "פרק 22: תבניות העתקה מהירה",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori ספק מעורב JSON מדריך פורמטים",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "מדריך זה מסביר כיצד לכתוב נתוני ספק JSON ש-<code>Linkumori extension</code> יכולים לקרוא.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "זה לא מדריך לקוד JavaScript. הוא מתמקד רק בצורות JSON, פורמטים של כללים ודוגמאות שמחברי כללים צריכים.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "מדריך זה מבוסס על התנהגות זמן הריצה הנוכחית של <code>clearurls.js</code>. בפרט, חיפוש ספק משתמש בדליים של מועמדים <code>providersByToken</code> מ-<code>domainPatterns</code> או <code>indexPattern</code>, וההתאמה הסופית עדיין פועלת דרך <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "פרק 1: צורה בסיסית JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> מצפה לנתוני ספק בצורה כללית זו:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "החלק החשוב הוא <code>providers</code>. כל מפתח בתוך <code>providers</code> הוא שם ספק.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "דוגמה:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "פרק 2: מהו ספק?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "ספק הוא מיכל אחד בשם זמן ריצה עבור אתר אינטרנט, חברה, מעקב, ערכת דפוסי דומיין או ביטוי רגולרי של כתובת אתר אחד. שם הספק הוא תווית/מפתח; ההתאמה מתבצעת על ידי <code>domainPatterns</code> או <code>urlPattern</code>, לא על ידי שם הספק.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "ספק מינימלי:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "מה זה עושה:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "פרק 3: שדות ספק שבהם אתה יכול להשתמש",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "שדות ספק מקובלים על ידי <code>clearurls.js</code>. להתאמה, מחבר או <code>domainPatterns</code> או <code>urlPattern</code> עם <code>indexPattern</code> אופציונלי; אל תסתמך על שניהם נדרשים יחד.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "משמעות פשוטה:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "שדה JSON",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "מקור",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "בשביל מה אתה כותב את זה",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "הגדר את <code>false</code> כדי להשבית את הספק הזה.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs תוסף מדור קודם ו-ClearURLs core v2 קנוני",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "הגדר את <code>true</code> לחסום דומיינים תואמים במקום לנקות בלבד.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs תוסף מדור קודם ו-ClearURLs core v2 קנוני",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "הגדר את <code>true</code> לאלץ הפניות מחדש של הדף הראשי דרך לשונית הדפדפן.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "דרך מומלצת לומר לאילו דומיינים הספק הזה מתאים.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs תוסף מדור קודם ו-ClearURLs core v2 קנוני",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "מחרוזת JavaScript רגקס עבור התאמת URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "רמז אופציונלי למהירות בעת שימוש ב-<code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs מדור קודם ו-ClearURLs core v2 קנוני; <code>$removeparam</code> הוא Linkumori תוספת כאן",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "כללים רגילים להסרת פרמטרים וכללי ספק מקומי <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs מורשת תוספות; אובייקטים בסגנון קנוני כאן הם Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "כללים שעורכים את כל הטקסט URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs מורשת תוספות; אובייקטים בסגנון קנוני כאן הם Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "כללי הפניה/פרמטרים שיווקיים אופציונליים.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy ו-ClearURLs core v2 canonical; טפסי אובייקט כאן הם Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL כללים רגולריים שבהם ספק זה לא אמור לפעול.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "כללי דפוס דומיין שבהם ספק זה לא אמור לפעול.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs מורשת תוספות; אובייקטים בסגנון קנוני כאן הם Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "כללים להפניה מחדש של ביטוי רגולרי.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "כללים להפניה מחדש של דפוס דומיין.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs תוסף מדור קודם ו-ClearURLs core v2 קנוני",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "הפעל רק עבור HTTP שיטות אלה.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "הפעל רק עבור סוגי בקשות דפדפן אלה.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "פרק 4: התאמת דומיינים",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> היא תוספת של Linkumori ומועדפת לרוב הספקים המותאמים אישית. ב-<code>clearurls.js</code>, נעשה שימוש ב-<code>domainPatterns</code> שאינו ריק להתאמה לפני <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "התאם דומיין אחד וכל תת-הדומיינים",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "התאמות:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "לא תואם:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "התאם את אותו השם בכל סיומת ציבורית",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "יכול להתאים:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "התאם תת-דומיינים",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "יכול להתאים:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "השתמש ביותר מדומיין אחד",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "פרק 5: סמלי דפוסי תחום",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "אלו הם הסמלים שבהם אתה יכול להשתמש ב-<code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "סמל",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "משמעות",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "דוגמה",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "מסיר",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "התאמה בגבול תחום.",
+  "guide_rules_name": {
+    "message": "שם פרמטר",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "ביטוי רגולרי לשם",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "כל פרמטר שכל שמו תואם; <code>^…$</code> מתווסף עבורך, והאותיות הגדולות/קטנות אינן נלקחות בחשבון",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "מפריד או גבול קצה.",
+  "guide_rules_filter": {
+    "message": "מסנן <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "ראה פרק 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> ו-<code>\"$removeparam=fbclid\"</code> מסירים את אותו הדבר. השתמש בשם הפשוט אלא אם אתה זקוק למשהו מפרק 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "תו כללי.",
+  "guide_rules_part_title": {
+    "message": "כללים עבור חלק מספק",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "שם פשוט חל על כל URL שהספק מתאים לו. כדי להסיר פרמטר רק בחלק מהם, הנח תבנית לפני מסנן <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "כאן <code>qid</code> מוסר בכל אתר Amazon, <code>tag</code> רק ב-<code>amazon.de</code>, <code>sr</code> רק ב-<code>smile.amazon</code>, ו-<code>ref_</code> רק תחת <code>/gp/</code>. התבנית מצמצמת את התבניות של הספק עצמו; היא אינה יכולה להרחיב אותן.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "עוגן התחלה או סיום.",
+  "guide_rp_title": {
+    "message": "5. מסנני $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "למסנן <code>$removeparam</code> יש מבנה כזה; החלקים בסוגריים הם אופציונליים:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "הערך",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript ריגול מילולי.",
+  "guide_rp_p2": {
+    "message": "התו הראשון של הערך קובע את משמעותו:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "מסנן",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "הדפוס הנפוץ ביותר:",
+  "guide_rp_v_all": {
+    "message": "כל פרמטר",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "השתמש בו מתי שאתה רוצה:",
+  "guide_rp_v_except": {
+    "message": "כל פרמטר פרט ל-<code>ref</code> (עובד גם עם <code>~/regex/</code> ו-<code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "פרק 6: התאמת URLs ל-<code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "פרמטרים שהשם שלהם, או <code>name=value</code>, תואמים לביטוי הרגולרי; רגישות לאותיות קיימת אלא אם תוסיף <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "השתמש ב-<code>urlPattern</code> רק כאשר התאמת הדומיין אינה מספיקה, כגון כאשר הספק חייב להתאים לנתיב ספציפי או לביטוי רגולרי מלא של כתובת URL.",
+  "guide_rp_v_prefix": {
+    "message": "פרמטרים שהשם שלהם מתחיל ב-<code>utm_</code>; רגישות לאותיות אינה קיימת",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "זה יכול להתאים:",
+  "guide_rp_v_name": {
+    "message": "בדיוק הפרמטר הזה; רגישות לאותיות אינה קיימת אלא אם תוסיף <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> הוא התחביר הקנוני של ClearURL ותחביר הליבה v2 של ClearURL. Linkumori מוסיפה <code>indexPattern</code> רק כרמז לחיפוש מועמד, כך שניתן יהיה למצוא ספקי ביטויים רגילים על ידי אסימוני שמות מארח מהר יותר.",
+  "guide_rp_options_title": {
+    "message": "אפשרויות",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "חשוב: <code>indexPattern</code> אינו מחליט אם ספק מתאים. לאחר חיפוש מועמדים, <code>clearurls.js</code> עדיין בודק את ה-<code>urlPattern</code> האמיתי ב-<code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "אפשרויות מופיעות אחרי הערך, מופרדות בפסיקים. הפרד בין מספר ערכים של אפשרות אחת באמצעות <code>|</code>, והצב <code>~</code> לפני ערך כדי להחריג אותו:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "פרק 7: הסר פרמטרים של שאילתה פשוטה",
+  "guide_th_option": {
+    "message": "אפשרות",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "שים שמות פרמטרים ב-<code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "רק בדפים מדומיינים אלו",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "תוצאה:",
+  "guide_rp_o_to": {
+    "message": "רק עבור בקשות לדומיינים אלו",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "הסר פרמטרים רבים:",
+  "guide_rp_o_method": {
+    "message": "רק עבור שיטות HTTP אלו",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "תוצאה:",
+  "guide_rp_o_party": {
+    "message": "רק עבור בקשות לאותו אתר של הדף, או רק לאתרים אחרים",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "פרק 8: כתוב אובייקט כלל",
+  "guide_rp_o_strict": {
+    "message": "אותו הדבר, אך השוואה של המארח (host) המדויק במקום האתר",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "במקום מחרוזת רגילה, כלל יכול להיות אובייקט.",
+  "guide_rp_o_types": {
+    "message": "רק עבור סוגי בקשות אלו; <code>~type</code> מוציא אחד מהם",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "השתמש בזה כאשר אתה צריך:",
+  "guide_rp_o_matchcase": {
+    "message": "שמות הפרמטרים רגישים לאותיות רישיות",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "מזהה כלל.",
+  "guide_rp_o_history": {
+    "message": "דלג על מסנן זה כאשר דף משנה את כתובתו באמצעות ה-History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "כינויים.",
+  "guide_rp_p4": {
+    "message": "לכל אפשרות יש כתיב אחד. אפשרויות סותרות, כגון <code>first-party,third-party</code>, נדחות.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "חריגים.",
+  "guide_rp_keep_title": {
+    "message": "שמירה על פרמטר באמצעות @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "מגבלות סוג הבקשה.",
+  "guide_rp_p5": {
+    "message": "מסנן שמתחיל ב-<code>@@</code> שומר על הפרמטר במקום להסיר אותו. כאן <code>ref</code> מוסר בכל מקום פרט ל-GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "שכתוב התנהגות.",
+  "guide_rp_p6": {
+    "message": "מסנן <code>@@</code> מכסה גם בקשות שבוצעו על ידי דף שספק זה תואם לו, גם כאשר ספק אחר מטפל בהן.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "דוגמה בתוך ספק:",
+  "guide_raw_title": {
+    "message": "6. כללים גולמיים",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "תוצאה:",
+  "guide_raw_p1": {
+    "message": "כלל גולמי הוא ביטוי רגולרי (regular expression) שרץ על ה-URL המלא; כל התאמה נמחקת. השתמש בו עבור טקסט שאינו פרמטר <code>name=value</code>, כגון מקטע הנתיב <code>/ref=…</code> של Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> על אובייקטים של כלל ספק הוא תוספת Linkumori. <code>flags: \"i\"</code> הופך את ההתאמה ללא רגישות רישיות.",
+  "guide_raw_p2": {
+    "message": "כללים גולמיים מתעלמים מאותיות רישיות ומחליפים כל התאמה. ב-JSON, כתוב כל לוכסן אחורי פעמיים.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "פרק 9: <code>$removeparam</code> כללים",
+  "guide_raw_scope_title": {
+    "message": "רק בכתובות URL מסוימות",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "הסר פרמטר אחד",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "הסר את כל הפרמטרים",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "הסר פרמטרים לפי ביטוי רגיל",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "הסר הכל מלבד פרמטר אחד",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "הגש <code>$removeparam</code> רק לדומיין אחד",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "ניקה:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "לא ניקה:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "הוסף מגבלות דומיין",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "אל תכלול דומיין אחד:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "הוסף מגבלות שיטה",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "רק <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "לא <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "פרק 10: <code>$removeparam</code> חריגים",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "התחל כלל <code>$removeparam</code> עם <code>@@</code> כדי לעשות חריג.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "דוגמה לחריג הקשר:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "זה יכול להגן על <code>ei</code> על בקשות משנה שהתחילו על ידי דף <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "פרק 11: שכתוב ערכי פרמטרים",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "השתמש ב-<code>action.type: \"rewrite\"</code> כדי להחליף ערך פרמטר תואם.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "בתוך ספק:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "השתמש ב-<code>§1§</code> כאשר ברצונך לעשות שימוש חוזר בערך הנוכחי:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "פרק 12: כללים גולמיים",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "השתמש ב-<code>rawRules</code> כדי לערוך את כל הטקסט URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "כלל גולמי פשוט:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "כלל גולמי של אובייקט:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "כלל שכתוב גולמי:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "פרק 13: כללי הפניה מחדש",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "השתמש ב-<code>redirections</code> כדי לשלוח את הדפדפן ל-URL חדש.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "אם חסר <code>replacePattern</code>, נעשה שימוש בקבוצת הלכידה הראשונה.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "פרק 14: כללי הפניית דומיין",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> הוא תוספת Linkumori להפניות פשוטות של דפוסי דומיין.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "תוספת Linkumori - טופס מחרוזת:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "תוספת Linkumori — טופס אובייקט:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "פרק 15: חריגים",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> הוא ClearURLs מדור קודם ותחביר קנוני של ClearURLs core v2. Linkumori מקבל גם אובייקטים בסגנון קנוני במערך ספק מדור קודם זה.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "דוגמה:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> הוא תוספת Linkumori עבור חריגים בדפוס תחום.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "דילג על:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "פרק 16: כללי שיווק הפניות",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> פועל כמו כללי שדה, אבל הוא נשלט על ידי הגדרת ההרחבה לשיווק הפניות.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "דוגמה:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "פרק 17: HTTP שיטות",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "השתמש ב-<code>methods</code> כדי להפעיל ספק רק בשיטות HTTP ספציפיות.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "זה פועל על:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "זה לא פועל על:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "פרק 18: סוגי משאבי דפדפן",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> הוא תוספת Linkumori. השתמש בו כדי להפעיל ספק רק בסוגי בקשות דפדפן ספציפיים.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "ערכים נפוצים:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "דוגמה:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "המשמעות:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "פרק 19: מעבדי קדם",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "מעבדי קדם משנים ערכים שנלכדו לפני השימוש בהם ב-<code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "דוגמה:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "סוגים נתמכים:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> יכול להיות:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "פרק 20: מותר JSON שילובים",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "פרק זה מציג Linkumori ספקים מעורבים JSON: ClearURLs מערכי addon מדור קודם, ClearURLs אובייקטים קנוניים ליבה v2 ו-Linkumori כללים אחדים יכולים להתקיים ביחד בקובץ אחד.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "שילוב 1: ספקים רבים בקובץ אחד",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> הוא ClearURLs מדור קודם ותחביר ClearURLs core v2 קנוני ברמה העליונה. Linkumori שומר על צורה זו ומאפשר לספקים רבים תחתיו.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "כל ספק נטען בנפרד.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "שילוב 2: Global Defaults Plus ספקים",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> הוא ClearURLs core v2 תחביר קנוני. Linkumori מקבל את זה לצד <code>providers</code> בסגנון מדור קודם.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "כללים יכולים לרשת ערכי ברירת מחדל כאשר שדות אלה חסרים בכלל.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "שילוב 3: <code>domainPatterns</code> ספק",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "זוהי תוספת Linkumori. רוב הספקים Linkumori צריכים להשתמש בטופס זה.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "שילוב 4: <code>urlPattern</code> ספק עם <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> הוא תחביר של ClearURL במעלה הזרם. <code>indexPattern</code> הוא רמז חיפוש Linkumori עבור ספקי כתובות אתרים רגילים; זה צריך להצביע על שמות המארחים שהביטוי הרגולרי יכול להתאים.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> הוא אופציונלי, אך שימושי למהירות. הוא מוסיף את הספק לדליים של מועמדים עם שם מארח; זה אף פעם לא מחליף את המשחק האחרון של <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "שילוב 5: אל תערבב <code>domainPatterns</code> ו-<code>urlPattern</code> כדרישה משולבת",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "צורה זו עשויה להופיע בנתונים ישנים יותר או בכתב יד, אך אין זה אומר ששני המתאמים חייבים לעבור:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "התנהגות נוכחית של <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "אם <code>domainPatterns</code> קיים ואינו ריק, <code>clearurls.js</code> משתמש בו עבור התאמת ספק ומתעלם מ-<code>urlPattern</code> עבור אותו ספק. נתיב העורך/ייבוא ​​המותאם אישית דוחה ספקים המכילים את שניהם. אם אתה זקוק לתנאי נתיב, השתמש ב-<code>urlPattern</code> עם <code>indexPattern</code>, או בחן ערכי <code>$removeparam</code>/כלל בודדים בתוך <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "שילוב 6: מעורב <code>rules[]</code> ערכים",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "ב-Linkumori, <code>rules</code> יכול להכיל ClearURLs מחרוזות מדור קודם, Linkumori <code>$removeparam</code> מחרוזות, Linkumori 9528024 אובייקטים, Linkumori ClearURLs אובייקטים קנוניים ליבה v2 ביחד.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "כל ארבעת הערכים מתקבלים.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "שילוב 7: אובייקטים קנוניים בפנים <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs אובייקטים קנוניים ליבה v2 יכולים לייצג סוגים שונים של כללים. בדוגמה זו Linkumori הם ממוקמים בתוך ספק המשתמש ב-<code>domainPatterns</code>, שהוא Linkumori בלבד.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> ממיין את אלה לפי משמעות:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "שילוב 8: מדור קודם בתוספת קנוניקל <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs מערכי ספקים מדור קודם עדיין עובדים. Linkumori מאפשר למערכים האלה לשבת ליד ClearURLs אובייקטי כלל קנוניים ליבה v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "זה תקף. המנוע קורא את כל המערכים הללו עבור אותו ספק.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "שילוב 9: שיטות וסוגי משאבים לכל הספקים",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> הוא תחביר ClearURLs במעלה הזרם. <code>resourceTypes</code> הוא תוספת Linkumori. שניהם חלים על הספק כולו.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "גם <code>rules</code> וגם <code>rawRules</code> מוגבלים על ידי התאמת שיטת/סוג הספק.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "שילוב 10: סוגי בקשות ברמת הכלל",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "כללים קנוניים ClearURLs core v2 יכולים להגדיר ברמת כלל <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "<code>resourceTypes</code> ברמת הספק מצמצם תחילה את הספק. רמת הכלל <code>requestTypes</code> מצמצמת כללים בודדים לאחר מכן.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "שילוב 11: חריגים במקומות שונים",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori מאפשר לך לשלב ClearURLs חריגים של ספקים, Linkumori חריגים בדומיין, ClearURLs חריגים של כלל הליבה v2 ו-Linkumori חריגים של ספק-מקומי 928370 ClearURLs",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "משמעות פשוטה:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "שילוב 12: חסימת כללי ספק פלוס",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> מסמן ספק כביטול/חסימה.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "כאשר חסימת דומיין מופעלת בהגדרות, ניתן לחסום בקשות תואמות. ייתכן שעדיין קיימים כללים, אך חסימה היא ההתנהגות החזקה יותר עבור אותו ספק.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "שילוב 13: כללי ניקוי ספק פלוס הפניה מחדש",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "ספק יכול להכיל הפניות מחדש וכללי ניקוי.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "אם הפניה מחדש תואמת, ההפניה מחדש מוחזרת תחילה.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "שילוב 14: ניתוב מחדש של דומיין בתוספת ניתוב Regex Redirections",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "שניהם יכולים להתקיים בספק אחד.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "ניתוב מחדש של ביטויים רגילים נבדקים תחילה. ניתוב מחדש של דומיין נבדק אם לא תואם ניתוב מחדש של ביטוי רגולרי.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "שילוב 15: כללים מושבתים או לא פעילים",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "ספקים יכולים להיות לא פעילים:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "כללים יכולים להיות לא פעילים:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "מתעלמים מספקים לא פעילים וכללים לא פעילים.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "שילוב 16: דוגמה לספק מעורב מלא",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "דוגמה זו של Linkumori משלבת בכוונה את רוב תכונות הספק הנתמכות: ClearURLs מערכי תוסף מדור קודם, ClearURLs אובייקטי חוק קנוניים ליבה v2, ומאפיינים של Linkumori תואם ו-doma בלבד.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "זה תקף Linkumori ספק מעורב JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "פרק 21: דוגמאות מלאות",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "דוגמה 1: מנקה גשש בסיסי",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "דוגמה 2: הסר את כל פרמטרי UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "דוגמה 3: שמור פרמטר נחוץ בעת הכניסה",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "דוגמה 4: קליקים במעקב אחר הפניה מחדש",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "תוצאה:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "דוגמה 5: נקי רק בקשות API",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "המשמעות:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "פרק 22: תבניות העתקה מהירה",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "הסר פרמטר אחד:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "הסר פרמטרים רבים:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "השתמש ב-<code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "הסר את כל <code>utm_</code> הפרמטרים:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "הוסף חריג:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "התאם דומיין:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "הפנה מחדש עוקב URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "כלל גולמי יכול לקבל את התבנית והאפשרויות של מסנן <code>$removeparam</code>, כאשר <code>rawrule=</code> מופיע אחרון. כל מה שמופיע אחרי <code>rawrule=</code> הוא הביטוי הרגולרי:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "התבנית והאפשרויות קובעות היכן הכלל רץ; הביטוי הרגולרי הוא עדיין מה שנמחק. <code>match-case</code> הופך אותו לרגיש לאותיות רישיות.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "עצירת כללים גולמיים בכתובות URL מסוימות",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "ערך שמתחיל ב-<code>@@</code> מונע מכללים גולמיים לרוץ במקומות שבהם התבנית שלו תואמת. תן לכלל הגולמי <code>id</code> וקרא לו באמצעות <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "כשאין דבר אחרי <code>rawrule=</code> ואין <code>targetId</code>, הערך עוצר כל כלל גולמי של הספק בכתובות URL הללו. כדי לדלג על הספק כולו, השתמש ב-<code>exceptions</code> במקום זאת.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. חריגים",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "אם URL תואם לערך ב-<code>exceptions</code>, אף אחד מהכללים של הספק לא ירוץ. ערך הוא ביטוי רגולרי, או תבנית דומיין שמתחילה ב-<code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "חריגים אינם רגישים לאותיות גדולות/קטנות.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. הפניות מחדש",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "כללי הפניה מחדש מדלגים על דפי מעקב על ידי מעבר ישיר ליעד האמיתי. הם רצים רק כאשר <em>הפעל עקיפת הפניות של צד שלישי</em> מופעל.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "הפניה מחדש לחלק מה-URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "ערך ב-<code>redirections</code> הוא ביטוי רגולרי עם קבוצת לכידה אחת בדיוק, <code>( … )</code>. הבקשה עוברת למה שהקבוצה לכדה, לאחר פענוח URL (URL-decoded). כתוב כל קבוצה אחרת כ-<code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "הפניה מחדש לכתובת קבועה",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "ערך שמתחיל ב-<code>|</code> שולח כל URL תואם לכתובת אחת:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "הפניה מחדש לערך של פרמטר",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> נותן שם לפרמטר שמחזיק את היעד, כך שאין צורך בביטוי רגולרי. הוא מקבל את אותם ערכים כמו <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "הפרמטר התואם הראשון שיש לו ערך הוא זה שינצח. הפניה מחדש עוצרת את כל העיבודים האחרים עבור הבקשה.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. אובייקטי כללים",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "כל ערך יכול להיות אובייקט במקום מחרוזת. השתמש באובייקט כאשר כלל זקוק למזהה (id), צריך להתחיל כשהוא כבוי, צריך לבצע כתיבה מחדש במקום הסרה, או שצריך לרוץ רק במקרים מסוימים:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "מפתח",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "הטקסט שהיית כותב כערך פשוט",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "שם יציב (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) המשמש להפעלה וכיבוי של הכלל",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "המזהים הקודמים של הכלל, כך שכלל שכיבית יישאר כבוי לאחר שינוי שם",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "שכתוב במקום הסרה; <code>§1§</code>, <code>§2§</code>, … הם הערכים שנלכדו",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "שינוי הערכים שנלכדו תחילה",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "רק עבור סוגי בקשות אלו, לדוגמה <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "כתובות URL שבהן הכלל הספציפי הזה אינו פועל",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "דגלים של ביטוי רגולרי, כמחרוזת (ברירת מחדל <code>i</code>; <code>gi</code> ב-<code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "הפעלת הכלל מוקדם יותר או מאוחר יותר",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: כלל ב-<code>rules</code> נחשב ככלל שיווק-הפניה",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: דלג על כלל זה כאשר דף משנה את כתובתו באמצעות ה-History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: הכלל מתחיל כשהוא כבוי",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "טקסט חופשי",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "רק בערכי <code>@@…$rawrule=</code>: הכללים גולמיים שהוא עוצר",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "שכתוב במקום הסרה",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "בעזרת <code>replacePattern</code>, כלל ב-<code>rules</code> שומר על הפרמטר ומחליף את הערך שלו, שהוא <code>§1§</code>. ב-<code>rawRules</code> וב-<code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … הם קבוצות הלכידה:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "מעבדים מקדימים",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "מעבדים מקדימים משנים ערכים שנלכדו לפני ש-<code>replacePattern</code> משתמש בהם. <code>inputs</code> הוא <code>\"all\"</code> או רשימה של מספרי קבוצות:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "הסוגים הם <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> ו-<code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "מזהי כללים",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "לכל כלל יש מזהה. כלל ללא <code>id</code> מקבל אחד מהרשימה שלו ומהטקסט שלו: <code>\"utm_source\"</code> ב-<code>rules</code> הופך ל-<code>field-utm-source</code>. אם שני כללים יקבלו את אותו מזהה, שניהם יקבלו hash קצר בסוף.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "מזהה שנוצר באופן אוטומטי משתנה כאשר הטקסט של הכלל משתנה. תן לכלל <code>id</code> משלו כאשר עליו לשמור על הגדרת הפעלה/כיבוי שלו לאורך עריכות.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "הרצת כלל מוקדם יותר או מאוחר יותר",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "כללים גולמיים רצים בדרך כלל ראשונים, לאחר מכן <code>rules</code> ו-<code>referralMarketing</code>. כלל עם <code>order</code> רץ לפני כללים ללא אחד כזה, מהנמוך ביותר תחילה. כאן הטוקן מוחלף תחילה, ואז נמחק:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> עובד ב-<code>rules</code>, <code>rawRules</code> ו-<code>referralMarketing</code>, אך לא על מסנני <code>$removeparam</code>, שתמיד רצים אחרונים.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. שיווק באמצעות הפניות (Referral marketing)",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> מקבל את אותן רשומות כמו <code>rules</code>. הן מדלגות כאשר <em>אפשר שיווק מפנים</em> פועל, כך שקישורי שותפים ממשיכים לעבוד אם תרצה בכך:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "כלל יכול להישאר ב-<code>rules</code> ועדיין להיחשב כשיווק באמצעות הפניות, עם <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. שיטות וסוגי בקשות",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "אלה מצמצמים את המקרים שבהם ספק או כלל רצים:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "התנהגות clearurls.js: אם domainPatterns קיים ואינו ריק, Linkumori משתמש ב-domainPatterns עבור התאמת ספקים. urlPattern משמש רק כאשר domainPatterns חסר או ריק. נתיב העורך/ייבוא ​​המותאם אישית דוחה את צורת ההתאמה המעורבת הזו, אז השתמש בו רק כדי להבין נתונים מדור קודם.",
+  "guide_req_methods": {
+    "message": "שיטות HTTP שהספק מטפל בהן",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "סוגי בקשות שהספק מטפל בהם",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "סוגי בקשות שאובייקט כלל אחד מטפל בהם",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "אותו הדבר עבור מסנן <code>$removeparam</code> אחד או כלל גולמי",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "סוגי בקשות משתמשים בשמות של הדפדפן: <code>main_frame</code> (דף), <code>sub_frame</code> (מסגרת), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> וכן הלאה. אפשרויות סינון מכנות את השניים הראשונים <code>document</code> ו-<code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. כיצד URL מעובד",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "עבור כל ספק שמתאים ל-URL ומאפשר את הבקשה:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: אם אחד מתאים, הספק מודלג.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, ואז <code>fieldRedirections</code>: התאמה מבצעת הפניה מחדש של הבקשה, ושום דבר אחר לא רץ.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: הבקשה נחסמת.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> רצים על ה-URL המלא.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> ו-<code>referralMarketing</code> מסירים פרמטרים.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "מסנני <code>$removeparam</code> רצים, למעט במקום שבו מסנן <code>@@</code> שומר את הפרמטר.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "הספק הראשון שמשנה, מבצע הפניה מחדש או חוסם את הבקשה קובע את התוצאה. ה-URL החדש עובר לאחר מכן את אותם השלבים שוב.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. דוגמאות מלאות",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "ניקוי חנות אחת",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "מסיר פרמטרי מעקב ומזהה שותפים (affiliate id) בחנות אחת, ואינו נוגע בדפי התשלום שלה:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "הסרת פרמטרי UTM מכל מקום",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "התבנית <code>*</code> תואמת לכל URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "דילוג על מעקב לחיצות",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "שולח קישורים דרך מעקב לחיצות ישירות ליעדם, שנמצא בפרמטר <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "שמירת פרמטר בדף אחד",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "מסיר את <code>ref</code> מכל מקום באתר למעט בדף ההתחברות, שזקוק לו:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. בדיקת הכללים שלך",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "עורך הכללים המותאמים אישית בודק את הכללים בעת השמירה או הייבוא שלהם. מעבר ל-JSON שבור וביטויים רגולריים לא תקינים, הוא דוחה כללים שייטענו אך יבצעו בשקט את הפעולה השגויה, כגון:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> ו-<code>urlPattern</code> בספק אחד",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "תבנית עם <code>|</code> בודד וללא סכימה, כגון <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "הפניה מחדש באמצעות ביטוי רגולרי ללא קבוצת לכידה אחת בדיוק",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "שדות, מפתחות ואפשרויות לא ידועים",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> או <code>referralMarketing</code> במקום שבו הם לא יעשו דבר",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "ערך <code>@@…$rawrule=</code> שאינו עוצר אף כלל גולמי",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "אם השמירה נכשלת, ההודעה מציינת את הספק, הרשימה והערך.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

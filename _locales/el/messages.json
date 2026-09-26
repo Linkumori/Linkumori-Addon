@@ -4727,1688 +4727,704 @@
     "message": "Τα στοιχεία ελέγχου αναγνωριστικού κανόνα είναι διαθέσιμα όταν ο πάροχος JSON είναι έγκυρος.",
     "description": "Μη έγκυρη κατάσταση JSON για στοιχεία ελέγχου αναγνωριστικού κανόνα παρόχου"
   },
-  "guide_0001": {
-    "message": "Linkumori Επέκταση — Τεκμηρίωση κανόνων",
+  "guide_page_title": {
+    "message": "Linkumori — Οδηγός Κανόνων",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Θέμα",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Πάροχος JSON Μορφή",
+  "guide_toc_label": {
+    "message": "Περιεχόμενα",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Πάροχος JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Κεφάλαιο 1: Βασικό σχήμα JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Κεφάλαιο 2: Τι είναι ένας πάροχος;",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Κεφάλαιο 3: Πεδία παρόχου που μπορείτε να χρησιμοποιήσετε",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Κεφάλαιο 4: Αντιστοίχιση τομέων",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Αντιστοιχίστε έναν τομέα και όλους τους υποτομείς",
+  "guide_title": {
+    "message": "Συγγραφή κανόνων Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Αντιστοιχίστε το ίδιο όνομα σε οποιοδήποτε δημόσιο επίθημα",
+  "guide_intro_1": {
+    "message": "Το Linkumori καθαρίζει τα URL με κανόνες. Αυτός ο οδηγός δείχνει πώς να τους γράψετε, από τον πρώτο κανόνα έως κάθε επιλογή, με παραδείγματα που μπορείτε να αντιγράψετε.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Αντιστοίχιση υποτομέων",
+  "guide_intro_2": {
+    "message": "Οι κανόνες είναι JSON. Τους γράφετε στον επεξεργαστή Προσαρμοσμένων Κανόνων, ο οποίος τους ελέγχει όταν αποθηκεύετε. Η ενσωματωμένη λίστα κανόνων και οι απομακρυσμένες λίστες κανόνων χρησιμοποιούν το ίδιο μορφότυπο.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Χρησιμοποιήστε περισσότερα από ένα μοτίβα τομέα",
+  "guide_file_title": {
+    "message": "1. Το αρχείο κανόνων",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Κεφάλαιο 5: Σύμβολα μοτίβων τομέα",
+  "guide_file_p1": {
+    "message": "Ένα αρχείο κανόνων είναι ένα αντικείμενο JSON. Το αντικείμενο <code>providers</code> του αντιστοιχίζει ένα όνομα της επιλογής σας σε έναν Προμηθευτή:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Κεφάλαιο 6: Αντιστοίχιση URLs με urlΜοτίβο",
+  "guide_file_p2": {
+    "message": "Ένας Προμηθευτής ορίζει ποια URL διαχειρίζεται και τι πρέπει να γίνει με αυτά. Αυτός αφαιρεί τα <code>utm_source</code> και <code>utm_medium</code> από κάθε URL στο <code>example.com</code> και τα υποτομέα του:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Κεφάλαιο 7: Κατάργηση παραμέτρων απλού ερωτήματος",
+  "guide_file_p3": {
+    "message": "Το όνομα είναι μόνο μια ετικέτα. Το ποια URL διαχειρίζεται ένας Προμηθευτής αποφασίζεται από το <code>domainPatterns</code> ή το <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Κεφάλαιο 8: Γράψτε ένα αντικείμενο κανόνα",
+  "guide_fields_title": {
+    "message": "2. Πεδία Προμηθευτή",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Κεφάλαιο 9: Κανόνες $removeparam",
+  "guide_th_field": {
+    "message": "Πεδίο",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Αφαιρέστε μία παράμετρο",
+  "guide_th_meaning": {
+    "message": "Τι κάνει",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Κατάργηση όλων των παραμέτρων",
+  "guide_field_domainpatterns": {
+    "message": "Ποια URL διαχειρίζεται ο Προμηθευτής, ως πρότυπα domain (κεφάλαιο 3). Χρησιμοποιήστε αυτό ή το <code>urlPattern</code>, ποτέ και τα δύο.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Κατάργηση παραμέτρων από Regex",
+  "guide_field_urlpattern": {
+    "message": "Ποια URL διαχειρίζεται ο Προμηθευτής, ως κανονική έκφραση που εφαρμόζεται σε ολόκληρο το URL. Η διάκριση πεζών-κεφαλαίων αγνοείται.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Καταργήστε όλες τις παραμέτρους εκτός από μία",
+  "guide_field_indexpattern": {
+    "message": "Μόνο με το <code>urlPattern</code>: ενδείξεις οικοδεσίτη όπως το <code>||example.com^</code>, ώστε ο Προμηθευτής να ελέγχεται μόνο για αυτούς τους οικοδεσίτες. Χωρίς αυτό, ο Προμηθευτής ελέγχεται σε κάθε URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Εφαρμόστε το $removeparam Μόνο σε έναν τομέα",
+  "guide_field_rules": {
+    "message": "Παράμετροι προς αφαίρεση (κεφάλαια 4 και 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Προσθήκη ορίων τομέα",
+  "guide_field_referral": {
+    "message": "Παράμετροι παραπομπής και συνεργατών προς αφαίρεση. Παραλείπονται όταν το <em>Να επιτρέπεται το μάρκετινγκ παραπομπής</em> είναι ενεργό (κεφάλαιο 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Προσθήκη ορίων μεθόδου",
+  "guide_field_rawrules": {
+    "message": "Τακτικές εκφράσεις που εκτελούνται στο πλήρες URL· κάθε αντιστοιχία διαγράφεται (κεφάλαιο 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Κεφάλαιο 10: $removeparam Εξαιρέσεις",
+  "guide_field_exceptions": {
+    "message": "URL που ο Προμηθευτής αφήνει ανέπαφα (κεφάλαιο 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Κεφάλαιο 11: Επαναγράψτε τις τιμές παραμέτρων",
+  "guide_field_redirections": {
+    "message": "Πού να σταλεί το αίτημα αντί για την αρχική διεύθυνση (κεφάλαιο 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Κεφάλαιο 12: Ακατέργαστοι κανόνες",
+  "guide_field_fieldredirections": {
+    "message": "Ανακατεύθυνση στην τιμή μιας παραμέτρου (κεφάλαιο 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Κεφάλαιο 13: Κανόνες ανακατεύθυνσης",
+  "guide_field_completeprovider": {
+    "message": "Το <code>true</code> μπλοκάρει κάθε αίτημα που αντιστοιχεί στον Προμηθευτή, ενώ το <em>Να επιτρέπεται ο αποκλεισμός τομέα</em> είναι ενεργό.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Κεφάλαιο 14: Κανόνες ανακατεύθυνσης τομέα",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: όταν μια σελίδα ανακατευθύνεται η ίδια, η καρτέλα ανοίγει τη νέα διεύθυνση.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Κεφάλαιο 15: Εξαιρέσεις",
+  "guide_field_methods": {
+    "message": "Διαχείριση μόνο αυτών των μεθόδων HTTP, για παράδειγμα <code>[\"GET\"]</code>. Προεπιλογή: όλες.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Κεφάλαιο 16: Κανόνες μάρκετινγκ παραπομπής",
+  "guide_field_resourcetypes": {
+    "message": "Διαχείριση μόνο αυτών των τύπων αιτημάτων, για παράδειγμα <code>[\"main_frame\"]</code>. Προεπιλογή: οι τύποι που επιλέχθηκαν στις ρυθμίσεις.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Κεφάλαιο 17: HTTP Μέθοδοι",
+  "guide_field_history": {
+    "message": "Το <code>false</code> παραλείπει τον Προμηθευτή όταν μια σελίδα αλλάζει τη δική της διεύθυνση μέσω του History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Κεφάλαιο 18: Τύποι πόρων προγράμματος περιήγησης",
+  "guide_field_active": {
+    "message": "το <code>false</code> απενεργοποιεί τον Προμηθευτή.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Κεφάλαιο 19: Προεπεξεργαστές",
+  "guide_match_title": {
+    "message": "3. Ποιες URL διαχειρίζεται ένας Προμηθευτής",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Κεφάλαιο 20: Επιτρέπονται JSON Συνδυασμοί",
+  "guide_match_p1": {
+    "message": "το <code>domainPatterns</code> είναι μια λίστα προτύπων τομέα. Μια URL ταιριάζει εάν κάποιο από αυτά ταιριάζει:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Συνδυασμός 1: Πολλοί πάροχοι σε ένα αρχείο",
+  "guide_th_pattern": {
+    "message": "Πρότυπο",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Συνδυασμός 2: Καθολικές Προεπιλογές Plus Providers",
+  "guide_th_matches": {
+    "message": "Ταιριάζει",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Συνδυασμός 3: domainPatterns Provider",
+  "guide_pat_domain": {
+    "message": "το <code>example.com</code> και κάθε υποτομέας",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Συνδυασμός 4: urlPattern Provider με indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "το <code>example</code> σε οποιοδήποτε δημόσιο suffix (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Συνδυασμός 5: domainPatterns And urlPattern Together",
+  "guide_pat_path": {
+    "message": "αυτόν τον κεντρικό υπολογιστή και τα υποτομέα του, όταν η διαδρομή ξεκινά με <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Συνδυασμός 6: Μικτές κανόνες[] Καταχωρήσεις",
+  "guide_pat_star": {
+    "message": "το ίδιο με το <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Συνδυασμός 7: Κανονικά αντικείμενα εντός κανόνων[]",
+  "guide_pat_start": {
+    "message": "URL που ξεκινούν ακριβώς με αυτό το κείμενο",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Συνδυασμός 8: Κανονικοί κανόνες Legacy Arrays Plus[]",
+  "guide_pat_end": {
+    "message": "URL που λήγουν ακριβώς με αυτό το κείμενο",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Συνδυασμός 9: Μέθοδοι και τύποι πόρων σε επίπεδο παρόχου",
+  "guide_pat_regex": {
+    "message": "ολόκληρο το URL, ως κανονική έκφραση (γίνεται διάκριση πεζών-κεφαλαίων, εκτός αν προσθέσετε <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Συνδυασμός 10: Τύποι αιτημάτων σε επίπεδο κανόνα",
+  "guide_pat_contains": {
+    "message": "URL που περιέχουν αυτό το κείμενο οπουδήποτε",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Συνδυασμός 11: Εξαιρέσεις σε διαφορετικά μέρη",
+  "guide_pat_all": {
+    "message": "κάθε URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Συνδυασμός 12: Αποκλεισμός κανόνων Provider Plus",
+  "guide_match_p2": {
+    "message": "Το <code>^</code> σηματοδοτεί το τέλος του ονόματος host ή ένα διαχωριστικό όπως <code>/</code>, <code>?</code> ή <code>:</code>. Το <code>*</code> ταιριάζει με οτιδήποτε. Εκτός από το <code>/regex/</code>, τα πρότυπα αγνοούν τη διάκριση πεζών-κεφαλαίων.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Συνδυασμός 13: Κανόνες εκκαθάρισης ανακατεύθυνσης Provider Plus",
+  "guide_match_p3": {
+    "message": "το <code>||</code> αντιπροσωπεύει έναν τομέα, ενώ ένα μόνο <code>|</code> αντιπροσωπεύει την απόλυτη αρχή της URL και πρέπει να ακολουθείται από ένα σχήμα όπως το <code>https://</code>. Το <code>|example.com^</code> δεν μπορεί ποτέ να ταιριάζει, επομένως ο επεξεργαστής το απορρίπτει.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Συνδυασμός 14: Domain Redirections Plus Regex Redirections",
+  "guide_match_p4": {
+    "message": "Για να αντιστοιχίσετε με μια κανονική έκφραση αντίθετα, χρησιμοποιήστε το <code>urlPattern</code>, και προσθέστε το <code>indexPattern</code> ώστε ο Προμηθευτής να ελέγχεται μόνο σε αυτούς τους κειωνές:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Συνδυασμός 15: Απενεργοποιημένοι ή ανενεργοί κανόνες",
+  "guide_match_p5": {
+    "message": "Ένας Προμηθευτής έχει <code>domainPatterns</code> ή <code>urlPattern</code>, ποτέ και τα δύο. Εάν χρειάζεστε και τα δύο είδη αντιστοίχισης, δημιουργήστε δύο Προμηθευτές.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Συνδυασμός 16: Παράδειγμα πλήρους μικτού παρόχου",
+  "guide_rules_title": {
+    "message": "4. Αφαίρεση παραμέτρων",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Κεφάλαιο 21: Ολοκληρωμένα Παραδείγματα",
+  "guide_rules_p1": {
+    "message": "Κάθε εγγραφή στο <code>rules</code> αφαιρεί παραμέτρους από το ερώτημα (<code>?a=1</code>) και από το τμήμα (<code>#a=1</code>). Μια εγγραφή είναι ένα από τα εξής:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Παράδειγμα 1: Basic Tracker Cleaner",
+  "guide_th_entry": {
+    "message": "Εγγραφή",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Παράδειγμα 2: Κατάργηση όλων των παραμέτρων UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Παράδειγμα 3: Διατηρήστε μια απαραίτητη παράμετρο στην είσοδο",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Παράδειγμα 4: Ανακατεύθυνση κλικ παρακολούθησης",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Παράδειγμα 5: Καθαρισμός μόνο αιτημάτων API",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Κεφάλαιο 22: Πρότυπα γρήγορης αντιγραφής",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mixed Provider JSON Οδηγός μορφής",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Αυτός ο οδηγός εξηγεί πώς να γράψετε δεδομένα παρόχου JSON που μπορεί να διαβάσει ο <code>Linkumori extension</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Δεν είναι οδηγός για τον κωδικό JavaScript. Εστιάζει μόνο στα JSON σχήματα, μορφές κανόνων και παραδείγματα που χρειάζονται οι συντάκτες κανόνων.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Αυτός ο οδηγός βασίζεται στην τρέχουσα συμπεριφορά χρόνου εκτέλεσης <code>clearurls.js</code>. Συγκεκριμένα, η αναζήτηση παρόχου χρησιμοποιεί υποψήφιους κάδους <code>providersByToken</code> από το <code>domainPatterns</code> ή το <code>indexPattern</code> και η τελική αντιστοίχιση εξακολουθεί να εκτελείται μέσω του <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Κεφάλαιο 1: Βασικό σχήμα JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "Το <code>Linkumori extension</code> αναμένει δεδομένα παρόχου σε αυτό το γενικό σχήμα:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Το σημαντικό μέρος είναι <code>providers</code>. Κάθε κλειδί μέσα στο <code>providers</code> είναι ένα όνομα παρόχου.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Παράδειγμα:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Κεφάλαιο 2: Τι είναι ένας πάροχος;",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Ένας πάροχος είναι ένα κοντέινερ χρόνου εκτέλεσης με όνομα για έναν ιστότοπο, εταιρεία, πρόγραμμα παρακολούθησης, σύνολο μοτίβων τομέα ή regex διεύθυνσης URL. Το όνομα του παρόχου είναι μια ετικέτα/κλειδί. Η αντιστοίχιση γίνεται από το <code>domainPatterns</code> ή το <code>urlPattern</code>, όχι από το όνομα του παρόχου.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Ελάχιστος πάροχος:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Τι κάνει αυτό:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Κεφάλαιο 3: Πεδία παρόχου που μπορείτε να χρησιμοποιήσετε",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Τα πεδία παρόχου γίνονται δεκτά από το <code>clearurls.js</code>. Για αντιστοίχιση, συντάξτε είτε το <code>domainPatterns</code> είτε το <code>urlPattern</code> με το προαιρετικό <code>indexPattern</code>. μην βασίζεστε στο ότι και τα δύο απαιτούνται μαζί.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Απλό νόημα:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "πεδίο JSON",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Πηγή",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Για ποιο λόγο το γράφεις",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Ορίστε <code>false</code> για να απενεργοποιήσετε αυτόν τον πάροχο.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Ορίστε το <code>true</code> για να αποκλείσετε τους αντίστοιχους τομείς αντί για καθαρισμό μόνο.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Ρυθμίστε το <code>true</code> για επιβολή ανακατευθύνσεων στην κύρια σελίδα μέσω της καρτέλας του προγράμματος περιήγησης.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Συνιστώμενος τρόπος για να πείτε με ποιους τομείς αντιστοιχεί αυτός ο πάροχος.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript συμβολοσειρά regex για URL αντιστοίχιση.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Προαιρετική υπόδειξη ταχύτητας όταν χρησιμοποιείτε <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical. <code>$removeparam</code> είναι Linkumori προσθήκη εδώ",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Κανονικοί κανόνες κατάργησης παραμέτρων και κανόνες τοπικού παροχέα <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs κληρονομιά πρόσθετου; Τα αντικείμενα κανονικού στυλ εδώ είναι Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Κανόνες που επεξεργάζονται ολόκληρο το κείμενο URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs κληρονομιά πρόσθετου; Τα αντικείμενα κανονικού στυλ εδώ είναι Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Προαιρετικοί κανόνες παραπομπής/παραμέτρου μάρκετινγκ.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical. οι φόρμες αντικειμένων εδώ είναι Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL κανόνες regex όπου αυτός ο πάροχος δεν πρέπει να εκτελείται.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Κανόνες μοτίβου τομέα όπου δεν πρέπει να εκτελείται αυτός ο πάροχος.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs κληρονομιά πρόσθετου; Τα αντικείμενα κανονικού στυλ εδώ είναι Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Κανόνες ανακατεύθυνσης Regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Κανόνες ανακατεύθυνσης προτύπου τομέα.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Εκτελέστε μόνο για αυτές τις HTTP μεθόδους.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori προσθήκη",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Εκτελέστε μόνο για αυτούς τους τύπους αιτημάτων προγράμματος περιήγησης.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Κεφάλαιο 4: Αντιστοίχιση τομέων",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "Το <code>domainPatterns</code> είναι μια προσθήκη Linkumori και προτιμάται για τους περισσότερους προσαρμοσμένους παρόχους. Στο <code>clearurls.js</code>, τα μη κενά <code>domainPatterns</code> χρησιμοποιούνται για αντιστοίχιση πριν από το <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Αντιστοιχίστε έναν τομέα και όλους τους υποτομείς",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Αγώνες:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Δεν ταιριάζει:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Αντιστοιχίστε το ίδιο όνομα σε οποιοδήποτε δημόσιο επίθημα",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Μπορεί να ταιριάζει:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Αντιστοίχιση υποτομέων",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Μπορεί να ταιριάζει:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Χρησιμοποιήστε περισσότερα από ένα μοτίβα τομέα",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Κεφάλαιο 5: Σύμβολα μοτίβων τομέα",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Αυτά είναι τα σύμβολα που μπορείτε να χρησιμοποιήσετε στο <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Σύμβολο",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Σημασία",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Παράδειγμα",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Αφαιρεί",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Ταίριασμα σε όριο τομέα.",
+  "guide_rules_name": {
+    "message": "το όνομα μιας παραμέτρου",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "μια κανονική έκφραση ονόματος",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "κάθε παράμετρο της οποίας ολόκληρο το όνομα ταιριάζει· το <code>^…$</code> προστίθεται αυτόματα και η διάκριση πεζών-κεφαλαίων αγνοείται",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Διαχωριστικό ή άκρο όριο.",
+  "guide_rules_filter": {
+    "message": "ένα φίλτρο <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "δείτε το κεφάλαιο 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "Το <code>\"fbclid\"</code> και το <code>\"$removeparam=fbclid\"</code> αφαιρούν το ίδιο πράγμα. Χρησιμοποιήστε το απλό όνομα εκτός εάν χρειάζεστε κάτι από το κεφάλαιο 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Μπαλαντέρ.",
+  "guide_rules_part_title": {
+    "message": "Κανόνες για μέρος ενός Προμηθευτή",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Ένα απλό όνομα εφαρμόζεται σε κάθε URL στο οποίο αντιστοιχεί ο Προμηθευτής. Για να αφαιρέσετε μια παράμετρο μόνο σε ορισμένα από αυτά, τοποθετήστε ένα μοτίβο μπροστά από ένα φίλτρο <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Εδώ το <code>qid</code> αφαιρείται σε κάθε ιστότοπο της Amazon, το <code>tag</code> μόνο στο <code>amazon.de</code>, το <code>sr</code> μόνο στο <code>smile.amazon</code> και το <code>ref_</code> μόνο κάτω από το <code>/gp/</code>. Το μοτίβο περιορίζει τα δικά του μοτίβα του Προμηθευτή· δεν μπορεί να τα διευρύνει.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Άγκυρα έναρξης ή λήξης.",
+  "guide_rp_title": {
+    "message": "5. φίλτρα $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Ένα φίλτρο <code>$removeparam</code> έχει αυτή τη μορφή· τα τμήματα σε αγκύλες είναι προαιρετικά:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Η τιμή",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex κυριολεκτικά.",
+  "guide_rp_p2": {
+    "message": "Ο πρώτος χαρακτήρας της τιμής καθορίζει τι σημαίνει:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Φίλτρο",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Το πιο κοινό μοτίβο:",
+  "guide_rp_v_all": {
+    "message": "κάθε παράμετρος",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Χρησιμοποιήστε το όταν θέλετε:",
+  "guide_rp_v_except": {
+    "message": "κάθε παράμετρος εκτός από <code>ref</code> (λειτουργεί επίσης με <code>~/regex/</code> και <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Κεφάλαιο 6: Αντιστοίχιση URLs Με <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "παράμετροι των οποίων το όνομα, ή το <code>name=value</code>, ταιριάζει με την κανονική έκφραση· γίνεται διάκριση πεζών-κεφαλαίων, εκτός αν προσθέσετε <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Χρησιμοποιήστε το <code>urlPattern</code> μόνο όταν η αντιστοίχιση τομέα δεν είναι αρκετή, όπως όταν ο πάροχος πρέπει να αντιστοιχίσει μια συγκεκριμένη διαδρομή ή πλήρες regex διεύθυνσης URL.",
+  "guide_rp_v_prefix": {
+    "message": "παράμετροι των οποίων το όνομα ξεκινά με <code>utm_</code>· η διάκριση πεζών-κεφαλαίων αγνοείται",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Αυτό μπορεί να ταιριάζει με:",
+  "guide_rp_v_name": {
+    "message": "ακριβώς αυτή την παράμετρο· η διάκριση πεζών και κεφαλαίων αγνοείται εκτός εάν προσθέσετε <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "Το <code>urlPattern</code> είναι η κληρονομιά του πρόσθετου ClearURL και η κανονική σύνταξη του πυρήνα v2 του ClearURL. Το Linkumori προσθέτει το <code>indexPattern</code> μόνο ως υπόδειξη αναζήτησης υποψηφίου, έτσι ώστε οι πάροχοι regex να μπορούν να βρεθούν γρηγορότερα με διακριτικά ονόματος κεντρικού υπολογιστή.",
+  "guide_rp_options_title": {
+    "message": "Επιλογές",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Σημαντικό: Το <code>indexPattern</code> δεν αποφασίζει εάν ένας πάροχος ταιριάζει. Μετά την αναζήτηση υποψηφίου, το <code>clearurls.js</code> εξακολουθεί να δοκιμάζει το πραγματικό <code>urlPattern</code> στο <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Οι επιλογές έρχονται μετά την τιμή, χωρισμένες με κόμματα. Χωρίστε πολλές τιμές μιας επιλογής με <code>|</code>, και τοποθετήστε <code>~</code> μπροστά από μια τιμή για να την εξαιρέσετε:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Κεφάλαιο 7: Κατάργηση παραμέτρων απλού ερωτήματος",
+  "guide_th_option": {
+    "message": "Επιλογή",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Βάλτε ονόματα παραμέτρων στο <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "μόνο σε σελίδες από αυτούς τους τομείς",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Αποτέλεσμα:",
+  "guide_rp_o_to": {
+    "message": "μόνο για αιτήματα προς αυτούς τους τομείς",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Καταργήστε πολλές παραμέτρους:",
+  "guide_rp_o_method": {
+    "message": "μόνο για αυτές τις μεθόδους HTTP",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Αποτέλεσμα:",
+  "guide_rp_o_party": {
+    "message": "μόνο για αιτήματα στον ίδιο ιστότοπο με τη σελίδα, ή μόνο σε άλλους ιστότοπους",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Κεφάλαιο 8: Γράψτε ένα αντικείμενο κανόνα",
+  "guide_rp_o_strict": {
+    "message": "το ίδιο, αλλά συγκρίνοντας τον ακριβή κεντρικό υπολογιστή (host) αντί για τον ιστότοπο",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Αντί για απλή συμβολοσειρά, ένας κανόνας μπορεί να είναι αντικείμενο.",
+  "guide_rp_o_types": {
+    "message": "μόνο για αυτούς τους τύπους αιτημάτων; το <code>~type</code> εξαιρεί έναν",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Χρησιμοποιήστε αυτό όταν χρειάζεστε:",
+  "guide_rp_o_matchcase": {
+    "message": "γίνεται διάκριση πεζών-κεφαλαίων στα ονόματα παραμέτρων",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Ένα αναγνωριστικό κανόνα.",
+  "guide_rp_o_history": {
+    "message": "παράλειψη αυτού του φίλτρου όταν μια σελίδα αλλάζει τη δική της διεύθυνση με το History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Ψευδώνυμα.",
+  "guide_rp_p4": {
+    "message": "Κάθε επιλογή έχει μία ορθογραφία. Αντιφατικές επιλογές, όπως το <code>first-party,third-party</code>, απορρίπτονται.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Εξαιρέσεις.",
+  "guide_rp_keep_title": {
+    "message": "Διατήρηση μιας παραμέτρου με το @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Όρια τύπου αιτήματος.",
+  "guide_rp_p5": {
+    "message": "Ένα φίλτρο που ξεκινά με <code>@@</code> διατηρεί την παράμετρο αντί να την αφαιρεί. Εδώ το <code>ref</code> αφαιρείται παντού εκτός από το GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Ξαναγράψτε τη συμπεριφορά.",
+  "guide_rp_p6": {
+    "message": "Ένα φίλτρο <code>@@</code> καλύπτει επίσης αιτήματα που γίνονται από μια σελίδα στην οποία ταιριάζει αυτός ο Προμηθευτής, ακόμη και όταν άλλος Προμηθευτής τα διαχειρίζεται.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Παράδειγμα μέσα σε έναν πάροχο:",
+  "guide_raw_title": {
+    "message": "6. Ακατέργαστοι κανόνες",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Αποτέλεσμα:",
+  "guide_raw_p1": {
+    "message": "Ένας ακατέργαστος κανόνας είναι μια κανονική έκφραση που εκτελείται σε ολόκληρο το URL· κάθε ταύτιση διαγράφεται. Χρησιμοποιήστε τον για κείμενο που δεν είναι παράμετρος <code>name=value</code>, όπως το τμήμα διαδρομής <code>/ref=…</code> του Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "Το <code>flags</code> σε αντικείμενα κανόνα παρόχου είναι μια προσθήκη Linkumori. Το <code>flags: \"i\"</code> κάνει τον αγώνα χωρίς διάκριση πεζών-κεφαλαίων.",
+  "guide_raw_p2": {
+    "message": "Οι Ακατέργαστοι κανόνες αγνοούν τη διάκριση πεζών-κεφαλαίων και αντικαθιστούν κάθε ταύτιση. Στο JSON, γράψτε κάθε ανάστροφη κάθετο δύο φορές.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Κεφάλαιο 9: <code>$removeparam</code> Κανόνες",
+  "guide_raw_scope_title": {
+    "message": "Μόνο σε ορισμένα URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Αφαιρέστε μία παράμετρο",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Κατάργηση όλων των παραμέτρων",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Κατάργηση παραμέτρων από Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Καταργήστε όλες τις παραμέτρους εκτός από μία",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Εφαρμογή <code>$removeparam</code> Μόνο σε έναν τομέα",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Καθαρίστηκε:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Δεν έχει καθαριστεί:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Προσθήκη ορίων τομέα",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Εξαίρεση ενός τομέα:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Προσθήκη ορίων μεθόδου",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Μόνο <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Όχι <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Κεφάλαιο 10: <code>$removeparam</code> Εξαιρέσεις",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Ξεκινήστε έναν κανόνα <code>$removeparam</code> με το <code>@@</code> για να κάνετε μια εξαίρεση.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Παράδειγμα εξαίρεσης περιβάλλοντος:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Αυτό μπορεί να προστατεύσει το <code>ei</code> σε δευτερεύοντα αιτήματα που ξεκινούν από μια σελίδα <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Κεφάλαιο 11: Επαναγράψτε τις τιμές παραμέτρων",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Χρησιμοποιήστε το <code>action.type: \"rewrite\"</code> για να αντικαταστήσετε μια αντίστοιχη τιμή παραμέτρου.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Μέσα σε έναν πάροχο:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Χρησιμοποιήστε το <code>§1§</code> όταν θέλετε να χρησιμοποιήσετε ξανά την τρέχουσα τιμή:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Κεφάλαιο 12: Ακατέργαστοι κανόνες",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Χρησιμοποιήστε το <code>rawRules</code> για να επεξεργαστείτε ολόκληρο το κείμενο URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Απλός ακατέργαστος κανόνας:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Αντικείμενο πρωτογενούς κανόνα:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Ακατέργαστος κανόνας επανεγγραφής:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Κεφάλαιο 13: Κανόνες ανακατεύθυνσης",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Χρησιμοποιήστε το <code>redirections</code> για να στείλετε το πρόγραμμα περιήγησης σε ένα νέο URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Εάν λείπει το <code>replacePattern</code>, χρησιμοποιείται η πρώτη ομάδα λήψης.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Κεφάλαιο 14: Κανόνες ανακατεύθυνσης τομέα",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "Το <code>domainRedirections</code> είναι μια προσθήκη Linkumori για απλές ανακατευθύνσεις μοτίβων τομέα.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori προσθήκη — φόρμα συμβολοσειράς:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori προσθήκη — φόρμα αντικειμένου:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Κεφάλαιο 15: Εξαιρέσεις",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "Το <code>exceptions</code> είναι κληρονομιά προσθήκης ClearURLs και κανονική σύνταξη ClearURLs core v2. Το Linkumori δέχεται επίσης αντικείμενα κανονικού στυλ σε αυτόν τον πίνακα παρόχου παλαιού τύπου.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Παράδειγμα:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "Το <code>domainExceptions</code> είναι μια προσθήκη Linkumori για εξαιρέσεις μοτίβων τομέα.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Παράβλεψη:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Κεφάλαιο 16: Κανόνες μάρκετινγκ παραπομπής",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "Το <code>referralMarketing</code> λειτουργεί σαν κανόνες πεδίου, αλλά ελέγχεται από τη ρύθμιση επέκτασης για μάρκετινγκ παραπομπής.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Παράδειγμα:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Κεφάλαιο 17: HTTP Μέθοδοι",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Χρησιμοποιήστε το <code>methods</code> για να εκτελέσετε έναν πάροχο μόνο σε συγκεκριμένες μεθόδους HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Αυτό τρέχει σε:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Αυτό δεν εκτελείται σε:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Κεφάλαιο 18: Τύποι πόρων προγράμματος περιήγησης",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "Το <code>resourceTypes</code> είναι μια προσθήκη Linkumori. Χρησιμοποιήστε το για να εκτελέσετε έναν πάροχο μόνο σε συγκεκριμένους τύπους αιτημάτων προγράμματος περιήγησης.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Κοινές αξίες:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Παράδειγμα:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Σημασία:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Κεφάλαιο 19: Προεπεξεργαστές",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Οι προεπεξεργαστές αλλάζουν τις καταγεγραμμένες τιμές πριν τις χρησιμοποιήσουν στο <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Παράδειγμα:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Υποστηριζόμενοι τύποι:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> μπορεί να είναι:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Κεφάλαιο 20: Επιτρέπονται JSON Συνδυασμοί",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Αυτό το κεφάλαιο δείχνει Linkumori μικτούς παρόχους JSON: ClearURLs πίνακες παλαιού τύπου addon, ClearURLs κανονικά αντικείμενα πυρήνα v2 και Linkumori κανόνες προσθήκης μπορούν να υπάρχουν μαζί σε ένα αρχείο προσθήκης.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Συνδυασμός 1: Πολλοί πάροχοι σε ένα αρχείο",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> είναι ClearURLs πρόσθετο παλαιού τύπου και ClearURLs core v2 κανονική σύνταξη ανωτάτου επιπέδου. Το Linkumori διατηρεί αυτό το σχήμα και επιτρέπει σε πολλούς παρόχους να το χρησιμοποιούν.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Κάθε πάροχος φορτώνεται χωριστά.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Συνδυασμός 2: Καθολικές Προεπιλογές Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "Το <code>defaults</code> είναι η κανονική σύνταξη ClearURLs core v2. Linkumori το αποδέχεται δίπλα στο legacy-style <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Οι κανόνες μπορούν να κληρονομήσουν προεπιλεγμένες τιμές όταν αυτά τα πεδία λείπουν στον κανόνα.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Συνδυασμός 3: <code>domainPatterns</code> Πάροχος",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Αυτή είναι μια προσθήκη Linkumori. Οι περισσότεροι πάροχοι Linkumori θα πρέπει να χρησιμοποιούν αυτήν τη φόρμα.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Συνδυασμός 4: <code>urlPattern</code> Πάροχος με <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "Το <code>urlPattern</code> είναι η σύνταξη ClearURLs upstream. Το <code>indexPattern</code> είναι μια υπόδειξη αναζήτησης Linkumori για παρόχους διευθύνσεων URL regex. θα πρέπει να δείχνει στα ονόματα κεντρικών υπολογιστών με τα οποία μπορεί να ταιριάξει το regex.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "Το <code>indexPattern</code> είναι προαιρετικό, αλλά χρήσιμο για ταχύτητα. Ευρετηριάζει τον πάροχο σε υποψηφίους κουβάδες ονόματος κεντρικού υπολογιστή. δεν αντικαθιστά ποτέ τον τελικό αγώνα <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Συνδυασμός 5: Μην αναμιγνύετε τα <code>domainPatterns</code> και <code>urlPattern</code> ως συνδυασμένη απαίτηση",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Αυτό το σχήμα μπορεί να εμφανίζεται σε παλαιότερα ή χειρόγραφα δεδομένα, αλλά δεν σημαίνει ότι πρέπει να περάσουν και οι δύο αντιστοιχίσεις:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Τρέχουσα συμπεριφορά <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Εάν το <code>domainPatterns</code> υπάρχει και δεν είναι κενό, το <code>clearurls.js</code> το χρησιμοποιεί για αντιστοίχιση παρόχου και αγνοεί το <code>urlPattern</code> για αυτόν τον πάροχο. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής απορρίπτει παρόχους που περιέχουν και τα δύο. Εάν χρειάζεστε μια συνθήκη διαδρομής, χρησιμοποιήστε το <code>urlPattern</code> με το <code>indexPattern</code> ή καλύψετε μεμονωμένες εγγραφές <code>$removeparam</code>/κανόνα μέσα στο <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Συνδυασμός 6: Μικτός <code>rules[]</code> Συμμετοχές",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Στο Linkumori, το <code>rules</code> μπορεί να περιέχει ClearURLs συμβολοσειρές παλαιού τύπου, Linkumori <code>$removeparam</code> συμβολοσειρές, Linkumori 920 αντικείμενα και αντικείμενα ClearURLs κανονικά αντικείμενα πυρήνα v2 μαζί.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Και οι τέσσερις συμμετοχές γίνονται δεκτές.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Συνδυασμός 7: Canonical Objects Inside <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Τα κανονικά αντικείμενα ClearURLs core v2 μπορούν να αντιπροσωπεύουν διαφορετικά είδη κανόνων. Σε αυτό το παράδειγμα Linkumori τοποθετούνται μέσα σε έναν πάροχο που χρησιμοποιεί το <code>domainPatterns</code>, το οποίο είναι μόνο Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "Το <code>Linkumori extension</code> τα ταξινομεί κατά τη σημασία:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Συνδυασμός 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs Οι συστοιχίες παρόχου παλαιού τύπου addon εξακολουθούν να λειτουργούν. Το Linkumori επιτρέπει σε αυτούς τους πίνακες να βρίσκονται δίπλα σε ClearURLs αντικείμενα κανονικών κανόνων πυρήνα v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Αυτό ισχύει. Ο κινητήρας διαβάζει όλες αυτές τις συστοιχίες για τον ίδιο πάροχο.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Συνδυασμός 9: Μέθοδοι και τύποι πόρων σε επίπεδο παρόχου",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "Το <code>methods</code> είναι σύνταξη ανοδικής ροής ClearURLs. Το <code>resourceTypes</code> είναι μια προσθήκη Linkumori. Και τα δύο ισχύουν για ολόκληρο τον πάροχο.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Τόσο το <code>rules</code> όσο και το <code>rawRules</code> περιορίζονται από την αντιστοίχιση μεθόδου/τύπου παρόχου.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Συνδυασμός 10: Τύποι αιτημάτων σε επίπεδο κανόνα",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "Οι κανονικοί κανόνες ClearURLs core v2 μπορούν να ορίσουν το επίπεδο κανόνων <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Το επίπεδο παρόχου <code>resourceTypes</code> περιορίζει πρώτα τον πάροχο. Το επίπεδο κανόνα <code>requestTypes</code> περιορίζει μεμονωμένους κανόνες μετά από αυτό.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Συνδυασμός 11: Εξαιρέσεις σε διαφορετικά μέρη",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Το Linkumori σάς επιτρέπει να συνδυάσετε ClearURLs εξαιρέσεις παρόχου, Linkumori εξαιρέσεις τομέα, ClearURLs εξαιρέσεις κανόνα βασικού v2 και Linkumori παροχέα-τοπικές εξαιρέσεις 6 95203.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Απλό νόημα:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Συνδυασμός 12: Αποκλεισμός κανόνων Provider Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> επισημαίνει έναν πάροχο ως ακύρωση/αποκλεισμό.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Όταν ο αποκλεισμός τομέα είναι ενεργοποιημένος στις ρυθμίσεις, τα αντίστοιχα αιτήματα μπορούν να αποκλειστούν. Οι κανόνες μπορεί να εξακολουθούν να υπάρχουν, αλλά ο αποκλεισμός είναι η ισχυρότερη συμπεριφορά για αυτόν τον πάροχο.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Συνδυασμός 13: Κανόνες εκκαθάρισης ανακατεύθυνσης Provider Plus",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Ένας πάροχος μπορεί να περιέχει ανακατευθύνσεις και κανόνες εκκαθάρισης.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Εάν μια ανακατεύθυνση ταιριάζει, η ανακατεύθυνση επιστρέφεται πρώτη.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Συνδυασμός 14: Domain Redirections Plus Regex Redirections",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Και τα δύο μπορούν να υπάρχουν σε έναν πάροχο.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Οι ανακατευθύνσεις Regex ελέγχονται πρώτα. Οι ανακατευθύνσεις τομέα ελέγχονται εάν δεν αντιστοιχεί καμία ανακατεύθυνση regex.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Συνδυασμός 15: Απενεργοποιημένοι ή ανενεργοί κανόνες",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Οι πάροχοι μπορεί να είναι ανενεργοί:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Οι κανόνες μπορεί να είναι ανενεργοί:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Οι ανενεργοί πάροχοι και οι ανενεργοί κανόνες αγνοούνται.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Συνδυασμός 16: Παράδειγμα πλήρους μικτού παρόχου",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Αυτό το παράδειγμα Linkumori συνδυάζει σκόπιμα τις περισσότερες υποστηριζόμενες δυνατότητες παρόχου: ClearURLs συστοιχίες πρόσθετων παλαιού τύπου, ClearURLs αντικείμενα κανονικών κανόνων πυρήνα v2 και Linkumori μόνο χαρακτηριστικά αντιστοίχισης και μοτίβο τομέα.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Αυτό ισχύει Linkumori μικτός πάροχος JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Κεφάλαιο 21: Ολοκληρωμένα Παραδείγματα",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Παράδειγμα 1: Basic Tracker Cleaner",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Παράδειγμα 2: Κατάργηση όλων των παραμέτρων UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Παράδειγμα 3: Διατηρήστε μια απαραίτητη παράμετρο στην είσοδο",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Παράδειγμα 4: Ανακατεύθυνση κλικ παρακολούθησης",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Αποτέλεσμα:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Παράδειγμα 5: Καθαρισμός μόνο αιτημάτων API",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Σημασία:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Κεφάλαιο 22: Πρότυπα γρήγορης αντιγραφής",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Κατάργηση μιας παραμέτρου:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Καταργήστε πολλές παραμέτρους:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Χρησιμοποιήστε <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Κατάργηση όλων των <code>utm_</code> παραμέτρων:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Προσθέστε μια εξαίρεση:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Αντιστοίχιση τομέα:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Ανακατεύθυνση ενός tracker URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Ένας ακατέργαστος κανόνας μπορεί να λάβει το πρότυπο και τις επιλογές ενός φίλτρου <code>$removeparam</code>, με το <code>rawrule=</code> στο τέλος. Όλα μετά το <code>rawrule=</code> είναι η κανονική έκφραση:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Το πρότυπο και οι επιλογές καθορίζουν πού εκτελείται ο κανόνας· αυτό που διαγράφεται είναι πάντα ό,τι βρίσκει η κανονική έκφραση. Το <code>match-case</code> ενεργοποιεί τη διάκριση πεζών-κεφαλαίων.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Διακοπή ακατέργαστων κανόνων σε ορισμένα URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Μια εγγραφή που ξεκινά με <code>@@</code> εμποδίζει τους Ακατέργαστοι κανόνες από το να εκτελεστούν όπου το μοτίβό της ταιριάζει. Δώστε στον Ακατέργαστο κανόνα ένα <code>id</code> και ονομάστε τον με <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Όταν δεν υπάρχει τίποτα μετά το <code>rawrule=</code> και δεν υπάρχει <code>targetId</code>, η εγγραφή σταματά κάθε Ακατέργαστο κανόνα του Προμηθευτή σε αυτές τις URL. Για να παραλείψετε ολόκληρο τον Προμηθευτή, χρησιμοποιήστε αντί για αυτό το <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Εξαιρέσεις",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Εάν μια URL ταιριάζει με μια εγγραφή στο <code>exceptions</code>, κανένας από τους κανόνες του Προμηθευτή δεν εκτελείται. Μια εγγραφή είναι μια κανονική έκφραση ή ένα μοτίβο domain που ξεκινά με <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Οι Εξαιρέσεις αγνοούν τη διάκριση πεζών-κεφαλαίων.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Ανακατευθύνσεις",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Οι κανόνες Ανακατευθύνσεων παραλείπουν τις σελίδες παρακολούθησης πηγαίνοντας απευθείας στον πραγματικό προορισμό. Εκτελούνται μόνο όταν το <em>Ενεργοποίηση παράκαμψης ανακατεύθυνσης τρίτου μέρους</em> είναι ενεργό.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Ανακατεύθυνση σε μέρος της URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Μια εγγραφή στο <code>redirections</code> είναι μια κανονική έκφραση με ακριβώς μία ομάδα λήψης, <code>( … )</code>. Το αίτημα αποστέλλεται σε αυτό που κατέγραψε η ομάδα, μετά από URL-decoding. Γράψτε οποιαδήποτε άλλη ομάδα ως <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Ανακατεύθυνση σε μια σταθερή διεύθυνση",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Μια εγγραφή που ξεκινά με <code>|</code> στέλνει κάθε ταιριάζουσα URL σε μία διεύθυνση:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Ανακατεύθυνση στην τιμή μιας παραμέτρου",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "Το <code>fieldRedirections</code> ονομάζει την παράμετρο που περιέχει τον προορισμό, επομένως δεν απαιτείται κανονική έκφραση. Δέχεται τις ίδιες εγγραφές όπως το <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Η πρώτη ταιριάζουσα παράμετρος που έχει τιμή υπερτερεί. Μια ανακατεύθυνση σταματά κάθε άλλη επεξεργασία για το αίτημα.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Αντικείμενα κανόνων",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Οποιαδήποτε εγγραφή μπορεί να είναι αντικείμενο αντί για συμβολοσειρά. Χρησιμοποιήστε ένα αν ένας κανόνας χρειάζεται id, πρέπει να ξεκινήσει απενεργοποιημένος, πρέπει να ξαναγράψει αντί να αφαιρέσει ή πρέπει να εκτελεστεί μόνο σε ορισμένες περιπτώσεις:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Κλειδί",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "το κείμενο που θα γράφατε ως απλή εγγραφή",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "ένα σταθερό όνομα (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) που χρησιμοποιείται για την ενεργοποίηση και απενεργοποίηση του κανόνα",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "τα προηγούμενα ids του κανόνα, ώστε ένας κανόνας που απενεργοποιήσατε να παραμείνει απενεργοποιημένος μετά από μετονομασία",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "επαναγραφή αντί για αφαίρεση· τα <code>§1§</code>, <code>§2§</code>, … είναι οι συλληφθείσες τιμές",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "αλλαγή των συλληφθεισών τιμών πρώτα",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "μόνο για αυτούς τους τύπους αιτημάτων, για παράδειγμα <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL όπου αυτός ο συγκεκριμένος κανόνας δεν εκτελείται",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "σημαίες τακτικής έκφρασης, ως συμβολοσειρά (προεπιλογή <code>i</code>; <code>gi</code> στο <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "εκτέλεση του κανόνα νωρίτερα ή αργότερα",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: ένας κανόνας στο <code>rules</code> μετράται ως κανόνας referral-marketing",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: παράλειψη αυτού του κανόνα όταν μια σελίδα αλλάζει τη δική της διεύθυνση με το History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: ο κανόνας ξεκινά απενεργοποιημένος",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "ελεύθερο κείμενο",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "μόνο σε εγγραφές <code>@@…$rawrule=</code>: ο Ακατέργαστος κανόνας που σταματά",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Επαναγραφή αντί για αφαίρεση",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Με το <code>replacePattern</code>, ένας κανόνας στο <code>rules</code> διατηρεί την παράμετρο και αντικαθιστά την τιμή της, η οποία είναι το <code>§1§</code>. Στο <code>rawRules</code> και στο <code>redirections</code>, τα <code>§1§</code>, <code>§2§</code>, … είναι οι ομάδες σύλληψης:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Προεπεξεργαστές",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Οι προεπεξεργαστές αλλάζουν τις συλληφθείσες τιμές πριν τις χρησιμοποιήσει το <code>replacePattern</code>. Το <code>inputs</code> είναι το <code>\"all\"</code> ή μια λίστα αριθμών ομάδων:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Οι τύποι είναι <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> και <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Αναγνωριστικά κανόνων",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Κάθε κανόνας έχει ένα αναγνωριστικό. Ένας κανόνας χωρίς <code>id</code> λαμβάνει ένα από τη λίστα και το κείμενό του: το <code>\"utm_source\"</code> στο <code>rules</code> γίνεται <code>field-utm-source</code>. Εάν δύο κανόνες λάβουν το ίδιο αναγνωριστικό, και οι δύο λαμβάνουν έναν σύντομο hash στο τέλος.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Ένα δημιουργημένο αναγνωριστικό αλλάζει όταν αλλάζει το κείμενο του κανόνα. Δώστε σε έναν κανόνα το δικό του <code>id</code> όταν πρέπει να διατηρήσει τη ρύθμιση ενεργοποίησης/απενεργοποίησης κατά τη διάρκεια των επεξεργασιών.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Εκτέλεση κανόνα νωρίτερα ή αργότερα",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Οι Ακατέργαστοι κανόνες συνήθως εκτελούνται πρώτα, έπειτα το <code>rules</code> και το <code>referralMarketing</code>. Ένας κανόνας με <code>order</code> εκτελείται πριν από τους κανόνες χωρίς αυτό, ξεκινώντας από τον χαμηλότερο. Εδώ το token αντικαθίσταται πρώτα και στη συνέχεια διαγράφεται:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "Το <code>order</code> λειτουργεί στο <code>rules</code>, <code>rawRules</code> και <code>referralMarketing</code>, αλλά όχι σε φίλτρα <code>$removeparam</code>, τα οποία εκτελούνται πάντα τελευταία.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referral marketing",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "Το <code>referralMarketing</code> δέχεται τις ίδιες εγγραφές όπως το <code>rules</code>. Αυτές παραλείπονται ενώ το <em>Να επιτρέπεται το μάρκετινγκ παραπομπής</em> είναι ενεργό, ώστε οι affiliate σύνδεσμοι να συνεχίσουν να λειτουργούν εάν το επιθυμείτε:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Ένας κανόνας μπορεί να παραμείνει στο <code>rules</code> και παρ' όλα αυτά να θεωρείται referral marketing, με το <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Μέθοδοι και τύποι αιτημάτων",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Αυτά περιορίζουν το πότε εκτελείται ένας Προμηθευτής ή ένας κανόνας:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "Συμπεριφορά clearurls.js: εάν το domainPatterns υπάρχει και δεν είναι κενό, το Linkumori χρησιμοποιεί μοτίβα τομέα για αντιστοίχιση παρόχου. Το urlPattern χρησιμοποιείται μόνο όταν λείπει ή είναι κενό το domainPatterns. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής απορρίπτει αυτό το μικτό σχήμα αντιστοίχισης, επομένως χρησιμοποιήστε το μόνο για να κατανοήσετε δεδομένα παλαιού τύπου.",
+  "guide_req_methods": {
+    "message": "Μέθοδοι HTTP που διαχειρίζεται ο Προμηθευτής",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "τύποι αιτημάτων που διαχειρίζεται ο Προμηθευτής",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "τύποι αιτημάτων που διαχειρίζεται ένα αντικείμενο κανόνα",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "το ίδιο για ένα φίλτρο <code>$removeparam</code> ή έναν Ακατέργαστο κανόνα",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Οι τύποι αιτημάτων χρησιμοποιούν τα ονόματα του προγράμματος περιήγησης: <code>main_frame</code> (μια σελίδα), <code>sub_frame</code> (ένα πλαίσιο), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> και ούτω καθεξής. Οι επιλογές φίλτρου ονομάζουν τα δύο πρώτα <code>document</code> και <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Πώς επεξεργάζεται ένα URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Για κάθε Προμηθευτή που ταιριάζει με το URL και επιτρέπει το αίτημα:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: εάν κάποιο ταιριάζει, ο Προμηθευτής παραλείπεται.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, έπειτα <code>fieldRedirections</code>: μια ταυτοποίηση ανακατευθύνει το αίτημα, και τίποτα άλλο δεν εκτελείται.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: το αίτημα αποκλείεται.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "Τα <code>rawRules</code> εκτελούνται στο πλήρες URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "Τα <code>rules</code> και <code>referralMarketing</code> αφαιρούν παραμέτρους.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Τα φίλτρα <code>$removeparam</code> εκτελούνται, εκτός εάν ένα φίλτρο <code>@@</code> διατηρήσει την παράμετρο.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Ο πρώτος Προμηθευτής που αλλάζει, ανακατευθύνει ή αποκλείει το αίτημα αποφασίζει το αποτέλεσμα. Το νέο URL περνάει στη συνέχεια από τα ίδια βήματα ξανά.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Πλήρη παραδείγματα",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Καθαρισμός ενός καταστήματος",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Αφαιρεί παραμέτρους παρακολούθησης και ένα affiliate id σε ένα κατάστημα, και αφήνει ανέπαφες τις σελίδες ολοκλήρωσης αγοράς:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Αφαίρεση παραμέτρων UTM παντού",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Το μοτίβο <code>*</code> ταιριάζει σε κάθε URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Παράλειψη ενός click tracker",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Αποστέλλει συνδέσμους μέσω ενός click tracker απευθείας στον προορισμό τους, ο οποίος βρίσκεται στην παράμετρο <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Διατήρηση παραμέτρου σε μία σελίδα",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Αφαιρεί το <code>ref</code> παντού στον ιστόSites εκτός από τη σελίδα σύνδεσης, η οποία το χρειάζεται:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Έλεγχος των κανόνων σας",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Ο επεξεργαστής Προσαρμοσμένων Κανόνων ελέγχει τους κανόνες όταν τους αποθηκεύετε ή τους εισάγετε. Εκτός από κατεστραμμένο JSON και μη έγκυρες τακτικές εκφράσεις, απορρίπτει κανόνες που θα φορτώνονταν αλλά θα λειτουργούσαν σιωπηλά λανθασμένα, όπως:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> και <code>urlPattern</code> σε έναν Προμηθευτή",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "ένα μοτίβο με ένα μόνο <code>|</code> και χωρίς σχήμα, όπως το <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "μια ανακατεύθυνση με τακτική έκφραση χωρίς ακριβώς μία ομάδα σύλληψης",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "άγνωστα πεδία, κλειδιά και επιλογές",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> ή <code>referralMarketing</code> όπου δεν θα είχε κανένα αποτέλεσμα",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "μια εγγραφή <code>@@…$rawrule=</code> που δεν σταματά κανέναν Ακατέργαστο κανόνα",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Εάν η αποθήκευση αποτύχει, το μήνυμα ονομάζει τον Προμηθευτή, τη λίστα και την εγγραφή.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

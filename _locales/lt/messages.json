@@ -4727,1688 +4727,704 @@
     "message": "Taisyklės ID valdikliai pasiekiami, kai galioja teikėjas JSON.",
     "description": "Netinkama teikėjo taisyklės ID valdiklių JSON būsena"
   },
-  "guide_0001": {
-    "message": "Linkumori pratęsimas – taisyklių dokumentacija",
+  "guide_page_title": {
+    "message": "Linkumori — Taisyklių gidas",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "tema",
+  "guide_theme_label": {
+    "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Teikėjas JSON formatas",
+  "guide_toc_label": {
+    "message": "Turinys",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Teikėjas JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "1 skyrius: Pagrindinė JSON Forma",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "2 skyrius: Kas yra paslaugų teikėjas?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "3 skyrius: Teikėjo laukai, kuriuos galite naudoti",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "4 skyrius: Domenų atitikimas",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Suderinkite vieną domeną ir visus padomenius",
+  "guide_title": {
+    "message": "Linkumori taisyklių rašymas",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Suderinkite tą patį pavadinimą bet kurioje viešoje priesagoje",
+  "guide_intro_1": {
+    "message": "Linkumori valo URL adreseis naudojant taisykles. Šis gidas parodo, kaip jas rašyti – nuo pirmosios taisyklės iki visų galimybių, kartu su pavyzdžiais, kuriuos galite nukopijuoti.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Suderinti padomenius",
+  "guide_intro_2": {
+    "message": "Taisyklės yra JSON formatu. Ją rašote Individualizuotos taisyklės redaktoriuje, kuris patikrina taisyklę išsaugojus. Integruotas taisyklių sąrašas ir nuotoliniai taisyklių sąrašai naudoja tą patį formatą.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Naudokite daugiau nei vieną domeno šabloną",
+  "guide_file_title": {
+    "message": "1. Taisyklių failas",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "5 skyrius: Domeno šablono simboliai",
+  "guide_file_p1": {
+    "message": "Taisyklių failas yra vienas JSON objektas. Jo <code>providers</code> objektas prisrieja jūsų pasirinktą pavadinimą prie Teikėjo:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "6 skyrius: URLs atitikimas su urlPattern",
+  "guide_file_p2": {
+    "message": "Teikėjas nurodo, kokius URL adresus jis tvarko ir ką su jais daryti. Šis Teikėjas pašalina <code>utm_source</code> ir <code>utm_medium</code> iš kiekvieno URL adreso svetainėje <code>example.com</code> ir jos subdomainuose:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "7 skyrius: Pašalinkite paprastus užklausos parametrus",
+  "guide_file_p3": {
+    "message": "Pavadinimas yra tik etiketė. Tai, kokius URL adresus tvarko Teikėjas, lemia <code>domainPatterns</code> arba <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "8 skyrius: Parašykite taisyklės objektą",
+  "guide_fields_title": {
+    "message": "2. Teikėjo laukai",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "9 skyrius: $removeparam taisyklės",
+  "guide_th_field": {
+    "message": "Laukas",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Pašalinkite vieną parametrą",
+  "guide_th_meaning": {
+    "message": "Ką jis veikia",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Pašalinti visus parametrus",
+  "guide_field_domainpatterns": {
+    "message": "Kuriuos URL Teikėjas tvarkys, nurodant domeno šablonus (3 skyrius). Naudokite tai arba <code>urlPattern</code>, bet niekada abu kartu.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Pašalinkite parametrus naudodami Regex",
+  "guide_field_urlpattern": {
+    "message": "Kuriuos URL Teikėjas tvarkys, nurodant reguliarų išraišką, lyginamą su visu URL. Registras ignoruojamas.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Pašalinkite visus, išskyrus vieną parametrą",
+  "guide_field_indexpattern": {
+    "message": "Tik kartu su <code>urlPattern</code>: prieglygdos užuominos, pavyzdžiui <code>||example.com^</code>, kad Teikėjas būtų tikrinamas tik tymi šeimininkais. Be to, Teikėjas tikrinamas lyginant su kiekvienu URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Taikyti $removeparam tik vienam domenui",
+  "guide_field_rules": {
+    "message": "Parametrai, kuriuos reikia pašalinti (4 ir 5 skyriai).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Pridėti domenų apribojimus",
+  "guide_field_referral": {
+    "message": "Siuntimo ir partnerių parametrai, kuriuos reikia pašalinti. Jie praleidžiami, kai <em>Leisti persiuntimo rinkodarą</em> yra įjungta (10 skyrius).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Pridėti metodo apribojimus",
+  "guide_field_rawrules": {
+    "message": "Reguliarios išraiškos, vykdomos su visu URL; kiekvienas sutapimas yra ištrinamas (6 skyrius).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "10 skyrius: $removeparam Išimtys",
+  "guide_field_exceptions": {
+    "message": "URL, kuriuos Teikėjas palieka nepaliest (7 skyrius).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "11 skyrius: Perrašyti parametrų reikšmes",
+  "guide_field_redirections": {
+    "message": "Kuria vieta siųsti užklausą vietoj pradinės (8 skyrius).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "12 skyrius: Neapdorotos taisyklės",
+  "guide_field_fieldredirections": {
+    "message": "Peradresuoti į parametro reikšmę (8 skyrius).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "13 skyrius: Peradresavimo taisyklės",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> blokuoja kiekvieną užklausą, kuri sutampa su Teikėju, kol <em>Leisti blokuoti domeną</em> yra įjungta.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "14 skyrius: Domeno peradresavimo taisyklės",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: kai pats puslapis yra peradresuotas, skirtuvas atidaro naują adresą.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "15 skyrius: Išimtys",
+  "guide_field_methods": {
+    "message": "Tvarkyti tik šiuos HTTP metodus, pavyzdžiui <code>[\"GET\"]</code>. Pagalba: visus.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "16 skyrius: Rekomendacijų rinkodaros taisyklės",
+  "guide_field_resourcetypes": {
+    "message": "Tvarkyti tik šias užklausų rūšis, pavyzdžiui <code>[\"main_frame\"]</code>. Pagalba: nustatymuose pasirinktos rūšys.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "17 skyrius: HTTP Metodai",
+  "guide_field_history": {
+    "message": "<code>false</code> praleidžia Teikėją, kai puslapis pakeičia savo adresą naudojant History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "18 skyrius: Naršyklės išteklių tipai",
+  "guide_field_active": {
+    "message": "<code>false</code> išjungia Teikėją.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "19 skyrius: Pirminiai apdorojimo įrenginiai",
+  "guide_match_title": {
+    "message": "3. Kuriuos URL Teikėjas tvarko",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "20 skyrius: Leidžiami JSON deriniai",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> yra domenų šablonų sąrašas. URL sutampa, jei sutampa bet kuris iš jų:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "1 derinys: daug teikėjų viename faile",
+  "guide_th_pattern": {
+    "message": "Šablonas",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "2 derinys: Global Defaults Plus teikėjai",
+  "guide_th_matches": {
+    "message": "Sutampa",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "3 derinys: domainPatterns Provider",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> ir visi jo pasidomenai",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "4 derinys: urlPattern teikėjas su indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> bet kuriame viešajame galinyje (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "5 derinys: domeno šablonai ir url šablonai kartu",
+  "guide_pat_path": {
+    "message": "šis hostas ir jo pasidomenai, kai kelias prasideda nuo <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "6 derinys: mišrios taisyklės[] Įrašai",
+  "guide_pat_star": {
+    "message": "tas pats, kas <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "7 derinys: kanoniniai objektai taisyklėse[]",
+  "guide_pat_start": {
+    "message": "URL, kurie prasideda tiksliai šiuo tekstu",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "8 derinys: senieji masyvai ir kanoninės taisyklės[]",
+  "guide_pat_end": {
+    "message": "URL, kurie baigiasi tiksliai šiuo tekstu",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "9 derinys: viso teikėjo metodai ir išteklių tipai",
+  "guide_pat_regex": {
+    "message": "visas URL kaip reguliarus išraiškis (registras yra svarbus, nebent pridėsite <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "10 derinys: taisyklių lygio užklausų tipai",
+  "guide_pat_contains": {
+    "message": "URL, kuriuose šis tekstas yra bet kur",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "11 derinys: išimtys įvairiose vietose",
+  "guide_pat_all": {
+    "message": "kiekvienas URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "12 derinys: „Teikėjo plius“ taisyklių blokavimas",
+  "guide_match_p2": {
+    "message": "<code>^</code> žymi hosto pavadinimo pabaigą arba separatorį, pavyzdžiui, <code>/</code>, <code>?</code> arba <code>:</code>. <code>*</code> sutampa su viskuo. Išskyrus <code>/regex/</code>, šablonai ignoruoja registrą.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "13 derinys: Redirect Provider Plus valymo taisyklės",
+  "guide_match_p3": {
+    "message": "<code>||</code> reiškia domeną, o vienas <code>|</code> reiškia patį URL pradžią ir po jo turi sekuti schema, pavyzdžiui, <code>https://</code>. <code>|example.com^</code> niekada negali sutapti, todėl redaktorius jį atmeta.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "14 derinys: domeno peradresavimai ir reguliarieji peradresavimai",
+  "guide_match_p4": {
+    "message": "Norėdami vietoj to naudojti reguliarų išraiškį, naudokite <code>urlPattern</code> ir pridėkite <code>indexPattern</code>, kad Teikėjas būtų tikrinamas tik toluene hostu:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "15 derinys: išjungtos arba neaktyvios taisyklės",
+  "guide_match_p5": {
+    "message": "Teikėjas turi <code>domainPatterns</code> arba <code>urlPattern</code>, bet niekada abu kartu. Jei jums reikia abiejų atitikimų rūšių, sukurkite dvi Teikėjus.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "16 derinys: pilnas mišrus teikėjo pavyzdys",
+  "guide_rules_title": {
+    "message": "4. Parametrų pašalinimas",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "21 skyrius: Išsamūs pavyzdžiai",
+  "guide_rules_p1": {
+    "message": "Kiekviena <code>rules</code> įrašyje pašalina parametrus iš užklausos (<code>?a=1</code>) ir iš fragmento (<code>#a=1</code>). Įrašas gali būti vienas iš šių:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "1 pavyzdys: pagrindinis sekimo valiklis",
+  "guide_th_entry": {
+    "message": "Įrašas",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "2 pavyzdys: pašalinkite visus UTM parametrus",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "3 pavyzdys: Išsaugokite reikalingą parametrą prisijungdami",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "4 pavyzdys: peradresavimo stebėjimo paspaudimai",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "5 pavyzdys: tik švarios API užklausos",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "22 skyrius: Greito kopijavimo šablonai",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Mišrus teikėjas JSON Formato vadovas",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Šiame vadove paaiškinama, kaip rašyti teikėjo JSON duomenis, kuriuos gali nuskaityti <code>Linkumori extension</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Tai nėra JavaScript kodo vadovas. Jame dėmesys sutelkiamas tik į JSON formas, taisyklių formatus ir pavyzdžius, kurių reikia taisyklių autoriams.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Šis vadovas yra pagrįstas dabartine <code>clearurls.js</code> vykdymo laiko elgsena. Konkrečiai, teikėjo paieška naudoja <code>providersByToken</code> kandidatų segmentus iš <code>domainPatterns</code> arba <code>indexPattern</code>, o galutinis atitikimas vis tiek vyksta per <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "1 skyrius: Pagrindinė JSON Forma",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> tikisi tokios bendros formos teikėjo duomenų:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Svarbi dalis yra <code>providers</code>. Kiekvienas <code>providers</code> esantis raktas yra teikėjo pavadinimas.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "2 skyrius: Kas yra paslaugų teikėjas?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Teikėjas yra vienas pavadintas vykdymo laiko konteineris, skirtas vienai svetainei, įmonei, stebėjimo priemonei, domeno šablonų rinkiniui arba URL reguliariajai išraiškai. Teikėjo pavadinimas yra etiketė/raktas; suderinimas atliekamas pagal <code>domainPatterns</code> arba <code>urlPattern</code>, o ne pagal teikėjo pavadinimą.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimalus teikėjas:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Ką tai daro:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "3 skyrius: Teikėjo laukai, kuriuos galite naudoti",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Teikėjo laukus patvirtino <code>clearurls.js</code>. Norėdami suderinti, parašykite <code>domainPatterns</code> arba <code>urlPattern</code> su pasirenkamu <code>indexPattern</code>; nepasikliaukite tuo, kad abu reikalingi kartu.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Paprasta reikšmė:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON lauke",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Šaltinis",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Už ką rašai",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Norėdami išjungti šį teikėją, nustatykite <code>false</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs senas priedas ir ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Nustatykite <code>true</code>, kad blokuotumėte atitinkančius domenus, o ne tik valytumėte.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs senas priedas ir ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Nustatykite <code>true</code>, kad priverstumėte peradresuoti pagrindinį puslapį per naršyklės skirtuką.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Rekomenduojamas būdas pasakyti, kuriuos domenus atitinka šis teikėjas.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs senas priedas ir ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript reguliarioji eilutė, skirta URL atitikčiai.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Pasirenkama greičio užuomina naudojant <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs priedo palikimas ir ClearURLs core v2 kanoninis; <code>$removeparam</code> yra Linkumori pridėjimas čia",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Įprastos parametrų pašalinimo taisyklės ir teikėjo vietinės <code>$removeparam</code> taisyklės.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs priedo palikimas; kanoninio stiliaus objektai čia yra Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Taisyklės, kurios redaguoja visą URL tekstą.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs priedo palikimas; kanoninio stiliaus objektai čia yra Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Neprivalomos persiuntimo / rinkodaros parametrų taisyklės.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs priedo senasis ir ClearURLs core v2 kanoninis; objekto formos čia yra Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL reguliariojo reiškinio taisykles, kuriose šis teikėjas neturėtų paleisti.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Domeno šablono taisyklės, kuriose šis teikėjas neturėtų veikti.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs priedo palikimas; kanoninio stiliaus objektai čia yra Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex peradresavimo taisyklės.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Domeno šablono peradresavimo taisyklės.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs senas priedas ir ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Vykdykite tik šiuos HTTP metodus.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori papildymas",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Vykdykite tik šių tipų naršyklės užklausoms.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "4 skyrius: Domenų atitikimas",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> yra „Linkumori“ priedas ir yra pageidaujamas daugeliui pasirinktinių paslaugų teikėjų. <code>clearurls.js</code> netuščias <code>domainPatterns</code> naudojamas suderinti prieš <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Suderinkite vieną domeną ir visus padomenius",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Rungtynės:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Neatitinka:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Suderinkite tą patį pavadinimą bet kurioje viešoje priesagoje",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Gali atitikti:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Suderinti padomenius",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Gali atitikti:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Naudokite daugiau nei vieną domeno šabloną",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "5 skyrius: Domeno šablono simboliai",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Šiuos simbolius galite naudoti <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Simbolis",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Reikšmė",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Pavyzdys",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Pašalina",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Suderinti ties domeno riba.",
+  "guide_rules_name": {
+    "message": "parametro pavadınimą",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "pavadinimo reguliarų išraiškį",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "visus parametrus, kurių visas pavadinimas sutampa; <code>^…$</code> pridedama automatiškai, o registras ignoruojamas",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Skiriamoji arba pabaigos riba.",
+  "guide_rules_filter": {
+    "message": "<code>$removeparam</code> filtrą",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "žiūrėti 5 skyrių",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> ir <code>\"$removeparam=fbclid\"</code> pašalina tą patį dalyką. Naudokite paprastą pavadinimą, nebent jums reikia kažko iš 5 skyriaus.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Pakaitos simbolis.",
+  "guide_rules_part_title": {
+    "message": "Taisyklės Teikėjo daliai",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Paprastas pavadinimas taikomas kiekvienam URL, kurį atitinka Teikėjas. Norėdami pašalinti parametrą tik kai kuriuose iš jų, prieš <code>$removeparam</code> filtrą įrašykite šabloną:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Čia <code>qid</code> pašalinamas kiekvienoje Amazon svetainėje, <code>tag</code> tik <code>amazon.de</code>, <code>sr</code> tik <code>smile.amazon</code> ir <code>ref_</code> tik po <code>/gp/</code>. Šablonas susiaurina paties Teikėjo šablonus; jis jų negali išplėsti.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Pradžios arba pabaigos inkaras.",
+  "guide_rp_title": {
+    "message": "5. $removeparam filtrai",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "<code>$removeparam</code> filtras turi tokią formą; skliausteliuose esančios dalys yra neoblygatomos:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Reikšmė",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript reguliariojo žodžio raidė.",
+  "guide_rp_p2": {
+    "message": "Reikšmės pirmasis simbolis lemia jos prasmę:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtras",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Dažniausias modelis:",
+  "guide_rp_v_all": {
+    "message": "kiekvienas parametras",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Naudokite, kai norite:",
+  "guide_rp_v_except": {
+    "message": "kiekvienas parametras, išskyrus <code>ref</code> (taip pat veikia su <code>~/regex/</code> ir <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "6 skyrius: URLs suderinimas su <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parametrai, kurių pavadinimas arba <code>name=value</code> atitinka reguliarų išraišką; registras yra svarbus, nebent pridėsite <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Naudokite <code>urlPattern</code> tik tada, kai domeno atitikties nepakanka, pvz., kai teikėjas turi atitikti konkretų kelią arba visą URL reguliarųjį reiškinį.",
+  "guide_rp_v_prefix": {
+    "message": "parametrai, kurių pavadinimas prasideda nuo <code>utm_</code>; registras ignoruojamas",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Tai gali atitikti:",
+  "guide_rp_v_name": {
+    "message": "tiksliai tas parametras; registras ignoruojamas, nebent pridėsite <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> yra „ClearURL“ priedo senoji ir „ClearURL“ pagrindinė v2 kanoninė sintaksė. „Linkumori“ prideda <code>indexPattern</code> tik kaip kandidato paieškos užuominą, kad reguliariosios išraiškos teikėjus būtų galima greičiau rasti pagal pagrindinio kompiuterio pavadinimo prieigos raktus.",
+  "guide_rp_options_title": {
+    "message": "Kylimoji",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Svarbu: <code>indexPattern</code> nenusprendžia, ar teikėjas atitinka. Po kandidato paieškos <code>clearurls.js</code> vis tiek išbando tikrąjį <code>urlPattern</code> <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Kylimoji eina po reikšmės, atskirta kableliais. Kelią vienos kylimojo reikšmes atskirkite <code>|</code>, o prieš reikšmę dėkite <code>~</code>, kad ją išimtumėte:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "7 skyrius: Pašalinkite paprastus užklausos parametrus",
+  "guide_th_option": {
+    "message": "Kylimoji",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Įveskite parametrų pavadinimus į <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "tik puslapiuose iš šių domenų",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Rezultatas:",
+  "guide_rp_o_to": {
+    "message": "tik užklausimams į šiuos domenus",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Pašalinkite daug parametrų:",
+  "guide_rp_o_method": {
+    "message": "tik šiems HTTP metodams",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Rezultatas:",
+  "guide_rp_o_party": {
+    "message": "tik užklausimams į tą patį svetainę kaip puslapis, arba tik į kitas svetaines",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "8 skyrius: Parašykite taisyklės objektą",
+  "guide_rp_o_strict": {
+    "message": "tas pats, bet lyginant tikslų hostą, o ne svetainę",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Vietoj paprastos eilutės taisyklė gali būti objektas.",
+  "guide_rp_o_types": {
+    "message": "tik šioms užklausų tipo; <code>~type</code> išskiria vieną",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Naudokite tai, kai jums reikia:",
+  "guide_rp_o_matchcase": {
+    "message": "parametrų pavadinimai yra jautrūs registrui",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Taisyklės ID.",
+  "guide_rp_o_history": {
+    "message": "praleidžti šį filtrą, kai puslapis pakeičia savo adresą naudodamas History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Pseudonimai.",
+  "guide_rp_p4": {
+    "message": "Kiekviena parinktis turi vieną rašybą. Prieštaraujančios parinktys, pavyzdžiui <code>first-party,third-party</code>, yra Atmestos.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Išimtys.",
+  "guide_rp_keep_title": {
+    "message": "Parametro išlaikymas naudojant @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Prašymo tipo apribojimai.",
+  "guide_rp_p5": {
+    "message": "Filtras, kuris prasideda nuo <code>@@</code>, išlaiko parametrą vietoj to, kad jį pašalintų. Čia <code>ref</code> pašalinamas visur, išskyrus GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Perrašyti elgesį.",
+  "guide_rp_p6": {
+    "message": "<code>@@</code> filtras taip pat apima užklausas, kurias atlieka šio Teikėjo sutampantis puslapis, net jei jas tvarko kitas teikėjas.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Pavyzdys teikėjo viduje:",
+  "guide_raw_title": {
+    "message": "6. Neapdorotos taisyklės",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Rezultatas:",
+  "guide_raw_p1": {
+    "message": "Neapdoruota taisyklė yra reguliarus išraiškis, vykdomas visam URL; kiekvienas sutapimas yra ištrinamas. Naudokite jį tekstui, kuris nėra <code>name=value</code> parametras, pavyzdžiui, Amazon <code>/ref=…</code> kelio segmentui:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> teikėjo taisyklių objektuose yra Linkumori papildymas. <code>flags: \"i\"</code> rungtynėse neskiriamos didžiosios ir mažosios raidės.",
+  "guide_raw_p2": {
+    "message": "Neapdoruotos taisyklės nekreipia dėmesio į registrą ir pakeičia kiekvieną sutapimą. JSON rašykite kiekvieną atskaitos brūksnį dvigubai.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "9 skyrius: <code>$removeparam</code> Taisyklės",
+  "guide_raw_scope_title": {
+    "message": "Tik kai kuriuose URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Pašalinkite vieną parametrą",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Pašalinti visus parametrus",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Pašalinkite parametrus naudodami Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Pašalinkite visus, išskyrus vieną parametrą",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Taikykite <code>$removeparam</code> tik vienam domenui",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Išvalyta:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Nevalytas:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Pridėti domenų apribojimus",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Išskirti vieną domeną:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Pridėti metodo apribojimus",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Tik <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Ne <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "10 skyrius: <code>$removeparam</code> Išimtys",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Pradėkite taisyklę <code>$removeparam</code> su <code>@@</code>, kad padarytumėte išimtį.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Konteksto išimties pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Tai gali apsaugoti numerį <code>ei</code>, kai papildomos užklausos pradedamos nuo <code>gemini.google.com</code> puslapio.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "11 skyrius: Perrašyti parametrų reikšmes",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Naudokite <code>action.type: \"rewrite\"</code>, kad pakeistumėte atitinkančią parametro vertę.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Teikėjo viduje:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Jei norite pakartotinai naudoti dabartinę vertę, naudokite <code>§1§</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "12 skyrius: Neapdorotos taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Norėdami redaguoti visą URL tekstą, naudokite <code>rawRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Paprasta neapdorota taisyklė:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Objekto neapdorota taisyklė:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Neapdorota perrašymo taisyklė:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "13 skyrius: Peradresavimo taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Naudokite <code>redirections</code>, norėdami nusiųsti naršyklę į naują URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Jei trūksta <code>replacePattern</code>, naudojama pirmoji fiksavimo grupė.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "14 skyrius: Domeno peradresavimo taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> yra Linkumori priedas, skirtas paprastam domeno šablono peradresavimui.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori papildymas – eilutės forma:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori papildymas – objekto forma:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "15 skyrius: Išimtys",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> yra ClearURLs priedo palikimas ir ClearURLs pagrindinė v2 kanoninė sintaksė. Linkumori taip pat priima kanoninio stiliaus objektus šiame sename teikėjo masyve.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> yra Linkumori domeno šablono išimčių priedas.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Praleista:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "16 skyrius: Rekomendacijų rinkodaros taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> veikia kaip lauko taisyklės, tačiau jį valdo persiuntimo rinkodaros plėtinio nustatymas.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "17 skyrius: HTTP Metodai",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Naudokite <code>methods</code>, kad vykdytumėte teikėją tik tam tikrais HTTP metodais.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Tai veikia:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Tai neveikia:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "18 skyrius: Naršyklės išteklių tipai",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> yra Linkumori papildymas. Naudokite jį, jei norite paleisti teikėją tik pagal tam tikrų tipų naršyklės užklausas.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Bendros vertybės:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Reikšmė:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "19 skyrius: Pirminiai apdorojimo įrenginiai",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Išankstiniai procesoriai pakeičia užfiksuotas reikšmes prieš naudodami jas <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Pavyzdys:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Palaikomi tipai:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> gali būti:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "20 skyrius: Leidžiami JSON deriniai",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Šiame skyriuje rodomi Linkumori mišrių paslaugų teikėjų JSON: ClearURLs priedų pasenę masyvai, ClearURLs pagrindiniai v2 kanoniniai objektai ir Linkumori priedų viename taisyklių faile.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "1 derinys: daug teikėjų viename faile",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> yra ClearURLs priedo palikimas ir ClearURLs pagrindinė v2 kanoninė aukščiausio lygio sintaksė. Linkumori išlaiko tokią formą ir leidžia daugeliui paslaugų teikėjų.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Kiekvienas teikėjas įkeliamas atskirai.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "2 derinys: Global Defaults Plus teikėjai",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> yra ClearURLs pagrindinė v2 kanoninė sintaksė. Linkumori priima jį šalia senojo stiliaus <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Taisyklės gali paveldėti numatytąsias reikšmes, kai taisyklėje tų laukų nėra.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "3 derinys: <code>domainPatterns</code> Teikėjas",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Tai yra Linkumori papildymas. Dauguma Linkumori teikėjų turėtų naudoti šią formą.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "4 derinys: <code>urlPattern</code> Teikėjas su <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> yra „ClearURL“ sintaksė. <code>indexPattern</code> yra „Linkumori“ paieškos užuomina, skirta reguliariojo reiškinio URL teikėjams; jis turėtų nurodyti pagrindinio kompiuterio pavadinimus, kuriuos gali atitikti reguliarioji išraiška.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> yra neprivalomas, bet naudingas greičiui. Jis indeksuoja teikėją į pagrindinio kompiuterio pavadinimo prieigos rakto kandidatų segmentus; jis niekada nepakeičia galutinio <code>urlPattern</code> rungtynių.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "5 derinys: nemaišykite <code>domainPatterns</code> ir <code>urlPattern</code> kaip bendro reikalavimo",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Ši forma gali būti rodoma senesniuose arba ranka rašytuose duomenyse, tačiau tai nereiškia, kad turi išlaikyti abu atitikmenys:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Dabartinis <code>clearurls.js</code> elgesys:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Jei yra <code>domainPatterns</code> ir jis nėra tuščias, <code>clearurls.js</code> naudoja jį tiekėjo atitikčiai ir nepaiso to teikėjo <code>urlPattern</code>. Pasirinktinis redaktorius / importavimo kelias atmeta tiekėjus, kuriuose yra abu. Jei jums reikia kelio sąlygos, naudokite <code>urlPattern</code> su <code>indexPattern</code> arba apimkite atskirus <code>$removeparam</code> / taisyklės įrašus <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "6 derinys: mišrus <code>rules[]</code> įrašų",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumori, <code>rules</code> gali būti ClearURLs pasenusios eilutės, Linkumori <code>$removeparam</code> eilutės, Linkumori objektai 650, 0374 ClearURLs pagrindiniai v2 kanoniniai objektai kartu.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Priimami visi keturi įrašai.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "7 derinys: kanoniniai objektai viduje <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs pagrindiniai v2 kanoniniai objektai gali atstovauti įvairių tipų taisyklėms. Šiame Linkumori pavyzdyje jie pateikiami teikėjo, kuris naudoja <code>domainPatterns</code>, kuris yra tik Linkumori, viduje.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> surūšiuoja šiuos pagal reikšmę:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "8 derinys: senieji masyvai plius Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs senųjų priedų teikėjų masyvai vis dar veikia. Linkumori leidžia tiems masyvams būti šalia ClearURLs pagrindinių v2 kanoninių taisyklių objektų.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Tai galioja. Variklis nuskaito visus šiuos masyvus tam pačiam teikėjui.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "9 derinys: viso teikėjo metodai ir išteklių tipai",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> yra prieš srovę ClearURLs sintaksė. <code>resourceTypes</code> yra Linkumori papildymas. Abi taikomos visam teikėjui.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Tiek <code>rules</code>, tiek <code>rawRules</code> riboja teikėjo metodo / tipo atitiktis.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "10 derinys: taisyklių lygio užklausų tipai",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs pagrindinės v2 kanoninės taisyklės gali apibrėžti taisyklės lygį <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Teikėjo lygis <code>resourceTypes</code> pirmiausia susiaurina teikėją. Taisyklės lygis <code>requestTypes</code> po to susiaurina atskiras taisykles.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "11 derinys: išimtys įvairiose vietose",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori leidžia derinti ClearURLs teikėjo išimtis, Linkumori domeno išimtis, ClearURLs pagrindines v2 taisyklės išimtis ir Linkumori teikėjo vietines išimtis 9208307465.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Paprasta reikšmė:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "12 derinys: „Teikėjo plius“ taisyklių blokavimas",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> pažymi, kad teikėjas atšaukia / blokuoja.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Kai nustatymuose įjungtas domeno blokavimas, atitinkamos užklausos gali būti blokuojamos. Taisyklės vis dar gali egzistuoti, tačiau blokavimas yra stipresnis to teikėjo elgesys.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "13 derinys: Redirect Provider Plus valymo taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Teikėjas gali turėti peradresavimų ir valymo taisyklių.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Jei peradresavimas atitinka, nukreipimas grąžinamas pirmiausia.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "14 derinys: domeno peradresavimai ir reguliarieji peradresavimai",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Abu gali egzistuoti viename tiekėjuje.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Pirmiausia tikrinami reguliarūs peradresavimai. Domeno peradresavimai tikrinami, jei neatitiko nė vienas reguliarus peradresavimas.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "15 derinys: išjungtos arba neaktyvios taisyklės",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Teikėjai gali būti neaktyvūs:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Taisyklės gali būti neaktyvios:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Neaktyvūs teikėjai ir neaktyvios taisyklės ignoruojami.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "16 derinys: pilnas mišrus teikėjo pavyzdys",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Šiame Linkumori pavyzdyje sąmoningai sujungiamos dauguma palaikomų teikėjo funkcijų: ClearURLs papildinio senieji masyvai, ClearURLs pagrindiniai v2 kanoninių taisyklių objektai ir tik Linkumori atitikmenų ir domeno šablono funkcijos.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Tai galioja Linkumori mišrus teikėjas JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "21 skyrius: Išsamūs pavyzdžiai",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "1 pavyzdys: pagrindinis sekimo valiklis",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "2 pavyzdys: pašalinkite visus UTM parametrus",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "3 pavyzdys: Išsaugokite reikalingą parametrą prisijungdami",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "4 pavyzdys: peradresavimo stebėjimo paspaudimai",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Rezultatas:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "5 pavyzdys: tik švarios API užklausos",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Reikšmė:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "22 skyrius: Greito kopijavimo šablonai",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Pašalinkite vieną parametrą:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Pašalinkite daug parametrų:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Naudokite <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Pašalinti visus <code>utm_</code> parametrus:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Pridėti išimtį:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Suderinti domeną:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Peradresuoti sekiklį URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Neapdoruota taisyklė gali priimti <code>$removeparam</code> filtro šabloną ir parinktis, kai <code>rawrule=</code> yra paskutinis. Viskas po <code>rawrule=</code> yra reguliarus išraiškis:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Šablonas ir parinktys lemia, kur taisyklė veikia; reguliarus išraiškis vis tiek yra tai, kas ištrinama. <code>match-case</code> padaro jį jautrų registrui.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Neapdoruotų taisyklių stabdymas kai kuriuose URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Užrašas, prasidedantis <code>@@</code>, neleidžia vykdyti Neapdorotas taisyklės ten, kur sutampa jo šablonas. Neapdorotai taisyklei suteikite <code>id</code> ir pavadinkite ją naudojant <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Jei po <code>rawrule=</code> nieko nėra ir nėra <code>targetId</code>, užrašas sustabdymo visas Teikėjo neapdorotas taisyklės toluenei URL. Norėdami praleisti visą Teikėją, vietoj to naudokite <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Išimtys",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Jei URL sutampa su užrašu <code>exceptions</code>, nė viena iš Teikėjo taisyklių nėra vykdoma. Užrašas yra reguliarus išraiškis arba domeno šablonas, kuris prasideda nuo <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Išimtys nepaiso registro.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Peradresavimai",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Peradresavimo taisyklės praleidžia sekimo puslapius, nukreipdamos tiesiai į tikrąją destinations. Jos veikia tik tada, kai <em>Įgalinti trečiosios šalies peradresavimo aplinkkelį</em> yra įjungta.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Peradresavimas į URL dalį",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Užrašas <code>redirections</code> yra reguliarus išraiškis su tikrai viena sugavimo grupė <code>( … )</code>. Užklausa nukreipiama į tai, ką grupė sugavo, iškodavus URL. Bet kurią kitą grupę rašykite kaip <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Peradresavimas į fiksuotą adresą",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Užrašas, kuris prasideda nuo <code>|</code>, visus sutampančius URL siunčia į vieną adresą:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Peradresavimas į parametro reikšmę",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> nurodo parametrą, kuriame yra paskirtis, todėl reguliaraus išraiškio nereikia. Jis priima tokius pačius užrašus kaip <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Laimi pirmasis sutampantis parametras, kuris turi reikšmę. Peradresavimas sustabdymo visą kitą užklausos apdorojimą.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Taisyklių objektai",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Bet kuris užrašas gali būti objektas, o ne eilutė. Naudokite objektą, kai taisyklei reikia id, kai ji turi būti išjungta pradžiai, kai ji turi perrašyti, o ne pašalinti, arba kai ji turi veikti tik tam tikrais atvejais:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Raktas",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "tekstas, kurį parašytumėte kaip paprastą įrašą",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "stabilus pavadinimas (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>), naudojamas taisyklei įjungti arba išjungti",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "ankstesni taisyklės ID, kad išjungta taisyklė liktų išjungta ir po pervardymo",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "perrašyti vietoj pašalinti; <code>§1§</code>, <code>§2§</code>, … yra sugautas reikšmės",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "pirmiausia pakeisti sugautas reikšmes",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "tik šioms užklausų tipo, pavyzdžiui <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL, kuriuose ši taisyklė neveikia",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "reguliariaus išraiškio žymės kaip eilutė (numatytais <code>i</code>; <code>gi</code> į <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "vykdyti taisyklę anksčiau arba vėliau",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: taisyklė <code>rules</code> laikoma partnerinės rinklaros taisykle",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: praleisti šią taisyklę, kai puslapis pakeičia savo adresą naudojant History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: taisyklė pradedama išjungta",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "laisvas tekstas",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "tik <code>@@…$rawrule=</code> įrašams: Neapdorotos taisyklės, kurią ji sustabdymo",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Perrašymas vietoj pašalinimo",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Naudojant <code>replacePattern</code>, taisyklė <code>rules</code> išlaiko parametrą ir pakeičia jo reikšmę, kuri yra <code>§1§</code>. <code>rawRules</code> ir <code>redirections</code> įrašai <code>§1§</code>, <code>§2§</code>, … yra sugavimo grupės:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Išankstinio apdorojimo programos",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Išankstinio apdorojimo programos pakeičia sugautas reikšmes prieš jas naudojant <code>replacePattern</code>. <code>inputs</code> yra <code>\"all\"</code> arba grupės numerių sąrašas:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Tipai yra <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> ir <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Taisyklių ID",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Kiekviena taisyklė turi ID. Taisyklė be <code>id</code> gauna vieną iš savo sąrašo ir teksto: <code>\"utm_source\"</code> įraše <code>rules</code> tampa <code>field-utm-source</code>. Jei dvi taisyklės gautų tą patį ID, abiose gale būtų pridėtas trumpas hash.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Sugeneruotas ID pasikeičia, kai pasikeičia taisyklės tekstas. Suteikite taisyklei savo <code>id</code>, kai ji turi išlaikyti savo įjungimo/išjungimo nustatymą redaguojant.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Taisyklės vykdymas anksčiau arba vėliau",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Neapdorotos taisyklės paprastai vykdomos pirmiausia, tada <code>rules</code> ir <code>referralMarketing</code>. Taisyklė su <code>order</code> vykdoma prieš tas, kurios jo neturi, pradedant nuo žemiausios. Šiuo atsitikimu tokenas pirmiausia yra pakeičiamas, o tada ištrinamas:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> veikia <code>rules</code>, <code>rawRules</code> ir <code>referralMarketing</code>, bet ne <code>$removeparam</code> filtruose, kurie visada vykdomi paskutini.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Referencinis marketingas",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> priima tokius pačius įrašus kaip <code>rules</code>. Jie yra praleidžiami, kai <em>Leisti persiuntimo rinkodarą</em> yra įjungta, todėl partnerių nuorodos veikia toliau, jei to norite:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Taisyklė gali likti <code>rules</code> ir vis tiek būti laikoma referenciniu marketingu, naudojant <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metodai ir užklausų tipai",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Šie nustatymai susiaurina tai, kada Teikėjas arba taisyklė yra vykdoma:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js elgesys: jei domainPatterns egzistuoja ir nėra tuščias, Linkumori naudoja domainPatterns teikėjo atitikčiai. urlPattern naudojamas tik tada, kai trūksta domainPatterns arba jis tuščias. Pasirinktinis redaktorius / importavimo kelias atmeta šią mišrią atitikmens formą, todėl naudokite ją tik seniems duomenims suprasti.",
+  "guide_req_methods": {
+    "message": "HTTP metodai, kuriuos tvarko Teikėjas",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "uždaugštų užklausos tipai, kuriuos tvarko Teikėjas",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "užklausos tipai, kuriuos tvarko viena taisyklės objektas",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "tai pat applies vienam <code>$removeparam</code> filtrui arba neapdoruotai taisyklei",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Užklausos tipai naudoja naršyklės pavadinimus: <code>main_frame</code> (puslapis), <code>sub_frame</code> (rėmas), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ir t. t. Filtro parinktys pirmuosius dvisius vadina <code>document</code> ir <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Kaip tvarkomas URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Kiekvienam Teikėjui, kuris atitinka URL ir leidžia užklausą:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: jei kažkas sutampa, Teikėjas yra praleidžiamas.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, tada <code>fieldRedirections</code>: sutapimas peradresuoja užklausą ir daugiau niekas nėra vykdoma.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: užklausos blokuojama.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> veikia su pilnu URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> ir <code>referralMarketing</code> pašalina parametrus.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> filtrai veikia, išskyrus atvejus, kai <code>@@</code> filtras išlaiko parametrą.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Pirmasis Teikėjas, kuris pakeičia, peradresuoja arba blokuoja užklausą, lemia rezultatą. Naujas URL tada vėl praeina per tuos pačius žingsnius.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Pilni pavyzdžiai",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Valyti vieną parduotuvę",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Pašalina sekimo parametrus ir partnerio ID vienoje parduotuvėje ir nepaliuda jos apmokėjimo puslapių:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "pašalinti UTM parametrus visur",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Šablonas <code>*</code> tinka kiekvienam URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Praleisti spustelėjimų sekleklį",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Siunčia nuorodas per spustelėjimų sekleklį tiesiai į jų paskirtį, kuri yra <code>url</code> parametre:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Išlaikyti parametrą viename puslapyje",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Pašalina <code>ref</code> visur svetainėje, išskyrus prisijungimo puslapyje, kuriam jis yra reikalingas:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Taisyklių patikra",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Individualizuotų taisyklių redaktorius tikrina taisykles, kai jas išsaugojate arba importuojate. Be sugadinto JSON ir netinkimų reguliaresnių išraišklių, jis atmeta taisykles, kurios įsikrautų, bet tyliai atliktų klaidingą veiksmą, pavyzdžiui:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> ir <code>urlPattern</code> viename Teikėjų",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "šablonas su vienu <code>|</code> be schemos, pavyzdžiui <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "reguliaresnio išraiškio peradresavimas be tiksliai vienos grupės",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "nežinomi laukai, raktai ir parinktys",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> arba <code>referralMarketing</code>, kai tai nieko nepasikeistų",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "<code>@@…$rawrule=</code> įrašas, kuris nestopina nė tos Neapdorotos taisyklės",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Jei išsaugojimas nepavyksta, pranešime nurodomas Teikėjas, sąrašas ir įrašas.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {
