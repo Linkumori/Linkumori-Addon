@@ -8,10 +8,7 @@ everywhere rules are written:
 - the custom rules editor, including *Import*.
 
 A rule file is **JSON**: one object with a `providers` object, plus an
-optional `metadata` object. No other format is read. YAML, the ClearURLs new
-rule format (`version: 2`) and ClearURLs compiled lists are rejected, and
-nothing converts them. To move rules over from those formats, rewrite them
-by hand as shown in [§11](#11-syntax-that-is-not-accepted).
+optional `metadata` object. No other format is read.
 
 ```json
 {
@@ -204,9 +201,7 @@ An optional pattern in front limits the filter to matching URLs:
 | `history-bypass-protection=false` | skip this filter for History API URL changes (`true`/`false`, also `1`/`0`, `yes`/`no`) |
 | `badfilter` | cancel an identical filter (for example one from another list) |
 
-Options have one spelling each. Short forms such as `1p`, `3p`, `xhr`,
-`from=` and `$queryprune` are not accepted (see [§11](#removeparam-spellings)).
-Separate multiple values with `|`.
+Options have one spelling each. Separate multiple values with `|`.
 
 ### @@ exceptions
 
@@ -492,8 +487,7 @@ different point, or needs to rewrite instead of remove:
 
 A rule object goes in the list for what it does: `rawRules` for raw rules,
 `redirections` for redirects, `fieldRedirections` for parameter-value
-redirects, and so on. Other keys, including the ClearURLs spellings `match`,
-`action` and `kind`, are rejected (see [§11](#rule-object-keys)).
+redirects, and so on. Other keys are rejected.
 
 ### order
 
@@ -553,7 +547,7 @@ rules that are valid JSON but would silently do the wrong thing:
 
 | Mistake | Why it is rejected |
 |---|---|
-| a file that is not JSON (for example YAML), or `providers` that is a list | only Linkumori JSON is read; see [§11](#11-syntax-that-is-not-accepted) |
+| a file that is not JSON (for example YAML), or `providers` that is a list | only Linkumori JSON is read |
 | `domainPatterns` and `urlPattern` on one provider | only `domainPatterns` would be used |
 | a pattern with a single `\|` and no scheme, like `\|example.com^` | it can never match; use `\|\|example.com^` |
 | a regex redirect with no capture group, or more than one | none never redirects; with several, the destination is ambiguous |
@@ -589,136 +583,3 @@ rule later.
   with `<provider>::<id>`.
 - In the custom rules editor, *Copy rule* is next to each rule in the rule
   id list, which shows rules that have an `id`.
-
-## 11. Syntax that is not accepted
-
-Older Linkumori versions and ClearURLs used other spellings and file
-formats. Linkumori does not convert them:
-
-- The custom rules editor and `lint-rules` reject them, for example with a
-  JSON parse error, `unknown key "…"` or an unknown-option error.
-- A remote list that is not JSON, or whose `providers` is a list, fails to
-  load (`Invalid remote rules: …` or `Remote rules missing providers object`).
-- Custom rules that are already stored, and remote lists in Linkumori JSON,
-  still load, but the parts listed here are ignored.
-
-Check your custom rules and remote lists with:
-
-```bash
-node linkumori-cli-tool.js lint-rules my-rules.json
-```
-
-### File formats
-
-| Not accepted | Use instead |
-|---|---|
-| YAML (`.yaml`, `.yml`) | JSON |
-| ClearURLs new rule format (`"version": 2`) | A Linkumori rules file. Rewrite each rule as described below. |
-| `defaults` | Set the value on each rule object. |
-| ClearURLs compiled list (`providers` is a list of `{ "providerId": … }`) | `providers` is an object; each `providerId` becomes a key. |
-| Custom rules without the `providers` wrapper (`{ "amazon": { … } }`) | `{ "providers": { "amazon": { … } } }` |
-
-### Provider fields
-
-| Not accepted | Use instead |
-|---|---|
-| `domainExceptions: ["\|\|safe.example.com^"]` | `exceptions: ["\|\|safe.example.com^"]` |
-| `domainRedirections: ["\|\|out.example.com^$redirect=https://example.com/"]` | `redirections: ["\|\|out.example.com^$redirect=https://example.com/"]` |
-| `providerId` | the provider's key under `providers` |
-| `defaultActive` | `active` |
-| `history-bypass-protection` | `historyBypassProtection` |
-
-Before:
-
-```json
-"example": {
-  "domainPatterns": ["||example.com^"],
-  "exceptions": ["^https?://example\\.com/checkout"],
-  "domainExceptions": ["||api.example.com^"],
-  "domainRedirections": ["||go.example.com^$redirect=https://example.com/"]
-}
-```
-
-After:
-
-```json
-"example": {
-  "domainPatterns": ["||example.com^"],
-  "exceptions": ["^https?://example\\.com/checkout", "||api.example.com^"],
-  "redirections": ["||go.example.com^$redirect=https://example.com/"]
-}
-```
-
-### Rule-object keys
-
-Rule objects take only the keys listed in [§9](#9-rule-objects).
-
-| Not accepted | Use instead |
-|---|---|
-| `match` | `matchPattern` |
-| `action: { "type": "rewrite", "replacePattern": … }` | `replacePattern` |
-| `action: { "type": "remove" }` | Leave out `replacePattern`. |
-| `action: { "type": "redirect" }` | Put the rule in `redirections` or `fieldRedirections` (table below). |
-| `kind`, `section` | Put the rule in the matching list (table below). |
-| `referralMarketing: true` | Put the rule in `referralMarketing`, or give it `"flags": ["referralMarketing"]`. |
-| `activeDefault` | `active` |
-| `requestTypes: "all"` | Leave out `requestTypes`. |
-| `history-bypass-protection` | `historyBypassProtection` |
-
-A rule's list says what it does. For a ClearURLs rule, pick the list from
-its `kind` and `action`:
-
-| ClearURLs rule | Linkumori list |
-|---|---|
-| `kind: field` (or no `kind`), action `remove` or `rewrite` | `rules` |
-| `kind: field` with `referralMarketing: true` | `referralMarketing` |
-| `kind: field`, action `redirect` | `fieldRedirections` |
-| `kind: raw`, action `remove` or `rewrite` | `rawRules` |
-| `kind: raw`, action `redirect` | `redirections` |
-| `kind: redirection`, action `redirect` (or no action) | `redirections` |
-| `kind: redirection`, action `rewrite` | `rawRules` |
-| `kind: exception` | `exceptions` |
-
-A ClearURLs short-form string (`- utm_source`) is already a valid `rules`
-entry. Keep each long-form rule's `id` and `aliases`, so rules you switched
-off stay off.
-
-Before:
-
-```json
-"rules": [
-  { "id": "raw-ref", "kind": "raw", "match": "/ref=([^/?]*)",
-    "action": { "type": "rewrite", "replacePattern": "/clean/§1§" } }
-]
-```
-
-After:
-
-```json
-"rawRules": [
-  { "id": "raw-ref", "matchPattern": "/ref=([^/?]*)", "replacePattern": "/clean/§1§" }
-]
-```
-
-### $removeparam spellings
-
-Each option has only its long name ([§4](#options)).
-
-| Not accepted | Use instead |
-|---|---|
-| `$queryprune` | `$removeparam` |
-| `from=` | `domain=` |
-| `1p`, `~third-party`, `~3p` | `first-party` |
-| `3p`, `~first-party`, `~1p` | `third-party` |
-| `strict1p` | `strict-first-party` |
-| `strict3p` | `strict-third-party` |
-| `doc`, `popup` | `document` |
-| `frame`, `iframe` | `subdocument` |
-| `xhr` | `xmlhttprequest` |
-
-### Preprocessor names
-
-| Not accepted | Use instead |
-|---|---|
-| `urlEncodeRepeated` | `doubleUrlEncode` |
-| `urlDecodeRepeated` | `doubleUrlDecode` |
