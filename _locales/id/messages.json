@@ -4727,1688 +4727,704 @@
     "message": "Kontrol ID Aturan tersedia setelah penyedia JSON valid.",
     "description": "Status JSON tidak valid untuk kontrol id aturan penyedia"
   },
-  "guide_0001": {
-    "message": "Linkumori Ekstensi — Dokumentasi Aturan",
+  "guide_page_title": {
+    "message": "Linkumori — Panduan Aturan",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Penyedia JSON Format",
+  "guide_toc_label": {
+    "message": "Daftar Isi",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Penyedia JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Bab 1: Bentuk Dasar JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Bab 2: Apa Itu Penyedia?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Bab 3: Bidang Penyedia yang Dapat Anda Gunakan",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Bab 4: Mencocokkan Domain",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Cocokkan Satu Domain Dan Semua Subdomain",
+  "guide_title": {
+    "message": "Menulis aturan Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Cocokkan Nama yang Sama Pada Sufiks Publik Apa Pun",
+  "guide_intro_1": {
+    "message": "Linkumori membersihkan URL dengan aturan. Panduan ini menunjukkan cara menulisnya, mulai dari aturan pertama hingga setiap opsi, dengan contoh yang dapat Anda salin.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Cocokkan Subdomain",
+  "guide_intro_2": {
+    "message": "Aturan adalah JSON. Anda menulisnya di editor Aturan Kustom, yang akan memeriksanya saat Anda menyimpan. Daftar aturan bawaan dan daftar aturan jarak jauh menggunakan format yang sama.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Gunakan Lebih dari Satu Pola Domain",
+  "guide_file_title": {
+    "message": "1. File aturan",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Bab 5: Simbol Pola Domain",
+  "guide_file_p1": {
+    "message": "File aturan adalah satu objek JSON. Objek <code>providers</code> memetakan nama pilihan Anda ke sebuah Penyedia:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Bab 6: Mencocokkan URLs Dengan urlPattern",
+  "guide_file_p2": {
+    "message": "Penyedia menentukan URL mana yang ditangani dan apa yang harus dilakukan terhadap URL tersebut. Contoh ini menghapus <code>utm_source</code> dan <code>utm_medium</code> dari setiap URL di <code>example.com</code> dan subdomainnya:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Bab 7: Hapus Parameter Kueri Sederhana",
+  "guide_file_p3": {
+    "message": "Nama hanyalah label. URL mana yang ditangani oleh Penyedia ditentukan oleh <code>domainPatterns</code> atau <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Bab 8: Menulis Objek Aturan",
+  "guide_fields_title": {
+    "message": "2. Bidang Penyedia",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Bab 9: Aturan $removeparam",
+  "guide_th_field": {
+    "message": "Bidang",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Hapus Satu Parameter",
+  "guide_th_meaning": {
+    "message": "Fungsinya",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Hapus Semua Parameter",
+  "guide_field_domainpatterns": {
+    "message": "URL mana yang ditangani Penyedia, sebagai pola domain (bab 3). Gunakan ini atau <code>urlPattern</code>, jangan keduanya.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Hapus Parameter Berdasarkan Regex",
+  "guide_field_urlpattern": {
+    "message": "URL mana yang ditangani Penyedia, sebagai ekspresi reguler yang dicocokkan dengan URL lengkap. Huruf besar/kecil diabaikan.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Hapus Semua Kecuali Satu Parameter",
+  "guide_field_indexpattern": {
+    "message": "Hanya dengan <code>urlPattern</code>: petunjuk host seperti <code>||example.com^</code>, sehingga Penyedia hanya diperiksa untuk host tersebut. Tanpa ini, Penyedia diperiksa terhadap setiap URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Terapkan $removeparam Hanya Untuk Satu Domain",
+  "guide_field_rules": {
+    "message": "Parameter yang akan dihapus (bab 4 dan 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Tambahkan Batas Domain",
+  "guide_field_referral": {
+    "message": "Parameter rujukan dan afiliasi yang akan dihapus. Parameter ini dilewati saat <em>Izinkan pemasaran rujukan</em> aktif (bab 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Tambahkan Batas Metode",
+  "guide_field_rawrules": {
+    "message": "Ekspresi reguler yang dijalankan pada URL lengkap; setiap kecocokan akan dihapus (bab 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Bab 10: Pengecualian $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL yang dibiarkan saja oleh Penyedia (bab 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Bab 11: Menulis Ulang Nilai Parameter",
+  "guide_field_redirections": {
+    "message": "Ke mana permintaan akan dikirim sebagai gantinya (bab 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Bab 12: Aturan Mentah",
+  "guide_field_fieldredirections": {
+    "message": "Pengalihan ke nilai dari sebuah parameter (bab 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Bab 13: Aturan Pengalihan",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> memblokir setiap permintaan yang cocok dengan Penyedia, saat <em>Izinkan pemblokiran domain</em> aktif.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Bab 14: Aturan Pengalihan Domain",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: ketika sebuah halaman itu sendiri dialihkan, tab akan membuka alamat baru.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Bab 15: Pengecualian",
+  "guide_field_methods": {
+    "message": "Hanya tangani metode HTTP ini, contohnya <code>[\"GET\"]</code>. Default: semua.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Bab 16: Aturan Pemasaran Rujukan",
+  "guide_field_resourcetypes": {
+    "message": "Hanya tangani tipe permintaan ini, contohnya <code>[\"main_frame\"]</code>. Default: tipe yang dipilih di pengaturan.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Bab 17: HTTP Metode",
+  "guide_field_history": {
+    "message": "<code>false</code> melewati Penyedia ketika sebuah halaman mengubah alamatnya sendiri dengan History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Bab 18: Jenis Sumber Daya Browser",
+  "guide_field_active": {
+    "message": "<code>false</code> mematikan Penyedia.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Bab 19: Praprosesor",
+  "guide_match_title": {
+    "message": "3. URL mana yang ditangani oleh Penyedia",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Bab 20: Diizinkan JSON Kombinasi",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> adalah daftar pola domain. Sebuah URL cocok jika salah satu dari pola berikut cocok:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kombinasi 1: Banyak Penyedia Dalam Satu File",
+  "guide_th_pattern": {
+    "message": "Pola",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kombinasi 2: Penyedia Default Global Plus",
+  "guide_th_matches": {
+    "message": "Cocok",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kombinasi 3: Penyedia domainPatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> dan setiap subdomain",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kombinasi 4: Penyedia urlPattern Dengan indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> pada akhiran publik apa pun (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kombinasi 5: domainPatterns dan urlPattern Bersama",
+  "guide_pat_path": {
+    "message": "host tersebut dan subdomainnya, ketika jalur dimulai dengan <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kombinasi 6: Aturan campuran[] Entri",
+  "guide_pat_star": {
+    "message": "sama dengan <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kombinasi 7: Aturan Di Dalam Objek Kanonik[]",
+  "guide_pat_start": {
+    "message": "URL yang dimulai tepat dengan teks ini",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kombinasi 8: Array Lama Ditambah aturan Kanonis[]",
+  "guide_pat_end": {
+    "message": "URL yang berakhir tepat dengan teks ini",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kombinasi 9: Metode dan Jenis Sumber Daya di Seluruh Penyedia",
+  "guide_pat_regex": {
+    "message": "URL lengkap, sebagai ekspresi reguler (huruf besar/kecil berpengaruh kecuali Anda menambahkan <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kombinasi 10: Jenis Permintaan Tingkat Aturan",
+  "guide_pat_contains": {
+    "message": "URL yang mengandung teks ini di mana saja",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kombinasi 11: Pengecualian Di Tempat Berbeda",
+  "guide_pat_all": {
+    "message": "setiap URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kombinasi 12: Aturan Pemblokiran Penyedia Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> menandai akhir dari nama host, atau pemisah seperti <code>/</code>, <code>?</code> atau <code>:</code>. <code>*</code> cocok dengan apa pun. Selain <code>/regex/</code>, pola mengabaikan huruf besar/kecil.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kombinasi 13: Aturan Pembersihan Penyedia Pengalihan Plus",
+  "guide_match_p3": {
+    "message": "<code>||</code> mewakili domain, sementara satu <code>|</code> mewakili bagian paling awal dari URL dan harus diikuti oleh skema seperti <code>https://</code>. <code>|example.com^</code> tidak akan pernah cocok, sehingga editor akan menolaknya.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kombinasi 14: Pengalihan Domain Ditambah Pengalihan Regex",
+  "guide_match_p4": {
+    "message": "Untuk mencocokkan dengan ekspresi reguler sebagai gantinya, gunakan <code>urlPattern</code>, dan tambahkan <code>indexPattern</code> agar Penyedia hanya diperiksa pada host tersebut:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kombinasi 15: Aturan Dinonaktifkan Atau Tidak Aktif",
+  "guide_match_p5": {
+    "message": "Sebuah Penyedia memiliki <code>domainPatterns</code> atau <code>urlPattern</code>, tidak pernah keduanya. Jika Anda membutuhkan kedua jenis pencocokan, buatlah dua Penyedia.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kombinasi 16: Contoh Penyedia Campuran Lengkap",
+  "guide_rules_title": {
+    "message": "4. Menghapus parameter",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Bab 21: Contoh Lengkap",
+  "guide_rules_p1": {
+    "message": "Setiap entri dalam <code>rules</code> menghapus parameter dari kueri (<code>?a=1</code>) dan dari fragmen (<code>#a=1</code>). Sebuah entri adalah salah satu dari:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Contoh 1: Pembersih Pelacak Dasar",
+  "guide_th_entry": {
+    "message": "Entri",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Contoh 2: Hapus Semua Parameter UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Contoh 3: Simpan Parameter yang Dibutuhkan Saat Login",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Contoh 4: Klik Pelacakan Pengalihan",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Contoh 5: Permintaan API Hanya Bersih",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Bab 22: Templat Salinan Cepat",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Penyedia Campuran JSON Panduan Format",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Panduan ini menjelaskan cara menulis data penyedia JSON yang dapat dibaca oleh <code>Linkumori extension</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Ini bukan panduan untuk kode JavaScript. Ini hanya berfokus pada bentuk JSON, format aturan, dan contoh yang dibutuhkan penulis aturan.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Panduan ini didasarkan pada perilaku runtime <code>clearurls.js</code> saat ini. Secara khusus, pencarian penyedia menggunakan kandidat bucket <code>providersByToken</code> dari <code>domainPatterns</code> atau <code>indexPattern</code>, dan pencocokan akhir masih berjalan melalui <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Bab 1: Bentuk Dasar JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> mengharapkan data penyedia dalam bentuk umum berikut:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Bagian yang penting adalah <code>providers</code>. Setiap kunci di dalam <code>providers</code> adalah nama penyedia.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Bab 2: Apa Itu Penyedia?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Penyedia adalah wadah runtime bernama untuk satu situs web, perusahaan, pelacak, kumpulan pola domain, atau regex URL. Nama penyedia adalah label/kunci; pencocokan dilakukan oleh <code>domainPatterns</code> atau <code>urlPattern</code>, bukan oleh nama penyedia.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Penyedia minimal:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Apa fungsinya:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Bab 3: Bidang Penyedia yang Dapat Anda Gunakan",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Bidang penyedia diterima oleh <code>clearurls.js</code>. Untuk pencocokan, tulis <code>domainPatterns</code> atau <code>urlPattern</code> dengan <code>indexPattern</code> opsional; jangan bergantung pada keduanya yang diperlukan secara bersamaan.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Arti sederhana:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON bidang",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Sumber",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Untuk apa Anda menulisnya",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Setel <code>false</code> untuk menonaktifkan penyedia ini.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon warisan dan ClearURLs inti v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Setel <code>true</code> untuk memblokir domain yang cocok, bukan hanya membersihkan.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon warisan dan ClearURLs inti v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Setel <code>true</code> untuk memaksa pengalihan halaman utama melalui tab browser.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Cara yang disarankan untuk mengetahui domain mana yang cocok dengan penyedia ini.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon warisan dan ClearURLs inti v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript string regex untuk pencocokan URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Petunjuk kecepatan opsional saat menggunakan <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon warisan dan ClearURLs inti v2 kanonik; <code>$removeparam</code> adalah tambahan Linkumori di sini",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Aturan penghapusan parameter normal dan aturan <code>$removeparam</code> penyedia lokal.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs warisan tambahan; objek bergaya kanonik di sini adalah tambahan Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Aturan yang mengedit keseluruhan URL teks.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs warisan tambahan; objek bergaya kanonik di sini adalah tambahan Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Aturan parameter rujukan/pemasaran opsional.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon lawas dan ClearURLs inti v2 kanonik; bentuk objek disini ada tambahan Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL aturan regex di mana penyedia ini tidak boleh dijalankan.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Aturan pola domain yang tidak boleh dijalankan oleh penyedia ini.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs warisan tambahan; objek bergaya kanonik di sini adalah tambahan Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Aturan pengalihan regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Aturan pengalihan pola domain.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon warisan dan ClearURLs inti v2 kanonik",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Hanya dijalankan untuk metode HTTP ini.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori tambahan",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Hanya dijalankan untuk jenis permintaan browser ini.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Bab 4: Mencocokkan Domain",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> adalah tambahan Linkumori dan lebih disukai oleh sebagian besar penyedia khusus. Di <code>clearurls.js</code>, <code>domainPatterns</code> yang tidak kosong digunakan untuk pencocokan sebelum <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Cocokkan Satu Domain Dan Semua Subdomain",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Cocok:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Tidak cocok:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Cocokkan Nama yang Sama Pada Sufiks Publik Apa Pun",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Dapat mencocokkan:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Cocokkan Subdomain",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Dapat mencocokkan:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Gunakan Lebih dari Satu Pola Domain",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Bab 5: Simbol Pola Domain",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Ini adalah simbol yang dapat Anda gunakan di <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Simbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Artinya",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Contoh",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Menghapus",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Cocokkan di batas domain.",
+  "guide_rules_name": {
+    "message": "nama parameter",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex nama",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "setiap parameter yang seluruh namanya cocok; <code>^…$</code> ditambahkan untuk Anda, dan huruf besar/kecil diabaikan",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Pemisah atau batas ujung.",
+  "guide_rules_filter": {
+    "message": "filter <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "lihat bab 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> dan <code>\"$removeparam=fbclid\"</code> menghapus hal yang sama. Gunakan nama biasa kecuali Anda membutuhkan sesuatu dari bab 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "karakter pengganti.",
+  "guide_rules_part_title": {
+    "message": "Aturan untuk bagian dari Penyedia",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Nama biasa berlaku untuk setiap URL yang cocok dengan Penyedia. Untuk menghapus parameter hanya pada beberapa di antaranya, letakkan pola di depan filter <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Di sini <code>qid</code> dihapus di setiap situs Amazon, <code>tag</code> hanya pada <code>amazon.de</code>, <code>sr</code> hanya pada <code>smile.amazon</code>, dan <code>ref_</code> hanya di bawah <code>/gp/</code>. Pola tersebut mempersempit pola Penyedia itu sendiri; pola tersebut tidak dapat memperluasnya.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Memulai atau mengakhiri jangkar.",
+  "guide_rp_title": {
+    "message": "5. filter $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Filter <code>$removeparam</code> memiliki bentuk seperti ini; bagian di dalam kurung bersifat opsional:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Nilai",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex literal.",
+  "guide_rp_p2": {
+    "message": "Karakter pertama dari nilai menentukan artinya:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filter",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Pola paling umum:",
+  "guide_rp_v_all": {
+    "message": "setiap parameter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Gunakan saat Anda ingin:",
+  "guide_rp_v_except": {
+    "message": "setiap parameter kecuali <code>ref</code> (juga berfungsi dengan <code>~/regex/</code> dan <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Bab 6: Mencocokkan URLs Dengan <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parameter yang namanya, atau <code>name=value</code>, cocok dengan ekspresi reguler; huruf besar/kecil berpengaruh kecuali Anda menambahkan <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Gunakan <code>urlPattern</code> hanya ketika pencocokan domain saja tidak cukup, seperti ketika penyedia harus mencocokkan jalur tertentu atau regex URL lengkap.",
+  "guide_rp_v_prefix": {
+    "message": "parameter yang namanya dimulai dengan <code>utm_</code>; huruf besar/kecil diabaikan",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Ini bisa cocok:",
+  "guide_rp_v_name": {
+    "message": "tepat parameter tersebut; huruf besar/kecil diabaikan kecuali Anda menambahkan <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> adalah warisan addon ClearURL dan sintaksis kanonik inti v2 ClearURL. Linkumori menambahkan <code>indexPattern</code> hanya sebagai petunjuk pencarian kandidat sehingga penyedia regex dapat ditemukan dengan token nama host lebih cepat.",
+  "guide_rp_options_title": {
+    "message": "Opsi",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Penting: <code>indexPattern</code> tidak menentukan apakah suatu penyedia cocok. Setelah pencarian kandidat, <code>clearurls.js</code> masih menguji <code>urlPattern</code> asli di <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Opsi muncul setelah nilai, dipisahkan oleh koma. Pisahkan beberapa nilai dari satu opsi dengan <code>|</code>, dan letakkan <code>~</code> di depan nilai untuk mengecualikannya:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Bab 7: Hapus Parameter Kueri Sederhana",
+  "guide_th_option": {
+    "message": "Opsi",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Masukkan nama parameter di <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "hanya pada halaman dari domain ini",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Hasil:",
+  "guide_rp_o_to": {
+    "message": "hanya untuk permintaan ke domain ini",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Hapus banyak parameter:",
+  "guide_rp_o_method": {
+    "message": "hanya untuk metode HTTP ini",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Hasil:",
+  "guide_rp_o_party": {
+    "message": "hanya untuk permintaan ke situs yang sama dengan halaman, atau hanya ke situs lain",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Bab 8: Menulis Objek Aturan",
+  "guide_rp_o_strict": {
+    "message": "sama, tetapi membandingkan host yang tepat alih-alih situs",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Alih-alih string biasa, aturan bisa berupa objek.",
+  "guide_rp_o_types": {
+    "message": "hanya untuk tipe permintaan ini; <code>~type</code> mengecualikan satu",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Gunakan ini saat Anda membutuhkan:",
+  "guide_rp_o_matchcase": {
+    "message": "nama parameter peka terhadap huruf besar-kecil",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ID aturan.",
+  "guide_rp_o_history": {
+    "message": "lewati filter ini ketika halaman mengubah alamatnya sendiri dengan History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Alias.",
+  "guide_rp_p4": {
+    "message": "Setiap opsi memiliki satu ejaan. Opsi yang kontradiktif, seperti <code>first-party,third-party</code>, akan ditolak.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Pengecualian.",
+  "guide_rp_keep_title": {
+    "message": "Menjaga parameter dengan @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Batasan jenis permintaan.",
+  "guide_rp_p5": {
+    "message": "Filter yang dimulai dengan <code>@@</code> menjaga parameter alih-alih menghapusnya. Di sini <code>ref</code> dihapus di mana saja kecuali di GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Tulis ulang perilaku.",
+  "guide_rp_p6": {
+    "message": "Filter <code>@@</code> juga mencakup permintaan yang dibuat oleh halaman yang cocok dengan Penyedia ini, bahkan ketika Penyedia lain menanganinya.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Contoh di dalam penyedia:",
+  "guide_raw_title": {
+    "message": "6. Aturan Mentah",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Hasil:",
+  "guide_raw_p1": {
+    "message": "Aturan mentah adalah ekspresi reguler yang dijalankan pada URL lengkap; setiap kecocokan akan dihapus. Gunakan untuk teks yang bukan parameter <code>name=value</code>, seperti segmen jalur <code>/ref=…</code> milik Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> pada objek aturan penyedia adalah tambahan Linkumori. <code>flags: \"i\"</code> menjadikan pencocokan huruf besar-kecil.",
+  "guide_raw_p2": {
+    "message": "Aturan mentah mengabaikan huruf besar-kecil dan mengganti setiap kecocokan. Dalam JSON, tulis setiap garis miring terbalik dua kali.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Bab 9: <code>$removeparam</code> Aturan",
+  "guide_raw_scope_title": {
+    "message": "Hanya pada beberapa URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Hapus Satu Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Hapus Semua Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Hapus Parameter Berdasarkan Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Hapus Semua Kecuali Satu Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Terapkan <code>$removeparam</code> Hanya Untuk Satu Domain",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Dibersihkan:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Tidak dibersihkan:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Tambahkan Batas Domain",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Kecualikan satu domain:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Tambahkan Batas Metode",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Hanya <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Bukan <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Bab 10: <code>$removeparam</code> Pengecualian",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Mulai aturan <code>$removeparam</code> dengan <code>@@</code> untuk membuat pengecualian.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Contoh pengecualian konteks:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Ini dapat melindungi <code>ei</code> pada subpermintaan yang dimulai oleh halaman <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Bab 11: Menulis Ulang Nilai Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Gunakan <code>action.type: \"rewrite\"</code> untuk mengganti nilai parameter yang cocok.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Di dalam penyedia:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Gunakan <code>§1§</code> ketika Anda ingin menggunakan kembali nilai saat ini:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Bab 12: Aturan Mentah",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Gunakan <code>rawRules</code> untuk mengedit seluruh teks URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Aturan mentah sederhana:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Aturan mentah objek:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Aturan penulisan ulang mentah:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Bab 13: Aturan Pengalihan",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Gunakan <code>redirections</code> untuk mengirim browser ke URL yang baru.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Jika <code>replacePattern</code> hilang, grup tangkapan pertama digunakan.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Bab 14: Aturan Pengalihan Domain",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> adalah tambahan Linkumori untuk pengalihan pola domain sederhana.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori tambahan — bentuk string:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori tambahan — bentuk benda:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Bab 15: Pengecualian",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> adalah ClearURLs addon lawas dan ClearURLs sintaksis kanonik inti v2. Linkumori juga menerima objek bergaya kanonik dalam susunan penyedia lama ini.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> adalah tambahan Linkumori untuk pengecualian pola domain.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Dilewati:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Bab 16: Aturan Pemasaran Rujukan",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> berfungsi seperti peraturan lapangan, tetapi dikontrol oleh pengaturan ekstensi untuk pemasaran rujukan.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Bab 17: HTTP Metode",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Gunakan <code>methods</code> untuk menjalankan penyedia hanya pada metode HTTP tertentu.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Ini berjalan pada:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Ini tidak berjalan pada:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Bab 18: Jenis Sumber Daya Browser",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> adalah tambahan Linkumori. Gunakan untuk menjalankan penyedia hanya pada jenis permintaan browser tertentu.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Nilai-nilai umum:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Bab 19: Praprosesor",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Praprosesor mengubah nilai yang diambil sebelum menggunakannya di <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Jenis yang didukung:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> dapat berupa:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Bab 20: Diizinkan JSON Kombinasi",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Bab ini menunjukkan Linkumori penyedia campuran JSON: ClearURLs array warisan tambahan, ClearURLs objek kanonik inti v2, dan Linkumori tambahan dapat ada bersama dalam satu file aturan.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kombinasi 1: Banyak Penyedia Dalam Satu File",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> adalah ClearURLs addon legacy dan ClearURLs core v2 sintaksis tingkat atas kanonik. Linkumori mempertahankan bentuk itu dan memungkinkan banyak penyedia di bawahnya.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Setiap penyedia dimuat secara terpisah.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kombinasi 2: Penyedia Default Global Plus",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> adalah ClearURLs sintaksis kanonik inti v2. Linkumori menerimanya di samping gaya lama <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Aturan dapat mewarisi nilai default ketika bidang tersebut tidak ada pada aturan.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kombinasi 3: <code>domainPatterns</code> Penyedia",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Ini adalah tambahan Linkumori. Kebanyakan penyedia Linkumori harus menggunakan formulir ini.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kombinasi 4: <code>urlPattern</code> Penyedia Dengan <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> adalah sintaks ClearURL hulu. <code>indexPattern</code> adalah petunjuk pencarian Linkumori untuk penyedia URL regex; itu harus menunjuk pada nama host yang cocok dengan regex.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> bersifat opsional, tetapi berguna untuk kecepatan. Ini mengindeks penyedia ke dalam wadah kandidat token nama host; itu tidak pernah menggantikan pertandingan <code>urlPattern</code> terakhir.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kombinasi 5: Jangan Mencampur <code>domainPatterns</code> Dan <code>urlPattern</code> Sebagai Persyaratan Gabungan",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Bentuk ini mungkin muncul pada data lama atau data tulisan tangan, namun hal ini tidak berarti kedua pencocokan harus lulus:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Perilaku <code>clearurls.js</code> saat ini:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Jika <code>domainPatterns</code> ada dan tidak kosong, <code>clearurls.js</code> menggunakannya untuk pencocokan penyedia dan mengabaikan <code>urlPattern</code> untuk penyedia tersebut. Jalur editor/impor khusus menolak penyedia yang berisi keduanya. Jika Anda memerlukan kondisi jalur, gunakan <code>urlPattern</code> dengan <code>indexPattern</code>, atau cakupan entri <code>$removeparam</code>/aturan individual di dalam <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kombinasi 6: Campuran <code>rules[]</code> Entri",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Di Linkumori, <code>rules</code> dapat berisi ClearURLs string lama, Linkumori <code>$removeparam</code> string, Linkumori <code>matchPattern</code> objek, dan ClearURLs objek kanonik inti v2 bersama-sama.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Keempat entri diterima.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kombinasi 7: Objek Kanonik Di Dalam <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Objek kanonik ClearURLs core v2 dapat mewakili berbagai jenis aturan. Dalam contoh Linkumori ini mereka ditempatkan di dalam penyedia yang menggunakan <code>domainPatterns</code>, yang hanya Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> mengurutkan berdasarkan arti:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kombinasi 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs array penyedia warisan tambahan masih berfungsi. Linkumori memungkinkan array tersebut berada di samping objek aturan kanonik inti v2 ClearURLs.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Ini sah. Mesin membaca semua array ini untuk penyedia yang sama.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kombinasi 9: Metode dan Jenis Sumber Daya di Seluruh Penyedia",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> adalah sintaksis hulu ClearURLs. <code>resourceTypes</code> adalah tambahan Linkumori. Keduanya berlaku untuk seluruh penyedia.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Baik <code>rules</code> maupun <code>rawRules</code> dibatasi oleh metode/jenis pencocokan penyedia.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kombinasi 10: Jenis Permintaan Tingkat Aturan",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs aturan kanonik inti v2 dapat menentukan tingkat aturan <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Tingkat penyedia <code>resourceTypes</code> mempersempit penyedia terlebih dahulu. Tingkat aturan <code>requestTypes</code> mempersempit aturan individual setelahnya.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kombinasi 11: Pengecualian Di Tempat Berbeda",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori memungkinkan Anda menggabungkan ClearURLs pengecualian penyedia, Linkumori pengecualian domain, ClearURLs pengecualian aturan inti v2, dan Linkumori pengecualian penyedia-lokal <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Arti sederhana:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kombinasi 12: Aturan Pemblokiran Penyedia Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> menandai penyedia sebagai pembatalan/pemblokiran.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Jika pemblokiran domain diaktifkan di pengaturan, permintaan yang cocok dapat diblokir. Aturan mungkin masih ada, namun pemblokiran adalah perilaku yang lebih kuat bagi penyedia tersebut.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kombinasi 13: Aturan Pembersihan Penyedia Pengalihan Plus",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Penyedia dapat berisi aturan pengalihan dan pembersihan.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Jika pengalihan cocok, pengalihan dikembalikan terlebih dahulu.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kombinasi 14: Pengalihan Domain Ditambah Pengalihan Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Keduanya bisa ada dalam satu penyedia.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Pengalihan regex diperiksa terlebih dahulu. Pengalihan domain diperiksa jika tidak ada pengalihan regex yang cocok.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kombinasi 15: Aturan Dinonaktifkan Atau Tidak Aktif",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Penyedia bisa tidak aktif:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Aturan bisa tidak aktif:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Penyedia yang tidak aktif dan aturan yang tidak aktif diabaikan.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kombinasi 16: Contoh Penyedia Campuran Lengkap",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Contoh Linkumori ini sengaja menggabungkan sebagian besar fitur penyedia yang didukung: ClearURLs array warisan addon, ClearURLs objek aturan kanonik inti v2, dan fitur pencocokan khusus dan pola domain Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Ini valid Linkumori penyedia campuran JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Bab 21: Contoh Lengkap",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Contoh 1: Pembersih Pelacak Dasar",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Contoh 2: Hapus Semua Parameter UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Contoh 3: Simpan Parameter yang Dibutuhkan Saat Login",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Contoh 4: Klik Pelacakan Pengalihan",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Contoh 5: Permintaan API Hanya Bersih",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Bab 22: Templat Salinan Cepat",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Hapus satu parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Hapus banyak parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Gunakan <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Hapus semua parameter <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Tambahkan pengecualian:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Cocokkan domain:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Alihkan pelacak URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Aturan mentah dapat mengambil pola dan opsi dari filter <code>$removeparam</code>, dengan <code>rawrule=</code> di akhir. Segala sesuatu setelah <code>rawrule=</code> adalah ekspresi reguler:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Pola dan opsi menentukan di mana aturan dijalankan; ekspresi reguler tetap menjadi hal yang dihapus. <code>match-case</code> membuatnya peka terhadap huruf besar-kecil.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Menghentikan aturan mentah pada beberapa URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Entri yang dimulai dengan <code>@@</code> mencegah Aturan Mentah berjalan jika polanya cocok. Berikan Aturan Mentah sebuah <code>id</code> dan beri nama dengan <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Jika tidak ada apa pun setelah <code>rawrule=</code> dan tidak ada <code>targetId</code>, entri tersebut menghentikan setiap Aturan Mentah dari Penyedia pada URL tersebut. Untuk melewati seluruh Penyedia, gunakan <code>exceptions</code> sebagai gantinya.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Pengecualian",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Jika sebuah URL cocok dengan entri di <code>exceptions</code>, tidak ada aturan Penyedia yang berjalan. Sebuah entri adalah ekspresi reguler, atau pola domain yang dimulai dengan <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Pengecualian mengabaikan huruf besar/kecil.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Pengalihan",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Aturan Pengalihan melewati halaman pelacakan dengan langsung menuju tujuan asli. Aturan ini hanya berjalan saat <em>Aktifkan Bypass Pengalihan Pihak Ketiga</em> aktif.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Pengalihan ke bagian dari URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Entri di <code>redirections</code> adalah ekspresi reguler dengan tepat satu grup penangkap, <code>( … )</code>. Permintaan akan dikirim ke apa yang ditangkap oleh grup tersebut, dalam bentuk URL-decoded. Tulis grup lainnya sebagai <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Pengalihan ke alamat tetap",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Entri yang dimulai dengan <code>|</code> mengirim setiap URL yang cocok ke satu alamat:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Pengalihan ke nilai parameter",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> menamai parameter yang menyimpan tujuan, sehingga ekspresi reguler tidak diperlukan. Ini menggunakan entri yang sama dengan <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Parameter pertama yang cocok dan memiliki nilai akan dimenangkan. Sebuah pengalihan menghentikan semua pemrosesan lain untuk permintaan tersebut.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Objek aturan",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Setiap entri dapat berupa objek alih-alih string. Gunakan objek ketika sebuah aturan membutuhkan id, harus dimulai dalam keadaan nonaktif, harus menulis ulang alih-alih menghapus, atau hanya boleh berjalan dalam beberapa kasus:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Kunci",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "teks yang akan Anda tulis sebagai entri biasa",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "nama stabil (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) yang digunakan untuk mengaktifkan dan menonaktifkan aturan",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "id aturan sebelumnya, sehingga aturan yang Anda nonaktifkan tetap nonaktif setelah penggantian nama",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "tulis ulang alih-alih hapus; <code>§1§</code>, <code>§2§</code>, … adalah nilai yang ditangkap",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "ubah nilai yang ditangkap terlebih dahulu",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "hanya untuk tipe permintaan ini, contohnya <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL di mana aturan ini tidak berjalan",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "flag regular expression, sebagai string (default <code>i</code>; <code>gi</code> di <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "jalankan aturan lebih awal atau lebih lambat",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: aturan di <code>rules</code> dihitung sebagai aturan pemasaran rujukan",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: lewati aturan ini ketika halaman mengubah alamatnya sendiri dengan History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: aturan dimulai dalam keadaan nonaktif",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "teks bebas",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "hanya pada entri <code>@@…$rawrule=</code>: Aturan Mentah yang dihentikannya",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Menulis ulang alih-alih menghapus",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Dengan <code>replacePattern</code>, aturan dalam <code>rules</code> mempertahankan parameter dan mengganti nilainya, yaitu <code>§1§</code>. Dalam <code>rawRules</code> dan <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … adalah grup penangkapan:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocessor",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Preprocessor mengubah nilai yang ditangkap sebelum <code>replacePattern</code> menggunakannya. <code>inputs</code> adalah <code>\"all\"</code> atau daftar nomor grup:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Tipenya adalah <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> dan <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID Aturan",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Setiap aturan memiliki ID. Aturan tanpa <code>id</code> akan mendapatkan satu dari daftar dan teksnya: <code>\"utm_source\"</code> dalam <code>rules</code> menjadi <code>field-utm-source</code>. Jika dua aturan mendapatkan ID yang sama, keduanya akan mendapatkan hash pendek di bagian akhir.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "ID yang dihasilkan berubah ketika teks aturan berubah. Berikan aturan <code>id</code> sendiri jika aturan tersebut harus mempertahankan pengaturan on/off melalui pengeditan.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Menjalankan aturan lebih awal atau lebih lambat",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Aturan Mentah biasanya berjalan lebih dulu, kemudian <code>rules</code> dan <code>referralMarketing</code>. Aturan dengan <code>order</code> berjalan sebelum aturan tanpa itu, dimulai dari yang terendah. Di sini token diganti terlebih dahulu, lalu dihapus:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> bekerja di <code>rules</code>, <code>rawRules</code> dan <code>referralMarketing</code>, tetapi tidak pada filter <code>$removeparam</code>, yang selalu berjalan terakhir.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Pemasaran rujukan",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> mengambil entri yang sama dengan <code>rules</code>. Entri tersebut dilewati saat <em>Izinkan pemasaran rujukan</em> aktif, sehingga tautan afiliasi tetap berfungsi jika Anda menginginkannya:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Sebuah aturan dapat tetap berada di <code>rules</code> dan tetap dihitung sebagai pemasaran rujukan, dengan <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metode dan tipe permintaan",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Ini mempersempit kapan Penyedia atau aturan berjalan:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "perilaku clearurls.js: jika domainPatterns ada dan tidak kosong, Linkumori menggunakan domainPatterns untuk pencocokan penyedia. urlPattern hanya digunakan ketika domainPatterns hilang atau kosong. Jalur editor/impor khusus menolak bentuk pencocokan campuran ini, jadi gunakan hanya untuk memahami data lama.",
+  "guide_req_methods": {
+    "message": "Metode HTTP yang ditangani Penyedia",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "tipe permintaan yang ditangani Penyedia",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "tipe permintaan yang ditangani satu objek aturan",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "hal yang sama untuk satu filter <code>$removeparam</code> atau Aturan Mentah",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Tipe permintaan menggunakan nama browser: <code>main_frame</code> (halaman), <code>sub_frame</code> (frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> dan seterusnya. Opsi filter menyebut dua yang pertama sebagai <code>document</code> dan <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Bagaimana URL diproses",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Untuk setiap Penyedia yang cocok dengan URL dan mengizinkan permintaan:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: jika ada yang cocok, Penyedia akan dilewati.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, kemudian <code>fieldRedirections</code>: kecocokan akan mengalihkan permintaan, dan tidak ada hal lain yang dijalankan.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: permintaan diblokir.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> dijalankan pada URL lengkap.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> dan <code>referralMarketing</code> menghapus parameter.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Filter <code>$removeparam</code> dijalankan, kecuali jika filter <code>@@</code> mempertahankan parameter tersebut.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Penyedia pertama yang mengubah, mengalihkan, atau memblokir permintaan menentukan hasilnya. URL baru kemudian melewati langkah-langkah yang sama lagi.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Contoh lengkap",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Bersihkan satu toko",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Menghapus parameter pelacakan dan id afiliasi pada satu toko, dan membiarkan halaman checkout-nya tetap apa adanya:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Hapus parameter UTM di mana saja",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Pola <code>*</code> cocok dengan setiap URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Lewati pelacak klik",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Mengirim tautan melalui pelacak klik langsung ke tujuannya, yang berada di parameter <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Simpan parameter pada satu halaman",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Menghapus <code>ref</code> di mana saja di situs kecuali pada halaman login, yang membutuhkannya:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Memeriksa aturan Anda",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Editor Aturan Kustom memeriksa aturan saat Anda menyimpan atau mengimpornya. Selain JSON yang rusak dan ekspresi reguler yang tidak valid, editor ini menolak aturan yang dapat dimuat tetapi secara diam-diam melakukan hal yang salah, seperti:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> dan <code>urlPattern</code> pada satu Penyedia",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "pola dengan satu <code>|</code> dan tanpa skema, seperti <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "Pengalihan ekspresi reguler tanpa tepat satu grup penangkapan",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "bidang, kunci, dan opsi yang tidak dikenal",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> atau <code>referralMarketing</code> di mana itu tidak akan melakukan apa pun",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "entri <code>@@…$rawrule=</code> yang tidak menghentikan Aturan Mentah apa pun",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Jika penyimpanan gagal, pesan tersebut akan menyebutkan Penyedia, daftar, dan entri tersebut.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

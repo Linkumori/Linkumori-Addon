@@ -4727,1688 +4727,704 @@
     "message": "تتوفر عناصر تحكم معرف القاعدة بمجرد أن يكون الموفر JSON صالحًا.",
     "description": "حالة JSON غير صالحة لعناصر تحكم معرف قاعدة الموفر"
   },
-  "guide_0001": {
-    "message": "Linkumori ملحق – توثيق القواعد",
+  "guide_page_title": {
+    "message": "Linkumori — دليل القواعد",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "الموضوع",
+  "guide_theme_label": {
+    "message": "المظهر",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "تنسيق الموفر JSON",
+  "guide_toc_label": {
+    "message": "المحتويات",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori مقدم JSON",
+  "guide_theme_midnight": {
+    "message": "منتصف الليل",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "الفصل الأول: الشكل الأساسي JSON",
+  "guide_theme_light": {
+    "message": "فاتح",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "الفصل الثاني: ما هو المزود؟",
+  "guide_theme_icecold": {
+    "message": "جليدي",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "الفصل 3: حقول الموفر التي يمكنك استخدامها",
+  "guide_theme_zen_grey": {
+    "message": "رمادي هادئ",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "الفصل 4: مطابقة المجالات",
+  "guide_theme_sunset": {
+    "message": "غروب الشمس",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "مطابقة مجال واحد وجميع النطاقات الفرعية",
+  "guide_title": {
+    "message": "كتابة قواعد Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "تطابق نفس الاسم على أي لاحقة عامة",
+  "guide_intro_1": {
+    "message": "يقوم Linkumori بتنظيف الـ URLs باستخدام القواعد. يوضح هذا الدليل كيفية كتابتها، بدءاً من القاعدة الأولى وصولاً إلى كل خيار، مع أمثلة يمكنك نسخها.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "مطابقة النطاقات الفرعية",
+  "guide_intro_2": {
+    "message": "القواعد هي JSON. تكتبها في محرر القواعد مخصصة، والذي يقوم بفحصها عند الحفظ. تستخدم قائمة القواعد المدمجة وقوائم القواعد البعيدة نفس التنسيق.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "استخدم أكثر من نمط مجال واحد",
+  "guide_file_title": {
+    "message": "1. ملف القواعد",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "الفصل الخامس: رموز نمط المجال",
+  "guide_file_p1": {
+    "message": "ملف القواعد هو كائن JSON واحد. يقوم كائن <code>providers</code> الخاص به بربط اسم من اختيارك بـ المزود:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "الفصل السادس: مطابقة URLs مع urlPattern",
+  "guide_file_p2": {
+    "message": "يحدد المزود أي URLs يتعامل معها وماذا يفعل بها. هذا المزود يزيل <code>utm_source</code> و <code>utm_medium</code> من كل URL على <code>example.com</code> ونطاقاته الفرعية:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "الفصل 7: إزالة معلمات الاستعلام البسيط",
+  "guide_file_p3": {
+    "message": "الاسم هو مجرد تسمية. يتم تحديد الـ URLs التي يتعامل معها المزود بواسطة <code>domainPatterns</code> أو <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "الفصل الثامن: كتابة كائن القاعدة",
+  "guide_fields_title": {
+    "message": "2. حقول المزود",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "الفصل التاسع: قواعد $removeparam",
+  "guide_th_field": {
+    "message": "الحقل",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "إزالة معلمة واحدة",
+  "guide_th_meaning": {
+    "message": "ماذا يفعل",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "إزالة كافة المعلمات",
+  "guide_field_domainpatterns": {
+    "message": "عناوين URL التي يتعامل معها المزود، كأنماط نطاقات (الفصل 3). استخدم هذا أو <code>urlPattern</code>، ولا تستخدم كليهما أبداً.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "إزالة المعلمات بواسطة Regex",
+  "guide_field_urlpattern": {
+    "message": "عناوين URL التي يتعامل معها المزود، كتعبير نمطي يتم مطابقته مع عنوان URL الكامل. يتم تجاهل حالة الأحرف.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "إزالة الكل باستثناء معلمة واحدة",
+  "guide_field_indexpattern": {
+    "message": "فقط مع <code>urlPattern</code>: تلميحات المضيف مثل <code>||example.com^</code>، بحيث يتم فحص المزود فقط لهذه المضيفات. بدونها، يتم فحص المزود مقابل كل عنوان URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "قم بتطبيق $removeparam على مجال واحد فقط",
+  "guide_field_rules": {
+    "message": "المعلمات المراد إزالتها (الفصلان 4 و 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "إضافة حدود المجال",
+  "guide_field_referral": {
+    "message": "معلمات الإحالة والتسويق بالعمولة المراد إزالتها. يتم تخطيها عندما يكون <em>السماح بتسويق الإحالة</em> مفعلاً (الفصل 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "إضافة حدود الطريقة",
+  "guide_field_rawrules": {
+    "message": "تعبيرات نمطية يتم تشغيلها على عنوان URL الكامل؛ يتم حذف كل تطابق (الفصل 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "الفصل 10: استثناءات $removeparam",
+  "guide_field_exceptions": {
+    "message": "عناوين URL التي يتركها المزود دون تغيير (الفصل 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "الفصل 11: إعادة كتابة قيم المعلمات",
+  "guide_field_redirections": {
+    "message": "إلى أين يتم إرسال الطلب بدلاً من ذلك (الفصل 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "الفصل 12: القواعد الخام",
+  "guide_field_fieldredirections": {
+    "message": "إعادة التوجيه إلى قيمة معلمة ما (الفصل 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "الفصل 13: إعادة توجيه القواعد",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> يحظر كل طلب يطابقه المزود، بينما يكون <em>السماح بحظر النطاق</em> مفعلاً.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "الفصل 14: قواعد إعادة توجيه المجال",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: عندما يتم إعادة توجيه الصفحة نفسها، يفتح التبويب العنوان الجديد.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "الفصل الخامس عشر: الاستثناءات",
+  "guide_field_methods": {
+    "message": "التعامل فقط مع طرق HTTP هذه، على سبيل المثال <code>[\"GET\"]</code>. الافتراضي: الكل.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "الفصل السادس عشر: قواعد تسويق الإحالة",
+  "guide_field_resourcetypes": {
+    "message": "التعامل فقط مع أنواع الطلبات هذه، على سبيل المثال <code>[\"main_frame\"]</code>. الافتراضي: الأنواع المختارة في الإعدادات.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "الفصل 17: HTTP طرق",
+  "guide_field_history": {
+    "message": "<code>false</code> يتخطى المزود عندما تقوم الصفحة بتغيير عنوانها الخاص باستخدام History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "الفصل الثامن عشر: أنواع موارد المتصفح",
+  "guide_field_active": {
+    "message": "<code>false</code> يقوم بإيقاف تشغيل المزود.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "الفصل 19: المعالجات الأولية",
+  "guide_match_title": {
+    "message": "3. أي URLs يتعامل معها المزود",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "الفصل 20: المجموعات المسموح بها JSON",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> هي قائمة بأنماط النطاقات. يتطابق URL إذا تطابق أي منها:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "المجموعة 1: العديد من مقدمي الخدمات في ملف واحد",
+  "guide_th_pattern": {
+    "message": "النمط",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "المجموعة 2: الافتراضيات العالمية بالإضافة إلى مقدمي الخدمات",
+  "guide_th_matches": {
+    "message": "يتطابق مع",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "المجموعة 3: موفر domainPatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> وكل نطاق فرعي",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "المجموعة 4: موفر urlPattern مع IndexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> على أي لاحقة عامة (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "المجموعة 5: domainPatterns وurlPattern معًا",
+  "guide_pat_path": {
+    "message": "ذلك المضيف ونطاقاته الفرعية، عندما يبدأ المسار بـ <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "المجموعة 6: القواعد المختلطة[] الإدخالات",
+  "guide_pat_star": {
+    "message": "نفس <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "المجموعة 7: الكائنات الأساسية داخل القواعد[]",
+  "guide_pat_start": {
+    "message": "URLs التي تبدأ بهذا النص بالضبط",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "المجموعة 8: المصفوفات القديمة بالإضافة إلى القواعد الأساسية[]",
+  "guide_pat_end": {
+    "message": "URLs التي تنتهي بهذا النص بالضبط",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "المجموعة 9: الأساليب وأنواع الموارد على مستوى الموفر",
+  "guide_pat_regex": {
+    "message": "URL الكامل، كتعبير نمطي (حالة الأحرف مهمة ما لم تضف <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "المجموعة 10: أنواع الطلبات على مستوى القاعدة",
+  "guide_pat_contains": {
+    "message": "URLs التي تحتوي على هذا النص في أي مكان",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "المجموعة 11: الاستثناءات في أماكن مختلفة",
+  "guide_pat_all": {
+    "message": "كل URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "المجموعة 12: حظر قواعد الموفر الإضافي",
+  "guide_match_p2": {
+    "message": "<code>^</code> يحدد نهاية اسم المضيف، أو فاصل مثل <code>/</code> أو <code>?</code> أو <code>:</code>. <code>*</code> يتطابق مع أي شيء. باستثناء <code>/regex/</code>، تتجاهل الأنماط حالة الأحرف.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "المجموعة 13: قواعد إعادة توجيه الموفر بالإضافة إلى التنظيف",
+  "guide_match_p3": {
+    "message": "<code>||</code> يرمز إلى نطاق، بينما <code>|</code> مفرد يرمز إلى بداية URL تماماً ويجب أن يتبعه مخطط مثل <code>https://</code>. <code>|example.com^</code> لا يمكن أن يتطابق أبداً، لذا يرفضه المحرر.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "المجموعة 14: عمليات إعادة توجيه المجال بالإضافة إلى عمليات إعادة توجيه Regex",
+  "guide_match_p4": {
+    "message": "للمطابقة باستخدام تعبير نمطي بدلاً من ذلك، استخدم <code>urlPattern</code>، وأضف <code>indexPattern</code> بحيث يتم التحقق من المزود على تلك المضيفات فقط:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "المجموعة 15: القواعد المعطلة أو غير النشطة",
+  "guide_match_p5": {
+    "message": "يمتلك المزود إما <code>domainPatterns</code> أو <code>urlPattern</code>، وليس كليهما أبداً. إذا كنت بحاجة إلى كلا النوعين من المطابقة، فقم بإنشاء مزودين.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "المجموعة 16: مثال موفر مختلط كامل",
+  "guide_rules_title": {
+    "message": "4. إزالة المعلمات",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "الفصل 21: أمثلة كاملة",
+  "guide_rules_p1": {
+    "message": "كل إدخال في <code>rules</code> يزيل المعلمات من الاستعلام (<code>?a=1</code>) ومن الجزء المكمل (<code>#a=1</code>). الإدخال يكون أحد ما يلي:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "مثال 1: منظف التعقب الأساسي",
+  "guide_th_entry": {
+    "message": "الإدخال",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "المثال 2: إزالة كافة معلمات UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "مثال 3: احتفظ بالمعلمة المطلوبة عند تسجيل الدخول",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "المثال 4: إعادة توجيه نقرات التتبع",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "المثال 5: تنظيف طلبات واجهة برمجة التطبيقات (API) فقط",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "الفصل 22: قوالب النسخ السريع",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori دليل التنسيق JSON موفر مختلط",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "يشرح هذا الدليل كيفية كتابة بيانات الموفر JSON التي يمكن لـ <code>Linkumori extension</code> قراءتها.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "إنه ليس دليلاً لرمز JavaScript. فهو يركز فقط على أشكال JSON وتنسيقات القواعد والأمثلة التي يحتاجها مؤلفو القواعد.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "يعتمد هذا الدليل على سلوك وقت التشغيل <code>clearurls.js</code> الحالي. على وجه الخصوص، يستخدم بحث الموفر مجموعات مرشحة <code>providersByToken</code> من <code>domainPatterns</code> أو <code>indexPattern</code>، ولا تزال المطابقة النهائية تعمل من خلال <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "الفصل الأول: الشكل الأساسي JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> يتوقع بيانات الموفر بهذا الشكل العام:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "الجزء المهم هو <code>providers</code>. كل مفتاح داخل <code>providers</code> هو اسم الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "الفصل الثاني: ما هو المزود؟",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "الموفر عبارة عن حاوية وقت تشغيل واحدة مسماة لموقع ويب واحد، أو شركة، أو متتبع، أو مجموعة أنماط مجال، أو regex لعنوان URL. اسم الموفر هو تسمية/مفتاح؛ تتم المطابقة بواسطة <code>domainPatterns</code> أو <code>urlPattern</code>، وليس بواسطة اسم الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "الحد الأدنى من المزود:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "ماذا يفعل هذا:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "الفصل 3: حقول الموفر التي يمكنك استخدامها",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "تم قبول حقول الموفر بواسطة <code>clearurls.js</code>. للمطابقة، قم بتأليف إما <code>domainPatterns</code> أو <code>urlPattern</code> مع <code>indexPattern</code> الاختياري؛ لا تعتمد على كونهما مطلوبين معًا.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "معنى عادي:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON الحقل",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "المصدر",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "لما تكتبه",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "قم بتعيين <code>false</code> لتعطيل هذا المزود.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "قم بتعيين <code>true</code> لحظر المجالات المطابقة بدلاً من التنظيف فقط.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "قم بتعيين <code>true</code> لفرض عمليات إعادة التوجيه للصفحة الرئيسية من خلال علامة تبويب المتصفح.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "الطريقة الموصى بها لتحديد النطاقات التي يطابقها هذا الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript سلسلة regex لمطابقة URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "تلميح اختياري للسرعة عند استخدام <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي؛ <code>$removeparam</code> هو Linkumori إضافة هنا",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "قواعد إزالة المعلمات العادية وقواعد <code>$removeparam</code> الخاصة بالموفر المحلي.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs تراث الملحق; الكائنات ذات النمط المتعارف عليه هنا هي إضافة Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "القواعد التي تقوم بتحرير النص URL بالكامل.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs تراث الملحق; الكائنات ذات النمط المتعارف عليه هنا هي إضافة Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "قواعد معلمات الإحالة/التسويق الاختيارية.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي؛ أشكال الكائنات هنا هي إضافة Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL قواعد regex حيث لا ينبغي تشغيل هذا الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "قواعد نمط المجال حيث لا ينبغي تشغيل هذا الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs تراث الملحق; الكائنات ذات النمط المتعارف عليه هنا هي إضافة Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "قواعد إعادة توجيه Regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "قواعد إعادة توجيه نمط المجال.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs ملحق تراث و ClearURLs الأساسية v2 الكنسي",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "قم بالتشغيل فقط لهذه الطرق HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori إضافة",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "يتم التشغيل فقط لأنواع طلبات المتصفح هذه.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "الفصل 4: مطابقة المجالات",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> هي إضافة Linkumori وهي مفضلة لدى معظم موفري الخدمة المخصصين. في <code>clearurls.js</code>، يتم استخدام <code>domainPatterns</code> غير الفارغ للمطابقة قبل <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "مطابقة مجال واحد وجميع النطاقات الفرعية",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "المباريات:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "لا يتطابق:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "تطابق نفس الاسم على أي لاحقة عامة",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "يمكن أن تتطابق:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "مطابقة النطاقات الفرعية",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "يمكن أن تتطابق:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "استخدم أكثر من نمط مجال واحد",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "الفصل الخامس: رموز نمط المجال",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "هذه هي الرموز التي يمكنك استخدامها في <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "الرمز",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "معنى",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "مثال",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "يزيل",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "تطابق عند حدود المجال.",
+  "guide_rules_name": {
+    "message": "اسم معلمة",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "تعبير نمطي للاسم",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "كل معلمة يتطابق اسمها بالكامل؛ يتم إضافة <code>^…$</code> تلقائياً، ويتم تجاهل حالة الأحرف",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "الفاصل أو الحد النهائي.",
+  "guide_rules_filter": {
+    "message": "فلتر <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "راجع الفصل 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "يقوم <code>\"fbclid\"</code> و <code>\"$removeparam=fbclid\"</code> بإزالة الشيء نفسه. استخدم الاسم البسيط ما لم تكن بحاجة إلى شيء من الفصل 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "حرف البدل.",
+  "guide_rules_part_title": {
+    "message": "قواعد لجزء من المزود",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "ينطبق الاسم البسيط على كل URL يطابقه المزود. لإزالة معلمة من بعضها فقط، ضع نمطاً أمام فلتر <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "هنا يتم إزالة <code>qid</code> في كل موقع Amazon، و <code>tag</code> فقط في <code>amazon.de</code>، و <code>sr</code> فقط في <code>smile.amazon</code>، و <code>ref_</code> فقط تحت <code>/gp/</code>. يضيق النمط من أنماط المزود الخاصة؛ ولا يمكنه توسيعها.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "بداية أو نهاية المرساة.",
+  "guide_rp_title": {
+    "message": "5. مرشحات $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "يتخذ مرشح <code>$removeparam</code> هذا الشكل؛ الأجزاء الموجودة بين الأقواس اختيارية:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "القيمة",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript التعبير العادي الحرفي.",
+  "guide_rp_p2": {
+    "message": "يحدد الحرف الأول من القيمة معناها:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "مرشح",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "النمط الأكثر شيوعًا:",
+  "guide_rp_v_all": {
+    "message": "كل معلمة",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "استخدمه عندما تريد:",
+  "guide_rp_v_except": {
+    "message": "كل معلمة باستثناء <code>ref</code> (يعمل أيضاً مع <code>~/regex/</code> و <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "الفصل السادس: مطابقة URLs مع <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "المعلمات التي يتطابق اسمها، أو <code>name=value</code>، مع التعبير النمطي؛ حالة الأحرف مهمة ما لم تضف <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "استخدم <code>urlPattern</code> فقط عندما لا تكون مطابقة النطاق كافية، على سبيل المثال عندما يجب على الموفر مطابقة مسار محدد أو التعبير العادي الكامل لعنوان URL.",
+  "guide_rp_v_prefix": {
+    "message": "المعلمات التي يبدأ اسمها بـ <code>utm_</code>؛ يتم تجاهل حالة الأحرف",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "يمكن أن يتطابق هذا مع:",
+  "guide_rp_v_name": {
+    "message": "تلك المعلمة بالضبط؛ يتم تجاهل حالة الأحرف ما لم تضف <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> هو ملحق تراث ClearURLs وبناء جملة ClearURLs الأساسي v2 الأساسي. يضيف Linkumori <code>indexPattern</code> فقط كتلميح بحث عن مرشح بحيث يمكن العثور على موفري regex من خلال الرموز المميزة لاسم المضيف بشكل أسرع.",
+  "guide_rp_options_title": {
+    "message": "خيارات",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "هام: لا يقرر <code>indexPattern</code> ما إذا كان الموفر مطابقًا أم لا. بعد البحث عن المرشح، لا يزال <code>clearurls.js</code> يختبر <code>urlPattern</code> الحقيقي في <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "تأتي الخيارات بعد القيمة، مفصولة بفاصلات. افصل بين عدة قيم لخيار واحد باستخدام <code>|</code>، وضع <code>~</code> أمام القيمة لاستثنائها:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "الفصل 7: إزالة معلمات الاستعلام البسيط",
+  "guide_th_option": {
+    "message": "خيار",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "ضع أسماء المعلمات في <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "فقط في الصفحات التابعة لهذه النطاقات",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "النتيجة:",
+  "guide_rp_o_to": {
+    "message": "فقط للطلبات الموجهة إلى هذه النطاقات",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "إزالة العديد من المعلمات:",
+  "guide_rp_o_method": {
+    "message": "فقط لطرق HTTP هذه",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "النتيجة:",
+  "guide_rp_o_party": {
+    "message": "فقط للطلبات الموجهة إلى نفس موقع الصفحة، أو فقط إلى مواقع أخرى",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "الفصل الثامن: كتابة كائن القاعدة",
+  "guide_rp_o_strict": {
+    "message": "نفس الشيء، ولكن مع مقارنة المضيف (host) بدقة بدلاً من الموقع",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "بدلاً من سلسلة عادية، يمكن أن تكون القاعدة كائنًا.",
+  "guide_rp_o_types": {
+    "message": "فقط لأنواع الطلبات هذه؛ <code>~type</code> يستثني نوعاً واحداً",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "استخدم هذا عندما تحتاج:",
+  "guide_rp_o_matchcase": {
+    "message": "أسماء المعلمات (parameters) حساسة لحالة الأحرف",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "معرف القاعدة.",
+  "guide_rp_o_history": {
+    "message": "تخطي هذا الفلتر عندما تقوم الصفحة بتغيير عنوانها الخاص باستخدام History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "الأسماء المستعارة.",
+  "guide_rp_p4": {
+    "message": "كل خيار له تهجئة واحدة. الخيارات المتناقضة، مثل <code>first-party,third-party</code>، يتم رفضها.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "الاستثناءات.",
+  "guide_rp_keep_title": {
+    "message": "الاحتفاظ بمعلمة باستخدام @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "حدود نوع الطلب.",
+  "guide_rp_p5": {
+    "message": "الفلتر الذي يبدأ بـ <code>@@</code> يحتفظ بالمعلمة بدلاً من إزالتها. هنا يتم إزالة <code>ref</code> في كل مكان باستثناء GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "إعادة كتابة السلوك.",
+  "guide_rp_p6": {
+    "message": "فلتر <code>@@</code> يغطي أيضاً الطلبات التي تقوم بها صفحة يطابقها هذا المزود، حتى عندما يتولى مزود آخر معالجتها.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "مثال داخل الموفر:",
+  "guide_raw_title": {
+    "message": "6. القواعد الخام",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "النتيجة:",
+  "guide_raw_p1": {
+    "message": "القاعدة الخام هي تعبير نمطي (regular expression) يتم تشغيله على URL الكامل؛ ويتم حذف كل تطابق. استخدمها للنصوص التي ليست معلمة <code>name=value</code>، مثل جزء المسار <code>/ref=…</code> في Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> على كائنات قاعدة الموفر هي إضافة Linkumori. <code>flags: \"i\"</code> يجعل المطابقة غير حساسة لحالة الأحرف.",
+  "guide_raw_p2": {
+    "message": "القواعد الخام تتجاهل حالة الأحرف وتستبدل كل تطابق. في JSON، اكتب كل شرطة مائلة عكسية مرتين.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "الفصل 9: <code>$removeparam</code> القواعد",
+  "guide_raw_scope_title": {
+    "message": "فقط في بعض عناوين URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "إزالة معلمة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "إزالة كافة المعلمات",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "إزالة المعلمات بواسطة Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "إزالة الكل باستثناء معلمة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "تطبيق <code>$removeparam</code> فقط على مجال واحد",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "تنظيفها:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "لم يتم تنظيفها:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "إضافة حدود المجال",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "استبعاد مجال واحد:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "إضافة حدود الطريقة",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "فقط <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "ليس <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "الفصل 10: <code>$removeparam</code> استثناءات",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "ابدأ قاعدة <code>$removeparam</code> بـ <code>@@</code> لإجراء استثناء.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "مثال استثناء السياق:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "يمكن أن يحمي هذا <code>ei</code> على الطلبات الفرعية التي تبدأ بصفحة <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "الفصل 11: إعادة كتابة قيم المعلمات",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "استخدم <code>action.type: \"rewrite\"</code> لاستبدال قيمة المعلمة المطابقة.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "داخل مزود:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "استخدم <code>§1§</code> عندما تريد إعادة استخدام القيمة الحالية:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "الفصل 12: القواعد الخام",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "استخدم <code>rawRules</code> لتحرير النص URL بالكامل.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "قاعدة خام بسيطة:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "القاعدة الأولية للكائن:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "قاعدة إعادة الكتابة الأولية:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "الفصل 13: إعادة توجيه القواعد",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "استخدم <code>redirections</code> لإرسال المتصفح إلى URL الجديد.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "إذا كان <code>replacePattern</code> مفقودًا، فسيتم استخدام مجموعة الالتقاط الأولى.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "الفصل 14: قواعد إعادة توجيه المجال",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> عبارة عن إضافة Linkumori لعمليات إعادة التوجيه البسيطة لنمط المجال.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori إضافة - شكل سلسلة:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori إضافة - شكل الكائن:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "الفصل الخامس عشر: الاستثناءات",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> هو ClearURLs تراث إضافي وClearURLs بناء الجملة الأساسي v2 الأساسي. يقبل Linkumori أيضًا الكائنات ذات النمط المتعارف عليه في مصفوفة الموفر القديمة هذه.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> عبارة عن إضافة Linkumori لاستثناءات نمط المجال.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "تم تخطي:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "الفصل السادس عشر: قواعد تسويق الإحالة",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "يعمل <code>referralMarketing</code> مثل القواعد الميدانية، ولكن يتم التحكم فيه من خلال إعداد الامتداد لتسويق الإحالة.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "الفصل 17: HTTP طرق",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "استخدم <code>methods</code> لتشغيل الموفر فقط على طرق HTTP المحددة.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "يعمل هذا على:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "هذا لا يعمل على:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "الفصل الثامن عشر: أنواع موارد المتصفح",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> عبارة عن إضافة Linkumori. استخدمه لتشغيل الموفر فقط على أنواع طلبات متصفح محددة.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "القيم المشتركة:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "الفصل 19: المعالجات الأولية",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "تقوم المعالجات المسبقة بتغيير القيم الملتقطة قبل استخدامها في <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "الأنواع المدعومة:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> يمكن أن يكون:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "الفصل 20: المجموعات المسموح بها JSON",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "يوضح هذا الفصل Linkumori الموفر المختلط JSON: ClearURLs المصفوفات القديمة الإضافية، ClearURLs الكائنات الأساسية v2 الأساسية، وإضافات Linkumori يمكن أن تتواجد معًا في ملف قواعد واحد.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "المجموعة 1: العديد من مقدمي الخدمات في ملف واحد",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> هو ClearURLs تراث إضافي وClearURLs بناء جملة المستوى الأعلى الأساسي ClearURLs. Linkumori يحافظ على هذا الشكل ويسمح للعديد من مقدمي الخدمة تحته.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "يتم تحميل كل مزود بشكل منفصل.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "المجموعة 2: الافتراضيات العالمية بالإضافة إلى مقدمي الخدمات",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> هو بناء الجملة الأساسي ClearURLs الأساسي v2. Linkumori يقبله بجانب الطراز القديم <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "يمكن أن ترث القواعد القيم الافتراضية عندما تكون هذه الحقول مفقودة في القاعدة.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "الجمع 3: <code>domainPatterns</code> مزود",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "هذه إضافة Linkumori. يجب على معظم موفري Linkumori استخدام هذا النموذج.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "المجموعة 4: <code>urlPattern</code> مزود مع <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> هو بناء جملة ClearURLs الأولي. <code>indexPattern</code> عبارة عن تلميح بحث عن Linkumori لموفري عناوين URL الخاصة بالتعبير العادي؛ يجب أن يشير إلى أسماء المضيفين التي يمكن أن يطابقها التعبير العادي.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> اختياري، ولكنه مفيد للسرعة. يقوم بفهرسة الموفر في مجموعات مرشحة لرمز اسم المضيف؛ فهو لا يحل محل مباراة <code>urlPattern</code> النهائية أبدًا.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "المجموعة 5: لا تخلط <code>domainPatterns</code> و<code>urlPattern</code> كشرط مشترك",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "قد يظهر هذا الشكل في البيانات القديمة أو المكتوبة بخط اليد، لكن هذا لا يعني أنه يجب اجتياز كلا المتطابقين:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "سلوك <code>clearurls.js</code> الحالي:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "إذا كان <code>domainPatterns</code> موجودًا وغير فارغ، فإن <code>clearurls.js</code> يستخدمه لمطابقة الموفر ويتجاهل <code>urlPattern</code> لذلك الموفر. يرفض مسار المحرر/الاستيراد المخصص الموفرين الذين يحتويون على كليهما. إذا كنت بحاجة إلى شرط مسار، فاستخدم <code>urlPattern</code> مع <code>indexPattern</code>، أو قم بنطاق إدخالات <code>$removeparam</code>/القاعدة الفردية داخل <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "المجموعة 6: إدخالات <code>rules[]</code> المختلطة",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "في Linkumori، <code>rules</code> يمكن أن يحتوي على ClearURLs سلاسل قديمة، Linkumori <code>$removeparam</code> سلاسل، Linkumori <code>matchPattern</code> كائنات، و ClearURLs الكائنات الأساسية v2 الأساسية معًا.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "يتم قبول جميع الإدخالات الأربعة.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "المجموعة 7: الكائنات الأساسية داخل <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "يمكن أن تمثل الكائنات الأساسية ClearURLs الأساسية v2 أنواعًا مختلفة من القواعد. في هذا المثال Linkumori، تم وضعها داخل موفر يستخدم <code>domainPatterns</code>، وهو Linkumori فقط.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> يفرز هذه حسب المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "المجموعة 8: المصفوفات القديمة بالإضافة إلى Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs لا تزال صفائف الموفر القديم تعمل. Linkumori يتيح لهذه المصفوفات الجلوس بجانب ClearURLs كائنات القاعدة الأساسية v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "هذا صحيح. يقرأ المحرك كل هذه المصفوفات لنفس الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "المجموعة 9: الأساليب وأنواع الموارد على مستوى الموفر",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> هو بناء الجملة ClearURLs. <code>resourceTypes</code> عبارة عن إضافة Linkumori. كلاهما ينطبق على المزود بأكمله.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "كل من <code>rules</code> و<code>rawRules</code> مقيدان بمطابقة طريقة/نوع الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "المجموعة 10: أنواع الطلبات على مستوى القاعدة",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "يمكن للقواعد الأساسية ClearURLs الأساسية v2 تحديد مستوى القاعدة <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "يقوم مستوى الموفر <code>resourceTypes</code> بتضييق نطاق الموفر أولاً. يقوم مستوى القاعدة <code>requestTypes</code> بتضييق القواعد الفردية بعد ذلك.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "المجموعة 11: الاستثناءات في أماكن مختلفة",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "يتيح لك Linkumori دمج ClearURLs استثناءات الموفر، Linkumori استثناءات المجال، ClearURLs استثناءات قاعدة v2 الأساسية، وLinkumori استثناءات الموفر المحلي <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "معنى عادي:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "المجموعة 12: حظر قواعد الموفر الإضافي",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> يضع علامة على الموفر على أنه ملغي/محظور.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "عند تمكين حظر النطاق في الإعدادات، يمكن حظر الطلبات المطابقة. ربما لا تزال القواعد موجودة، لكن الحظر هو السلوك الأقوى لذلك الموفر.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "المجموعة 13: قواعد إعادة توجيه الموفر بالإضافة إلى التنظيف",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "يمكن أن يحتوي الموفر على عمليات إعادة التوجيه وقواعد التنظيف.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "إذا تطابقت عملية إعادة التوجيه، فسيتم إرجاع إعادة التوجيه أولاً.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "المجموعة 14: عمليات إعادة توجيه المجال بالإضافة إلى عمليات إعادة توجيه Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "يمكن أن يتواجد كلاهما في مزود واحد.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "يتم فحص عمليات إعادة توجيه Regex أولاً. يتم التحقق من عمليات إعادة توجيه النطاق في حالة عدم مطابقة إعادة توجيه regex.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "المجموعة 15: القواعد المعطلة أو غير النشطة",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "يمكن أن يكون مقدمو الخدمة غير نشطين:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "يمكن أن تكون القواعد غير نشطة:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "يتم تجاهل الموفرين غير النشطين والقواعد غير النشطة.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "المجموعة 16: مثال موفر مختلط كامل",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "يجمع هذا المثال Linkumori عمدًا معظم ميزات الموفر المدعومة: ClearURLs المصفوفات القديمة الإضافية، وClearURLs كائنات القاعدة الأساسية v2، وميزات المطابقة ونمط المجال Linkumori فقط.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "هذا صالح Linkumori مزود مختلط JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "الفصل 21: أمثلة كاملة",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "مثال 1: منظف التعقب الأساسي",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "المثال 2: إزالة كافة معلمات UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "مثال 3: احتفظ بالمعلمة المطلوبة عند تسجيل الدخول",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "المثال 4: إعادة توجيه نقرات التتبع",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "المثال 5: تنظيف طلبات واجهة برمجة التطبيقات (API) فقط",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "الفصل 22: قوالب النسخ السريع",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "إزالة معلمة واحدة:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "إزالة العديد من المعلمات:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "استخدم <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "إزالة كافة المعلمات <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "إضافة استثناء:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "مطابقة المجال:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "إعادة توجيه متعقب URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "يمكن للقاعدة الخام أن تأخذ نمط وخيارات فلتر <code>$removeparam</code>، مع وضع <code>rawrule=</code> في النهاية. كل ما يأتي بعد <code>rawrule=</code> هو التعبير النمطي:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "يحدد النمط والخيارات مكان تشغيل القاعدة؛ بينما يظل التعبير النمطي هو ما يتم حذفه. <code>match-case</code> يجعلها حساسة لحالة الأحرف.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "إيقاف القواعد الخام في بعض عناوين URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "الإدخال الذي يبدأ بـ <code>@@</code> يمنع تشغيل القواعد الخام حيثما يتطابق النمط الخاص به. امنح القاعدة الخام <code>id</code> وقم بتسميتها باستخدام <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "عندما لا يوجد شيء بعد <code>rawrule=</code> ولا يوجد <code>targetId</code>، فإن الإدخال يوقف كل قاعدة خام للمزود على تلك الـ URLs. لتخطي المزود بالكامل، استخدم <code>exceptions</code> بدلاً من ذلك.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. استثناءات",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "إذا تطابق URL مع إدخال في <code>exceptions</code>، فلن يتم تشغيل أي من قواعد المزود. الإدخال عبارة عن تعبير نمطي (regular expression)، أو نمط نطاق يبدأ بـ <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "الاستثناءات تتجاهل حالة الأحرف.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. عمليات إعادة التوجيه",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "قواعد إعادة التوجيه تتخطى صفحات التتبع من خلال الذهاب مباشرة إلى الوجهة الحقيقية. وهي تعمل فقط عندما يكون <em>تمكين تجاوز إعادة التوجيه لجهة خارجية</em> مفعلًا.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "إعادة التوجيه إلى جزء من الـ URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "الإدخال في <code>redirections</code> هو تعبير نمطي يحتوي على مجموعة التقاط واحدة بالضبط، <code>( … )</code>. يذهب الطلب إلى ما التقطته المجموعة، بعد فك ترميز الـ URL. اكتب أي مجموعة أخرى كـ <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "إعادة التوجيه إلى عنوان ثابت",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "الإدخال الذي يبدأ بـ <code>|</code> يرسل كل URL مطابق إلى عنوان واحد:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "إعادة التوجيه إلى قيمة معلمة (parameter)",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> يحدد اسم المعلمة التي تحتوي على الوجهة، لذا لا حاجة إلى تعبير نمطي. وهي تأخذ نفس الإدخالات مثل <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "أول معلمة مطابقة تحتوي على قيمة هي التي يتم اعتمادها. عملية إعادة التوجيه توقف جميع عمليات المعالجة الأخرى للطلب.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. كائنات القواعد",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "يمكن أن يكون أي إدخال كائنًا (object) بدلاً من سلسلة نصية. استخدم الكائن عندما تحتاج القاعدة إلى معرف (id)، أو يجب أن تبدأ وهي مغلقة، أو يجب أن تقوم بإعادة كتابة بدلاً من الإزالة، أو يجب أن تعمل فقط في بعض الحالات:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "المفتاح",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "النص الذي ستكتبه كإدخال عادي",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "اسم ثابت (<code>a-z</code>، <code>0-9</code>، <code>-</code>، <code>_</code>) يُستخدم لتشغيل القاعدة أو إيقافها",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "المعرفات السابقة للقاعدة، بحيث تظل القاعدة التي أوقفتها متوقفة بعد إعادة التسمية",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "إعادة كتابة بدلاً من الإزالة؛ <code>§1§</code>، <code>§2§</code>، ... هي القيم الملتقطة",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "تغيير القيم الملتقطة أولاً",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "فقط لأنواع الطلبات هذه، على سبيل المثال <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URLs التي لا تعمل فيها هذه القاعدة",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "علامات التعبير النمطي (regular expression flags)، كسلسلة نصية (الافتراضي <code>i</code>؛ <code>gi</code> في <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "تشغيل القاعدة في وقت أبكر أو لاحق",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: القاعدة في <code>rules</code> تُعتبر قاعدة تسويق إحالية",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: تخطي هذه القاعدة عندما تقوم الصفحة بتغيير عنوانها الخاص باستخدام History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: تبدأ القاعدة وهي متوقفة",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "نص حر",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "فقط في إدخالات <code>@@…$rawrule=</code>: القواعد الخام التي توقفها",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "إعادة الكتابة بدلاً من الإزالة",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "باستخدام <code>replacePattern</code>، تحافظ القاعدة في <code>rules</code> على المعلمة وتستبدل قيمتها، وهي <code>§1§</code>. في <code>rawRules</code> و <code>redirections</code>، تكون <code>§1§</code>، <code>§2§</code>، ... هي مجموعات الالتقاط:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "المعالجات المسبقة",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "تقوم المعالجات المسبقة بتغيير القيم الملتقطة قبل أن يستخدمها <code>replacePattern</code>. <code>inputs</code> هو <code>\"all\"</code> أو قائمة بأرقام المجموعات:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "الأنواع هي <code>urlEncode</code>، <code>urlDecode</code>، <code>doubleUrlEncode</code>، <code>doubleUrlDecode</code>، <code>base64Encode</code> و <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "معرفات القواعد",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "لكل قاعدة معرف. القاعدة التي تفتقر إلى <code>id</code> تحصل على واحد من قائمتها ونصها: <code>\"utm_source\"</code> في <code>rules</code> يصبح <code>field-utm-source</code>. إذا حصلت قاعدتان على نفس المعرف، يتم إضافة هاش قصير في نهاية كل منهما.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "يتغير المعرف المولد عند تغيير نص القاعدة. امنح القاعدة <code>id</code> خاصاً بها عندما يجب أن تحافظ على إعداد التشغيل/الإيقاف الخاص بها من خلال التعديلات.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "تشغيل القاعدة في وقت مبكر أو متأخر",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "عادةً ما يتم تشغيل القواعد الخام أولاً، ثم <code>rules</code> و <code>referralMarketing</code>. القاعدة التي تحتوي على <code>order</code> تعمل قبل القواعد التي لا تحتوي عليه، بدءاً من القيمة الأدنى. هنا يتم استبدال الرمز أولاً، ثم حذفه:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "يعمل <code>order</code> في <code>rules</code> و <code>rawRules</code> و <code>referralMarketing</code>، ولكن ليس في فلاتر <code>$removeparam</code>، والتي تعمل دائماً في النهاية.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. التسويق بالإحالة",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "يأخذ <code>referralMarketing</code> نفس المدخلات مثل <code>rules</code>. يتم تخطيها عندما يكون <em>السماح بتسويق الإحالة</em> مفعلًا، لذا تظل روابط الأفلييت تعمل إذا كنت ترغب في ذلك:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "يمكن للقاعدة أن تبقى في <code>rules</code> وتظل تُحتسب كـ تسويق بالإحالة، باستخدام <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. الأساليب وأنواع الطلبات",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "هذه تحدد متى يعمل المزود أو القاعدة:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "سلوك Clearurls.js: إذا كان domainPatterns موجودًا ولم يكن فارغًا، فإن Linkumori يستخدم domainPatterns لمطابقة الموفر. يتم استخدام urlPattern فقط عندما يكون domainPatterns مفقودًا أو فارغًا. يرفض مسار المحرر/الاستيراد المخصص هذا الشكل المطابق المختلط، لذا استخدمه فقط لفهم البيانات القديمة.",
+  "guide_req_methods": {
+    "message": "أساليب HTTP التي يتعامل معها المزود",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "أنواع الطلبات التي يتعامل معها المزود",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "أنواع الطلبات التي يتعامل معها كائن قاعدة واحد",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "الأمر نفسه لمرشح <code>$removeparam</code> واحد أو قاعدة خام",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "تستخدم أنواع الطلبات أسماء المتصفح: <code>main_frame</code> (صفحة)، <code>sub_frame</code> (إطار)، <code>xmlhttprequest</code>، <code>script</code>، <code>image</code> وهكذا. وتسمي خيارات المرشح أول اثنين <code>document</code> و <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. كيف يتم معالجة URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "لكل مزود يتطابق مع URL ويسمح بالطلب:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: إذا تطابق أحدها، يتم تخطي المزود.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>، ثم <code>fieldRedirections</code>: يؤدي التطابق إلى إعادة توجيه الطلب، ولا يتم تشغيل أي شيء آخر.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: يتم حظر الطلب.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "يتم تشغيل <code>rawRules</code> على URL الكامل.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "يقوم <code>rules</code> و <code>referralMarketing</code> بإزالة المعلمات.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "يتم تشغيل مرشحات <code>$removeparam</code>، باستثناء الحالات التي يحتفظ فيها مرشح <code>@@</code> بالمعلمة.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "المزود الأول الذي يغير الطلب أو يعيد توجيهه أو يحظره هو من يحدد النتيجة. ثم يمر URL الجديد عبر نفس الخطوات مرة أخرى.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. أمثلة كاملة",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "تنظيف متجر واحد",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "يزيل معلمات التتبع ومعرف الأفلييت في متجر واحد، ويترك صفحات الدفع الخاصة به دون تغيير:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "إزالة معاملات UTM من كل مكان",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "النمط <code>*</code> يطابق كل URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "تخطي متعقب النقرات",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "يرسل الروابط عبر متعقب النقرات مباشرة إلى وجهتها، والتي تكون في المعامل <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "الإبقاء على معامل في صفحة واحدة",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "يزيل <code>ref</code> من كل مكان في الموقع باستثناء صفحة تسجيل الدخول التي تحتاجه:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. التحقق من قواعدك",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "يقوم محرر القواعد مخصصة بالتحقق من القواعد عند حفظها أو استيرادها. وبالإضافة إلى JSON المعطوب والتعبيرات النمطية غير الصالحة، فإنه يرفض القواعد التي قد يتم تحميلها ولكنها تؤدي إلى نتيجة خاطئة بصمت، مثل:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> و <code>urlPattern</code> في مزود واحد",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "نمط يحتوي على <code>|</code> واحد وبدون مخطط (scheme)، مثل <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "عملية إعادة توجيه بتعبير نمطي بدون مجموعة التقاط واحدة بالضبط",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "حقول ومفاتيح وخيارات غير معروفة",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> أو <code>referralMarketing</code> في مكان لن يؤدي فيه إلى أي نتيجة",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "إدخال <code>@@…$rawrule=</code> لا يوقف أي من القواعد الخام",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "إذا فشلت عملية الحفظ، ستحدد الرسالة المزود والقائمة والإدخال.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

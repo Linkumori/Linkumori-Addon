@@ -4727,1688 +4727,704 @@
     "message": "Regel-ID-kontroller er tilgjengelige når leverandøren JSON er gyldig.",
     "description": "Ugyldig JSON-tilstand for leverandørregel-ID-kontroller"
   },
-  "guide_0001": {
-    "message": "Linkumori Utvidelse — Regeldokumentasjon",
+  "guide_page_title": {
+    "message": "Linkumori — Guide for regler",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Leverandør JSON Format",
+  "guide_toc_label": {
+    "message": "Innhold",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Leverandør JSON",
+  "guide_theme_midnight": {
+    "message": "Midnatt",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Kapittel 1: Grunnleggende JSON Form",
+  "guide_theme_light": {
+    "message": "Lys",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Kapittel 2: Hva er en leverandør?",
+  "guide_theme_icecold": {
+    "message": "Iskald",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Kapittel 3: Leverandørfelt du kan bruke",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grå",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Kapittel 4: Matchende domener",
+  "guide_theme_sunset": {
+    "message": "Solnedgang",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Match ett domene og alle underdomener",
+  "guide_title": {
+    "message": "Skrive Linkumori-regler",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Match det samme navnet på ethvert offentlig suffiks",
+  "guide_intro_1": {
+    "message": "Linkumori renser URL-er med regler. Denne guiden viser hvordan du skriver dem, fra den første regelen til alle alternativer, med eksempler du kan kopiere.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Match underdomener",
+  "guide_intro_2": {
+    "message": "Regler er JSON. Du skriver dem i editoren for egendefinerte regler, som sjekker dem når du lagrer. Den innebygde regelisten og eksterne regelister bruker samme format.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Bruk mer enn ett domenemønster",
+  "guide_file_title": {
+    "message": "1. Regelfilen",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Kapittel 5: Domenemønstersymboler",
+  "guide_file_p1": {
+    "message": "En regelfil er ett JSON-objekt. Dens <code>providers</code>-objekt kobler et navn etter ditt valg til en leverandør:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Kapittel 6: Matching URLs med urlPattern",
+  "guide_file_p2": {
+    "message": "En leverandør angir hvilke URL-er den håndterer og hva som skal gjøres med dem. Denne fjerner <code>utm_source</code> og <code>utm_medium</code> fra hver URL på <code>example.com</code> og dens underdomener:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Kapittel 7: Fjern enkle spørringsparametre",
+  "guide_file_p3": {
+    "message": "Navnet er kun en etikett. Hvilke URL-er en leverandør håndterer bestemmes av <code>domainPatterns</code> eller <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Kapittel 8: Skriv et regelobjekt",
+  "guide_fields_title": {
+    "message": "2. Leverandørfelt",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Kapittel 9: $removeparam-regler",
+  "guide_th_field": {
+    "message": "Felt",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Fjern én parameter",
+  "guide_th_meaning": {
+    "message": "Hva det gjør",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Fjern alle parametere",
+  "guide_field_domainpatterns": {
+    "message": "Hvilke URL-er leverandøren håndterer, som domenemønstre (kapittel 3). Bruk dette eller <code>urlPattern</code>, aldri begge.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Fjern parametere etter regulært uttrykk",
+  "guide_field_urlpattern": {
+    "message": "Hvilke URL-er leverandøren håndterer, som et regulært uttrykk matchet mot hele URL-en. Store og små bokstaver ignoreres.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Fjern alle unntatt én parameter",
+  "guide_field_indexpattern": {
+    "message": "Kun med <code>urlPattern</code>: vert-hint som <code>||example.com^</code>, slik at leverandøren kun sjekkes for disse vertene. Uten dette sjekkes leverandøren mot hver eneste URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Bruk $removeparam bare på ett domene",
+  "guide_field_rules": {
+    "message": "Parametere som skal fjernes (kapittel 4 og 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Legg til domenegrenser",
+  "guide_field_referral": {
+    "message": "Referanse- og affiliate-parametere som skal fjernes. Disse hoppes over mens <em>Tillat henvisningsmarkedsføring</em> er på (kapittel 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Legg til metodegrenser",
+  "guide_field_rawrules": {
+    "message": "Regulære uttrykk som kjøres på hele URL-en; hver match slettes (kapittel 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Kapittel 10: Unntak for $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL-er leverandøren lar være i fred (kapittel 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Kapittel 11: Omskriv parameterverdier",
+  "guide_field_redirections": {
+    "message": "Hvor forespørselen skal sendes i stedet (kapittel 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Kapittel 12: Rå regler",
+  "guide_field_fieldredirections": {
+    "message": "Omdiriger til verdien av en parameter (kapittel 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Kapittel 13: Omdirigeringsregler",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> blokkerer hver forespørsel leverandøren matcher, mens <em>Tillat domeneblokkering</em> er på.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Kapittel 14: Domeneviderekoblingsregler",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: når en side i seg selv blir omdirigert, åpner fanen den nye adressen.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Kapittel 15: Unntak",
+  "guide_field_methods": {
+    "message": "Håndter kun disse HTTP-metodene, for eksempel <code>[\"GET\"]</code>. Standard: alle.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Kapittel 16: Regler for henvisningsmarkedsføring",
+  "guide_field_resourcetypes": {
+    "message": "Håndter kun disse forespørselstypene, for eksempel <code>[\"main_frame\"]</code>. Standard: typene valgt i innstillinger.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Kapittel 17: HTTP Metoder",
+  "guide_field_history": {
+    "message": "<code>false</code> hopper over leverandøren når en side endrer sin egen adresse med History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Kapittel 18: Ressurstyper for nettleser",
+  "guide_field_active": {
+    "message": "<code>false</code> slår av leverandøren.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Kapittel 19: Forbehandlere",
+  "guide_match_title": {
+    "message": "3. Hvilke URL-er en leverandør håndterer",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Kapittel 20: Tillatte JSON kombinasjoner",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> er en liste over domenemønstre. En URL samsvarer hvis noen av dem samsvarer:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kombinasjon 1: Mange leverandører i én fil",
+  "guide_th_pattern": {
+    "message": "Mønster",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Kombinasjon 2: Global Defaults Plus-leverandører",
+  "guide_th_matches": {
+    "message": "Samsvarer",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kombinasjon 3: leverandør av domenePatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> og alle underdomener",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kombinasjon 4: urlPattern Provider med indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> på ethvert offentlig suffiks (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Kombinasjon 5: domenePatterns Og urlPattern Together",
+  "guide_pat_path": {
+    "message": "den verten og dens underdomener, når stien starter med <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kombinasjon 6: Blandede regler[] Oppføringer",
+  "guide_pat_star": {
+    "message": "det samme som <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Kombinasjon 7: Kanoniske objekter i regler[]",
+  "guide_pat_start": {
+    "message": "URL-er som starter nøyaktig med denne teksten",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Kombinasjon 8: Legacy Arrays Plus kanoniske regler[]",
+  "guide_pat_end": {
+    "message": "URL-er som slutter nøyaktig med denne teksten",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kombinasjon 9: Metoder og ressurstyper for hele leverandøren",
+  "guide_pat_regex": {
+    "message": "den fullstendige URL-en, som et regulært uttrykk (store/små bokstaver betyr noe med mindre du legger til <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kombinasjon 10: Forespørselstyper på regelnivå",
+  "guide_pat_contains": {
+    "message": "URL-er som inneholder denne teksten hvor som helst",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Kombinasjon 11: Unntak på forskjellige steder",
+  "guide_pat_all": {
+    "message": "alle URL-er",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kombinasjon 12: Blokkering av Provider Plus-regler",
+  "guide_match_p2": {
+    "message": "<code>^</code> markerer slutten av vertsnavnet, eller en separator som <code>/</code>, <code>?</code> eller <code>:</code>. <code>*</code> samsvarer med hva som helst. Bortsett fra <code>/regex/</code>, ignorerer mønstre store og små bokstaver.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kombinasjon 13: Redirect Provider Plus Cleanup Rules",
+  "guide_match_p3": {
+    "message": "<code>||</code> står for et domene, mens en enkelt <code>|</code> står for selve starten av URL-en og må følges av et skjema som <code>https://</code>. <code>|example.com^</code> kan aldri samsvare, så editoren avviser det.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kombinasjon 14: Domeneomadresseringer pluss regex-omadresseringer",
+  "guide_match_p4": {
+    "message": "For å matche med et regulært uttrykk i stedet, bruk <code>urlPattern</code>, og legg til <code>indexPattern</code> slik at leverandøren kun sjekkes på disse vertene:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kombinasjon 15: Deaktiverte eller inaktive regler",
+  "guide_match_p5": {
+    "message": "En leverandør har <code>domainPatterns</code> eller <code>urlPattern</code>, aldri begge. Hvis du trenger begge typer matching, lag to leverandører.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kombinasjon 16: Eksempel på fullstendig blandet leverandør",
+  "guide_rules_title": {
+    "message": "4. Fjerning av parametere",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Kapittel 21: Komplette eksempler",
+  "guide_rules_p1": {
+    "message": "Hver oppføring i <code>rules</code> fjerner parametere fra spørringen (<code>?a=1</code>) og fra fragmentet (<code>#a=1</code>). En oppføring er en av følgende:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Eksempel 1: Basic Tracker Cleaner",
+  "guide_th_entry": {
+    "message": "Oppføring",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Eksempel 2: Fjern alle UTM-parametere",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Eksempel 3: Behold en nødvendig parameter ved pålogging",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Eksempel 4: Omdiriger sporingsklikk",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Eksempel 5: Rengjør bare API-forespørsler",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Kapittel 22: Hurtigkopimaler",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Blandet leverandør JSON Formatveiledning",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Denne veiledningen forklarer hvordan du skriver leverandør JSON-data som <code>Linkumori extension</code> kan lese.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Det er ikke en veiledning til JavaScript-koden. Den fokuserer bare på JSON-formene, regelformatene og eksemplene som regelforfattere trenger.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Denne veiledningen er basert på gjeldende <code>clearurls.js</code> kjøretidsatferd. Spesielt bruker leverandøroppslag <code>providersByToken</code>-kandidatblokker fra <code>domainPatterns</code> eller <code>indexPattern</code>, og den endelige matchingen går fortsatt gjennom <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Kapittel 1: Grunnleggende JSON Form",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> forventer leverandørdata i denne generelle formen:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Den viktige delen er <code>providers</code>. Hver nøkkel i <code>providers</code> er et leverandørnavn.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Eksempel:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Kapittel 2: Hva er en leverandør?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "En leverandør er en navngitt kjøretidsbeholder for ett nettsted, selskap, sporing, domenemønstersett eller regulært URL-uttrykk. Leverandørnavnet er en etikett/nøkkel; matching gjøres av <code>domainPatterns</code> eller <code>urlPattern</code>, ikke av leverandørens navn.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimal leverandør:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Hva dette gjør:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Kapittel 3: Leverandørfelt du kan bruke",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Leverandørfelt akseptert av <code>clearurls.js</code>. For matching, forfatter enten <code>domainPatterns</code> eller <code>urlPattern</code> med valgfri <code>indexPattern</code>; ikke stol på at begge kreves sammen.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Ren mening:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON felt",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Kilde",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Hva du skriver det for",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Sett <code>false</code> for å deaktivere denne leverandøren.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs tilleggslegacy og ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Sett <code>true</code> til å blokkere matchende domener i stedet for bare å rense.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs tilleggslegacy og ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Sett <code>true</code> for å tvinge omdirigeringer på hovedsiden gjennom nettleserfanen.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Anbefalt måte å si hvilke domener denne leverandøren samsvarer med.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs tilleggslegacy og ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript regex-streng for URL-samsvar.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Valgfritt hastighetstips ved bruk av <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy og ClearURLs core v2 canonical; <code>$removeparam</code> er Linkumori tillegg her",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Vanlige regler for parameterfjerning og leverandørlokale <code>$removeparam</code>-regler.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs tilleggslegacy; objekter i kanonisk stil her er Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Regler som redigerer hele URL teksten.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs tilleggslegacy; objekter i kanonisk stil her er Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Valgfrie henvisnings-/markedsføringsparameterregler.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy og ClearURLs core v2 canonical; objektskjemaer her er Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regex-regler der denne leverandøren ikke skal kjøre.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Domenemønsterregler der denne leverandøren ikke skal kjøre.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs tilleggslegacy; objekter i kanonisk stil her er Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex omdirigeringsregler.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Omdirigeringsregler for domenemønster.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs tilleggslegacy og ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Kjør kun for disse HTTP metodene.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori tillegg",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Kjør kun for disse nettleserforespørselstypene.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Kapittel 4: Matchende domener",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> er et Linkumori-tillegg og foretrekkes for de fleste tilpassede leverandører. I <code>clearurls.js</code> brukes ikke-tomme <code>domainPatterns</code> for matching før <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Match ett domene og alle underdomener",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Treffer:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Stemmer ikke:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Match det samme navnet på ethvert offentlig suffiks",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Kan matche:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Match underdomener",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Kan matche:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Bruk mer enn ett domenemønster",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Kapittel 5: Domenemønstersymboler",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Dette er symbolene du kan bruke i <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Symbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Mening",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Eksempel",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Fjerner",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Match ved en domenegrense.",
+  "guide_rules_name": {
+    "message": "et parameternavn",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "et navn-regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "hver parameter der hele navnet matcher; <code>^…$</code> legges til for deg, og store/små bokstaver ignoreres",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Skille eller endegrense.",
+  "guide_rules_filter": {
+    "message": "et <code>$removeparam</code>-filter",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "se kapittel 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> og <code>\"$removeparam=fbclid\"</code> fjerner det samme. Bruk det enkle navnet med mindre du trenger noe fra kapittel 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Jokertegn.",
+  "guide_rules_part_title": {
+    "message": "Regler for del av en leverandør",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Et enkelt navn gjelder for hver URL leverandøren matcher. For å fjerne en parameter på bare noen av dem, sett et mønster foran et <code>$removeparam</code>-filter:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Her fjernes <code>qid</code> på alle Amazon-sider, <code>tag</code> kun på <code>amazon.de</code>, <code>sr</code> kun på <code>smile.amazon</code>, og <code>ref_</code> kun under <code>/gp/</code>. Mønsteret snevrer inn leverandørens egne mønstre; det kan ikke utvide dem.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Start- eller sluttanker.",
+  "guide_rp_title": {
+    "message": "5. $removeparam-filtre",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Et <code>$removeparam</code>-filter har denne formen; delene i klammer er valgfrie:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Verdien",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex bokstavelig.",
+  "guide_rp_p2": {
+    "message": "Det første tegnet i verdien avgjør hva den betyr:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filter",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Vanligste mønster:",
+  "guide_rp_v_all": {
+    "message": "hver parameter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Bruk den når du vil:",
+  "guide_rp_v_except": {
+    "message": "hver parameter unntatt <code>ref</code> (fungerer også med <code>~/regex/</code> og <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Kapittel 6: Matcher URLs med <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parametere der navnet, eller <code>name=value</code>, samsvarer med det regulære uttrykket; store og små bokstaver skiller mellom hverandre med mindre du legger til <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Bruk <code>urlPattern</code> bare når domenematching ikke er nok, for eksempel når leverandøren må matche en bestemt bane eller full URL-regex.",
+  "guide_rp_v_prefix": {
+    "message": "parametere der navnet starter med <code>utm_</code>; store og små bokstaver ignoreres",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Dette kan matche:",
+  "guide_rp_v_name": {
+    "message": "akkurat den parameteren; store og små bokstaver ignoreres med mindre du legger til <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> er ClearURLs addon legacy og ClearURLs core v2 kanonisk syntaks. Linkumori legger til <code>indexPattern</code> bare som et kandidatoppslagstips slik at regex-leverandører kan bli funnet av vertsnavn-tokens raskere.",
+  "guide_rp_options_title": {
+    "message": "Alternativer",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Viktig: <code>indexPattern</code> bestemmer ikke om en leverandør matcher. Etter kandidatoppslag, tester <code>clearurls.js</code> fortsatt den virkelige <code>urlPattern</code> i <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Alternativer kommer etter verdien, separert med komma. Separer flere verdier for ett alternativ med <code>|</code>, og sett <code>~</code> foran en verdi for å ekskludere den:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Kapittel 7: Fjern enkle spørringsparametre",
+  "guide_th_option": {
+    "message": "Alternativ",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Sett parameternavn i <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "kun på sider fra disse domenene",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Resultat:",
+  "guide_rp_o_to": {
+    "message": "kun for forespørsler til disse domenene",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Fjern mange parametere:",
+  "guide_rp_o_method": {
+    "message": "kun for disse HTTP-metodene",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Resultat:",
+  "guide_rp_o_party": {
+    "message": "kun for forespørsler til samme nettsted som siden, eller kun til andre nettsteder",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Kapittel 8: Skriv et regelobjekt",
+  "guide_rp_o_strict": {
+    "message": "det samme, men sammenligner den nøyaktige verten i stedet for nettstedet",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "I stedet for en vanlig streng, kan en regel være et objekt.",
+  "guide_rp_o_types": {
+    "message": "kun for disse forespørselstypene; <code>~type</code> ekskluderer én",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Bruk denne når du trenger:",
+  "guide_rp_o_matchcase": {
+    "message": "parameternavn er case-sensitive",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "En regel-ID.",
+  "guide_rp_o_history": {
+    "message": "hopp over dette filteret når en side endrer sin egen adresse med History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Aliaser.",
+  "guide_rp_p4": {
+    "message": "Hvert alternativ har én stavemåte. Motstridende alternativer, som <code>first-party,third-party</code>, blir avvist.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Unntak.",
+  "guide_rp_keep_title": {
+    "message": "Beholde en parameter med @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Forespørselstypegrenser.",
+  "guide_rp_p5": {
+    "message": "Et filter som starter med <code>@@</code> beholder parameteren i stedet for å fjerne den. Her blir <code>ref</code> fjernet overalt unntatt på GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Omskriv atferd.",
+  "guide_rp_p6": {
+    "message": "Et <code>@@</code>-filter dekker også forespørsler gjort av en side denne leverandøren samsvarer med, selv når en annen leverandør håndterer dem.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Eksempel inne i en leverandør:",
+  "guide_raw_title": {
+    "message": "6. Rå regler",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Resultat:",
+  "guide_raw_p1": {
+    "message": "En rå regel er et regulært uttrykk som kjøres på den fullstendige URL-en; hver treff blir slettet. Bruk det for tekst som ikke er en <code>name=value</code>-parameter, slik som Amazons <code>/ref=…</code>-stisegment:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> på leverandørregelobjekter er et Linkumori tillegg. <code>flags: \"i\"</code> gjør kampen skiller mellom store og små bokstaver.",
+  "guide_raw_p2": {
+    "message": "Rå regler ignorerer store og små bokstaver og erstatter hvert treff. I JSON, skriv hver backslash to ganger.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Kapittel 9: <code>$removeparam</code> Regler",
+  "guide_raw_scope_title": {
+    "message": "Kun på enkelte URL-er",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Fjern én parameter",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Fjern alle parametere",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Fjern parametere etter regulært uttrykk",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Fjern alle unntatt én parameter",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Bruk <code>$removeparam</code> bare på ett domene",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Rengjort:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Ikke rengjort:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Legg til domenegrenser",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Ekskluder ett domene:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Legg til metodegrenser",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Kun <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Ikke <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Kapittel 10: <code>$removeparam</code> Unntak",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Start en <code>$removeparam</code>-regel med <code>@@</code> for å gjøre et unntak.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Eksempel på kontekstunntak:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Dette kan beskytte <code>ei</code> på underforespørsler startet av en <code>gemini.google.com</code>-side.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Kapittel 11: Omskriv parameterverdier",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Bruk <code>action.type: \"rewrite\"</code> for å erstatte en samsvarende parameterverdi.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Inne i en leverandør:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Bruk <code>§1§</code> når du vil gjenbruke gjeldende verdi:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Kapittel 12: Rå regler",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Bruk <code>rawRules</code> for å redigere hele URL teksten.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Enkel råregel:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Objektråregel:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Rå omskrivingsregel:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Kapittel 13: Omdirigeringsregler",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Bruk <code>redirections</code> for å sende nettleseren til en ny URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Hvis <code>replacePattern</code> mangler, brukes den første fangstgruppen.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Kapittel 14: Domeneviderekoblingsregler",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> er et Linkumori tillegg for enkle domenemønsterviderekoblinger.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori tillegg — strengform:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori tillegg — objektform:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Kapittel 15: Unntak",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> er ClearURLs arv og ClearURLs core v2 kanonisk syntaks. Linkumori godtar også objekter i kanonisk stil i denne eldre leverandørmatrisen.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Eksempel:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> er et Linkumori tillegg for unntak fra domenemønster.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Hoppet over:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Kapittel 16: Regler for henvisningsmarkedsføring",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> fungerer som feltregler, men det kontrolleres av utvidelsesinnstillingen for henvisningsmarkedsføring.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Eksempel:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Kapittel 17: HTTP Metoder",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Bruk <code>methods</code> for å kjøre en leverandør kun på spesifikke HTTP-metoder.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Denne kjører på:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Dette kjører ikke på:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Kapittel 18: Ressurstyper for nettleser",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> er et Linkumori tillegg. Bruk den til å kjøre en leverandør kun på spesifikke nettleserforespørselstyper.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Felles verdier:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Eksempel:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Betydning:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Kapittel 19: Forbehandlere",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Forprosessorer endrer innfangede verdier før de brukes i <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Eksempel:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Støttede typer:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> kan være:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Kapittel 20: Tillatte JSON kombinasjoner",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Dette kapittelet viser Linkumori blandet leverandør JSON: ClearURLs eldre arrays for addon, ClearURLs kanoniske kjerneobjekter, og Linkumori kan eksistere sammen i én tilleggsregler.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kombinasjon 1: Mange leverandører i én fil",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> er ClearURLs arv og ClearURLs core v2 kanonisk toppnivåsyntaks. Linkumori holder den formen og lar mange leverandører under seg.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Hver leverandør lastes inn separat.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Kombinasjon 2: Global Defaults Plus-leverandører",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> er ClearURLs core v2 kanonisk syntaks. Linkumori godtar det ved siden av legacy-style <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Regler kan arve standardverdier når disse feltene mangler i regelen.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Kombinasjon 3: <code>domainPatterns</code> Leverandør",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Dette er et Linkumori tillegg. De fleste Linkumori-leverandører bør bruke dette skjemaet.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kombinasjon 4: <code>urlPattern</code> Leverandør med <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> er oppstrøms ClearURLs syntaks. <code>indexPattern</code> er et Linkumori-oppslagstips for nettadresseleverandører med regulære uttrykk; den skal peke på vertsnavnene regex kan matche.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> er valgfritt, men nyttig for hastighet. Den indekserer leverandøren i vertsnavn-token-kandidatbøtter; den erstatter aldri den siste <code>urlPattern</code>-kampen.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kombinasjon 5: Ikke bland <code>domainPatterns</code> og <code>urlPattern</code> som et kombinert krav",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Denne formen kan vises i eldre eller håndskrevne data, men det betyr ikke at begge matcherne må bestå:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Gjeldende <code>clearurls.js</code>-adferd:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Hvis <code>domainPatterns</code> er tilstede og ikke er tom, bruker <code>clearurls.js</code> den for leverandørmatching og ignorerer <code>urlPattern</code> for den leverandøren. Den tilpassede redigerings-/importbanen avviser leverandører som inneholder begge deler. Hvis du trenger en banebetingelse, bruk <code>urlPattern</code> med <code>indexPattern</code>, eller scope individuelle <code>$removeparam</code>/regeloppføringer i <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kombinasjon 6: Blandet <code>rules[]</code> oppføringer",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "I Linkumori kan <code>rules</code> inneholde ClearURLs eldre strenger, Linkumori <code>$removeparam</code> strenger, Linkumori 9283024 objekter ClearURLs kjerne v2 kanoniske objekter sammen.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Alle fire påmeldingene godtas.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kombinasjon 7: Kanoniske objekter inni <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs core v2 kanoniske objekter kan representere forskjellige typer regler. I dette Linkumori-eksemplet er de plassert i en leverandør som bruker <code>domainPatterns</code>, som kun er Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> sorterer disse etter betydning:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kombinasjon 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs addon eldre leverandør arrays fungerer fortsatt. Linkumori lar disse matrisene sitte ved siden av ClearURLs kjerne v2 kanoniske regelobjekter.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Dette er gyldig. Motoren leser alle disse matrisene for samme leverandør.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kombinasjon 9: Metoder og ressurstyper for hele leverandøren",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> er oppstrøms ClearURLs syntaks. <code>resourceTypes</code> er et Linkumori tillegg. Begge gjelder for hele tilbyderen.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Både <code>rules</code> og <code>rawRules</code> er begrenset av leverandørens metode/type-match.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kombinasjon 10: Forespørselstyper på regelnivå",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs core v2 kanoniske regler kan definere regelnivå <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Leverandørnivå <code>resourceTypes</code> begrenser leverandøren først. Regelnivå <code>requestTypes</code> begrenser individuelle regler etter det.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Kombinasjon 11: Unntak på forskjellige steder",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori lar deg kombinere ClearURLs leverandørunntak, Linkumori domeneunntak, ClearURLs core v2 regelunntak og Linkumori leverandør-lokale unntak ClearURLs Linkumori leverandør-lokale unntak ClearURLs",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Ren mening:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kombinasjon 12: Blokkering av Provider Plus-regler",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> merker en leverandør som kansellerer/blokkerer.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Når domeneblokkering er aktivert i innstillingene, kan samsvarende forespørsler blokkeres. Regler kan fortsatt eksistere, men blokkering er den sterkeste oppførselen for den leverandøren.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kombinasjon 13: Redirect Provider Plus Cleanup Rules",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "En leverandør kan inneholde omdirigeringer og oppryddingsregler.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Hvis en omdirigering samsvarer, returneres omdirigeringen først.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kombinasjon 14: Domeneomadresseringer pluss regex-omadresseringer",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Begge kan eksistere i én leverandør.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex-omadresseringer sjekkes først. Domeneomadresseringer sjekkes hvis ingen regex-omadressering samsvarte.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kombinasjon 15: Deaktiverte eller inaktive regler",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Leverandører kan være inaktive:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Regler kan være inaktive:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Inaktive leverandører og inaktive regler ignoreres.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kombinasjon 16: Eksempel på fullstendig blandet leverandør",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Dette Linkumori-eksemplet kombinerer med vilje de fleste støttede leverandørfunksjonene: ClearURLs tilleggsarrayer, ClearURLs core v2 kanoniske regelobjekter og Linkumori-bare matcher- og domenefunksjoner.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Dette er gyldig Linkumori blandet leverandør JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Kapittel 21: Komplette eksempler",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Eksempel 1: Basic Tracker Cleaner",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Eksempel 2: Fjern alle UTM-parametere",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Eksempel 3: Behold en nødvendig parameter ved pålogging",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Eksempel 4: Omdiriger sporingsklikk",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Eksempel 5: Rengjør bare API-forespørsler",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Betydning:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Kapittel 22: Hurtigkopimaler",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Fjern én parameter:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Fjern mange parametere:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Bruk <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Fjern alle <code>utm_</code> parametere:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Legg til et unntak:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Match et domene:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Omdiriger en tracker URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "En rå regel kan ta mønsteret og alternativene til et <code>$removeparam</code>-filter, med <code>rawrule=</code> til slutt. Alt etter <code>rawrule=</code> er det regulære uttrykket:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Mønsteret og alternativene avgjør hvor regelen kjøres; det regulære uttrykket er fortsatt det som blir slettet. <code>match-case</code> gjør det case-sensitive.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Stoppe rå regler på enkelte URL-er",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "En oppføring som starter med <code>@@</code> hindrer rå regler i å kjøre der mønsteret samsvarer. Gi den rå regelen en <code>id</code> og gi den navn med <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Når ingenting følger etter <code>rawrule=</code> og det ikke er noen <code>targetId</code>, stopper oppføringen alle rå regler fra leverandøren på disse URL-ene. For å hoppe over hele leverandøren, bruk <code>exceptions</code> i stedet.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Unntak",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Hvis en URL samsvarer med en oppføring i <code>exceptions</code>, kjøres ingen av leverandørens regler. En oppføring er et regulært uttrykk, eller et domenemønster som starter med <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Unntak ignorerer store og små bokstaver.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Omdirigeringer",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Omdirigeringsregler hopper over sporingssider ved å gå direkte til den faktiske destinasjonen. De kjører bare når <em>Aktiver omdirigering av tredjeparter</em> er på.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Omdiriger til en del av URL-en",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "En oppføring i <code>redirections</code> er et regulært uttrykk med nøyaktig én fangstgruppe, <code>( … )</code>. Forespørselen sendes til det gruppen fanget, URL-dekodet. Skriv alle andre grupper som <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Omdiriger til en fast adresse",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "En oppføring som starter med <code>|</code> sender hver samsvarende URL til én adresse:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Omdiriger til en parameters verdi",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> navngir parameteren som inneholder destinasjonen, så det er ikke behov for et regulært uttrykk. Den tar samme oppføringer som <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Den første samsvarende parameteren som har en verdi vinner. En omdirigering stopper all annen behandling for forespørselen.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Regelobjekter",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Enhver oppføring kan være et objekt i stedet for en streng. Bruk et objekt når en regel trenger en id, skal starte deaktivert, skal skrive om i stedet for å fjerne, eller bare skal kjøre i visse tilfeller:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Nøkkel",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "teksten du ville skrevet som en vanlig oppføring",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "et stabilt navn (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) som brukes til å slå regelen av og på",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "regelens tidligere ID-er, slik at en regel du slo av forblir av etter en omdøping",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "skriv om i stedet for å fjerne; <code>§1§</code>, <code>§2§</code>, … er de fangede verdiene",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "endre de fangede verdiene først",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "kun for disse forespørselstypene, for eksempel <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL-er der denne ene regelen ikke kjøres",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "flagg for regulære uttrykk, som en streng (standard <code>i</code>; <code>gi</code> i <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "kjør regelen tidligere eller senere",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: en regel i <code>rules</code> teller som en regel for referansemarkedsføring",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: hopp over denne regelen når en side endrer sin egen adresse med History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: regelen starter som avslått",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "fri tekst",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "kun på <code>@@…$rawrule=</code>-oppføringer: den rå regelen den stopper",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Omskriving i stedet for fjerning",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Med <code>replacePattern</code> vil en regel i <code>rules</code> beholde parameteren og erstatte verdien, som er <code>§1§</code>. I <code>rawRules</code> og <code>redirections</code> er <code>§1§</code>, <code>§2§</code>, … fangstgruppene:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Forprosessorer",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Forprosessorer endrer fangede verdier før <code>replacePattern</code> bruker dem. <code>inputs</code> er <code>\"all\"</code> eller en liste over gruppenumre:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Typene er <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> og <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Regel-ID-er",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Hver regel har en ID. En regel uten <code>id</code> får en fra listen sin og teksten sin: <code>\"utm_source\"</code> i <code>rules</code> blir <code>field-utm-source</code>. Hvis to regler ville fått samme ID, får begge en kort hash på slutten.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "En generert ID endres når regelteksten endres. Gi en regel sin egen <code>id</code> når den må beholde av/på-innstillingen gjennom redigeringer.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Kjøre en regel tidligere eller senere",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Rå regler kjøres vanligvis først, deretter <code>rules</code> og <code>referralMarketing</code>. En regel med <code>order</code> kjøres før regler uten, lavest først. Her blir tokenet erstattet først, og deretter slettet:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> fungerer i <code>rules</code>, <code>rawRules</code> og <code>referralMarketing</code>, men ikke på <code>$removeparam</code>-filtre, som alltid kjøres sist.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Henvisningsmarkedsføring",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> tar de samme oppføringene som <code>rules</code>. De hoppes over mens <em>Tillat henvisningsmarkedsføring</em> er på, slik at affiliate-lenker fortsetter å fungere hvis du ønsker det:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "En regel kan bli værende i <code>rules</code> og fortsatt telle som henvisningsmarkedsføring, med <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metoder og forespørselstyper",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Disse snevrer inn når en Leverandør eller en regel kjøres:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js-adferd: hvis domainPatterns eksisterer og ikke er tom, bruker Linkumori domainPatterns for leverandørmatching. urlPattern brukes bare når domenePatterns mangler eller er tomme. Den tilpassede redigerings-/importbanen avviser denne blandede matcher-formen, så bruk den kun for å forstå eldre data.",
+  "guide_req_methods": {
+    "message": "HTTP-metoder som Leverandøren håndterer",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "forespørselstyper leverandøren håndterer",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "forespørselstyper ett regelobjekt håndterer",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "det samme for ett <code>$removeparam</code>-filter eller rå regel",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Forespørselstyper bruker nettleserens navn: <code>main_frame</code> (en side), <code>sub_frame</code> (en ramme), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> og så videre. Filteralternativer kaller de to første <code>document</code> og <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Hvordan en URL behandles",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "For hver leverandør som samsvarer med URL-en og tillater forespørselen:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: hvis én samsvarer, hoppes leverandøren over.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, deretter <code>fieldRedirections</code>: et samsvar omdirigerer forespørselen, og ingenting annet kjøres.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: forespørselen blokkeres.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> kjøres på den fullstendige URL-en.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> og <code>referralMarketing</code> fjerner parametere.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code>-filtre kjøres, unntatt der et <code>@@</code>-filter beholder parameteren.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Den første leverandøren som endrer, omdirigerer eller blokkerer forespørselen avgjør resultatet. Den nye URL-en går deretter gjennom de samme trinnene på nytt.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Fullstendige eksempler",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Rens én butikk",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Fjerner sporingsparametere og en affiliate-id i én butikk, og lar kassen-sidene være i fred:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Fjern UTM-parametere overalt",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Mønsteret <code>*</code> samsvarer med alle URL-er:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Hopp over en klikksporer",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Sender lenker gjennom en klikksporer direkte til destinasjonen, som finnes i parameteren <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Behold en parameter på én side",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Fjerner <code>ref</code> overalt på nettstedet unntatt på påloggingssiden, som trenger den:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Kontroll av reglene dine",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Editoren for egendefinerte regler kontrollerer regler når du lagrer eller importerer dem. I tillegg til ødelagt JSON og ugyldige regulære uttrykk, avviser den regler som ville blitt lastet inn, men som i stillhet gjør feil ting, slik som:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> og <code>urlPattern</code> på én leverandør",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "et mønster med en enkelt <code>|</code> og uten skjema, slik som <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "en omdirigering med regulært uttrykk uten nøyaktig én fangstgruppe",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "ukjente felt, nøkler og alternativer",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> eller <code>referralMarketing</code> der det ikke ville gjort noe",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "en <code>@@…$rawrule=</code>-oppføring som ikke stopper noen rå regel",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Hvis lagring mislykkes, navngir meldingen leverandøren, listen og oppføringen.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

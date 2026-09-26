@@ -4727,1688 +4727,704 @@
     "message": "プロバイダー JSON が有効になると、ルール ID コントロールが使用可能になります。",
     "description": "プロバイダーのルール ID コントロールの JSON 状態が無効です"
   },
-  "guide_0001": {
-    "message": "Linkumori 拡張子 — ルールドキュメント",
+  "guide_page_title": {
+    "message": "Linkumori — ルールガイド",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "テーマ",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "プロバイダー JSON 形式",
+  "guide_toc_label": {
+    "message": "目次",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori プロバイダー JSON",
+  "guide_theme_midnight": {
+    "message": "ミッドナイト",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "第 1 章: 基本 JSON 形状",
+  "guide_theme_light": {
+    "message": "ライト",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "第 2 章: プロバイダーとは何ですか?",
+  "guide_theme_icecold": {
+    "message": "アイスコールド",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "第 3 章: 使用できるプロバイダーフィールド",
+  "guide_theme_zen_grey": {
+    "message": "ゼングレイ",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "第 4 章: 一致するドメイン",
+  "guide_theme_sunset": {
+    "message": "サンセット",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "1 つのドメインとすべてのサブドメインに一致",
+  "guide_title": {
+    "message": "Linkumoriルールの書き方",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "任意のパブリック サフィックスで同じ名前と一致する",
+  "guide_intro_1": {
+    "message": "Linkumoriはルールを使用してURLをクリーンアップします。このガイドでは、最初のルールからすべてのオプションまで、コピーして使える例と共に書き方を説明します。",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "サブドメインの一致",
+  "guide_intro_2": {
+    "message": "ルールはJSON形式です。カスタムルールエディタで記述し、保存時にチェックされます。同梱のルールリストおよびリモートルールリストも同じ形式を使用しています。",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "複数のドメイン パターンを使用する",
+  "guide_file_title": {
+    "message": "1. ルールファイル",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "第 5 章: ドメイン パターンのシンボル",
+  "guide_file_p1": {
+    "message": "ルールファイルは1つのJSONオブジェクトです。その <code>providers</code> オブジェクトは、任意の名前をプロバイダーにマッピングします：",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "第 6 章: URLs と urlPattern のマッチング",
+  "guide_file_p2": {
+    "message": "プロバイダーは、どのURLを処理し、それらに何をすべきかを指定します。この例では、<code>example.com</code> とそのサブドメイン上のすべてのURLから <code>utm_source</code> と <code>utm_medium</code> を削除します：",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "第 7 章: 単純なクエリパラメータの削除",
+  "guide_file_p3": {
+    "message": "名前は単なるラベルです。プロバイダーがどのURLを処理するかは <code>domainPatterns</code> または <code>urlPattern</code> によって決定されます。",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "第 8 章: ルール オブジェクトの作成",
+  "guide_fields_title": {
+    "message": "2. プロバイダーのフィールド",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "第 9 章: $removeparam ルール",
+  "guide_th_field": {
+    "message": "フィールド",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "1 つのパラメータを削除",
+  "guide_th_meaning": {
+    "message": "機能",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "すべてのパラメータを削除",
+  "guide_field_domainpatterns": {
+    "message": "プロバイダーが処理するURLをドメインパターンとして指定します（第3章）。これか<code>urlPattern</code>のいずれか一方のみを使用してください。",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "正規表現によるパラメータの削除",
+  "guide_field_urlpattern": {
+    "message": "プロバイダーが処理するURLを、フルURLに照合する正規表現として指定します。大文字と小文字は区別されません。",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "1 つのパラメータを除くすべてのパラメータを削除",
+  "guide_field_indexpattern": {
+    "message": "<code>urlPattern</code>を使用する場合のみ有効：<code>||example.com^</code>などのホストヒントを指定し、プロバイダーがそれらのホストに対してのみチェックされるようにします。指定しない場合、プロバイダーはすべてのURLに対してチェックされます。",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "$removeparam を 1 つのドメインにのみ適用する",
+  "guide_field_rules": {
+    "message": "削除するパラメータ（第4章および第5章）。",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "ドメイン制限の追加",
+  "guide_field_referral": {
+    "message": "削除するリファラルおよびアフィリエイトパラメータ。<em>紹介マーケティングを許可</em>がオンの場合、これらはスキップされます（第10章）。",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "メソッド制限の追加",
+  "guide_field_rawrules": {
+    "message": "フルURLに対して実行される正規表現です。一致するすべての箇所が削除されます（第6章）。",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "第 10 章: $removeparam の例外",
+  "guide_field_exceptions": {
+    "message": "プロバイダーが処理せずにそのままにするURL（第7章）。",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "第 11 章: パラメータ値の書き換え",
+  "guide_field_redirections": {
+    "message": "代わりにリクエストを送信する先（第8章）。",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "第 12 章: 生のルール",
+  "guide_field_fieldredirections": {
+    "message": "パラメータの値へリダイレクトします（第8章）。",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "第 13 章: リダイレクト ルール",
+  "guide_field_completeprovider": {
+    "message": "<em>ドメインブロッキングを許可</em>がオンの間、<code>true</code>はプロバイダーが一致したすべてのリクエストをブロックします。",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "第 14 章: ドメイン リダイレクト ルール",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>：ページ自体がリダイレクトされた場合、タブで新しいアドレスを開きます。",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "第 15 章: 例外",
+  "guide_field_methods": {
+    "message": "処理するHTTPメソッドのみを指定します（例：<code>[\"GET\"]</code>）。デフォルトはすべてです。",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "第 16 章: 紹介マーケティングのルール",
+  "guide_field_resourcetypes": {
+    "message": "処理するリクエストタイプのみを指定します（例：<code>[\"main_frame\"]</code>）。デフォルトは設定で選択されたタイプです。",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "第 17 章: HTTP メソッド",
+  "guide_field_history": {
+    "message": "<code>false</code>を有効にすると、ページがHistory APIを使用して自身のアドレスを変更した際に、プロバイダーをスキップします。",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "第 18 章: ブラウザのリソース タイプ",
+  "guide_field_active": {
+    "message": "<code>false</code> はプロバイダーをオフにします。",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "第 19 章: プリプロセッサ",
+  "guide_match_title": {
+    "message": "3. プロバイダーが処理するURL",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "第 20 章: 許可される JSON の組み合わせ",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> はドメインパターンのリストです。以下のいずれかに一致する場合、URLは一致したとみなされます：",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "組み合わせ 1: 1 つのファイル内の多数のプロバイダー",
+  "guide_th_pattern": {
+    "message": "パターン",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "組み合わせ 2: グローバルデフォルトとプロバイダー",
+  "guide_th_matches": {
+    "message": "一致条件",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "組み合わせ 3:domainPatterns プロバイダー",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> およびすべてのサブドメイン",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "組み合わせ 4: urlPattern プロバイダーとindexPattern",
+  "guide_pat_anysuffix": {
+    "message": "任意のパブリックサフィックス (<code>example.de</code>, <code>example.co.uk</code>, …) 上の <code>example</code>",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "組み合わせ 5:domainPatterns と urlPattern を一緒に使用する",
+  "guide_pat_path": {
+    "message": "パスが <code>/path</code> で始まる場合の、そのホストおよびそのサブドメイン",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "組み合わせ 6: 混合ルール[] エントリ",
+  "guide_pat_star": {
+    "message": "<code>||example.com^</code> と同一",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "組み合わせ 7: ルール内の正規オブジェクト[]",
+  "guide_pat_start": {
+    "message": "正確にこのテキストで始まるURL",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "組み合わせ 8: レガシー配列と正規ルール[]",
+  "guide_pat_end": {
+    "message": "正確にこのテキストで終わるURL",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "組み合わせ 9: プロバイダー全体のメソッドとリソース タイプ",
+  "guide_pat_regex": {
+    "message": "正規表現としての完全なURL (<code>i</code> を追加しない限り、大文字と小文字を区別します)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "組み合わせ 10: ルールレベルのリクエストタイプ",
+  "guide_pat_contains": {
+    "message": "このテキストをどこかに含むURL",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "組み合わせ 11: さまざまな場所での例外",
+  "guide_pat_all": {
+    "message": "すべてのURL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "組み合わせ 12: ブロッキング プロバイダー プラス ルール",
+  "guide_match_p2": {
+    "message": "<code>^</code> はホスト名の末尾、または <code>/</code>, <code>?</code>, <code>:</code> などのセパレーターを表します。<code>*</code> は任意の文字列に一致します。<code>/regex/</code> を除き、パターンは大文字と小文字を区別しません。",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "組み合わせ 13: リダイレクト プロバイダーとクリーンアップ ルール",
+  "guide_match_p3": {
+    "message": "<code>||</code> はドメインを表し、単一の <code>|</code> はURLの完全な開始位置を表し、<code>https://</code> などのスキームが後に続く必要があります。<code>|example.com^</code> は決して一致しないため、エディタによって拒否されます。",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "組み合わせ 14: ドメイン リダイレクトと正規表現リダイレクト",
+  "guide_match_p4": {
+    "message": "代わりに正規表現でマッチさせるには <code>urlPattern</code> を使用し、<code>indexPattern</code> を追加してプロバイダーがそれらのホストでのみチェックされるようにしてください：",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "組み合わせ 15: 無効または非アクティブなルール",
+  "guide_match_p5": {
+    "message": "プロバイダーは <code>domainPatterns</code> または <code>urlPattern</code> のいずれかを持ち、両方を同時に持つことはありません。両方のマッチングが必要な場合は、2つのプロバイダーを作成してください。",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "組み合わせ 16: 完全混合プロバイダーの例",
+  "guide_rules_title": {
+    "message": "4. パラメータの削除",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "第 21 章: 完全な例",
+  "guide_rules_p1": {
+    "message": "<code>rules</code> の各エントリは、クエリ (<code>?a=1</code>) とフラグメント (<code>#a=1</code>) からパラメータを削除します。エントリは以下のいずれかです：",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "例 1: 基本的なトラッカー クリーナー",
+  "guide_th_entry": {
+    "message": "エントリ",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "例 2: すべての UTM パラメータを削除する",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "例 3: ログイン時に必要なパラメータを保持する",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "例 4: リダイレクト追跡クリック",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "例 5: クリーンのみの API リクエスト",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "第 22 章: クイック コピー テンプレート",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori 混合プロバイダー JSON フォーマット ガイド",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "このガイドでは、<code>Linkumori extension</code> が読み取ることができるプロバイダー JSON データを書き込む方法について説明します。",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "これは JavaScript コードのガイドではありません。ルール作成者が必要とする JSON の形状、ルール形式、例のみに焦点を当てています。",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "このガイドは、現在の <code>clearurls.js</code> ランタイム動作に基づいています。特に、プロバイダーの検索では、<code>domainPatterns</code> または <code>indexPattern</code> の <code>providersByToken</code> 候補バケットが使用され、最終的なマッチングは依然として <code>provider.matchRequestURL()</code> を介して実行されます。",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "第 1 章: 基本 JSON 形状",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> は、次の一般的な形式のプロバイダー データを想定しています。",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "重要な部分は <code>providers</code> です。<code>providers</code> 内の各キーはプロバイダー名です。",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "例:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "第 2 章: プロバイダーとは何ですか?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "プロバイダーは、1 つの Web サイト、会社、トラッカー、ドメイン パターン セット、または URL 正規表現用の 1 つの名前付きランタイム コンテナーです。プロバイダー名はラベル/キーです。マッチングは、プロバイダー名ではなく、<code>domainPatterns</code> または <code>urlPattern</code> によって行われます。",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "最小限のプロバイダー:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "これが行うこと:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "第 3 章: 使用できるプロバイダーフィールド",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> によって受け入れられるプロバイダー フィールド。一致させるには、<code>domainPatterns</code> または <code>urlPattern</code> を、オプションの <code>indexPattern</code> とともに作成します。両方が同時に必要であることに依存しないでください。",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "単純な意味:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSONフィールド",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "ソース",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "何のためにそれを書くのか",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "このプロバイダーを無効にするには、<code>false</code> を設定します。",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs アドオンレガシーおよび ClearURLs コア v2 正規",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "クリーニングのみではなく、一致するドメインをブロックするには、<code>true</code> を設定します。",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs アドオンレガシーおよび ClearURLs コア v2 正規",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "ブラウザ タブ経由でメイン ページのリダイレクトを強制するには、<code>true</code> を設定します。",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "このプロバイダーがどのドメインに一致するかを示す推奨される方法。",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs アドオンレガシーおよび ClearURLs コア v2 正規",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript URL に一致する正規表現文字列。",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "<code>urlPattern</code> を使用する場合のオプションの速度ヒント。",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs アドオンレガシーおよび ClearURLs コア v2 正規。 <code>$removeparam</code>はここにLinkumoriを追加します",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "通常のパラメータ削除ルールとプロバイダーローカル <code>$removeparam</code> ルール。",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs アドオンレガシー。ここの正規スタイルのオブジェクトは Linkumori 追加です",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "URL テキスト全体を編集するルール。",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs アドオンレガシー。ここの正規スタイルのオブジェクトは Linkumori 追加です",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "オプションの紹介/マーケティング パラメータ ルール。",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs アドオン レガシーおよび ClearURLs コア v2 正規。ここでのオブジェクトフォームはLinkumori追加です",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL このプロバイダーを実行すべきではない正規表現ルール。",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "このプロバイダーを実行すべきではないドメイン パターン ルール。",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs アドオンレガシー。ここの正規スタイルのオブジェクトは Linkumori 追加です",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "正規表現リダイレクト ルール。",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "ドメインパターンのリダイレクトルール。",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs アドオンレガシーおよび ClearURLs コア v2 正規",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "これらの HTTP メソッドに対してのみ実行します。",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori追加",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "これらのブラウザ要求タイプに対してのみ実行します。",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "第 4 章: 一致するドメイン",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> は Linkumori の追加であり、ほとんどのカスタム プロバイダーに推奨されます。 <code>clearurls.js</code> では、<code>urlPattern</code> の前に空ではない <code>domainPatterns</code> が照合に使用されます。",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "1 つのドメインとすべてのサブドメインに一致",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "一致:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "一致しません:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "任意のパブリック サフィックスで同じ名前と一致する",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "一致するもの:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "サブドメインの一致",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "一致するもの:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "複数のドメイン パターンを使用する",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "第 5 章: ドメイン パターンのシンボル",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "これらは、<code>domainPatterns</code> で使用できる記号です。",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "シンボル",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "意味",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "例",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "削除対象",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "ドメイン境界で一致します。",
+  "guide_rules_name": {
+    "message": "パラメータ名",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "名前の正規表現",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "名前全体が一致するすべてのパラメータ。<code>^…$</code> が自動的に追加され、大文字と小文字は区別されません",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "区切り文字または終了境界。",
+  "guide_rules_filter": {
+    "message": "<code>$removeparam</code> フィルター",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "第5章を参照してください",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> と <code>\"$removeparam=fbclid\"</code> は同じものを削除します。第5章の機能が必要ない限り、単純な名前を使用してください。",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "ワイルドカード。",
+  "guide_rules_part_title": {
+    "message": "プロバイダーの一部に関するルール",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "単純な名前は、プロバイダーがマッチするすべての URL に適用されます。一部の URL でのみパラメータを削除するには、<code>$removeparam</code> フィルターの前にパターンを記述してください：",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "ここでは、すべての Amazon サイトで <code>qid</code> が削除され、<code>amazon.de</code> では <code>tag</code> のみが、<code>smile.amazon</code> では <code>sr</code> のみが、そして <code>/gp/</code> の下では <code>ref_</code> のみが削除されます。パターンはプロバイダー自身のパターンを絞り込むものであり、広げることはできません。",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "アンカーの開始または終了。",
+  "guide_rp_title": {
+    "message": "5. $removeparam フィルター",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "<code>$removeparam</code> フィルターはこの形式です。括弧内の部分はオプションです：",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "値",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript 正規表現リテラル。",
+  "guide_rp_p2": {
+    "message": "値の最初の文字によって意味が決まります：",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "フィルター",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "最も一般的なパターン:",
+  "guide_rp_v_all": {
+    "message": "すべてのパラメータ",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "必要なときに使用します。",
+  "guide_rp_v_except": {
+    "message": "<code>ref</code> 以外のすべてのパラメータ（<code>~/regex/</code> および <code>~|prefix</code> でも動作します）",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "第 6 章: URLs と <code>urlPattern</code> の一致",
+  "guide_rp_v_regex": {
+    "message": "名前または <code>name=value</code> が正規表現に一致するパラメータ。 <code>i</code> を追加しない限り、大文字と小文字は区別されます",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "<code>urlPattern</code> は、プロバイダーが特定のパスまたは完全な URL 正規表現と一致する必要がある場合など、ドメイン一致だけでは不十分な場合にのみ使用します。",
+  "guide_rp_v_prefix": {
+    "message": "名前が <code>utm_</code> で始まるパラメータ。大文字と小文字は区別されません",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "これは以下と一致します:",
+  "guide_rp_v_name": {
+    "message": "そのパラメータのみ。 <code>match-case</code> を追加しない限り、大文字と小文字は区別されません",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> は、ClearURLs アドオンのレガシーおよび ClearURLs コア v2 の正規構文です。 Linkumori は、ホスト名トークンによって正規表現プロバイダーをより速く見つけられるように、候補検索ヒントとしてのみ <code>indexPattern</code> を追加します。",
+  "guide_rp_options_title": {
+    "message": "オプション",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "重要: <code>indexPattern</code> は、プロバイダーが一致するかどうかを決定しません。候補の検索後、<code>clearurls.js</code> は依然として <code>provider.matchRequestURL()</code> で実際の <code>urlPattern</code> をテストします。",
+  "guide_rp_p3": {
+    "message": "オプションは値の後に続き、カンマで区切られます。1つのオプションに複数の値を指定する場合は <code>|</code> で区切り、値を除外する場合は値の前に <code>~</code> を付けてください：",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "第 7 章: 単純なクエリパラメータの削除",
+  "guide_th_option": {
+    "message": "オプション",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "パラメータ名を <code>rules</code> に入力します。",
+  "guide_rp_o_domain": {
+    "message": "これらのドメインのページのみ",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "結果:",
+  "guide_rp_o_to": {
+    "message": "これらのドメインへのリクエストのみ",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "多くのパラメータを削除します。",
+  "guide_rp_o_method": {
+    "message": "これらの HTTP メソッドのみ",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "結果:",
+  "guide_rp_o_party": {
+    "message": "ページと同じサイトへのリクエストのみ、または他のサイトへのリクエストのみ",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "第 8 章: ルール オブジェクトの作成",
+  "guide_rp_o_strict": {
+    "message": "同様ですが、サイトではなく正確なホストを比較します",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "プレーンな文字列の代わりに、ルールをオブジェクトにすることができます。",
+  "guide_rp_o_types": {
+    "message": "これらのリクエストタイプのみに適用されます。<code>~type</code> は1つを除外します",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "次の場合にこれを使用します。",
+  "guide_rp_o_matchcase": {
+    "message": "パラメータ名は大文字と小文字を区別します",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ルール ID。",
+  "guide_rp_o_history": {
+    "message": "ページが History API を使用して自身のアドレスを変更した場合は、このフィルターをスキップします",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "別名。",
+  "guide_rp_p4": {
+    "message": "各オプションには1つの綴りがあります。<code>first-party,third-party</code> のような矛盾するオプションは拒否されます。",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "例外。",
+  "guide_rp_keep_title": {
+    "message": "@@ を使用してパラメータを保持する",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "リクエストタイプの制限。",
+  "guide_rp_p5": {
+    "message": "<code>@@</code> で始まるフィルターは、パラメータを削除する代わりに保持します。ここでは、GitHub 以外のすべての場所で <code>ref</code> が削除されます。",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "動作を書き換えます。",
+  "guide_rp_p6": {
+    "message": "<code>@@</code> フィルターは、別のプロバイダーが処理している場合でも、このプロバイダーが一致するページによって行われたリクエストをカバーします。",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "プロバイダー内の例:",
+  "guide_raw_title": {
+    "message": "6. 生のルール",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "結果:",
+  "guide_raw_p1": {
+    "message": "生のルールはフル URL に対して実行される正規表現であり、一致するものはすべて削除されます。<code>name=value</code> パラメータではないテキスト、例えば Amazon の <code>/ref=…</code> パスセグメントなどに使用してください。",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "プロバイダー ルール オブジェクトの <code>flags</code> は、Linkumori の追加です。 <code>flags: \"i\"</code> は、大文字と小文字を区別せずに一致させます。",
+  "guide_raw_p2": {
+    "message": "生のルールは大文字と小文字を区別せず、一致するすべての箇所を置換します。JSON では、バックスラッシュを2回書いてください。",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "第 9 章: <code>$removeparam</code> ルール",
+  "guide_raw_scope_title": {
+    "message": "一部の URL のみで適用",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "1 つのパラメータを削除",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "すべてのパラメータを削除",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "正規表現によるパラメータの削除",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "1 つのパラメータを除くすべてのパラメータを削除",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "<code>$removeparam</code> を 1 つのドメインにのみ適用する",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "クリーニング済み:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "掃除されていない:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "ドメイン制限の追加",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "1 つのドメインを除外します。",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "メソッド制限の追加",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "<code>GET</code>のみ:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "<code>POST</code>ではありません:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "第 10 章: <code>$removeparam</code> の例外",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "例外を作成するには、<code>$removeparam</code> ルールを <code>@@</code> で開始します。",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "コンテキスト例外の例:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "これにより、<code>gemini.google.com</code> ページによって開始されたサブリクエストで <code>ei</code> を保護できます。",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "第 11 章: パラメータ値の書き換え",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "一致するパラメータ値を置き換えるには、<code>action.type: \"rewrite\"</code> を使用します。",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "プロバイダー内:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "現在の値を再利用したい場合は、<code>§1§</code> を使用します。",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "第 12 章: 生のルール",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "URL のテキスト全体を編集するには、<code>rawRules</code> を使用します。",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "単純な生のルール:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "オブジェクトの生のルール:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "生の書き換えルール:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "第 13 章: リダイレクト ルール",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "<code>redirections</code> を使用してブラウザを新しい URL に送信します。",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "<code>replacePattern</code> が欠落している場合は、最初のキャプチャ グループが使用されます。",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "第 14 章: ドメイン リダイレクト ルール",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> は、単純なドメイン パターン リダイレクト用の Linkumori の追加です。",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori 追加 — 文字列形式:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori 追加 — オブジェクト形式:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "第 15 章: 例外",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> は、ClearURLs アドオンレガシー、ClearURLs コア v2 正規構文です。 Linkumori は、この従来のプロバイダー配列の正規スタイルのオブジェクトも受け入れます。",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "例:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> は、ドメイン パターン例外用の Linkumori の追加です。",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "スキップされました:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "第 16 章: 紹介マーケティングのルール",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> はフィールド ルールと同様に機能しますが、紹介マーケティングの拡張設定によって制御されます。",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "例:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "第 17 章: HTTP メソッド",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "特定の HTTP メソッドでのみプロバイダーを実行するには、<code>methods</code> を使用します。",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "これは以下で実行されます:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "これは以下では実行されません:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "第 18 章: ブラウザのリソース タイプ",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> は Linkumori の追加です。これを使用して、特定のブラウザー要求タイプでのみプロバイダーを実行します。",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "一般的な値:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "例:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "意味:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "第 19 章: プリプロセッサ",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "プリプロセッサは、取得した値を <code>replacePattern</code> で使用する前に変更します。",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "例:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "サポートされているタイプ:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> は次のとおりです。",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "第 20 章: 許可される JSON の組み合わせ",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "この章では、Linkumori 混合プロバイダー JSON: ClearURLs アドオン レガシー アレイ、ClearURLs コア v2 正規オブジェクト、および Linkumori 追加が 1 つのルール ファイル内に一緒に存在できることを示します。",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "組み合わせ 1: 1 つのファイル内の多数のプロバイダー",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> は、ClearURLs アドオンレガシー、ClearURLs コア v2 正規のトップレベル構文です。 Linkumori はその形状を維持し、その下に多くのプロバイダーを許可します。",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "各プロバイダーは個別にロードされます。",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "組み合わせ 2: グローバルデフォルトとプロバイダー",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> は、ClearURLs コア v2 の正規構文です。 Linkumori は、レガシー スタイル <code>providers</code> の横で受け入れられます。",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "ルールにデフォルト値が存在しない場合、ルールはデフォルト値を継承できます。",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "組み合わせ 3: <code>domainPatterns</code> プロバイダー",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "これは Linkumori の追加です。ほとんどの Linkumori プロバイダーはこのフォームを使用する必要があります。",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "組み合わせ 4: <code>urlPattern</code> プロバイダーと <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> は、アップストリームの ClearURL 構文です。 <code>indexPattern</code> は、正規表現 URL プロバイダー用の Linkumori ルックアップ ヒントです。正規表現が一致するホスト名を指す必要があります。",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> はオプションですが、速度向上に役立ちます。プロバイダーをホスト名トークン候補バケットにインデックス付けします。最終的な <code>urlPattern</code> の一致を置き換えることはありません。",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "組み合わせ 5: 複合要件として <code>domainPatterns</code> と <code>urlPattern</code> を混合しないでください",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "この形状は古いデータや手書きのデータに現れる可能性がありますが、両方のマッチャーが以下を通過する必要があるという意味ではありません。",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "現在の <code>clearurls.js</code> の動作:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "<code>domainPatterns</code> が存在し、空でない場合、<code>clearurls.js</code> はプロバイダーの照合にそれを使用し、そのプロバイダーの <code>urlPattern</code> を無視します。カスタム エディター/インポート パスは、両方を含むプロバイダーを拒否します。パス条件が必要な場合は、<code>indexPattern</code> とともに <code>urlPattern</code> を使用するか、<code>rules</code> 内の個々の <code>$removeparam</code>/ルール エントリをスコープします。",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "組み合わせ 6: 混合 <code>rules[]</code> エントリ",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumori では、<code>rules</code> には ClearURLs のレガシー文字列、Linkumori <code>$removeparam</code> の文字列、Linkumori <code>matchPattern</code> のオブジェクト、およびClearURLs コア v2 正規オブジェクトをまとめて。",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "エントリーは4つとも受け付けます。",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "組み合わせ 7: <code>rules[]</code> 内の正規オブジェクト",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs コア v2 正規オブジェクトは、さまざまな種類のルールを表すことができます。この Linkumori の例では、それらは <code>domainPatterns</code> (Linkumori のみ) を使用するプロバイダー内に配置されています。",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> は、これらを意味別に並べ替えます。",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "組み合わせ 8: レガシー アレイと Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs アドオンの従来のプロバイダー配列は引き続き機能します。 Linkumori では、これらの配列を ClearURLs コア v2 正規ルール オブジェクトの横に配置します。",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "これは有効です。エンジンは、同じプロバイダーのこれらすべての配列を読み取ります。",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "組み合わせ 9: プロバイダー全体のメソッドとリソース タイプ",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> は上流の ClearURLs 構文です。 <code>resourceTypes</code> は Linkumori の追加です。どちらもプロバイダー全体に適用されます。",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code> と <code>rawRules</code> は両方とも、プロバイダーのメソッド/型の一致によって制限されます。",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "組み合わせ 10: ルールレベルのリクエストタイプ",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs コア v2 正規ルールでは、ルール レベル <code>requestTypes</code> を定義できます。",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "プロバイダーレベル <code>resourceTypes</code> は、最初にプロバイダーを絞り込みます。ルールレベル <code>requestTypes</code> は、その後、個々のルールを絞り込みます。",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "組み合わせ 11: さまざまな場所での例外",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori を使用すると、ClearURLs プロバイダー例外、Linkumori ドメイン例外、ClearURLs コア v2 ルール例外、および Linkumori プロバイダーローカル例外 <code>$removeparam</code> を組み合わせることができます。",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "単純な意味:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "組み合わせ 12: ブロッキング プロバイダー プラス ルール",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> はプロバイダーをキャンセル/ブロックとしてマークします。",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "設定でドメインのブロックを有効にすると、一致するリクエストをブロックできます。ルールはまだ存在する可能性がありますが、そのプロバイダーにとってはブロックの方が強力な動作です。",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "組み合わせ 13: リダイレクト プロバイダーとクリーンアップ ルール",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "プロバイダーには、リダイレクトとクリーンアップ ルールを含めることができます。",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "リダイレクトが一致する場合は、リダイレクトが最初に返されます。",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "組み合わせ 14: ドメイン リダイレクトと正規表現リダイレクト",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "両方が 1 つのプロバイダーに存在できます。",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "正規表現のリダイレクトが最初にチェックされます。一致する正規表現リダイレクトがない場合、ドメイン リダイレクトがチェックされます。",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "組み合わせ 15: 無効または非アクティブなルール",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "プロバイダーは非アクティブになる可能性があります。",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "ルールは非アクティブになる可能性があります。",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "非アクティブなプロバイダーと非アクティブなルールは無視されます。",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "組み合わせ 16: 完全混合プロバイダーの例",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "この Linkumori の例では、サポートされているほとんどのプロバイダー機能 (ClearURLs アドオン レガシー アレイ、ClearURLs コア v2 正規ルール オブジェクト、および Linkumori のみのマッチャー機能とドメイン パターン機能) を意図的に組み合わせています。",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "これは有効な Linkumori 混合プロバイダー JSON です。",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "第 21 章: 完全な例",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "例 1: 基本的なトラッカー クリーナー",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "例 2: すべての UTM パラメータを削除する",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "例 3: ログイン時に必要なパラメータを保持する",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "例 4: リダイレクト追跡クリック",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "結果:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "例 5: クリーンのみの API リクエスト",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "意味:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "第 22 章: クイック コピー テンプレート",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "パラメータを 1 つ削除します。",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "多くのパラメータを削除します。",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "<code>$removeparam</code> を使用します:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "<code>utm_</code> パラメータをすべて削除します。",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "例外を追加します。",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "ドメインを一致させる:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "トラッカー URL をリダイレクトします:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "生のルールは <code>$removeparam</code> フィルターのパターンとオプションを使用でき、最後に <code>rawrule=</code> を付けます。<code>rawrule=</code> 以降のすべてが正規表現になります。",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "パターンとオプションでルールの実行場所が決まりますが、削除されるのは依然として正規表現に一致する部分です。<code>match-case</code> を指定すると大文字と小文字を区別します。",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "一部の URL で生のルールを停止させる",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "<code>@@</code>で始まるエントリは、そのパターンが一致する場所で生のルールが実行されるのを停止させます。生のルールに<code>id</code>を付与し、<code>targetId</code>で名前を付けてください：",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "<code>rawrule=</code>の後に何もなく<code>targetId</code>もない場合、そのエントリはそれらのURLにおけるプロバイダーのすべての生のルールを停止させます。プロバイダー全体をスキップするには、代わりに<code>exceptions</code>を使用してください。",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. 例外",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "URLが<code>exceptions</code>のエントリに一致する場合、プロバイダーのルールは一つも実行されません。エントリは正規表現、または<code>|</code>で始まるドメインパターンです：",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "例外は大文字と小文字を区別しません。",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. リダイレクト",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "リダイレクトルールは、実際の間接先に直接移動することでトラッキングページをスキップします。これらは<em>サードパーティリダイレクトのバイパスを有効にする</em>がオンの間にのみ実行されます。",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "URLの一部へのリダイレクト",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code>のエントリは、ちょうど一つのキャプチャグループ<code>( … )</code>を持つ正規表現です。リクエストは、そのグループがキャプチャしたURLデコード済みの内容に送信されます。他のグループは<code>(?: … )</code>として記述してください：",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "固定アドレスへのリダイレクト",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "<code>|</code>で始まるエントリは、一致するすべてのURLを一つのアドレスに送信します：",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "パラメータの値へのリダイレクト",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code>は送信先を保持するパラメータの名前を指定するため、正規表現は不要です。<code>rules</code>と同じエントリ形式を使用します：",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "値を持つ最初の一致したパラメータが優先されます。リダイレクトは、そのリクエストに対する他のすべての処理を停止させます。",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. ルールオブジェクト",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "任意のエントリを文字列の代わりにオブジェクトにすることができます。ルールにIDが必要な場合、オフの状態で開始すべき場合、削除ではなく書き換えを行うべき場合、または特定のケースでのみ実行すべき場合にオブジェクトを使用してください：",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "キー",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "プレーンなエントリとして記述するテキスト",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "ルールのオン/オフを切り替えるために使用される安定した名前 (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "ルールの以前のID。これにより、名前を変更した後もオフにしたルールはオフのままになります",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "削除ではなく書き換え。<code>§1§</code>, <code>§2§</code>, … はキャプチャされた値です",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "先にキャプチャされた値を変更します",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "特定のリクエストタイプのみに適用。例: <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "このルールが実行されないURL（例外）",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "文字列としての正規表現フラグ (デフォルトは <code>i</code>、<code>rawRules</code> の場合は <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "ルールの実行順序を早めるか遅らせるか",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: <code>rules</code> 内のルールはリファラルマーケティングルールとしてカウントされます",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ページが History API を使用して自身のアドレスを変更する場合、このルールをスキップします",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: ルールはオフの状態で開始されます",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "自由形式のテキスト",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "<code>@@…$rawrule=</code> エントリのみ: これが停止させる生のルール",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "削除ではなく書き換え",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code> を使用すると、<code>rules</code> のルールはパラメータを保持し、その値を <code>§1§</code> に置き換えます。<code>rawRules</code> と <code>redirections</code> では、<code>§1§</code>、<code>§2§</code>、… がキャプチャグループになります：",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "プリプロセッサ",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "プリプロセッサは、<code>replacePattern</code> が使用する前にキャプチャされた値を変更します。<code>inputs</code> は <code>\"all\"</code> またはグループ番号のリストです：",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "タイプは <code>urlEncode</code>、<code>urlDecode</code>、<code>doubleUrlEncode</code>、<code>doubleUrlDecode</code>、<code>base64Encode</code>、および <code>base64Decode</code> です。",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ルールID",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "すべてのルールにはIDがあります。<code>id</code> がないルールには、そのリストとテキストからIDが割り当てられます：<code>rules</code> の <code>\"utm_source\"</code> は <code>field-utm-source</code> になります。2つのルールに同じIDが割り当てられる場合は、両方の末尾に短いハッシュが付与されます。",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "生成されたIDは、ルールのテキストが変更されると変わります。編集後もオン/オフ設定を保持する必要がある場合は、ルールに独自の <code>id</code> を設定してください。",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "ルールの実行順序の変更",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "通常、生のルールが最初に実行され、次に <code>rules</code> と <code>referralMarketing</code> が実行されます。<code>order</code> を持つルールは、持たないルールよりも先に、数値の低い順に実行されます。ここでは、トークンが最初に置換され、その後に削除されます：",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> は <code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code> で動作しますが、常に最後に実行される <code>$removeparam</code> フィルターでは動作しません。",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. リファラルマーケティング",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> は <code>rules</code> と同じエントリを使用します。<em>紹介マーケティングを許可</em> がオンの間はこれらがスキップされるため、アフィリエイトリンクを維持したい場合に機能します：",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "ルールは <code>rules</code> に留まったままでも、<code>\"referralMarketing\": true</code> を使用してリファラルマーケティングとしてカウントさせることができます。",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. メソッドとリクエストタイプ",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "これらは、プロバイダーまたはルールが実行される条件を絞り込みます：",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js の動作:domainPatterns が存在し、空でない場合、Linkumori はプロバイダーの照合に domainPatterns を使用します。 urlPattern は、domainPatterns が欠落しているか空の場合にのみ使用されます。カスタム エディター/インポート パスは、この混合マッチャー形状を拒否するため、レガシー データを理解する場合にのみ使用してください。",
+  "guide_req_methods": {
+    "message": "プロバイダーが処理するHTTPメソッド",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "プロバイダーが処理するリクエストタイプ",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "1つのルールオブジェクトが処理するリクエストタイプ",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "1つの <code>$removeparam</code> フィルターまたは生のルールについても同様です",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "リクエストタイプにはブラウザの名称が使用されます：<code>main_frame</code>（ページ）、<code>sub_frame</code>（フレーム）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> など。フィルターオプションでは、最初の2つを <code>document</code> および <code>subdocument</code> と呼びます。",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. URLがどのように処理されるか",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "URLに一致し、リクエストを許可する各プロバイダーについて：",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>：一致するものがある場合、そのプロバイダーはスキップされます。",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>、次に <code>fieldRedirections</code>：一致するとリクエストがリダイレクトされ、それ以外のものは実行されません。",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>：リクエストがブロックされます。",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> は完全なURLに対して実行されます。",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> と <code>referralMarketing</code> はパラメータを削除します。",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> フィルターが実行されます。ただし、<code>@@</code> フィルターがパラメータを保持する場合は除きます。",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "リクエストを変更、リダイレクト、またはブロックした最初のプロバイダーが結果を決定します。その後、新しいURLが再び同じステップを通ります。",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. 完全な例",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "1つのショップをクリーンにする",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "1つのショップでトラッキングパラメータとアフィリエイトIDを削除し、チェックアウトページには影響を与えないようにします：",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "あらゆる場所からUTMパラメータを削除する",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "パターン <code>*</code> はすべてのURLに一致します：",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "クリックトラッカーをスキップする",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "クリックトラッカー経由のリンクを、<code>url</code> パラメータにある最終目的地へ直接送信します：",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "特定のページでのみパラメータを保持する",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "サイト全体から <code>ref</code> を削除しますが、それが必要なログインページのみ例外とします：",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. ルールの確認",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "カスタムルールエディタは、保存またはインポート時にルールをチェックします。壊れたJSONや無効な正規表現に加えて、読み込みは可能だが意図しない動作をする以下のようなルールは拒否されます：",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "1つのプロバイダーに <code>domainPatterns</code> と <code>urlPattern</code> が混在している",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "スキームがなく <code>|</code> のみが1つあるパターン（例：<code>|example.com^</code>）",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "キャプチャグループがちょうど1つではない正規表現リダイレクト",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "未知のフィールド、キー、およびオプション",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "何も機能しない場所での <code>order</code> または <code>referralMarketing</code>",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "生のルールを一つも停止させない <code>@@…$rawrule=</code> エントリ",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "保存に失敗した場合、メッセージにプロバイダー、リスト、およびエントリの名前が表示されます。",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

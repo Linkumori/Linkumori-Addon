@@ -4727,1688 +4727,704 @@
     "message": "A szabályazonosító vezérlők akkor érhetők el, ha a szolgáltató JSON érvényes.",
     "description": "Érvénytelen JSON állapot a szolgáltatói szabályazonosító vezérlőkhöz"
   },
-  "guide_0001": {
-    "message": "Linkumori Kiterjesztés – Szabályok dokumentációja",
+  "guide_page_title": {
+    "message": "Linkumori — Szabályok útmutató",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "téma",
+  "guide_theme_label": {
+    "message": "Téma",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Szolgáltató JSON formátum",
+  "guide_toc_label": {
+    "message": "Tartalomjegyzék",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Szolgáltató JSON",
+  "guide_theme_midnight": {
+    "message": "Éjszaka",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "1. fejezet: Alap JSON Alak",
+  "guide_theme_light": {
+    "message": "Világos",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "2. fejezet: Mi az a szolgáltató?",
+  "guide_theme_icecold": {
+    "message": "Jéghideg",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "3. fejezet: Használható szolgáltatói mezők",
+  "guide_theme_zen_grey": {
+    "message": "Zen Szürke",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "4. fejezet: Egyező tartományok",
+  "guide_theme_sunset": {
+    "message": "Naplemente",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Egyezzen meg egy domaint és az összes aldomaint",
+  "guide_title": {
+    "message": "Linkumori szabályok írása",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Egyezzen meg ugyanazzal a névvel bármely nyilvános utótagnál",
+  "guide_intro_1": {
+    "message": "A Linkumori szabályok segítségével tisztítja a URL-eket. Ez az útmutató megmutatja, hogyan írhatja őket, az első szabálytól kezdve minden egyes opcióig, olyan példákkal, amelyeket lemásolhat.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Aldomainek egyezése",
+  "guide_intro_2": {
+    "message": "A szabályok JSON formátumúak. Az Egyéni szabályok szerkesztőben írhatja őket, amely mentéskor ellenőrzi őket. A csomagolt szabálylista és a távoli szabálylisták ugyanazt a formátumot használják.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Egynél több tartománymintát használjon",
+  "guide_file_title": {
+    "message": "1. A szabályfájl",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "5. fejezet: Tartományminta szimbólumok",
+  "guide_file_p1": {
+    "message": "A szabályfájl egyetlen JSON objektum. Az annak <code>providers</code> objektuma egy általad választott nevet rendel egy Szolgáltatóhoz:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "6. fejezet: URLs egyeztetése urlPattern-el",
+  "guide_file_p2": {
+    "message": "A Szolgáltató meghatározza, hogy mely URL-eket kezeli és mit kell velük tenni. Ez a példa eltávolítja a <code>utm_source</code> és a <code>utm_medium</code> részt minden URL-ről a <code>example.com</code> oldalon és annak aldoménein:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "7. fejezet: Egyszerű lekérdezési paraméterek eltávolítása",
+  "guide_file_p3": {
+    "message": "A név csak egy címke. Arrol a <code>domainPatterns</code> vagy a <code>urlPattern</code> dönt, hogy mely URL-eket kezeli a Szolgáltató.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "8. fejezet: Írj egy szabályobjektumot",
+  "guide_fields_title": {
+    "message": "2. Szolgáltató mezők",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "9. fejezet: $removeparam szabályok",
+  "guide_th_field": {
+    "message": "Mező",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Egy paraméter eltávolítása",
+  "guide_th_meaning": {
+    "message": "funkció",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Távolítsa el az összes paramétert",
+  "guide_field_domainpatterns": {
+    "message": "Azok a URL-ek, amelyeket a Szolgáltató kezel, domain mintaként (3. fejezet). Ezt vagy a <code>urlPattern</code>-t használd, soha ne mindkettőt.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Paraméterek eltávolítása Regex segítségével",
+  "guide_field_urlpattern": {
+    "message": "Azok a URL-ek, amelyeket a Szolgáltató kezel, mint egy a teljes URL-hez illeszkedő reguláris kifejezés. A kis- és nagybetűk nem számítanak.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Egy paraméter kivételével az összes eltávolítása",
+  "guide_field_indexpattern": {
+    "message": "Csak <code>urlPattern</code>-vel: host tippek, mint például <code>||example.com^</code>, így a Szolgáltatót csak ezeknél a hostoknál ellenőrizik. Ez nélkül a Szolgáltatót minden URL-nél ellenőrizik.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "A $removeparam alkalmazása csak egy domainre",
+  "guide_field_rules": {
+    "message": "Eltávolítandó paraméterek (4. és 5. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Domainkorlátok hozzáadása",
+  "guide_field_referral": {
+    "message": "Eltávolítandó ajánló és affiliate paraméterek. Ezeket átugorják, ha a <em>Ajánlói marketing engedélyezése</em> bekapcsolva van (10. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Módszer korlátok hozzáadása",
+  "guide_field_rawrules": {
+    "message": "A teljes URL-re futtatott reguláris kifejezések; minden egyezés törölésre kerül (6. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "10. fejezet: $removeparam Kivételek",
+  "guide_field_exceptions": {
+    "message": "Azok a URL-ek, amelyeket a Szolgáltató érintetlenül hagy (7. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "11. fejezet: Paraméterértékek átírása",
+  "guide_field_redirections": {
+    "message": "Hová küldjük a kérést helyette (8. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "12. fejezet: Nyers szabályok",
+  "guide_field_fieldredirections": {
+    "message": "Átirányítás egy paraméter értékére (8. fejezet).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "13. fejezet: Átirányítási szabályok",
+  "guide_field_completeprovider": {
+    "message": "A <code>true</code> minden olyan kérést blokkol, amely egyezik a Szolgáltatóval, amíg a <em>Tartományblokkolás engedélyezése</em> bekapcsolva van.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "14. fejezet: Domain átirányítási szabályok",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: amikor maga az oldal átirányításra kerül, a lap a új címet nyitja meg.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "15. fejezet: Kivételek",
+  "guide_field_methods": {
+    "message": "Csak ezeket az HTTP módszereket kezelje, például <code>[\"GET\"]</code>. Alapértelmezett: összes.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "16. fejezet: Hivatkozási marketing szabályok",
+  "guide_field_resourcetypes": {
+    "message": "Csak ezeket a kéréstípusokat kezelje, például <code>[\"main_frame\"]</code>. Alapértelmezett: a beállításokban választott típusok.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "17. fejezet: HTTP Módszerek",
+  "guide_field_history": {
+    "message": "A <code>false</code> átugorja a Szolgáltatót, ha egy oldal a History API segítségével változtatja meg a saját címét.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "18. fejezet: Böngésző erőforrástípusai",
+  "guide_field_active": {
+    "message": "<code>false</code> kikapcsolja a Szolgáltatót.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "19. fejezet: Előfeldolgozók",
+  "guide_match_title": {
+    "message": "3. Mely URL-eket kezeli a Szolgáltató",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "20. fejezet: Engedélyezett JSON kombinációk",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> egy domain-minták listája. Egy URL egyezik, ha bármelyikük egyezik:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "1. kombináció: Sok szolgáltató egy fájlban",
+  "guide_th_pattern": {
+    "message": "Minta",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "2. kombináció: Global Defaults Plus Providers",
+  "guide_th_matches": {
+    "message": "Egyezés",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "3. kombináció: domain Patterns Provider",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> és minden aldomain",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "4. kombináció: urlPattern Provider IndexPattern-nel",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> bármely nyilvános suffixen (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "5. kombináció: domain Patterns és urlPattern együtt",
+  "guide_pat_path": {
+    "message": "ez a host és annak az aldomainjei, amikor az útvonal <code>/path</code>-vel kezdődik",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "6. kombináció: Vegyes szabályok[] Bejegyzések",
+  "guide_pat_star": {
+    "message": "ugyanaz, mint <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "7. kombináció: A szabályokon belüli kanonikus objektumok[]",
+  "guide_pat_start": {
+    "message": "URL-ek, amelyek pontosan ezzel a szöveggel kezdődnek",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "8. kombináció: Legacy Arrays plus Canonical szabályok[]",
+  "guide_pat_end": {
+    "message": "URL-ek, amelyek pontosan ezzel a szöveggel végződnek",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "9. kombináció: A szolgáltatóra kiterjedő módszerek és erőforrástípusok",
+  "guide_pat_regex": {
+    "message": "a teljes URL, reguláris kifejezésként (a kis- és nagybetű számít, hacsak nem ad hozzá <code>i</code>-t)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "10. kombináció: Szabályszintű kéréstípusok",
+  "guide_pat_contains": {
+    "message": "URL-ek, amelyek bárhol tartalmazzák ezt a szöveget",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "11. kombináció: Kivételek különböző helyeken",
+  "guide_pat_all": {
+    "message": "minden URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "12. kombináció: A Szolgáltató Plusz szabályok letiltása",
+  "guide_match_p2": {
+    "message": "A <code>^</code> jelöli a háznév végét, vagy egy olyan szeparátort, mint a <code>/</code>, <code>?</code> vagy <code>:</code>. A <code>*</code> bármit egyeztet. A <code>/regex/</code> kivételével a minták nem érzékenyek a kis- és nagybetűkre.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "13. kombináció: Redirect Provider Plus Cleanup Rules",
+  "guide_match_p3": {
+    "message": "<code>||</code> egy domint jelöl, míg egyetlen <code>|</code> az URL legkezdete, és olyan scheme-nek kell követnie, mint például <code>https://</code>. <code>|example.com^</code> soha nem egyezhet, ezért a szerkesztő elutasítja.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "14. kombináció: Domain átirányítások plusz Regex átirányítások",
+  "guide_match_p4": {
+    "message": "A reguláris kifejezéssel való egyezéshez használja a <code>urlPattern</code>-t, és adjon hozzá <code>indexPattern</code>-t, hogy a Szolgáltató csak azokon a házigépeken legyen ellenőrizve:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "15. kombináció: letiltott vagy inaktív szabályok",
+  "guide_match_p5": {
+    "message": "Egy Szolgáltatónak <code>domainPatterns</code> vagy <code>urlPattern</code> értéke lehet, soha nem mindkettő. Ha mindkét típusú egyezésre van szüksége, hozzon létre két Szolgáltatót.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "16. kombináció: Teljes vegyes szolgáltató példa",
+  "guide_rules_title": {
+    "message": "4. Paraméterek eltávolítása",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "21. fejezet: Teljes példák",
+  "guide_rules_p1": {
+    "message": "A <code>rules</code> minden bejegyzése eltávolítja a paramétereket a lekérdezésből (<code>?a=1</code>) és a fragmentumból (<code>#a=1</code>). Egy bejegyzés lehet valamelyik következője:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "1. példa: Basic Tracker Cleaner",
+  "guide_th_entry": {
+    "message": "Bejegyzés",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "2. példa: Távolítsa el az összes UTM-paramétert",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "3. példa: Tartsa meg a szükséges paramétert a bejelentkezéskor",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "4. példa: Kattintások átirányítása",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "5. példa: Csak tiszta API kérések",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "22. fejezet: Gyorsmásolási sablonok",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Vegyes szolgáltató JSON Formátum útmutató",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Ez az útmutató elmagyarázza, hogyan írhat be JSON szolgáltatói adatokat, amelyeket a <code>Linkumori extension</code> tud olvasni.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Ez nem útmutató a JavaScript kódhoz. Csak azokra a JSON alakzatokra, szabályformátumokra és példákra összpontosít, amelyekre a szabályok szerzőinek szüksége van.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Ez az útmutató a jelenlegi <code>clearurls.js</code> futásidejű viselkedésen alapul. A szolgáltatók keresése különösen a <code>domainPatterns</code> vagy <code>indexPattern</code> <code>providersByToken</code> jelöltcsoportjait használja, és a végső egyeztetés továbbra is a <code>provider.matchRequestURL()</code>-en keresztül fut.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "1. fejezet: Alap JSON Alak",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "A <code>Linkumori extension</code> a következő általános formában várja a szolgáltatói adatokat:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "A fontos rész a <code>providers</code>. A <code>providers</code> számon belüli minden kulcs egy szolgáltató neve.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "2. fejezet: Mi az a szolgáltató?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "A szolgáltató egy elnevezett futásidejű tároló egy webhelyhez, vállalathoz, nyomkövetőhöz, domainminta-készlethez vagy URL regexhez. A szolgáltató neve egy címke/kulcs; Az egyeztetést a <code>domainPatterns</code> vagy a <code>urlPattern</code> végzi, nem a szolgáltató neve.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Minimális szolgáltató:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Mit csinál ez:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "3. fejezet: Használható szolgáltatói mezők",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "A <code>clearurls.js</code> által elfogadott szolgáltatói mezők. Az egyeztetéshez írja be a <code>domainPatterns</code> vagy a <code>urlPattern</code> opcionális <code>indexPattern</code>-et; ne hagyatkozz arra, hogy mindkettő együtt szükséges.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Egyszerű jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON mező",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Forrás",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Amiért írod",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "A szolgáltató letiltásához állítsa be a <code>false</code> számot.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Állítsa be a <code>true</code> értéket az egyező tartományok blokkolásához a tisztítás helyett.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Állítsa be a <code>true</code> értéket a főoldali átirányítások böngészőlapon keresztül történő kényszerítéséhez.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Javasolt módja annak, hogy megtudja, mely domainekhez tartozik ez a szolgáltató.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript regex karakterlánc a URL egyezéshez.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Opcionális sebességre vonatkozó tipp a <code>urlPattern</code> használatakor.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 kanonikus; <code>$removeparam</code> a Linkumori kiegészítés itt",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Normál paraméter-eltávolítási szabályok és szolgáltatói helyi <code>$removeparam</code> szabályok.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs kiegészítő örökölt; kanonikus stílusú objektumok itt Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Szabályok, amelyek a teljes URL szöveget szerkesztik.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs kiegészítő örökölt; kanonikus stílusú objektumok itt Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Választható hivatkozási/marketingparaméter-szabályok.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 kanonikus; objektum űrlapok itt Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regex szabályok, ahol ennek a szolgáltatónak nem szabad futnia.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Domain-minta-szabályok, ahol ennek a szolgáltatónak nem szabad futnia.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs kiegészítő örökölt; kanonikus stílusú objektumok itt Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex átirányítási szabályok.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Domain-minta átirányítási szabályok.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon örökölt és ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Csak ezekhez a HTTP metódusokhoz futtassa.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori kiegészítés",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Csak ezekhez a böngészőkéréstípusokhoz futtassa.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "4. fejezet: Egyező tartományok",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "A <code>domainPatterns</code> egy Linkumori kiegészítés, és a legtöbb egyéni szolgáltató számára előnyös. A <code>clearurls.js</code>-ben a nem üres <code>domainPatterns</code> a <code>urlPattern</code> előtti egyeztetéshez.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Egyezzen meg egy domaint és az összes aldomaint",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Mérkőzések:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Nem egyezik:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Egyezzen meg ugyanazzal a névvel bármely nyilvános utótagnál",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Megfelelhet:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Aldomainek egyezése",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Megfelelhet:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Egynél több tartománymintát használjon",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "5. fejezet: Tartományminta szimbólumok",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Ezeket a szimbólumokat használhatja a <code>domainPatterns</code> számon.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Szimbólum",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Jelentése",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Példa",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Eltávolítja",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Egyezés egy domain határán.",
+  "guide_rules_name": {
+    "message": "egy paraméternév",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "egy név-regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "minden olyan paramétert, amelynek teljes neve egyezik; a <code>^…$</code> automatikusan hozzáadásra kerül, és a kis- és nagybetűk különbsége figyelmen kívül marad",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Elválasztó vagy véghatár.",
+  "guide_rules_filter": {
+    "message": "egy <code>$removeparam</code> szűrő",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "lásd az 5. fejezetet",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "A <code>\"fbclid\"</code> és a <code>\"$removeparam=fbclid\"</code> ugyanazt távolítja el. Használja az egyszerű nevet, hacsak nincs szüksége valamire az 5. fejezetből.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Helyettesítő karakter.",
+  "guide_rules_part_title": {
+    "message": "Szabályok a Szolgáltató egy részéhez",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Egy egyszerű név minden olyan URL-re vonatkozik, amely egyezik a Szolgáltatóval. Ahhoz, hogy egy paramétert csak néhányikról távolítsa el, helyezzen egy mintát egy <code>$removeparam</code> szűrő elé:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Itt a <code>qid</code> minden Amazon oldalon eltávolítva lesz, a <code>tag</code> csak a <code>amazon.de</code>-ön, a <code>sr</code> csak a <code>smile.amazon</code>-ön, és a <code>ref_</code> csak a <code>/gp/</code> alatt. A minta szűkíti a Szolgáltató saját mintáit; nem tudja őket bővíteni.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Kezdő vagy záró horgony.",
+  "guide_rp_title": {
+    "message": "5. $removeparam szűrők",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "A <code>$removeparam</code> szűrő felépítése a következő; a szögletes zárójelekben lévő részek opcionálisak:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Az érték",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex literál.",
+  "guide_rp_p2": {
+    "message": "Az érték első karakteréből derül ki a jelentése:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Szűrő",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "A leggyakoribb minta:",
+  "guide_rp_v_all": {
+    "message": "minden paraméter",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Használd amikor akarod:",
+  "guide_rp_v_except": {
+    "message": "minden paraméter, kivéve a <code>ref</code>-t (szintén működik <code>~/regex/</code> és <code>~|prefix</code> esetében)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "6. fejezet: URLs és <code>urlPattern</code> egyeztetése",
+  "guide_rp_v_regex": {
+    "message": "azon paraméterek, amelyek neve vagy <code>name=value</code>-ja megfelel a reguláris kifejezésnek; a kis- és nagybetű számít, hacsak nem ad hozzá <code>i</code>-t",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "A <code>urlPattern</code>-et csak akkor használja, ha a tartományegyeztetés nem elegendő, például ha a szolgáltatónak meg kell felelnie egy adott elérési útnak vagy teljes URL regexnek.",
+  "guide_rp_v_prefix": {
+    "message": "azon paraméterek, amelyek neve <code>utm_</code>-val kezdődik; a kis- és nagybetű figyelmen kívül marad",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Ez egyezhet:",
+  "guide_rp_v_name": {
+    "message": "pontosan ez a paraméter; a kis- és nagybetű figyelmen kívül marad, hacsak nem ad hozzá <code>match-case</code>-t",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "A <code>urlPattern</code> a ClearURL-bővítmény örökölt és a ClearURLs core v2 kanonikus szintaxisa. A Linkumori a <code>indexPattern</code>-et csak jelöltkeresési tippként adja hozzá, így a regex-szolgáltatók gyorsabban megtalálhatók a gazdagépnév-tokenek alapján.",
+  "guide_rp_options_title": {
+    "message": "Opciók",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Fontos: A <code>indexPattern</code> nem dönti el, hogy egy szolgáltató megfelel-e. A jelöltek keresése után a <code>clearurls.js</code> továbbra is teszteli a valódi <code>urlPattern</code>-et a <code>provider.matchRequestURL()</code>-ben.",
+  "guide_rp_p3": {
+    "message": "Az opciók az érték után következnek, vesszővel elválasztva. Egy opció több értékét <code>|</code>-val válassza el, és tegyen <code>~</code>-t egy érték elé, hogy kizárja azt:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "7. fejezet: Egyszerű lekérdezési paraméterek eltávolítása",
+  "guide_th_option": {
+    "message": "Opció",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Írja be a paraméterneveket a <code>rules</code> kódba.",
+  "guide_rp_o_domain": {
+    "message": "csak ezeken a domaineken található oldalakon",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Eredmény:",
+  "guide_rp_o_to": {
+    "message": "csak ezekre a domainekre irányuló kérésekre",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Számos paraméter eltávolítása:",
+  "guide_rp_o_method": {
+    "message": "csak ezekhez az HTTP módszerekhez",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Eredmény:",
+  "guide_rp_o_party": {
+    "message": "csak az oldaléval megegyező oldalra irányított kérésekre, vagy csak más oldalakra",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "8. fejezet: Írj egy szabályobjektumot",
+  "guide_rp_o_strict": {
+    "message": "ugyanaz, de az oldal helyett a pontosz hostot hasonlítja össze",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "A sima karakterlánc helyett a szabály lehet objektum.",
+  "guide_rp_o_types": {
+    "message": "csak ezekhez a kéréstípusokhoz; a <code>~type</code> egyet kizár",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Használja ezt, amikor szüksége van:",
+  "guide_rp_o_matchcase": {
+    "message": "a paraméternevek kisbetű- és nagybetű-érzékenyek",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Egy szabályazonosító.",
+  "guide_rp_o_history": {
+    "message": "ugoralja ezt a szűrőt, ha egy oldal a History API segítségével változtatja meg a saját címét",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Álnevek.",
+  "guide_rp_p4": {
+    "message": "Minden opció egyetlen helyesírású formátumot használ. Az ellentmondásos opciókat, mint például a <code>first-party,third-party</code>, elutasítjuk.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Kivételek.",
+  "guide_rp_keep_title": {
+    "message": "Egy paraméter megtartása @@ használatával",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Kérelem típusának korlátai.",
+  "guide_rp_p5": {
+    "message": "A <code>@@</code>-vel kezdődő szűrő megtartja a paramétert a törlés helyett. Itt a <code>ref</code> mindenhol törölve lesz, kivéve a GitHub oldalán:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Viselkedés átírása.",
+  "guide_rp_p6": {
+    "message": "Egy <code>@@</code> szűrő lefedi azokat a kéréseket is, amelyeket egy olyan oldal generál, amelynek ez a Szolgáltató megfelel, még akkor is, ha egy másik Szolgáltató kezeli őket.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Példa egy szolgáltatón belül:",
+  "guide_raw_title": {
+    "message": "6. Nyers szabályok",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Eredmény:",
+  "guide_raw_p1": {
+    "message": "A nyers szabály egy reguláris kifejezés, amely a teljes URL-re fut; minden egyezés törölve lesz. Használja olyan szövegekhez, amelyek nem <code>name=value</code> paraméterek, például az Amazon <code>/ref=…</code> útvonalrészéhez:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "A <code>flags</code> a szolgáltatói szabályobjektumokon egy Linkumori kiegészítés. A <code>flags: \"i\"</code> a mérkőzést érzéketlenné teszi a kis- és nagybetűk között.",
+  "guide_raw_p2": {
+    "message": "A nyers szabályok figyelmen kívül hagyják a kis- és nagybetűket, és minden egyezést ersetztik. A JSON formátumban minden visszaperjelet kétszer írja.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "9. fejezet: <code>$removeparam</code> Szabályok",
+  "guide_raw_scope_title": {
+    "message": "Csak bizonyos URL-eken",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Egy paraméter eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Távolítsa el az összes paramétert",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Paraméterek eltávolítása Regex segítségével",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Egy paraméter kivételével az összes eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Alkalmazza a <code>$removeparam</code> számot csak egy domainre",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Tisztítva:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Nincs tisztítva:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Domainkorlátok hozzáadása",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Egy domain kizárása:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Módszer korlátok hozzáadása",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Csak <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Nem <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "10. fejezet: <code>$removeparam</code> Kivételek",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Indítson el egy <code>$removeparam</code> szabályt a <code>@@</code> számmal, hogy kivételt tegyen.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Példa környezeti kivételre:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Ez megvédheti a <code>ei</code> számot a <code>gemini.google.com</code>-es oldallal indított részkérések esetén.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "11. fejezet: Paraméterértékek átírása",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "A megfelelő paraméterérték cseréjéhez használja a <code>action.type: \"rewrite\"</code> kódot.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Egy szolgáltatón belül:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Használja a <code>§1§</code> számot, ha újra fel szeretné használni az aktuális értéket:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "12. fejezet: Nyers szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "A teljes URL szöveg szerkesztéséhez használja a <code>rawRules</code> számot.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Egyszerű nyers szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Objektum nyers szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Nyers átírási szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "13. fejezet: Átirányítási szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "A <code>redirections</code> szám használatával küldje el a böngészőt egy új URL számra.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Ha a <code>replacePattern</code> hiányzik, a rendszer az első rögzítési csoportot használja.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "14. fejezet: Domain átirányítási szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "A <code>domainRedirections</code> egy Linkumori kiegészítés az egyszerű tartománymintázatú átirányításokhoz.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori kiegészítés – karakterlánc alakja:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori kiegészítés – objektumforma:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "15. fejezet: Kivételek",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "A <code>exceptions</code> a ClearURLs addon örökölt és a ClearURLs core v2 kanonikus szintaxis. A Linkumori kanonikus stílusú objektumokat is elfogad ebben a régebbi szolgáltatói tömbben.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "A <code>domainExceptions</code> egy Linkumori kiegészítés a tartományminta-kivételekhez.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Kihagyva:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "16. fejezet: Hivatkozási marketing szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "A <code>referralMarketing</code> úgy működik, mint a mezőszabályok, de a hivatkozási marketing kiterjesztés beállítása vezérli.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "17. fejezet: HTTP Módszerek",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Használja a <code>methods</code> számot, ha egy szolgáltatót csak meghatározott HTTP metódusokon szeretne futtatni.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Ez a következőn fut:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Ez nem fut:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "18. fejezet: Böngésző erőforrástípusai",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "A <code>resourceTypes</code> egy Linkumori kiegészítés. Használja arra, hogy egy szolgáltatót csak bizonyos böngészőkéréstípusokon futtasson.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Általános értékek:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "19. fejezet: Előfeldolgozók",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Az előfeldolgozók megváltoztatják a rögzített értékeket, mielőtt felhasználnák őket a <code>replacePattern</code>-ban.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Támogatott típusok:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> lehet:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "20. fejezet: Engedélyezett JSON kombinációk",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Ez a fejezet Linkumori vegyes szolgáltató JSON: ClearURLs addon örökölt tömböket, ClearURLs core v2 kanonikus objektumokat és Linkumori kiegészítéseket tartalmazhat egy szabályfájlban.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "1. kombináció: Sok szolgáltató egy fájlban",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "A <code>providers</code> a ClearURLs addon örökölt és a ClearURLs core v2 kanonikus legfelső szintű szintaxis. A Linkumori megőrzi ezt a formát, és sok szolgáltatót enged be.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Minden szolgáltató külön van betöltve.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "2. kombináció: Global Defaults Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "A <code>defaults</code> a ClearURLs core v2 kanonikus szintaxis. A Linkumori a régi stílusú <code>providers</code> mellett elfogadja.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "A szabályok örökölhetik az alapértelmezett értékeket, ha ezek a mezők hiányoznak a szabályból.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "3. kombináció: <code>domainPatterns</code> Szolgáltató",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Ez egy Linkumori kiegészítés. A legtöbb Linkumori szolgáltató ezt az űrlapot használja.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "4-es kombináció: <code>urlPattern</code> Szolgáltató a <code>indexPattern</code> számmal",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "A <code>urlPattern</code> egy felfelé irányuló ClearURL szintaxis. A <code>indexPattern</code> egy Linkumori keresési tipp a regex URL-szolgáltatók számára; azokra a gazdagépnevekre kell mutatnia, amelyeknek a regex megfelelhet.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "A <code>indexPattern</code> opcionális, de hasznos a sebesség szempontjából. Indexeli a szolgáltatót a gazdagépnév-token jelölt csoportokba; soha nem helyettesíti az utolsó <code>urlPattern</code> mérkőzést.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "5. kombináció: Ne keverje össze a <code>domainPatterns</code> és a <code>urlPattern</code> szabványt kombinált követelményként",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Ez az alakzat megjelenhet régebbi vagy kézzel írott adatokban, de ez nem jelenti azt, hogy mindkét megfelelőnek át kell adnia:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Jelenlegi <code>clearurls.js</code> viselkedés:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Ha a <code>domainPatterns</code> van jelen, és nem üres, a <code>clearurls.js</code> ezt használja a szolgáltató egyeztetéséhez, és figyelmen kívül hagyja az adott szolgáltatónál a <code>urlPattern</code> fájlt. Az egyéni szerkesztő/importálási útvonal elutasítja azokat a szolgáltatókat, amelyek mindkettőt tartalmazzák. Ha elérési feltételre van szüksége, használja a <code>urlPattern</code>-et a <code>indexPattern</code>-szel, vagy terjedjen ki az egyes <code>$removeparam</code>/szabály bejegyzésekre a <code>rules</code>-en belül.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "6. kombináció: Vegyes <code>rules[]</code> bejegyzés",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "A Linkumori számban a <code>rules</code> ClearURLs örökölt karakterláncot, Linkumori <code>$removeparam</code> karakterláncot, Linkumori 6500, 920374 objektumot tartalmazhat ClearURLs core v2 kanonikus objektumok együtt.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Mind a négy nevezést elfogadják.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "7. kombináció: kanonikus objektumok a <code>rules[]</code> számon belül",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "A ClearURLs core v2 kanonikus objektumok különböző típusú szabályokat képviselhetnek. Ebben a Linkumori-es példában a <code>domainPatterns</code>-as számot használó szolgáltatón belül vannak elhelyezve, ami csak a Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "A <code>Linkumori extension</code> jelentés szerint rendezi ezeket:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "8. kombináció: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "A ClearURLs addon örökölt szolgáltatói tömbök továbbra is működnek. A Linkumori lehetővé teszi, hogy ezek a tömbök a ClearURLs core v2 kanonikus szabályobjektumok mellett helyezkedjenek el.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Ez érvényes. A motor beolvassa ezeket a tömböket ugyanannak a szolgáltatónak.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "9. kombináció: A szolgáltatóra kiterjedő módszerek és erőforrástípusok",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "A <code>methods</code> a ClearURLs szintaxis. A <code>resourceTypes</code> egy Linkumori kiegészítés. Mindkettő az egész szolgáltatóra vonatkozik.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Mind a <code>rules</code>, mind a <code>rawRules</code> a szolgáltatói módszer/típus egyezése által korlátozott.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "10. kombináció: Szabályszintű kéréstípusok",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "A ClearURLs core v2 kanonikus szabályok meghatározhatják a <code>requestTypes</code> szabályszintet.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "A <code>resourceTypes</code> szolgáltatói szintű szám először szűkíti a szolgáltatót. A <code>requestTypes</code> szabályszint ezután szűkíti az egyes szabályokat.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "11. kombináció: Kivételek különböző helyeken",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "A Linkumori lehetővé teszi a ClearURLs szolgáltatói kivételek, a Linkumori tartományi kivételek, a ClearURLs alap v2-szabály kivételeinek és a Linkumori szolgáltatói helyi kivételek 920830746558374650005 kombinációját.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Egyszerű jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "12. kombináció: A Szolgáltató Plusz szabályok letiltása",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "A <code>completeProvider: true</code> egy szolgáltatót törlőként/letiltóként jelöl meg.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Ha a beállításokban engedélyezve van a domain blokkolása, az egyező kérések blokkolhatók. A szabályok továbbra is létezhetnek, de a blokkolás az erősebb viselkedés az adott szolgáltató számára.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "13. kombináció: Redirect Provider Plus Cleanup Rules",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "A szolgáltató tartalmazhat átirányításokat és tisztítási szabályokat.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Ha egy átirányítás egyezik, először az átirányítás kerül visszaadásra.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "14. kombináció: Domain átirányítások plusz Regex átirányítások",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Mindkettő létezhet egy szolgáltatónál.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "A rendszer először a reguláris kifejezések átirányításait ellenőrzi. A rendszer ellenőrzi a domain-átirányításokat, ha nem egyezik a regex átirányítás.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "15. kombináció: letiltott vagy inaktív szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "A szolgáltatók inaktívak lehetnek:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "A szabályok inaktívak lehetnek:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Az inaktív szolgáltatók és az inaktív szabályok figyelmen kívül maradnak.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "16. kombináció: Teljes vegyes szolgáltató példa",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Ez a Linkumori számú példa szándékosan egyesíti a legtöbb támogatott szolgáltatói szolgáltatást: a ClearURLs kiegészítő örökölt tömböket, a ClearURLs core v2 kanonikus szabályobjektumokat és a Linkumori-as csak egyező és tartományminta funkciókat.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Ez érvényes Linkumori vegyes szolgáltató JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "21. fejezet: Teljes példák",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "1. példa: Basic Tracker Cleaner",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "2. példa: Távolítsa el az összes UTM-paramétert",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "3. példa: Tartsa meg a szükséges paramétert a bejelentkezéskor",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "4. példa: Kattintások átirányítása",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "5. példa: Csak tiszta API kérések",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "22. fejezet: Gyorsmásolási sablonok",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Egy paraméter eltávolítása:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Számos paraméter eltávolítása:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Használja a <code>$removeparam</code> számot:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Távolítsa el az összes <code>utm_</code> paramétert:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Kivétel hozzáadása:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Egyezzen meg egy domaint:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Követő átirányítása URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Egy nyers szabály átveheti egy <code>$removeparam</code> szűrő mintáját és opcióit, ha a <code>rawrule=</code> az utolsó. Minden, ami a <code>rawrule=</code> után következik, az a reguláris kifejezés:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "A minta és az opciók határozzák meg, hol fut a szabály; a reguláris kifejezés továbbra is az, ami törlésre kerül. A <code>match-case</code> kis- és nagybetű-érzékenyyé teszi.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Nyers szabályok leállítása bizonyos URL-eken",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Egy <code>@@</code>-vel kezdődő bejegyzés megakadályozza a Nyers szabályok futtatását ott, ahol a mintázata egyezik. Adjon a nyers szabálynak egy <code>id</code>-t, és nevezze meg azt <code>targetId</code>-vel:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Ha a <code>rawrule=</code> után nincs semmi és nincs <code>targetId</code> sem, a bejegyzés leállítja a Szolgáltató minden nyers szabályát az adott URL-eken. A teljes szolgáltató kihagyásához használja helyette a <code>exceptions</code>-t.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Kivételek",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Ha egy URL egy <code>exceptions</code>-ben szereplő bejegyzéssel egyezik, a szolgáltató egyetlen szabálya sem fut le. Egy bejegyzés egy reguláris kifejezés, vagy egy <code>|</code>-vel kezdődő domain mintázat:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "A Kivételek nem érzékenyek a betűk nagy-kis letterségére.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Átirányítások",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Az Átirányítások szabályai átugoralkodják a nyomonkövető oldalakat azáltal, hogy közvetlenül a valódi célra irányítanak. Csak akkor futnak, amikor a <em>Harmadik feles átirányítások kikerülésének engedélyezése</em> bekapcsolva van.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Átirányítás az URL egy részére",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "A <code>redirections</code>-ben szereplő bejegyzés egy reguláris kifejezés pontosan egy capture csoporttal, <code>( … )</code>. A kérés arra a címre megy, amit a csoport rögzített, URL-dekódolva. Bármilyen egyéb csoportot írja <code>(?: … )</code>-ként:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Átirányítás egy fix címre",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Egy <code>|</code>-vel kezdődő bejegyzés minden egyező URL-t egyetlen címre küld:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Átirányítás egy paraméter értékére",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "A <code>fieldRedirections</code> megnevezi azt a paramétert, amely a célpontot tartalmazza, így nincs szükség reguláris kifejezésre. Ugyanazokat a bejegyzéseket fogadja, mint a <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Az első egyező, értékként rendelkező paraméter nyer. Egy átirányítás leállítja a kérésre vonatkozó minden egyéb feldolgozást.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Szabály objektumok",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Bármely bejegyzés lehet objektum egy egyszerű szöveg helyett. Használjon ilyet, ha egy szabálynak azonosítóra (id) van szüksége, ki kapcsolt állapotban kell kezdődnie, át kell írnia a tartalmat a törlés helyett, vagy csak bizonyos esetekben szabad futtatnia:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Kulcs",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "a szöveg, amelyet egy egyszerű bejegyzésként írna",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "egy stabil név (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>), amely a szabály be- és kikapcsolására szolgál",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "a szabály korábbi azonosítói, így egy kikapcsolt szabály átnevezés után is kikapcsolva marad",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "átírás a törlés helyett; a <code>§1§</code>, <code>§2§</code>, … a rögzített értékek",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "először módosítsa a rögzített értékeket",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "csak ezekhez a kéréstípusokhoz, például <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL-ek, ahol ez a konkrét szabály nem fut",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "reguláris kifejezés zászlók, szövegként (alapértelmezett <code>i</code>; <code>gi</code> a <code>rawRules</code>-ben)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "szabály futtatása korábban vagy később",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: a <code>rules</code>-ben található szabály referral-marketing szabálynak számít",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ugorja át ezt a szabályt, ha egy oldal a History API segítségével változtatja saját címét",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: a szabály alapértelmezett állapotban kikapcsolva",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "szabad szöveg",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "csak <code>@@…$rawrule=</code> bejegyzéseknél: a megállított Nyers szabály",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Átírás a törlés helyett",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "A <code>replacePattern</code> segítségével a <code>rules</code> szabály megtartja a paramétert, és lecseréli annak értékét, amely a <code>§1§</code>. A <code>rawRules</code> és <code>redirections</code> esetében a <code>§1§</code>, <code>§2§</code>, … a capture csoportok:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Előfeldolgozók",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Az előfeldolgozók módosítják a rögzített értékeket, mielőtt a <code>replacePattern</code> lehívná őket. A <code>inputs</code> egy <code>\"all\"</code> vagy a csoportszámok listája:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "A típusok a következők: <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> és <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "Szabály azonosítók",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Minden szabálynak van egy azonosítója. A <code>id</code> nélküli szabály egyet kap a listájából és a szövegéből: a <code>rules</code>ben lévő <code>\"utm_source\"</code> alakul <code>field-utm-source</code>-á. Ha két szabály ugyanazt az azonosítót kapná, mindkettő egy rövid hash értéket kap a végére.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "A generált azonosító megváltozik, ha a szabály szövege változik. Adj egy szabálynak saját <code>id</code> azonosítót, ha meg kell tartania a be-/kikapcsolt állapotát a szerkesztések során is.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Egy szabály korábbi vagy későbbi futtatása",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "A Nyers szabályok általában elsőként futnak, majd a <code>rules</code> és a <code>referralMarketing</code>. A <code>order</code> szerinti szabályokThose, amelyek rendelkeznek vele, az olyanokkal szemben, amelyek nem, elsőként futnak, a legalacsonyabb értékkel kezdve. Itt a tokent először lecserélik, majd törlik:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "A <code>order</code> működik a <code>rules</code>, <code>rawRules</code> és <code>referralMarketing</code> esetében, de nem a <code>$removeparam</code> szűrőkön, amelyek mindig utolsóként futnak.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Ajánló marketing",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "A <code>referralMarketing</code> ugyanazokat a bejegyzéseket veszi, mint a <code>rules</code>. Ezeket átugorálják, amíg a <em>Ajánlói marketing engedélyezése</em> bekapcsolva van, így az affiliate linkek továbbra is működnek, ha úgy szeretnéd:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Egy szabály maradhat a <code>rules</code> részben, és mégis ajánló marketingként számíthat, a <code>\"referralMarketing\": true</code> segítségével.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Módszerek és kéréstípusok",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Ezek szűkítik azt, hogy mikor fut egy Szolgáltató vagy egy szabály:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js viselkedése: ha a domainPatterns létezik, és nem üres, a Linkumori domainPatterns-t használ a szolgáltató egyeztetéséhez. Az urlPattern csak akkor használatos, ha a domainPatterns hiányzik vagy üres. Az egyéni szerkesztő/importálási útvonal elutasítja ezt a vegyes egyező alakzatot, ezért csak a régi adatok megértéséhez használja.",
+  "guide_req_methods": {
+    "message": "Azok az HTTP módszerek, amelyeket a Szolgáltató kezel",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "a Szolgáltató által kezelt kéréstípusok",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "egy szabályobjektum által kezelt kéréstípusok",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "ugyanez egy <code>$removeparam</code> szűrőre vagy nyers szabályra vonatkozóan",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "A kéréstípusok a böngésző neveit használják: <code>main_frame</code> (egy oldal), <code>sub_frame</code> (egy keret), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> és így tovább. A szűrőopciók az első kettőt <code>document</code>-nek és <code>subdocument</code>-nak nevezik.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Hogyan kerül feldolgozásra egy URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Minden olyan Szolgáltató esetében, amely illeszkedik a URL-hez és engedélyezi a kérést:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: ha egy illeszkedik, a Szolgáltatót átugoráljuk.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, majd <code>fieldRedirections</code>: egy egyezés átirányítja a kérést, és semmi más nem fut le.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: a kérést blokkolják.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "A <code>rawRules</code> szabályok a teljes URL-en futnak le.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "A <code>rules</code> és <code>referralMarketing</code> szabályok eltávolítják a paramétereket.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "A <code>$removeparam</code> szűrők lefutnak, kivéve ott, ahol egy <code>@@</code> szűrő megtartja a paramétert.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Az első Szolgáltató, amely módosítja, átirányítja vagy blokkolja a kérést, határozza meg az eredményt. Az új URL ezután újra ugyanazokat a lépéseket véglegesíti.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Teljes példák",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Egy bolt tisztítása",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Eltávolítja a követési paramétereket és egy partnerazonosítót egy boltban, és érintetlenül hagyja a fizetési oldalait:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "UTM paraméterek eltávolítása mindenhol",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "A <code>*</code> minta minden URL-re egyezik:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Kattintáskövető átugrása",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "A kattintáskövetőn keresztül futó linkeket közvetlenül a céljukhoz küldi, amely a <code>url</code> paraméterben található:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Paraméter megtartása egy oldalon",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Eltávolítja a <code>ref</code> paramétert az oldalon mindenhol, kivéve a bejelentkezési oldalon, ahol szükség van rá:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Szabályok ellenőrzése",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Az Egyéni szabályok szerkesztője akkor ellenőrzi a szabályokat, amikor elmenti vagy importálja őket. A hibás JSON-en és az érvénytelen reguláris kifejezéseken túl, olyan szabályokat is elutasítja, amelyek beletöltennék, de csendben rossz dolgottennének, például:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> és <code>urlPattern</code> egyetlen Szolgáltatóon",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "egyetlen <code>|</code>-val és séma nélkül rendelkező minta, például <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "egy reguláris kifejezéssel rendelkező átirányítás, amely nem rendelkezik pontosan egy elfogó csoporttal",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "ismertetlen mezők, kulcsok és opciók",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> vagy <code>referralMarketing</code> olyan helyen, ahol semmit nemtenne",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "egy olyan <code>@@…$rawrule=</code> bejegyzés, amely egyetlen Nyers szabályt sem állít meg",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Ha a mentés sikertelen, az üzenet megnevezi a Szolgáltatót, a listát és a bejegyzést.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

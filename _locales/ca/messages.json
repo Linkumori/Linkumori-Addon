@@ -4727,1688 +4727,704 @@
     "message": "Els controls d'identificació de regles estan disponibles un cop el proveïdor JSON sigui vàlid.",
     "description": "Estat JSON no vàlid per als controls d'identificador de regles del proveïdor"
   },
-  "guide_0001": {
-    "message": "Linkumori Ampliació — Documentació de normes",
+  "guide_page_title": {
+    "message": "Linkumori — Guia de Regles",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Tema",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Proveïdor JSON Format",
+  "guide_toc_label": {
+    "message": "Continguts",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Proveïdor JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Capítol 1: Forma bàsica JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Capítol 2: Què és un proveïdor?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Capítol 3: Camps del proveïdor que podeu utilitzar",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Capítol 4: Coincidència de dominis",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Coincideix un domini i tots els subdominis",
+  "guide_title": {
+    "message": "Escribir regles de Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Coincideix amb el mateix nom en qualsevol sufix públic",
+  "guide_intro_1": {
+    "message": "Linkumori neteja les URL mitjançant regles. Aquesta guia mostra com escriure'les, des d'una primera regla fins a totes les opcions, amb exemples que pots copiar.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Coincideix amb subdominis",
+  "guide_intro_2": {
+    "message": "Les regles són JSON. Les escrius en l'editor de Regles personalitzades, que les comprova quan guardes. La llista de regles inclosa i les llistes de regles remotes utilitzen el mateix format.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Utilitzeu més d'un patró de domini",
+  "guide_file_title": {
+    "message": "1. El fitxer de regles",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Capítol 5: Símbols de patrons de domini",
+  "guide_file_p1": {
+    "message": "Un fitxer de regles és un objecte JSON. El seu objecte <code>providers</code> vincula un nom a la teva elecció amb un Proveïdor:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Capítol 6: Coincidència de URLs amb urlPattern",
+  "guide_file_p2": {
+    "message": "Un Proveïdor indica quines URL gestiona i què fer amb elles. Aquest elimina <code>utm_source</code> i <code>utm_medium</code> de cada URL a <code>example.com</code> i els seus subdominis:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Capítol 7: Eliminació dels paràmetres de consulta simple",
+  "guide_file_p3": {
+    "message": "El nom és només una etiqueta. Quines URL gestiona un Proveïdor es decideix mitjançant <code>domainPatterns</code> o <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Capítol 8: Escriure un objecte regla",
+  "guide_fields_title": {
+    "message": "2. Camps del Proveïdor",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Capítol 9: Regles de $removeparam",
+  "guide_th_field": {
+    "message": "Camp",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Elimina un paràmetre",
+  "guide_th_meaning": {
+    "message": "Què fa",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Elimina tots els paràmetres",
+  "guide_field_domainpatterns": {
+    "message": "Quines URL el Proveïdor gestiona, com a patrons de domini (capítol 3). Utilitzeu això o <code>urlPattern</code>, mai els dos.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Elimina els paràmetres per Regex",
+  "guide_field_urlpattern": {
+    "message": "Quines URL el Proveïdor gestiona, com a una expressió regular contrastada amb la URL completa. S'ignora el cas.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Elimina tots els paràmetres excepte un",
+  "guide_field_indexpattern": {
+    "message": "Només amb <code>urlPattern</code>: indicadors d'host com <code>||example.com^</code>, de manera que el Proveïdor només es comprovi per a aquests hosts. Sense això, el Proveïdor es comprova contra cada URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Aplica $removeparam només a un domini",
+  "guide_field_rules": {
+    "message": "Paràmetres per eliminar (capítols 4 i 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Afegeix límits de domini",
+  "guide_field_referral": {
+    "message": "Paràmetres de referència i d'afiliació per eliminar. Es solen ometre mentre <em>Permet el màrqueting de recomanacions</em> està activat (capítol 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Afegeix límits de mètodes",
+  "guide_field_rawrules": {
+    "message": "Expressions regulars executades sobre la URL completa; cada coincidència s'elimina (capítol 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Capítol 10: $removeparam Excepcions",
+  "guide_field_exceptions": {
+    "message": "URL que el Proveïdor deixa intactes (capítol 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Capítol 11: Reescriure els valors dels paràmetres",
+  "guide_field_redirections": {
+    "message": "On enviar la sol·licitud en el seu lloc (capítol 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Capítol 12: Regles brutes",
+  "guide_field_fieldredirections": {
+    "message": "Redirecciona al valor d'un paràmetre (capítol 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Capítol 13: Regles de redirecció",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> bloqueja cada sol·licitud que el Proveïdor coincideixi, mentre <em>Permet el bloqueig del domini</em> està activat.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Capítol 14: Regles de redirecció de domini",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: quan una pàgina es redirecciona a si mateixa, la pestanya obre la nova adreça.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Capítol 15: Excepcions",
+  "guide_field_methods": {
+    "message": "Gestiona només aquests mètodes HTTP, per exemple <code>[\"GET\"]</code>. Per defecte: tots.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Capítol 16: Regles de màrqueting de referència",
+  "guide_field_resourcetypes": {
+    "message": "Gestiona només aquests tipus de sol·licitud, per exemple <code>[\"main_frame\"]</code>. Per defecte: els tipus triats a la configuració.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Capítol 17: HTTP Mètodes",
+  "guide_field_history": {
+    "message": "<code>false</code> omet el Proveïdor quan una pàgina canvia la seva pròpia adreça amb la History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Capítol 18: Tipus de recursos del navegador",
+  "guide_field_active": {
+    "message": "<code>false</code> desactiva el Proveïdor.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Capítol 19: Preprocessadors",
+  "guide_match_title": {
+    "message": "3. Quines URL gestiona un Proveïdor",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Capítol 20: Combinacions JSON permeses",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> és una llista de patrons de domini. Una URL coincideix si qualsevol d'ells coincideix:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Combinació 1: molts proveïdors en un sol fitxer",
+  "guide_th_pattern": {
+    "message": "Patró",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Combinació 2: Global Defaults Plus Providers",
+  "guide_th_matches": {
+    "message": "Coincidències",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Combinació 3: proveïdor de patrons de domini",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> i cada subdomini",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Combinació 4: proveïdor urlPattern amb indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> en qualsevol sufix públic (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Combinació 5: domainPatterns i urlPattern junts",
+  "guide_pat_path": {
+    "message": "aquest host i els seus subdominis, quan la ruta comença per <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Combinació 6: Regles mixtes[] Entrades",
+  "guide_pat_star": {
+    "message": "el mateix que <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Combinació 7: objectes canònics dins de regles[]",
+  "guide_pat_start": {
+    "message": "URL que comencen exactament amb aquest text",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Combinació 8: matrius heretades i regles canòniques[]",
+  "guide_pat_end": {
+    "message": "URL que acabin exactament amb aquest text",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Combinació 9: mètodes i tipus de recursos per a tot el proveïdor",
+  "guide_pat_regex": {
+    "message": "la URL completa, com a expressió regular (les majúscules i minúscules importen a menys que afegiu <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Combinació 10: tipus de sol·licitud a nivell de regla",
+  "guide_pat_contains": {
+    "message": "URL que continguin aquest text en qualsevol part",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Combinació 11: excepcions en diferents llocs",
+  "guide_pat_all": {
+    "message": "cada URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Combinació 12: Regles de bloqueig del proveïdor Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> marca el final del nom de l'host, o un separador com <code>/</code>, <code>?</code> o <code>:</code>. <code>*</code> coincideix amb qualsevol cosa. A part de <code>/regex/</code>, els patrons ignoren les majúscules i minúscules.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Combinació 13: Regles de neteja del proveïdor de redirecció més",
+  "guide_match_p3": {
+    "message": "<code>||</code> representa un domini, mentre que un sol <code>|</code> representa l'inici exacte de la URL i ha d'anar seguit d'un esquema com <code>https://</code>. <code>|example.com^</code> mai pot coincidir, per la qual cosa l'editor el rebutja.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Combinació 14: redireccions de domini més redireccions d'expressió regular",
+  "guide_match_p4": {
+    "message": "Per coincidir amb una expressió regular en el seu lloc, utilitzeu <code>urlPattern</code>, i afegiu <code>indexPattern</code> perquè el Proveïdor només es comprovi en aquests hostes:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Combinació 15: regles desactivades o inactives",
+  "guide_match_p5": {
+    "message": "Un Proveïdor té <code>domainPatterns</code> o <code>urlPattern</code>, mai els dos. Si necessiteu ambdós tipus de coincidència, creeu dos proveïdors.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Combinació 16: Exemple de proveïdor mixt complet",
+  "guide_rules_title": {
+    "message": "4. Eliminar paràmetres",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Capítol 21: Exemples complets",
+  "guide_rules_p1": {
+    "message": "Cada entrada en <code>rules</code> elimina paràmetres de la consulta (<code>?a=1</code>) i del fragment (<code>#a=1</code>). Una entrada és una de:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Exemple 1: netejador de seguiment bàsic",
+  "guide_th_entry": {
+    "message": "Entrada",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Exemple 2: elimina tots els paràmetres UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Exemple 3: Mantingueu un paràmetre necessari a l'inici de sessió",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Exemple 4: Clics de seguiment de redirecció",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Exemple 5: Sol·licituds de l'API de només neteja",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Capítol 22: Plantilles de còpia ràpida",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Proveïdor mixt JSON Guia de format",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Aquesta guia explica com escriure dades del proveïdor JSON que el <code>Linkumori extension</code> pot llegir.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "No és una guia del codi JavaScript. Se centra només en les formes JSON, els formats de regles i els exemples que necessiten els autors de regles.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Aquesta guia es basa en el comportament actual del temps d'execució de <code>clearurls.js</code>. En particular, la cerca de proveïdors utilitza grups de candidats <code>providersByToken</code> de <code>domainPatterns</code> o <code>indexPattern</code>, i la concordança final encara s'executa a través de <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Capítol 1: Forma bàsica JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> espera dades del proveïdor en aquesta forma general:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "La part important és <code>providers</code>. Cada clau dins de <code>providers</code> és un nom de proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Exemple:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Capítol 2: Què és un proveïdor?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Un proveïdor és un contenidor de temps d'execució anomenat per a un lloc web, una empresa, un rastrejador, un conjunt de patrons de domini o una expressió regular d'URL. El nom del proveïdor és una etiqueta/clau; La concordança la fa <code>domainPatterns</code> o <code>urlPattern</code>, no pel nom del proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Proveïdor mínim:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Què fa això:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Capítol 3: Camps del proveïdor que podeu utilitzar",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Camps del proveïdor acceptats per <code>clearurls.js</code>. Per fer coincidir, creeu <code>domainPatterns</code> o <code>urlPattern</code> amb <code>indexPattern</code> opcional; no confieu que tots dos siguin necessaris junts.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Significat senzill:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON camp",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Font",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Per a què l'escrius",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Estableix <code>false</code> per desactivar aquest proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Estableix <code>true</code> per bloquejar els dominis coincidents en lloc de netejar només.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Establiu <code>true</code> per forçar les redireccions de la pàgina principal a través de la pestanya del navegador.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Forma recomanada de dir amb quins dominis coincideix aquest proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript cadena d'expressió regular per a la concordança URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Indicació de velocitat opcional quan s'utilitza <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical; <code>$removeparam</code> és Linkumori afegit aquí",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Regles normals d'eliminació de paràmetres i regles locals del proveïdor <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs addon heret; els objectes d'estil canònic aquí són Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Normes que editen tot el text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs addon heret; els objectes d'estil canònic aquí són Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Regles de paràmetres de referència/màrqueting opcionals.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical; Les formes d'objecte aquí són Linkumori addició",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regles regulars on aquest proveïdor no s'ha d'executar.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Regles de patró de domini on aquest proveïdor no s'ha d'executar.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs addon heret; els objectes d'estil canònic aquí són Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regles de redirecció de regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Regles de redirecció de patró de domini.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Executeu només per a aquests mètodes HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori afegit",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Executeu només per a aquests tipus de sol·licituds de navegador.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Capítol 4: Coincidència de dominis",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> és una addició de Linkumori i es prefereix per a la majoria de proveïdors personalitzats. A <code>clearurls.js</code>, s'utilitzen <code>domainPatterns</code> no buits per fer coincidir abans de <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Coincideix un domini i tots els subdominis",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Partits:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "No coincideix amb:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Coincideix amb el mateix nom en qualsevol sufix públic",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Pot coincidir amb:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Coincideix amb subdominis",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Pot coincidir amb:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Utilitzeu més d'un patró de domini",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Capítol 5: Símbols de patrons de domini",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Aquests són els símbols que podeu utilitzar al <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Símbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Significat",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Exemple",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Elimina",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Coincideix al límit d'un domini.",
+  "guide_rules_name": {
+    "message": "un nom de paràmetre",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "una regex de nom",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "cada paràmetre el nom complet del qual coincideixi; s'hi afegeix <code>^…$</code> automàticament i s'ignora la distinció entre majúscules i minúscules",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Separador o límit final.",
+  "guide_rules_filter": {
+    "message": "un filtre <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "vegeu el capítol 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> i <code>\"$removeparam=fbclid\"</code> eliminen la mateixa cosa. Utilitzeu el nom senzill a menys que necessiteu alguna cosa del capítol 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Comodí.",
+  "guide_rules_part_title": {
+    "message": "Regles per a part d'un proveïdor",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Un nom senzill s'aplica a cada URL amb la qual el Proveïdor coincideixi. Per eliminar un paràmetre només en algunes d'elles, poseu un patró davant d'un filtre <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Aquí <code>qid</code> s'elimina en cada lloc d'Amazon, <code>tag</code> només en <code>amazon.de</code>, <code>sr</code> només en <code>smile.amazon</code>, i <code>ref_</code> només sota <code>/gp/</code>. El patró restringes els propis patrons del proveïdor; no pot ampliar-los.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Inici o fi de l'ancoratge.",
+  "guide_rp_title": {
+    "message": "5. Filtres $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Un filtre <code>$removeparam</code> té aquesta forma; les parts entre claus són opcionals:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "El valor",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript literal d'expressió regular.",
+  "guide_rp_p2": {
+    "message": "El primer caràcter del valor decideix què significa:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtre",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Patró més comú:",
+  "guide_rp_v_all": {
+    "message": "cada paràmetre",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Utilitzeu-lo quan vulgueu:",
+  "guide_rp_v_except": {
+    "message": "cada paràmetre excepta <code>ref</code> (també funciona amb <code>~/regex/</code> i <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Capítol 6: Coincidència de URLs amb <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "paràmetres el nom dels quals, o <code>name=value</code>, coincideixen amb l'expressió regular; les majúscules i minúscules importen a menys que afegiu <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Utilitzeu <code>urlPattern</code> només quan la concordança del domini no sigui suficient, com ara quan el proveïdor ha de coincidir amb un camí específic o una expressió regular d'URL completa.",
+  "guide_rp_v_prefix": {
+    "message": "paràmetres el nom dels quals comença per <code>utm_</code>; es ignoren les majúscules i minúscules",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Això pot coincidir amb:",
+  "guide_rp_v_name": {
+    "message": "exactament aquest paràmetre; es ignoren les majúscules i minúscules a menys que afegiu <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> és el llegat del complement ClearURLs i la sintaxi canònica bàsica de ClearURLs v2. Linkumori afegeix <code>indexPattern</code> només com a pista de cerca de candidats, de manera que els proveïdors d'expressió regular es puguin trobar més ràpidament mitjançant fitxes de nom d'amfitrió.",
+  "guide_rp_options_title": {
+    "message": "Opcions",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Important: <code>indexPattern</code> no decideix si un proveïdor coincideix. Després de la cerca de candidats, <code>clearurls.js</code> encara prova el <code>urlPattern</code> real a <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Les opcions venen després del valor, separades per comes. Separeu diversos valors d'una opció amb <code>|</code>, i poseu <code>~</code> davant d'un valor per excloure'l:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Capítol 7: Eliminació dels paràmetres de consulta simple",
+  "guide_th_option": {
+    "message": "Opció",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Posa els noms dels paràmetres a <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "només en pàgines d'aquests dominis",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Resultat:",
+  "guide_rp_o_to": {
+    "message": "només per a sol·licituds a aquests dominis",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Elimina molts paràmetres:",
+  "guide_rp_o_method": {
+    "message": "només per a aquests mètodes HTTP",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Resultat:",
+  "guide_rp_o_party": {
+    "message": "només per a sol·licituds al mateix lloc que la pàgina, o només a altres llocs",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Capítol 8: Escriure un objecte regla",
+  "guide_rp_o_strict": {
+    "message": "el mateix, però comparant l'host exacte en lloc del lloc",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "En lloc d'una cadena senzilla, una regla pot ser un objecte.",
+  "guide_rp_o_types": {
+    "message": "només per a aquests tipus de sol·licituds; <code>~type</code> n'exclou un",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Utilitzeu això quan necessiteu:",
+  "guide_rp_o_matchcase": {
+    "message": "els noms dels paràmetres distingeixen majúscules de minúscules",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Un identificador de regla.",
+  "guide_rp_o_history": {
+    "message": "salta aquest filtre quan una pàgina canvia la seva pròpia adreça amb la History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Àlies.",
+  "guide_rp_p4": {
+    "message": "Cada opció té una ortografia. Les opcions contradictòries, com <code>first-party,third-party</code>, són rebutjades.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Excepcions.",
+  "guide_rp_keep_title": {
+    "message": "Mantenir un paràmetre amb @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Límits de tipus de sol·licitud.",
+  "guide_rp_p5": {
+    "message": "Un filtre que comença amb <code>@@</code> manté el paràmetre en lloc d'eliminar-lo. Aquí <code>ref</code> s'elimina a tot arreu excepta a GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Reescriure el comportament.",
+  "guide_rp_p6": {
+    "message": "Un filtre <code>@@</code> també cobreix les sol·licituds fetes per una pàgina que aquest Proveïdor coincideix, fins i tot quan un altre Proveïdor les gestiona.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Exemple dins d'un proveïdor:",
+  "guide_raw_title": {
+    "message": "6. Regles brutes",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Resultat:",
+  "guide_raw_p1": {
+    "message": "Una regla bruta és una expressió regular executada sobre la URL completa; cada coincidència s'elimina. Utilitzeu-la per a text que no sigui un paràmetre <code>name=value</code>, com el segment de ruta <code>/ref=…</code> d'Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> als objectes de regla del proveïdor és una addició Linkumori. <code>flags: \"i\"</code> fa que la coincidència no distingeix entre majúscules i minúscules.",
+  "guide_raw_p2": {
+    "message": "Les Regles brutes ignoren les majúscules i substitueixen cada coincidència. En JSON, escriviu cada barra invertida dues vegades.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Capítol 9: <code>$removeparam</code> Normes",
+  "guide_raw_scope_title": {
+    "message": "Només en algunes URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Elimina un paràmetre",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Elimina tots els paràmetres",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Elimina els paràmetres per Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Elimina tots els paràmetres excepte un",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Aplica el <code>$removeparam</code> només a un domini",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Netejada:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "No netejat:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Afegeix límits de domini",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Exclou un domini:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Afegeix límits de mètodes",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Només <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "No <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Capítol 10: <code>$removeparam</code> Excepcions",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Inicieu una regla <code>$removeparam</code> amb <code>@@</code> per fer una excepció.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Exemple d'excepció de context:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Això pot protegir <code>ei</code> en subsol·licituds iniciades per una pàgina <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Capítol 11: Reescriure els valors dels paràmetres",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Utilitzeu <code>action.type: \"rewrite\"</code> per substituir un valor de paràmetre coincident.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Dins d'un proveïdor:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Utilitzeu <code>§1§</code> quan vulgueu reutilitzar el valor actual:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Capítol 12: Regles brutes",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Utilitzeu <code>rawRules</code> per editar tot el text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Regla bruta simple:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Regla bruta d'objectes:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Regla de reescriptura en brut:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Capítol 13: Regles de redirecció",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Utilitzeu <code>redirections</code> per enviar el navegador a un nou URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Si falta <code>replacePattern</code>, s'utilitza el primer grup de captura.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Capítol 14: Regles de redirecció de domini",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> és una addició Linkumori per a redireccions simples de patró de domini.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori addició — forma de cadena:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori addició — forma d'objecte:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Capítol 15: Excepcions",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> és el llegat del complement ClearURLs i la sintaxi canònica ClearURLs core v2. Linkumori també accepta objectes d'estil canònic en aquesta matriu de proveïdors heretats.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Exemple:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> és una addició Linkumori per a excepcions de patró de domini.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "S'ha omès:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Capítol 16: Regles de màrqueting de referència",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> funciona com les regles de camp, però està controlat per la configuració d'extensió per al màrqueting de referència.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Exemple:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Capítol 17: HTTP Mètodes",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Utilitzeu <code>methods</code> per executar un proveïdor només amb mètodes HTTP específics.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Això funciona a:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Això no funciona a:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Capítol 18: Tipus de recursos del navegador",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> és una addició de Linkumori. Utilitzeu-lo per executar un proveïdor només en tipus de sol·licituds de navegador específics.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Valors comuns:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Exemple:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Significat:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Capítol 19: Preprocessadors",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Els preprocessadors canvien els valors capturats abans d'utilitzar-los a <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Exemple:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Tipus compatibles:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> pot ser:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Capítol 20: Combinacions JSON permeses",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Aquest capítol mostra Linkumori proveïdor mixt JSON: ClearURLs complements heretats, ClearURLs objectes canònics core v2 i Linkumori poden existir junts en un fitxer de regles.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Combinació 1: molts proveïdors en un sol fitxer",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> és el llegat del complement ClearURLs i la sintaxi canònica de nivell superior ClearURLs core v2. Linkumori manté aquesta forma i permet que hi hagi molts proveïdors.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Cada proveïdor es carrega per separat.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Combinació 2: Global Defaults Plus Providers",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> és ClearURLs core v2 sintaxi canònica. Linkumori l'accepta al costat de l'estil heretat <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Les regles poden heretar valors predeterminats quan falten aquests camps a la regla.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Combinació 3: <code>domainPatterns</code> Proveïdor",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Aquesta és una addició Linkumori. La majoria de proveïdors de Linkumori haurien d'utilitzar aquest formulari.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Combinació 4: <code>urlPattern</code> Proveïdor amb <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> és la sintaxi de ClearURLs amunt. <code>indexPattern</code> és una pista de cerca de Linkumori per als proveïdors d'URL d'expressió regular; hauria d'apuntar als noms d'amfitrió que pot coincidir amb l'expressió regular.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> és opcional, però útil per a la velocitat. Indexa el proveïdor en dipòsits candidats de testimoni de nom d'amfitrió; mai substitueix el partit <code>urlPattern</code> final.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Combinació 5: no barregeu <code>domainPatterns</code> i <code>urlPattern</code> com a requisit combinat",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Aquesta forma pot aparèixer en dades més antigues o escrites a mà, però no vol dir que tots dos coincidències hagin de passar:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Comportament actual de <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Si <code>domainPatterns</code> està present i no està buit, <code>clearurls.js</code> l'utilitza per a la concordança de proveïdors i ignora <code>urlPattern</code> per a aquest proveïdor. El camí d'importació/editor personalitzat rebutja els proveïdors que contenen tots dos. Si necessiteu una condició de camí, utilitzeu <code>urlPattern</code> amb <code>indexPattern</code> o abasteu entrades individuals de <code>$removeparam</code>/regla dins de <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Combinació 6: <code>rules[]</code> entrades mixtes",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "A Linkumori, <code>rules</code> pot contenir ClearURLs cadenes heretades, Linkumori <code>$removeparam</code> cadenes, Linkumori objectes 650 i 9203 ClearURLs Core v2 objectes canònics junts.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "S'accepten les quatre entrades.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Combinació 7: objectes canònics dins <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Els objectes canònics ClearURLs core v2 poden representar diferents tipus de regles. En aquest exemple Linkumori es col·loquen dins d'un proveïdor que utilitza <code>domainPatterns</code>, que només és Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> ordena aquests segons el significat:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Combinació 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs Les matrius de proveïdors heretats de complements encara funcionen. Linkumori permet que aquestes matrius estiguin al costat dels objectes de regles canòniques ClearURLs core v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Això és vàlid. El motor llegeix totes aquestes matrius per al mateix proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Combinació 9: mètodes i tipus de recursos per a tot el proveïdor",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> és la sintaxi amunt ClearURLs. <code>resourceTypes</code> és una addició de Linkumori. Tots dos s'apliquen a tot el proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Tant el <code>rules</code> com el <code>rawRules</code> estan limitats per la coincidència de mètode/tipus del proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Combinació 10: tipus de sol·licitud a nivell de regla",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "Les regles canòniques ClearURLs core v2 poden definir el nivell de regla <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "El nivell de proveïdor <code>resourceTypes</code> redueix primer el proveïdor. El nivell de regla <code>requestTypes</code> redueix les regles individuals després d'això.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Combinació 11: excepcions en diferents llocs",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori us permet combinar ClearURLs excepcions del proveïdor, Linkumori excepcions del domini, ClearURLs excepcions de la regla bàsica v2 i Linkumori excepcions del proveïdor Linkumori locals.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Significat senzill:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Combinació 12: Regles de bloqueig del proveïdor Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> marca un proveïdor com a cancel·lació/bloqueig.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Quan el bloqueig del domini està activat a la configuració, les sol·licituds coincidents es poden bloquejar. Encara poden existir regles, però el bloqueig és el comportament més fort per a aquest proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Combinació 13: Regles de neteja del proveïdor de redirecció més",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Un proveïdor pot contenir redireccions i regles de neteja.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Si una redirecció coincideix, la redirecció es retorna primer.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Combinació 14: redireccions de domini més redireccions d'expressió regular",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Tots dos poden existir en un sol proveïdor.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Les redireccions regex es comproven primer. Les redireccions de domini es comproven si no coincideix cap redirecció d'expressió regular.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Combinació 15: regles desactivades o inactives",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Els proveïdors poden estar inactius:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Les regles poden estar inactives:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "S'ignoren els proveïdors inactius i les regles inactives.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Combinació 16: Exemple de proveïdor mixt complet",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Aquest exemple Linkumori combina intencionadament les característiques de proveïdor més compatibles: ClearURLs matrius de complements heretats, ClearURLs objectes de regles canòniques v2 bàsiques i característiques de patró de domini i de concordança només Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Això és vàlid Linkumori proveïdor mixt JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Capítol 21: Exemples complets",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Exemple 1: netejador de seguiment bàsic",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Exemple 2: elimina tots els paràmetres UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Exemple 3: Mantingueu un paràmetre necessari a l'inici de sessió",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Exemple 4: Clics de seguiment de redirecció",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Resultat:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Exemple 5: Sol·licituds de l'API de només neteja",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Significat:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Capítol 22: Plantilles de còpia ràpida",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Elimina un paràmetre:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Elimina molts paràmetres:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Utilitzeu el <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Elimina tots els paràmetres <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Afegeix una excepció:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Coincideix amb un domini:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Redirigeix un rastrejador URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Una regla bruta pot prendre el patró i les opcions d'un filtre <code>$removeparam</code>, amb <code>rawrule=</code> al final. Tot el que hi ha després de <code>rawrule=</code> és l'expressió regular:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "El patró i les opcions decideixen on s'executa la regla; l'expressió regular segueix sent el que s'elimina. <code>match-case</code> la fa que distingi majúscules de minúscules.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Aturar les regles brutes en algunes URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Una entrada que comença amb <code>@@</code> evita que les Regles brutes s'executin on el seu patró coincideixi. Assigna a la regla bruta un <code>id</code> i anomena-la amb <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Si no hi ha res després de <code>rawrule=</code> i cap <code>targetId</code>, l'entrada atura totes les Regles brutes del Proveïdor en aquestes URL. Per saltar tot el Proveïdor, utilitza <code>exceptions</code> en el seu lloc.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Excepcions",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Si una URL coincideix amb una entrada en <code>exceptions</code>, no s'executa cap de les regles del Proveïdor. Una entrada és una expressió regular, o un patró de domini que comença amb <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Les Excepcions ignoren les majúscules i minúscules.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Redireccions",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Les regles de redirecció salten les pàgines de seguiment anant directament a la destinació real. Només s'executen mentre <em>Habilita l'omissió de redirecció de tercers</em> està activat.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Redirecció a part de la URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Una entrada en <code>redirections</code> és una expressió regular amb exactament un grup de captura, <code>( … )</code>. La sol·licitud va al que el grup ha capturat, amb el codi URL descodificat. Escriu qualsevol altre grup com a <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Redirecció a una adreça fixa",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Una entrada que comença amb <code>|</code> envia cada URL coincident a una sola adreça:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Redirecció al valor d'un paràmetre",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> anomena el paràmetre que conté la destinació, per la qual cosa no cal cap expressió regular. Utilitza les mateixes entrades que <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Guanya el primer paràmetre coincident que tingui un valor. Una redirecció atura tota la resta del processament de la sol·licitud.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Objectes de regla",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Qualsevol entrada pot ser un objecte en lloc d'una cadena. Utilitza'n un quan una regla necessiti un id, hagi de començar desactivada, hagi de reescriure en lloc d'eliminar, o hagi de s'executar només en alguns casos:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Clau",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "el text que escriviries com a una entrada simple",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "un nom estable (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) utilitzat per activar i desactivar la regla",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "els ids previs dels de la regla, de manera que una regla que hagis desactivat es mantingui desactivada després d'un canvi de nom",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "reescriu en lloc d'eliminar; <code>§1§</code>, <code>§2§</code>, … són els valors capturats",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "canvia primer els valors capturats",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "només per a aquests tipus de sol·licituds, per exemple <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URLs on aquesta regla concreta no s'executa",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "banderes d'expressió regular, com a cadena (per defecte <code>i</code>; <code>gi</code> en <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "executa la regla abans o després",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: una regla en <code>rules</code> es considera una regla de màrqueting de referència",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: ignora aquesta regla quan una pàgina canvia la seva pròpia adreça amb la History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: la regla comença desactivada",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "text lliure",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "només en entrades <code>@@…$rawrule=</code>: la Regla bruta que atura",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Reescrivint en lloc d'eliminar",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Amb <code>replacePattern</code>, una regla en <code>rules</code> manté el paràmetre i n'estilitza el valor, que és <code>§1§</code>. En <code>rawRules</code> i <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … són els grups de captura:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocessadors",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Els preprocessadors canvien els valors capturats abans que <code>replacePattern</code> els utilitzi. <code>inputs</code> és <code>\"all\"</code> o una llista de números de grup:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Els tipus són <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> i <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "IDs de regla",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Cada regla té un id. Una regla sense <code>id</code> en rep un de la seva llista i del seu text: <code>\"utm_source\"</code> en <code>rules</code> es converteix en <code>field-utm-source</code>. Si dues regles reben el mateix id, ambdues reben un hash curt al final.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Un id generat canvia quan el text de la regla canvia. Atribueix a una regla el seu propi <code>id</code> quan hagi de mantenir la seva configuració d'activació/desactivació després de les edicions.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Executar una regla abans o després",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Les Regles brutes normalment s'executen primer, després <code>rules</code> i <code>referralMarketing</code>. Una regla amb <code>order</code> s'executa abans que les regles que no en tenen, començant per la més baixa. Aquí el token es substitueix primer i després s'elimina:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> funciona en <code>rules</code>, <code>rawRules</code> i <code>referralMarketing</code>, però no en els filtres <code>$removeparam</code>, que sempre s'executen al final.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Màrqueting d'afiliació",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> accepta les mateixes entrades que <code>rules</code>. Es solen ometre mentre <em>Permet el màrqueting de recomanacions</em> està activat, de manera que els enllaços d'afiliats continuïn funcionant si així ho deseges:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Una regla pot romandre en <code>rules</code> i tot i així comptar com a màrqueting d'afiliació, amb <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Mètodes i tipus de sol·licitud",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Això limita quan s'executa un Proveïdor o una regla:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "Comportament clearurls.js: si domainPatterns existeix i no està buit, Linkumori utilitza domainPatterns per a la concordança de proveïdors. urlPattern només s'utilitza quan domainPatterns falta o està buit. El camí d'importació/editor personalitzat rebutja aquesta forma de concordança mixta, de manera que utilitzeu-la només per entendre les dades heretades.",
+  "guide_req_methods": {
+    "message": "Mètodes HTTP que el Proveïdor gestiona",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "tipus de sol·licituds que gestiona el Proveïdor",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "tipus de sol·licituds que gestiona un objecte de regla",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "el mateix per a un filtre <code>$removeparam</code> o una regla bruta",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Els tipus de sol·licituds utilitzen els noms del navegador: <code>main_frame</code> (una pàgina), <code>sub_frame</code> (un marc), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> i així successivament. Les opcions de filtre anomenen els dos primers <code>document</code> i <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Com es processa una URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Per a cada Proveïdor que coincideixi amb la URL i permeti la sol·licitud:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: si n'hi ha un que coincideix, es salta el Proveïdor.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, després <code>fieldRedirections</code>: una coincidència redirecciona la sol·licitud i no s'executa res més.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: la sol·licitud es bloqueja.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> s'executen sobre la URL completa.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> i <code>referralMarketing</code> eliminen els paràmetres.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "S'executen els filtres <code>$removeparam</code>, excepta on un filtre <code>@@</code> mantingui el paràmetre.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "El primer Proveïdor que canvia, redirecciona o bloqueja la sol·licitud decideix el resultat. La nova URL torna a passar pels mateixos passos.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Exemples complets",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Netejar una botiga",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Elimina els paràmetres de seguiment i un id d'afiliat en una botiga, i no toca les seves pàgines de pagament:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Eliminar els paràmetres UTM a tot arreu",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "El patró <code>*</code> coincideix amb qualsevol URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Omitir un rastrejador de clics",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Envia els enllaços a través d'un rastrejador de clics directament a la seva destinació, que es troba al paràmetre <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Mantenir un paràmetre en una pàgina",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Elimina <code>ref</code> a tot el lloc exceptu a la pàgina d'inici de sessió, que en necessita:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Comprovar les vostres regles",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "L'editor de Regles personalitzades comprova les regles quan les deseu o importeu. A part del JSON incorrecte i les expressions regulars invàlides, rebutja les regles que s'arrancaria però que farien la cosa incorrecta silenciosament, com ara:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> i <code>urlPattern</code> en un mateix Proveïdor",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "un patró amb un únic <code>|</code> i sense esquema, com ara <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "una redirecció per expressió regular sense exactament un grup de captura",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "camps, claus i opcions desconeguts",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> o <code>referralMarketing</code> on no faria res",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "una entrada de <code>@@…$rawrule=</code> que no atura cap Regla bruta",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Si l'estalvi falla, el missatge indica el Proveïdor, la llista i l'entrada.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

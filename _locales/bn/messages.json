@@ -4727,1688 +4727,704 @@
     "message": "একবার প্রদানকারী JSON বৈধ হলে নিয়ম আইডি নিয়ন্ত্রণগুলি উপলব্ধ হয়৷",
     "description": "প্রদানকারীর নিয়ম-আইডি নিয়ন্ত্রণের জন্য অবৈধ JSON অবস্থা"
   },
-  "guide_0001": {
-    "message": "Linkumori এক্সটেনশন — নিয়ম ডকুমেন্টেশন",
+  "guide_page_title": {
+    "message": "Linkumori — নিয়মের নির্দেশিকা",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "থিম",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "প্রদানকারী JSON ফরম্যাট",
+  "guide_toc_label": {
+    "message": "সূচী",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori প্রদানকারী JSON",
+  "guide_theme_midnight": {
+    "message": "মিডনাইট",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "অধ্যায় 1: মৌলিক JSON আকৃতি",
+  "guide_theme_light": {
+    "message": "লাইট",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "অধ্যায় 2: একটি প্রদানকারী কি?",
+  "guide_theme_icecold": {
+    "message": "আইস কোল্ড",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "অধ্যায় 3: প্রদানকারী ক্ষেত্র আপনি ব্যবহার করতে পারেন",
+  "guide_theme_zen_grey": {
+    "message": "জেন গ্রে",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "অধ্যায় 4: ম্যাচিং ডোমেন",
+  "guide_theme_sunset": {
+    "message": "সানসেট",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "এক ডোমেন এবং সমস্ত সাবডোমেন মেলে",
+  "guide_title": {
+    "message": "Linkumori নিয়ম লেখা",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "যেকোনো পাবলিক সাফিক্সে একই নামের সাথে মিল করুন",
+  "guide_intro_1": {
+    "message": "Linkumori নিয়মের মাধ্যমে URL পরিষ্কার করে। এই নির্দেশিকাটি দেখায় কীভাবে সেগুলো লিখতে হয়, প্রথম নিয়ম থেকে শুরু করে প্রতিটি অপশন পর্যন্ত, সাথে কিছু উদাহরণ যা আপনি কপি করতে পারেন।",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "সাবডোমেন মেলে",
+  "guide_intro_2": {
+    "message": "নিয়মগুলো JSON ফরম্যাটে থাকে। আপনি এগুলো কাস্টম নিয়ম এডিটরে লিখবেন, যা সেভ করার সময় সেগুলো পরীক্ষা করে। বান্ডেল করা নিয়মের তালিকা এবং রিমোট নিয়মের তালিকা একই ফরম্যাট ব্যবহার করে।",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "একের বেশি ডোমেন প্যাটার্ন ব্যবহার করুন",
+  "guide_file_title": {
+    "message": "1. নিয়মের ফাইল",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "অধ্যায় 5: ডোমেন প্যাটার্ন চিহ্ন",
+  "guide_file_p1": {
+    "message": "একটি নিয়মের ফাইল হলো একটি JSON অবজেক্ট। এর <code>providers</code> অবজেক্ট আপনার পছন্দমতো একটি নামকে একটি সরবরাহকারীর সাথে ম্যাপ করে:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "অধ্যায় 6: urlPattern এর সাথে URLs মেলানো",
+  "guide_file_p2": {
+    "message": "একটি সরবরাহকারী বলে দেয় যে এটি কোন URL-গুলো পরিচালনা করে এবং সেগুলোর সাথে কী করতে হবে। এটি <code>example.com</code> এবং এর সাবডোমেনের প্রতিটি URL থেকে <code>utm_source</code> এবং <code>utm_medium</code> সরিয়ে ফেলে:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "অধ্যায় 7: সরল কোয়েরি প্যারামিটারগুলি সরান",
+  "guide_file_p3": {
+    "message": "নামটি শুধুমাত্র একটি লেবেল। একজন সরবরাহকারী কোন URL-গুলো পরিচালনা করবে তা <code>domainPatterns</code> বা <code>urlPattern</code> দ্বারা নির্ধারিত হয়।",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "অধ্যায় 8: একটি নিয়ম অবজেক্ট লিখুন",
+  "guide_fields_title": {
+    "message": "2. সরবরাহকারী ফিল্ডসমূহ",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "অধ্যায় 9: $removeparam নিয়ম",
+  "guide_th_field": {
+    "message": "ফিল্ড",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "একটি প্যারামিটার সরান",
+  "guide_th_meaning": {
+    "message": "এটি কী করে",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "সমস্ত পরামিতি সরান",
+  "guide_field_domainpatterns": {
+    "message": "সরবরাহকারী কোন URL-গুলো পরিচালনা করে, ডোমেইন প্যাটার্ন হিসেবে (অধ্যায় ৩)। এটি অথবা <code>urlPattern</code> ব্যবহার করুন, কখনোই উভয়টি নয়।",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Regex দ্বারা পরামিতি সরান",
+  "guide_field_urlpattern": {
+    "message": "সরবরাহকারী কোন URL-গুলো পরিচালনা করে, যা সম্পূর্ণ URL-এর বিপরীতে একটি regular expression হিসেবে মেলানো হয়। এখানে কেস (Case) উপেক্ষা করা হয়।",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "একটি প্যারামিটার ছাড়া সব সরান",
+  "guide_field_indexpattern": {
+    "message": "শুধুমাত্র <code>urlPattern</code>-এর সাথে: হোস্ট হিন্টস যেমন <code>||example.com^</code>, যাতে সরবরাহকারীটি শুধুমাত্র সেই হোস্টগুলোর জন্য যাচাই করা হয়। এটি ছাড়া, সরবরাহকারীটি প্রতিটি URL-এর বিপরীতে যাচাই করা হয়।",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "শুধুমাত্র একটি ডোমেনে $removeparam প্রয়োগ করুন",
+  "guide_field_rules": {
+    "message": "সরিয়ে ফেলার প্যারামিটারসমূহ (অধ্যায় ৪ এবং ৫)।",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "ডোমেন সীমা যোগ করুন",
+  "guide_field_referral": {
+    "message": "সরিয়ে ফেলার রেফারেল এবং অ্যাফিলিয়েট প্যারামিটারসমূহ। <em>রেফারেল মার্কেটিংয়ের অনুমতি দিন</em> চালু থাকলে এগুলো বাদ দেওয়া হয় (অধ্যায় ১০)।",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "পদ্ধতির সীমা যোগ করুন",
+  "guide_field_rawrules": {
+    "message": "সম্পূর্ণ URL-এর উপর চালানো regular expressions; প্রতিটি ম্যাচ মুছে ফেলা হয় (অধ্যায় ৬)।",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "অধ্যায় 10: $removeparam ব্যতিক্রম",
+  "guide_field_exceptions": {
+    "message": "যে URL-গুলো সরবরাহকারী অপরিবর্তিত রাখে (অধ্যায় ৭)।",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "অধ্যায় 11: পরামিতি মান পুনরায় লিখুন",
+  "guide_field_redirections": {
+    "message": "অনুরোধটি পরিবর্তে কোথায় পাঠানো হবে (অধ্যায় ৮)।",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "অধ্যায় 12: কাঁচা নিয়ম",
+  "guide_field_fieldredirections": {
+    "message": "একটি প্যারামিটারের মানের দিকে পুনঃনির্দেশ করুন (অধ্যায় ৮)।",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "অধ্যায় 13: পুনঃনির্দেশের নিয়ম",
+  "guide_field_completeprovider": {
+    "message": "<em>ডোমেন ব্লক করার অনুমতি দিন</em> চালু থাকা অবস্থায়, <code>true</code> সরবরাহকারীর সাথে মেলে এমন প্রতিটি অনুরোধ ব্লক করে।",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "অধ্যায় 14: ডোমেন রিডাইরেক্ট নিয়ম",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: যখন একটি পেজ নিজেই পুনঃনির্দেশিত হয়, তখন ট্যাবটি নতুন ঠিকানাটি খোলে।",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "অধ্যায় 15: ব্যতিক্রম",
+  "guide_field_methods": {
+    "message": "শুধুমাত্র এই HTTP মেথডগুলো পরিচালনা করুন, উদাহরণস্বরূপ <code>[\"GET\"]</code>। ডিফল্ট: সব।",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "অধ্যায় 16: রেফারেল মার্কেটিং নিয়ম",
+  "guide_field_resourcetypes": {
+    "message": "শুধুমাত্র এই অনুরোধের ধরনগুলো পরিচালনা করুন, উদাহরণস্বরূপ <code>[\"main_frame\"]</code>। ডিফল্ট: সেটিংসে নির্বাচিত ধরনগুলো।",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "অধ্যায় 17: HTTP পদ্ধতি",
+  "guide_field_history": {
+    "message": "যখন একটি পেজ History API-এর মাধ্যমে তার নিজস্ব ঠিকানা পরিবর্তন করে, তখন <code>false</code> সরবরাহকারীটিকে বাদ দেয়।",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "অধ্যায় 18: ব্রাউজার রিসোর্স প্রকার",
+  "guide_field_active": {
+    "message": "<code>false</code> সরবরাহকারীটিকে বন্ধ করে দেয়।",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "অধ্যায় 19: প্রিপ্রসেসর",
+  "guide_match_title": {
+    "message": "3. কোন URL-গুলো একটি সরবরাহকারী পরিচালনা করে",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "অধ্যায় 20: অনুমোদিত JSON সংমিশ্রণ",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> হলো ডোমেইন প্যাটার্নের একটি তালিকা। একটি URL তখনই মিলবে যদি তাদের মধ্যে কোনো একটির সাথে মেলে:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "সমন্বয় 1: এক ফাইলে অনেক প্রদানকারী",
+  "guide_th_pattern": {
+    "message": "প্যাটার্ন",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "সমন্বয় 2: গ্লোবাল ডিফল্ট প্লাস প্রদানকারী",
+  "guide_th_matches": {
+    "message": "ম্যাচ করে",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "সমন্বয় 3: ডোমেইন প্যাটার্ন প্রদানকারী",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> এবং প্রতিটি সাবডোমেইন",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "সমন্বয় 4: indexPattern সহ urlPattern প্রদানকারী",
+  "guide_pat_anysuffix": {
+    "message": "যেকোনো পাবলিক সাফিক্সে (<code>example.de</code>, <code>example.co.uk</code>, …) <code>example</code>",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "সমন্বয় 5: ডোমেন প্যাটার্ন এবং ইউআরএল প্যাটার্ন একসাথে",
+  "guide_pat_path": {
+    "message": "সেই হোস্ট এবং তার সাবডোমেইনগুলো, যখন পাথ <code>/path</code> দিয়ে শুরু হয়",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "সমন্বয় 6: মিশ্র নিয়ম[] এন্ট্রি",
+  "guide_pat_star": {
+    "message": "<code>||example.com^</code>-এর মতোই",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "সংমিশ্রণ 7: নিয়মের ভিতরে ক্যানোনিকাল অবজেক্ট[]",
+  "guide_pat_start": {
+    "message": "URL-গুলো যা ঠিক এই লেখাটি দিয়ে শুরু হয়",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "সমন্বয় 8: লিগ্যাসি অ্যারে প্লাস ক্যানোনিকাল নিয়ম[]",
+  "guide_pat_end": {
+    "message": "URL-গুলো যা ঠিক এই লেখাটি দিয়ে শেষ হয়",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "সমন্বয় 9: প্রদানকারী-প্রশস্ত পদ্ধতি এবং সম্পদের ধরন",
+  "guide_pat_regex": {
+    "message": "সম্পূর্ণ URL, একটি রেগুলার এক্সপ্রেশন হিসেবে (আপনি যদি <code>i</code> যোগ না করেন তবে কেস সংবেদনশীল হবে)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "সমন্বয় 10: নিয়ম-স্তরের অনুরোধের ধরন",
+  "guide_pat_contains": {
+    "message": "URL-গুলো যেগুলোর যেকোনো জায়গায় এই লেখাটি আছে",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "সমন্বয় 11: বিভিন্ন জায়গায় ব্যতিক্রম",
+  "guide_pat_all": {
+    "message": "প্রতিটি URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "সমন্বয় 12: ব্লকিং প্রোভাইডার প্লাস নিয়ম",
+  "guide_match_p2": {
+    "message": "<code>^</code> হোস্ট নামের শেষ অথবা <code>/</code>, <code>?</code> বা <code>:</code>-এর মতো একটি সেপারেটর নির্দেশ করে। <code>*</code> যেকোনো কিছুর সাথে মেলে। <code>/regex/</code> বাদে, প্যাটার্নগুলো কেস উপেক্ষা করে।",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "সংমিশ্রণ 13: প্রদানকারী প্লাস ক্লিনআপ নিয়মগুলি পুনঃনির্দেশ করুন৷",
+  "guide_match_p3": {
+    "message": "<code>||</code> একটি ডোমেইন নির্দেশ করে, যেখানে একটি একক <code>|</code> URL-এর একদম শুরু নির্দেশ করে এবং এর পরে <code>https://</code>-এর মতো একটি স্কিম থাকতে হবে। <code>|example.com^</code> কখনোই ম্যাচ করতে পারে না, তাই এডিটর এটিকে প্রত্যাখ্যান করে।",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "সমন্বয় 14: ডোমেন পুনঃনির্দেশ প্লাস রেজেক্স পুনঃনির্দেশ",
+  "guide_match_p4": {
+    "message": "এর পরিবর্তে একটি regular expression-এর সাথে মেলানোর জন্য <code>urlPattern</code> ব্যবহার করুন, এবং <code>indexPattern</code> যোগ করুন যাতে সরবরাহকারী শুধুমাত্র সেই হোস্টগুলোতে যাচাই করা হয়:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "সমন্বয় 15: অক্ষম বা নিষ্ক্রিয় নিয়ম",
+  "guide_match_p5": {
+    "message": "একটি সরবরাহকারীর হয় <code>domainPatterns</code> অথবা <code>urlPattern</code> থাকে, কখনোই উভয়টি নয়। আপনার যদি উভয় ধরণের মেলানোর প্রয়োজন হয়, তবে দুটি সরবরাহকারী তৈরি করুন।",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "সমন্বয় 16: সম্পূর্ণ মিশ্র প্রদানকারী উদাহরণ",
+  "guide_rules_title": {
+    "message": "4. প্যারামিটার অপসারণ করা",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "অধ্যায় 21: সম্পূর্ণ উদাহরণ",
+  "guide_rules_p1": {
+    "message": "<code>rules</code>-এর প্রতিটি এন্ট্রি কুয়েরি (<code>?a=1</code>) এবং ফ্র্যাগমেন্ট (<code>#a=1</code>) থেকে প্যারামিটার অপসারণ করে। একটি এন্ট্রি হতে পারে:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "উদাহরণ 1: বেসিক ট্র্যাকার ক্লিনার",
+  "guide_th_entry": {
+    "message": "এন্ট্রি",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "উদাহরণ 2: সমস্ত UTM প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "উদাহরণ 3: লগইন করার সময় একটি প্রয়োজনীয় প্যারামিটার রাখুন",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "উদাহরণ 4: রিডাইরেক্ট ট্র্যাকিং ক্লিক",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "উদাহরণ 5: শুধুমাত্র API অনুরোধগুলি পরিষ্কার করুন৷",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "অধ্যায় 22: দ্রুত কপি টেমপ্লেট",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori মিক্সড প্রোভাইডার JSON ফরম্যাট গাইড",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "এই গাইডটি ব্যাখ্যা করে যে কীভাবে প্রোভাইডার JSON ডেটা লিখতে হয় যা <code>Linkumori extension</code> পড়তে পারে।",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "এটি JavaScript কোডের নির্দেশিকা নয়। এটি শুধুমাত্র JSON আকার, নিয়ম বিন্যাস এবং নিয়ম লেখকদের প্রয়োজন এমন উদাহরণগুলিতে ফোকাস করে।",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "এই নির্দেশিকা বর্তমান <code>clearurls.js</code> রানটাইম আচরণের উপর ভিত্তি করে। বিশেষ করে, প্রোভাইডার লুকআপ <code>domainPatterns</code> বা <code>indexPattern</code> থেকে <code>providersByToken</code> প্রার্থীর বালতি ব্যবহার করে এবং চূড়ান্ত মিল এখনও <code>provider.matchRequestURL()</code> এর মাধ্যমে চলে।",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "অধ্যায় 1: মৌলিক JSON আকৃতি",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> এই সাধারণ আকারে প্রদানকারীর ডেটা আশা করে:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "গুরুত্বপূর্ণ অংশ হল <code>providers</code>। <code>providers</code> এর ভিতরে প্রতিটি কী একটি প্রদানকারীর নাম।",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "অধ্যায় 2: একটি প্রদানকারী কি?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "একটি প্রদানকারী হল একটি ওয়েবসাইট, কোম্পানি, ট্র্যাকার, ডোমেন প্যাটার্ন সেট বা URL regex-এর জন্য রানটাইম কন্টেইনার। প্রদানকারীর নাম একটি লেবেল/কী; ম্যাচিং <code>domainPatterns</code> বা <code>urlPattern</code> দ্বারা করা হয়, প্রদানকারীর নামে নয়।",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "ন্যূনতম প্রদানকারী:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "এটি কি করে:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "অধ্যায় 3: প্রদানকারী ক্ষেত্র আপনি ব্যবহার করতে পারেন",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> দ্বারা গৃহীত প্রদানকারী ক্ষেত্র। মিলের জন্য, লেখক <code>domainPatterns</code> বা <code>urlPattern</code> ঐচ্ছিক <code>indexPattern</code> সহ; একসাথে প্রয়োজন উভয় উপর নির্ভর করবেন না.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "সরল অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON ফিল্ড",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "উৎস",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "আপনি এটা কি জন্য লিখুন",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "এই প্রদানকারীকে অক্ষম করতে <code>false</code> সেট করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "<code>true</code> সেট করুন শুধুমাত্র পরিষ্কার করার পরিবর্তে ম্যাচিং ডোমেন ব্লক করতে।",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "ব্রাউজার ট্যাবের মাধ্যমে প্রধান-পৃষ্ঠা পুনঃনির্দেশ জোরপূর্বক করতে <code>true</code> সেট করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "এই প্রদানকারীর সাথে কোন ডোমেন মেলে তা বলার প্রস্তাবিত উপায়।",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "URL ম্যাচিং এর জন্য JavaScript regex স্ট্রিং।",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "<code>urlPattern</code> ব্যবহার করার সময় ঐচ্ছিক গতির ইঙ্গিত।",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs addon legacy এবং ClearURLs core v2 canonical; <code>$removeparam</code> হল Linkumori এখানে যোগ করা",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "সাধারণ প্যারামিটার-অপসারণের নিয়ম এবং প্রদানকারী-স্থানীয় <code>$removeparam</code> নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি; ক্যানোনিকাল-স্টাইলের অবজেক্টগুলি এখানে Linkumori যোগ করা হয়েছে",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "পুরো URL টেক্সট এডিট করার নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি; ক্যানোনিকাল-স্টাইলের অবজেক্টগুলি এখানে Linkumori যোগ করা হয়েছে",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "ঐচ্ছিক রেফারেল/মার্কেটিং প্যারামিটার নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy এবং ClearURLs core v2 canonical; এখানে অবজেক্ট ফর্ম Linkumori যোগ করা হয়েছে",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL regex নিয়ম যেখানে এই প্রদানকারী চালানো উচিত নয়।",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "ডোমেন-প্যাটার্ন নিয়ম যেখানে এই প্রদানকারী চালানো উচিত নয়।",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি; ক্যানোনিকাল-স্টাইলের অবজেক্টগুলি এখানে Linkumori যোগ করা হয়েছে",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex পুনর্নির্দেশ নিয়ম.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "ডোমেন-প্যাটার্ন রিডাইরেক্ট নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "শুধুমাত্র এই HTTP পদ্ধতির জন্য চালান।",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori যোগ",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "শুধুমাত্র এই ব্রাউজার অনুরোধ ধরনের জন্য চালান.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "অধ্যায় 4: ম্যাচিং ডোমেন",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> হল একটি Linkumori সংযোজন এবং বেশিরভাগ কাস্টম প্রদানকারীদের জন্য এটি পছন্দের৷ <code>clearurls.js</code>-এ, অ-খালি <code>domainPatterns</code> ব্যবহার করা হয় <code>urlPattern</code>-এর আগে ম্যাচ করার জন্য।",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "এক ডোমেন এবং সমস্ত সাবডোমেন মেলে",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "মিল:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "মেলে না:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "যেকোনো পাবলিক সাফিক্সে একই নামের সাথে মিল করুন",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "মিলতে পারে:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "সাবডোমেন মেলে",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "মিলতে পারে:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "একের বেশি ডোমেন প্যাটার্ন ব্যবহার করুন",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "অধ্যায় 5: ডোমেন প্যাটার্ন চিহ্ন",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "এই চিহ্নগুলি আপনি <code>domainPatterns</code> এ ব্যবহার করতে পারেন।",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "প্রতীক",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "অর্থ",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "উদাহরণ",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "অপসারণ করে",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "একটি ডোমেইন সীমানায় ম্যাচ.",
+  "guide_rules_name": {
+    "message": "একটি প্যারামিটারের নাম",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "একটি নামের regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "প্রতিটি প্যারামিটার যার পুরো নাম মিলে যায়; আপনার জন্য <code>^…$</code> যোগ করা হয়, এবং কেস উপেক্ষা করা হয়",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "বিভাজক বা শেষ সীমানা।",
+  "guide_rules_filter": {
+    "message": "একটি <code>$removeparam</code> ফিল্টার",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "অধ্যায় ৫ দেখুন",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> এবং <code>\"$removeparam=fbclid\"</code> একই জিনিস অপসারণ করে। অধ্যায় ৫ থেকে কিছুর প্রয়োজন না হলে সাধারণ নাম ব্যবহার করুন।",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "ওয়াইল্ডকার্ড।",
+  "guide_rules_part_title": {
+    "message": "সরবরাহকারীর অংশের জন্য নিয়ম",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "একটি সাধারণ নাম সরবরাহকারীর সাথে মিলে যাওয়া প্রতিটি URL-এর ক্ষেত্রে প্রযোজ্য হয়। শুধুমাত্র কিছু URL-এর প্যারামিটার অপসারণ করতে, একটি <code>$removeparam</code> ফিল্টারের সামনে একটি প্যাটার্ন বসান:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "এখানে প্রতিটি Amazon সাইটে <code>qid</code> অপসারণ করা হয়েছে, <code>tag</code> শুধুমাত্র <code>amazon.de</code>-এ, <code>sr</code> শুধুমাত্র <code>smile.amazon</code>-এ, এবং <code>ref_</code> শুধুমাত্র <code>/gp/</code>-এর অধীনে। প্যাটার্নটি সরবরাহকারীর নিজস্ব প্যাটার্নগুলোকে আরও সংকীর্ণ করে; এটি সেগুলোকে প্রশস্ত করতে পারে না।",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "শুরু বা শেষ নোঙ্গর.",
+  "guide_rp_title": {
+    "message": "5. $removeparam ফিল্টার",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "একটি <code>$removeparam</code> ফিল্টারের গঠন এইরকম; ব্র্যাকেটের অংশগুলো ঐচ্ছিক:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "মান (Value)",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex আক্ষরিক।",
+  "guide_rp_p2": {
+    "message": "মানের প্রথম অক্ষরটি এটি কী বোঝায় তা নির্ধারণ করে:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "ফিল্টার",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "সবচেয়ে সাধারণ প্যাটার্ন:",
+  "guide_rp_v_all": {
+    "message": "প্রতিটি প্যারামিটার",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "আপনি যখন চান এটি ব্যবহার করুন:",
+  "guide_rp_v_except": {
+    "message": "<code>ref</code> ব্যতীত প্রতিটি প্যারামিটার (এটি <code>~/regex/</code> এবং <code>~|prefix</code>-এর সাথেও কাজ করে)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "অধ্যায় 6: ম্যাচিং URLs এর সাথে <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "যেসব প্যারামিটারের নাম, অথবা <code>name=value</code>, রেগুলার এক্সপ্রেশনের সাথে মেলে; আপনি যদি <code>i</code> যোগ না করেন তবে কেস (case) গুরুত্বপূর্ণ",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "<code>urlPattern</code> শুধুমাত্র তখনই ব্যবহার করুন যখন ডোমেন ম্যাচিং যথেষ্ট না হয়, যেমন যখন প্রদানকারীকে একটি নির্দিষ্ট পাথ বা সম্পূর্ণ URL regex এর সাথে মেলে।",
+  "guide_rp_v_prefix": {
+    "message": "যেসব প্যারামিটারের নাম <code>utm_</code> দিয়ে শুরু হয়; কেস উপেক্ষা করা হয়",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "এটি মিলতে পারে:",
+  "guide_rp_v_name": {
+    "message": "ঠিক সেই প্যারামিটারটি; আপনি যদি <code>match-case</code> যোগ না করেন তবে কেস উপেক্ষা করা হয়",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> হল ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল সিনট্যাক্স। Linkumori <code>indexPattern</code> শুধুমাত্র প্রার্থীর সন্ধানের ইঙ্গিত হিসাবে যোগ করে যাতে regex প্রদানকারীদের হোস্টনাম টোকেন দ্বারা দ্রুত খুঁজে পাওয়া যায়।",
+  "guide_rp_options_title": {
+    "message": "অপশন",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "গুরুত্বপূর্ণ: <code>indexPattern</code> কোন প্রদানকারীর সাথে মিলছে কিনা তা নির্ধারণ করে না। প্রার্থীর সন্ধানের পরে, <code>clearurls.js</code> এখনও <code>provider.matchRequestURL()</code>-এ আসল <code>urlPattern</code> পরীক্ষা করে।",
+  "guide_rp_p3": {
+    "message": "অপশনগুলো মানের পরে আসে এবং কমা দিয়ে আলাদা করা হয়। একটি অপশনের একাধিক মানকে <code>|</code> দিয়ে আলাদা করুন, এবং কোনো মানকে বাদ দিতে তার সামনে <code>~</code> বসান:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "অধ্যায় 7: সরল কোয়েরি প্যারামিটারগুলি সরান",
+  "guide_th_option": {
+    "message": "অপশন",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "<code>rules</code> এ প্যারামিটারের নাম রাখুন।",
+  "guide_rp_o_domain": {
+    "message": "শুধুমাত্র এই ডোমেইনগুলোর পেজে",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "ফলাফল:",
+  "guide_rp_o_to": {
+    "message": "শুধুমাত্র এই ডোমেইনগুলোর রিকোয়েস্টের জন্য",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "অনেক পরামিতি সরান:",
+  "guide_rp_o_method": {
+    "message": "শুধুমাত্র এই HTTP মেথডগুলোর জন্য",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "ফলাফল:",
+  "guide_rp_o_party": {
+    "message": "শুধুমাত্র সেই সাইটের অনুরোধের জন্য যা পেজের সাথে একই, অথবা শুধুমাত্র অন্যান্য সাইটের জন্য",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "অধ্যায় 8: একটি নিয়ম অবজেক্ট লিখুন",
+  "guide_rp_o_strict": {
+    "message": "একই রকম, তবে সাইটের পরিবর্তে সঠিক হোস্ট তুলনা করে",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "একটি প্লেইন স্ট্রিং এর পরিবর্তে, একটি নিয়ম একটি বস্তু হতে পারে।",
+  "guide_rp_o_types": {
+    "message": "শুধুমাত্র এই অনুরোধের ধরণের জন্য; <code>~type</code> একটিকে বাদ দেয়",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "আপনার প্রয়োজন হলে এটি ব্যবহার করুন:",
+  "guide_rp_o_matchcase": {
+    "message": "প্যারামিটার নামগুলো কেস-সেনসিটিভ",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "একটি নিয়ম আইডি।",
+  "guide_rp_o_history": {
+    "message": "যখন একটি পেজ History API এর মাধ্যমে তার নিজস্ব ঠিকানা পরিবর্তন করে তখন এই ফিল্টারটি বাদ দিন",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "উপনাম।",
+  "guide_rp_p4": {
+    "message": "প্রতিটি অপশনের একটি নির্দিষ্ট বানান রয়েছে। পরস্পরবিরোধী অপশন, যেমন <code>first-party,third-party</code>, প্রত্যাখ্যাত হয়।",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "ব্যতিক্রম।",
+  "guide_rp_keep_title": {
+    "message": "@@ এর মাধ্যমে একটি প্যারামিটার রাখা",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "অনুরোধ প্রকার সীমা.",
+  "guide_rp_p5": {
+    "message": "<code>@@</code> দিয়ে শুরু হওয়া একটি ফিল্টার প্যারামিটারটি মুছে ফেলার পরিবর্তে সেটি রাখে। এখানে <code>ref</code> GitHub ব্যতীত সব জায়গায় মুছে ফেলা হয়েছে:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "আচরণ পুনরায় লিখুন।",
+  "guide_rp_p6": {
+    "message": "একটি <code>@@</code> ফিল্টার সেই পেজ দ্বারা করা অনুরোধগুলোকেও কভার করে যা এই সরবরাহকারী মেলে, এমনকি যখন অন্য কোনো সরবরাহকারী সেগুলো পরিচালনা করে।",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "একটি প্রদানকারীর ভিতরে উদাহরণ:",
+  "guide_raw_title": {
+    "message": "6. কাঁচা নিয়ম",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "ফলাফল:",
+  "guide_raw_p1": {
+    "message": "একটি কাঁচা নিয়ম হলো একটি রেগুলার এক্সপ্রেশন যা সম্পূর্ণ URL-এর উপর চালানো হয়; প্রতিটি ম্যাচ মুছে ফেলা হয়। এটি এমন টেক্সটের জন্য ব্যবহার করুন যা <code>name=value</code> প্যারামিটার নয়, যেমন Amazon-এর <code>/ref=…</code> পাথ সেগমেন্ট:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "প্রদানকারী নিয়ম অবজেক্টে <code>flags</code> হল একটি Linkumori সংযোজন। <code>flags: \"i\"</code> ম্যাচটিকে কেস-অসংবেদনশীল করে তোলে।",
+  "guide_raw_p2": {
+    "message": "কাঁচা নিয়মগুলো কেস উপেক্ষা করে এবং প্রতিটি ম্যাচ প্রতিস্থাপন করে। JSON-এ, প্রতিটি ব্যাকস্ল্যাশ দুইবার লিখুন।",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "অধ্যায় 9: <code>$removeparam</code> নিয়ম",
+  "guide_raw_scope_title": {
+    "message": "শুধুমাত্র কিছু URL-এর উপর",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "একটি প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "সমস্ত পরামিতি সরান",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Regex দ্বারা পরামিতি সরান",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "একটি প্যারামিটার ছাড়া সব সরান",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "<code>$removeparam</code> শুধুমাত্র একটি ডোমেইনে আবেদন করুন",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "পরিষ্কার করা হয়েছে:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "পরিষ্কার করা হয়নি:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "ডোমেন সীমা যোগ করুন",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "একটি ডোমেন বাদ দিন:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "পদ্ধতির সীমা যোগ করুন",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "শুধুমাত্র <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "নয় <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "অধ্যায় 10: <code>$removeparam</code> ব্যতিক্রম",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "একটি ব্যতিক্রম করতে <code>@@</code> দিয়ে একটি <code>$removeparam</code> নিয়ম শুরু করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "প্রসঙ্গ ব্যতিক্রম উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "এটি একটি <code>gemini.google.com</code> পৃষ্ঠা দ্বারা শুরু হওয়া সাব-রিকোয়েস্টে <code>ei</code> কে রক্ষা করতে পারে।",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "অধ্যায় 11: পরামিতি মান পুনরায় লিখুন",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "একটি মিলে যাওয়া প্যারামিটার মান প্রতিস্থাপন করতে <code>action.type: \"rewrite\"</code> ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "একটি প্রদানকারীর ভিতরে:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "আপনি যখন বর্তমান মান পুনরায় ব্যবহার করতে চান তখন <code>§1§</code> ব্যবহার করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "অধ্যায় 12: কাঁচা নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "পুরো URL পাঠ্য সম্পাদনা করতে <code>rawRules</code> ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "সহজ কাঁচা নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "অবজেক্ট কাঁচা নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "কাঁচা পুনর্লিখনের নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "অধ্যায় 13: পুনঃনির্দেশের নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "ব্রাউজারটিকে একটি নতুন URL এ পাঠাতে <code>redirections</code> ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "<code>replacePattern</code> অনুপস্থিত থাকলে, প্রথম ক্যাপচার গ্রুপ ব্যবহার করা হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "অধ্যায় 14: ডোমেন রিডাইরেক্ট নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> হল একটি Linkumori সংযোজন সাধারণ ডোমেন-প্যাটার্ন রিডাইরেক্টের জন্য।",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori সংযোজন — স্ট্রিং ফর্ম:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori সংযোজন — অবজেক্ট ফর্ম:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "অধ্যায় 15: ব্যতিক্রম",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> হল ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল সিনট্যাক্স। Linkumori এই লিগ্যাসি প্রদানকারী অ্যারেতে ক্যানোনিকাল-স্টাইলের বস্তুগুলিও গ্রহণ করে।",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> হল একটি Linkumori সংযোজন ডোমেন-প্যাটার্ন ব্যতিক্রমের জন্য।",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "এড়িয়ে যাওয়া:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "অধ্যায় 16: রেফারেল মার্কেটিং নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> ফিল্ডের নিয়মের মতো কাজ করে, তবে এটি রেফারেল মার্কেটিংয়ের জন্য এক্সটেনশন সেটিং দ্বারা নিয়ন্ত্রিত হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "অধ্যায় 17: HTTP পদ্ধতি",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "শুধুমাত্র নির্দিষ্ট HTTP পদ্ধতিতে একটি প্রদানকারী চালানোর জন্য <code>methods</code> ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "এটি চলে:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "এটি চালু হয় না:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "অধ্যায় 18: ব্রাউজার রিসোর্স প্রকার",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> হল একটি Linkumori সংযোজন৷ শুধুমাত্র নির্দিষ্ট ব্রাউজার অনুরোধ প্রকারের জন্য একটি প্রদানকারী চালানোর জন্য এটি ব্যবহার করুন.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "সাধারণ মান:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "অধ্যায় 19: প্রিপ্রসেসর",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "প্রিপ্রসেসর <code>replacePattern</code> এ ব্যবহার করার আগে ক্যাপচার করা মান পরিবর্তন করে।",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "সমর্থিত প্রকার:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> হতে পারে:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "অধ্যায় 20: অনুমোদিত JSON সংমিশ্রণ",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "এই অধ্যায়টি লিঙ্কুমোরি মিক্সড-প্রোভাইডার JSON দেখায়: ClearURLs অ্যাডন লিগ্যাসি অ্যারে, ClearURLs কোর v2 ক্যানোনিকাল অবজেক্ট এবং Linkumori সংযোজনগুলি এক নিয়ম ফাইলে একসাথে থাকতে পারে।",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "সমন্বয় 1: এক ফাইলে অনেক প্রদানকারী",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> হল ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল টপ-লেভেল সিনট্যাক্স। Linkumori সেই আকৃতিটি রাখে এবং এর অধীনে অনেক প্রদানকারীকে অনুমতি দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "প্রতিটি প্রদানকারী পৃথকভাবে লোড করা হয়.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "সমন্বয় 2: গ্লোবাল ডিফল্ট প্লাস প্রদানকারী",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> হল ClearURLs কোর v2 ক্যানোনিকাল সিনট্যাক্স। Linkumori এটিকে উত্তরাধিকার-শৈলী <code>providers</code> এর পাশে গ্রহণ করে।",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "যখন সেই ক্ষেত্রগুলি নিয়মে অনুপস্থিত থাকে তখন নিয়মগুলি ডিফল্ট মানগুলিকে উত্তরাধিকার সূত্রে পেতে পারে৷",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "সমন্বয় 3: <code>domainPatterns</code> প্রদানকারী",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "এটি একটি Linkumori সংযোজন৷ সর্বাধিক Linkumori প্রদানকারীর এই ফর্মটি ব্যবহার করা উচিত।",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "সংমিশ্রণ 4: <code>urlPattern</code> প্রদানকারীর সাথে <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> হল আপস্ট্রিম ClearURLs সিনট্যাক্স। <code>indexPattern</code> হল regex URL প্রদানকারীদের জন্য একটি Linkumori লুকআপ ইঙ্গিত; এটি রেজেক্সের সাথে মেলে এমন হোস্টনামের দিকে নির্দেশ করা উচিত।",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> ঐচ্ছিক, কিন্তু গতির জন্য দরকারী। এটি হোস্টনাম-টোকেন প্রার্থী বালতিতে প্রদানকারীকে সূচী করে; এটি কখনই চূড়ান্ত <code>urlPattern</code> ম্যাচ প্রতিস্থাপন করে না।",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "সমন্বয় 5: একটি সম্মিলিত প্রয়োজন হিসাবে <code>domainPatterns</code> এবং <code>urlPattern</code> মিশ্রিত করবেন না",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "এই আকৃতিটি পুরানো বা হাতে লিখিত ডেটাতে প্রদর্শিত হতে পারে, তবে এর অর্থ এই নয় যে উভয় মিলকে অবশ্যই পাস করতে হবে:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "বর্তমান <code>clearurls.js</code> আচরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "যদি <code>domainPatterns</code> উপস্থিত থাকে এবং খালি না থাকে, তাহলে <code>clearurls.js</code> প্রদানকারীর মিলের জন্য এটি ব্যবহার করে এবং সেই প্রদানকারীর জন্য <code>urlPattern</code> উপেক্ষা করে। কাস্টম এডিটর/আমদানি পথ উভয়ই ধারণকারী প্রদানকারীদের প্রত্যাখ্যান করে। আপনার যদি পাথের অবস্থার প্রয়োজন হয়, তাহলে <code>indexPattern</code>-এর সাথে <code>urlPattern</code> ব্যবহার করুন, অথবা <code>rules</code>-এর ভিতরে পৃথক <code>$removeparam</code>/নিয়ম এন্ট্রি স্কোপ করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "সমন্বয় 6: মিশ্র <code>rules[]</code> এন্ট্রি",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumori, <code>rules</code>-এ ClearURLs লিগ্যাসি স্ট্রিং, Linkumori <code>$removeparam</code> স্ট্রিং, Linkumori Linkumori Linkumori এবং অবজেক্ট থাকতে পারে ClearURLs core v2 ক্যানোনিকাল অবজেক্ট একসাথে।",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "সব চারটি এন্ট্রি গ্রহণ করা হয়.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "সমন্বয় 7: <code>rules[]</code> এর ভিতরে ক্যানোনিকাল অবজেক্ট",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs core v2 ক্যানোনিকাল অবজেক্ট বিভিন্ন ধরনের নিয়ম উপস্থাপন করতে পারে। এই Linkumori উদাহরণে তারা একটি প্রদানকারীর ভিতরে স্থাপন করা হয়েছে যেটি <code>domainPatterns</code> ব্যবহার করে, যা শুধুমাত্র Linkumori।",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> এগুলিকে অর্থ অনুসারে সাজায়:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "সমন্বয় 8: লিগ্যাসি অ্যারে প্লাস ক্যানোনিকাল <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি প্রদানকারী অ্যারে এখনও কাজ করে। Linkumori সেই অ্যারেগুলিকে ClearURLs core v2 ক্যানোনিকাল রুল অবজেক্টের পাশে বসতে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "এটা বৈধ। ইঞ্জিন একই প্রদানকারীর জন্য এই সমস্ত অ্যারে পড়ে।",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "সমন্বয় 9: প্রদানকারী-প্রশস্ত পদ্ধতি এবং সম্পদের ধরন",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> হল আপস্ট্রিম ClearURLs সিনট্যাক্স। <code>resourceTypes</code> একটি Linkumori সংযোজন। উভয়ই সম্পূর্ণ প্রদানকারীর জন্য প্রযোজ্য।",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code> এবং <code>rawRules</code> উভয়ই প্রদানকারী পদ্ধতি/টাইপ মিল দ্বারা সীমাবদ্ধ।",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "সমন্বয় 10: নিয়ম-স্তরের অনুরোধের ধরন",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs core v2 ক্যানোনিকাল নিয়ম নিয়ম-স্তরের <code>requestTypes</code> সংজ্ঞায়িত করতে পারে।",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "প্রদানকারী-স্তর <code>resourceTypes</code> প্রথমে প্রদানকারীকে সংকুচিত করে। নিয়ম-স্তর <code>requestTypes</code> এর পরে পৃথক নিয়ম সংকুচিত করে।",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "সমন্বয় 11: বিভিন্ন জায়গায় ব্যতিক্রম",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori আপনাকে ClearURLs প্রদানকারী ব্যতিক্রম, Linkumori ডোমেন ব্যতিক্রম, ClearURLs মূল v2 নিয়মের ব্যতিক্রম এবং Linkumori প্রদানকারী-স্থানীয় 30958 ব্যতিক্রমগুলিকে একত্রিত করতে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "সরল অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "সমন্বয় 12: ব্লকিং প্রোভাইডার প্লাস নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> একজন প্রদানকারীকে বাতিল/ব্লকিং হিসেবে চিহ্নিত করে।",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "যখন সেটিংসে ডোমেন ব্লকিং সক্ষম করা থাকে, তখন ম্যাচিং অনুরোধগুলি ব্লক করা যেতে পারে। নিয়ম এখনও বিদ্যমান থাকতে পারে, কিন্তু ব্লক করা সেই প্রদানকারীর জন্য শক্তিশালী আচরণ।",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "সংমিশ্রণ 13: প্রদানকারী প্লাস ক্লিনআপ নিয়মগুলি পুনঃনির্দেশ করুন৷",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "একটি প্রদানকারী পুনঃনির্দেশ এবং পরিষ্কারের নিয়ম ধারণ করতে পারে।",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "যদি একটি পুনঃনির্দেশ মেলে, পুনঃনির্দেশটি প্রথমে ফেরত দেওয়া হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "সমন্বয় 14: ডোমেন পুনঃনির্দেশ প্লাস রেজেক্স পুনঃনির্দেশ",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "উভয় একটি প্রদানকারীর মধ্যে বিদ্যমান থাকতে পারে.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex পুনর্নির্দেশগুলি প্রথমে চেক করা হয়। ডোমেন পুনঃনির্দেশ চেক করা হয় যদি কোন রেজেক্স পুনঃনির্দেশ না মিলে।",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "সমন্বয় 15: অক্ষম বা নিষ্ক্রিয় নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "প্রদানকারী নিষ্ক্রিয় হতে পারে:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "নিয়ম নিষ্ক্রিয় হতে পারে:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "নিষ্ক্রিয় প্রদানকারী এবং নিষ্ক্রিয় নিয়ম উপেক্ষা করা হয়.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "সমন্বয় 16: সম্পূর্ণ মিশ্র প্রদানকারী উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "এই Linkumori উদাহরণটি ইচ্ছাকৃতভাবে সর্বাধিক সমর্থিত প্রদানকারী বৈশিষ্ট্যগুলিকে একত্রিত করে: ClearURLs অ্যাডন লিগ্যাসি অ্যারে, ClearURLs কোর v2 ক্যানোনিকাল রুল অবজেক্ট এবং Linkumori- শুধুমাত্র ডোমেইন ম্যাচার বৈশিষ্ট্য এবং৷",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "এটি বৈধ Linkumori মিশ্র প্রদানকারী JSON৷",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "অধ্যায় 21: সম্পূর্ণ উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "উদাহরণ 1: বেসিক ট্র্যাকার ক্লিনার",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "উদাহরণ 2: সমস্ত UTM প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "উদাহরণ 3: লগইন করার সময় একটি প্রয়োজনীয় প্যারামিটার রাখুন",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "উদাহরণ 4: রিডাইরেক্ট ট্র্যাকিং ক্লিক",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "উদাহরণ 5: শুধুমাত্র API অনুরোধগুলি পরিষ্কার করুন৷",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "অধ্যায় 22: দ্রুত কপি টেমপ্লেট",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "একটি প্যারামিটার সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "অনেক পরামিতি সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "<code>$removeparam</code> ব্যবহার করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "সমস্ত <code>utm_</code> প্যারামিটারগুলি সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "একটি ব্যতিক্রম যোগ করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "একটি ডোমেন মেলে:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "একটি ট্র্যাকার পুনর্নির্দেশ করুন URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "একটি কাঁচা নিয়ম একটি <code>$removeparam</code> ফিল্টারের প্যাটার্ন এবং অপশন নিতে পারে, যেখানে <code>rawrule=</code> শেষে থাকে। <code>rawrule=</code> এর পরের সবকিছুই হলো রেগুলার এক্সপ্রেশন:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "প্যাটার্ন এবং অপশনগুলো ঠিক করে নিয়মটি কোথায় চলবে; রেগুলার এক্সপ্রেশনটিই মুছে ফেলা হয়। <code>match-case</code> এটিকে কেস-সেনসিটিভ করে তোলে।",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "কিছু URL-এর উপর কাঁচা নিয়মগুলো থামানো",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "<code>@@</code> দিয়ে শুরু হওয়া একটি এন্ট্রি কাঁচা নিয়মগুলোকে চলতে বাধা দেয় যেখানে এর প্যাটার্নটি মিলে যায়। কাঁচা নিয়মটিকে একটি <code>id</code> দিন এবং <code>targetId</code> দিয়ে নাম দিন:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "<code>rawrule=</code>-এর পরে কিছু না থাকলে এবং কোনো <code>targetId</code> না থাকলে, এন্ট্রিটি ওই URL-গুলোর জন্য সরবরাহকারীর প্রতিটি কাঁচা নিয়ম বন্ধ করে দেয়। পুরো সরবরাহকারীকে বাদ দিতে, পরিবর্তে <code>exceptions</code> ব্যবহার করুন।",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. ব্যতিক্রম",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "যদি একটি URL <code>exceptions</code>-এর কোনো এন্ট্রির সাথে মিলে যায়, তবে সরবরাহকারীর কোনো নিয়মই চলবে না। একটি এন্ট্রি হলো একটি regular expression, অথবা একটি ডোমেইন প্যাটার্ন যা <code>|</code> দিয়ে শুরু হয়:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "ব্যতিক্রমগুলো case উপেক্ষা করে।",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. পুনঃনির্দেশ",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "পুনঃনির্দেশ নিয়মগুলো সরাসরি আসল গন্তব্যে যাওয়ার মাধ্যমে ট্র্যাকিং পেজগুলো এড়িয়ে চলে। এগুলো শুধুমাত্র তখনই চলে যখন <em>তৃতীয় পক্ষের রিডাইরেক্ট বাইপাস সক্ষম করুন</em> চালু থাকে।",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "URL-এর একটি অংশে পুনঃনির্দেশ",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code>-এর একটি এন্ট্রি হলো একটি regular expression যাতে ঠিক একটি capture group, <code>( … )</code> থাকে। অনুরোধটি গ্রুপটি যা ক্যাপচার করেছে তার URL-decoded সংস্করণে যায়। অন্য যেকোনো গ্রুপকে <code>(?: … )</code> হিসেবে লিখুন:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "একটি নির্দিষ্ট ঠিকানায় পুনঃনির্দেশ",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "<code>|</code> দিয়ে শুরু হওয়া একটি এন্ট্রি প্রতিটি মিলে যাওয়া URL-কে একটি ঠিকানায় পাঠায়:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "একটি প্যারামিটারের মানে পুনঃনির্দেশ",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> সেই প্যারামিটারের নাম দেয় যা গন্তব্য ধারণ করে, তাই কোনো regular expression-এর প্রয়োজন হয় না। এটি <code>rules</code>-এর মতোই এন্ট্রি গ্রহণ করে:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "মান থাকা প্রথম মিলে যাওয়া প্যারামিটারটি কার্যকর হয়। একটি পুনঃনির্দেশ অনুরোধের জন্য অন্য সমস্ত প্রসেসিং বন্ধ করে দেয়।",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. নিয়ম অবজেক্ট",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "যেকোনো এন্ট্রি স্ট্রিং-এর পরিবর্তে একটি অবজেক্ট হতে পারে। যখন একটি নিয়মের id প্রয়োজন হয়, এটি বন্ধ অবস্থায় শুরু হওয়া উচিত, রিমুভ করার পরিবর্তে রিরাইট করা উচিত, অথবা শুধুমাত্র কিছু ক্ষেত্রে চলা উচিত, তখন এটি ব্যবহার করুন:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "কী",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "একটি সাধারণ এন্ট্রি হিসেবে আপনি যে লেখাটি লিখবেন",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "একটি স্থিতিশীল নাম (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) যা নিয়মটি চালু এবং বন্ধ করতে ব্যবহৃত হয়",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "নিয়মটির পূর্ববর্তী আইডিগুলি, যাতে একটি নিয়ম রিনেম করার পরেও বন্ধ থাকলে তা বন্ধই থাকে",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "মুছে ফেলার পরিবর্তে নতুন করে লিখুন; <code>§1§</code>, <code>§2§</code>, … হলো ক্যাপচার করা মানগুলি",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "প্রথমে ক্যাপচার করা মানগুলি পরিবর্তন করুন",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "শুধুমাত্র এই রিকোয়েস্ট টাইপগুলোর জন্য, উদাহরণস্বরূপ <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL যেখানে এই নির্দিষ্ট নিয়মটি চলবে না",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "রেগুলার এক্সপ্রেশন ফ্ল্যাগ, একটি স্ট্রিং হিসেবে (ডিফল্ট <code>i</code>; <code>rawRules</code>-এ <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "নিয়মটি আগে বা পরে চালান",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: <code>rules</code>-এর একটি নিয়ম রেফারেল-মার্কেটিং নিয়ম হিসেবে গণ্য হয়",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: যখন একটি পেজ History API-এর মাধ্যমে তার নিজস্ব ঠিকানা পরিবর্তন করে তখন এই নিয়মটি বাদ দিন",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: নিয়মটি বন্ধ অবস্থায় শুরু হয়",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "মুক্ত টেক্সট",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "শুধুমাত্র <code>@@…$rawrule=</code> এন্ট্রির জন্য: এটি যে কাঁচা নিয়মটিকে থামায়",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "মুছে ফেলার পরিবর্তে নতুন করে লেখা",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code>-এর মাধ্যমে, <code>rules</code>-এর একটি নিয়ম প্যারামিটারটি ধরে রাখে এবং এর মান পরিবর্তন করে, যা হলো <code>§1§</code>। <code>rawRules</code> এবং <code>redirections</code>-এ, <code>§1§</code>, <code>§2§</code>, … হলো ক্যাপচার গ্রুপ:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "প্রিপ্রসেসর",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "প্রিপ্রসেসরগুলো <code>replacePattern</code> ব্যবহার করার আগে ক্যাপচার করা মানগুলো পরিবর্তন করে। <code>inputs</code> হলো <code>\"all\"</code> অথবা গ্রুপ নম্বরের একটি তালিকা:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "ধরণগুলো হলো <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> এবং <code>base64Decode</code>।",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "নিয়মের আইডি",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "প্রতিটি নিয়মের একটি আইডি থাকে। <code>id</code> ছাড়া কোনো নিয়ম তার তালিকা এবং টেক্সট থেকে একটি আইডি পায়: <code>rules</code>-এ <code>\"utm_source\"</code> হয়ে যায় <code>field-utm-source</code>। যদি দুটি নিয়ম একই আইডি পায়, তবে উভয়ের শেষে একটি ছোট হ্যাশ যুক্ত হয়।",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "নিয়মের টেক্সট পরিবর্তন হলে একটি জেনারেটেড আইডি পরিবর্তিত হয়। যখন কোনো নিয়মের এডিট করার পরেও অন/অফ সেটিং ধরে রাখতে হয়, তখন সেটিকে নিজস্ব <code>id</code> দিন।",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "একটি নিয়ম আগে বা পরে চালানো",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "কাঁচা নিয়ম সাধারণত প্রথমে চলে, তারপর <code>rules</code> এবং <code>referralMarketing</code>। <code>order</code> যুক্ত একটি নিয়ম এটি ছাড়া অন্য নিয়মের আগে চলে, সর্বনিম্নটি প্রথমে। এখানে টোকেনটি প্রথমে প্রতিস্থাপিত হয় এবং তারপর মুছে ফেলা হয়:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> <code>rules</code>, <code>rawRules</code> এবং <code>referralMarketing</code>-এ কাজ করে, তবে <code>$removeparam</code> ফিল্টারে কাজ করে না, যা সর্বদা সবশেষে চলে।",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. রেফারেল মার্কেটিং",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> এবং <code>rules</code>-এ একই এন্ট্রি নেওয়া হয়। <em>রেফারেল মার্কেটিংয়ের অনুমতি দিন</em> চালু থাকা অবস্থায় এগুলো বাদ দেওয়া হয়, যাতে আপনি চাইলে অ্যাফিলিয়েট লিঙ্কগুলো কাজ করতে থাকে:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "একটি নিয়ম <code>rules</code>-এ থেকেও <code>\"referralMarketing\": true</code>-এর মাধ্যমে রেফারেল মার্কেটিং হিসেবে গণ্য হতে পারে।",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. মেথড এবং রিকোয়েস্ট টাইপ",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "এগুলো নির্ধারণ করে কখন একজন সরবরাহকারী বা একটি নিয়ম চলবে:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js আচরণ: যদি ডোমেনপ্যাটার্ন বিদ্যমান থাকে এবং খালি না থাকে, লিঙ্কুমোরি প্রদানকারীর মিলের জন্য ডোমেনপ্যাটার্ন ব্যবহার করে। urlPattern শুধুমাত্র তখনই ব্যবহৃত হয় যখন domainPatterns অনুপস্থিত বা খালি থাকে। কাস্টম সম্পাদক/আমদানি পথ এই মিশ্র ম্যাচার আকৃতি প্রত্যাখ্যান করে, তাই এটি শুধুমাত্র উত্তরাধিকার ডেটা বোঝার জন্য ব্যবহার করুন।",
+  "guide_req_methods": {
+    "message": "HTTP মেথড যা সরবরাহকারী পরিচালনা করে",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "সরবরাহকারী যে রিকোয়েস্ট টাইপগুলো পরিচালনা করে",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "একটি রুল অবজেক্ট যে রিকোয়েস্ট টাইপগুলো পরিচালনা করে",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "একটি <code>$removeparam</code> ফিল্টার বা কাঁচা নিয়মের ক্ষেত্রেও একই",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "রিকোয়েস্ট টাইপগুলো ব্রাউজারের নাম ব্যবহার করে: <code>main_frame</code> (একটি পেজ), <code>sub_frame</code> (একটি ফ্রেম), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> এবং আরও। ফিল্টার অপশনগুলো প্রথম দুটিকে <code>document</code> এবং <code>subdocument</code> বলে ডাকে।",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. কীভাবে একটি URL প্রসেস করা হয়",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "প্রতিটি সরবরাহকারীর জন্য যা URL-এর সাথে মেলে এবং রিকোয়েস্টের অনুমতি দেয়:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: যদি একটি মেলে, তবে সরবরাহকারীটিকে বাদ দেওয়া হয়।",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, তারপর <code>fieldRedirections</code>: একটি মিল রিকোয়েস্টটিকে পুনঃনির্দেশ করে, এবং অন্য কিছু চলে না।",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: রিকোয়েস্টটি ব্লক করা হয়।",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> সম্পূর্ণ URL-এর উপর চলে।",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> এবং <code>referralMarketing</code> প্যারামিটারগুলো সরিয়ে ফেলে।",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> ফিল্টারগুলো চলে, শুধুমাত্র যেখানে একটি <code>@@</code> ফিল্টার প্যারামিটারটিকে রেখে দেয়।",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "প্রথম সরবরাহকারী যে রিকোয়েস্টটিকে পরিবর্তন, পুনঃনির্দেশ বা ব্লক করে সেটিই ফলাফল নির্ধারণ করে। নতুন URL-টি তারপর আবার একই ধাপগুলোর মধ্য দিয়ে যায়।",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. সম্পূর্ণ উদাহরণ",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "একটি শপ পরিষ্কার করুন",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "একটি শপের ট্র্যাকিং প্যারামিটার এবং একটি অ্যাফিলিয়েট আইডি সরিয়ে ফেলে, এবং এর চেকআউট পেজগুলোকে অপরিবর্তিত রাখে:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "সব জায়গা থেকে UTM প্যারামিটার সরিয়ে ফেলুন",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "প্যাটার্ন <code>*</code> প্রতিটি URL-এর সাথে মেলে:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "একটি ক্লিক ট্র্যাকার এড়িয়ে চলুন",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "ক্লিক ট্র্যাকারের মাধ্যমে লিঙ্কগুলোকে সরাসরি তাদের গন্তব্যে পাঠিয়ে দেয়, যা <code>url</code> প্যারামিটারে থাকে:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "একটি পেজে একটি প্যারামিটার রাখুন",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "সাইটের সব জায়গা থেকে <code>ref</code> সরিয়ে ফেলে, শুধুমাত্র লগইন পেজটি বাদে, যার জন্য এটি প্রয়োজন:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. আপনার নিয়মগুলো পরীক্ষা করা",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "কাস্টম নিয়ম এডিটর আপনার নিয়মগুলো সেভ বা ইমপোর্ট করার সময় সেগুলো পরীক্ষা করে। ত্রুটিপূর্ণ JSON এবং অবৈধ রেগুলার এক্সপ্রেশন ছাড়াও, এটি এমন নিয়মগুলো প্রত্যাখ্যান করে যা লোড হবে কিন্তু নিঃশব্দে ভুল কাজ করবে, যেমন:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "একই সরবরাহকারীতে <code>domainPatterns</code> এবং <code>urlPattern</code>",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "একটি প্যাটার্ন যাতে শুধুমাত্র একটি <code>|</code> আছে এবং কোনো স্কিম নেই, যেমন <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "একটি রেগুলার-এক্সপ্রেশন পুনঃনির্দেশ যাতে ঠিক একটি ক্যাপচার গ্রুপ নেই",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "অজানা ফিল্ড, কি (key) এবং অপশন",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> অথবা <code>referralMarketing</code> যেখানে এটি কিছুই করবে না",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "একটি <code>@@…$rawrule=</code> এন্ট্রি যা কোনো কাঁচা নিয়ম থামায় না",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "যদি সেভ করতে ব্যর্থ হয়, তবে মেসেজটিতে সরবরাহকারী, তালিকা এবং এন্ট্রির নাম উল্লেখ করা থাকে।",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

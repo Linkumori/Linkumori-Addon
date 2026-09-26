@@ -4727,1688 +4727,704 @@
     "message": "ദാതാവ് JSON സാധുതയുള്ളപ്പോൾ റൂൾ ഐഡി നിയന്ത്രണങ്ങൾ ലഭ്യമാണ്.",
     "description": "പ്രൊവൈഡർ റൂൾ-ഐഡി നിയന്ത്രണങ്ങൾക്കായി അസാധുവായ JSON അവസ്ഥ"
   },
-  "guide_0001": {
-    "message": "Linkumori വിപുലീകരണം - റൂൾസ് ഡോക്യുമെൻ്റേഷൻ",
+  "guide_page_title": {
+    "message": "Linkumori — നിയമങ്ങൾക്കുള്ള വഴികാട്ടി",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "തീം",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "ദാതാവ് JSON ഫോർമാറ്റ്",
+  "guide_toc_label": {
+    "message": "ഉള്ളടക്കം",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori ദാതാവ് JSON",
+  "guide_theme_midnight": {
+    "message": "മിഡ്‌നൈറ്റ്",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "അധ്യായം 1: അടിസ്ഥാന JSON ആകൃതി",
+  "guide_theme_light": {
+    "message": "ലൈറ്റ്",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "അധ്യായം 2: എന്താണ് ദാതാവ്?",
+  "guide_theme_icecold": {
+    "message": "ഐസ് കോൾഡ്",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "അധ്യായം 3: നിങ്ങൾക്ക് ഉപയോഗിക്കാനാകുന്ന പ്രൊവൈഡർ ഫീൽഡുകൾ",
+  "guide_theme_zen_grey": {
+    "message": "സെൻ ഗ്രേ",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "അധ്യായം 4: പൊരുത്തപ്പെടുന്ന ഡൊമെയ്‌നുകൾ",
+  "guide_theme_sunset": {
+    "message": "സൺസെറ്റ്",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "ഒരു ഡൊമെയ്‌നും എല്ലാ ഉപഡൊമെയ്‌നുകളും പൊരുത്തപ്പെടുത്തുക",
+  "guide_title": {
+    "message": "Linkumori നിയമങ്ങൾ എഴുതുന്ന വിധം",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "ഏത് പൊതു സഫിക്സിലും ഒരേ പേര് പൊരുത്തപ്പെടുത്തുക",
+  "guide_intro_1": {
+    "message": "Linkumori നിയമങ്ങൾ ഉപയോഗിച്ച് URL-കൾ വൃത്തിയാക്കുന്നു. ആദ്യത്തെ നിയമം മുതൽ എല്ലാ ഓപ്ഷനുകളും വരെയുള്ളവ എങ്ങനെ എഴുതാമെന്ന്, നിങ്ങൾക്ക് കോപ്പി ചെയ്യാവുന്ന ഉദാഹരണങ്ങളോടു കൂടി ഈ വഴികാട്ടി കാണിച്ചുതരുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "ഉപഡൊമെയ്‌നുകൾ പൊരുത്തപ്പെടുത്തുക",
+  "guide_intro_2": {
+    "message": "നിയമങ്ങൾ JSON രൂപത്തിലുള്ളതാണ്. നിങ്ങൾ അവ കസ്റ്റം നിയമങ്ങൾ എഡിറ്ററിലാണ് എഴുതുന്നത്, സേവ് ചെയ്യുമ്പോൾ അത് അവ പരിശോധിക്കും. ബണ്ടിൽ ചെയ്ത നിയമങ്ങളുടെ ലിസ്റ്റും റിമോട്ട് നിയമങ്ങളുടെ ലിസ്റ്റും ഇതേ ഫോർമാറ്റാണ് ഉപയോഗിക്കുന്നത്.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "ഒന്നിലധികം ഡൊമെയ്ൻ പാറ്റേൺ ഉപയോഗിക്കുക",
+  "guide_file_title": {
+    "message": "1. നിയമങ്ങളുടെ ഫയൽ",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "അധ്യായം 5: ഡൊമെയ്ൻ പാറ്റേൺ ചിഹ്നങ്ങൾ",
+  "guide_file_p1": {
+    "message": "ഒരു നിയമങ്ങളുടെ ഫയൽ എന്നത് ഒരു JSON ഒബ്ജക്റ്റ് ആണ്. അതിലെ <code>providers</code> ഒബ്ജക്റ്റ് നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന ഒരു പേരിനെ ഒരു ദാതാവുമായി ബന്ധിപ്പിക്കുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "അധ്യായം 6: യുആർഎൽപാറ്റേണുമായി URLs പൊരുത്തപ്പെടുത്തുന്നു",
+  "guide_file_p2": {
+    "message": "ഒരു ദാതാവ് ഏതൊക്കെ URL-കൾ കൈകാര്യം ചെയ്യണമെന്നും അവയോട് എന്ത് ചെയ്യണമെന്നും പറയുന്നു. ഇത് <code>example.com</code>-ലും അതിന്റെ സബ്ഡൊമൈനുകളിലുമുള്ള എല്ലാ URL-കളിൽ നിന്നും <code>utm_source</code>, <code>utm_medium</code> എന്നിവ നീക്കം ചെയ്യുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "അധ്യായം 7: ലളിതമായ ചോദ്യ പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
+  "guide_file_p3": {
+    "message": "പേര് എന്നത് ഒരു ലേബൽ മാത്രമാണ്. ഒരു ദാതാവ് ഏതൊക്കെ URL-കൾ കൈകാര്യം ചെയ്യണമെന്ന് തീരുമാനിക്കുന്നത് <code>domainPatterns</code> അല്ലെങ്കിൽ <code>urlPattern</code> ആണ്.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "അധ്യായം 8: ഒരു റൂൾ ഒബ്ജക്റ്റ് എഴുതുക",
+  "guide_fields_title": {
+    "message": "2. ദാതാവ് ഫീൽഡുകൾ",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "അധ്യായം 9: $removeparam നിയമങ്ങൾ",
+  "guide_th_field": {
+    "message": "ഫീൽഡ്",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "ഒരു പാരാമീറ്റർ നീക്കം ചെയ്യുക",
+  "guide_th_meaning": {
+    "message": "ഇത് ചെയ്യുന്നത്",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "എല്ലാ പാരാമീറ്ററുകളും നീക്കം ചെയ്യുക",
+  "guide_field_domainpatterns": {
+    "message": "ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URL-കൾ, ഡൊമെയ്ൻ പാറ്റേണുകളായി (അധ്യായം 3). ഇത് അല്ലെങ്കിൽ <code>urlPattern</code> ഉപയോഗിക്കുക, ഒരിക്കലും രണ്ടും ഉപയോഗിക്കരുത്.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Regex വഴി പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
+  "guide_field_urlpattern": {
+    "message": "ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URL-കൾ, മുഴുവൻ URL-മായി ഒത്തുനോക്കുന്ന ഒരു റെഗുലർ എക്സ്പ്രഷനായി. കേസ് അവഗണിക്കപ്പെടും.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "ഒരു പാരാമീറ്റർ ഒഴികെ എല്ലാം നീക്കം ചെയ്യുക",
+  "guide_field_indexpattern": {
+    "message": "<code>urlPattern</code>-നൊപ്പം മാത്രം: <code>||example.com^</code> പോലുള്ള ഹോസ്റ്റ് സൂചനകൾ, അതിനാൽ ആ ഹോസ്റ്റുകൾക്കായി മാത്രം ദാതാവിനെ പരിശോധിക്കുന്നു. ഇത് ഇല്ലാതെ, എല്ലാ URL-കൾക്കും ദാതാവിനെ പരിശോധിക്കും.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "ഒരു ഡൊമെയ്‌നിൽ മാത്രം $removeparam പ്രയോഗിക്കുക",
+  "guide_field_rules": {
+    "message": "നീക്കം ചെയ്യേണ്ട പാരാമീറ്ററുകൾ (അധ്യായങ്ങൾ 4, 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "ഡൊമെയ്ൻ പരിധികൾ ചേർക്കുക",
+  "guide_field_referral": {
+    "message": "നീക്കം ചെയ്യേണ്ട റെഫറൽ, അഫിലിയേറ്റ് പാരാമീറ്ററുകൾ. <em>റഫറൽ മാർക്കറ്റിംഗ് അനുവദിക്കുക</em> ഓൺ ആയിരിക്കുമ്പോൾ ഇവ ഒഴിവാക്കപ്പെടും (അധ്യായം 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "രീതി പരിധികൾ ചേർക്കുക",
+  "guide_field_rawrules": {
+    "message": "മുഴുവൻ URL-ലും പ്രവർത്തിക്കുന്ന റെഗുലർ എക്സ്പ്രഷനുകൾ; ഓരോ മാച്ചും ഡിലീറ്റ് ചെയ്യപ്പെടും (അധ്യായം 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "അധ്യായം 10: $removeparam ഒഴിവാക്കലുകൾ",
+  "guide_field_exceptions": {
+    "message": "ദാതാവ് മാറ്റം വരുത്താതെ വിടുന്ന URL-കൾ (അധ്യായം 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "അധ്യായം 11: പാരാമീറ്റർ മൂല്യങ്ങൾ വീണ്ടും എഴുതുക",
+  "guide_field_redirections": {
+    "message": "പകരം റിക്വസ്റ്റ് എവിടേക്ക് അയക്കണം (അധ്യായം 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "അധ്യായം 12: അസംസ്കൃത നിയമങ്ങൾ",
+  "guide_field_fieldredirections": {
+    "message": "ഒരു പാരാമീറ്ററിന്റെ മൂല്യത്തിലേക്ക് വഴിതിരിച്ചുവിടുക (അധ്യായം 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "അധ്യായം 13: റീഡയറക്‌ട് നിയമങ്ങൾ",
+  "guide_field_completeprovider": {
+    "message": "<em>ഡൊമെയ്ൻ തടയൽ അനുവദിക്കുക</em> ഓൺ ആയിരിക്കുമ്പോൾ, ദാതാവ് കണ്ടെത്തുന്ന എല്ലാ റിക്വസ്റ്റുകളെയും <code>true</code> ബ്ലോക്ക് ചെയ്യുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "അധ്യായം 14: ഡൊമെയ്ൻ റീഡയറക്‌ട് നിയമങ്ങൾ",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: ഒരു പേജ് തന്നെ വഴിതിരിച്ചുവിടപ്പെടുമ്പോൾ, ടാബ് പുതിയ വിലാസം തുറക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "അധ്യായം 15: ഒഴിവാക്കലുകൾ",
+  "guide_field_methods": {
+    "message": "ഈ HTTP മെത്തേഡുകൾ മാത്രം കൈകാര്യം ചെയ്യുക, ഉദാഹരണത്തിന് <code>[\"GET\"]</code>. ഡിഫോൾട്ട്: എല്ലാം.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "അധ്യായം 16: റഫറൽ മാർക്കറ്റിംഗ് നിയമങ്ങൾ",
+  "guide_field_resourcetypes": {
+    "message": "ഈ റിക്വസ്റ്റ് തരങ്ങൾ മാത്രം കൈകാര്യം ചെയ്യുക, ഉദാഹരണത്തിന് <code>[\"main_frame\"]</code>. ഡിഫോൾട്ട്: സെറ്റിംഗ്സിൽ തിരഞ്ഞെടുത്ത തരങ്ങൾ.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "അധ്യായം 17: HTTP രീതികൾ",
+  "guide_field_history": {
+    "message": "History API ഉപയോഗിച്ച് ഒരു പേജ് അതിന്റെ വിലാസം മാറ്റുമ്പോൾ <code>false</code> ദാതാവിനെ ഒഴിവാക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "അധ്യായം 18: ബ്രൗസർ റിസോഴ്സ് തരങ്ങൾ",
+  "guide_field_active": {
+    "message": "<code>false</code> ദാതാവിനെ ഓഫ് ചെയ്യുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "അധ്യായം 19: പ്രീപ്രോസസറുകൾ",
+  "guide_match_title": {
+    "message": "3. ഒരു ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URL-കൾ ഏതെല്ലാം",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "അധ്യായം 20: JSON കോമ്പിനേഷനുകൾ അനുവദിച്ചു",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> എന്നത് ഡൊമെയ്ൻ പാറ്റേണുകളുടെ ഒരു പട്ടികയാണ്. ഇവയിൽ ഏതെങ്കിലും ഒന്ന് പൊരുത്തപ്പെട്ടാൽ ഒരു URL പൊരുത്തപ്പെടും:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "കോമ്പിനേഷൻ 1: ഒരു ഫയലിൽ നിരവധി ദാതാക്കൾ",
+  "guide_th_pattern": {
+    "message": "പാറ്റേൺ",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "കോമ്പിനേഷൻ 2: ഗ്ലോബൽ ഡിഫോൾട്ട് പ്ലസ് പ്രൊവൈഡർമാർ",
+  "guide_th_matches": {
+    "message": "പൊരുത്തപ്പെടുന്നു",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "കോമ്പിനേഷൻ 3: ഡൊമെയ്ൻ പാറ്റേൺ പ്രൊവൈഡർ",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> ഉം എല്ലാ സബ്ഡൊമെയ്‌നുകളും",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "കോമ്പിനേഷൻ 4: urlPattern Provider with indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "ഏതൊരു പബ്ലിക് സഫിക്സിലും (<code>example.de</code>, <code>example.co.uk</code>, …) ഉള്ള <code>example</code>",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "കോമ്പിനേഷൻ 5: ഡൊമെയ്ൻ പാറ്റേണുകളും യുആർഎൽ പാറ്റേണും ഒരുമിച്ച്",
+  "guide_pat_path": {
+    "message": "പാത്ത് <code>/path</code> ലാണ് തുടങ്ങുന്നതെങ്കിൽ, ആ ഹോസ്റ്റും അതിന്റെ സബ്ഡൊമെയ്‌നുകളും",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "കോമ്പിനേഷൻ 6: സമ്മിശ്ര നിയമങ്ങൾ[] എൻട്രികൾ",
+  "guide_pat_star": {
+    "message": "<code>||example.com^</code> പോലെ തന്നെ",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "കോമ്പിനേഷൻ 7: കാനോനിക്കൽ ഒബ്‌ജക്‌ട്‌സ് ഇൻസൈഡ് റൂളുകൾ[]",
+  "guide_pat_start": {
+    "message": "കൃത്യമായി ഈ ടെക്സ്റ്റിൽ തുടങ്ങുന്ന URL-കൾ",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "കോമ്പിനേഷൻ 8: ലെഗസി അറേകൾ പ്ലസ് കാനോനിക്കൽ നിയമങ്ങൾ[]",
+  "guide_pat_end": {
+    "message": "കൃത്യമായി ഈ ടെക്സ്റ്റിൽ അവസാനിക്കുന്ന URL-കൾ",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "കോമ്പിനേഷൻ 9: പ്രൊവൈഡർ-വൈഡ് രീതികളും വിഭവങ്ങളുടെ തരങ്ങളും",
+  "guide_pat_regex": {
+    "message": "പൂർണ്ണമായ URL, ഒരു റെഗുലർ എക്സ്പ്രഷൻ ആയി (നിങ്ങൾ <code>i</code> ചേർക്കാത്ത unless കേസ് ശ്രദ്ധിക്കപ്പെടും)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "കോമ്പിനേഷൻ 10: റൂൾ-ലെവൽ അഭ്യർത്ഥന തരങ്ങൾ",
+  "guide_pat_contains": {
+    "message": "ഈ ടെക്സ്റ്റ് എവിടെയെങ്കിലും അടങ്ങിയിരിക്കുന്ന URL-കൾ",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "കോമ്പിനേഷൻ 11: വ്യത്യസ്ത സ്ഥലങ്ങളിലെ ഒഴിവാക്കലുകൾ",
+  "guide_pat_all": {
+    "message": "എല്ലാ URL-കളും",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "കോമ്പിനേഷൻ 12: പ്രൊവൈഡർ പ്ലസ് നിയമങ്ങൾ തടയുന്നു",
+  "guide_match_p2": {
+    "message": "<code>^</code> ഹോസ്റ്റ് നാമത്തിന്റെ അവസാനത്തെയോ, അല്ലെങ്കിൽ <code>/</code>, <code>?</code> അല്ലെങ്കിൽ <code>:</code> പോലുള്ള ഒരു സെപ്പറേറ്ററെയോ സൂചിപ്പിക്കുന്നു. <code>*</code> ഏതിനും പൊരുത്തപ്പെടും. <code>/regex/</code> ഒഴികെ, പാറ്റേണുകൾ കേസ് ശ്രദ്ധിക്കില്ല.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "കോമ്പിനേഷൻ 13: റീഡയറക്‌ട് പ്രൊവൈഡർ പ്ലസ് ക്ലീനപ്പ് നിയമങ്ങൾ",
+  "guide_match_p3": {
+    "message": "<code>||</code> ഒരു ഡൊമെയ്‌നിനെ സൂചിപ്പിക്കുന്നു, അതേസമയം ഒരു സിംഗിൾ <code>|</code> URL-ന്റെ തുടക്കത്തെ സൂചിപ്പിക്കുന്നു, അതിനുശേഷം <code>https://</code> പോലുള്ള ഒരു സ്കീം ഉണ്ടായിരിക്കണം. <code>|example.com^</code>-ന് ഒരിക്കലും പൊരുത്തപ്പെടാൻ കഴിയില്ല, അതിനാൽ എഡിറ്റർ അത് നിരസിക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "കോമ്പിനേഷൻ 14: ഡൊമെയ്ൻ റീഡയറക്‌ഷനുകൾ പ്ലസ് റീജക്‌സ് റീഡയറക്‌ഷനുകൾ",
+  "guide_match_p4": {
+    "message": "പകരം ഒരു റെഗുലർ എക്സ്പ്രഷൻ ഉപയോഗിച്ച് മാച്ച് ചെയ്യാൻ, <code>urlPattern</code> ഉപയോഗിക്കുക, കൂടാതെ ദാതാവ് ആ ഹോസ്റ്റുകളിൽ മാത്രം പരിശോധിക്കപ്പെടുന്നു എന്ന് ഉറപ്പാക്കാൻ <code>indexPattern</code> ചേർക്കുക:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "കോമ്പിനേഷൻ 15: അപ്രാപ്തമാക്കിയ അല്ലെങ്കിൽ നിഷ്ക്രിയ നിയമങ്ങൾ",
+  "guide_match_p5": {
+    "message": "ഒരു ദാതാവിന് <code>domainPatterns</code> അല്ലെങ്കിൽ <code>urlPattern</code> മാത്രമേ ഉണ്ടാകൂ, ഒരിക്കലും രണ്ടും ഉണ്ടാകില്ല. നിങ്ങൾക്ക് രണ്ട് തരത്തിലുള്ള മാച്ചുകളും ആവശ്യമാണെങ്കിൽ, രണ്ട് ദാതാക്കളെ സൃഷ്ടിക്കുക.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "കോമ്പിനേഷൻ 16: പൂർണ്ണ മിക്സഡ് പ്രൊവൈഡർ ഉദാഹരണം",
+  "guide_rules_title": {
+    "message": "4. പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "അധ്യായം 21: പൂർണ്ണമായ ഉദാഹരണങ്ങൾ",
+  "guide_rules_p1": {
+    "message": "<code>rules</code>-ലെ ഓരോ എൻട്രിയും ക്വറിയിൽ (<code>?a=1</code>) നിന്നും ഫ്രാഗ്‌മെന്റിൽ (<code>#a=1</code>) നിന്നും പാരാമീറ്ററുകളെ നീക്കം ചെയ്യുന്നു. ഒരു എൻട്രി ഇവയിൽ ഒന്നായിരിക്കും:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "ഉദാഹരണം 1: അടിസ്ഥാന ട്രാക്കർ ക്ലീനർ",
+  "guide_th_entry": {
+    "message": "എൻട്രി",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "ഉദാഹരണം 2: എല്ലാ UTM പാരാമീറ്ററുകളും നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "ഉദാഹരണം 3: ലോഗിൻ ചെയ്യുമ്പോൾ ആവശ്യമായ പാരാമീറ്റർ സൂക്ഷിക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "ഉദാഹരണം 4: റീഡയറക്‌ട് ട്രാക്കിംഗ് ക്ലിക്കുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "ഉദാഹരണം 5: API അഭ്യർത്ഥനകൾ മാത്രം വൃത്തിയാക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "അധ്യായം 22: ക്വിക്ക് കോപ്പി ടെംപ്ലേറ്റുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori മിക്സഡ് പ്രൊവൈഡർ JSON ഫോർമാറ്റ് ഗൈഡ്",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "<code>Linkumori extension</code>-ന് വായിക്കാൻ കഴിയുന്ന പ്രൊവൈഡർ JSON ഡാറ്റ എങ്ങനെ എഴുതാമെന്ന് ഈ ഗൈഡ് വിശദീകരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "ഇത് JavaScript കോഡിലേക്കുള്ള വഴികാട്ടിയല്ല. റൂൾ രചയിതാക്കൾക്ക് ആവശ്യമായ JSON രൂപങ്ങൾ, റൂൾ ഫോർമാറ്റുകൾ, ഉദാഹരണങ്ങൾ എന്നിവയിൽ മാത്രം ഇത് ശ്രദ്ധ കേന്ദ്രീകരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "ഈ ഗൈഡ് നിലവിലെ <code>clearurls.js</code> റൺടൈം സ്വഭാവത്തെ അടിസ്ഥാനമാക്കിയുള്ളതാണ്. പ്രത്യേകിച്ചും, ദാതാവിൻ്റെ ലുക്ക്അപ്പ് <code>domainPatterns</code> അല്ലെങ്കിൽ <code>indexPattern</code>-ൽ നിന്നുള്ള <code>providersByToken</code> കാൻഡിഡേറ്റ് ബക്കറ്റുകൾ ഉപയോഗിക്കുന്നു, അവസാന പൊരുത്തം ഇപ്പോഴും <code>provider.matchRequestURL()</code> വഴിയാണ് പ്രവർത്തിക്കുന്നത്.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "അധ്യായം 1: അടിസ്ഥാന JSON ആകൃതി",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> ഈ പൊതുവായ രൂപത്തിൽ ദാതാവിൻ്റെ ഡാറ്റ പ്രതീക്ഷിക്കുന്നു:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "പ്രധാന ഭാഗം <code>providers</code> ആണ്. <code>providers</code> നുള്ളിലെ ഓരോ കീയും ഒരു ദാതാവിൻ്റെ പേരാണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "അധ്യായം 2: എന്താണ് ദാതാവ്?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "ഒരു വെബ്‌സൈറ്റ്, കമ്പനി, ട്രാക്കർ, ഡൊമെയ്ൻ പാറ്റേൺ സെറ്റ് അല്ലെങ്കിൽ URL regex എന്നിവയ്‌ക്കായുള്ള റൺടൈം കണ്ടെയ്‌നർ എന്ന് പേരിട്ടിരിക്കുന്ന ഒന്നാണ് ദാതാവ്. ദാതാവിൻ്റെ പേര് ഒരു ലേബൽ/കീ ആണ്; പൊരുത്തപ്പെടുത്തൽ നടത്തുന്നത് <code>domainPatterns</code> അല്ലെങ്കിൽ <code>urlPattern</code> ആണ്, ദാതാവിൻ്റെ പേരല്ല.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "കുറഞ്ഞ ദാതാവ്:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "ഇത് എന്താണ് ചെയ്യുന്നത്:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "അധ്യായം 3: നിങ്ങൾക്ക് ഉപയോഗിക്കാനാകുന്ന പ്രൊവൈഡർ ഫീൽഡുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "<code>clearurls.js</code> അംഗീകരിച്ച ദാതാവിൻ്റെ ഫീൽഡുകൾ. പൊരുത്തപ്പെടുത്തുന്നതിന്, ഓപ്‌ഷണൽ <code>indexPattern</code> ഉപയോഗിച്ച് <code>domainPatterns</code> അല്ലെങ്കിൽ <code>urlPattern</code> രചയിതാവ്; രണ്ടും ഒരുമിച്ച് ആവശ്യമുള്ളതിൽ ആശ്രയിക്കരുത്.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "വ്യക്തമായ അർത്ഥം:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON ഫീൽഡ്",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "ഉറവിടം",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "നിങ്ങൾ എന്തിനാണ് ഇത് എഴുതുന്നത്",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "ഈ ദാതാവിനെ പ്രവർത്തനരഹിതമാക്കാൻ <code>false</code> സജ്ജീകരിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "ക്ലീനിംഗ് മാത്രം ചെയ്യുന്നതിനുപകരം പൊരുത്തപ്പെടുന്ന ഡൊമെയ്‌നുകൾ ബ്ലോക്ക് ചെയ്യാൻ <code>true</code> സജ്ജീകരിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "ബ്രൗസർ ടാബിലൂടെ പ്രധാന പേജ് റീഡയറക്‌ടുകൾ നിർബന്ധമാക്കുന്നതിന് <code>true</code> സജ്ജീകരിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "ഈ ദാതാവ് പൊരുത്തപ്പെടുന്ന ഡൊമെയ്‌നുകൾ ഏതൊക്കെയെന്ന് പറയാൻ ശുപാർശ ചെയ്‌ത മാർഗം.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript regex string for URL പൊരുത്തം.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "<code>urlPattern</code> ഉപയോഗിക്കുമ്പോൾ ഓപ്ഷണൽ വേഗത സൂചന.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ; <code>$removeparam</code> എന്നത് Linkumori ആണ്",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "സാധാരണ പാരാമീറ്റർ-നീക്കം ചെയ്യൽ നിയമങ്ങളും പ്രൊവൈഡർ-ലോക്കൽ <code>$removeparam</code> നിയമങ്ങളും.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs ആഡോൺ ലെഗസി; ഇവിടെ കാനോനിക്കൽ ശൈലിയിലുള്ള വസ്തുക്കൾ Linkumori കൂട്ടിച്ചേർക്കലാണ്",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "മുഴുവൻ URL ടെക്‌സ്‌റ്റും എഡിറ്റ് ചെയ്യുന്ന നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs ആഡോൺ ലെഗസി; ഇവിടെ കാനോനിക്കൽ ശൈലിയിലുള്ള വസ്തുക്കൾ Linkumori കൂട്ടിച്ചേർക്കലാണ്",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "ഓപ്ഷണൽ റഫറൽ/മാർക്കറ്റിംഗ് പാരാമീറ്റർ നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ; ഇവിടെ ഒബ്ജക്റ്റ് ഫോമുകൾ Linkumori കൂട്ടിച്ചേർക്കലാണ്",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "ഈ ദാതാവ് പ്രവർത്തിക്കാൻ പാടില്ലാത്ത URL regex നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "ഈ ദാതാവ് പ്രവർത്തിക്കാൻ പാടില്ലാത്ത ഡൊമെയ്ൻ-പാറ്റേൺ നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs ആഡോൺ ലെഗസി; ഇവിടെ കാനോനിക്കൽ ശൈലിയിലുള്ള വസ്തുക്കൾ Linkumori കൂട്ടിച്ചേർക്കലാണ്",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regex റീഡയറക്‌ട് നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "ഡൊമെയ്ൻ-പാറ്റേൺ റീഡയറക്‌ട് നിയമങ്ങൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "ഈ HTTP രീതികൾക്കായി മാത്രം പ്രവർത്തിപ്പിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "ഈ ബ്രൗസർ അഭ്യർത്ഥന തരങ്ങൾക്കായി മാത്രം പ്രവർത്തിപ്പിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "അധ്യായം 4: പൊരുത്തപ്പെടുന്ന ഡൊമെയ്‌നുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> ഒരു Linkumori കൂട്ടിച്ചേർക്കലാണ്, മിക്ക ഇഷ്‌ടാനുസൃത ദാതാക്കൾക്കും ഇത് മുൻഗണന നൽകുന്നു. <code>clearurls.js</code>-ൽ, <code>urlPattern</code>-ന് മുമ്പുള്ള പൊരുത്തപ്പെടുത്തലിന് ശൂന്യമല്ലാത്ത <code>domainPatterns</code> ഉപയോഗിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "ഒരു ഡൊമെയ്‌നും എല്ലാ ഉപഡൊമെയ്‌നുകളും പൊരുത്തപ്പെടുത്തുക",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "മത്സരങ്ങൾ:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "പൊരുത്തപ്പെടുന്നില്ല:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "ഏത് പൊതു സഫിക്സിലും ഒരേ പേര് പൊരുത്തപ്പെടുത്തുക",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "പൊരുത്തപ്പെടാൻ കഴിയും:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "ഉപഡൊമെയ്‌നുകൾ പൊരുത്തപ്പെടുത്തുക",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "പൊരുത്തപ്പെടാൻ കഴിയും:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "ഒന്നിലധികം ഡൊമെയ്ൻ പാറ്റേൺ ഉപയോഗിക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "അധ്യായം 5: ഡൊമെയ്ൻ പാറ്റേൺ ചിഹ്നങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "<code>domainPatterns</code> എന്ന നമ്പറിൽ നിങ്ങൾക്ക് ഉപയോഗിക്കാവുന്ന ചിഹ്നങ്ങൾ ഇവയാണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "ചിഹ്നം",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "അർത്ഥം",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "ഉദാഹരണം",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "നീക്കം ചെയ്യുന്നു",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "ഒരു ഡൊമെയ്ൻ അതിർത്തിയിൽ മത്സരം.",
+  "guide_rules_name": {
+    "message": "ഒരു പാരാമീറ്റർ പേര്",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "ഒരു പേര് regex",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "മുഴുവൻ പേരും മാച്ച് ചെയ്യുന്ന എല്ലാ പാരാമീറ്ററുകളും; <code>^…$</code> നിങ്ങൾക്കായി ചേർക്കപ്പെടും, കൂടാതെ കേസ് അവഗണിക്കപ്പെടും",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "സെപ്പറേറ്റർ അല്ലെങ്കിൽ അവസാന അതിർത്തി.",
+  "guide_rules_filter": {
+    "message": "ഒരു <code>$removeparam</code> ഫിൽട്ടർ",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "അധ്യായം 5 കാണുക",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code>-ഉം <code>\"$removeparam=fbclid\"</code>-ഉം ഒരേ കാര്യം തന്നെയാണ് നീക്കം ചെയ്യുന്നത്. അധ്യായം 5-ൽ നിന്നുള്ള എന്തെങ്കിലും ആവശ്യമായിട്ടില്ലെങ്കിൽ സാധാരണ പേര് ഉപയോഗിക്കുക.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "വൈൽഡ്കാർഡ്.",
+  "guide_rules_part_title": {
+    "message": "ഒരു ദാതാവിന്റെ ഭാഗത്തിനുള്ള നിയമങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "ഒരു സാധാരണ പേര് ദാതാവ് മാച്ച് ചെയ്യുന്ന എല്ലാ URL-കൾക്കും ബാധകമാണ്. അവയിൽ ചിലതിൽ മാത്രം ഒരു പാരാമീറ്റർ നീക്കം ചെയ്യാൻ, ഒരു <code>$removeparam</code> ഫിൽട്ടറിന് മുന്നിലായി ഒരു പാറ്റേൺ നൽകുക:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "ഇവിടെ എല്ലാ Amazon സൈറ്റുകളിലും <code>qid</code> നീക്കം ചെയ്യപ്പെടുന്നു, <code>tag</code> എന്നത് <code>amazon.de</code>-ൽ മാത്രം, <code>sr</code> എന്നത് <code>smile.amazon</code>-ൽ മാത്രം, കൂടാതെ <code>ref_</code> എന്നത് <code>/gp/</code>-ന് കീഴിൽ മാത്രം. പാറ്റേൺ ദാതാവിന്റെ സ്വന്തം പാറ്റേണുകളെ പരിമിതപ്പെടുത്തുന്നു; അതിന് അവ വിപുലീകരിക്കാൻ കഴിയില്ല.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "ആങ്കർ ആരംഭിക്കുക അല്ലെങ്കിൽ അവസാനിപ്പിക്കുക.",
+  "guide_rp_title": {
+    "message": "5. $removeparam ഫിൽട്ടറുകൾ",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "ഒരു <code>$removeparam</code> ഫിൽട്ടറിന് ഈ രൂപമാണ്; ബ്രാക്കറ്റിലുള്ള ഭാഗങ്ങൾ ഓപ്ഷണലാണ്:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "മൂല്യം (Value)",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex ലിറ്ററൽ.",
+  "guide_rp_p2": {
+    "message": "മൂല്യത്തിന്റെ ആദ്യ അക്ഷരമാണ് അതിന്റെ അർത്ഥം തീരുമാനിക്കുന്നത്:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "ഫിൽട്ടർ",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "ഏറ്റവും സാധാരണമായ പാറ്റേൺ:",
+  "guide_rp_v_all": {
+    "message": "എല്ലാ പാരാമീറ്ററുകളും",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "നിങ്ങൾക്ക് ആവശ്യമുള്ളപ്പോൾ ഇത് ഉപയോഗിക്കുക:",
+  "guide_rp_v_except": {
+    "message": "<code>ref</code> ഒഴികെയുള്ള എല്ലാ പാരാമീറ്ററുകളും (<code>~/regex/</code>, <code>~|prefix</code> എന്നിവയ്ക്കും ഇത് ലഭ്യമാണ്)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "അധ്യായം 6: പൊരുത്തപ്പെടുത്തൽ URLs വിത്ത് <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "പേരോ അല്ലെങ്കിൽ <code>name=value</code> അല്ലെങ്കിൽ റെഗുലർ എക്സ്പ്രഷനുമായി പൊരുത്തപ്പെടുന്ന പാരാമീറ്ററുകൾ; നിങ്ങൾ <code>i</code> ചേർക്കുന്നില്ലെങ്കിൽ കേസ് (case) പരിഗണിക്കും",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "ഡൊമെയ്ൻ പൊരുത്തപ്പെടുത്തൽ പര്യാപ്തമല്ലാത്തപ്പോൾ മാത്രം <code>urlPattern</code> ഉപയോഗിക്കുക, ദാതാവ് ഒരു നിർദ്ദിഷ്‌ട പാതയോ പൂർണ്ണ URL റീജക്‌സോ പൊരുത്തപ്പെടുമ്പോൾ.",
+  "guide_rp_v_prefix": {
+    "message": "<code>utm_</code> ഉപയോഗിച്ച് തുടങ്ങുന്ന പേരുള്ള പാരാമീറ്ററുകൾ; കേസ് പരിഗണിക്കുന്നില്ല",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "ഇത് പൊരുത്തപ്പെടാൻ കഴിയും:",
+  "guide_rp_v_name": {
+    "message": "കൃത്യമായി ആ പാരാമീറ്റർ; നിങ്ങൾ <code>match-case</code> ചേർക്കുന്നില്ലെങ്കിൽ കേസ് പരിഗണിക്കുന്നില്ല",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> എന്നത് ClearURLs ആഡ്ഓൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ വാക്യഘടനയുമാണ്. ലിങ്കുമോരി <code>indexPattern</code> എന്നത് ഒരു കാൻഡിഡേറ്റ് ലുക്കപ്പ് സൂചനയായി മാത്രം ചേർക്കുന്നു, അതിനാൽ ഹോസ്റ്റ് നെയിം ടോക്കണുകൾ വഴി റീജക്സ് ദാതാക്കളെ വേഗത്തിൽ കണ്ടെത്താനാകും.",
+  "guide_rp_options_title": {
+    "message": "ഓപ്ഷനുകൾ",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "പ്രധാനപ്പെട്ടത്: ഒരു ദാതാവ് പൊരുത്തപ്പെടുമോ എന്ന് <code>indexPattern</code> തീരുമാനിക്കുന്നില്ല. കാൻഡിഡേറ്റ് ലുക്കപ്പിന് ശേഷം, <code>clearurls.js</code> ഇപ്പോഴും <code>provider.matchRequestURL()</code>-ൽ യഥാർത്ഥ <code>urlPattern</code> പരിശോധിക്കുന്നു.",
+  "guide_rp_p3": {
+    "message": "ഓപ്ഷനുകൾ മൂല്യത്തിന് ശേഷം കോമകളാൽ വേർതിരിച്ച് വരുന്നു. ഒരു ഓപ്ഷന്റെ ഒന്നിലധികം മൂല്യങ്ങളെ <code>|</code> ഉപയോഗിച്ച് വേർതിരിക്കുക, കൂടാതെ ഒരു മൂല്യത്തെ ഒഴിവാക്കാൻ അതിനു മുൻപായി <code>~</code> ചേർക്കുക:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "അധ്യായം 7: ലളിതമായ ചോദ്യ പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
+  "guide_th_option": {
+    "message": "ഓപ്ഷൻ",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "<code>rules</code> എന്നതിൽ പാരാമീറ്റർ നാമങ്ങൾ ഇടുക.",
+  "guide_rp_o_domain": {
+    "message": "ഈ ഡൊമൈനുകളിൽ നിന്നുള്ള പേജുകളിൽ മാത്രം",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "ഫലം:",
+  "guide_rp_o_to": {
+    "message": "ഈ ഡൊമൈനുകളിലേക്കുള്ള റിക്വസ്റ്റുകൾക്ക് മാത്രം",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "നിരവധി പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക:",
+  "guide_rp_o_method": {
+    "message": "ഈ HTTP മെത്തേഡുകൾക്ക് മാത്രം",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "ഫലം:",
+  "guide_rp_o_party": {
+    "message": "പേജിന്റെ അതേ സൈറ്റിലേക്കുള്ള അഭ്യർത്ഥനകൾക്ക് മാത്രം, അല്ലെങ്കിൽ മറ്റ് സൈറ്റുകളിലേക്ക് മാത്രം",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "അധ്യായം 8: ഒരു റൂൾ ഒബ്ജക്റ്റ് എഴുതുക",
+  "guide_rp_o_strict": {
+    "message": "അതേപോലെ, എന്നാൽ സൈറ്റിന് പകരം കൃത്യമായ ഹോസ്റ്റ് താരതമ്യം ചെയ്യുന്നു",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "ഒരു പ്ലെയിൻ സ്ട്രിംഗിന് പകരം, ഒരു റൂൾ ഒരു വസ്തുവായിരിക്കാം.",
+  "guide_rp_o_types": {
+    "message": "ഈ അഭ്യർത്ഥനാ തരങ്ങൾക്ക് മാത്രം; <code>~type</code> ഒന്ന് ഒഴിവാക്കുന്നു",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "നിങ്ങൾക്ക് ആവശ്യമുള്ളപ്പോൾ ഇത് ഉപയോഗിക്കുക:",
+  "guide_rp_o_matchcase": {
+    "message": "പാരാമീറ്റർ പേരുകൾ കേസ്-സെൻസിറ്റീവ് ആണ്",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ഒരു റൂൾ ഐഡി.",
+  "guide_rp_o_history": {
+    "message": "History API ഉപയോഗിച്ച് ഒരു പേജ് അതിന്റെ സ്വന്തം വിലാസം മാറ്റുമ്പോൾ ഈ ഫിൽട്ടർ ഒഴിവാക്കുക",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "അപരനാമങ്ങൾ.",
+  "guide_rp_p4": {
+    "message": "ഓരോ ഓപ്ഷനും ഒരു സ്പെല്ലിംഗ് ആണ് ഉള്ളത്. <code>first-party,third-party</code> പോലുള്ള വിരുദ്ധമായ ഓപ്ഷനുകൾ നിരസിക്കപ്പെടും.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "ഒഴിവാക്കലുകൾ.",
+  "guide_rp_keep_title": {
+    "message": "@@ ഉപയോഗിച്ച് ഒരു പാരാമീറ്റർ നിലനിർത്തുന്നു",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "അഭ്യർത്ഥന തരം പരിധികൾ.",
+  "guide_rp_p5": {
+    "message": "<code>@@</code> ഉപയോഗിച്ച് തുടങ്ങുന്ന ഒരു ഫിൽട്ടർ പാരാമീറ്ററിനെ നീക്കം ചെയ്യുന്നതിന് പകരം നിലനിർത്തുന്നു. ഇവിടെ GitHub ഒഴികെ എല്ലായിടത്തും <code>ref</code> നീക്കം ചെയ്യപ്പെടുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "സ്വഭാവം തിരുത്തിയെഴുതുക.",
+  "guide_rp_p6": {
+    "message": "ഈ ദാതാവ് പൊരുത്തപ്പെടുന്ന ഒരു പേജ് നടത്തുന്ന അഭ്യർത്ഥനകളെ ഒരു <code>@@</code> ഫിൽട്ടർ ഉൾക്കൊള്ളും, മറ്റൊരു ദാതാവ് അവ കൈകാര്യം ചെയ്യുമ്പോഴും ഇത് ബാധകമാണ്.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "ഒരു ദാതാവിനുള്ളിലെ ഉദാഹരണം:",
+  "guide_raw_title": {
+    "message": "6. അസംസ്കൃത നിയമങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "ഫലം:",
+  "guide_raw_p1": {
+    "message": "ഒരു അസംസ്കൃത നിയമം എന്നത് പൂർണ്ണമായ URL-ൽ പ്രവർത്തിക്കുന്ന ഒരു റെഗുലർ എക്സ്പ്രഷൻ ആണ്; ഓരോ പൊരുത്തവും നീക്കം ചെയ്യപ്പെടുന്നു. Amazon-ന്റെ <code>/ref=…</code> പാത്ത് സെഗ്‌മെന്റ് പോലെ <code>name=value</code> പാരാമീറ്റർ അല്ലാത്ത ടെക്സ്റ്റുകൾക്കായി ഇത് ഉപയോഗിക്കുക:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "പ്രൊവൈഡർ റൂൾ ഒബ്‌ജക്‌റ്റുകളിൽ <code>flags</code> എന്നത് Linkumori കൂട്ടിച്ചേർക്കലാണ്. <code>flags: \"i\"</code> പൊരുത്തത്തെ കേസ്-ഇൻസെൻസിറ്റീവ് ആക്കുന്നു.",
+  "guide_raw_p2": {
+    "message": "അസംസ്കൃത നിയമങ്ങൾ കേസ് അവഗണിക്കുകയും ഓരോ പൊരുത്തത്തെയും മാറ്റുകയും ചെയ്യുന്നു. JSON-ൽ, ഓരോ ബാക്ക്സ്ലാഷും രണ്ട് തവണ എഴുതുക.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "അധ്യായം 9: <code>$removeparam</code> നിയമങ്ങൾ",
+  "guide_raw_scope_title": {
+    "message": "ചില URL-കളിൽ മാത്രം",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "ഒരു പാരാമീറ്റർ നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "എല്ലാ പാരാമീറ്ററുകളും നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Regex വഴി പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "ഒരു പാരാമീറ്റർ ഒഴികെ എല്ലാം നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "ഒരു ഡൊമെയ്‌നിൽ മാത്രം <code>$removeparam</code> പ്രയോഗിക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "വൃത്തിയാക്കിയത്:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "വൃത്തിയാക്കിയിട്ടില്ല:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "ഡൊമെയ്ൻ പരിധികൾ ചേർക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "ഒരു ഡൊമെയ്ൻ ഒഴിവാക്കുക:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "രീതി പരിധികൾ ചേർക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "<code>GET</code> മാത്രം:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "<code>POST</code> അല്ല:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "അധ്യായം 10: <code>$removeparam</code> ഒഴിവാക്കലുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "ഒരു ഒഴിവാക്കൽ നടത്താൻ <code>$removeparam</code> റൂൾ <code>@@</code> ഉപയോഗിച്ച് ആരംഭിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "സന്ദർഭ ഒഴിവാക്കൽ ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "<code>gemini.google.com</code> പേജ് ആരംഭിക്കുന്ന ഉപഅഭ്യർത്ഥനകളിൽ <code>ei</code> സംരക്ഷിക്കാൻ ഇതിന് കഴിയും.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "അധ്യായം 11: പാരാമീറ്റർ മൂല്യങ്ങൾ വീണ്ടും എഴുതുക",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "പൊരുത്തപ്പെടുന്ന പാരാമീറ്റർ മൂല്യം മാറ്റിസ്ഥാപിക്കാൻ <code>action.type: \"rewrite\"</code> ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "ഒരു ദാതാവിനുള്ളിൽ:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "നിലവിലെ മൂല്യം വീണ്ടും ഉപയോഗിക്കണമെങ്കിൽ <code>§1§</code> ഉപയോഗിക്കുക:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "അധ്യായം 12: അസംസ്കൃത നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "മുഴുവൻ URL ടെക്‌സ്‌റ്റും എഡിറ്റ് ചെയ്യാൻ <code>rawRules</code> ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "ലളിതമായ അസംസ്കൃത നിയമം:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "ഒബ്ജക്റ്റ് റോ റൂൾ:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "അസംസ്‌കൃത റീറൈറ്റിംഗ് നിയമം:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "അധ്യായം 13: റീഡയറക്‌ട് നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "പുതിയ URL എന്ന നമ്പറിലേക്ക് ബ്രൗസർ അയയ്‌ക്കാൻ <code>redirections</code> ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "<code>replacePattern</code> ഇല്ലെങ്കിൽ, ആദ്യത്തെ ക്യാപ്‌ചർ ഗ്രൂപ്പ് ഉപയോഗിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "അധ്യായം 14: ഡൊമെയ്ൻ റീഡയറക്‌ട് നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> എന്നത് ലളിതമായ ഡൊമെയ്ൻ പാറ്റേൺ റീഡയറക്‌ടുകൾക്കുള്ള Linkumori കൂട്ടിച്ചേർക്കലാണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ — സ്ട്രിംഗ് ഫോം:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori കൂട്ടിച്ചേർക്കൽ — ഒബ്ജക്റ്റ് ഫോം:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "അധ്യായം 15: ഒഴിവാക്കലുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> എന്നത് ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ വാക്യഘടനയുമാണ്. Linkumori ഈ ലെഗസി പ്രൊവൈഡർ അറേയിലെ കാനോനിക്കൽ ശൈലിയിലുള്ള ഒബ്‌ജക്റ്റുകളും സ്വീകരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> എന്നത് ഡൊമെയ്ൻ-പാറ്റേൺ ഒഴിവാക്കലുകൾക്കുള്ള Linkumori കൂട്ടിച്ചേർക്കലാണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "ഒഴിവാക്കി:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "അധ്യായം 16: റഫറൽ മാർക്കറ്റിംഗ് നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> ഫീൽഡ് റൂളുകൾ പോലെ പ്രവർത്തിക്കുന്നു, പക്ഷേ റഫറൽ മാർക്കറ്റിംഗിനായുള്ള വിപുലീകരണ ക്രമീകരണമാണ് ഇത് നിയന്ത്രിക്കുന്നത്.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "അധ്യായം 17: HTTP രീതികൾ",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "നിർദ്ദിഷ്ട HTTP രീതികളിൽ മാത്രം ഒരു ദാതാവിനെ പ്രവർത്തിപ്പിക്കാൻ <code>methods</code> ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "ഇത് പ്രവർത്തിക്കുന്നു:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "ഇത് പ്രവർത്തിക്കുന്നില്ല:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "അധ്യായം 18: ബ്രൗസർ റിസോഴ്സ് തരങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> എന്നത് Linkumori കൂട്ടിച്ചേർക്കലാണ്. നിർദ്ദിഷ്ട ബ്രൗസർ അഭ്യർത്ഥന തരങ്ങളിൽ മാത്രം ഒരു ദാതാവിനെ പ്രവർത്തിപ്പിക്കാൻ ഇത് ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "പൊതുവായ മൂല്യങ്ങൾ:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "അർത്ഥം:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "അധ്യായം 19: പ്രീപ്രോസസറുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "<code>replacePattern</code>-ൽ ഉപയോഗിക്കുന്നതിന് മുമ്പ് പ്രീപ്രോസസറുകൾ ക്യാപ്‌ചർ ചെയ്‌ത മൂല്യങ്ങൾ മാറ്റുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "ഉദാഹരണം:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "പിന്തുണയ്ക്കുന്ന തരങ്ങൾ:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> ആകാം:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "അധ്യായം 20: JSON കോമ്പിനേഷനുകൾ അനുവദിച്ചു",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "ഈ അധ്യായം കാണിക്കുന്നത് Linkumori mixed-provider JSON: ClearURLs addon legacy arrays, ClearURLs core v2 canonical objects, Linkumori കൂട്ടിച്ചേർക്കലുകൾ എന്നിവ ഒരു റൂൾസ് ഫയലിൽ ഒരുമിച്ച് നിലനിൽക്കാം.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "കോമ്പിനേഷൻ 1: ഒരു ഫയലിൽ നിരവധി ദാതാക്കൾ",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> എന്നത് ClearURLs ആഡോൺ ലെഗസിയും ClearURLs കോർ v2 കാനോനിക്കൽ ടോപ്പ്-ലെവൽ വാക്യഘടനയുമാണ്. Linkumori ആ രൂപം നിലനിർത്തുകയും അതിന് കീഴിൽ നിരവധി ദാതാക്കളെ അനുവദിക്കുകയും ചെയ്യുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "ഓരോ ദാതാവിനെയും വെവ്വേറെ ലോഡ് ചെയ്യുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "കോമ്പിനേഷൻ 2: ഗ്ലോബൽ ഡിഫോൾട്ട് പ്ലസ് പ്രൊവൈഡർമാർ",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> എന്നത് ClearURLs കോർ v2 കാനോനിക്കൽ വാക്യഘടനയാണ്. ലെഗസി-സ്റ്റൈൽ <code>providers</code> എന്നതിന് പുറമെ Linkumori ഇത് സ്വീകരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "ആ ഫീൽഡുകൾ റൂളിൽ നഷ്‌ടപ്പെടുമ്പോൾ റൂളുകൾക്ക് ഡിഫോൾട്ട് മൂല്യങ്ങൾ അവകാശമാക്കാം.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "കോമ്പിനേഷൻ 3: <code>domainPatterns</code> ദാതാവ്",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "ഇത് Linkumori കൂട്ടിച്ചേർക്കലാണ്. മിക്ക Linkumori ദാതാക്കളും ഈ ഫോം ഉപയോഗിക്കണം.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "കോമ്പിനേഷൻ 4: <code>urlPattern</code> ദാതാവിനൊപ്പം <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> അപ്‌സ്‌ട്രീം ClearURL കളുടെ വാക്യഘടനയാണ്. <code>indexPattern</code> എന്നത് regex URL ദാതാക്കൾക്കുള്ള ഒരു Linkumori ലുക്കപ്പ് സൂചനയാണ്; അത് റീജക്‌സിന് പൊരുത്തപ്പെടാൻ കഴിയുന്ന ഹോസ്റ്റ് നാമങ്ങളിൽ പോയിൻ്റ് ചെയ്യണം.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> ഓപ്ഷണൽ ആണ്, എന്നാൽ വേഗതയ്ക്ക് ഉപയോഗപ്രദമാണ്. ഇത് ദാതാവിനെ ഹോസ്റ്റ്നാമം-ടോക്കൺ കാൻഡിഡേറ്റ് ബക്കറ്റുകളിലേക്ക് സൂചികയിലാക്കുന്നു; ഇത് ഒരിക്കലും അവസാന <code>urlPattern</code> പൊരുത്തം മാറ്റിസ്ഥാപിക്കുന്നില്ല.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "കോമ്പിനേഷൻ 5: ഒരു സംയുക്ത ആവശ്യകതയായി <code>domainPatterns</code>, <code>urlPattern</code> എന്നിവ മിക്സ് ചെയ്യരുത്",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "ഈ ആകൃതി പഴയതോ കൈകൊണ്ട് എഴുതിയതോ ആയ ഡാറ്റയിൽ ദൃശ്യമാകാം, എന്നാൽ രണ്ട് പൊരുത്തമുള്ളവരും കടന്നുപോകണമെന്ന് ഇതിനർത്ഥമില്ല:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "നിലവിലെ <code>clearurls.js</code> പെരുമാറ്റം:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "<code>domainPatterns</code> നിലവിലുണ്ടെങ്കിൽ ശൂന്യമല്ലെങ്കിൽ, <code>clearurls.js</code> ദാതാവിൻ്റെ പൊരുത്തത്തിനായി അത് ഉപയോഗിക്കുകയും ആ ദാതാവിനായി <code>urlPattern</code> അവഗണിക്കുകയും ചെയ്യുന്നു. ഇഷ്‌ടാനുസൃത എഡിറ്റർ/ഇറക്കുമതി പാത രണ്ടും അടങ്ങിയ ദാതാക്കളെ നിരസിക്കുന്നു. നിങ്ങൾക്ക് ഒരു പാത്ത് വ്യവസ്ഥ ആവശ്യമുണ്ടെങ്കിൽ, <code>indexPattern</code>-നൊപ്പം <code>urlPattern</code> ഉപയോഗിക്കുക, അല്ലെങ്കിൽ <code>rules</code>-നുള്ളിൽ വ്യക്തിഗത <code>$removeparam</code>/റൂൾ എൻട്രികൾ ഉപയോഗിക്കുക.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "കോമ്പിനേഷൻ 6: മിക്സഡ് <code>rules[]</code> എൻട്രികൾ",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Linkumori-ൽ, <code>rules</code>-ൽ ClearURLs ലെഗസി സ്‌ട്രിംഗുകളും, Linkumori <code>$removeparam</code> സ്‌ട്രിംഗുകളും, Linkumori Linkumori 6,283 ഒബ്‌ജക്‌റ്റുകളും അടങ്ങിയിരിക്കാം. ClearURLs കോർ v2 കാനോനിക്കൽ ഒബ്‌ജക്‌റ്റുകൾ ഒരുമിച്ച്.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "നാല് എൻട്രികളും സ്വീകരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "കോമ്പിനേഷൻ 7: കാനോനിക്കൽ ഒബ്‌ജക്റ്റുകൾ ഉള്ളിൽ <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs കോർ v2 കാനോനിക്കൽ ഒബ്‌ജക്റ്റുകൾക്ക് വ്യത്യസ്‌ത തരത്തിലുള്ള നിയമങ്ങളെ പ്രതിനിധീകരിക്കാനാകും. ഈ Linkumori ഉദാഹരണത്തിൽ അവ Linkumori-മാത്രം ഉപയോഗിക്കുന്ന <code>domainPatterns</code> ഉപയോഗിക്കുന്ന ഒരു ദാതാവിനുള്ളിൽ സ്ഥാപിച്ചിരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> ഇവയെ അർത്ഥമനുസരിച്ച് അടുക്കുന്നു:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "കോമ്പിനേഷൻ 8: ലെഗസി അറേസ് പ്ലസ് കാനോനിക്കൽ <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs ആഡോൺ ലെഗസി പ്രൊവൈഡർ അറേകൾ ഇപ്പോഴും പ്രവർത്തിക്കുന്നു. Linkumori ആ അറേകളെ ClearURLs കോർ v2 കാനോനിക്കൽ റൂൾ ഒബ്‌ജക്‌റ്റുകൾക്ക് സമീപം ഇരിക്കാൻ അനുവദിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "ഇത് സാധുവാണ്. ഒരേ ദാതാവിനായി എഞ്ചിൻ ഈ ശ്രേണികളെല്ലാം വായിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "കോമ്പിനേഷൻ 9: പ്രൊവൈഡർ-വൈഡ് രീതികളും വിഭവങ്ങളുടെ തരങ്ങളും",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> അപ്‌സ്ട്രീം ClearURLs വാക്യഘടനയാണ്. <code>resourceTypes</code> എന്നത് Linkumori കൂട്ടിച്ചേർക്കലാണ്. രണ്ടും മുഴുവൻ ദാതാവിനും ബാധകമാണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "<code>rules</code>, <code>rawRules</code> എന്നിവ ദാതാവിൻ്റെ രീതി/തരം പൊരുത്തത്താൽ പരിമിതപ്പെടുത്തിയിരിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "കോമ്പിനേഷൻ 10: റൂൾ-ലെവൽ അഭ്യർത്ഥന തരങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs കോർ v2 കാനോനിക്കൽ നിയമങ്ങൾക്ക് റൂൾ-ലെവൽ <code>requestTypes</code> നിർവ്വചിക്കാൻ കഴിയും.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "ദാതാവിൻ്റെ തലം <code>resourceTypes</code> ആദ്യം ദാതാവിനെ ചുരുക്കുന്നു. റൂൾ-ലെവൽ <code>requestTypes</code> അതിനുശേഷം വ്യക്തിഗത നിയമങ്ങൾ ചുരുക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "കോമ്പിനേഷൻ 11: വ്യത്യസ്ത സ്ഥലങ്ങളിലെ ഒഴിവാക്കലുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori നിങ്ങളെ ClearURLs പ്രൊവൈഡർ ഒഴിവാക്കലുകൾ, Linkumori ഡൊമെയ്ൻ ഒഴിവാക്കലുകൾ, ClearURLs കോർ v2 റൂൾ ഒഴിവാക്കലുകൾ, Linkumori പ്രൊവൈഡർ-ലോക്കൽ 4950 ഒഴിവാക്കലുകൾ എന്നിവ സംയോജിപ്പിക്കാൻ അനുവദിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "വ്യക്തമായ അർത്ഥം:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "കോമ്പിനേഷൻ 12: പ്രൊവൈഡർ പ്ലസ് നിയമങ്ങൾ തടയുന്നു",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> ഒരു ദാതാവിനെ റദ്ദാക്കുന്നു/തടയുന്നതായി അടയാളപ്പെടുത്തുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "ക്രമീകരണങ്ങളിൽ ഡൊമെയ്ൻ തടയൽ പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, പൊരുത്തപ്പെടുന്ന അഭ്യർത്ഥനകൾ തടയാൻ കഴിയും. നിയമങ്ങൾ ഇപ്പോഴും നിലവിലുണ്ടാകാം, എന്നാൽ ആ ദാതാവിൻ്റെ ശക്തമായ പെരുമാറ്റമാണ് തടയൽ.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "കോമ്പിനേഷൻ 13: റീഡയറക്‌ട് പ്രൊവൈഡർ പ്ലസ് ക്ലീനപ്പ് നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "ഒരു ദാതാവിന് റീഡയറക്‌ടുകളും ക്ലീനപ്പ് നിയമങ്ങളും അടങ്ങിയിരിക്കാം.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "ഒരു റീഡയറക്‌ഷൻ പൊരുത്തപ്പെടുന്നുവെങ്കിൽ, റീഡയറക്‌ട് ആദ്യം തിരികെ നൽകും.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "കോമ്പിനേഷൻ 14: ഡൊമെയ്ൻ റീഡയറക്‌ഷനുകൾ പ്ലസ് റീജക്‌സ് റീഡയറക്‌ഷനുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "രണ്ടും ഒരു ദാതാവിൽ നിലനിൽക്കും.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Regex റീഡയറക്‌ടുകൾ ആദ്യം പരിശോധിക്കും. റീജക്‌സ് റീഡയറക്‌ടുകളൊന്നും പൊരുത്തപ്പെടുന്നില്ലെങ്കിൽ ഡൊമെയ്ൻ റീഡയറക്‌ടുകൾ പരിശോധിക്കും.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "കോമ്പിനേഷൻ 15: അപ്രാപ്തമാക്കിയ അല്ലെങ്കിൽ നിഷ്ക്രിയ നിയമങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "ദാതാക്കൾ നിഷ്‌ക്രിയരായിരിക്കാം:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "നിയമങ്ങൾ നിഷ്‌ക്രിയമാകാം:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "നിഷ്‌ക്രിയ ദാതാക്കളെയും നിഷ്‌ക്രിയ നിയമങ്ങളെയും അവഗണിക്കുന്നു.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "കോമ്പിനേഷൻ 16: പൂർണ്ണ മിക്സഡ് പ്രൊവൈഡർ ഉദാഹരണം",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "ഈ Linkumori ഉദാഹരണം ഏറ്റവും പിന്തുണയുള്ള ദാതാവിൻ്റെ സവിശേഷതകളെ മനഃപൂർവ്വം സംയോജിപ്പിക്കുന്നു: ClearURLs ആഡോൺ ലെഗസി അറേകൾ, ClearURLs കോർ v2 കാനോനിക്കൽ റൂൾ ഒബ്‌ജക്‌റ്റുകൾ, Linkumori-മാത്രം മാച്ചർ, പാറ്റേൺ സവിശേഷതകൾ.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "ഇത് സാധുവായ Linkumori മിക്സഡ് പ്രൊവൈഡർ JSON ആണ്.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "അധ്യായം 21: പൂർണ്ണമായ ഉദാഹരണങ്ങൾ",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "ഉദാഹരണം 1: അടിസ്ഥാന ട്രാക്കർ ക്ലീനർ",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "ഉദാഹരണം 2: എല്ലാ UTM പാരാമീറ്ററുകളും നീക്കം ചെയ്യുക",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "ഉദാഹരണം 3: ലോഗിൻ ചെയ്യുമ്പോൾ ആവശ്യമായ പാരാമീറ്റർ സൂക്ഷിക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "ഉദാഹരണം 4: റീഡയറക്‌ട് ട്രാക്കിംഗ് ക്ലിക്കുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "ഫലം:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "ഉദാഹരണം 5: API അഭ്യർത്ഥനകൾ മാത്രം വൃത്തിയാക്കുക",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "അർത്ഥം:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "അധ്യായം 22: ക്വിക്ക് കോപ്പി ടെംപ്ലേറ്റുകൾ",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "ഒരു പാരാമീറ്റർ നീക്കം ചെയ്യുക:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "നിരവധി പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "<code>$removeparam</code> ഉപയോഗിക്കുക:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "എല്ലാ <code>utm_</code> പാരാമീറ്ററുകളും നീക്കം ചെയ്യുക:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "ഒരു ഒഴിവാക്കൽ ചേർക്കുക:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "ഒരു ഡൊമെയ്ൻ പൊരുത്തപ്പെടുത്തുക:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "ഒരു ട്രാക്കർ റീഡയറക്‌ട് URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "ഒരു അസംസ്കൃത നിയമത്തിന് ഒരു <code>$removeparam</code> ഫിൽട്ടറിന്റെ പാറ്റേണും ഓപ്ഷനുകളും എടുക്കാം, അവസാനം <code>rawrule=</code> ചേർത്ത്. <code>rawrule=</code>-ന് ശേഷമുള്ളതെല്ലാം റെഗുലർ എക്സ്പ്രഷൻ ആണ്:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "പാറ്റേണും ഓപ്ഷനുകളും നിയമം എവിടെ പ്രവർത്തിക്കണമെന്ന് തീരുമാനിക്കുന്നു; റെഗുലർ എക്സ്പ്രഷൻ ആണ് ഇപ്പോഴും നീക്കം ചെയ്യപ്പെടുന്നത്. <code>match-case</code> അതിനെ കേസ്-സെൻസിറ്റീവ് ആക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "ചില URL-കളിൽ അസംസ്കൃത നിയമങ്ങൾ നിർത്തുന്നു",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "<code>@@</code> ഉപയോഗിച്ച് തുടങ്ങുന്ന ഒരു എൻട്രി, അതിന്റെ പാറ്റേൺ പൊരുത്തപ്പെടുന്നിടത്ത് അസംസ്കൃത നിയമങ്ങൾ പ്രവർത്തിക്കുന്നത് തടയുന്നു. അസംസ്കൃത നിയമത്തിന് ഒരു <code>id</code> നൽകുക, അതിനെ <code>targetId</code> ഉപയോഗിച്ച് പേര് നൽകുക:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "<code>rawrule=</code>-ന് ശേഷം ഒന്നുമില്ലാതെയും <code>targetId</code> ഇല്ലാതെയും, ആ എൻട്രി ആ URL-കളിലെ ദാതാവിന്റെ എല്ലാ അസംസ്കൃത നിയമങ്ങളെയും നിർത്തുന്നു. മുഴുവൻ ദാതാവിനെയും ഒഴിവാക്കാൻ, പകരം <code>exceptions</code> ഉപയോഗിക്കുക.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. ഒഴിവാക്കലുകൾ",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "ഒരു URL <code>exceptions</code>-ലെ ഒരു എൻട്രിയുമായി പൊരുത്തപ്പെടുകയാണെങ്കിൽ, ദാതാവിന്റെ നിയമങ്ങളൊന്നും പ്രവർത്തിക്കില്ല. ഒരു എൻട്രി എന്നത് ഒരു റെഗുലർ എക്സ്പ്രഷനോ അല്ലെങ്കിൽ <code>|</code> ഉപയോഗിച്ച് തുടങ്ങുന്ന ഒരു ഡൊമെയ്ൻ പാറ്റേണോ ആണ്:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "ഒഴിവാക്കലുകൾ കേസ് (case) പരിഗണിക്കുന്നില്ല.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. വഴിതിരിച്ചുവിടലുകൾ",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "വഴിതിരിച്ചുവിടൽ നിയമങ്ങൾ യഥാർത്ഥ ലക്ഷ്യസ്ഥാനത്തേക്ക് നേരിട്ട് പോകുന്നതിലൂടെ ട്രാക്കിംഗ് പേജുകളെ ഒഴിവാക്കുന്നു. <em>മൂന്നാം കക്ഷി റീഡയറക്‌ട് ബൈപാസ് പ്രവർത്തനക്ഷമമാക്കുക</em> ഓൺ ആയിരിക്കുമ്പോൾ മാത്രമേ അവ പ്രവർത്തിക്കൂ.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "URL-ന്റെ ഒരു ഭാഗത്തേക്ക് വഴിതിരിച്ചുവിടുക",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "<code>redirections</code>-ലെ ഒരു എൻട്രി എന്നത് കൃത്യമായി ഒരു ക്യാപ്‌ചർ ഗ്രൂപ്പുള്ള (<code>( … )</code>) റെഗുലർ എക്സ്പ്രഷനാണ്. റിക്വസ്റ്റ്, ഗ്രൂപ്പ് ക്യാപ്‌ചർ ചെയ്ത URL-ഡീകോഡ് ചെയ്ത ഭാഗത്തേക്ക് പോകുന്നു. മറ്റേതൊരു ഗ്രൂപ്പിനെയും <code>(?: … )</code> ആയി എഴുതുക:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "ഒരു നിശ്ചിത വിലാസത്തിലേക്ക് വഴിതിരിച്ചുവിടുക",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "<code>|</code> ഉപയോഗിച്ച് തുടങ്ങുന്ന ഒരു എൻട്രി, പൊരുത്തപ്പെടുന്ന എല്ലാ URL-കളെയും ഒരു വിലാസത്തിലേക്ക് അയക്കുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "ഒരു പാരാമീറ്ററിന്റെ മൂല്യത്തിലേക്ക് വഴിതിരിച്ചുവിടുക",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "ലക്ഷ്യസ്ഥാനം അടങ്ങിയിരിക്കുന്ന പാരാമീറ്ററിന് <code>fieldRedirections</code> പേര് നൽകുന്നു, അതിനാൽ റെഗുലർ എക്സ്പ്രഷന്റെ ആവശ്യമില്ല. ഇത് <code>rules</code>-ലെ അതേ എൻട്രികൾ സ്വീകരിക്കുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "മൂല്യമുള്ള ആദ്യത്തെ പൊരുത്തപ്പെടുന്ന പാരാമീറ്റർ വിജയിക്കുന്നു. ഒരു വഴിതിരിച്ചുവിടൽ റിക്വസ്റ്റിനായുള്ള മറ്റെല്ലാ പ്രോസസിംഗും നിർത്തുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. നിയമ ഒബ്ജക്റ്റുകൾ",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "ഏതൊരു എൻട്രിയും ഒരു സ്ട്രിംഗിന് പകരം ഒരു ഒബ്ജക്റ്റ് ആകാം. ഒരു നിയമത്തിന് ഐഡി (id) ആവശ്യമുണ്ടെങ്കിലോ, ഓഫ് ചെയ്ത അവസ്ഥയിൽ തുടങ്ങണമെങ്കിലോ, നീക്കം ചെയ്യുന്നതിന് പകരം റീറൈറ്റ് (rewrite) ചെയ്യണമെങ്കിലോ, അല്ലെങ്കിൽ ചില സാഹചര്യങ്ങളിൽ മാത്രം പ്രവർത്തിപ്പിക്കണമെങ്കിലോ ഒബ്ജക്റ്റ് ഉപയോഗിക്കുക:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "കീ",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "ഒരു സാധാരണ എൻട്രിയായി നിങ്ങൾ എഴുതുന്ന ടെക്സ്റ്റ്",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "നിയമം ഓൺ ചെയ്യാനും ഓഫ് ചെയ്യാനും ഉപയോഗിക്കുന്ന ഒരു സ്ഥിരമായ പേര് (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "നിയമത്തിന്റെ മുൻപത്തെ ഐഡികൾ, അതിനാൽ പേര് മാറ്റിയാലും നിങ്ങൾ ഓഫ് ചെയ്ത നിയമം ഓഫ് ആയി തന്നെ തുടരും",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "നീക്കം ചെയ്യുന്നതിന് പകരം മാറ്റിയെഴുതുക; <code>§1§</code>, <code>§2§</code>, … എന്നിവ ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങളാണ്",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങൾ ആദ്യം മാറ്റുക",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "ഈ റിക്വസ്റ്റ് ടൈപ്പുകൾക്ക് മാത്രം, ഉദാഹരണത്തിന് <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "ഈ ഒരു നിയമം പ്രവർത്തിക്കാത്ത URL-കൾ",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "റെഗുലർ എക്സ്പ്രഷൻ ഫ്ലാഗുകൾ, ഒരു സ്ട്രിംഗ് ആയി (ഡിഫോൾട്ട് <code>i</code>; <code>rawRules</code>-ൽ <code>gi</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "നിയമം നേരത്തെയോ അല്ലെങ്കിൽ വൈകിയോ പ്രവർത്തിപ്പിക്കുക",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: <code>rules</code>-ലെ ഒരു നിയമം ഒരു റെഫറൽ-മാർക്കറ്റിംഗ് നിയമമായി കണക്കാക്കുന്നു",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: History API ഉപയോഗിച്ച് ഒരു പേജ് അതിന്റെ സ്വന്തം വിലാസം മാറ്റുമ്പോൾ ഈ നിയമം ഒഴിവാക്കുക",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: നിയമം ഓഫ് ചെയ്ത അവസ്ഥയിൽ ആരംഭിക്കുന്നു",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "ഫ്രീ ടെക്സ്റ്റ്",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "<code>@@…$rawrule=</code> എൻട്രികളിൽ മാത്രം: അത് തടയുന്ന അസംസ്കൃത നിയമങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "നീക്കം ചെയ്യുന്നതിന് പകരം മാറ്റിയെഴുതുന്നു",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "<code>replacePattern</code> ഉപയോഗിച്ച്, <code>rules</code>-ലെ ഒരു നിയമം പാരാമീറ്ററിനെ നിലനിർത്തുകയും അതിന്റെ മൂല്യത്തെ <code>§1§</code> കൊണ്ട് മാറ്റുകയും ചെയ്യുന്നു. <code>rawRules</code>, <code>redirections</code> എന്നിവയിൽ, <code>§1§</code>, <code>§2§</code>, … എന്നിവ ക്യാപ്‌ചർ ഗ്രൂപ്പുകളാണ്:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "പ്രീപ്രോസസറുകൾ",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "പ്രീപ്രോസസറുകൾ <code>replacePattern</code> ഉപയോഗിക്കുന്നതിന് മുൻപായി ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങളെ മാറ്റുന്നു. <code>inputs</code> എന്നത് <code>\"all\"</code> അല്ലെങ്കിൽ ഗ്രൂപ്പ് നമ്പറുകളുടെ ഒരു ലിസ്റ്റാണ്:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "തരങ്ങൾ <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> എന്നിവയും <code>base64Decode</code> ഉം ആണ്.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "നിയമ ഐഡികൾ",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "ഓരോ നിയമത്തിനും ഒരു ഐഡി ഉണ്ട്. <code>id</code> ഇല്ലാത്ത ഒരു നിയമത്തിന് അതിന്റെ ലിസ്റ്റിൽ നിന്നും ടെക്സ്റ്റിൽ നിന്നും ഒന്ന് ലഭിക്കുന്നു: <code>rules</code>-ലെ <code>\"utm_source\"</code> എന്നത് <code>field-utm-source</code> ആയി മാറുന്നു. രണ്ട് നിയമങ്ങൾക്ക് ഒരേ ഐഡി ലഭിക്കുകയാണെങ്കിൽ, രണ്ടിന്റെയും അവസാനം ഒരു ചെറിയ ഹാഷ് ലഭിക്കും.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "നിയമത്തിന്റെ ടെക്സ്റ്റ് മാറുമ്പോൾ ജനറേറ്റ് ചെയ്ത ഐഡിയും മാറും. എഡിറ്റുകൾക്കിടയിലും ഓൺ/ഓഫ് സെറ്റിംഗ് നിലനിർത്തണമെന്നുണ്ടെങ്കിൽ ഒരു നിയമത്തിന് സ്വന്തമായി <code>id</code> നൽകുക.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "ഒരു നിയമം നേരത്തെ അല്ലെങ്കിൽ വൈകി പ്രവർത്തിപ്പിക്കുക",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "അസംസ്കൃത നിയമങ്ങൾ സാധാരണയായി ആദ്യം പ്രവർത്തിക്കുന്നു, അതിനുശേഷം <code>rules</code>, <code>referralMarketing</code> എന്നിവ പ്രവർത്തിക്കുന്നു. <code>order</code> ഉള്ള ഒരു നിയമം അത് ഇല്ലാത്ത നിയമങ്ങൾക്ക് മുൻപായി പ്രവർത്തിക്കുന്നു, ഏറ്റവും കുറഞ്ഞത് ആദ്യം. ഇവിടെ ടോക്കൺ ആദ്യം മാറ്റുകയും പിന്നീട് ഡിലീറ്റ് ചെയ്യുകയും ചെയ്യുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> എന്നത് <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code> എന്നിവയിൽ പ്രവർത്തിക്കുന്നു, എന്നാൽ <code>$removeparam</code> ഫിൽട്ടറുകളിൽ പ്രവർത്തിക്കില്ല, അവ എപ്പോഴും അവസാനമായിട്ടാണ് പ്രവർത്തിക്കുന്നത്.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. റെഫറൽ മാർക്കറ്റിംഗ്",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> എന്നത് <code>rules</code>-ലെ അതേ എൻട്രികൾ എടുക്കുന്നു. <em>റഫറൽ മാർക്കറ്റിംഗ് അനുവദിക്കുക</em> ഓണായിരിക്കുമ്പോൾ അവ ഒഴിവാക്കപ്പെടുന്നു, അതിനാൽ നിങ്ങൾക്ക് വേണമെങ്കിൽ അഫിലിയേറ്റ് ലിങ്കുകൾ പ്രവർത്തിച്ചുകൊണ്ടേയിരിക്കും:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "ഒരു നിയമത്തിന് <code>rules</code>-ൽ തുടരാനും <code>\"referralMarketing\": true</code> ഉപയോഗിച്ച് റെഫറൽ മാർക്കറ്റിംഗായി കണക്കാക്കപ്പെടാനും കഴിയും.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. മെത്തേഡുകളും റിക്വസ്റ്റ് തരങ്ങളും",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "ഒരു ദാതാവോ നിയമമോ എപ്പോൾ പ്രവർത്തിക്കണം എന്ന് ഇവ നിശ്ചയിക്കുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "clearurls.js സ്വഭാവം: ഡൊമെയ്ൻ പാറ്റേണുകൾ നിലവിലുണ്ടെങ്കിൽ, അത് ശൂന്യമല്ലെങ്കിൽ, ദാതാവിൻ്റെ പൊരുത്തത്തിനായി ലിങ്കുമോറി ഡൊമെയ്ൻ പാറ്റേണുകൾ ഉപയോഗിക്കുന്നു. ഡൊമെയ്ൻ പാറ്റേണുകൾ നഷ്‌ടപ്പെടുകയോ ശൂന്യമാകുകയോ ചെയ്യുമ്പോൾ മാത്രമേ urlPattern ഉപയോഗിക്കൂ. ഇഷ്‌ടാനുസൃത എഡിറ്റർ/ഇറക്കുമതി പാത ഈ മിക്സഡ് മാച്ചർ ആകൃതി നിരസിക്കുന്നു, അതിനാൽ ലെഗസി ഡാറ്റ മനസ്സിലാക്കാൻ മാത്രം ഇത് ഉപയോഗിക്കുക.",
+  "guide_req_methods": {
+    "message": "ദാതാവ് കൈകാര്യം ചെയ്യുന്ന HTTP മെത്തേഡുകൾ",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "ദാതാവ് കൈകാര്യം ചെയ്യുന്ന റിക്വസ്റ്റ് തരങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "ഒരു റൂൾ ഒബ്ജക്റ്റ് കൈകാര്യം ചെയ്യുന്ന റിക്വസ്റ്റ് തരങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "ഒരു <code>$removeparam</code> ഫിൽട്ടറിനും അസംസ്കൃത നിയമങ്ങൾക്കും ഇത് സമാനമാണ്",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "റിക്വസ്റ്റ് തരങ്ങൾ ബ്രൗസറിന്റെ പേരുകളാണ് ഉപയോഗിക്കുന്നത്: <code>main_frame</code> (ഒരു പേജ്), <code>sub_frame</code> (ഒരു ഫ്രെയിം), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> എന്നിങ്ങനെ. ഫിൽട്ടർ ഓപ്ഷനുകൾ ആദ്യത്തെ രണ്ടെണ്ണത്തെ <code>document</code>, <code>subdocument</code> എന്ന് വിളിക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. ഒരു URL എങ്ങനെ പ്രോസസ്സ് ചെയ്യുന്നു",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "URL-മായി പൊരുത്തപ്പെടുന്നതും റിക്വസ്റ്റിന് അനുമതി നൽകുന്നതുമായ ഓരോ ദാതാവിനും:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: ഒന്ന് പൊരുത്തപ്പെട്ടാൽ, ദാതാവ് ഒഴിവാക്കപ്പെടുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, അതിനുശേഷം <code>fieldRedirections</code>: ഒരു പൊരുത്തം റിക്വസ്റ്റിനെ വഴിതിരിച്ചുവിടുന്നു, മറ്റൊന്നും പ്രവർത്തിക്കില്ല.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: റിക്വസ്റ്റ് ബ്ലോക്ക് ചെയ്യപ്പെടുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> പൂർണ്ണമായ URL-ൽ പ്രവർത്തിക്കുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code>, <code>referralMarketing</code> എന്നിവ പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "<code>$removeparam</code> ഫിൽട്ടറുകൾ പ്രവർത്തിക്കുന്നു, എന്നാൽ ഒരു <code>@@</code> ഫിൽട്ടർ പാരാമീറ്ററിനെ നിലനിർത്തുന്നിടത്ത് ഒഴികെ.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "റിക്വസ്റ്റിൽ മാറ്റം വരുത്തുന്നയോ, വഴിതിരിച്ചുവിടുന്നയോ അല്ലെങ്കിൽ ബ്ലോക്ക് ചെയ്യുന്നയോ ആദ്യത്തെ ദാതാവാണ് ഫലം തീരുമാനിക്കുന്നത്. പുതിയ URL പിന്നീട് അതേ ഘട്ടങ്ങളിലൂടെ വീണ്ടും കടന്നുപോകുന്നു.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. പൂർണ്ണമായ ഉദാഹരണങ്ങൾ",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "ഒരു ഷോപ്പ് ക്ലീൻ ചെയ്യുക",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "ഒരു ഷോപ്പിലെ ട്രാക്കിംഗ് പാരാമീറ്ററുകളും അഫിലിയേറ്റ് ഐഡിയും നീക്കം ചെയ്യുന്നു, കൂടാതെ അതിന്റെ ചെക്കൗട്ട് പേജുകളെ മാറ്റമില്ലാതെ വിടുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "എല്ലായിടത്തുനിന്നും UTM പാരാമീറ്ററുകൾ നീക്കം ചെയ്യുക",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "പാറ്റേൺ <code>*</code> എല്ലാ URL-കളുമായും പൊരുത്തപ്പെടുന്നു:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "ഒരു ക്ലിക്ക് ട്രാക്കർ ഒഴിവാക്കുക",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "ലിങ്കുകളെ ഒരു ക്ലിക്ക് ട്രാക്കറിലൂടെ നേരിട്ട് അവയുടെ ലക്ഷ്യസ്ഥാനത്തേക്ക് അയക്കുന്നു, അത് <code>url</code> പാരാമീറ്ററിലാണ്:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "ഒരു പേജിൽ ഒരു പാരാമീറ്റർ നിലനിർത്തുക",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "ലോഗിൻ പേജിലൊഴികെ സൈറ്റിലെ എല്ലായിടത്തുനിന്നും <code>ref</code> നീക്കം ചെയ്യുന്നു, ലോഗിൻ പേജിന് ഇത് ആവശ്യമാണ്:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. നിങ്ങളുടെ നിയമങ്ങൾ പരിശോധിക്കൽ",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "നിങ്ങൾ നിയമങ്ങൾ സേവ് ചെയ്യുമ്പോഴോ ഇംപോർട്ട് ചെയ്യുമ്പോഴോ കസ്റ്റം നിയമങ്ങൾ എഡിറ്റർ അവ പരിശോധിക്കുന്നു. തകരാറിലായ JSON-ഉം അസാധുവായ റെഗുലർ എക്സ്പ്രഷനുകളും കൂടാതെ, ലോഡ് ആകുമെങ്കിലും നിശബ്ദമായി തെറ്റായ കാര്യങ്ങൾ ചെയ്യുന്ന നിയമങ്ങളെയും ഇത് നിരസിക്കുന്നു, ഉദാഹരണത്തിന്:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "ഒരു ദാതാവിൽ <code>domainPatterns</code>, <code>urlPattern</code> എന്നിവ",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "ഒറ്റ <code>|</code> മാത്രമുള്ളതും സ്കീം ഇല്ലാത്തതുമായ ഒരു പാറ്റേൺ, ഉദാഹരണത്തിന് <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "കൃത്യമായി ഒരു ക്യാപ്‌ചർ ഗ്രൂപ്പ് ഇല്ലാത്ത റെഗുലർ-എക്സ്പ്രഷൻ വഴിതിരിച്ചുവിടലുകൾ",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "അജ്ഞാതമായ ഫീൽഡുകൾ, കീകൾ, ഓപ്ഷനുകൾ",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "ഒന്നും ചെയ്യാത്ത സാഹചര്യത്തിലുള്ള <code>order</code> അല്ലെങ്കിൽ <code>referralMarketing</code>",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "ഒരു അസംസ്കൃത നിയമത്തെയും തടയാത്ത ഒരു <code>@@…$rawrule=</code> എൻട്രി",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "സേവ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടാൽ, സന്ദേശത്തിൽ ദാതാവ്, ലിസ്റ്റ്, എൻട്രി എന്നിവയുടെ പേര് ഉണ്ടാകും.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

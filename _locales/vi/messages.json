@@ -4727,1688 +4727,704 @@
     "message": "Các điều khiển ID quy tắc sẽ khả dụng sau khi nhà cung cấp JSON hợp lệ.",
     "description": "Trạng thái JSON không hợp lệ đối với các điều khiển id quy tắc của nhà cung cấp"
   },
-  "guide_0001": {
-    "message": "Linkumori Gia hạn — Tài liệu quy tắc",
+  "guide_page_title": {
+    "message": "Linkumori — Hướng dẫn Quy tắc",
     "description": "Guide page text."
   },
-  "guide_0002": {
-    "message": "chủ đề",
+  "guide_theme_label": {
+    "message": "Chủ đề",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Định dạng nhà cung cấp JSON",
+  "guide_toc_label": {
+    "message": "Nội dung",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Nhà cung cấp JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Chương 1: Hình dạng cơ bản JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Chương 2: Nhà cung cấp là gì?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Chương 3: Trường nhà cung cấp bạn có thể sử dụng",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Chương 4: Tên miền phù hợp",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Kết hợp một tên miền và tất cả tên miền phụ",
+  "guide_title": {
+    "message": "Viết quy tắc Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Khớp cùng tên trên bất kỳ hậu tố công khai nào",
+  "guide_intro_1": {
+    "message": "Linkumori làm sạch URL bằng các quy tắc. Hướng dẫn này chỉ ra cách viết chúng, từ quy tắc đầu tiên đến mọi tùy chọn, cùng với các ví dụ mà bạn có thể sao chép.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "So khớp tên miền phụ",
+  "guide_intro_2": {
+    "message": "Các quy tắc là JSON. Bạn viết chúng trong trình chỉnh sửa Quy tắc tùy chỉnh, nơi sẽ kiểm tra chúng khi bạn lưu. Danh sách quy tắc đi kèm và danh sách quy tắc từ xa sử dụng cùng một định dạng.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Sử dụng nhiều mẫu miền",
+  "guide_file_title": {
+    "message": "1. Tệp quy tắc",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Chương 5: Ký hiệu mẫu miền",
+  "guide_file_p1": {
+    "message": "Một tệp quy tắc là một đối tượng JSON. Đối tượng <code>providers</code> của nó ánh xạ một tên tùy chọn của bạn tới một nhà cung cấp:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Chương 6: So khớp URLs Với urlPattern",
+  "guide_file_p2": {
+    "message": "Một nhà cung cấp xác định những URL nào nó xử lý và phải làm gì với chúng. Nhà cung cấp này xóa <code>utm_source</code> và <code>utm_medium</code> khỏi mọi URL trên <code>example.com</code> và các tên miền con của nó:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Chương 7: Loại bỏ các tham số truy vấn đơn giản",
+  "guide_file_p3": {
+    "message": "Tên chỉ là một nhãn. Việc nhà cung cấp xử lý những URL nào được quyết định bởi <code>domainPatterns</code> hoặc <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Chương 8: Viết một đối tượng quy tắc",
+  "guide_fields_title": {
+    "message": "2. Các trường của nhà cung cấp",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Chương 9: Quy tắc $removeparam",
+  "guide_th_field": {
+    "message": "Trường",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Xóa một tham số",
+  "guide_th_meaning": {
+    "message": "Chức năng",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Xóa tất cả tham số",
+  "guide_field_domainpatterns": {
+    "message": "Các URL mà nhà cung cấp xử lý, dưới dạng mẫu tên miền (chương 3). Sử dụng trường này hoặc <code>urlPattern</code>, không bao giờ dùng cả hai.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Xóa tham số bằng Regex",
+  "guide_field_urlpattern": {
+    "message": "Các URL mà nhà cung cấp xử lý, dưới dạng biểu thức chính quy khớp với toàn bộ URL. Không phân biệt chữ hoa chữ thường.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Xóa tất cả ngoại trừ một tham số",
+  "guide_field_indexpattern": {
+    "message": "Chỉ dùng với <code>urlPattern</code>: các gợi ý máy chủ như <code>||example.com^</code>, để nhà cung cấp chỉ được kiểm tra cho những máy chủ đó. Nếu không có, nhà cung cấp sẽ được kiểm tra với mọi URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Chỉ áp dụng $removeparam cho một tên miền",
+  "guide_field_rules": {
+    "message": "Các tham số cần xóa (chương 4 và 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Thêm giới hạn tên miền",
+  "guide_field_referral": {
+    "message": "Các tham số giới thiệu và tiếp thị liên kết cần xóa. Chúng sẽ bị bỏ qua khi <em>Cho phép tiếp thị giới thiệu</em> được bật (chương 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Thêm giới hạn phương pháp",
+  "guide_field_rawrules": {
+    "message": "Các biểu thức chính quy chạy trên toàn bộ URL; mọi kết quả khớp sẽ bị xóa (chương 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Chương 10: Ngoại lệ $removeparam",
+  "guide_field_exceptions": {
+    "message": "Các URL mà nhà cung cấp giữ nguyên (chương 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Chương 11: Viết lại giá trị tham số",
+  "guide_field_redirections": {
+    "message": "Nơi gửi yêu cầu thay thế (chương 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Chương 12: Quy tắc thô",
+  "guide_field_fieldredirections": {
+    "message": "Chuyển hướng đến giá trị của một tham số (chương 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Chương 13: Quy tắc chuyển hướng",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> chặn mọi yêu cầu mà nhà cung cấp khớp, khi <em>Cho phép chặn tên miền</em> đang bật.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Chương 14: Quy tắc chuyển hướng tên miền",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: khi chính trang web được chuyển hướng, tab sẽ mở địa chỉ mới.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Chương 15: Ngoại lệ",
+  "guide_field_methods": {
+    "message": "Chỉ xử lý các phương thức HTTP này, ví dụ <code>[\"GET\"]</code>. Mặc định: tất cả.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Chương 16: Quy tắc tiếp thị giới thiệu",
+  "guide_field_resourcetypes": {
+    "message": "Chỉ xử lý các loại yêu cầu này, ví dụ <code>[\"main_frame\"]</code>. Mặc định: các loại được chọn trong cài đặt.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Chương 17: HTTP Phương pháp",
+  "guide_field_history": {
+    "message": "<code>false</code> bỏ qua nhà cung cấp khi một trang tự thay đổi địa chỉ của chính nó bằng History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Chương 18: Các loại tài nguyên trình duyệt",
+  "guide_field_active": {
+    "message": "<code>false</code> tắt nhà cung cấp.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Chương 19: Tiền xử lý",
+  "guide_match_title": {
+    "message": "3. Những URL nào mà nhà cung cấp xử lý",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Chương 20: Được phép kết hợp JSON",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> là một danh sách các mẫu tên miền. Một URL khớp nếu bất kỳ mẫu nào trong số đó khớp:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Kết hợp 1: Nhiều nhà cung cấp trong một tệp",
+  "guide_th_pattern": {
+    "message": "Mẫu",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Sự kết hợp 2: Nhà cung cấp Global Defaults Plus",
+  "guide_th_matches": {
+    "message": "Khớp",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Kết hợp 3: Nhà cung cấp mẫu miền",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> và mọi tên miền con",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Kết hợp 4: Nhà cung cấp urlPattern Với indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> trên bất kỳ hậu tố công khai nào (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Sự kết hợp 5: domainPatterns Và urlPattern Cùng nhau",
+  "guide_pat_path": {
+    "message": "máy chủ đó và các tên miền con của nó, khi đường dẫn bắt đầu bằng <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Kết hợp 6: Quy tắc hỗn hợp[] Mục",
+  "guide_pat_star": {
+    "message": "giống hệt <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Sự kết hợp 7: Đối tượng Canonical Các quy tắc bên trong[]",
+  "guide_pat_start": {
+    "message": "Các URL bắt đầu chính xác bằng văn bản này",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Sự kết hợp 8: Mảng kế thừa cộng với các quy tắc Canonical[]",
+  "guide_pat_end": {
+    "message": "Các URL kết thúc chính xác bằng văn bản này",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Kết hợp 9: Các phương pháp và loại tài nguyên trên toàn nhà cung cấp",
+  "guide_pat_regex": {
+    "message": "toàn bộ URL, dưới dạng biểu thức chính quy (có phân biệt chữ hoa chữ thường trừ khi bạn thêm <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Kết hợp 10: Các loại yêu cầu cấp quy tắc",
+  "guide_pat_contains": {
+    "message": "Các URL có chứa văn bản này ở bất kỳ đâu",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Sự kết hợp 11: Ngoại lệ ở những nơi khác nhau",
+  "guide_pat_all": {
+    "message": "mọi URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Kết hợp 12: Quy tắc chặn nhà cung cấp Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> đánh dấu điểm kết thúc của tên máy chủ, hoặc một dấu phân cách như <code>/</code>, <code>?</code> hoặc <code>:</code>. <code>*</code> khớp với bất kỳ thứ gì. Ngoại trừ <code>/regex/</code>, các mẫu không phân biệt chữ hoa chữ thường.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Kết hợp 13: Chuyển hướng nhà cung cấp cộng với quy tắc dọn dẹp",
+  "guide_match_p3": {
+    "message": "<code>||</code> đại diện cho một tên miền, trong khi một dấu <code>|</code> đơn lẻ đại diện cho điểm bắt đầu của URL và phải được theo sau bởi một giao thức như <code>https://</code>. <code>|example.com^</code> không bao giờ có thể khớp, vì vậy trình chỉnh sửa sẽ từ chối nó.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Kết hợp 14: Chuyển hướng tên miền cộng với chuyển hướng Regex",
+  "guide_match_p4": {
+    "message": "Để khớp bằng biểu thức chính quy, hãy sử dụng <code>urlPattern</code>, và thêm <code>indexPattern</code> để nhà cung cấp chỉ được kiểm tra trên các host đó:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Kết hợp 15: Quy tắc bị vô hiệu hóa hoặc không hoạt động",
+  "guide_match_p5": {
+    "message": "Một nhà cung cấp có <code>domainPatterns</code> hoặc <code>urlPattern</code>, không bao giờ có cả hai. Nếu bạn cần cả hai loại khớp, hãy tạo hai nhà cung cấp.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Kết hợp 16: Ví dụ về nhà cung cấp hỗn hợp đầy đủ",
+  "guide_rules_title": {
+    "message": "4. Xóa các tham số",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Chương 21: Ví dụ hoàn chỉnh",
+  "guide_rules_p1": {
+    "message": "Mỗi mục trong <code>rules</code> sẽ xóa các tham số khỏi truy vấn (<code>?a=1</code>) và khỏi fragment (<code>#a=1</code>). Một mục là một trong các loại sau:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Ví dụ 1: Trình theo dõi cơ bản",
+  "guide_th_entry": {
+    "message": "Mục",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Ví dụ 2: Xóa tất cả tham số UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Ví dụ 3: Giữ thông số cần thiết khi đăng nhập",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Ví dụ 4: Nhấp chuột theo dõi chuyển hướng",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Ví dụ 5: Yêu cầu API chỉ làm sạch",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Chương 22: Mẫu sao chép nhanh",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Hướng dẫn định dạng Linkumori Nhà cung cấp hỗn hợp JSON",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Hướng dẫn này giải thích cách ghi dữ liệu nhà cung cấp JSON mà <code>Linkumori extension</code> có thể đọc.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Đây không phải là hướng dẫn về mã JavaScript. Nó chỉ tập trung vào JSON hình dạng, định dạng quy tắc và ví dụ mà tác giả quy tắc cần.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Hướng dẫn này dựa trên hành vi thời gian chạy <code>clearurls.js</code> hiện tại. Cụ thể, việc tra cứu nhà cung cấp sử dụng nhóm ứng viên <code>providersByToken</code> từ <code>domainPatterns</code> hoặc <code>indexPattern</code> và kết quả khớp cuối cùng vẫn chạy qua <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Chương 1: Hình dạng cơ bản JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> mong đợi dữ liệu của nhà cung cấp ở dạng chung này:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Phần quan trọng là <code>providers</code>. Mỗi khóa bên trong <code>providers</code> là tên nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Ví dụ:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Chương 2: Nhà cung cấp là gì?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Nhà cung cấp là một vùng chứa thời gian chạy được đặt tên cho một trang web, công ty, trình theo dõi, bộ mẫu miền hoặc biểu thức chính quy URL. Tên nhà cung cấp là nhãn/khóa; việc so khớp được thực hiện bởi <code>domainPatterns</code> hoặc <code>urlPattern</code>, không phải theo tên nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Nhà cung cấp tối thiểu:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Điều này làm gì:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Chương 3: Trường nhà cung cấp bạn có thể sử dụng",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Các trường nhà cung cấp được <code>clearurls.js</code> chấp nhận. Để đối sánh, hãy tạo <code>domainPatterns</code> hoặc <code>urlPattern</code> với <code>indexPattern</code> tùy chọn; không dựa vào cả hai được yêu cầu cùng nhau.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Ý nghĩa đơn giản:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "Trường JSON",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Nguồn",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Bạn viết nó để làm gì",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Đặt <code>false</code> để tắt nhà cung cấp này.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs tiện ích bổ sung kế thừa và ClearURLs lõi v2 chuẩn",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Đặt <code>true</code> để chặn các miền trùng khớp thay vì chỉ dọn dẹp.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs tiện ích bổ sung kế thừa và ClearURLs lõi v2 chuẩn",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Đặt <code>true</code> để buộc chuyển hướng trang chính thông qua tab trình duyệt.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Cách được đề xuất để nói tên miền mà nhà cung cấp này phù hợp.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs tiện ích bổ sung kế thừa và ClearURLs lõi v2 chuẩn",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "Chuỗi biểu thức chính quy JavaScript để khớp URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Tùy chọn gợi ý tốc độ khi sử dụng <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs phần bổ trợ kế thừa và ClearURLs lõi v2 chuẩn; <code>$removeparam</code> là Linkumori được thêm vào đây",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Quy tắc loại bỏ tham số thông thường và quy tắc <code>$removeparam</code> của nhà cung cấp cục bộ.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs di sản bổ sung; các đối tượng kiểu kinh điển ở đây là phép cộng Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Quy tắc chỉnh sửa toàn bộ văn bản URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs di sản bổ sung; các đối tượng kiểu kinh điển ở đây là phép cộng Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Quy tắc thông số giới thiệu/tiếp thị tùy chọn.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs tiện ích bổ sung kế thừa và ClearURLs lõi v2 chuẩn; các dạng đối tượng ở đây là phép cộng Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL quy tắc biểu thức chính quy mà nhà cung cấp này không nên chạy.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Quy tắc mẫu miền mà nhà cung cấp này không nên chạy.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs di sản bổ sung; các đối tượng kiểu kinh điển ở đây là phép cộng Linkumori",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Quy tắc chuyển hướng Regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Quy tắc chuyển hướng mẫu tên miền.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs tiện ích bổ sung kế thừa và ClearURLs lõi v2 chuẩn",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Chỉ chạy cho HTTP phương pháp này.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori bổ sung",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Chỉ chạy cho các loại yêu cầu trình duyệt này.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Chương 4: Tên miền phù hợp",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> là một phần bổ sung của Linkumori và được hầu hết các nhà cung cấp tùy chỉnh ưa thích. Trong <code>clearurls.js</code>, <code>domainPatterns</code> không trống được sử dụng để khớp trước <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Kết hợp một tên miền và tất cả tên miền phụ",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Trận đấu:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Không khớp:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Khớp cùng tên trên bất kỳ hậu tố công khai nào",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Có thể phù hợp:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "So khớp tên miền phụ",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Có thể phù hợp:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Sử dụng nhiều mẫu miền",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Chương 5: Ký hiệu mẫu miền",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Đây là những ký hiệu bạn có thể sử dụng trong <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Biểu tượng",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Ý nghĩa",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Ví dụ",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Xóa",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Phù hợp tại một ranh giới tên miền.",
+  "guide_rules_name": {
+    "message": "tên tham số",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "regex tên",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "mọi tham số có toàn bộ tên khớp; <code>^…$</code> sẽ được tự động thêm vào và không phân biệt chữ hoa chữ thường",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Dấu phân cách hoặc ranh giới cuối.",
+  "guide_rules_filter": {
+    "message": "một bộ lọc <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "xem chương 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> và <code>\"$removeparam=fbclid\"</code> xóa cùng một thứ. Hãy sử dụng tên thông thường trừ khi bạn cần điều gì đó từ chương 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Ký tự đại diện.",
+  "guide_rules_part_title": {
+    "message": "Quy tắc cho một phần của nhà cung cấp",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Một tên thông thường sẽ áp dụng cho mọi URL mà nhà cung cấp khớp. Để xóa một tham số chỉ trên một số URL, hãy đặt một mẫu trước bộ lọc <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Ở đây <code>qid</code> bị xóa trên mọi trang Amazon, <code>tag</code> chỉ trên <code>amazon.de</code>, <code>sr</code> chỉ trên <code>smile.amazon</code>, và <code>ref_</code> chỉ dưới <code>/gp/</code>. Mẫu này thu hẹp các mẫu của chính nhà cung cấp; nó không thể mở rộng chúng.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Bắt đầu hoặc kết thúc neo.",
+  "guide_rp_title": {
+    "message": "5. Bộ lọc $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Một bộ lọc <code>$removeparam</code> có dạng như sau; các phần trong ngoặc là tùy chọn:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Giá trị",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript biểu thức chính quy theo nghĩa đen.",
+  "guide_rp_p2": {
+    "message": "Ký tự đầu tiên của giá trị quyết định ý nghĩa của nó:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Bộ lọc",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Mẫu phổ biến nhất:",
+  "guide_rp_v_all": {
+    "message": "mọi tham số",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Sử dụng nó khi bạn muốn:",
+  "guide_rp_v_except": {
+    "message": "mọi tham số ngoại trừ <code>ref</code> (cũng hoạt động với <code>~/regex/</code> và <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Chương 6: So khớp URLs với <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "các tham số có tên, hoặc <code>name=value</code>, khớp với biểu thức chính quy; có phân biệt chữ hoa chữ thường trừ khi bạn thêm <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Chỉ sử dụng <code>urlPattern</code> khi việc khớp tên miền là không đủ, chẳng hạn như khi nhà cung cấp phải khớp một đường dẫn cụ thể hoặc biểu thức chính quy URL đầy đủ.",
+  "guide_rp_v_prefix": {
+    "message": "các tham số có tên bắt đầu bằng <code>utm_</code>; không phân biệt chữ hoa chữ thường",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Điều này có thể phù hợp:",
+  "guide_rp_v_name": {
+    "message": "chính xác tham số đó; không phân biệt chữ hoa chữ thường trừ khi bạn thêm <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> là di sản bổ trợ ClearURLs và cú pháp chuẩn lõi v2 của ClearURLs. Linkumori chỉ thêm <code>indexPattern</code> làm gợi ý tra cứu ứng viên để các nhà cung cấp biểu thức chính quy có thể được tìm thấy bằng mã thông báo tên máy chủ nhanh hơn.",
+  "guide_rp_options_title": {
+    "message": "Tùy chọn",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Quan trọng: <code>indexPattern</code> không quyết định liệu nhà cung cấp có phù hợp hay không. Sau khi tra cứu ứng viên, <code>clearurls.js</code> vẫn kiểm tra <code>urlPattern</code> thực trong <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Các tùy chọn nằm sau giá trị, cách nhau bằng dấu phẩy. Ngăn cách nhiều giá trị của một tùy chọn bằng <code>|</code>, và đặt <code>~</code> trước một giá trị để loại trừ nó:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Chương 7: Loại bỏ các tham số truy vấn đơn giản",
+  "guide_th_option": {
+    "message": "Tùy chọn",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Đặt tên tham số vào <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "chỉ trên các trang từ những tên miền này",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Kết quả:",
+  "guide_rp_o_to": {
+    "message": "chỉ cho các yêu cầu đến những tên miền này",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Loại bỏ nhiều tham số:",
+  "guide_rp_o_method": {
+    "message": "chỉ cho các phương thức HTTP này",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Kết quả:",
+  "guide_rp_o_party": {
+    "message": "chỉ dành cho các yêu cầu đến cùng một trang web với trang hiện tại, hoặc chỉ đến các trang web khác",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Chương 8: Viết một đối tượng quy tắc",
+  "guide_rp_o_strict": {
+    "message": "tương tự, nhưng so sánh chính xác host thay vì trang web",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Thay vì một chuỗi đơn giản, một quy tắc có thể là một đối tượng.",
+  "guide_rp_o_types": {
+    "message": "chỉ dành cho các loại yêu cầu này; <code>~type</code> loại trừ một loại",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Hãy sử dụng cái này khi bạn cần:",
+  "guide_rp_o_matchcase": {
+    "message": "tên tham số phân biệt chữ hoa chữ thường",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "ID quy tắc.",
+  "guide_rp_o_history": {
+    "message": "bỏ qua bộ lọc này khi một trang tự thay đổi địa chỉ của chính nó bằng History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Bí danh.",
+  "guide_rp_p4": {
+    "message": "Mỗi tùy chọn chỉ có một cách viết. Các tùy chọn mâu thuẫn nhau, chẳng hạn như <code>first-party,third-party</code>, sẽ bị từ chối.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Ngoại lệ.",
+  "guide_rp_keep_title": {
+    "message": "Giữ lại một tham số với @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Giới hạn loại yêu cầu.",
+  "guide_rp_p5": {
+    "message": "Một bộ lọc bắt đầu bằng <code>@@</code> sẽ giữ lại tham số thay vì xóa nó. Ở đây <code>ref</code> bị xóa ở mọi nơi ngoại trừ trên GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Viết lại hành vi",
+  "guide_rp_p6": {
+    "message": "Một bộ lọc <code>@@</code> cũng bao gồm các yêu cầu được thực hiện bởi một trang mà nhà cung cấp này khớp, ngay cả khi một nhà cung cấp khác xử lý chúng.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Ví dụ bên trong một nhà cung cấp:",
+  "guide_raw_title": {
+    "message": "6. Quy tắc thô",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Kết quả:",
+  "guide_raw_p1": {
+    "message": "Một quy tắc thô là một biểu thức chính quy chạy trên toàn bộ URL; mọi kết quả khớp đều bị xóa. Sử dụng nó cho văn bản không phải là tham số <code>name=value</code>, chẳng hạn như phân đoạn đường dẫn <code>/ref=…</code> của Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> trên đối tượng quy tắc nhà cung cấp là phần bổ sung Linkumori. <code>flags: \"i\"</code> làm cho kết quả không phân biệt chữ hoa chữ thường.",
+  "guide_raw_p2": {
+    "message": "Quy tắc thô không phân biệt chữ hoa chữ thường và thay thế mọi kết quả khớp. Trong JSON, hãy viết mỗi dấu gạch chéo ngược hai lần.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Chương 9: <code>$removeparam</code> Quy tắc",
+  "guide_raw_scope_title": {
+    "message": "Chỉ trên một số URL",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Xóa một tham số",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Xóa tất cả tham số",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Xóa tham số bằng Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Xóa tất cả ngoại trừ một tham số",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Chỉ áp dụng <code>$removeparam</code> cho một tên miền",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Làm sạch:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Chưa được làm sạch:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Thêm giới hạn tên miền",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Loại trừ một tên miền:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Thêm giới hạn phương pháp",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Chỉ <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Không phải <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Chương 10: <code>$removeparam</code> Ngoại lệ",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Bắt đầu quy tắc <code>$removeparam</code> với <code>@@</code> để tạo ngoại lệ.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Ví dụ về ngoại lệ bối cảnh:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Điều này có thể bảo vệ <code>ei</code> đối với các yêu cầu phụ được bắt đầu bởi trang <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Chương 11: Viết lại giá trị tham số",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Sử dụng <code>action.type: \"rewrite\"</code> để thay thế giá trị thông số phù hợp.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Bên trong một nhà cung cấp:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Sử dụng <code>§1§</code> khi bạn muốn sử dụng lại giá trị hiện tại:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Chương 12: Quy tắc thô",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Sử dụng <code>rawRules</code> để chỉnh sửa toàn bộ văn bản URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Quy tắc thô đơn giản:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Quy tắc thô đối tượng:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Quy tắc viết lại thô:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Chương 13: Quy tắc chuyển hướng",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Sử dụng <code>redirections</code> để gửi trình duyệt tới URL mới.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Nếu thiếu <code>replacePattern</code>, nhóm chụp đầu tiên sẽ được sử dụng.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Chương 14: Quy tắc chuyển hướng tên miền",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> là Linkumori bổ sung cho các chuyển hướng mẫu tên miền đơn giản.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Bổ sung Linkumori - dạng chuỗi:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori bổ sung - dạng đối tượng:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Chương 15: Ngoại lệ",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> là ClearURLs phần bổ trợ kế thừa và cú pháp chuẩn ClearURLs lõi v2. Linkumori cũng chấp nhận các đối tượng kiểu chuẩn trong mảng nhà cung cấp cũ này.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Ví dụ:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> là phần bổ sung Linkumori cho các trường hợp ngoại lệ về mẫu miền.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Đã bỏ qua:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Chương 16: Quy tắc tiếp thị giới thiệu",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> hoạt động giống như các quy tắc hiện trường nhưng được kiểm soát bởi cài đặt tiện ích mở rộng dành cho tiếp thị giới thiệu.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Ví dụ:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Chương 17: HTTP Phương pháp",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Sử dụng <code>methods</code> để chỉ chạy một nhà cung cấp trên các phương pháp HTTP cụ thể.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Điều này chạy trên:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Điều này không chạy trên:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Chương 18: Các loại tài nguyên trình duyệt",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> là số cộng Linkumori. Sử dụng nó để chỉ chạy một nhà cung cấp trên các loại yêu cầu trình duyệt cụ thể.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Các giá trị chung:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Ví dụ:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Ý nghĩa:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Chương 19: Tiền xử lý",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Bộ tiền xử lý thay đổi các giá trị đã ghi trước khi sử dụng chúng trong <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Ví dụ:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Các loại được hỗ trợ:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> có thể là:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Chương 20: Được phép kết hợp JSON",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Chương này hiển thị Linkumori nhà cung cấp hỗn hợp JSON: ClearURLs mảng bổ trợ cũ, ClearURLs đối tượng chuẩn v2 lõi và Linkumori phần bổ sung có thể tồn tại cùng nhau trong một tệp quy tắc.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Kết hợp 1: Nhiều nhà cung cấp trong một tệp",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> là ClearURLs phần bổ trợ kế thừa và cú pháp cấp cao nhất chuẩn ClearURLs lõi v2. Linkumori giữ nguyên hình dạng đó và cho phép nhiều nhà cung cấp theo đó.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Mỗi nhà cung cấp được tải riêng biệt.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Sự kết hợp 2: Nhà cung cấp Global Defaults Plus",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> là cú pháp chuẩn ClearURLs lõi v2. Linkumori chấp nhận nó bên cạnh kiểu cũ <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Quy tắc có thể kế thừa các giá trị mặc định khi các trường đó bị thiếu trên quy tắc.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Tổ hợp 3: <code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Đây là phần bổ sung Linkumori. Hầu hết các nhà cung cấp Linkumori nên sử dụng biểu mẫu này.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Kết hợp 4: <code>urlPattern</code> Nhà cung cấp với <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> là cú pháp ClearURLs ngược dòng. <code>indexPattern</code> là gợi ý tra cứu Linkumori dành cho các nhà cung cấp URL biểu thức chính quy; nó phải trỏ đến tên máy chủ mà biểu thức chính quy có thể khớp.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> là tùy chọn nhưng hữu ích về tốc độ. Nó lập chỉ mục nhà cung cấp vào các nhóm ứng viên tên máy chủ-mã thông báo; nó không bao giờ thay thế trận đấu <code>urlPattern</code> cuối cùng.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Kết hợp 5: Không kết hợp <code>domainPatterns</code> và <code>urlPattern</code> như một yêu cầu kết hợp",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Hình dạng này có thể xuất hiện trong dữ liệu cũ hơn hoặc dữ liệu viết tay, nhưng điều đó không có nghĩa là cả hai đối sánh đều phải vượt qua:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Hành vi <code>clearurls.js</code> hiện tại:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Nếu <code>domainPatterns</code> hiện diện và không trống, <code>clearurls.js</code> sẽ sử dụng nó để khớp nhà cung cấp và bỏ qua <code>urlPattern</code> cho nhà cung cấp đó. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh từ chối các nhà cung cấp có chứa cả hai. Nếu bạn cần điều kiện đường dẫn, hãy sử dụng <code>urlPattern</code> với <code>indexPattern</code> hoặc xác định phạm vi các mục nhập quy tắc/<code>$removeparam</code> riêng lẻ bên trong <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Kết hợp 6: Hỗn hợp <code>rules[]</code> Mục nhập",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "Trong Linkumori, <code>rules</code> có thể chứa ClearURLs chuỗi cũ, Linkumori <code>$removeparam</code> chuỗi, Linkumori <code>matchPattern</code> đối tượng và ClearURLs lõi v2 các đối tượng kinh điển với nhau.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Tất cả bốn mục đều được chấp nhận.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Kết hợp 7: Đối tượng Canonical bên trong <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Các đối tượng chuẩn ClearURLs lõi v2 có thể biểu thị các loại quy tắc khác nhau. Trong ví dụ Linkumori này, chúng được đặt bên trong một nhà cung cấp sử dụng <code>domainPatterns</code>, chỉ có Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> sắp xếp chúng theo ý nghĩa:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Kết hợp 8: Mảng kế thừa Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs mảng nhà cung cấp kế thừa tiện ích bổ sung vẫn hoạt động. Linkumori cho phép các mảng đó nằm cạnh các đối tượng quy tắc chuẩn ClearURLs lõi v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Điều này là hợp lệ. Công cụ đọc tất cả các mảng này cho cùng một nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Kết hợp 9: Các phương pháp và loại tài nguyên trên toàn nhà cung cấp",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> là cú pháp ngược dòng ClearURLs. <code>resourceTypes</code> là số bổ sung Linkumori. Cả hai đều áp dụng cho toàn bộ nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Cả <code>rules</code> và <code>rawRules</code> đều bị giới hạn bởi phương thức/loại kết hợp của nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Kết hợp 10: Các loại yêu cầu cấp quy tắc",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs quy tắc chuẩn v2 cốt lõi có thể xác định cấp quy tắc <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Cấp độ nhà cung cấp <code>resourceTypes</code> thu hẹp nhà cung cấp trước tiên. Cấp quy tắc <code>requestTypes</code> sẽ thu hẹp các quy tắc riêng lẻ sau đó.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Sự kết hợp 11: Ngoại lệ ở những nơi khác nhau",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori cho phép bạn kết hợp ClearURLs ngoại lệ của nhà cung cấp, Linkumori ngoại lệ miền, ClearURLs ngoại lệ quy tắc lõi v2 và Linkumori ngoại lệ của nhà cung cấp cục bộ <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Ý nghĩa đơn giản:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Kết hợp 12: Quy tắc chặn nhà cung cấp Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> đánh dấu nhà cung cấp là hủy/chặn.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Khi tính năng chặn tên miền được bật trong cài đặt, các yêu cầu trùng khớp có thể bị chặn. Các quy tắc có thể vẫn tồn tại nhưng việc chặn là hành vi mạnh mẽ hơn đối với nhà cung cấp đó.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Kết hợp 13: Chuyển hướng nhà cung cấp cộng với quy tắc dọn dẹp",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Nhà cung cấp có thể chứa các quy tắc chuyển hướng và dọn dẹp.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Nếu chuyển hướng phù hợp, chuyển hướng sẽ được trả về trước tiên.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Kết hợp 14: Chuyển hướng tên miền cộng với chuyển hướng Regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Cả hai có thể tồn tại trong một nhà cung cấp.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Chuyển hướng Regex được kiểm tra đầu tiên. Chuyển hướng tên miền được kiểm tra nếu không có chuyển hướng biểu thức chính quy nào phù hợp.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Kết hợp 15: Quy tắc bị vô hiệu hóa hoặc không hoạt động",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Nhà cung cấp có thể không hoạt động:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Quy tắc có thể không hoạt động:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Các nhà cung cấp không hoạt động và các quy tắc không hoạt động sẽ bị bỏ qua.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Kết hợp 16: Ví dụ về nhà cung cấp hỗn hợp đầy đủ",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Ví dụ Linkumori này có chủ ý kết hợp hầu hết các tính năng của nhà cung cấp được hỗ trợ: mảng kế thừa bổ trợ ClearURLs, đối tượng quy tắc chuẩn ClearURLs lõi v2 và các tính năng mẫu miền và trình so khớp chỉ Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Đây là số hợp lệ Linkumori nhà cung cấp hỗn hợp JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Chương 21: Ví dụ hoàn chỉnh",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Ví dụ 1: Trình theo dõi cơ bản",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Ví dụ 2: Xóa tất cả tham số UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Ví dụ 3: Giữ thông số cần thiết khi đăng nhập",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Ví dụ 4: Nhấp chuột theo dõi chuyển hướng",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Kết quả:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Ví dụ 5: Yêu cầu API chỉ làm sạch",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Ý nghĩa:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Chương 22: Mẫu sao chép nhanh",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Xóa một tham số:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Loại bỏ nhiều tham số:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Sử dụng <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Xóa tất cả tham số <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Thêm một ngoại lệ:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Phù hợp với một tên miền:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Chuyển hướng trình theo dõi URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "Một quy tắc thô có thể lấy mẫu và tùy chọn của một bộ lọc <code>$removeparam</code>, với <code>rawrule=</code> ở cuối. Mọi thứ sau <code>rawrule=</code> là biểu thức chính quy:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Mẫu và tùy chọn quyết định nơi quy tắc chạy; biểu thức chính quy vẫn là thứ bị xóa. <code>match-case</code> làm cho nó phân biệt chữ hoa chữ thường.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Dừng các quy tắc thô trên một số URL",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "Một mục bắt đầu bằng <code>@@</code> sẽ ngăn các Quy tắc thô chạy khi mẫu của nó khớp. Hãy cung cấp cho Quy tắc thô một <code>id</code> và đặt tên cho nó bằng <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Khi không có gì sau <code>rawrule=</code> và không có <code>targetId</code>, mục này sẽ dừng mọi Quy tắc thô của nhà cung cấp trên những URL đó. Để bỏ qua toàn bộ nhà cung cấp, hãy sử dụng <code>exceptions</code> thay thế.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Ngoại lệ",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Nếu một URL khớp với một mục trong <code>exceptions</code>, không có quy tắc nào của nhà cung cấp được chạy. Một mục là một biểu thức chính quy, hoặc một mẫu tên miền bắt đầu bằng <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Ngoại lệ không phân biệt chữ hoa chữ thường.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Chuyển hướng",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Các quy tắc Chuyển hướng bỏ qua các trang theo dõi bằng cách đi thẳng đến đích thực sự. Chúng chỉ chạy khi <em>Kích hoạt tính năng bỏ qua chuyển hướng của bên thứ ba</em> được bật.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Chuyển hướng đến một phần của URL",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "Một mục trong <code>redirections</code> là một biểu thức chính quy với chính xác một nhóm thu thập, <code>( … )</code>. Yêu cầu sẽ đi đến nội dung mà nhóm đó thu thập được, đã được giải mã URL. Viết bất kỳ nhóm nào khác dưới dạng <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Chuyển hướng đến một địa chỉ cố định",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "Một mục bắt đầu bằng <code>|</code> sẽ gửi mọi URL khớp đến một địa chỉ duy nhất:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Chuyển hướng đến giá trị của một tham số",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> đặt tên cho tham số chứa đích đến, vì vậy không cần biểu thức chính quy. Nó chấp nhận các mục tương tự như <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Tham số khớp đầu tiên có giá trị sẽ được ưu tiên. Một lệnh chuyển hướng sẽ dừng mọi quá trình xử lý khác cho yêu cầu đó.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Đối tượng quy tắc",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Bất kỳ mục nào cũng có thể là một đối tượng thay vì một chuỗi. Hãy sử dụng đối tượng khi một quy tắc cần một id, nên bắt đầu ở trạng thái tắt, nên ghi đè thay vì xóa, hoặc chỉ nên chạy trong một số trường hợp:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Khóa",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "văn bản bạn sẽ viết dưới dạng một mục nhập thông thường",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "một tên ổn định (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) được dùng để bật và tắt quy tắc",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "các id trước đó của quy tắc, để một quy tắc bạn đã tắt vẫn giữ trạng thái tắt sau khi đổi tên",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "viết lại thay vì xóa; <code>§1§</code>, <code>§2§</code>, … là các giá trị được thu thập",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "thay đổi các giá trị được thu thập trước",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "chỉ dành cho các loại yêu cầu này, ví dụ <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "các URL mà quy tắc này không chạy",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "các cờ biểu thức chính quy, dưới dạng một chuỗi (mặc định <code>i</code>; <code>gi</code> trong <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "chạy quy tắc sớm hơn hoặc muộn hơn",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: một quy tắc trong <code>rules</code> được tính là một quy tắc tiếp thị giới thiệu",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: bỏ qua quy tắc này khi một trang thay đổi địa chỉ của chính nó bằng History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: quy tắc bắt đầu ở trạng thái tắt",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "văn bản tự do",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "chỉ dành cho các mục nhập <code>@@…$rawrule=</code>: Quy tắc thô mà nó ngăn chặn",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Viết lại thay vì xóa",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Với <code>replacePattern</code>, một quy tắc trong <code>rules</code> sẽ giữ lại tham số và thay thế giá trị của nó, tức là <code>§1§</code>. Trong <code>rawRules</code> và <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … là các nhóm thu thập (capture groups):",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Bộ tiền xử lý",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Bộ tiền xử lý thay đổi các giá trị thu thập được trước khi <code>replacePattern</code> sử dụng chúng. <code>inputs</code> là <code>\"all\"</code> hoặc một danh sách các số nhóm:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Các loại bao gồm <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> và <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID quy tắc",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Mỗi quy tắc đều có một ID. Một quy tắc không có <code>id</code> sẽ được cấp một ID từ danh sách và văn bản của nó: <code>\"utm_source\"</code> trong <code>rules</code> trở thành <code>field-utm-source</code>. Nếu hai quy tắc có cùng ID, cả hai sẽ được thêm một mã hash ngắn ở cuối.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Một ID được tạo tự động sẽ thay đổi khi văn bản của quy tắc thay đổi. Hãy cấp cho quy tắc một <code>id</code> riêng khi nó cần giữ cài đặt bật/tắt thông qua các lần chỉnh sửa.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Chạy một quy tắc sớm hơn hoặc muộn hơn",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Quy tắc thô thường chạy trước, sau đó đến <code>rules</code> và <code>referralMarketing</code>. Một quy tắc có <code>order</code> sẽ chạy trước các quy tắc không có, theo thứ tự thấp nhất trước. Ở đây, token được thay thế trước, sau đó mới bị xóa:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> hoạt động trong <code>rules</code>, <code>rawRules</code> và <code>referralMarketing</code>, nhưng không hoạt động trên các bộ lọc <code>$removeparam</code>, vốn luôn chạy cuối cùng.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Tiếp thị giới thiệu",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> nhận các mục nhập tương tự như <code>rules</code>. Chúng sẽ bị bỏ qua khi <em>Cho phép tiếp thị giới thiệu</em> được bật, vì vậy các liên kết tiếp thị liên kết vẫn hoạt động nếu bạn muốn:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Một quy tắc có thể nằm trong <code>rules</code> mà vẫn được tính là tiếp thị giới thiệu, với <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Phương thức và loại yêu cầu",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Những điều này thu hẹp thời điểm một nhà cung cấp hoặc một quy tắc chạy:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "hành vi clearurls.js: nếu domainPatterns tồn tại và không trống, Linkumori sẽ sử dụng domainPatterns để so khớp nhà cung cấp. urlPattern chỉ được sử dụng khi domainPatterns bị thiếu hoặc trống. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh từ chối hình dạng so khớp hỗn hợp này, vì vậy chỉ sử dụng nó để hiểu dữ liệu cũ.",
+  "guide_req_methods": {
+    "message": "Các phương thức HTTP mà nhà cung cấp xử lý",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "các loại yêu cầu mà nhà cung cấp xử lý",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "các loại yêu cầu mà một đối tượng quy tắc xử lý",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "tương tự đối với một bộ lọc <code>$removeparam</code> hoặc Quy tắc thô",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Các loại yêu cầu sử dụng tên của trình duyệt: <code>main_frame</code> (một trang), <code>sub_frame</code> (một khung), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> và tương tự. Các tùy chọn bộ lọc gọi hai loại đầu tiên là <code>document</code> và <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Cách một URL được xử lý",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Đối với mỗi nhà cung cấp khớp với URL và cho phép yêu cầu:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: nếu một cái khớp, nhà cung cấp sẽ bị bỏ qua.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, sau đó đến <code>fieldRedirections</code>: một kết quả khớp sẽ Chuyển hướng yêu cầu, và không có gì khác chạy.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: yêu cầu bị chặn.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> chạy trên toàn bộ URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> và <code>referralMarketing</code> loại bỏ các tham số.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Các bộ lọc <code>$removeparam</code> chạy, ngoại trừ trường hợp một bộ lọc <code>@@</code> giữ lại tham số.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Nhà cung cấp đầu tiên thay đổi, chuyển hướng hoặc chặn yêu cầu sẽ quyết định kết quả. URL mới sau đó sẽ trải qua các bước tương tự một lần nữa.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Các ví dụ hoàn chỉnh",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Làm sạch một cửa hàng",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Loại bỏ các tham số theo dõi và id tiếp thị liên kết trên một cửa hàng, và giữ nguyên các trang thanh toán của cửa hàng đó:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Xóa các tham số UTM ở mọi nơi",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Mẫu <code>*</code> khớp với mọi URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Bỏ qua trình theo dõi lượt nhấp",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Gửi các liên kết thông qua trình theo dõi lượt nhấp thẳng đến điểm đến của chúng, nằm trong tham số <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Giữ một tham số trên một trang",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Xóa <code>ref</code> ở mọi nơi trên trang web ngoại trừ trang đăng nhập, nơi cần tham số này:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Kiểm tra các quy tắc của bạn",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Trình chỉnh sửa Quy tắc tùy chỉnh sẽ kiểm tra các quy tắc khi bạn lưu hoặc nhập chúng. Ngoài JSON bị lỗi và các biểu thức chính quy không hợp lệ, nó sẽ từ chối các quy tắc có thể tải được nhưng lại hoạt động sai một cách âm thầm, chẳng hạn như:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> và <code>urlPattern</code> trên một nhà cung cấp",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "một mẫu chỉ có một <code>|</code> và không có scheme, chẳng hạn như <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "một Chuyển hướng bằng biểu thức chính quy mà không có chính xác một nhóm thu thập (capture group)",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "các trường, khóa và tùy chọn không xác định",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> hoặc <code>referralMarketing</code> ở nơi mà nó không có tác dụng gì",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "một mục <code>@@…$rawrule=</code> không ngăn chặn bất kỳ Quy tắc thô nào",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Nếu lưu thất bại, thông báo sẽ nêu tên nhà cung cấp, danh sách và mục bị lỗi.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

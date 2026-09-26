@@ -4727,1688 +4727,704 @@
     "message": "Controalele ID-ului regulilor sunt disponibile odată ce furnizorul JSON este valid.",
     "description": "Stare JSON nevalidă pentru controalele pentru codul de reguli ale furnizorului"
   },
-  "guide_0001": {
-    "message": "Linkumori Extensie — Documentația regulilor",
+  "guide_page_title": {
+    "message": "Linkumori — Ghid de reguli",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Temă",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Furnizor JSON Format",
+  "guide_toc_label": {
+    "message": "Cuprins",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Furnizor JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Capitolul 1: Forma de bază JSON",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Capitolul 2: Ce este un furnizor?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Capitolul 3: Câmpurile furnizorului pe care le puteți utiliza",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Capitolul 4: Domenii potrivite",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Potriviți un domeniu și toate subdomeniile",
+  "guide_title": {
+    "message": "Scrierea regulilor Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Potriviți același nume pe orice sufix public",
+  "guide_intro_1": {
+    "message": "Linkumori curăță URL-urile folosind reguli. Acest ghid îți arată cum să le scrii, de la prima regulă până la fiecare opțiune, cu exemple pe care le poți copia.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Potriviți subdomeniile",
+  "guide_intro_2": {
+    "message": "Regulile sunt JSON. Le scrii în editorul de Reguli personalizate, care le verifică atunci când salvezi. Lista de reguli inclusă și listele de reguli remote folosesc același format.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Utilizați mai mult de un model de domeniu",
+  "guide_file_title": {
+    "message": "1. Fișierul de reguli",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Capitolul 5: Simboluri de model de domeniu",
+  "guide_file_p1": {
+    "message": "Un fișier de reguli este un singur obiect JSON. Obiectul său <code>providers</code> mapează un nume ales de tine către un Furnizor:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Capitolul 6: Potrivirea URLs cu urlPattern",
+  "guide_file_p2": {
+    "message": "Un Furnizor specifică ce URL-uri gestionează și ce trebuie făcut cu ele. Acesta elimină <code>utm_source</code> și <code>utm_medium</code> din fiecare URL de pe <code>example.com</code> și subdomeniile sale:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Capitolul 7: Eliminarea parametrilor de interogare simplă",
+  "guide_file_p3": {
+    "message": "Numele este doar o etichetă. URL-urile pe care un Furnizor le gestionează sunt decise de <code>domainPatterns</code> sau <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Capitolul 8: Scrieți un obiect de regulă",
+  "guide_fields_title": {
+    "message": "2. Câmpurile Furnizorului",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Capitolul 9: Reguli $removeparam",
+  "guide_th_field": {
+    "message": "Câmp",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Eliminați un parametru",
+  "guide_th_meaning": {
+    "message": "Ce face",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Eliminați toți parametrii",
+  "guide_field_domainpatterns": {
+    "message": "Care URL-uri sunt gestionate de furnizor, ca modele de domeniu (capitolul 3). Utilizați acesta sau <code>urlPattern</code>, niciodată ambele.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Eliminați parametrii prin Regex",
+  "guide_field_urlpattern": {
+    "message": "Care URL-uri sunt gestionate de furnizor, ca o expresie regulată comparată cu URL-ul complet. Cazul literelor este ignorat.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Eliminați toate, cu excepția unui parametru",
+  "guide_field_indexpattern": {
+    "message": "Doar cu <code>urlPattern</code>: sugestii de gazdă precum <code>||example.com^</code>, astfel încât furnizorul să fie verificat doar pentru acele gazde. Fără acesta, furnizorul este verificat pentru fiecare URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Aplicați $removeparam numai unui domeniu",
+  "guide_field_rules": {
+    "message": "Parametri de eliminat (capitolele 4 și 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Adăugați limite de domeniu",
+  "guide_field_referral": {
+    "message": "Parametri de referire și afiliere de eliminat. Aceștia sunt omisiuni în timp ce <em>Permiteți marketingul de recomandare</em> este activat (capitolul 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Adăugați limite de metodă",
+  "guide_field_rawrules": {
+    "message": "Expresii regulate executate pe URL-ul complet; fiecare potrivire este ștearsă (capitolul 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Capitolul 10: $removeparam Excepții",
+  "guide_field_exceptions": {
+    "message": "URL-uri pe care furnizorul le lasă neschimbate (capitolul 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Capitolul 11: Rescrieți valorile parametrilor",
+  "guide_field_redirections": {
+    "message": "Unde să trimită cererea în schimb (capitolul 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Capitolul 12: Reguli brute",
+  "guide_field_fieldredirections": {
+    "message": "Redirecționare către valoarea unui parametru (capitolul 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Capitolul 13: Reguli de redirecționare",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> blochează fiecare cerere pe care furnizorul o potrivește, în timp ce <em>Permite blocarea domeniului</em> este activat.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Capitolul 14: Reguli de redirecționare a domeniului",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: când o pagină este redirecționată, fila deschide noua adresă.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Capitolul 15: Excepții",
+  "guide_field_methods": {
+    "message": "Gestionați doar aceste metode HTTP, de exemplu <code>[\"GET\"]</code>. Implicit: toate.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Capitolul 16: Reguli de marketing de recomandare",
+  "guide_field_resourcetypes": {
+    "message": "Gestionați doar aceste tipuri de cereri, de exemplu <code>[\"main_frame\"]</code>. Implicit: tipurile alese în setări.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Capitolul 17: HTTP Metode",
+  "guide_field_history": {
+    "message": "<code>false</code> sare peste furnizor atunci când o pagină își schimbă propria adresă cu History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Capitolul 18: Tipuri de resurse ale browserului",
+  "guide_field_active": {
+    "message": "<code>false</code> oprește Furnizorul.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Capitolul 19: Preprocesoare",
+  "guide_match_title": {
+    "message": "3. Ce URL-uri gestionează un Furnizor",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Capitolul 20: Combinații permise JSON",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> este o listă de modele de domenii. Un URL corespunde dacă oricare dintre acestea se potrivește:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Combinația 1: mulți furnizori într-un singur fișier",
+  "guide_th_pattern": {
+    "message": "Model",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Combinația 2: Global Defaults Plus Furnizori",
+  "guide_th_matches": {
+    "message": "Corespondențe",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Combinația 3: furnizor de domainPatterns",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> și orice subdomeniu",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Combinația 4: furnizor de urlPattern cu indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> pe orice sufix public (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Combinația 5: domainPatterns și urlPattern împreună",
+  "guide_pat_path": {
+    "message": "acel host și subdomeniile sale, atunci când calea începe cu <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Combinația 6: Reguli mixte[] Intrări",
+  "guide_pat_star": {
+    "message": "la fel ca <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Combinația 7: Obiecte canonice în interiorul regulilor[]",
+  "guide_pat_start": {
+    "message": "URL-uri care încep exact cu acest text",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Combinația 8: Legacy Arrays Plus reguli canonice[]",
+  "guide_pat_end": {
+    "message": "URL-uri care se termină exact cu acest text",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Combinația 9: Metode și tipuri de resurse la nivel de furnizor",
+  "guide_pat_regex": {
+    "message": "URL-ul complet, ca expresie regulată (case-sensitive, cu excepția cazului în care adăugați <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Combinația 10: Tipuri de solicitare la nivel de regulă",
+  "guide_pat_contains": {
+    "message": "URL-uri care conțin acest text oriunde",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Combinația 11: Excepții în diferite locuri",
+  "guide_pat_all": {
+    "message": "orice URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Combinația 12: Blocarea regulilor furnizorului Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> marchează sfârșitul numelui host-ului sau un separator precum <code>/</code>, <code>?</code> sau <code>:</code>. <code>*</code> corespunde oricărui element. Cu excepția lui <code>/regex/</code>, modelele ignoră literele mari/mici.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Combinația 13: Redirect Provider Plus reguli de curățare",
+  "guide_match_p3": {
+    "message": "<code>||</code> reprezintă un domeniu, în timp ce un singur <code>|</code> reprezintă începutul URL-ului și trebuie să fie urmat de o schemă precum <code>https://</code>. <code>|example.com^</code> nu poate corespunde niciodată, deci editorul îl respinge.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Combinația 14: redirecționări de domeniu plus redirecționări regex",
+  "guide_match_p4": {
+    "message": "Pentru a potrivi cu o expresie regulată în schimb, folosiți <code>urlPattern</code> și adăugați <code>indexPattern</code> astfel încât furnizorul să fie verificat doar pe acele gazde:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Combinația 15: Reguli dezactivate sau inactive",
+  "guide_match_p5": {
+    "message": "Un furnizor are <code>domainPatterns</code> sau <code>urlPattern</code>, niciodată ambele. Dacă aveți nevoie de ambele tipuri de potrivire, creați două furnizori.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Combinația 16: Exemplu de furnizor complet mixt",
+  "guide_rules_title": {
+    "message": "4. Eliminarea parametrilor",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Capitolul 21: Exemple complete",
+  "guide_rules_p1": {
+    "message": "Fiecare intrare din <code>rules</code> elimină parametrii din interogare (<code>?a=1</code>) și din fragment (<code>#a=1</code>). O intrare este una dintre:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Exemplul 1: Cleaner de bază pentru urmăritori",
+  "guide_th_entry": {
+    "message": "Intrare",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Exemplul 2: Eliminați toți parametrii UTM",
-    "description": "Guide page text."
-  },
-  "guide_0072": {
-    "message": "Exemplul 3: Păstrați un parametru necesar la conectare",
-    "description": "Guide page text."
-  },
-  "guide_0073": {
-    "message": "Exemplul 4: Redirecționarea clicurilor de urmărire",
-    "description": "Guide page text."
-  },
-  "guide_0074": {
-    "message": "Exemplul 5: Curățați numai solicitări API",
-    "description": "Guide page text."
-  },
-  "guide_0075": {
-    "message": "Capitolul 22: Șabloane de copiere rapidă",
-    "description": "Guide page text."
-  },
-  "guide_0108": {
-    "message": "Linkumori Furnizor mixt JSON Ghid de format",
-    "description": "Guide page text."
-  },
-  "guide_0109": {
-    "message": "Acest ghid explică cum să scrieți date furnizorului JSON pe care <code>Linkumori extension</code> le poate citi.",
-    "description": "Guide page text."
-  },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Nu este un ghid pentru codul JavaScript. Se concentrează numai pe formele JSON, formatele de reguli și exemplele de care au nevoie autorii de reguli.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Acest ghid se bazează pe comportamentul curent de rulare <code>clearurls.js</code>. În special, căutarea furnizorului folosește segmente de candidat <code>providersByToken</code> de la <code>domainPatterns</code> sau <code>indexPattern</code>, iar potrivirea finală se desfășoară în continuare prin <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Capitolul 1: Forma de bază JSON",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> așteaptă datele furnizorului în această formă generală:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Partea importantă este <code>providers</code>. Fiecare cheie din interiorul <code>providers</code> este un nume de furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "Exemplu:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Capitolul 2: Ce este un furnizor?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Un furnizor este un container numit runtime pentru un site web, companie, tracker, set de modele de domeniu sau expresie regex URL. Numele furnizorului este o etichetă/cheie; potrivirea se face de <code>domainPatterns</code> sau <code>urlPattern</code>, nu de numele furnizorului.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Furnizor minim:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Ce face asta:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Capitolul 3: Câmpurile furnizorului pe care le puteți utiliza",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Câmpurile furnizorului sunt acceptate de <code>clearurls.js</code>. Pentru potrivire, creați fie <code>domainPatterns</code>, fie <code>urlPattern</code> cu <code>indexPattern</code> opțional; nu vă bazați că ambele sunt solicitate împreună.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Sens simplu:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON câmp",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Sursa",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Pentru ce scrii",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Setați <code>false</code> pentru a dezactiva acest furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Setați <code>true</code> pentru a bloca domeniile care se potrivesc în loc să curățați numai.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Setați <code>true</code> pentru a forța redirecționarea paginii principale prin fila browser.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Mod recomandat de a spune cu ce domenii se potrivește acest furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "JavaScript șir regex pentru potrivirea URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Indicație opțională de viteză când utilizați <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical; <code>$removeparam</code> este Linkumori adăugare aici",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Reguli normale de eliminare a parametrilor și regulile locale de furnizor <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs addon legacy; obiectele în stil canonic aici sunt Linkumori plus",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Reguli care editează întregul text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs addon legacy; obiectele în stil canonic aici sunt Linkumori plus",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Reguli opționale de recomandare/parametru de marketing.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs addon legacy și ClearURLs core v2 canonical; formele de obiect aici sunt Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL reguli regex în care acest furnizor nu ar trebui să ruleze.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Reguli de model de domeniu în care acest furnizor nu ar trebui să ruleze.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs addon legacy; obiectele în stil canonic aici sunt Linkumori plus",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Regul de redirecționare regex.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Reguli de redirecționare a modelului de domeniu.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Rulați doar pentru aceste metode HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori adaos",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Rulați numai pentru aceste tipuri de solicitări de browser.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Capitolul 4: Domenii potrivite",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> este o completare Linkumori și este preferată pentru majoritatea furnizorilor personalizați. În <code>clearurls.js</code>, <code>domainPatterns</code> non-vide sunt utilizate pentru potrivire înainte de <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Potriviți un domeniu și toate subdomeniile",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Meciuri:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Nu se potrivește cu:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Potriviți același nume pe orice sufix public",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Se poate potrivi:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Potriviți subdomeniile",
-    "description": "Guide page text."
-  },
-  "guide_0182": {
-    "message": "Se poate potrivi:",
-    "description": "Guide page text."
-  },
-  "guide_0183": {
-    "message": "Utilizați mai mult de un model de domeniu",
-    "description": "Guide page text."
-  },
-  "guide_0184": {
-    "message": "Capitolul 5: Simboluri de model de domeniu",
-    "description": "Guide page text."
-  },
-  "guide_0185": {
-    "message": "Acestea sunt simbolurile pe care le puteți folosi în <code>domainPatterns</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0186": {
-    "message": "Simbol",
-    "description": "Guide page text."
-  },
-  "guide_0187": {
-    "message": "Înțeles",
-    "description": "Guide page text."
-  },
-  "guide_0188": {
+  "guide_th_example": {
     "message": "Exemplu",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_removes": {
+    "message": "Elimină",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Se potrivește la granița unui domeniu.",
+  "guide_rules_name": {
+    "message": "un nume de parametru",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_regex": {
+    "message": "o expresie regulată pentru nume",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rules_regex_removes": {
+    "message": "orice parametru al cărui nume complet se potrivește; <code>^…$</code> este adăugat automat, iar literele mari/mici sunt ignorate",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Separator sau limită de capăt.",
+  "guide_rules_filter": {
+    "message": "un filtru <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rules_filter_removes": {
+    "message": "vezi capitolul 5",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> și <code>\"$removeparam=fbclid\"</code> elimină același lucru. Folosiți numele simplu decât dacă aveți nevoie de ceva din capitolul 5.",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Wildcard.",
+  "guide_rules_part_title": {
+    "message": "Reguli pentru o parte a unui furnizor",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_rules_p3": {
+    "message": "Un nume simplu se aplică fiecărui URL pe care furnizorul îl potrivește. Pentru a elimina un parametru doar de pe unele dintre acestea, puneți un model în fața unui filtru <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rules_p4": {
+    "message": "Aici <code>qid</code> este eliminat pe fiecare site Amazon, <code>tag</code> doar pe <code>amazon.de</code>, <code>sr</code> doar pe <code>smile.amazon</code> și <code>ref_</code> doar sub <code>/gp/</code>. Modelul restrânge propriile modele ale furnizorului; acesta nu le poate extinde.",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Începe sau termină ancora.",
+  "guide_rp_title": {
+    "message": "5. Filtre $removeparam",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_p1": {
+    "message": "Un filtru <code>$removeparam</code> are această formă; părțile din paranteze sunt opționale:",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_value_title": {
+    "message": "Valoarea",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "JavaScript regex literal.",
+  "guide_rp_p2": {
+    "message": "Primul caracter al valorii decide semnificația acesteia:",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_th_filter": {
+    "message": "Filtrează",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Cel mai frecvent model:",
+  "guide_rp_v_all": {
+    "message": "fiecare parametru",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Folosește-l când vrei:",
+  "guide_rp_v_except": {
+    "message": "fiecare parametru cu excepția <code>ref</code> (funcționează și cu <code>~/regex/</code> și <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Capitolul 6: Potrivirea URLs cu <code>urlPattern</code>",
+  "guide_rp_v_regex": {
+    "message": "parametrii al căror nume, sau <code>name=value</code>, corespunde expresiei regulate; majusculele contează decât dacă adăugați <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Utilizați <code>urlPattern</code> numai atunci când potrivirea domeniului nu este suficientă, cum ar fi atunci când furnizorul trebuie să se potrivească cu o anumită cale sau cu expresia regex URL completă.",
+  "guide_rp_v_prefix": {
+    "message": "parametrii al căror nume începe cu <code>utm_</code>; majusculele sunt ignorate",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Aceasta se poate potrivi cu:",
+  "guide_rp_v_name": {
+    "message": "exact acel parametru; majusculele sunt ignorate decât dacă adăugați <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> este suplimentul moștenit ClearURLs și sintaxa canonică de bază ClearURLs v2. Linkumori adaugă <code>indexPattern</code> doar ca un indiciu de căutare a candidaților, astfel încât furnizorii de expresii regex să poată fi găsiți mai rapid după jetoanele de nume de gazdă.",
+  "guide_rp_options_title": {
+    "message": "Opțiuni",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Important: <code>indexPattern</code> nu decide dacă un furnizor se potrivește. După căutarea candidatului, <code>clearurls.js</code> încă testează <code>urlPattern</code> real în <code>provider.matchRequestURL()</code>.",
+  "guide_rp_p3": {
+    "message": "Opțiunile vin după valoare, separate prin virgule. Separați mai multe valori ale unei singure opțiuni cu <code>|</code> și puneți <code>~</code> în fața unei valori pentru a o exclude:",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Capitolul 7: Eliminarea parametrilor de interogare simplă",
+  "guide_th_option": {
+    "message": "Opțiune",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Introduceți numele parametrilor în <code>rules</code>.",
+  "guide_rp_o_domain": {
+    "message": "doar pe paginile de la aceste domenii",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Rezultat:",
+  "guide_rp_o_to": {
+    "message": "doar pentru cererile către aceste domenii",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Eliminați mulți parametri:",
+  "guide_rp_o_method": {
+    "message": "doar pentru aceste metode HTTP",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Rezultat:",
+  "guide_rp_o_party": {
+    "message": "doar pentru cererile către același site ca pagina, sau doar către alte site-uri",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Capitolul 8: Scrieți un obiect de regulă",
+  "guide_rp_o_strict": {
+    "message": "la fel, dar comparând host-ul exact în loc de site",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "În loc de un șir simplu, o regulă poate fi un obiect.",
+  "guide_rp_o_types": {
+    "message": "doar pentru aceste tipuri de cereri; <code>~type</code> exclude unul",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Folosește-l când ai nevoie de:",
+  "guide_rp_o_matchcase": {
+    "message": "numele parametrilor sunt case-sensitive",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Un ID de regulă.",
+  "guide_rp_o_history": {
+    "message": "sari peste acest filtru atunci când o pagină își schimbă propria adresă cu History API",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Aliasuri.",
+  "guide_rp_p4": {
+    "message": "Fiecare opțiune are o singură ortografie. Opțiunile contradictorii, cum ar fi <code>first-party,third-party</code>, sunt respinse.",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Excepții.",
+  "guide_rp_keep_title": {
+    "message": "Păstrarea unui parametru cu @@",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Limite de tip de solicitare.",
+  "guide_rp_p5": {
+    "message": "Un filtru care începe cu <code>@@</code> păstrează parametrul în loc să îl elimine. Aici <code>ref</code> este eliminat peste tot, cu excepția GitHub:",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Rescrie comportamentul.",
+  "guide_rp_p6": {
+    "message": "Un filtru <code>@@</code> acoperă și cererile efectuate de o pagină pe care acest Furnizor o potrivește, chiar și atunci când alt Furnizor le gestionează.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Exemplu în interiorul unui furnizor:",
+  "guide_raw_title": {
+    "message": "6. Reguli brute",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Rezultat:",
+  "guide_raw_p1": {
+    "message": "O regulă brută este o expresie regulată rulată pe URL-ul complet; fiecare potrivire este ștearsă. Folosiți-o pentru text care nu este un parametru <code>name=value</code>, cum ar fi segmentul de cale <code>/ref=…</code> de la Amazon:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> pe obiectele regulii furnizorului este o adăugare Linkumori. <code>flags: \"i\"</code> face ca meciul să nu țină seama de majuscule și minuscule.",
+  "guide_raw_p2": {
+    "message": "Regulile brute ignoră literele mari/mici și înlocuiesc fiecare potrivire. În JSON, scrieți fiecare backslash de două ori.",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Capitolul 9: <code>$removeparam</code> Reguli",
+  "guide_raw_scope_title": {
+    "message": "Doar pe unele URL-uri",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Eliminați un parametru",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Eliminați toți parametrii",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Eliminați parametrii prin Regex",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Eliminați toate, cu excepția unui parametru",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Aplică <code>$removeparam</code> doar pentru un singur domeniu",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Curățat:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Necurățat:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Adăugați limite de domeniu",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Excludeți un domeniu:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Adăugați limite de metodă",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Doar <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Nu <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Capitolul 10: <code>$removeparam</code> Excepții",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Începeți o regulă <code>$removeparam</code> cu <code>@@</code> pentru a face o excepție.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Exemplu de excepție de context:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Acest lucru poate proteja <code>ei</code> pe subcereri începute de o pagină <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Capitolul 11: Rescrieți valorile parametrilor",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Utilizați <code>action.type: \"rewrite\"</code> pentru a înlocui o valoare a parametrului care se potrivește.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "În interiorul unui furnizor:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Utilizați <code>§1§</code> când doriți să reutilizați valoarea curentă:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Capitolul 12: Reguli brute",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Folosiți <code>rawRules</code> pentru a edita întregul text URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Regula brută simplă:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Regula brută a obiectului:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Regula de rescriere brută:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Capitolul 13: Reguli de redirecționare",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Utilizați <code>redirections</code> pentru a trimite browserul la un nou URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Dacă lipsește <code>replacePattern</code>, se folosește primul grup de captură.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Capitolul 14: Reguli de redirecționare a domeniului",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> este o adăugare Linkumori pentru redirecționări simple cu model de domeniu.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori adăugare — formă de șir:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori adăugare — formă obiect:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Capitolul 15: Excepții",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> este ClearURLs supliment moștenit și ClearURLs core v2 sintaxă canonică. Linkumori acceptă și obiecte în stil canonic în această matrice de furnizori moșteniți.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "Exemplu:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> este o adăugare Linkumori pentru excepțiile de tip de domeniu.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Omis:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Capitolul 16: Reguli de marketing de recomandare",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> funcționează ca regulile de câmp, dar este controlat de setarea extensiei pentru marketing de recomandare.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "Exemplu:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Capitolul 17: HTTP Metode",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Utilizați <code>methods</code> pentru a rula un furnizor numai pe anumite metode HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Aceasta rulează pe:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Aceasta nu rulează pe:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Capitolul 18: Tipuri de resurse ale browserului",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> este o adăugare Linkumori. Utilizați-l pentru a rula un furnizor numai pentru anumite tipuri de solicitări de browser.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Valori comune:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "Exemplu:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Înțeles:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Capitolul 19: Preprocesoare",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Preprocesoarele modifică valorile capturate înainte de a le folosi în <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "Exemplu:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Tipuri acceptate:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> poate fi:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Capitolul 20: Combinații permise JSON",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "Acest capitol prezintă Linkumori furnizor mixt JSON: ClearURLs suplimente moștenite, ClearURLs obiecte canonice de bază v2 și Linkumori pot exista împreună într-un fișier de adăugiri.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Combinația 1: mulți furnizori într-un singur fișier",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> este ClearURLs supliment moștenit și ClearURLs core v2 sintaxă canonică de nivel superior. Linkumori păstrează această formă și permite multor furnizori sub ea.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Fiecare furnizor este încărcat separat.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Combinația 2: Global Defaults Plus Furnizori",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> este ClearURLs core v2 sintaxă canonică. Linkumori îl acceptă pe lângă stilul vechi <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Regulile pot moșteni valori implicite atunci când acele câmpuri lipsesc în regulă.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Combinația 3: <code>domainPatterns</code> Furnizor",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Aceasta este o adăugare Linkumori. Majoritatea furnizorilor Linkumori ar trebui să utilizeze acest formular.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Combinația 4: <code>urlPattern</code> Furnizor cu <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> este sintaxa ClearURLs în amonte. <code>indexPattern</code> este un indiciu de căutare Linkumori pentru furnizorii de URL-uri regex; ar trebui să indice numele de gazdă cu care regex le poate potrivi.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> este opțional, dar util pentru viteză. Acesta indexează furnizorul în găleți candidate pentru nume de gazdă; nu înlocuiește niciodată meciul final <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Combinația 5: nu amestecați <code>domainPatterns</code> și <code>urlPattern</code> ca o cerință combinată",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Această formă poate apărea în date mai vechi sau scrise de mână, dar nu înseamnă că ambele potriviri trebuie să treacă:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Comportamentul actual al <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Dacă <code>domainPatterns</code> este prezent și nu este gol, <code>clearurls.js</code> îl folosește pentru potrivirea furnizorului și ignoră <code>urlPattern</code> pentru furnizorul respectiv. Editorul personalizat/calea de import respinge furnizorii care le conțin pe ambii. Dacă aveți nevoie de o condiție de cale, utilizați <code>urlPattern</code> cu <code>indexPattern</code> sau acoperiți intrările individuale <code>$removeparam</code>/regulă în <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Combinația 6: Mixte <code>rules[]</code> intrări",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "În Linkumori, <code>rules</code> poate conține ClearURLs șiruri vechi, Linkumori <code>$removeparam</code> șiruri, Linkumori obiecte 6503 și 92803 ClearURLs core v2 obiecte canonice împreună.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Toate cele patru intrări sunt acceptate.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Combinația 7: Obiecte canonice din interior <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "ClearURLs obiectele canonice core v2 pot reprezenta diferite tipuri de reguli. În acest exemplu Linkumori, acestea sunt plasate într-un furnizor care utilizează <code>domainPatterns</code>, care este doar Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> sortează acestea după semnificația:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Combinația 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs matricele de furnizori vechi de supliment încă funcționează. Linkumori permite acelor matrice să stea lângă ClearURLs obiecte de reguli canonice de bază v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Acest lucru este valabil. Motorul citește toate aceste matrice pentru același furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Combinația 9: Metode și tipuri de resurse la nivel de furnizor",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> este sintaxa ClearURLs în amonte. <code>resourceTypes</code> este o adăugare Linkumori. Ambele se aplică întregului furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "Atât <code>rules</code>, cât și <code>rawRules</code> sunt limitate de potrivirea metodei/tipului furnizorului.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Combinația 10: Tipuri de solicitare la nivel de regulă",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "ClearURLs regulile canonice de bază v2 pot defini nivelul de regulă <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "La nivel de furnizor <code>resourceTypes</code> restrânge mai întâi furnizorul. Nivelul de regulă <code>requestTypes</code> restrânge regulile individuale după aceea.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Combinația 11: Excepții în diferite locuri",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori vă permite să combinați ClearURLs excepții de la furnizor, Linkumori excepții de domeniu, ClearURLs excepții de la regulile de bază v2 și Linkumori excepții de la furnizorul local Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Sens simplu:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Combinația 12: Blocarea regulilor furnizorului Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> marchează un furnizor ca anulare/blocare.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Când blocarea domeniului este activată în setări, solicitările de potrivire pot fi blocate. S-ar putea să mai existe reguli, dar blocarea este comportamentul mai puternic al furnizorului respectiv.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Combinația 13: Redirect Provider Plus reguli de curățare",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Un furnizor poate conține redirecționări și reguli de curățare.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Dacă o redirecționare se potrivește, redirecționarea este returnată mai întâi.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Combinația 14: redirecționări de domeniu plus redirecționări regex",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Ambele pot exista într-un singur furnizor.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Redirecționările regex sunt verificate mai întâi. Redirecționările domeniului sunt verificate dacă nu se potrivește nicio redirecționare regex.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Combinația 15: Reguli dezactivate sau inactive",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Furnizorii pot fi inactivi:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Regulile pot fi inactive:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Furnizorii inactivi și regulile inactive sunt ignorate.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Combinația 16: Exemplu de furnizor complet mixt",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Acest exemplu Linkumori combină în mod intenționat cele mai multe caracteristici acceptate ale furnizorului: ClearURLs matrice vechi de supliment, ClearURLs obiecte de regulă canonică v2 de bază și caracteristici de potrivire și model de domeniu numai Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Acesta este valabil Linkumori furnizor mixt JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Capitolul 21: Exemple complete",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Exemplul 1: Cleaner de bază pentru urmăritori",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Exemplul 2: Eliminați toți parametrii UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Exemplul 3: Păstrați un parametru necesar la conectare",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Exemplul 4: Redirecționarea clicurilor de urmărire",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Rezultat:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Exemplul 5: Curățați numai solicitări API",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Înțeles:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Capitolul 22: Șabloane de copiere rapidă",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Eliminați un parametru:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Eliminați mulți parametri:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Folosiți <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Eliminați toți parametrii <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Adăugați o excepție:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Potriviți un domeniu:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Redirecționează un tracker URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_raw_p3": {
+    "message": "O regulă brută poate prelua modelul și opțiunile unui filtru <code>$removeparam</code>, cu <code>rawrule=</code> la final. Tot ce urmează după <code>rawrule=</code> este expresia regulată:",
     "description": "Guide page text."
   },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+  "guide_raw_p4": {
+    "message": "Modelul și opțiunile decid unde rulează regula; expresia regulată este tot ceea ce este șters. <code>match-case</code> o face case-sensitive.",
     "description": "Guide page text."
   },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+  "guide_raw_stop_title": {
+    "message": "Oprirea regulilor brute pe unele URL-uri",
     "description": "Guide page text."
   },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+  "guide_raw_p5": {
+    "message": "O intrare care începe cu <code>@@</code> oprește rularea regulilor brute acolo unde modelul său se potrivește. Atribuiți regulii brute un <code>id</code> și numiți-o cu <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+  "guide_raw_p6": {
+    "message": "Fără nimic după <code>rawrule=</code> și fără <code>targetId</code>, intrarea oprește orice regulă brută a furnizorului pe acele URL-uri. Pentru a sări peste întreg furnizorul, folosiți în schimb <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+  "guide_exc_title": {
+    "message": "7. Excepții",
     "description": "Guide page text."
   },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
+  "guide_exc_p1": {
+    "message": "Dacă un URL se potrivește cu o intrare din <code>exceptions</code>, niciuna dintre regulile furnizorului nu se rulează. O intrare este o expresie regulată sau un model de domeniu care începe cu <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+  "guide_exc_p2": {
+    "message": "Excepțiile ignoră majusculele/minusculele.",
     "description": "Guide page text."
   },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+  "guide_redir_title": {
+    "message": "8. Redirecționări",
     "description": "Guide page text."
   },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+  "guide_redir_p1": {
+    "message": "Regulile de redirecționare sar peste paginile de urmărire, mergând direct la destinația reală. Acestea rulează doar atunci când <em>Activați ocolirea redirecționării terțelor părți</em> este activat.",
     "description": "Guide page text."
   },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+  "guide_redir_regex_title": {
+    "message": "Redirecționare către o parte a URL-ului",
     "description": "Guide page text."
   },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_redir_p2": {
+    "message": "O intrare în <code>redirections</code> este o expresie regulată cu exact un grup de capturare, <code>( … )</code>. Cererea merge către ceea ce a capturat grupul, decodificată URL. Scrieți orice alt grup ca <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+  "guide_redir_fixed_title": {
+    "message": "Redirecționare către o adresă fixă",
     "description": "Guide page text."
   },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+  "guide_redir_p3": {
+    "message": "O intrare care începe cu <code>|</code> trimite fiecare URL corespunzător către o singură adresă:",
     "description": "Guide page text."
   },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Redirecționare către valoarea unui parametru",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> numește parametrul care conține destinația, astfel încât nu este necesară nicio expresie regulată. Acesta acceptă aceleași intrări ca <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Primul parametru corespunzător care are o valoare câștigă. O redirecționare oprește orice altă procesare pentru cerere.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Obiecte de regulă",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Orice intrare poate fi un obiect în loc de un șir de caractere. Folosiți unul atunci când o regulă are nevoie de un id, trebuie să înceapă dezactivată, trebuie să rescrie în loc să elimine sau trebuie să ruleze doar în anumite cazuri:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Cheie",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "textul pe care l-ați scrie ca intrare simplă",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "un nume stabil (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) folosit pentru a activa sau dezactiva regula",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "id-urile anterioare ale regulii, astfel încât o regulă dezactivată să rămână dezactivată după o redenumire",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "rescrie în loc să elimine; <code>§1§</code>, <code>§2§</code>, … sunt valorile capturate",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "schimbă mai întâi valorile capturate",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "doar pentru aceste tipuri de cereri, de exemplu <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL-uri unde această regulă nu rulează",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "flag-uri de expresie regulată, ca șir de caractere (implicit <code>i</code>; <code>gi</code> în <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "rulează regula mai devreme sau mai târziu",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: o regulă în <code>rules</code> este considerată o regulă de referral-marketing",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: sari peste această regulă atunci când o pagină își schimbă propria adresă cu History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: regula începe dezactivată",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "text liber",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "doar pentru intrările <code>@@…$rawrule=</code>: regula brută pe care o oprește",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Rescrierea în loc de eliminare",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "Cu <code>replacePattern</code>, o regulă în <code>rules</code> păstrează parametrul și îi înlocuiește valoarea, care este <code>§1§</code>. În <code>rawRules</code> și <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … sunt grupele de capturare:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Preprocesatoare",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Preprocesatoarele modifică valorile capturate înainte ca <code>replacePattern</code> să le utilizeze. <code>inputs</code> este <code>\"all\"</code> sau o listă de numere de grup:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Tipurile sunt <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> și <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID-uri de regulă",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Fiecare regulă are un ID. O regulă fără <code>id</code> primește unul din lista sa și din textul său: <code>\"utm_source\"</code> în <code>rules</code> devine <code>field-utm-source</code>. Dacă două reguli ar primi același ID, ambele primesc un hash scurt la final.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Un ID generat se modifică atunci când textul regulii se schimbă. Atribuiți unei reguli propriul <code>id</code> atunci când aceasta trebuie să își păstreze setarea on/off în urma editărilor.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Executarea unei reguli mai devreme sau mai târziu",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Regulile brute rulează în mod normal primele, apoi <code>rules</code> și <code>referralMarketing</code>. O regulă cu <code>order</code> rulează înainte de regulile fără acesta, începând cu cea mai mică valoare. Aici, token-ul este înlocuit mai întâi și apoi șters:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> funcționează în <code>rules</code>, <code>rawRules</code> și <code>referralMarketing</code>, dar nu și pe filtrele <code>$removeparam</code>, care rulează întotdeauna ultimele.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Marketing de referire",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> acceptă aceleași intrări ca <code>rules</code>. Acestea sunt sărite în timp ce <em>Permiteți marketingul de recomandare</em> este activ, astfel încât linkurile de afiliere continuă să funcționeze dacă doriți acest lucru:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "O regulă poate rămâne în <code>rules</code> și totuși să fie considerată marketing de referire, cu <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Metode și tipuri de cereri",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Acestea restrâng momentul în care un Furnizor sau o regulă rulează:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "Comportament clearurls.js: dacă domainPatterns există și nu este gol, Linkumori folosește domainPatterns pentru potrivirea furnizorilor. urlPattern este folosit numai atunci când domainPatterns lipsește sau este gol. Editorul personalizat/Calea de import respinge această formă de potrivire mixtă, așa că utilizați-o numai pentru a înțelege datele vechi.",
+  "guide_req_methods": {
+    "message": "Metodele HTTP pe care Furnizorul le gestionează",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "tipurile de cereri pe care le gestionează Furnizorul",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "tipurile de cereri pe care le gestionează un singur obiect de regulă",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "aceeași lucru pentru un filtru <code>$removeparam</code> sau o regulă brută",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Tipurile de cereri folosesc denumirile browser-ului: <code>main_frame</code> (o pagină), <code>sub_frame</code> (un cadru), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> și așa mai departe. Opțiunile filtrului denumesc primele două <code>document</code> și <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Cum este procesat un URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Pentru fiecare Furnizor care corespunde URL-ului și permite cererea:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: dacă unul corespunde, Furnizorul este sărit.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, apoi <code>fieldRedirections</code>: o potrivire redirecționează cererea și nimic altceva nu mai rulează.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: cererea este blocată.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> rulează pe URL-ul complet.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> și <code>referralMarketing</code> elimină parametrii.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Filtrele <code>$removeparam</code> rulează, cu excepția cazului în care un filtru <code>@@</code> păstrează parametrul.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Primul Furnizor care modifică, redirecționează sau blochează cererea decide rezultatul. Noul URL trece apoi din nou prin aceleași etape.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Exemple complete",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Curățarea unui singur magazin",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Elimină parametrii de urmărire și un id de afiliere dintr-un singur magazin și lasă paginile de checkout neatinse:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Elimină parametrii UTM peste tot",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Modelul <code>*</code> corespunde oricărui URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Omite un tracker de click-uri",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Trimite linkurile printr-un tracker de click-uri direct către destinația lor, care se află în parametrul <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Păstrează un parametru pe o singură pagină",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Elimină <code>ref</code> peste tot pe site, cu excepția paginii de autentificare, care are nevoie de acesta:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Verificarea regulilor tale",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Editorul de Reguli personalizate verifică regulile atunci când le salvezi sau le imporți. Pe lângă JSON-ul defect și expresiile regulate invalide, acesta respinge regulile care s-ar încărca, dar ar face lucruri greșite în mod silențios, cum ar fi:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> și <code>urlPattern</code> pe un singur Furnizor",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "un model cu un singur <code>|</code> și fără schemă, cum ar fi <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "o redirecționare prin expresie regulată fără exact un grup de capturare",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "câmpuri, chei și opțiuni necunoscute",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> sau <code>referralMarketing</code> acolo unde nu ar produce niciun efect",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "o intrare <code>@@…$rawrule=</code> care nu oprește nicio regulă brută",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Dacă salvarea eșuează, mesajul numește Furnizorul, lista și intrarea.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {

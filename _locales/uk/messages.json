@@ -3876,1688 +3876,704 @@
     "message": "Елементи керування ідентифікатором правила доступні, коли постачальник JSON стане дійсним.",
     "description": "Недійсний стан JSON для елементів керування ідентифікатором правила постачальника"
   },
-  "guide_0001": {
-    "message": "Linkumori Розширення — Документація правил",
+  "guide_page_title": {
+    "message": "Linkumori — Посібник із правил",
     "description": "Guide page text."
   },
-  "guide_0002": {
+  "guide_theme_label": {
     "message": "Тема",
     "description": "Guide page text."
   },
-  "guide_0003": {
-    "message": "Формат постачальника JSON",
+  "guide_toc_label": {
+    "message": "Зміст",
     "description": "Guide page text."
   },
-  "guide_0004": {
-    "message": "Linkumori Постачальник JSON",
+  "guide_theme_midnight": {
+    "message": "Midnight",
     "description": "Guide page text."
   },
-  "guide_0005": {
-    "message": "Розділ 1: Основи JSON Форма",
+  "guide_theme_light": {
+    "message": "Light",
     "description": "Guide page text."
   },
-  "guide_0006": {
-    "message": "Розділ 2: Що таке постачальник?",
+  "guide_theme_icecold": {
+    "message": "Ice Cold",
     "description": "Guide page text."
   },
-  "guide_0007": {
-    "message": "Розділ 3: Поля постачальника, які можна використовувати",
+  "guide_theme_zen_grey": {
+    "message": "Zen Grey",
     "description": "Guide page text."
   },
-  "guide_0008": {
-    "message": "Розділ 4: Збіг доменів",
+  "guide_theme_sunset": {
+    "message": "Sunset",
     "description": "Guide page text."
   },
-  "guide_0009": {
-    "message": "Зіставте один домен і всі субдомени",
+  "guide_title": {
+    "message": "Написання правил Linkumori",
     "description": "Guide page text."
   },
-  "guide_0010": {
-    "message": "Зіставте однакову назву з будь-яким публічним суфіксом",
+  "guide_intro_1": {
+    "message": "Linkumori очищує URL за допомогою правил. Цей посібник показує, як їх писати, від першого правила до кожної опції, з прикладами, які можна скопіювати.",
     "description": "Guide page text."
   },
-  "guide_0011": {
-    "message": "Збіг субдоменів",
+  "guide_intro_2": {
+    "message": "Правила мають формат JSON. Ви пишете їх у редакторі Власних правил, який перевіряє їх під час збереження. Вбудований список правил і віддалені списки правил використовують той самий формат.",
     "description": "Guide page text."
   },
-  "guide_0012": {
-    "message": "Використовуйте більше одного шаблону домену",
+  "guide_file_title": {
+    "message": "1. Файл правил",
     "description": "Guide page text."
   },
-  "guide_0013": {
-    "message": "Розділ 5: Символи шаблонів доменів",
+  "guide_file_p1": {
+    "message": "Файл правил — це один JSON-об'єкт. Його об'єкт <code>providers</code> зіставляє назву на ваш вибір із Провайдером:",
     "description": "Guide page text."
   },
-  "guide_0014": {
-    "message": "Розділ 6: Зіставлення URLs із urlPattern",
+  "guide_file_p2": {
+    "message": "Провайдер визначає, з якими URL він працює і що з ними робити. Цей Провайдер видаляє <code>utm_source</code> та <code>utm_medium</code> з кожного URL на <code>example.com</code> та його піддоменах:",
     "description": "Guide page text."
   },
-  "guide_0015": {
-    "message": "Розділ 7: Видалення простих параметрів запиту",
+  "guide_file_p3": {
+    "message": "Назва є лише міткою. Те, з якими URL працює Провайдер, визначається за допомогою <code>domainPatterns</code> або <code>urlPattern</code>.",
     "description": "Guide page text."
   },
-  "guide_0016": {
-    "message": "Розділ 8: Напишіть об’єкт правила",
+  "guide_fields_title": {
+    "message": "2. Поля Провайдера",
     "description": "Guide page text."
   },
-  "guide_0017": {
-    "message": "Розділ 9: Правила $removeparam",
+  "guide_th_field": {
+    "message": "Поле",
     "description": "Guide page text."
   },
-  "guide_0018": {
-    "message": "Видалити один параметр",
+  "guide_th_meaning": {
+    "message": "Що воно робить",
     "description": "Guide page text."
   },
-  "guide_0019": {
-    "message": "Видалити всі параметри",
+  "guide_field_domainpatterns": {
+    "message": "Які URL обробляє Провайдер, у вигляді шаблонів доменів (розділ 3). Використовуйте це або <code>urlPattern</code>, але ніколи не обидва варіанти.",
     "description": "Guide page text."
   },
-  "guide_0020": {
-    "message": "Видалити параметри регулярним виразом",
+  "guide_field_urlpattern": {
+    "message": "Які URL обробляє Провайдер, у вигляді регулярного виразу, що зіставляється з повним URL. Регістр ігнорується.",
     "description": "Guide page text."
   },
-  "guide_0021": {
-    "message": "Видалити всі параметри, крім одного",
+  "guide_field_indexpattern": {
+    "message": "Тільки з <code>urlPattern</code>: підказки хоста, такі як <code>||example.com^</code>, щоб Провайдер перевірявся лише для цих хостів. Без цього Провайдер перевіряється для кожного URL.",
     "description": "Guide page text."
   },
-  "guide_0022": {
-    "message": "Застосувати $removeparam лише до одного домену",
+  "guide_field_rules": {
+    "message": "Параметри для видалення (розділи 4 і 5).",
     "description": "Guide page text."
   },
-  "guide_0023": {
-    "message": "Додайте обмеження домену",
+  "guide_field_referral": {
+    "message": "Реферальні та партнерські параметри для видалення. Вони пропускаються, коли <em>Дозволити реферальний маркетинг</em> увімкнено (розділ 10).",
     "description": "Guide page text."
   },
-  "guide_0024": {
-    "message": "Додайте обмеження методу",
+  "guide_field_rawrules": {
+    "message": "Регулярні вирази, що виконуються для повного URL; кожен збіг видаляється (розділ 6).",
     "description": "Guide page text."
   },
-  "guide_0025": {
-    "message": "Розділ 10: Винятки $removeparam",
+  "guide_field_exceptions": {
+    "message": "URL, які Провайдер залишає без змін (розділ 7).",
     "description": "Guide page text."
   },
-  "guide_0026": {
-    "message": "Розділ 11: Перезапис значень параметрів",
+  "guide_field_redirections": {
+    "message": "Куди надіслати запит замість цього (розділ 8).",
     "description": "Guide page text."
   },
-  "guide_0027": {
-    "message": "Розділ 12: Необроблені правила",
+  "guide_field_fieldredirections": {
+    "message": "Перенаправлення на значення параметра (розділ 8).",
     "description": "Guide page text."
   },
-  "guide_0028": {
-    "message": "Розділ 13: Правила перенаправлення",
+  "guide_field_completeprovider": {
+    "message": "<code>true</code> блокує кожен запит, який обробляє Провайдер, поки <em>Дозволити блокування доменів</em> увімкнено.",
     "description": "Guide page text."
   },
-  "guide_0029": {
-    "message": "Розділ 14: Правила перенаправлення домену",
+  "guide_field_forceredirection": {
+    "message": "<code>true</code>: коли сама сторінка перенаправляється, вкладка відкриває нову адресу.",
     "description": "Guide page text."
   },
-  "guide_0030": {
-    "message": "Розділ 15: Винятки",
+  "guide_field_methods": {
+    "message": "Обробляти лише ці методи HTTP, наприклад <code>[\"GET\"]</code>. За замовчуванням: всі.",
     "description": "Guide page text."
   },
-  "guide_0031": {
-    "message": "Розділ 16: Правила реферального маркетингу",
+  "guide_field_resourcetypes": {
+    "message": "Обробляти лише ці типи запитів, наприклад <code>[\"main_frame\"]</code>. За замовчуванням: типи, обрані в налаштуваннях.",
     "description": "Guide page text."
   },
-  "guide_0032": {
-    "message": "Розділ 17: HTTP Методи",
+  "guide_field_history": {
+    "message": "<code>false</code> пропускає Провайдера, коли сторінка змінює власну адресу за допомогою History API.",
     "description": "Guide page text."
   },
-  "guide_0033": {
-    "message": "Розділ 18: Типи ресурсів браузера",
+  "guide_field_active": {
+    "message": "<code>false</code> вимикає Провайдера.",
     "description": "Guide page text."
   },
-  "guide_0034": {
-    "message": "Розділ 19: Препроцесори",
+  "guide_match_title": {
+    "message": "3. Які URL обробляє Провайдер",
     "description": "Guide page text."
   },
-  "guide_0037": {
-    "message": "Розділ 20: Дозволені JSON комбінації",
+  "guide_match_p1": {
+    "message": "<code>domainPatterns</code> — це список шаблонів доменів. URL відповідає, якщо будь-який із них збігається:",
     "description": "Guide page text."
   },
-  "guide_0038": {
-    "message": "Комбінація 1: багато постачальників в одному файлі",
+  "guide_th_pattern": {
+    "message": "Шаблон",
     "description": "Guide page text."
   },
-  "guide_0039": {
-    "message": "Комбінація 2: глобальні параметри за замовчуванням плюс постачальники",
+  "guide_th_matches": {
+    "message": "Відповідає",
     "description": "Guide page text."
   },
-  "guide_0040": {
-    "message": "Комбінація 3: постачальник доменних шаблонів",
+  "guide_pat_domain": {
+    "message": "<code>example.com</code> та всі піддомени",
     "description": "Guide page text."
   },
-  "guide_0041": {
-    "message": "Комбінація 4: постачальник urlPattern із indexPattern",
+  "guide_pat_anysuffix": {
+    "message": "<code>example</code> на будь-якому публічному суфіксі (<code>example.de</code>, <code>example.co.uk</code>, …)",
     "description": "Guide page text."
   },
-  "guide_0042": {
-    "message": "Комбінація 5: шаблон домену та шаблон URL-адреси разом",
+  "guide_pat_path": {
+    "message": "цей хост та його піддомени, коли шлях починається з <code>/path</code>",
     "description": "Guide page text."
   },
-  "guide_0043": {
-    "message": "Комбінація 6: Змішані правила [] Записи",
+  "guide_pat_star": {
+    "message": "те саме, що й <code>||example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0044": {
-    "message": "Комбінація 7: канонічні об’єкти всередині правил[]",
+  "guide_pat_start": {
+    "message": "URL, що починаються саме з цього тексту",
     "description": "Guide page text."
   },
-  "guide_0045": {
-    "message": "Комбінація 8: Legacy Arrays Plus Canonical rules[]",
+  "guide_pat_end": {
+    "message": "URL, що закінчуються саме цим текстом",
     "description": "Guide page text."
   },
-  "guide_0046": {
-    "message": "Комбінація 9: Методи та типи ресурсів для всього постачальника",
+  "guide_pat_regex": {
+    "message": "повний URL як регулярний вираз (регістр має значення, якщо ви не додасте <code>i</code>)",
     "description": "Guide page text."
   },
-  "guide_0047": {
-    "message": "Комбінація 10: типи запитів на рівні правил",
+  "guide_pat_contains": {
+    "message": "URL, що містять цей текст у будь-якому місці",
     "description": "Guide page text."
   },
-  "guide_0048": {
-    "message": "Комбінація 11: Винятки в різних місцях",
+  "guide_pat_all": {
+    "message": "будь-який URL",
     "description": "Guide page text."
   },
-  "guide_0049": {
-    "message": "Комбінація 12: правила блокування Provider Plus",
+  "guide_match_p2": {
+    "message": "<code>^</code> позначає кінець імені хоста або роздільник, такий як <code>/</code>, <code>?</code> або <code>:</code>. <code>*</code> відповідає чому завгодно. Окрім <code>/regex/</code>, шаблони ігнорують регістр.",
     "description": "Guide page text."
   },
-  "guide_0050": {
-    "message": "Комбінація 13: правила очищення постачальника перенаправлення плюс",
+  "guide_match_p3": {
+    "message": "<code>||</code> означає домен, тоді як один <code>|</code> означає самий початок URL і після нього має йти схема, така як <code>https://</code>. <code>|example.com^</code> ніколи не може відповідати, тому редактор відхиляє його.",
     "description": "Guide page text."
   },
-  "guide_0051": {
-    "message": "Комбінація 14: перенаправлення домену плюс перенаправлення регулярних виразів",
+  "guide_match_p4": {
+    "message": "Щоб замість цього використовувати регулярний вираз, використайте <code>urlPattern</code> і додайте <code>indexPattern</code>, щоб Провайдер перевірявся лише на цих хостах:",
     "description": "Guide page text."
   },
-  "guide_0052": {
-    "message": "Комбінація 15: вимкнені або неактивні правила",
+  "guide_match_p5": {
+    "message": "Провайдер має або <code>domainPatterns</code>, або <code>urlPattern</code>, але ніколи не обидва одночасно. Якщо вам потрібні обидва типи відповідності, створіть два Провайдери.",
     "description": "Guide page text."
   },
-  "guide_0053": {
-    "message": "Комбінація 16: Приклад повного змішаного постачальника",
+  "guide_rules_title": {
+    "message": "4. Видалення параметрів",
     "description": "Guide page text."
   },
-  "guide_0069": {
-    "message": "Розділ 21: Повні приклади",
+  "guide_rules_p1": {
+    "message": "Кожен запис у <code>rules</code> видаляє параметри із запиту (<code>?a=1</code>) та з фрагмента (<code>#a=1</code>). Запис може бути одним із наступних:",
     "description": "Guide page text."
   },
-  "guide_0070": {
-    "message": "Приклад 1: базовий очищувач Tracker",
+  "guide_th_entry": {
+    "message": "Запис",
     "description": "Guide page text."
   },
-  "guide_0071": {
-    "message": "Приклад 2: видалення всіх параметрів UTM",
+  "guide_th_example": {
+    "message": "Приклад",
     "description": "Guide page text."
   },
-  "guide_0072": {
-    "message": "Приклад 3: Зберігайте необхідний параметр під час входу",
+  "guide_th_removes": {
+    "message": "Видаляє",
     "description": "Guide page text."
   },
-  "guide_0073": {
-    "message": "Приклад 4: кліки відстеження перенаправлення",
+  "guide_rules_name": {
+    "message": "назву параметра",
     "description": "Guide page text."
   },
-  "guide_0074": {
-    "message": "Приклад 5: лише чисті запити API",
+  "guide_rules_regex": {
+    "message": "регулярний вираз для назви",
     "description": "Guide page text."
   },
-  "guide_0075": {
-    "message": "Розділ 22: Шаблони швидкого копіювання",
+  "guide_rules_regex_removes": {
+    "message": "кожен параметр, чия повна назва відповідає виразу; <code>^…$</code> додається автоматично, а регістр ігнорується",
     "description": "Guide page text."
   },
-  "guide_0108": {
-    "message": "Linkumori Змішаний постачальник JSON Формат посібника",
+  "guide_rules_filter": {
+    "message": "фільтр <code>$removeparam</code>",
     "description": "Guide page text."
   },
-  "guide_0109": {
-    "message": "У цьому посібнику пояснюється, як записати дані постачальника JSON, які <code>Linkumori extension</code> може читати.",
+  "guide_rules_filter_removes": {
+    "message": "див. розділ 5",
     "description": "Guide page text."
   },
-  "guide_0110": {
-    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
-    "description": "Introductory paragraph for the provider JSON guide."
-  },
-  "guide_0111": {
-    "message": "Це не посібник для коду JavaScript. Він зосереджений лише на JSON формах, форматах правил і прикладах, які потрібні авторам правил.",
-    "description": "Guide page text."
-  },
-  "guide_runtime_source_note": {
-    "message": "Цей посібник базується на поточній поведінці середовища виконання <code>clearurls.js</code>. Зокрема, пошук постачальників використовує сегменти кандидатів <code>providersByToken</code> із <code>domainPatterns</code> або <code>indexPattern</code>, а остаточне зіставлення все ще виконується через <code>provider.matchRequestURL()</code>.",
-    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
-  },
-  "guide_0112": {
-    "message": "Розділ 1: Основи JSON Форма",
-    "description": "Guide page text."
-  },
-  "guide_0113": {
-    "message": "<code>Linkumori extension</code> очікує, що дані постачальника мають таку загальну форму:",
-    "description": "Guide page text."
-  },
-  "guide_0114": {
-    "message": "Важливою частиною є <code>providers</code>. Кожен ключ усередині <code>providers</code> є назвою постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0115": {
-    "message": "приклад:",
-    "description": "Guide page text."
-  },
-  "guide_0116": {
-    "message": "Розділ 2: Що таке постачальник?",
-    "description": "Guide page text."
-  },
-  "guide_0117": {
-    "message": "Постачальник — це один іменований контейнер середовища виконання для одного веб-сайту, компанії, трекера, набору шаблонів домену або регулярного виразу URL-адреси. Ім'я постачальника є міткою/ключем; зіставлення здійснюється за допомогою <code>domainPatterns</code> або <code>urlPattern</code>, а не за назвою постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0118": {
-    "message": "Мінімальний постачальник:",
-    "description": "Guide page text."
-  },
-  "guide_0119": {
-    "message": "Що це робить:",
-    "description": "Guide page text."
-  },
-  "guide_0120": {
-    "message": "Розділ 3: Поля постачальника, які можна використовувати",
-    "description": "Guide page text."
-  },
-  "guide_0121": {
-    "message": "Поля постачальника прийняті <code>clearurls.js</code>. Для відповідності створіть <code>domainPatterns</code> або <code>urlPattern</code> з додатковим <code>indexPattern</code>; не покладайтеся на те, що потрібно обидва разом.",
-    "description": "Guide page text."
-  },
-  "guide_0122": {
-    "message": "Просте значення:",
-    "description": "Guide page text."
-  },
-  "guide_0123": {
-    "message": "JSON поле",
-    "description": "Guide page text."
-  },
-  "guide_0124": {
-    "message": "Джерело",
-    "description": "Guide page text."
-  },
-  "guide_0125": {
-    "message": "Для чого ви це пишете",
-    "description": "Guide page text."
-  },
-  "guide_0126": {
-    "message": "<code>active</code>",
-    "description": "Guide page text."
-  },
-  "guide_0127": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0128": {
-    "message": "Встановіть <code>false</code>, щоб вимкнути цього постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0132": {
-    "message": "<code>completeProvider</code>",
-    "description": "Guide page text."
-  },
-  "guide_0133": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний",
-    "description": "Guide page text."
-  },
-  "guide_0134": {
-    "message": "Встановіть <code>true</code> для блокування відповідних доменів замість лише очищення.",
-    "description": "Guide page text."
-  },
-  "guide_0135": {
-    "message": "<code>forceRedirection</code>",
-    "description": "Guide page text."
-  },
-  "guide_0136": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний",
-    "description": "Guide page text."
-  },
-  "guide_0137": {
-    "message": "Установіть <code>true</code>, щоб примусово переспрямовувати головну сторінку через вкладку браузера.",
-    "description": "Guide page text."
-  },
-  "guide_0138": {
-    "message": "<code>domainPatterns</code>",
-    "description": "Guide page text."
-  },
-  "guide_0139": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0140": {
-    "message": "Рекомендований спосіб дізнатися, яким доменам відповідає цей провайдер.",
-    "description": "Guide page text."
-  },
-  "guide_0141": {
-    "message": "<code>urlPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0142": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний",
-    "description": "Guide page text."
-  },
-  "guide_0143": {
-    "message": "Рядок регулярного виразу JavaScript для відповідності URL.",
-    "description": "Guide page text."
-  },
-  "guide_0144": {
-    "message": "<code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0145": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0146": {
-    "message": "Додаткова підказка швидкості при використанні <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0147": {
-    "message": "<code>rules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0148": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний; <code>$removeparam</code> це Linkumori додаток тут",
-    "description": "Guide page text."
-  },
-  "guide_0149": {
-    "message": "Звичайні правила видалення параметрів і локальні правила постачальника <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0150": {
-    "message": "<code>rawRules</code>",
-    "description": "Guide page text."
-  },
-  "guide_0151": {
-    "message": "ClearURLs доповнення; об’єктів канонічного стилю тут є Linkumori додаток",
-    "description": "Guide page text."
-  },
-  "guide_0152": {
-    "message": "Правила, які редагують весь текст URL.",
-    "description": "Guide page text."
-  },
-  "guide_0153": {
-    "message": "<code>referralMarketing</code>",
-    "description": "Guide page text."
-  },
-  "guide_0154": {
-    "message": "ClearURLs доповнення; об’єктів канонічного стилю тут є Linkumori додаток",
-    "description": "Guide page text."
-  },
-  "guide_0155": {
-    "message": "Необов’язкові правила реферальних/маркетингових параметрів.",
-    "description": "Guide page text."
-  },
-  "guide_0156": {
-    "message": "<code>exceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0157": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний; форми об’єктів тут Linkumori доповнення",
-    "description": "Guide page text."
-  },
-  "guide_0158": {
-    "message": "URL правил регулярного виразу, де цей постачальник не повинен працювати.",
-    "description": "Guide page text."
-  },
-  "guide_0159": {
-    "message": "<code>domainExceptions</code>",
-    "description": "Guide page text."
-  },
-  "guide_0160": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0161": {
-    "message": "Правила шаблону домену, де цей постачальник не повинен працювати.",
-    "description": "Guide page text."
-  },
-  "guide_0162": {
-    "message": "<code>redirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0163": {
-    "message": "ClearURLs доповнення; об’єктів канонічного стилю тут є Linkumori додаток",
-    "description": "Guide page text."
-  },
-  "guide_0164": {
-    "message": "Правила переспрямування регулярних виразів.",
-    "description": "Guide page text."
-  },
-  "guide_0165": {
-    "message": "<code>domainRedirections</code>",
-    "description": "Guide page text."
-  },
-  "guide_0166": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0167": {
-    "message": "Правила переспрямування шаблону домену.",
-    "description": "Guide page text."
-  },
-  "guide_0168": {
-    "message": "<code>methods</code>",
-    "description": "Guide page text."
-  },
-  "guide_0169": {
-    "message": "ClearURLs застарілий аддон і ClearURLs core v2 канонічний",
-    "description": "Guide page text."
-  },
-  "guide_0170": {
-    "message": "Запускати лише для цих HTTP методів.",
-    "description": "Guide page text."
-  },
-  "guide_0171": {
-    "message": "<code>resourceTypes</code>",
-    "description": "Guide page text."
-  },
-  "guide_0172": {
-    "message": "Linkumori доп",
-    "description": "Guide page text."
-  },
-  "guide_0173": {
-    "message": "Запускати лише для цих типів запитів браузера.",
-    "description": "Guide page text."
-  },
-  "guide_0174": {
-    "message": "Розділ 4: Збіг доменів",
-    "description": "Guide page text."
-  },
-  "guide_0175": {
-    "message": "<code>domainPatterns</code> є доповненням Linkumori і є кращим для більшості нестандартних постачальників. У <code>clearurls.js</code> непорожні <code>domainPatterns</code> використовуються для відповідності перед <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0176": {
-    "message": "Зіставте один домен і всі субдомени",
-    "description": "Guide page text."
-  },
-  "guide_0177": {
-    "message": "Збіги:",
-    "description": "Guide page text."
-  },
-  "guide_0178": {
-    "message": "Не відповідає:",
-    "description": "Guide page text."
-  },
-  "guide_0179": {
-    "message": "Зіставте однакову назву з будь-яким публічним суфіксом",
-    "description": "Guide page text."
-  },
-  "guide_0180": {
-    "message": "Може відповідати:",
-    "description": "Guide page text."
-  },
-  "guide_0181": {
-    "message": "Збіг субдоменів",
+  "guide_rules_p2": {
+    "message": "<code>\"fbclid\"</code> та <code>\"$removeparam=fbclid\"</code> видаляють одне й те саме. Використовуйте звичайну назву, якщо вам не потрібні можливості з розділу 5.",
     "description": "Guide page text."
   },
-  "guide_0182": {
-    "message": "Може відповідати:",
+  "guide_rules_part_title": {
+    "message": "Правила для частини Провайдера",
     "description": "Guide page text."
   },
-  "guide_0183": {
-    "message": "Використовуйте більше одного шаблону домену",
+  "guide_rules_p3": {
+    "message": "Звичайна назва застосовується до кожного URL, з яким відповідає Провайдер. Щоб видалити параметр лише в деяких із них, помістіть шаблон перед фільтром <code>$removeparam</code>:",
     "description": "Guide page text."
   },
-  "guide_0184": {
-    "message": "Розділ 5: Символи шаблонів доменів",
+  "guide_rules_p4": {
+    "message": "Тут <code>qid</code> видаляється на кожному сайті Amazon, <code>tag</code> лише на <code>amazon.de</code>, <code>sr</code> лише на <code>smile.amazon</code>, а <code>ref_</code> лише під <code>/gp/</code>. Шаблон звужує власні шаблони Провайдера; він не може їх розширити.",
     "description": "Guide page text."
   },
-  "guide_0185": {
-    "message": "Це символи, які ви можете використовувати в <code>domainPatterns</code>.",
+  "guide_rp_title": {
+    "message": "5. Фільтри $removeparam",
     "description": "Guide page text."
   },
-  "guide_0186": {
-    "message": "символ",
+  "guide_rp_p1": {
+    "message": "Фільтр <code>$removeparam</code> має таку структуру; частини в дужках є необов'язковими:",
     "description": "Guide page text."
   },
-  "guide_0187": {
+  "guide_rp_value_title": {
     "message": "Значення",
     "description": "Guide page text."
   },
-  "guide_0188": {
-    "message": "приклад",
+  "guide_rp_p2": {
+    "message": "Перший символ значення визначає його значення:",
     "description": "Guide page text."
   },
-  "guide_0189": {
-    "message": "<code>||</code>",
+  "guide_th_filter": {
+    "message": "Фільтр",
     "description": "Guide page text."
   },
-  "guide_0190": {
-    "message": "Збіг на межі домену.",
+  "guide_rp_v_all": {
+    "message": "кожен параметр",
     "description": "Guide page text."
   },
-  "guide_0191": {
-    "message": "<code>||example.com^</code>",
+  "guide_rp_v_except": {
+    "message": "кожен параметр, крім <code>ref</code> (також працює з <code>~/regex/</code> та <code>~|prefix</code>)",
     "description": "Guide page text."
   },
-  "guide_0192": {
-    "message": "<code>^</code>",
+  "guide_rp_v_regex": {
+    "message": "параметри, назва яких або <code>name=value</code> відповідає регулярному виразу; регістр має значення, якщо ви не додасте <code>i</code>",
     "description": "Guide page text."
   },
-  "guide_0193": {
-    "message": "Роздільник або кінцева межа.",
+  "guide_rp_v_prefix": {
+    "message": "параметри, назва яких починається з <code>utm_</code>; регістр ігнорується",
     "description": "Guide page text."
   },
-  "guide_0194": {
-    "message": "<code>||example.com^</code>",
+  "guide_rp_v_name": {
+    "message": "саме цей параметр; регістр ігнорується, якщо ви не додасте <code>match-case</code>",
     "description": "Guide page text."
   },
-  "guide_0195": {
-    "message": "<code>*</code>",
+  "guide_rp_options_title": {
+    "message": "Опції",
     "description": "Guide page text."
   },
-  "guide_0196": {
-    "message": "Wildcard.",
+  "guide_rp_p3": {
+    "message": "Опції йдуть після значення і відокремлюються комами. Розділяйте кілька значень однієї опції за допомогою <code>|</code> і ставте <code>~</code> перед значенням, щоб виключити його:",
     "description": "Guide page text."
   },
-  "guide_0197": {
-    "message": "<code>||example.*^</code>",
+  "guide_th_option": {
+    "message": "Опція",
     "description": "Guide page text."
   },
-  "guide_0198": {
-    "message": "<code>|</code>",
+  "guide_rp_o_domain": {
+    "message": "тільки на сторінках із цих доменів",
     "description": "Guide page text."
   },
-  "guide_0199": {
-    "message": "Початковий або кінцевий якір.",
+  "guide_rp_o_to": {
+    "message": "тільки для запитів до цих доменів",
     "description": "Guide page text."
   },
-  "guide_0200": {
-    "message": "<code>|https://example.com</code>",
+  "guide_rp_o_method": {
+    "message": "тільки для цих HTTP методів",
     "description": "Guide page text."
   },
-  "guide_0201": {
-    "message": "<code>/.../i</code>",
+  "guide_rp_o_party": {
+    "message": "тільки для запитів до того самого сайту, що й сторінка, або тільки до інших сайтів",
     "description": "Guide page text."
   },
-  "guide_0202": {
-    "message": "Літерал регулярного виразу JavaScript.",
+  "guide_rp_o_strict": {
+    "message": "те саме, але з порівнянням точного хоста замість сайту",
     "description": "Guide page text."
   },
-  "guide_0203": {
-    "message": "<code>/tracker/i</code>",
+  "guide_rp_o_types": {
+    "message": "тільки для цих типів запитів; <code>~type</code> виключає один",
     "description": "Guide page text."
   },
-  "guide_0204": {
-    "message": "Найпоширеніший шаблон:",
+  "guide_rp_o_matchcase": {
+    "message": "назви параметрів чутливі до регістру",
     "description": "Guide page text."
   },
-  "guide_0205": {
-    "message": "Використовуйте його, коли хочете:",
+  "guide_rp_o_history": {
+    "message": "пропускати цей фільтр, коли сторінка змінює власну адресу за допомогою History API",
     "description": "Guide page text."
   },
-  "guide_0206": {
-    "message": "Розділ 6: Зіставлення URLs із <code>urlPattern</code>",
+  "guide_rp_p4": {
+    "message": "Кожен варіант має одне написання. Суперечливі варіанти, такі як <code>first-party,third-party</code>, відхиляються.",
     "description": "Guide page text."
   },
-  "guide_0207": {
-    "message": "Використовуйте <code>urlPattern</code> лише тоді, коли відповідності домену недостатньо, наприклад, коли постачальник повинен відповідати певному шляху або повному регулярному виразу URL-адреси.",
+  "guide_rp_keep_title": {
+    "message": "Збереження параметра за допомогою @@",
     "description": "Guide page text."
   },
-  "guide_0208": {
-    "message": "Це може відповідати:",
+  "guide_rp_p5": {
+    "message": "Фільтр, що починається з <code>@@</code>, зберігає параметр замість того, щоб видалити його. Тут <code>ref</code> видаляється всюди, крім GitHub:",
     "description": "Guide page text."
   },
-  "guide_0209": {
-    "message": "<code>urlPattern</code> — це застаріла надбудова ClearURLs і канонічний синтаксис ядра ClearURLs v2. Linkumori додає <code>indexPattern</code> лише як підказку щодо пошуку кандидатів, щоб постачальників регулярних виразів можна було швидше знайти за маркерами імен хостів.",
+  "guide_rp_p6": {
+    "message": "Фільтр <code>@@</code> також охоплює запити, здійснені сторінкою, якій відповідає цей Провайдер, навіть якщо ними керує інший Провайдер.",
     "description": "Guide page text."
   },
-  "guide_0210": {
-    "message": "Важливо: <code>indexPattern</code> не ​​визначає, чи збігається постачальник. Після пошуку кандидата <code>clearurls.js</code> усе ще перевіряє справжній <code>urlPattern</code> у <code>provider.matchRequestURL()</code>.",
+  "guide_raw_title": {
+    "message": "6. Необроблені правила",
     "description": "Guide page text."
   },
-  "guide_0211": {
-    "message": "Розділ 7: Видалення простих параметрів запиту",
+  "guide_raw_p1": {
+    "message": "Необроблене правило — це регулярний вираз, що запускається для повного URL; кожен збіг видаляється. Використовуйте його для тексту, який не є параметром <code>name=value</code>, наприклад, сегмент шляху <code>/ref=…</code> в Amazon:",
     "description": "Guide page text."
   },
-  "guide_0212": {
-    "message": "Введіть імена параметрів у <code>rules</code>.",
+  "guide_raw_p2": {
+    "message": "Необроблені правила ігнорують регістр і замінюють кожен збіг. У JSON пишіть кожен зворотний слеш двічі.",
     "description": "Guide page text."
   },
-  "guide_0213": {
-    "message": "Результат:",
+  "guide_raw_scope_title": {
+    "message": "Тільки для деяких URL",
     "description": "Guide page text."
   },
-  "guide_0214": {
-    "message": "Видалити багато параметрів:",
+  "guide_raw_p3": {
+    "message": "Необроблене правило може використовувати шаблон і параметри фільтра <code>$removeparam</code>, де <code>rawrule=</code> стоїть останнім. Усе після <code>rawrule=</code> є регулярним виразом:",
     "description": "Guide page text."
   },
-  "guide_0215": {
-    "message": "Результат:",
+  "guide_raw_p4": {
+    "message": "Шаблон і параметри визначають, де запускається правило; регулярний вираз все одно є тим, що видаляється. <code>match-case</code> робить його чутливим до регістру.",
     "description": "Guide page text."
   },
-  "guide_0216": {
-    "message": "Розділ 8: Напишіть об’єкт правила",
+  "guide_raw_stop_title": {
+    "message": "Зупинка необроблених правил на деяких URL",
     "description": "Guide page text."
   },
-  "guide_0217": {
-    "message": "Замість звичайного рядка правило може бути об’єктом.",
+  "guide_raw_p5": {
+    "message": "Запис, що починається з <code>@@</code>, запобігає виконанню необроблених правил там, де збігається його шаблон. Надайте необробленому правилу <code>id</code> та назвіть його за допомогою <code>targetId</code>:",
     "description": "Guide page text."
   },
-  "guide_0218": {
-    "message": "Використовуйте це, коли вам потрібно:",
+  "guide_raw_p6": {
+    "message": "Якщо після <code>rawrule=</code> нічого немає і немає <code>targetId</code>, запис зупиняє кожне необроблене правило провайдера для цих URL. Щоб пропустити весь провайдер, використовуйте замість цього <code>exceptions</code>.",
     "description": "Guide page text."
   },
-  "guide_0219": {
-    "message": "Ідентифікатор правила.",
+  "guide_exc_title": {
+    "message": "7. Винятки",
     "description": "Guide page text."
   },
-  "guide_0220": {
-    "message": "Псевдоніми.",
+  "guide_exc_p1": {
+    "message": "Якщо URL збігається із записом у <code>exceptions</code>, жодне з правил провайдера не виконується. Запис є регулярним виразом або шаблоном домену, що починається з <code>|</code>:",
     "description": "Guide page text."
   },
-  "guide_0221": {
-    "message": "Винятки.",
+  "guide_exc_p2": {
+    "message": "Винятки не враховують регістр.",
     "description": "Guide page text."
   },
-  "guide_0222": {
-    "message": "Обмеження типу запиту.",
+  "guide_redir_title": {
+    "message": "8. Перенаправлення",
     "description": "Guide page text."
   },
-  "guide_0223": {
-    "message": "Перепишіть поведінку.",
+  "guide_redir_p1": {
+    "message": "Правила перенаправлення оминають сторінки відстеження, переходячи безпосередньо до реального пункту призначення. Вони працюють лише тоді, коли увімкнено <em>Увімкнути обхід сторонніх перенаправлень</em>.",
     "description": "Guide page text."
   },
-  "guide_0224": {
-    "message": "Приклад у провайдері:",
+  "guide_redir_regex_title": {
+    "message": "Перенаправлення на частину URL",
     "description": "Guide page text."
   },
-  "guide_0225": {
-    "message": "Результат:",
+  "guide_redir_p2": {
+    "message": "Запис у <code>redirections</code> є регулярним виразом з рівно однією групою захоплення, <code>( … )</code>. Запит перенаправляється на те, що захопила група, з URL-декодуванням. Будь-яку іншу групу записуйте як <code>(?: … )</code>:",
     "description": "Guide page text."
   },
-  "guide_0226": {
-    "message": "<code>flags</code> для об’єктів правила постачальника є доповненням Linkumori. <code>flags: \"i\"</code> робить збіг нечутливим до регістру.",
+  "guide_redir_fixed_title": {
+    "message": "Перенаправлення на фіксовану адресу",
     "description": "Guide page text."
   },
-  "guide_0227": {
-    "message": "Розділ 9: <code>$removeparam</code> Правила",
+  "guide_redir_p3": {
+    "message": "Запис, що починається з <code>|</code>, надсилає кожен URL, що збігається, на одну адресу:",
     "description": "Guide page text."
   },
-  "guide_0228": {
-    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
-    "description": "Introductory paragraph for provider-local $removeparam rules."
-  },
-  "guide_0229": {
-    "message": "Видалити один параметр",
-    "description": "Guide page text."
-  },
-  "guide_0230": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0231": {
-    "message": "Видалити всі параметри",
-    "description": "Guide page text."
-  },
-  "guide_0232": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0233": {
-    "message": "Видалити параметри регулярним виразом",
-    "description": "Guide page text."
-  },
-  "guide_0234": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0235": {
-    "message": "Видалити всі параметри, крім одного",
-    "description": "Guide page text."
-  },
-  "guide_0236": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0237": {
-    "message": "Застосувати <code>$removeparam</code> лише до одного домену",
-    "description": "Guide page text."
-  },
-  "guide_0238": {
-    "message": "Очищено:",
-    "description": "Guide page text."
-  },
-  "guide_0239": {
-    "message": "Не очищено:",
-    "description": "Guide page text."
-  },
-  "guide_0240": {
-    "message": "Додайте обмеження домену",
-    "description": "Guide page text."
-  },
-  "guide_0241": {
-    "message": "Виключити один домен:",
-    "description": "Guide page text."
-  },
-  "guide_0242": {
-    "message": "Додайте обмеження методу",
-    "description": "Guide page text."
-  },
-  "guide_0243": {
-    "message": "Тільки <code>GET</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0244": {
-    "message": "Не <code>POST</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0245": {
-    "message": "Розділ 10: <code>$removeparam</code> Винятки",
-    "description": "Guide page text."
-  },
-  "guide_0246": {
-    "message": "Почніть правило <code>$removeparam</code> з <code>@@</code>, щоб зробити виняток.",
-    "description": "Guide page text."
-  },
-  "guide_0247": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0248": {
-    "message": "Приклад виключення контексту:",
-    "description": "Guide page text."
-  },
-  "guide_0249": {
-    "message": "Це може захистити <code>ei</code> від підзапитів, розпочатих сторінкою <code>gemini.google.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0250": {
-    "message": "Розділ 11: Перезапис значень параметрів",
-    "description": "Guide page text."
-  },
-  "guide_0251": {
-    "message": "Використовуйте <code>action.type: \"rewrite\"</code>, щоб замінити відповідне значення параметра.",
-    "description": "Guide page text."
-  },
-  "guide_0252": {
-    "message": "Всередині провайдера:",
-    "description": "Guide page text."
-  },
-  "guide_0253": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0254": {
-    "message": "Використовуйте <code>§1§</code>, якщо ви хочете повторно використати поточне значення:",
-    "description": "Guide page text."
-  },
-  "guide_0255": {
-    "message": "Розділ 12: Необроблені правила",
-    "description": "Guide page text."
-  },
-  "guide_0256": {
-    "message": "Використовуйте <code>rawRules</code>, щоб відредагувати весь текст URL.",
-    "description": "Guide page text."
-  },
-  "guide_0257": {
-    "message": "Просте необроблене правило:",
-    "description": "Guide page text."
-  },
-  "guide_0258": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0259": {
-    "message": "Необроблене правило об’єкта:",
-    "description": "Guide page text."
-  },
-  "guide_0260": {
-    "message": "Правило необробленого перезапису:",
-    "description": "Guide page text."
-  },
-  "guide_0261": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0262": {
-    "message": "Розділ 13: Правила перенаправлення",
-    "description": "Guide page text."
-  },
-  "guide_0263": {
-    "message": "Використовуйте <code>redirections</code>, щоб надіслати браузер на новий URL.",
-    "description": "Guide page text."
-  },
-  "guide_0264": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0265": {
-    "message": "Якщо <code>replacePattern</code> відсутній, використовується перша група захоплення.",
-    "description": "Guide page text."
-  },
-  "guide_0266": {
-    "message": "Розділ 14: Правила перенаправлення домену",
-    "description": "Guide page text."
-  },
-  "guide_0267": {
-    "message": "<code>domainRedirections</code> — це Linkumori доповнення для простих переспрямувань за шаблоном домену.",
-    "description": "Guide page text."
-  },
-  "guide_0268": {
-    "message": "Linkumori додавання — рядкова форма:",
-    "description": "Guide page text."
-  },
-  "guide_0269": {
-    "message": "Linkumori додаток — форма об’єкта:",
-    "description": "Guide page text."
-  },
-  "guide_0270": {
-    "message": "Розділ 15: Винятки",
-    "description": "Guide page text."
-  },
-  "guide_0271": {
-    "message": "<code>exceptions</code> — це ClearURLs успадкований аддон і ClearURLs core v2 канонічний синтаксис. Linkumori також приймає об’єкти канонічного стилю в цьому масиві застарілого постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0272": {
-    "message": "приклад:",
-    "description": "Guide page text."
-  },
-  "guide_0273": {
-    "message": "<code>domainExceptions</code> є доповненням Linkumori для винятків шаблону домену.",
-    "description": "Guide page text."
-  },
-  "guide_0274": {
-    "message": "Пропущено:",
-    "description": "Guide page text."
-  },
-  "guide_0275": {
-    "message": "Розділ 16: Правила реферального маркетингу",
-    "description": "Guide page text."
-  },
-  "guide_0276": {
-    "message": "<code>referralMarketing</code> працює як правила поля, але ним керує налаштування розширення для реферального маркетингу.",
-    "description": "Guide page text."
-  },
-  "guide_0277": {
-    "message": "приклад:",
-    "description": "Guide page text."
-  },
-  "guide_0278": {
-    "message": "Розділ 17: HTTP Методи",
-    "description": "Guide page text."
-  },
-  "guide_0279": {
-    "message": "Використовуйте <code>methods</code>, щоб запустити постачальника лише за певними методами HTTP.",
-    "description": "Guide page text."
-  },
-  "guide_0280": {
-    "message": "Це працює на:",
-    "description": "Guide page text."
-  },
-  "guide_0281": {
-    "message": "Це не працює на:",
-    "description": "Guide page text."
-  },
-  "guide_0282": {
-    "message": "Розділ 18: Типи ресурсів браузера",
-    "description": "Guide page text."
-  },
-  "guide_0283": {
-    "message": "<code>resourceTypes</code> є додатком Linkumori. Використовуйте його для запуску постачальника лише для певних типів запитів браузера.",
-    "description": "Guide page text."
-  },
-  "guide_0284": {
-    "message": "Загальні значення:",
-    "description": "Guide page text."
-  },
-  "guide_0285": {
-    "message": "приклад:",
-    "description": "Guide page text."
-  },
-  "guide_0286": {
-    "message": "Значення:",
-    "description": "Guide page text."
-  },
-  "guide_0287": {
-    "message": "Розділ 19: Препроцесори",
-    "description": "Guide page text."
-  },
-  "guide_0288": {
-    "message": "Препроцесори змінюють отримані значення перед їх використанням у <code>replacePattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0289": {
-    "message": "приклад:",
-    "description": "Guide page text."
-  },
-  "guide_0290": {
-    "message": "Підтримувані типи:",
-    "description": "Guide page text."
-  },
-  "guide_0291": {
-    "message": "<code>inputs</code> може бути:",
-    "description": "Guide page text."
-  },
-  "guide_0299": {
-    "message": "Розділ 20: Дозволені JSON комбінації",
-    "description": "Guide page text."
-  },
-  "guide_0300": {
-    "message": "У цьому розділі показано Linkumori змішаних постачальників JSON: ClearURLs застарілих масивів аддонів, ClearURLs канонічних об’єктів ядра v2 і Linkumori доповнень, які можуть існувати разом в одному файлі правил.",
-    "description": "Guide page text."
-  },
-  "guide_0301": {
-    "message": "Комбінація 1: багато постачальників в одному файлі",
-    "description": "Guide page text."
-  },
-  "guide_0302": {
-    "message": "<code>providers</code> — це ClearURLs успадкований аддон і ClearURLs core v2 канонічний синтаксис верхнього рівня. Linkumori зберігає цю форму та дозволяє використовувати багато постачальників.",
-    "description": "Guide page text."
-  },
-  "guide_0303": {
-    "message": "Кожен провайдер завантажується окремо.",
-    "description": "Guide page text."
-  },
-  "guide_0304": {
-    "message": "Комбінація 2: глобальні параметри за замовчуванням плюс постачальники",
-    "description": "Guide page text."
-  },
-  "guide_0305": {
-    "message": "<code>defaults</code> — канонічний синтаксис ClearURLs core v2. Linkumori приймає його поряд із застарілим стилем <code>providers</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0306": {
-    "message": "Правила можуть успадковувати значення за замовчуванням, якщо ці поля відсутні в правилі.",
-    "description": "Guide page text."
-  },
-  "guide_0307": {
-    "message": "Комбінація 3: <code>domainPatterns</code> Провайдер",
-    "description": "Guide page text."
-  },
-  "guide_0308": {
-    "message": "Це доповнення Linkumori. Більшість постачальників Linkumori повинні використовувати цю форму.",
-    "description": "Guide page text."
-  },
-  "guide_0309": {
-    "message": "Комбінація 4: <code>urlPattern</code> Постачальник із <code>indexPattern</code>",
-    "description": "Guide page text."
-  },
-  "guide_0310": {
-    "message": "<code>urlPattern</code> — це синтаксис ClearURLs вище за течією. <code>indexPattern</code> — це підказка щодо пошуку Linkumori для постачальників URL-адрес регулярного виразу; він має вказувати на імена хостів, яким може відповідати регулярний вираз.",
-    "description": "Guide page text."
-  },
-  "guide_0311": {
-    "message": "<code>indexPattern</code> необов'язковий, але корисний для швидкості. Він індексує постачальника в сегментах кандидатів на ім’я хоста-токена; він ніколи не замінює остаточний збіг <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0312": {
-    "message": "Комбінація 5: не змішуйте <code>domainPatterns</code> і <code>urlPattern</code> як комбіновану вимогу",
-    "description": "Guide page text."
-  },
-  "guide_0313": {
-    "message": "Ця форма може з’являтися в старих або рукописних даних, але це не означає, що обидва збіги повинні проходити:",
-    "description": "Guide page text."
-  },
-  "guide_0314": {
-    "message": "Поточна поведінка <code>clearurls.js</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0315": {
-    "message": "Якщо <code>domainPatterns</code> присутній і не порожній, <code>clearurls.js</code> використовує його для відповідності постачальника та ігнорує <code>urlPattern</code> для цього постачальника. Спеціальний редактор/шлях імпорту відхиляє постачальників, які містять обидва. Якщо вам потрібна умова шляху, використовуйте <code>urlPattern</code> із <code>indexPattern</code> або визначте область окремих записів <code>$removeparam</code>/правила в <code>rules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0316": {
-    "message": "Комбінація 6: Змішані <code>rules[]</code> Записи",
-    "description": "Guide page text."
-  },
-  "guide_0317": {
-    "message": "У Linkumori <code>rules</code> може містити ClearURLs застарілі рядки, Linkumori <code>$removeparam</code> рядки, Linkumori <code>matchPattern</code> об’єкти та ClearURLs core v2 канонічні об’єкти разом.",
-    "description": "Guide page text."
-  },
-  "guide_0318": {
-    "message": "Усі чотири роботи приймаються.",
-    "description": "Guide page text."
-  },
-  "guide_0319": {
-    "message": "Комбінація 7: Канонічні об’єкти всередині <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0320": {
-    "message": "Канонічні об’єкти ClearURLs core v2 можуть представляти різні типи правил. У цьому прикладі Linkumori вони розміщені всередині постачальника, який використовує <code>domainPatterns</code>, тобто лише Linkumori.",
-    "description": "Guide page text."
-  },
-  "guide_0321": {
-    "message": "<code>Linkumori extension</code> сортує їх за значенням:",
-    "description": "Guide page text."
-  },
-  "guide_0322": {
-    "message": "Комбінація 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
-    "description": "Guide page text."
-  },
-  "guide_0323": {
-    "message": "ClearURLs масиви застарілих постачальників аддонів все ще працюють. Linkumori дозволяє цим масивам розташовуватися поряд з об’єктами канонічного правила ClearURLs core v2.",
-    "description": "Guide page text."
-  },
-  "guide_0324": {
-    "message": "Це дійсно. Механізм читає всі ці масиви для одного провайдера.",
-    "description": "Guide page text."
-  },
-  "guide_0325": {
-    "message": "Комбінація 9: Методи та типи ресурсів для всього постачальника",
-    "description": "Guide page text."
-  },
-  "guide_0326": {
-    "message": "<code>methods</code> - це синтаксис ClearURLs. <code>resourceTypes</code> є доповненням Linkumori. Обидва застосовуються до всього постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0327": {
-    "message": "І <code>rules</code>, і <code>rawRules</code> обмежені відповідністю методу/типу постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0328": {
-    "message": "Комбінація 10: типи запитів на рівні правил",
-    "description": "Guide page text."
-  },
-  "guide_0329": {
-    "message": "Канонічні правила ClearURLs core v2 можуть визначати рівень правил <code>requestTypes</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0330": {
-    "message": "Рівень постачальника <code>resourceTypes</code> спочатку звужує постачальника. Після цього рівень правила <code>requestTypes</code> звужує окремі правила.",
-    "description": "Guide page text."
-  },
-  "guide_0331": {
-    "message": "Комбінація 11: Винятки в різних місцях",
-    "description": "Guide page text."
-  },
-  "guide_0332": {
-    "message": "Linkumori дозволяє поєднувати винятки ClearURLs постачальника, Linkumori винятки домену, ClearURLs винятки правил основного v2 і Linkumori винятки локального постачальника <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0333": {
-    "message": "Просте значення:",
-    "description": "Guide page text."
-  },
-  "guide_0334": {
-    "message": "Комбінація 12: правила блокування Provider Plus",
-    "description": "Guide page text."
-  },
-  "guide_0335": {
-    "message": "<code>completeProvider: true</code> позначає постачальника як скасовує/блокує.",
-    "description": "Guide page text."
-  },
-  "guide_0336": {
-    "message": "Якщо в налаштуваннях увімкнено блокування домену, відповідні запити можна блокувати. Правила можуть існувати, але блокування є сильнішою поведінкою для цього постачальника.",
-    "description": "Guide page text."
-  },
-  "guide_0337": {
-    "message": "Комбінація 13: правила очищення постачальника перенаправлення плюс",
-    "description": "Guide page text."
-  },
-  "guide_0338": {
-    "message": "Постачальник може містити переспрямування та правила очищення.",
-    "description": "Guide page text."
-  },
-  "guide_0339": {
-    "message": "Якщо переспрямування збігається, воно повертається першим.",
-    "description": "Guide page text."
-  },
-  "guide_0340": {
-    "message": "Комбінація 14: перенаправлення домену плюс перенаправлення регулярних виразів",
-    "description": "Guide page text."
-  },
-  "guide_0341": {
-    "message": "Обидва можуть існувати в одному провайдері.",
-    "description": "Guide page text."
-  },
-  "guide_0342": {
-    "message": "Спочатку перевіряються переспрямування регулярних виразів. Переспрямування домену перевіряється, якщо не знайдено жодного регулярного виразу.",
-    "description": "Guide page text."
-  },
-  "guide_0343": {
-    "message": "Комбінація 15: вимкнені або неактивні правила",
-    "description": "Guide page text."
-  },
-  "guide_0344": {
-    "message": "Провайдери можуть бути неактивними:",
-    "description": "Guide page text."
-  },
-  "guide_0345": {
-    "message": "Правила можуть бути неактивними:",
-    "description": "Guide page text."
-  },
-  "guide_0346": {
-    "message": "Неактивні постачальники та неактивні правила ігноруються.",
-    "description": "Guide page text."
-  },
-  "guide_0347": {
-    "message": "Комбінація 16: Приклад повного змішаного постачальника",
-    "description": "Guide page text."
-  },
-  "guide_0348": {
-    "message": "Цей приклад Linkumori навмисно поєднує більшість підтримуваних функцій постачальника: ClearURLs застарілі масиви аддонів, ClearURLs об’єкти канонічних правил ядра версії 2 і Linkumori функції збігів і шаблонів доменів.",
-    "description": "Guide page text."
-  },
-  "guide_0349": {
-    "message": "Це дійсний Linkumori змішаний постачальник JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0427": {
-    "message": "Розділ 21: Повні приклади",
-    "description": "Guide page text."
-  },
-  "guide_0428": {
-    "message": "Приклад 1: базовий очищувач Tracker",
-    "description": "Guide page text."
-  },
-  "guide_0429": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0430": {
-    "message": "Приклад 2: видалення всіх параметрів UTM",
-    "description": "Guide page text."
-  },
-  "guide_0431": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0432": {
-    "message": "Приклад 3: Зберігайте необхідний параметр під час входу",
-    "description": "Guide page text."
-  },
-  "guide_0433": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0434": {
-    "message": "Приклад 4: кліки відстеження перенаправлення",
-    "description": "Guide page text."
-  },
-  "guide_0435": {
-    "message": "Результат:",
-    "description": "Guide page text."
-  },
-  "guide_0436": {
-    "message": "Приклад 5: лише чисті запити API",
-    "description": "Guide page text."
-  },
-  "guide_0437": {
-    "message": "Значення:",
-    "description": "Guide page text."
-  },
-  "guide_0438": {
-    "message": "Розділ 22: Шаблони швидкого копіювання",
-    "description": "Guide page text."
-  },
-  "guide_0439": {
-    "message": "Видалити один параметр:",
-    "description": "Guide page text."
-  },
-  "guide_0440": {
-    "message": "Видалити багато параметрів:",
-    "description": "Guide page text."
-  },
-  "guide_0441": {
-    "message": "Використовуйте <code>$removeparam</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0442": {
-    "message": "Видалити всі параметри <code>utm_</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0443": {
-    "message": "Додайте виняток:",
-    "description": "Guide page text."
-  },
-  "guide_0444": {
-    "message": "Зіставте домен:",
-    "description": "Guide page text."
-  },
-  "guide_0445": {
-    "message": "Перенаправити трекер URL:",
-    "description": "Guide page text."
-  },
-  "guide_0624": {
-    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0625": {
-    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0626": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0627": {
-    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
-    "description": "Guide page text."
-  },
-  "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
-    "description": "Guide page text."
-  },
-  "guide_0629": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0630": {
-    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0631": {
-    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0632": {
-    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0633": {
-    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
-    "description": "Guide page text."
-  },
-  "guide_0634": {
-    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0635": {
-    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0636": {
-    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0637": {
-    "message": "||example.com^\n",
-    "description": "Guide page text."
-  },
-  "guide_0638": {
-    "message": "example.com + all subdomains\n",
-    "description": "Guide page text."
-  },
-  "guide_0639": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0640": {
-    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
-    "description": "Guide page text."
-  },
-  "guide_0641": {
-    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0642": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0643": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0644": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0645": {
-    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0646": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0647": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0648": {
-    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0649": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0650": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0651": {
-    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0652": {
-    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
-    "description": "Guide page text."
-  },
-  "guide_0653": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0654": {
-    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0655": {
-    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0656": {
-    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0657": {
-    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0658": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0659": {
-    "message": "https://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0660": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0661": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0662": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0663": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0664": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0665": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0666": {
-    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0667": {
-    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+  "guide_redir_field_title": {
+    "message": "Перенаправлення на значення параметра",
     "description": "Guide page text."
   },
-  "guide_0668": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_redir_p4": {
+    "message": "<code>fieldRedirections</code> вказує назву параметра, що містить пункт призначення, тому регулярний вираз не потрібен. Він приймає такі ж записи, як і <code>rules</code>:",
     "description": "Guide page text."
   },
-  "guide_0669": {
-    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+  "guide_redir_p5": {
+    "message": "Перемагає перший знайдений параметр, що має значення. Перенаправлення зупиняє всю іншу обробку запиту.",
     "description": "Guide page text."
   },
-  "guide_0670": {
-    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_title": {
+    "message": "9. Об'єкти правил",
     "description": "Guide page text."
   },
-  "guide_0671": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+  "guide_obj_p1": {
+    "message": "Будь-який запис може бути об'єктом замість рядка. Використовуйте його, коли правилу потрібен id, воно має бути вимкненим на початку, має перезаписувати замість видалення або має виконуватися лише в певних випадках:",
     "description": "Guide page text."
   },
-  "guide_0672": {
-    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+  "guide_th_key": {
+    "message": "Ключ",
     "description": "Guide page text."
   },
-  "guide_0673": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+  "guide_key_matchpattern": {
+    "message": "текст, який ви б написали як звичайний запис",
     "description": "Guide page text."
   },
-  "guide_0674": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_id": {
+    "message": "стабільна назва (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>), що використовується для увімкнення та вимкнення правила",
     "description": "Guide page text."
   },
-  "guide_0675": {
-    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+  "guide_key_aliases": {
+    "message": "попередні id правила, щоб вимкнене правило залишалося вимкненим після перейменування",
     "description": "Guide page text."
   },
-  "guide_0676": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_key_replacepattern": {
+    "message": "перезаписати замість видалення; <code>§1§</code>, <code>§2§</code>, … — це захоплені значення",
     "description": "Guide page text."
   },
-  "guide_0677": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_key_preprocessors": {
+    "message": "спочатку змінити захоплені значення",
     "description": "Guide page text."
   },
-  "guide_0678": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+  "guide_key_requesttypes": {
+    "message": "тільки для цих типів запитів, наприклад <code>[\"main_frame\"]</code>",
     "description": "Guide page text."
   },
-  "guide_0679": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+  "guide_key_exceptions": {
+    "message": "URL, де це конкретне правило не працює",
     "description": "Guide page text."
   },
-  "guide_0680": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+  "guide_key_flags": {
+    "message": "прапорці регулярного виразу у вигляді рядка (за замовчуванням <code>i</code>; <code>gi</code> у <code>rawRules</code>)",
     "description": "Guide page text."
   },
-  "guide_0681": {
-    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+  "guide_key_order": {
+    "message": "запустити правило раніше або пізніше",
     "description": "Guide page text."
   },
-  "guide_0682": {
-    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+  "guide_key_referral": {
+    "message": "<code>true</code>: правило в <code>rules</code> вважається правилом реферального маркетингу",
     "description": "Guide page text."
   },
-  "guide_0683": {
-    "message": "https://safe.example.com/?utm_source=x\n",
+  "guide_key_history": {
+    "message": "<code>false</code>: пропустити це правило, коли сторінка змінює власну адресу за допомогою History API",
     "description": "Guide page text."
   },
-  "guide_0684": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+  "guide_key_active": {
+    "message": "<code>false</code>: правило починає роботу у вимкненому стані",
     "description": "Guide page text."
   },
-  "guide_0685": {
-    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+  "guide_key_description": {
+    "message": "вільний текст",
     "description": "Guide page text."
   },
-  "guide_0686": {
-    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+  "guide_key_targetid": {
+    "message": "тільки для записів <code>@@…$rawrule=</code>: Необроблені правила, які воно зупиняє",
     "description": "Guide page text."
   },
-  "guide_0687": {
-    "message": "GET\n",
+  "guide_obj_rewrite_title": {
+    "message": "Перезапис замість видалення",
     "description": "Guide page text."
   },
-  "guide_0688": {
-    "message": "POST\nPUT\nDELETE\n",
+  "guide_obj_p2": {
+    "message": "За допомогою <code>replacePattern</code> правило в <code>rules</code> зберігає параметр і замінює його значення, яким є <code>§1§</code>. У <code>rawRules</code> та <code>redirections</code> <code>§1§</code>, <code>§2§</code>, … є групами захоплення:",
     "description": "Guide page text."
   },
-  "guide_0689": {
-    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+  "guide_obj_pre_title": {
+    "message": "Препроцесори",
     "description": "Guide page text."
   },
-  "guide_0690": {
-    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+  "guide_obj_p3": {
+    "message": "Препроцесори змінюють захоплені значення перед тим, як <code>replacePattern</code> використає їх. <code>inputs</code> — це <code>\"all\"</code> або список номерів груп:",
     "description": "Guide page text."
   },
-  "guide_0691": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_obj_p4": {
+    "message": "Типами є <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> та <code>base64Decode</code>.",
     "description": "Guide page text."
   },
-  "guide_0692": {
-    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+  "guide_obj_ids_title": {
+    "message": "ID правил",
     "description": "Guide page text."
   },
-  "guide_0693": {
-    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+  "guide_obj_p5": {
+    "message": "Кожне правило має id. Правило без <code>id</code> отримує його зі свого списку та тексту: <code>\"utm_source\"</code> у <code>rules</code> стає <code>field-utm-source</code>. Якщо два правила отримали б однаковий id, обоє отримують короткий хеш у кінці.",
     "description": "Guide page text."
   },
-  "guide_0694": {
-    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+  "guide_obj_p6": {
+    "message": "Згенерований id змінюється, коли змінюється текст правила. Надайте правилу власний <code>id</code>, якщо воно має зберігати налаштування увімкнення/вимкнення після редагування.",
     "description": "Guide page text."
   },
-  "guide_0695": {
-    "message": "[1]\n",
+  "guide_obj_order_title": {
+    "message": "Запуск правила раніше або пізніше",
     "description": "Guide page text."
   },
-  "guide_0696": {
-    "message": "[1, 2]\n",
+  "guide_obj_p7": {
+    "message": "Необроблені правила зазвичай запускаються першими, потім <code>rules</code> та <code>referralMarketing</code>. Правило з <code>order</code> запускається перед правилами без нього, починаючи з найнижчого. Тут токен спочатку замінюється, а потім видаляється:",
     "description": "Guide page text."
   },
-  "guide_0697": {
-    "message": "\"all\"\n",
+  "guide_obj_p8": {
+    "message": "<code>order</code> працює в <code>rules</code>, <code>rawRules</code> та <code>referralMarketing</code>, але не в фільтрах <code>$removeparam</code>, які завжди запускаються останніми.",
     "description": "Guide page text."
   },
-  "guide_0702": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_title": {
+    "message": "10. Реферальний маркетинг",
     "description": "Guide page text."
   },
-  "guide_0703": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ref_p1": {
+    "message": "<code>referralMarketing</code> приймає ті самі записи, що й <code>rules</code>. Вони пропускаються, поки <em>Дозволити реферальний маркетинг</em> увімкнено, тому партнерські посилання продовжують працювати, якщо ви цього бажаєте:",
     "description": "Guide page text."
   },
-  "guide_0704": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_ref_p2": {
+    "message": "Правило може залишатися в <code>rules</code> і все одно вважатися реферальним маркетингом за допомогою <code>\"referralMarketing\": true</code>.",
     "description": "Guide page text."
   },
-  "guide_0705": {
-    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_title": {
+    "message": "11. Методи та типи запитів",
     "description": "Guide page text."
   },
-  "guide_0706": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_req_p1": {
+    "message": "Вони обмежують умови, за яких запускається Провайдер або правило:",
     "description": "Guide page text."
   },
-  "guide_0707": {
-    "message": "Поведінка clearurls.js: якщо domainPatterns існує і не порожній, Linkumori використовує domainPatterns для зіставлення постачальників. urlPattern використовується, лише якщо domainPatterns відсутній або порожній. Користувацький редактор/шлях імпорту відхиляє цю форму змішаного відповідника, тому використовуйте її лише для розуміння застарілих даних.",
+  "guide_req_methods": {
+    "message": "HTTP методи, які обробляє Провайдер",
     "description": "Guide page text."
   },
-  "guide_0708": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_resourcetypes": {
+    "message": "типи запитів, які обробляє Провайдер",
     "description": "Guide page text."
   },
-  "guide_0709": {
-    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_requesttypes": {
+    "message": "типи запитів, які обробляє один об'єкт правила",
     "description": "Guide page text."
   },
-  "guide_0710": {
-    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+  "guide_req_options": {
+    "message": "те саме для одного фільтра <code>$removeparam</code> або необробленого правила",
     "description": "Guide page text."
   },
-  "guide_0711": {
-    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_req_p2": {
+    "message": "Типи запитів використовують назви браузера: <code>main_frame</code> (сторінка), <code>sub_frame</code> (фрейм), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> і так далі. Опції фільтра називають перші два <code>document</code> та <code>subdocument</code>.",
     "description": "Guide page text."
   },
-  "guide_0712": {
-    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+  "guide_order_title": {
+    "message": "12. Як обробляється URL",
     "description": "Guide page text."
   },
-  "guide_0713": {
-    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p1": {
+    "message": "Для кожного Провайдера, який відповідає URL і дозволяє запит:",
     "description": "Guide page text."
   },
-  "guide_0714": {
-    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_1": {
+    "message": "<code>exceptions</code>: якщо один відповідає, Провайдер пропускається.",
     "description": "Guide page text."
   },
-  "guide_0715": {
-    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+  "guide_order_2": {
+    "message": "<code>redirections</code>, потім <code>fieldRedirections</code>: збіг перенаправляє запит, і більше нічого не виконується.",
     "description": "Guide page text."
   },
-  "guide_0716": {
-    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_3": {
+    "message": "<code>completeProvider</code>: запит блокується.",
     "description": "Guide page text."
   },
-  "guide_0717": {
-    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+  "guide_order_4": {
+    "message": "<code>rawRules</code> виконуються для повного URL.",
     "description": "Guide page text."
   },
-  "guide_0718": {
-    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_order_5": {
+    "message": "<code>rules</code> та <code>referralMarketing</code> видаляють параметри.",
     "description": "Guide page text."
   },
-  "guide_0719": {
-    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+  "guide_order_6": {
+    "message": "Фільтри <code>$removeparam</code> виконуються, за винятком випадків, коли фільтр <code>@@</code> зберігає параметр.",
     "description": "Guide page text."
   },
-  "guide_0720": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_order_p2": {
+    "message": "Перший Провайдер, який змінює, перенаправляє або блокує запит, визначає результат. Потім новий URL знову проходить через ті самі кроки.",
     "description": "Guide page text."
   },
-  "guide_0721": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex_title": {
+    "message": "13. Повні приклади",
     "description": "Guide page text."
   },
-  "guide_0782": {
-    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex1_title": {
+    "message": "Очищення одного магазину",
     "description": "Guide page text."
   },
-  "guide_0783": {
-    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+  "guide_ex1_p": {
+    "message": "Видаляє параметри відстеження та affiliate id в одному магазині, не зачіпаючи його сторінки оформлення замовлення:",
     "description": "Guide page text."
   },
-  "guide_0784": {
-    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex2_title": {
+    "message": "Видаляти UTM-параметри всюди",
     "description": "Guide page text."
   },
-  "guide_0785": {
-    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+  "guide_ex2_p": {
+    "message": "Шаблон <code>*</code> відповідає кожному URL:",
     "description": "Guide page text."
   },
-  "guide_0786": {
-    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+  "guide_ex3_title": {
+    "message": "Пропустити клік-трекер",
     "description": "Guide page text."
   },
-  "guide_0787": {
-    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+  "guide_ex3_p": {
+    "message": "Направляє посилання через клік-трекер прямо до їхнього призначення, яке міститься в параметрі <code>url</code>:",
     "description": "Guide page text."
   },
-  "guide_0788": {
-    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+  "guide_ex4_title": {
+    "message": "Залишити параметр на одній сторінці",
     "description": "Guide page text."
   },
-  "guide_0789": {
-    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+  "guide_ex4_p": {
+    "message": "Видаляє <code>ref</code> всюди на сайті, окрім сторінки входу, якій він потрібен:",
     "description": "Guide page text."
   },
-  "guide_0790": {
-    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+  "guide_check_title": {
+    "message": "14. Перевірка ваших правил",
     "description": "Guide page text."
   },
-  "guide_0791": {
-    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+  "guide_check_p1": {
+    "message": "Редактор Власних правил перевіряє правила під час їхнього збереження або імпорту. Окрім пошкодженого JSON та неправильних регулярних виразів, він відхиляє правила, які б завантажилися, але непомітно працювали б неправильно, наприклад:",
     "description": "Guide page text."
   },
-  "guide_0792": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+  "guide_check_1": {
+    "message": "<code>domainPatterns</code> та <code>urlPattern</code> на одному Провайдері",
     "description": "Guide page text."
   },
-  "guide_0793": {
-    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+  "guide_check_2": {
+    "message": "шаблон з одним <code>|</code> і без схеми, наприклад <code>|example.com^</code>",
     "description": "Guide page text."
   },
-  "guide_0794": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+  "guide_check_3": {
+    "message": "перенаправлення за допомогою регулярного виразу без рівно однієї групи захоплення",
     "description": "Guide page text."
   },
-  "guide_0795": {
-    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+  "guide_check_4": {
+    "message": "невідомі поля, ключі та опції",
     "description": "Guide page text."
   },
-  "guide_0796": {
-    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+  "guide_check_5": {
+    "message": "<code>order</code> або <code>referralMarketing</code> там, де вони нічого не змінять",
     "description": "Guide page text."
   },
-  "guide_0797": {
-    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+  "guide_check_6": {
+    "message": "запис <code>@@…$rawrule=</code>, який не зупиняє жодного Необроблені правила",
     "description": "Guide page text."
   },
-  "guide_0798": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+  "guide_check_p2": {
+    "message": "Якщо збереження не вдалося, у повідомленні вказується Провайдер, список і запис.",
     "description": "Guide page text."
   },
   "providerImport_allProviders": {
