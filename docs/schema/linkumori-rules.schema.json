@@ -1,0 +1,578 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/docs/schema/linkumori-rules.schema.json",
+  "title": "Linkumori rules file",
+  "description": "A Linkumori rule list: data/linkumori-clearurls.json, a remote rule list, or rules written in the custom rules editor. See docs/filter-syntax.md. Checks that need the whole provider (duplicate ids, targetId pointing at a real raw rule, regexes that compile, capture-group counts) are left to the editor and `node linkumori-cli-tool.js lint-rules`.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "Optional link to this schema, for editors.",
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "providers": {
+      "description": "Providers by name. The name is free text; lowercase and descriptive is the convention.",
+      "type": "object",
+      "propertyNames": {
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/provider"
+      }
+    }
+  },
+  "required": [
+    "providers"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "metadata": {
+      "description": "Information about the list. Not used for matching; any extra keys are kept as they are.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "buildTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "provider": {
+      "description": "One provider. It needs domainPatterns or urlPattern, never both.",
+      "type": "object",
+      "properties": {
+        "domainPatterns": {
+          "description": "Which URLs the provider handles, as patterns (docs/filter-syntax.md §2).",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/pattern"
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/pattern"
+              }
+            }
+          ]
+        },
+        "urlPattern": {
+          "description": "Which URLs the provider handles, as a regex matched case-insensitively against the full URL.",
+          "type": "string",
+          "minLength": 1,
+          "format": "regex"
+        },
+        "indexPattern": {
+          "description": "Only with urlPattern: \"||host^\" hints so the provider is only checked for those hosts. Without it the provider is checked against every URL (lint warning). A string may hold several hints separated by commas or new lines.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "rules": {
+          "description": "Query and fragment parameters to remove: a parameter name, a name regex, or a $removeparam filter.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/fieldRuleText"
+              },
+              {
+                "$ref": "#/$defs/fieldRuleObject"
+              }
+            ]
+          }
+        },
+        "referralMarketing": {
+          "description": "Referral and affiliate parameters to remove, same syntax as rules. Skipped while \"Allow referral marketing\" is on.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/fieldRuleText"
+              },
+              {
+                "$ref": "#/$defs/fieldRuleObject"
+              }
+            ]
+          }
+        },
+        "rawRules": {
+          "description": "Regexes run on the full URL; every match is deleted. May be scoped with a pattern and $removeparam options ending in \"rawrule=\", and \"@@…$rawrule=\" entries stop them.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/rawRuleObject"
+              }
+            ]
+          }
+        },
+        "exceptions": {
+          "description": "URLs the provider leaves alone: a URL regex, or a \"|\"-prefixed pattern.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/exceptionText"
+              },
+              {
+                "$ref": "#/$defs/exceptionRuleObject"
+              }
+            ]
+          }
+        },
+        "redirections": {
+          "description": "Where to send the request instead: a regex with exactly one capture group, or \"||host^$redirect=https://target/\". Only used while \"Enable Third-Party Redirect Bypass\" is on.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/redirectText"
+              },
+              {
+                "$ref": "#/$defs/redirectRuleObject"
+              }
+            ]
+          }
+        },
+        "fieldRedirections": {
+          "description": "Parameters whose own value is the destination; same entries as rules, but no \"@@\". Only used while \"Enable Third-Party Redirect Bypass\" is on.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/fieldRedirectText"
+              },
+              {
+                "$ref": "#/$defs/fieldRedirectRuleObject"
+              }
+            ]
+          }
+        },
+        "completeProvider": {
+          "description": "true blocks every request the provider matches (only while \"Allow domain blocking\" is on).",
+          "type": "boolean"
+        },
+        "forceRedirection": {
+          "description": "true: for page loads, redirects navigate the tab instead of redirecting the request.",
+          "type": "boolean"
+        },
+        "methods": {
+          "description": "Only handle these HTTP methods. Default: all.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^([Gg][Ee][Tt]|[Hh][Ee][Aa][Dd]|[Oo][Pp][Tt][Ii][Oo][Nn][Ss]|[Pp][Oo][Ss][Tt]|[Pp][Uu][Tt]|[Pp][Aa][Tt][Cc][Hh]|[Dd][Ee][Ll][Ee][Tt][Ee]|[Cc][Oo][Nn][Nn][Ee][Cc][Tt])$"
+          },
+          "uniqueItems": true
+        },
+        "resourceTypes": {
+          "description": "Only handle these request types. Default: the request types chosen in settings.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requestType"
+          },
+          "uniqueItems": true
+        },
+        "historyBypassProtection": {
+          "description": "false skips this provider for History API URL changes (pushState/replaceState). Default true.",
+          "type": "boolean"
+        },
+        "active": {
+          "description": "false switches the provider off.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "domainPatterns"
+          ]
+        },
+        {
+          "required": [
+            "urlPattern"
+          ]
+        }
+      ],
+      "not": {
+        "required": [
+          "domainPatterns",
+          "urlPattern"
+        ]
+      }
+    },
+    "pattern": {
+      "description": "A URL pattern: \"||example.com^\", \"||example.*^\", \"||example.com^/path\", \"|https://…\", \"…|\", \"/regex/i\", plain text, or \"*\". A single \"|\" must be followed by a scheme.",
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "^\\s*\\|(?!\\||[A-Za-z][A-Za-z0-9+.-]*:)"
+      }
+    },
+    "requestType": {
+      "type": "string",
+      "enum": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "image",
+        "imageset",
+        "font",
+        "object",
+        "object_subrequest",
+        "xmlhttprequest",
+        "xslt",
+        "ping",
+        "beacon",
+        "xml_dtd",
+        "media",
+        "websocket",
+        "csp_report",
+        "web_manifest",
+        "speculative",
+        "other"
+      ]
+    },
+    "ruleId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "fieldRuleText": {
+      "description": "A parameter name, a name regex, or a $removeparam filter (\"@@\" in front keeps the parameter).",
+      "type": "string",
+      "minLength": 1
+    },
+    "fieldRedirectText": {
+      "description": "A parameter name, a name regex, or a $removeparam filter; \"@@\" is not allowed here.",
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "^\\s*@@"
+      }
+    },
+    "exceptionText": {
+      "description": "A URL regex, or a pattern starting with \"|\".",
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "^\\s*\\|(?!\\||[A-Za-z][A-Za-z0-9+.-]*:)"
+      }
+    },
+    "redirectText": {
+      "description": "A regex with one capture group, or \"||host^$redirect=https://target/\".",
+      "type": "string",
+      "minLength": 1,
+      "if": {
+        "pattern": "^\\s*\\|"
+      },
+      "then": {
+        "pattern": "^\\s*\\|[^$]*\\S[^$]*\\$redirect=\\s*\\S",
+        "not": {
+          "pattern": "^\\s*\\|(?!\\||[A-Za-z][A-Za-z0-9+.-]*:)"
+        }
+      }
+    },
+    "ruleObject": {
+      "description": "Every key a rule object can have. The list-specific definitions below forbid the keys that do nothing in their list.",
+      "type": "object",
+      "properties": {
+        "matchPattern": {
+          "description": "The same string you would write as a plain entry.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Stable id used by the rule on/off controls. Unique within the provider.",
+          "$ref": "#/$defs/ruleId"
+        },
+        "aliases": {
+          "description": "The rule's previous ids; must not contain its own id.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ruleId"
+          },
+          "uniqueItems": true
+        },
+        "replacePattern": {
+          "description": "Rewrite instead of remove; §1§, §2§, … are the captured values.",
+          "type": "string"
+        },
+        "preprocessors": {
+          "description": "Applied to captured values before replacePattern.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/preprocessor"
+          }
+        },
+        "requestTypes": {
+          "description": "Only for these request types.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exceptions": {
+          "description": "URL regexes (case-insensitive) where this rule does not run. $removeparam filters in rules and referralMarketing use \"@@\" instead.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "regex"
+          }
+        },
+        "flags": {
+          "description": "Regex flags for matchPattern. Default \"i\"; \"gi\" in rawRules.",
+          "type": "string",
+          "pattern": "^[dgimsuvy]*$"
+        },
+        "order": {
+          "description": "Run earlier or later than the list normally runs; lowest first. Only in rules, rawRules and referralMarketing, and not on $removeparam filters.",
+          "type": "number"
+        },
+        "referralMarketing": {
+          "description": "true makes a rule in rules a referral-marketing rule.",
+          "type": "boolean"
+        },
+        "historyBypassProtection": {
+          "description": "false skips this rule for History API URL changes.",
+          "type": "boolean"
+        },
+        "active": {
+          "description": "false makes the rule off by default.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "Free text.",
+          "type": "string"
+        },
+        "targetId": {
+          "description": "Only on an \"@@…$rawrule=\" exception in rawRules: the id or alias of the raw rule it stops.",
+          "$ref": "#/$defs/ruleId"
+        },
+        "_linkumoriActivationIds": {
+          "description": "Written by the editor to keep ids stable. Do not edit.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "_linkumoriLegacyRuleIds": {
+          "description": "Written by the editor to keep ids stable. Do not edit.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "matchPattern"
+      ],
+      "additionalProperties": false
+    },
+    "noOrderOnRemoveParam": {
+      "if": {
+        "required": [
+          "matchPattern"
+        ],
+        "properties": {
+          "matchPattern": {
+            "pattern": "(^|[$,])removeparam(=|,|$)"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "order": false
+        }
+      }
+    },
+    "fieldRuleObject": {
+      "description": "A rule object in rules or referralMarketing.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ruleObject"
+        },
+        {
+          "$ref": "#/$defs/noOrderOnRemoveParam"
+        },
+        {
+          "properties": {
+            "targetId": false
+          }
+        }
+      ]
+    },
+    "rawRuleObject": {
+      "description": "A rule object in rawRules. An \"@@…$rawrule=\" exception only stops other raw rules, so it cannot rewrite, reorder or take flags.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ruleObject"
+        },
+        {
+          "properties": {
+            "referralMarketing": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "matchPattern": {
+                "pattern": "^\\s*@@"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "replacePattern": false,
+              "preprocessors": false,
+              "order": false,
+              "flags": false
+            }
+          },
+          "else": {
+            "properties": {
+              "targetId": false
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "targetId"
+            ]
+          },
+          "then": {
+            "properties": {
+              "matchPattern": {
+                "pattern": "[$,]rawrule=\\s*$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "exceptionRuleObject": {
+      "description": "A rule object in exceptions.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ruleObject"
+        },
+        {
+          "properties": {
+            "matchPattern": {
+              "$ref": "#/$defs/exceptionText"
+            },
+            "order": false,
+            "referralMarketing": false,
+            "targetId": false
+          }
+        }
+      ]
+    },
+    "redirectRuleObject": {
+      "description": "A rule object in redirections.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ruleObject"
+        },
+        {
+          "properties": {
+            "matchPattern": {
+              "$ref": "#/$defs/redirectText"
+            },
+            "order": false,
+            "referralMarketing": false,
+            "targetId": false
+          }
+        }
+      ]
+    },
+    "fieldRedirectRuleObject": {
+      "description": "A rule object in fieldRedirections.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ruleObject"
+        },
+        {
+          "properties": {
+            "matchPattern": {
+              "$ref": "#/$defs/fieldRedirectText"
+            },
+            "order": false,
+            "referralMarketing": false,
+            "targetId": false
+          }
+        }
+      ]
+    },
+    "preprocessor": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "urlEncode",
+            "urlDecode",
+            "doubleUrlEncode",
+            "doubleUrlDecode",
+            "base64Encode",
+            "base64Decode"
+          ]
+        },
+        "inputs": {
+          "description": "\"all\", or the capture group numbers to transform.",
+          "oneOf": [
+            {
+              "const": "all"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "inputs"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/docs/schema/linkumori-custom-rules-export.schema.json",
+  "title": "Linkumori custom rules export",
+  "description": "The file written by \"Export custom rules to file\" in the custom rules editor. Import also takes a plain rules file (linkumori-rules.schema.json).",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "format": {
+      "const": "linkumori-custom-rules-export"
+    },
+    "version": {
+      "const": 1
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "clearurlsCustomRules": {
+      "description": "The custom providers.",
+      "type": "object",
+      "properties": {
+        "providers": {
+          "$ref": "linkumori-rules.schema.json#/properties/providers"
+        }
+      },
+      "required": [
+        "providers"
+      ],
+      "additionalProperties": false
+    },
+    "rulePins": {
+      "description": "Pinned ids of rules switched off in built-in and remote lists, so importing switches the same rules off.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rulePin"
+      }
+    }
+  },
+  "required": [
+    "format",
+    "version"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "clearurlsCustomRules"
+      ]
+    },
+    {
+      "required": [
+        "rulePins"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "rulePin": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "description": "Provider name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "description": "The list the rule was in.",
+          "enum": [
+            "exceptions",
+            "rules",
+            "referralMarketing",
+            "rawRules",
+            "redirections",
+            "fieldRedirections"
+          ]
+        },
+        "generatedId": {
+          "description": "The rule's generated id when it was switched off.",
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceListId": {
+          "description": "Which list the rule came from. Default \"built-in\".",
+          "type": "string",
+          "minLength": 1
+        },
+        "fingerprintAtToggle": {
+          "description": "The rule's text when it was switched off, used to find it again after list updates.",
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        "disableKeys": {
+          "description": "The rule ids that are switched off.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "pinnedAt": {
+          "type": "string"
+        },
+        "lastSeenText": {
+          "description": "The rule's text the last time it was matched, if it changed.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "section",
+        "generatedId",
+        "fingerprintAtToggle"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

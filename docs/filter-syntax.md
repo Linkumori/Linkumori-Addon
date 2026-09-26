@@ -27,6 +27,31 @@ optional `metadata` object. No other format is read.
 Each key under `providers` is a provider: a name of your choice (lowercase,
 descriptive) mapped to the fields below.
 
+### JSON Schema
+
+[`docs/schema/linkumori-rules.schema.json`](schema/linkumori-rules.schema.json)
+describes this format as a JSON Schema (draft 2020-12), for completion and
+checking in editors such as VS Code. Point a rules file at it with
+`"$schema"`:
+
+```json
+{
+  "$schema": "./docs/schema/linkumori-rules.schema.json",
+  "providers": { }
+}
+```
+
+The file written by *Export custom rules to file* is described by
+[`docs/schema/linkumori-custom-rules-export.schema.json`](schema/linkumori-custom-rules-export.schema.json).
+
+The schema covers what one entry can hold: fields and keys, their types,
+`domainPatterns` **or** `urlPattern`, rule ids, preprocessors, broken
+single-`|` patterns, `|…$redirect=` redirects, and keys that would do nothing
+in a list (`order`, `targetId`, `referralMarketing`, the keys an `@@` raw rule
+cannot have). Checks that need the whole provider — regexes that compile,
+capture-group counts, unique ids, a `targetId` that names a real raw rule,
+`$removeparam` options — are left to the editor and `lint-rules` (§10).
+
 ## 1. Provider fields
 
 | Field | Type | What it does |
