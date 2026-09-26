@@ -1388,12 +1388,17 @@ function renderProviderRuleIdControls(providerName, provider) {
                     <strong>${escapeHtml(entry.id)}</strong>
                     <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}</span>
                 </span>
-                <button type="button" class="btn btn-sm btn-secondary provider-rule-id-copy-btn" data-section="${escapeHtml(entry.section)}" data-index="${entry.index}">
-                    ${i18n('customRulesEditor_copyRule')}
-                </button>
-                <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
-                    ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
-                </button>
+                <span class="provider-rule-id-actions">
+                    <button type="button" class="btn btn-sm btn-secondary provider-rule-id-copy-btn" data-section="${escapeHtml(entry.section)}" data-index="${entry.index}">
+                        ${i18n('customRulesEditor_copyRule')}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary provider-rule-id-rename-btn" data-section="${escapeHtml(entry.section)}" data-index="${entry.index}" data-rule-id="${escapeHtml(entry.id)}">
+                        ${i18n('customRulesEditor_renameRuleId')}
+                    </button>
+                    <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
+                        ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
+                    </button>
+                </span>
             </li>
         `;
     }).join('');
@@ -4695,10 +4700,124 @@ async function copyProviderRuleFromEditor(section, index) {
     }
 }
 
+const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
+
+// Every id and alias the provider's rules use, except the rule with this
+// text in `section`.
+function getProviderRuleIdsInUse(provider, section, match) {
+    const used = new Set();
+    const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(list => {
+        (Array.isArray(provider[list]) ? provider[list] : []).forEach((rule, index) => {
+            if (list === section && LinkumoriRuleIds.getRuleText(rule) === match) return;
+            const assigned = assignedIds[list][index];
+            if (assigned) used.add(assigned.id);
+            if (isPlainObject(rule) && Array.isArray(rule.aliases)) {
+                rule.aliases.forEach(alias => { if (typeof alias === 'string') used.add(alias); });
+            }
+        });
+    });
+    return used;
+}
+
+// Gives the rule with this text in `section` the id `newId`, keeping
+// `oldId` as an alias so settings saved under it still apply. Rules that
+// shared its generated id get theirs written first, so theirs stay the
+// same. Returns true if the rule was found.
+function renameRuleIdInProvider(provider, section, match, oldId, newId) {
+    if (!isPlainObject(provider) || !Array.isArray(provider[section]) ||
+        !provider[section].some(rule => LinkumoriRuleIds.getRuleText(rule) === match)) {
+        return false;
+    }
+    writeGeneratedRuleIdsIntoProvider(provider, section, match, oldId);
+    provider[section] = provider[section].map(rule => {
+        if (LinkumoriRuleIds.getRuleText(rule) !== match) return rule;
+        const next = typeof rule === 'string' ? { matchPattern: rule } : { ...rule };
+        const aliases = [...new Set([...(Array.isArray(next.aliases) ? next.aliases : []), oldId])]
+            .filter(alias => alias && alias !== newId);
+        const renamed = { id: newId, ...next, id: newId };
+        if (aliases.length > 0) renamed.aliases = aliases;
+        else delete renamed.aliases;
+        return renamed;
+    });
+    return true;
+}
+
+// Moves disabled-rule ids and pins saved under a rule's old id to its new id.
+function moveRuleIdSettings(providerName, provider, oldId, newId) {
+    const keys = new Map();
+    getProviderRuleActivationScopeIds(providerName, provider).forEach(scopeId => {
+        const oldKeys = getProviderRuleDisableKeys(scopeId, oldId, providerName);
+        const newKeys = getProviderRuleDisableKeys(scopeId, newId, providerName);
+        oldKeys.forEach((key, index) => keys.set(key, newKeys[index]));
+    });
+    clearURLsDisabledRuleIds = [...new Set(clearURLsDisabledRuleIds.map(key => keys.get(key) || key))];
+    // The rule now has its own "id", so it no longer needs a pin.
+    clearURLsRuleIdPins = clearURLsRuleIdPins.filter(pin => !(pin.provider === providerName && pin.generatedId === oldId));
+}
+
+async function renameProviderRuleId(section, index, oldId) {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor || !currentProvider || !oldId) return;
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        updateEditorStatus('invalid', i18n('status_invalidJson'));
+        return;
+    }
+    const rule = Array.isArray(provider?.[section]) ? provider[section][index] : undefined;
+    const match = LinkumoriRuleIds.getRuleText(rule);
+    if (!match) return;
+
+    const answer = window.LinkumoriModal && typeof window.LinkumoriModal.prompt === 'function'
+        ? await window.LinkumoriModal.prompt(i18n('customRulesEditor_renameRuleIdPrompt', oldId), oldId)
+        : { confirmed: false, value: '' };
+    if (!answer || !answer.confirmed) return;
+    const newId = String(answer.value || '').trim();
+    if (!newId || newId === oldId) return;
+    if (!RULE_ID_PATTERN.test(newId)) {
+        await modalAlert(i18n('customRulesEditor_renameRuleIdInvalid', newId));
+        return;
+    }
+    if (getProviderRuleIdsInUse(provider, section, match).has(newId)) {
+        await modalAlert(i18n('customRulesEditor_renameRuleIdTaken', newId));
+        return;
+    }
+
+    renameRuleIdInProvider(provider, section, match, oldId, newId);
+    jsonEditor.value = JSON.stringify(provider, null, 2);
+    updateJsonTextMateHighlighting(jsonEditor);
+
+    // Saved right away when the rule is already saved, so the switched-off
+    // settings moved to the new id keep matching it.
+    const savedProvider = customRules?.providers?.[currentProvider];
+    if (renameRuleIdInProvider(savedProvider, section, match, oldId, newId)) {
+        moveRuleIdSettings(currentProvider, savedProvider, oldId, newId);
+        await browser.runtime.sendMessage({
+            function: 'setData',
+            params: ['custom_rules', JSON.stringify(customRules)]
+        });
+        await saveClearURLsRuleIdPins();
+        await saveClearURLsDisabledRuleIds();
+        await reloadRulesAfterExclusionChange();
+        updateSourceCounts();
+    } else {
+        hasUnsavedChanges = true;
+    }
+    updateEditorStatus('valid', i18n(hasUnsavedChanges ? 'status_validJsonUnsaved' : 'customRulesEditor_ruleIdRenamed', newId));
+    renderProviderRuleIdControlsFromEditor();
+}
+
 async function handleProviderRuleIdControlsClick(event) {
     const copyBtn = event.target.closest('.provider-rule-id-copy-btn');
     if (copyBtn) {
         await copyProviderRuleFromEditor(copyBtn.dataset.section, Number(copyBtn.dataset.index));
+        return;
+    }
+    const renameBtn = event.target.closest('.provider-rule-id-rename-btn');
+    if (renameBtn) {
+        await renameProviderRuleId(renameBtn.dataset.section, Number(renameBtn.dataset.index), renameBtn.dataset.ruleId || '');
         return;
     }
     const disableBtn = event.target.closest('.provider-rule-id-disable-btn');

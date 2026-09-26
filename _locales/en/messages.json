@@ -2525,6 +2525,30 @@
     "message": "Provider rule IDs",
     "description": "Section title for disabled ClearURLs provider rule IDs"
   },
+  "customRulesEditor_renameRuleId": {
+    "message": "Rename ID",
+    "description": "Button label to give a rule a new id in Provider rule ID controls"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "New id for $OLD$ (a-z, 0-9, - and _). The old id is kept as an alias, so rules switched off under it stay off.",
+    "description": "Prompt when renaming a rule id",
+    "placeholders": { "old": { "content": "$1", "example": "field-dd" } }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" is not a valid id. Use lowercase letters, digits, - and _, starting with a letter or digit.",
+    "description": "Alert when a new rule id has invalid characters",
+    "placeholders": { "id": { "content": "$1", "example": "Field DD" } }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Another rule of this provider already uses \"$ID$\".",
+    "description": "Alert when a new rule id is already used in the provider",
+    "placeholders": { "id": { "content": "$1", "example": "field-dd" } }
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Rule id renamed to $ID$",
+    "description": "Status after a rule id was renamed and saved",
+    "placeholders": { "id": { "content": "$1", "example": "strip-dd" } }
+  },
   "providerImport_orphanedToggles": {
     "message": "Orphaned toggles",
     "description": "Section title in Disabled Rules for switched-off rules whose rule no longer exists upstream"

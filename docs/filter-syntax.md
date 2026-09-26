@@ -517,6 +517,10 @@ The first time you switch off a rule without an `id`, its id is fixed:
   *Orphaned toggles* in Disabled Rules, with a *Remove* button, instead of
   quietly doing nothing.
 
+To choose an id yourself, use *Rename ID* next to the rule in *Provider rule
+ID controls* of a custom provider. The rule gets the new `id`, its old id
+becomes an alias, and rules switched off under the old id stay off.
+
 Rules you never switched off keep their generated ids, with nothing stored.
 *Export custom rules to file* includes the pins (`"rulePins"`) of rules you
 switched off, and importing the file switches the same rules off.
