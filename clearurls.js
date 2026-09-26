@@ -107,7 +107,10 @@ function createEmptyProviderSnapshot() {
         providerCount: 0,
         providers: [],
         providersByToken: {},
-        ruleIds: {}
+        ruleIds: {},
+        // Pinned rule ids (see core_js/linkumori_rule_pins.js): how each pin
+        // matched this load, and the pins that no longer match any rule.
+        rulePins: { resolved: [], orphaned: [] }
     };
 }
 
@@ -253,6 +256,85 @@ function migrateCoreRuleAliasActivationIds() {
     return true;
 }
 
+// Pin changes found while providers are built (new pins for rules that
+// were switched off before pins existed, drifted text, disable keys), written
+// back by persistCoreRulePinChanges().
+let pendingCoreRulePinChanges = [];
+
+function getCoreRulePinSourceListId(providerName) {
+    const customProviders = storage.custom_rules && storage.custom_rules.providers;
+    if (customProviders && typeof customProviders === 'object' && Object.prototype.hasOwnProperty.call(customProviders, providerName)) return 'custom';
+    const source = storage.mergeStats && storage.mergeStats.source;
+    return typeof source === 'string' && source ? source : 'built-in';
+}
+
+// A rule matched to a pin keeps the pinned id (already set through the id
+// lookup); its activation ids, worked out by storage from its current
+// text, are moved to that id too.
+function applyCoreRulePin(compiledRule) {
+    compiledRule.activationIds = normalizeCoreRuleActivationIds((compiledRule.activationIds || []).map(activationId => {
+        const sep = activationId.lastIndexOf("::");
+        return sep === -1 ? activationId : `${activationId.slice(0, sep)}::${compiledRule.id}`;
+    }));
+    compiledRule.pinned = true;
+}
+
+// The disabled-rule ids that switch this rule off, once
+// filterCoreRuleActivationIds() has run.
+function getCoreRuleDisableKeys(compiledRule, disabledRuleIds) {
+    if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return [];
+    if (compiledRule.runtimeRuleId && disabledRuleIds.has(compiledRule.runtimeRuleId)) return [compiledRule.runtimeRuleId];
+    return (compiledRule.disabledActivationIds || []).filter(id => disabledRuleIds.has(id));
+}
+
+// A rule without an "id" that is switched off gets a pin if it has none,
+// and a pin learns the disable keys it did not know about.
+function trackCoreRulePin(providerName, compiledRule, disabledRuleIds, providerPins) {
+    const disableKeys = getCoreRuleDisableKeys(compiledRule, disabledRuleIds);
+    if (disableKeys.length === 0) return;
+    const pin = LinkumoriRulePins.findPin(providerPins, providerName, compiledRule.id);
+    if (pin && disableKeys.every(key => pin.disableKeys.includes(key))) return;
+    pendingCoreRulePinChanges.push(LinkumoriRulePins.createPin({
+        provider: providerName,
+        section: compiledRule.section,
+        generatedId: compiledRule.id,
+        text: compiledRule.matchPattern,
+        sourceListId: getCoreRulePinSourceListId(providerName),
+        disableKeys
+    }));
+}
+
+function persistCoreRulePinChanges(lastSeenUpdates) {
+    const changes = pendingCoreRulePinChanges;
+    pendingCoreRulePinChanges = [];
+    if (changes.length === 0 && lastSeenUpdates.length === 0) return false;
+    let pins = LinkumoriRulePins.normalizePins(storage[LinkumoriRulePins.PIN_STORAGE_KEY]);
+    changes.forEach(pin => { pins = LinkumoriRulePins.upsertPin(pins, pin); });
+    lastSeenUpdates.forEach(({ provider, generatedId, text }) => {
+        const pin = LinkumoriRulePins.findPin(pins, provider, generatedId);
+        if (!pin) return;
+        if (text === pin.fingerprintAtToggle.text) delete pin.lastSeenText;
+        else pin.lastSeenText = text;
+    });
+    storage[LinkumoriRulePins.PIN_STORAGE_KEY] = pins;
+    if (typeof saveOnDisk === 'function') saveOnDisk([LinkumoriRulePins.PIN_STORAGE_KEY]);
+    return true;
+}
+
+function describeCoreRulePin(pin, result) {
+    return {
+        provider: pin.provider,
+        section: pin.section,
+        generatedId: pin.generatedId,
+        sourceListId: pin.sourceListId,
+        disableKeys: pin.disableKeys.slice(),
+        pinnedText: pin.fingerprintAtToggle.text,
+        status: result ? result.status : 'orphaned',
+        currentText: result ? result.text : '',
+        similarity: result ? result.similarity : 0
+    };
+}
+
 function getCoreRuleKindForSection(section) {
     if (section === 'rawRules') return 'raw';
     if (section === 'redirections') return 'redirection';
@@ -267,6 +349,8 @@ function registerCoreRuleInSnapshot(compiledRule) {
         clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId] = {
             actionType: compiledRule.actionType,
             id: compiledRule.id,
+            // True for an id generated from the rule's text (or pinned for it).
+            generated: !!compiledRule.idGenerated,
             kind: getCoreRuleKindForSection(compiledRule.section),
             match: compiledRule.matchPattern,
             activationIds: (compiledRule.activationIds || []).slice(),
@@ -283,6 +367,8 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
     clearurlsProviderSnapshot.disabledRules[compiledRule.runtimeRuleId] = {
         actionType: compiledRule.actionType,
         id: compiledRule.id,
+        // True for an id generated from the rule's text (or pinned for it).
+        generated: !!compiledRule.idGenerated,
         kind: getCoreRuleKindForSection(compiledRule.section),
         match: compiledRule.matchPattern,
         activationIds: (compiledRule.activationIds || []).slice(),
@@ -1705,14 +1791,36 @@ function start() {
         const data = storage.ClearURLsData;
         if (!data || !data.providers) return;
         providers = [];
+        const pins = LinkumoriRulePins.normalizePins(storage[LinkumoriRulePins.PIN_STORAGE_KEY]);
+        const pinsByProvider = LinkumoriRulePins.groupPinsByProvider(pins);
+        const pinLastSeenUpdates = [];
+        pendingCoreRulePinChanges = [];
         for (let p = 0; p < prvKeys.length; p++) {
             const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', true) === false) continue;
+            if (providerData.getOrDefault('active', true) === false) {
+                pinsByProvider.delete(prvKeys[p]);
+                continue;
+            }
+            const providerPins = pinsByProvider.get(prvKeys[p]) || [];
+            pinsByProvider.delete(prvKeys[p]);
+            const pinResolution = LinkumoriRulePins.resolveProviderPins(providerData, providerPins);
+            pinResolution.results.forEach(result => {
+                const described = describeCoreRulePin(result.pin, result);
+                if (result.status === 'orphaned') {
+                    clearurlsProviderSnapshot.rulePins.orphaned.push(described);
+                    return;
+                }
+                clearurlsProviderSnapshot.rulePins.resolved.push(described);
+                if (result.status !== 'exact' && result.text !== (result.pin.lastSeenText || result.pin.fingerprintAtToggle.text)) {
+                    pinLastSeenUpdates.push({ provider: result.pin.provider, generatedId: result.pin.generatedId, text: result.text });
+                }
+            });
             const provider = new Provider(prvKeys[p],
                 providerData.getOrDefault('completeProvider', false),
                 providerData.getOrDefault('forceRedirection', false),
                 getClearURLsDisabledRuleIdSet());
-            provider.setRuleIdLookup(LinkumoriRuleIds.createRuleIdLookup(providerData));
+            provider.setRuleIdLookup(LinkumoriRulePins.withPinnedRuleIds(LinkumoriRuleIds.createRuleIdLookup(providerData), pinResolution.overrides));
+            provider.setRulePins(providerPins, pinResolution.overrides);
             providers.push(provider);
 
             const urlPattern = providerData.getOrDefault('urlPattern', '');
@@ -1770,6 +1878,11 @@ function start() {
         clearurlsProviderSnapshot.providers = providers.map(p => p.getSnapshotMetadata());
         clearurlsProviderSnapshot.providersByToken = providersByTokenSnapshot;
         clearurlsProviderSnapshot.globalProviders = globalProviders.map(p => p.getName());
+        // Pins for providers that are gone altogether.
+        pinsByProvider.forEach(providerPins => {
+            providerPins.forEach(pin => clearurlsProviderSnapshot.rulePins.orphaned.push(describeCoreRulePin(pin, null)));
+        });
+        persistCoreRulePinChanges(pinLastSeenUpdates);
         globalThis.linkumoriClearURLProviderSnapshot = clearurlsProviderSnapshot;
     }
 
@@ -1875,6 +1988,9 @@ function start() {
         let nextRuleSequence = 0;
         // Generated ids of this provider's rules (see setRuleIdLookup).
         let lookupRuleId = null;
+        // Pins of this provider, and "<section>\0<text>" → pinned id for
+        // rules whose text drifted from their pin (see setRulePins).
+        let rulePins = [], pinnedRuleIds = new Map();
 
         if (_completeProvider) fieldRuleMap[".*"] = true;
 
@@ -1889,8 +2005,13 @@ function start() {
             if (!compiled) return null;
             compiled.section = section;
             compiled.sequence = nextRuleSequence++;
+            const generatedId = !compiled.id;
             attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds(), lookupRuleId);
-            if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
+            compiled.idGenerated = generatedId;
+            if (generatedId && pinnedRuleIds.has(`${section}\u0000${compiled.matchPattern}`)) applyCoreRulePin(compiled);
+            const disabled = filterCoreRuleActivationIds(compiled, _disabledRuleIds);
+            if (generatedId) trackCoreRulePin(name, compiled, _disabledRuleIds, rulePins);
+            if (disabled) {
                 registerDisabledCoreRuleInSnapshot(compiled); return null;
             }
             registerCoreRuleInSnapshot(compiled);
@@ -1899,6 +2020,10 @@ function start() {
 
         // Set before rules are added: ids depend on all of the provider's rules.
         this.setRuleIdLookup = function (lookup) { lookupRuleId = typeof lookup === 'function' ? lookup : null; };
+        this.setRulePins = function (pins, overrides) {
+            rulePins = Array.isArray(pins) ? pins : [];
+            pinnedRuleIds = overrides instanceof Map ? overrides : new Map();
+        };
         this.shouldForceRedirect = function () { return _forceRedirection; };
         this.getName = function () { return name; };
         this.getSnapshotMetadata = function () {

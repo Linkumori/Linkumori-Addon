@@ -145,6 +145,9 @@ const {
 } = globalThis.LinkumoriTheme;
 let importExclusionsBySource = {};
 let clearURLsDisabledRuleIds = [];
+// Ids pinned for rules without an "id" the first time they were switched
+// off (see core_js/linkumori_rule_pins.js).
+let clearURLsRuleIdPins = [];
 let clearURLsProviderSnapshot = null;
 let disabledRulesActivationMode = 'pattern';
 let userWhitelist = [];
@@ -1217,6 +1220,26 @@ async function loadClearURLsDisabledRuleIds() {
     } catch (_) {
         clearURLsDisabledRuleIds = [];
     }
+    await loadClearURLsRuleIdPins();
+}
+
+async function loadClearURLsRuleIdPins() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getData',
+            params: [LinkumoriRulePins.PIN_STORAGE_KEY]
+        });
+        clearURLsRuleIdPins = LinkumoriRulePins.normalizePins(response?.response);
+    } catch (_) {
+        clearURLsRuleIdPins = [];
+    }
+}
+
+async function saveClearURLsRuleIdPins() {
+    await browser.runtime.sendMessage({
+        function: 'setData',
+        params: [LinkumoriRulePins.PIN_STORAGE_KEY, clearURLsRuleIdPins]
+    });
 }
 
 async function loadClearURLsProviderSnapshot() {
@@ -1283,6 +1306,9 @@ function collectProviderRuleIdEntries(providerName, provider) {
     // Every rule has an id: its own "id", or one generated from its list and
     // text, the same way the engine generates it.
     const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+    // Rules matched to a pin keep the pinned id, as in the engine.
+    const pinnedIds = LinkumoriRulePins.resolveProviderPins(provider,
+        clearURLsRuleIdPins.filter(pin => pin.provider === providerName)).overrides;
     const disabledIds = new Set(clearURLsDisabledRuleIds);
     const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions'];
     sections.forEach(section => {
@@ -1292,7 +1318,11 @@ function collectProviderRuleIdEntries(providerName, provider) {
         }
         const listed = new Set();
         rules.forEach((rule, index) => {
-            const assigned = assignedIds[section][index];
+            const generatedAssigned = assignedIds[section][index];
+            const pinnedId = generatedAssigned && generatedAssigned.generated
+                ? pinnedIds.get(`${section}\u0000${LinkumoriRuleIds.getRuleText(rule)}`)
+                : null;
+            const assigned = pinnedId ? { id: pinnedId, generated: true } : generatedAssigned;
             // Identical entries share one id; list it once. Domain-pattern
             // exceptions and redirections ("||…") cannot be switched off by id.
             if (!assigned || listed.has(assigned.id) ||
@@ -1310,6 +1340,7 @@ function collectProviderRuleIdEntries(providerName, provider) {
                     section,
                     index,
                     id: assigned.id,
+                    generated: assigned.generated,
                     runtimeId,
                     scopeId,
                     providerName,
@@ -1346,6 +1377,13 @@ function renderProviderRuleIdControls(providerName, provider) {
         return `
             <li class="provider-disabled-item provider-rule-id-item" data-rule-id="${escapeHtml(entry.runtimeId)}" data-runtime-id="${escapeHtml(entry.runtimeId)}">
                 <input type="hidden" class="provider-rule-id-disable-keys" value="${escapeHtml(JSON.stringify(entry.disableKeys))}">
+                <input type="hidden" class="provider-rule-id-pin-target" value="${escapeHtml(JSON.stringify({
+                    providerName: entry.providerName,
+                    section: entry.section,
+                    ruleId: entry.id,
+                    match: entry.match,
+                    generated: entry.generated
+                }))}">
                 <span class="provider-disabled-signature" title="${escapeHtml(entry.runtimeId)}">
                     <strong>${escapeHtml(entry.id)}</strong>
                     <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}</span>
@@ -1385,7 +1423,134 @@ function renderProviderRuleIdControlsFromEditor() {
     }
 }
 
-async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalentIds = []) {
+// The custom provider (its name in customRules) that a runtime provider
+// comes from, when it has a rule with this text in `section`. Storage renames
+// a custom provider "<name>_1", … when a built-in one has its name.
+function findCustomProviderForRule(providerName, section, match) {
+    const providers = isPlainObject(customRules?.providers) ? customRules.providers : {};
+    return [...new Set([providerName, String(providerName || '').replace(/_\d+$/, '')])].find(name =>
+        isPlainObject(providers[name]) && Array.isArray(providers[name][section]) &&
+        providers[name][section].some(rule => LinkumoriRuleIds.getRuleText(rule) === match)) || null;
+}
+
+// Writes the generated id of the rule with this text onto the rule itself
+// (a bare string becomes { "id", "matchPattern" }). Rules that share its
+// readable id get theirs written too: once one of them has an "id", the
+// others would otherwise be given different ids. Returns true if the
+// provider changed.
+function writeGeneratedRuleIdsIntoProvider(provider, section, match, ruleId) {
+    if (!isPlainObject(provider)) return false;
+    const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+    const base = LinkumoriRuleIds.baseRuleId(section, match);
+    let changed = false;
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(list => {
+        if (!Array.isArray(provider[list])) return;
+        provider[list] = provider[list].map((rule, index) => {
+            const assigned = assignedIds[list][index];
+            if (!assigned || !assigned.generated) return rule;
+            const text = LinkumoriRuleIds.getRuleText(rule);
+            const isTarget = list === section && text === match;
+            if (!isTarget && LinkumoriRuleIds.baseRuleId(list, text) !== base) return rule;
+            const id = isTarget && ruleId ? ruleId : assigned.id;
+            changed = true;
+            return typeof rule === 'string' ? { id, matchPattern: rule } : { id, ...rule };
+        });
+    });
+    return changed;
+}
+
+// Same as writeGeneratedRuleIdsIntoProvider, for the provider open in the
+// JSON editor. Keeps the editor's saved/unsaved state.
+function writeGeneratedRuleIdsIntoEditor(providerName, section, match, ruleId) {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor || !providerName || providerName !== currentProvider) return false;
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        return false;
+    }
+    if (!writeGeneratedRuleIdsIntoProvider(provider, section, match, ruleId)) return false;
+    jsonEditor.value = JSON.stringify(provider, null, 2);
+    updateJsonTextMateHighlighting(jsonEditor);
+    return true;
+}
+
+async function getClearURLsRuleSourceListId() {
+    try {
+        const response = await browser.runtime.sendMessage({ function: 'getData', params: ['mergeStats'] });
+        const source = response?.response?.source;
+        return typeof source === 'string' && source ? source : 'built-in';
+    } catch (_) {
+        return 'built-in';
+    }
+}
+
+// Gives a rule without an "id" a stable one before it is first switched off,
+// so the setting keeps applying when the rule's text changes:
+// - a rule the user wrote (in custom rules) gets its id written onto it;
+// - any other rule (built-in or remote list) gets a pin in the local pin
+//   store, matched to the rule's current text on every load.
+// `target` is { providerName, section, ruleId, match, generated }.
+async function pinRuleIdBeforeDisable(target, disableKey) {
+    if (!target || !target.generated || !target.ruleId || !target.match || !target.providerName) {
+        return;
+    }
+    const existing = LinkumoriRulePins.findPin(clearURLsRuleIdPins, target.providerName, target.ruleId);
+    if (existing) {
+        if (!existing.disableKeys.includes(disableKey)) {
+            existing.disableKeys.push(disableKey);
+            await saveClearURLsRuleIdPins();
+        }
+        return;
+    }
+
+    const customProviderName = findCustomProviderForRule(target.providerName, target.section, target.match);
+    if (customProviderName) {
+        writeGeneratedRuleIdsIntoProvider(customRules.providers[customProviderName], target.section, target.match, target.ruleId);
+        writeGeneratedRuleIdsIntoEditor(customProviderName, target.section, target.match, target.ruleId);
+        await browser.runtime.sendMessage({
+            function: 'setData',
+            params: ['custom_rules', JSON.stringify(customRules)]
+        });
+        return;
+    }
+    // A rule only in the editor so far: the id is saved with the provider.
+    if (writeGeneratedRuleIdsIntoEditor(target.providerName, target.section, target.match, target.ruleId)) {
+        hasUnsavedChanges = true;
+        updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
+        return;
+    }
+
+    clearURLsRuleIdPins = LinkumoriRulePins.upsertPin(clearURLsRuleIdPins, LinkumoriRulePins.createPin({
+        provider: target.providerName,
+        section: target.section,
+        generatedId: target.ruleId,
+        text: target.match,
+        sourceListId: await getClearURLsRuleSourceListId(),
+        disableKeys: [disableKey]
+    }));
+    await saveClearURLsRuleIdPins();
+}
+
+// Keeps each pin's disable keys to the ones still switched off. The pin
+// itself stays, so the rule keeps its id if it is switched off again.
+async function syncClearURLsRuleIdPinsWithDisabledIds() {
+    const disabled = new Set(clearURLsDisabledRuleIds);
+    let changed = false;
+    clearURLsRuleIdPins.forEach(pin => {
+        const kept = pin.disableKeys.filter(key => disabled.has(key));
+        if (kept.length !== pin.disableKeys.length) {
+            pin.disableKeys = kept;
+            changed = true;
+        }
+    });
+    if (changed) {
+        await saveClearURLsRuleIdPins();
+    }
+}
+
+async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalentIds = [], pinTarget = null) {
     const normalizedId = String(ruleId || '').trim();
     if (!normalizedId) {
         return;
@@ -1393,6 +1558,7 @@ async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalen
 
     const disabledSet = new Set(clearURLsDisabledRuleIds);
     if (shouldDisable) {
+        await pinRuleIdBeforeDisable(pinTarget, normalizedId);
         disabledSet.add(normalizedId);
     } else {
         disabledSet.delete(normalizedId);
@@ -1400,6 +1566,9 @@ async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalen
     }
     clearURLsDisabledRuleIds = Array.from(disabledSet);
     await saveClearURLsDisabledRuleIds();
+    if (!shouldDisable) {
+        await syncClearURLsRuleIdPinsWithDisabledIds();
+    }
     await reloadRulesAfterExclusionChange();
     updateSourceCounts();
     renderProviderRuleIdControlsFromEditor();
@@ -2836,6 +3005,7 @@ async function clearAllDisabledRules() {
     clearURLsDisabledRuleIds = [];
     await saveImportExclusions();
     await saveClearURLsDisabledRuleIds();
+    await syncClearURLsRuleIdPinsWithDisabledIds();
     await reloadRulesAfterExclusionChange();
     updateSourceCounts();
     renderProviderRuleIdControlsFromEditor();
@@ -2876,6 +3046,7 @@ function getSnapshotRuleActivationRows() {
                 scopeId: parsed.scopeId,
                 providerName: rule.providerName || '',
                 ruleId: parsed.ruleId,
+                generated: !!rule.generated,
                 section: rule.section || '',
                 kind: rule.kind || '',
                 match: rule.match || ''
@@ -2901,6 +3072,7 @@ function getSnapshotProviderRuleRows() {
             runtimeRuleId,
             providerName,
             ruleId,
+            generated: !!rule.generated,
             section: rule.section || '',
             kind: rule.kind || '',
             match: rule.match || ''
@@ -2911,6 +3083,66 @@ function getSnapshotProviderRuleRows() {
         return providerCompare || a.runtimeRuleId.localeCompare(b.runtimeRuleId);
     });
     return rows;
+}
+
+// Pins that match no rule any more (see core_js/linkumori_rule_pins.js)
+// but still have rules switched off under them, with the keys that do.
+// A key that also switches off a live rule (another provider can share the
+// same match-pattern scope and id) stays with that rule.
+function getOrphanedToggleRows() {
+    const orphaned = Array.isArray(clearURLsProviderSnapshot?.rulePins?.orphaned)
+        ? clearURLsProviderSnapshot.rulePins.orphaned
+        : [];
+    if (orphaned.length === 0) return [];
+    const disabled = new Set(clearURLsDisabledRuleIds);
+    const liveKeys = new Set();
+    Object.values(clearURLsProviderSnapshot?.disabledRules || {}).forEach(rule => {
+        if (rule?.runtimeRuleId) liveKeys.add(rule.runtimeRuleId);
+        (rule?.disabledActivationIds || []).forEach(id => liveKeys.add(id));
+    });
+    return orphaned.map(pin => ({
+        ...pin,
+        keys: (Array.isArray(pin.disableKeys) ? pin.disableKeys : []).filter(key => disabled.has(key) && !liveKeys.has(key))
+    })).filter(pin => pin.keys.length > 0)
+        .sort((a, b) => `${a.provider}::${a.generatedId}`.localeCompare(`${b.provider}::${b.generatedId}`));
+}
+
+function renderOrphanedTogglesSection(rows) {
+    if (rows.length === 0) {
+        return '';
+    }
+    const items = rows.map(row => `
+        <li class="provider-disabled-item orphaned-toggle-item" data-provider="${escapeHtml(row.provider)}" data-generated-id="${escapeHtml(row.generatedId)}">
+            <span class="provider-disabled-signature" title="${escapeHtml(row.keys.join('\n'))}">
+                <strong>${escapeHtml(row.generatedId)}</strong>
+                <span class="provider-disabled-source">
+                    ${escapeHtml(row.provider)} · ${escapeHtml(row.section)} · ${escapeHtml(row.pinnedText)}
+                </span>
+                <span class="provider-disabled-source">${escapeHtml(i18n('providerImport_orphanedToggleReason'))}</span>
+            </span>
+            <button type="button" class="btn btn-sm btn-danger orphaned-toggle-remove-btn">${i18n('providerImport_orphanedToggleRemove')}</button>
+        </li>
+    `).join('');
+    return `
+        <div class="provider-disabled-section orphaned-toggles-section">
+            <div class="provider-disabled-title-row">
+                <h5 class="provider-disabled-title">${escapeHtml(i18n('providerImport_orphanedToggles'))}</h5>
+                <span class="provider-disabled-count-badge">${getLocalizedNumber(rows.length)}</span>
+            </div>
+            <ul class="provider-disabled-list">${items}</ul>
+        </div>
+    `;
+}
+
+// Drops an orphaned pin and the disabled-rule ids saved under it.
+async function removeOrphanedToggle(provider, generatedId) {
+    const row = getOrphanedToggleRows().find(item => item.provider === provider && item.generatedId === generatedId);
+    const keys = new Set(row ? row.keys : []);
+    clearURLsDisabledRuleIds = clearURLsDisabledRuleIds.filter(ruleId => !keys.has(ruleId));
+    clearURLsRuleIdPins = clearURLsRuleIdPins.filter(pin => !(pin.provider === provider && pin.generatedId === generatedId));
+    await saveClearURLsRuleIdPins();
+    await saveClearURLsDisabledRuleIds();
+    await reloadRulesAfterExclusionChange();
 }
 
 function renderRuleActivationSection() {
@@ -2943,7 +3175,13 @@ function renderRuleActivationSection() {
 
     const rows = disabledRulesActivationMode === 'provider' ? providerRows : patternRows;
     const items = rows.map(row => `
-        <li class="provider-disabled-item rule-activation-item" data-runtime-id="${escapeHtml(row.runtimeRuleId)}">
+        <li class="provider-disabled-item rule-activation-item" data-runtime-id="${escapeHtml(row.runtimeRuleId)}" data-pin-target="${escapeHtml(JSON.stringify({
+            providerName: row.providerName,
+            section: row.section,
+            ruleId: row.ruleId,
+            match: row.match,
+            generated: row.generated
+        }))}">
             <span class="provider-disabled-signature" title="${escapeHtml(row.runtimeRuleId)}">
                 <strong>${escapeHtml(row.ruleId)}</strong>
                 <span class="provider-disabled-source">
@@ -2975,12 +3213,18 @@ function renderDisabledRulesPageContent() {
     const container = document.getElementById('disabled-rules-page-content');
     if (!container) return;
 
+    // Toggles whose rule is gone upstream are listed on their own, at the
+    // bottom, instead of among the ids that still switch a rule off.
+    const orphanedRows = getOrphanedToggleRows();
+    const orphanedKeys = new Set(orphanedRows.flatMap(row => row.keys));
+    const activeDisabledRuleIds = clearURLsDisabledRuleIds.filter(ruleId => !orphanedKeys.has(ruleId));
+    const orphanedSection = renderOrphanedTogglesSection(orphanedRows);
     const sources = Object.keys(importExclusionsBySource).sort((a, b) => a.localeCompare(b));
-    if (clearURLsDisabledRuleIds.length > 0 && !sources.includes('clearurls-rule-ids')) {
+    if (activeDisabledRuleIds.length > 0 && !sources.includes('clearurls-rule-ids')) {
         sources.push('clearurls-rule-ids');
     }
     const activationSection = renderRuleActivationSection();
-    if (sources.length === 0 && !activationSection) {
+    if (sources.length === 0 && !activationSection && !orphanedSection) {
         setHTMLContent(container, `
             <div class="provider-list-empty">
                 <p>${i18n('providerImport_disabledEmpty')}</p>
@@ -2991,7 +3235,7 @@ function renderDisabledRulesPageContent() {
 
     const totalDisabled = sources.reduce((sum, source) => {
         if (source === 'clearurls-rule-ids') {
-            return sum + clearURLsDisabledRuleIds.length;
+            return sum + activeDisabledRuleIds.length;
         }
         const list = importExclusionsBySource[source];
         return sum + (Array.isArray(list) ? list.length : 0);
@@ -3000,7 +3244,7 @@ function renderDisabledRulesPageContent() {
     const entries = [];
     sources.forEach(source => {
         const signatures = (source === 'clearurls-rule-ids'
-                ? clearURLsDisabledRuleIds
+                ? activeDisabledRuleIds
             : (importExclusionsBySource[source] || [])).slice().sort((a, b) => a.localeCompare(b));
         signatures.forEach(signature => {
             let kind = 'other';
@@ -3061,8 +3305,21 @@ function renderDisabledRulesPageContent() {
             </div>
             ${sections}
             ${activationSection}
+            ${orphanedSection}
         </div>
     `);
+
+    container.querySelectorAll('.orphaned-toggle-remove-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            const item = e.target.closest('.orphaned-toggle-item');
+            if (!item) return;
+            await removeOrphanedToggle(item.dataset.provider || '', item.dataset.generatedId || '');
+            updateSourceCounts();
+            renderProviderRuleIdControlsFromEditor();
+            await loadClearURLsProviderSnapshot();
+            renderDisabledRulesPageContent();
+        });
+    });
 
     container.querySelectorAll('.provider-filter-nav-btn[data-activation-mode]').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -3077,7 +3334,13 @@ function renderDisabledRulesPageContent() {
             const item = e.target.closest('.rule-activation-item');
             const runtimeId = item?.dataset?.runtimeId;
             if (!runtimeId) return;
-            await setClearURLsProviderRuleDisabled(runtimeId, true);
+            let pinTarget = null;
+            try {
+                pinTarget = JSON.parse(item.dataset.pinTarget || 'null');
+            } catch (_) {
+                pinTarget = null;
+            }
+            await setClearURLsProviderRuleDisabled(runtimeId, true, [], pinTarget);
             await loadClearURLsProviderSnapshot();
             renderDisabledRulesPageContent();
         });
@@ -3094,6 +3357,7 @@ function renderDisabledRulesPageContent() {
             if (source === 'clearurls-rule-ids') {
                 clearURLsDisabledRuleIds = clearURLsDisabledRuleIds.filter(ruleId => ruleId !== signature);
                 await saveClearURLsDisabledRuleIds();
+                await syncClearURLsRuleIdPinsWithDisabledIds();
                 await reloadRulesAfterExclusionChange();
             } else {
                 await removeExcludedSignature(source, signature);
@@ -4456,8 +4720,14 @@ async function handleProviderRuleIdControlsClick(event) {
     } catch (_) {
         equivalentIds = [];
     }
+    let pinTarget = null;
+    try {
+        pinTarget = JSON.parse(item.querySelector('.provider-rule-id-pin-target')?.value || 'null');
+    } catch (_) {
+        pinTarget = null;
+    }
 
-    await setClearURLsProviderRuleDisabled(ruleId, !!disableBtn, equivalentIds);
+    await setClearURLsProviderRuleDisabled(ruleId, !!disableBtn, equivalentIds, pinTarget);
 }
 
 function setupPatternEditorEvents() {
@@ -5292,7 +5562,10 @@ async function exportCustomRules() {
             exportedAt: new Date().toISOString(),
             clearurlsCustomRules: {
                 providers: customRules.providers || {}
-            }
+            },
+            // Pinned ids of switched-off rules from built-in and remote
+            // lists, so importing reproduces the same toggles.
+            rulePins: getExportableRuleIdPins()
         };
 
         const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -5318,6 +5591,27 @@ async function exportCustomRules() {
     } catch (error) {
         await modalAlert(i18n('customRulesEditor_exportFailed'));
     }
+}
+
+// Pins with the disable keys still switched off under them; pins with none
+// left are not worth carrying to another browser.
+function getExportableRuleIdPins() {
+    const disabled = new Set(clearURLsDisabledRuleIds);
+    return clearURLsRuleIdPins
+        .map(pin => ({ ...pin, disableKeys: pin.disableKeys.filter(key => disabled.has(key)) }))
+        .filter(pin => pin.disableKeys.length > 0);
+}
+
+// Adds imported pins and switches off the rules they were switched off for.
+async function importRuleIdPins(pins) {
+    if (pins.length === 0) return;
+    pins.forEach(pin => {
+        clearURLsRuleIdPins = LinkumoriRulePins.upsertPin(clearURLsRuleIdPins, pin);
+    });
+    clearURLsDisabledRuleIds = [...new Set([...clearURLsDisabledRuleIds, ...pins.flatMap(pin => pin.disableKeys)])];
+    await saveClearURLsRuleIdPins();
+    await saveClearURLsDisabledRuleIds();
+    await reloadRulesAfterExclusionChange();
 }
 
 // Accepts this editor's export ({ clearurlsCustomRules: { providers } }) and a
@@ -5407,8 +5701,10 @@ async function handleFileImport(e) {
 
             const providersData = getProvidersFromImportedCustomRules(imported);
             const hasProviderRules = providersData && Object.keys(providersData).length > 0;
+            const importedPins = LinkumoriRulePins.normalizePins(imported.rulePins)
+                .filter(pin => pin.disableKeys.length > 0);
 
-            if (!hasProviderRules) {
+            if (!hasProviderRules && importedPins.length === 0) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
             }
 
@@ -5422,6 +5718,7 @@ async function handleFileImport(e) {
                     customRules = { providers: providersData };
                     await saveCustomRules();
                 }
+                await importRuleIdPins(importedPins);
 
                 await updateRulesStatus();
                 updateUI();
