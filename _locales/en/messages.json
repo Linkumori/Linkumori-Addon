@@ -5008,6 +5008,11 @@
     "description": "Linter summary suffix with the number of cleared warnings",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
+  "customRulesEditor_lintSchema": {
+    "message": "Schema: $WHERE$ $PROBLEM$",
+    "description": "Linter warning from the rules JSON Schema. The problem text comes from the schema checker and is in English.",
+    "placeholders": { "where": { "content": "$1", "example": "example.methods[0]" }, "problem": { "content": "$2", "example": "must match GET, POST, …" } }
+  },
   "customRulesEditor_lintNoIndexPattern": {
     "message": "$PROVIDER$: urlPattern without indexPattern is checked against every URL; add indexPattern hints such as \"||example.com^\"",
     "description": "Linter warning for a urlPattern provider without indexPattern",

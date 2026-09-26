@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/docs/schema/linkumori-rules.schema.json",
   "title": "Linkumori rules file",
   "description": "A Linkumori rule list: data/linkumori-clearurls.json, a remote rule list, or rules written in the custom rules editor. See docs/filter-syntax.md. Checks that need the whole provider (duplicate ids, targetId pointing at a real raw rule, regexes that compile, capture-group counts) are left to the editor and `node linkumori-cli-tool.js lint-rules`.",
   "type": "object",
@@ -194,7 +193,8 @@
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^([Gg][Ee][Tt]|[Hh][Ee][Aa][Dd]|[Oo][Pp][Tt][Ii][Oo][Nn][Ss]|[Pp][Oo][Ss][Tt]|[Pp][Uu][Tt]|[Pp][Aa][Tt][Cc][Hh]|[Dd][Ee][Ll][Ee][Tt][Ee]|[Cc][Oo][Nn][Nn][Ee][Cc][Tt])$"
+            "pattern": "^([Gg][Ee][Tt]|[Hh][Ee][Aa][Dd]|[Oo][Pp][Tt][Ii][Oo][Nn][Ss]|[Pp][Oo][Ss][Tt]|[Pp][Uu][Tt]|[Pp][Aa][Tt][Cc][Hh]|[Dd][Ee][Ll][Ee][Tt][Ee]|[Cc][Oo][Nn][Nn][Ee][Cc][Tt])$",
+            "description": "GET, HEAD, OPTIONS, POST, PUT, PATCH, DELETE or CONNECT (any case)."
           },
           "uniqueItems": true
         },
@@ -304,7 +304,8 @@
         "pattern": "^\\s*\\|[^$]*\\S[^$]*\\$redirect=\\s*\\S",
         "not": {
           "pattern": "^\\s*\\|(?!\\||[A-Za-z][A-Za-z0-9+.-]*:)"
-        }
+        },
+        "description": "a \"|\" redirect must look like \"||example.com^$redirect=https://target/\"."
       }
     },
     "ruleObject": {

@@ -29,26 +29,41 @@ descriptive) mapped to the fields below.
 
 ### JSON Schema
 
-[`docs/schema/linkumori-rules.schema.json`](schema/linkumori-rules.schema.json)
-describes this format as a JSON Schema (draft 2020-12), for completion and
-checking in editors such as VS Code. Point a rules file at it with
-`"$schema"`:
+Two JSON Schemas (draft 2020-12) ship with the extension in `schema/`:
+
+- [`schema/linkumori-rules.schema.json`](../schema/linkumori-rules.schema.json):
+  this format.
+- [`schema/linkumori-custom-rules-export.schema.json`](../schema/linkumori-custom-rules-export.schema.json):
+  the file written by *Export custom rules to file*.
+
+Where they are used:
+
+- **Custom rules editor.** The page reads both schemas from the extension
+  package with `browser.runtime.getURL` (never from the network). Its
+  **Linter** panel lists what the rules schema finds beyond its own checks,
+  such as an unknown HTTP method in `methods` or an unknown request type in
+  `resourceTypes`, as `Schema:` warnings. They do not stop saving, and they
+  are left out while the provider has errors.
+- **Exports.** An exported file gets a `"$schema"` pointing at the export
+  schema inside the extension that wrote it.
+- **VS Code.** `.vscode/settings.json` applies the rules schema to
+  `data/linkumori-clearurls.json`, `*.linkumori-rules.json` and
+  `linkumori-rules*.json`, and the export schema to
+  `linkumori_custom_rules*.json`. Any other file can point at a schema with
+  `"$schema"`:
 
 ```json
 {
-  "$schema": "./docs/schema/linkumori-rules.schema.json",
+  "$schema": "./schema/linkumori-rules.schema.json",
   "providers": { }
 }
 ```
 
-The file written by *Export custom rules to file* is described by
-[`docs/schema/linkumori-custom-rules-export.schema.json`](schema/linkumori-custom-rules-export.schema.json).
-
 The schema covers what one entry can hold: fields and keys, their types,
-`domainPatterns` **or** `urlPattern`, rule ids, preprocessors, broken
-single-`|` patterns, `|…$redirect=` redirects, and keys that would do nothing
-in a list (`order`, `targetId`, `referralMarketing`, the keys an `@@` raw rule
-cannot have). Checks that need the whole provider — regexes that compile,
+`domainPatterns` **or** `urlPattern`, rule ids, preprocessors, methods,
+request types, broken single-`|` patterns, `|…$redirect=` redirects, and keys
+that would do nothing in a list (`order`, `targetId`, `referralMarketing`,
+the keys an `@@` raw rule cannot have). Checks that need the whole provider —
 capture-group counts, unique ids, a `targetId` that names a real raw rule,
 `$removeparam` options — are left to the editor and `lint-rules` (§10).
 

@@ -1,0 +1,21 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/data/linkumori-clearurls.json",
+        "/data/custom-rules.json",
+        "/data/downloaded-official-rules.json",
+        "*.linkumori-rules.json",
+        "linkumori-rules*.json"
+      ],
+      "url": "./schema/linkumori-rules.schema.json"
+    },
+    {
+      "fileMatch": [
+        "linkumori_custom_rules*.json",
+        "*.linkumori-export.json"
+      ],
+      "url": "./schema/linkumori-custom-rules-export.schema.json"
+    }
+  ]
+}

@@ -809,17 +809,42 @@ function lintProvider(provider, providerName = '') {
 let lastEditorLint = { key: null, problems: null };
 
 function lintEditorText(jsonText) {
-    const key = `${currentProvider || ''}\u0000${jsonText}`;
+    const schemaReady = typeof LinkumoriSchema !== 'undefined' && LinkumoriSchema.isReady();
+    const key = `${currentProvider || ''}\u0000${schemaReady}\u0000${jsonText}`;
     if (lastEditorLint.key !== key) {
         let problems = null;
         try {
-            problems = lintProvider(JSON.parse(jsonText), currentProvider || '');
+            const provider = JSON.parse(jsonText);
+            problems = lintProvider(provider, currentProvider || '');
+            if (schemaReady) problems.push(...lintProviderSchema(provider, problems));
         } catch (_) {
             problems = null;
         }
         lastEditorLint = { key, problems };
     }
     return lastEditorLint.problems;
+}
+
+// What schema/linkumori-rules.schema.json finds beyond lintProvider, as
+// warnings: saving does not check the schema. Skipped while there are
+// errors, which the schema would mostly repeat in other words.
+function lintProviderSchema(provider, problems) {
+    if (problems.some(problem => problem.severity === 'error')) return [];
+    const label = currentProvider || 'Provider';
+    return LinkumoriSchema.validateProvider(provider).map(problem => ({
+        severity: 'warning',
+        message: i18n('customRulesEditor_lintSchema', problem.path ? `${label}.${problem.path}` : label, problem.message)
+    }));
+}
+
+// The schemas ship in schema/ and are read from the extension package.
+// Until they are loaded the linter runs without them.
+function loadRuleSchemas() {
+    if (typeof LinkumoriSchema === 'undefined') return;
+    LinkumoriSchema.load().then((ready) => {
+        const jsonEditor = document.getElementById('json-editor');
+        if (ready && jsonEditor) renderProviderLint(jsonEditor.value);
+    });
 }
 
 // The linter panel can be collapsed (remembered across visits) and its
@@ -2755,6 +2780,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * Initialize the main application
  */
 function initializeApp() {
+    loadRuleSchemas();
     setupCustomRulesViews();
     setupFAQ();
     setupDisabledRulesPage();
@@ -6034,6 +6060,8 @@ function duplicateProvider(providerName) {
 async function exportCustomRules() {
     try {
         const exportData = {
+            // schema/linkumori-custom-rules-export.schema.json in this extension.
+            $schema: LinkumoriSchema.getSchemaUrl(LinkumoriSchema.EXPORT_SCHEMA),
             format: 'linkumori-custom-rules-export',
             version: 1,
             exportedAt: new Date().toISOString(),
