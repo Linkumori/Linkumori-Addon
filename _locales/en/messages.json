@@ -4987,6 +4987,27 @@
     "description": "Linter summary with problem counts",
     "placeholders": { "errors": { "content": "$1", "example": "2" }, "warnings": { "content": "$2", "example": "1" } }
   },
+  "customRulesEditor_lintHide": {
+    "message": "Hide",
+    "description": "Linter panel button that collapses the problem list"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Show",
+    "description": "Linter panel button that expands the collapsed problem list"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Clear warnings",
+    "description": "Linter panel button that dismisses the current warnings for this provider (errors stay because saving rejects them)"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Restore warnings",
+    "description": "Linter panel button that shows the cleared warnings again"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ warning(s) cleared",
+    "description": "Linter summary suffix with the number of cleared warnings",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
   "customRulesEditor_lintNoIndexPattern": {
     "message": "$PROVIDER$: urlPattern without indexPattern is checked against every URL; add indexPattern hints such as \"||example.com^\"",
     "description": "Linter warning for a urlPattern provider without indexPattern",
@@ -5015,33 +5036,17 @@
     "message": "Linkumori — Rules Guide",
     "description": "Guide page text."
   },
-  "guide_theme_label": {
-    "message": "Theme",
-    "description": "Guide page text."
-  },
   "guide_toc_label": {
     "message": "Contents",
     "description": "Guide page text."
   },
-  "guide_theme_midnight": {
-    "message": "Midnight",
-    "description": "Guide page text."
+  "guide_toc_search": {
+    "message": "Filter sections",
+    "description": "Placeholder and label of the search box that filters the guide contents list."
   },
-  "guide_theme_light": {
-    "message": "Light",
-    "description": "Guide page text."
-  },
-  "guide_theme_icecold": {
-    "message": "Ice Cold",
-    "description": "Guide page text."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Zen Grey",
-    "description": "Guide page text."
-  },
-  "guide_theme_sunset": {
-    "message": "Sunset",
-    "description": "Guide page text."
+  "guide_toc_no_results": {
+    "message": "No matching sections.",
+    "description": "Shown in the guide contents list when the filter matches nothing."
   },
   "guide_title": {
     "message": "Writing Linkumori rules",

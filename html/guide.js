@@ -56,76 +56,167 @@
  *   in all source files and any separate notice files (.md or .txt).
  * ============================================================
  --*/
-(function(){
-    const THEMES=['midnight','light','icecold','dark','sunset'];
-    const GUIDE_RUNTIME_SOURCE='clearurls.js';
-    const THEME_LABEL_KEYS={
-        midnight:'guide_theme_midnight',
-        light:'guide_theme_light',
-        icecold:'guide_theme_icecold',
-        dark:'guide_theme_zen_grey',
-        sunset:'guide_theme_sunset'
-    };
+(function() {
+    'use strict';
 
-    function translateGuide(key){
+    const {
+        THEME_STORAGE_KEY,
+        LAST_DARK_THEME_STORAGE_KEY,
+        LIGHT_THEME_STORAGE_KEY,
+        DARK_THEME_STORAGE_KEY,
+        DEFAULT_THEME,
+        normalizeTheme,
+        buildThemeTogglePayload,
+        readBootstrapTheme,
+        syncBootstrapTheme
+    } = globalThis.LinkumoriTheme;
+
+    const hasStorage = typeof browser !== 'undefined' && browser.storage && browser.storage.local;
+
+    function translateGuide(key) {
         if (!key) return '';
         if (
             window.LinkumoriI18n &&
             typeof window.LinkumoriI18n.getMessage === 'function' &&
             (!window.LinkumoriI18n.isReady || window.LinkumoriI18n.isReady())
         ) {
-            const translated=window.LinkumoriI18n.getMessage(key);
-            if (translated && translated!==key) return translated;
+            const translated = window.LinkumoriI18n.getMessage(key);
+            if (translated && translated !== key) return translated;
         }
         return '';
     }
 
-    function applyGuideI18n(){
-        document.querySelectorAll('[data-i18n]').forEach(element=>{
-            const translated=translateGuide(element.getAttribute('data-i18n'));
-            if (translated) element.textContent=translated;
-        });
+    function applyGuideI18n() {
+        const apply = (attribute, set) => {
+            document.querySelectorAll(`[${attribute}]`).forEach((element) => {
+                const translated = translateGuide(element.getAttribute(attribute));
+                if (translated) set(element, translated);
+            });
+        };
+        apply('data-i18n', (element, text) => { element.textContent = text; });
+        apply('data-i18n-html', (element, html) => { element.innerHTML = html; });
+        apply('data-i18n-placeholder', (element, text) => { element.placeholder = text; });
+        apply('data-i18n-aria', (element, text) => { element.setAttribute('aria-label', text); });
+        apply('data-i18n-title', (element, text) => { element.title = text; });
+        filterToc();
+    }
 
-        document.querySelectorAll('[data-i18n-html]').forEach(element=>{
-            const translated=translateGuide(element.getAttribute('data-i18n-html'));
-            if (translated) element.innerHTML=translated;
-        });
+    // Theme: the same stored theme and light/dark toggle as the other pages.
+    function applyTheme(theme) {
+        const normalized = normalizeTheme(theme);
+        document.documentElement.setAttribute('data-theme', normalized);
+        syncBootstrapTheme(normalized);
+    }
 
-        document.querySelectorAll('[data-i18n-text]').forEach(element=>{
-            const translated=translateGuide(element.getAttribute('data-i18n-text'));
-            if (translated) element.textContent=translated;
-        });
+    function initializeTheme() {
+        applyTheme(readBootstrapTheme() || document.documentElement.getAttribute('data-theme') || DEFAULT_THEME);
+        if (hasStorage) {
+            browser.storage.local.get([THEME_STORAGE_KEY]).then((result) => {
+                if (result[THEME_STORAGE_KEY]) applyTheme(result[THEME_STORAGE_KEY]);
+            }).catch(() => {});
+            browser.storage.onChanged.addListener((changes, areaName) => {
+                if (areaName === 'local' && changes[THEME_STORAGE_KEY] && changes[THEME_STORAGE_KEY].newValue) {
+                    applyTheme(changes[THEME_STORAGE_KEY].newValue);
+                }
+            });
+        }
+        requestAnimationFrame(() => document.documentElement.classList.remove('theme-preload'));
 
-        document.querySelectorAll('[data-i18n-title]').forEach(element=>{
-            const translated=translateGuide(element.getAttribute('data-i18n-title'));
-            if (translated) element.title=translated;
-        });
-
-        document.querySelectorAll('.theme-btn').forEach(button=>{
-            const label=translateGuide(THEME_LABEL_KEYS[button.dataset.theme]);
-            if (!label) return;
-            const labelElement=button.querySelector('.theme-label');
-            if (labelElement) labelElement.textContent=label;
+        const toggle = document.getElementById('theme-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', async () => {
+            const current = normalizeTheme(document.documentElement.getAttribute('data-theme') || DEFAULT_THEME);
+            let preferences = {};
+            if (hasStorage) {
+                try {
+                    preferences = await browser.storage.local.get([
+                        LAST_DARK_THEME_STORAGE_KEY,
+                        LIGHT_THEME_STORAGE_KEY,
+                        DARK_THEME_STORAGE_KEY
+                    ]);
+                } catch (_) {}
+            }
+            const { nextTheme, payload } = buildThemeTogglePayload(current, preferences);
+            applyTheme(nextTheme);
+            if (hasStorage) {
+                try {
+                    await browser.storage.local.set(payload);
+                } catch (_) {}
+            }
         });
     }
 
-    function setTheme(n){
-        document.documentElement.setAttribute('data-theme',n);
-        localStorage.setItem('linkumori-theme',n);
-        document.querySelectorAll('.theme-btn').forEach(b=>b.classList.toggle('active',b.dataset.theme===n));
-    }
-    document.addEventListener('DOMContentLoaded',function(){
-        document.documentElement.dataset.guideRuntimeSource=GUIDE_RUNTIME_SOURCE;
-        const bar=document.getElementById('theme-bar');
-        THEMES.forEach(t=>{
-            const btn=document.createElement('button');
-            btn.className='theme-btn'; btn.dataset.theme=t;
-            btn.setAttribute('data-i18n-title',THEME_LABEL_KEYS[t]);
-            btn.innerHTML='<span class="swatch swatch-'+t+'"></span><span class="theme-label" data-i18n-text="'+THEME_LABEL_KEYS[t]+'"></span>';
-            btn.addEventListener('click',()=>setTheme(t));
-            bar.appendChild(btn);
+    // Contents: filter by text and mark the section being read.
+    function filterToc() {
+        const input = document.getElementById('toc-search');
+        const toc = document.getElementById('guide-toc');
+        if (!input || !toc) return;
+        const query = input.value.trim().toLocaleLowerCase();
+        let visibleCount = 0;
+        toc.querySelectorAll(':scope > ul > li').forEach((item) => {
+            const topMatches = item.querySelector(':scope > a').textContent.toLocaleLowerCase().includes(query);
+            let childMatches = false;
+            item.querySelectorAll('li').forEach((child) => {
+                const matches = topMatches || child.textContent.toLocaleLowerCase().includes(query);
+                child.hidden = !matches;
+                childMatches = childMatches || matches;
+            });
+            item.hidden = !(topMatches || childMatches);
+            if (!item.hidden) visibleCount++;
         });
-        setTheme(localStorage.getItem('linkumori-theme')||'midnight');
+        const empty = document.getElementById('toc-empty');
+        if (empty) empty.hidden = visibleCount > 0;
+    }
+
+    function initializeToc() {
+        const input = document.getElementById('toc-search');
+        if (input) input.addEventListener('input', filterToc);
+
+        const links = Array.from(document.querySelectorAll('#guide-toc a[href^="#"]'));
+        const linkById = new Map(links.map(link => [decodeURIComponent(link.hash.slice(1)), link]));
+        const headings = Array.from(document.querySelectorAll('.content h2[id], .content h3[id]'))
+            .filter(heading => linkById.has(heading.id));
+        if (!headings.length || typeof IntersectionObserver !== 'function') return;
+
+        let activeLink = null;
+        const setActive = (id) => {
+            const link = linkById.get(id);
+            if (!link || link === activeLink) return;
+            if (activeLink) {
+                activeLink.classList.remove('active');
+                activeLink.removeAttribute('aria-current');
+            }
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'location');
+            activeLink = link;
+            const toc = document.getElementById('guide-toc');
+            if (toc) {
+                const linkBox = link.getBoundingClientRect();
+                const tocBox = toc.getBoundingClientRect();
+                if (linkBox.top < tocBox.top || linkBox.bottom > tocBox.bottom) {
+                    toc.scrollTop += linkBox.top - tocBox.top - tocBox.height / 2;
+                }
+            }
+        };
+
+        // The active heading is the last one above the top quarter of the view.
+        const update = () => {
+            const line = window.innerHeight * 0.25;
+            let current = headings[0];
+            for (const heading of headings) {
+                if (heading.getBoundingClientRect().top <= line) current = heading;
+                else break;
+            }
+            setActive(current.id);
+        };
+        const observer = new IntersectionObserver(update, { rootMargin: '0px 0px -75% 0px' });
+        headings.forEach(heading => observer.observe(heading));
+        update();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeTheme();
+        initializeToc();
         applyGuideI18n();
         if (window.LinkumoriI18n && typeof window.LinkumoriI18n.ready === 'function') {
             window.LinkumoriI18n.ready(applyGuideI18n);
