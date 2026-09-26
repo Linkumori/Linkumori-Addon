@@ -62,16 +62,17 @@ script is listed earlier.
 | 11 | `core_js/historyListener.js` | cleans URLs changed with the History API (§7.2) |
 | 12 | `external_js/regex_analyzer.js` | regex analysis |
 | 13 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
-| 14 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
-| 15 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
-| 16 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
-| 17 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
-| 18 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
-| 19 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
-| 20 | `core_js/watchdog.js` | self-test every minute (§9) |
-| 21 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
-| 22 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
-| 23 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
+| 14 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
+| 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
+| 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
+| 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
+| 18 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
+| 19 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
+| 20 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
+| 21 | `core_js/watchdog.js` | self-test every minute (§9) |
+| 22 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
+| 23 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
+| 24 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
 
 `consent_config.js` loads last, but `genesis()` reads its values only after
 an asynchronous storage read, so they are defined by then.
@@ -333,6 +334,20 @@ places:
 
 - the rule's `aliases` (after a rename);
 - its legacy ids, which it gets after its generated id changed.
+
+A generated id changes with the rule's text, so the first switch-off of a
+rule without an `id` fixes it (`core_js/linkumori_rule_pins.js`). The
+editor writes the id onto a custom rule; for a rule from a built-in or
+remote list it stores a pin in `clearurls_rule_id_pins`:
+`{ provider, section, generatedId, sourceListId, fingerprintAtToggle,
+disableKeys }`. `createProviders()` matches each provider's pins to its
+current rules (same text, same generated id, or text at least 80% alike,
+`resolveProviderPins`) and gives a matched rule the pinned id, activation
+ids included (`applyCoreRulePin`). A switched-off rule that has no pin yet
+(switched off before pins existed) gets one, and a pin matched to drifted
+text remembers it as `lastSeenText`. Pins that match no rule are listed in
+`clearurlsProviderSnapshot.rulePins.orphaned`, which the editor shows as
+*Orphaned toggles*.
 
 The result is published as `clearurlsProviderSnapshot` (via `getData`),
 which the editor's *Disabled rules* page lists.
@@ -615,6 +630,7 @@ Some logic has to agree between the background, the custom rules editor
 | Logic | Where it lives |
 |---|---|
 | Generated rule ids | one shared module, `core_js/linkumori_rule_ids.js`, loaded by the background and the editor and imported by the CLI |
+| Pinned rule ids | `core_js/linkumori_rule_pins.js`, loaded and imported in the same places; pins live in `clearurls_rule_id_pins` |
 | Rule validation (keys, options, `rawrule=`, `targetId`, …) | written twice: in the editor (`assert…` and `rawRuleOptionProblem` in custom_rules_editor.js) and in the CLI linter (`lintClearURLsRules`). Change both together |
 | Pattern matching and option parsing | the engine (clearurls.js); the CLI smoke tests use a simplified copy |
 

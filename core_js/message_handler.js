@@ -224,7 +224,7 @@ function handleSetData(request) {
             // Firefox for Android the disk write can be slow enough that a
             // fire-and-forget call loses the save when the reload tears
             // down the background page first.
-            if (['custom_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'historyApiWhitelist', 'ClearURLsData'].includes(key)) {
+            if (['custom_rules', 'clearurls_disabled_rule_ids', 'clearurls_rule_id_pins', 'userWhitelist', 'historyApiWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         return Promise.resolve(window.saveOnDisk([key])).then(() => ({
