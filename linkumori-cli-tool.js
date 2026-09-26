@@ -2002,13 +2002,77 @@ ${commit.message}
       }
     };
 
-    // A rawRules entry can start with a pattern that limits it to some URLs:
-    // "||amazon.*^$rawrule=\\/ref=[^/?]*". Null for a plain regex.
+    // Index of the "$" that starts a filter's options, skipping a leading "@@"
+    // and a "/regex/" pattern that may itself contain "$"; -1 when there is none.
+    const findRuleModifierStart = (text) => {
+      const offset = text.startsWith('@@') ? 2 : 0;
+      const body = text.slice(offset);
+      if (!body.startsWith('/')) return text.indexOf('$', offset);
+      let escaped = false, inClass = false;
+      for (let i = 1; i < body.length; i++) {
+        const ch = body.charAt(i);
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (inClass) { if (ch === ']') inClass = false; continue; }
+        if (ch === '[') { inClass = true; continue; }
+        if (ch === '/') { const at = body.indexOf('$', i + 1); return at === -1 ? -1 : at + offset; }
+      }
+      return -1;
+    };
+
+    // A rawRules entry can carry the pattern and options of a $removeparam
+    // filter, with "rawrule=" last: "||amazon.*^$third-party,rawrule=\\/ref=[^/?]*".
+    // Returns the pattern (with any "@@"), the option list and the regex; null
+    // for a plain regex.
     const splitScopedRawRule = (text) => {
       const value = String(text || '');
-      const marker = value.search(/\$rawrule=/i);
-      if (marker === -1) return null;
-      return { pattern: value.slice(0, marker).trim(), regex: value.slice(marker + '$rawrule='.length) };
+      const markerRegex = /[$,]rawrule=/ig;
+      let marker;
+      while ((marker = markerRegex.exec(value))) {
+        const start = findRuleModifierStart(value.slice(0, marker.index + 1));
+        if (start === -1) continue;
+        const optionText = marker.index > start ? value.slice(start + 1, marker.index) : '';
+        return {
+          pattern: value.slice(0, start).trim(),
+          options: optionText ? splitRemoveParamModifiers(optionText) : [],
+          regex: value.slice(marker.index + marker[0].length)
+        };
+      }
+      return null;
+    };
+    const isBadfilterRawRule = (scoped) => !!scoped && scoped.options.some(o => /^badfilter$/i.test(o));
+
+    // What the engine would reject in a raw rule's $removeparam-style options,
+    // as an error message, or null.
+    const rawRuleOptionProblem = (options, isException) => {
+      const lower = options.map(option => option.toLowerCase());
+      for (const option of lower) {
+        const name = option.split('=')[0];
+        if (name === 'removeparam' || name === 'rawrule') return `has "${name}" among its options; "rawrule=" goes last, once`;
+        const known = option.includes('=') ? REMOVEPARAM_VALUE_OPTIONS.has(name) && name !== 'removeparam'
+          : (REMOVEPARAM_FLAG_OPTIONS.has(option) || (option.startsWith('~') && REMOVEPARAM_TYPE_OPTIONS.has(option.slice(1))));
+        if (!known) return `has unknown option "${option}"`;
+        const optionValue = option.slice(option.indexOf('=') + 1);
+        if (['domain', 'to', 'denyallow', 'method'].includes(name) && !optionValue.replace(/\|/g, '').trim()) {
+          return `has an empty "${name}=" option`;
+        }
+        if (name === 'method' && optionValue.split('|').some(m => !['get', 'head', 'options', 'post', 'put', 'patch', 'delete', 'connect'].includes(m.replace(/^~/, '').trim()))) {
+          return `has an unknown method in "${option}"`;
+        }
+        if (name === 'denyallow' && optionValue.split('|').some(d => d.trim().startsWith('~') || d.trim().startsWith('/') || d.trim().endsWith('.*'))) {
+          return `"${option}" takes plain domains only (no "~", regexes or ".*")`;
+        }
+        if (name === 'history-bypass-protection' && !['true', 'false', '1', '0', 'yes', 'no'].includes(optionValue.trim())) {
+          return `"${option}" must be true or false`;
+        }
+      }
+      const has = option => lower.includes(option);
+      if ((has('first-party') && has('third-party')) || (has('strict-first-party') && has('strict-third-party')) ||
+        (has('strict-first-party') && has('third-party')) || (has('strict-third-party') && has('first-party'))) {
+        return 'has contradictory first-party/third-party options';
+      }
+      if (isException && has('match-case')) return 'is an "@@" exception, so "match-case" would do nothing';
+      return null;
     };
 
     const PROVIDER_FIELDS = new Set([
@@ -2261,7 +2325,7 @@ ${commit.message}
       const rawRegexSources = new Set(), rawRuleIds = new Set();
       for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
         const scopedRaw = splitScopedRawRule(getRulePattern(raw));
-        if (scopedRaw && scopedRaw.pattern.startsWith('@@')) continue;
+        if (scopedRaw && (scopedRaw.pattern.startsWith('@@') || isBadfilterRawRule(scopedRaw))) continue;
         rawRegexSources.add(scopedRaw ? scopedRaw.regex : getRulePattern(raw));
         if (raw && typeof raw === 'object') {
           if (typeof raw.id === 'string') rawRuleIds.add(raw.id);
@@ -2281,6 +2345,13 @@ ${commit.message}
           errors.push(`${tag} rawRule "${rawLabel}" has "targetId", which only works on an exception; start matchPattern with "@@" (e.g. "@@||example.com^$rawrule=")`);
           continue;
         }
+        if (scopedRaw) {
+          const optionProblem = rawRuleOptionProblem(scopedRaw.options, scopedRaw.pattern.startsWith('@@'));
+          if (optionProblem) {
+            errors.push(`${tag} rawRule "${rawLabel}" ${optionProblem}`);
+            continue;
+          }
+        }
         if (scopedRaw && scopedRaw.pattern.startsWith('@@')) {
           // An @@ entry only names the raw rules it stops.
           for (const key of ['replacePattern', 'preprocessors', 'order', 'flags']) {
@@ -2290,19 +2361,19 @@ ${commit.message}
           }
           if (targetId !== undefined) {
             if (typeof targetId !== 'string' || !targetId) errors.push(`${tag} rawRule "${rawLabel}" targetId must be a rule id`);
-            else if (scopedRaw.regex) errors.push(`${tag} rawRule "${rawLabel}" has both "targetId" and a regex after "$rawrule="; use one of them`);
+            else if (scopedRaw.regex) errors.push(`${tag} rawRule "${rawLabel}" has both "targetId" and a regex after "rawrule="; use one of them`);
             else if (!rawRuleIds.has(targetId)) errors.push(`${tag} rawRule "${rawLabel}" has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
             continue;
           }
           if (!scopedRaw.regex) continue;
-          if (tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`) && !rawRegexSources.has(scopedRaw.regex)) {
+          if (tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`) && !isBadfilterRawRule(scopedRaw) && !rawRegexSources.has(scopedRaw.regex)) {
             errors.push(`${tag} rawRule "${rawLabel}" is an "@@" exception for "${scopedRaw.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
           }
           continue;
         }
         if (scopedRaw) {
           if (!scopedRaw.regex) {
-            errors.push(`${tag} rawRule "${rawLabel}" has nothing after "$rawrule="; it needs the regex to delete`);
+            errors.push(`${tag} rawRule "${rawLabel}" has nothing after "rawrule="; it needs the regex to delete`);
             continue;
           }
           tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`);
@@ -2531,7 +2602,8 @@ ${commit.message}
         for (const rawRule of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
           const rawPattern = getRulePattern(rawRule);
           const scopedRaw = splitScopedRawRule(rawPattern);
-          if (scopedRaw && scopedRaw.pattern.startsWith('@@')) continue;
+          // Options that depend on the request (party, type, method, …) are not simulated here.
+          if (scopedRaw && (scopedRaw.pattern.startsWith('@@') || isBadfilterRawRule(scopedRaw))) continue;
           if (scopedRaw && scopedRaw.pattern && scopedRaw.pattern !== '*' && !domainPatternMatchesUrl(scopedRaw.pattern, urlStr)) continue;
           const rawSource = scopedRaw ? scopedRaw.regex : rawPattern;
           const rawIds = rawRule && typeof rawRule === 'object'

@@ -2847,6 +2847,187 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "rawRules third-party option on a third-party request",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/b?k=1",
+      "request": {
+        "type": "main_frame",
+        "method": "GET",
+        "documentUrl": "https://other.org/"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "||example.info^$third-party,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules third-party option skips first-party requests",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "request": {
+        "type": "main_frame",
+        "method": "GET",
+        "documentUrl": "https://shop.example.info/"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "||example.info^$third-party,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules method option skips other methods",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "request": {
+        "type": "main_frame",
+        "method": "POST"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "$method=get,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules request type option",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "request": {
+        "type": "xmlhttprequest",
+        "method": "GET"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "$~xmlhttprequest,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules match-case option",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "$match-case,rawrule=\\/REF=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules regex after rawrule= may contain commas",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/b?k=1",
+      "request": {
+        "type": "main_frame",
+        "method": "GET"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "$document,rawrule=\\/ref=[^/?]{1,5}"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules badfilter cancels an identical raw rule",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "\\/ref=[^/?]*",
+            "$badfilter,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules @@ exception with domain= matches the page",
+      "dialect": "provider",
+      "input": "https://www.example.info/a/ref=1/b?k=1",
+      "expectedOutput": "https://www.example.info/a/ref=1/b?k=1",
+      "request": {
+        "type": "main_frame",
+        "method": "GET",
+        "documentUrl": "https://partner.org/"
+      },
+      "providers": {
+        "raw-options": {
+          "domainPatterns": [
+            "||example.info^"
+          ],
+          "rawRules": [
+            "\\/ref=[^/?]*",
+            "@@$domain=partner.org,rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

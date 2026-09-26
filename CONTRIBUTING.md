@@ -218,7 +218,7 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `completeProvider` | boolean | Yes | If `true`, blocks all requests to this provider entirely (domain blocking) |
 | `forceRedirection` | boolean | No | If `true`, forces following redirects even without a matching redirection rule |
 | `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
-| `rawRules` | array of strings (regex, `\|\|domain^$rawrule=regex` or `@@\|\|domain^$rawrule=regex`) | No | Regex patterns applied directly to the raw URL string before parameter parsing, optionally limited to URLs matching a domain pattern; `@@` entries switch them off for matching URLs |
+| `rawRules` | array of strings (regex, `\|\|domain^$option,…,rawrule=regex` or `@@\|\|domain^$rawrule=regex`) | No | Regex patterns applied directly to the raw URL string before parameter parsing, optionally limited by a domain pattern and any `$removeparam` option; `@@` entries switch them off for matching URLs |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
 | `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
 | `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
@@ -323,7 +323,14 @@ To run a raw rule only on some of the provider's URLs, put a domain pattern in f
 ]
 ```
 
-The pattern decides whether the rule runs; the regex after `$rawrule=` is what gets removed.
+The pattern decides whether the rule runs; the regex after `rawrule=` is what gets removed. Every `$removeparam` option also works, placed between `$` and `rawrule=` (which always comes last):
+
+```json
+"rawRules": [
+  "||amazon.*^$third-party,method=get,~xmlhttprequest,rawrule=\\/ref=[^/?]*",
+  "$badfilter,rawrule=\\/sid=[^/?]*"
+]
+```
 
 To keep raw rules from running on some URLs, add an `@@` exception. Give the raw rule an `id` and name it with `targetId`, so the exception keeps working when the rule's regex changes. Without `targetId`, nothing after `$rawrule=` stops all of the provider's raw rules there:
 
