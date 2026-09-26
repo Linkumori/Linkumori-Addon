@@ -572,7 +572,11 @@ node linkumori-cli-tool.js clearurls                   # rebuild the bundled LZ4
 node linkumori-cli-tool.js show-rule ref-strip         # print one rule, wrapped in its list
 ```
 
-The custom rules editor runs the same checks when you save or import. Besides
+The custom rules editor runs the same checks when you save or import, and
+its **Linter** panel under the JSON editor runs them as you type. It lists
+every problem in the provider at once (saving stops at the first), with the
+warnings below and a warning for a rule template whose placeholder
+`matchPattern` (on `example.com` / `example_…`) was not replaced. Besides
 invalid JSON, invalid regexes, unknown fields and unknown options, they catch
 rules that are valid JSON but would silently do the wrong thing:
 

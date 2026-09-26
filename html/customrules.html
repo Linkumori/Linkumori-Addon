@@ -1408,6 +1408,72 @@
             font-family: "Old-Country-Nobility", serif;
         }
 
+        .json-lint {
+            margin: 8px 12px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+            color: var(--text-primary);
+        }
+
+        .json-lint[data-state="error"] {
+            border-color: var(--button-danger);
+        }
+
+        .json-lint[data-state="warning"] {
+            border-color: #d97706;
+        }
+
+        .json-lint-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .json-lint-title {
+            font-weight: bold;
+        }
+
+        .json-lint-summary {
+            color: var(--text-muted);
+        }
+
+        .json-lint-list {
+            list-style: none;
+            margin: 8px 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .json-lint-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .json-lint-badge {
+            flex: none;
+            padding: 1px 6px;
+            border-radius: 999px;
+            font-size: 10px;
+            color: #ffffff;
+        }
+
+        .json-lint-error .json-lint-badge {
+            background: var(--button-danger);
+        }
+
+        .json-lint-warning .json-lint-badge {
+            background: #b45309;
+        }
+
         .json-editor-valid {
             background: rgba(22, 163, 74, 0.1);
             border: 1px solid var(--button-success);

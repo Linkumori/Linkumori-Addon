@@ -171,6 +171,38 @@
                 background: var(--button-primary, #2563eb);
                 color: #ffffff;
             }
+            #${ROOT_ID} .lkm-dialog-choices {
+                margin-top: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            #${ROOT_ID} .lkm-dialog-choice {
+                text-align: left;
+                background: var(--bg-tertiary, #334155);
+                color: var(--text-primary, #f8fafc);
+                border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+                border-radius: 8px;
+                padding: 10px 12px;
+                font-family: "Old-Country-Nobility", serif;
+                font-size: inherit;
+                cursor: pointer;
+            }
+            #${ROOT_ID} .lkm-dialog-choice:hover,
+            #${ROOT_ID} .lkm-dialog-choice:focus-visible {
+                border-color: var(--button-primary, #2563eb);
+            }
+            #${ROOT_ID} .lkm-dialog-choice-label {
+                display: block;
+                font-weight: bold;
+            }
+            #${ROOT_ID} .lkm-dialog-choice-detail {
+                display: block;
+                margin-top: 2px;
+                font-size: 0.9em;
+                opacity: 0.8;
+                word-break: break-all;
+            }
             #${ROOT_ID} .lkm-dialog-btn-cancel:hover {
                 background: var(--button-secondary-hover, #4b5563);
             }
@@ -269,8 +301,50 @@
         const actions = document.createElement('div');
         actions.className = 'lkm-dialog-actions';
 
+        const close = (result) => {
+            root.classList.remove('show');
+            root.style.display = 'none';
+            root.replaceChildren();
+            document.removeEventListener('keydown', onKeyDown, true);
+            item.resolve(result);
+            showNext();
+        };
+
+        // Result when the dialog is dismissed (Escape, backdrop, Cancel).
+        const dismissResult = () => {
+            if (type === 'alert') return undefined;
+            if (type === 'confirm') return false;
+            if (type === 'choose') return null;
+            return { confirmed: false, value: '' };
+        };
+
+        let firstChoiceBtn = null;
+        if (type === 'choose') {
+            const choicesEl = document.createElement('div');
+            choicesEl.className = 'lkm-dialog-choices';
+            (Array.isArray(opts.choices) ? opts.choices : []).forEach((choice) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'lkm-dialog-choice';
+                const labelEl = document.createElement('span');
+                labelEl.className = 'lkm-dialog-choice-label';
+                labelEl.textContent = choice.label == null ? '' : String(choice.label);
+                btn.appendChild(labelEl);
+                if (choice.detail) {
+                    const detailEl = document.createElement('span');
+                    detailEl.className = 'lkm-dialog-choice-detail';
+                    detailEl.textContent = String(choice.detail);
+                    btn.appendChild(detailEl);
+                }
+                btn.onclick = () => close(choice.value);
+                choicesEl.appendChild(btn);
+                if (!firstChoiceBtn) firstChoiceBtn = btn;
+            });
+            body.appendChild(choicesEl);
+        }
+
         let cancelBtn = null;
-        if (type === 'confirm' || type === 'prompt') {
+        if (type === 'confirm' || type === 'prompt' || type === 'choose') {
             cancelBtn = document.createElement('button');
             cancelBtn.type = 'button';
             cancelBtn.className = 'lkm-dialog-btn lkm-dialog-btn-cancel';
@@ -278,11 +352,14 @@
             actions.appendChild(cancelBtn);
         }
 
-        const okBtn = document.createElement('button');
-        okBtn.type = 'button';
-        okBtn.className = 'lkm-dialog-btn lkm-dialog-btn-confirm';
-        okBtn.textContent = okText;
-        actions.appendChild(okBtn);
+        let okBtn = null;
+        if (type !== 'choose') {
+            okBtn = document.createElement('button');
+            okBtn.type = 'button';
+            okBtn.className = 'lkm-dialog-btn lkm-dialog-btn-confirm';
+            okBtn.textContent = okText;
+            actions.appendChild(okBtn);
+        }
 
         dialog.appendChild(header);
         dialog.appendChild(body);
@@ -294,67 +371,44 @@
         root.style.display = 'flex';
         root.classList.add('show');
 
-        const close = (result) => {
-            root.classList.remove('show');
-            root.style.display = 'none';
-            root.replaceChildren();
-            document.removeEventListener('keydown', onKeyDown, true);
-            item.resolve(result);
-            showNext();
-        };
-
-        const onKeyDown = (event) => {
+        function onKeyDown(event) {
             if (event.key === 'Escape') {
-                if (type === 'alert') {
-                    close();
-                } else if (type === 'confirm') {
-                    close(false);
-                } else {
-                    close({ confirmed: false, value: '' });
-                }
+                close(dismissResult());
             } else if (event.key === 'Enter' && type === 'prompt' && document.activeElement === inputEl) {
                 close({ confirmed: true, value: inputEl.value });
             }
-        };
+        }
 
         document.addEventListener('keydown', onKeyDown, true);
 
         root.onclick = (event) => {
             if (event.target !== root) return;
-            if (type === 'alert') {
-                close();
-            } else if (type === 'confirm') {
-                close(false);
-            } else {
-                close({ confirmed: false, value: '' });
-            }
+            close(dismissResult());
         };
 
-        okBtn.onclick = () => {
-            if (type === 'alert') {
-                close();
-            } else if (type === 'confirm') {
-                close(true);
-            } else {
-                close({ confirmed: true, value: inputEl ? inputEl.value : '' });
-            }
-        };
-
-        if (cancelBtn) {
-            cancelBtn.onclick = () => {
-                if (type === 'confirm') {
-                    close(false);
+        if (okBtn) {
+            okBtn.onclick = () => {
+                if (type === 'alert') {
+                    close();
+                } else if (type === 'confirm') {
+                    close(true);
                 } else {
-                    close({ confirmed: false, value: '' });
+                    close({ confirmed: true, value: inputEl ? inputEl.value : '' });
                 }
             };
+        }
+
+        if (cancelBtn) {
+            cancelBtn.onclick = () => close(dismissResult());
         }
 
         setTimeout(() => {
             if (inputEl) {
                 inputEl.focus();
                 inputEl.select();
-            } else {
+            } else if (firstChoiceBtn) {
+                firstChoiceBtn.focus();
+            } else if (okBtn) {
                 okBtn.focus();
             }
         }, 0);
@@ -369,6 +423,11 @@
         },
         prompt(message, defaultValue = '', options = {}) {
             return enqueue('prompt', { ...options, message, defaultValue });
+        },
+        // Resolves with the chosen choice's `value`, or null when dismissed.
+        // `choices` is [{ value, label, detail? }].
+        choose(message, choices = [], options = {}) {
+            return enqueue('choose', { ...options, message, choices });
         }
     };
 })(window);
