@@ -822,35 +822,114 @@ function lintEditorText(jsonText) {
     return lastEditorLint.problems;
 }
 
+// The linter panel can be collapsed (remembered across visits) and its
+// warnings cleared. Errors cannot be cleared because saving rejects them.
+// Cleared warnings stay hidden for the current provider until restored.
+const LINT_COLLAPSED_STORAGE_KEY = 'linkumori-lint-collapsed';
+let lintPanelCollapsed = readLintPanelCollapsed();
+let clearedLintWarnings = { provider: null, messages: new Set() };
+
+function readLintPanelCollapsed() {
+    try {
+        return localStorage.getItem(LINT_COLLAPSED_STORAGE_KEY) === 'true';
+    } catch (_) {
+        return false;
+    }
+}
+
+function setLintPanelCollapsed(collapsed) {
+    lintPanelCollapsed = collapsed;
+    try {
+        localStorage.setItem(LINT_COLLAPSED_STORAGE_KEY, String(collapsed));
+    } catch (_) {}
+}
+
+function getClearedLintWarnings() {
+    const provider = currentProvider || '';
+    if (clearedLintWarnings.provider !== provider) {
+        clearedLintWarnings = { provider, messages: new Set() };
+    }
+    return clearedLintWarnings.messages;
+}
+
+function handleProviderLintClick(event) {
+    const button = event.target.closest('[data-lint-action]');
+    if (!button) return;
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor) return;
+    const action = button.dataset.lintAction;
+    if (action === 'toggle') {
+        setLintPanelCollapsed(!lintPanelCollapsed);
+    } else if (action === 'clear') {
+        const cleared = getClearedLintWarnings();
+        (lintEditorText(jsonEditor.value) || [])
+            .filter(problem => problem.severity === 'warning')
+            .forEach(problem => cleared.add(problem.message));
+    } else if (action === 'restore') {
+        getClearedLintWarnings().clear();
+    }
+    renderProviderLint(jsonEditor.value);
+    const focusTarget = document.querySelector(`#json-lint [data-lint-action="${action}"]`)
+        || document.querySelector('#json-lint [data-lint-action="toggle"]');
+    if (focusTarget) focusTarget.focus();
+}
+
 function renderProviderLint(jsonText) {
     const container = document.getElementById('json-lint');
     if (!container) return;
-    const problems = lintEditorText(jsonText);
-    if (!problems) {
+    if (!container.dataset.lintBound) {
+        container.addEventListener('click', handleProviderLintClick);
+        container.dataset.lintBound = 'true';
+    }
+    const allProblems = lintEditorText(jsonText);
+    if (!allProblems) {
         // The JSON error itself is shown in #json-validation.
         container.hidden = true;
         setHTMLContent(container, '');
         return;
     }
+    const cleared = getClearedLintWarnings();
+    const problems = allProblems.filter(problem =>
+        problem.severity === 'error' || !cleared.has(problem.message));
+    const clearedCount = allProblems.length - problems.length;
     const errorCount = problems.filter(problem => problem.severity === 'error').length;
     const warningCount = problems.length - errorCount;
-    const summary = problems.length === 0
-        ? i18n('customRulesEditor_lintClean')
-        : i18n('customRulesEditor_lintSummary', getLocalizedNumber(errorCount), getLocalizedNumber(warningCount));
+    const summaryParts = [];
+    if (problems.length > 0) {
+        summaryParts.push(i18n('customRulesEditor_lintSummary', getLocalizedNumber(errorCount), getLocalizedNumber(warningCount)));
+    } else if (clearedCount === 0) {
+        summaryParts.push(i18n('customRulesEditor_lintClean'));
+    }
+    if (clearedCount > 0) {
+        summaryParts.push(i18n('customRulesEditor_lintClearedCount', getLocalizedNumber(clearedCount)));
+    }
+    const summary = summaryParts.join(' · ');
     const items = problems.map(problem => `
         <li class="json-lint-item json-lint-${problem.severity}">
             <span class="json-lint-badge">${i18n(problem.severity === 'error' ? 'customRulesEditor_lintError' : 'customRulesEditor_lintWarning')}</span>
             <span class="json-lint-message">${escapeHtml(problem.message)}</span>
         </li>
     `).join('');
+    const actions = [];
+    if (warningCount > 0) {
+        actions.push(`<button type="button" class="json-lint-action" data-lint-action="clear">${i18n('customRulesEditor_lintClearWarnings')}</button>`);
+    }
+    if (clearedCount > 0) {
+        actions.push(`<button type="button" class="json-lint-action" data-lint-action="restore">${i18n('customRulesEditor_lintRestoreWarnings')}</button>`);
+    }
+    if (items) {
+        actions.push(`<button type="button" class="json-lint-action" data-lint-action="toggle" aria-expanded="${lintPanelCollapsed ? 'false' : 'true'}" aria-controls="json-lint-list">${i18n(lintPanelCollapsed ? 'customRulesEditor_lintShow' : 'customRulesEditor_lintHide')}</button>`);
+    }
     container.hidden = false;
     container.dataset.state = errorCount > 0 ? 'error' : (warningCount > 0 ? 'warning' : 'clean');
+    container.dataset.collapsed = lintPanelCollapsed ? 'true' : 'false';
     setHTMLContent(container, `
         <div class="json-lint-header">
             <span class="json-lint-title">${i18n('customRulesEditor_lintTitle')}</span>
             <span class="json-lint-summary">${escapeHtml(summary)}</span>
+            ${actions.length ? `<span class="json-lint-actions">${actions.join('')}</span>` : ''}
         </div>
-        ${items ? `<ul class="json-lint-list">${items}</ul>` : ''}
+        ${items ? `<ul class="json-lint-list" id="json-lint-list"${lintPanelCollapsed ? ' hidden' : ''}>${items}</ul>` : ''}
     `);
 }
 
