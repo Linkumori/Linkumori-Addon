@@ -16,6 +16,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.59.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.58.0...linkumori-v100.59.0))
+### Added
+- Introduce a Rename ID action to Provider rule ID controls (#156) (`2026-09-26`, hash: [`7171335`](https://github.com/Linkumori/Linkumori-Addon/commit/7171335)) [#156](https://github.com/Linkumori/Linkumori-Addon/issues/156)
+- Introduce a comparison of the ClearURLs rule format 2 and the Linkumori format (`2026-09-26`, hash: [`b797273`](https://github.com/Linkumori/Linkumori-Addon/commit/b797273))
+
+### Changed
+- COMMIT (`2026-09-26`, hash: [`477c674`](https://github.com/Linkumori/Linkumori-Addon/commit/477c674))
+- Commit (`2026-09-26`, hash: [`6d62a9c`](https://github.com/Linkumori/Linkumori-Addon/commit/6d62a9c))
+- Generated compressed URL cleaning rules bundle (`2026-09-26`, hash: [`b018a40`](https://github.com/Linkumori/Linkumori-Addon/commit/b018a40))
+- Make generated rule ids unique; replace denyallow and flags tags (`2026-09-26`, hash: [`0a7506c`](https://github.com/Linkumori/Linkumori-Addon/commit/0a7506c))
+- Pin a rule's generated id the first time it is switched off (#155) (`2026-09-26`, hash: [`9c7badf`](https://github.com/Linkumori/Linkumori-Addon/commit/9c7badf)) [#155](https://github.com/Linkumori/Linkumori-Addon/issues/155)
+- Rewrite the rules guide from the current syntax and translate it (`2026-09-26`, hash: [`3401f1a`](https://github.com/Linkumori/Linkumori-Addon/commit/3401f1a))
+- Update (`2026-09-26`, hash: [`2719581`](https://github.com/Linkumori/Linkumori-Addon/commit/2719581))
+- Update filter-syntax.md (`2026-09-26`, hash: [`d1a612c`](https://github.com/Linkumori/Linkumori-Addon/commit/d1a612c))
+- Updated canonical URL cleaning rules source (`2026-09-26`, hash: [`0a7506c`](https://github.com/Linkumori/Linkumori-Addon/commit/0a7506c))
+
 ## [v100.58.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.57.0...linkumori-v100.58.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-09-26`, hash: [`e62aad8`](https://github.com/Linkumori/Linkumori-Addon/commit/e62aad8))
