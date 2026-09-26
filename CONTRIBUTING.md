@@ -312,12 +312,12 @@ To run a raw rule only on some of the provider's URLs, put a domain pattern in f
 
 The pattern decides whether the rule runs; the regex after `$rawrule=` is what gets removed.
 
-To keep raw rules from running on some URLs, add an `@@` exception. With a regex it stops the raw rules that use that same regex; with nothing after `$rawrule=` it stops all of the provider's raw rules there:
+To keep raw rules from running on some URLs, add an `@@` exception. Give the raw rule an `id` and name it with `targetId`, so the exception keeps working when the rule's regex changes. Without `targetId`, nothing after `$rawrule=` stops all of the provider's raw rules there:
 
 ```json
 "rawRules": [
-  "\\/ref=[^/?]*",
-  "@@||smile.amazon.com^$rawrule=\\/ref=[^/?]*",
+  { "id": "ref-strip", "matchPattern": "\\/ref=[^/?]*" },
+  { "matchPattern": "@@||smile.amazon.com^$rawrule=", "targetId": "ref-strip" },
   "@@||amazon.com^/checkout/$rawrule="
 ]
 ```

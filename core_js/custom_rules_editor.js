@@ -291,7 +291,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-    'flags', 'order', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+    'flags', 'order', 'active', 'description', 'historyBypassProtection', 'targetId', '_linkumoriActivationIds'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -305,6 +305,10 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     }
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
         throw new Error(`${prefix}.replacePattern must be a string`);
+    }
+    if (rule.targetId !== undefined) {
+        if (typeof rule.targetId !== 'string' || !rule.targetId) throw new Error(`${prefix}.targetId must be a rule id`);
+        if (fieldName !== 'rawRules') throw new Error(`${prefix}.targetId only applies to "@@…$rawrule=" exceptions in rawRules`);
     }
     if (Array.isArray(rule.flags)) {
         rule.flags.forEach((flag) => {
@@ -529,12 +533,34 @@ function assertNoSilentMistakes(provider, providerName = '') {
             checkPattern(body.slice(0, body.indexOf('$')), `${fieldName}[${index}]`);
         });
     });
+    // What an "@@…$rawrule=" exception can point at: the ids/aliases and the
+    // regex text of the provider's other raw rules.
+    const rawRuleIds = new Set(), rawRuleRegexes = new Set();
+    (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry) => {
+        const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? String(entry.matchPattern || '') : '');
+        const scoped = splitScopedRawRule(text);
+        if (scoped && scoped.pattern.startsWith('@@')) return;
+        rawRuleRegexes.add(scoped ? scoped.regex : text);
+        if (!isPlainObject(entry)) return;
+        if (typeof entry.id === 'string') rawRuleIds.add(entry.id);
+        if (Array.isArray(entry.aliases)) entry.aliases.forEach(alias => rawRuleIds.add(alias));
+    });
     (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry, index) => {
         const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
         const scoped = splitScopedRawRule(text);
-        if (!scoped) return;
         const where = `${label}: rawRules[${index}]`;
+        const targetId = isPlainObject(entry) ? entry.targetId : undefined;
+        if (targetId !== undefined && !(scoped && scoped.pattern.startsWith('@@'))) {
+            throw new Error(`${where} has "targetId", which only works on an exception; start matchPattern with "@@" (e.g. "@@||example.com^$rawrule=")`);
+        }
+        if (!scoped) return;
         const isException = scoped.pattern.startsWith('@@');
+        if (isException && typeof targetId === 'string') {
+            if (scoped.regex) throw new Error(`${where} has both "targetId" and a regex after "$rawrule="; use one of them`);
+            if (!rawRuleIds.has(targetId)) throw new Error(`${where} has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
+        } else if (isException && scoped.regex && !rawRuleRegexes.has(scoped.regex)) {
+            throw new Error(`${where} is an "@@" exception for "${scoped.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
+        }
         if (isException && isPlainObject(entry)) {
             // An @@ entry only names the raw rules it stops; nothing it would rewrite or reorder.
             ['replacePattern', 'preprocessors', 'order', 'flags'].forEach((key) => {

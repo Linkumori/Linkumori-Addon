@@ -1339,7 +1339,8 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
 // usual raw-rule regex. Returns null for a plain regex. With "@@" in front
 // the entry is an exception instead: "@@||amazon.com^/gp/$rawrule=\\/ref=[^/?]*"
 // stops this provider's raw rules with that regex (all of them when nothing
-// follows "$rawrule=") on the URLs the pattern matches.
+// follows "$rawrule=") on the URLs the pattern matches. A rule object can
+// name the rule to stop with "targetId" (an id or alias) instead of its regex.
 function splitScopedRawRulePattern(matchPattern) {
     const text = String(matchPattern || '');
     const marker = text.search(/\$rawrule=/i);
@@ -1362,7 +1363,8 @@ function compileRawRuleDefinition(rule, defaults = null) {
         // Nothing is matched against the URL text; the regex only names the
         // raw rules this exception stops.
         const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
-        return { ...normalized, exceptionRegexes, regex: null, isException: true, rawRegexSource: scoped.regex, urlScope };
+        const targetId = rule && typeof rule === "object" && typeof rule.targetId === "string" && rule.targetId ? rule.targetId : null;
+        return { ...normalized, exceptionRegexes, regex: null, isException: true, rawRegexSource: scoped.regex, targetId, urlScope };
     }
     if (!scoped.regex) return null;
     const compiled = compileCoreRuleDefinition(typeof rule === "string" ? scoped.regex : { ...rule, matchPattern: scoped.regex },
@@ -2129,13 +2131,21 @@ function start() {
             else rawRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
-        // True when an "@@…$rawrule=" exception stops this raw rule on `url`:
-        // its regex is the same text as the rule's, or empty (every raw rule).
+        // True when an "@@…$rawrule=" exception stops this raw rule on `url`.
+        // An exception with a targetId stops the rule with that id or alias;
+        // otherwise one whose regex is the same text as the rule's, or every
+        // raw rule when its regex is empty.
+        const rawRuleExceptionTargets = (exception, compiled) => {
+            if (exception.targetId) {
+                return compiled.id === exception.targetId ||
+                    (Array.isArray(compiled.aliases) && compiled.aliases.includes(exception.targetId));
+            }
+            return exception.rawRegexSource === '' || exception.rawRegexSource === compiled.rawRegexSource;
+        };
         this.isRawRuleExcepted = function (compiled, url, request = null) {
             if (!compiled || rawRuleExceptions.length === 0) return false;
             return rawRuleExceptions.some(exception =>
-                (exception.rawRegexSource === '' || exception.rawRegexSource === compiled.rawRegexSource) &&
-                coreRuleAppliesToRequest(exception, url, request));
+                rawRuleExceptionTargets(exception, compiled) && coreRuleAppliesToRequest(exception, url, request));
         };
 
         this.getRawRulesMap = function () { return rawRuleMap; };

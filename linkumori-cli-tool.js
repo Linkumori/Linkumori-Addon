@@ -2018,7 +2018,7 @@ ${commit.message}
     ]);
     const RULE_OBJECT_KEYS = new Set([
       'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-      'flags', 'order', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+      'flags', 'order', 'active', 'description', 'historyBypassProtection', 'targetId', '_linkumoriActivationIds'
     ]);
     const RULE_LISTS = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
     // Lists whose entries are field rules (names, name regexes, $removeparam filters).
@@ -2256,12 +2256,17 @@ ${commit.message}
         }
       }
 
-      // rawRules. "@@…$rawrule=regex" exceptions name the rules they stop by regex text.
-      const rawRegexSources = new Set();
+      // rawRules. "@@…$rawrule=" exceptions name the rules they stop by
+      // targetId (an id or alias) or by regex text.
+      const rawRegexSources = new Set(), rawRuleIds = new Set();
       for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
         const scopedRaw = splitScopedRawRule(getRulePattern(raw));
-        if (!scopedRaw) rawRegexSources.add(getRulePattern(raw));
-        else if (!scopedRaw.pattern.startsWith('@@')) rawRegexSources.add(scopedRaw.regex);
+        if (scopedRaw && scopedRaw.pattern.startsWith('@@')) continue;
+        rawRegexSources.add(scopedRaw ? scopedRaw.regex : getRulePattern(raw));
+        if (raw && typeof raw === 'object') {
+          if (typeof raw.id === 'string') rawRuleIds.add(raw.id);
+          for (const alias of (Array.isArray(raw.aliases) ? raw.aliases : [])) rawRuleIds.add(alias);
+        }
       }
       for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
         const rawPattern = getRulePattern(raw);
@@ -2271,6 +2276,11 @@ ${commit.message}
           continue;
         }
         const scopedRaw = splitScopedRawRule(rawPattern);
+        const targetId = raw && typeof raw === 'object' ? raw.targetId : undefined;
+        if (targetId !== undefined && !(scopedRaw && scopedRaw.pattern.startsWith('@@'))) {
+          errors.push(`${tag} rawRule "${rawLabel}" has "targetId", which only works on an exception; start matchPattern with "@@" (e.g. "@@||example.com^$rawrule=")`);
+          continue;
+        }
         if (scopedRaw && scopedRaw.pattern.startsWith('@@')) {
           // An @@ entry only names the raw rules it stops.
           for (const key of ['replacePattern', 'preprocessors', 'order', 'flags']) {
@@ -2278,9 +2288,15 @@ ${commit.message}
               errors.push(`${tag} rawRule "${rawLabel}" is an "@@" exception, so "${key}" would do nothing`);
             }
           }
+          if (targetId !== undefined) {
+            if (typeof targetId !== 'string' || !targetId) errors.push(`${tag} rawRule "${rawLabel}" targetId must be a rule id`);
+            else if (scopedRaw.regex) errors.push(`${tag} rawRule "${rawLabel}" has both "targetId" and a regex after "$rawrule="; use one of them`);
+            else if (!rawRuleIds.has(targetId)) errors.push(`${tag} rawRule "${rawLabel}" has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
+            continue;
+          }
           if (!scopedRaw.regex) continue;
           if (tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`) && !rawRegexSources.has(scopedRaw.regex)) {
-            warnings.push(`${tag} rawRule "${rawLabel}" is an "@@" exception for "${scopedRaw.regex}", but no raw rule in this provider uses that regex`);
+            errors.push(`${tag} rawRule "${rawLabel}" is an "@@" exception for "${scopedRaw.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
           }
           continue;
         }
@@ -2415,6 +2431,9 @@ ${commit.message}
             for (const key of Object.keys(entry)) {
               if (!RULE_OBJECT_KEYS.has(key)) errors.push(`${label} has unknown key "${key}"`);
             }
+            if (entry.targetId !== undefined && field !== 'rawRules') {
+              errors.push(`${label} has "targetId", which only applies to "@@…$rawrule=" exceptions in rawRules`);
+            }
             for (const pre of (Array.isArray(entry.preprocessors) ? entry.preprocessors : [])) {
               if (!PREPROCESSORS.has(pre && pre.type)) errors.push(`${label} has unknown preprocessor "${pre && pre.type}"`);
             }
@@ -2515,9 +2534,14 @@ ${commit.message}
           if (scopedRaw && scopedRaw.pattern.startsWith('@@')) continue;
           if (scopedRaw && scopedRaw.pattern && scopedRaw.pattern !== '*' && !domainPatternMatchesUrl(scopedRaw.pattern, urlStr)) continue;
           const rawSource = scopedRaw ? scopedRaw.regex : rawPattern;
+          const rawIds = rawRule && typeof rawRule === 'object'
+            ? [rawRule.id, ...(Array.isArray(rawRule.aliases) ? rawRule.aliases : [])].filter(Boolean) : [];
           const excepted = (Array.isArray(provider.rawRules) ? provider.rawRules : []).some(entry => {
             const ex = splitScopedRawRule(getRulePattern(entry));
-            if (!ex || !ex.pattern.startsWith('@@') || (ex.regex && ex.regex !== rawSource)) return false;
+            if (!ex || !ex.pattern.startsWith('@@')) return false;
+            if (entry && typeof entry === 'object' && typeof entry.targetId === 'string') {
+              if (!rawIds.includes(entry.targetId)) return false;
+            } else if (ex.regex && ex.regex !== rawSource) return false;
             const exScope = ex.pattern.slice(2).trim();
             return !exScope || exScope === '*' || domainPatternMatchesUrl(exScope, urlStr);
           });

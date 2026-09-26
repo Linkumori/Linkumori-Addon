@@ -58,9 +58,9 @@
         'methods', 'exceptions', 'rules', ...LINKUMORI_PROVIDER_KEYS];
     const V2_DEFAULT_KEYS = ['active', 'description', 'requestTypes', 'preprocessors', 'exceptions', 'historyBypassProtection'];
     const V2_RULE_KEYS = ['id', 'aliases', 'kind', 'match', 'active', 'description', 'exceptions', 'requestTypes',
-        'preprocessors', 'referralMarketing', 'action', 'flags', 'order', 'historyBypassProtection'];
+        'preprocessors', 'referralMarketing', 'action', 'flags', 'order', 'historyBypassProtection', 'targetId'];
     const COMPILED_RULE_KEYS = ['id', 'aliases', 'kind', 'section', 'match', 'flags', 'order', 'action', 'activeDefault',
-        'description', 'exceptions', 'requestTypes', 'preprocessors', 'referralMarketing', 'historyBypassProtection'];
+        'description', 'exceptions', 'requestTypes', 'preprocessors', 'referralMarketing', 'historyBypassProtection', 'targetId'];
 
     function isPlainObject(value) {
         return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -601,6 +601,13 @@
         return value.slice();
     }
 
+    // Linkumori addition: the id of the raw rule an "@@…$rawrule=" exception stops.
+    function readTargetId(value, rulePath) {
+        if (value === undefined || value === null) return null;
+        if (typeof value !== 'string' || !value) fail(rulePath, 'targetId must be a rule id');
+        return value;
+    }
+
     // Builds a Linkumori rule object, leaving out anything at its default.
     function buildRuleObject(fields) {
         const rule = {};
@@ -616,6 +623,7 @@
         if (fields.active === false) rule.active = false;
         if (fields.description) rule.description = fields.description;
         if (typeof fields.historyBypassProtection === 'boolean') rule.historyBypassProtection = fields.historyBypassProtection;
+        if (fields.targetId) rule.targetId = fields.targetId;
         return rule;
     }
 
@@ -710,6 +718,7 @@
         const section = resolveSection(kind, action ? action.type : null, referralMarketing, rulePath);
         const flags = readFlags(entry.flags, rulePath);
         const order = readOrder(entry.order, rulePath);
+        const targetId = readTargetId(entry.targetId, rulePath);
         if (entry.description !== undefined && entry.description !== null && typeof entry.description !== 'string') {
             fail(rulePath, 'description must be a string');
         }
@@ -725,6 +734,7 @@
             exceptions: entry.exceptions === undefined ? defaults.exceptions : readStringList(entry.exceptions, rulePath, 'exceptions'),
             flags,
             order,
+            targetId,
             active: active === undefined ? defaults.active : active,
             description: typeof entry.description === 'string' ? entry.description : defaults.description,
             historyBypassProtection: historyBypassProtection === undefined ? defaults.historyBypassProtection : historyBypassProtection
@@ -774,6 +784,7 @@
         if (typeof entry.match !== 'string' || !entry.match) fail(rulePath, 'match must be a non-empty string');
         const flags = readFlags(entry.flags, rulePath);
         const order = readOrder(entry.order, rulePath);
+        const targetId = readTargetId(entry.targetId, rulePath);
         const action = readAction(entry.action, rulePath);
         const referralMarketing = readBoolean(entry.referralMarketing, rulePath, 'referralMarketing') === true;
         let kind = entry.kind;
@@ -799,6 +810,7 @@
             exceptions: readStringList(entry.exceptions, rulePath, 'exceptions'),
             flags,
             order,
+            targetId,
             active: active === undefined ? true : active,
             description: typeof entry.description === 'string' ? entry.description : '',
             historyBypassProtection: readBoolean(entry.historyBypassProtection, rulePath, 'historyBypassProtection')

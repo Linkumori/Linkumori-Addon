@@ -2614,6 +2614,114 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "rawRules @@ exception targetId keeps the named raw rule",
+      "dialect": "provider",
+      "input": "https://smile.example.net/a/ref=1/tag-x",
+      "expectedOutput": "https://smile.example.net/a/ref=1",
+      "providers": {
+        "raw-exception-target": {
+          "domainPatterns": [
+            "||example.net^"
+          ],
+          "rawRules": [
+            {
+              "id": "ref-strip",
+              "aliases": [
+                "old-ref-strip"
+              ],
+              "matchPattern": "\\/ref=[^/?]*"
+            },
+            "\\/tag-[a-z]+",
+            {
+              "id": "keep-ref-smile",
+              "matchPattern": "@@||smile.example.net^$rawrule=",
+              "targetId": "ref-strip"
+            },
+            {
+              "id": "keep-ref-legacy",
+              "matchPattern": "@@||legacy.example.net^$rawrule=",
+              "targetId": "old-ref-strip"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules @@ exception targetId resolves an alias",
+      "dialect": "provider",
+      "input": "https://legacy.example.net/a/ref=1/tag-x",
+      "expectedOutput": "https://legacy.example.net/a/ref=1",
+      "providers": {
+        "raw-exception-target": {
+          "domainPatterns": [
+            "||example.net^"
+          ],
+          "rawRules": [
+            {
+              "id": "ref-strip",
+              "aliases": [
+                "old-ref-strip"
+              ],
+              "matchPattern": "\\/ref=[^/?]*"
+            },
+            "\\/tag-[a-z]+",
+            {
+              "id": "keep-ref-smile",
+              "matchPattern": "@@||smile.example.net^$rawrule=",
+              "targetId": "ref-strip"
+            },
+            {
+              "id": "keep-ref-legacy",
+              "matchPattern": "@@||legacy.example.net^$rawrule=",
+              "targetId": "old-ref-strip"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules @@ exception targetId leaves other URLs alone",
+      "dialect": "provider",
+      "input": "https://www.example.net/a/ref=1/tag-x",
+      "expectedOutput": "https://www.example.net/a",
+      "providers": {
+        "raw-exception-target": {
+          "domainPatterns": [
+            "||example.net^"
+          ],
+          "rawRules": [
+            {
+              "id": "ref-strip",
+              "aliases": [
+                "old-ref-strip"
+              ],
+              "matchPattern": "\\/ref=[^/?]*"
+            },
+            "\\/tag-[a-z]+",
+            {
+              "id": "keep-ref-smile",
+              "matchPattern": "@@||smile.example.net^$rawrule=",
+              "targetId": "ref-strip"
+            },
+            {
+              "id": "keep-ref-legacy",
+              "matchPattern": "@@||legacy.example.net^$rawrule=",
+              "targetId": "old-ref-strip"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
