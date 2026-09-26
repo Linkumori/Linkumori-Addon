@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.60.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.59.0...linkumori-v100.60.0))
+### Added
+- Introduce hide/clear to rule linter; restyle rules guide like the rest of the UI (#159) (`2026-09-26`, hash: [`2f70634`](https://github.com/Linkumori/Linkumori-Addon/commit/2f70634)) [#159](https://github.com/Linkumori/Linkumori-Addon/issues/159)
+
+### Changed
+- * **Disable rule by provider or pattern** (`2026-09-26`, hash: [`3226d26`](https://github.com/Linkumori/Linkumori-Addon/commit/3226d26))
+- Generated compressed URL cleaning rules bundle (`2026-09-26`, hash: [`38dbb07`](https://github.com/Linkumori/Linkumori-Addon/commit/38dbb07))
+
 ## [v100.59.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.58.0...linkumori-v100.59.0))
 ### Added
 - Introduce a Rename ID action to Provider rule ID controls (#156) (`2026-09-26`, hash: [`7171335`](https://github.com/Linkumori/Linkumori-Addon/commit/7171335)) [#156](https://github.com/Linkumori/Linkumori-Addon/issues/156)
