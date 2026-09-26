@@ -3063,16 +3063,23 @@ function getSnapshotRuleActivationRows() {
 }
 
 function getSnapshotProviderRuleRows() {
-    const ruleIds = clearURLsProviderSnapshot?.ruleIds || {};
+    // A rule switched off for all of its match patterns is off, but not by
+    // provider: it stays listed here until its "<provider>::<ruleId>" is off.
+    const rules = [
+        ...Object.values(clearURLsProviderSnapshot?.ruleIds || {}),
+        ...Object.values(clearURLsProviderSnapshot?.disabledRules || {})
+    ];
     const disabled = new Set(clearURLsDisabledRuleIds);
+    const listed = new Set();
     const rows = [];
-    Object.values(ruleIds).forEach(rule => {
+    rules.forEach(rule => {
         const providerName = rule?.providerName || '';
         const ruleId = rule?.id || '';
         const runtimeRuleId = rule?.runtimeRuleId || buildProviderRuntimeRuleId(providerName, ruleId);
-        if (!runtimeRuleId || disabled.has(runtimeRuleId)) {
+        if (!runtimeRuleId || disabled.has(runtimeRuleId) || listed.has(runtimeRuleId)) {
             return;
         }
+        listed.add(runtimeRuleId);
         rows.push({
             runtimeRuleId,
             providerName,
