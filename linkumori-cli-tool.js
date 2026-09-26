@@ -64,9 +64,9 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
-import './core_js/linkumori_rule_formats.js';
 
-const { LinkumoriRuleFormats } = globalThis;
+// Rule ids and aliases (see docs/filter-syntax.md §9).
+const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
 
 // Resolve paths relative to this script file, not process.cwd(), so that
 // the CLI works correctly regardless of which directory it is invoked from
@@ -1801,28 +1801,9 @@ ${commit.message}
     };
   }
 
-  // Lint a rules JSON file ({ metadata?, providers }) by replaying clearurls.js logic.
-  // Converts a rule file in any supported format to Linkumori JSON.
-  convertRulesFile(inputFile, outputFile = null) {
-    this.section('🔁 Convert Rules');
-    if (!fs.existsSync(inputFile)) {
-      this.error(`❌ Rules file not found: ${inputFile}`);
-      return false;
-    }
-    let result;
-    try {
-      result = LinkumoriRuleFormats.normalizeRuleDocument(this.readMaybeLZ4Text(inputFile));
-    } catch (err) {
-      this.error(`❌ ${err.message}`);
-      return false;
-    }
-    const target = outputFile || `${inputFile.replace(/\.(?:ya?ml|json)(?:\.lz4)?$/i, '')}.linkumori.json`;
-    fs.writeFileSync(target, `${JSON.stringify(result.data, null, 2)}\n`);
-    this.info(`📋 Input format: ${result.format}`);
-    this.info(`📦 Providers: ${Object.keys(result.data.providers || {}).length}`);
-    this.success(`Linkumori rules written to: ${target}`);
-    this.info(`Check them with: node linkumori-cli-tool.js lint-rules ${target}`);
-    return true;
+  // Reads a Linkumori rules JSON file (plain or .lz4).
+  readRulesJson(filePath) {
+    return JSON.parse(this.readMaybeLZ4Text(filePath).replace(/^\uFEFF/, ''));
   }
 
   // Prints the rule with this id (or alias) wrapped in the list it is in:
@@ -1840,7 +1821,7 @@ ${commit.message}
     }
     let data;
     try {
-      data = LinkumoriRuleFormats.normalizeRuleDocument(this.readMaybeLZ4Text(file)).data;
+      data = this.readRulesJson(file);
     } catch (err) {
       this.error(`❌ ${err.message}`);
       return false;
@@ -1877,6 +1858,7 @@ ${commit.message}
     return true;
   }
 
+  // Lint a rules JSON file ({ metadata?, providers }) by replaying clearurls.js logic.
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
@@ -1924,20 +1906,13 @@ ${commit.message}
       return false;
     }
 
-    // ── 2. Parse (JSON or YAML; ClearURLs formats are converted) ──────────────
+    // ── 2. Parse JSON ─────────────────────────────────────────────────────────
     let data;
-    let sourceFormat;
     try {
-      const raw = this.readMaybeLZ4Text(rulesFile);
-      const normalized = LinkumoriRuleFormats.normalizeRuleDocument(raw);
-      data = normalized.data;
-      sourceFormat = normalized.format;
+      data = this.readRulesJson(rulesFile);
     } catch (err) {
       this.error(`❌ Parse error: ${err.message}`);
       return false;
-    }
-    if (sourceFormat !== 'linkumori') {
-      this.info(`🔁 Converted from ${sourceFormat === 'clearurls-v2' ? 'ClearURLs new rule format (version 2)' : 'ClearURLs compiled list'}`);
     }
 
     // ── 3. Auto-detect format and extract providers object ────────────────────
@@ -2550,8 +2525,8 @@ ${commit.message}
           if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
           const names = [];
           if (entry.id !== undefined) {
-            if (typeof entry.id !== 'string' || !LinkumoriRuleFormats.RULE_ID_PATTERN.test(entry.id)) {
-              errors.push(`${tag} ${field} "${getRuleLabel(entry)}" id must match ${LinkumoriRuleFormats.RULE_ID_PATTERN.source}`);
+            if (typeof entry.id !== 'string' || !RULE_ID_PATTERN.test(entry.id)) {
+              errors.push(`${tag} ${field} "${getRuleLabel(entry)}" id must match ${RULE_ID_PATTERN.source}`);
             } else {
               names.push(entry.id);
             }
@@ -2561,8 +2536,8 @@ ${commit.message}
               errors.push(`${tag} ${field} "${getRuleLabel(entry)}" aliases must be a list`);
             } else {
               for (const alias of entry.aliases) {
-                if (typeof alias !== 'string' || !LinkumoriRuleFormats.RULE_ID_PATTERN.test(alias)) {
-                  errors.push(`${tag} ${field} "${getRuleLabel(entry)}" alias "${alias}" must match ${LinkumoriRuleFormats.RULE_ID_PATTERN.source}`);
+                if (typeof alias !== 'string' || !RULE_ID_PATTERN.test(alias)) {
+                  errors.push(`${tag} ${field} "${getRuleLabel(entry)}" alias "${alias}" must match ${RULE_ID_PATTERN.source}`);
                 } else if (alias === entry.id) {
                   errors.push(`${tag} ${field} "${getRuleLabel(entry)}" lists its own id "${alias}" as an alias`);
                 } else {
@@ -4118,14 +4093,6 @@ coverage/**
           }
           break;
 
-        case 'convert-rules':
-          if (!args[1]) {
-            this.error('Missing input file. Example: node linkumori-cli-tool.js convert-rules rules.yaml rules.json');
-            process.exit(1);
-          }
-          if (!this.convertRulesFile(args[1], args[2] || null)) process.exit(1);
-          break;
-
         case 'unminify':
         case 'unminify-clearurls':
           await this.unminifyClearURLs();
@@ -4219,7 +4186,6 @@ coverage/**
     this.log('  lint-rules            Lint ClearURLs rules, including .lz4 output', 'white');
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
-    this.log('  convert-rules         Convert ClearURLs new-format (YAML/JSON) or compiled rules to Linkumori JSON', 'white');
     this.log('  show-rule <id>        Print one rule, wrapped in the list it belongs to', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
@@ -4343,17 +4309,11 @@ coverage/**
     this.log('    Tests are skipped (not failed) when no provider in the file matches', 'dim');
     this.log('  Optional path argument:', 'dim');
     this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.json', 'dim');
-    this.log('  Also reads ClearURLs new-format (version 2, YAML or JSON) and compiled lists', 'dim');
 
     this.log('\nShow Rule (show-rule <id> [file], or lint-rules --show-rule <id> [file]):', 'cyan');
     this.log('  Prints one rule, wrapped in the list it is in, e.g. { "rawRules": [ { … } ] }', 'white');
     this.log('  Finds the rule by id or alias; use <provider>::<id> when several providers have it', 'white');
     this.log('    bun linkumori-cli-tool.js show-rule ref-strip', 'dim');
-
-    this.log('\nConvert Rules (convert-rules <input> [output]):', 'cyan');
-    this.log('  Reads a ClearURLs new-format (version 2, YAML or JSON) or compiled list', 'white');
-    this.log('  and writes the same rules as Linkumori JSON (default: <input>.linkumori.json)', 'white');
-    this.log('    bun linkumori-cli-tool.js convert-rules new-rules.yaml my-rules.json', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');
     this.log('  The commit-history command creates a formatted markdown file with:', 'white');

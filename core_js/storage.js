@@ -1501,16 +1501,15 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 return;
             }
 
-            // Remote lists may be Linkumori JSON or a ClearURLs new-format
-            // (YAML or JSON) or compiled list; all are read into Linkumori format.
+            // Remote lists must be Linkumori JSON (see docs/filter-syntax.md).
             let remoteRulesData;
             try {
-                remoteRulesData = LinkumoriRuleFormats.normalizeRuleDocument(data).data;
+                remoteRulesData = JSON.parse(data.replace(/^\uFEFF/, ''));
             } catch (parseError) {
                 throw new Error(`Invalid remote rules: ${parseError.message}`);
             }
 
-            if (!remoteRulesData || typeof remoteRulesData !== 'object') {
+            if (!remoteRulesData || typeof remoteRulesData !== 'object' || Array.isArray(remoteRulesData)) {
                 throw new Error('Remote rules file does not contain valid object');
             }
 
@@ -1524,7 +1523,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
 
             const remoteRules = remoteRulesData;
 
-            if (!remoteRules.providers || typeof remoteRules.providers !== 'object') {
+            if (!remoteRules.providers || typeof remoteRules.providers !== 'object' || Array.isArray(remoteRules.providers)) {
                 throw new Error('Remote rules missing providers object');
             }
 

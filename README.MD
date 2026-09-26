@@ -104,11 +104,11 @@ For a deep codebase walkthrough, see the [Linkumori Maintainer Wiki](docs/wiki/R
 
 Built-in rules ship with the extension and are updated with each release.
 
-For the syntax Linkumori currently implements, see the [Current Rule Syntax guide](docs/wiki/current-rule-syntax.md). It covers:
-- **Linkumori-ClearURLs dialect**: classic ClearURLs-style provider arrays saved as `syntax: "linkumori-clearurls-dialect"`
-- **ClearURLs dialect**: canonical object rules saved as `syntax: "clearurls-dialect"`
-- inline provider `$removeparam` rules
-- provider-local cleanup rules compiled into the unified ClearURLs runtime
+Bundled rules, remote rule lists and custom rules all use one JSON format. See the [filter syntax guide](docs/filter-syntax.md). It covers:
+- providers matched by `domainPatterns` (`||example.com^`) or `urlPattern`
+- `rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections` and `fieldRedirections`
+- `$removeparam` filters with `@@` exceptions, and `$rawrule` patterns and options
+- rule objects (`id`, `aliases`, `replacePattern`, `order`, `flags`, …) and checking rules with `lint-rules`
 
 ---
 
