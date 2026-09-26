@@ -1440,6 +1440,46 @@
 
         .json-lint-summary {
             color: var(--text-muted);
+            margin-right: auto;
+        }
+
+        .json-lint-header {
+            align-items: center;
+        }
+
+        .json-lint-actions {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .json-lint-action {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 11px;
+            line-height: 1.2;
+            min-height: 24px;
+            padding: 3px 8px;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .json-lint-action:hover {
+            background: var(--bg-secondary);
+            border-color: var(--button-primary);
+            color: var(--text-primary);
+        }
+
+        .json-lint-action:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--button-primary);
+        }
+
+        .json-lint-list[hidden] {
+            display: none;
         }
 
         .json-lint-list {
