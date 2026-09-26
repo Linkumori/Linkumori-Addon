@@ -1333,6 +1333,73 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     } catch (_) { return null; }
 }
 
+// A rawRules entry may carry the pattern and options of a $removeparam
+// filter (§4), with "rawrule=" last so the regex after it is taken whole:
+//   "[@@][pattern]$[option,…,]rawrule=regex"
+//   "||amazon.*^$third-party,method=get,rawrule=\\/ref=[^/?]*"
+// The pattern and options decide where the rule runs; the regex is what it
+// deletes. With "@@" in front the entry is an exception instead: it stops
+// this provider's raw rules with that regex (all of them when nothing
+// follows "rawrule=", or the one named by a rule object's "targetId") where
+// its pattern and options match. Returns null for a plain regex, and
+// { filter: null } when the pattern or options are invalid.
+function parseLinkumoriRawRuleText(text) {
+    const trimmed = String(text || '').trim();
+    const isException = trimmed.startsWith('@@');
+    const body = isException ? trimmed.slice(2) : trimmed;
+    const markerRegex = /[$,]rawrule=/ig;
+    let marker, modifierStart = -1;
+    while ((marker = markerRegex.exec(body))) {
+        modifierStart = findLinkumoriModifierStart(body.slice(0, marker.index + 1));
+        if (modifierStart !== -1) break;
+    }
+    if (!marker || modifierStart === -1) return null;
+    const pattern = body.slice(0, modifierStart).trim();
+    const options = marker.index > modifierStart ? body.slice(modifierStart + 1, marker.index).trim() : '';
+    const regex = body.slice(marker.index + marker[0].length);
+    const optionTokens = splitLinkumoriModifiers(options);
+    const filter = optionTokens.some(t => /^(?:removeparam|rawrule)(?:=|$)/i.test(t)) ? null
+        : parseLinkumoriRemoveParamRule((isException ? '@@' : '') + pattern + '$' + (options ? options + ',' : '') + 'removeparam');
+    // Identifies the rule for "badfilter": its canonical pattern and options plus the regex.
+    const key = filter ? filter.canonical + ' rawrule=' + regex : null;
+    return { isException, pattern, options, regex, filter, key };
+}
+
+function compileRawRuleDefinition(rule, defaults = null) {
+    const normalized = normalizeCoreRuleDefinition(rule, "gi", defaults);
+    if (!normalized) return null;
+    const parsed = parseLinkumoriRawRuleText(normalized.matchPattern);
+    if (!parsed) {
+        const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
+        if (!compiled) return null;
+        const plain = parseLinkumoriRawRuleText('$rawrule=' + normalized.matchPattern);
+        return { ...compiled, rawRegexSource: normalized.matchPattern, badfilterKey: plain && plain.key };
+    }
+    const filter = parsed.filter;
+    if (!filter) return null;
+    // The canonical form leaves "badfilter" out, so the key is the cancelled rule's.
+    if (filter.isBadfilter) return { ...normalized, isBadfilter: true, badfilterKey: parsed.key };
+    const historyBypassProtection = filter.historyBypassProtection === false ? false : normalized.historyBypassProtection;
+    if (parsed.isException) {
+        // Nothing is matched against the URL text; the regex only names the
+        // raw rules this exception stops.
+        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
+        const targetId = rule && typeof rule === "object" && typeof rule.targetId === "string" && rule.targetId ? rule.targetId : null;
+        return { ...normalized, historyBypassProtection, exceptionRegexes, regex: null, isException: true,
+            rawRegexSource: parsed.regex, targetId, rawFilter: filter, badfilterKey: parsed.key };
+    }
+    if (!parsed.regex) return null;
+    // match-case drops the default "i"; a rule object's own flags string wins.
+    const flags = rule && typeof rule === "object" && typeof rule.flags === "string" ? rule.flags
+        : (filter.matchCase ? "g" : "gi");
+    const compiled = compileCoreRuleDefinition(typeof rule === "string" ? parsed.regex : { ...rule, matchPattern: parsed.regex, flags },
+        flags, false, defaults);
+    if (!compiled) return null;
+    // Keep the full entry as matchPattern so generated ids stay tied to it.
+    return { ...compiled, matchPattern: normalized.matchPattern, raw: normalized.raw, historyBypassProtection,
+        rawRegexSource: parsed.regex, rawFilter: filter, badfilterKey: parsed.key };
+}
+
 function getCoreRuleTraceName(compiledRule, fallback) {
     return compiledRule && typeof compiledRule.id === "string" && compiledRule.id ? compiledRule.id : fallback;
 }
@@ -1352,6 +1419,8 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
     }
     if (compiledRule.active === false) return false;
     if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
+    // Pattern and $removeparam-style options of a "…$…rawrule=" raw rule.
+    if (compiledRule.rawFilter && !matchLinkumoriRemoveParamTarget(compiledRule.rawFilter, url, request, isHistoryUpdate)) return false;
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
         const rt = String(request && request.type || "").toLowerCase();
         if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
@@ -1578,6 +1647,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     const runRawStep = (rawRuleStr, compiled) => {
         unparseURL();
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
+        if (provider.isRawRuleExcepted(compiled, url, request)) return;
         const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
         if (compiled && compiled.replacePattern !== null) {
@@ -1874,6 +1944,9 @@ function start() {
         const domainExceptionPatterns = [], domainRedirectionRules = [];
         const canceling = _completeProvider;
         const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
+        const rawRuleExceptions = [];
+        // "badfilter" raw rules cancel identical raw rules, whichever comes first.
+        const rawRuleBadfilterKeys = new Set();
         const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
         const referralMarketingRemoveParamRules = [], referralMarketingRemoveParamExceptions = [];
         const fieldRedirectionRules = [];
@@ -2079,11 +2152,37 @@ function start() {
         };
 
         this.addRawRule = function (rule, isActive = true, defaults = null) {
-            const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
+            const compiled = compileRawRuleDefinition(rule, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
+            if (compiled.isBadfilter) {
+                rawRuleBadfilterKeys.add(compiled.badfilterKey);
+                Object.keys(rawRuleMap).forEach(key => { if (rawRuleMap[key].badfilterKey === compiled.badfilterKey) delete rawRuleMap[key]; });
+                for (let i = rawRuleExceptions.length - 1; i >= 0; i--)
+                    if (rawRuleExceptions[i].badfilterKey === compiled.badfilterKey) rawRuleExceptions.splice(i, 1);
+                return;
+            }
+            if (compiled.badfilterKey && rawRuleBadfilterKeys.has(compiled.badfilterKey)) return;
             const activeCompiled = activateCompiledRule(compiled, 'rawRules');
             if (!activeCompiled) return;
-            rawRuleMap[activeCompiled.matchPattern] = activeCompiled;
+            if (activeCompiled.isException) rawRuleExceptions.push(activeCompiled);
+            else rawRuleMap[activeCompiled.matchPattern] = activeCompiled;
+        };
+
+        // True when an "@@…$rawrule=" exception stops this raw rule on `url`.
+        // An exception with a targetId stops the rule with that id or alias;
+        // otherwise one whose regex is the same text as the rule's, or every
+        // raw rule when its regex is empty.
+        const rawRuleExceptionTargets = (exception, compiled) => {
+            if (exception.targetId) {
+                return compiled.id === exception.targetId ||
+                    (Array.isArray(compiled.aliases) && compiled.aliases.includes(exception.targetId));
+            }
+            return exception.rawRegexSource === '' || exception.rawRegexSource === compiled.rawRegexSource;
+        };
+        this.isRawRuleExcepted = function (compiled, url, request = null) {
+            if (!compiled || rawRuleExceptions.length === 0) return false;
+            return rawRuleExceptions.some(exception =>
+                rawRuleExceptionTargets(exception, compiled) && coreRuleAppliesToRequest(exception, url, request));
         };
 
         this.getRawRulesMap = function () { return rawRuleMap; };
