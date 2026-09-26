@@ -2002,6 +2002,15 @@ ${commit.message}
       }
     };
 
+    // A rawRules entry can start with a pattern that limits it to some URLs:
+    // "||amazon.*^$rawrule=\\/ref=[^/?]*". Null for a plain regex.
+    const splitScopedRawRule = (text) => {
+      const value = String(text || '');
+      const marker = value.search(/\$rawrule=/i);
+      if (marker === -1) return null;
+      return { pattern: value.slice(0, marker).trim(), regex: value.slice(marker + '$rawrule='.length) };
+    };
+
     const PROVIDER_FIELDS = new Set([
       'domainPatterns', 'urlPattern', 'indexPattern', 'rules', 'referralMarketing', 'rawRules',
       'exceptions', 'redirections', 'fieldRedirections', 'completeProvider', 'forceRedirection', 'methods',
@@ -2255,6 +2264,19 @@ ${commit.message}
           errors.push(`${tag} rawRule "${rawLabel}" → missing matchPattern`);
           continue;
         }
+        const scopedRaw = splitScopedRawRule(rawPattern);
+        if (scopedRaw) {
+          if (scopedRaw.pattern.startsWith('@@')) {
+            errors.push(`${tag} rawRule "${rawLabel}" starts with "@@"; rawRules have no exceptions. Use the provider's or the rule object's "exceptions" instead`);
+            continue;
+          }
+          if (!scopedRaw.regex) {
+            errors.push(`${tag} rawRule "${rawLabel}" has nothing after "$rawrule="; it needs the regex to delete`);
+            continue;
+          }
+          tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`);
+          continue;
+        }
         tryRegex(rawPattern, 'gi', `${tag} rawRule "${rawLabel}"`);
       }
 
@@ -2354,6 +2376,10 @@ ${commit.message}
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
           checkSinglePipe(getRulePattern(entry).split('$redirect=')[0], field);
         }
+      }
+      for (const entry of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
+        const scopedRaw = splitScopedRawRule(getRulePattern(entry));
+        if (scopedRaw) checkSinglePipe(scopedRaw.pattern, 'rawRules');
       }
       for (const field of FIELD_RULE_LISTS) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
@@ -2470,7 +2496,10 @@ ${commit.message}
         // rawRules (full-string replace)
         for (const rawRule of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
           const rawPattern = getRulePattern(rawRule);
-          try { if (rawPattern) urlStr = urlStr.replace(new RegExp(rawPattern, 'gi'), ''); } catch { /* bad regex already reported */ }
+          const scopedRaw = splitScopedRawRule(rawPattern);
+          if (scopedRaw && scopedRaw.pattern && scopedRaw.pattern !== '*' && !domainPatternMatchesUrl(scopedRaw.pattern, urlStr)) continue;
+          const rawSource = scopedRaw ? scopedRaw.regex : rawPattern;
+          try { if (rawSource) urlStr = urlStr.replace(new RegExp(rawSource, 'gi'), ''); } catch { /* bad regex already reported */ }
         }
 
         // rules + referralMarketing (query-param name matching)

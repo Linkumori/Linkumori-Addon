@@ -218,7 +218,7 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `completeProvider` | boolean | Yes | If `true`, blocks all requests to this provider entirely (domain blocking) |
 | `forceRedirection` | boolean | No | If `true`, forces following redirects even without a matching redirection rule |
 | `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
-| `rawRules` | array of strings (regex) | No | Regex patterns applied directly to the raw URL string before parameter parsing |
+| `rawRules` | array of strings (regex, or `\|\|domain^$rawrule=regex`) | No | Regex patterns applied directly to the raw URL string before parameter parsing, optionally limited to URLs matching a domain pattern |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
 | `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
 | `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
@@ -301,6 +301,16 @@ Raw rules are regex patterns applied directly to the entire URL string via `Stri
   ";jsessionid=[^?]*"
 ]
 ```
+
+To run a raw rule only on some of the provider's URLs, put a domain pattern in front, as with `$removeparam`:
+
+```json
+"rawRules": [
+  "||amazon.*^/dp/$rawrule=\\/ref=[^/?]*"
+]
+```
+
+The pattern decides whether the rule runs; the regex after `$rawrule=` is what gets removed. See [docs/rule-syntax.md §5](docs/rule-syntax.md#5-rawrules).
 
 > Use `rawRules` sparingly — incorrect patterns can corrupt the URL.
 

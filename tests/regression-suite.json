@@ -2467,6 +2467,78 @@
         "globalStatus": true,
         "referralMarketing": true
       }
+    },
+    {
+      "id": "rawRules domain pattern runs on matching host",
+      "dialect": "provider",
+      "input": "https://shop.example.com/item/ref=abc?keep=1",
+      "expectedOutput": "https://shop.example.com/item?keep=1",
+      "providers": {
+        "raw-scoped": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rawRules": [
+            "||shop.example.com^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "scoped-raw-rewrite",
+              "matchPattern": "||example.com^/go/$rawrule=\\/tag-([a-z]+)",
+              "replacePattern": "/t-§1§"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules domain pattern skips other hosts",
+      "dialect": "provider",
+      "input": "https://www.example.com/item/ref=abc?keep=1",
+      "expectedOutput": "https://www.example.com/item/ref=abc?keep=1",
+      "providers": {
+        "raw-scoped": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rawRules": [
+            "||shop.example.com^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "scoped-raw-rewrite",
+              "matchPattern": "||example.com^/go/$rawrule=\\/tag-([a-z]+)",
+              "replacePattern": "/t-§1§"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules domain pattern with path and replacePattern",
+      "dialect": "provider",
+      "input": "https://www.example.com/go/tag-abc",
+      "expectedOutput": "https://www.example.com/go/t-abc",
+      "providers": {
+        "raw-scoped": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rawRules": [
+            "||shop.example.com^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "scoped-raw-rewrite",
+              "matchPattern": "||example.com^/go/$rawrule=\\/tag-([a-z]+)",
+              "replacePattern": "/t-§1§"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

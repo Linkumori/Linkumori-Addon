@@ -368,6 +368,8 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     });
     if (rule.matchPattern.trim().startsWith('|') && (fieldName === 'exceptions' || fieldName === 'redirections')) {
         if (fieldName === 'redirections') assertDomainRedirectEntry(rule.matchPattern, prefix);
+    } else if (fieldName === 'rawRules' && splitScopedRawRule(rule.matchPattern)) {
+        new RegExp(splitScopedRawRule(rule.matchPattern).regex, typeof rule.flags === 'string' ? rule.flags : 'gi');
     } else {
         new RegExp(rule.matchPattern, typeof rule.flags === 'string' ? rule.flags : 'i');
     }
@@ -474,6 +476,15 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
     });
 }
 
+// A rawRules entry can start with a pattern that limits it to some URLs:
+// "||amazon.*^$rawrule=\\/ref=[^/?]*". Null for a plain regex.
+function splitScopedRawRule(matchPattern) {
+    const text = String(matchPattern || '');
+    const marker = text.search(/\$rawrule=/i);
+    if (marker === -1) return null;
+    return { pattern: text.slice(0, marker).trim(), regex: text.slice(marker + '$rawrule='.length) };
+}
+
 // A pattern with a single leading "|" only matches URLs that literally start
 // with the rest of it. Without a scheme ("|https://...") nothing can match,
 // so "|example.com^" is always a typo for "||example.com^".
@@ -516,6 +527,19 @@ function assertNoSilentMistakes(provider, providerName = '') {
             if (body.startsWith('/') || !/\$removeparam/i.test(body)) return;
             checkPattern(body.slice(0, body.indexOf('$')), `${fieldName}[${index}]`);
         });
+    });
+    (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry, index) => {
+        const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
+        const scoped = splitScopedRawRule(text);
+        if (!scoped) return;
+        const where = `${label}: rawRules[${index}]`;
+        if (scoped.pattern.startsWith('@@')) {
+            throw new Error(`${where} starts with "@@"; rawRules have no exceptions. Use the provider's or the rule object's "exceptions" instead`);
+        }
+        if (!scoped.regex) throw new Error(`${where} has nothing after "$rawrule="; it needs the regex to delete`);
+        checkPattern(scoped.pattern, `rawRules[${index}]`);
+        try { new RegExp(scoped.regex, isPlainObject(entry) && typeof entry.flags === 'string' ? entry.flags : 'gi'); }
+        catch (error) { throw new Error(`${where} has an invalid regex after "$rawrule=": ${error.message}`); }
     });
     // A regex redirect without replacePattern goes to its first capture group,
     // so it needs exactly one: none never redirects, more than one is a trap.

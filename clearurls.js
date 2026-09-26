@@ -1333,6 +1333,31 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     } catch (_) { return null; }
 }
 
+// A rawRules entry may start with a pattern that limits it to some URLs, the
+// way a $removeparam filter can: "||amazon.*^$rawrule=\\/ref=[^/?]*". The
+// pattern uses the domain-pattern syntax; what follows "$rawrule=" is the
+// usual raw-rule regex. Returns null for a plain regex.
+function splitScopedRawRulePattern(matchPattern) {
+    const text = String(matchPattern || '');
+    const marker = text.search(/\$rawrule=/i);
+    if (marker === -1) return null;
+    return { pattern: text.slice(0, marker).trim(), regex: text.slice(marker + '$rawrule='.length) };
+}
+
+function compileRawRuleDefinition(rule, defaults = null) {
+    const normalized = normalizeCoreRuleDefinition(rule, "gi", defaults);
+    if (!normalized) return null;
+    const scoped = splitScopedRawRulePattern(normalized.matchPattern);
+    if (!scoped) return compileCoreRuleDefinition(rule, "gi", false, defaults);
+    if (!scoped.regex || scoped.pattern.startsWith('@@')) return null;
+    const compiled = compileCoreRuleDefinition(typeof rule === "string" ? scoped.regex : { ...rule, matchPattern: scoped.regex },
+        "gi", false, defaults);
+    if (!compiled) return null;
+    // Keep the full entry as matchPattern so generated ids stay tied to it.
+    return { ...compiled, matchPattern: normalized.matchPattern, raw: normalized.raw,
+        urlScope: scoped.pattern && scoped.pattern !== '*' ? scoped.pattern : null };
+}
+
 function getCoreRuleTraceName(compiledRule, fallback) {
     return compiledRule && typeof compiledRule.id === "string" && compiledRule.id ? compiledRule.id : fallback;
 }
@@ -1352,6 +1377,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
     }
     if (compiledRule.active === false) return false;
     if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
+    if (compiledRule.urlScope && !matchDomainPattern(url, [compiledRule.urlScope])) return false;
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
         const rt = String(request && request.type || "").toLowerCase();
         if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
@@ -2079,7 +2105,7 @@ function start() {
         };
 
         this.addRawRule = function (rule, isActive = true, defaults = null) {
-            const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
+            const compiled = compileRawRuleDefinition(rule, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'rawRules');
             if (!activeCompiled) return;
