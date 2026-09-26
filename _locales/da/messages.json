@@ -5267,6 +5267,18 @@
     "message": "Et genereret id ændres, når regelteksten ændres. Giv en regel sit eget <code>id</code>, når den skal beholde sin til/fra-indstilling gennem redigeringer.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "The first time you switch off a rule without <code>id</code>, its id is fixed, so the rule stays off when its text changes. In a custom provider the id is written onto the rule: <code>\"dd\"</code> becomes <code>{ \"id\": \"field-dd\", \"matchPattern\": \"dd\" }</code>. A rule from a built-in or remote list is pinned instead: the extension remembers its provider, list, id and text, and on every load gives the pinned id to the rule with the same text, the same generated id, or a text at least 80% alike. Rules you never switched off keep their generated ids, and nothing is stored for them.",
+    "description": "Rules guide: ids fixed the first time a rule is switched off"
+  },
+  "guide_obj_p10": {
+    "message": "When no rule matches a pin any more (the rule was removed upstream), it is listed under <b>Orphaned toggles</b> at the bottom of <b>Disabled Rules</b>, with the reason and a <b>Remove</b> button, instead of silently doing nothing. <b>Export custom rules to file</b> includes the pins of rules you switched off (<code>\"rulePins\"</code>), and importing the file switches the same rules off.",
+    "description": "Rules guide: orphaned toggles and exporting pinned ids"
+  },
+  "guide_obj_p11": {
+    "message": "To choose an id yourself, press <b>Rename ID</b> next to a rule in <b>Provider rule ID controls</b>. The rule gets the new <code>id</code> and keeps the old one in <code>aliases</code>, so a rule you switched off stays off: <code>{ \"id\": \"strip-dd\", \"matchPattern\": \"dd\", \"aliases\": [\"field-dd\"] }</code>. The new id may use <code>a-z</code>, <code>0-9</code>, <code>-</code> and <code>_</code>, and no other rule of the provider may already use it.",
+    "description": "Rules guide: renaming a rule id"
+  },
   "guide_obj_order_title": {
     "message": "Kørsel af en regel tidligere eller senere",
     "description": "Guide page text."
@@ -5758,5 +5770,61 @@
   "accessibility_tools_reset_announcement": {
     "message": "All accessibility settings reset",
     "description": "Live-region announcement after resetting accessibility tools."
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Orphaned toggles",
+    "description": "Section title in Disabled Rules for switched-off rules whose rule no longer exists upstream"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "No matching rule found upstream",
+    "description": "One-line reason shown under an orphaned toggle"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Remove",
+    "description": "Button label to remove an orphaned toggle"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Rename ID",
+    "description": "Button label to give a rule a new id in Provider rule ID controls"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "New id for $OLD$ (a-z, 0-9, - and _). The old id is kept as an alias, so rules switched off under it stay off.",
+    "description": "Prompt when renaming a rule id",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" is not a valid id. Use lowercase letters, digits, - and _, starting with a letter or digit.",
+    "description": "Alert when a new rule id has invalid characters",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Another rule of this provider already uses \"$ID$\".",
+    "description": "Alert when a new rule id is already used in the provider",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Rule id renamed to $ID$",
+    "description": "Status after a rule id was renamed and saved",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
   }
 }
