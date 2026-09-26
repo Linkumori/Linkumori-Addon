@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.58.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.57.0...linkumori-v100.58.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-09-26`, hash: [`e62aad8`](https://github.com/Linkumori/Linkumori-Addon/commit/e62aad8))
+
 ## [v100.57.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.56.0...linkumori-v100.57.0))
 ### Added
 - Implement fieldRedirections, rule order and flags tags (#151) (`2026-09-25`, hash: [`6d9cd0d`](https://github.com/Linkumori/Linkumori-Addon/commit/6d9cd0d)) [#151](https://github.com/Linkumori/Linkumori-Addon/issues/151)
