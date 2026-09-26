@@ -64,6 +64,9 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
+import './core_js/linkumori_rule_ids.js';
+
+const { LinkumoriRuleIds } = globalThis;
 
 // Rule ids and aliases (see docs/filter-syntax.md §9).
 const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
@@ -1806,9 +1809,10 @@ ${commit.message}
     return JSON.parse(this.readMaybeLZ4Text(filePath).replace(/^\uFEFF/, ''));
   }
 
-  // Prints the rule with this id (or alias) wrapped in the list it is in:
-  // { "rawRules": [ { … } ] }. A rule object does not record its list, so
-  // the wrapper is worked out here from where the rule actually is.
+  // Prints the rule with this id (its own, an alias, or the generated id of
+  // a rule without one) wrapped in the list it is in: { "rawRules": [ { … } ] }.
+  // A rule does not record its list, so the wrapper is worked out here from
+  // where the rule actually is.
   showRule(ruleRef, rulesFile = null) {
     if (!ruleRef) {
       this.error('Missing rule id. Example: node linkumori-cli-tool.js show-rule ref-strip');
@@ -1829,20 +1833,35 @@ ${commit.message}
     const separator = ruleRef.lastIndexOf('::');
     const providerFilter = separator === -1 ? null : ruleRef.slice(0, separator);
     const ruleId = separator === -1 ? ruleRef : ruleRef.slice(separator + 2);
-    const lists = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
     const matches = [];
+    // Rules whose readable id is ruleId but which had to take a hash suffix
+    // because another rule shares it.
+    const sharedBaseIds = [];
     for (const [providerName, provider] of Object.entries(data.providers || {})) {
       if (providerFilter !== null && providerName !== providerFilter) continue;
-      for (const list of lists) {
-        for (const entry of (Array.isArray(provider && provider[list]) ? provider[list] : [])) {
-          if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
-          const aliases = Array.isArray(entry.aliases) ? entry.aliases : [];
-          if (entry.id === ruleId || aliases.includes(ruleId)) matches.push({ providerName, list, entry });
-        }
+      const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+      for (const list of LinkumoriRuleIds.RULE_ID_SECTIONS) {
+        (Array.isArray(provider && provider[list]) ? provider[list] : []).forEach((entry, index) => {
+          const assigned = assignedIds[list][index];
+          const aliases = entry && typeof entry === 'object' && Array.isArray(entry.aliases) ? entry.aliases : [];
+          if (assigned && assigned.generated && assigned.id !== ruleId && LinkumoriRuleIds.baseRuleId(list, LinkumoriRuleIds.getRuleText(entry)) === ruleId) {
+            sharedBaseIds.push(`${providerName}::${assigned.id}`);
+          }
+          if ((assigned && assigned.id === ruleId) || aliases.includes(ruleId)) {
+            // Identical entries share their id; show the rule once.
+            if (!matches.some(m => m.providerName === providerName && m.list === list && JSON.stringify(m.entry) === JSON.stringify(entry))) {
+              matches.push({ providerName, list, entry, id: assigned ? assigned.id : ruleId, generated: !!(assigned && assigned.generated) });
+            }
+          }
+        });
       }
     }
     if (matches.length === 0) {
       this.error(`❌ No rule with id or alias "${ruleId}"${providerFilter !== null ? ` in provider "${providerFilter}"` : ''} in ${file}`);
+      if (sharedBaseIds.length > 0) {
+        this.info('Rules that share that id have a hash suffix instead:');
+        for (const id of [...new Set(sharedBaseIds)]) this.log(`  ${id}`, 'white');
+      }
       return false;
     }
     if (matches.length > 1) {
@@ -1850,10 +1869,13 @@ ${commit.message}
       for (const match of matches) this.log(`  ${match.providerName}::${ruleId}   (${match.list})`, 'white');
       return false;
     }
-    const { providerName, list, entry } = matches[0];
-    const clean = { ...entry };
-    delete clean._linkumoriActivationIds;
-    this.info(`📌 ${providerName} → ${list}`);
+    const { providerName, list, entry, id, generated } = matches[0];
+    const clean = entry && typeof entry === 'object' ? { ...entry } : entry;
+    if (clean && typeof clean === 'object') {
+      delete clean._linkumoriActivationIds;
+      delete clean._linkumoriLegacyRuleIds;
+    }
+    this.info(`📌 ${providerName} → ${list} (${generated ? 'generated id' : 'id'}: ${id})`);
     console.log(JSON.stringify({ [list]: [clean] }, null, 2));
     return true;
   }
@@ -2027,14 +2049,11 @@ ${commit.message}
           : (REMOVEPARAM_FLAG_OPTIONS.has(option) || (option.startsWith('~') && REMOVEPARAM_TYPE_OPTIONS.has(option.slice(1))));
         if (!known) return `has unknown option "${option}"`;
         const optionValue = option.slice(option.indexOf('=') + 1);
-        if (['domain', 'to', 'denyallow', 'method'].includes(name) && !optionValue.replace(/\|/g, '').trim()) {
+        if (['domain', 'to', 'method'].includes(name) && !optionValue.replace(/\|/g, '').trim()) {
           return `has an empty "${name}=" option`;
         }
         if (name === 'method' && optionValue.split('|').some(m => !['get', 'head', 'options', 'post', 'put', 'patch', 'delete', 'connect'].includes(m.replace(/^~/, '').trim()))) {
           return `has an unknown method in "${option}"`;
-        }
-        if (name === 'denyallow' && optionValue.split('|').some(d => d.trim().startsWith('~') || d.trim().startsWith('/') || d.trim().endsWith('.*'))) {
-          return `"${option}" takes plain domains only (no "~", regexes or ".*")`;
         }
         if (name === 'history-bypass-protection' && !['true', 'false', '1', '0', 'yes', 'no'].includes(optionValue.trim())) {
           return `"${option}" must be true or false`;
@@ -2056,17 +2075,18 @@ ${commit.message}
     ]);
     const RULE_OBJECT_KEYS = new Set([
       'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-      'flags', 'order', 'active', 'description', 'historyBypassProtection', 'targetId', '_linkumoriActivationIds'
+      'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
+      '_linkumoriActivationIds', '_linkumoriLegacyRuleIds'
     ]);
     const RULE_LISTS = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
     // Lists whose entries are field rules (names, name regexes, $removeparam filters).
     const FIELD_RULE_LISTS = ['rules', 'referralMarketing', 'fieldRedirections'];
     // `order` only reorders these lists; the others run at a fixed step.
     const ORDERABLE_RULE_LISTS = ['rules', 'rawRules', 'referralMarketing'];
-    // Behavior tags allowed in a `flags` array, and the lists they apply in.
-    const BEHAVIOR_FLAG_LISTS = { referralMarketing: ['rules', 'referralMarketing'] };
+    // Lists where a rule's `"referralMarketing": true` means something.
+    const REFERRAL_MARKETING_KEY_LISTS = ['rules', 'referralMarketing'];
     const PREPROCESSORS = new Set(['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode']);
-    const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
+    const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'method', 'history-bypass-protection']);
     const REMOVEPARAM_TYPE_OPTIONS = new Set([
       'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
       'other', 'ping', 'websocket', 'xmlhttprequest', 'font'
@@ -2482,18 +2502,15 @@ ${commit.message}
             for (const pre of (Array.isArray(entry.preprocessors) ? entry.preprocessors : [])) {
               if (!PREPROCESSORS.has(pre && pre.type)) errors.push(`${label} has unknown preprocessor "${pre && pre.type}"`);
             }
-            // `flags` is either regex flags (a string) or behavior tags (a list).
-            if (Array.isArray(entry.flags)) {
-              for (const flag of entry.flags) {
-                const lists = BEHAVIOR_FLAG_LISTS[flag];
-                if (typeof flag !== 'string' || !lists) {
-                  errors.push(`${label} has unknown flag "${flag}"; known flags: ${Object.keys(BEHAVIOR_FLAG_LISTS).join(', ')}`);
-                } else if (!lists.includes(field)) {
-                  errors.push(`${label} flag "${flag}" has no effect in ${field}; it only applies in ${lists.join(', ')}`);
-                }
+            if (entry.flags !== undefined && typeof entry.flags !== 'string') {
+              errors.push(`${label} flags must be a string (regex flags such as "i")`);
+            }
+            if (entry.referralMarketing !== undefined) {
+              if (typeof entry.referralMarketing !== 'boolean') {
+                errors.push(`${label} referralMarketing must be true or false`);
+              } else if (!REFERRAL_MARKETING_KEY_LISTS.includes(field)) {
+                errors.push(`${label} referralMarketing has no effect in ${field}; it only applies in ${REFERRAL_MARKETING_KEY_LISTS.join(', ')}`);
               }
-            } else if (entry.flags !== undefined && typeof entry.flags !== 'string') {
-              errors.push(`${label} flags must be a string (regex flags) or a list such as ["referralMarketing"]`);
             }
             if (entry.order !== undefined) {
               if (typeof entry.order !== 'number' || !Number.isFinite(entry.order)) {
@@ -2549,6 +2566,16 @@ ${commit.message}
             if (usedRuleIds.has(name)) errors.push(`${tag} rule id "${name}" is used twice (${usedRuleIds.get(name)} and ${field})`);
             else usedRuleIds.set(name, field);
           }
+        }
+      }
+
+      // The same entry twice in one list does nothing more; both copies share one id.
+      for (const field of RULE_LISTS) {
+        const seenEntries = new Set();
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          const key = JSON.stringify(entry);
+          if (seenEntries.has(key)) warnings.push(`${tag} ${field} lists "${getRuleLabel(entry)}" more than once`);
+          else seenEntries.add(key);
         }
       }
 
@@ -4311,7 +4338,8 @@ coverage/**
 
     this.log('\nShow Rule (show-rule <id> [file], or lint-rules --show-rule <id> [file]):', 'cyan');
     this.log('  Prints one rule, wrapped in the list it is in, e.g. { "rawRules": [ { … } ] }', 'white');
-    this.log('  Finds the rule by id or alias; use <provider>::<id> when several providers have it', 'white');
+    this.log('  Finds the rule by id, alias or generated id (e.g. field-utm-source for "utm_source");', 'white');
+    this.log('  use <provider>::<id> when several providers have it', 'white');
     this.log('    bun linkumori-cli-tool.js show-rule ref-strip', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');

@@ -242,11 +242,8 @@ const FIELD_RULE_LISTS = Object.freeze(['rules', 'referralMarketing', 'fieldRedi
 // Lists a rule's `order` can reorder; everything else runs at a fixed step.
 const ORDERABLE_RULE_LISTS = Object.freeze(['rules', 'rawRules', 'referralMarketing']);
 
-// Behavior tags allowed in a rule's `flags` array, and the lists they mean
-// something in. (A `flags` string is the rule's regex flags instead.)
-const RULE_BEHAVIOR_FLAG_LISTS = Object.freeze({
-    referralMarketing: Object.freeze(['rules', 'referralMarketing'])
-});
+// Lists where a rule's `"referralMarketing": true` means something.
+const REFERRAL_MARKETING_KEY_LISTS = Object.freeze(['rules', 'referralMarketing']);
 
 function isRemoveParamRuleText(text) {
     return getRemoveParamOptions(text) !== null;
@@ -291,7 +288,8 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-    'flags', 'order', 'active', 'description', 'historyBypassProtection', 'targetId', '_linkumoriActivationIds'
+    'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
+    '_linkumoriActivationIds', '_linkumoriLegacyRuleIds'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -310,18 +308,16 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
         if (typeof rule.targetId !== 'string' || !rule.targetId) throw new Error(`${prefix}.targetId must be a rule id`);
         if (fieldName !== 'rawRules') throw new Error(`${prefix}.targetId only applies to "@@…$rawrule=" exceptions in rawRules`);
     }
-    if (Array.isArray(rule.flags)) {
-        rule.flags.forEach((flag) => {
-            const lists = RULE_BEHAVIOR_FLAG_LISTS[flag];
-            if (typeof flag !== 'string' || !lists) {
-                throw new Error(`${prefix}.flags has unknown flag "${flag}"; known flags: ${Object.keys(RULE_BEHAVIOR_FLAG_LISTS).join(', ')}`);
-            }
-            if (!lists.includes(fieldName)) {
-                throw new Error(`${prefix}.flags "${flag}" has no effect in ${fieldName}; it only applies in ${lists.join(', ')}`);
-            }
-        });
-    } else if (rule.flags !== undefined && typeof rule.flags !== 'string') {
-        throw new Error(`${prefix}.flags must be a string (regex flags) or an array of flags such as ["referralMarketing"]`);
+    if (rule.flags !== undefined && typeof rule.flags !== 'string') {
+        throw new Error(`${prefix}.flags must be a string (regex flags such as "i")`);
+    }
+    if (rule.referralMarketing !== undefined) {
+        if (typeof rule.referralMarketing !== 'boolean') {
+            throw new Error(`${prefix}.referralMarketing must be true or false`);
+        }
+        if (!REFERRAL_MARKETING_KEY_LISTS.includes(fieldName)) {
+            throw new Error(`${prefix}.referralMarketing has no effect in ${fieldName}; it only applies in ${REFERRAL_MARKETING_KEY_LISTS.join(', ')}`);
+        }
     }
     if (rule.order !== undefined) {
         if (typeof rule.order !== 'number' || !Number.isFinite(rule.order)) {
@@ -385,7 +381,7 @@ const PROVIDER_FIELDS = Object.freeze([
     'exceptions', 'redirections', 'fieldRedirections', 'completeProvider', 'forceRedirection', 'methods',
     'resourceTypes', 'historyBypassProtection', 'active'
 ]);
-const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
+const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'method', 'history-bypass-protection']);
 const REMOVEPARAM_FLAG_OPTIONS = new Set([
     'first-party', 'third-party', 'strict-first-party', 'strict-third-party', 'match-case',
     'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
@@ -531,14 +527,11 @@ function rawRuleOptionProblem(options, isException) {
             : (REMOVEPARAM_FLAG_OPTIONS.has(option) || (option.startsWith('~') && REMOVEPARAM_NEGATABLE_OPTIONS.has(option.slice(1))));
         if (!known) return `has unknown option "${option}"`;
         const value = option.slice(option.indexOf('=') + 1);
-        if ((name === 'domain' || name === 'to' || name === 'denyallow' || name === 'method') && !value.replace(/\|/g, '').trim()) {
+        if ((name === 'domain' || name === 'to' || name === 'method') && !value.replace(/\|/g, '').trim()) {
             return `has an empty "${name}=" option`;
         }
         if (name === 'method' && value.split('|').some(m => !['get', 'head', 'options', 'post', 'put', 'patch', 'delete', 'connect'].includes(m.replace(/^~/, '').trim()))) {
             return `has an unknown method in "${option}"`;
-        }
-        if (name === 'denyallow' && value.split('|').some(d => d.trim().startsWith('~') || d.trim().startsWith('/') || d.trim().endsWith('.*'))) {
-            return `"${option}" takes plain domains only (no "~", regexes or ".*")`;
         }
         if (name === 'history-bypass-protection' && !['true', 'false', '1', '0', 'yes', 'no'].includes(value.trim())) {
             return `"${option}" must be true or false`;
@@ -1287,33 +1280,42 @@ function collectProviderRuleIdEntries(providerName, provider) {
 
     const entries = [];
     const activationScopeIds = getProviderRuleActivationScopeIds(providerName, provider);
+    // Every rule has an id: its own "id", or one generated from its list and
+    // text, the same way the engine generates it.
+    const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+    const disabledIds = new Set(clearURLsDisabledRuleIds);
     const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions'];
     sections.forEach(section => {
         const rules = provider[section];
         if (!Array.isArray(rules)) {
             return;
         }
+        const listed = new Set();
         rules.forEach((rule, index) => {
-            if (!rule || typeof rule !== 'object' || typeof rule.id !== 'string' || !rule.id.trim()) {
+            const assigned = assignedIds[section][index];
+            // Identical entries share one id; list it once. Domain-pattern
+            // exceptions and redirections ("||…") cannot be switched off by id.
+            if (!assigned || listed.has(assigned.id) ||
+                ((section === 'exceptions' || section === 'redirections') && LinkumoriRuleIds.getRuleText(rule).trim().startsWith('|'))) {
                 return;
             }
+            listed.add(assigned.id);
 
-            const disabledIds = new Set(clearURLsDisabledRuleIds);
             activationScopeIds.forEach(scopeId => {
-                const runtimeId = buildProviderPatternRuntimeRuleId(scopeId, rule.id);
-                const disableKeys = getProviderRuleDisableKeys(scopeId, rule.id, providerName);
+                const runtimeId = buildProviderPatternRuntimeRuleId(scopeId, assigned.id);
+                const disableKeys = getProviderRuleDisableKeys(scopeId, assigned.id, providerName);
                 const disabled = disableKeys.some(key => disabledIds.has(key));
 
                 entries.push({
                     section,
                     index,
-                    id: rule.id,
+                    id: assigned.id,
                     runtimeId,
                     scopeId,
                     providerName,
                     disableKeys,
                     kind: section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : (section === 'exceptions' ? 'exception' : 'field')),
-                    match: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
+                    match: LinkumoriRuleIds.getRuleText(rule),
                     disabled
                 });
             });
@@ -4402,7 +4404,10 @@ function handleJsonEditorInput() {
 // out from where the rule is now, never stored on the rule.
 function buildRuleExport(section, rule) {
     const clean = isPlainObject(rule) ? { ...rule } : rule;
-    if (isPlainObject(clean)) delete clean._linkumoriActivationIds;
+    if (isPlainObject(clean)) {
+        delete clean._linkumoriActivationIds;
+        delete clean._linkumoriLegacyRuleIds;
+    }
     return { [section]: [clean] };
 }
 

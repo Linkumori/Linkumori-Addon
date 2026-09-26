@@ -127,35 +127,6 @@ function getClearURLsDisabledRuleIdSet() {
     return new Set(normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids));
 }
 
-function createStableRuleHash(value) {
-    let hash = 2166136261;
-    const text = String(value || '');
-    for (let i = 0; i < text.length; i++) {
-        hash ^= text.charCodeAt(i);
-        hash = Math.imul(hash, 16777619);
-    }
-    return (hash >>> 0).toString(36);
-}
-
-function slugifyCoreRuleIdPart(value) {
-    return String(value || '')
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-        .replace(/-+/g, '-');
-}
-
-function createGeneratedCoreRuleId(section, matchPattern) {
-    const prefix = section === 'rawRules' ? 'raw'
-        : section === 'redirections' ? 'redirect'
-        : section === 'fieldRedirections' ? 'field-redirect'
-        : section === 'referralMarketing' ? 'referral'
-        : section === 'exceptions' ? 'exception'
-        : 'field';
-    const slug = slugifyCoreRuleIdPart(matchPattern).slice(0, 32);
-    return `${prefix}-${slug || createStableRuleHash(matchPattern)}`;
-}
-
 function buildCoreRuntimeRuleId(providerName, ruleId) {
     return `${providerName}::${ruleId}`;
 }
@@ -177,8 +148,18 @@ function normalizeCoreRuleActivationIds(value) {
     return out;
 }
 
-function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = []) {
-    const ruleId = compiledRule.id || createGeneratedCoreRuleId(section, compiledRule.matchPattern);
+// `lookupRuleId(section, matchPattern)` gives the generated id of a rule
+// without an "id" (see core_js/linkumori_rule_ids.js).
+function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = [], lookupRuleId = null) {
+    const baseId = LinkumoriRuleIds.baseRuleId(section, compiledRule.matchPattern);
+    const ruleId = compiledRule.id || (lookupRuleId ? lookupRuleId(section, compiledRule.matchPattern) : baseId);
+    // Ids this rule may have had before, so a setting saved under one still
+    // applies: its readable id (which it loses once another rule shares it)
+    // and the numbered id ("-2", …) storage used to give such rules. A
+    // setting saved under a shared readable id switches off every rule that
+    // shares it; a rule that was off never comes back on by itself.
+    compiledRule.legacyIds = compiledRule.id ? []
+        : [...new Set([baseId, ...normalizeCoreRuleAliases(compiledRule._linkumoriLegacyRuleIds)])].filter(id => id !== ruleId);
     const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
     const fallbackActivationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
         ? activationScopeIds : [providerName])
@@ -191,23 +172,25 @@ function attachCoreRuleIdentity(providerName, compiledRule, section, activationS
     return compiledRule;
 }
 
-// Disabled ids saved under a rule's old name (one of its "aliases"), keyed
-// by that old id, with the id they now belong to. Filled while providers are
-// built and written back by migrateCoreRuleAliasActivationIds().
+// Disabled ids saved under a rule's old name (one of its "aliases" or
+// legacy ids), keyed by that old id, with the ids they now belong to. One old
+// generated id can belong to several rules. Filled while providers are built
+// and written back by migrateCoreRuleAliasActivationIds().
 let pendingCoreRuleAliasMigrations = new Map();
 
 // True when `activationId` ("<scope>::<ruleId>") is disabled, either as is
-// or under one of the rule's aliases ("<scope>::<alias>").
-function isCoreActivationIdDisabled(activationId, aliases, disabledRuleIds) {
+// or under one of the rule's previous ids ("<scope>::<previousId>").
+function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds) {
     if (disabledRuleIds.has(activationId)) return true;
-    if (!Array.isArray(aliases) || aliases.length === 0) return false;
+    if (!Array.isArray(previousIds) || previousIds.length === 0) return false;
     const sep = activationId.lastIndexOf("::");
     if (sep === -1) return false;
     const scope = activationId.slice(0, sep);
-    for (const alias of aliases) {
-        const aliasId = `${scope}::${alias}`;
-        if (disabledRuleIds.has(aliasId)) {
-            pendingCoreRuleAliasMigrations.set(aliasId, activationId);
+    for (const previousId of previousIds) {
+        const oldActivationId = `${scope}::${previousId}`;
+        if (disabledRuleIds.has(oldActivationId)) {
+            if (!pendingCoreRuleAliasMigrations.has(oldActivationId)) pendingCoreRuleAliasMigrations.set(oldActivationId, new Set());
+            pendingCoreRuleAliasMigrations.get(oldActivationId).add(activationId);
             return true;
         }
     }
@@ -216,9 +199,10 @@ function isCoreActivationIdDisabled(activationId, aliases, disabledRuleIds) {
 
 function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
+    const previousIds = (compiledRule.aliases || []).concat(compiledRule.legacyIds || []);
     // A rule is switched off either for its whole provider ("provider::ruleId")
     // or for one of its match patterns ("domainPattern:<pattern>::ruleId").
-    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, compiledRule.aliases, disabledRuleIds)) {
+    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, previousIds, disabledRuleIds)) {
         compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
         compiledRule.activationIds = [];
         return true;
@@ -226,7 +210,7 @@ function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
     const active = [], disabled = [];
-    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, compiledRule.aliases, disabledRuleIds) ? disabled : active).push(aId));
+    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, previousIds, disabledRuleIds) ? disabled : active).push(aId));
     compiledRule.disabledActivationIds = disabled;
     compiledRule.activationIds = active;
     return active.length === 0;
@@ -255,12 +239,12 @@ function coreRuleHasActivePatternForUrl(compiledRule, url) {
     });
 }
 
-// Moves disabled ids saved under a rule alias to the rule's current id, so
+// Moves disabled ids saved under a rule's previous id to its current id, so
 // the rule on/off controls (which only know current ids) can switch it back on.
 function migrateCoreRuleAliasActivationIds() {
     if (pendingCoreRuleAliasMigrations.size === 0) return false;
     const current = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
-    const migrated = [...new Set(current.map(id => pendingCoreRuleAliasMigrations.get(id) || id))];
+    const migrated = [...new Set(current.flatMap(id => pendingCoreRuleAliasMigrations.has(id) ? [...pendingCoreRuleAliasMigrations.get(id)] : [id]))];
     pendingCoreRuleAliasMigrations = new Map();
     if (migrated.length === current.length && migrated.every((id, i) => id === current[i])) return false;
     storage.clearurls_disabled_rule_ids = migrated;
@@ -915,7 +899,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     if (!modifiersPart) return null;
     const modifiers = splitLinkumoriModifiers(modifiersPart);
     let removeParamToken = null, domainToken = null, targetToken = null,
-        denyallowToken = null, methodToken = null, historyBypassProtectionToken = null, unsupportedModifier = null;
+        methodToken = null, historyBypassProtectionToken = null, unsupportedModifier = null;
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
@@ -928,7 +912,6 @@ function parseLinkumoriRemoveParamRule(ruleText) {
             domainToken = token.slice(token.indexOf('=') + 1); continue;
         }
         if (normalized.startsWith('to=')) { targetToken = token.slice(token.indexOf('=') + 1); continue; }
-        if (normalized.startsWith('denyallow=')) { denyallowToken = token.slice(token.indexOf('=') + 1); continue; }
         if (normalized.startsWith('method=')) { methodToken = token.slice(token.indexOf('=') + 1); continue; }
         if (normalized.startsWith('history-bypass-protection=')) {
             historyBypassProtectionToken = token.slice(token.indexOf('=') + 1); continue;
@@ -956,7 +939,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         removeAll: false, negate: false, literalParam: null, regexParam: null,
         includeDomains: [], excludeDomains: [], includeDomainRegexes: [], excludeDomainRegexes: [],
         includeTargetDomains: [], excludeTargetDomains: [], includeTargetDomainRegexes: [], excludeTargetDomainRegexes: [],
-        denyallowDomains: [], denyallowDomainRegexes: [], includeMethods: [], excludeMethods: [],
+        includeMethods: [], excludeMethods: [],
         firstPartyOnly: false, thirdPartyOnly: false, strictFirstPartyOnly: false, strictThirdPartyOnly: false,
         matchCase: modifiers.some(t => String(t || '').toLowerCase() === 'match-case'),
         historyBypassProtection,
@@ -991,14 +974,6 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         if (splitLinkumoriDelimitedValues(targetToken).length === 0) return null;
         addLinkumoriHostnameValues(targetToken, parsed.includeTargetDomains, parsed.excludeTargetDomains,
             parsed.includeTargetDomainRegexes, parsed.excludeTargetDomainRegexes);
-    }
-    if (denyallowToken) {
-        const dp = splitLinkumoriDelimitedValues(denyallowToken);
-        if (dp.length === 0 || dp.some(v => {
-            const t = String(v || '').trim();
-            return t.startsWith('~') || t.endsWith('.*') || parseLinkumoriRegexLiteral(t) !== null;
-        })) return null;
-        addLinkumoriHostnameValues(denyallowToken, parsed.denyallowDomains, [], parsed.denyallowDomainRegexes, []);
     }
     if (methodToken) {
         const mt = splitLinkumoriDelimitedValues(methodToken);
@@ -1107,9 +1082,6 @@ function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     if (Array.isArray(linkumoriRule.excludeTargetDomains) &&
         linkumoriRule.excludeTargetDomains.some(p => matchWhitelistHostnamePattern(targetHost, p))) return false;
     if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.excludeTargetDomainRegexes)) return false;
-    if (Array.isArray(linkumoriRule.denyallowDomains) &&
-        linkumoriRule.denyallowDomains.some(p => matchWhitelistHostnamePattern(targetHost, p))) return false;
-    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.denyallowDomainRegexes)) return false;
     return true;
 }
 
@@ -1230,10 +1202,10 @@ function normalizeCoreRuleAliases(value) {
     return [...new Set(value.filter(alias => typeof alias === "string" && /^[a-z0-9][a-z0-9_-]*$/.test(alias)))];
 }
 
-// Behavior tags live in a `flags` *array* ("referralMarketing"). A `flags`
-// *string* is something else: the rule's regex flags.
-function ruleHasBehaviorFlag(rule, flag) {
-    return !!rule && typeof rule === "object" && Array.isArray(rule.flags) && rule.flags.includes(flag);
+// `"referralMarketing": true` on a rule in `rules` makes it a
+// referral-marketing rule without moving it to that list.
+function isReferralMarketingRule(rule) {
+    return !!rule && typeof rule === "object" && rule.referralMarketing === true;
 }
 
 function normalizeCoreRuleOrder(value) {
@@ -1270,7 +1242,8 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         replacePattern, requestTypes, raw: resolvedRule,
         historyBypassProtection: resolveLinkumoriHistoryBypassProtection(resolvedRule, defaults),
-        _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
+        _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds),
+        _linkumoriLegacyRuleIds: normalizeCoreRuleAliases(resolvedRule._linkumoriLegacyRuleIds)
     };
 }
 
@@ -1739,6 +1712,7 @@ function start() {
                 providerData.getOrDefault('completeProvider', false),
                 providerData.getOrDefault('forceRedirection', false),
                 getClearURLsDisabledRuleIdSet());
+            provider.setRuleIdLookup(LinkumoriRuleIds.createRuleIdLookup(providerData));
             providers.push(provider);
 
             const urlPattern = providerData.getOrDefault('urlPattern', '');
@@ -1899,6 +1873,8 @@ function start() {
         // Position of each rule in the provider, used to keep list order when
         // rules are sorted by `order` (see getOrderedCleaningSteps).
         let nextRuleSequence = 0;
+        // Generated ids of this provider's rules (see setRuleIdLookup).
+        let lookupRuleId = null;
 
         if (_completeProvider) fieldRuleMap[".*"] = true;
 
@@ -1913,7 +1889,7 @@ function start() {
             if (!compiled) return null;
             compiled.section = section;
             compiled.sequence = nextRuleSequence++;
-            attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds());
+            attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds(), lookupRuleId);
             if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
                 registerDisabledCoreRuleInSnapshot(compiled); return null;
             }
@@ -1921,6 +1897,8 @@ function start() {
             return compiled;
         }
 
+        // Set before rules are added: ids depend on all of the provider's rules.
+        this.setRuleIdLookup = function (lookup) { lookupRuleId = typeof lookup === 'function' ? lookup : null; };
         this.shouldForceRedirect = function () { return _forceRedirection; };
         this.getName = function () { return name; };
         this.getSnapshotMetadata = function () {
@@ -2064,10 +2042,10 @@ function start() {
         }
 
         this.addRule = function (rule, isActive = true, defaults = null) {
-            // `flags: ["referralMarketing"]` treats the rule as a referral-marketing
+            // `"referralMarketing": true` treats the rule as a referral-marketing
             // rule while it stays in `rules`; its id is still generated as a
-            // `rules` entry so switching the flag on keeps its on/off setting.
-            const isReferral = ruleHasBehaviorFlag(rule, 'referralMarketing');
+            // `rules` entry so setting the key keeps its on/off setting.
+            const isReferral = isReferralMarketingRule(rule);
             if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'rules',
                 isReferral ? referralMarketingRemoveParamRules : linkumoriRemoveParamRules,
                 isReferral ? referralMarketingRemoveParamExceptions : linkumoriRemoveParamExceptions)) return;

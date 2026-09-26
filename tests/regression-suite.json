@@ -1164,6 +1164,52 @@
       }
     },
     {
+      "id": "provider generated ids stay unique when rules share a readable id",
+      "dialect": "provider",
+      "input": "https://example.com/generated-id-collision/?rdr=1&_rdr=2&keep=1",
+      "expectedOutput": "https://example.com/generated-id-collision/?_rdr=2&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "generated-id-collision::field-removeparam-rdr-1xjdxcg"
+        ]
+      },
+      "providers": {
+        "generated-id-collision": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/generated-id-collision(?:[/?#]|$)",
+          "rules": [
+            "$removeparam=rdr",
+            "$removeparam=_rdr"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider disabled id shared by several rules keeps them all off",
+      "dialect": "provider",
+      "input": "https://example.com/generated-id-collision/?rdr=1&_rdr=2&keep=1",
+      "expectedOutput": "https://example.com/generated-id-collision/?rdr=1&_rdr=2&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "generated-id-collision::field-removeparam-rdr"
+        ]
+      },
+      "providers": {
+        "generated-id-collision": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/generated-id-collision(?:[/?#]|$)",
+          "rules": [
+            "$removeparam=rdr",
+            "$removeparam=_rdr"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider activation id disabled after merge",
       "dialect": "provider",
       "input": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
@@ -1781,7 +1827,7 @@
       }
     },
     {
-      "id": "webrequest removeparam denyallow blocks denied target",
+      "id": "webrequest removeparam to= exclusion skips that target",
       "dialect": "providerWebRequest",
       "input": "https://www.google.com/search?ei=abc&keep=1",
       "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
@@ -1795,7 +1841,7 @@
           "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
           "indexPattern": "||google.com^",
           "rules": [
-            "$removeparam=ei,denyallow=google.com"
+            "$removeparam=ei,to=~google.com"
           ]
         }
       },
@@ -1942,7 +1988,7 @@
       }
     },
     {
-      "id": "webrequest removeparam invalid denyallow regex ignored",
+      "id": "webrequest removeparam denyallow is not supported",
       "dialect": "providerWebRequest",
       "input": "https://www.google.com/search?ei=abc&keep=1",
       "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
@@ -1956,7 +2002,7 @@
           "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
           "indexPattern": "||google.com^",
           "rules": [
-            "$removeparam=ei,denyallow=/google/"
+            "$removeparam=ei,denyallow=google.com"
           ]
         }
       },
@@ -2421,7 +2467,7 @@
       }
     },
     {
-      "id": "provider rule flags referralMarketing",
+      "id": "provider rule referralMarketing key",
       "dialect": "provider",
       "input": "https://example.com/rule-flag-referral/?tag=x&keep=1",
       "expectedOutput": "https://example.com/rule-flag-referral/?keep=1",
@@ -2432,9 +2478,7 @@
             {
               "id": "remove-tag",
               "matchPattern": "tag",
-              "flags": [
-                "referralMarketing"
-              ]
+              "referralMarketing": true
             }
           ]
         }

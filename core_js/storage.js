@@ -110,6 +110,9 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
+// Ids a rule had before (see attachRuleActivationIdsToArray); the engine
+// still honours settings saved under them.
+const LINKUMORI_RULE_LEGACY_IDS_KEY = '_linkumoriLegacyRuleIds';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -341,6 +344,10 @@ function getStableRuleSignature(rule) {
         replacePattern: typeof rule.replacePattern === 'string' ? rule.replacePattern : null,
         requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.map(item => String(item || '').toLowerCase()).filter(Boolean).sort() : []
     };
+    // Only when set, so the signatures of other rules stay as they were.
+    if (rule.referralMarketing === true) {
+        normalized.referralMarketing = true;
+    }
 
     if (!normalized.matchPattern) {
         return '';
@@ -349,30 +356,11 @@ function getStableRuleSignature(rule) {
     return `object:${JSON.stringify(normalized)}`;
 }
 
-function createStorageStableRuleHash(value) {
-    let hash = 2166136261;
-    const text = String(value || '');
-    for (let i = 0; i < text.length; i++) {
-        hash ^= text.charCodeAt(i);
-        hash = Math.imul(hash, 16777619);
-    }
-    return (hash >>> 0).toString(36);
-}
-
-function slugifyStorageRuleIdPart(value) {
-    return String(value || '')
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-        .replace(/-+/g, '-');
-}
-
-function createStorageGeneratedRuleId(section, matchPattern, occupiedIds = new Set()) {
-    const prefix = section === 'rawRules'
-        ? 'raw'
-        : (section === 'redirections' ? 'redirect' : (section === 'fieldRedirections' ? 'field-redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field'))));
-    const slug = slugifyStorageRuleIdPart(matchPattern).slice(0, 32) || createStorageStableRuleHash(matchPattern);
-    const candidate = `${prefix}-${slug}`;
+// How rule ids used to be generated: the readable id, with "-2", "-3", …
+// for later rules in list order that shared it. Only used to find the id a
+// disabled-rule setting may have been saved under.
+function createLegacyStorageGeneratedRuleId(section, matchPattern, occupiedIds = new Set()) {
+    const candidate = LinkumoriRuleIds.baseRuleId(section, matchPattern);
     let uniqueId = candidate;
     let counter = 2;
     while (occupiedIds.has(uniqueId)) {
@@ -459,11 +447,11 @@ function mergeRuleActivationIds(left, right) {
     return result;
 }
 
-function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occupiedIds) {
+function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occupiedIds, assignedIds = []) {
     if (!Array.isArray(rules)) {
         return [];
     }
-    return rules.map(rule => {
+    return rules.map((rule, index) => {
         if (rule && typeof rule === 'object' && !Array.isArray(rule) &&
             Array.isArray(rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY]) &&
             rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY].length > 0) {
@@ -474,7 +462,9 @@ function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occu
         const explicitId = rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.id === 'string'
             ? rule.id
             : null;
-        const ruleId = explicitId || createStorageGeneratedRuleId(section, match, occupiedIds);
+        const legacyId = explicitId ? null : createLegacyStorageGeneratedRuleId(section, match, occupiedIds);
+        const assigned = assignedIds[index];
+        const ruleId = explicitId || (assigned && assigned.id) || LinkumoriRuleIds.baseRuleId(section, match);
         if (explicitId) occupiedIds.add(explicitId);
         // A rule's old ids stay reserved so a generated id never takes one.
         if (rule && typeof rule === 'object' && Array.isArray(rule.aliases)) {
@@ -484,7 +474,11 @@ function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occu
             ? activationScopeIds
             : [''])
             .map(scopeId => buildProviderRuleActivationId(scopeId, ruleId));
-        return cloneRuleWithActivationIds(section, rule, activationIds);
+        const clone = cloneRuleWithActivationIds(section, rule, activationIds);
+        if (legacyId && legacyId !== ruleId && clone && typeof clone === 'object') {
+            clone[LINKUMORI_RULE_LEGACY_IDS_KEY] = [legacyId];
+        }
+        return clone;
     });
 }
 
@@ -494,9 +488,10 @@ function attachProviderActivationIds(providerName, providerData) {
         : {};
     const occupiedIds = new Set();
     const activationScopeIds = getProviderActivationScopeIds(providerName, data);
-    ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections', 'fieldRedirections'].forEach(section => {
+    const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(data);
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
         if (Array.isArray(data[section])) {
-            data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, occupiedIds);
+            data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, occupiedIds, assignedIds[section]);
         }
     });
     return data;
@@ -517,6 +512,10 @@ function dedupeRuleLikeArray(values) {
             const mergedActivationIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY], value && value[LINKUMORI_RULE_ACTIVATION_IDS_KEY]);
             if (mergedActivationIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
                 existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY] = mergedActivationIds;
+            }
+            const mergedLegacyIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_LEGACY_IDS_KEY], value && value[LINKUMORI_RULE_LEGACY_IDS_KEY]);
+            if (mergedLegacyIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
+                existing[LINKUMORI_RULE_LEGACY_IDS_KEY] = mergedLegacyIds;
             }
             return;
         }
