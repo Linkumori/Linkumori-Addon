@@ -74,6 +74,9 @@ function historyListenerStart() {
 * which is associated with the new history entry created by replaceState()
 */
 async function historyCleaner(details) {
+    if (typeof isCleaningStarted === 'function' && !isCleaningStarted()) {
+        return;
+    }
     if(storage.globalStatus) {
         if (typeof isTemporarilyPaused === 'function' && isTemporarilyPaused()) {
             return;

@@ -128,7 +128,7 @@ Found a site that's breaking? Got a rule to add? [Open an issue](https://github.
 
 Want to translate Linkumori? Open the [`_locales/en/messages.json`](_locales/en/messages.json) file, translate the values into your language, and submit a pull request to `_locales/{language-code}/messages.json`.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines, and [docs/runtime-architecture.md](docs/runtime-architecture.md) for how the extension works inside the browser.
 
 ---
 

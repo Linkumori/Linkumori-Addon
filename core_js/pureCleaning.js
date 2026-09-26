@@ -97,7 +97,7 @@ function buildProviderMatchDiagnostics(provider, url, testParamName = '') {
         patternType: appliedPattern?.patternType || null,
         patternValue: appliedPattern?.patternValue || null,
         testedParam: typeof testParamName === 'string' && testParamName.trim() ? testParamName.trim() : null,
-        completeProvider: typeof provider?.isCaneling === 'function' ? !!provider.isCaneling() : null
+        completeProvider: typeof provider?.isCanceling === 'function' ? !!provider.isCanceling() : null
     };
 }
 
