@@ -122,7 +122,7 @@ name unless you need something from §4.
 `referralMarketing` takes exactly the same entries, including
 `$removeparam` filters and `@@` exceptions. A rule object in `rules` can
 also count as a referral-marketing rule without moving lists, with
-`"flags": ["referralMarketing"]` (see [§9](#9-rule-objects)).
+`"referralMarketing": true` (see [§9](#referralmarketing)).
 
 `fieldRedirections` (see [§8](#8-fieldredirections)) takes the same kinds of
 entries, but redirects to the parameter's value instead of removing it.
@@ -193,7 +193,6 @@ An optional pattern in front limits the filter to matching URLs:
 |---|---|
 | `domain=a.com\|~b.com` | only on pages from these domains (`~` excludes); regexes allowed |
 | `to=a.com\|~b.com` | only for requests to these domains (`~` excludes); regexes allowed |
-| `denyallow=a.com\|b.com` | not for requests to these domains; plain domains only (no `~`, regexes or `.*`) |
 | `method=get\|~post` | only for these HTTP methods (`~` excludes): `get`, `head`, `options`, `post`, `put`, `patch`, `delete`, `connect` |
 | `first-party`, `third-party`, `strict-first-party`, `strict-third-party` | request party; contradictory pairs such as `first-party,third-party` are rejected |
 | `document`, `subdocument`, `script`, `stylesheet`, `image`, `imageset`, `media`, `font`, `object`, `xmlhttprequest`, `websocket`, `ping`, `other` (`~` excludes) | request type |
@@ -265,7 +264,6 @@ Every `$removeparam` option works, with the same meaning as in §4:
 |---|---|
 | `domain=a.com\|~b.com` | only on pages from these domains (`~` excludes); regexes allowed |
 | `to=a.com\|~b.com` | only for requests to these domains (`~` excludes); regexes allowed |
-| `denyallow=a.com\|b.com` | not for requests to these domains; plain domains only |
 | `method=get\|~post` | only for these HTTP methods (`~` excludes) |
 | `first-party`, `third-party`, `strict-first-party`, `strict-third-party` | request party; contradictory pairs are rejected |
 | `document`, `subdocument`, `script`, `xmlhttprequest`, … (`~` excludes) | request type; the same list as §4 |
@@ -433,7 +431,7 @@ Rule objects here take the usual keys (§9): `id`, `aliases`,
 `preprocessors`, `requestTypes`, `exceptions`, `historyBypassProtection`,
 `active` and `description`. `replacePattern` builds the target from the
 value, which is `§1§`, for example `"https://www.youtube.com/watch?v=§1§"`.
-`order` and tag-style `flags` have no effect here and are rejected.
+`order` and `referralMarketing` have no effect here and are rejected.
 
 ## 9. Rule objects
 
@@ -451,7 +449,7 @@ different point, or needs to rewrite instead of remove:
   "requestTypes": ["main_frame"],
   "exceptions": ["^https:\\/\\/example\\.com\\/keep"],
   "order": 5,
-  "flags": ["referralMarketing"],
+  "referralMarketing": true,
   "description": "Rewrite the token instead of removing it",
   "active": true
 }
@@ -460,14 +458,15 @@ different point, or needs to rewrite instead of remove:
 | Key | Meaning |
 |---|---|
 | `matchPattern` | the same string you would write as a plain entry |
-| `id` | stable id (`a-z`, `0-9`, `-`, `_`) used by the rule on/off controls |
+| `id` | stable id (`a-z`, `0-9`, `-`, `_`) used by the rule on/off controls. Without it, the rule gets a generated id; see [Rule ids](#rule-ids) |
 | `aliases` | the rule's previous ids. A rule switched off under an old id stays off after the rename, and the setting is moved to the new id. Ids and aliases must be unique within a provider |
 | `replacePattern` | rewrite instead of remove; `§1§`, `§2§`, … are the captured values (the parameter value for `rules` and `fieldRedirections`, capture groups for `rawRules` / `redirections`) |
 | `preprocessors` | applied to captured values first: `urlEncode`, `urlDecode`, `doubleUrlEncode`, `doubleUrlDecode`, `base64Encode`, `base64Decode`; `inputs` is `"all"` or a list like `[1, 2]` |
 | `requestTypes` | only for these request types (`"main_frame"`, `"xmlhttprequest"`, …) |
 | `exceptions` | URL regexes (case-insensitive) where this one rule does not run. `$removeparam` filters in `rules` and `referralMarketing` ignore it and use `@@` instead; in `fieldRedirections` it works for every entry |
-| `flags` | a **string** is the regex flags for the pattern (default `i`; `gi` in `rawRules`). An **array** is a list of behavior tags; see below |
+| `flags` | the regex flags for the pattern, as a string (default `i`; `gi` in `rawRules`) |
 | `order` | a number: run this rule earlier or later than its list normally runs; see below |
+| `referralMarketing` | `true` makes a rule in `rules` a referral-marketing rule; see below |
 | `historyBypassProtection` | `false` skips this rule for History API URL changes (like the provider field in §1) |
 | `active` | `false` makes the rule off by default |
 | `description` | free text |
@@ -476,6 +475,33 @@ different point, or needs to rewrite instead of remove:
 A rule object goes in the list for what it does: `rawRules` for raw rules,
 `redirections` for redirects, `fieldRedirections` for parameter-value
 redirects, and so on. Other keys are rejected.
+
+### Rule ids
+
+Every rule has an id, whether or not it is an object with an `id`. The rule
+on/off controls, `show-rule` and the custom rules editor all use it. A rule
+without an `id` gets one from its list and its text:
+
+| List | Entry | Generated id |
+|---|---|---|
+| `rules` | `"utm_source"` | `field-utm-source` |
+| `referralMarketing` | `"tag"` | `referral-tag` |
+| `rawRules` | `"\\/ref=[^/?]*"` | `raw-ref` |
+| `redirections` | a regex | `redirect-…` |
+| `fieldRedirections` | `"continue_url"` | `field-redirect-continue-url` |
+| `exceptions` | a regex | `exception-…` |
+
+The text is lowercased, every run of other characters becomes `-`, and the
+result is cut at 32 characters. When two rules of a provider with different
+text would get the same id (`"$removeparam=rdr"` and `"$removeparam=_rdr"`,
+or `"referer"` and `"Referer"`), or an `id` or alias already uses it, each of
+those rules gets a hash of its text on the end instead:
+`field-removeparam-rdr-15wzedx`. Identical entries in one list share their id.
+
+A generated id changes when the rule's text changes, and when another rule
+starts sharing it. Give a rule an `id` when something must keep pointing at
+it. When a rule that was switched off gets a hash on its id, it stays off,
+and so does every other rule that shared that id.
 
 ### order
 
@@ -505,20 +531,15 @@ would run first and find nothing.
 - on `$removeparam` filters, which always run last, together with their
   `@@` exceptions.
 
-### flags (behavior tags)
+### referralMarketing
 
-When `flags` is an array, it lists behavior tags. There is one:
+`"referralMarketing": true` on a rule in `rules` makes it count as a
+referral-marketing rule: it is skipped while *Allow referral marketing* is
+on, as if it were in the `referralMarketing` list. In `referralMarketing` it
+changes nothing; in the other lists it is rejected.
 
-| Tag | Effect | Allowed in |
-|---|---|---|
-| `referralMarketing` | The rule counts as a referral-marketing rule: it is skipped while *Allow referral marketing* is on, as if it were in the `referralMarketing` list. | `rules` (and `referralMarketing`, where it changes nothing) |
-
-A rule has one `flags` key, so it cannot have regex flags and tags at the
-same time. Unknown tags, and tags in a list where they have no effect, are
-rejected.
-
-Adding `"flags": ["referralMarketing"]` to a rule without an `id` keeps its
-generated id, so a rule you switched off stays off.
+The rule keeps the id it has in `rules`, so adding the key to a rule without
+an `id` keeps its generated id, and a rule you switched off stays off.
 
 ## 10. Checking rules
 
@@ -541,7 +562,7 @@ rules that are valid JSON but would silently do the wrong thing:
 | a regex redirect with no capture group, or more than one | none never redirects; with several, the destination is ambiguous |
 | `urlPattern` without `indexPattern` (warning only, in `lint-rules`) | the provider is checked against every URL |
 | a `fieldRedirections` entry starting with `@@` | `@@` only works for `$removeparam` filters in `rules` and `referralMarketing`; use a rule object's `exceptions` |
-| an unknown tag in a rule's `flags` array, or a tag in a list where it does nothing | only `referralMarketing` exists, and only in `rules` / `referralMarketing` |
+| `referralMarketing` on a rule outside `rules` and `referralMarketing`, or `flags` that is not a string | the key would do nothing there; `flags` only holds regex flags |
 | `order` in `exceptions`, `redirections` or `fieldRedirections`, or on a `$removeparam` filter | those always run at a fixed step, so `order` would do nothing |
 | `replacePattern`, `preprocessors`, `order` or `flags` on a `rawRules` entry `@@…$rawrule=…` | an `@@` entry only stops other raw rules, so those keys would do nothing |
 | an `@@…$rawrule=regex` entry whose regex no raw rule in the provider uses | the exception would never stop anything; point at the rule with `targetId` |
@@ -549,7 +570,8 @@ rules that are valid JSON but would silently do the wrong thing:
 | `targetId` without `@@`, together with a regex after `rawrule=`, or outside `rawRules` | only an `@@` entry in `rawRules` stops rules, and it names them one way |
 | a `rawRules` entry with nothing after `rawrule=` | there is no regex to delete |
 | an unknown option before `rawrule=`, or `removeparam` / `rawrule` among the options | only the `$removeparam` options from §4 apply, and `rawrule=` goes last |
-| an option value the engine would ignore: empty `domain=` / `to=` / `denyallow=` / `method=`, an unknown method, `~`, a regex or `.*` in `denyallow=`, `history-bypass-protection=` other than true/false, or contradictory party options | the rule would not do what it says |
+| an option value the engine would ignore: empty `domain=` / `to=` / `method=`, an unknown method, `history-bypass-protection=` other than true/false, or contradictory party options | the rule would not do what it says |
+| the same entry twice in one list (warning only, in `lint-rules`) | the copy does nothing, and both share one id |
 
 ### Copying a single rule
 
@@ -566,8 +588,10 @@ The list is never stored on the rule, so it cannot go stale if you move the
 rule later.
 
 - `show-rule <id> [file]` (also `lint-rules --show-rule <id> [file]`) finds
-  the rule by `id` or alias in `data/linkumori-clearurls.json` or the given
-  file. If more than one provider has that id, it lists them; ask again
-  with `<provider>::<id>`.
+  the rule by `id`, alias or generated id ([Rule ids](#rule-ids)) in
+  `data/linkumori-clearurls.json` or the given file. If more than one
+  provider has that id, it lists them; ask again with `<provider>::<id>`.
+  If rules share the readable id you ask for, it lists their ids with the
+  hash on the end.
 - In the custom rules editor, *Copy rule* is next to each rule in the rule
-  id list, which shows rules that have an `id`.
+  id list, which shows every rule of the provider with its id.
