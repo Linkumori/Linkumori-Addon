@@ -65,8 +65,9 @@ import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
 import './core_js/linkumori_rule_ids.js';
+import './core_js/linkumori_rule_pins.js';
 
-const { LinkumoriRuleIds } = globalThis;
+const { LinkumoriRuleIds, LinkumoriRulePins } = globalThis;
 
 // Rule ids and aliases (see docs/filter-syntax.md §9).
 const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
@@ -1804,6 +1805,18 @@ ${commit.message}
     };
   }
 
+  // Splits "--pins <file>" off show-rule's arguments.
+  takePinsOption(args) {
+    const rest = [];
+    let pinsFile = null;
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] === '--pins') pinsFile = args[++i] || null;
+      else if (typeof args[i] === 'string' && args[i].startsWith('--pins=')) pinsFile = args[i].slice(7) || null;
+      else rest.push(args[i]);
+    }
+    return { rest, pinsFile };
+  }
+
   // Reads a Linkumori rules JSON file (plain or .lz4).
   readRulesJson(filePath) {
     return JSON.parse(this.readMaybeLZ4Text(filePath).replace(/^\uFEFF/, ''));
@@ -1813,7 +1826,9 @@ ${commit.message}
   // a rule without one) wrapped in the list it is in: { "rawRules": [ { … } ] }.
   // A rule does not record its list, so the wrapper is worked out here from
   // where the rule actually is.
-  showRule(ruleRef, rulesFile = null) {
+  // `pinsFile` is a custom rules export (or a JSON array of pins) whose
+  // "rulePins" give some rules a pinned id (see core_js/linkumori_rule_pins.js).
+  showRule(ruleRef, rulesFile = null, pinsFile = null) {
     if (!ruleRef) {
       this.error('Missing rule id. Example: node linkumori-cli-tool.js show-rule ref-strip');
       return false;
@@ -1830,6 +1845,16 @@ ${commit.message}
       this.error(`❌ ${err.message}`);
       return false;
     }
+    let pins = [];
+    if (pinsFile) {
+      try {
+        const pinData = JSON.parse(fs.readFileSync(pinsFile, 'utf8').replace(/^\uFEFF/, ''));
+        pins = LinkumoriRulePins.normalizePins(Array.isArray(pinData) ? pinData : pinData && pinData.rulePins);
+      } catch (err) {
+        this.error(`❌ Could not read pins from ${pinsFile}: ${err.message}`);
+        return false;
+      }
+    }
     const separator = ruleRef.lastIndexOf('::');
     const providerFilter = separator === -1 ? null : ruleRef.slice(0, separator);
     const ruleId = separator === -1 ? ruleRef : ruleRef.slice(separator + 2);
@@ -1840,9 +1865,15 @@ ${commit.message}
     for (const [providerName, provider] of Object.entries(data.providers || {})) {
       if (providerFilter !== null && providerName !== providerFilter) continue;
       const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(provider);
+      // Pinned ids first; fresh generated ids only for rules without a pin.
+      const pinnedIds = LinkumoriRulePins.resolveProviderPins(provider, pins.filter(pin => pin.provider === providerName)).overrides;
       for (const list of LinkumoriRuleIds.RULE_ID_SECTIONS) {
         (Array.isArray(provider && provider[list]) ? provider[list] : []).forEach((entry, index) => {
-          const assigned = assignedIds[list][index];
+          const generatedAssigned = assignedIds[list][index];
+          const pinnedId = generatedAssigned && generatedAssigned.generated
+            ? pinnedIds.get(`${list}\u0000${LinkumoriRuleIds.getRuleText(entry)}`)
+            : null;
+          const assigned = pinnedId ? { id: pinnedId, generated: true, pinned: true } : generatedAssigned;
           const aliases = entry && typeof entry === 'object' && Array.isArray(entry.aliases) ? entry.aliases : [];
           if (assigned && assigned.generated && assigned.id !== ruleId && LinkumoriRuleIds.baseRuleId(list, LinkumoriRuleIds.getRuleText(entry)) === ruleId) {
             sharedBaseIds.push(`${providerName}::${assigned.id}`);
@@ -1850,7 +1881,7 @@ ${commit.message}
           if ((assigned && assigned.id === ruleId) || aliases.includes(ruleId)) {
             // Identical entries share their id; show the rule once.
             if (!matches.some(m => m.providerName === providerName && m.list === list && JSON.stringify(m.entry) === JSON.stringify(entry))) {
-              matches.push({ providerName, list, entry, id: assigned ? assigned.id : ruleId, generated: !!(assigned && assigned.generated) });
+              matches.push({ providerName, list, entry, id: assigned ? assigned.id : ruleId, generated: !!(assigned && assigned.generated), pinned: !!(assigned && assigned.pinned) });
             }
           }
         });
@@ -1869,13 +1900,13 @@ ${commit.message}
       for (const match of matches) this.log(`  ${match.providerName}::${ruleId}   (${match.list})`, 'white');
       return false;
     }
-    const { providerName, list, entry, id, generated } = matches[0];
+    const { providerName, list, entry, id, generated, pinned } = matches[0];
     const clean = entry && typeof entry === 'object' ? { ...entry } : entry;
     if (clean && typeof clean === 'object') {
       delete clean._linkumoriActivationIds;
       delete clean._linkumoriLegacyRuleIds;
     }
-    this.info(`📌 ${providerName} → ${list} (${generated ? 'generated id' : 'id'}: ${id})`);
+    this.info(`📌 ${providerName} → ${list} (${pinned ? 'pinned id' : (generated ? 'generated id' : 'id')}: ${id})`);
     console.log(JSON.stringify({ [list]: [clean] }, null, 2));
     return true;
   }
@@ -4097,15 +4128,18 @@ coverage/**
         case 'lint-rules':
         case 'lint-clearurls':
           if (args[1] === '--show-rule') {
-            if (!this.showRule(args[2], args[3] || null)) process.exit(1);
+            const { rest, pinsFile } = this.takePinsOption(args.slice(2));
+            if (!this.showRule(rest[0], rest[1] || null, pinsFile)) process.exit(1);
             break;
           }
           // pass explicit path if given; null triggers the interactive prompt
           await this.lintClearURLsRules(args[1] || null);
           break;
-        case 'show-rule':
-          if (!this.showRule(args[1], args[2] || null)) process.exit(1);
+        case 'show-rule': {
+          const { rest, pinsFile } = this.takePinsOption(args.slice(1));
+          if (!this.showRule(rest[0], rest[1] || null, pinsFile)) process.exit(1);
           break;
+        }
         case 'compress-lz4':
           if (!args[1]) {
             this.error('Missing input file. Example: node linkumori-cli-tool.js compress-lz4 data/linkumori-clearurls.json');
@@ -4340,6 +4374,7 @@ coverage/**
     this.log('  Prints one rule, wrapped in the list it is in, e.g. { "rawRules": [ { … } ] }', 'white');
     this.log('  Finds the rule by id, alias or generated id (e.g. field-utm-source for "utm_source");', 'white');
     this.log('  use <provider>::<id> when several providers have it', 'white');
+    this.log('  --pins <export.json> resolves ids pinned in a custom rules export first', 'white');
     this.log('    bun linkumori-cli-tool.js show-rule ref-strip', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');

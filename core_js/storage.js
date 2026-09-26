@@ -2328,6 +2328,8 @@ function applyRegressionRuleData(data) {
         } else {
             storage.clearurls_disabled_rule_ids = [];
         }
+        // A case's own pins, so the user's pins never rename its rules.
+        storage.clearurls_rule_id_pins = LinkumoriRulePins.normalizePins(safeData.activationState.rulePins);
     } else {
         storage.clearurls_disabled_rule_ids = [];
     }
@@ -2634,6 +2636,9 @@ function setData(key, value) {
                 storage[key] = [];
             }
             break;
+        case "clearurls_rule_id_pins":
+            storage[key] = LinkumoriRulePins.normalizePins(value);
+            break;
         case "userWhitelist":
         case "historyApiWhitelist":
             if (typeof value === 'string') {
@@ -2838,6 +2843,7 @@ function initSettings() {
     storage.historyApiWhitelist = [];
     storage.custom_rules = { providers: {} };
     storage.clearurls_disabled_rule_ids = [];
+    storage.clearurls_rule_id_pins = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage.popupConsentPOSARVersionAccepted = 0;

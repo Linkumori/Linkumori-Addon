@@ -503,6 +503,24 @@ starts sharing it. Give a rule an `id` when something must keep pointing at
 it. When a rule that was switched off gets a hash on its id, it stays off,
 and so does every other rule that shared that id.
 
+The first time you switch off a rule without an `id`, its id is fixed:
+
+- In your custom rules, the id is written onto the rule itself (a plain
+  entry becomes `{ "id": …, "matchPattern": … }`), together with the ids of
+  rules that share its readable id, so theirs do not change either.
+- In a built-in or remote list, which you cannot edit, the id is pinned in
+  the extension's local storage with the provider, the list and the rule's
+  text at that moment. On every load the pin is matched to the provider's
+  current rules: the same text, the same generated id, or a text at least
+  80% alike. The matched rule keeps the pinned id, so it stays off when a
+  list update edits its text. A pin that matches no rule is listed under
+  *Orphaned toggles* in Disabled Rules, with a *Remove* button, instead of
+  quietly doing nothing.
+
+Rules you never switched off keep their generated ids, with nothing stored.
+*Export custom rules to file* includes the pins (`"rulePins"`) of rules you
+switched off, and importing the file switches the same rules off.
+
 ### order
 
 Without `order`, `rawRules` run first, then `rules` and `referralMarketing`
