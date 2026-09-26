@@ -5316,17 +5316,13 @@ async function exportCustomRules() {
     }
 }
 
-// Accepts this editor's export ({ clearurlsCustomRules: { providers } }), a
-// plain rules file ({ providers }) and ClearURLs new-format (version: 2) or
-// compiled lists, in JSON or YAML.
+// Accepts this editor's export ({ clearurlsCustomRules: { providers } }) and a
+// plain Linkumori rules file ({ providers }), both JSON.
 function getProvidersFromImportedCustomRules(imported) {
     if (!isPlainObject(imported)) {
         return null;
     }
     const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
-    if (typeof LinkumoriRuleFormats !== 'undefined' && LinkumoriRuleFormats.detectRuleFormat(container) !== 'linkumori') {
-        return LinkumoriRuleFormats.normalizeRuleDocument(container).data.providers;
-    }
     return isPlainObject(container.providers) ? container.providers : null;
 }
 
@@ -5399,7 +5395,7 @@ async function handleFileImport(e) {
     const reader = new FileReader();
     reader.onload = async function(event) {
         try {
-            const imported = LinkumoriRuleFormats.parseRuleText(event.target.result);
+            const imported = JSON.parse(String(event.target.result || '').replace(/^\uFEFF/, ''));
 
             if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
