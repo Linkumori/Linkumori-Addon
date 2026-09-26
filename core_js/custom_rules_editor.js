@@ -387,7 +387,7 @@ const PROVIDER_FIELDS = Object.freeze([
 ]);
 const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
 const REMOVEPARAM_FLAG_OPTIONS = new Set([
-    'first-party', 'third-party', 'strict-first-party', 'strict-third-party', 'match-case', 'badfilter',
+    'first-party', 'third-party', 'strict-first-party', 'strict-third-party', 'match-case',
     'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
     'other', 'ping', 'websocket', 'xmlhttprequest', 'font'
 ]);
@@ -602,7 +602,7 @@ function assertNoSilentMistakes(provider, providerName = '') {
     (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry) => {
         const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? String(entry.matchPattern || '') : '');
         const scoped = splitScopedRawRule(text);
-        if (scoped && (scoped.pattern.startsWith('@@') || scoped.options.some(o => /^badfilter$/i.test(o)))) return;
+        if (scoped && scoped.pattern.startsWith('@@')) return;
         rawRuleRegexes.add(scoped ? scoped.regex : text);
         if (!isPlainObject(entry)) return;
         if (typeof entry.id === 'string') rawRuleIds.add(entry.id);
@@ -620,11 +620,10 @@ function assertNoSilentMistakes(provider, providerName = '') {
         const isException = scoped.pattern.startsWith('@@');
         const optionProblem = rawRuleOptionProblem(scoped.options, isException);
         if (optionProblem) throw new Error(`${where} ${optionProblem}`);
-        const isBadfilter = scoped.options.some(o => /^badfilter$/i.test(o));
         if (isException && typeof targetId === 'string') {
             if (scoped.regex) throw new Error(`${where} has both "targetId" and a regex after "rawrule="; use one of them`);
             if (!rawRuleIds.has(targetId)) throw new Error(`${where} has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
-        } else if (isException && !isBadfilter && scoped.regex && !rawRuleRegexes.has(scoped.regex)) {
+        } else if (isException && scoped.regex && !rawRuleRegexes.has(scoped.regex)) {
             throw new Error(`${where} is an "@@" exception for "${scoped.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
         }
         if (isException && isPlainObject(entry)) {

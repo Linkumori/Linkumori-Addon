@@ -327,8 +327,7 @@ The pattern decides whether the rule runs; the regex after `rawrule=` is what ge
 
 ```json
 "rawRules": [
-  "||amazon.*^$third-party,method=get,~xmlhttprequest,rawrule=\\/ref=[^/?]*",
-  "$badfilter,rawrule=\\/sid=[^/?]*"
+  "||amazon.*^$third-party,method=get,~xmlhttprequest,rawrule=\\/ref=[^/?]*"
 ]
 ```
 

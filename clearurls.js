@@ -869,43 +869,6 @@ function parseLinkumoriRegexLiteral(value, defaultFlags = '') {
     try { return new RegExp(match[1], flags.includes('i') ? 'i' : ''); } catch (e) { return null; }
 }
 
-function getLinkumoriNormalizedRegexSource(regex) {
-    if (!regex) return '';
-    return '/' + regex.source + '/' + (regex.ignoreCase ? 'i' : '');
-}
-
-function getLinkumoriSortedCopy(values) {
-    return (Array.isArray(values) ? values : []).slice().sort();
-}
-
-function getLinkumoriSortedRegexSources(regexes) {
-    return (Array.isArray(regexes) ? regexes : []).map(getLinkumoriNormalizedRegexSource).sort();
-}
-
-function canonicalizeLinkumoriRemoveParamRule(rule) {
-    const modifiers = [];
-    let removeValue = '';
-    if (rule.removeAll) removeValue = '';
-    else if (rule.regexParam) removeValue = (rule.negate ? '~' : '') + getLinkumoriNormalizedRegexSource(rule.regexParam);
-    else if (rule.literalParam !== null) removeValue = (rule.negate ? '~' : '') + String(rule.literalParam);
-    modifiers.push(removeValue ? 'removeparam=' + removeValue : 'removeparam');
-    [
-        ['domain', getLinkumoriSortedCopy(rule.includeDomains).concat(getLinkumoriSortedCopy(rule.excludeDomains).map(v => '~' + v)).concat(getLinkumoriSortedRegexSources(rule.includeDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeDomainRegexes).map(v => '~' + v))],
-        ['to', getLinkumoriSortedCopy(rule.includeTargetDomains).concat(getLinkumoriSortedCopy(rule.excludeTargetDomains).map(v => '~' + v)).concat(getLinkumoriSortedRegexSources(rule.includeTargetDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeTargetDomainRegexes).map(v => '~' + v))],
-        ['denyallow', getLinkumoriSortedCopy(rule.denyallowDomains).concat(getLinkumoriSortedRegexSources(rule.denyallowDomainRegexes))],
-        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(v => '~' + v))]
-    ].forEach(([name, values]) => { if (values.length > 0) modifiers.push(name + '=' + values.join('|')); });
-    getLinkumoriSortedCopy(rule.requestTypes).forEach(v => modifiers.push(v));
-    getLinkumoriSortedCopy(rule.excludeRequestTypes).forEach(v => modifiers.push('~' + v));
-    if (rule.firstPartyOnly) modifiers.push('first-party');
-    if (rule.thirdPartyOnly) modifiers.push('third-party');
-    if (rule.strictFirstPartyOnly) modifiers.push('strict-first-party');
-    if (rule.strictThirdPartyOnly) modifiers.push('strict-third-party');
-    if (rule.matchCase) modifiers.push('match-case');
-    if (rule.historyBypassProtection === false) modifiers.push('history-bypass-protection=false');
-    return (rule.isException ? '@@' : '') + (rule.urlPattern || '*') + '$' + modifiers.sort().join(',');
-}
-
 const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
     document: ["main_frame"], subdocument: ["sub_frame"], script: ["script"],
     stylesheet: ["stylesheet"], image: ["image"], imageset: ["imageset"],
@@ -937,15 +900,9 @@ function addLinkumoriHostnameValues(rawValue, includes, excludes, includeRegexes
     });
 }
 
-function withoutLinkumoriBadfilterModifier(rawRule) {
-    const parsed = parseLinkumoriRemoveParamRule(rawRule, { ignoreBadfilter: true });
-    if (parsed && parsed.canonical) return parsed.canonical;
-    return String(rawRule || '').trim();
-}
-
 const LINKUMORI_SUPPORTED_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE', 'CONNECT']);
 
-function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
+function parseLinkumoriRemoveParamRule(ruleText) {
     const rawRule = String(ruleText || '').trim();
     if (!rawRule) return null;
     if (rawRule.startsWith('!') || rawRule.startsWith('[')) return null;
@@ -965,8 +922,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
             removeParamToken = token; continue;
         }
-        // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
-        if (normalized === 'badfilter') continue;
         if (normalized === 'match-case') continue;
         if (['first-party', 'third-party', 'strict-first-party', 'strict-third-party'].includes(normalized)) continue;
         if (normalized.startsWith('domain=')) {
@@ -1005,11 +960,9 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         firstPartyOnly: false, thirdPartyOnly: false, strictFirstPartyOnly: false, strictThirdPartyOnly: false,
         matchCase: modifiers.some(t => String(t || '').toLowerCase() === 'match-case'),
         historyBypassProtection,
-        isBadfilter: !options.ignoreBadfilter && modifiers.some(t => String(t || '').toLowerCase() === 'badfilter'),
-        badfilterTarget: null, id: null, activationIds: [],
-        requestTypes: [], excludeRequestTypes: [], replacePattern: null, preprocessors: [], canonical: null
+        id: null, activationIds: [],
+        requestTypes: [], excludeRequestTypes: [], replacePattern: null, preprocessors: []
     };
-    parsed.badfilterTarget = parsed.isBadfilter ? withoutLinkumoriBadfilterModifier(rawRule) : null;
     for (const token of modifiers) addLinkumoriRemoveParamRequestTypes(token, parsed);
 
     const removeValue = removeParamToken.indexOf('=') === -1
@@ -1068,7 +1021,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
         (parsed.strictFirstPartyOnly && parsed.thirdPartyOnly) ||
         (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)) return null;
-    parsed.canonical = canonicalizeLinkumoriRemoveParamRule(parsed);
     return parsed;
 }
 
@@ -1360,9 +1312,7 @@ function parseLinkumoriRawRuleText(text) {
     const optionTokens = splitLinkumoriModifiers(options);
     const filter = optionTokens.some(t => /^(?:removeparam|rawrule)(?:=|$)/i.test(t)) ? null
         : parseLinkumoriRemoveParamRule((isException ? '@@' : '') + pattern + '$' + (options ? options + ',' : '') + 'removeparam');
-    // Identifies the rule for "badfilter": its canonical pattern and options plus the regex.
-    const key = filter ? filter.canonical + ' rawrule=' + regex : null;
-    return { isException, pattern, options, regex, filter, key };
+    return { isException, pattern, options, regex, filter };
 }
 
 function compileRawRuleDefinition(rule, defaults = null) {
@@ -1372,13 +1322,10 @@ function compileRawRuleDefinition(rule, defaults = null) {
     if (!parsed) {
         const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
         if (!compiled) return null;
-        const plain = parseLinkumoriRawRuleText('$rawrule=' + normalized.matchPattern);
-        return { ...compiled, rawRegexSource: normalized.matchPattern, badfilterKey: plain && plain.key };
+        return { ...compiled, rawRegexSource: normalized.matchPattern };
     }
     const filter = parsed.filter;
     if (!filter) return null;
-    // The canonical form leaves "badfilter" out, so the key is the cancelled rule's.
-    if (filter.isBadfilter) return { ...normalized, isBadfilter: true, badfilterKey: parsed.key };
     const historyBypassProtection = filter.historyBypassProtection === false ? false : normalized.historyBypassProtection;
     if (parsed.isException) {
         // Nothing is matched against the URL text; the regex only names the
@@ -1386,7 +1333,7 @@ function compileRawRuleDefinition(rule, defaults = null) {
         const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
         const targetId = rule && typeof rule === "object" && typeof rule.targetId === "string" && rule.targetId ? rule.targetId : null;
         return { ...normalized, historyBypassProtection, exceptionRegexes, regex: null, isException: true,
-            rawRegexSource: parsed.regex, targetId, rawFilter: filter, badfilterKey: parsed.key };
+            rawRegexSource: parsed.regex, targetId, rawFilter: filter };
     }
     if (!parsed.regex) return null;
     // match-case drops the default "i"; a rule object's own flags string wins.
@@ -1397,7 +1344,7 @@ function compileRawRuleDefinition(rule, defaults = null) {
     if (!compiled) return null;
     // Keep the full entry as matchPattern so generated ids stay tied to it.
     return { ...compiled, matchPattern: normalized.matchPattern, raw: normalized.raw, historyBypassProtection,
-        rawRegexSource: parsed.regex, rawFilter: filter, badfilterKey: parsed.key };
+        rawRegexSource: parsed.regex, rawFilter: filter };
 }
 
 function getCoreRuleTraceName(compiledRule, fallback) {
@@ -1945,8 +1892,6 @@ function start() {
         const canceling = _completeProvider;
         const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
         const rawRuleExceptions = [];
-        // "badfilter" raw rules cancel identical raw rules, whichever comes first.
-        const rawRuleBadfilterKeys = new Set();
         const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
         const referralMarketingRemoveParamRules = [], referralMarketingRemoveParamExceptions = [];
         const fieldRedirectionRules = [];
@@ -2091,19 +2036,6 @@ function start() {
         function addLinkumoriRemoveParamEntry(rule, isActive, defaults, section, targetRules, targetExceptions) {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
             if (!parsedLinkumoriRule) return false;
-            if (parsedLinkumoriRule.isBadfilter) {
-                // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
-                // An inactive badfilter rule must not cancel live rules.
-                const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
-                if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return true;
-                const target = parsedLinkumoriRule.badfilterTarget;
-                [linkumoriRemoveParamRules, linkumoriRemoveParamExceptions,
-                    referralMarketingRemoveParamRules, referralMarketingRemoveParamExceptions].forEach(list => {
-                    for (let i = list.length - 1; i >= 0; i--)
-                        if (list[i].raw === target || list[i].canonical === target) list.splice(i, 1);
-                });
-                return true;
-            }
             const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
             if (!isActive || (normalizedRule && normalizedRule.active === false)) return true;
             if (normalizedRule) {
@@ -2154,14 +2086,6 @@ function start() {
         this.addRawRule = function (rule, isActive = true, defaults = null) {
             const compiled = compileRawRuleDefinition(rule, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            if (compiled.isBadfilter) {
-                rawRuleBadfilterKeys.add(compiled.badfilterKey);
-                Object.keys(rawRuleMap).forEach(key => { if (rawRuleMap[key].badfilterKey === compiled.badfilterKey) delete rawRuleMap[key]; });
-                for (let i = rawRuleExceptions.length - 1; i >= 0; i--)
-                    if (rawRuleExceptions[i].badfilterKey === compiled.badfilterKey) rawRuleExceptions.splice(i, 1);
-                return;
-            }
-            if (compiled.badfilterKey && rawRuleBadfilterKeys.has(compiled.badfilterKey)) return;
             const activeCompiled = activateCompiledRule(compiled, 'rawRules');
             if (!activeCompiled) return;
             if (activeCompiled.isException) rawRuleExceptions.push(activeCompiled);
@@ -2239,9 +2163,9 @@ function start() {
         this.addFieldRedirection = function (rule, isActive = true, defaults = null) {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
             if (parsedLinkumoriRule) {
-                // @@ and badfilter make no sense for a redirect; lint-rules and
-                // the editor reject them, and they are ignored here.
-                if (parsedLinkumoriRule.isException || parsedLinkumoriRule.isBadfilter) return;
+                // @@ makes no sense for a redirect; lint-rules and the editor
+                // reject it, and it is ignored here.
+                if (parsedLinkumoriRule.isException) return;
                 const normalized = normalizeCoreRuleDefinition(rule, "i", defaults);
                 if (!normalized || !isActive || normalized.active === false) return;
                 const activeRule = activateCompiledRule(normalized, 'fieldRedirections');
