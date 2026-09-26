@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.57.0] - 2026-09-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.56.0...linkumori-v100.57.0))
+### Added
+- Implement fieldRedirections, rule order and flags tags (#151) (`2026-09-25`, hash: [`6d9cd0d`](https://github.com/Linkumori/Linkumori-Addon/commit/6d9cd0d)) [#151](https://github.com/Linkumori/Linkumori-Addon/issues/151)
+
+### Changed
+- Domain pattern rawrules bq2cl6 (#153) (`2026-09-26`, hash: [`13e6576`](https://github.com/Linkumori/Linkumori-Addon/commit/13e6576)) [#153](https://github.com/Linkumori/Linkumori-Addon/issues/153)
+- Generated compressed URL cleaning rules bundle (`2026-09-26`, hash: [`4d63965`](https://github.com/Linkumori/Linkumori-Addon/commit/4d63965))
+- Update rule-syntax.md (`2026-09-25`, hash: [`4667977`](https://github.com/Linkumori/Linkumori-Addon/commit/4667977))
+
 ## [v100.56.0] - 2026-09-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.55.0...linkumori-v100.56.0))
 ### Changed
 - Add faq (`2026-09-25`, hash: [`ac4b987`](https://github.com/Linkumori/Linkumori-Addon/commit/ac4b987))
