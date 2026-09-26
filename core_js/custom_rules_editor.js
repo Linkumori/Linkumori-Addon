@@ -291,7 +291,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-    'flags', 'order', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+    'flags', 'order', 'active', 'description', 'historyBypassProtection', 'targetId', '_linkumoriActivationIds'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -305,6 +305,10 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     }
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
         throw new Error(`${prefix}.replacePattern must be a string`);
+    }
+    if (rule.targetId !== undefined) {
+        if (typeof rule.targetId !== 'string' || !rule.targetId) throw new Error(`${prefix}.targetId must be a rule id`);
+        if (fieldName !== 'rawRules') throw new Error(`${prefix}.targetId only applies to "@@…$rawrule=" exceptions in rawRules`);
     }
     if (Array.isArray(rule.flags)) {
         rule.flags.forEach((flag) => {
@@ -368,6 +372,8 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     });
     if (rule.matchPattern.trim().startsWith('|') && (fieldName === 'exceptions' || fieldName === 'redirections')) {
         if (fieldName === 'redirections') assertDomainRedirectEntry(rule.matchPattern, prefix);
+    } else if (fieldName === 'rawRules' && splitScopedRawRule(rule.matchPattern)) {
+        new RegExp(splitScopedRawRule(rule.matchPattern).regex, typeof rule.flags === 'string' ? rule.flags : 'gi');
     } else {
         new RegExp(rule.matchPattern, typeof rule.flags === 'string' ? rule.flags : 'i');
     }
@@ -474,6 +480,79 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
     });
 }
 
+// A rawRules entry can carry the pattern and options of a $removeparam
+// filter, with "rawrule=" last: "||amazon.*^$third-party,rawrule=\\/ref=[^/?]*".
+// With "@@" in front it is an exception that stops raw rules. Returns the
+// pattern (with any "@@"), the option list and the regex; null for a plain regex.
+function splitScopedRawRule(matchPattern) {
+    const text = String(matchPattern || '');
+    const markerRegex = /[$,]rawrule=/ig;
+    let marker;
+    while ((marker = markerRegex.exec(text))) {
+        const start = findRuleModifierStart(text.slice(0, marker.index + 1));
+        if (start === -1) continue;
+        const optionText = marker.index > start ? text.slice(start + 1, marker.index) : '';
+        const options = optionText ? getRemoveParamOptions('$' + optionText + ',removeparam') : [];
+        return {
+            pattern: text.slice(0, start).trim(),
+            options: (options || []).filter(option => option && !/^removeparam$/i.test(option)),
+            regex: text.slice(marker.index + marker[0].length)
+        };
+    }
+    return null;
+}
+
+// Index of the "$" that starts a filter's options, skipping a leading "@@"
+// and a "/regex/" pattern that may itself contain "$"; -1 when there is none.
+function findRuleModifierStart(text) {
+    const offset = text.startsWith('@@') ? 2 : 0;
+    const body = text.slice(offset);
+    if (!body.startsWith('/')) return text.indexOf('$', offset);
+    let escaped = false, inClass = false;
+    for (let i = 1; i < body.length; i++) {
+        const ch = body.charAt(i);
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (inClass) { if (ch === ']') inClass = false; continue; }
+        if (ch === '[') { inClass = true; continue; }
+        if (ch === '/') { const at = body.indexOf('$', i + 1); return at === -1 ? -1 : at + offset; }
+    }
+    return -1;
+}
+
+// What the engine would reject in a raw rule's $removeparam-style options,
+// as an error message, or null.
+function rawRuleOptionProblem(options, isException) {
+    const lower = options.map(option => option.toLowerCase());
+    for (const option of lower) {
+        const name = option.split('=')[0];
+        if (name === 'removeparam' || name === 'rawrule') return `has "${name}" among its options; "rawrule=" goes last, once`;
+        const known = option.includes('=') ? REMOVEPARAM_VALUE_OPTIONS.has(name) && name !== 'removeparam'
+            : (REMOVEPARAM_FLAG_OPTIONS.has(option) || (option.startsWith('~') && REMOVEPARAM_NEGATABLE_OPTIONS.has(option.slice(1))));
+        if (!known) return `has unknown option "${option}"`;
+        const value = option.slice(option.indexOf('=') + 1);
+        if ((name === 'domain' || name === 'to' || name === 'denyallow' || name === 'method') && !value.replace(/\|/g, '').trim()) {
+            return `has an empty "${name}=" option`;
+        }
+        if (name === 'method' && value.split('|').some(m => !['get', 'head', 'options', 'post', 'put', 'patch', 'delete', 'connect'].includes(m.replace(/^~/, '').trim()))) {
+            return `has an unknown method in "${option}"`;
+        }
+        if (name === 'denyallow' && value.split('|').some(d => d.trim().startsWith('~') || d.trim().startsWith('/') || d.trim().endsWith('.*'))) {
+            return `"${option}" takes plain domains only (no "~", regexes or ".*")`;
+        }
+        if (name === 'history-bypass-protection' && !['true', 'false', '1', '0', 'yes', 'no'].includes(value.trim())) {
+            return `"${option}" must be true or false`;
+        }
+    }
+    const has = option => lower.includes(option);
+    if ((has('first-party') && has('third-party')) || (has('strict-first-party') && has('strict-third-party')) ||
+        (has('strict-first-party') && has('third-party')) || (has('strict-third-party') && has('first-party'))) {
+        return 'has contradictory first-party/third-party options';
+    }
+    if (isException && has('match-case')) return 'is an "@@" exception, so "match-case" would do nothing';
+    return null;
+}
+
 // A pattern with a single leading "|" only matches URLs that literally start
 // with the rest of it. Without a scheme ("|https://...") nothing can match,
 // so "|example.com^" is always a typo for "||example.com^".
@@ -516,6 +595,49 @@ function assertNoSilentMistakes(provider, providerName = '') {
             if (body.startsWith('/') || !/\$removeparam/i.test(body)) return;
             checkPattern(body.slice(0, body.indexOf('$')), `${fieldName}[${index}]`);
         });
+    });
+    // What an "@@…$rawrule=" exception can point at: the ids/aliases and the
+    // regex text of the provider's other raw rules.
+    const rawRuleIds = new Set(), rawRuleRegexes = new Set();
+    (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry) => {
+        const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? String(entry.matchPattern || '') : '');
+        const scoped = splitScopedRawRule(text);
+        if (scoped && (scoped.pattern.startsWith('@@') || scoped.options.some(o => /^badfilter$/i.test(o)))) return;
+        rawRuleRegexes.add(scoped ? scoped.regex : text);
+        if (!isPlainObject(entry)) return;
+        if (typeof entry.id === 'string') rawRuleIds.add(entry.id);
+        if (Array.isArray(entry.aliases)) entry.aliases.forEach(alias => rawRuleIds.add(alias));
+    });
+    (Array.isArray(provider.rawRules) ? provider.rawRules : []).forEach((entry, index) => {
+        const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
+        const scoped = splitScopedRawRule(text);
+        const where = `${label}: rawRules[${index}]`;
+        const targetId = isPlainObject(entry) ? entry.targetId : undefined;
+        if (targetId !== undefined && !(scoped && scoped.pattern.startsWith('@@'))) {
+            throw new Error(`${where} has "targetId", which only works on an exception; start matchPattern with "@@" (e.g. "@@||example.com^$rawrule=")`);
+        }
+        if (!scoped) return;
+        const isException = scoped.pattern.startsWith('@@');
+        const optionProblem = rawRuleOptionProblem(scoped.options, isException);
+        if (optionProblem) throw new Error(`${where} ${optionProblem}`);
+        const isBadfilter = scoped.options.some(o => /^badfilter$/i.test(o));
+        if (isException && typeof targetId === 'string') {
+            if (scoped.regex) throw new Error(`${where} has both "targetId" and a regex after "rawrule="; use one of them`);
+            if (!rawRuleIds.has(targetId)) throw new Error(`${where} has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
+        } else if (isException && !isBadfilter && scoped.regex && !rawRuleRegexes.has(scoped.regex)) {
+            throw new Error(`${where} is an "@@" exception for "${scoped.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
+        }
+        if (isException && isPlainObject(entry)) {
+            // An @@ entry only names the raw rules it stops; nothing it would rewrite or reorder.
+            ['replacePattern', 'preprocessors', 'order', 'flags'].forEach((key) => {
+                if (entry[key] !== undefined) throw new Error(`${where} is an "@@" exception, so "${key}" would do nothing`);
+            });
+        }
+        if (!isException && !scoped.regex) throw new Error(`${where} has nothing after "rawrule="; it needs the regex to delete`);
+        checkPattern(isException ? scoped.pattern.slice(2).trim() : scoped.pattern, `rawRules[${index}]`);
+        if (!scoped.regex) return;
+        try { new RegExp(scoped.regex, isPlainObject(entry) && typeof entry.flags === 'string' ? entry.flags : 'gi'); }
+        catch (error) { throw new Error(`${where} has an invalid regex after "rawrule=": ${error.message}`); }
     });
     // A regex redirect without replacePattern goes to its first capture group,
     // so it needs exactly one: none never redirects, more than one is a trap.
