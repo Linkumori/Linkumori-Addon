@@ -24,6 +24,11 @@
  * so after bundled, remote and custom rules are merged, each rule still
  * has its own file's defaults. See docs/filter-syntax.md "defaults".
  *
+ * The user can instead set their own defaults (ruleDefaultsMode):
+ * "source" uses each file's own, "final" uses the user's for built-in and
+ * remote rules while custom rules keep theirs, and "unified" uses the
+ * user's for built-in, remote and custom rules alike.
+ *
  * Loaded as a classic script (background, custom rules page) and imported
  * by linkumori-cli-tool.js; all read globalThis.LinkumoriRuleDefaults.
  * ============================================================
@@ -36,6 +41,7 @@
     // must not switch off every exception of the file.
     const RULE_DEFAULT_LISTS = Object.freeze(['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections']);
     const PREPROCESSOR_TYPES = Object.freeze(['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode']);
+    const RULE_DEFAULTS_MODES = Object.freeze(['source', 'final', 'unified']);
 
     function isPlainObject(value) {
         return !!value && typeof value === 'object' && !Array.isArray(value);
@@ -128,6 +134,28 @@
         return changed ? object : rule;
     }
 
+    // A complete provider blocks every request it matches before any rule
+    // is looked at, so the defaults that limit where rules run limit the
+    // block too: "requestTypes" become its "resourceTypes" (with its rules'
+    // own types, so no rule loses one) and "exceptions" join its own.
+    // `provider` is a copy whose rule lists already have the defaults.
+    function applyToCompleteProvider(provider, defaults) {
+        const hasResourceTypes = Array.isArray(provider.resourceTypes) && provider.resourceTypes.length > 0;
+        if (Array.isArray(defaults.requestTypes) && !hasResourceTypes) {
+            const types = new Set(defaults.requestTypes);
+            RULE_DEFAULT_LISTS.forEach(list => {
+                (Array.isArray(provider[list]) ? provider[list] : []).forEach(rule => {
+                    if (isPlainObject(rule) && Array.isArray(rule.requestTypes)) rule.requestTypes.forEach(type => types.add(type));
+                });
+            });
+            provider.resourceTypes = [...types];
+        }
+        if (Array.isArray(defaults.exceptions)) {
+            const existing = Array.isArray(provider.exceptions) ? provider.exceptions : [];
+            provider.exceptions = [...existing, ...defaults.exceptions.filter(exception => !existing.includes(exception))];
+        }
+    }
+
     // `providers` with `defaults` written into every rule of the rule lists.
     // Returns `providers` itself when the defaults change nothing.
     function applyRuleDefaults(providers, defaults) {
@@ -141,27 +169,51 @@
             RULE_DEFAULT_LISTS.forEach(list => {
                 if (Array.isArray(copy[list])) copy[list] = copy[list].map(rule => applyToRule(rule, normalized, providerSetsHistory));
             });
+            if (copy.completeProvider === true) applyToCompleteProvider(copy, normalized);
             result[name] = copy;
         });
         return result;
     }
 
-    // A rules file ({ defaults?, providers, … }) with its defaults written
-    // into its rules and the "defaults" block removed, so applying twice
-    // changes nothing.
-    function applyRuleFileDefaults(rulesData) {
-        if (!isPlainObject(rulesData) || !('defaults' in rulesData)) return rulesData;
-        const { defaults, ...rest } = rulesData;
-        return { ...rest, providers: applyRuleDefaults(rest.providers, defaults) };
+    // A rules file ({ defaults?, providers, … }) with `defaults` (its own
+    // "defaults" block when not given) written into its rules and the
+    // block removed, so applying the file's own twice changes nothing.
+    function applyRuleFileDefaults(rulesData, defaults) {
+        if (!isPlainObject(rulesData)) return rulesData;
+        const { defaults: fileDefaults, ...rest } = rulesData;
+        const providers = applyRuleDefaults(rest.providers, defaults === undefined ? fileDefaults : defaults);
+        if (!('defaults' in rulesData) && providers === rest.providers) return rulesData;
+        return { ...rest, providers };
+    }
+
+    function normalizeRuleDefaultsMode(mode) {
+        return RULE_DEFAULTS_MODES.includes(mode) ? mode : 'source';
+    }
+
+    // Whether a source ('builtIn', 'remote' or 'custom') gets the user's
+    // defaults in place of its file's own.
+    function usesUserRuleDefaults(mode, sourceKind) {
+        const normalizedMode = normalizeRuleDefaultsMode(mode);
+        return normalizedMode === 'unified' || (normalizedMode === 'final' && sourceKind !== 'custom');
+    }
+
+    // The defaults a source's rules get under `mode`.
+    function pickRuleDefaults(mode, sourceKind, fileDefaults, userDefaults) {
+        if (!usesUserRuleDefaults(mode, sourceKind)) return fileDefaults;
+        return isPlainObject(userDefaults) ? userDefaults : {};
     }
 
     root.LinkumoriRuleDefaults = Object.freeze({
         PREPROCESSOR_TYPES,
+        RULE_DEFAULTS_MODES,
         RULE_DEFAULT_KEYS,
         RULE_DEFAULT_LISTS,
         applyRuleDefaults,
         applyRuleFileDefaults,
         findRuleDefaultsProblems,
-        normalizeRuleDefaults
+        normalizeRuleDefaults,
+        normalizeRuleDefaultsMode,
+        pickRuleDefaults,
+        usesUserRuleDefaults
     });
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -4269,16 +4269,7 @@ function setupEventListeners() {
         importFileInput.addEventListener('change', handleFileImport);
     }
 
-    const customDefaultsDetails = document.getElementById('custom-defaults-details');
-    const saveCustomDefaultsBtn = document.getElementById('save-custom-defaults-btn');
-    if (customDefaultsDetails) {
-        customDefaultsDetails.addEventListener('toggle', () => {
-            if (customDefaultsDetails.open) fillCustomDefaultsInput();
-        });
-    }
-    if (saveCustomDefaultsBtn) {
-        saveCustomDefaultsBtn.addEventListener('click', saveCustomDefaults);
-    }
+    setupRuleDefaultsModal();
 
     // Enforce rules button - with null checks
     const enforceRulesBtn = document.getElementById('enforce-rules-btn');
@@ -4684,8 +4675,14 @@ async function updateRulesStatus() {
 function describeRuleDefaults(defaults) {
     const entries = Object.entries(LinkumoriRuleDefaults.normalizeRuleDefaults(defaults));
     if (entries.length === 0) return i18n('customRulesEditor_defaultsNone');
+    const describeValue = (key, value) => {
+        if (key === 'preprocessors') {
+            return value.map(item => `${item.type}(${Array.isArray(item.inputs) ? item.inputs.join(', ') : item.inputs})`).join(', ');
+        }
+        return Array.isArray(value) ? value.join(', ') : String(value);
+    };
     return entries
-        .map(([key, value]) => `${key}: ${typeof value === 'string' ? value : JSON.stringify(value)}`)
+        .map(([key, value]) => `${key}: ${describeValue(key, value)}`)
         .join('\n');
 }
 
@@ -4713,17 +4710,36 @@ async function updateRuleDefaultsStatus() {
         container.appendChild(row);
     };
 
+    const mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(status && status.mode);
+    // A source whose own defaults are replaced by the user's is marked so.
+    const describeSource = (sourceKind, defaults) => {
+        const text = describeRuleDefaults(defaults);
+        return LinkumoriRuleDefaults.usesUserRuleDefaults(mode, sourceKind)
+            ? `${text}\n${i18n('customRulesEditor_defaultsReplaced')}`
+            : text;
+    };
+
     container.replaceChildren();
     if (status && status.builtIn) {
-        addRow(i18n('customRulesEditor_defaultsBuiltIn'), describeRuleDefaults(status.builtIn));
+        addRow(i18n('customRulesEditor_defaultsBuiltIn'), describeSource('builtIn', status.builtIn));
     }
     (status && Array.isArray(status.remote) ? status.remote : []).forEach(source => {
-        addRow(i18n('customRulesEditor_defaultsRemote', source.ruleURL || '?'), describeRuleDefaults(source.defaults));
+        addRow(i18n('customRulesEditor_defaultsRemote', source.ruleURL || '?'), describeSource('remote', source.defaults));
     });
     // The editor's own copy, so a change shows before the rules reload.
-    addRow(i18n('customRulesEditor_defaultsCustom'), describeRuleDefaults(customRules.defaults));
+    addRow(i18n('customRulesEditor_defaultsCustom'), describeSource('custom', customRules.defaults));
+    if (mode !== 'source') {
+        addRow(i18n('customRulesEditor_defaultsUser'), describeRuleDefaults(status && status.userDefaults));
+    }
 
-    if (status && status.overloadModeEnabled && status.builtIn && status.remote.length > 0) {
+    const modeNote = document.createElement('div');
+    modeNote.className = 'rules-status-merge';
+    modeNote.textContent = i18n(mode === 'unified'
+        ? 'customRulesEditor_defaultsModeUnifiedNote'
+        : mode === 'final' ? 'customRulesEditor_defaultsModeFinalNote' : 'customRulesEditor_defaultsModeSourceNote');
+    container.appendChild(modeNote);
+
+    if (mode === 'source' && status && status.overloadModeEnabled && status.builtIn && status.remote.length > 0) {
         const note = document.createElement('div');
         note.className = 'rules-status-merge';
         note.textContent = i18n('customRulesEditor_defaultsOverloadNote');
@@ -4731,39 +4747,319 @@ async function updateRuleDefaultsStatus() {
     }
 }
 
-function fillCustomDefaultsInput() {
-    const input = document.getElementById('custom-defaults-input');
-    if (input) {
-        input.value = JSON.stringify(customRules.defaults || {}, null, 2);
-    }
+// ============================================================================
+// RULE DEFAULTS MODAL
+// ============================================================================
+
+// Request types offered as checkboxes (the webRequest ResourceTypes);
+// types a loaded block names that are not here are added to the list.
+const RULE_DEFAULTS_REQUEST_TYPES = Object.freeze([
+    'main_frame', 'sub_frame', 'xmlhttprequest', 'script', 'stylesheet', 'image', 'imageset', 'font',
+    'media', 'object', 'object_subrequest', 'websocket', 'ping', 'beacon', 'csp_report', 'speculative',
+    'web_manifest', 'xml_dtd', 'xslt', 'other'
+]);
+
+// Both editable sets while the modal is open: the user's own defaults and
+// the custom rules' "defaults" block. `active` is the one on screen.
+const ruleDefaultsDraft = { mode: 'source', user: {}, custom: {}, active: 'user' };
+let ruleDefaultsModal = null;
+
+function setupRuleDefaultsModal() {
+    ruleDefaultsModal = document.getElementById('rule-defaults-modal');
+    const openBtn = document.getElementById('open-rule-defaults-btn');
+    const form = document.getElementById('rule-defaults-form');
+    if (!ruleDefaultsModal || !form) return;
+
+    if (openBtn) openBtn.addEventListener('click', openRuleDefaultsModal);
+    document.getElementById('rule-defaults-modal-close')?.addEventListener('click', closeRuleDefaultsModal);
+    document.getElementById('rule-defaults-cancel')?.addEventListener('click', closeRuleDefaultsModal);
+    ruleDefaultsModal.addEventListener('click', event => {
+        if (event.target === ruleDefaultsModal) closeRuleDefaultsModal();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && ruleDefaultsModal.classList.contains('show')) closeRuleDefaultsModal();
+    });
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        saveRuleDefaults();
+    });
+    form.addEventListener('input', refreshRuleDefaultsPreview);
+    form.addEventListener('change', event => {
+        if (event.target.name === 'rule-defaults-mode') {
+            ruleDefaultsDraft.mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(event.target.value);
+            updateRuleDefaultsUnusedNote();
+        }
+        if (event.target.name === 'rule-defaults-types-mode') {
+            document.getElementById('rule-defaults-types')?.classList.toggle('u-hidden', event.target.value !== 'some');
+        }
+        refreshRuleDefaultsPreview();
+    });
+
+    document.querySelectorAll('.rule-defaults-tab').forEach(tab => {
+        tab.addEventListener('click', () => switchRuleDefaultsTab(tab.dataset.set));
+        tab.addEventListener('keydown', event => {
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+            event.preventDefault();
+            const next = tab.dataset.set === 'user' ? 'custom' : 'user';
+            if (switchRuleDefaultsTab(next)) {
+                document.querySelector(`.rule-defaults-tab[data-set="${next}"]`)?.focus();
+            }
+        });
+    });
+
+    document.getElementById('rule-defaults-add-preprocessor')?.addEventListener('click', () => {
+        addRuleDefaultsPreprocessorRow({ type: LinkumoriRuleDefaults.PREPROCESSOR_TYPES[0], inputs: 'all' });
+        refreshRuleDefaultsPreview();
+    });
 }
 
-async function saveCustomDefaults() {
-    const input = document.getElementById('custom-defaults-input');
-    const message = document.getElementById('custom-defaults-message');
-    if (!input || !message) return;
-
-    let defaults;
+async function openRuleDefaultsModal() {
+    let mode = 'source';
+    let userDefaults = {};
     try {
-        defaults = input.value.trim() ? JSON.parse(input.value) : {};
+        const [modeResponse, defaultsResponse] = await Promise.all([
+            browser.runtime.sendMessage({ function: 'getData', params: ['ruleDefaultsMode'] }),
+            browser.runtime.sendMessage({ function: 'getData', params: ['userRuleDefaults'] })
+        ]);
+        mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(modeResponse && modeResponse.response);
+        const stored = defaultsResponse && defaultsResponse.response;
+        if (stored && typeof stored === 'object' && !Array.isArray(stored)) userDefaults = stored;
     } catch (error) {
-        message.textContent = i18n('customRulesEditor_defaultsInvalidJson', error.message);
-        return;
-    }
-    const problems = LinkumoriRuleDefaults.findRuleDefaultsProblems(defaults);
-    if (problems.length > 0) {
-        message.textContent = problems.join('\n');
-        return;
+        // Open with the built-in values.
     }
 
-    if (Object.keys(defaults).length === 0) {
-        delete customRules.defaults;
-    } else {
-        customRules.defaults = defaults;
+    ruleDefaultsDraft.mode = mode;
+    ruleDefaultsDraft.user = LinkumoriRuleDefaults.normalizeRuleDefaults(userDefaults);
+    ruleDefaultsDraft.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules.defaults);
+    ruleDefaultsDraft.active = mode === 'source' ? 'custom' : 'user';
+
+    const modeInput = document.querySelector(`input[name="rule-defaults-mode"][value="${mode}"]`);
+    if (modeInput) modeInput.checked = true;
+    setRuleDefaultsErrors([]);
+    switchRuleDefaultsTab(ruleDefaultsDraft.active, false);
+
+    ruleDefaultsModal.classList.add('show');
+    setTimeout(() => (document.querySelector('input[name="rule-defaults-mode"]:checked') || modeInput)?.focus(), 0);
+}
+
+function closeRuleDefaultsModal() {
+    if (!ruleDefaultsModal) return;
+    ruleDefaultsModal.classList.remove('show');
+    document.getElementById('open-rule-defaults-btn')?.focus();
+}
+
+// Shows one set in the form, keeping what was typed into the other.
+// Stays put (and returns false) while the set on screen has problems, so
+// nothing typed is dropped on the way.
+function switchRuleDefaultsTab(set, keepCurrent = true) {
+    const target = set === 'custom' ? 'custom' : 'user';
+    if (keepCurrent) {
+        if (target === ruleDefaultsDraft.active) return true;
+        const { defaults, problems } = readRuleDefaultsForm();
+        if (problems.length > 0) {
+            setRuleDefaultsErrors(problems);
+            return false;
+        }
+        ruleDefaultsDraft[ruleDefaultsDraft.active] = defaults;
     }
-    await saveCustomRules();
-    fillCustomDefaultsInput();
-    message.textContent = i18n('customRulesEditor_defaultsSaved');
+    setRuleDefaultsErrors([]);
+    ruleDefaultsDraft.active = target;
+    document.querySelectorAll('.rule-defaults-tab').forEach(tab => {
+        const selected = tab.dataset.set === ruleDefaultsDraft.active;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+    });
+    document.getElementById('rule-defaults-panel')?.setAttribute('aria-labelledby', `rule-defaults-tab-${ruleDefaultsDraft.active}`);
+    fillRuleDefaultsForm(ruleDefaultsDraft[ruleDefaultsDraft.active]);
+    updateRuleDefaultsUnusedNote();
+    refreshRuleDefaultsPreview();
+    return true;
+}
+
+// Says so when the set on screen is not used under the chosen mode.
+function updateRuleDefaultsUnusedNote() {
+    const note = document.getElementById('rule-defaults-unused');
+    if (!note) return;
+    let key = '';
+    if (ruleDefaultsDraft.active === 'user' && ruleDefaultsDraft.mode === 'source') key = 'customRulesEditor_defaultsUnusedUser';
+    if (ruleDefaultsDraft.active === 'custom' && ruleDefaultsDraft.mode === 'unified') key = 'customRulesEditor_defaultsUnusedCustom';
+    note.textContent = key ? i18n(key) : '';
+    note.classList.toggle('u-hidden', !key);
+}
+
+function fillRuleDefaultsForm(defaults) {
+    const value = defaults || {};
+    document.getElementById('rule-defaults-inactive').checked = value.active === false;
+    document.getElementById('rule-defaults-description').value = value.description || '';
+    document.getElementById('rule-defaults-history-off').checked = value.historyBypassProtection === false;
+    document.getElementById('rule-defaults-exceptions').value = (value.exceptions || []).join('\n');
+
+    const someTypes = Array.isArray(value.requestTypes);
+    const typesModeInput = document.querySelector(`input[name="rule-defaults-types-mode"][value="${someTypes ? 'some' : 'all'}"]`);
+    if (typesModeInput) typesModeInput.checked = true;
+    const grid = document.getElementById('rule-defaults-types');
+    const chosen = new Set(someTypes ? value.requestTypes : []);
+    const types = [...new Set([...RULE_DEFAULTS_REQUEST_TYPES, ...chosen])];
+    grid.replaceChildren(...types.map(type => {
+        const wrapper = document.createElement('label');
+        wrapper.className = 'form-checkbox';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = type;
+        checkbox.checked = chosen.has(type);
+        wrapper.append(checkbox, document.createTextNode(type));
+        return wrapper;
+    }));
+    grid.classList.toggle('u-hidden', !someTypes);
+
+    document.getElementById('rule-defaults-preprocessors').replaceChildren();
+    (value.preprocessors || []).forEach(addRuleDefaultsPreprocessorRow);
+}
+
+function addRuleDefaultsPreprocessorRow(preprocessor) {
+    const list = document.getElementById('rule-defaults-preprocessors');
+    if (!list) return;
+    const row = document.createElement('div');
+    row.className = 'rule-defaults-preprocessor-row';
+
+    const typeSelect = document.createElement('select');
+    typeSelect.className = 'form-input rule-defaults-preprocessor-type';
+    typeSelect.setAttribute('aria-label', i18n('customRulesEditor_defaultsPreprocessorType'));
+    LinkumoriRuleDefaults.PREPROCESSOR_TYPES.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        typeSelect.appendChild(option);
+    });
+    typeSelect.value = preprocessor.type;
+
+    const inputsField = document.createElement('input');
+    inputsField.type = 'text';
+    inputsField.className = 'form-input rule-defaults-preprocessor-inputs';
+    inputsField.value = Array.isArray(preprocessor.inputs) ? preprocessor.inputs.join(', ') : 'all';
+    inputsField.placeholder = 'all';
+    inputsField.setAttribute('aria-label', i18n('customRulesEditor_defaultsPreprocessorInputs'));
+
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'btn btn-danger btn-sm';
+    removeBtn.textContent = i18n('customRulesEditor_defaultsRemove');
+    removeBtn.addEventListener('click', () => {
+        row.remove();
+        refreshRuleDefaultsPreview();
+    });
+
+    row.append(typeSelect, inputsField, removeBtn);
+    list.appendChild(row);
+}
+
+// The form as a "defaults" block, with what is wrong with it.
+function readRuleDefaultsForm() {
+    const defaults = {};
+    const problems = [];
+    if (document.getElementById('rule-defaults-inactive').checked) defaults.active = false;
+    const description = document.getElementById('rule-defaults-description').value.trim();
+    if (description) defaults.description = description;
+
+    if (document.querySelector('input[name="rule-defaults-types-mode"]:checked')?.value === 'some') {
+        const types = [...document.querySelectorAll('#rule-defaults-types input:checked')].map(input => input.value);
+        if (types.length === 0) problems.push(i18n('customRulesEditor_defaultsTypesNone'));
+        else defaults.requestTypes = types;
+    }
+
+    const exceptions = document.getElementById('rule-defaults-exceptions').value
+        .split('\n').map(line => line.trim()).filter(Boolean);
+    if (exceptions.length > 0) defaults.exceptions = exceptions;
+
+    const preprocessors = [...document.querySelectorAll('.rule-defaults-preprocessor-row')].map(row => {
+        const type = row.querySelector('.rule-defaults-preprocessor-type').value;
+        const text = row.querySelector('.rule-defaults-preprocessor-inputs').value.trim();
+        if (text === '' || text.toLowerCase() === 'all') return { type, inputs: 'all' };
+        const parts = text.split(/[\s,]+/).filter(Boolean);
+        if (!parts.every(part => /^[1-9]\d*$/.test(part))) {
+            problems.push(i18n('customRulesEditor_defaultsInputsInvalid', text));
+            return { type, inputs: 'all' };
+        }
+        return { type, inputs: parts.map(Number) };
+    });
+    if (preprocessors.length > 0) defaults.preprocessors = preprocessors;
+
+    if (document.getElementById('rule-defaults-history-off').checked) defaults.historyBypassProtection = false;
+
+    problems.push(...LinkumoriRuleDefaults.findRuleDefaultsProblems(defaults));
+    return { defaults, problems };
+}
+
+function refreshRuleDefaultsPreview() {
+    const preview = document.getElementById('rule-defaults-json');
+    if (preview) preview.textContent = JSON.stringify(readRuleDefaultsForm().defaults, null, 2);
+}
+
+function setRuleDefaultsErrors(problems) {
+    const errors = document.getElementById('rule-defaults-errors');
+    if (errors) errors.textContent = problems.join('\n');
+}
+
+async function saveRuleDefaults() {
+    const { defaults, problems } = readRuleDefaultsForm();
+    if (problems.length > 0) {
+        setRuleDefaultsErrors(problems);
+        return;
+    }
+    ruleDefaultsDraft[ruleDefaultsDraft.active] = defaults;
+    setRuleDefaultsErrors([]);
+
+    // The background answers a failed call with `response: false` instead
+    // of throwing.
+    const send = async (message) => {
+        const response = await browser.runtime.sendMessage(message);
+        if (!response || response.response === false || response.success === false) {
+            throw new Error(response?.error || 'failed');
+        }
+        return response;
+    };
+
+    const saveBtn = document.getElementById('rule-defaults-save');
+    if (saveBtn) saveBtn.disabled = true;
+    try {
+        await send({ function: 'setData', params: ['ruleDefaultsMode', ruleDefaultsDraft.mode] });
+        await send({ function: 'setData', params: ['userRuleDefaults', JSON.stringify(ruleDefaultsDraft.user)] });
+        const customChanged = JSON.stringify(ruleDefaultsDraft.custom) !==
+            JSON.stringify(LinkumoriRuleDefaults.normalizeRuleDefaults(customRules.defaults));
+        if (customChanged) {
+            // Only the saved custom rules get the new block. A provider being
+            // edited keeps its unsaved changes (saveCustomRules would mark
+            // them saved).
+            const previousDefaults = customRules.defaults;
+            if (Object.keys(ruleDefaultsDraft.custom).length === 0) delete customRules.defaults;
+            else customRules.defaults = ruleDefaultsDraft.custom;
+            try {
+                await send({ function: 'setData', params: ['custom_rules', JSON.stringify(customRules)] });
+            } catch (error) {
+                if (previousDefaults === undefined) delete customRules.defaults;
+                else customRules.defaults = previousDefaults;
+                throw error;
+            }
+        }
+        // Every source is loaded again with the new defaults.
+        await send({ function: 'reloadCustomRules' });
+        await updateRulesStatus();
+    } catch (error) {
+        setRuleDefaultsErrors([i18n('status_saveFailed')]);
+        return;
+    } finally {
+        if (saveBtn) saveBtn.disabled = false;
+    }
+    closeRuleDefaultsModal();
+    // The status panel was redrawn by the reload; say it was saved there.
+    const status = document.getElementById('rule-defaults-status');
+    if (status) {
+        const saved = document.createElement('div');
+        saved.className = 'rules-status-merge';
+        saved.textContent = i18n('customRulesEditor_defaultsSaved');
+        status.appendChild(saved);
+    }
 }
 
 /**
