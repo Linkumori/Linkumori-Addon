@@ -128,7 +128,8 @@ function ensureRemoteRulesHealthShape() {
             lastFailureReason: null,
             lastFailureStage: null,
             lastRuleURL: null,
-            lastHashURL: null
+            lastHashURL: null,
+            ruleCollisions: null
         };
         return;
     }
@@ -140,7 +141,8 @@ function ensureRemoteRulesHealthShape() {
         lastFailureReason: current.lastFailureReason || null,
         lastFailureStage: current.lastFailureStage || null,
         lastRuleURL: current.lastRuleURL || null,
-        lastHashURL: current.lastHashURL || null
+        lastHashURL: current.lastHashURL || null,
+        ruleCollisions: current.ruleCollisions && typeof current.ruleCollisions === 'object' ? current.ruleCollisions : null
     };
 }
 
@@ -192,6 +194,109 @@ function recordHashVerification(verification, ruleURL = null, hashURL = null) {
         lastHashVerificationAt: verification?.timestamp || new Date().toISOString(),
         lastRuleURL: ruleURL || null,
         lastHashURL: hashURL || null
+    }, true);
+}
+
+// Rule collisions (LinkumoriRuleIds.findRuleCollisions) in remote rules,
+// shown in Remote Rules Health. The rules still load: the engine handles a
+// collision predictably, and dropping a verified file would lose every rule
+// in it. Each item is { source, provider, severity, message }.
+const MAX_REPORTED_RULE_COLLISIONS = 50;
+
+function isRemoveParamRuleTextForCollisions(text) {
+    return parseLinkumoriRemoveParamRule(text) !== null;
+}
+
+function findProvidersRuleCollisions(providers, source) {
+    const items = [];
+    Object.entries(providers && typeof providers === 'object' ? providers : {}).forEach(([providerName, providerData]) => {
+        if (!providerData || typeof providerData !== 'object' || Array.isArray(providerData)) return;
+        LinkumoriRuleIds.findRuleCollisions(providerData, isRemoveParamRuleTextForCollisions).forEach(problem => {
+            items.push({ source, provider: providerName, severity: problem.severity, message: problem.message });
+        });
+    });
+    return items;
+}
+
+// Same-text collisions that only exist because providers from several files
+// were merged into one; ones already inside a single file are reported for
+// that file.
+function findMergedGroupRuleCollisions(providerGroup, mergedProvider, mergedName) {
+    const keyOf = problem => `${problem.section}\u0000${problem.text}`;
+    const textOnly = { ids: false };
+    const memberKeys = new Set();
+    providerGroup.forEach(member => {
+        LinkumoriRuleIds.findRuleCollisions(member.data || {}, isRemoveParamRuleTextForCollisions, textOnly)
+            .forEach(problem => memberKeys.add(keyOf(problem)));
+    });
+    const members = providerGroup.map(member => member.name).join(', ');
+    const items = LinkumoriRuleIds.findRuleCollisions(mergedProvider, isRemoveParamRuleTextForCollisions, textOnly)
+        .filter(problem => !memberKeys.has(keyOf(problem)))
+        .map(problem => ({
+            source: 'merged',
+            provider: mergedName,
+            severity: problem.severity,
+            message: `after merging ${members}: ${problem.message}`
+        }));
+
+    // On/off settings are keyed by provider pattern and rule id, not by file,
+    // so rules from different files can end up sharing one.
+    const memberShared = new Set();
+    providerGroup.forEach(member => {
+        findSharedActivationIds(attachProviderActivationIds(member.name, member.data || {}))
+            .forEach(shared => memberShared.add(shared.activationId));
+    });
+    findSharedActivationIds(mergedProvider)
+        .filter(shared => !memberShared.has(shared.activationId))
+        .forEach(shared => {
+            const ruleId = shared.activationId.slice(shared.activationId.lastIndexOf('::') + 2);
+            items.push({
+                source: 'merged',
+                provider: mergedName,
+                severity: 'warning',
+                message: `after merging ${members}: ${shared.owners.join(' and ')} share the on/off setting "${ruleId}", ` +
+                    'so turning one off turns off the other — give one of them a different "id"'
+            });
+        });
+    return items;
+}
+
+// Activation ids used by rules with different text, as [{ activationId, owners }].
+// Rules with the same text are covered by findRuleCollisions.
+function findSharedActivationIds(providerData) {
+    const byId = new Map();
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
+        (Array.isArray(providerData[section]) ? providerData[section] : []).forEach((rule, index) => {
+            const activationIds = rule && typeof rule === 'object' && Array.isArray(rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY])
+                ? rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY] : [];
+            const text = LinkumoriRuleIds.getRuleText(rule);
+            activationIds.forEach(activationId => {
+                if (!byId.has(activationId)) byId.set(activationId, []);
+                byId.get(activationId).push({ where: `${section}[${index}] "${text}"`, key: `${section}\u0000${text}` });
+            });
+        });
+    });
+    const result = [];
+    byId.forEach((owners, activationId) => {
+        if (new Set(owners.map(owner => owner.key)).size < 2) return;
+        result.push({ activationId, owners: owners.map(owner => owner.where) });
+    });
+    return result;
+}
+
+function recordRuleCollisions(items) {
+    const list = Array.isArray(items) ? items : [];
+    list.forEach(item => {
+        const log = item.severity === 'error' ? console.warn : console.info;
+        log(`[Linkumori] Remote rule collision (${item.source}) [${item.provider}] ${item.message}`);
+    });
+    updateRemoteRulesHealth({
+        ruleCollisions: {
+            checkedAt: new Date().toISOString(),
+            errorCount: list.filter(item => item.severity === 'error').length,
+            warningCount: list.filter(item => item.severity !== 'error').length,
+            items: list.slice(0, MAX_REPORTED_RULE_COLLISIONS)
+        }
     }, true);
 }
 
@@ -909,7 +1014,8 @@ function createMergedRemoteProviderName(providerGroup) {
     return stripSuffix(names[0]);
 }
 
-function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new Set()) {
+// `collisionSink`, when given, collects the rule collisions merging creates.
+function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new Set(), collisionSink = null) {
     const providerGroups = {}; // key → array of providers
 
     const normalizedProviders = normalizeProviderEntries(providers, primaryProviderNames);
@@ -952,12 +1058,15 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
         }
         usedNames.add(finalName);
         mergedProviders[finalName] = finalProvider;
+        if (collisionSink && providerGroup.length > 1) {
+            collisionSink.push(...findMergedGroupRuleCollisions(providerGroup, finalProvider, finalName));
+        }
     });
 
     return mergedProviders;
 }
 
-function mergeRemoteRulesSources(successfulSources, failedSources = []) {
+function mergeRemoteRulesSources(successfulSources, failedSources = [], collisionSink = null) {
     const combinedProviders = [];
     let mergedMetadata = null;
 
@@ -976,7 +1085,7 @@ function mergeRemoteRulesSources(successfulSources, failedSources = []) {
         }
     });
 
-    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders);
+    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink);
     const mergedRules = { providers: mergedProviders };
     const mergedProviderCount = Object.keys(mergedProviders).length;
 
@@ -1032,7 +1141,7 @@ function mergeRemoteRulesSources(successfulSources, failedSources = []) {
     return mergedRules;
 }
 
-function mergeRemoteWithBundledRules(remoteRules, bundledRules) {
+function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = null) {
     const remoteProviders = remoteRules?.providers || {};
     const bundledProviders = bundledRules?.providers || {};
     const combinedProviders = [];
@@ -1053,7 +1162,7 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules) {
             });
     });
 
-    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders);
+    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink);
     const mergedProviderCount = Object.keys(mergedProviders).length;
 
     const remoteMetadata = (remoteRules?.metadata && typeof remoteRules.metadata === 'object' && !Array.isArray(remoteRules.metadata))
@@ -1753,16 +1862,23 @@ function loadBundledRules() {
                 throw new Error(failed.map(item => item.error).join('; ') || 'All remote sources failed');
             }
 
-            const mergedRemoteRules = mergeRemoteRulesSources(successful, failed);
+            // Collisions inside each file, then ones merging creates.
+            const ruleCollisions = [];
+            successful.forEach(source => {
+                ruleCollisions.push(...findProvidersRuleCollisions(source.rules?.providers, source.ruleURL));
+            });
+
+            const mergedRemoteRules = mergeRemoteRulesSources(successful, failed, ruleCollisions);
             let finalRules = mergedRemoteRules;
 
             if (storage.overloadModeEnabled === true && storage.builtInRulesEnabled !== false) {
                 try {
                     const bundledRules = await fetchBundledRulesRaw();
-                    finalRules = mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules);
+                    finalRules = mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions);
                 } catch (e) {
                 }
             }
+            recordRuleCollisions(ruleCollisions);
 
             storage.rulesMetadata = finalRules.metadata;
             storage.hashFailureReason = failed.length > 0

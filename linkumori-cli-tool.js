@@ -2610,6 +2610,11 @@ ${commit.message}
         }
       }
 
+      // Same text twice in one list, and ids shared once generated ids count.
+      for (const problem of LinkumoriRuleIds.findRuleCollisions(provider, text => getRemoveParamOptions(text).length > 0)) {
+        (problem.severity === 'error' ? errors : warnings).push(`${tag} ${problem.message}`);
+      }
+
       // completeProvider / forceRedirection / historyBypassProtection must be boolean if present
       for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection']) {
         if (provider[flag] !== undefined && typeof provider[flag] !== 'boolean') {
