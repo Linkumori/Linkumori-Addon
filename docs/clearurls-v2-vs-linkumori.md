@@ -26,7 +26,7 @@ files, so moving rules across is done by hand, following
 | Shipped as | compiled JSON list (the YAML compiled, minified and compressed) | the same JSON; the bundled list is LZ4-compressed |
 | Older format | legacy JSON catalog (`rules`, `rawRules`, …), still published | the legacy catalog's lists, plus extensions |
 | Rule layout | one `rules` list per provider; each rule has a `kind` and an `action` | one list per behaviour: `rules`, `rawRules`, `redirections`, … |
-| Defaults | a `defaults` block copied into every rule | none; each rule sets its own values |
+| Defaults | a `defaults` block copied into every rule | the same `defaults` block, plus `historyBypassProtection`; applied per file ([defaults](filter-syntax.md#defaults)) |
 | Provider match | `urlPattern` regex (required) | `domainPatterns` (`\|\|example.com^`) or `urlPattern` |
 | Simple rule | short form: `- utm_source` | plain string: `"utm_source"` |
 | Detailed rule | long form, with a required `id` | rule object; `id` optional |
@@ -62,7 +62,8 @@ Linkumori has one format for bundled, remote and custom rules:
 
 - `providers` is a map: name → provider.
 - `metadata` is optional.
-- There is no `version` key and no `defaults` block.
+- There is no `version` key. An optional `defaults` block works like
+  ClearURLs' ([defaults](filter-syntax.md#defaults)).
 - The bundled list is built from `data/linkumori-clearurls.json` into an
   LZ4 file.
 - Remote lists must come with a hash URL. The SHA-256 of the list's raw
@@ -261,7 +262,7 @@ with groups `['https', 'test']` gives `https://test.clearurls.xyz/`.
 | Rule on/off | `active` (compiled: `activeDefault`) | `active` |
 | Provider on/off | compiled `defaultActive` | `active` |
 | Whole list on/off | compiled `defaultActive` on the list | remote lists and built-in rules are switched on/off in settings |
-| Defaults | `defaults`: `active`, `description`, `requestTypes`, `preprocessors`, `exceptions` | none; the provider's `historyBypassProtection` is the only provider-wide rule default |
+| Defaults | `defaults`: `active`, `description`, `requestTypes`, `preprocessors`, `exceptions` | the same keys, plus `historyBypassProtection`. Not applied to provider `exceptions`. A provider's `historyBypassProtection` is a provider-wide default too |
 
 ## 12. What only Linkumori has
 
@@ -290,7 +291,6 @@ with groups `['https', 'test']` gives `https://test.clearurls.xyz/`.
 | Feature | Syntax |
 |---|---|
 | YAML authoring | `version: 2` files; comments, block lists |
-| Defaults block | `defaults: { active, description, requestTypes, preprocessors, exceptions }` |
 | One rule list with `kind` and `action` | `kind: field\|raw\|redirection` (compiled also `exception`), `action: { type: remove\|rewrite\|redirect }` |
 | `requestTypes: all` | the string `all` |
 | List-level id and switch | compiled `id`, `defaultActive`; runtime ids `listId::providerId::ruleId` |
@@ -367,6 +367,7 @@ The same rules in Linkumori (this passes `lint-rules`):
 What changed:
 
 - The `defaults` all match Linkumori's own defaults, so they are dropped.
+  Keeping them as a `defaults` block would also work.
 - `urlPattern` became `domainPatterns`, so the provider is only checked for
   `example.com`. Keeping `urlPattern` also works; then add
   `"indexPattern": ["||example.com^"]`.
@@ -381,10 +382,9 @@ What changed:
 
 ### From ClearURLs to Linkumori
 
-1. Drop `version`. Copy any `defaults` that differ from Linkumori's into the
-   rules that need them: `active: false`, a `description`, a
-   `requestTypes` list, `preprocessors`, `exceptions`. `requestTypes: all`,
-   `active: true` and empty lists need nothing.
+1. Drop `version`. Keep `defaults` as it is: Linkumori reads the same
+   block. Its `exceptions` do not apply to the provider `exceptions` list.
+   The redirection-kind rules you move to `redirections` still get them.
 2. Keep the provider name as its key. In compiled lists, use `providerId`
    as the key. If the list's or the provider's `defaultActive` is `false`,
    give the provider `"active": false`.

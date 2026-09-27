@@ -3917,6 +3917,56 @@
     "description": "Remote Rules Health summary of rule collisions",
     "placeholders": { "errors": { "content": "$1", "example": "1" }, "warnings": { "content": "$2", "example": "2" } }
   },
+  "customRulesEditor_defaultsTitle": {
+    "message": "Rule defaults",
+    "description": "Custom rules editor heading for the defaults each rule source applies to its own rules"
+  },
+  "customRulesEditor_defaultsBuiltIn": {
+    "message": "Built-in",
+    "description": "Label for the built-in rules' defaults"
+  },
+  "customRulesEditor_defaultsCustom": {
+    "message": "Custom",
+    "description": "Label for the custom rules' defaults"
+  },
+  "customRulesEditor_defaultsNone": {
+    "message": "None — built-in behaviour",
+    "description": "Shown when a rule source sets no defaults that change anything"
+  },
+  "customRulesEditor_defaultsOverloadNote": {
+    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults.",
+    "description": "Note under the rule defaults when overload mode is on"
+  },
+  "customRulesEditor_defaultsEdit": {
+    "message": "Edit custom rule defaults",
+    "description": "Summary of the collapsible custom defaults editor"
+  },
+  "customRulesEditor_defaultsHelp": {
+    "message": "JSON object with any of: active, description, requestTypes, preprocessors, exceptions, historyBypassProtection. They apply to your custom rules only; a rule's own value always wins.",
+    "description": "Help text for the custom defaults editor"
+  },
+  "customRulesEditor_defaultsSave": {
+    "message": "Save defaults",
+    "description": "Button that saves the custom rule defaults"
+  },
+  "customRulesEditor_defaultsSaved": {
+    "message": "Defaults saved",
+    "description": "Shown after the custom rule defaults are saved"
+  },
+  "overload_mode_defaults_note": {
+    "message": "When on, each rule source keeps its own defaults: built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules.",
+    "description": "Note under the overload mode toggle about rule defaults"
+  },
+  "customRulesEditor_defaultsRemote": {
+    "message": "Remote: $URL$",
+    "description": "Label for one remote rule file's defaults",
+    "placeholders": { "url": { "content": "$1", "example": "https://example.com/rules.json" } }
+  },
+  "customRulesEditor_defaultsInvalidJson": {
+    "message": "Defaults must be valid JSON: $ERROR$",
+    "description": "Error when the custom defaults are not valid JSON",
+    "placeholders": { "error": { "content": "$1", "example": "Unexpected token" } }
+  },
   "settings_remote_health_unknown": {
     "message": "અજ્ઞાત",
     "description": "Auto-added i18n key: settings_remote_health_unknown"

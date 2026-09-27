@@ -1681,6 +1681,34 @@
             font-family: "Old-Country-Nobility", serif;
         }
 
+        .rule-defaults-edit {
+            margin-top: 8px;
+        }
+
+        .rule-defaults-edit summary {
+            cursor: pointer;
+        }
+
+        .rule-defaults-help {
+            display: block;
+            margin: 6px 0 4px;
+            color: var(--text-muted);
+        }
+
+        .rule-defaults-edit textarea {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 6px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .rule-defaults-message {
+            margin-top: 4px;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
         .sidebar-header {
             display: flex;
             justify-content: space-between;
@@ -3649,6 +3677,16 @@ subdomain.example.com
                         </div>
                         <div class="rules-status-merge" id="merge-status" data-i18n="status_loading" role="status" aria-live="polite" aria-atomic="true"></div>
 
+                        <div class="rules-status-group-title" data-i18n="customRulesEditor_defaultsTitle"></div>
+                        <div id="rule-defaults-status" role="status" aria-live="polite"></div>
+                        <details class="rule-defaults-edit" id="custom-defaults-details">
+                            <summary data-i18n="customRulesEditor_defaultsEdit"></summary>
+                            <label for="custom-defaults-input" class="rule-defaults-help" data-i18n="customRulesEditor_defaultsHelp"></label>
+                            <textarea id="custom-defaults-input" rows="6" spellcheck="false"></textarea>
+                            <button type="button" class="btn btn-primary btn-sm" id="save-custom-defaults-btn" data-i18n="customRulesEditor_defaultsSave"></button>
+                            <div id="custom-defaults-message" class="rule-defaults-message" role="status" aria-live="polite"></div>
+                        </details>
+
                     </div>
                 </div>
                 
@@ -3879,6 +3917,7 @@ subdomain.example.com
     <script src="../external_js/IP-Ranger.js"></script>
     <script src="../core_js/modal_dialog.js"></script>
     <script src="../core_js/linkumori_rule_ids.js"></script>
+    <script src="../core_js/linkumori_rule_defaults.js"></script>
     <script src="../core_js/linkumori_rule_pins.js"></script>
     <script src="../core_js/custom_rules_editor.js"></script>
     <script src="../core_js/accessibility_tools.js"></script>
