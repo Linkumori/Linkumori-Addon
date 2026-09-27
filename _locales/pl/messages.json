@@ -3264,6 +3264,80 @@
     "message": "Reset to the file's defaults",
     "description": "Button that drops the user's edit of a rules file's defaults"
   },
+  "customRulesEditor_defaultsMergeOpen": {
+    "message": "Merge from sources…",
+    "description": "Button that opens the merge of several rule defaults sets"
+  },
+  "customRulesEditor_defaultsMergeTitle": {
+    "message": "Merge rule defaults",
+    "description": "Title of the rule defaults merge dialog"
+  },
+  "customRulesEditor_defaultsMergeTarget": {
+    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it.",
+    "description": "Explains where merged rule defaults go"
+  },
+  "customRulesEditor_defaultsMergeSources": {
+    "message": "Sources to merge",
+    "description": "Heading of the list of sources in the defaults merge dialog"
+  },
+  "customRulesEditor_defaultsMergeConflicts": {
+    "message": "Conflicts",
+    "description": "Heading of the values the merged sources disagree on"
+  },
+  "customRulesEditor_defaultsMergeResult": {
+    "message": "Merged defaults",
+    "description": "Summary of the JSON preview of the merged defaults"
+  },
+  "customRulesEditor_defaultsMergeApply": {
+    "message": "Use merged defaults",
+    "description": "Button that puts the merged defaults into the set being edited"
+  },
+  "customRulesEditor_defaultsSetMerged": {
+    "message": "Merged defaults",
+    "description": "Defaults set holding the result of a merge"
+  },
+  "customRulesEditor_defaultsMergedUnused": {
+    "message": "Not used until you copy it into one of the other sets and save.",
+    "description": "Shown while the merged defaults are on screen"
+  },
+  "customRulesEditor_defaultsCopyTo": {
+    "message": "Copy to",
+    "description": "Label of the list of sets merged defaults can be copied into"
+  },
+  "customRulesEditor_defaultsCopyButton": {
+    "message": "Copy",
+    "description": "Button that copies the merged defaults into the chosen set"
+  },
+  "customRulesEditor_defaultsMergeNeedTwo": {
+    "message": "Choose at least two sources.",
+    "description": "Shown when fewer than two sources are ticked in the defaults merge"
+  },
+  "customRulesEditor_defaultsMergeNoConflicts": {
+    "message": "No conflicts: the chosen sources agree on every value.",
+    "description": "Shown when merged sources agree on every value"
+  },
+  "customRulesEditor_defaultsMergeExceptionsAdded": {
+    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "description": "Defaults merge: exceptions never conflict, they are combined",
+    "placeholders": { "count": { "content": "$1", "example": "50" } }
+  },
+  "customRulesEditor_defaultsMergeCombined": {
+    "message": "Combined from every source",
+    "description": "Marks the combined option of a list in the defaults merge"
+  },
+  "customRulesEditor_defaultsMergeFrom": {
+    "message": "From: $SOURCES$",
+    "description": "Which sources a value in the defaults merge comes from",
+    "placeholders": { "sources": { "content": "$1", "example": "Built-in rules, Custom rules' defaults" } }
+  },
+  "customRulesEditor_defaultsMergeUnset": {
+    "message": "Not set (built-in behaviour)",
+    "description": "A defaults key a source leaves out, in the merge dialog"
+  },
+  "customRulesEditor_defaultsMergeAllTypes": {
+    "message": "Not set: every request type",
+    "description": "Request types a source leaves out, in the merge dialog"
+  },
   "customRulesEditor_defaultsUnusedSource": {
     "message": "Not used right now: your defaults replace the built-in and remote rules' own.",
     "description": "Shown when a built-in or remote file's defaults are not used under the chosen mode"
