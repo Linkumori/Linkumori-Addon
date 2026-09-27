@@ -4790,6 +4790,10 @@ const RULE_DEFAULTS_REQUEST_TYPES = Object.freeze([
 // source (loaded or not) and `active` the set on screen.
 const ruleDefaultsDraft = { mode: 'source', sets: {}, baselines: {}, overrides: {}, active: 'user' };
 let ruleDefaultsModal = null;
+// The merge modal: the plan for the chosen sources and the option picked
+// for each conflict.
+const ruleDefaultsMerge = { plan: null, choices: {} };
+let ruleDefaultsMergeModal = null;
 
 function isFileDefaultsSet(key) {
     return key === 'builtIn' || key.startsWith('remote:');
@@ -4823,7 +4827,22 @@ function setupRuleDefaultsModal() {
         if (event.target === ruleDefaultsModal) closeRuleDefaultsModal();
     });
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && ruleDefaultsModal.classList.contains('show')) closeRuleDefaultsModal();
+        if (event.key !== 'Escape') return;
+        // The merge modal opens over this one and closes first.
+        if (ruleDefaultsMergeModal && ruleDefaultsMergeModal.classList.contains('show')) closeRuleDefaultsMerge();
+        else if (ruleDefaultsModal.classList.contains('show')) closeRuleDefaultsModal();
+    });
+
+    ruleDefaultsMergeModal = document.getElementById('rule-defaults-merge-modal');
+    document.getElementById('rule-defaults-merge-open')?.addEventListener('click', openRuleDefaultsMerge);
+    document.getElementById('rule-defaults-copy-btn')?.addEventListener('click', copyMergedRuleDefaults);
+    // Picking a copy target is not a change to the defaults on screen.
+    document.getElementById('rule-defaults-copy-target')?.addEventListener('change', event => event.stopPropagation());
+    document.getElementById('rule-defaults-merge-close')?.addEventListener('click', closeRuleDefaultsMerge);
+    document.getElementById('rule-defaults-merge-cancel')?.addEventListener('click', closeRuleDefaultsMerge);
+    document.getElementById('rule-defaults-merge-apply')?.addEventListener('click', applyRuleDefaultsMerge);
+    ruleDefaultsMergeModal?.addEventListener('click', event => {
+        if (event.target === ruleDefaultsMergeModal) closeRuleDefaultsMerge();
     });
 
     form.addEventListener('submit', event => {
@@ -4962,7 +4981,8 @@ function updateRuleDefaultsSetState() {
     const fileSet = isFileDefaultsSet(key);
     const edited = isRuleDefaultsSetEdited(key);
     let noteKey = '';
-    if (key === 'user' && ruleDefaultsDraft.mode === 'source') noteKey = 'customRulesEditor_defaultsUnusedUser';
+    if (key === 'merged') noteKey = 'customRulesEditor_defaultsMergedUnused';
+    else if (key === 'user' && ruleDefaultsDraft.mode === 'source') noteKey = 'customRulesEditor_defaultsUnusedUser';
     else if (key === 'custom' && ruleDefaultsDraft.mode === 'unified') noteKey = 'customRulesEditor_defaultsUnusedCustom';
     else if (fileSet && ruleDefaultsDraft.mode !== 'source') noteKey = 'customRulesEditor_defaultsUnusedSource';
     else if (edited) noteKey = 'customRulesEditor_defaultsEditedSource';
@@ -4972,6 +4992,7 @@ function updateRuleDefaultsSetState() {
         note.classList.toggle('u-hidden', !noteKey);
     }
     document.getElementById('rule-defaults-reset')?.classList.toggle('u-hidden', !edited);
+    updateRuleDefaultsCopyRow();
     document.querySelectorAll('#rule-defaults-set option').forEach(option => {
         option.textContent = isRuleDefaultsSetEdited(option.value)
             ? `${option.dataset.label} ${i18n('customRulesEditor_defaultsEditedSuffix')}`
@@ -5173,6 +5194,226 @@ async function saveRuleDefaults() {
         saved.textContent = i18n('customRulesEditor_defaultsSaved');
         status.appendChild(saved);
     }
+}
+
+function ruleDefaultsSetLabel(key) {
+    const option = [...document.querySelectorAll('#rule-defaults-set option')].find(item => item.value === key);
+    return option ? option.dataset.label : key;
+}
+
+// One value of a defaults key, for the merge modal: short, with the full
+// value returned as `title` when shortened.
+function describeRuleDefaultsValue(key, value) {
+    if (value === undefined) {
+        return { text: i18n(key === 'requestTypes' ? 'customRulesEditor_defaultsMergeAllTypes' : 'customRulesEditor_defaultsMergeUnset') };
+    }
+    if (key === 'description') return { text: `"${value}"` };
+    if (!Array.isArray(value)) return { text: String(value) };
+    const items = key === 'preprocessors'
+        ? value.map(item => `${item.type}(${Array.isArray(item.inputs) ? item.inputs.join(', ') : item.inputs})`)
+        : value;
+    const full = items.join(key === 'exceptions' ? '\n' : ', ');
+    if (items.length <= 3 && key !== 'exceptions') return { text: full };
+    const countKey = {
+        requestTypes: 'customRulesEditor_defaultsCountRequestTypes',
+        exceptions: items.length === 1 ? 'customRulesEditor_defaultsCountExceptionsOne' : 'customRulesEditor_defaultsCountExceptions',
+        preprocessors: 'customRulesEditor_defaultsCountPreprocessors'
+    }[key];
+    return { text: i18n(countKey, getLocalizedNumber(items.length)), title: full };
+}
+
+// Opens the merge modal for the set on screen, which gets the result.
+function openRuleDefaultsMerge() {
+    if (!ruleDefaultsMergeModal) return;
+    const { defaults, problems } = readRuleDefaultsForm();
+    if (problems.length > 0) {
+        setRuleDefaultsErrors(problems);
+        return;
+    }
+    ruleDefaultsDraft.sets[ruleDefaultsDraft.active] = defaults;
+
+    document.getElementById('rule-defaults-merge-target').textContent =
+        i18n('customRulesEditor_defaultsMergeTarget');
+    const sources = document.getElementById('rule-defaults-merge-sources');
+    // "Merged defaults" is a result, not a source.
+    sources.replaceChildren(...[...document.querySelectorAll('#rule-defaults-set option')].filter(option => option.value !== 'merged').map(option => {
+        const wrapper = document.createElement('label');
+        wrapper.className = 'form-checkbox';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = option.value;
+        checkbox.checked = true;
+        checkbox.addEventListener('change', () => {
+            ruleDefaultsMerge.choices = {};
+            refreshRuleDefaultsMerge();
+        });
+        const text = document.createElement('span');
+        text.className = 'rule-defaults-merge-option-text';
+        const name = document.createElement('span');
+        name.textContent = option.dataset.label;
+        const summary = document.createElement('span');
+        summary.className = 'rule-defaults-merge-option-from';
+        summary.textContent = describeRuleDefaults(ruleDefaultsDraft.sets[option.value], false).replace(/\n/g, ' · ');
+        text.append(name, summary);
+        wrapper.append(checkbox, text);
+        return wrapper;
+    }));
+    ruleDefaultsMerge.choices = {};
+    refreshRuleDefaultsMerge();
+    ruleDefaultsMergeModal.classList.add('show');
+    setTimeout(() => sources.querySelector('input')?.focus(), 0);
+}
+
+function closeRuleDefaultsMerge() {
+    if (!ruleDefaultsMergeModal) return;
+    ruleDefaultsMergeModal.classList.remove('show');
+    document.getElementById('rule-defaults-merge-open')?.focus();
+}
+
+// Plans the merge of the ticked sources and lists its conflicts.
+function refreshRuleDefaultsMerge() {
+    const keys = [...document.querySelectorAll('#rule-defaults-merge-sources input:checked')].map(input => input.value);
+    const conflictsBox = document.getElementById('rule-defaults-merge-conflicts');
+    const applyBtn = document.getElementById('rule-defaults-merge-apply');
+    const note = text => {
+        const paragraph = document.createElement('p');
+        paragraph.className = 'rule-defaults-merge-none';
+        paragraph.textContent = text;
+        return paragraph;
+    };
+
+    if (keys.length < 2) {
+        ruleDefaultsMerge.plan = null;
+        conflictsBox.replaceChildren(note(i18n('customRulesEditor_defaultsMergeNeedTwo')));
+        if (applyBtn) applyBtn.disabled = true;
+        updateRuleDefaultsMergePreview();
+        return;
+    }
+    if (applyBtn) applyBtn.disabled = false;
+
+    // The set being edited goes first, so its own exceptions stay first.
+    const ordered = [...keys.filter(key => key === ruleDefaultsDraft.active), ...keys.filter(key => key !== ruleDefaultsDraft.active)];
+    const plan = LinkumoriRuleDefaults.planRuleDefaultsMerge(ordered.map(key => ({
+        name: ruleDefaultsSetLabel(key),
+        defaults: ruleDefaultsDraft.sets[key]
+    })));
+    ruleDefaultsMerge.plan = plan;
+    // Lists added together without asking, such as exceptions.
+    const combinedNotes = (plan.combined || []).map(item => note(item.key === 'exceptions'
+        ? i18n('customRulesEditor_defaultsMergeExceptionsAdded', getLocalizedNumber(item.count))
+        : item.key));
+    if (plan.conflicts.length === 0) {
+        conflictsBox.replaceChildren(...combinedNotes, note(i18n('customRulesEditor_defaultsMergeNoConflicts')));
+        updateRuleDefaultsMergePreview();
+        return;
+    }
+
+    conflictsBox.replaceChildren(...combinedNotes, ...plan.conflicts.map(conflict => {
+        const box = document.createElement('div');
+        box.className = 'rule-defaults-merge-conflict';
+        box.setAttribute('role', 'radiogroup');
+        const heading = document.createElement('span');
+        heading.className = 'rule-defaults-merge-key';
+        heading.id = `rule-defaults-merge-key-${conflict.key}`;
+        heading.textContent = conflict.key;
+        box.setAttribute('aria-labelledby', heading.id);
+        box.appendChild(heading);
+        const chosen = Number.isInteger(ruleDefaultsMerge.choices[conflict.key]) ? ruleDefaultsMerge.choices[conflict.key] : conflict.choice;
+        conflict.options.forEach((option, index) => {
+            const label = document.createElement('label');
+            label.className = 'rule-defaults-merge-option';
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = `rule-defaults-merge-${conflict.key}`;
+            radio.value = String(index);
+            radio.checked = index === chosen;
+            radio.addEventListener('change', () => {
+                ruleDefaultsMerge.choices[conflict.key] = index;
+                updateRuleDefaultsMergePreview();
+            });
+            const text = document.createElement('span');
+            text.className = 'rule-defaults-merge-option-text';
+            const value = document.createElement('span');
+            const described = describeRuleDefaultsValue(conflict.key, option.value);
+            value.textContent = described.text;
+            if (described.title) value.title = described.title;
+            const from = document.createElement('span');
+            from.className = 'rule-defaults-merge-option-from';
+            const fromParts = [];
+            if (option.combined) fromParts.push(i18n('customRulesEditor_defaultsMergeCombined'));
+            if (option.sources.length > 0) fromParts.push(i18n('customRulesEditor_defaultsMergeFrom', option.sources.join(', ')));
+            from.textContent = fromParts.join(' · ');
+            text.append(value, from);
+            label.append(radio, text);
+            box.appendChild(label);
+        });
+        return box;
+    }));
+    updateRuleDefaultsMergePreview();
+}
+
+function updateRuleDefaultsMergePreview() {
+    const preview = document.getElementById('rule-defaults-merge-json');
+    if (!preview) return;
+    preview.textContent = ruleDefaultsMerge.plan
+        ? JSON.stringify(LinkumoriRuleDefaults.resolveRuleDefaultsMerge(ruleDefaultsMerge.plan, ruleDefaultsMerge.choices), null, 2)
+        : '';
+}
+
+// Puts the merged block in the list as "Merged defaults" and shows it.
+// It is used once copied into one of the other sets and saved.
+function applyRuleDefaultsMerge() {
+    if (!ruleDefaultsMerge.plan) return;
+    const merged = LinkumoriRuleDefaults.resolveRuleDefaultsMerge(ruleDefaultsMerge.plan, ruleDefaultsMerge.choices);
+    const setSelect = document.getElementById('rule-defaults-set');
+    if (setSelect && ![...setSelect.options].some(option => option.value === 'merged')) {
+        const option = document.createElement('option');
+        option.value = 'merged';
+        option.dataset.label = i18n('customRulesEditor_defaultsSetMerged');
+        option.textContent = option.dataset.label;
+        setSelect.appendChild(option);
+    }
+    ruleDefaultsDraft.sets.merged = merged;
+    closeRuleDefaultsMerge();
+    // The set on screen was valid when the merge opened, so this switches.
+    switchRuleDefaultsSet('merged');
+    fillRuleDefaultsForm(merged);
+    refreshRuleDefaultsPreview();
+}
+
+// While "Merged defaults" is on screen: the sets it can be copied into.
+function updateRuleDefaultsCopyRow() {
+    const row = document.getElementById('rule-defaults-copy-row');
+    const target = document.getElementById('rule-defaults-copy-target');
+    if (!row || !target) return;
+    const showing = ruleDefaultsDraft.active === 'merged';
+    row.classList.toggle('u-hidden', !showing);
+    if (!showing) return;
+    const previous = target.value;
+    target.replaceChildren(...[...document.querySelectorAll('#rule-defaults-set option')]
+        .filter(option => option.value !== 'merged')
+        .map(option => {
+            const item = document.createElement('option');
+            item.value = option.value;
+            item.textContent = option.dataset.label;
+            return item;
+        }));
+    if ([...target.options].some(option => option.value === previous)) target.value = previous;
+}
+
+// Copies "Merged defaults" (as edited in the form) into the chosen set and
+// shows that set; Save stores it.
+function copyMergedRuleDefaults() {
+    const target = document.getElementById('rule-defaults-copy-target')?.value;
+    if (!target || !(target in ruleDefaultsDraft.sets) || target === 'merged') return;
+    const { defaults, problems } = readRuleDefaultsForm();
+    if (problems.length > 0) {
+        setRuleDefaultsErrors(problems);
+        return;
+    }
+    ruleDefaultsDraft.sets.merged = defaults;
+    ruleDefaultsDraft.sets[target] = JSON.parse(JSON.stringify(defaults));
+    switchRuleDefaultsSet(target, false);
 }
 
 /**

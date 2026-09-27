@@ -203,6 +203,105 @@
         return isPlainObject(userDefaults) ? userDefaults : {};
     }
 
+    // Lists a merge can combine instead of picking one source's value.
+    const COMBINABLE_KEYS = Object.freeze(['requestTypes', 'exceptions', 'preprocessors']);
+    // Lists a merge always combines: every source's exceptions are added to
+    // the ones already there, so they never conflict.
+    const ALWAYS_COMBINED_KEYS = Object.freeze(['exceptions']);
+
+    // A value's identity for comparing sources. Leaving a key out means its
+    // built-in behaviour (every request type, no exceptions, ...), and the
+    // order of request types does not matter.
+    function canonicalDefaultsValue(key, value) {
+        if (value === undefined) return 'unset';
+        if (key === 'requestTypes' && Array.isArray(value)) return JSON.stringify([...value].sort());
+        return JSON.stringify(value);
+    }
+
+    function combineDefaultsValues(key, values) {
+        if (key === 'requestTypes') {
+            // A source that allows every type keeps every type allowed.
+            return values.some(value => value === undefined) ? undefined : [...new Set(values.flat())];
+        }
+        const seen = new Set();
+        const combined = [];
+        values.filter(Array.isArray).flat().forEach(item => {
+            const id = JSON.stringify(item);
+            if (seen.has(id)) return;
+            seen.add(id);
+            combined.push(item);
+        });
+        return combined.length > 0 ? combined : undefined;
+    }
+
+    // Plans merging several "defaults" blocks ([{ name, defaults }]).
+    // Keys the sources agree on go straight into `merged`, and so do the
+    // exceptions of every source, added together (listed in `combined`).
+    // Each other key they disagree on is a conflict with its distinct values
+    // as `options` ({ value, sources, combined }); list keys also get a
+    // combined option, which is the preselected `choice`, other keys the
+    // first source's.
+    function planRuleDefaultsMerge(entries) {
+        const merged = {};
+        const conflicts = [];
+        const combined = [];
+        RULE_DEFAULT_KEYS.forEach(key => {
+            const groups = [];
+            (Array.isArray(entries) ? entries : []).forEach(entry => {
+                const value = normalizeRuleDefaults(entry && entry.defaults)[key];
+                const id = canonicalDefaultsValue(key, value);
+                let group = groups.find(candidate => candidate.id === id);
+                if (!group) {
+                    group = { id, value, sources: [] };
+                    groups.push(group);
+                }
+                group.sources.push(entry && entry.name);
+            });
+            if (groups.length <= 1) {
+                if (groups[0] && groups[0].value !== undefined) merged[key] = copyValue(groups[0].value);
+                return;
+            }
+            if (ALWAYS_COMBINED_KEYS.includes(key)) {
+                const value = combineDefaultsValues(key, groups.map(group => group.value));
+                if (value !== undefined) merged[key] = copyValue(value);
+                combined.push({ key, count: Array.isArray(value) ? value.length : 0 });
+                return;
+            }
+            const options = groups.map(group => ({ value: group.value, sources: group.sources, combined: false }));
+            let choice = 0;
+            if (COMBINABLE_KEYS.includes(key)) {
+                const combinedValue = combineDefaultsValues(key, groups.map(group => group.value));
+                const combinedId = canonicalDefaultsValue(key, combinedValue);
+                let index = options.findIndex(option => canonicalDefaultsValue(key, option.value) === combinedId);
+                if (index === -1) {
+                    options.unshift({ value: combinedValue, sources: [], combined: true });
+                    index = 0;
+                } else {
+                    options[index].combined = true;
+                }
+                choice = index;
+            }
+            conflicts.push({ key, options, choice });
+        });
+        return { merged, conflicts, combined };
+    }
+
+    // The merged block, taking for each conflict the option index in
+    // `choices[key]` (or its preselected choice).
+    function resolveRuleDefaultsMerge(plan, choices = {}) {
+        const values = { ...(plan && plan.merged) };
+        (plan && Array.isArray(plan.conflicts) ? plan.conflicts : []).forEach(conflict => {
+            const index = Number.isInteger(choices[conflict.key]) ? choices[conflict.key] : conflict.choice;
+            const option = conflict.options[index] || conflict.options[conflict.choice];
+            if (option && option.value !== undefined) values[conflict.key] = copyValue(option.value);
+        });
+        const result = {};
+        RULE_DEFAULT_KEYS.forEach(key => {
+            if (values[key] !== undefined) result[key] = values[key];
+        });
+        return normalizeRuleDefaults(result);
+    }
+
     root.LinkumoriRuleDefaults = Object.freeze({
         PREPROCESSOR_TYPES,
         RULE_DEFAULTS_MODES,
@@ -214,6 +313,8 @@
         normalizeRuleDefaults,
         normalizeRuleDefaultsMode,
         pickRuleDefaults,
+        planRuleDefaultsMerge,
+        resolveRuleDefaultsMerge,
         usesUserRuleDefaults
     });
 })(typeof globalThis !== 'undefined' ? globalThis : this);

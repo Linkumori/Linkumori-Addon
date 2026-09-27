@@ -1874,6 +1874,80 @@
             overflow-wrap: anywhere;
         }
 
+        .rule-defaults-merge-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .rule-defaults-merge-sources {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .rule-defaults-merge-sources .form-checkbox {
+            margin: 0;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .rule-defaults-merge-conflicts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rule-defaults-merge-conflict {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        .rule-defaults-merge-key {
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .rule-defaults-merge-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        .rule-defaults-merge-option input {
+            margin-top: 3px;
+            accent-color: var(--button-primary);
+        }
+
+        .rule-defaults-merge-option-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .rule-defaults-merge-option-from {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .rule-defaults-merge-none {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
         .rule-defaults-errors {
             font-size: 12px;
             color: var(--button-danger);
@@ -4107,9 +4181,15 @@ subdomain.example.com
                         <div class="rule-defaults-set-row">
                             <select class="form-input" id="rule-defaults-set"></select>
                             <button type="button" class="btn btn-secondary btn-sm u-hidden" id="rule-defaults-reset" data-i18n="customRulesEditor_defaultsResetToFile"></button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="rule-defaults-merge-open" data-i18n="customRulesEditor_defaultsMergeOpen"></button>
                         </div>
                     </div>
                     <div class="rule-defaults-unused u-hidden" id="rule-defaults-unused" role="note"></div>
+                    <div class="rule-defaults-set-row u-hidden" id="rule-defaults-copy-row">
+                        <label class="form-label" for="rule-defaults-copy-target" data-i18n="customRulesEditor_defaultsCopyTo"></label>
+                        <select class="form-input" id="rule-defaults-copy-target"></select>
+                        <button type="button" class="btn btn-primary btn-sm" id="rule-defaults-copy-btn" data-i18n="customRulesEditor_defaultsCopyButton"></button>
+                    </div>
 
                     <div class="rule-defaults-fields" id="rule-defaults-panel" role="group" aria-labelledby="rule-defaults-set">
                         <div class="form-checkbox">
@@ -4170,6 +4250,40 @@ subdomain.example.com
                     <button type="submit" class="btn btn-primary" id="rule-defaults-save" data-i18n="customRulesEditor_defaultsSave"></button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Rule Defaults Merge Modal (opens over the rule defaults modal) -->
+    <div class="modal" id="rule-defaults-merge-modal" role="dialog" aria-modal="true" aria-labelledby="rule-defaults-merge-title">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 class="modal-title" id="rule-defaults-merge-title" data-i18n="customRulesEditor_defaultsMergeTitle"></h3>
+                <button type="button" class="modal-close" id="rule-defaults-merge-close" data-i18n-aria="button_close" aria-label="">&times;</button>
+            </div>
+
+            <div class="rule-defaults-merge-body">
+                <p class="form-help rule-defaults-intro" id="rule-defaults-merge-target"></p>
+
+                <fieldset class="rule-defaults-section">
+                    <legend class="form-label" data-i18n="customRulesEditor_defaultsMergeSources"></legend>
+                    <div class="rule-defaults-merge-sources" id="rule-defaults-merge-sources"></div>
+                </fieldset>
+
+                <fieldset class="rule-defaults-section">
+                    <legend class="form-label" data-i18n="customRulesEditor_defaultsMergeConflicts"></legend>
+                    <div class="rule-defaults-merge-conflicts" id="rule-defaults-merge-conflicts"></div>
+                </fieldset>
+
+                <details class="rule-defaults-preview" open>
+                    <summary data-i18n="customRulesEditor_defaultsMergeResult"></summary>
+                    <pre id="rule-defaults-merge-json"></pre>
+                </details>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="rule-defaults-merge-cancel" data-i18n="button_cancel"></button>
+                <button type="button" class="btn btn-primary" id="rule-defaults-merge-apply" data-i18n="customRulesEditor_defaultsMergeApply"></button>
+            </div>
         </div>
     </div>
 
