@@ -16,6 +16,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.61.1] - 2026-09-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.61.0...linkumori-v100.61.1))
+### Added
+- Bundled rules carry defaults; global exceptions move into them (`2026-09-27`, hash: [`51b8464`](https://github.com/Linkumori/Linkumori-Addon/commit/51b8464))
+- Detect rule collisions in the linter and in remote rules (`2026-09-27`, hash: [`0f42183`](https://github.com/Linkumori/Linkumori-Addon/commit/0f42183))
+- Edit built-in and remote rule defaults; compact defaults summary (`2026-09-27`, hash: [`cba2d64`](https://github.com/Linkumori/Linkumori-Addon/commit/cba2d64))
+- Introduce ClearURLs 2.0 style rule defaults, applied per source (`2026-09-27`, hash: [`3752cde`](https://github.com/Linkumori/Linkumori-Addon/commit/3752cde))
+- Merge rule defaults from several sources (`2026-09-27`, hash: [`b39daaf`](https://github.com/Linkumori/Linkumori-Addon/commit/b39daaf))
+- User rule defaults with a modes choice; request types from rules (`2026-09-27`, hash: [`661bab8`](https://github.com/Linkumori/Linkumori-Addon/commit/661bab8))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-09-27`, hash: [`51b8464`](https://github.com/Linkumori/Linkumori-Addon/commit/51b8464))
+- Generated compressed URL cleaning rules bundle (`2026-09-27`, hash: [`899e6fb`](https://github.com/Linkumori/Linkumori-Addon/commit/899e6fb))
+- I18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0 (`2026-09-27`, hash: [`db2141e`](https://github.com/Linkumori/Linkumori-Addon/commit/db2141e))
+- Updated canonical URL cleaning rules source (`2026-09-27`, hash: [`51b8464`](https://github.com/Linkumori/Linkumori-Addon/commit/51b8464))
+
+### Fixed
+- Lint imported custom rules like saved ones (`2026-09-27`, hash: [`ae9ac52`](https://github.com/Linkumori/Linkumori-Addon/commit/ae9ac52))
+- Stop remote rule merging from dropping rules and provider settings (`2026-09-27`, hash: [`b124ed6`](https://github.com/Linkumori/Linkumori-Addon/commit/b124ed6))
+
+### Documentation
+- Explain ClearURLs 2.0 vs Linkumori CLN Format 1.0 (`2026-09-27`, hash: [`8143863`](https://github.com/Linkumori/Linkumori-Addon/commit/8143863))
+- Fix mis-decoded characters in filter-syntax.md (`2026-09-27`, hash: [`36ce24a`](https://github.com/Linkumori/Linkumori-Addon/commit/36ce24a))
+
 ## [v100.61.0] - 2026-09-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.60.0...linkumori-v100.61.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-09-27`, hash: [`1a4506e`](https://github.com/Linkumori/Linkumori-Addon/commit/1a4506e))
