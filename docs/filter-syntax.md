@@ -4,7 +4,7 @@ Sep 27, 2026 · @Subham
 
 
 
-Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `metadata`). Each key under `providers` is a name you choose; its value is a provider object.
+Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `metadata` and `defaults`). Each key under `providers` is a name you choose; its value is a provider object.
 
 ```json
 {
@@ -306,6 +306,31 @@ Using the `token-rewrite` object above, against a URL containing `?token=abc123`
 | `order: 5` | this rewrite runs at position 5 among the provider's ordered `rawRules`/`rules` entries |
 
 Result: `?token=abc123` becomes `?token=clean-abc123`.
+
+## defaults
+
+A top-level `defaults` block gives every rule of the file values it doesn't set itself, like the ClearURLs new rule format's `defaults`:
+
+```json
+{
+  "defaults": { "requestTypes": ["main_frame"], "exceptions": ["^https:\\/\\/example\\.com\\/keep"] },
+  "providers": { … }
+}
+```
+
+| Key | Default for each rule's… |
+| --- | --- |
+| `active` | `active`; `false` switches every rule of the file off unless it says `"active": true` |
+| `description` | `description` |
+| `requestTypes` | `requestTypes`; `"all"` (or leaving it out) means every type |
+| `preprocessors` | `preprocessors` |
+| `exceptions` | `exceptions` |
+| `historyBypassProtection` | `historyBypassProtection` |
+
+- **A rule's own value always wins**, and a rule's `exceptions` replace the default list rather than adding to it. A provider's own `historyBypassProtection` beats the file default too.
+- **Which lists:** `rules`, `rawRules`, `referralMarketing`, `redirections` and `fieldRedirections`. A provider's `exceptions` list is left alone, so a default can't switch every exception off. `|`-pattern entries (`$redirect=` redirects) only use `active`.
+- **Per file:** defaults are written into the file's own rules when it loads. Built-in, each remote file, and custom rules keep their own defaults, including when overload mode merges built-in and remote rules. Custom rules' defaults are edited in the custom rules editor, which also shows the defaults each loaded source uses.
+- **Checked:** unknown keys and wrong types are errors in `lint-rules` and the editor, and a remote file with an invalid `defaults` block is rejected.
 
 ## Processing order
 

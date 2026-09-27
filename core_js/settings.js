@@ -4639,6 +4639,7 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('cname_replay_full_url_enabled_description', 'cname_replay_full_url_enabled_description');
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
+    setElementText('overload_mode_defaults_note', 'overload_mode_defaults_note');
     
     // Rules section
     setElementText('bundled_rules_section_title', 'bundled_rules_section_title');

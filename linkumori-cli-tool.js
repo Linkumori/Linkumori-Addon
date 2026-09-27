@@ -65,9 +65,10 @@ import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
 import './core_js/linkumori_rule_ids.js';
+import './core_js/linkumori_rule_defaults.js';
 import './core_js/linkumori_rule_pins.js';
 
-const { LinkumoriRuleIds, LinkumoriRulePins } = globalThis;
+const { LinkumoriRuleDefaults, LinkumoriRuleIds, LinkumoriRulePins } = globalThis;
 
 // Rule ids and aliases (see docs/filter-syntax.md §9).
 const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
@@ -1989,6 +1990,11 @@ ${commit.message}
     const errors   = [];
     const warnings = [];
     let totalRegexChecked = 0;
+
+    // A top-level "defaults" block (core_js/linkumori_rule_defaults.js).
+    for (const problem of LinkumoriRuleDefaults.findRuleDefaultsProblems(data.defaults)) {
+      errors.push(`[defaults] ${problem}`);
+    }
 
     // helper — try to compile a regex, push error on failure
     const tryRegex = (pattern, flags, label) => {
