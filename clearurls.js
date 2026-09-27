@@ -1173,17 +1173,44 @@ function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     return true;
 }
 
-// A rule object's own "exceptions", as case-insensitive regexes.
-function compileRuleExceptionRegexes(exceptions) {
-    return (Array.isArray(exceptions) ? exceptions : [])
-        .map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } })
-        .filter(Boolean);
+// Matchers for rule objects' own "exceptions" (case-insensitive URL
+// regexes), keyed by the list. Rules given the same list, such as a file's
+// "defaults", share one matcher, and it remembers its last answer, so a URL
+// is checked against a list once however many rules carry it.
+// (A class, so compiled rules holding one can still be cloned.)
+class RuleExceptionMatcher {
+    constructor(list) {
+        this.regexes = list.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
+        this.lastUrl = null;
+        this.lastResult = false;
+    }
+
+    test(url) {
+        if (url === this.lastUrl) return this.lastResult;
+        this.lastUrl = url;
+        this.lastResult = this.regexes.some(regex => { try { return regex.test(url); } catch (_) { return false; } });
+        return this.lastResult;
+    }
+}
+
+var ruleExceptionMatchers = new Map();
+
+function getRuleExceptionMatcher(exceptions) {
+    const list = (Array.isArray(exceptions) ? exceptions : []).filter(ex => typeof ex === "string" && ex);
+    if (list.length === 0) return null;
+    const key = list.join("\n");
+    let matcher = ruleExceptionMatchers.get(key);
+    if (!matcher) {
+        matcher = new RuleExceptionMatcher(list);
+        ruleExceptionMatchers.set(key, matcher);
+    }
+    return matcher;
 }
 
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
-    if (Array.isArray(linkumoriRule.exceptionRegexes) && linkumoriRule.exceptionRegexes.some(regex => regex.test(fullUrl))) return false;
+    if (linkumoriRule.exceptionMatcher && linkumoriRule.exceptionMatcher.test(fullUrl)) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
@@ -1349,8 +1376,8 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
     try {
         // Per-rule exceptions are case-insensitive, like provider-level exceptions.
-        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
-        return { ...normalized, exceptionRegexes, regex: new RegExp(source, normalized.flags) };
+        const exceptionMatcher = getRuleExceptionMatcher(normalized.exceptions);
+        return { ...normalized, exceptionMatcher, regex: new RegExp(source, normalized.flags) };
     } catch (_) { return null; }
 }
 
@@ -1399,9 +1426,9 @@ function compileRawRuleDefinition(rule, defaults = null) {
     if (parsed.isException) {
         // Nothing is matched against the URL text; the regex only names the
         // raw rules this exception stops.
-        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
+        const exceptionMatcher = getRuleExceptionMatcher(normalized.exceptions);
         const targetId = rule && typeof rule === "object" && typeof rule.targetId === "string" && rule.targetId ? rule.targetId : null;
-        return { ...normalized, historyBypassProtection, exceptionRegexes, regex: null, isException: true,
+        return { ...normalized, historyBypassProtection, exceptionMatcher, regex: null, isException: true,
             rawRegexSource: parsed.regex, targetId, rawFilter: filter };
     }
     if (!parsed.regex) return null;
@@ -1441,9 +1468,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
         const rt = String(request && request.type || "").toLowerCase();
         if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
     }
-    if (Array.isArray(compiledRule.exceptionRegexes) && compiledRule.exceptionRegexes.length > 0) {
-        return !compiledRule.exceptionRegexes.some(regex => { try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; } });
-    }
+    if (compiledRule.exceptionMatcher) return !compiledRule.exceptionMatcher.test(url);
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
     return !exceptions.some(ex => { try { return (new RegExp(ex, "i")).test(url); } catch (_) { return false; } });
 }
@@ -2169,7 +2194,7 @@ function start() {
                 }
                 parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
                 parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
-                parsedLinkumoriRule.exceptionRegexes = compileRuleExceptionRegexes(activeRule.exceptions);
+                parsedLinkumoriRule.exceptionMatcher = getRuleExceptionMatcher(activeRule.exceptions);
                 // Only fall back to the canonical object's field when the $-modifier
                 // text itself didn't specify history-bypass-protection inline.
                 if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
