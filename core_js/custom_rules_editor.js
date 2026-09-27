@@ -6143,6 +6143,12 @@ function validateImportedProviders(providersData) {
                 }
             }
         }
+
+        // Whatever saving rejects, importing rejects too.
+        const lintError = lintProvider(provider, name).find(problem => problem.severity === 'error');
+        if (lintError) {
+            throw new Error(lintError.message);
+        }
     }
 }
 
