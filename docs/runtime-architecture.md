@@ -230,6 +230,19 @@ pass are merged (`mergeRemoteRulesSources`): providers with the same
 pattern and settings become one provider (`getProviderGroupKey`,
 `mergeRemoteProviderGroup`). The result is saved as `remoteRulescache`.
 
+Within a merged provider, two rules count as the same when everything that
+changes what they do matches, `targetId`, `order` and
+`historyBypassProtection` included (`getStableRuleSignature`). Only one is
+kept, and the other's `id` and `aliases` become aliases of it. An inactive
+provider adds nothing to its group, and a provider-level
+`historyBypassProtection` is copied onto its rules, since the merged
+provider can hold only one.
+
+Each source is checked for rule collisions
+(`LinkumoriRuleIds.findRuleCollisions`), and so is each merge, for the
+collisions merging creates. They are logged and shown in settings, and the
+rules still load.
+
 The outcome of every attempt is recorded in `remoteRulesHealth`, which
 settings shows.
 
