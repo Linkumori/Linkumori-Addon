@@ -101,7 +101,7 @@ CLN takes the best part of each earlier format and puts it in one place:
 | From | What CLN keeps |
 |---|---|
 | The ClearURLs catalog | its provider keys and per-behaviour lists, unchanged |
-| ClearURLs 2.0 | its rule-object features: `id`, `aliases`, rewrite via `replacePattern`, `preprocessors`, `requestTypes`, per-rule `exceptions`, `referralMarketing`, `description`, `active` |
+| ClearURLs 2.0 | its rule-object features: `id`, `aliases`, rewrite via `replacePattern`, `preprocessors`, `requestTypes`, per-rule `exceptions`, `referralMarketing`, `description`, `active`; and its top-level `defaults` block |
 | Linkumori | domain patterns, `$removeparam` filters, and the rest in §3 layer 3 |
 
 - **Backwards compatible with the catalog.** An official ClearURLs catalog
@@ -118,6 +118,40 @@ CLN takes the best part of each earlier format and puts it in one place:
   exports all use the same JSON, checked by the same linter in the editor
   and in `lint-rules`.
 
+### How `defaults` works in CLN
+
+A top-level `defaults` block fills in values a rule leaves out, as in
+ClearURLs 2.0. CLN reads the same keys (`active`, `description`,
+`requestTypes`, `preprocessors`, `exceptions`) plus
+`historyBypassProtection`, and a rule's own value still wins. What CLN adds:
+
+- **Per source.** Each file's block is written into that file's rules as
+  it loads: the built-in rules, each remote file, and the custom rules.
+  When overload mode merges built-in and remote rules, every rule keeps
+  its own file's defaults.
+- **Your own defaults.** In the custom rules editor, "Manage rule defaults"
+  sets a block of your own and where it replaces the files' own:
+  - *Each source's own* (the default): every file's own block is used.
+  - *Yours for built-in and remote rules*: custom rules keep their own.
+  - *Yours for all rules*: every file's own block is replaced.
+
+  The same form can also edit the built-in rules' block and each remote
+  file's. The edit is stored in the extension, not in the file, and can be
+  reset to the file's own.
+- **Request types come only from rules.** The Settings list of request
+  types is gone. A rule is limited by its own `requestTypes` or by
+  `defaults`, and a provider by `resourceTypes`. With none of these set, a
+  rule cleans every request type.
+- **Complete providers.** A `completeProvider` blocks a site before any
+  rule is checked, so `requestTypes` and `exceptions` from `defaults` also
+  limit the block. Provider `exceptions` lists are otherwise left alone.
+- **The bundled rules use it.** Their `defaults` hold the request types
+  the Settings list used to hold, and the site exceptions that used to sit
+  on the `globalRules` provider. Every built-in rule therefore skips those
+  sites, and `globalRules` keeps only its rules.
+
+The full reference is [filter-syntax.md § defaults](filter-syntax.md#defaults).
+
 ### Added after the rename
 
 These arrived in later releases and exist only in CLN:
@@ -126,7 +160,10 @@ These arrived in later releases and exist only in CLN:
 |---|---|
 | v100.58.0 | `fieldRedirections`, rule `order`, raw rules with patterns and options (`$rawrule=`), `@@…$rawrule=` exceptions and `targetId` |
 | v100.59.0 | generated ids for every rule, unique within a provider; pinned ids, so a switched-off rule keeps its setting when its text changes |
-| after v100.61.0 | a top-level `defaults` block like ClearURLs 2.0's, applied per rule source |
+| after v100.61.0 | a top-level `defaults` block like ClearURLs 2.0's, plus `historyBypassProtection`, applied per rule source |
+| after v100.61.0 | your own defaults, set in the custom rules editor, which can replace the files' own for built-in and remote rules or for every source |
+| after v100.61.0 | request types come only from rules (`requestTypes`, `defaults`, a provider's `resourceTypes`); the Settings request type list is removed |
+| after v100.61.0 | the bundled rules' `defaults` hold their request types and the site exceptions formerly on `globalRules` |
 | after v100.61.0 | collision checks: two entries whose text means only one takes effect, and ids shared once generated ids count, in the editor, `lint-rules`, imports and remote rules |
 
 ## 5. What this means in practice
@@ -136,6 +173,7 @@ These arrived in later releases and exist only in CLN:
 - **A ClearURLs 2.0 YAML file:** Linkumori does not read YAML or convert
   it. Move the rules by hand, following
   [§15 of the comparison](clearurls-v2-vs-linkumori.md#15-moving-rules-between-the-formats).
+  Its `defaults` block carries over as it is, written as JSON.
 - **A file written for Linkumori (ClearURLs 2.0):** rules that use only the
   catalog lists and the Linkumori additions still work. Rewrite the
   ClearURLs 2.0 spellings (`match` → `matchPattern`,

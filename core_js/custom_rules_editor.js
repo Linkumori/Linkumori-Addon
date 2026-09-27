@@ -4672,14 +4672,32 @@ async function updateRulesStatus() {
 
 // One source's defaults as text: "key: value" lines, or "None" when it
 // has none that change anything.
-function describeRuleDefaults(defaults) {
+// With `full` false (the sidebar), a list longer than a few items is shown
+// as a count and a long description is cut short.
+function describeRuleDefaults(defaults, full = true) {
     const entries = Object.entries(LinkumoriRuleDefaults.normalizeRuleDefaults(defaults));
     if (entries.length === 0) return i18n('customRulesEditor_defaultsNone');
+    const SHORT_LIST = 3;
+    const SHORT_TEXT = 40;
+    const countKeys = {
+        requestTypes: 'customRulesEditor_defaultsCountRequestTypes',
+        exceptions: 'customRulesEditor_defaultsCountExceptions',
+        preprocessors: 'customRulesEditor_defaultsCountPreprocessors'
+    };
     const describeValue = (key, value) => {
-        if (key === 'preprocessors') {
-            return value.map(item => `${item.type}(${Array.isArray(item.inputs) ? item.inputs.join(', ') : item.inputs})`).join(', ');
+        const items = key === 'preprocessors'
+            ? value.map(item => `${item.type}(${Array.isArray(item.inputs) ? item.inputs.join(', ') : item.inputs})`)
+            : value;
+        if (!Array.isArray(items)) {
+            const text = String(items);
+            return !full && text.length > SHORT_TEXT ? `${text.slice(0, SHORT_TEXT - 1)}…` : text;
         }
-        return Array.isArray(value) ? value.join(', ') : String(value);
+        // Exceptions are long regexes, so the sidebar always counts them.
+        if (!full && (items.length > SHORT_LIST || key === 'exceptions')) {
+            if (key === 'exceptions' && items.length === 1) return i18n('customRulesEditor_defaultsCountExceptionsOne');
+            return i18n(countKeys[key], getLocalizedNumber(items.length));
+        }
+        return items.join(', ');
     };
     return entries
         .map(([key, value]) => `${key}: ${describeValue(key, value)}`)
@@ -4699,37 +4717,43 @@ async function updateRuleDefaultsStatus() {
         status = null;
     }
 
-    const addRow = (label, text) => {
+    const mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(status && status.mode);
+
+    // A short summary, with the full values on hover. A source whose own
+    // defaults are replaced by the user's is marked so.
+    const overrides = status && status.sourceOverrides ? status.sourceOverrides : {};
+    const addRow = (label, fileDefaults, sourceKind = null, ruleURL = null) => {
+        // The user's edit of a built-in or remote file's own defaults.
+        const override = sourceKind === 'builtIn' ? overrides.builtIn
+            : (sourceKind === 'remote' && overrides.remote ? overrides.remote[ruleURL] : undefined);
+        const defaults = override !== undefined ? override : fileDefaults;
+        const marks = [];
+        if (override !== undefined) marks.push(i18n('customRulesEditor_defaultsEditedMarker'));
+        if (sourceKind && LinkumoriRuleDefaults.usesUserRuleDefaults(mode, sourceKind)) marks.push(i18n('customRulesEditor_defaultsReplaced'));
+        const replaced = marks.map(mark => `\n${mark}`).join('');
         const row = document.createElement('div');
         row.className = 'rules-status-row rules-status-row-stack';
         const labelSpan = document.createElement('span');
         labelSpan.textContent = label;
         const valueSpan = document.createElement('span');
-        valueSpan.textContent = text;
+        valueSpan.textContent = describeRuleDefaults(defaults, false) + replaced;
+        const fullText = describeRuleDefaults(defaults, true) + replaced;
+        if (fullText !== valueSpan.textContent) valueSpan.title = fullText;
         row.append(labelSpan, valueSpan);
         container.appendChild(row);
     };
 
-    const mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(status && status.mode);
-    // A source whose own defaults are replaced by the user's is marked so.
-    const describeSource = (sourceKind, defaults) => {
-        const text = describeRuleDefaults(defaults);
-        return LinkumoriRuleDefaults.usesUserRuleDefaults(mode, sourceKind)
-            ? `${text}\n${i18n('customRulesEditor_defaultsReplaced')}`
-            : text;
-    };
-
     container.replaceChildren();
     if (status && status.builtIn) {
-        addRow(i18n('customRulesEditor_defaultsBuiltIn'), describeSource('builtIn', status.builtIn));
+        addRow(i18n('customRulesEditor_defaultsBuiltIn'), status.builtIn, 'builtIn');
     }
     (status && Array.isArray(status.remote) ? status.remote : []).forEach(source => {
-        addRow(i18n('customRulesEditor_defaultsRemote', source.ruleURL || '?'), describeSource('remote', source.defaults));
+        addRow(i18n('customRulesEditor_defaultsRemote', source.ruleURL || '?'), source.defaults, 'remote', source.ruleURL);
     });
     // The editor's own copy, so a change shows before the rules reload.
-    addRow(i18n('customRulesEditor_defaultsCustom'), describeSource('custom', customRules.defaults));
+    addRow(i18n('customRulesEditor_defaultsCustom'), customRules.defaults, 'custom');
     if (mode !== 'source') {
-        addRow(i18n('customRulesEditor_defaultsUser'), describeRuleDefaults(status && status.userDefaults));
+        addRow(i18n('customRulesEditor_defaultsUser'), status && status.userDefaults);
     }
 
     const modeNote = document.createElement('div');
@@ -4759,10 +4783,32 @@ const RULE_DEFAULTS_REQUEST_TYPES = Object.freeze([
     'web_manifest', 'xml_dtd', 'xslt', 'other'
 ]);
 
-// Both editable sets while the modal is open: the user's own defaults and
-// the custom rules' "defaults" block. `active` is the one on screen.
-const ruleDefaultsDraft = { mode: 'source', user: {}, custom: {}, active: 'user' };
+// Every editable set while the modal is open, by key: 'user' (the user's
+// own defaults), 'custom' (the custom rules' block), 'builtIn' and
+// 'remote:<ruleURL>' (the user's version of a file's own). `baselines`
+// holds those files' own defaults, `overrides` the stored edits of every
+// source (loaded or not) and `active` the set on screen.
+const ruleDefaultsDraft = { mode: 'source', sets: {}, baselines: {}, overrides: {}, active: 'user' };
 let ruleDefaultsModal = null;
+
+function isFileDefaultsSet(key) {
+    return key === 'builtIn' || key.startsWith('remote:');
+}
+
+// Whether two blocks mean the same; the order of request types does not
+// matter (the form lists them in checkbox order).
+function sameRuleDefaults(a, b) {
+    const canonical = block => {
+        const normalized = LinkumoriRuleDefaults.normalizeRuleDefaults(block);
+        if (Array.isArray(normalized.requestTypes)) normalized.requestTypes = [...normalized.requestTypes].sort();
+        return JSON.stringify(normalized);
+    };
+    return canonical(a) === canonical(b);
+}
+
+function isRuleDefaultsSetEdited(key) {
+    return isFileDefaultsSet(key) && !sameRuleDefaults(ruleDefaultsDraft.sets[key], ruleDefaultsDraft.baselines[key]);
+}
 
 function setupRuleDefaultsModal() {
     ruleDefaultsModal = document.getElementById('rule-defaults-modal');
@@ -4788,7 +4834,6 @@ function setupRuleDefaultsModal() {
     form.addEventListener('change', event => {
         if (event.target.name === 'rule-defaults-mode') {
             ruleDefaultsDraft.mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(event.target.value);
-            updateRuleDefaultsUnusedNote();
         }
         if (event.target.name === 'rule-defaults-types-mode') {
             document.getElementById('rule-defaults-types')?.classList.toggle('u-hidden', event.target.value !== 'some');
@@ -4796,16 +4841,19 @@ function setupRuleDefaultsModal() {
         refreshRuleDefaultsPreview();
     });
 
-    document.querySelectorAll('.rule-defaults-tab').forEach(tab => {
-        tab.addEventListener('click', () => switchRuleDefaultsTab(tab.dataset.set));
-        tab.addEventListener('keydown', event => {
-            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-            event.preventDefault();
-            const next = tab.dataset.set === 'user' ? 'custom' : 'user';
-            if (switchRuleDefaultsTab(next)) {
-                document.querySelector(`.rule-defaults-tab[data-set="${next}"]`)?.focus();
-            }
-        });
+    const setSelect = document.getElementById('rule-defaults-set');
+    // Not part of the form's own change handling: it swaps the form.
+    setSelect?.addEventListener('change', event => {
+        event.stopPropagation();
+        switchRuleDefaultsSet(setSelect.value);
+    });
+    document.getElementById('rule-defaults-reset')?.addEventListener('click', () => {
+        const key = ruleDefaultsDraft.active;
+        if (!isFileDefaultsSet(key)) return;
+        ruleDefaultsDraft.sets[key] = JSON.parse(JSON.stringify(ruleDefaultsDraft.baselines[key] || {}));
+        setRuleDefaultsErrors([]);
+        fillRuleDefaultsForm(ruleDefaultsDraft.sets[key]);
+        refreshRuleDefaultsPreview();
     });
 
     document.getElementById('rule-defaults-add-preprocessor')?.addEventListener('click', () => {
@@ -4817,27 +4865,60 @@ function setupRuleDefaultsModal() {
 async function openRuleDefaultsModal() {
     let mode = 'source';
     let userDefaults = {};
+    let status = null;
     try {
-        const [modeResponse, defaultsResponse] = await Promise.all([
+        const [modeResponse, defaultsResponse, statusResponse] = await Promise.all([
             browser.runtime.sendMessage({ function: 'getData', params: ['ruleDefaultsMode'] }),
-            browser.runtime.sendMessage({ function: 'getData', params: ['userRuleDefaults'] })
+            browser.runtime.sendMessage({ function: 'getData', params: ['userRuleDefaults'] }),
+            browser.runtime.sendMessage({ function: 'getRuleDefaultsStatus' })
         ]);
         mode = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(modeResponse && modeResponse.response);
         const stored = defaultsResponse && defaultsResponse.response;
         if (stored && typeof stored === 'object' && !Array.isArray(stored)) userDefaults = stored;
+        status = statusResponse && statusResponse.response ? statusResponse.response : null;
     } catch (error) {
         // Open with the built-in values.
     }
 
+    const normalize = LinkumoriRuleDefaults.normalizeRuleDefaults;
+    const overrides = status && status.sourceOverrides ? status.sourceOverrides : {};
     ruleDefaultsDraft.mode = mode;
-    ruleDefaultsDraft.user = LinkumoriRuleDefaults.normalizeRuleDefaults(userDefaults);
-    ruleDefaultsDraft.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules.defaults);
-    ruleDefaultsDraft.active = mode === 'source' ? 'custom' : 'user';
+    ruleDefaultsDraft.overrides = JSON.parse(JSON.stringify(overrides));
+    ruleDefaultsDraft.sets = { user: normalize(userDefaults) };
+    ruleDefaultsDraft.baselines = {};
+    const options = [['user', i18n('customRulesEditor_defaultsTabUser')]];
+    // Built-in and remote files can only be edited once loaded, so their
+    // own defaults are known.
+    if (status && status.builtIn) {
+        ruleDefaultsDraft.baselines.builtIn = normalize(status.builtIn);
+        ruleDefaultsDraft.sets.builtIn = normalize(overrides.builtIn !== undefined ? overrides.builtIn : status.builtIn);
+        options.push(['builtIn', i18n('customRulesEditor_defaultsSetBuiltIn')]);
+    }
+    (status && Array.isArray(status.remote) ? status.remote : []).forEach(source => {
+        if (!source || !source.ruleURL) return;
+        const key = `remote:${source.ruleURL}`;
+        const override = overrides.remote ? overrides.remote[source.ruleURL] : undefined;
+        ruleDefaultsDraft.baselines[key] = normalize(source.defaults);
+        ruleDefaultsDraft.sets[key] = normalize(override !== undefined ? override : source.defaults);
+        options.push([key, i18n('customRulesEditor_defaultsRemote', source.ruleURL)]);
+    });
+    ruleDefaultsDraft.sets.custom = normalize(customRules.defaults);
+    options.push(['custom', i18n('customRulesEditor_defaultsTabCustom')]);
+
+    const setSelect = document.getElementById('rule-defaults-set');
+    setSelect.replaceChildren(...options.map(([key, label]) => {
+        const option = document.createElement('option');
+        option.value = key;
+        option.dataset.label = label;
+        option.textContent = label;
+        return option;
+    }));
+    ruleDefaultsDraft.active = mode !== 'source' ? 'user' : (ruleDefaultsDraft.sets.builtIn ? 'builtIn' : 'custom');
 
     const modeInput = document.querySelector(`input[name="rule-defaults-mode"][value="${mode}"]`);
     if (modeInput) modeInput.checked = true;
     setRuleDefaultsErrors([]);
-    switchRuleDefaultsTab(ruleDefaultsDraft.active, false);
+    switchRuleDefaultsSet(ruleDefaultsDraft.active, false);
 
     ruleDefaultsModal.classList.add('show');
     setTimeout(() => (document.querySelector('input[name="rule-defaults-mode"]:checked') || modeInput)?.focus(), 0);
@@ -4852,40 +4933,50 @@ function closeRuleDefaultsModal() {
 // Shows one set in the form, keeping what was typed into the other.
 // Stays put (and returns false) while the set on screen has problems, so
 // nothing typed is dropped on the way.
-function switchRuleDefaultsTab(set, keepCurrent = true) {
-    const target = set === 'custom' ? 'custom' : 'user';
+function switchRuleDefaultsSet(key, keepCurrent = true) {
+    const setSelect = document.getElementById('rule-defaults-set');
+    const target = key in ruleDefaultsDraft.sets ? key : 'user';
     if (keepCurrent) {
         if (target === ruleDefaultsDraft.active) return true;
         const { defaults, problems } = readRuleDefaultsForm();
         if (problems.length > 0) {
             setRuleDefaultsErrors(problems);
+            if (setSelect) setSelect.value = ruleDefaultsDraft.active;
             return false;
         }
-        ruleDefaultsDraft[ruleDefaultsDraft.active] = defaults;
+        ruleDefaultsDraft.sets[ruleDefaultsDraft.active] = defaults;
     }
     setRuleDefaultsErrors([]);
     ruleDefaultsDraft.active = target;
-    document.querySelectorAll('.rule-defaults-tab').forEach(tab => {
-        const selected = tab.dataset.set === ruleDefaultsDraft.active;
-        tab.setAttribute('aria-selected', String(selected));
-        tab.tabIndex = selected ? 0 : -1;
-    });
-    document.getElementById('rule-defaults-panel')?.setAttribute('aria-labelledby', `rule-defaults-tab-${ruleDefaultsDraft.active}`);
-    fillRuleDefaultsForm(ruleDefaultsDraft[ruleDefaultsDraft.active]);
-    updateRuleDefaultsUnusedNote();
+    if (setSelect) setSelect.value = target;
+    fillRuleDefaultsForm(ruleDefaultsDraft.sets[target]);
     refreshRuleDefaultsPreview();
     return true;
 }
 
-// Says so when the set on screen is not used under the chosen mode.
-function updateRuleDefaultsUnusedNote() {
+// Notes whether the set on screen is used under the chosen mode, or that
+// it is the user's edit of a file's own defaults; shows the reset button
+// for such an edit; and marks edited files in the set list.
+function updateRuleDefaultsSetState() {
+    const key = ruleDefaultsDraft.active;
+    const fileSet = isFileDefaultsSet(key);
+    const edited = isRuleDefaultsSetEdited(key);
+    let noteKey = '';
+    if (key === 'user' && ruleDefaultsDraft.mode === 'source') noteKey = 'customRulesEditor_defaultsUnusedUser';
+    else if (key === 'custom' && ruleDefaultsDraft.mode === 'unified') noteKey = 'customRulesEditor_defaultsUnusedCustom';
+    else if (fileSet && ruleDefaultsDraft.mode !== 'source') noteKey = 'customRulesEditor_defaultsUnusedSource';
+    else if (edited) noteKey = 'customRulesEditor_defaultsEditedSource';
     const note = document.getElementById('rule-defaults-unused');
-    if (!note) return;
-    let key = '';
-    if (ruleDefaultsDraft.active === 'user' && ruleDefaultsDraft.mode === 'source') key = 'customRulesEditor_defaultsUnusedUser';
-    if (ruleDefaultsDraft.active === 'custom' && ruleDefaultsDraft.mode === 'unified') key = 'customRulesEditor_defaultsUnusedCustom';
-    note.textContent = key ? i18n(key) : '';
-    note.classList.toggle('u-hidden', !key);
+    if (note) {
+        note.textContent = noteKey ? i18n(noteKey) : '';
+        note.classList.toggle('u-hidden', !noteKey);
+    }
+    document.getElementById('rule-defaults-reset')?.classList.toggle('u-hidden', !edited);
+    document.querySelectorAll('#rule-defaults-set option').forEach(option => {
+        option.textContent = isRuleDefaultsSetEdited(option.value)
+            ? `${option.dataset.label} ${i18n('customRulesEditor_defaultsEditedSuffix')}`
+            : option.dataset.label;
+    });
 }
 
 function fillRuleDefaultsForm(defaults) {
@@ -4991,9 +5082,14 @@ function readRuleDefaultsForm() {
     return { defaults, problems };
 }
 
+// Updates the JSON preview and, since the form holds the set on screen,
+// its draft (only while valid, so the last good value stays).
 function refreshRuleDefaultsPreview() {
+    const { defaults, problems } = readRuleDefaultsForm();
     const preview = document.getElementById('rule-defaults-json');
-    if (preview) preview.textContent = JSON.stringify(readRuleDefaultsForm().defaults, null, 2);
+    if (preview) preview.textContent = JSON.stringify(defaults, null, 2);
+    if (problems.length === 0) ruleDefaultsDraft.sets[ruleDefaultsDraft.active] = defaults;
+    updateRuleDefaultsSetState();
 }
 
 function setRuleDefaultsErrors(problems) {
@@ -5007,8 +5103,25 @@ async function saveRuleDefaults() {
         setRuleDefaultsErrors(problems);
         return;
     }
-    ruleDefaultsDraft[ruleDefaultsDraft.active] = defaults;
+    ruleDefaultsDraft.sets[ruleDefaultsDraft.active] = defaults;
     setRuleDefaultsErrors([]);
+
+    // The user's edits of the files' own defaults. A file that is not loaded
+    // right now keeps its stored edit.
+    const overrides = JSON.parse(JSON.stringify(ruleDefaultsDraft.overrides || {}));
+    Object.keys(ruleDefaultsDraft.sets).filter(isFileDefaultsSet).forEach(key => {
+        const edited = isRuleDefaultsSetEdited(key);
+        if (key === 'builtIn') {
+            if (edited) overrides.builtIn = ruleDefaultsDraft.sets[key];
+            else delete overrides.builtIn;
+            return;
+        }
+        const ruleURL = key.slice('remote:'.length);
+        overrides.remote = overrides.remote || {};
+        if (edited) overrides.remote[ruleURL] = ruleDefaultsDraft.sets[key];
+        else delete overrides.remote[ruleURL];
+    });
+    if (overrides.remote && Object.keys(overrides.remote).length === 0) delete overrides.remote;
 
     // The background answers a failed call with `response: false` instead
     // of throwing.
@@ -5024,16 +5137,16 @@ async function saveRuleDefaults() {
     if (saveBtn) saveBtn.disabled = true;
     try {
         await send({ function: 'setData', params: ['ruleDefaultsMode', ruleDefaultsDraft.mode] });
-        await send({ function: 'setData', params: ['userRuleDefaults', JSON.stringify(ruleDefaultsDraft.user)] });
-        const customChanged = JSON.stringify(ruleDefaultsDraft.custom) !==
-            JSON.stringify(LinkumoriRuleDefaults.normalizeRuleDefaults(customRules.defaults));
-        if (customChanged) {
+        await send({ function: 'setData', params: ['userRuleDefaults', JSON.stringify(ruleDefaultsDraft.sets.user)] });
+        await send({ function: 'setData', params: ['sourceRuleDefaults', JSON.stringify(overrides)] });
+        const customDraft = ruleDefaultsDraft.sets.custom;
+        if (!sameRuleDefaults(customDraft, customRules.defaults)) {
             // Only the saved custom rules get the new block. A provider being
             // edited keeps its unsaved changes (saveCustomRules would mark
             // them saved).
             const previousDefaults = customRules.defaults;
-            if (Object.keys(ruleDefaultsDraft.custom).length === 0) delete customRules.defaults;
-            else customRules.defaults = ruleDefaultsDraft.custom;
+            if (Object.keys(customDraft).length === 0) delete customRules.defaults;
+            else customRules.defaults = customDraft;
             try {
                 await send({ function: 'setData', params: ['custom_rules', JSON.stringify(customRules)] });
             } catch (error) {
