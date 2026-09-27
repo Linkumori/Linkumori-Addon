@@ -11,6 +11,8 @@ other.
   the [rule catalog](https://docs.clearurls.xyz/specs/rules). Where those
   pages do not say something, this page says so rather than guessing.
 - **Linkumori:** described in full in [filter-syntax.md](filter-syntax.md).
+  How its format got here, and why it is called CLN Format 1.0 rather than
+  ClearURLs 2.0, is in [clearurls-2.0-and-cln.md](clearurls-2.0-and-cln.md).
 
 Linkumori reads only its own JSON format. It does not convert ClearURLs
 files, so moving rules across is done by hand, following
