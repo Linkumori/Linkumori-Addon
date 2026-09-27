@@ -1182,9 +1182,6 @@ async function getFromStorageDirectly(key) {
                     case 'historyApiWhitelist':
                         value = JSON.parse(value);
                         break;
-                    case 'types':
-                        value = value.split(',');
-                        break;
                 }
             } catch (e) {
             }

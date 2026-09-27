@@ -3148,10 +3148,6 @@ async function importSettings(evt) {
                         providers: {}
                     };
             }
-            case 'pingRequestTypes': {
-                const types = parseJSONObject(value, []);
-                return Array.isArray(types) ? types : [];
-            }
             case 'logLimit':
                 return Math.max(0, Number(value) || 0);
             default:
@@ -3327,7 +3323,6 @@ function save() {
     saveBtn.textContent = translate('status_saving');
     saveBtn.parentElement.disabled = true;
     
-    const typesValue = document.querySelector('input[name=types]').value;
     const logLimitValue = Math.max(0, Math.min(5000, parseInt(document.querySelector('input[name=logLimit]').value) || 1000));
     const ruleURLValue = document.querySelector('input[name=ruleURL]').value.trim();
     const hashURLValue = document.querySelector('input[name=hashURL]').value.trim();
@@ -3431,7 +3426,6 @@ function save() {
     Promise.all([
         ...toggleConfigs.map(({ key }) => saveData(key, toggleValues[key])),
         saveData("badged_color", currentColor),
-        saveData("types", typesValue),
         saveData("logLimit", logLimitValue),
         saveData("ruleURL", ruleURLValue),
         saveData("hashURL", hashURLValue),
@@ -3777,7 +3771,6 @@ async function getData() {
     try {
         // Load core input fields in parallel to reduce init latency.
         await Promise.all([
-            loadData("types"),
             loadData("logLimit"),
             loadData("ruleURL"),
             loadData("hashURL"),
@@ -4470,7 +4463,6 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     
     // General settings section
     setElementText('general_settings_title', 'general_settings_title');
-    setElementHTML('types_label', 'setting_types_label');
     setElementText('logLimit_label', 'setting_log_limit_label_with_range');
     
     // Remote URL fields - ENHANCED WITH MANDATORY HASH INFORMATION

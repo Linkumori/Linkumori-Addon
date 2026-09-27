@@ -1681,32 +1681,227 @@
             font-family: "Old-Country-Nobility", serif;
         }
 
-        .rule-defaults-edit {
+        .rule-defaults-open-btn {
+            width: 100%;
+            justify-content: center;
             margin-top: 8px;
         }
 
-        .rule-defaults-edit summary {
-            cursor: pointer;
+        #rule-defaults-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
 
-        .rule-defaults-help {
-            display: block;
-            margin: 6px 0 4px;
-            color: var(--text-muted);
-        }
-
-        .rule-defaults-edit textarea {
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 6px;
-            font-family: monospace;
+        .rule-defaults-intro {
+            margin: 0;
             font-size: 12px;
         }
 
-        .rule-defaults-message {
-            margin-top: 4px;
+        .rule-defaults-section {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px 14px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .rule-defaults-section > legend {
+            padding: 0 6px;
+        }
+
+        .rule-defaults-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 8px;
+        }
+
+        .rule-defaults-mode-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .rule-defaults-mode-card:hover {
+            border-color: var(--button-primary);
+        }
+
+        .rule-defaults-mode-card:has(input:checked) {
+            border-color: var(--button-primary);
+            box-shadow: inset 0 0 0 1px var(--button-primary);
+        }
+
+        .rule-defaults-mode-card input {
+            margin: 3px 0 0;
+            accent-color: var(--button-primary);
+        }
+
+        .rule-defaults-mode-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .rule-defaults-mode-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .rule-defaults-mode-text .form-help {
+            margin: 0;
+        }
+
+        .rule-defaults-tabs {
+            display: inline-flex;
+            align-self: flex-start;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .rule-defaults-tab {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 7px 14px;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .rule-defaults-tab + .rule-defaults-tab {
+            border-left: 1px solid var(--border-color);
+        }
+
+        .rule-defaults-tab[aria-selected="true"] {
+            background: var(--button-primary);
+            color: #fff;
+        }
+
+        .rule-defaults-unused {
+            font-size: 12px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--button-warning);
+            background: var(--bg-primary);
+            color: var(--text-secondary, var(--text-primary));
+        }
+
+        .rule-defaults-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .rule-defaults-fields .form-checkbox {
+            margin: 0;
+            align-items: flex-start;
+        }
+
+        .rule-defaults-fields .form-checkbox label {
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .rule-defaults-fields .radio-group {
+            gap: 8px;
+        }
+
+        .rule-defaults-fields .radio-option {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        .rule-defaults-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 4px 12px;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        .rule-defaults-type-grid .form-checkbox {
+            margin: 0;
+            font-size: 12px;
+            font-family: monospace;
+        }
+
+        .rule-defaults-fields textarea.form-input {
+            font-family: monospace;
+            font-size: 12px;
+            resize: vertical;
+        }
+
+        .rule-defaults-preprocessor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .rule-defaults-preprocessor-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .rule-defaults-preprocessor-row .form-input {
+            min-width: 0;
+            padding: 7px 10px;
+        }
+
+        .rule-defaults-add-btn {
+            align-self: flex-start;
+        }
+
+        .rule-defaults-preview summary {
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .rule-defaults-preview pre {
+            margin: 6px 0 0;
+            padding: 10px;
+            border-radius: 6px;
+            background: var(--code-bg, var(--bg-primary));
+            border: 1px solid var(--border-color);
+            font-size: 12px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .rule-defaults-errors {
+            font-size: 12px;
+            color: var(--button-danger);
             white-space: pre-line;
             overflow-wrap: anywhere;
+        }
+
+        .rule-defaults-errors:empty {
+            display: none;
+        }
+
+        #rule-defaults-modal .modal-footer {
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            .rule-defaults-preprocessor-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         .sidebar-header {
@@ -3679,13 +3874,7 @@ subdomain.example.com
 
                         <div class="rules-status-group-title" data-i18n="customRulesEditor_defaultsTitle"></div>
                         <div id="rule-defaults-status" role="status" aria-live="polite"></div>
-                        <details class="rule-defaults-edit" id="custom-defaults-details">
-                            <summary data-i18n="customRulesEditor_defaultsEdit"></summary>
-                            <label for="custom-defaults-input" class="rule-defaults-help" data-i18n="customRulesEditor_defaultsHelp"></label>
-                            <textarea id="custom-defaults-input" rows="6" spellcheck="false"></textarea>
-                            <button type="button" class="btn btn-primary btn-sm" id="save-custom-defaults-btn" data-i18n="customRulesEditor_defaultsSave"></button>
-                            <div id="custom-defaults-message" class="rule-defaults-message" role="status" aria-live="polite"></div>
-                        </details>
+                        <button type="button" class="btn btn-secondary btn-sm rule-defaults-open-btn" id="open-rule-defaults-btn" data-i18n="customRulesEditor_defaultsManage"></button>
 
                     </div>
                 </div>
@@ -3877,6 +4066,114 @@ subdomain.example.com
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="modal-cancel" data-i18n="button_cancel"></button>
                     <button type="submit" class="btn btn-primary" data-i18n="customRulesEditor_saveProvider"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rule Defaults Modal -->
+    <div class="modal" id="rule-defaults-modal" role="dialog" aria-modal="true" aria-labelledby="rule-defaults-modal-title">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 class="modal-title" id="rule-defaults-modal-title" data-i18n="customRulesEditor_defaultsTitle"></h3>
+                <button type="button" class="modal-close" id="rule-defaults-modal-close" data-i18n-aria="button_close" aria-label="">&times;</button>
+            </div>
+
+            <form id="rule-defaults-form" novalidate>
+                <p class="form-help rule-defaults-intro" data-i18n="customRulesEditor_defaultsIntro"></p>
+
+                <fieldset class="rule-defaults-section">
+                    <legend class="form-label" data-i18n="customRulesEditor_defaultsModeLabel"></legend>
+                    <div class="rule-defaults-modes">
+                        <label class="rule-defaults-mode-card">
+                            <input type="radio" name="rule-defaults-mode" value="source">
+                            <span class="rule-defaults-mode-text">
+                                <span class="rule-defaults-mode-title" data-i18n="customRulesEditor_defaultsModeSource"></span>
+                                <span class="form-help" data-i18n="customRulesEditor_defaultsModeSourceNote"></span>
+                            </span>
+                        </label>
+                        <label class="rule-defaults-mode-card">
+                            <input type="radio" name="rule-defaults-mode" value="final">
+                            <span class="rule-defaults-mode-text">
+                                <span class="rule-defaults-mode-title" data-i18n="customRulesEditor_defaultsModeFinal"></span>
+                                <span class="form-help" data-i18n="customRulesEditor_defaultsModeFinalNote"></span>
+                            </span>
+                        </label>
+                        <label class="rule-defaults-mode-card">
+                            <input type="radio" name="rule-defaults-mode" value="unified">
+                            <span class="rule-defaults-mode-text">
+                                <span class="rule-defaults-mode-title" data-i18n="customRulesEditor_defaultsModeUnified"></span>
+                                <span class="form-help" data-i18n="customRulesEditor_defaultsModeUnifiedNote"></span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="rule-defaults-section">
+                    <legend class="form-label" data-i18n="customRulesEditor_defaultsEditing"></legend>
+                    <div class="rule-defaults-tabs" role="tablist">
+                        <button type="button" role="tab" class="rule-defaults-tab" id="rule-defaults-tab-user" data-set="user" aria-controls="rule-defaults-panel" aria-selected="true" data-i18n="customRulesEditor_defaultsTabUser"></button>
+                        <button type="button" role="tab" class="rule-defaults-tab" id="rule-defaults-tab-custom" data-set="custom" aria-controls="rule-defaults-panel" aria-selected="false" data-i18n="customRulesEditor_defaultsTabCustom"></button>
+                    </div>
+                    <div class="rule-defaults-unused u-hidden" id="rule-defaults-unused" role="note"></div>
+
+                    <div class="rule-defaults-fields" id="rule-defaults-panel" role="tabpanel" aria-labelledby="rule-defaults-tab-user">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="rule-defaults-inactive">
+                            <label for="rule-defaults-inactive" data-i18n="customRulesEditor_defaultsFieldInactive"></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="rule-defaults-description" data-i18n="customRulesEditor_defaultsFieldDescription"></label>
+                            <input type="text" class="form-input" id="rule-defaults-description">
+                        </div>
+
+                        <div class="form-group">
+                            <span class="form-label" id="rule-defaults-types-label" data-i18n="customRulesEditor_defaultsFieldRequestTypes"></span>
+                            <div class="radio-group" role="radiogroup" aria-labelledby="rule-defaults-types-label">
+                                <label class="radio-option">
+                                    <input type="radio" name="rule-defaults-types-mode" value="all" checked>
+                                    <span data-i18n="customRulesEditor_defaultsTypesAll"></span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="rule-defaults-types-mode" value="some">
+                                    <span data-i18n="customRulesEditor_defaultsTypesSome"></span>
+                                </label>
+                            </div>
+                            <div class="rule-defaults-type-grid u-hidden" id="rule-defaults-types"></div>
+                            <div class="form-help" data-i18n="customRulesEditor_defaultsTypesHelp"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="rule-defaults-exceptions" data-i18n="customRulesEditor_defaultsFieldExceptions"></label>
+                            <textarea class="form-input" id="rule-defaults-exceptions" rows="3" spellcheck="false" aria-describedby="rule-defaults-exceptions-help"></textarea>
+                            <div class="form-help" id="rule-defaults-exceptions-help" data-i18n="customRulesEditor_defaultsFieldExceptionsHelp"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="form-label" data-i18n="customRulesEditor_defaultsFieldPreprocessors"></span>
+                            <div class="rule-defaults-preprocessor-list" id="rule-defaults-preprocessors"></div>
+                            <button type="button" class="btn btn-secondary btn-sm rule-defaults-add-btn" id="rule-defaults-add-preprocessor" data-i18n="customRulesEditor_defaultsAddPreprocessor"></button>
+                            <div class="form-help" data-i18n="customRulesEditor_defaultsFieldPreprocessorsHelp"></div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="rule-defaults-history-off">
+                            <label for="rule-defaults-history-off" data-i18n="customRulesEditor_defaultsFieldHistoryOff"></label>
+                        </div>
+
+                        <details class="rule-defaults-preview">
+                            <summary data-i18n="customRulesEditor_defaultsPreview"></summary>
+                            <pre id="rule-defaults-json"></pre>
+                        </details>
+                    </div>
+                </fieldset>
+
+                <div class="rule-defaults-errors" id="rule-defaults-errors" role="alert"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="rule-defaults-cancel" data-i18n="button_cancel"></button>
+                    <button type="submit" class="btn btn-primary" id="rule-defaults-save" data-i18n="customRulesEditor_defaultsSave"></button>
                 </div>
             </form>
         </div>

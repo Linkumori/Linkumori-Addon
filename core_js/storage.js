@@ -98,8 +98,13 @@ const POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepte
 const POPUP_CONSENT_ADULT_STORAGE_KEY = 'popupConsentAdultAccepted';
 const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
 var clearurlsStarted = false;
+// "types" and "pingRequestTypes" were the request types Linkumori listened
+// to; rules now choose their request types themselves (requestTypes, or a
+// "defaults" block), and hyperlink auditing uses a fixed list.
 const OBSOLETE_STORAGE_KEYS = new Set([
-    'linkumoriInteroperabilityMode'
+    'linkumoriInteroperabilityMode',
+    'types',
+    'pingRequestTypes'
 ]);
 
 var tempVerificationCache = {
@@ -305,11 +310,20 @@ function recordRuleCollisions(items) {
 // (LinkumoriRuleDefaults), so merged rules keep their own file's defaults.
 const ruleDefaultsStatus = { builtIn: null, remote: [], custom: null };
 
+// A rules file with the defaults its source gets written into its rules:
+// the file's own, or the user's (storage.ruleDefaultsMode).
+function applySourceRuleDefaults(sourceKind, rulesData) {
+    return LinkumoriRuleDefaults.applyRuleFileDefaults(rulesData, LinkumoriRuleDefaults.pickRuleDefaults(
+        storage.ruleDefaultsMode, sourceKind, rulesData?.defaults, storage.userRuleDefaults));
+}
+
 function getRuleDefaultsStatus() {
     return {
         builtIn: ruleDefaultsStatus.builtIn,
         remote: ruleDefaultsStatus.remote.map(source => ({ ...source })),
         custom: ruleDefaultsStatus.custom,
+        mode: LinkumoriRuleDefaults.normalizeRuleDefaultsMode(storage.ruleDefaultsMode),
+        userDefaults: LinkumoriRuleDefaults.normalizeRuleDefaults(storage.userRuleDefaults),
         builtInRulesEnabled: storage.builtInRulesEnabled !== false,
         remoteRulesEnabled: !!storage.remoteRulesEnabled,
         overloadModeEnabled: storage.overloadModeEnabled === true
@@ -907,6 +921,11 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (activeMembers.length === 0) {
         merged.active = false;
     }
+    // No "methods" or "resourceTypes" means every one, so a member without
+    // them leaves the merged provider unlimited.
+    const unlimitedList = key => members.some(provider => !(Array.isArray(provider.data?.[key]) && provider.data[key].length > 0));
+    const allMethods = unlimitedList('methods');
+    const allResourceTypes = unlimitedList('resourceTypes');
 
     members.forEach(provider => {
         const data = applyProviderHistoryBypassProtection(
@@ -980,8 +999,8 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.redirections.length === 0) delete merged.redirections;
     if (merged.fieldRedirections.length === 0) delete merged.fieldRedirections;
     if (merged.domainPatterns.length === 0) delete merged.domainPatterns;
-    if (merged.methods.length === 0) delete merged.methods;
-    if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
+    if (merged.methods.length === 0 || allMethods) delete merged.methods;
+    if (merged.resourceTypes.length === 0 || allResourceTypes) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
     // merged.domainPatterns may have been deleted just above when empty.
@@ -1417,8 +1436,8 @@ function storageDataAsString(key) {
             return JSON.stringify(minifiedRules);
         case "remoteRulescache":
             try { return JSON.stringify(value); } catch (e) { return JSON.stringify(null); }
-        case "types":
-            return value.toString();
+        case "userRuleDefaults":
+            return JSON.stringify(value || {});
         default:
             return value;
     }
@@ -1515,7 +1534,10 @@ async function verifyRulesHash(rulesData, expectedHash) {
     return verificationResult;
 }
 
-function saveRemoteRulesCache(remoteRules, meta) {
+// `sourceFiles` are the remote files as fetched ({ ruleURL, hashURL,
+// rules }), kept so the cache can be rebuilt with whichever defaults apply
+// when it is used.
+function saveRemoteRulesCache(remoteRules, meta, sourceFiles = null) {
     if (!storage.remoteRulescache || typeof storage.remoteRulescache !== 'object') {
         storage.remoteRulescache = {};
     }
@@ -1533,6 +1555,9 @@ function saveRemoteRulesCache(remoteRules, meta) {
         sources: Array.isArray(safeMeta.sources) ? safeMeta.sources : [],
         data: remoteRules
     };
+    if (Array.isArray(sourceFiles) && sourceFiles.length > 0) {
+        storage.remoteRulescache.sourceFiles = sourceFiles;
+    }
 
     try {
         saveOnDisk(['remoteRulescache']);
@@ -1595,14 +1620,17 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers || Object.keys(rawCachedData.providers).length === 0) {
         return null;
     }
-    // A merged cache already has its sources' defaults in its rules and
-    // lists them in metadata; a single file saved as fetched still has its
-    // "defaults" block.
-    const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
-    ruleDefaultsStatus.remote = 'defaults' in rawCachedData
-        ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
-        : remoteSources.map(source => ({ ruleURL: source.ruleURL || null, defaults: source.defaults || {} }));
-    const cachedData = LinkumoriRuleDefaults.applyRuleFileDefaults(rawCachedData);
+    let cachedData = rebuildRemoteRulesFromCacheFiles(cache.sourceFiles);
+    if (!cachedData) {
+        // A merged cache from before sourceFiles already has its sources'
+        // own defaults in its rules and lists them in metadata; a single
+        // file saved as fetched still has its "defaults" block.
+        const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
+        ruleDefaultsStatus.remote = 'defaults' in rawCachedData
+            ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
+            : remoteSources.map(source => ({ ruleURL: source.ruleURL || null, defaults: source.defaults || {} }));
+        cachedData = applySourceRuleDefaults('remote', rawCachedData);
+    }
 
     storage.rulesMetadata = null;
     
@@ -1621,6 +1649,37 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     }, true);
 
     return cachedData;
+}
+
+// The cached remote files merged again, each with the defaults it gets
+// now; null when the cache has no usable files.
+function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
+    if (!Array.isArray(sourceFiles) || sourceFiles.length === 0) return null;
+    const sources = sourceFiles
+        .filter(file => file && typeof file === 'object' && file.rules && typeof file.rules === 'object' &&
+            file.rules.providers && typeof file.rules.providers === 'object' &&
+            LinkumoriRuleDefaults.findRuleDefaultsProblems(file.rules.defaults).length === 0)
+        .map(file => prepareRemoteRuleSource(file.ruleURL || null, file.hashURL || null, file.rules));
+    if (sources.length !== sourceFiles.length) return null;
+    try {
+        const rebuilt = mergeRemoteRulesSources(sources);
+        ruleDefaultsStatus.remote = sources.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
+        return rebuilt;
+    } catch (error) {
+        return null;
+    }
+}
+
+// One fetched remote file ready to merge: its rules with the defaults
+// they get, its own defaults for the status, and the file as fetched.
+function prepareRemoteRuleSource(ruleURL, hashURL, file) {
+    return {
+        ruleURL,
+        hashURL,
+        defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(file.defaults),
+        rules: applySourceRuleDefaults('remote', file),
+        file
+    };
 }
 
 function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
@@ -1803,12 +1862,18 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
     });
 }
 
-async function fetchBundledRulesRaw() {
+// The bundled rules file, checked, with its "defaults" block still in.
+async function fetchBundledRulesFile() {
     const payload = await fetchBundledRulesText();
     const rawRulesData = JSON.parse(payload.text);
     validateBundledRulesData(rawRulesData);
+    return rawRulesData;
+}
+
+async function fetchBundledRulesRaw() {
+    const rawRulesData = await fetchBundledRulesFile();
     ruleDefaultsStatus.builtIn = LinkumoriRuleDefaults.normalizeRuleDefaults(rawRulesData.defaults);
-    return LinkumoriRuleDefaults.applyRuleFileDefaults(rawRulesData);
+    return applySourceRuleDefaults('builtIn', rawRulesData);
 }
 
 async function fetchBundledRulesText() {
@@ -1874,7 +1939,8 @@ function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource
 }
 
 async function getBundledRulesOnly() {
-    const bundledRules = await fetchBundledRulesRaw();
+    // Providers copied into custom rules keep the file's own defaults.
+    const bundledRules = LinkumoriRuleDefaults.applyRuleFileDefaults(await fetchBundledRulesFile());
     return normalizeRulesForProviderImport(bundledRules, 'Bundled Rules', 'bundled');
 }
 
@@ -1923,13 +1989,10 @@ function loadBundledRules() {
     const fetchJobs = configuredRemoteSets.map(set => {
         return fetchRemoteHash(set.hashURL, set.ruleURL)
             .then(remoteHash => fetchRemoteRules(set.ruleURL, remoteHash, set.hashURL)
+                // Each file's defaults go into its own rules before merging.
                 .then(rules => ({
-                    ruleURL: set.ruleURL,
-                    hashURL: set.hashURL,
-                    expectedHash: remoteHash,
-                    // Each file's defaults go into its own rules before merging.
-                    defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rules.defaults),
-                    rules: LinkumoriRuleDefaults.applyRuleFileDefaults(rules)
+                    ...prepareRemoteRuleSource(set.ruleURL, set.hashURL, rules),
+                    expectedHash: remoteHash
                 })));
     });
 
@@ -2015,7 +2078,7 @@ function loadBundledRules() {
                 sourceCount: successful.length,
                 failedSourceCount: failed.length,
                 timestamp: new Date().toISOString()
-            });
+            }, successful.map(source => ({ ruleURL: source.ruleURL, hashURL: source.hashURL, rules: source.file })));
 
             return mergeCustomRules(finalRules);
         })
@@ -2199,7 +2262,7 @@ function loadCustomOnlyRules() {
                     customRules = result.custom_rules;
                 }
                 ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
-                customRules = LinkumoriRuleDefaults.applyRuleFileDefaults(customRules);
+                customRules = applySourceRuleDefaults('custom', customRules);
             }
 
             const providers = (customRules && customRules.providers && typeof customRules.providers === 'object')
@@ -2290,7 +2353,7 @@ function mergeCustomRules(bundledRules) {
                     }
                     
                     ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
-                    customRules = LinkumoriRuleDefaults.applyRuleFileDefaults(customRules);
+                    customRules = applySourceRuleDefaults('custom', customRules);
                     if (customRules && customRules.providers) {
                         customProviderCount = Object.keys(customRules.providers).length;
                     }
@@ -2912,13 +2975,6 @@ function setData(key, value) {
                 });
             break;
         }
-        case "types":
-            if (typeof value === 'string') {
-                storage[key] = value.split(',');
-            } else {
-                storage[key] = value;
-            }
-            break;
         case "logLimit": {
             const parsedLimit = Number(value);
             storage[key] = Number.isFinite(parsedLimit) ? Math.max(0, parsedLimit) : 100;
@@ -2981,6 +3037,19 @@ function setData(key, value) {
         case "temporaryPauseUntil":
             storage[key] = Number(value) > 0 ? Number(value) : 0;
             break;
+        case "ruleDefaultsMode":
+            storage[key] = LinkumoriRuleDefaults.normalizeRuleDefaultsMode(value);
+            break;
+        case "userRuleDefaults": {
+            let parsed = value;
+            if (typeof value === 'string') {
+                try { parsed = JSON.parse(value); } catch (e) { parsed = {}; }
+            }
+            const valid = parsed && typeof parsed === 'object' && !Array.isArray(parsed) &&
+                LinkumoriRuleDefaults.findRuleDefaultsProblems(parsed).length === 0;
+            storage[key] = valid ? parsed : {};
+            break;
+        }
         default:
             storage[key] = value;
     }
@@ -3012,6 +3081,8 @@ function initSettings() {
     storage.remoteRulesEnabled = false;
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;
+    storage.ruleDefaultsMode = 'source';
+    storage.userRuleDefaults = {};
     storage.rulesMetadata = null;
     storage.badgedStatus = true;
     storage.globalStatus = true;
@@ -3063,9 +3134,6 @@ function initSettings() {
     storage.popupConsentPOSARVersionAccepted = 0;
     storage.popupConsentAdultAccepted = false;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
-    
-        storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xml_dtd", "xmlhttprequest", "xslt"];
-        storage.pingRequestTypes = ["ping", "beacon"];
 }
 
 function loadOldDataFromStore() {

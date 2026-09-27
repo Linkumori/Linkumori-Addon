@@ -2720,10 +2720,6 @@
     "message": "Hash URL is required for every remote ruleset.",
     "description": "Note explaining that every remote ruleset requires a hash URL."
   },
-  "setting_types_label": {
-    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Typy požadavků</a> (odborná úroveň)",
-    "description": "This string is used as name for the types label."
-  },
   "settings_html_page_title": {
     "message": "Nastavení Linkumori (čisté adresy URL).",
     "description": "This string is used as title on the settings page."
@@ -3937,14 +3933,6 @@
     "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults.",
     "description": "Note under the rule defaults when overload mode is on"
   },
-  "customRulesEditor_defaultsEdit": {
-    "message": "Edit custom rule defaults",
-    "description": "Summary of the collapsible custom defaults editor"
-  },
-  "customRulesEditor_defaultsHelp": {
-    "message": "JSON object with any of: active, description, requestTypes, preprocessors, exceptions, historyBypassProtection. They apply to your custom rules only; a rule's own value always wins.",
-    "description": "Help text for the custom defaults editor"
-  },
   "customRulesEditor_defaultsSave": {
     "message": "Save defaults",
     "description": "Button that saves the custom rule defaults"
@@ -3954,7 +3942,7 @@
     "description": "Shown after the custom rule defaults are saved"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults: built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules.",
+    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor.",
     "description": "Note under the overload mode toggle about rule defaults"
   },
   "customRulesEditor_defaultsRemote": {
@@ -3962,10 +3950,142 @@
     "description": "Label for one remote rule file's defaults",
     "placeholders": { "url": { "content": "$1", "example": "https://example.com/rules.json" } }
   },
-  "customRulesEditor_defaultsInvalidJson": {
-    "message": "Defaults must be valid JSON: $ERROR$",
-    "description": "Error when the custom defaults are not valid JSON",
-    "placeholders": { "error": { "content": "$1", "example": "Unexpected token" } }
+  "customRulesEditor_defaultsModeLabel": {
+    "message": "Which defaults apply",
+    "description": "Label of the rule defaults mode choice"
+  },
+  "customRulesEditor_defaultsModeSource": {
+    "message": "Each source's own",
+    "description": "Rule defaults mode: each rules file's own defaults"
+  },
+  "customRulesEditor_defaultsModeFinal": {
+    "message": "Yours for built-in and remote rules",
+    "description": "Rule defaults mode: the user's defaults for built-in and remote rules"
+  },
+  "customRulesEditor_defaultsModeUnified": {
+    "message": "Yours for all rules",
+    "description": "Rule defaults mode: the user's defaults for every rule source"
+  },
+  "customRulesEditor_defaultsReplaced": {
+    "message": "(replaced by your defaults)",
+    "description": "Shown under a rule source's defaults when the user's defaults are used instead"
+  },
+  "customRulesEditor_defaultsUser": {
+    "message": "Yours",
+    "description": "Label for the user's own rule defaults"
+  },
+  "customRulesEditor_defaultsModeSourceNote": {
+    "message": "Each source's rules get that source's own defaults.",
+    "description": "Note for the rule defaults mode 'each source's own'"
+  },
+  "customRulesEditor_defaultsModeFinalNote": {
+    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own.",
+    "description": "Note for the rule defaults mode 'yours for built-in and remote rules'"
+  },
+  "customRulesEditor_defaultsModeUnifiedNote": {
+    "message": "Built-in, remote and custom rules all get your defaults instead of their own.",
+    "description": "Note for the rule defaults mode 'yours for every source'"
+  },
+  "customRulesEditor_defaultsManage": {
+    "message": "Manage rule defaults",
+    "description": "Button that opens the rule defaults editor"
+  },
+  "customRulesEditor_defaultsIntro": {
+    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed.",
+    "description": "Introduction at the top of the rule defaults editor"
+  },
+  "customRulesEditor_defaultsEditing": {
+    "message": "Edit defaults",
+    "description": "Heading of the section where a set of defaults is edited"
+  },
+  "customRulesEditor_defaultsTabUser": {
+    "message": "Your defaults",
+    "description": "Tab for the user's own rule defaults"
+  },
+  "customRulesEditor_defaultsTabCustom": {
+    "message": "Custom rules' defaults",
+    "description": "Tab for the custom rules file's own defaults"
+  },
+  "customRulesEditor_defaultsUnusedUser": {
+    "message": "Not used right now: \"Each source's own\" is chosen above.",
+    "description": "Shown when the user's defaults are not used under the chosen mode"
+  },
+  "customRulesEditor_defaultsUnusedCustom": {
+    "message": "Not used right now: your defaults replace these for custom rules too.",
+    "description": "Shown when the custom rules' defaults are not used under the chosen mode"
+  },
+  "customRulesEditor_defaultsFieldInactive": {
+    "message": "Rules start switched off (active: false)",
+    "description": "Checkbox for the active: false default"
+  },
+  "customRulesEditor_defaultsFieldDescription": {
+    "message": "Description",
+    "description": "Label of the description default"
+  },
+  "customRulesEditor_defaultsFieldRequestTypes": {
+    "message": "Request types",
+    "description": "Label of the request types default"
+  },
+  "customRulesEditor_defaultsTypesAll": {
+    "message": "All types",
+    "description": "Request types default: all types"
+  },
+  "customRulesEditor_defaultsTypesSome": {
+    "message": "Only these",
+    "description": "Request types default: only the checked types"
+  },
+  "customRulesEditor_defaultsTypesNone": {
+    "message": "Choose at least one request type, or pick \"All types\".",
+    "description": "Error when 'Only these' is picked with no request type checked"
+  },
+  "customRulesEditor_defaultsTypesHelp": {
+    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes.",
+    "description": "Help under the request types default"
+  },
+  "customRulesEditor_defaultsFieldExceptions": {
+    "message": "Exceptions",
+    "description": "Label of the exceptions default"
+  },
+  "customRulesEditor_defaultsFieldExceptionsHelp": {
+    "message": "One URL regex per line. Rules are skipped on matching URLs.",
+    "description": "Help for the exceptions default"
+  },
+  "customRulesEditor_defaultsFieldPreprocessors": {
+    "message": "Preprocessors",
+    "description": "Label of the preprocessors default"
+  },
+  "customRulesEditor_defaultsFieldPreprocessorsHelp": {
+    "message": "Inputs: \"all\", or capture group numbers such as 1, 2.",
+    "description": "Help for the preprocessors default"
+  },
+  "customRulesEditor_defaultsAddPreprocessor": {
+    "message": "+ Add preprocessor",
+    "description": "Button that adds a preprocessor to the defaults"
+  },
+  "customRulesEditor_defaultsPreprocessorType": {
+    "message": "Preprocessor type",
+    "description": "Accessible label of a preprocessor's type"
+  },
+  "customRulesEditor_defaultsPreprocessorInputs": {
+    "message": "Preprocessor inputs",
+    "description": "Accessible label of a preprocessor's inputs"
+  },
+  "customRulesEditor_defaultsRemove": {
+    "message": "Remove",
+    "description": "Button that removes a preprocessor from the defaults"
+  },
+  "customRulesEditor_defaultsInputsInvalid": {
+    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "description": "Error for invalid preprocessor inputs",
+    "placeholders": { "inputs": { "content": "$1", "example": "1, x" } }
+  },
+  "customRulesEditor_defaultsFieldHistoryOff": {
+    "message": "Turn off history bypass protection (historyBypassProtection: false)",
+    "description": "Checkbox for the historyBypassProtection: false default"
+  },
+  "customRulesEditor_defaultsPreview": {
+    "message": "Show as JSON",
+    "description": "Summary of the JSON preview of the defaults"
   },
   "settings_remote_health_unknown": {
     "message": "neznámý",
@@ -4883,7 +5003,7 @@
     "description": "Guide page text."
   },
   "guide_field_resourcetypes": {
-    "message": "Obsluhovat pouze tyto typy požadavků, například <code>[\"main_frame\"]</code>. Výchozí: typy zvolené v nastavení.",
+    "message": "Obsluhovat pouze tyto typy požadavků, například <code>[\"main_frame\"]</code>. Výchozí: všechny typy požadavků.",
     "description": "Guide page text."
   },
   "guide_field_history": {

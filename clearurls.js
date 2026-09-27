@@ -91,6 +91,8 @@ var initializationComplete = false;
 // BUGFIX 10: cap cache size to prevent unbounded growth.
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
+// Requests "Block hyperlink auditing" cancels.
+const PING_REQUEST_TYPES = Object.freeze(['ping', 'beacon']);
 var pslSupport = {
     status: 'idle',
     parser: null,
@@ -1942,6 +1944,9 @@ function start() {
 
         function isDataURL(requestDetails) { return requestDetails.url.substring(0, 4) === "data"; }
 
+        // Every request type is listened to: a rule is limited to types by
+        // its own "requestTypes" (or its file's "defaults"), a provider by
+        // "resourceTypes".
         // NOTE: `["blocking"]` requires the webRequest blocking API, which is
         // only available under Manifest V2 (or Firefox's MV3, which still
         // supports it). Chrome's Manifest V3 removed blocking webRequest in
@@ -1951,7 +1956,7 @@ function start() {
         // to declarativeNetRequest is a platform decision, not a bugfix.
         browser.webRequest.onBeforeRequest.addListener(
             clearurlsWebRequestHandler,
-            { urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes")) },
+            { urls: ["<all_urls>"] },
             ["blocking"]
         );
     }
@@ -2367,10 +2372,7 @@ function start() {
         };
         this.getResourceTypes = function () { return resourceTypes.slice(); };
         this.matchResourceType = function (details) {
-            if (!resourceTypes.length) {
-                if (storage.types && storage.types.length > 0) return storage.types.indexOf(details['type']) > -1;
-                return true;
-            }
+            if (!resourceTypes.length) return true;
             return resourceTypes.indexOf(String(details['type'] || '').toLowerCase()) > -1;
         };
 
@@ -2464,7 +2466,7 @@ function start() {
         if (storage.globalStatus) {
             let result = { changes: false, url: "", redirect: false, cancel: false };
 
-            if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
+            if (storage.pingBlocking && PING_REQUEST_TYPES.includes(request.type)) {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'), {
                     logCategory: 'feature',
                     requestMethod: request && typeof request.method === 'string' ? request.method : null,

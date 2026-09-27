@@ -26,7 +26,7 @@ files, so moving rules across is done by hand, following
 | Shipped as | compiled JSON list (the YAML compiled, minified and compressed) | the same JSON; the bundled list is LZ4-compressed |
 | Older format | legacy JSON catalog (`rules`, `rawRules`, …), still published | the legacy catalog's lists, plus extensions |
 | Rule layout | one `rules` list per provider; each rule has a `kind` and an `action` | one list per behaviour: `rules`, `rawRules`, `redirections`, … |
-| Defaults | a `defaults` block copied into every rule | the same `defaults` block, plus `historyBypassProtection`; applied per file ([defaults](filter-syntax.md#defaults)) |
+| Defaults | a `defaults` block copied into every rule | the same `defaults` block, plus `historyBypassProtection`; applied per file, or your own for chosen sources ([defaults](filter-syntax.md#defaults)) |
 | Provider match | `urlPattern` regex (required) | `domainPatterns` (`\|\|example.com^`) or `urlPattern` |
 | Simple rule | short form: `- utm_source` | plain string: `"utm_source"` |
 | Detailed rule | long form, with a required `id` | rule object; `id` optional |
