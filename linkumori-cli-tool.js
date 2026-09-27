@@ -1018,7 +1018,8 @@ documentation when you run the build process.
       }
 
       const hasWrappedShape = Object.prototype.hasOwnProperty.call(parsed, 'providers')
-        || Object.prototype.hasOwnProperty.call(parsed, 'metadata');
+        || Object.prototype.hasOwnProperty.call(parsed, 'metadata')
+        || Object.prototype.hasOwnProperty.call(parsed, 'defaults');
       const providers = hasWrappedShape ? (parsed.providers || {}) : parsed;
 
       if (!providers || typeof providers !== 'object' || Array.isArray(providers)) {
@@ -1030,10 +1031,17 @@ documentation when you run the build process.
         && !Array.isArray(parsed.metadata)
         ? parsed.metadata
         : {};
+      // A top-level "defaults" block (core_js/linkumori_rule_defaults.js)
+      // is kept; the extension refuses a file whose block is invalid.
+      const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(parsed.defaults);
+      if (hasWrappedShape && defaultsProblems.length > 0) {
+        throw new Error(defaultsProblems.join('; '));
+      }
       this.success(`✅ Loaded ${Object.keys(providers).length} providers`);
 
       return {
         metadata,
+        ...(hasWrappedShape && parsed.defaults !== undefined ? { defaults: parsed.defaults } : {}),
         providers
       };
     } catch (error) {
@@ -1395,6 +1403,12 @@ documentation when you run the build process.
     let minifiedData = { "providers": {} };
     let removedProviders = 0;
 
+    // Kept as written; an empty block is dropped.
+    if (data.defaults && typeof data.defaults === 'object' && !Array.isArray(data.defaults) &&
+        Object.keys(data.defaults).length > 0) {
+      minifiedData.defaults = JSON.parse(JSON.stringify(data.defaults));
+    }
+
     for (let provider in data.providers) {
       minifiedData.providers[provider] = {};
       let self = minifiedData.providers[provider];
@@ -1489,7 +1503,12 @@ documentation when you run the build process.
       ? `  "metadata": ${metadataInline},\n`
       : '';
 
-    return `{\n${metadataBlock}  "providers": {${providersBlock}  }\n}\n`;
+    const defaults = data.defaults;
+    const defaultsBlock = defaults && typeof defaults === 'object' && !Array.isArray(defaults) && Object.keys(defaults).length > 0
+      ? `  "defaults": ${JSON.stringify(defaults)},\n`
+      : '';
+
+    return `{\n${metadataBlock}${defaultsBlock}  "providers": {${providersBlock}  }\n}\n`;
   }
 
   loadLZ4Codec() {
