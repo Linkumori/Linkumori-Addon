@@ -453,6 +453,18 @@ function getStableRuleSignature(rule) {
     if (rule.referralMarketing === true) {
         normalized.referralMarketing = true;
     }
+    // These change what the rule does too, so rules that differ in them are
+    // kept apart ("id", "aliases" and "description" do not: see
+    // dedupeRuleLikeArray).
+    if (typeof rule.targetId === 'string' && rule.targetId) {
+        normalized.targetId = rule.targetId;
+    }
+    if (typeof rule.order === 'number' && Number.isFinite(rule.order)) {
+        normalized.order = rule.order;
+    }
+    if (typeof rule.historyBypassProtection === 'boolean') {
+        normalized.historyBypassProtection = rule.historyBypassProtection;
+    }
 
     if (!normalized.matchPattern) {
         return '';
@@ -621,6 +633,16 @@ function dedupeRuleLikeArray(values) {
             const mergedLegacyIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_LEGACY_IDS_KEY], value && value[LINKUMORI_RULE_LEGACY_IDS_KEY]);
             if (mergedLegacyIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
                 existing[LINKUMORI_RULE_LEGACY_IDS_KEY] = mergedLegacyIds;
+            }
+            // The copy's own "id" and "aliases" become aliases of the rule
+            // kept, so a targetId naming the copy still finds it.
+            if (existing && typeof existing === 'object' && !Array.isArray(existing)) {
+                const copyIds = value && typeof value === 'object' && !Array.isArray(value)
+                    ? [value.id, ...(Array.isArray(value.aliases) ? value.aliases : [])]
+                    : [];
+                const aliases = mergeRuleActivationIds(existing.aliases, copyIds)
+                    .filter(alias => alias !== existing.id);
+                if (aliases.length > 0) existing.aliases = aliases;
             }
             return;
         }
@@ -824,6 +846,27 @@ function getConfiguredRemoteRuleSets() {
     return remoteRuleSets;
 }
 
+// A provider-level "historyBypassProtection" is the default for its rules.
+// The merged provider can hold only one, so each rule gets its provider's
+// value unless it sets its own.
+function applyProviderHistoryBypassProtection(data) {
+    if (typeof data.historyBypassProtection !== 'boolean') {
+        return data;
+    }
+    const value = data.historyBypassProtection;
+    const result = { ...data };
+    delete result.historyBypassProtection;
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
+        if (!Array.isArray(result[section])) return;
+        result[section] = result[section].map(rule => {
+            if (typeof rule === 'string') return { matchPattern: rule, historyBypassProtection: value };
+            if (!rule || typeof rule !== 'object' || Array.isArray(rule)) return rule;
+            return typeof rule.historyBypassProtection === 'boolean' ? rule : { ...rule, historyBypassProtection: value };
+        });
+    });
+    return result;
+}
+
 function mergeRemoteProviderGroup(providerGroup) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
@@ -841,8 +884,17 @@ function mergeRemoteProviderGroup(providerGroup) {
         forceRedirection: false
     };
 
-    providerGroup.forEach(provider => {
-        const data = attachProviderActivationIds(provider.name, provider.data || {});
+    // An inactive provider adds nothing to its group; a group of only
+    // inactive providers stays inactive.
+    const activeMembers = providerGroup.filter(provider => provider.data?.active !== false);
+    const members = activeMembers.length > 0 ? activeMembers : providerGroup;
+    if (activeMembers.length === 0) {
+        merged.active = false;
+    }
+
+    members.forEach(provider => {
+        const data = applyProviderHistoryBypassProtection(
+            attachProviderActivationIds(provider.name, provider.data || {}));
 
         if (data.indexPattern) {
             const indexPatterns = Array.isArray(data.indexPattern)
