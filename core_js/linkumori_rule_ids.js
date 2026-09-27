@@ -139,11 +139,131 @@
         return (section, matchPattern) => byText.get(`${section}\u0000${matchPattern}`) || baseRuleId(section, matchPattern);
     }
 
+    // Lists checked for two entries with the same text.
+    const TEXT_COLLISION_SECTIONS = Object.freeze(['rules', 'rawRules', 'referralMarketing', 'fieldRedirections']);
+
+    // The engine keeps plain raw rules and plain rules / referralMarketing
+    // entries in maps keyed by their text, so a later entry with the same
+    // text replaces an earlier one. "@@" raw rules, $removeparam filters and
+    // fieldRedirections are kept in lists, so each of them still runs.
+    function isKeyedByText(section, text, isRemoveParamText) {
+        if (section === 'rawRules') return !text.trim().startsWith('@@');
+        if (section === 'rules' || section === 'referralMarketing') return !isRemoveParamText(text);
+        return false;
+    }
+
+    function describeEntry(section, index, rule) {
+        const explicitId = getExplicitRuleId(rule);
+        return `${section}[${index}]${explicitId ? ` (id "${explicitId}")` : ''}`;
+    }
+
+    // Collisions between one provider's rules, as [{ severity, message }]:
+    //  1. Two entries of one list with the same text where the engine keeps
+    //     only one of them (a short "qid" and { "matchPattern": "qid" }).
+    //  2. Two entries that end up with the same id, counting generated ids;
+    //     and an "id"/"aliases" entry taking the id a rule without "id"
+    //     would get, which moves that rule to "<base>-<hash>" and hands its
+    //     saved on/off setting to the other rule.
+    // Two explicit ids or aliases that clash, and an entry repeated exactly,
+    // are left to the callers, which already report them.
+    // `isRemoveParamText(text)` tells whether an entry is a $removeparam filter.
+    // `options.ids === false` skips pass 2 (for providers merged from several
+    // files, whose rules keep the ids they had in their own file).
+    // Pass 1 problems also carry { section, text }.
+    function findRuleCollisions(provider, isRemoveParamText, options = {}) {
+        const problems = [];
+        const error = (message, extra = {}) => problems.push({ severity: 'error', message, ...extra });
+        const warning = message => problems.push({ severity: 'warning', message });
+        const sameEntry = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+        // Pass 1: same text in one list.
+        const replaced = new Set();
+        TEXT_COLLISION_SECTIONS.forEach(section => {
+            const entries = getListValues(provider, section);
+            const groups = new Map();
+            entries.forEach((rule, index) => {
+                const text = getRuleText(rule);
+                if (!text || !isKeyedByText(section, text, isRemoveParamText)) return;
+                // A rule with "referralMarketing": true goes to the other map.
+                const referral = rule && typeof rule === 'object' && rule.referralMarketing === true;
+                const key = `${referral}\u0000${text}`;
+                if (!groups.has(key)) groups.set(key, []);
+                groups.get(key).push(index);
+            });
+            groups.forEach(indexes => {
+                if (indexes.length < 2) return;
+                const first = indexes[0];
+                indexes.slice(1).forEach(index => {
+                    if (sameEntry(entries[first], entries[index])) return;
+                    const text = getRuleText(entries[index]);
+                    replaced.add(`${section}\u0000${text}`);
+                    error(`${describeEntry(section, first, entries[first])} and ${describeEntry(section, index, entries[index])} ` +
+                        `both match "${text}"; only one of them takes effect — merge them into one entry`, { section, text });
+                });
+            });
+        });
+
+        if (options.ids === false) return problems;
+
+        // Pass 2: one id for several entries. Explicit ids and aliases are
+        // reserved first; generated ids avoid them (assignProviderRuleIds).
+        const assigned = assignProviderRuleIds(provider);
+        const owners = new Map();
+        const addOwner = (name, owner) => {
+            if (!owners.has(name)) owners.set(name, []);
+            owners.get(name).push(owner);
+        };
+        RULE_ID_SECTIONS.forEach(section => {
+            getListValues(provider, section).forEach((rule, index) => {
+                const entry = assigned[section][index];
+                if (!entry) return;
+                const where = describeEntry(section, index, rule);
+                addOwner(entry.id, { where, section, rule, generated: entry.generated });
+                if (rule && typeof rule === 'object' && Array.isArray(rule.aliases)) {
+                    rule.aliases.forEach(alias => {
+                        if (typeof alias === 'string' && alias !== entry.id) {
+                            addOwner(alias, { where: `${where} alias`, section, rule, generated: false });
+                        }
+                    });
+                }
+            });
+        });
+        owners.forEach((list, name) => {
+            if (list.length < 2 || !list.some(owner => owner.generated)) return;
+            if (list.every(owner => owner.generated)) {
+                // Generated ids only coincide for the same text in one list.
+                const { section, rule } = list[0];
+                const text = getRuleText(rule);
+                if (list.every(owner => sameEntry(owner.rule, rule))) return;
+                if (replaced.has(`${section}\u0000${text}`)) return;
+                warning(`${list.map(owner => owner.where).join(', ')} share the generated id "${name}", ` +
+                    'so turning one off turns off all of them — give each its own "id"');
+                return;
+            }
+            error(`rule id "${name}" belongs to ${list.map(owner => owner.where).join(' and ')}`);
+        });
+
+        RULE_ID_SECTIONS.forEach(section => {
+            getListValues(provider, section).forEach((rule, index) => {
+                const entry = assigned[section][index];
+                if (!entry || !entry.generated) return;
+                const base = baseRuleId(section, getRuleText(rule));
+                const holders = (owners.get(base) || []).filter(owner => !owner.generated);
+                if (entry.id === base || holders.length === 0) return;
+                warning(`${holders[0].where} uses "${base}", the id ${describeEntry(section, index, rule)} ` +
+                    `"${getRuleText(rule)}" would get, so that rule's id is "${entry.id}" instead and an on/off ` +
+                    `setting saved under "${base}" now applies to ${holders[0].where} — pick a different id`);
+            });
+        });
+        return problems;
+    }
+
     root.LinkumoriRuleIds = Object.freeze({
         RULE_ID_SECTIONS,
         assignProviderRuleIds,
         baseRuleId,
         createRuleIdLookup,
+        findRuleCollisions,
         getRuleText,
         hashRuleText
     });

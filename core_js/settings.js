@@ -3636,6 +3636,34 @@ function renderRemoteRulesHealth(health) {
         payload.hashStatus || translate('settings_remote_health_unknown')
     );
     hashStatusEl.textContent = hashStatusText;
+
+    renderRemoteRuleCollisions(payload.ruleCollisions);
+}
+
+// Rule collisions found in the loaded remote rules; they still load.
+function renderRemoteRuleCollisions(ruleCollisions) {
+    const summaryEl = document.getElementById('remoteHealthRuleCollisions');
+    const listEl = document.getElementById('remoteHealthRuleCollisionsList');
+    if (!summaryEl || !listEl) {
+        return;
+    }
+
+    const items = ruleCollisions && Array.isArray(ruleCollisions.items) ? ruleCollisions.items : [];
+    listEl.replaceChildren();
+    listEl.hidden = items.length === 0;
+    if (!ruleCollisions || (ruleCollisions.errorCount === 0 && ruleCollisions.warningCount === 0)) {
+        summaryEl.textContent = translate('settings_remote_health_none');
+        return;
+    }
+
+    summaryEl.textContent = translate('settings_remote_health_rule_collisions_summary',
+        String(ruleCollisions.errorCount || 0), String(ruleCollisions.warningCount || 0));
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = item.severity === 'error' ? 'remote-health-collision-error' : 'remote-health-collision-warning';
+        li.textContent = `${item.source} [${item.provider}] ${item.message}`;
+        listEl.appendChild(li);
+    });
 }
 
 async function loadRemoteRulesHealth() {
@@ -4488,6 +4516,7 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     setElementText('remoteHealthHashVerificationLabel', 'settings_remote_health_hash_verification_label');
     setElementText('remoteHealthFailureReasonLabel', 'settings_remote_health_failure_reason_label');
     setElementText('remoteHealthHashStatusLabel', 'settings_remote_health_hash_status_label');
+    setElementText('remoteHealthRuleCollisionsLabel', 'settings_remote_health_rule_collisions_label');
     
     // Set appropriate placeholders - always locked initially (never persisted)
     const ruleURLInput = document.getElementById('ruleURL');

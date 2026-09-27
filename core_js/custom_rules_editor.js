@@ -801,6 +801,9 @@ function lintProvider(provider, providerName = '') {
             }
         });
     });
+
+    LinkumoriRuleIds.findRuleCollisions(provider, isRemoveParamRuleText)
+        .forEach(problem => problems.push({ severity: problem.severity, message: `${label}: ${problem.message}` }));
     return problems;
 }
 
