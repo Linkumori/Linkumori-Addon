@@ -1171,9 +1171,17 @@ function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     return true;
 }
 
+// A rule object's own "exceptions", as case-insensitive regexes.
+function compileRuleExceptionRegexes(exceptions) {
+    return (Array.isArray(exceptions) ? exceptions : [])
+        .map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } })
+        .filter(Boolean);
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
+    if (Array.isArray(linkumoriRule.exceptionRegexes) && linkumoriRule.exceptionRegexes.some(regex => regex.test(fullUrl))) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
@@ -2156,6 +2164,7 @@ function start() {
                 }
                 parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
                 parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
+                parsedLinkumoriRule.exceptionRegexes = compileRuleExceptionRegexes(activeRule.exceptions);
                 // Only fall back to the canonical object's field when the $-modifier
                 // text itself didn't specify history-bypass-protection inline.
                 if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {

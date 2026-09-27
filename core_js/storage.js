@@ -300,6 +300,22 @@ function recordRuleCollisions(items) {
     }, true);
 }
 
+// The "defaults" of each rule source now loaded, for the custom rules
+// editor. Each file's defaults are written into its own rules as it loads
+// (LinkumoriRuleDefaults), so merged rules keep their own file's defaults.
+const ruleDefaultsStatus = { builtIn: null, remote: [], custom: null };
+
+function getRuleDefaultsStatus() {
+    return {
+        builtIn: ruleDefaultsStatus.builtIn,
+        remote: ruleDefaultsStatus.remote.map(source => ({ ...source })),
+        custom: ruleDefaultsStatus.custom,
+        builtInRulesEnabled: storage.builtInRulesEnabled !== false,
+        remoteRulesEnabled: !!storage.remoteRulesEnabled,
+        overloadModeEnabled: storage.overloadModeEnabled === true
+    };
+}
+
 function getRemoteRulesHealth() {
     ensureRemoteRulesHealthShape();
     const pauseState = getTemporaryPauseState();
@@ -1162,7 +1178,8 @@ function mergeRemoteRulesSources(successfulSources, failedSources = [], collisio
             remoteSources: successfulSources.map(source => ({
                 ruleURL: source.ruleURL,
                 hashURL: source.hashURL,
-                providerCount: Object.keys(source.rules?.providers || {}).length
+                providerCount: Object.keys(source.rules?.providers || {}).length,
+                defaults: source.defaults || {}
             })),
             failedSources: failedSources.map(source => ({
                 ruleURL: source.ruleURL,
@@ -1180,7 +1197,8 @@ function mergeRemoteRulesSources(successfulSources, failedSources = [], collisio
             remoteSources: successfulSources.map(source => ({
                 ruleURL: source.ruleURL,
                 hashURL: source.hashURL,
-                providerCount: Object.keys(source.rules?.providers || {}).length
+                providerCount: Object.keys(source.rules?.providers || {}).length,
+                defaults: source.defaults || {}
             })),
             failedSources: failedSources.map(source => ({
                 ruleURL: source.ruleURL,
@@ -1573,10 +1591,18 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         return null;
     }
 
-    const cachedData = cache.data;
-    if (!cachedData || typeof cachedData !== 'object' || !cachedData.providers || Object.keys(cachedData.providers).length === 0) {
+    const rawCachedData = cache.data;
+    if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers || Object.keys(rawCachedData.providers).length === 0) {
         return null;
     }
+    // A merged cache already has its sources' defaults in its rules and
+    // lists them in metadata; a single file saved as fetched still has its
+    // "defaults" block.
+    const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
+    ruleDefaultsStatus.remote = 'defaults' in rawCachedData
+        ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
+        : remoteSources.map(source => ({ ruleURL: source.ruleURL || null, defaults: source.defaults || {} }));
+    const cachedData = LinkumoriRuleDefaults.applyRuleFileDefaults(rawCachedData);
 
     storage.rulesMetadata = null;
     
@@ -1692,6 +1718,11 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 throw new Error('No providers found in remote rules');
             }
 
+            const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(remoteRules.defaults);
+            if (defaultsProblems.length > 0) {
+                throw new Error(`Invalid remote rules: ${defaultsProblems[0]}`);
+            }
+
             storage.hashStatus = "remote_verified";
             storage.hashFailureReason = null;
             recordRemoteFetchSuccess(url, hashUrlForHealth);
@@ -1776,7 +1807,8 @@ async function fetchBundledRulesRaw() {
     const payload = await fetchBundledRulesText();
     const rawRulesData = JSON.parse(payload.text);
     validateBundledRulesData(rawRulesData);
-    return rawRulesData;
+    ruleDefaultsStatus.builtIn = LinkumoriRuleDefaults.normalizeRuleDefaults(rawRulesData.defaults);
+    return LinkumoriRuleDefaults.applyRuleFileDefaults(rawRulesData);
 }
 
 async function fetchBundledRulesText() {
@@ -1816,6 +1848,10 @@ function validateBundledRulesData(rawRulesData) {
     if (Object.keys(rawRulesData.providers).length === 0) {
         throw new Error('No providers found in rules file');
     }
+    const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(rawRulesData.defaults);
+    if (defaultsProblems.length > 0) {
+        throw new Error(`Rules file: ${defaultsProblems[0]}`);
+    }
 }
 
 function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
@@ -1843,6 +1879,9 @@ async function getBundledRulesOnly() {
 }
 
 function loadBundledRules() {
+    ruleDefaultsStatus.builtIn = null;
+    ruleDefaultsStatus.remote = [];
+    ruleDefaultsStatus.custom = null;
     if (storage.builtInRulesEnabled === false && !storage.remoteRulesEnabled) {
         storage.hashStatus = "custom_only_loaded";
         storage.hashValidationStatus = 'not_applicable';
@@ -1888,7 +1927,9 @@ function loadBundledRules() {
                     ruleURL: set.ruleURL,
                     hashURL: set.hashURL,
                     expectedHash: remoteHash,
-                    rules
+                    // Each file's defaults go into its own rules before merging.
+                    defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rules.defaults),
+                    rules: LinkumoriRuleDefaults.applyRuleFileDefaults(rules)
                 })));
     });
 
@@ -1921,6 +1962,7 @@ function loadBundledRules() {
             });
 
             const mergedRemoteRules = mergeRemoteRulesSources(successful, failed, ruleCollisions);
+            ruleDefaultsStatus.remote = successful.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
             let finalRules = mergedRemoteRules;
 
             if (storage.overloadModeEnabled === true && storage.builtInRulesEnabled !== false) {
@@ -2156,6 +2198,8 @@ function loadCustomOnlyRules() {
                 } else {
                     customRules = result.custom_rules;
                 }
+                ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
+                customRules = LinkumoriRuleDefaults.applyRuleFileDefaults(customRules);
             }
 
             const providers = (customRules && customRules.providers && typeof customRules.providers === 'object')
@@ -2245,6 +2289,8 @@ function mergeCustomRules(bundledRules) {
                         customRules = result.custom_rules;
                     }
                     
+                    ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
+                    customRules = LinkumoriRuleDefaults.applyRuleFileDefaults(customRules);
                     if (customRules && customRules.providers) {
                         customProviderCount = Object.keys(customRules.providers).length;
                     }
@@ -2476,7 +2522,7 @@ globalThis.getPendingRegressionSuite = getPendingRegressionSuite;
 
 function applyRegressionRuleData(data) {
     const safeData = data && typeof data === 'object' && !Array.isArray(data)
-        ? data
+        ? LinkumoriRuleDefaults.applyRuleFileDefaults(data)
         : { providers: {} };
     const cloneValue = value => {
         if (typeof structuredClone === 'function') {

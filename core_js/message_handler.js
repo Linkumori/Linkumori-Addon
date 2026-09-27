@@ -429,6 +429,7 @@ function handleRegularFunction(request) {
             'getMergeStatistics',
             'getPendingRegressionSuite',
             'getRemoteRulesHealth',
+            'getRuleDefaultsStatus',
             'getRuleSourceInfo',
             'getHistoryApiWhitelist',
             'getTemporaryPauseState',

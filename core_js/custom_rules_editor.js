@@ -4269,6 +4269,17 @@ function setupEventListeners() {
         importFileInput.addEventListener('change', handleFileImport);
     }
 
+    const customDefaultsDetails = document.getElementById('custom-defaults-details');
+    const saveCustomDefaultsBtn = document.getElementById('save-custom-defaults-btn');
+    if (customDefaultsDetails) {
+        customDefaultsDetails.addEventListener('toggle', () => {
+            if (customDefaultsDetails.open) fillCustomDefaultsInput();
+        });
+    }
+    if (saveCustomDefaultsBtn) {
+        saveCustomDefaultsBtn.addEventListener('click', saveCustomDefaults);
+    }
+
     // Enforce rules button - with null checks
     const enforceRulesBtn = document.getElementById('enforce-rules-btn');
     if (enforceRulesBtn) {
@@ -4650,6 +4661,8 @@ async function updateRulesStatus() {
             }
         }
 
+        await updateRuleDefaultsStatus();
+
     } catch (error) {
         // Set fallback values with localized question marks
         const customCountElement = document.getElementById('custom-count');
@@ -4664,6 +4677,93 @@ async function updateRulesStatus() {
         if (disabledCountElement) disabledCountElement.textContent = '?';
         if (mergeStatusElement) mergeStatusElement.textContent = i18n('status_unavailable');
     }
+}
+
+// One source's defaults as text: "key: value" lines, or "None" when it
+// has none that change anything.
+function describeRuleDefaults(defaults) {
+    const entries = Object.entries(LinkumoriRuleDefaults.normalizeRuleDefaults(defaults));
+    if (entries.length === 0) return i18n('customRulesEditor_defaultsNone');
+    return entries
+        .map(([key, value]) => `${key}: ${typeof value === 'string' ? value : JSON.stringify(value)}`)
+        .join('\n');
+}
+
+// The defaults each loaded rule source applies to its own rules.
+async function updateRuleDefaultsStatus() {
+    const container = document.getElementById('rule-defaults-status');
+    if (!container) return;
+
+    let status = null;
+    try {
+        const response = await browser.runtime.sendMessage({ function: 'getRuleDefaultsStatus' });
+        status = response && response.response ? response.response : null;
+    } catch (error) {
+        status = null;
+    }
+
+    const addRow = (label, text) => {
+        const row = document.createElement('div');
+        row.className = 'rules-status-row rules-status-row-stack';
+        const labelSpan = document.createElement('span');
+        labelSpan.textContent = label;
+        const valueSpan = document.createElement('span');
+        valueSpan.textContent = text;
+        row.append(labelSpan, valueSpan);
+        container.appendChild(row);
+    };
+
+    container.replaceChildren();
+    if (status && status.builtIn) {
+        addRow(i18n('customRulesEditor_defaultsBuiltIn'), describeRuleDefaults(status.builtIn));
+    }
+    (status && Array.isArray(status.remote) ? status.remote : []).forEach(source => {
+        addRow(i18n('customRulesEditor_defaultsRemote', source.ruleURL || '?'), describeRuleDefaults(source.defaults));
+    });
+    // The editor's own copy, so a change shows before the rules reload.
+    addRow(i18n('customRulesEditor_defaultsCustom'), describeRuleDefaults(customRules.defaults));
+
+    if (status && status.overloadModeEnabled && status.builtIn && status.remote.length > 0) {
+        const note = document.createElement('div');
+        note.className = 'rules-status-merge';
+        note.textContent = i18n('customRulesEditor_defaultsOverloadNote');
+        container.appendChild(note);
+    }
+}
+
+function fillCustomDefaultsInput() {
+    const input = document.getElementById('custom-defaults-input');
+    if (input) {
+        input.value = JSON.stringify(customRules.defaults || {}, null, 2);
+    }
+}
+
+async function saveCustomDefaults() {
+    const input = document.getElementById('custom-defaults-input');
+    const message = document.getElementById('custom-defaults-message');
+    if (!input || !message) return;
+
+    let defaults;
+    try {
+        defaults = input.value.trim() ? JSON.parse(input.value) : {};
+    } catch (error) {
+        message.textContent = i18n('customRulesEditor_defaultsInvalidJson', error.message);
+        return;
+    }
+    const problems = LinkumoriRuleDefaults.findRuleDefaultsProblems(defaults);
+    if (problems.length > 0) {
+        message.textContent = problems.join('\n');
+        return;
+    }
+
+    if (Object.keys(defaults).length === 0) {
+        delete customRules.defaults;
+    } else {
+        customRules.defaults = defaults;
+    }
+    await saveCustomRules();
+    fillCustomDefaultsInput();
+    message.textContent = i18n('customRulesEditor_defaultsSaved');
 }
 
 /**
@@ -6041,6 +6141,7 @@ async function exportCustomRules() {
             version: 1,
             exportedAt: new Date().toISOString(),
             clearurlsCustomRules: {
+                ...(customRules.defaults ? { defaults: customRules.defaults } : {}),
                 providers: customRules.providers || {}
             },
             // Pinned ids of switched-off rules from built-in and remote
@@ -6102,6 +6203,15 @@ function getProvidersFromImportedCustomRules(imported) {
     }
     const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
     return isPlainObject(container.providers) ? container.providers : null;
+}
+
+// The imported file's "defaults" block, or undefined.
+function getDefaultsFromImportedCustomRules(imported) {
+    if (!isPlainObject(imported)) {
+        return undefined;
+    }
+    const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
+    return container.defaults;
 }
 
 function assertOnlyKeys(value, allowedKeys, label) {
@@ -6194,14 +6304,23 @@ async function handleFileImport(e) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
             }
 
+            const importedDefaults = getDefaultsFromImportedCustomRules(imported);
             if (hasProviderRules) {
                 validateImportedProviders(providersData);
+                const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(importedDefaults);
+                if (defaultsProblems.length > 0) {
+                    throw new Error(defaultsProblems[0]);
+                }
             }
 
             const confirmed = await modalConfirm(i18n('customRulesEditor_importConfirm'));
             if (confirmed) {
                 if (hasProviderRules) {
                     customRules = { providers: providersData };
+                    if (importedDefaults !== undefined && Object.keys(importedDefaults).length > 0) {
+                        customRules.defaults = importedDefaults;
+                    }
+                    fillCustomDefaultsInput();
                     await saveCustomRules();
                 }
                 await importRuleIdPins(importedPins);

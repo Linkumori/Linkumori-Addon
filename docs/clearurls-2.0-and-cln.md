@@ -126,6 +126,7 @@ These arrived in later releases and exist only in CLN:
 |---|---|
 | v100.58.0 | `fieldRedirections`, rule `order`, raw rules with patterns and options (`$rawrule=`), `@@…$rawrule=` exceptions and `targetId` |
 | v100.59.0 | generated ids for every rule, unique within a provider; pinned ids, so a switched-off rule keeps its setting when its text changes |
+| after v100.61.0 | a top-level `defaults` block like ClearURLs 2.0's, applied per rule source |
 | after v100.61.0 | collision checks: two entries whose text means only one takes effect, and ids shared once generated ids count, in the editor, `lint-rules`, imports and remote rules |
 
 ## 5. What this means in practice
