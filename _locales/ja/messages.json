@@ -3974,6 +3974,25 @@
     "message": "Yours",
     "description": "Label for the user's own rule defaults"
   },
+  "customRulesEditor_defaultsCountRequestTypes": {
+    "message": "$COUNT$ request types",
+    "description": "Rule defaults sidebar summary: number of request types",
+    "placeholders": { "count": { "content": "$1", "example": "48" } }
+  },
+  "customRulesEditor_defaultsCountExceptions": {
+    "message": "$COUNT$ URL exceptions",
+    "description": "Rule defaults sidebar summary: number of exceptions",
+    "placeholders": { "count": { "content": "$1", "example": "48" } }
+  },
+  "customRulesEditor_defaultsCountExceptionsOne": {
+    "message": "1 URL exception",
+    "description": "Rule defaults sidebar summary: exactly one exception"
+  },
+  "customRulesEditor_defaultsCountPreprocessors": {
+    "message": "$COUNT$ preprocessors",
+    "description": "Rule defaults sidebar summary: number of preprocessors",
+    "placeholders": { "count": { "content": "$1", "example": "48" } }
+  },
   "customRulesEditor_defaultsModeSourceNote": {
     "message": "Each source's rules get that source's own defaults.",
     "description": "Note for the rule defaults mode 'each source's own'"
@@ -4005,6 +4024,34 @@
   "customRulesEditor_defaultsTabCustom": {
     "message": "Custom rules' defaults",
     "description": "Tab for the custom rules file's own defaults"
+  },
+  "customRulesEditor_defaultsSetLabel": {
+    "message": "Defaults to edit",
+    "description": "Label of the list of rule defaults sets in the defaults editor"
+  },
+  "customRulesEditor_defaultsSetBuiltIn": {
+    "message": "Built-in rules",
+    "description": "Defaults set: the built-in rules' defaults"
+  },
+  "customRulesEditor_defaultsEditedSuffix": {
+    "message": "(edited)",
+    "description": "Added to a rule source in the defaults set list when the user edited its defaults"
+  },
+  "customRulesEditor_defaultsResetToFile": {
+    "message": "Reset to the file's defaults",
+    "description": "Button that drops the user's edit of a rules file's defaults"
+  },
+  "customRulesEditor_defaultsUnusedSource": {
+    "message": "Not used right now: your defaults replace the built-in and remote rules' own.",
+    "description": "Shown when a built-in or remote file's defaults are not used under the chosen mode"
+  },
+  "customRulesEditor_defaultsEditedSource": {
+    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed.",
+    "description": "Shown when the user edited a built-in or remote file's defaults"
+  },
+  "customRulesEditor_defaultsEditedMarker": {
+    "message": "(edited by you)",
+    "description": "Rule defaults sidebar: shown under a source whose defaults the user edited"
   },
   "customRulesEditor_defaultsUnusedUser": {
     "message": "Not used right now: \"Each source's own\" is chosen above.",

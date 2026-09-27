@@ -1761,31 +1761,22 @@
             margin: 0;
         }
 
-        .rule-defaults-tabs {
-            display: inline-flex;
-            align-self: flex-start;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            overflow: hidden;
+        .rule-defaults-set-picker {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .rule-defaults-tab {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 7px 14px;
-            font-family: "Old-Country-Nobility", serif;
-            font-size: 13px;
-            cursor: pointer;
+        .rule-defaults-set-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .rule-defaults-tab + .rule-defaults-tab {
-            border-left: 1px solid var(--border-color);
-        }
-
-        .rule-defaults-tab[aria-selected="true"] {
-            background: var(--button-primary);
-            color: #fff;
+        .rule-defaults-set-row select {
+            flex: 1 1 260px;
+            min-width: 0;
         }
 
         .rule-defaults-unused {
@@ -4111,13 +4102,16 @@ subdomain.example.com
 
                 <fieldset class="rule-defaults-section">
                     <legend class="form-label" data-i18n="customRulesEditor_defaultsEditing"></legend>
-                    <div class="rule-defaults-tabs" role="tablist">
-                        <button type="button" role="tab" class="rule-defaults-tab" id="rule-defaults-tab-user" data-set="user" aria-controls="rule-defaults-panel" aria-selected="true" data-i18n="customRulesEditor_defaultsTabUser"></button>
-                        <button type="button" role="tab" class="rule-defaults-tab" id="rule-defaults-tab-custom" data-set="custom" aria-controls="rule-defaults-panel" aria-selected="false" data-i18n="customRulesEditor_defaultsTabCustom"></button>
+                    <div class="rule-defaults-set-picker">
+                        <label class="form-label" for="rule-defaults-set" data-i18n="customRulesEditor_defaultsSetLabel"></label>
+                        <div class="rule-defaults-set-row">
+                            <select class="form-input" id="rule-defaults-set"></select>
+                            <button type="button" class="btn btn-secondary btn-sm u-hidden" id="rule-defaults-reset" data-i18n="customRulesEditor_defaultsResetToFile"></button>
+                        </div>
                     </div>
                     <div class="rule-defaults-unused u-hidden" id="rule-defaults-unused" role="note"></div>
 
-                    <div class="rule-defaults-fields" id="rule-defaults-panel" role="tabpanel" aria-labelledby="rule-defaults-tab-user">
+                    <div class="rule-defaults-fields" id="rule-defaults-panel" role="group" aria-labelledby="rule-defaults-set">
                         <div class="form-checkbox">
                             <input type="checkbox" id="rule-defaults-inactive">
                             <label for="rule-defaults-inactive" data-i18n="customRulesEditor_defaultsFieldInactive"></label>

@@ -310,11 +310,42 @@ function recordRuleCollisions(items) {
 // (LinkumoriRuleDefaults), so merged rules keep their own file's defaults.
 const ruleDefaultsStatus = { builtIn: null, remote: [], custom: null };
 
+// The user's edited defaults for the built-in rules or one remote file
+// (storage.sourceRuleDefaults), or undefined when they kept the file's own.
+function getSourceRuleDefaultsOverride(sourceKind, ruleURL = null) {
+    const overrides = storage.sourceRuleDefaults || {};
+    const override = sourceKind === 'builtIn' ? overrides.builtIn
+        : (sourceKind === 'remote' && ruleURL && overrides.remote ? overrides.remote[ruleURL] : undefined);
+    return override && typeof override === 'object' && !Array.isArray(override) ? override : undefined;
+}
+
 // A rules file with the defaults its source gets written into its rules:
-// the file's own, or the user's (storage.ruleDefaultsMode).
-function applySourceRuleDefaults(sourceKind, rulesData) {
+// the file's own (or the user's edit of them), or the user's own defaults
+// (storage.ruleDefaultsMode).
+function applySourceRuleDefaults(sourceKind, rulesData, ruleURL = null) {
+    const override = getSourceRuleDefaultsOverride(sourceKind, ruleURL);
+    const fileDefaults = override !== undefined ? override : rulesData?.defaults;
     return LinkumoriRuleDefaults.applyRuleFileDefaults(rulesData, LinkumoriRuleDefaults.pickRuleDefaults(
-        storage.ruleDefaultsMode, sourceKind, rulesData?.defaults, storage.userRuleDefaults));
+        storage.ruleDefaultsMode, sourceKind, fileDefaults, storage.userRuleDefaults));
+}
+
+// { builtIn?: defaults, remote?: { [ruleURL]: defaults } } with only valid
+// blocks kept. An empty block is kept: it means "no defaults" and still
+// replaces the file's own.
+function normalizeSourceRuleDefaults(value) {
+    const isBlock = block => block && typeof block === 'object' && !Array.isArray(block) &&
+        LinkumoriRuleDefaults.findRuleDefaultsProblems(block).length === 0;
+    const result = {};
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return result;
+    if (isBlock(value.builtIn)) result.builtIn = value.builtIn;
+    if (value.remote && typeof value.remote === 'object' && !Array.isArray(value.remote)) {
+        const remote = {};
+        Object.entries(value.remote).forEach(([ruleURL, block]) => {
+            if (ruleURL && isBlock(block)) remote[ruleURL] = block;
+        });
+        if (Object.keys(remote).length > 0) result.remote = remote;
+    }
+    return result;
 }
 
 function getRuleDefaultsStatus() {
@@ -324,6 +355,7 @@ function getRuleDefaultsStatus() {
         custom: ruleDefaultsStatus.custom,
         mode: LinkumoriRuleDefaults.normalizeRuleDefaultsMode(storage.ruleDefaultsMode),
         userDefaults: LinkumoriRuleDefaults.normalizeRuleDefaults(storage.userRuleDefaults),
+        sourceOverrides: normalizeSourceRuleDefaults(storage.sourceRuleDefaults),
         builtInRulesEnabled: storage.builtInRulesEnabled !== false,
         remoteRulesEnabled: !!storage.remoteRulesEnabled,
         overloadModeEnabled: storage.overloadModeEnabled === true
@@ -1437,6 +1469,7 @@ function storageDataAsString(key) {
         case "remoteRulescache":
             try { return JSON.stringify(value); } catch (e) { return JSON.stringify(null); }
         case "userRuleDefaults":
+        case "sourceRuleDefaults":
             return JSON.stringify(value || {});
         default:
             return value;
@@ -1629,7 +1662,7 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         ruleDefaultsStatus.remote = 'defaults' in rawCachedData
             ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
             : remoteSources.map(source => ({ ruleURL: source.ruleURL || null, defaults: source.defaults || {} }));
-        cachedData = applySourceRuleDefaults('remote', rawCachedData);
+        cachedData = applySourceRuleDefaults('remote', rawCachedData, cache.ruleURL || null);
     }
 
     storage.rulesMetadata = null;
@@ -1677,7 +1710,7 @@ function prepareRemoteRuleSource(ruleURL, hashURL, file) {
         ruleURL,
         hashURL,
         defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(file.defaults),
-        rules: applySourceRuleDefaults('remote', file),
+        rules: applySourceRuleDefaults('remote', file, ruleURL),
         file
     };
 }
@@ -3050,6 +3083,14 @@ function setData(key, value) {
             storage[key] = valid ? parsed : {};
             break;
         }
+        case "sourceRuleDefaults": {
+            let parsed = value;
+            if (typeof value === 'string') {
+                try { parsed = JSON.parse(value); } catch (e) { parsed = {}; }
+            }
+            storage[key] = normalizeSourceRuleDefaults(parsed);
+            break;
+        }
         default:
             storage[key] = value;
     }
@@ -3083,6 +3124,7 @@ function initSettings() {
     storage.overloadModeEnabled = false;
     storage.ruleDefaultsMode = 'source';
     storage.userRuleDefaults = {};
+    storage.sourceRuleDefaults = {};
     storage.rulesMetadata = null;
     storage.badgedStatus = true;
     storage.globalStatus = true;
