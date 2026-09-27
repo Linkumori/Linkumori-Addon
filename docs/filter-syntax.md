@@ -36,7 +36,7 @@ Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to st
 | `completeProvider` | boolean; `true` blocks every request this provider matches outright (a full domain/URL block, not just parameter stripping) |
 | `forceRedirection` | boolean; `true` means a redirect on a page load (`main_frame`) navigates the whole browser tab, not just the underlying network request |
 | `methods` | array restricting this provider to specific HTTP methods. Example: `"methods": ["GET"]` |
-| `resourceTypes` | array restricting this provider to specific request types. Example: `"resourceTypes": ["main_frame", "xmlhttprequest"]` |
+| `resourceTypes` | array restricting this provider to specific request types. Example: `"resourceTypes": ["main_frame", "xmlhttprequest"]`. Left out, the provider handles every request type |
 | `historyBypassProtection` | boolean, default `true`; `false` makes this whole provider skip same-page URL changes made via the History API (`pushState`/`replaceState`), while still applying to ordinary network requests |
 | `active` | boolean; `false` disables the entire provider without deleting it from the file |
 
@@ -330,6 +330,13 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
 - **A rule's own value always wins**, and a rule's `exceptions` replace the default list rather than adding to it. A provider's own `historyBypassProtection` beats the file default too.
 - **Which lists:** `rules`, `rawRules`, `referralMarketing`, `redirections` and `fieldRedirections`. A provider's `exceptions` list is left alone, so a default can't switch every exception off. `|`-pattern entries (`$redirect=` redirects) only use `active`.
 - **Per file:** defaults are written into the file's own rules when it loads. Built-in, each remote file, and custom rules keep their own defaults, including when overload mode merges built-in and remote rules. Custom rules' defaults are edited in the custom rules editor, which also shows the defaults each loaded source uses.
+- **Your own defaults:** in the custom rules editor, "Manage rule defaults" opens a form where you can fill in one `defaults` block of your own (and the custom rules' own) and choose where yours replaces the files' own:
+  - *Each source's own* (the default): every file uses its own `defaults`, as above.
+  - *Yours for built-in and remote rules*: built-in and every remote file use yours, and ignore their own `defaults`. Custom rules keep their own.
+  - *Yours for all rules*: every rule uses yours, and no file's own `defaults` is used.
+
+  A rule's own value still wins, and provider `exceptions` are still left alone.
+- **Complete providers:** a `completeProvider` blocks every request it matches before any rule is looked at, so `requestTypes` and `exceptions` from `defaults` also limit the block. `requestTypes`, together with its rules' own, become the provider's `resourceTypes` unless it sets some. `exceptions` are added to the provider's `exceptions`.
 - **Checked:** unknown keys and wrong types are errors in `lint-rules` and the editor, and a remote file with an invalid `defaults` block is rejected.
 
 ## Processing order
