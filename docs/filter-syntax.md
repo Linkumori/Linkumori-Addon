@@ -336,6 +336,7 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
   - *Yours for all rules*: every rule uses yours, and no file's own `defaults` is used.
 
   A rule's own value still wins, and provider `exceptions` are still left alone.
+- **Editing a file's own defaults:** the same form can edit the built-in rules' defaults and each loaded remote file's. Your version is stored in the extension, not in the file, and replaces that file's whole `defaults` block wherever the file's own would be used. "Reset to the file's defaults" drops it. An edit for a remote file is kept while that file is not loaded.
 - **Complete providers:** a `completeProvider` blocks every request it matches before any rule is looked at, so `requestTypes` and `exceptions` from `defaults` also limit the block. `requestTypes`, together with its rules' own, become the provider's `resourceTypes` unless it sets some. `exceptions` are added to the provider's `exceptions`.
 - **Checked:** unknown keys and wrong types are errors in `lint-rules` and the editor, and a remote file with an invalid `defaults` block is rejected.
 
