@@ -382,7 +382,7 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
     };
 }
 
-function normalizeAsciiHostname(value) {
+function normalizeAsciiHostnameUncached(value) {
     const host = String(value || '').trim().toLowerCase();
     if (!host) return null;
     if (/^[\x00-\x7F]+$/.test(host)) return host.endsWith('.') ? host.slice(0, -1) : host;
@@ -433,7 +433,7 @@ function initPslSupport() {
     return pslSupport.loadPromise;
 }
 
-function parseHostnameWithPsl(hostnameInput) {
+function parseHostnameWithPslUncached(hostnameInput) {
     const normalizedHostname = normalizeAsciiHostname(hostnameInput);
     if (!normalizedHostname) return null;
     if (pslSupport.status === 'ready' && pslSupport.service) {
@@ -462,6 +462,36 @@ function parseHostnameWithPsl(hostnameInput) {
             subdomain = normalizedHostname.slice(0, -(('.' + domain).length)) || null;
         return { hostname: normalizedHostname, tld, domain, subdomain, listed: true };
     } catch (e) { return null; }
+}
+
+// PERF: hostname normalising and public-suffix parsing are pure and run
+// several times for every request (provider lookup, domain patterns, party
+// checks, context providers), always on the same few hostnames. Results are
+// cached per hostname. The parsed objects are only ever read, never changed.
+// The PSL result is cached only once the list is ready, since it is null
+// while the list is still loading.
+var HOSTNAME_CACHE_LIMIT = 2000;
+var hostnameNormalizeCache = new Map();
+var pslParseCache = new Map();
+
+function normalizeAsciiHostname(value) {
+    if (typeof value !== 'string') return normalizeAsciiHostnameUncached(value);
+    const hit = hostnameNormalizeCache.get(value);
+    if (hit !== undefined) return hit;
+    const out = normalizeAsciiHostnameUncached(value);
+    if (hostnameNormalizeCache.size >= HOSTNAME_CACHE_LIMIT) hostnameNormalizeCache.clear();
+    hostnameNormalizeCache.set(value, out);
+    return out;
+}
+
+function parseHostnameWithPsl(hostnameInput) {
+    if (pslSupport.status !== 'ready' || typeof hostnameInput !== 'string') return parseHostnameWithPslUncached(hostnameInput);
+    const hit = pslParseCache.get(hostnameInput);
+    if (hit !== undefined) return hit;
+    const out = parseHostnameWithPslUncached(hostnameInput);
+    if (pslParseCache.size >= HOSTNAME_CACHE_LIMIT) pslParseCache.clear();
+    pslParseCache.set(hostnameInput, out);
+    return out;
 }
 
 function matchRootDomainWildcardTldWithPsl(hostnameValue, pattern) {
@@ -1106,8 +1136,26 @@ function getLinkumoriRemoveParamTraceName(linkumoriRule) {
     return '$removeparam';
 }
 
+// PERF: linkumoriRemoveParamMatchesName() decodes a parameter's value for
+// every rule it is tested against, so the same string was decoded many times
+// per request. Decoded values are cached; very long values are not, to keep
+// the cache small.
+var LINKUMORI_DECODE_CACHE_LIMIT = 1000;
+var LINKUMORI_DECODE_CACHE_MAX_LENGTH = 2048;
+var linkumoriDecodeCache = new Map();
+
 function safeDecodeLinkumoriParam(value) {
-    try { return decodeURIComponent(String(value || '')); } catch (e) { return String(value || ''); }
+    const text = String(value || '');
+    if (text.length > LINKUMORI_DECODE_CACHE_MAX_LENGTH) {
+        try { return decodeURIComponent(text); } catch (e) { return text; }
+    }
+    let out = linkumoriDecodeCache.get(text);
+    if (out === undefined) {
+        try { out = decodeURIComponent(text); } catch (e) { out = text; }
+        if (linkumoriDecodeCache.size >= LINKUMORI_DECODE_CACHE_LIMIT) linkumoriDecodeCache.clear();
+        linkumoriDecodeCache.set(text, out);
+    }
+    return out;
 }
 
 function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
