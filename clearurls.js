@@ -1662,11 +1662,31 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     const getLinkumoriState = () => {
         if (linkumoriState) return linkumoriState;
-        const activeRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request, isHistoryUpdate);
-        const activeExceptions = [
-            ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request, isHistoryUpdate),
-            ...(extraExceptions || [])
-        ];
+        // PERF: a rule's eligibility check (URL pattern, party, hosts, methods,
+        // request type, ...) is expensive, and most rules never match a
+        // parameter of this URL. Test the cheap parameter-name match first and
+        // run the eligibility check only for rules that match, once per rule.
+        // Same results as filtering up front; the URL is captured now so a
+        // later raw-rule edit cannot change what was eligible.
+        const stateUrl = url;
+        const lazyRuleList = (rules, extra) => {
+            const eligible = new Map();
+            const isEligible = r => {
+                let v = eligible.get(r);
+                if (v === undefined) { v = matchLinkumoriRemoveParamTarget(r, stateUrl, request, isHistoryUpdate); eligible.set(r, v); }
+                return v;
+            };
+            return {
+                get length() { return rules.length + extra.length; },
+                find(nameMatches) {
+                    for (const r of rules) if (nameMatches(r) && isEligible(r)) return r;
+                    for (const r of extra) if (nameMatches(r)) return r;
+                    return undefined;
+                }
+            };
+        };
+        const activeRules = lazyRuleList(linkumoriParamRules || [], []);
+        const activeExceptions = lazyRuleList(linkumoriParamExceptions || [], extraExceptions || []);
         const cache = new Map();
         const getDecision = (paramName, paramValues = []) => {
             // BUGFIX 2: URLHashParams.getAll() returns a Set (Multimap), so fragment
