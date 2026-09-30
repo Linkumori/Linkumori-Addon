@@ -2635,8 +2635,15 @@ ${commit.message}
         }
       }
 
+      // Whole-number matchPatterns without an `order`, and the same text in
+      // rules and referralMarketing (shared with the custom rules editor).
+      const isRemoveParamText = text => getRemoveParamOptions(text).length > 0;
+      for (const problem of LinkumoriRuleIds.findRuleOrderWarnings(provider, isRemoveParamText)) {
+        warnings.push(`${tag} ${problem.message}`);
+      }
+
       // Same text twice in one list, and ids shared once generated ids count.
-      for (const problem of LinkumoriRuleIds.findRuleCollisions(provider, text => getRemoveParamOptions(text).length > 0)) {
+      for (const problem of LinkumoriRuleIds.findRuleCollisions(provider, isRemoveParamText)) {
         (problem.severity === 'error' ? errors : warnings).push(`${tag} ${problem.message}`);
       }
 

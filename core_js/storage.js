@@ -244,6 +244,24 @@ function findMergedGroupRuleCollisions(providerGroup, mergedProvider, mergedName
             message: `after merging ${members}: ${problem.message}`
         }));
 
+    // The same text in `rules` in one file and `referralMarketing` (or a
+    // `rules` entry with "referralMarketing": true) in another, where only
+    // one of them takes effect.
+    const referralKeyOf = problem => `${problem.kind}\u0000${problem.text}`;
+    const memberReferralKeys = new Set();
+    providerGroup.forEach(member => {
+        LinkumoriRuleIds.findReferralTextCollisions(member.data || {}, isRemoveParamRuleTextForCollisions)
+            .forEach(problem => memberReferralKeys.add(referralKeyOf(problem)));
+    });
+    LinkumoriRuleIds.findReferralTextCollisions(mergedProvider, isRemoveParamRuleTextForCollisions)
+        .filter(problem => !memberReferralKeys.has(referralKeyOf(problem)))
+        .forEach(problem => items.push({
+            source: 'merged',
+            provider: mergedName,
+            severity: problem.severity,
+            message: `after merging ${members}: ${problem.message}`
+        }));
+
     // On/off settings are keyed by provider pattern and rule id, not by file,
     // so rules from different files can end up sharing one.
     const memberShared = new Set();
