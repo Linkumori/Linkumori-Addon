@@ -128,7 +128,8 @@ ClearURLs 2.0. CLN reads the same keys (`active`, `description`,
 - **Per source.** Each file's block is written into that file's rules as
   it loads: the built-in rules, each remote file, and the custom rules.
   When overload mode merges built-in and remote rules, every rule keeps
-  its own file's defaults.
+  its own file's defaults. Which copy of a rule runs after the merge is in
+  [filter-syntax.md § Overload mode](filter-syntax.md#overload-mode).
 - **Your own defaults.** In the custom rules editor, "Manage rule defaults"
   sets a block of your own and where it replaces the files' own:
   - *Each source's own* (the default): every file's own block is used.
@@ -165,6 +166,8 @@ These arrived in later releases and exist only in CLN:
 | after v100.61.0 | request types come only from rules (`requestTypes`, `defaults`, a provider's `resourceTypes`); the Settings request type list is removed |
 | after v100.61.0 | the bundled rules' `defaults` hold their request types and the site exceptions formerly on `globalRules` |
 | after v100.61.0 | collision checks: two entries whose text means only one takes effect, and ids shared once generated ids count, in the editor, `lint-rules`, imports and remote rules |
+| after v100.61.1 | one exact run order for `rawRules`, `rules` and `referralMarketing` entries, written down with worked examples; entries with the same `order` now run raw rules first, the same stage order as entries without one ([Processing order](filter-syntax.md#processing-order)) |
+| after v100.61.1 | warnings in the editor and `lint-rules` for a whole-number `matchPattern` without `order` and for the same text in `rules` and `referralMarketing`; Remote Rules Health warns about the second across merged files ([Same text twice](filter-syntax.md#same-text-twice)) |
 
 ## 5. What this means in practice
 
