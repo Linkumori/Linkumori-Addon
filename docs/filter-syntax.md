@@ -400,6 +400,50 @@ Two entries with the same `matchPattern` text in one group are one entry, and on
 
 `lint-rules` and the editor reject two different entries with the same text in one array, and warn about an exact copy. They also warn about the same text in `rules` and `referralMarketing`, and in `rules` with and without `"referralMarketing": true`. `$removeparam` filters don't count here — each one runs.
 
+#### Overload mode
+
+In overload mode the built-in rules and your remote rule files load together, and one site can have a provider in more than one of them. Before any rule runs, those providers are merged into one:
+
+1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
+2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
+3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
+4. **Duplicates while joining.** Only entries that are exactly alike count once. `order` is part of what makes two entries alike, so `{"matchPattern": "token", "order": 1}` and `{"matchPattern": "token", "order": 50}` are two entries, and both are kept.
+
+The merged provider then runs like any other, so the rules above apply: entries with the same text in one group count once, and the last definition wins. After a merge the last definition is always the remote one — with several remote files, the last-listed file's. So a remote copy of a built-in rule replaces it whole, `order` included:
+
+- **Both have an `order`:** the remote number is used.
+- **Only the built-in copy has an `order`:** the `order` is dropped, and the rule goes back to its default position (§Processing order).
+- **Both are exactly alike:** they're one entry, and nothing changes.
+- **Different text:** nothing is replaced. Both entries run, sorted as in §Processing order — at equal `order` the built-in entry runs first, because it comes first in the joined list.
+
+The built-in rules have:
+
+```json
+{ "providers": { "site": { "domainPatterns": ["||site.example^"], "rules": [{ "matchPattern": "token", "order": 1 }, "x"] } } }
+```
+
+and your remote file has:
+
+```json
+{ "providers": { "site": { "domainPatterns": ["||site.example^"], "rules": ["token"] } } }
+```
+
+Here the merged `rules` list is `token` (`order: 1`), `x`, `token`. The remote `"token"` wins, so `token` runs with no `order`, before `x` in the first copy's place — the built-in `order: 1` has no effect.
+
+| Built-in | Remote | What runs |
+| --- | --- | --- |
+| `token`, `order: 1` | `token`, `order: 50` | `token` at `order: 50` |
+| `a` `order: 1`, `b` `order: 2` | `b` `order: 1`, `a` `order: 2` | `b`, then `a` — the remote numbers |
+| `fromBuiltIn`, `order: 5` | `fromRemote`, `order: 5` | both; `fromBuiltIn` first |
+| `token`, `order: 1` | `"token"` | `token` with no `order`, at its default position |
+| `token`, `order: 7` | `token`, `order: 7` | one `token`, `order: 7` |
+| `token` `order: 1` on `\|\|site.example^` | `token` `order: 50` on `\|\|other.example^` | not merged — two providers, each with its own `token` |
+| `token` `order: 1`, `"methods": ["GET"]` | `token` `order: 50`, `"methods": ["POST"]` | not merged — two providers |
+| `token`, `order: 1` | file 1: `token` `order: 20`; file 2: `token` `order: 30` | `token` at `order: 30` |
+| `rules`: `"tag"` | `referralMarketing`: `"tag"` | the `referralMarketing` entry replaces the `rules` one while referral-marketing rules run (above) |
+
+Remote Rules Health lists each rule a merge replaces within one list as an error, but the rules still load, and the remote copy runs.
+
 ### Worked example
 
 ```json
