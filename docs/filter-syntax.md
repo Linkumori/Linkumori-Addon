@@ -442,7 +442,7 @@ Here the merged `rules` list is `token` (`order: 1`), `x`, `token`. The remote `
 | `token`, `order: 1` | file 1: `token` `order: 20`; file 2: `token` `order: 30` | `token` at `order: 30` |
 | `rules`: `"tag"` | `referralMarketing`: `"tag"` | the `referralMarketing` entry replaces the `rules` one while referral-marketing rules run (above) |
 
-Remote Rules Health lists each rule a merge replaces within one list as an error, but the rules still load, and the remote copy runs.
+Remote Rules Health lists each rule a merge replaces within one list as an error, but the rules still load, and the remote copy runs. It also warns when a merge puts the same text in `rules` from one file and in `referralMarketing` (or a `rules` entry with `"referralMarketing": true`) from another — the last row above.
 
 ### Worked example
 

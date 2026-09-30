@@ -274,12 +274,7 @@
     // file suggests (docs/filter-syntax.md §Processing order), as
     // [{ severity: 'warning', message }]:
     //  1. A whole-number matchPattern without an `order`.
-    //  2. The same text in `rules` and `referralMarketing`, or in `rules` with
-    //     and without "referralMarketing": true. The engine keeps plain
-    //     `rules` entries in one object and referral ones (flagged `rules`
-    //     entries, then `referralMarketing`) in another, and merges the two
-    //     while referral-marketing rules run, so only one entry takes effect.
-    // Same text within one list is findRuleCollisions' pass 1.
+    //  2. findReferralTextCollisions.
     function findRuleOrderWarnings(provider, isRemoveParamText) {
         const problems = [];
         const warning = message => problems.push({ severity: 'warning', message });
@@ -294,6 +289,21 @@
                     'not at its place in the list; give it an "order" if its place matters');
             });
         });
+        problems.push(...findReferralTextCollisions(provider, isRemoveParamText));
+        return problems;
+    }
+
+    // The same text in `rules` and `referralMarketing`, or in `rules` with and
+    // without "referralMarketing": true, as [{ severity: 'warning', message,
+    // text, kind }]. The engine keeps plain `rules` entries in one object and
+    // referral ones (flagged `rules` entries, then `referralMarketing`) in
+    // another, and merges the two while referral-marketing rules run, so only
+    // one entry takes effect. `kind` names the pair ('flagged-rules',
+    // 'referral-rules' or 'referral-flagged'). Same text within one list is
+    // findRuleCollisions' pass 1.
+    function findReferralTextCollisions(provider, isRemoveParamText) {
+        const problems = [];
+        const warning = (message, text, kind) => problems.push({ severity: 'warning', message, text, kind });
 
         // First index of each keyed text among plain and flagged `rules`.
         const plain = new Map(), flagged = new Map();
@@ -310,7 +320,8 @@
         };
         flagged.forEach((index, text) => {
             if (!plain.has(text)) return;
-            warning(replacesPlain(`rules[${index}] "${text}" has "referralMarketing": true and is also in rules[${plain.get(text)}] without it`, text));
+            warning(replacesPlain(`rules[${index}] "${text}" has "referralMarketing": true and is also in rules[${plain.get(text)}] without it`, text),
+                text, 'flagged-rules');
         });
         const seen = new Set();
         getListValues(provider, 'referralMarketing').forEach((rule, index) => {
@@ -318,11 +329,12 @@
             if (!text || seen.has(text) || !isKeyedByText('referralMarketing', text, isRemoveParamText)) return;
             seen.add(text);
             if (plain.has(text)) {
-                warning(replacesPlain(`referralMarketing[${index}] "${text}" is also in rules[${plain.get(text)}]`, text));
+                warning(replacesPlain(`referralMarketing[${index}] "${text}" is also in rules[${plain.get(text)}]`, text),
+                    text, 'referral-rules');
             }
             if (flagged.has(text)) {
                 warning(`referralMarketing[${index}] "${text}" is also in rules[${flagged.get(text)}] with "referralMarketing": true, ` +
-                    `so only referralMarketing[${index}] takes effect; keep one of them`);
+                    `so only referralMarketing[${index}] takes effect; keep one of them`, text, 'referral-flagged');
             }
         });
         return problems;
@@ -333,6 +345,7 @@
         assignProviderRuleIds,
         baseRuleId,
         createRuleIdLookup,
+        findReferralTextCollisions,
         findRuleCollisions,
         findRuleOrderWarnings,
         isWholeNumberRuleText,
