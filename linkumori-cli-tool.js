@@ -2635,6 +2635,23 @@ ${commit.message}
         }
       }
 
+      // A whole-number matchPattern ("123") without an `order` leaves its
+      // place in the list: the engine keys these lists by text, and
+      // JavaScript puts number-like keys first, smallest first. rules and
+      // referralMarketing share one such list, rawRules has its own.
+      for (const field of ORDERABLE_RULE_LISTS) {
+        const ahead = field === 'rawRules'
+          ? 'the other rawRules entries'
+          : 'every rules and referralMarketing entry';
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          if (entry && typeof entry === 'object' && typeof entry.order === 'number') continue;
+          const text = getRulePattern(entry);
+          if (/^(?:0|[1-9]\d*)$/.test(text) && Number(text) <= 4294967294) {
+            warnings.push(`${tag} ${field} "${text}" is a whole number, so it runs ahead of ${ahead} without an "order", not at its place in the list; give it an "order" if its place matters`);
+          }
+        }
+      }
+
       // Same text twice in one list, and ids shared once generated ids count.
       for (const problem of LinkumoriRuleIds.findRuleCollisions(provider, text => getRemoveParamOptions(text).length > 0)) {
         (problem.severity === 'error' ? errors : warnings).push(`${tag} ${problem.message}`);
