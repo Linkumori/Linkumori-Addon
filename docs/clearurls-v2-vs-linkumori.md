@@ -75,7 +75,7 @@ Linkumori has one format for bundled, remote and custom rules:
 |---|---|---|---|---|
 | name | map key | `providerId` | map key | map key |
 | `urlPattern` | **required**; regex | required | required | regex, case-insensitive; or use `domainPatterns` |
-| `domainPatterns` | — | — | — | `\|\|example.com^`, `\|\|example.*^`, `\|\|host^/path`, … ([§2](filter-syntax.md#2-patterns)) |
+| `domainPatterns` | — | — | — | `\|\|example.com^`, `\|\|example.*^`, `\|\|host^/path`, … ([Patterns](filter-syntax.md#patterns)) |
 | `indexPattern` | — | — | — | `\|\|host^` hints for a `urlPattern` provider, so it is only checked on those hosts |
 | `completeProvider` | block matching requests (if domain blocking is on) | same | same; "incompatible with rules/exceptions/redirections" | block matching requests (if domain blocking is on); `exceptions` and `redirections` are still checked first |
 | `forceRedirection` | redirects are enforced for `main_frame` | same | same | same: the tab navigates instead of the request being redirected |
@@ -189,7 +189,7 @@ In both, this keeps the key `token` and rewrites a value such as `test` to
 | `requestTypes` | `requestTypes` | `requestTypes` | ClearURLs: `all` or a list. Linkumori: a list only; leave it out for all types |
 | `preprocessors` | `preprocessors` | `preprocessors` | §10 |
 | `referralMarketing` | `referralMarketing` | `referralMarketing` | `true` on a field rule. Linkumori also accepts it in the `referralMarketing` list, where it changes nothing |
-| — | — | `order` | run a rule earlier or later, across `rules`, `rawRules` and `referralMarketing` |
+| — | — | `order` | run a rule earlier or later, across `rules`, `rawRules` and `referralMarketing`. Every entry with an `order` runs before every entry without one; at equal `order`, raw rules run first ([Processing order](filter-syntax.md#processing-order)) |
 | — | — | `historyBypassProtection` | `false` skips the rule for History API URL changes |
 | — | — | `targetId` | on an `@@…$rawrule=` exception: the raw rule it stops |
 
@@ -213,7 +213,8 @@ In both, this keeps the key `token` and rewrites a value such as `test` to
 | Redirections | legacy: capture group 1, decoded with `decodeURIComponent()`; format 2: `replacePattern` | a plain regex needs exactly one capture group; the target is URL-decoded until no escapes are left; `http://` is added if there is no scheme |
 | Exceptions | URL regexes; case not stated | case-insensitive regexes, or `\|` domain patterns |
 | `urlPattern` case | not stated | case-insensitive |
-| Order of steps within a provider | not stated on the spec pages | exceptions → redirections → field redirections → complete provider → raw rules → field rules → `$removeparam` ([filter-syntax.md §1](filter-syntax.md#how-a-url-is-processed)) |
+| Order of steps within a provider | not stated on the spec pages | exceptions → redirections → field redirections → complete provider → raw rules → field rules → `$removeparam` ([Processing order](filter-syntax.md#processing-order)) |
+| Order of raw, field and referral rules | one `rules` list holds every `kind`; the spec pages do not say whether a rule's place in the list or its `kind` decides when it runs | raw rules, then field rules, then referral-marketing rules, each in list order. `order` moves an entry, and equal `order`s keep that same stage order ([The middle stretch](filter-syntax.md#the-middle-stretch)) |
 | Legacy field names | the legacy catalog turns a field into the URL regex `(?:&\|[/?#&])(?:<field>=[^&]*)` | the name is matched against each parsed parameter |
 
 ## 9. Rule ids and toggles
@@ -221,11 +222,11 @@ In both, this keeps the key `token` and rewrites a value such as `test` to
 | | ClearURLs | Linkumori |
 |---|---|---|
 | Explicit id | `id`, required on long-form rules | `id`, optional |
-| Rules without an id | "deterministic fallback ids", which are "not a persistence contract" | generated from the list and text, e.g. `utm_source` in `rules` → `field-utm-source` (the same shape as the id in ClearURLs' compiled example). When ids would collide, a hash of the text is added ([Rule ids](filter-syntax.md#rule-ids)) |
+| Rules without an id | "deterministic fallback ids", which are "not a persistence contract" | generated from the list and text, e.g. `utm_source` in `rules` → `field-utm-source` (the same shape as the id in ClearURLs' compiled example). When ids would collide, a hash of the text is added ([Rule objects](filter-syntax.md#rule-objects)) |
 | Stable across edits | only explicit ids | only explicit ids; a generated id changes with the rule's text |
 | Renames | `aliases` | `aliases`; toggles saved under an alias move to the new id |
 | Runtime id | `listId::providerId::ruleId`, e.g. `core::google::field-utm-source` | `provider::ruleId` (the whole provider) or `domainPattern:<pattern>::ruleId` / `urlPattern:<pattern>::ruleId` (one match pattern) |
-| Several lists | kept apart by the list id | providers from different sources are merged; a custom provider replaces a bundled one with the same pattern |
+| Several lists | kept apart by the list id | providers from different sources are merged; a custom provider replaces a bundled one with the same pattern. In overload mode a remote copy of a built-in rule replaces it whole, `order` included ([Overload mode](filter-syntax.md#overload-mode)) |
 
 ## 10. Preprocessors and `replacePattern`
 
@@ -268,23 +269,23 @@ with groups `['https', 'test']` gives `https://test.clearurls.xyz/`.
 
 | Feature | Syntax | Reference |
 |---|---|---|
-| Domain patterns | `"domainPatterns": ["\|\|amazon.*^"]`, `\|\|host^/path`, `\|https://…`, `/regex/` | [§2](filter-syntax.md#2-patterns) |
-| Index hints for `urlPattern` | `"indexPattern": ["\|\|google.*^"]` | [§1](filter-syntax.md#1-provider-fields) |
-| `$removeparam` filters | `[@@][pattern]$removeparam[=value][,option…]`; value `name`, `/regex/`, `\|prefix`, `~…`, or nothing (all) | [§4](filter-syntax.md#4-removeparam-filters) |
-| Filter options | `domain=`, `to=`, `method=`, `first-party`, `third-party`, `strict-first-party`, `strict-third-party`, request types, `match-case`, `history-bypass-protection=` | [§4](filter-syntax.md#options) |
-| Keeping a parameter | `"@@\|\|github.com^$removeparam=ref"` | [§4](filter-syntax.md#-exceptions) |
-| Rules for one domain or path | `"\|\|amazon.de^$removeparam=tag"` | [§3](filter-syntax.md#domain-specific-rules) |
-| Raw rules with patterns and options | `"\|\|example.com^$third-party,rawrule=\\/sid=[^/?]*"` | [§5](filter-syntax.md#5-rawrules) |
-| Stopping raw rules | `"@@\|\|example.com^/checkout/$rawrule="`, or a rule object with `targetId` | [§5](filter-syntax.md#-exceptions-1) |
-| Domain exceptions | `"exceptions": ["\|\|accounts.google.com^"]` | [§6](filter-syntax.md#6-exceptions) |
-| Fixed-address redirects | `"\|\|go.example.com^$redirect=https://example.com/"` | [§7](filter-syntax.md#7-redirections) |
-| Redirect to a parameter's value | `"fieldRedirections": ["continue_url"]` | [§8](filter-syntax.md#8-fieldredirections) |
-| Step order | `"order": 1` | [§9](filter-syntax.md#order) |
-| History API opt-out | `historyBypassProtection` on providers and rules, `history-bypass-protection=` in filters | [§1](filter-syntax.md#1-provider-fields) |
-| Provider request types | `"resourceTypes": ["main_frame"]` | [§1](filter-syntax.md#1-provider-fields) |
-| `base64Decode` preprocessor | `{ "type": "base64Decode", "inputs": "all" }` | [§9](filter-syntax.md#9-rule-objects) |
-| Ids for every rule | generated, with collision handling; toggles per provider or per match pattern | [Rule ids](filter-syntax.md#rule-ids) |
-| Checks | `lint-rules` and the editor reject rules that load but would do the wrong thing | [§10](filter-syntax.md#10-checking-rules) |
+| Domain patterns | `"domainPatterns": ["\|\|amazon.*^"]`, `\|\|host^/path`, `\|https://…`, `/regex/` | [Patterns](filter-syntax.md#patterns) |
+| Index hints for `urlPattern` | `"indexPattern": ["\|\|google.*^"]` | [Provider fields](filter-syntax.md#provider-fields) |
+| `$removeparam` filters | `[@@][pattern]$removeparam[=value][,option…]`; value `name`, `/regex/`, `\|prefix`, `~…`, or nothing (all) | [$removeparam filters](filter-syntax.md#removeparam-filters) |
+| Filter options | `domain=`, `to=`, `method=`, `first-party`, `third-party`, `strict-first-party`, `strict-third-party`, request types, `match-case`, `history-bypass-protection=` | [Modifiers](filter-syntax.md#modifiers) |
+| Keeping a parameter | `"@@\|\|github.com^$removeparam=ref"` | [Exceptions (`@@`)](filter-syntax.md#exceptions-) |
+| Rules for one domain or path | `"\|\|amazon.de^$removeparam=tag"` | [rules / referralMarketing](filter-syntax.md#rules--referralmarketing) |
+| Raw rules with patterns and options | `"\|\|example.com^$third-party,rawrule=\\/sid=[^/?]*"` | [rawRules](filter-syntax.md#rawrules) |
+| Stopping raw rules | `"@@\|\|example.com^/checkout/$rawrule="`, or a rule object with `targetId` | [rawRules](filter-syntax.md#rawrules) |
+| Domain exceptions | `"exceptions": ["\|\|accounts.google.com^"]` | [exceptions](filter-syntax.md#exceptions) |
+| Fixed-address redirects | `"\|\|go.example.com^$redirect=https://example.com/"` | [redirections](filter-syntax.md#redirections) |
+| Redirect to a parameter's value | `"fieldRedirections": ["continue_url"]` | [fieldRedirections](filter-syntax.md#fieldredirections) |
+| Step order | `"order": 1`, with one exact run order for every entry | [Processing order](filter-syntax.md#processing-order) |
+| History API opt-out | `historyBypassProtection` on providers and rules, `history-bypass-protection=` in filters | [Provider fields](filter-syntax.md#provider-fields) |
+| Provider request types | `"resourceTypes": ["main_frame"]` | [Provider fields](filter-syntax.md#provider-fields) |
+| `base64Decode` preprocessor | `{ "type": "base64Decode", "inputs": "all" }` | [Rule objects](filter-syntax.md#rule-objects) |
+| Ids for every rule | generated, with collision handling; toggles per provider or per match pattern | [Rule objects](filter-syntax.md#rule-objects) |
+| Checks | `lint-rules` and the editor reject rules that load but would do the wrong thing, and warn about rules that run somewhere other than their place in the file suggests: a whole-number `matchPattern` without `order`, or the same text in `rules` and `referralMarketing`. Remote Rules Health warns about the second across merged files | [Same text twice](filter-syntax.md#same-text-twice) |
 
 ## 13. What only ClearURLs format 2 has
 
@@ -401,9 +402,14 @@ What changed:
    - drop `requestTypes: all`;
    - keep `id`, `aliases`, `description`, `exceptions`, `preprocessors`,
      `flags` and `referralMarketing` as they are.
-7. Compiled field rules are stored anchored (`^utm_source$`). Linkumori adds
+7. ClearURLs format 2 keeps every `kind` in one list. Moved into
+   Linkumori's lists, raw rules run before field rules, whatever their
+   place in the YAML ([Processing order](filter-syntax.md#processing-order)).
+   If a field rule must run before a raw rule, give it a lower `order` —
+   and read the note there on crossing that boundary first.
+8. Compiled field rules are stored anchored (`^utm_source$`). Linkumori adds
    `^…$` again, which does no harm, but you can remove the anchors.
-8. Run `node linkumori-cli-tool.js lint-rules my-rules.json`.
+9. Run `node linkumori-cli-tool.js lint-rules my-rules.json`.
 
 ### From Linkumori to ClearURLs
 

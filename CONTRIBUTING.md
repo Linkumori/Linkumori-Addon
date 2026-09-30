@@ -304,7 +304,7 @@ To remove a parameter only on some of the provider's domains, put a domain patte
 ]
 ```
 
-See [docs/filter-syntax.md §3](docs/filter-syntax.md#domain-specific-rules).
+See [docs/filter-syntax.md § rules / referralMarketing](docs/filter-syntax.md#rules--referralmarketing).
 
 ---
 
@@ -345,7 +345,7 @@ To keep raw rules from running on some URLs, add an `@@` exception. Give the raw
 ]
 ```
 
-See [docs/filter-syntax.md §5](docs/filter-syntax.md#5-rawrules).
+See [docs/filter-syntax.md § rawRules](docs/filter-syntax.md#rawrules).
 
 > Use `rawRules` sparingly — incorrect patterns can corrupt the URL.
 
