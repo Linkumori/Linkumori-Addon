@@ -364,7 +364,7 @@ The middle stretch is every `rawRules`, `rules` and `referralMarketing` entry of
 | --- | --- | --- |
 | `rawRules`, whole-number `matchPattern` | `1` | `0` |
 | `rawRules` | `1` | `1` |
-| `rules` or `referralMarketing`, whole-number `matchPattern` | as below | `2` |
+| `rules` or `referralMarketing`, whole-number `matchPattern` | `0` in `rules`, `2` in `referralMarketing` | `2` |
 | `rules` | `0` | `3` |
 | `rules`, object with `"referralMarketing": true` | `0` | `4` |
 | `referralMarketing` | `2` | `5` |
@@ -374,7 +374,7 @@ A whole-number `matchPattern` is one written like `"0"` or `"123"` — digits on
 Read the key left to right; the first part that differs decides. That gives you these rules:
 
 - **Every entry with an `order` runs before every entry without one.** The number is never compared with an array index. `order: 10` doesn't mean "tenth": it means "after the provider's other ordered entries with `order` below 10, and before all of its unordered entries". This is also why an explicit `order` always wins over an implicit position — otherwise `order: 1` would silently lose to whichever unordered entry happens to sit at index 1.
-- **Without an `order`, entries keep their default position:** `rawRules` in array order, then `rules` in array order, then the `rules` objects marked `"referralMarketing": true` in array order, then `referralMarketing` in array order. So `"referralMarketing": true` does move an unordered entry: it runs after the provider's unmarked `rules` entries, and before the `referralMarketing` array. With an `order`, the flag doesn't change where the entry runs — it ranks as any other `rules` entry.
+- **Without an `order`, entries keep their default position** (whole numbers aside, below): `rawRules` in array order, then `rules` in array order, then the `rules` objects marked `"referralMarketing": true` in array order, then `referralMarketing` in array order. So `"referralMarketing": true` does move an unordered entry: it runs after the provider's unmarked `rules` entries, and before the `referralMarketing` array. With an `order`, the flag doesn't change where the entry runs — it ranks as any other `rules` entry.
 - **A whole-number `matchPattern` without `order` leaves its place.** It runs ahead of the other unordered entries of its group, smallest number first: in `rawRules`, ahead of the other raw rules; in `rules` or `referralMarketing`, ahead of every unordered `rules` and `referralMarketing` entry, whichever array it sits in. The provider keeps these lists by text, and number-like text sorts first. If its place matters, give it an `order`; `lint-rules` warns about each one that has none.
 - **At equal `order`, `rules` entries run before `rawRules` entries, which run before `referralMarketing` entries**, then by `arrayIndex`. To keep a raw rule ahead of an ordered field rule, give the raw rule a strictly lower `order`; an equal one runs it second.
 - **Two entries never compare equal** — within one array their `arrayIndex` differs, and two whole numbers in one group are different numbers once the same text counts once. The key is total, so every provider has exactly one sequence.
