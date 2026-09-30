@@ -2324,8 +2324,11 @@ function start() {
         // rawRules, rules and referralMarketing as one list in the order they
         // run: entries with an `order` first (lowest first), then the rest in
         // their default order (rawRules before rules/referralMarketing).
-        // Ties keep list order. $removeparam filters are not in this list;
-        // they always run afterwards, together with their @@ exceptions.
+        // Entries with the same `order` run in that default order too:
+        // rawRules, rules, rules with "referralMarketing": true, then
+        // referralMarketing, each in list order. $removeparam filters are
+        // not in this list; they always run afterwards, together with their
+        // @@ exceptions.
         this.getOrderedCleaningSteps = function () {
             const steps = [];
             Object.keys(rawRuleMap).forEach(key => steps.push({ type: 'raw', key, compiled: rawRuleMap[key], stage: 0 }));
@@ -2333,6 +2336,13 @@ function start() {
             Object.keys(rulesMap).forEach(key => steps.push({ type: 'field', key, compiled: rulesMap[key], stage: 1 }));
             const orderOf = step => (step.compiled && typeof step.compiled.order === 'number' ? step.compiled.order : null);
             const sequenceOf = step => (step.compiled && typeof step.compiled.sequence === 'number' ? step.compiled.sequence : 0);
+            // The sequence alone follows the order the lists are loaded in
+            // (rules before rawRules), so it only breaks ties within a rank.
+            const rankOf = step => {
+                if (step.type === 'raw') return 0;
+                if (step.compiled.section === 'referralMarketing') return 3;
+                return referralMarketingRuleMap[step.key] === step.compiled ? 2 : 1;
+            };
             return steps
                 .map((step, index) => ({ step, index }))
                 .sort((a, b) => {
@@ -2341,6 +2351,8 @@ function start() {
                         if (ao === null) return 1;
                         if (bo === null) return -1;
                         if (ao !== bo) return ao - bo;
+                        const ar = rankOf(a.step), br = rankOf(b.step);
+                        if (ar !== br) return ar - br;
                         return sequenceOf(a.step) - sequenceOf(b.step);
                     }
                     return a.index - b.index;
