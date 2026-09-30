@@ -291,7 +291,7 @@ Any entry, in any list above, can be an object instead of a string — for a sta
 | `preprocessors` | array of transforms applied to captured values before they're used in a rewrite or redirect, in order. Each is `{"type": <name>, "inputs": "all"}` or an index array. Types: `urlEncode`, `urlDecode`, `doubleUrlEncode`, `doubleUrlDecode`, `base64Encode`, `base64Decode` |
 | `requestTypes` | array restricting this one rule to specific request types (same names as the `$removeparam` request-type option above) |
 | `exceptions` | array of URLs (regex) this specific rule skips, independent of the provider's own `exceptions` |
-| `order` | number controlling when this entry runs relative to a provider's other `rawRules`/`rules`/`referralMarketing` entries — lower numbers run earlier. Entries without `order` keep their default position (raw rules before field rules) |
+| `order` | number controlling when this entry runs relative to a provider's other `rawRules`/`rules`/`referralMarketing` entries — lower numbers run earlier. Every entry with an `order` runs before every entry without one, raw rules included; entries without `order` keep their default position (raw rules before field rules). Not allowed on `$removeparam` filters. The exact sequence is under §Processing order |
 | `referralMarketing` | `true`, set on an entry inside `rules`, makes it also behave as a referral-marketing rule without moving it into the separate `referralMarketing` array |
 | `active` | `false` disables just this one rule, leaving it in the file for later re-enabling |
 
@@ -303,7 +303,7 @@ Using the `token-rewrite` object above, against a URL containing `?token=abc123`
 | --- | --- |
 | `matchPattern: "token"` | selects the `token` parameter, same as a plain entry in `rules` |
 | `replacePattern: "clean-§1§"` | `§1§` is the parameter's *current value*; the new value becomes `clean-` followed by it |
-| `order: 5` | this rewrite runs at position 5 among the provider's ordered `rawRules`/`rules` entries |
+| `order: 5` | this rewrite runs after any of the provider's `rawRules`/`rules`/`referralMarketing` entries with a lower `order`, and before every entry that has no `order` |
 
 Result: `?token=abc123` becomes `?token=clean-abc123`.
 
@@ -344,6 +344,98 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
 ## Processing order
 
 For each matching provider: `exceptions` (skip if matched) → `redirections` → `fieldRedirections` → `completeProvider` → `rawRules` → `rules`/`referralMarketing` → `$removeparam` filters. A rule's `order` can move it earlier or later within that middle stretch. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL.
+
+### The middle stretch
+
+The middle stretch is every `rawRules`, `rules` and `referralMarketing` entry of the provider, taken together as one list — bare strings and rule objects alike — except `$removeparam` filters and their `@@` exceptions, which always run afterwards and can't carry an `order`. Entries that are off (`"active": false`, toggled off, or `referralMarketing` entries while the person allows referral marketing) are left out; the rest run in ascending order of this sort key:
+
+`(orderGroup, order, rank, arrayIndex)`
+
+| Part | Value |
+| --- | --- |
+| `orderGroup` | `0` if the entry is a rule object with a numeric `order`; `1` otherwise. Every bare string is `1` |
+| `order` | the entry's own `order`. Only compared between two `orderGroup` `0` entries — `orderGroup` `1` entries have none, and their position comes from `rank` and `arrayIndex` alone. Negative numbers and fractions are allowed |
+| `rank` | which array the entry sits in, from the table below. The ranks differ between the two groups |
+| `arrayIndex` | the entry's zero-based position within its own array (`rules[3]` → `3`) |
+
+| Array | `rank` with `order` (`orderGroup` 0) | `rank` without `order` (`orderGroup` 1) |
+| --- | --- | --- |
+| `rawRules` | `1` | `0` |
+| `rules` | `0` | `1` |
+| `rules`, object with `"referralMarketing": true` | `0` | `2` |
+| `referralMarketing` | `2` | `3` |
+
+Read the key left to right; the first part that differs decides. That gives you these rules:
+
+- **Every entry with an `order` runs before every entry without one.** The number is never compared with an array index. `order: 10` doesn't mean "tenth": it means "after the provider's other ordered entries with `order` below 10, and before all of its unordered entries". This is also why an explicit `order` always wins over an implicit position — otherwise `order: 1` would silently lose to whichever unordered entry happens to sit at index 1.
+- **Without an `order`, entries keep their default position:** `rawRules` in array order, then `rules` in array order, then the `rules` objects marked `"referralMarketing": true` in array order, then `referralMarketing` in array order. So `"referralMarketing": true` does move an unordered entry: it runs after the provider's unmarked `rules` entries, and before the `referralMarketing` array. With an `order`, the flag doesn't change where the entry runs — it ranks as any other `rules` entry.
+- **At equal `order`, `rules` entries run before `rawRules` entries, which run before `referralMarketing` entries**, then by `arrayIndex`. To keep a raw rule ahead of an ordered field rule, give the raw rule a strictly lower `order`; an equal one runs it second.
+- **Two entries in the same array never compare equal** — their `arrayIndex` differs. The key is total, so every provider has exactly one sequence.
+
+> **Note — crossing the raw → field boundary.** The sort key makes crossing it well-defined, not safe. Raw rules run first so they can delete things that aren't `name=value` pairs — `/ref=…` path segments, `;jsessionid=…` — before the parameter pass reads the URL. Any `order` on a `rules` or `referralMarketing` entry lifts it above every unordered raw rule; the parameter pass then sees the URL before it's been cleaned, so it can match, rewrite or strip the wrong thing. Leave the boundary intact unless you have a specific reason not to: if one entry in a provider needs an `order`, give its raw rules an `order` too, lower than every field rule's.
+
+### Worked example
+
+```json
+{
+  "providers": {
+    "shop": {
+      "domainPatterns": ["||shop.example^"],
+      "rawRules": [
+        "\\/ref=[^/?]*",
+        { "id": "strip-jsessionid", "matchPattern": ";jsessionid=[^/?#]*", "order": 20 }
+      ],
+      "rules": [
+        "utm_source",
+        { "id": "token-rewrite", "matchPattern": "token", "replacePattern": "clean-§1§", "order": 5 },
+        "fbclid",
+        { "id": "aff-id", "matchPattern": "aff_id", "referralMarketing": true },
+        { "id": "sid", "matchPattern": "sid", "order": 20 },
+        "$removeparam=/^pk_/"
+      ],
+      "referralMarketing": ["tag"]
+    }
+  }
+}
+```
+
+With "allow referral marketing" off, the provider runs:
+
+| # | Entry | `(orderGroup, order, rank, arrayIndex)` |
+| --- | --- | --- |
+| 1 | `rules[1]` `token-rewrite` | `(0, 5, 0, 1)` |
+| 2 | `rules[4]` `sid` | `(0, 20, 0, 4)` |
+| 3 | `rawRules[1]` `strip-jsessionid` | `(0, 20, 1, 1)` |
+| 4 | `rawRules[0]` `"\\/ref=[^/?]*"` | `(1, –, 0, 0)` |
+| 5 | `rules[0]` `"utm_source"` | `(1, –, 1, 0)` |
+| 6 | `rules[2]` `"fbclid"` | `(1, –, 1, 2)` |
+| 7 | `rules[3]` `aff-id` | `(1, –, 2, 3)` |
+| 8 | `referralMarketing[0]` `"tag"` | `(1, –, 3, 0)` |
+
+Then `rules[5]` `"$removeparam=/^pk_/"`, with the provider's other `$removeparam` filters — it's outside the sort. With "allow referral marketing" on, 7 and 8 are left out and the rest keep their order.
+
+| Row | Why |
+| --- | --- |
+| 1 | `order: 5` is the lowest `order` in the provider |
+| 2, 3 | same `order: 20`; `rules` ranks `0`, `rawRules` ranks `1` |
+| 3, 4 | the ordered raw rule runs before the unordered one, though it sits later in `rawRules` |
+| 1, 4 | `token-rewrite` has a lower `order` than the raw rule `strip-jsessionid` *and* runs before the unordered raw rule `/ref=` — `token` is read before `/ref=…` is deleted from the path. See the note above |
+| 7 | the unordered `"referralMarketing": true` object runs after every unmarked unordered `rules` entry, then the `referralMarketing` array |
+
+### Possible 2.0 direction
+
+Not part of 1.0 — two candidates, neither decided:
+
+- **An explicit stage.** A `stage` key (`raw` \| `field` \| `referral`) on each entry, with `order` only compared within one stage. Stage order would then never depend on a number, and running a field rule before raw rules would take a visible `"stage"` change in a diff instead of a small `order`.
+- **One array.** All three kinds in a single `rules` array whose array order is the run order, each entry saying what kind it is. That would remove the need for `order` entirely.
+
+### Open questions
+
+Left open by this section:
+
+- (a) Whether an `@@…$removeparam=` exception is checked up front, before any entry runs, or as a step at its own place in the sequence.
+- (b) Whether the raw → field boundary should become uncrossable by `order`, so an `order` alone can't lift a field rule above an unordered raw rule.
+- (c) Two entries with the same `matchPattern` in one array — or in both `rules` and `referralMarketing` — currently count once, the later definition replacing the earlier one. Which `arrayIndex` and which `order` that single entry keeps isn't pinned here.
 
 ## User whitelist
 
