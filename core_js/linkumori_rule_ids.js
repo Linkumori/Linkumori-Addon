@@ -258,12 +258,84 @@
         return problems;
     }
 
+    // Text JavaScript puts ahead of other object keys, smallest first: digits
+    // only, no leading zero, at most 4294967294 ("0", "123"; not "007", "-1",
+    // "1.5"). The engine keeps plain raw rules and plain rules /
+    // referralMarketing entries in objects keyed by their text, so such an
+    // entry without an `order` runs ahead of its list instead of in place.
+    function isWholeNumberRuleText(text) {
+        return typeof text === 'string' && /^(?:0|[1-9]\d*)$/.test(text) && Number(text) <= 4294967294;
+    }
+
+    const hasOrder = rule => !!rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.order === 'number';
+    const isReferralFlagged = rule => !!rule && typeof rule === 'object' && !Array.isArray(rule) && rule.referralMarketing === true;
+
+    // Warnings about entries that run somewhere else than their place in the
+    // file suggests (docs/filter-syntax.md §Processing order), as
+    // [{ severity: 'warning', message }]:
+    //  1. A whole-number matchPattern without an `order`.
+    //  2. The same text in `rules` and `referralMarketing`, or in `rules` with
+    //     and without "referralMarketing": true. The engine keeps plain
+    //     `rules` entries in one object and referral ones (flagged `rules`
+    //     entries, then `referralMarketing`) in another, and merges the two
+    //     while referral-marketing rules run, so only one entry takes effect.
+    // Same text within one list is findRuleCollisions' pass 1.
+    function findRuleOrderWarnings(provider, isRemoveParamText) {
+        const problems = [];
+        const warning = message => problems.push({ severity: 'warning', message });
+
+        ['rawRules', 'rules', 'referralMarketing'].forEach(section => {
+            const ahead = section === 'rawRules' ? 'the other rawRules entries' : 'every rules and referralMarketing entry';
+            getListValues(provider, section).forEach(rule => {
+                if (hasOrder(rule)) return;
+                const text = getRuleText(rule);
+                if (!isWholeNumberRuleText(text)) return;
+                warning(`${section} "${text}" is a whole number, so it runs ahead of ${ahead} without an "order", ` +
+                    'not at its place in the list; give it an "order" if its place matters');
+            });
+        });
+
+        // First index of each keyed text among plain and flagged `rules`.
+        const plain = new Map(), flagged = new Map();
+        getListValues(provider, 'rules').forEach((rule, index) => {
+            const text = getRuleText(rule);
+            if (!text || !isKeyedByText('rules', text, isRemoveParamText)) return;
+            const firsts = isReferralFlagged(rule) ? flagged : plain;
+            if (!firsts.has(text)) firsts.set(text, index);
+        });
+        const replacesPlain = (where, text) => {
+            const at = `rules[${plain.get(text)}]`;
+            return `${where}, so it replaces ${at} while referral-marketing rules run, and ${at} runs alone when ` +
+                'referral marketing is allowed; keep one of them';
+        };
+        flagged.forEach((index, text) => {
+            if (!plain.has(text)) return;
+            warning(replacesPlain(`rules[${index}] "${text}" has "referralMarketing": true and is also in rules[${plain.get(text)}] without it`, text));
+        });
+        const seen = new Set();
+        getListValues(provider, 'referralMarketing').forEach((rule, index) => {
+            const text = getRuleText(rule);
+            if (!text || seen.has(text) || !isKeyedByText('referralMarketing', text, isRemoveParamText)) return;
+            seen.add(text);
+            if (plain.has(text)) {
+                warning(replacesPlain(`referralMarketing[${index}] "${text}" is also in rules[${plain.get(text)}]`, text));
+            }
+            if (flagged.has(text)) {
+                warning(`referralMarketing[${index}] "${text}" is also in rules[${flagged.get(text)}] with "referralMarketing": true, ` +
+                    `so only referralMarketing[${index}] takes effect; keep one of them`);
+            }
+        });
+        return problems;
+    }
+
     root.LinkumoriRuleIds = Object.freeze({
         RULE_ID_SECTIONS,
         assignProviderRuleIds,
         baseRuleId,
         createRuleIdLookup,
         findRuleCollisions,
+        findRuleOrderWarnings,
+        isWholeNumberRuleText,
         getRuleText,
         hashRuleText
     });
