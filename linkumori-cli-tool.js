@@ -1019,7 +1019,13 @@ documentation when you run the build process.
 
       const hasWrappedShape = Object.prototype.hasOwnProperty.call(parsed, 'providers')
         || Object.prototype.hasOwnProperty.call(parsed, 'metadata')
-        || Object.prototype.hasOwnProperty.call(parsed, 'defaults');
+        || Object.prototype.hasOwnProperty.call(parsed, 'defaults')
+        || Object.prototype.hasOwnProperty.call(parsed, 'cln');
+      // The optional "cln" key names the format version; only "1.0" loads.
+      const clnProblem = LinkumoriRuleIds.findClnVersionProblem(parsed);
+      if (clnProblem) {
+        throw new Error(clnProblem);
+      }
       const providers = hasWrappedShape ? (parsed.providers || {}) : parsed;
 
       if (!providers || typeof providers !== 'object' || Array.isArray(providers)) {
@@ -1040,6 +1046,7 @@ documentation when you run the build process.
       this.success(`✅ Loaded ${Object.keys(providers).length} providers`);
 
       return {
+        ...(parsed.cln !== undefined ? { cln: parsed.cln } : {}),
         metadata,
         ...(hasWrappedShape && parsed.defaults !== undefined ? { defaults: parsed.defaults } : {}),
         providers
@@ -1403,6 +1410,11 @@ documentation when you run the build process.
     let minifiedData = { "providers": {} };
     let removedProviders = 0;
 
+    // The CLN format version (CLN 1.0 §File structure) is kept as written.
+    if (typeof data.cln === 'string') {
+      minifiedData.cln = data.cln;
+    }
+
     // Kept as written; an empty block is dropped.
     if (data.defaults && typeof data.defaults === 'object' && !Array.isArray(data.defaults) &&
         Object.keys(data.defaults).length > 0) {
@@ -1508,7 +1520,9 @@ documentation when you run the build process.
       ? `  "defaults": ${JSON.stringify(defaults)},\n`
       : '';
 
-    return `{\n${metadataBlock}${defaultsBlock}  "providers": {${providersBlock}  }\n}\n`;
+    const clnBlock = typeof data.cln === 'string' ? `  "cln": ${JSON.stringify(data.cln)},\n` : '';
+
+    return `{\n${clnBlock}${metadataBlock}${defaultsBlock}  "providers": {${providersBlock}  }\n}\n`;
   }
 
   loadLZ4Codec() {
@@ -2015,6 +2029,10 @@ ${commit.message}
       errors.push(`[defaults] ${problem}`);
     }
 
+    // The optional "cln" key names the format version (CLN 1.0 §File structure).
+    const clnProblem = LinkumoriRuleIds.findClnVersionProblem(data);
+    if (clnProblem) errors.push(`[cln] ${clnProblem}`);
+
     // helper — try to compile a regex, push error on failure
     const tryRegex = (pattern, flags, label) => {
       try {
@@ -2132,7 +2150,7 @@ ${commit.message}
     const RULE_OBJECT_KEYS = new Set([
       'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
       'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
-      '_linkumoriActivationIds', '_linkumoriLegacyRuleIds'
+      '_linkumoriActivationIds', '_linkumoriLegacyRuleIds', '_linkumoriSource', '_linkumoriNoRedirect'
     ]);
     const RULE_LISTS = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
     // Lists whose entries are field rules (names, name regexes, $removeparam filters).
@@ -2191,6 +2209,12 @@ ${commit.message}
         const next = i + 1 < text.length ? text.charAt(i + 1) : '';
 
         if (!inRegex) {
+          // A backslash keeps the next character: "removeparam=a\\,b" names "a,b".
+          if (ch === '\\' && next) {
+            current += ch + next;
+            i++;
+            continue;
+          }
           if (ch === ',') {
             if (current.trim()) parts.push(current.trim());
             current = '';
@@ -2243,8 +2267,10 @@ ${commit.message}
         return;
       }
       if (value === '') return;
+      const escapeProblem = LinkumoriRuleIds.findRemoveParamEscapeProblem(value);
+      if (escapeProblem) errors.push(`${label} ${escapeProblem}`);
       const normalizedValue = value.startsWith('~') ? value.slice(1).trim() : value;
-      const regexLiteral = parseRegexLiteral(normalizedValue);
+      const regexLiteral = normalizedValue.startsWith('\\') ? null : parseRegexLiteral(normalizedValue);
       if (regexLiteral) {
         tryRegex(regexLiteral.body, regexLiteral.flags || 'i', label);
       }
@@ -2263,7 +2289,8 @@ ${commit.message}
       }
 
       let matched = false;
-      const regexLiteral = parseRegexLiteral(normalizedValue);
+      const regexLiteral = normalizedValue.startsWith('\\') ? null : parseRegexLiteral(normalizedValue);
+      normalizedValue = normalizedValue.replace(/\\([~|/,\\])/g, '$1');
       if (regexLiteral) {
         try {
           matched = new RegExp(regexLiteral.body, regexLiteral.flags || 'i').test(String(key || '').toLowerCase());
@@ -2492,6 +2519,8 @@ ${commit.message}
           const marker = rdPattern.indexOf('$redirect=');
           if (marker === -1 || !rdPattern.slice(0, marker).trim() || !rdPattern.slice(marker + 10).trim()) {
             errors.push(`${tag} redirection "${rdLabel}" → a "|" redirect must look like "||example.com^$redirect=https://target/"`);
+          } else if (!LinkumoriRuleIds.isValidRedirectTarget(rdPattern.slice(marker + 10))) {
+            errors.push(`${tag} redirection "${rdLabel}" → the $redirect= target must be an absolute http or https URL`);
           }
           continue;
         }
@@ -2568,13 +2597,16 @@ ${commit.message}
                 errors.push(`${label} referralMarketing has no effect in ${field}; it only applies in ${REFERRAL_MARKETING_KEY_LISTS.join(', ')}`);
               }
             }
+            // "order": null means no order, and none inherited (CLN 1.0
+            // §Same text twice). A $removeparam filter or "@@" entry has no
+            // place in the run order, so it takes no "order" at all.
             if (entry.order !== undefined) {
-              if (typeof entry.order !== 'number' || !Number.isFinite(entry.order)) {
-                errors.push(`${label} order must be a number`);
+              if (entry.order !== null && (typeof entry.order !== 'number' || !Number.isFinite(entry.order))) {
+                errors.push(`${label} order must be a number or null`);
               } else if (!ORDERABLE_RULE_LISTS.includes(field)) {
                 errors.push(`${label} order has no effect in ${field}; it only applies in ${ORDERABLE_RULE_LISTS.join(', ')}`);
               } else if (getRemoveParamOptions(getRulePattern(entry)).length > 0) {
-                errors.push(`${label} order has no effect on a $removeparam filter; $removeparam filters always run after the other rules`);
+                errors.push(`${label} order has no effect on a $removeparam filter or "@@" entry; they always run after the other rules`);
               }
             }
           }
@@ -2635,8 +2667,8 @@ ${commit.message}
         }
       }
 
-      // Whole-number matchPatterns without an `order`, and the same text in
-      // rules and referralMarketing (shared with the custom rules editor).
+      // The same text in rules and referralMarketing (shared with the custom
+      // rules editor).
       const isRemoveParamText = text => getRemoveParamOptions(text).length > 0;
       for (const problem of LinkumoriRuleIds.findRuleOrderWarnings(provider, isRemoveParamText)) {
         warnings.push(`${tag} ${problem.message}`);
