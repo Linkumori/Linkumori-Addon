@@ -1718,16 +1718,25 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers || Object.keys(rawCachedData.providers).length === 0) {
         return null;
     }
+    const hasSourceFiles = Array.isArray(cache.sourceFiles) && cache.sourceFiles.length > 0;
     let cachedData = rebuildRemoteRulesFromCacheFiles(cache.sourceFiles);
+    // Cached files that no longer load (a "cln" this version rejects, an
+    // invalid "defaults" block) are not replaced by the merged copy.
+    if (!cachedData && hasSourceFiles) return null;
     if (!cachedData) {
         // A merged cache from before sourceFiles already has its sources'
         // own defaults in its rules and lists them in metadata; a single
         // file saved as fetched still has its "defaults" block.
+        if (LinkumoriRuleIds.findClnVersionProblem(rawCachedData)) return null;
         const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
         ruleDefaultsStatus.remote = 'defaults' in rawCachedData
             ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
             : remoteSources.map(source => ({ ruleURL: source.ruleURL || null, defaults: source.defaults || {} }));
-        cachedData = applySourceRuleDefaults('remote', rawCachedData, cache.ruleURL || null);
+        // Its rules can't be traced to one file, so only what every
+        // configured file may do is active (CLN 1.0 §Remote file capabilities).
+        cachedData = LinkumoriRuleIds.restrictRuleFileCapabilities(
+            applySourceRuleDefaults('remote', rawCachedData, cache.ruleURL || null),
+            getCapabilitiesAcceptedByAllRemoteFiles());
     }
 
     storage.rulesMetadata = null;
@@ -1816,6 +1825,14 @@ function resolveRemoteFileCapabilities(ruleURL, file) {
         try { saveOnDisk(['remoteRuleCapabilities']); } catch (e) {}
     }
     return [...new Set([...CAPABILITIES_ACTIVE_ON_LOAD, ...entry.accepted])];
+}
+
+// The capabilities active for every configured remote file.
+function getCapabilitiesAcceptedByAllRemoteFiles() {
+    ensureRemoteRuleCapabilitiesInitialized();
+    const files = getConfiguredRemoteRuleSets().map(set => storage.remoteRuleCapabilities.files[set.ruleURL]);
+    return LinkumoriRuleIds.RULE_FILE_CAPABILITIES.filter(capability => CAPABILITIES_ACTIVE_ON_LOAD.includes(capability) ||
+        (files.length > 0 && files.every(entry => entry && entry.accepted.includes(capability))));
 }
 
 // Each loaded remote file's capabilities, for Remote Rules Health.
