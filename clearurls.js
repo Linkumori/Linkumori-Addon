@@ -75,7 +75,6 @@
 
 
 
-// BUGFIX 10: "use strict" moved to prologue (was mid-file, no-op there).
 "use strict";
 
 var providers = [];
@@ -88,7 +87,7 @@ var dataHash;
 var localDataHash;
 var os;
 var initializationComplete = false;
-// BUGFIX 10: cap cache size to prevent unbounded growth.
+// Compiled domain patterns, at most 5000 (least recently used evicted).
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
 // At most this many cleaning cycles run for one request; a redirect or a
@@ -159,15 +158,8 @@ function normalizeCoreRuleActivationIds(value) {
 // `lookupRuleId(section, matchPattern)` gives the generated id of a rule
 // without an "id" (see core_js/linkumori_rule_ids.js).
 function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = [], lookupRuleId = null) {
-    const baseId = LinkumoriRuleIds.baseRuleId(section, compiledRule.matchPattern);
-    const ruleId = compiledRule.id || (lookupRuleId ? lookupRuleId(section, compiledRule.matchPattern) : baseId);
-    // Ids this rule may have had before, so a setting saved under one still
-    // applies: its readable id (which it loses once another rule shares it)
-    // and the numbered id ("-2", …) storage used to give such rules. A
-    // setting saved under a shared readable id switches off every rule that
-    // shares it; a rule that was off never comes back on by itself.
-    compiledRule.legacyIds = compiledRule.id ? []
-        : [...new Set([baseId, ...normalizeCoreRuleAliases(compiledRule._linkumoriLegacyRuleIds)])].filter(id => id !== ruleId);
+    const ruleId = compiledRule.id || (lookupRuleId ? lookupRuleId(section, compiledRule.matchPattern)
+        : LinkumoriRuleIds.baseRuleId(section, compiledRule.matchPattern));
     const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
     const fallbackActivationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
         ? activationScopeIds : [providerName])
@@ -180,8 +172,8 @@ function attachCoreRuleIdentity(providerName, compiledRule, section, activationS
     return compiledRule;
 }
 
-// Disabled ids saved under a rule's old name (one of its "aliases" or
-// legacy ids), keyed by that old id, with the ids they now belong to. One old
+// Disabled ids saved under a rule's old name (one of its "aliases"),
+// keyed by that old id, with the ids they now belong to. One old
 // generated id can belong to several rules. Filled while providers are built
 // and written back by migrateCoreRuleAliasActivationIds().
 let pendingCoreRuleAliasMigrations = new Map();
@@ -208,29 +200,21 @@ function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds, 
     return (Array.isArray(replacedIds) ? replacedIds : []).some(replacedId => disabledRuleIds.has(`${scope}::${replacedId}`));
 }
 
-// Every id that names this rule: its own, its aliases and legacy ids, and
-// those of the definitions it replaced.
-function getCoreRuleNames(compiledRule) {
-    return [compiledRule.id, ...(compiledRule.aliases || []), ...(compiledRule.legacyIds || []),
-        ...(compiledRule.replacedIds || [])].filter(Boolean);
-}
 
 function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
-    const previousIds = (compiledRule.aliases || []).concat(compiledRule.legacyIds || []);
+    const previousIds = compiledRule.aliases || [];
     const replacedIds = compiledRule.replacedIds || [];
     const disableWhole = () => {
         compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
         compiledRule.activationIds = [];
         return true;
     };
-    // A rule is switched off for its whole provider ("provider::ruleId"),
-    // for one of its match patterns ("domainPattern:<pattern>::ruleId"), or
-    // by a bare id saved before toggles were namespaced.
+    // A rule is switched off for its whole provider ("provider::ruleId") or
+    // for one of its match patterns ("domainPattern:<pattern>::ruleId").
     if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, previousIds, disabledRuleIds, replacedIds)) {
         return disableWhole();
     }
-    if (getCoreRuleNames(compiledRule).some(name => disabledRuleIds.has(name))) return disableWhole();
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
     const active = [], disabled = [];
@@ -305,8 +289,6 @@ function applyCoreRulePin(compiledRule) {
 function getCoreRuleDisableKeys(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return [];
     if (compiledRule.runtimeRuleId && disabledRuleIds.has(compiledRule.runtimeRuleId)) return [compiledRule.runtimeRuleId];
-    const bareKeys = getCoreRuleNames(compiledRule).filter(name => disabledRuleIds.has(name));
-    if (bareKeys.length > 0) return bareKeys;
     return (compiledRule.disabledActivationIds || []).filter(id => disabledRuleIds.has(id));
 }
 
@@ -611,7 +593,7 @@ var requestContextManager = {
         browser.tabs.onRemoved.addListener(tabId => { this.tabs.delete(tabId); });
         if (browser.webNavigation && browser.webNavigation.onCommitted) {
             browser.webNavigation.onCommitted.addListener(details => {
-                // BUGFIX 10: clear stale frame entries on top-level navigation.
+                // A top-level navigation starts the tab over.
                 if (details.frameId === 0) {
                     const t = this.tabs.get(details.tabId);
                     if (t) t.frames.clear();
@@ -641,9 +623,8 @@ class URLHashParams {
         const params = hash.split('&');
         for (const p of params) {
             if (!p) continue;
-            // BUGFIX 1: old code split on ALL '=' chars which destroyed values
-            // containing '=' (base64 padding, JWT tokens, OAuth tokens).
-            // Also dropped empty "key=" pairs. Split on the FIRST '=' only.
+            // Split on the first '=' only: values may contain '=' (base64
+            // padding, JWTs), and "key=" keeps its empty value.
             const eq = p.indexOf('=');
             if (eq === -1) {
                 this._params.put(p, null);  // bare key, no '='
@@ -657,8 +638,7 @@ class URLHashParams {
     append(name, value = null) { this._params.put(name, value); }
     delete(name) { this._params.delete(name); }
     get(name) {
-        // BUGFIX 1: previous code: const [first] = this._params.get(name);
-        // if (first) return first; — this returned null for empty-string values.
+        // An empty-string value is a value, not null.
         for (const value of this._params.get(name)) return value;
         return null;
     }
@@ -667,9 +647,7 @@ class URLHashParams {
     toString() {
         const rtn = [];
         this._params.forEach((key, value) => {
-            // BUGFIX 1: old code treated empty-string value like null (no '=')
-            // which silently turned "token=" into "token" on every rewrite.
-            // null means no '=' was present; empty string means "key=" was.
+            // null means no '=' was present; an empty string means "key=" was.
             if (value !== null && value !== undefined) rtn.push(key + '=' + value);
             else rtn.push(key);
         });
@@ -763,7 +741,7 @@ function matchDomainPattern(url, patterns) {
     function compileLinkumoriRegex(pattern) {
         const cacheKey = String(pattern || '');
         if (linkumoriPatternRegexCache.has(cacheKey)) {
-            // BUGFIX 11: refresh recency on hit so eviction below is LRU, not FIFO.
+            // Refresh recency on a hit, so eviction below is least recently used.
             const cached = linkumoriPatternRegexCache.get(cacheKey);
             linkumoriPatternRegexCache.delete(cacheKey);
             linkumoriPatternRegexCache.set(cacheKey, cached);
@@ -784,18 +762,14 @@ function matchDomainPattern(url, patterns) {
         const source = linkumoriTokensToRegexSource(raw);
         const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
-        // BUGFIX 3: old boundary was (?=[/?#]|$) — excluded ':' so
-        // ||example.com never matched http://example.com:8080/…
+        // ':' is a boundary too, so ||example.com matches http://example.com:8080/.
         const domainBoundary = (domainAnchor && !raw.endsWith('^') && !endAnchor) ? '(?=[:/?#]|$)' : '';
 
         let regex = null;
         try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
         catch (e) { regex = null; }
 
-        // BUGFIX 11: was a full clear() on overflow, which caused every cached
-        // pattern to recompile at once and produced a periodic latency spike.
-        // Evict the single oldest (least-recently-used) entry instead so the
-        // cache stays warm under steady load.
+        // Evict only the least recently used entry, so the cache stays warm.
         if (linkumoriPatternRegexCache.size >= 5000) {
             const oldestKey = linkumoriPatternRegexCache.keys().next().value;
             if (oldestKey !== undefined) linkumoriPatternRegexCache.delete(oldestKey);
@@ -853,10 +827,9 @@ function matchDomainPattern(url, patterns) {
         if (!matchHostPattern(hostname, hostExpr)) {
             // PSL not ready → fall through to regex path.
             if (pslSupport.status !== 'ready') return null;
-            // BUGFIX 4: when PSL is ready but the host or pattern is not in PSL
-            // (localhost, .lan, custom intranet TLDs) matchHostPattern always
-            // fails for structural reasons. Return null so we fall through to
-            // compileLinkumoriRegex instead of permanently hard-failing.
+            // A host or pattern the PSL doesn't list (localhost, .lan,
+            // intranet TLDs) can't match structurally; null falls through to
+            // the regex path.
             const hostParsed = parseHostnameWithPsl(hostname);
             if (!hostParsed || !hostParsed.tld) return null;
             let base = normalizeAsciiHostname(hostExpr) || '';
@@ -893,9 +866,8 @@ function matchDomainPattern(url, patterns) {
                 if (closingSlash > 0) {
                     const body = p.slice(1, closingSlash);
                     const flags = p.slice(closingSlash + 1);
-                    // BUGFIX 8: only treat as regex when flags are valid flag chars.
-                    // Otherwise fall through — plain paths like "/path/to/x" must
-                    // use the wildcard/substring path, not return false permanently.
+                    // Only a regex when the flags are flag characters; a plain
+                    // path such as "/path/to/x" uses the wildcard path below.
                     if (/^[a-z]*$/i.test(flags)) {
                         try { return new RegExp(body, flags).test(url); }
                         catch (e) { /* fall through */ }
@@ -956,10 +928,8 @@ function splitLinkumoriModifiers(modifiersText) {
 function findLinkumoriModifierStart(ruleText) {
     const text = String(ruleText || '');
     if (!text) return -1;
-    // BUGFIX 7: the original only special-cased '/^…' patterns.  A rule like
-    // /foo$bar/i$removeparam=x has a '$' inside the regex body that is NOT
-    // the modifier separator.  Generalise: any rule whose pattern starts with
-    // '/' needs us to find the closing unescaped '/' first, then look for '$'.
+    // A /regex/ pattern may contain '$' ("/foo$bar/i$removeparam=x"), so the
+    // options start after its closing unescaped '/'.
     if (text.startsWith('/')) {
         let escaped = false;
         for (let i = 1; i < text.length; i++) {
@@ -1458,8 +1428,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         replacePattern, requestTypes, raw: resolvedRule,
         historyBypassProtection: resolveLinkumoriHistoryBypassProtection(resolvedRule, defaults),
-        _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds),
-        _linkumoriLegacyRuleIds: normalizeCoreRuleAliases(resolvedRule._linkumoriLegacyRuleIds)
+        _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
 }
 
@@ -1543,16 +1512,6 @@ function getCoreRuleTraceName(compiledRule, fallback) {
 function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = false) {
     if (!compiledRule) return false;
     if (isHistoryUpdate && compiledRule.historyBypassProtection === false) return false;
-    // BUGFIX 12: a bare RegExp used to short-circuit straight to `true`,
-    // skipping active/exception/request-type checks entirely. Nothing in this
-    // file constructs a bare-RegExp "compiled rule" anymore (all rule paths
-    // go through compileCoreRuleDefinition / parseLinkumoriRemoveParamRule),
-    // so treat it the same as any other compiled rule: test it as the regex
-    // it is, with no special bypass.
-    if (compiledRule instanceof RegExp) {
-        compiledRule.lastIndex = 0;
-        return compiledRule.test(url);
-    }
     if (compiledRule.active === false) return false;
     if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
     // Pattern and $removeparam-style options of a "…$…rawrule=" raw rule.
@@ -1561,9 +1520,10 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
         const rt = String(request && request.type || "").toLowerCase();
         if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
     }
-    if (compiledRule.exceptionMatcher) return !compiledRule.exceptionMatcher.test(url);
-    const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
-    return !exceptions.some(ex => { try { return (new RegExp(ex, "i")).test(url); } catch (_) { return false; } });
+    // A normalized rule (a fieldRedirections $removeparam entry) has no
+    // matcher of its own yet; the shared one for its list is cached.
+    const exceptionMatcher = compiledRule.exceptionMatcher || getRuleExceptionMatcher(compiledRule.exceptions);
+    return !exceptionMatcher || !exceptionMatcher.test(url);
 }
 
 function applyCoreRulePreprocessors(values, preprocessors) {
@@ -1586,10 +1546,8 @@ function applyCoreRulePreprocessors(values, preprocessors) {
                     case "base64Decode": next[index] = decodeURIComponent(escape(atob(current))); break;
                 }
             } catch (e) {
-                // BUGFIX 13: preprocessor failures (malformed base64/URI-encoding)
-                // used to vanish silently, leaving a stale/undefined value with no
-                // trace. Log once with enough context to diagnose which rule and
-                // preprocessor step failed, then keep the pre-step value.
+                // Malformed base64 or URI encoding: log it and keep the value
+                // from before this step.
                 console.warn('[linkumori] preprocessor failed', { type: preprocessor.type, index, error: String(e && e.message || e) });
             }
         }
@@ -1645,12 +1603,8 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
 // removeFieldsFormURL
 // ---------------------------------------------------------------------------
 
-// BUGFIX 14: extracted from three near-identical inline blocks that used to
-// live in removeFieldsFormURL (one for provider rules over query fields, one
-// for provider rules over fragments, one for $removeparam over both). Each
-// copy independently walked keys, decided delete-vs-rewrite-vs-skip, applied
-// preprocessors, and logged — any fix to that logic had to be made three
-// times and was easy to miss one of. This is now the single implementation.
+// Applies delete / rewrite / skip decisions to the query or fragment
+// parameters, for provider field rules and $removeparam filters alike.
 //
 // `decide(key, values)` returns either:
 //   - null / { handled:false }                → leave the param untouched
@@ -1736,7 +1690,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     }
 
     if (provider.isCanceling() && storage.domainBlocking) {
-        // BUGFIX 6: counters/badge were incremented even in quiet mode.
         if (!quiet) {
             pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'), providerMatch);
             increaseTotalCounter(1);
@@ -1810,10 +1763,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const activeExceptions = lazyRuleList(linkumoriParamExceptions || [], extraExceptions || [], pureUrl);
         const cache = new Map();
         const getDecision = (paramName, paramValues = []) => {
-            // BUGFIX 2: URLHashParams.getAll() returns a Set (Multimap), so fragment
-            // values arrived as Sets and were collapsed to [] by Array.isArray().
-            // Value-based $removeparam regexes therefore never fired on hash params.
-            // Convert Set → Array so fragment and query params behave identically.
+            // Fragment values come as a Set (URLHashParams), query values as an
+            // array; both are matched the same way.
             const values = Array.isArray(paramValues) ? paramValues
                 : (paramValues instanceof Set ? Array.from(paramValues) : []);
             const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
@@ -1836,7 +1787,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         unparseURL();
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
         if (provider.isRawRuleExcepted(compiled, url, request)) return;
-        const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(rawRuleStr, "gi");
+        const activeRegex = compiled.regex;
         let beforeReplace = url;
         if (compiled && compiled.replacePattern !== null) {
             const rewriteKey = rewriteKeyOf(compiled, rawRuleStr);
@@ -1863,7 +1814,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
         if (beforeReplace !== url) {
             if (storage.loggingStatus && !quiet) pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
-            // BUGFIX 6: badge guard added.
             if (!quiet) increaseBadged(false, request);
             changes = true;
             if (!actionType) actionType = 'raw_rule';
@@ -1878,7 +1828,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         if (rewriteKey && appliedFieldRewrites.has(rewriteKey)) return;
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
         const { getDecision } = getLinkumoriState();
-        const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
+        const activeRegex = compiled.regex;
         const beforeFields = fields.toString(), beforeFragments = fragments.toString();
 
         // A provider field-style rule matches against the *key name*.
@@ -1918,7 +1868,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
             }
-            // BUGFIX 6: badge guard added.
             if (!quiet) increaseBadged(false, request);
         }
     };
@@ -1973,8 +1922,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                     if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                     if (!quiet) pushToLog(tempBeforeURL, tempURL, matchedRuleForLog || '$removeparam', providerMatch);
                 }
-                // BUGFIX 6: badge guard added.
-                if (!quiet) increaseBadged(false, request);
+                    if (!quiet) increaseBadged(false, request);
             }
         }
 
@@ -2384,9 +2332,8 @@ function start() {
                 if (!activeRule) return true;
                 parsedLinkumoriRule.id = activeRule.id;
                 parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
-                // BUGFIX 5: only apply canonical requestTypes when the rule itself
-                // declared none. Previously this unconditionally clobbered inline
-                // type modifiers and wiped all ~type exclusions.
+                // The rule object's requestTypes apply only when the filter's
+                // own options name no request type.
                 if (Array.isArray(activeRule.requestTypes) &&
                     parsedLinkumoriRule.requestTypes.length === 0 &&
                     parsedLinkumoriRule.excludeRequestTypes.length === 0) {
@@ -2651,8 +2598,7 @@ function start() {
             for (const exception in exceptionRuleMap) {
                 if (result) break;
                 const exceptionRule = exceptionRuleMap[exception];
-                const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp ? exceptionRule.regex
-                    : (exceptionRule instanceof RegExp ? exceptionRule : new RegExp(exception, "i"));
+                const exceptionRegex = exceptionRule.regex;
                 if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
                     exceptionRegex.lastIndex = 0;
                     result = exceptionRegex.test(url);
@@ -2688,7 +2634,7 @@ function start() {
             let re = null;
             for (const redirection in redirectionRuleMap) {
                 const compiled = redirectionRuleMap[redirection];
-                const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(redirection, "i");
+                const activeRegex = compiled.regex;
                 if (!coreRuleAppliesToRequest(compiled, url, request)) continue;
                 activeRegex.lastIndex = 0;
                 const captured = activeRegex.exec(url);
@@ -2802,10 +2748,7 @@ function start() {
                         if (tokenProviders) for (const p of tokenProviders) contextCandidateProviders.add(p);
                     }
                 } catch (e) {
-                    // BUGFIX 13: swallowed malformed-context-URL errors with no
-                    // trace. A bad documentUrl/initiator/referrer just means this
-                    // one context URL contributes no lookup tokens; log for
-                    // diagnosability and continue with the rest.
+                    // A malformed context URL adds no lookup tokens.
                     console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
                 }
             }
@@ -2821,10 +2764,6 @@ function start() {
 
             let requestHost = "";
             try { requestHost = new URL(request.url).hostname; } catch (e) {
-                // BUGFIX 13: malformed request.url would otherwise fail silently
-                // here and fall through to the empty-hostname / no-token path
-                // below with no indication why. Log it — a request URL that
-                // can't be parsed by `new URL()` is worth knowing about.
                 console.warn('[linkumori] failed to parse request URL', { url: request && request.url, error: String(e && e.message || e) });
             }
             const requestHostTokens = getHostnameLookupTokens(requestHost);
