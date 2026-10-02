@@ -1410,6 +1410,11 @@ documentation when you run the build process.
     let minifiedData = { "providers": {} };
     let removedProviders = 0;
 
+    // The CLN format version (CLN 1.0 §File structure) is kept as written.
+    if (typeof data.cln === 'string') {
+      minifiedData.cln = data.cln;
+    }
+
     // Kept as written; an empty block is dropped.
     if (data.defaults && typeof data.defaults === 'object' && !Array.isArray(data.defaults) &&
         Object.keys(data.defaults).length > 0) {
