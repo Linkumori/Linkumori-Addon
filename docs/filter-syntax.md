@@ -542,7 +542,7 @@ A rule's on/off toggle is keyed by provider and rule together, `providerKey::id`
 
 - **Unique in a provider.** Within one provider of one file, every `id` and every alias is distinct; a repeat is a `lint-rules` error. Generated ids count.
 - **Replaced definitions.** When one definition replaces another (§Same text twice), the `id` and `aliases` of each replaced definition switch the winner. Toggling any of them switches the one rule that runs.
-- **Saved toggles.** A toggle saved under a bare `id` keeps working, for every rule with that id. It is saved in the namespaced form the next time the person changes a toggle.
+- **No bare ids.** A toggle saved under a bare `id`, without its provider, switches nothing; switch the rule off again in the custom rules editor.
 - **Shared keys.** Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.
 - **Generated ids** are unchanged: an id is generated from the list and the `matchPattern` text when left out, and changes when that text is edited.
 
@@ -571,7 +571,7 @@ A remote file's capabilities are derived from its content when it loads; a file 
 - **Built-in and custom rules** hold every capability.
 - **Acceptance** is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't rewrite a URL to another origin — while the rest of the file loads.
 - **Updates.** When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.
-- **Existing installs.** The capabilities a remote file already had when this rule first applied count as accepted, so nothing that worked stops.
+- **No carry-over.** Every remote file starts with only `strip`, `rewrite` and `except`, including files configured before capabilities existed; accept `redirect` and `block` in Remote Rules Health.
 - **Visibility.** Remote Rules Health lists each remote file's capabilities.
 
 ### Possible 2.0 direction

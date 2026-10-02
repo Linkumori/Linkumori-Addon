@@ -115,9 +115,6 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
-// Ids a rule had before (see attachRuleActivationIdsToArray); the engine
-// still honours settings saved under them.
-const LINKUMORI_RULE_LEGACY_IDS_KEY = '_linkumoriLegacyRuleIds';
 // The file a merged rule came from ("built-in" or a remote ruleURL), so
 // Remote Rules Health can name the file whose rule replaced another.
 const LINKUMORI_RULE_SOURCE_KEY = '_linkumoriSource';
@@ -606,20 +603,6 @@ function getStableRuleSignature(rule) {
     return `object:${JSON.stringify(normalized)}`;
 }
 
-// How rule ids used to be generated: the readable id, with "-2", "-3", …
-// for later rules in list order that shared it. Only used to find the id a
-// disabled-rule setting may have been saved under.
-function createLegacyStorageGeneratedRuleId(section, matchPattern, occupiedIds = new Set()) {
-    const candidate = LinkumoriRuleIds.baseRuleId(section, matchPattern);
-    let uniqueId = candidate;
-    let counter = 2;
-    while (occupiedIds.has(uniqueId)) {
-        uniqueId = `${candidate}-${counter++}`;
-    }
-    occupiedIds.add(uniqueId);
-    return uniqueId;
-}
-
 function buildProviderRuleActivationId(scopeId, ruleId) {
     return `${scopeId}::${ruleId}`;
 }
@@ -697,7 +680,7 @@ function mergeRuleActivationIds(left, right) {
     return result;
 }
 
-function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occupiedIds, assignedIds = []) {
+function attachRuleActivationIdsToArray(section, rules, activationScopeIds, assignedIds = []) {
     if (!Array.isArray(rules)) {
         return [];
     }
@@ -712,23 +695,13 @@ function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occu
         const explicitId = rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.id === 'string'
             ? rule.id
             : null;
-        const legacyId = explicitId ? null : createLegacyStorageGeneratedRuleId(section, match, occupiedIds);
         const assigned = assignedIds[index];
         const ruleId = explicitId || (assigned && assigned.id) || LinkumoriRuleIds.baseRuleId(section, match);
-        if (explicitId) occupiedIds.add(explicitId);
-        // A rule's old ids stay reserved so a generated id never takes one.
-        if (rule && typeof rule === 'object' && Array.isArray(rule.aliases)) {
-            rule.aliases.forEach(alias => { if (typeof alias === 'string') occupiedIds.add(alias); });
-        }
         const activationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
             ? activationScopeIds
             : [''])
             .map(scopeId => buildProviderRuleActivationId(scopeId, ruleId));
-        const clone = cloneRuleWithActivationIds(section, rule, activationIds);
-        if (legacyId && legacyId !== ruleId && clone && typeof clone === 'object') {
-            clone[LINKUMORI_RULE_LEGACY_IDS_KEY] = [legacyId];
-        }
-        return clone;
+        return cloneRuleWithActivationIds(section, rule, activationIds);
     });
 }
 
@@ -736,12 +709,11 @@ function attachProviderActivationIds(providerName, providerData) {
     const data = providerData && typeof providerData === 'object' && !Array.isArray(providerData)
         ? { ...providerData }
         : {};
-    const occupiedIds = new Set();
     const activationScopeIds = getProviderActivationScopeIds(providerName, data);
     const assignedIds = LinkumoriRuleIds.assignProviderRuleIds(data);
     LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
         if (Array.isArray(data[section])) {
-            data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, occupiedIds, assignedIds[section]);
+            data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, assignedIds[section]);
         }
     });
     return data;
@@ -762,10 +734,6 @@ function dedupeRuleLikeArray(values) {
             const mergedActivationIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY], value && value[LINKUMORI_RULE_ACTIVATION_IDS_KEY]);
             if (mergedActivationIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
                 existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY] = mergedActivationIds;
-            }
-            const mergedLegacyIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_LEGACY_IDS_KEY], value && value[LINKUMORI_RULE_LEGACY_IDS_KEY]);
-            if (mergedLegacyIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
-                existing[LINKUMORI_RULE_LEGACY_IDS_KEY] = mergedLegacyIds;
             }
             // The copy's own "id" and "aliases" become aliases of the rule
             // kept, so a targetId naming the copy still finds it.
@@ -1804,26 +1772,14 @@ function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
 // Remote file capabilities (CLN 1.0 §Remote file capabilities). Each
 // remote file's capabilities are derived from its content when it loads;
 // "redirect" and "block" stay inactive until the person accepts them for
-// that file. storage.remoteRuleCapabilities is
-//   { files: { [ruleURL]: { derived: [...], accepted: [...] } },
-//     grandfathered: [ruleURL, ...] }
-// where `grandfathered` lists the files configured when this rule first
-// applied: whatever they can do the first time they load counts as accepted.
+// that file in Remote Rules Health. storage.remoteRuleCapabilities is
+//   { files: { [ruleURL]: { derived: [...], accepted: [...] } } }
 const CAPABILITIES_ACTIVE_ON_LOAD = Object.freeze(['strip', 'rewrite', 'except']);
-
-function listAllConfiguredRuleURLs() {
-    const urls = new Set();
-    if (typeof storage.ruleURL === 'string' && storage.ruleURL.trim()) urls.add(storage.ruleURL.trim());
-    (Array.isArray(storage.remoteRuleSets) ? storage.remoteRuleSets : []).forEach(entry => {
-        if (entry && typeof entry.ruleURL === 'string' && entry.ruleURL.trim()) urls.add(entry.ruleURL.trim());
-    });
-    return [...urls];
-}
 
 function normalizeRemoteRuleCapabilities(value) {
     const known = new Set(LinkumoriRuleIds.RULE_FILE_CAPABILITIES);
     const list = items => [...new Set((Array.isArray(items) ? items : []).filter(item => known.has(item)))];
-    const result = { files: {}, grandfathered: [] };
+    const result = { files: {} };
     if (!value || typeof value !== 'object' || Array.isArray(value)) return result;
     if (value.files && typeof value.files === 'object' && !Array.isArray(value.files)) {
         Object.entries(value.files).forEach(([ruleURL, entry]) => {
@@ -1831,19 +1787,11 @@ function normalizeRemoteRuleCapabilities(value) {
             result.files[ruleURL] = { derived: list(entry.derived), accepted: list(entry.accepted) };
         });
     }
-    result.grandfathered = [...new Set((Array.isArray(value.grandfathered) ? value.grandfathered : []).filter(url => typeof url === 'string' && url))];
     return result;
 }
 
-// Run once after storage loads: the first time, every remote file already
-// configured keeps working (its capabilities are accepted when it loads).
 function ensureRemoteRuleCapabilitiesInitialized() {
-    if (storage.remoteRuleCapabilities && typeof storage.remoteRuleCapabilities === 'object') {
-        storage.remoteRuleCapabilities = normalizeRemoteRuleCapabilities(storage.remoteRuleCapabilities);
-        return;
-    }
-    storage.remoteRuleCapabilities = { files: {}, grandfathered: listAllConfiguredRuleURLs() };
-    try { saveOnDisk(['remoteRuleCapabilities']); } catch (e) {}
+    storage.remoteRuleCapabilities = normalizeRemoteRuleCapabilities(storage.remoteRuleCapabilities);
 }
 
 // Records what a remote file can do and returns the capabilities active for
@@ -1857,11 +1805,6 @@ function resolveRemoteFileCapabilities(ruleURL, file) {
     let changed = false;
     if (!entry) {
         entry = { derived: [], accepted: [] };
-        const grandfatheredIndex = state.grandfathered.indexOf(key);
-        if (grandfatheredIndex !== -1) {
-            entry.accepted = derived.slice();
-            state.grandfathered.splice(grandfatheredIndex, 1);
-        }
         state.files[key] = entry;
         changed = true;
     }
@@ -3366,9 +3309,7 @@ function initSettings() {
         lastHashURL: null
     };
     storage.remoteRuleSets = [];
-    // null until CLN 1.0 remote file capabilities first apply (see
-    // ensureRemoteRuleCapabilitiesInitialized).
-    storage.remoteRuleCapabilities = null;
+    storage.remoteRuleCapabilities = { files: {} };
     storage.temporaryPauseUntil = 0;
     
     storage.hashURL = "";
