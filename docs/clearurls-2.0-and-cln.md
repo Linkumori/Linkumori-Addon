@@ -168,6 +168,7 @@ These arrived in later releases and exist only in CLN:
 | after v100.61.0 | collision checks: two entries whose text means only one takes effect, and ids shared once generated ids count, in the editor, `lint-rules`, imports and remote rules |
 | after v100.61.1 | one exact run order for `rawRules`, `rules` and `referralMarketing` entries, written down with worked examples; entries with the same `order` now run raw rules first, the same stage order as entries without one ([Processing order](filter-syntax.md#processing-order)) |
 | after v100.61.1 | warnings in the editor and `lint-rules` for a whole-number `matchPattern` without `order` and for the same text in `rules` and `referralMarketing`; Remote Rules Health warns about the second across merged files ([Same text twice](filter-syntax.md#same-text-twice)) |
+| after v100.62.0 | [CLN 1.0 final](cln-format-1.0.md): an optional `cln` key; `order` only sorts inside its stage (raw rules always first); whole-number entries keep their place, so that warning is withdrawn; a replacing definition inherits position and `order` (`"order": null` drops it) and its replaced ids switch it; `$removeparam` value escapes; `@@` matched against the URL as received; `http`/`https`-only redirect targets; at most 10 cycles and one application per rewrite per request; remote files' redirect and block capabilities wait for acceptance |
 
 ## 5. What this means in practice
 

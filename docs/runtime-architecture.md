@@ -418,7 +418,12 @@ flowchart TD
 
 The first provider that redirects, blocks or changes the URL decides the
 result. A redirect is a new request, so the cleaned URL goes through
-`clearUrl()` again.
+`clearUrl()` again. The browser keeps the `requestId` across redirects, so
+`clearUrl()` counts the cycles of each request and stops after
+`LINKUMORI_MAX_CLEANING_CYCLES` (10), and an entry with a `replacePattern`
+rewrites at most once per request
+([Termination](filter-syntax.md#termination)). `pureCleaning()` (clipboard,
+context menu, rule tester) loops the same way, with the same cap.
 
 A provider's `exceptions` are checked while matching the URL
 (`matchRequestURL`), so an excepted URL never reaches the next step.
@@ -428,15 +433,23 @@ order described in
 
 1. It skips local hosts (`localHostsSkipping`).
 2. `redirections` and `fieldRedirections` apply (only while redirection is on).
+   A target that isn't an absolute `http` or `https` URL makes the entry
+   not match (`getLinkumoriRedirectTarget()`,
+   [Redirect targets](filter-syntax.md#redirect-targets)).
 3. `completeProvider` blocks the request (only while domain blocking is on).
 4. The ordered cleaning steps run (`getOrderedCleaningSteps()`): raw rules
-   on the URL text; field rules and referral-marketing rules on query and
-   fragment parameters. Entries with an `order` come first, lowest first,
-   with equal `order`s in stage order (raw, field, referral); the rest keep
-   their default order ([The middle stretch](filter-syntax.md#the-middle-stretch)). Parameters already handled by a `$removeparam`
-   filter are left to that filter.
+   on the URL text, then field rules and referral-marketing rules on query
+   and fragment parameters. Inside each stage, entries with an `order` come
+   first, lowest first; then by array (rules, flagged rules,
+   referralMarketing) and array position
+   ([Run order](filter-syntax.md#run-order)). The provider keeps every
+   definition by group and text and resolves them once, in
+   `finalizeRules()`: the last definition wins and inherits the first one's
+   place ([Same text twice](filter-syntax.md#same-text-twice)). Parameters
+   already handled by a `$removeparam` filter are left to that filter.
 5. `$removeparam` filters run, minus their `@@` exceptions and the
-   exceptions collected from the page's providers.
+   exceptions collected from the page's providers. `@@` entries are checked
+   against the URL the provider received, before its raw rules ran.
 
 It logs each change and updates the badge unless called in quiet mode.
 

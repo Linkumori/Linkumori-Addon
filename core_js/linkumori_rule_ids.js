@@ -258,39 +258,121 @@
         return problems;
     }
 
-    // Text JavaScript puts ahead of other object keys, smallest first: digits
-    // only, no leading zero, at most 4294967294 ("0", "123"; not "007", "-1",
-    // "1.5"). The engine keeps plain raw rules and plain rules /
-    // referralMarketing entries in objects keyed by their text, so such an
-    // entry without an `order` runs ahead of its list instead of in place.
+    // Text made only of digits, no leading zero, at most 4294967294 ("0",
+    // "123"; not "007", "-1", "1.5"). Under the earlier 1.0 text such an
+    // entry ran ahead of its group; in CLN 1.0 final it runs at its array
+    // position like any other entry, so nothing warns about it any more.
     function isWholeNumberRuleText(text) {
         return typeof text === 'string' && /^(?:0|[1-9]\d*)$/.test(text) && Number(text) <= 4294967294;
     }
 
-    const hasOrder = rule => !!rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.order === 'number';
     const isReferralFlagged = rule => !!rule && typeof rule === 'object' && !Array.isArray(rule) && rule.referralMarketing === true;
 
-    // Warnings about entries that run somewhere else than their place in the
-    // file suggests (docs/filter-syntax.md §Processing order), as
-    // [{ severity: 'warning', message }]:
-    //  1. A whole-number matchPattern without an `order`.
-    //  2. findReferralTextCollisions.
+    // Warnings about entries that take effect somewhere else than their
+    // place in the file suggests, as [{ severity: 'warning', message }]:
+    // findReferralTextCollisions. (The whole-number warning is withdrawn in
+    // CLN 1.0 final: position no longer depends on the text.)
     function findRuleOrderWarnings(provider, isRemoveParamText) {
-        const problems = [];
-        const warning = message => problems.push({ severity: 'warning', message });
+        return findReferralTextCollisions(provider, isRemoveParamText);
+    }
 
-        ['rawRules', 'rules', 'referralMarketing'].forEach(section => {
-            const ahead = section === 'rawRules' ? 'the other rawRules entries' : 'every rules and referralMarketing entry';
-            getListValues(provider, section).forEach(rule => {
-                if (hasOrder(rule)) return;
-                const text = getRuleText(rule);
-                if (!isWholeNumberRuleText(text)) return;
-                warning(`${section} "${text}" is a whole number, so it runs ahead of ${ahead} without an "order", ` +
-                    'not at its place in the list; give it an "order" if its place matters');
+
+    // ── CLN 1.0 final ──────────────────────────────────────────────────────
+
+    // The only format version, written as an optional top-level "cln" key.
+    const CLN_FORMAT_VERSION = '1.0';
+
+    // Why a rule file's "cln" key rejects it, or null: absent and "1.0" both
+    // load as 1.0; anything else is rejected.
+    function findClnVersionProblem(data) {
+        if (!data || typeof data !== 'object' || Array.isArray(data) || !Object.prototype.hasOwnProperty.call(data, 'cln')) return null;
+        if (data.cln === CLN_FORMAT_VERSION) return null;
+        return `"cln" is ${JSON.stringify(data.cln)}, but this version of Linkumori only reads CLN "${CLN_FORMAT_VERSION}"`;
+    }
+
+    // True for an absolute http or https URL with a host: the only valid
+    // redirect target (CLN 1.0 §Redirect targets).
+    function isValidRedirectTarget(value) {
+        if (typeof value !== 'string' || !value.trim()) return false;
+        let parsed;
+        try { parsed = new URL(value.trim()); } catch (_) { return false; }
+        return (parsed.protocol === 'http:' || parsed.protocol === 'https:') && !!parsed.hostname;
+    }
+
+    // The escapes a $removeparam name value may use: "\~", "\|", "\/",
+    // "\," and "\\". `value` is what follows "removeparam=", with any "~".
+    // Returns a problem message, or null. A /regex/ value keeps the
+    // backslash's regex meaning and is not checked here.
+    const REMOVEPARAM_NAME_ESCAPES = '~|/,\\';
+    function findRemoveParamEscapeProblem(value) {
+        let text = String(value || '').trim();
+        if (text.startsWith('~')) text = text.slice(1).trim();
+        if (!text.startsWith('\\') && /^\/(?:\\.|[^/])+\/[a-z]*$/i.test(text)) return null;
+        for (let i = 0; i < text.length; i++) {
+            if (text.charAt(i) !== '\\') continue;
+            const next = text.charAt(i + 1);
+            if (!next || !REMOVEPARAM_NAME_ESCAPES.includes(next)) {
+                return `has "\\${next}" in its $removeparam value; only \\~, \\|, \\/, \\, and \\\\ are escapes (write a backslash as \\\\)`;
+            }
+            i++;
+        }
+        return null;
+    }
+
+    // What a rule file can do, derived from its content (CLN 1.0 §Remote
+    // file capabilities): 'strip', 'rewrite', 'except', 'redirect', 'block'.
+    const RULE_FILE_CAPABILITIES = Object.freeze(['strip', 'rewrite', 'except', 'redirect', 'block']);
+    function deriveRuleFileCapabilities(data) {
+        const found = new Set();
+        const providers = data && typeof data === 'object' && data.providers && typeof data.providers === 'object' ? data.providers : {};
+        Object.values(providers).forEach(provider => {
+            if (!provider || typeof provider !== 'object' || Array.isArray(provider)) return;
+            ['rules', 'rawRules', 'referralMarketing'].forEach(section => {
+                getListValues(provider, section).forEach(rule => {
+                    const text = getRuleText(rule).trim();
+                    if (!text) return;
+                    if (text.startsWith('@@')) found.add('except');
+                    else found.add('strip');
+                });
             });
+            RULE_ID_SECTIONS.forEach(section => {
+                getListValues(provider, section).forEach(rule => {
+                    if (rule && typeof rule === 'object' && typeof rule.replacePattern === 'string') found.add('rewrite');
+                });
+            });
+            if (getListValues(provider, 'exceptions').length > 0) found.add('except');
+            if (getListValues(provider, 'redirections').length > 0 || getListValues(provider, 'fieldRedirections').length > 0 ||
+                provider.forceRedirection === true) found.add('redirect');
+            if (provider.completeProvider === true) found.add('block');
         });
-        problems.push(...findReferralTextCollisions(provider, isRemoveParamText));
-        return problems;
+        return RULE_FILE_CAPABILITIES.filter(capability => found.has(capability));
+    }
+
+    // A copy of a remote rule file with the entries of capabilities that
+    // are not accepted switched off: without 'redirect', no redirections,
+    // fieldRedirections or forceRedirection, and raw rules may not rewrite
+    // to another origin; without 'block', no completeProvider.
+    function restrictRuleFileCapabilities(data, acceptedCapabilities) {
+        const accepted = new Set(Array.isArray(acceptedCapabilities) ? acceptedCapabilities : []);
+        if (accepted.has('redirect') && accepted.has('block')) return data;
+        if (!data || typeof data !== 'object' || !data.providers || typeof data.providers !== 'object') return data;
+        const providers = {};
+        Object.entries(data.providers).forEach(([name, provider]) => {
+            if (!provider || typeof provider !== 'object' || Array.isArray(provider)) { providers[name] = provider; return; }
+            const copy = { ...provider };
+            if (!accepted.has('redirect')) {
+                delete copy.redirections;
+                delete copy.fieldRedirections;
+                delete copy.forceRedirection;
+                if (Array.isArray(copy.rawRules)) {
+                    copy.rawRules = copy.rawRules.map(rule => (rule && typeof rule === 'object' && !Array.isArray(rule) &&
+                        typeof rule.replacePattern === 'string') ? { ...rule, _linkumoriNoRedirect: true } : rule);
+                }
+            }
+            if (!accepted.has('block')) delete copy.completeProvider;
+            providers[name] = copy;
+        });
+        return { ...data, providers };
     }
 
     // The same text in `rules` and `referralMarketing`, or in `rules` with and
@@ -341,7 +423,14 @@
     }
 
     root.LinkumoriRuleIds = Object.freeze({
+        CLN_FORMAT_VERSION,
+        RULE_FILE_CAPABILITIES,
         RULE_ID_SECTIONS,
+        deriveRuleFileCapabilities,
+        findClnVersionProblem,
+        findRemoveParamEscapeProblem,
+        isValidRedirectTarget,
+        restrictRuleFileCapabilities,
         assignProviderRuleIds,
         baseRuleId,
         createRuleIdLookup,

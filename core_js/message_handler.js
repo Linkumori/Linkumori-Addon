@@ -446,6 +446,7 @@ function handleRegularFunction(request) {
             'resumeCleaningNow',
             'runRuleTestLab',
             'saveOnExit',
+            'acceptRemoteRuleCapabilities',
             'addToHistoryApiWhitelist',
             'setBadgedStatus',
             'setPendingRegressionSuite',

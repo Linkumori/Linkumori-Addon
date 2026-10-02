@@ -227,6 +227,9 @@ function assertDomainRedirectEntry(entry, label) {
     if (!pattern || !target) {
         throw new Error(`${label}: a redirect starting with "|" must look like "||example.com^$redirect=https://target/"`);
     }
+    if (!LinkumoriRuleIds.isValidRedirectTarget(target)) {
+        throw new Error(`${label}: the $redirect= target must be an absolute http or https URL`);
+    }
 }
 
 const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
@@ -292,7 +295,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
     'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
-    '_linkumoriActivationIds', '_linkumoriLegacyRuleIds'
+    '_linkumoriActivationIds', '_linkumoriLegacyRuleIds', '_linkumoriSource', '_linkumoriNoRedirect'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -322,15 +325,17 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
             throw new Error(`${prefix}.referralMarketing has no effect in ${fieldName}; it only applies in ${REFERRAL_MARKETING_KEY_LISTS.join(', ')}`);
         }
     }
+    // "order": null means no order, and none inherited (CLN 1.0 §Same text
+    // twice). A $removeparam filter or "@@" entry takes no "order" at all.
     if (rule.order !== undefined) {
-        if (typeof rule.order !== 'number' || !Number.isFinite(rule.order)) {
-            throw new Error(`${prefix}.order must be a number`);
+        if (rule.order !== null && (typeof rule.order !== 'number' || !Number.isFinite(rule.order))) {
+            throw new Error(`${prefix}.order must be a number or null`);
         }
         if (!ORDERABLE_RULE_LISTS.includes(fieldName)) {
             throw new Error(`${prefix}.order has no effect in ${fieldName}; it only applies in ${ORDERABLE_RULE_LISTS.join(', ')}`);
         }
         if (isRemoveParamRuleText(rule.matchPattern)) {
-            throw new Error(`${prefix}.order has no effect on a $removeparam filter; $removeparam filters always run after the other rules`);
+            throw new Error(`${prefix}.order has no effect on a $removeparam filter or "@@" entry; they always run after the other rules`);
         }
     }
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
@@ -424,6 +429,8 @@ function getRemoveParamOptions(text) {
         const ch = text2.charAt(i);
         const next = text2.charAt(i + 1);
         if (!inRegex) {
+            // A backslash keeps the next character: "removeparam=a\\,b" names "a,b".
+            if (ch === '\\' && next) { current += ch + next; i++; continue; }
             if (ch === ',') { options.push(current.trim()); current = ''; continue; }
             current += ch;
             if ((ch === '=' || ch === '|') && (next === '/' || (next === '~' && text2.charAt(i + 2) === '/'))) {
@@ -459,6 +466,12 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
             }
             const options = getRemoveParamOptions(text);
             if (!options) return;
+            const removeParamOption = options.find(option => /^removeparam=/i.test(option));
+            const escapeProblem = removeParamOption
+                ? LinkumoriRuleIds.findRemoveParamEscapeProblem(removeParamOption.slice(removeParamOption.indexOf('=') + 1)) : null;
+            if (escapeProblem) {
+                throw new Error(`${label}: ${fieldName}[${index}] ${escapeProblem}`);
+            }
             options.forEach((option) => {
                 const lower = option.toLowerCase();
                 const name = lower.split('=')[0];
@@ -1816,13 +1829,28 @@ async function syncClearURLsRuleIdPinsWithDisabledIds() {
     }
 }
 
+// A toggle saved under a bare id (no "::", from before toggles were keyed
+// "providerKey::id") still switches rules off. The next time the person
+// changes a toggle it is saved in the namespaced form: one "provider::id"
+// for each rule it switches off now (CLN 1.0 §Rule ids and toggles). A bare
+// id that matches no loaded rule is kept as it is.
+function namespaceBareDisabledRuleIds(ids) {
+    const disabledRules = Object.values(clearURLsProviderSnapshot?.disabledRules || {});
+    return [...new Set(ids.flatMap(id => {
+        if (String(id).includes('::')) return [id];
+        const owners = disabledRules.filter(rule => rule && rule.runtimeRuleId &&
+            [rule.id, ...(rule.aliases || []), ...(rule.replacedIds || [])].includes(id));
+        return owners.length > 0 ? owners.map(rule => rule.runtimeRuleId) : [id];
+    }))];
+}
+
 async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalentIds = [], pinTarget = null) {
     const normalizedId = String(ruleId || '').trim();
     if (!normalizedId) {
         return;
     }
 
-    const disabledSet = new Set(clearURLsDisabledRuleIds);
+    const disabledSet = new Set(namespaceBareDisabledRuleIds(clearURLsDisabledRuleIds));
     if (shouldDisable) {
         await pinRuleIdBeforeDisable(pinTarget, normalizedId);
         disabledSet.add(normalizedId);
@@ -5688,6 +5716,8 @@ function buildRuleExport(section, rule) {
     if (isPlainObject(clean)) {
         delete clean._linkumoriActivationIds;
         delete clean._linkumoriLegacyRuleIds;
+        delete clean._linkumoriSource;
+        delete clean._linkumoriNoRedirect;
     }
     return { [section]: [clean] };
 }
@@ -6945,6 +6975,11 @@ async function handleFileImport(e) {
 
             if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
+            }
+            // A file for another CLN version is rejected (CLN 1.0 §File structure).
+            const clnProblem = LinkumoriRuleIds.findClnVersionProblem(imported);
+            if (clnProblem) {
+                throw new Error(clnProblem);
             }
 
             const providersData = getProvidersFromImportedCustomRules(imported);
