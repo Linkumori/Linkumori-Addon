@@ -8,6 +8,16 @@ Oct 2, 2026 · @Subham
 > statement under Status and scope that nothing was tested against the engine
 > describes the document as written; the worked examples and vectors below
 > have since been checked against it.
+>
+> **Deviations.** Linkumori keeps no compatibility shims, since the custom rules
+> editor and Remote Rules Health let people redo both settings:
+>
+> - A toggle saved under a bare `id` no longer applies (Rule ids and toggles,
+>   "Saved toggles"). Toggles keyed `providerKey::id` or by match pattern
+>   keep working.
+> - Remote files configured before this change get no capabilities for free
+>   (Remote file capabilities, "Existing installs"): their `redirect` and
+>   `block` entries wait for acceptance like any other file's.
 
 ## Status and scope
 

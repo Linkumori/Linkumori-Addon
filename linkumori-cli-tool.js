@@ -1938,7 +1938,6 @@ ${commit.message}
     const clean = entry && typeof entry === 'object' ? { ...entry } : entry;
     if (clean && typeof clean === 'object') {
       delete clean._linkumoriActivationIds;
-      delete clean._linkumoriLegacyRuleIds;
     }
     this.info(`📌 ${providerName} → ${list} (${pinned ? 'pinned id' : (generated ? 'generated id' : 'id')}: ${id})`);
     console.log(JSON.stringify({ [list]: [clean] }, null, 2));
@@ -2150,7 +2149,7 @@ ${commit.message}
     const RULE_OBJECT_KEYS = new Set([
       'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
       'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
-      '_linkumoriActivationIds', '_linkumoriLegacyRuleIds', '_linkumoriSource', '_linkumoriNoRedirect'
+      '_linkumoriActivationIds', '_linkumoriSource', '_linkumoriNoRedirect'
     ]);
     const RULE_LISTS = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
     // Lists whose entries are field rules (names, name regexes, $removeparam filters).

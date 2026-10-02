@@ -295,7 +295,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
     'flags', 'order', 'referralMarketing', 'active', 'description', 'historyBypassProtection', 'targetId',
-    '_linkumoriActivationIds', '_linkumoriLegacyRuleIds', '_linkumoriSource', '_linkumoriNoRedirect'
+    '_linkumoriActivationIds', '_linkumoriSource', '_linkumoriNoRedirect'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -1829,28 +1829,13 @@ async function syncClearURLsRuleIdPinsWithDisabledIds() {
     }
 }
 
-// A toggle saved under a bare id (no "::", from before toggles were keyed
-// "providerKey::id") still switches rules off. The next time the person
-// changes a toggle it is saved in the namespaced form: one "provider::id"
-// for each rule it switches off now (CLN 1.0 §Rule ids and toggles). A bare
-// id that matches no loaded rule is kept as it is.
-function namespaceBareDisabledRuleIds(ids) {
-    const disabledRules = Object.values(clearURLsProviderSnapshot?.disabledRules || {});
-    return [...new Set(ids.flatMap(id => {
-        if (String(id).includes('::')) return [id];
-        const owners = disabledRules.filter(rule => rule && rule.runtimeRuleId &&
-            [rule.id, ...(rule.aliases || []), ...(rule.replacedIds || [])].includes(id));
-        return owners.length > 0 ? owners.map(rule => rule.runtimeRuleId) : [id];
-    }))];
-}
-
 async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalentIds = [], pinTarget = null) {
     const normalizedId = String(ruleId || '').trim();
     if (!normalizedId) {
         return;
     }
 
-    const disabledSet = new Set(namespaceBareDisabledRuleIds(clearURLsDisabledRuleIds));
+    const disabledSet = new Set(clearURLsDisabledRuleIds);
     if (shouldDisable) {
         await pinRuleIdBeforeDisable(pinTarget, normalizedId);
         disabledSet.add(normalizedId);
@@ -5715,7 +5700,6 @@ function buildRuleExport(section, rule) {
     const clean = isPlainObject(rule) ? { ...rule } : rule;
     if (isPlainObject(clean)) {
         delete clean._linkumoriActivationIds;
-        delete clean._linkumoriLegacyRuleIds;
         delete clean._linkumoriSource;
         delete clean._linkumoriNoRedirect;
     }
