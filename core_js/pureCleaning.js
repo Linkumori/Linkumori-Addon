@@ -77,10 +77,15 @@ function pureCleaning(url, quiet = false, isHistoryUpdate = false) {
     let after = url;
     const sessionRewrites = new Set();
 
+    let cycles = 0;
+
+    // Clean again while the URL changes, at most LINKUMORI_MAX_CLEANING_CYCLES
+    // times (CLN 1.0 §Termination).
     do {
         before = after;
         after = _cleaning(before, quiet, null, null, 1, '', null, sessionRewrites, isHistoryUpdate);
-    } while (after !== before); // do recursive cleaning
+        cycles++;
+    } while (after !== before && cycles < LINKUMORI_MAX_CLEANING_CYCLES);
 
     return after;
 }
@@ -113,7 +118,7 @@ function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
         before = after;
         after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails, sessionRewrites);
         iterations++;
-    } while (after !== before && iterations < 20);
+    } while (after !== before && iterations < LINKUMORI_MAX_CLEANING_CYCLES);
 
     const firstMatch = trace.length > 0 ? trace[0] : null;
     const firstPatternOnly = providerDiagnostics.find((entry) => entry.patternMatched) || null;

@@ -1,13 +1,16 @@
 # Linkumori CLN Format 1.0
 
-Sep 27, 2026 · @Subham
+Oct 2, 2026 · @Subham
 
+This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in [CLN Format 1.0 (Final)](cln-format-1.0.md).
 
+Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `cln`, `metadata` and `defaults`). Each key under `providers` is a name you choose; its value is a provider object.
 
-Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `metadata` and `defaults`). Each key under `providers` is a name you choose; its value is a provider object.
+The optional top-level `cln` key names the format version. Its only valid value is `"1.0"`; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails `lint-rules`). It is not called `version` because the ClearURLs new rule format already uses that key.
 
 ```json
 {
+  "cln": "1.0",
   "providers": {
     "amazon": {
       "domainPatterns": ["||amazon.*^"],
@@ -113,8 +116,22 @@ The first character after `=` decides what's targeted:
 | `/regex/i` | any parameter whose name — or `name=value` together — matches; add `i` for case-insensitive |
 | `\|prefix` | any parameter whose name starts with `prefix` |
 | `name` | just that one parameter, by exact name |
+| `\~name`, `\\|name`, `\/name/` | the parameter with that exact name, `~`, `\|` or `/` included |
 
-Because the leading character carries meaning, a parameter actually named `~foo` or starting with `\|` can't be targeted this way — use a plain name-regex entry in `rules` instead.
+A backslash makes the next character literal, so any parameter name can be targeted:
+
+| Value | Removes the parameter named |
+| --- | --- |
+| `\~foo` | `~foo` |
+| `\\|foo` | `\|foo` |
+| `\/foo/` | `/foo/` |
+| `a\,b` | `a,b` — the comma doesn't start the modifier list |
+| `\\foo` | `\foo` |
+
+- **Only these five.** `\~`, `\|`, `\/`, `\,` and `\\` are the escapes in a name value; a backslash before any other character is a `lint-rules` error.
+- **Regex values** keep the backslash's regex meaning. A comma after a backslash never starts the modifier list, in any value form.
+- **Everywhere a value is read:** `rules`, `referralMarketing`, `fieldRedirections` and `@@` entries.
+- **In JSON** each backslash is written twice: `"$removeparam=\\~foo"`.
 
 ### Modifiers
 
@@ -173,7 +190,14 @@ A filter beginning with `@@` keeps the parameter instead of removing it — the 
 
 Here every provider-matched URL loses `ref`, except on `github.com`, where it's kept. An `@@` entry also reaches into *other* providers' filters when the request comes from a page this provider matches — handy for carving out one site from a site-wide rule defined elsewhere.
 
-An `@@` entry isn't a step with a place in the run order — where you list it doesn't matter, and it can't carry an `order`. For each parameter, the provider checks its `@@` entries first and its `$removeparam` filters second, and a matching `@@` entry keeps the parameter. It only guards against `$removeparam` filters: a plain `rules` entry such as `"ref"` still removes `ref` (use a rule object's `exceptions` for that), and raw rules have their own `@@…$rawrule=` entries. Its pattern and modifiers are checked against the URL as it stands after the provider's raw rules have run — so an `@@` entry scoped to a path that a raw rule deletes no longer matches.
+An `@@` entry isn't a step with a place in the run order — where you list it doesn't matter, and it can't carry an `order`. For each parameter, the provider checks its `@@` entries first and its `$removeparam` filters second, and a matching `@@` entry keeps the parameter. It only guards against `$removeparam` filters: a plain `rules` entry such as `"ref"` still removes `ref` (use a rule object's `exceptions` for that), and raw rules have their own `@@…$rawrule=` entries. Its pattern and modifiers are checked against the URL as the provider received it at the start of the current cycle — before the provider's raw rules run — so an `@@` entry scoped to a path that a raw rule deletes still matches:
+
+```json
+"rawRules": ["\\/ref=[^/?]*"],
+"rules": ["$removeparam=tag", "@@||shop.example^/ref=$removeparam=tag"]
+```
+
+For `https://shop.example/ref=abc?tag=1` the raw rule deletes `/ref=abc`, and `tag` is kept: the `@@` pattern is checked against the URL that still has `/ref=abc`.
 
 ## rawRules
 
@@ -235,6 +259,19 @@ Or a fixed domain redirect:
 "||go.example.com^$redirect=https://example.com/"
 ```
 
+### Redirect targets
+
+A redirect only happens to an absolute `http` or `https` URL with a host. This holds for all three kinds of target — the capture group (or `replacePattern`) of a `redirections` regex, the fixed target of a `$redirect=` entry, and the parameter value a `fieldRedirections` entry picks — and is checked after the entry's preprocessors (and after percent-decoding). An invalid target makes the entry count as not matching: no redirect happens, and the provider's later stages run on the unchanged URL. `lint-rules` rejects a `$redirect=` entry whose fixed target isn't `http` or `https`.
+
+| Target | Redirects? |
+| --- | --- |
+| `https://real.example/page` | yes |
+| `https%3A%2F%2Freal.example%2Fpage` | yes, to `https://real.example/page` |
+| `javascript:alert(1)`, `ftp://files.example/x` | no — scheme is not `http` or `https` |
+| `//real.example/page`, `/local/page`, `real.example/page` | no — not an absolute URL |
+
+A raw rule with a `replacePattern` whose result has a different scheme, host or port from its input is a redirect too: it needs a valid target, and in a remote file the `redirect` capability (§Remote file capabilities).
+
 ### Worked example
 
 ```
@@ -266,7 +303,7 @@ Given `https://site.example/away?redirect=https://real-destination.example/page`
 | Piece | Meaning |
 | --- | --- |
 | `redirect` | the parameter name listed in `fieldRedirections` |
-| `https://real-destination.example/page` | its value — becomes the entire new request URL, verbatim |
+| `https://real-destination.example/page` | its value — becomes the entire new request URL, verbatim, as long as it is a valid redirect target (§Redirect targets) |
 
 ## Rule objects
 
@@ -293,7 +330,7 @@ Any entry, in any list above, can be an object instead of a string — for a sta
 | `preprocessors` | array of transforms applied to captured values before they're used in a rewrite or redirect, in order. Each is `{"type": <name>, "inputs": "all"}` or an index array. Types: `urlEncode`, `urlDecode`, `doubleUrlEncode`, `doubleUrlDecode`, `base64Encode`, `base64Decode` |
 | `requestTypes` | array restricting this one rule to specific request types (same names as the `$removeparam` request-type option above) |
 | `exceptions` | array of URLs (regex) this specific rule skips, independent of the provider's own `exceptions` |
-| `order` | number controlling when this entry runs relative to a provider's other `rawRules`/`rules`/`referralMarketing` entries — lower numbers run earlier. Every entry with an `order` runs before every entry without one, raw rules included; entries without `order` keep their default position (raw rules before field rules). Has no effect on `$removeparam` filters, and `lint-rules` rejects it there. The exact sequence is under §Processing order |
+| `order` | number controlling when this entry runs relative to the other entries of its stage — lower numbers run earlier. Raw rules always run before field rules, whatever their `order`; inside a stage, every entry with an `order` runs before every entry without one. `"order": null` means "no order, and don't inherit one" (§Same text twice). `$removeparam` filters and `@@` entries take no `order`, `null` included — `lint-rules` rejects it there. The exact sequence is under §Processing order |
 | `referralMarketing` | `true`, set on an entry inside `rules`, makes it also behave as a referral-marketing rule without moving it into the separate `referralMarketing` array |
 | `active` | `false` disables just this one rule, leaving it in the file for later re-enabling |
 
@@ -305,7 +342,7 @@ Using the `token-rewrite` object above, against a URL containing `?token=abc123`
 | --- | --- |
 | `matchPattern: "token"` | selects the `token` parameter, same as a plain entry in `rules` |
 | `replacePattern: "clean-§1§"` | `§1§` is the parameter's *current value*; the new value becomes `clean-` followed by it |
-| `order: 5` | this rewrite runs after any of the provider's `rawRules`/`rules`/`referralMarketing` entries with a lower `order`, and before every entry that has no `order` |
+| `order: 5` | this rewrite runs after every raw rule, then after any of the provider's `rules`/`referralMarketing` entries with a lower `order`, and before every field entry that has no `order` |
 
 Result: `?token=abc123` becomes `?token=clean-abc123`.
 
@@ -345,43 +382,36 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
 
 ## Processing order
 
-For each matching provider: `exceptions` (skip if matched) → `redirections` → `fieldRedirections` → `completeProvider` → `rawRules` → `rules`/`referralMarketing` → `$removeparam` filters. A rule's `order` can move it earlier or later within that middle stretch. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL.
+For each matching provider: `exceptions` (skip if matched) → `redirections` → `fieldRedirections` → `completeProvider` → `rawRules` → `rules`/`referralMarketing` → `$removeparam` filters. A rule's `order` can move it earlier or later within its own stage, never across stages. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL (§Termination).
 
-### The middle stretch
+### Run order
 
-The middle stretch is every `rawRules`, `rules` and `referralMarketing` entry of the provider, taken together as one list — bare strings and rule objects alike — except `$removeparam` filters and their `@@` exceptions, which always run afterwards (§Exceptions). Entries that are off (`"active": false`, toggled off, or referral-marketing entries while the person allows referral marketing) are left out, and entries with the same text count once (§Same text twice below). The rest run in ascending order of this sort key:
+Stages 5 and 6 — every `rawRules`, `rules` and `referralMarketing` entry of the provider, bare strings and rule objects alike, except `$removeparam` filters and their `@@` exceptions, which always run afterwards (§Exceptions) — run in ascending order of one sort key:
 
-`(orderGroup, order, rank, arrayIndex)`
+`(stage, orderGroup, order, rank, arrayIndex)`
 
 | Part | Value |
 | --- | --- |
-| `orderGroup` | `0` if the entry is a rule object with a numeric `order`; `1` otherwise. Every bare string is `1` |
-| `order` | the entry's own `order`. Only compared between two `orderGroup` `0` entries — `orderGroup` `1` entries have none, and their position comes from `rank` and `arrayIndex` alone. Negative numbers and fractions are allowed |
-| `rank` | which array the entry sits in, from the table below — the same in both groups |
-| `arrayIndex` | the entry's zero-based position within its own array (`rules[3]` → `3`) — except for a whole-number `matchPattern` without `order`, where it's the number itself |
+| `stage` | `0` for a `rawRules` entry; `1` for a `rules` or `referralMarketing` entry |
+| `orderGroup` | `0` if the entry is a rule object with a numeric `order`; `1` otherwise |
+| `order` | the entry's own `order`. Compared only between two `orderGroup` `0` entries of the same stage. Negative numbers and fractions are allowed |
+| `rank` | which array the entry sits in, from the table below |
+| `arrayIndex` | the entry's zero-based position in its own array, with no exceptions |
 
-| Array | `rank` |
-| --- | --- |
-| `rawRules`, whole-number `matchPattern` without `order` | `0` |
-| `rawRules` | `1` |
-| `rules` or `referralMarketing`, whole-number `matchPattern` without `order` | `2` |
-| `rules` | `3` |
-| `rules`, object with `"referralMarketing": true` | `4` |
-| `referralMarketing` | `5` |
+| Array | `stage` | `rank` |
+| --- | --- | --- |
+| `rawRules` | `0` | `0` |
+| `rules` | `1` | `0` |
+| `rules`, object with `"referralMarketing": true` | `1` | `1` |
+| `referralMarketing` | `1` | `2` |
 
-A whole-number `matchPattern` with an `order` ranks as any other entry of its array.
+Entries that are off (`"active": false`, toggled off, or referral-marketing entries while the person allows referral marketing) are left out, and entries with the same text count once (§Same text twice). Read the key left to right; the first part that differs decides:
 
-A whole-number `matchPattern` is one written like `"0"` or `"123"` — digits only, no leading zero, at most `4294967294`. `"007"`, `"-1"` and `"1.5"` aren't whole numbers here.
-
-Read the key left to right; the first part that differs decides. That gives you these rules:
-
-- **Every entry with an `order` runs before every entry without one.** The number is never compared with an array index. `order: 10` doesn't mean "tenth": it means "after the provider's other ordered entries with `order` below 10, and before all of its unordered entries". This is also why an explicit `order` always wins over an implicit position — otherwise `order: 1` would silently lose to whichever unordered entry happens to sit at index 1.
-- **Without an `order`, entries keep their default position** (whole numbers aside, below): `rawRules` in array order, then `rules` in array order, then the `rules` objects marked `"referralMarketing": true` in array order, then `referralMarketing` in array order. So `"referralMarketing": true` does move an unordered entry: it runs after the provider's unmarked `rules` entries, and before the `referralMarketing` array. With an `order`, the flag only matters at equal `order`, below.
-- **A whole-number `matchPattern` without `order` leaves its place.** It runs ahead of the other unordered entries of its group, smallest number first: in `rawRules`, ahead of the other raw rules; in `rules` or `referralMarketing`, ahead of every unordered `rules` and `referralMarketing` entry, whichever array it sits in. The provider keeps these lists by text, and number-like text sorts first. If its place matters, give it an `order`; `lint-rules` and the editor warn about each one that has none.
-- **At equal `order`, entries run in the default order:** `rawRules`, then `rules`, then `rules` objects marked `"referralMarketing": true`, then `referralMarketing`, each by `arrayIndex`. This is the same stage order as without an `order`, so adding an `order` never changes which stage wins a tie. (Earlier versions were inconsistent here: at equal `order`, `rules` and marked `rules` entries ran before `rawRules`, the opposite of the default.) An equal `order` is enough to keep a raw rule ahead of a field rule; a field rule runs before a raw rule only with a strictly lower `order`.
-- **Two entries never compare equal** — within one array their `arrayIndex` differs, and two whole numbers in one group are different numbers once the same text counts once. The key is total, so every provider has exactly one sequence.
-
-> **Note — crossing the raw → field boundary.** The sort key makes crossing it well-defined, not safe. Raw rules run first so they can delete things that aren't `name=value` pairs — `/ref=…` path segments, `;jsessionid=…` — before the parameter pass reads the URL. Any `order` on a `rules` or `referralMarketing` entry lifts it above every unordered raw rule; the parameter pass then sees the URL before it's been cleaned, so it can match, rewrite or strip the wrong thing. Leave the boundary intact unless you have a specific reason not to: if one entry in a provider needs an `order`, give its raw rules an `order` too, lower than every field rule's.
+- **Stage decides first.** No `order` value moves a field rule ahead of a raw rule. A cleanup that must happen before a raw rule is written as a raw rule — a raw rule is a regex against the whole URL, so it can express any parameter removal.
+- **Inside a stage, ordered entries run before unordered ones,** lowest `order` first. `order: 10` doesn't mean "tenth": it means "after the stage's other ordered entries with `order` below 10, and before all of its unordered entries".
+- **At equal `order`, or with none,** entries run by `rank`, then by `arrayIndex`: `rules`, then `rules` objects marked `"referralMarketing": true`, then `referralMarketing`, each in array order. So `"referralMarketing": true` moves an unordered entry after the provider's unmarked `rules` entries.
+- **Every entry runs at its array position.** An entry written like `"3"` or `"20"` is no exception: it keeps its place like any other entry. (Under the earlier 1.0 text these jumped ahead of their group, because the engine kept its rule lists in plain objects; it now keeps them in order-preserving maps.)
+- **The key is total.** Every provider has exactly one sequence.
 
 ### Same text twice
 
@@ -393,12 +423,21 @@ Two entries with the same `matchPattern` text in one group are one entry, and on
 | field | `rules` entries without `"referralMarketing": true` |
 | referral | `rules` objects with `"referralMarketing": true`, then `referralMarketing` |
 
-- **The last definition that isn't off wins, whole** — its `id`, `order`, `replacePattern` and every other key. The earlier definitions do nothing: their `order` has no effect, and toggling their `id` switches nothing. A later definition that's off doesn't remove an earlier one.
-- **Its place:** with an `order`, the winning definition sorts by its own `order`, `rank` and `arrayIndex`. Without one, it takes the place of the *first* definition that isn't off.
-- **Across field and referral:** while referral-marketing rules run, a referral entry with the same text as a field entry replaces it, whichever comes first in the file, and without an `order` it takes the field entry's place. While the person allows referral marketing, the field entry runs alone.
+- **The last definition that isn't off wins, whole** — its `id`, its `replacePattern` and every other key. A later definition that's off doesn't remove an earlier one.
+- **Its place.** A winning definition with its own numeric `order` sorts by its own `order`, `rank` and `arrayIndex`. One without its own `order` takes its `rank` and `arrayIndex` from the *first* definition that isn't off, and its `order` from the *nearest* earlier definition that has an `order` key.
+- **`"order": null`** means "no order, and do not inherit one". It is the explicit way to drop an `order` set by an earlier definition; the definition then takes the first definition's place.
+- **Ids.** The `id` and `aliases` of every replaced definition switch the winner on and off too (§Rule ids and toggles).
+- **Across field and referral:** while referral-marketing rules run, a referral entry with the same text as a field entry replaces it. Without its own `order` it takes the field entry's place, including that entry's `order`. While the person allows referral marketing, the field entry runs alone.
 - Raw and field entries with the same text don't collide — both run.
 
-`lint-rules` and the editor reject two different entries with the same text in one array, and warn about an exact copy. They also warn about the same text in `rules` and `referralMarketing`, and in `rules` with and without `"referralMarketing": true`. `$removeparam` filters don't count here — each one runs.
+| First definition | Later definition | What runs |
+| --- | --- | --- |
+| `token`, `order: 1` | `"token"` | `order: 1`; first definition's index |
+| `token`, `order: 1` | `token`, `order: 50` | `order: 50`; own index |
+| `token`, `order: 1` | `token`, `"order": null` | no `order`; first definition's index |
+| `"token"` | `token` with a `replacePattern` | the rewrite, at the first definition's index |
+
+Inheritance exists for merges across files, not as an authoring feature: `lint-rules` and the editor reject two different entries with the same text in one array, and warn about an exact copy. They also warn about the same text in `rules` and `referralMarketing`, and in `rules` with and without `"referralMarketing": true`. `$removeparam` filters don't count here — each one runs.
 
 #### Overload mode
 
@@ -407,47 +446,29 @@ In overload mode the built-in rules and your remote rule files load together, an
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
 2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
 3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
-4. **Duplicates while joining.** Only entries that are exactly alike count once. `order` is part of what makes two entries alike, so `{"matchPattern": "token", "order": 1}` and `{"matchPattern": "token", "order": 50}` are two entries, and both are kept.
+4. **Exact copies.** Only entries that are exactly alike count once while joining. `order` is part of what makes two entries alike, `"order": null` included.
 
-The merged provider then runs like any other, so the rules above apply: entries with the same text in one group count once, and the last definition wins. After a merge the last definition is always the remote one — with several remote files, the last-listed file's. So a remote copy of a built-in rule replaces it whole, `order` included:
-
-- **Both have an `order`:** the remote number is used.
-- **Only the built-in copy has an `order`:** the `order` is dropped, and the rule goes back to its default position (§Processing order).
-- **Both are exactly alike:** they're one entry, and nothing changes.
-- **Different text:** nothing is replaced. Both entries run, sorted as in §Processing order — at equal `order` the built-in entry runs first, because it comes first in the joined list.
-
-The built-in rules have:
-
-```json
-{ "providers": { "site": { "domainPatterns": ["||site.example^"], "rules": [{ "matchPattern": "token", "order": 1 }, "x"] } } }
-```
-
-and your remote file has:
-
-```json
-{ "providers": { "site": { "domainPatterns": ["||site.example^"], "rules": ["token"] } } }
-```
-
-Here the merged `rules` list is `token` (`order: 1`), `x`, `token`. The remote `"token"` wins, so `token` runs with no `order`, before `x` in the first copy's place — the built-in `order: 1` has no effect.
+The merged provider then runs like any other, so §Same text twice applies: after a merge the last definition is the remote one — with several remote files, the last-listed file's. A remote copy without an `order` keeps the `order` of the copy it replaces; to drop it, the remote copy sets `"order": null`.
 
 | Built-in | Remote | What runs |
 | --- | --- | --- |
 | `token`, `order: 1` | `token`, `order: 50` | `token` at `order: 50` |
-| `a` `order: 1`, `b` `order: 2` | `b` `order: 1`, `a` `order: 2` | `b`, then `a` — the remote numbers |
+| `token`, `order: 1` | `"token"` | `token` at `order: 1` |
+| `token`, `order: 1` | `token`, `"order": null` | `token` with no `order` |
+| `token`, `order: 1` | file 1: `token`, `order: 20`; file 2: `token`, `order: 30` | `token` at `order: 30` |
+| `token`, `order: 1` | file 1: `token`, `order: 20`; file 2: `"token"` | `token` at `order: 20` |
+| `a` `order: 1`, `b` `order: 2` | `b` `order: 1`, `a` `order: 2` | `b`, then `a` |
 | `fromBuiltIn`, `order: 5` | `fromRemote`, `order: 5` | both; `fromBuiltIn` first |
-| `token`, `order: 1` | `"token"` | `token` with no `order`, at its default position |
-| `token`, `order: 7` | `token`, `order: 7` | one `token`, `order: 7` |
-| `token` `order: 1` on `\|\|site.example^` | `token` `order: 50` on `\|\|other.example^` | not merged — two providers, each with its own `token` |
-| `token` `order: 1`, `"methods": ["GET"]` | `token` `order: 50`, `"methods": ["POST"]` | not merged — two providers |
-| `token`, `order: 1` | file 1: `token` `order: 20`; file 2: `token` `order: 30` | `token` at `order: 30` |
-| `rules`: `"tag"` | `referralMarketing`: `"tag"` | the `referralMarketing` entry replaces the `rules` one while referral-marketing rules run (above) |
+| `token` `order: 1` on `\|\|site.example^` | `token` `order: 50` on `\|\|other.example^` | not merged — two providers |
+| `rules`: `"tag"` | `referralMarketing`: `"tag"` | the `referralMarketing` entry replaces the `rules` one while referral-marketing rules run |
 
-Remote Rules Health lists each rule a merge replaces within one list as an error, but the rules still load, and the remote copy runs. It also warns when a merge puts the same text in `rules` from one file and in `referralMarketing` (or a `rules` entry with `"referralMarketing": true`) from another — the last row above.
+Remote Rules Health lists each rule a merge replaces as a **notice** naming the file whose definition won; an **error** is reserved for a file or entry that did not load. It also warns when a merge puts the same text in `rules` from one file and in `referralMarketing` (or a `rules` entry with `"referralMarketing": true`) from another.
 
 ### Worked example
 
 ```json
 {
+  "cln": "1.0",
   "providers": {
     "shop": {
       "domainPatterns": ["||shop.example^"],
@@ -471,85 +492,95 @@ Remote Rules Health lists each rule a merge replaces within one list as an error
 
 With "allow referral marketing" off, the provider runs:
 
-| # | Entry | `(orderGroup, order, rank, arrayIndex)` |
+| # | Entry | `(stage, orderGroup, order, rank, arrayIndex)` |
 | --- | --- | --- |
-| 1 | `rules[1]` `token-rewrite` | `(0, 5, 3, 1)` |
-| 2 | `rawRules[1]` `strip-jsessionid` | `(0, 20, 1, 1)` |
-| 3 | `rules[4]` `sid` | `(0, 20, 3, 4)` |
-| 4 | `rawRules[0]` `"\\/ref=[^/?]*"` | `(1, –, 1, 0)` |
-| 5 | `rules[0]` `"utm_source"` | `(1, –, 3, 0)` |
-| 6 | `rules[2]` `"fbclid"` | `(1, –, 3, 2)` |
-| 7 | `rules[3]` `aff-id` | `(1, –, 4, 3)` |
-| 8 | `referralMarketing[0]` `"tag"` | `(1, –, 5, 0)` |
+| 1 | `rawRules[1]` `strip-jsessionid` | `(0, 0, 20, 0, 1)` |
+| 2 | `rawRules[0]` `"\\/ref=[^/?]*"` | `(0, 1, –, 0, 0)` |
+| 3 | `rules[1]` `token-rewrite` | `(1, 0, 5, 0, 1)` |
+| 4 | `rules[4]` `sid` | `(1, 0, 20, 0, 4)` |
+| 5 | `rules[0]` `"utm_source"` | `(1, 1, –, 0, 0)` |
+| 6 | `rules[2]` `"fbclid"` | `(1, 1, –, 0, 2)` |
+| 7 | `rules[3]` `aff-id` | `(1, 1, –, 1, 3)` |
+| 8 | `referralMarketing[0]` `"tag"` | `(1, 1, –, 2, 0)` |
 
-Then `rules[5]` `"$removeparam=/^pk_/"`, with the provider's other `$removeparam` filters — it's outside the sort. With "allow referral marketing" on, 7 and 8 are left out and the rest keep their order.
+Then `rules[5]` `"$removeparam=/^pk_/"`, with the provider's other `$removeparam` filters — it's outside the sort. With "allow referral marketing" on, 7 and 8 are left out and the rest keep their order. Both raw rules finish before `token-rewrite` reads the URL.
 
-| Row | Why |
-| --- | --- |
-| 1 | `order: 5` is the lowest `order` in the provider |
-| 2, 3 | same `order: 20`; `rawRules` ranks `1`, `rules` ranks `3` |
-| 2, 4 | the ordered raw rule runs before the unordered one, though it sits later in `rawRules` |
-| 1, 4 | `token-rewrite` has a lower `order` than the raw rule `strip-jsessionid` *and* runs before the unordered raw rule `/ref=` — `token` is read before `/ref=…` is deleted from the path. See the note above |
-| 7 | the unordered `"referralMarketing": true` object runs after every unmarked unordered `rules` entry, then the `referralMarketing` array |
-
-### Worked example — whole numbers and the same text twice
+### Worked example — whole numbers
 
 ```json
 {
+  "cln": "1.0",
   "providers": {
-    "traps": {
-      "domainPatterns": ["||traps.example^"],
+    "numbers": {
+      "domainPatterns": ["||numbers.example^"],
       "rawRules": ["r", "3"],
-      "rules": [
-        { "id": "dup-early", "matchPattern": "dup", "order": 1 },
-        "a",
-        "20",
-        { "matchPattern": "9", "referralMarketing": true },
-        { "id": "dup-late", "matchPattern": "dup", "order": 50 },
-        "b"
-      ],
+      "rules": ["a", "20", { "matchPattern": "9", "referralMarketing": true }, "b"],
       "referralMarketing": ["rm", "5"]
     }
   }
 }
 ```
 
-With "allow referral marketing" off, the provider runs:
+With "allow referral marketing" off:
 
-| # | Entry | `(orderGroup, order, rank, arrayIndex)` |
+| # | Entry | `(stage, orderGroup, order, rank, arrayIndex)` |
 | --- | --- | --- |
-| 1 | `rules[4]` `dup-late` | `(0, 50, 3, 4)` |
-| 2 | `rawRules[1]` `"3"` | `(1, –, 0, 3)` |
-| 3 | `rawRules[0]` `"r"` | `(1, –, 1, 0)` |
-| 4 | `referralMarketing[1]` `"5"` | `(1, –, 2, 5)` |
-| 5 | `rules[3]` `"9"` | `(1, –, 2, 9)` |
-| 6 | `rules[2]` `"20"` | `(1, –, 2, 20)` |
-| 7 | `rules[1]` `"a"` | `(1, –, 3, 1)` |
-| 8 | `rules[5]` `"b"` | `(1, –, 3, 5)` |
-| 9 | `referralMarketing[0]` `"rm"` | `(1, –, 5, 0)` |
+| 1 | `rawRules[0]` `"r"` | `(0, 1, –, 0, 0)` |
+| 2 | `rawRules[1]` `"3"` | `(0, 1, –, 0, 1)` |
+| 3 | `rules[0]` `"a"` | `(1, 1, –, 0, 0)` |
+| 4 | `rules[1]` `"20"` | `(1, 1, –, 0, 1)` |
+| 5 | `rules[3]` `"b"` | `(1, 1, –, 0, 3)` |
+| 6 | `rules[2]` `"9"` | `(1, 1, –, 1, 2)` |
+| 7 | `referralMarketing[0]` `"rm"` | `(1, 1, –, 2, 0)` |
+| 8 | `referralMarketing[1]` `"5"` | `(1, 1, –, 2, 1)` |
 
-| Row | Why |
-| --- | --- |
-| 1 | `dup-early` and `dup-late` are one entry; the later definition wins, so it runs at `order: 50` and `dup-early`'s `order: 1` does nothing. Toggling `dup-early` off switches nothing |
-| 2 | `"3"` is a whole number, so it runs ahead of `"r"`, though it's listed after it |
-| 4–6 | whole numbers in `rules` and `referralMarketing` run ahead of every other unordered entry of both arrays, smallest first — `"5"` from `referralMarketing` included |
+Every entry runs where the file lists it. Rows 6 to 8 follow the unmarked `rules` entries because of `rank`, not because of their text.
 
-With "allow referral marketing" on, rows 4, 5 and 9 are left out and the rest keep their order.
+### Rule ids and toggles
 
-`lint-rules` rejects this provider — the two `dup` entries are an error, and each whole number without an `order` is a warning. Both are what you'd fix in a real file.
+A rule's on/off toggle is keyed by provider and rule together, `providerKey::id` (for example `shop::token-rewrite`), so two providers can use the same rule id without sharing a switch. The custom rules editor may also save it under the provider's match pattern (`domainPattern:||shop.example^::token-rewrite`); both forms work. An `id` can't contain a colon, so a key splits at its last `::`.
+
+- **Unique in a provider.** Within one provider of one file, every `id` and every alias is distinct; a repeat is a `lint-rules` error. Generated ids count.
+- **Replaced definitions.** When one definition replaces another (§Same text twice), the `id` and `aliases` of each replaced definition switch the winner. Toggling any of them switches the one rule that runs.
+- **Saved toggles.** A toggle saved under a bare `id` keeps working, for every rule with that id. It is saved in the namespaced form the next time the person changes a toggle.
+- **Shared keys.** Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.
+- **Generated ids** are unchanged: an id is generated from the list and the `matchPattern` text when left out, and changes when that text is edited.
+
+The built-in rules define `token` with `"id": "token-rewrite"` in provider `shop`, and the person switches `shop::token-rewrite` off. A remote file then replaces that rule with a definition whose `id` is `tok`: the remote definition runs, the saved toggle keeps it off, and both `shop::tok` and `shop::token-rewrite` switch it.
+
+### Termination
+
+Processing a request always ends:
+
+- **Cycle cap.** At most 10 cycles run per request — a cycle being one pass of the providers over the URL, repeated after each change or redirect. At the cap, processing stops and the URL is used as it stands.
+- **Rewrites run once.** An entry with a `replacePattern` applies at most once per request. `token-rewrite` above turns `https://shop.example/?token=abc123` into `https://shop.example/?token=clean-abc123`, and that does not change on any later cycle.
+- **No-op steps.** A step whose output equals its input is not a change and does not start a new cycle.
+
+### Remote file capabilities
+
+A remote file's capabilities are derived from its content when it loads; a file does not declare them.
+
+| Capability | A file has it when it contains | Active on load |
+| --- | --- | --- |
+| `strip` | a `rules`, `rawRules` or `referralMarketing` entry, or a `$removeparam` filter | yes |
+| `rewrite` | an entry with a `replacePattern` | yes |
+| `except` | a provider `exceptions` entry or an `@@` entry | yes |
+| `redirect` | a `redirections` or `fieldRedirections` entry, or `forceRedirection` | after acceptance |
+| `block` | a provider with `"completeProvider": true` | after acceptance |
+
+- **Built-in and custom rules** hold every capability.
+- **Acceptance** is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't rewrite a URL to another origin — while the rest of the file loads.
+- **Updates.** When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.
+- **Existing installs.** The capabilities a remote file already had when this rule first applied count as accepted, so nothing that worked stops.
+- **Visibility.** Remote Rules Health lists each remote file's capabilities.
 
 ### Possible 2.0 direction
 
-Not part of 1.0 — two candidates, neither decided:
+Left for 2.0 (see [CLN Format 1.0 (Final)](cln-format-1.0.md#deferred-to-20)):
 
-- **An explicit stage.** A `stage` key (`raw` \| `field` \| `referral`) on each entry, with `order` only compared within one stage. Stage order would then never depend on a number, and running a field rule before raw rules would take a visible `"stage"` change in a diff instead of a small `order`.
-- **One array.** All three kinds in a single `rules` array whose array order is the run order, each entry saying what kind it is. That would remove the need for `order` entirely.
-
-### Open questions
-
-Left open by this section:
-
-- Whether the raw → field boundary should become uncrossable by `order`, so an `order` alone can't lift a field rule above an unordered raw rule.
+- **One rules array.** All three kinds in a single `rules` array whose array order is the run order. An explicit `stage` key has little left to add now that `order` cannot cross stages.
+- **Two spellings for referral marketing**, the `referralMarketing` array and the `"referralMarketing": true` flag.
+- **String mini-languages**, redirects and `$removeparam` filters outside the sort, a converter to and from the ClearURLs formats, and generated ids that change with their text.
 
 ## User whitelist
 

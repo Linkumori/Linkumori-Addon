@@ -3913,6 +3913,48 @@
     "description": "Remote Rules Health summary of rule collisions",
     "placeholders": { "errors": { "content": "$1", "example": "1" }, "warnings": { "content": "$2", "example": "2" } }
   },
+  "settings_remote_health_rule_collisions_summary_notices": {
+    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "description": "Remote Rules Health summary of rule collisions; a notice is a rule another file replaced",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "0"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      },
+      "notices": {
+        "content": "$3",
+        "example": "2"
+      }
+    }
+  },
+  "settings_remote_health_capabilities_label": {
+    "message": "Remote file capabilities:",
+    "description": "Remote Rules Health label for what each remote rule file can do (strip, rewrite, except, redirect, block)"
+  },
+  "settings_remote_health_capabilities_pending": {
+    "message": "inactive until accepted: $CAPABILITIES$",
+    "description": "Remote Rules Health: capabilities of a remote rule file that wait for the person to accept them",
+    "placeholders": {
+      "capabilities": {
+        "content": "$1",
+        "example": "redirect, block"
+      }
+    }
+  },
+  "settings_remote_health_capabilities_accept": {
+    "message": "Accept $CAPABILITIES$",
+    "description": "Button that lets a remote rule file redirect or block requests",
+    "placeholders": {
+      "capabilities": {
+        "content": "$1",
+        "example": "redirect, block"
+      }
+    }
+  },
   "customRulesEditor_defaultsTitle": {
     "message": "Rule defaults",
     "description": "Custom rules editor heading for the defaults each rule source applies to its own rules"

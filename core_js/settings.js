@@ -3632,6 +3632,53 @@ function renderRemoteRulesHealth(health) {
     hashStatusEl.textContent = hashStatusText;
 
     renderRemoteRuleCollisions(payload.ruleCollisions);
+    renderRemoteFileCapabilities(payload.remoteFileCapabilities);
+}
+
+// What each remote file can do (CLN 1.0 §Remote file capabilities). Its
+// "redirect" and "block" entries stay inactive until accepted here.
+function renderRemoteFileCapabilities(files) {
+    const summaryEl = document.getElementById('remoteHealthCapabilities');
+    const listEl = document.getElementById('remoteHealthCapabilitiesList');
+    if (!summaryEl || !listEl) {
+        return;
+    }
+
+    const items = Array.isArray(files) ? files : [];
+    listEl.replaceChildren();
+    listEl.hidden = items.length === 0;
+    summaryEl.textContent = items.length === 0 ? translate('settings_remote_health_none') : '';
+    items.forEach(file => {
+        const li = document.createElement('li');
+        const capabilities = Array.isArray(file.capabilities) && file.capabilities.length > 0
+            ? file.capabilities.join(', ') : translate('settings_remote_health_none');
+        li.textContent = `${file.ruleURL}: ${capabilities}`;
+        const pending = Array.isArray(file.pending) ? file.pending : [];
+        if (pending.length > 0) {
+            li.className = 'remote-health-collision-warning';
+            li.appendChild(document.createTextNode(' — ' +
+                translate('settings_remote_health_capabilities_pending', pending.join(', '))));
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'btn btn-secondary';
+            button.textContent = translate('settings_remote_health_capabilities_accept', pending.join(', '));
+            button.addEventListener('click', async () => {
+                button.disabled = true;
+                try {
+                    const response = await browser.runtime.sendMessage({
+                        function: 'acceptRemoteRuleCapabilities',
+                        params: [file.ruleURL, pending]
+                    });
+                    renderRemoteRulesHealth(response?.response?.health || null);
+                } catch (error) {
+                    button.disabled = false;
+                }
+            });
+            li.appendChild(document.createTextNode(' '));
+            li.appendChild(button);
+        }
+        listEl.appendChild(li);
+    });
 }
 
 // Rule collisions found in the loaded remote rules; they still load.
@@ -3645,16 +3692,19 @@ function renderRemoteRuleCollisions(ruleCollisions) {
     const items = ruleCollisions && Array.isArray(ruleCollisions.items) ? ruleCollisions.items : [];
     listEl.replaceChildren();
     listEl.hidden = items.length === 0;
-    if (!ruleCollisions || (ruleCollisions.errorCount === 0 && ruleCollisions.warningCount === 0)) {
+    if (!ruleCollisions || (ruleCollisions.errorCount === 0 && ruleCollisions.warningCount === 0 && !ruleCollisions.noticeCount)) {
         summaryEl.textContent = translate('settings_remote_health_none');
         return;
     }
 
-    summaryEl.textContent = translate('settings_remote_health_rule_collisions_summary',
-        String(ruleCollisions.errorCount || 0), String(ruleCollisions.warningCount || 0));
+    // A rule a merge replaces is a notice; errors are files or entries
+    // that did not load.
+    summaryEl.textContent = translate('settings_remote_health_rule_collisions_summary_notices',
+        String(ruleCollisions.errorCount || 0), String(ruleCollisions.warningCount || 0), String(ruleCollisions.noticeCount || 0));
     items.forEach(item => {
         const li = document.createElement('li');
-        li.className = item.severity === 'error' ? 'remote-health-collision-error' : 'remote-health-collision-warning';
+        li.className = item.severity === 'error' ? 'remote-health-collision-error'
+            : (item.severity === 'notice' ? 'remote-health-collision-notice' : 'remote-health-collision-warning');
         li.textContent = `${item.source} [${item.provider}] ${item.message}`;
         listEl.appendChild(li);
     });
@@ -4509,6 +4559,7 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     setElementText('remoteHealthFailureReasonLabel', 'settings_remote_health_failure_reason_label');
     setElementText('remoteHealthHashStatusLabel', 'settings_remote_health_hash_status_label');
     setElementText('remoteHealthRuleCollisionsLabel', 'settings_remote_health_rule_collisions_label');
+    setElementText('remoteHealthCapabilitiesLabel', 'settings_remote_health_capabilities_label');
     
     // Set appropriate placeholders - always locked initially (never persisted)
     const ruleURLInput = document.getElementById('ruleURL');

@@ -118,6 +118,9 @@ const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
 // Ids a rule had before (see attachRuleActivationIdsToArray); the engine
 // still honours settings saved under them.
 const LINKUMORI_RULE_LEGACY_IDS_KEY = '_linkumoriLegacyRuleIds';
+// The file a merged rule came from ("built-in" or a remote ruleURL), so
+// Remote Rules Health can name the file whose rule replaced another.
+const LINKUMORI_RULE_SOURCE_KEY = '_linkumoriSource';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -235,13 +238,27 @@ function findMergedGroupRuleCollisions(providerGroup, mergedProvider, mergedName
             .forEach(problem => memberKeys.add(keyOf(problem)));
     });
     const members = providerGroup.map(member => member.name).join(', ');
+    // A rule a merge replaces still runs as one entry, the last definition
+    // (CLN 1.0 §Overload mode), so it is a notice naming the file whose
+    // definition won; errors are kept for files and entries that did not load.
+    const replacingSourceOf = (section, text) => {
+        const entries = Array.isArray(mergedProvider[section]) ? mergedProvider[section] : [];
+        for (let i = entries.length - 1; i >= 0; i--) {
+            if (LinkumoriRuleIds.getRuleText(entries[i]) !== text) continue;
+            const source = entries[i] && typeof entries[i] === 'object' ? entries[i][LINKUMORI_RULE_SOURCE_KEY] : null;
+            return typeof source === 'string' && source ? source : 'an unnamed file';
+        }
+        return 'an unnamed file';
+    };
     const items = LinkumoriRuleIds.findRuleCollisions(mergedProvider, isRemoveParamRuleTextForCollisions, textOnly)
         .filter(problem => !memberKeys.has(keyOf(problem)))
         .map(problem => ({
             source: 'merged',
             provider: mergedName,
-            severity: problem.severity,
-            message: `after merging ${members}: ${problem.message}`
+            severity: 'notice',
+            replacedBy: replacingSourceOf(problem.section, problem.text),
+            message: `after merging ${members}: ${problem.section} "${problem.text}" is defined more than once; ` +
+                `the definition from ${replacingSourceOf(problem.section, problem.text)} replaces the earlier one`
         }));
 
     // The same text in `rules` in one file and `referralMarketing` (or a
@@ -284,6 +301,40 @@ function findMergedGroupRuleCollisions(providerGroup, mergedProvider, mergedName
     return items;
 }
 
+// Providers that share a key but do not merge (the same match patterns,
+// so the same on/off setting scope, but different methods, resourceTypes,
+// completeProvider or forceRedirection) also share the on/off settings of
+// rules with equal ids (CLN 1.0 §Rule ids and toggles). One warning per
+// such pair. `mergedByPattern` maps a pattern key to the merged providers.
+function findSharedProviderKeyToggles(mergedByPattern) {
+    const items = [];
+    const idsOf = data => {
+        const assigned = LinkumoriRuleIds.assignProviderRuleIds(data);
+        const ids = new Set();
+        LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => (assigned[section] || []).forEach(entry => { if (entry) ids.add(entry.id); }));
+        return ids;
+    };
+    mergedByPattern.forEach((providers, patternKey) => {
+        if (providers.length < 2 || patternKey.startsWith('no-pattern:')) return;
+        const ids = providers.map(provider => idsOf(provider.data));
+        for (let i = 0; i < providers.length; i++) {
+            for (let j = i + 1; j < providers.length; j++) {
+                const shared = [...ids[i]].filter(id => ids[j].has(id));
+                if (shared.length === 0) continue;
+                items.push({
+                    source: 'merged',
+                    provider: `${providers[i].name}, ${providers[j].name}`,
+                    severity: 'warning',
+                    message: `providers ${providers[i].name} and ${providers[j].name} share a key but do not merge, so rules with ` +
+                        'equal ids share one on/off setting: ' +
+                        shared.slice(0, 10).map(id => `"${id}"`).join(', ') + (shared.length > 10 ? ', …' : '')
+                });
+            }
+        }
+    });
+    return items;
+}
+
 // Activation ids used by rules with different text, as [{ activationId, owners }].
 // Rules with the same text are covered by findRuleCollisions.
 function findSharedActivationIds(providerData) {
@@ -317,7 +368,8 @@ function recordRuleCollisions(items) {
         ruleCollisions: {
             checkedAt: new Date().toISOString(),
             errorCount: list.filter(item => item.severity === 'error').length,
-            warningCount: list.filter(item => item.severity !== 'error').length,
+            warningCount: list.filter(item => item.severity === 'warning').length,
+            noticeCount: list.filter(item => item.severity === 'notice').length,
             items: list.slice(0, MAX_REPORTED_RULE_COLLISIONS)
         }
     }, true);
@@ -391,6 +443,7 @@ function getRemoteRulesHealth() {
         isCacheUsed: !!tempVerificationCache.isCacheUsed,
         lastVerification: tempVerificationCache.lastVerification || null,
         remoteRulesEnabled: !!storage.remoteRulesEnabled,
+        remoteFileCapabilities: getRemoteRuleCapabilitiesStatus(),
         temporaryPause: pauseState
     };
 }
@@ -539,7 +592,7 @@ function getStableRuleSignature(rule) {
     if (typeof rule.targetId === 'string' && rule.targetId) {
         normalized.targetId = rule.targetId;
     }
-    if (typeof rule.order === 'number' && Number.isFinite(rule.order)) {
+    if ((typeof rule.order === 'number' && Number.isFinite(rule.order)) || rule.order === null) {
         normalized.order = rule.order;
     }
     if (typeof rule.historyBypassProtection === 'boolean') {
@@ -800,7 +853,8 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
             .map(provider => ({
                 name: provider.name,
                 data: provider.data,
-                isPrimarySource: provider.isPrimarySource === true
+                isPrimarySource: provider.isPrimarySource === true,
+                source: provider.source
             }));
     }
 
@@ -947,6 +1001,22 @@ function applyProviderHistoryBypassProtection(data) {
     return result;
 }
 
+// Marks each rule of a provider with the file it came from, unless an
+// earlier merge already did.
+function tagRuleSources(data, source) {
+    if (typeof source !== 'string' || !source) return data;
+    const result = { ...data };
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
+        if (!Array.isArray(result[section])) return;
+        result[section] = result[section].map(rule => {
+            if (typeof rule === 'string') return { matchPattern: rule, [LINKUMORI_RULE_SOURCE_KEY]: source };
+            if (!rule || typeof rule !== 'object' || Array.isArray(rule) || rule[LINKUMORI_RULE_SOURCE_KEY]) return rule;
+            return { ...rule, [LINKUMORI_RULE_SOURCE_KEY]: source };
+        });
+    });
+    return result;
+}
+
 function mergeRemoteProviderGroup(providerGroup) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
@@ -978,8 +1048,8 @@ function mergeRemoteProviderGroup(providerGroup) {
     const allResourceTypes = unlimitedList('resourceTypes');
 
     members.forEach(provider => {
-        const data = applyProviderHistoryBypassProtection(
-            attachProviderActivationIds(provider.name, provider.data || {}));
+        const data = tagRuleSources(applyProviderHistoryBypassProtection(
+            attachProviderActivationIds(provider.name, provider.data || {})), provider.source);
 
         if (data.indexPattern) {
             const indexPatterns = Array.isArray(data.indexPattern)
@@ -1172,12 +1242,14 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
         providerGroups[key].push({
             name: providerName,
             data: providerData,
-            isPrimarySource: provider.isPrimarySource === true
+            isPrimarySource: provider.isPrimarySource === true,
+            source: provider.source
         });
     });
 
     const mergedProviders = {};
     const usedNames = new Set();
+    const mergedByPattern = new Map();
 
     Object.values(providerGroups).forEach(providerGroup => {
         const finalProvider = mergeRemoteProviderGroup(providerGroup);
@@ -1198,8 +1270,12 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
         if (collisionSink && providerGroup.length > 1) {
             collisionSink.push(...findMergedGroupRuleCollisions(providerGroup, finalProvider, finalName));
         }
+        const patternKey = getProviderPatternOnlyGroupKey(finalProvider, finalName);
+        if (!mergedByPattern.has(patternKey)) mergedByPattern.set(patternKey, []);
+        mergedByPattern.get(patternKey).push({ name: finalName, members: providerGroup.map(member => member.name), data: finalProvider });
     });
 
+    if (collisionSink) collisionSink.push(...findSharedProviderKeyToggles(mergedByPattern));
     return mergedProviders;
 }
 
@@ -1213,7 +1289,8 @@ function mergeRemoteRulesSources(successfulSources, failedSources = [], collisio
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
-                isPrimarySource: sourceIndex === 0
+                isPrimarySource: sourceIndex === 0,
+                source: source.ruleURL || 'remote'
             });
         });
 
@@ -1289,7 +1366,8 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = 
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
-                isPrimarySource: false
+                isPrimarySource: false,
+                source: 'built-in'
             });
     });
 
@@ -1297,7 +1375,8 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = 
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
-                isPrimarySource: true
+                isPrimarySource: true,
+                source: 'remote'
             });
     });
 
@@ -1709,6 +1788,7 @@ function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
     const sources = sourceFiles
         .filter(file => file && typeof file === 'object' && file.rules && typeof file.rules === 'object' &&
             file.rules.providers && typeof file.rules.providers === 'object' &&
+            !LinkumoriRuleIds.findClnVersionProblem(file.rules) &&
             LinkumoriRuleDefaults.findRuleDefaultsProblems(file.rules.defaults).length === 0)
         .map(file => prepareRemoteRuleSource(file.ruleURL || null, file.hashURL || null, file.rules));
     if (sources.length !== sourceFiles.length) return null;
@@ -1721,14 +1801,122 @@ function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
     }
 }
 
+// Remote file capabilities (CLN 1.0 §Remote file capabilities). Each
+// remote file's capabilities are derived from its content when it loads;
+// "redirect" and "block" stay inactive until the person accepts them for
+// that file. storage.remoteRuleCapabilities is
+//   { files: { [ruleURL]: { derived: [...], accepted: [...] } },
+//     grandfathered: [ruleURL, ...] }
+// where `grandfathered` lists the files configured when this rule first
+// applied: whatever they can do the first time they load counts as accepted.
+const CAPABILITIES_ACTIVE_ON_LOAD = Object.freeze(['strip', 'rewrite', 'except']);
+
+function listAllConfiguredRuleURLs() {
+    const urls = new Set();
+    if (typeof storage.ruleURL === 'string' && storage.ruleURL.trim()) urls.add(storage.ruleURL.trim());
+    (Array.isArray(storage.remoteRuleSets) ? storage.remoteRuleSets : []).forEach(entry => {
+        if (entry && typeof entry.ruleURL === 'string' && entry.ruleURL.trim()) urls.add(entry.ruleURL.trim());
+    });
+    return [...urls];
+}
+
+function normalizeRemoteRuleCapabilities(value) {
+    const known = new Set(LinkumoriRuleIds.RULE_FILE_CAPABILITIES);
+    const list = items => [...new Set((Array.isArray(items) ? items : []).filter(item => known.has(item)))];
+    const result = { files: {}, grandfathered: [] };
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return result;
+    if (value.files && typeof value.files === 'object' && !Array.isArray(value.files)) {
+        Object.entries(value.files).forEach(([ruleURL, entry]) => {
+            if (!ruleURL || !entry || typeof entry !== 'object') return;
+            result.files[ruleURL] = { derived: list(entry.derived), accepted: list(entry.accepted) };
+        });
+    }
+    result.grandfathered = [...new Set((Array.isArray(value.grandfathered) ? value.grandfathered : []).filter(url => typeof url === 'string' && url))];
+    return result;
+}
+
+// Run once after storage loads: the first time, every remote file already
+// configured keeps working (its capabilities are accepted when it loads).
+function ensureRemoteRuleCapabilitiesInitialized() {
+    if (storage.remoteRuleCapabilities && typeof storage.remoteRuleCapabilities === 'object') {
+        storage.remoteRuleCapabilities = normalizeRemoteRuleCapabilities(storage.remoteRuleCapabilities);
+        return;
+    }
+    storage.remoteRuleCapabilities = { files: {}, grandfathered: listAllConfiguredRuleURLs() };
+    try { saveOnDisk(['remoteRuleCapabilities']); } catch (e) {}
+}
+
+// Records what a remote file can do and returns the capabilities active for
+// it now.
+function resolveRemoteFileCapabilities(ruleURL, file) {
+    ensureRemoteRuleCapabilitiesInitialized();
+    const state = storage.remoteRuleCapabilities;
+    const derived = LinkumoriRuleIds.deriveRuleFileCapabilities(file);
+    const key = ruleURL || '';
+    let entry = state.files[key];
+    let changed = false;
+    if (!entry) {
+        entry = { derived: [], accepted: [] };
+        const grandfatheredIndex = state.grandfathered.indexOf(key);
+        if (grandfatheredIndex !== -1) {
+            entry.accepted = derived.slice();
+            state.grandfathered.splice(grandfatheredIndex, 1);
+        }
+        state.files[key] = entry;
+        changed = true;
+    }
+    if (JSON.stringify(entry.derived) !== JSON.stringify(derived)) {
+        entry.derived = derived;
+        changed = true;
+    }
+    if (changed) {
+        try { saveOnDisk(['remoteRuleCapabilities']); } catch (e) {}
+    }
+    return [...new Set([...CAPABILITIES_ACTIVE_ON_LOAD, ...entry.accepted])];
+}
+
+// Each loaded remote file's capabilities, for Remote Rules Health.
+function getRemoteRuleCapabilitiesStatus() {
+    ensureRemoteRuleCapabilitiesInitialized();
+    const configured = new Set(getConfiguredRemoteRuleSets().map(set => set.ruleURL));
+    return Object.entries(storage.remoteRuleCapabilities.files)
+        .filter(([ruleURL]) => configured.has(ruleURL))
+        .map(([ruleURL, entry]) => {
+            const active = new Set([...CAPABILITIES_ACTIVE_ON_LOAD, ...entry.accepted]);
+            return {
+                ruleURL,
+                capabilities: entry.derived.slice(),
+                accepted: entry.derived.filter(capability => active.has(capability)),
+                pending: entry.derived.filter(capability => !active.has(capability))
+            };
+        });
+}
+
+// The person accepts capabilities ("redirect", "block") for one remote
+// file; the rules are reloaded so its entries take effect.
+async function acceptRemoteRuleCapabilities(ruleURL, capabilities) {
+    ensureRemoteRuleCapabilitiesInitialized();
+    const key = typeof ruleURL === 'string' ? ruleURL.trim() : '';
+    const entry = storage.remoteRuleCapabilities.files[key];
+    if (!entry) return { success: false, error: 'Unknown remote rule file' };
+    const known = new Set(LinkumoriRuleIds.RULE_FILE_CAPABILITIES);
+    const requested = (Array.isArray(capabilities) ? capabilities : [capabilities]).filter(capability => known.has(capability));
+    entry.accepted = [...new Set([...entry.accepted, ...requested])];
+    try { saveOnDisk(['remoteRuleCapabilities']); } catch (e) {}
+    return refreshRemoteRulesNow();
+}
+
 // One fetched remote file ready to merge: its rules with the defaults
-// they get, its own defaults for the status, and the file as fetched.
+// they get and only the capabilities active for it, its own defaults for
+// the status, and the file as fetched.
 function prepareRemoteRuleSource(ruleURL, hashURL, file) {
+    const capabilities = resolveRemoteFileCapabilities(ruleURL, file);
     return {
         ruleURL,
         hashURL,
         defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(file.defaults),
-        rules: applySourceRuleDefaults('remote', file, ruleURL),
+        rules: LinkumoriRuleIds.restrictRuleFileCapabilities(applySourceRuleDefaults('remote', file, ruleURL), capabilities),
+        capabilities,
         file
     };
 }
@@ -1807,6 +1995,11 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
 
             if (!remoteRulesData || typeof remoteRulesData !== 'object' || Array.isArray(remoteRulesData)) {
                 throw new Error('Remote rules file does not contain valid object');
+            }
+
+            const clnProblem = LinkumoriRuleIds.findClnVersionProblem(remoteRulesData);
+            if (clnProblem) {
+                throw new Error(`Invalid remote rules: ${clnProblem}`);
             }
 
             storage.rulesMetadata = null;
@@ -1963,6 +2156,10 @@ function validateBundledRulesData(rawRulesData) {
     }
     if (Object.keys(rawRulesData.providers).length === 0) {
         throw new Error('No providers found in rules file');
+    }
+    const clnProblem = LinkumoriRuleIds.findClnVersionProblem(rawRulesData);
+    if (clnProblem) {
+        throw new Error(`Rules file: ${clnProblem}`);
     }
     const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(rawRulesData.defaults);
     if (defaultsProblems.length > 0) {
@@ -3125,6 +3322,7 @@ function initStorage(items) {
 
     normalizeRemoteRulescacheShape();
     ensureRemoteRulesHealthShape();
+    ensureRemoteRuleCapabilitiesInitialized();
     clearExpiredTemporaryPause();
 }
 
@@ -3168,6 +3366,9 @@ function initSettings() {
         lastHashURL: null
     };
     storage.remoteRuleSets = [];
+    // null until CLN 1.0 remote file capabilities first apply (see
+    // ensureRemoteRuleCapabilitiesInitialized).
+    storage.remoteRuleCapabilities = null;
     storage.temporaryPauseUntil = 0;
     
     storage.hashURL = "";

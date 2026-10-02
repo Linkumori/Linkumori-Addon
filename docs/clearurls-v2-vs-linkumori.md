@@ -189,7 +189,7 @@ In both, this keeps the key `token` and rewrites a value such as `test` to
 | `requestTypes` | `requestTypes` | `requestTypes` | ClearURLs: `all` or a list. Linkumori: a list only; leave it out for all types |
 | `preprocessors` | `preprocessors` | `preprocessors` | §10 |
 | `referralMarketing` | `referralMarketing` | `referralMarketing` | `true` on a field rule. Linkumori also accepts it in the `referralMarketing` list, where it changes nothing |
-| — | — | `order` | run a rule earlier or later, across `rules`, `rawRules` and `referralMarketing`. Every entry with an `order` runs before every entry without one; at equal `order`, raw rules run first ([Processing order](filter-syntax.md#processing-order)) |
+| — | — | `order` | run a rule earlier or later inside its stage: raw rules always run before `rules` and `referralMarketing`, and inside a stage every entry with an `order` runs before every entry without one ([Run order](filter-syntax.md#run-order)) |
 | — | — | `historyBypassProtection` | `false` skips the rule for History API URL changes |
 | — | — | `targetId` | on an `@@…$rawrule=` exception: the raw rule it stops |
 
@@ -285,7 +285,7 @@ with groups `['https', 'test']` gives `https://test.clearurls.xyz/`.
 | Provider request types | `"resourceTypes": ["main_frame"]` | [Provider fields](filter-syntax.md#provider-fields) |
 | `base64Decode` preprocessor | `{ "type": "base64Decode", "inputs": "all" }` | [Rule objects](filter-syntax.md#rule-objects) |
 | Ids for every rule | generated, with collision handling; toggles per provider or per match pattern | [Rule objects](filter-syntax.md#rule-objects) |
-| Checks | `lint-rules` and the editor reject rules that load but would do the wrong thing, and warn about rules that run somewhere other than their place in the file suggests: a whole-number `matchPattern` without `order`, or the same text in `rules` and `referralMarketing`. Remote Rules Health warns about the second across merged files | [Same text twice](filter-syntax.md#same-text-twice) |
+| Checks | `lint-rules` and the editor reject rules that load but would do the wrong thing, and warn about the same text in `rules` and `referralMarketing`, where only one takes effect. Remote Rules Health warns about it across merged files, and lists a rule a merge replaces as a notice | [Same text twice](filter-syntax.md#same-text-twice) |
 
 ## 13. What only ClearURLs format 2 has
 
