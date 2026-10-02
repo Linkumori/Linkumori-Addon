@@ -16,6 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.62.0] - 2026-10-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.61.1...linkumori-v100.62.0))
+### Changed
+- 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code (`2026-09-28`, hash: [`7acb6c3`](https://github.com/Linkumori/Linkumori-Addon/commit/7acb6c3))
+- Downloaded latest public suffix list from upstream (`2026-10-02`, hash: [`c920d84`](https://github.com/Linkumori/Linkumori-Addon/commit/c920d84))
+- Generated compressed URL cleaning rules bundle (`2026-10-02`, hash: [`c920d84`](https://github.com/Linkumori/Linkumori-Addon/commit/c920d84))
+- Update docs (`2026-09-30`, hash: [`9f4bae8`](https://github.com/Linkumori/Linkumori-Addon/commit/9f4bae8))
+
+### Fixed
+- Resolve THE ORDER IN SPEC (`2026-09-30`, hash: [`0482c5d`](https://github.com/Linkumori/Linkumori-Addon/commit/0482c5d))
+
+### Performance
+- Run $removeparam eligibility checks only for rules whose name matches (`2026-09-28`, hash: [`fe7b390`](https://github.com/Linkumori/Linkumori-Addon/commit/fe7b390))
+
 ## [v100.61.1] - 2026-09-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.61.0...linkumori-v100.61.1))
 ### Added
 - Bundled rules carry defaults; global exceptions move into them (`2026-09-27`, hash: [`51b8464`](https://github.com/Linkumori/Linkumori-Addon/commit/51b8464))
