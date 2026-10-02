@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.63.0] - 2026-10-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.62.0...linkumori-v100.63.0))
+### Changed
+- * feat: implement CLN Format 1.0 (final) (`2026-10-02`, hash: [`2410ac9`](https://github.com/Linkumori/Linkumori-Addon/commit/2410ac9))
+- Generated compressed URL cleaning rules bundle (`2026-10-02`, hash: [`2410ac9`](https://github.com/Linkumori/Linkumori-Addon/commit/2410ac9))
+- Generated compressed URL cleaning rules bundle (`2026-10-02`, hash: [`2782b41`](https://github.com/Linkumori/Linkumori-Addon/commit/2782b41))
+- Generated compressed URL cleaning rules bundle (`2026-10-02`, hash: [`7547b84`](https://github.com/Linkumori/Linkumori-Addon/commit/7547b84))
+- Updated canonical URL cleaning rules source (`2026-10-02`, hash: [`2410ac9`](https://github.com/Linkumori/Linkumori-Addon/commit/2410ac9))
+- Updated canonical URL cleaning rules source (`2026-10-02`, hash: [`7547b84`](https://github.com/Linkumori/Linkumori-Addon/commit/7547b84))
+
+### Performance
+- **rules**: Write bundled rules in their most efficient CLN form (#165) (`2026-10-02`, hash: [`7547b84`](https://github.com/Linkumori/Linkumori-Addon/commit/7547b84)) [#165](https://github.com/Linkumori/Linkumori-Addon/issues/165)
+
+### Removed
+- Remove dead code  (#166) (`2026-10-02`, hash: [`0b746f0`](https://github.com/Linkumori/Linkumori-Addon/commit/0b746f0)) [#166](https://github.com/Linkumori/Linkumori-Addon/issues/166)
+
 ## [v100.62.0] - 2026-10-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.61.1...linkumori-v100.62.0))
 ### Changed
 - 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code (`2026-09-28`, hash: [`7acb6c3`](https://github.com/Linkumori/Linkumori-Addon/commit/7acb6c3))
