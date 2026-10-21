@@ -17,6 +17,9 @@
 
   const saved = storedTheme();
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  root.classList.add('js');
+  // Background or throttled tabs can pause CSS animations; show everything regardless.
+  setTimeout(function () { root.classList.add('settled'); }, 1600);
 
   function syncThemeButton(btn) {
     const dark = effectiveTheme() === 'dark';
@@ -47,6 +50,19 @@
       });
     }
 
+    // Fade sections in as they scroll into view.
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }
+
     // Heading anchors for docs pages.
     document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach(function (h) {
       const a = document.createElement('a');
@@ -56,6 +72,10 @@
       a.textContent = '#';
       h.appendChild(a);
     });
+
+    // On narrow screens the contents list starts collapsed, so the document comes first.
+    const tocDetails = document.querySelector('.toc details');
+    if (tocDetails && window.matchMedia('(max-width: 1039px)').matches) tocDetails.open = false;
 
     // Highlight the current section in the contents list.
     const tocLinks = Array.from(document.querySelectorAll('.toc a[href^="#"]'));

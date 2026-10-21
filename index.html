@@ -6,6 +6,8 @@
   <title>Linkumori — Clean URLs for Firefox</title>
   <meta name="description" content="Linkumori strips tracking parameters from URLs before they load. A Manifest V3 successor to ClearURLs with a whitelist, custom rules, remote rule sources and the CLN 1.0 rule format.">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Linkumori — Clean URLs for Firefox">
   <meta property="og:description" content="Strip tracking parameters from every link, locally. Whitelist, custom rules, overload mode and the open CLN 1.0 rule format.">
   <meta property="og:image" content="assets/logo.svg">
@@ -19,9 +21,10 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">Linkumori</a>
+      <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg" alt="" width="28" height="28"><span class="brand-name">Linkumori</span></a>
+      <span class="brand-ver">v100.66.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <nav class="nav" id="site-nav" aria-label="Main">
         <a href="./#features">Features</a>
@@ -30,233 +33,252 @@
         <a href="filter-syntax.html">Filter syntax</a>
         <a href="https://github.com/Linkumori/Linkumori-Addon">GitHub</a>
         <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+        <a class="btn btn-primary btn-sm nav-cta" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Add to Firefox</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
+    <!-- Hero -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Firefox · Manifest V3 · v100.66.0</span>
-          <h1>Every link you open, <em>without the tracking.</em></h1>
-          <p class="lede">Linkumori strips tracking parameters from URLs before the page loads. No popup, no reload, no data leaves your browser.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-              Add to Firefox
+      <div class="container">
+        <span class="overline rise d1">URL privacy for Firefox</span>
+        <h1 class="rise d2">Links, without <i>the tracking.</i></h1>
+        <div class="hero-sub">
+          <p class="lede rise d3">Linkumori removes tracking parameters from every URL before the page loads. It runs entirely in your browser, collects nothing, and gives you the controls ClearURLs never shipped.</p>
+          <div class="actions rise d4">
+            <a class="btn btn-accent" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">
+              Add to Firefox <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="btn btn-ghost" href="cln-1.0.html">Read the CLN 1.0 standard</a>
-          </div>
-          <div class="meta-line">
-            <span>Free and open source (LGPL-3.0)</span>
-            <span>No telemetry</span>
-            <span>Firefox 140+ and Android 142+</span>
+            <a class="btn btn-line" href="cln-1.0.html">Read the CLN 1.0 standard</a>
           </div>
         </div>
 
-        <div class="demo" aria-labelledby="demo-title">
-          <div class="demo-head">
-            <h2 id="demo-title">Try it on a link</h2>
-            <div class="samples" aria-label="Sample links">
-              <button type="button" data-sample="https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=%C3%85M%C3%85Z%C3%95%C3%91&amp;keywords=tea&amp;pd_rd_i=exampleProduct&amp;pd_rd_r=8d39e4cd-1e4f-43db&amp;pd_rd_w=1pcKM&amp;tag=affiliate-20">Amazon</button>
-              <button type="button" data-sample="https://youtu.be/dQw4w9WgXcQ?si=Ab12Cd34Ef56Gh78&amp;t=42">YouTube</button>
-              <button type="button" data-sample="https://www.google.com/url?q=https://example.org/article?utm_source=newsletter%26id=7&amp;sa=D&amp;ved=2ahUKE">Google</button>
+        <figure class="specimen rise d5" aria-label="Animated example of a tracked link being cleaned">
+          <div class="specimen-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span id="spec-site">amazon.com</span>
+            <span class="status">cleaned locally</span>
+          </div>
+          <div class="specimen-url" id="specimen" aria-hidden="true"><span class="p">https://www.amazon.com/dp/B0EXAMPLE</span></div>
+          <dl class="specimen-foot">
+            <div><dt>Removed</dt><dd class="num" id="spec-count">0</dd></div>
+            <div><dt>Tracking stripped</dt><dd class="num" id="spec-bytes">0 B</dd></div>
+            <div><dt>Sent anywhere</dt><dd class="num">0 B</dd></div>
+            <div><dt>Page reloads</dt><dd class="num">None</dd></div>
+          </dl>
+        </figure>
+
+        <div class="facts">
+          <div><strong>0</strong><span>bytes of telemetry, analytics or usage data</span></div>
+          <div><strong>MV3</strong><span>built natively for Firefox Manifest V3</span></div>
+          <div><strong>140+</strong><span>Firefox desktop, and 142+ on Android</span></div>
+          <div><strong>LGPL-3.0</strong><span>free and open source, forked from ClearURLs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Try it -->
+    <section class="section" id="try">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>01</b> / Try it</div>
+          <div>
+            <h2>Paste a link. Watch what comes off.</h2>
+            <p>This runs a handful of sample rules right here in the page. The extension ships hundreds of providers and runs the full CLN engine on every request.</p>
+          </div>
+        </div>
+        <div class="offset reveal">
+          <div></div>
+          <div class="demo">
+            <div class="demo-pane">
+              <label class="lbl" for="demo-in">Tracked URL</label>
+              <textarea id="demo-in" spellcheck="false">https://news.example.com/story/42?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=launch&amp;fbclid=IwAR2xYz&amp;id=42</textarea>
+              <div class="samples" aria-label="Sample links">
+                <button type="button" data-sample="https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=%C3%85M%C3%85Z%C3%95%C3%91&amp;keywords=tea&amp;pd_rd_i=exampleProduct&amp;pd_rd_r=8d39e4cd-1e4f-43db&amp;pd_rd_w=1pcKM&amp;tag=affiliate-20">Amazon</button>
+                <button type="button" data-sample="https://youtu.be/dQw4w9WgXcQ?si=Ab12Cd34Ef56Gh78&amp;t=42">YouTube</button>
+                <button type="button" data-sample="https://www.google.com/url?q=https://example.org/article?utm_source=newsletter%26id=7&amp;sa=D&amp;ved=2ahUKE">Google redirect</button>
+              </div>
+              <label class="check"><input type="checkbox" id="demo-referral"> <span>Allow referral marketing, which keeps affiliate tags like <code>tag</code></span></label>
+            </div>
+            <div class="demo-pane">
+              <div class="lbl"><span>Clean URL</span><button type="button" id="demo-copy" class="link-btn">Copy</button></div>
+              <div id="demo-out" class="url-out" aria-live="polite"></div>
+              <div class="lbl" style="margin-top:22px">Removed</div>
+              <div id="demo-removed" class="removed" aria-label="Removed parts"></div>
+              <p class="demo-note">Nothing you paste leaves this page.</p>
             </div>
           </div>
-          <label for="demo-in">Paste a URL</label>
-          <textarea id="demo-in" spellcheck="false">https://news.example.com/story/42?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=launch&amp;fbclid=IwAR2xYz&amp;id=42</textarea>
-          <label for="demo-out" style="display:flex;justify-content:space-between;align-items:center">Clean URL
-            <button type="button" id="demo-copy" class="btn btn-ghost" style="padding:4px 10px;font-size:12.5px">Copy</button>
-          </label>
-          <div id="demo-out" class="url-out" aria-live="polite"></div>
-          <div id="demo-removed" class="removed" aria-label="Removed parts"></div>
-          <label style="display:flex;gap:8px;align-items:center;font-weight:500;margin-top:10px"><input type="checkbox" id="demo-referral"> Allow referral marketing (keeps affiliate tags like <code>tag</code>)</label>
-          <p class="demo-note">This page runs a few sample rules in your browser. The extension ships hundreds of providers and runs the full CLN engine.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="features">
+    <!-- 02 Protection -->
+    <section class="section" id="features">
       <div class="container">
-        <div class="section-head">
-          <span class="kicker">Core protection</span>
-          <h2>Quietly cleans everything you load</h2>
-          <p>Every protection ClearURLs users rely on, rebuilt for Firefox's Manifest V3.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div>
-            <h3>Removes tracking parameters</h3>
-            <p><code>utm_*</code>, <code>fbclid</code>, <code>gclid</code> and hundreds more are stripped in the background, from the query and the fragment.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <h3>Skips redirect middlemen</h3>
-            <p>Click-through links go straight to their destination, so tracking services never see the hop.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-            <h3>Stops search result rewriting</h3>
-            <p>Google and Yandex can't swap result links for tracked versions when you click them.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M8 12a4 4 0 0 1 8 0"/><circle cx="12" cy="12" r="1"/><path d="M3 3l18 18"/></svg></div>
-            <h3>Blocks hyperlink auditing</h3>
-            <p>Link <code>ping</code> beacons that report your clicks are blocked.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
-            <h3>Prevents ETag tracking</h3>
-            <p>Cache validators can't be turned into a persistent identifier.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg></div>
-            <h3>Guards the History API</h3>
-            <p>Pages can't sneak tracking back into the address bar with <code>pushState</code> or <code>replaceState</code>.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div>
-            <h3>Copy clean links</h3>
-            <p>A context-menu entry copies any link already cleaned, ready to share.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l4 4M21 15l-4 4"/></svg></div>
-            <h3>Bulk cleaning tool</h3>
-            <p>Paste a list of URLs and clean them all at once, without visiting any of them.</p>
-          </article>
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
-            <h3>Optional domain blocking</h3>
-            <p>Complete providers can block known tracking and ad domains outright, with a page that still lets you continue.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Beyond ClearURLs</span>
-          <h2>The controls people asked for, shipped</h2>
-          <p>ClearURLs users have requested a whitelist since 2020. Linkumori has one, and a lot more.</p>
-        </div>
-        <div class="grid">
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <h3>Per-site whitelist</h3>
-            <p>Leave a site alone in one click from the popup. Patterns like <code>*.example.com</code> and <code>example.*</code> work, and everything a whitelisted page loads is covered.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg></div>
-            <h3>Pause and tab whitelist</h3>
-            <p>Pause cleaning for a while, until restart, or for one site in one tab until it closes.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-            <h3>Custom rules that win</h3>
-            <p>Write your own providers in the built-in editor. They apply on top of built-in and remote rules, with a test lab to check them first.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="8" cy="12" r="3"/></svg></div>
-            <h3>Switch any rule off</h3>
-            <p>Disable a single rule, a provider or a whole rule set without writing counter-rules. Restore it any time; toggles survive rule updates.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h10"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/></svg></div>
-            <h3>Multiple remote rule sources</h3>
-            <p>Load several rule lists from endpoints you control, cached and refreshed on a schedule. Remote Rules Health shows errors, notices and each file's capabilities.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
-            <h3>Overload mode</h3>
-            <p>Merge built-in and remote rules provider by provider, then apply your custom rules on top, instead of picking one source.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
-            <h3>CNAME uncloaking</h3>
-            <p>Trackers hiding behind a first-party subdomain are resolved through DNS and matched against the real host.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h7v6H4zM15 14h5v6h-5z"/></svg></div>
-            <h3>Rule defaults you control</h3>
-            <p>Set request types, exceptions and preprocessors for whole files, choose whose defaults win, and merge defaults across sources.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
-            <h3>Live log and audit</h3>
-            <p>See every cleaned request as it happens, inspect the merged rule set, and file a pre-filled report when a page breaks.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></div>
-            <h3>Themes and accessibility</h3>
-            <p>Light, dark, midnight, sunset, ice-cold and legacy themes, plus accessibility options on every page, checked against WCAG 2.2 AA.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h8M8 3v2M6 5c0 4 3 7 6 8M10 5c0 4-3 7-6 8"/><path d="M13 21l4-9 4 9M14.5 18h5"/></svg></div>
-            <h3>Translatable</h3>
-            <p>Every string lives in <code>_locales</code>, so adding a language is one file and a pull request.</p>
-          </article>
-          <article class="card feature-new">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
-            <h3>An open rule standard</h3>
-            <p>Rules are written in CLN 1.0, a documented JSON format with a defined run order, lint checks and conformance vectors.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="compare">
-      <div class="container split">
-        <div class="section-head">
-          <span class="kicker">Compare</span>
-          <h2>Linkumori and ClearURLs</h2>
-          <p>Linkumori is a fork of ClearURLs and shares its core engine and rule heritage. It carries the project forward: Manifest V3 native, actively maintained, with the features its users have asked for.</p>
-          <p style="margin-top:16px"><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/clearurls-v2-vs-linkumori.md">How the rule formats compare →</a></p>
-        </div>
-        <div class="table-wrap">
-          <table class="compare">
-            <thead><tr><th scope="col">Feature</th><th scope="col">ClearURLs</th><th scope="col">Linkumori</th></tr></thead>
-            <tbody>
-              <tr><td>Remove tracking parameters</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td>Block hyperlink auditing</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td>Block ETag tracking</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td>Prevent search rewriting</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>Per-domain whitelist</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>Custom rules that override built-ins</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>Disable specific rules</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>Multiple remote rule sources</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>Overload mode</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td><strong>CNAME uncloaking</strong></td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td>Firefox MV3 native</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-              <tr><td>Active development</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cln">
-      <div class="container split">
-        <div>
-          <div class="section-head">
-            <span class="kicker">CLN Format 1.0</span>
-            <h2>One rule format, with one exact run order</h2>
-            <p>CLN (Clean Link Notation) is the JSON format for built-in, remote and custom rules. Version 1.0 (final) pins down run order, duplicate handling, toggle ids, escaping, redirect safety and remote file capabilities.</p>
-          </div>
-          <ol class="pipeline" aria-label="Stages for each matching provider">
-            <li><span><code>exceptions</code><small>Skip the provider if one matches</small></span></li>
-            <li><span><code>redirections</code> · <code>fieldRedirections</code><small>Only to absolute http(s) targets</small></span></li>
-            <li><span><code>completeProvider</code><small>Block the request outright</small></span></li>
-            <li><span><code>rawRules</code><small>Regexes against the whole URL, always first</small></span></li>
-            <li><span><code>rules</code> · <code>referralMarketing</code><small>Parameters, sorted by <code>order</code> inside the stage</small></span></li>
-            <li><span><code>$removeparam</code> filters<small>Last, guarded by <code>@@</code> exceptions</small></span></li>
-          </ol>
-          <div class="actions" style="margin-top:24px">
-            <a class="btn btn-primary" href="cln-1.0.html">Read the standard</a>
-            <a class="btn btn-ghost" href="filter-syntax.html">Filter syntax reference</a>
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>02</b> / Protection</div>
+          <div>
+            <h2>Everything ClearURLs did, rebuilt for Manifest V3.</h2>
+            <p>The protections people rely on, running quietly in the background on every request.</p>
           </div>
         </div>
+        <div class="offset reveal">
+          <div></div>
+          <ul class="ruled">
+            <li><span class="ix">2.1</span><div><h3>Removes tracking parameters</h3><p><code>utm_*</code>, <code>fbclid</code>, <code>gclid</code> and hundreds more, from the query and the fragment.</p></div></li>
+            <li><span class="ix">2.2</span><div><h3>Skips redirect middlemen</h3><p>Click-through links go straight to their destination, so the tracking hop never happens.</p></div></li>
+            <li><span class="ix">2.3</span><div><h3>Stops search result rewriting</h3><p>Google and Yandex can't swap result links for tracked versions when you click.</p></div></li>
+            <li><span class="ix">2.4</span><div><h3>Blocks hyperlink auditing</h3><p>Link <code>ping</code> beacons that report your clicks are blocked.</p></div></li>
+            <li><span class="ix">2.5</span><div><h3>Prevents ETag tracking</h3><p>Cache validators can't be turned into a persistent identifier.</p></div></li>
+            <li><span class="ix">2.6</span><div><h3>Guards the History API</h3><p>Pages can't put tracking back into the address bar with <code>pushState</code> or <code>replaceState</code>.</p></div></li>
+            <li><span class="ix">2.7</span><div><h3>Copies clean links</h3><p>A context-menu entry copies any link already cleaned, ready to share.</p></div></li>
+            <li><span class="ix">2.8</span><div><h3>Cleans URLs in bulk</h3><p>Paste a list and clean every link at once, without visiting any of them.</p></div></li>
+            <li><span class="ix">2.9</span><div><h3>Blocks tracking domains, optionally</h3><p>Complete providers can block known ad and tracking hosts, with a page that still lets you continue.</p></div></li>
+            <li><span class="ix">2.10</span><div><h3>Uncloaks CNAME trackers</h3><p>Trackers hiding behind a first-party subdomain are resolved through DNS and matched against the real host.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Control -->
+    <section class="section" id="control">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>03</b> / Control</div>
+          <div>
+            <h2>The controls people asked for, shipped.</h2>
+            <p>ClearURLs users have asked for a whitelist since 2020. Linkumori has one, and the tools to shape every rule it runs.</p>
+          </div>
+        </div>
+        <div class="blocks reveal">
+          <article class="block">
+            <div class="sketch" aria-hidden="true">
+              <div class="row"><span class="grow mono">bank.example</span><span class="pill ok">whitelisted</span></div>
+              <div class="row"><span class="grow mono">*.intranet.example</span><span class="pill ok">whitelisted</span></div>
+              <div class="row"><span class="grow mono">shop.*</span><span class="pill acc">this tab</span></div>
+            </div>
+            <span class="label" style="margin-top:22px">Whitelist</span>
+            <h3 style="margin-top:8px">Leave a site alone in one click</h3>
+            <p>Whitelist a site from the popup, for good or for one tab. Patterns like <code>*.example.com</code> and <code>example.*</code> work, and everything that page loads is covered. Or pause cleaning for a while.</p>
+          </article>
+          <article class="block">
+            <div class="sketch" aria-hidden="true">
+              <div class="row"><code class="grow">shop::token-rewrite</code><span class="toggle on"></span></div>
+              <div class="row"><code class="grow">amazon::tag</code><span class="toggle"></span></div>
+              <div class="row"><code class="grow">google::ved</code><span class="toggle on"></span></div>
+            </div>
+            <span class="label" style="margin-top:22px">Rule toggles</span>
+            <h3 style="margin-top:8px">Switch any rule off</h3>
+            <p>Disable one rule, a provider or a whole rule set without writing counter-rules. Restore it any time. Toggles are keyed <code>provider::id</code>, so they survive rule updates.</p>
+          </article>
+          <article class="block">
+            <div class="sketch" aria-hidden="true">
+              <div class="stack">
+                <div class="layer"><span>Built-in rules</span><span class="muted mono">1</span></div>
+                <div class="layer"><span>Remote rules, merged</span><span class="muted mono">2</span></div>
+                <div class="layer"><span>Your custom rules</span><span class="mono" style="color:var(--accent)">wins</span></div>
+              </div>
+            </div>
+            <span class="label" style="margin-top:22px">Overload mode</span>
+            <h3 style="margin-top:8px">Merge sources, then override</h3>
+            <p>Merge built-in and remote rules provider by provider, then apply your own on top, instead of picking one source.</p>
+          </article>
+          <article class="block wide">
+            <div class="sketch" aria-hidden="true">
+              <div class="row"><span class="grow mono">rules.my-server.lan/cln.json</span><span class="pill ok">strip</span><span class="pill ok">rewrite</span><span class="pill wait">redirect: accept?</span></div>
+              <div class="row"><span class="grow mono">rules.example.org/extra.json</span><span class="pill ok">strip</span><span class="pill ok">except</span></div>
+              <div class="row"><span class="grow mono">1 notice: shop::token replaced by extra.json</span><span class="pill acc">health</span></div>
+            </div>
+            <span class="label" style="margin-top:22px">Remote rules</span>
+            <h3 style="margin-top:8px">Several rule sources, with a health report</h3>
+            <p>Load rule lists from endpoints you control, cached and refreshed on a schedule. Remote Rules Health shows errors, notices and each file's capabilities, and a remote file can't redirect or block until you accept it.</p>
+          </article>
+          <article class="block">
+            <div class="sketch" aria-hidden="true">
+              <div class="row"><code class="grow">"order": 5</code><span class="pill">editor</span></div>
+              <div class="row"><code class="grow">lint-rules</code><span class="pill ok">0 errors</span></div>
+              <div class="row"><code class="grow">test lab</code><span class="pill ok">pass</span></div>
+            </div>
+            <span class="label" style="margin-top:22px">Custom rules</span>
+            <h3 style="margin-top:8px">Write rules, then test them</h3>
+            <p>Build providers in the editor, set rule defaults per file, and check them in the test lab before they run.</p>
+          </article>
+        </div>
+        <ul class="ruled three reveal" style="margin-top:56px">
+          <li><span class="ix">3.1</span><div><h3>Live log and audit</h3><p>Watch each cleaned request as it happens and inspect the merged rule set.</p></div></li>
+          <li><span class="ix">3.2</span><div><h3>Broken-page reports</h3><p>Open a pre-filled GitHub issue when a site breaks.</p></div></li>
+          <li><span class="ix">3.3</span><div><h3>Rule defaults you control</h3><p>Set request types, exceptions and preprocessors for whole files, and choose whose defaults win.</p></div></li>
+          <li><span class="ix">3.4</span><div><h3>Themes</h3><p>Light, dark, midnight, sunset, ice-cold and legacy.</p></div></li>
+          <li><span class="ix">3.5</span><div><h3>Accessibility</h3><p>Accessibility options on every page, checked against WCAG 2.2 AA.</p></div></li>
+          <li><span class="ix">3.6</span><div><h3>Translatable</h3><p>Every string lives in <code>_locales</code>; a new language is one file.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 Compare -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>04</b> / Compare</div>
+          <div>
+            <h2>Carrying ClearURLs forward.</h2>
+            <p>Linkumori is a fork of ClearURLs and shares its engine and rule heritage. It is Manifest V3 native, actively maintained, and adds what its users have asked for. <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/clearurls-v2-vs-linkumori.md">How the rule formats compare</a>.</p>
+          </div>
+        </div>
+        <div class="offset reveal">
+          <div></div>
+          <div class="table-wrap" style="margin:0">
+            <table class="compare">
+              <thead><tr><th scope="col">Capability</th><th scope="col">ClearURLs</th><th scope="col" class="us">Linkumori</th></tr></thead>
+              <tbody>
+                <tr class="group"><td colspan="3">Shared</td></tr>
+                <tr><td>Remove tracking parameters</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Block hyperlink auditing</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Block ETag tracking</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Prevent Google and Yandex search rewriting</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr class="group"><td colspan="3">Only in Linkumori</td></tr>
+                <tr><td>Per-domain whitelist</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Custom rules that override built-ins</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Disable specific rules</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Multiple remote rule sources</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Overload mode</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>CNAME uncloaking</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Firefox Manifest V3 native</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><td>Active development</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 CLN -->
+    <section class="section band" id="cln">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>05</b> / The standard</div>
+          <div>
+            <h2>CLN 1.0: one rule format, one exact run order.</h2>
+            <p>Clean Link Notation is the JSON format behind built-in, remote and custom rules. The final 1.0 text settles run order, duplicate handling, toggle ids, escaping, redirect safety and what a remote file is allowed to do.</p>
+          </div>
+        </div>
+        <div class="cln-grid reveal">
+          <div>
+            <ol class="stages" aria-label="Stages for each matching provider">
+              <li><span><code>exceptions</code><small>Skip the provider if one matches</small></span></li>
+              <li><span><code>redirections</code><small>A regex capture or a fixed <code>$redirect=</code> target</small></span></li>
+              <li><span><code>fieldRedirections</code><small>A parameter's value becomes the new URL</small></span></li>
+              <li><span><code>completeProvider</code><small>Block the request outright</small></span></li>
+              <li><span><code>rawRules</code><small>Regexes on the whole URL, always before field rules</small></span></li>
+              <li><span><code>rules</code> · <code>referralMarketing</code><small>Sorted by <code>(stage, orderGroup, order, rank, arrayIndex)</code></small></span></li>
+              <li><span><code>$removeparam</code> filters<small>Last, guarded by <code>@@</code> exceptions</small></span></li>
+            </ol>
+            <div class="actions" style="margin-top:32px">
+              <a class="btn btn-primary" href="cln-1.0.html">Read the standard <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-line" href="filter-syntax.html">Filter syntax</a>
+            </div>
+          </div>
 <pre aria-label="Example CLN 1.0 rule file"><code>{
   <span class="k">"cln"</span>: <span class="s">"1.0"</span>,
   <span class="k">"providers"</span>: {
@@ -280,48 +302,46 @@
     }
   }
 }</code></pre>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="privacy">
-      <div class="container split">
-        <div class="section-head">
-          <span class="kicker">Privacy</span>
-          <h2>Linkumori collects nothing</h2>
-          <p>No telemetry, no analytics, no usage data. Every URL is cleaned locally in the extension.</p>
         </div>
-        <div>
-          <div class="callout good"><p><strong>Local by default.</strong> Built-in rules ship with each release. Nothing is fetched unless you turn on remote rules.</p></div>
-          <div class="callout warn"><p><strong>Remote rules are for people who run their own server.</strong> Whoever controls the endpoint can see your IP address and when you connect. Point Linkumori at infrastructure you control, or a local network address.</p></div>
-          <div class="callout"><p><strong>Remote files can't redirect or block on their own.</strong> Under CLN 1.0, a remote file's <code>redirect</code> and <code>block</code> entries wait for your acceptance.</p></div>
-          <p style="font-size:14px;color:var(--text-muted)">This website makes no third-party requests either: no fonts, trackers or CDNs. <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/privacy.md">Full privacy policy</a></p>
+        <div class="cln-points reveal">
+          <div><b>Deterministic</b><span>Every provider has exactly one run sequence. No <code>order</code> moves a field rule ahead of a raw rule.</span></div>
+          <div><b>Safe redirects</b><span>Only absolute <code>http</code> or <code>https</code> targets, and at most 10 cycles per request.</span></div>
+          <div><b>Capabilities</b><span>Remote files strip, rewrite and except on load; redirect and block wait for your acceptance.</span></div>
+          <div><b>Conformance</b><span>Worked examples, lint checks and test vectors define what a conforming engine does.</span></div>
         </div>
       </div>
     </section>
 
+    <!-- 06 Privacy -->
+    <section class="section" id="privacy">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num"><b>06</b> / Privacy</div>
+          <div>
+            <p class="statement">Linkumori collects <em>nothing.</em> No telemetry, no analytics, no usage data. Every URL is cleaned on your device.</p>
+          </div>
+        </div>
+        <div class="offset reveal">
+          <div></div>
+          <div class="notes" style="margin-top:0">
+            <div><h3>Local by default</h3><p>Built-in rules ship with each release. Nothing is fetched unless you turn remote rules on.</p></div>
+            <div><h3>Remote rules are for your own server</h3><p>Whoever runs an endpoint sees your IP address and when you connect. Use infrastructure you control, or a local network address.</p></div>
+            <div><h3>This site too</h3><p>No web fonts, analytics or CDNs. Read the <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/privacy.md">full privacy policy</a>.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="section" id="get">
       <div class="container">
-        <div class="section-head">
-          <span class="kicker">Get started</span>
-          <h2>Install Linkumori</h2>
-          <p>Get it from Firefox Add-ons, or download a signed build from GitHub Releases.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3 style="margin-top:0">Firefox Add-ons</h3>
-            <p>Firefox 140 or later on desktop, 142 or later on Android.</p>
-            <p style="margin-top:14px"><a class="btn btn-primary" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Add to Firefox</a></p>
-          </article>
-          <article class="card">
-            <h3 style="margin-top:0">Signed releases</h3>
-            <p>Every release is built and signed in GitHub Actions.</p>
-            <p style="margin-top:14px"><a class="btn btn-ghost" href="https://github.com/Linkumori/Linkumori-Addon/releases/">View releases</a></p>
-          </article>
-          <article class="card">
-            <h3 style="margin-top:0">Contribute</h3>
-            <p>Found a site that breaks, or have a rule to add? Rule suggestions and translations are welcome.</p>
-            <p style="margin-top:14px"><a class="btn btn-ghost" href="https://github.com/Linkumori/Linkumori-Addon/issues/new">Open an issue</a></p>
-          </article>
+        <div class="cta reveal">
+          <h2>Clean links start with one click.</h2>
+          <div class="actions">
+            <a class="btn btn-accent" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Add to Firefox <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-line" href="https://github.com/Linkumori/Linkumori-Addon/releases/">Signed releases</a>
+            <a class="btn btn-line" href="https://github.com/Linkumori/Linkumori-Addon/issues/new">Report a site</a>
+          </div>
         </div>
       </div>
     </section>
@@ -329,35 +349,38 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div>
-        <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="26" height="26">Linkumori</a>
-        <p>Forked from <a href="https://github.com/ClearURLs/Addon">ClearURLs</a>, with thanks to its contributors. Licensed LGPL-3.0-or-later.</p>
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="26" height="26"><span class="brand-name">Linkumori</span></a>
+          <p>Clean URLs for Firefox. Forked from <a href="https://github.com/ClearURLs/Addon">ClearURLs</a>, with thanks to its contributors.</p>
+        </div>
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Firefox Add-ons</a></li>
+            <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/CHANGELOG.md">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Standard</h3>
+          <ul>
+            <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
+            <li><a href="filter-syntax.html">Filter syntax</a></li>
+            <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Project</h3>
+          <ul>
+            <li><a href="https://github.com/Linkumori/Linkumori-Addon">Source</a></li>
+            <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/privacy.md">Privacy</a></li>
+            <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/SECURITY.md">Security</a></li>
+            <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/License.md">License</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Product</h3>
-        <ul>
-          <li><a href="./#features">Features</a></li>
-          <li><a href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Firefox Add-ons</a></li>
-          <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/CHANGELOG.md">Changelog</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Standard</h3>
-        <ul>
-          <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
-          <li><a href="filter-syntax.html">Filter syntax</a></li>
-          <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Project</h3>
-        <ul>
-          <li><a href="https://github.com/Linkumori/Linkumori-Addon">Source</a></li>
-          <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/privacy.md">Privacy</a></li>
-          <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/SECURITY.md">Security</a></li>
-          <li><a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/License.md">License</a></li>
-        </ul>
-      </div>
+      <div class="foot-base"><span>LGPL-3.0-or-later</span><span>No cookies · No trackers · No third-party requests</span></div>
     </div>
   </footer>
 </body>

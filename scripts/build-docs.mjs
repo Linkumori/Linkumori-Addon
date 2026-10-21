@@ -16,13 +16,22 @@ const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const docsDir = process.argv[2];
 const REPO = 'https://github.com/Linkumori/Linkumori-Addon';
 
+function readMain(path) {
+  return execFileSync('git', ['show', `main:${path}`], { cwd: siteRoot, encoding: 'utf8' });
+}
+
+// The extension version shown in the header, from main's manifest.
+const VERSION = JSON.parse(readMain('manifest.json')).version;
+
 const pages = [
   {
     source: 'cln-format-1.0.md',
     out: 'cln-1.0.html',
     title: 'CLN Format 1.0 — Linkumori',
     description: 'The Linkumori CLN Format 1.0 (final) standard: file structure, processing order, duplicate handling, toggle ids, $removeparam escapes, redirect safety and conformance.',
-    badge: 'Final',
+    kicker: 'Specification',
+    status: 'Final',
+    version: '1.0',
     extra: {
       before: 'whole-number-matchpattern-entries',
       file: 'partials/run-order-tool.html',
@@ -35,7 +44,9 @@ const pages = [
     out: 'filter-syntax.html',
     title: 'Filter syntax — Linkumori',
     description: 'Rule-by-rule reference for Linkumori CLN Format 1.0: provider fields, patterns, $removeparam filters and modifiers, raw rules, redirects, rule objects, defaults and processing order.',
-    badge: 'Reference',
+    kicker: 'Reference',
+    status: 'Current',
+    version: 'CLN 1.0',
     scripts: []
   }
 ];
@@ -47,7 +58,7 @@ const localLinks = {
 
 function readDoc(name) {
   if (docsDir) return readFileSync(join(docsDir, name), 'utf8');
-  return execFileSync('git', ['show', `main:docs/${name}`], { cwd: siteRoot, encoding: 'utf8' });
+  return readMain(`docs/${name}`);
 }
 
 function escapeHtml(s) {
@@ -149,8 +160,8 @@ function convert(md, ctx) {
       const level = h[1].length;
       const text = h[2].trim();
       if (level === 1) {
+        // The page hero shows the title.
         ctx.title = text;
-        out.push(`<h1>${inline(text)}</h1>`);
       } else {
         const id = ctx.slug(text);
         if (level <= 3) ctx.toc.push({ level, id, text });
@@ -228,8 +239,9 @@ function convert(md, ctx) {
     }
     const text = para.join(' ');
     if (ctx.metaPending && /^[A-Z][a-z]{2} \d{1,2}, \d{4}/.test(text)) {
+      // "Oct 2, 2026 · @Subham": shown in the page hero.
       ctx.metaPending = false;
-      out.push(`<p class="doc-meta"><span class="badge">${ctx.badge}</span><span>${inline(text)}</span></p>`);
+      ctx.meta = text.split('·').map(t => t.trim());
     } else {
       out.push(`<p>${inline(text)}</p>`);
     }
@@ -254,7 +266,7 @@ function tocHtml(toc) {
   return parts.join('\n').replace(/<ol><\/ol>/g, '');
 }
 
-function template(page, body, toc, current) {
+function template(page, ctx, body, toc, current) {
   const nav = [
     ['./#features', 'Features'],
     ['./#compare', 'Compare'],
@@ -264,6 +276,14 @@ function template(page, body, toc, current) {
   ].map(([href, label]) => `        <a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`).join('\n');
   const scripts = page.scripts.map(s => `  <script src="${s}" defer></script>`).join('\n');
   const source = `${REPO}/blob/main/docs/${page.source}`;
+  const [date = '', editor = ''] = ctx.meta || [];
+  const facts = [
+    ['Status', `<span class="status-final">${escapeHtml(page.status)}</span>`],
+    ['Version', escapeHtml(page.version)],
+    ['Published', escapeHtml(date)],
+    ['Editor', escapeHtml(editor)],
+    ['Source', `<a href="${source}">docs/${page.source}</a>`]
+  ].filter(([, v]) => v).map(([k, v]) => `          <div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n');
 
   return `<!doctype html>
 <html lang="en">
@@ -273,6 +293,8 @@ function template(page, body, toc, current) {
   <title>${escapeHtml(page.title)}</title>
   <meta name="description" content="${escapeHtml(page.description)}">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/site.js"></script>
@@ -284,21 +306,33 @@ ${scripts}
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">Linkumori</a>
+      <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg" alt="" width="28" height="28"><span class="brand-name">Linkumori</span></a>
+      <span class="brand-ver">v${VERSION}</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <nav class="nav" id="site-nav" aria-label="Main">
 ${nav}
         <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+        <a class="btn btn-primary btn-sm nav-cta" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Add to Firefox</a>
       </nav>
+    </div>
+  </header>
+
+  <header class="doc-hero">
+    <div class="container">
+      <span class="overline">${escapeHtml(page.kicker)}</span>
+      <h1>${inline(ctx.title || page.title)}</h1>
+      <dl class="doc-facts">
+${facts}
+      </dl>
     </div>
   </header>
 
   <div class="container docs">
     <aside class="toc" aria-label="On this page">
       <details open>
-        <summary>On this page</summary>
+        <summary>Contents</summary>
         <ol>
 ${toc}
         </ol>
@@ -306,41 +340,44 @@ ${toc}
     </aside>
     <main id="main" class="prose">
 ${body}
-      <p class="doc-meta" style="margin-top:48px">Source: <a href="${source}">docs/${page.source}</a></p>
+      <p class="doc-src">Generated from <a href="${source}">docs/${page.source}</a> on the main branch. Found a problem? <a href="${REPO}/issues/new">Open an issue</a>.</p>
     </main>
   </div>
 
   <footer class="site-footer">
     <div class="container">
-      <div>
-        <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="26" height="26">Linkumori</a>
-        <p>Forked from <a href="https://github.com/ClearURLs/Addon">ClearURLs</a>, with thanks to its contributors. Licensed LGPL-3.0-or-later.</p>
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="26" height="26"><span class="brand-name">Linkumori</span></a>
+          <p>Clean URLs for Firefox. Forked from <a href="https://github.com/ClearURLs/Addon">ClearURLs</a>, with thanks to its contributors.</p>
+        </div>
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Firefox Add-ons</a></li>
+            <li><a href="${REPO}/blob/main/CHANGELOG.md">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Standard</h3>
+          <ul>
+            <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
+            <li><a href="filter-syntax.html">Filter syntax</a></li>
+            <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Project</h3>
+          <ul>
+            <li><a href="${REPO}">Source</a></li>
+            <li><a href="${REPO}/blob/main/privacy.md">Privacy</a></li>
+            <li><a href="${REPO}/blob/main/SECURITY.md">Security</a></li>
+            <li><a href="${REPO}/blob/main/License.md">License</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Product</h3>
-        <ul>
-          <li><a href="./#features">Features</a></li>
-          <li><a href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Firefox Add-ons</a></li>
-          <li><a href="${REPO}/blob/main/CHANGELOG.md">Changelog</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Standard</h3>
-        <ul>
-          <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
-          <li><a href="filter-syntax.html">Filter syntax</a></li>
-          <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Project</h3>
-        <ul>
-          <li><a href="${REPO}">Source</a></li>
-          <li><a href="${REPO}/blob/main/privacy.md">Privacy</a></li>
-          <li><a href="${REPO}/blob/main/SECURITY.md">Security</a></li>
-          <li><a href="${REPO}/blob/main/License.md">License</a></li>
-        </ul>
-      </div>
+      <div class="foot-base"><span>LGPL-3.0-or-later</span><span>No cookies · No trackers · No third-party requests</span></div>
     </div>
   </footer>
 </body>
@@ -349,7 +386,7 @@ ${body}
 }
 
 for (const page of pages) {
-  const ctx = { slug: slugger(), toc: [], metaPending: true, badge: page.badge };
+  const ctx = { slug: slugger(), toc: [], metaPending: true };
   let body = convert(readDoc(page.source), ctx);
   if (page.extra) {
     const marker = `<h2 id="${page.extra.before}">`;
@@ -359,6 +396,6 @@ for (const page of pages) {
     const at = ctx.toc.findIndex(t => t.id === page.extra.before);
     ctx.toc.splice(at, 0, page.extra.toc);
   }
-  writeFileSync(join(siteRoot, page.out), template(page, body, tocHtml(ctx.toc), page.out));
+  writeFileSync(join(siteRoot, page.out), template(page, ctx, body, tocHtml(ctx.toc), page.out));
   console.log(`${page.out}: ${ctx.toc.length} headings`);
 }
