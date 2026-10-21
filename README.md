@@ -11,7 +11,6 @@ This branch has no history in common with `main`. It holds only the site.
 | `filter-syntax.html` | Filter syntax reference, generated from `docs/filter-syntax.md` |
 | `privacy.html`, `terms.html` | The site's Privacy Policy and Terms of Use, generated from `legal/privacy.md` and `legal/terms.md` |
 | `assets/` | Styles, scripts and the logo |
-| `assets/fonts/` | Charis SIL, self-hosted, with its license (`OFL.txt`) |
 | `assets/og-image.png`, `assets/icon-32.png`, `assets/apple-touch-icon.png` | Share card and PNG icons, rendered by `scripts/make-images.py` |
 | `404.html` | Shown by GitHub Pages for any missing path |
 | `sitemap.xml` | Every page, written by `scripts/build-docs.mjs` |
@@ -30,7 +29,7 @@ It reads `docs/*.md` from the local `main` branch with `git show`. To read from 
 
 ## Regenerating the images
 
-`scripts/make-images.py` draws the share card with the site's own font and renders the icons from `assets/logo.svg`. It needs Pillow, fontTools with brotli, and `rsvg-convert`:
+`scripts/make-images.py` draws the share card and renders the icons from `assets/logo.svg`. It needs Pillow, `rsvg-convert`, and the Helvetica Neue and Menlo fonts that come with macOS:
 
 ```bash
 python3 scripts/make-images.py
@@ -48,10 +47,8 @@ python3 -m http.server 8000
 
 In the repository settings, under Pages, deploy from this branch's root. The `.nojekyll` file makes GitHub Pages serve the files as they are.
 
-The site loads nothing from third parties: no analytics or CDNs, and its typeface is served from `assets/fonts/`.
+The site loads nothing from third parties: no web fonts, analytics or CDNs. Text uses the reader's system font (SF Pro on Apple devices).
 
 ## License
 
 LGPL-3.0-or-later, the same as Linkumori. The logo comes from `img/linkumori_icons.svg` on `main`.
-
-The Charis SIL font files in `assets/fonts/` are Copyright (c) 1997-2022 SIL International and licensed separately under the SIL Open Font License 1.1; see `assets/fonts/OFL.txt` and `assets/fonts/README.md`.

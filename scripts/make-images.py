@@ -1,43 +1,35 @@
 #!/usr/bin/env python3
 """Renders the share card (assets/og-image.png) and PNG icons from assets/logo.svg.
 
-Needs Pillow, fontTools with brotli (to read the site's .woff2 font) and rsvg-convert:
+Needs Pillow and rsvg-convert, and uses Helvetica Neue and Menlo from macOS:
 
     python3 scripts/make-images.py
 """
 
 import io
 import subprocess
-import tempfile
 from pathlib import Path
 
-from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
-FONTS = ASSETS / "fonts"
 
-PAPER = (245, 243, 238)
-CARD = (251, 250, 247)
-INK = (21, 23, 28)
-INK_2 = (61, 66, 77)
-INK_3 = (93, 98, 108)
-RULE = (217, 213, 202)
-GRID = (231, 228, 220)
-ACCENT = (31, 79, 209)
-STRIKE = (163, 54, 11)
-STRIKE_WASH = (251, 229, 216)
+WHITE = (255, 255, 255)
+BG_ALT = (245, 245, 247)
+TEXT = (29, 29, 31)
+TEXT_2 = (97, 97, 102)
+LINE = (232, 232, 237)
+STRIKE = (196, 0, 26)
+STRIKE_WASH = (255, 241, 242)
+GRAD = [(0, 113, 227), (63, 94, 251), (125, 92, 247)]
+
+HELVETICA = "/System/Library/Fonts/HelveticaNeue.ttc"
+MENLO = "/System/Library/Fonts/Menlo.ttc"
 
 
-def woff2_font(name, size, tmp):
-    """Pillow can't read .woff2, so convert the site's font file to .ttf first."""
-    out = Path(tmp) / (name + ".ttf")
-    if not out.exists():
-        font = TTFont(FONTS / (name + ".woff2"))
-        font.flavor = None
-        font.save(out)
-    return ImageFont.truetype(str(out), size)
+def sans(size, bold=False, medium=False):
+    return ImageFont.truetype(HELVETICA, size, index=1 if bold else 10 if medium else 0)
 
 
 def logo_png(size):
@@ -48,72 +40,82 @@ def logo_png(size):
     return Image.open(io.BytesIO(png)).convert("RGBA")
 
 
-def mono(size):
-    for path in ("/System/Library/Fonts/SFNSMono.ttf", "/System/Library/Fonts/Menlo.ttc",
-                 "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"):
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default(size)
+def gradient(w, h):
+    """A left-to-right gradient through GRAD's stops."""
+    img = Image.new("RGB", (w, h))
+    px = img.load()
+    for x in range(w):
+        t = x / max(1, w - 1) * (len(GRAD) - 1)
+        i = min(int(t), len(GRAD) - 2)
+        f = t - i
+        c = tuple(round(GRAD[i][k] + (GRAD[i + 1][k] - GRAD[i][k]) * f) for k in range(3))
+        for y in range(h):
+            px[x, y] = c
+    return img
 
 
-def og_image(tmp):
+def centered(d, y, text, font, fill, w):
+    tw = d.textlength(text, font=font)
+    d.text(((w - tw) / 2, y), text, font=font, fill=fill)
+
+
+def og_image():
     w, h = 1200, 630
-    img = Image.new("RGB", (w, h), PAPER)
+    img = Image.new("RGB", (w, h), WHITE)
     d = ImageDraw.Draw(img)
 
-    # Ruled grid, fading out to the left.
-    for x in range(0, w, 48):
-        fade = min(1, x / w * 1.6)
-        c = tuple(round(PAPER[i] + (GRID[i] - PAPER[i]) * fade) for i in range(3))
-        d.line([(x, 0), (x, h)], fill=c)
-    for y in range(0, h, 48):
-        d.line([(int(w * 0.25), y), (w, y)], fill=GRID)
+    mark = logo_png(64)
+    name = sans(30, bold=True)
+    nw = 64 + 14 + d.textlength("Linkumori", font=name)
+    x0 = (w - nw) / 2
+    img.paste(mark, (round(x0), 52), mark)
+    d.text((x0 + 78, 66), "Linkumori", font=name, fill=TEXT)
 
-    pad = 80
-    img.paste(logo_png(56), (pad, 64), logo_png(56))
-    serif = woff2_font("charis-sil-latin-400-normal", 40, tmp)
-    d.text((pad + 72, 70), "Linkumori", font=serif, fill=INK)
+    big = sans(92, bold=True)
+    centered(d, 150, "Links, without", big, TEXT, w)
 
-    d.line([(pad, 176), (pad + 36, 176)], fill=ACCENT, width=2)
-    d.text((pad + 50, 166), "URL PRIVACY FOR FIREFOX", font=mono(20), fill=INK_3)
+    # Gradient second line: draw the text as a mask over a gradient fill.
+    line2 = "the tracking."
+    tw = round(d.textlength(line2, font=big))
+    mask = Image.new("L", (tw + 8, 120), 0)
+    ImageDraw.Draw(mask).text((0, 0), line2, font=big, fill=255)
+    img.paste(gradient(tw + 8, 120), (round((w - tw) / 2), 252), mask)
 
-    big = woff2_font("charis-sil-latin-400-normal", 92, tmp)
-    big_i = woff2_font("charis-sil-latin-400-italic", 92, tmp)
-    d.text((pad - 4, 206), "Links, without", font=big, fill=INK)
-    d.text((pad - 4, 304), "the tracking.", font=big_i, fill=ACCENT)
+    centered(d, 376, "Tracking parameters removed before the page loads. Nothing collected.", sans(26), TEXT_2, w)
 
-    # URL strip with the tracking parameter struck out.
-    top = 456
-    d.rounded_rectangle([pad, top, w - pad, top + 92], radius=12, fill=CARD, outline=RULE, width=2)
-    f = mono(26)
-    x, y = pad + 28, top + 31
-    for text, tracked in (("https://news.example/story/42", False), ("?utm_source=email", True),
-                          ("&fbclid=IwAR", True)):
-        tw = d.textlength(text, font=f)
+    # Address bar with the tracking part struck out.
+    bar_w, bar_h, top = 940, 78, 460
+    left = (w - bar_w) // 2
+    d.rounded_rectangle([left, top, left + bar_w, top + bar_h], radius=39, fill=BG_ALT, outline=LINE, width=2)
+    f = ImageFont.truetype(MENLO, 25)
+    parts = (("https://news.example/story/42", False), ("?utm_source=email", True), ("&fbclid=IwAR", True))
+    total = sum(d.textlength(t, font=f) for t, _ in parts)
+    x, y = left + (bar_w - total) / 2, top + 24
+    for text, tracked in parts:
+        pw = d.textlength(text, font=f)
         if tracked:
-            d.rounded_rectangle([x - 2, y - 6, x + tw + 2, y + 32], radius=4, fill=STRIKE_WASH)
+            d.rounded_rectangle([x - 2, y - 5, x + pw + 2, y + 32], radius=6, fill=STRIKE_WASH)
             d.text((x, y), text, font=f, fill=STRIKE)
-            d.line([(x, y + 15), (x + tw, y + 15)], fill=STRIKE, width=3)
+            d.line([(x, y + 15), (x + pw, y + 15)], fill=STRIKE, width=3)
         else:
-            d.text((x, y), text, font=f, fill=INK)
-        x += tw
+            d.text((x, y), text, font=f, fill=TEXT)
+        x += pw
 
-    d.text((pad, 578), "Open source · No telemetry · CLN 1.0 rule standard", font=mono(20), fill=INK_2)
+    centered(d, 570, "Free and open source  ·  Firefox desktop and Android  ·  CLN 1.0", sans(21, medium=True), TEXT_2, w)
     img.save(ASSETS / "og-image.png", optimize=True)
 
 
 def icons():
     logo_png(32).save(ASSETS / "icon-32.png", optimize=True)
-    # iOS shows transparency as black, so the touch icon gets the page background.
-    touch = Image.new("RGBA", (180, 180), PAPER + (255,))
+    # iOS shows transparency as black, so the touch icon gets a white background.
+    touch = Image.new("RGBA", (180, 180), WHITE + (255,))
     mark = logo_png(144)
     touch.paste(mark, (18, 18), mark)
     touch.convert("RGB").save(ASSETS / "apple-touch-icon.png", optimize=True)
 
 
 if __name__ == "__main__":
-    with tempfile.TemporaryDirectory() as tmp:
-        og_image(tmp)
+    og_image()
     icons()
     for name in ("og-image.png", "icon-32.png", "apple-touch-icon.png"):
         print(name, (ASSETS / name).stat().st_size, "bytes")

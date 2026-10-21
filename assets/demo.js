@@ -167,6 +167,7 @@
     const countEl = document.getElementById('spec-count');
     const bytesEl = document.getElementById('spec-bytes');
     const siteEl = document.getElementById('spec-site');
+    const badgeEl = document.getElementById('spec-badge');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let index = 0;
 
@@ -186,6 +187,7 @@
       spec.params.forEach(function (p, i) { span((i ? '&' : '?') + p[0], p[1]); });
       siteEl.textContent = spec.site;
       countEl.textContent = '0';
+      if (badgeEl) badgeEl.textContent = '0';
       bytesEl.textContent = '0';
       return Array.from(box.querySelectorAll('.track'));
     }
@@ -204,6 +206,7 @@
       if (reduced) {
         tracked.forEach(function (s) { s.classList.add('hit'); });
         countEl.textContent = String(tracked.length);
+        if (badgeEl) badgeEl.textContent = String(tracked.length);
         bytesEl.textContent = String(tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0));
         return;
       }
@@ -215,6 +218,7 @@
           removed++;
           bytes += s.textContent.length;
           countEl.textContent = String(removed);
+          if (badgeEl) badgeEl.textContent = String(removed);
           bytesEl.textContent = String(bytes);
         }, 1100 + i * 260);
       });

@@ -28,7 +28,7 @@ The URL cleaning demo and the run-order calculator run entirely in your browser.
 
 ## Licenses and trademarks
 
-Unless a file says otherwise, the site's code and text are licensed under the GNU Lesser General Public License, version 3 or any later version. The Charis SIL font files are Copyright (c) 1997-2022 SIL International and licensed under the SIL Open Font License 1.1; see [assets/fonts/OFL.txt](assets/fonts/OFL.txt).
+Unless a file says otherwise, the site's code and text are licensed under the GNU Lesser General Public License, version 3 or any later version.
 
 Linkumori is an independent fork of ClearURLs. Portions derived from ClearURLs remain the copyright of their respective authors. Firefox is a trademark of the Mozilla Foundation. This site is not affiliated with or endorsed by Mozilla, the ClearURLs project, or GitHub.
 
