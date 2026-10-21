@@ -21,7 +21,7 @@
   <link rel="icon" href="assets/logo.svg?v=5c55ee1e32" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
-  <link rel="stylesheet" href="assets/style.css?v=50164bd5a0">
+  <link rel="stylesheet" href="assets/style.css?v=cfa78b2861">
   <script src="assets/site.js?v=bd1a8be389"></script>
   <script src="assets/rules.js?v=22fabb7803" defer></script>
 </head>
@@ -90,6 +90,7 @@
 <li><a href="#defaults-when-merging">Defaults when rules merge</a><ol>
 <li><a href="#defaults-example">Example: two files, two sets of defaults</a></li>
 <li><a href="#defaults-rules">How it works</a></li>
+<li><a href="#automatic-or-yours">Automatic, or started by you</a></li>
 <li><a href="#what-rules-carry">What each rule carries into a merge</a></li>
 <li><a href="#defaults-cases">Every defaults case</a></li>
 </ol></li>
@@ -1082,7 +1083,10 @@
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;amazon&quot;</span>: {
-      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>, <span class="s">&quot;||amzn.to^&quot;</span>],
+      <span class="k">&quot;domainPatterns&quot;</span>: [
+        <span class="s">&quot;||amazon.*^&quot;</span>,
+        <span class="s">&quot;||amzn.to^&quot;</span>
+      ],
       <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>]
     }
   }
@@ -1093,7 +1097,10 @@
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;amazon&quot;</span>: {
-      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amzn.to^&quot;</span>, <span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;domainPatterns&quot;</span>: [
+        <span class="s">&quot;||amzn.to^&quot;</span>,
+        <span class="s">&quot;||amazon.*^&quot;</span>
+      ],
       <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
     }
   }
@@ -1107,7 +1114,10 @@
   <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;amazon&quot;</span>: {
-      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amzn.to^&quot;</span>, <span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;domainPatterns&quot;</span>: [
+        <span class="s">&quot;||amzn.to^&quot;</span>,
+        <span class="s">&quot;||amazon.*^&quot;</span>
+      ],
       <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
     }
   }
@@ -1225,7 +1235,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;providers&quot;</span>: { <span class="k">&quot;broken&quot;</span>: { <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;utm_extra&quot;</span>] } }
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;broken&quot;</span>: { <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;utm_extra&quot;</span>] }
+  }
 }</code></pre></div>
 </div>
 </div>
@@ -1325,6 +1337,108 @@
   <li><b>Complete providers.</b> For a provider with <code>"completeProvider": true</code>, a file's <code>requestTypes</code> default becomes its <code>resourceTypes</code>, and default <code>exceptions</code> join its own. That happens before merging, and <code>resourceTypes</code> is part of what makes providers match, so the block can end up as a separate provider.</li>
 </ul>
 
+<h3 id="automatic-or-yours">Automatic, or started by you</h3>
+<p>Two different things get called merging defaults. Linkumori does one on its own every time rules load. The other only happens when you start it in the custom rules editor.</p>
+<div class="dm-compare">
+  <article class="dm-col">
+    <span class="dm-who dm-auto">Automatic</span>
+    <h4>Writing defaults into rules</h4>
+    <p><b>When:</b> every time rules load: at startup, when you save custom rules, and when you refresh remote rules in settings.</p>
+    <p><b>What happens:</b> each source's <code>defaults</code> block is chosen, by the setting under <a href="#defaults">Rule defaults</a>, and written into that source's own rules. Then the rules merge: remote files with each other, with built-in in overload mode, and custom rules on top.</p>
+    <p><b>What it never does:</b> combine two <code>defaults</code> blocks. Each rule keeps its own file's values, as shown above.</p>
+  </article>
+  <article class="dm-col">
+    <span class="dm-who dm-you">You start it</span>
+    <h4>Merge from sources</h4>
+    <p><b>When:</b> only when you open <i>Manage rule defaults</i> in the custom rules editor and choose <i>Merge from sources</i>.</p>
+    <p><b>What happens:</b> the <code>defaults</code> blocks of the sources you tick (yours, built-in, each remote file, custom) combine into one block, shown as <i>Merged defaults</i>.</p>
+    <p><b>What it never does:</b> change anything by itself. Nothing is stored until you copy the merged block into one of your sets and save. The next load then writes it into rules automatically.</p>
+  </article>
+</div>
+
+<h4 class="dm-sub">Which of your settings feed the automatic step</h4>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">You set</th><th scope="col">Where</th><th scope="col">What the next load does with it</th></tr></thead>
+<tbody>
+<tr><td>Where your defaults apply: each source's own, yours for built-in and remote, or yours for all</td><td>Custom rules editor → Manage rule defaults</td><td>Picks, for each source, whether its own block or yours is written into its rules</td></tr>
+<tr><td>Your edit of the built-in rules' or one remote file's defaults</td><td>The same form</td><td>Uses your edit in place of that file's whole <code>defaults</code> block wherever the file's own would be used</td></tr>
+<tr><td>Your own defaults block, and the custom rules' block</td><td>The same form</td><td>Written into the sources the setting above gives them to</td></tr>
+<tr><td>Overload mode</td><td>Settings</td><td>Merges built-in and remote rules after their defaults are written in</td></tr>
+</tbody>
+</table></div>
+
+<h4 class="dm-sub">How Merge from sources combines blocks</h4>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Key</th><th scope="col">Sources agree</th><th scope="col">Sources disagree</th></tr></thead>
+<tbody>
+<tr><td><code>exceptions</code></td><td>Taken as it is</td><td><span class="dm-who dm-auto">Automatic</span> added together: the set on screen first, then every other source's, without duplicates</td></tr>
+<tr><td><code>requestTypes</code></td><td>Taken as it is</td><td><span class="dm-who dm-you">You choose</span> one source's list, or the combined list, which is preselected. A source that leaves it out allows every type, so the combined list does too</td></tr>
+<tr><td><code>preprocessors</code></td><td>Taken as it is</td><td><span class="dm-who dm-you">You choose</span> one source's list, or the combined list, which is preselected</td></tr>
+<tr><td><code>active</code>, <code>description</code>, <code>historyBypassProtection</code></td><td>Taken as it is</td><td><span class="dm-who dm-you">You choose</span> one source's value. The first source's is preselected</td></tr>
+</tbody>
+</table></div>
+
+<article class="case" id="defaults-merge-tool">
+<header class="case-head"><span class="case-num"><i aria-hidden="true">✦</i></span><h4>Merge from sources: three defaults blocks</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Yours</span><span>Your defaults</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>],
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>
+    ]
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [
+      <span class="s">&quot;main_frame&quot;</span>,
+      <span class="s">&quot;xmlhttprequest&quot;</span>
+    ],
+    <span class="k">&quot;historyBypassProtection&quot;</span>: <span class="l">false</span>,
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>
+    ]
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>rules.example.org</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>],
+    <span class="k">&quot;description&quot;</span>: <span class="s">&quot;Shop rules&quot;</span>
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>Merged defaults, with the preselected choices</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [
+      <span class="s">&quot;main_frame&quot;</span>,
+      <span class="s">&quot;xmlhttprequest&quot;</span>
+    ],
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>,
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>
+    ]
+  }
+}</code></pre></div>
+  <ul class="dm-notes"><li><span class="dm-who dm-auto">Automatic</span><code>exceptions</code><span>Added together from every source</span></li><li><span class="dm-who dm-you">You choose</span><code>description</code><span>You choose: <b>left out from Your defaults, Built-in rules</b> · &quot;Shop rules&quot; from rules.example.org. Bold is preselected.</span></li><li><span class="dm-who dm-you">You choose</span><code>requestTypes</code><span>You choose: [&quot;main_frame&quot;] from Your defaults, rules.example.org · <b>[&quot;main_frame&quot;, &quot;xmlhttprequest&quot;] (combined) from Built-in rules</b>. Bold is preselected.</span></li><li><span class="dm-who dm-you">You choose</span><code>historyBypassProtection</code><span>You choose: <b>left out from Your defaults, rules.example.org</b> · false from Built-in rules. Bold is preselected.</span></li></ul>
+</div>
+</div>
+<p class="case-explain">Nothing is stored until you copy the merged block into one of your defaults sets and save. Picking another option for a key changes only that key.</p>
+</article>
+
 <h3 id="what-rules-carry">What each rule carries into a merge</h3>
 <p>Merging never looks back at the original files. Everything it needs later is written onto the rules first.</p>
 <div class="table-wrap"><table>
@@ -1358,7 +1472,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+  },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
@@ -1408,7 +1524,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+  },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
@@ -1447,7 +1565,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+  },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
@@ -1498,7 +1618,9 @@
   <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;defaults&quot;</span>: {
-    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>]
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>
+    ]
   },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
@@ -1512,7 +1634,9 @@
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;defaults&quot;</span>: {
-    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>]
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>
+    ]
   },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
@@ -1619,7 +1743,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+  },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
@@ -1683,7 +1809,9 @@
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;defaults&quot;</span>: {
-    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>]
+    <span class="k">&quot;exceptions&quot;</span>: [
+      <span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>
+    ]
   },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
@@ -1787,7 +1915,9 @@
 <div class="case-in">
   <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
   <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
-  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+  },
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;trackers&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||tracker.example^&quot;</span>],

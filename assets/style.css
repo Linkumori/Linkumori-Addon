@@ -739,6 +739,21 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .rx-prov-caption { font-size: 12px; font-weight: 600; color: var(--text-2); padding: 8px 12px 0; background: var(--bg-alt); }
 .rx-row-tag { margin-left: auto; font-size: 12px; color: var(--text-3); }
 
+/* Automatic or user-started defaults merges */
+.dm-compare { display: grid; gap: 14px; margin: 20px 0 8px; }
+@media (min-width: 760px) { .dm-compare { grid-template-columns: 1fr 1fr; } }
+.dm-col { border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; }
+.prose .dm-col h4 { margin: 10px 0 8px; font-size: 18px; }
+.dm-col p { margin: 8px 0 0; font-size: 15px; }
+.dm-who { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.dm-auto { background: var(--bg-alt); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+.dm-you { background: color-mix(in srgb, var(--blue) 13%, transparent); color: var(--link); }
+.prose .dm-sub { font-size: 17px; margin: 32px 0 6px; }
+.dm-notes { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14px; }
+.dm-notes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 8px; margin: 0; color: var(--text-2); }
+.dm-notes code { background: transparent; padding: 0; color: var(--text); }
+.dm-notes b { color: var(--text); font-weight: 600; }
+
 /* Which-sources cards */
 .src-cases { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 20px 0; }
 .src-case { border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 12px; align-content: start; }
