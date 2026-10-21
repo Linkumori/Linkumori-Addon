@@ -29,10 +29,12 @@
   --dark: #000000;
   --dark-text: #f5f5f7;
   --dark-text-2: #a1a1a6;
-  --code-bg: #1d1d1f;
-  --code-text: #f5f5f7;
-  --code-key: #8ac4ff;
-  --code-str: #a8e2a0;
+  --code-bg: #f5f5f7;
+  --code-text: #1d1d1f;
+  --code-key: #326d74;
+  --code-str: #c41a16;
+  --code-num: #1c00cf;
+  --code-lit: #9b2393;
   --nav-bg: rgb(255 255 255 / 72%);
   --shadow-sm: 0 2px 8px rgb(0 0 0 / 6%);
   --shadow: 0 4px 24px rgb(0 0 0 / 8%);
@@ -69,7 +71,12 @@
     --warn: #ffc464;
     --warn-wash: #2e2208;
     --dark: #0b0b0c;
-    --code-bg: #161618;
+    --code-bg: #1c1c1e;
+    --code-text: #dfdfe0;
+    --code-key: #67b7a4;
+    --code-str: #fc6a5d;
+    --code-num: #d0bf69;
+    --code-lit: #fc5fa3;
     --nav-bg: rgb(22 22 23 / 72%);
     --shadow-sm: 0 2px 8px rgb(0 0 0 / 40%);
     --shadow: 0 4px 24px rgb(0 0 0 / 40%);
@@ -99,7 +106,12 @@
   --warn: #ffc464;
   --warn-wash: #2e2208;
   --dark: #0b0b0c;
-  --code-bg: #161618;
+  --code-bg: #1c1c1e;
+  --code-text: #dfdfe0;
+  --code-key: #67b7a4;
+  --code-str: #fc6a5d;
+  --code-num: #d0bf69;
+  --code-lit: #fc5fa3;
   --nav-bg: rgb(22 22 23 / 72%);
   --shadow-sm: 0 2px 8px rgb(0 0 0 / 40%);
   --shadow: 0 4px 24px rgb(0 0 0 / 40%);
@@ -151,6 +163,20 @@ pre {
 pre code { font-size: inherit; }
 pre .k { color: var(--code-key); }
 pre .s { color: var(--code-str); }
+pre .n { color: var(--code-num); }
+pre .l { color: var(--code-lit); }
+
+/* Code listings, as in Apple's developer documentation: a soft panel with a language bar */
+.codeblock { background: var(--code-bg); border-radius: var(--r); margin: 24px 0; overflow: hidden; }
+.codeblock pre { margin: 0; background: transparent; border-radius: 0; padding: 6px 22px 22px; }
+.codeblock-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px 0 22px; }
+.codeblock-lang { font-size: 12px; font-weight: 600; color: var(--text-2); letter-spacing: 0; }
+.copy-code {
+  font: 400 13px/1 var(--font); letter-spacing: -0.01em; color: var(--link); background: transparent;
+  border: 0; border-radius: 8px; padding: 6px 10px; min-height: 28px; cursor: pointer;
+}
+.copy-code:hover { background: color-mix(in srgb, var(--text) 7%, transparent); }
+.section.alt .codeblock, .section.alt pre { background: var(--tile); }
 
 ::selection { background: color-mix(in srgb, var(--blue) 25%, transparent); }
 
@@ -442,22 +468,19 @@ pre .s { color: var(--code-str); }
 
 /* ---------- Tables ---------- */
 
-/* Doc tables: a bordered grid with a shaded header row */
-.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); }
+/* Doc tables, as in Apple's developer documentation: one rounded outline, row rules only */
+.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg); }
 table { border-collapse: collapse; width: 100%; font-size: 15px; letter-spacing: -0.01em; }
-th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); vertical-align: top; }
-th:last-child, td:last-child { border-right: 0; }
+th, td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
 tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
-thead th { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; background: var(--bg-alt); }
-tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: color-mix(in srgb, var(--bg-alt) 45%, transparent); }
+thead th { font-size: 13px; font-weight: 600; color: var(--text-2); white-space: nowrap; border-bottom: 1px solid var(--line); }
+/* Code inside a table reads as plain monospace, without a chip behind it */
+td code, th code { background: transparent; padding: 0; border-radius: 0; font-size: 13.5px; color: var(--text); }
 td code { white-space: nowrap; }
 
 /* Comparison, in a compare-page style: product columns, plain marks, hairlines */
 .compare-wrap { max-width: 860px; margin: 0 auto; }
 .compare-wrap .table-wrap { border: 0; background: transparent; border-radius: 0; margin: 0; }
-.compare th, .compare td { border-right: 0; }
-.compare thead th { background: transparent; }
-.compare tbody tr:nth-child(even) td, .compare tbody tr:nth-child(even) th { background: transparent; }
 .compare tbody tr:last-child th, .compare tbody tr:last-child td { border-bottom: 1px solid var(--line); }
 .compare { font-size: 17px; table-layout: fixed; }
 .compare col.c-feat { width: auto; }
@@ -492,7 +515,9 @@ td code { white-space: nowrap; }
 .cln-card { background: var(--tile); border-radius: var(--r-lg); padding: 34px 32px; }
 .cln-card h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 18px; }
 .cln-code { display: flex; min-width: 0; }
-.cln-code pre { flex: 1; margin: 0; border-radius: var(--r-lg); padding: 30px 32px; }
+.cln-code .codeblock { flex: 1; margin: 0; border-radius: var(--r-lg); }
+.cln-code pre { padding: 8px 32px 30px; }
+.cln-code .codeblock-bar { padding: 14px 18px 0 32px; }
 .stages { list-style: none; margin: 0; padding: 0; counter-reset: s; }
 .stages li { counter-increment: s; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--line-soft); align-items: start; }
 .stages li:last-child { border-bottom: 0; }
@@ -570,12 +595,11 @@ td code { white-space: nowrap; }
 .terms code { white-space: nowrap; }
 
 /* Sort-key tables: (stage, orderGroup, order, rank, arrayIndex) as five columns */
-th.sk-group { text-align: center; border-bottom: 1px solid var(--line); }
-th.sk { text-align: center; font-weight: 400; padding: 8px 10px; }
+th.sk-group { text-align: center; border-bottom: 1px solid var(--line-soft); padding-bottom: 8px; }
+th.sk { text-align: center; font-weight: 400; padding: 8px 10px 10px; }
 th.sk code { background: transparent; padding: 0; font-size: 12.5px; color: var(--text-2); }
 td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/1.4 var(--mono); letter-spacing: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .sk-table thead tr:first-child th, .ro-table thead tr:first-child th { vertical-align: bottom; }
-thead th.sk-edge { border-right: 1px solid var(--line); }
 
 /* Run-order tool */
 .tool { background: var(--bg-alt); border-radius: var(--r-lg); padding: 26px; margin: 28px 0; }
@@ -590,15 +614,13 @@ thead th.sk-edge { border-right: 1px solid var(--line); }
 .tool-bar select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--field); background: var(--bg); color: var(--text); min-height: 32px; }
 .tool .table-wrap { background: var(--bg); }
 .ro-table { font-size: 15px; }
-.ro-table th, .ro-table td { padding: 12px 16px; vertical-align: top; }
+.ro-table th, .ro-table td { padding: 12px 14px; vertical-align: top; }
 .ro-table td:first-child { width: 44px; color: var(--text-2); font-variant-numeric: tabular-nums; }
 .ro-pos { display: block; font: 13.5px/1.4 var(--mono); letter-spacing: 0; color: var(--text); white-space: nowrap; }
 .ro-name { display: block; margin-top: 2px; font-size: 14px; color: var(--text-2); overflow-wrap: anywhere; }
 .ro-name.ro-text { font: 13px/1.4 var(--mono); letter-spacing: 0; }
 .ro-table td.ro-notes { font-size: 14px; color: var(--text-2); }
 .ro-table.no-notes .ro-notes { display: none; }
-.ro-table.no-notes thead tr:first-child > :nth-last-child(2), .ro-table.no-notes tbody tr > :nth-last-child(2) { border-right: 0; }
-.ro-table.no-notes th.ro-edge { border-right: 0; }
 .tool-msg { font-size: 14px; margin: 8px 0; color: var(--text-2); }
 .tool-msg.err { color: var(--strike); }
 .tool-msg ul { margin: 6px 0; padding-left: 1.2em; }

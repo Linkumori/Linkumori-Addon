@@ -159,7 +159,7 @@
 <p>Rows 8 and 9 may restate what the engine already does. The earlier text is silent on both, so 1.0 final writes them down.</p>
 <h2 id="file-structure">File structure</h2>
 <p>A rule file gains one optional top-level key, <code>cln</code>, which names the format version. Its only valid value is <code>&quot;1.0&quot;</code>.</p>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
   <span class="k">&quot;providers&quot;</span>: {
@@ -168,7 +168,7 @@
       <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;utm_source&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>The top-level keys are now <code>cln</code>, <code>providers</code>, <code>metadata</code> and <code>defaults</code>. Only <code>providers</code> is required.</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col"><code>cln</code> value</th><th scope="col">Loader behavior</th></tr></thead>
@@ -195,7 +195,7 @@
 <li><code>$removeparam</code> filters</li>
 </ol>
 <p>Stages 5 and 6 are sorted by one key, which gains a leading <code>stage</code> part:</p>
-<pre><code>(stage, orderGroup, order, rank, arrayIndex)</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>(stage, orderGroup, order, rank, arrayIndex)</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Part</th><th scope="col">Value</th></tr></thead>
 <tbody>
@@ -225,27 +225,27 @@
 <p>A cleanup that must happen before a raw rule is written as a raw rule. A raw rule is a regex against the whole URL, so it can express any parameter removal.</p>
 <p>Three things carry over from the earlier 1.0 text. Entries that are off are left out. <code>$removeparam</code> filters run after stage 6. Neither they nor <code>@@</code> entries may carry an <code>order</code>.</p>
 <h3 id="worked-example">Worked example</h3>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
       <span class="k">&quot;rawRules&quot;</span>: [
         <span class="s">&quot;\\/ref=[^/?]*&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;strip-jsessionid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;;jsessionid=[^/?#]*&quot;</span>, <span class="k">&quot;order&quot;</span>: 20 }
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;strip-jsessionid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;;jsessionid=[^/?#]*&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">20</span> }
       ],
       <span class="k">&quot;rules&quot;</span>: [
         <span class="s">&quot;utm_source&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;token-rewrite&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>, <span class="k">&quot;replacePattern&quot;</span>: <span class="s">&quot;clean-§1§&quot;</span>, <span class="k">&quot;order&quot;</span>: 5 },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;token-rewrite&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>, <span class="k">&quot;replacePattern&quot;</span>: <span class="s">&quot;clean-§1§&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">5</span> },
         <span class="s">&quot;fbclid&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;aff-id&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;aff_id&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: true },
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;order&quot;</span>: 20 },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;aff-id&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;aff_id&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: <span class="l">true</span> },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">20</span> },
         <span class="s">&quot;$removeparam=/^pk_/&quot;</span>
       ],
       <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>With &quot;allow referral marketing&quot; off, the provider runs in this sequence. The last column shows where the earlier 1.0 text put the same entry.</p>
 <div class="table-wrap"><table class="sk-table">
 <thead><tr><th scope="col" rowspan="2">Run</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th><th scope="col" rowspan="2">Earlier position</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk sk-edge"><code>arrayIndex</code></th></tr></thead>
@@ -290,17 +290,17 @@
 <p><strong>Engine requirement.</strong> An engine that keys rule lists by text must use a structure that keeps insertion order for every key, such as a <code>Map</code>. A plain JavaScript object does not qualify.</p>
 <p><strong>Lint.</strong> The warning for a whole-number entry without an <code>order</code> is withdrawn.</p>
 <h3 id="worked-example-1">Worked example</h3>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;numbers&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||numbers.example^&quot;</span>],
       <span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;r&quot;</span>, <span class="s">&quot;3&quot;</span>],
-      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;20&quot;</span>, { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;9&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: true }, <span class="s">&quot;b&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;20&quot;</span>, { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;9&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: <span class="l">true</span> }, <span class="s">&quot;b&quot;</span>],
       <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;rm&quot;</span>, <span class="s">&quot;5&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>With &quot;allow referral marketing&quot; off:</p>
 <div class="table-wrap"><table class="sk-table">
 <thead><tr><th scope="col" rowspan="2">Run</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th><th scope="col" rowspan="2">Earlier position</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk sk-edge"><code>arrayIndex</code></th></tr></thead>
@@ -401,7 +401,7 @@
 <p>In a JSON rule file each backslash is written twice: <code>&quot;$removeparam=\\~foo&quot;</code>.</p>
 <h3 id="where--is-matched">Where @@ is matched</h3>
 <p>An <code>@@</code> entry's pattern and modifiers are checked against the URL as the provider received it at the start of the current cycle. In the earlier 1.0 text they were checked after the provider's raw rules had run, so an exception scoped to a path that a raw rule deletes stopped matching.</p>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
@@ -413,7 +413,7 @@
       ]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>For <code>https://shop.example/ref=abc?tag=1</code>:</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col"></th><th scope="col">Earlier 1.0 text</th><th scope="col">1.0 final</th></tr></thead>
