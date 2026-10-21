@@ -557,7 +557,7 @@ The built-in rules define `token` with `"id": "token-rewrite"` in provider `shop
 Processing a request always ends:
 
 - **Cycle cap.** At most 10 cycles run per request — a cycle being one pass of the providers over the URL, repeated after each change or redirect. At the cap, processing stops and the URL is used as it stands.
-- **Unbounded mode.** Settings → *Unbounded cleaning cycles* (off by default) removes the cycle cap, for rule chains that need more than 10 cycles. Rewrites still run once and no-op steps still don't count, so processing ends when a cycle changes nothing. But two rules that redirect to each other then loop until the browser gives up on the redirect chain, and the page doesn't load. Turn it on only for rules you trust.
+- **Unbounded mode.** Settings → *Unbounded cleaning cycles* (off by default) removes the cycle cap, for rule chains that need more than 10 cycles. Rewrites still run once and no-op steps still don't count, so processing ends when a cycle changes nothing. But two rules that redirect to each other then loop until the browser gives up on the redirect chain, and the page doesn't load. Cleaning a copied link, the context menu and the rule tester have no browser redirect limit, so there cleaning also stops when the URL comes back to one it already produced. Turn it on only for rules you trust.
 - **Rewrites run once.** An entry with a `replacePattern` applies at most once per request. `token-rewrite` above turns `https://shop.example/?token=abc123` into `https://shop.example/?token=clean-abc123`, and that does not change on any later cycle.
 - **No-op steps.** A step whose output equals its input is not a change and does not start a new cycle.
 
