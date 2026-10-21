@@ -370,6 +370,7 @@ A remote file's capabilities are derived from its content when it loads. A file 
 - **Built-in and custom rules** hold every capability.
 - **Acceptance** is given per remote file and per capability. Until then, that file's redirect or block entries stay inactive and the rest of the file loads.
 - **Updates.** When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.
+- **Untraceable entries.** When an engine cannot tell which remote file an entry came from, the entry gets only the capabilities that every configured remote file has accepted.
 - **Existing installs.** No capability carries over. A remote file configured before this rule starts with only the capabilities active on load, and its redirect and block entries wait for acceptance like any other file's.
 - **Visibility.** Remote Rules Health lists each remote file's capabilities.
 
