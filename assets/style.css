@@ -552,6 +552,16 @@ td code { white-space: nowrap; }
 .prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose a.anchor:focus { opacity: 1; }
 .doc-src { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--text-2); }
 
+/* "Earlier 1.0 text" and "1.0 final", above the CLN documents */
+.terms { border: 1px solid var(--line); border-radius: var(--r); padding: 22px 24px; margin: 0 0 40px; }
+.prose .terms-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 14px; padding: 0; }
+.terms dl { display: grid; gap: 16px 32px; margin: 0; }
+@media (min-width: 700px) { .terms dl { grid-template-columns: 1fr 1fr; } }
+.terms dt { font-size: 15px; font-weight: 600; }
+.terms div:last-child dt { color: var(--link); }
+.terms dd { margin: 4px 0 0; font-size: 15px; color: var(--text-2); }
+.terms code { white-space: nowrap; }
+
 /* Run-order tool */
 .tool { background: var(--bg-alt); border-radius: var(--r-lg); padding: 26px; margin: 28px 0; }
 .tool textarea {

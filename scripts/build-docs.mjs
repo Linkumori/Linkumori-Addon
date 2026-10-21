@@ -34,6 +34,7 @@ const pages = [
     kicker: 'Specification',
     status: 'Final',
     version: '1.0',
+    notice: 'partials/cln-terms.html',
     extra: {
       before: 'whole-number-matchpattern-entries',
       file: 'partials/run-order-tool.html',
@@ -49,6 +50,7 @@ const pages = [
     kicker: 'Reference',
     status: 'Current',
     version: 'CLN 1.0',
+    notice: 'partials/cln-terms.html',
     scripts: []
   },
   {
@@ -449,6 +451,8 @@ for (const page of pages) {
     const at = ctx.toc.findIndex(t => t.id === page.extra.before);
     ctx.toc.splice(at, 0, page.extra.toc);
   }
+  // A note shown above the document, such as what "earlier 1.0 text" and "1.0 final" mean.
+  if (page.notice) body = readFileSync(join(siteRoot, page.notice), 'utf8').trim() + '\n' + body;
   writeFileSync(join(siteRoot, page.out), template(page, ctx, body, tocHtml(ctx.toc), page.out));
   console.log(`${page.out}: ${ctx.toc.length} headings`);
 }
