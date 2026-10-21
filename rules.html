@@ -2031,7 +2031,7 @@
 <h2 id="at-run-time">At run time</h2>
 <ul>
   <li><b>Providers run in turn.</b> For each request, every provider whose pattern matches is tried. The first that changes, redirects or blocks the URL ends the pass.</li>
-  <li><b>Passes repeat.</b> A changed URL starts a new pass, up to 10 per request. Settings → <i>Unbounded cleaning cycles</i> removes the cap; use it only for rules you trust, since two rules that redirect to each other then loop.</li>
+  <li><b>Passes repeat.</b> A changed URL starts a new pass, up to 10 per request. Settings → <i>Unbounded cleaning cycles</i> removes the cap; use it only for rules you trust, since two rules that redirect to each other then loop until the browser stops them. Cleaning a copied link and the rule tester stop as soon as the URL comes back to one already seen.</li>
   <li><b>Inside a provider,</b> entries run in the exact order CLN 1.0 defines. See <a href="cln-1.0.html#processing-order">Processing order</a> and the run-order calculator.</li>
   <li><b>Nothing reloads on a timer.</b> Rules load at startup, when you save custom rules, and when you refresh remote rules in settings.</li>
 </ul>
