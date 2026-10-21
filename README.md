@@ -59,7 +59,7 @@ python3 -m http.server 8000
 
 In the repository settings, under Pages, deploy from this branch's root. The `.nojekyll` file makes GitHub Pages serve the files as they are.
 
-The site loads nothing from third parties: no web fonts, analytics or CDNs. Text uses the reader's system font (SF Pro on Apple devices).
+The site loads nothing from third parties: no analytics, CDNs or hosted fonts. Text is set in Inter and code in JetBrains Mono, both served from `assets/fonts` under the SIL Open Font License (see `assets/fonts/README.md`).
 
 ## License
 
