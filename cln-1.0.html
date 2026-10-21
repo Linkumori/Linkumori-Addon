@@ -367,7 +367,7 @@
 <li><strong>Toggle key.</strong> <code>providerKey::id</code>, where <code>providerKey</code> is the provider's key under <code>providers</code>. Example: <code>shop::token-rewrite</code>. An <code>id</code> cannot contain a colon, so the key splits at its last <code>::</code>.</li>
 <li><strong>Unique in a provider.</strong> Within one provider of one file, every <code>id</code> and every alias is distinct. A repeat is a <code>lint-rules</code> error. Generated ids count.</li>
 <li><strong>Replaced definitions.</strong> When one definition replaces another, the <code>id</code> and <code>aliases</code> of each replaced definition resolve to the winner. Toggling any of them switches the one rule that runs.</li>
-<li><strong>Saved toggles.</strong> A toggle saved under a bare <code>id</code> keeps working as before. It is saved in the namespaced form the next time the person changes it.</li>
+<li><strong>Saved toggles.</strong> A toggle saved under a bare <code>id</code> keeps working as before. It is saved in the namespaced form the next time the person changes it. Linkumori deviates here: it ignores bare-<code>id</code> toggles (see Deviations at the top).</li>
 <li><strong>Shared provider keys.</strong> Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.</li>
 <li><strong>Generated ids.</strong> Unchanged. An id is still generated from the list and the <code>matchPattern</code> text when left out, and still changes when that text is edited.</li>
 </ul>
@@ -515,7 +515,7 @@
 <li>A rewrite applies once per request, and processing stops after 10 cycles.</li>
 <li>A newly added remote file's redirects and blocks wait for acceptance. Remote files already installed are unaffected.</li>
 </ul>
-<p>Saved toggles keep working.</p>
+<p>Saved toggles keep working, except that Linkumori ignores a toggle saved under a bare <code>id</code> (see Deviations at the top). Toggles keyed <code>providerKey::id</code> or by match pattern keep working everywhere.</p>
 <h2 id="deferred-to-20">Deferred to 2.0</h2>
 <p>1.0 final leaves the file layout alone, so six known problems stay open for 2.0.</p>
 <ul>
