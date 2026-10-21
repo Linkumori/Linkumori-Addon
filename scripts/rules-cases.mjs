@@ -385,7 +385,7 @@ export const defaultsCases = [
     id: 'de-yours',
     title: 'Your defaults for built-in and remote rules',
     inputs: [
-      { label: 'Your defaults', origin: 'custom', json: { requestTypes: ['main_frame'] } },
+      { label: 'Your defaults', origin: 'custom', tag: 'Yours', json: { requestTypes: ['main_frame'] } },
       { label: 'Built-in rules', origin: 'builtin', json: { providers: { shop: shop(['qid']) } } },
       { label: 'Remote file', origin: 'remote', json: { defaults: { exceptions: ['^https:\\/\\/shop\\.example\\/cart'] }, providers: { shop: shop(['psc']) } } }
     ],
@@ -395,6 +395,20 @@ export const defaultsCases = [
       { text: 'psc', origin: 'remote', note: 'page loads; the file\'s /cart exception is ignored' }
     ] }],
     explain: 'With "Yours for built-in and remote rules", both files get your block in place of their own before merging. Custom rules keep their own.'
+  },
+  {
+    id: 'de-edit',
+    title: 'You edited a file\'s defaults',
+    inputs: [
+      { label: 'Remote file', origin: 'remote', json: { defaults: { requestTypes: ['main_frame'] }, providers: { shop: shop(['psc']) } } },
+      { label: 'Your edit of this file\'s defaults', origin: 'custom', tag: 'Yours', json: {} }
+    ],
+    mergedLabel: 'Rules after loading',
+    merged: { shop: shop(['psc']) },
+    runs: [{ pattern: '||shop.example^', rows: [
+      { text: 'psc', origin: 'remote', note: 'every request type: your empty block replaced the file\'s' }
+    ] }],
+    explain: 'An edit replaces the file\'s whole defaults block, and an empty block means no defaults. The file itself doesn\'t change: your edit is kept in the extension, and still applies after the file is updated.'
   },
   {
     id: 'de-history',
@@ -439,3 +453,56 @@ export const sourceCases = [
   { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'All failed', Cache: 'None' }, layers: ['builtin'], result: 'Built-in' },
   { settings: { 'Built-in': 'Off', Remote: 'On', 'Remote files': 'All failed', Cache: 'None' }, layers: [], result: 'No base rules: custom rules only' }
 ];
+
+// What starts each case: a setting or action of yours ('you'), or what Linkumori then does
+// on its own every time rules load ('auto'). Shown as the first line of each case card.
+const OVERLOAD_ON = ['you', 'You turned on overload mode in settings, with built-in rules on and a remote rule file set up.'];
+const MERGE_ON_LOAD = ['auto', 'Every load merges the files. The same text is resolved when rules run.'];
+const CUSTOM_SAVED = ['you', 'You saved a custom provider in the custom rules editor.'];
+const DEFAULTS_ON_LOAD = ['auto', 'Every load writes each file\'s own defaults into its rules, then merges them.'];
+
+export const caseTriggers = {
+  'ov-own-order': [OVERLOAD_ON, MERGE_ON_LOAD],
+  'ov-inherit': [OVERLOAD_ON, MERGE_ON_LOAD],
+  'ov-null': [OVERLOAD_ON, MERGE_ON_LOAD],
+  'ov-two-files': [OVERLOAD_ON, ['you', 'You listed file 1 before file 2 in settings.'], MERGE_ON_LOAD],
+  'ov-two-files-inherit': [OVERLOAD_ON, ['you', 'You listed file 1 before file 2 in settings.'], MERGE_ON_LOAD],
+  'ov-swap': [OVERLOAD_ON, MERGE_ON_LOAD],
+  'ov-same-order': [OVERLOAD_ON, MERGE_ON_LOAD],
+  'ov-other-pattern': [OVERLOAD_ON, ['auto', 'Every load keeps the two apart, because their patterns differ.']],
+  'ov-referral': [OVERLOAD_ON, ['you', 'Allow referral marketing is a switch in settings.'], MERGE_ON_LOAD],
+  'cu-replace': [CUSTOM_SAVED, ['auto', 'Every load replaces the built-in provider with yours. Saving starts a load straight away.']],
+  'cu-methods': [CUSTOM_SAVED, ['auto', 'Every load replaces the built-in provider, whatever the settings.']],
+  'cu-two-base': [CUSTOM_SAVED, ['auto', 'Every load replaces both built-in providers on the pattern.']],
+  'cu-pattern': [CUSTOM_SAVED, ['auto', 'Every load adds yours next to the built-in provider.']],
+  'cu-order': [CUSTOM_SAVED, ['auto', 'Every load compares the patterns as a set and replaces.']],
+  'cu-name': [CUSTOM_SAVED, ['auto', 'Every load adds yours and renames it amazon_1.']],
+  'cu-off': [['you', 'You switched the provider off in the custom rules editor.'], ['auto', 'Every load removes it from the base and the custom rules.']],
+  'cu-nopattern': [['you', 'You saved a custom provider without a pattern.'], ['auto', 'Every load drops it.']],
+  'de-different': [OVERLOAD_ON, DEFAULTS_ON_LOAD],
+  'de-remote-wins': [OVERLOAD_ON, DEFAULTS_ON_LOAD],
+  'de-builtin-default': [OVERLOAD_ON, DEFAULTS_ON_LOAD],
+  'de-exceptions': [OVERLOAD_ON, DEFAULTS_ON_LOAD],
+  'de-active': [OVERLOAD_ON, DEFAULTS_ON_LOAD],
+  'de-own-value': [['auto', 'Every load writes the file\'s defaults into its rules. Nothing for you to set.']],
+  'de-yours': [
+    ['you', 'In Manage rule defaults, you filled in your own block and chose Yours for built-in and remote rules.'],
+    OVERLOAD_ON,
+    ['auto', 'Every load writes your block into both files\' rules instead of their own, then merges them.']
+  ],
+  'de-edit': [
+    ['you', 'In Manage rule defaults, you edited the remote file\'s defaults to an empty block.'],
+    ['auto', 'Every load uses your edit in place of the file\'s own block.']
+  ],
+  'de-history': [OVERLOAD_ON, ['auto', 'Every load copies the provider\'s setting onto its rules, then merges them.']],
+  'defaults-merge-tool': [
+    ['you', 'You chose Merge from sources in Manage rule defaults and ticked these three sources.'],
+    ['you', 'You copy the merged block into one of your sets and save. Until then nothing is stored.'],
+    ['auto', 'From then on, every load writes the saved block into the sources it applies to.']
+  ],
+  'de-complete': [
+    OVERLOAD_ON,
+    ['you', 'You accepted block for the remote file in Remote Rules Health.'],
+    ['auto', 'Every load writes the default into the remote provider as resourceTypes, so the two stay apart.']
+  ]
+};

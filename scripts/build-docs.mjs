@@ -14,7 +14,7 @@ import vm from 'node:vm';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { overloadCases, customCases, defaultsCases, sourceCases } from './rules-cases.mjs';
+import { overloadCases, customCases, defaultsCases, sourceCases, caseTriggers } from './rules-cases.mjs';
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const docsDir = process.argv[2];
@@ -242,9 +242,17 @@ function providerDiagram(p) {
   return `<div class="rx-prov${p.origin === 'off' ? ' rx-prov-off' : ''}">${p.caption ? `<div class="rx-prov-caption">${escapeHtml(p.caption)}</div>` : ''}${head}${rows}</div>`;
 }
 
+// "Triggered by": what you set or did, then what Linkumori does on its own at each load.
+function caseTriggerList(id) {
+  const triggers = caseTriggers[id];
+  if (!triggers) throw new Error(`rules-cases.mjs: no trigger for case ${id}`);
+  return `<ol class="case-trigger" aria-label="Triggered by">${triggers.map(([who, text]) =>
+    `<li><span class="dm-who dm-${who}">${who === 'you' ? 'You set' : 'Automatic'}</span><span>${escapeHtml(text)}</span></li>`).join('')}</ol>`;
+}
+
 function caseCard(c, i) {
   const inputs = c.inputs.map(input => `<div class="case-in">
-  <div class="case-label">${tag(input.origin, input.origin === 'off' ? 'Off' : undefined)}<span>${escapeHtml(input.label)}</span></div>
+  <div class="case-label">${tag(input.origin, input.tag || (input.origin === 'off' ? 'Off' : undefined))}<span>${escapeHtml(input.label)}</span></div>
   ${input.json !== undefined ? codeBlock(highlightJson(formatJson(input.json)), 'json') : `<p class="case-text">${escapeHtml(input.text)}</p>`}
 </div>`).join('\n');
   const merged = c.merged && Object.keys(c.merged).length
@@ -252,6 +260,7 @@ function caseCard(c, i) {
     : '<p class="case-text">No provider for this pattern.</p>';
   return `<article class="case" id="${c.id}" data-case-title="${escapeHtml(c.title)}">
 <header class="case-head"><span class="case-num">${i + 1}</span><h4>${escapeHtml(c.title)}</h4></header>
+${caseTriggerList(c.id)}
 <div class="case-body">
 <div class="case-inputs">
 ${inputs}
@@ -313,6 +322,7 @@ function defaultsMergeExample() {
 </div>`).join('\n');
   return `<article class="case" id="defaults-merge-tool">
 <header class="case-head"><span class="case-num"><i aria-hidden="true">✦</i></span><h4>Merge from sources: three defaults blocks</h4></header>
+${caseTriggerList('defaults-merge-tool')}
 <div class="case-body">
 <div class="case-inputs">
 ${inputs}
