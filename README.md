@@ -9,6 +9,7 @@ This branch has no history in common with `main`. It holds only the site.
 | `index.html` | Home page: features, comparison, CLN overview, privacy, install |
 | `cln-1.0.html` | CLN Format 1.0 (final), generated from `docs/cln-format-1.0.md`, with a run-order calculator |
 | `filter-syntax.html` | Filter syntax reference, generated from `docs/filter-syntax.md` |
+| `privacy.html`, `terms.html` | The site's Privacy Policy and Terms of Use, generated from `legal/privacy.md` and `legal/terms.md` |
 | `assets/` | Styles, scripts and the logo |
 | `assets/fonts/` | Charis SIL, self-hosted, with its license (`OFL.txt`) |
 | `partials/run-order-tool.html` | The calculator markup, placed into `cln-1.0.html` by the build |
@@ -16,7 +17,7 @@ This branch has no history in common with `main`. It holds only the site.
 
 ## Updating the doc pages
 
-The two doc pages are generated. Edit the Markdown on `main`, then rebuild here:
+The doc and legal pages are generated. Edit the spec Markdown on `main`, or `legal/*.md` here (keep the `**Last updated:**` line current), then rebuild:
 
 ```bash
 node scripts/build-docs.mjs
