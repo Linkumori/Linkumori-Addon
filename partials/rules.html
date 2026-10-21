@@ -83,21 +83,8 @@
 </div>
 
 <h3 id="every-combination">Every combination</h3>
-<p>The same decisions as a table. A dash means the setting makes no difference in that row. Custom rules, if you have any, go on top in every row.</p>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">Remote files</th><th scope="col">Cache</th><th scope="col">Overload</th><th scope="col">Base rule set</th></tr></thead>
-<tbody>
-<tr><td>Off</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>None: custom rules only</td></tr>
-<tr><td>On</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>Built-in</td></tr>
-<tr><td>–</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>Off</td><td>Remote files that passed, merged. Built-in is not used</td></tr>
-<tr><td>On</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Built-in and remote, merged</td></tr>
-<tr><td>Off</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Remote. Overload mode needs built-in rules on</td></tr>
-<tr><td>On</td><td>On</td><td>All failed</td><td>Available</td><td>On</td><td>Cached remote and built-in, merged</td></tr>
-<tr><td>–</td><td>On</td><td>All failed</td><td>Available</td><td>Off</td><td>Cached remote</td></tr>
-<tr><td>On</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>Built-in</td></tr>
-<tr><td>Off</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>None: custom rules only</td></tr>
-</tbody>
-</table></div>
+<p>Every decision as a card. A setting that isn't shown makes no difference in that case. Custom rules, if you have any, go on top in every one.</p>
+<!-- cases:sources -->
 <p class="rx-note">Remote rules switched on with no valid pair of addresses count as off.</p>
 
 <h2 id="overload-mode">Overload mode: merging sources</h2>
@@ -143,21 +130,9 @@
 </div>
 <p class="rx-legend"><span class="rx-tag rx-o-builtin">Built-in</span> <span class="rx-tag rx-o-remote">Remote</span> show where each rule came from.</p>
 
-<h3 id="overload-cases">All the cases</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">What runs</th></tr></thead>
-<tbody>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>order: 50</code></td><td><code>token</code> at <code>order: 50</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>"token"</code></td><td><code>token</code> at <code>order: 1</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>"order": null</code></td><td><code>token</code> with no <code>order</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>order: 30</code></td><td><code>token</code> at <code>order: 30</code>: the last-listed file wins</td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>"token"</code></td><td><code>token</code> at <code>order: 20</code></td></tr>
-<tr><td><code>a</code> <code>order: 1</code>, <code>b</code> <code>order: 2</code></td><td><code>b</code> <code>order: 1</code>, <code>a</code> <code>order: 2</code></td><td><code>b</code>, then <code>a</code></td></tr>
-<tr><td><code>fromBuiltIn</code>, <code>order: 5</code></td><td><code>fromRemote</code>, <code>order: 5</code></td><td>Both; <code>fromBuiltIn</code> first</td></tr>
-<tr><td><code>token</code> on <code>||site.example^</code></td><td><code>token</code> on <code>||other.example^</code></td><td>Not merged: two providers</td></tr>
-<tr><td><code>rules</code>: <code>"tag"</code></td><td><code>referralMarketing</code>: <code>"tag"</code></td><td>The <code>referralMarketing</code> entry replaces the <code>rules</code> one while referral-marketing rules run</td></tr>
-</tbody>
-</table></div>
+<h3 id="overload-cases">Every overload case</h3>
+<p>Each case shows the files as JSON, what runs, and the merged provider Linkumori builds. Pick a case to see it.</p>
+<!-- cases:overload -->
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
 
 <h2 id="custom-rules">Custom rules: replace or add</h2>
@@ -195,18 +170,8 @@
 </div>
 
 <h3 id="custom-cases">Every custom-rule case</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Your custom provider</th><th scope="col">Result</th></tr></thead>
-<tbody>
-<tr><td>Same pattern and settings as a built-in or remote provider</td><td><b>Replaces</b> it. Only your rules run for that provider</td></tr>
-<tr><td>Same pattern, but different <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> or <code>forceRedirection</code></td><td><b>Added</b> as a separate provider. Both run</td></tr>
-<tr><td>A different pattern, such as <code>||amazon.de^</code> next to <code>||amazon.*^</code></td><td><b>Added.</b> Both run where both patterns match</td></tr>
-<tr><td>The same <code>domainPatterns</code> in a different order</td><td>Counts as the same pattern: <b>replaces</b></td></tr>
-<tr><td>A name already used by another provider, with a different pattern</td><td><b>Added</b> under a new name: <code>amazon_1</code>, <code>amazon_2</code>, …</td></tr>
-<tr><td>A provider you switched off in the custom rules editor</td><td><b>Removed</b> from both the base rules and the custom rules</td></tr>
-<tr><td>No <code>domainPatterns</code> or <code>urlPattern</code></td><td><b>Dropped</b>: it can't match anything</td></tr>
-</tbody>
-</table></div>
+<p>The base rules here are the built-in ones; remote rules behave the same way.</p>
+<!-- cases:custom -->
 <p>When both a base provider and a custom provider match a request, both still get to clean it. The first provider that changes, redirects or blocks the URL ends that pass, and the cleaned URL starts a new pass, so the other provider runs next.</p>
 
 <h2 id="switching-off">Switching rules off</h2>
@@ -298,19 +263,8 @@
 </table></div>
 <p>Order on load: a remote file's defaults are written in first, then its capabilities are applied, and only then does it merge. Before merging, a file without an accepted capability also loses the entries that need it: its redirect lists without <code>redirect</code>, and <code>completeProvider</code> without <code>block</code>. The file tags never leave the extension: the custom rules editor strips them when you export a rule.</p>
 
-<h3 id="defaults-cases">All the cases</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in file</th><th scope="col">Remote file</th><th scope="col">What runs</th></tr></thead>
-<tbody>
-<tr><td><code>qid</code>; no defaults</td><td><code>psc</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>qid</code> on every request type, <code>psc</code> on page loads only</td></tr>
-<tr><td><code>"token"</code>; no defaults</td><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on page loads only: the remote copy wins</td></tr>
-<tr><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>"token"</code>; no defaults</td><td><code>token</code> on every request type: the remote copy wins, and it has no limit</td></tr>
-<tr><td>defaults <code>"exceptions": [A]</code>; <code>a</code></td><td>defaults <code>"exceptions": [B]</code>; <code>b</code></td><td><code>a</code> skips A, <code>b</code> skips B</td></tr>
-<tr><td>defaults <code>"active": false</code>; <code>a</code></td><td><code>b</code>; no defaults</td><td>Only <code>b</code>: the built-in file's rules are off unless they set <code>"active": true</code></td></tr>
-<tr><td><code>"token"</code> with its own <code>"requestTypes": ["script"]</code></td><td>defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on scripts: its own value beats any default</td></tr>
-<tr><td colspan="2">Your defaults, with <i>Yours for built-in and remote rules</i></td><td>Both files get your defaults before merging; their own are ignored</td></tr>
-</tbody>
-</table></div>
+<h3 id="defaults-cases">Every defaults case</h3>
+<!-- cases:defaults -->
 <p>The custom rules editor shows the defaults each loaded source used. Its <i>Merge from sources</i> tool is separate: it combines several <code>defaults</code> blocks into one block you can save, and doesn't change how rules merge.</p>
 
 <h2 id="remote-capabilities">What a remote file may do</h2>
