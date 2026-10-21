@@ -72,6 +72,16 @@ const pages = [
     scripts: []
   },
   {
+    html: 'partials/rules.html',
+    out: 'rules.html',
+    title: 'How rules work — Linkumori',
+    heading: 'How rules work',
+    description: 'How Linkumori picks its rule sources, merges built-in and remote rules in overload mode, applies custom rules on top, and handles toggles, defaults and remote file capabilities, with every case.',
+    kicker: 'Guide',
+    facts: [['Covers', 'Sources, merging, custom rules'], ['Applies to', `Linkumori ${VERSION}`]],
+    scripts: ['assets/rules.js']
+  },
+  {
     local: 'legal/privacy.md',
     out: 'privacy.html',
     title: 'Privacy Policy — Linkumori',
@@ -360,18 +370,22 @@ function template(page, ctx, body, toc, current) {
     ['./#features', 'Features'],
     ['./#privacy', 'Privacy'],
     ['./#compare', 'Compare'],
+    ['rules.html', 'How rules work'],
     ['cln-1.0.html', 'CLN 1.0'],
     ['filter-syntax.html', 'Filter syntax'],
     [REPO, '<svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub', 'gh']
   ].map(([href, label, cls]) => `        <a ${cls ? `class="${cls}" ` : ''}href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`).join('\n');
   const scripts = page.scripts.map(s => `  <script src="${s}" defer></script>`).join('\n');
-  const sourcePath = page.local || `docs/${page.source}`;
-  const source = `${REPO}/blob/${page.local ? 'website' : 'main'}/${sourcePath}`;
-  const sourceNote = page.local
+  const onSiteBranch = Boolean(page.local || page.html);
+  const sourcePath = page.local || page.html || `docs/${page.source}`;
+  const source = `${REPO}/blob/${onSiteBranch ? 'website' : 'main'}/${sourcePath}`;
+  const sourceNote = onSiteBranch
     ? `Source: <a href="${source}">${sourcePath}</a> on the website branch.`
     : `Generated from <a href="${source}">${sourcePath}</a> on the main branch. Found a problem? <a href="${REPO}/issues/new">Open an issue</a>.`;
   const [date = '', editor = ''] = ctx.meta || [];
-  const facts = (page.local
+  const facts = (page.facts
+    ? page.facts.map(([k, v]) => [k, escapeHtml(v)])
+    : page.local
     ? [
         ['Applies to', 'This website'],
         ['Last updated', escapeHtml(ctx.updated || '')]
@@ -474,6 +488,7 @@ ${body}
         <div>
           <h3>Standard</h3>
           <ul>
+            <li><a href="rules.html">How rules work</a></li>
             <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
             <li><a href="filter-syntax.html">Filter syntax</a></li>
             <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
@@ -499,6 +514,17 @@ ${body}
 
 for (const page of pages) {
   const ctx = { slug: slugger(), toc: [], metaPending: true };
+  if (page.html) {
+    // A hand-written HTML page: take its contents list from its own h2 and h3 headings.
+    ctx.title = page.heading;
+    const body = readFileSync(join(siteRoot, page.html), 'utf8').trim();
+    for (const m of body.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)) {
+      ctx.toc.push({ level: Number(m[1]), id: m[2], text: m[3].replace(/<[^>]+>/g, '') });
+    }
+    writeFileSync(join(siteRoot, page.out), stampAssets(template(page, ctx, body, tocHtml(ctx.toc), page.out)));
+    console.log(`${page.out}: ${ctx.toc.length} headings`);
+    continue;
+  }
   let md = page.local ? readFileSync(join(siteRoot, page.local), 'utf8') : readDoc(page.source);
   if (page.local) {
     const m = LAST_UPDATED.exec(md);
