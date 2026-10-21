@@ -171,6 +171,15 @@ pre .l { color: var(--code-lit); }
 .codeblock pre { margin: 0; background: transparent; border-radius: 0; padding: 6px 22px 22px; }
 .codeblock-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px 0 22px; }
 .codeblock-lang { font-size: 12px; font-weight: 600; color: var(--text-2); letter-spacing: 0; }
+/* Mermaid diagrams, rendered ahead of time by scripts/make-diagrams.mjs. */
+.diagram { margin: 28px 0; padding: 28px 24px 18px; background: var(--bg-alt); border-radius: var(--r); }
+.diagram-scroll { overflow-x: auto; }
+.diagram img { display: block; width: min(var(--w), max(100%, calc(var(--w) * 0.7))); max-width: none; height: auto; margin: 0 auto; }
+.diagram-links { margin-top: 14px; font-size: 13px; }
+.diagram details { margin-top: 10px; }
+.diagram summary { cursor: pointer; font-size: 13px; color: var(--text-2); width: max-content; }
+.diagram summary:hover { color: var(--text); }
+.diagram .codeblock { margin: 12px 0 0; background: var(--tile); }
 .copy-code {
   font: 400 13px/1 var(--font); letter-spacing: -0.01em; color: var(--link); background: transparent;
   border: 0; border-radius: 8px; padding: 6px 10px; min-height: 28px; cursor: pointer;
