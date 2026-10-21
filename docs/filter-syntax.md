@@ -207,7 +207,7 @@ Regexes run against the whole URL — every match gets deleted:
 "rawRules": ["\\/ref=[^/?]*"]
 ```
 
-They run *before* `rules`, so they can strip things that aren't `name=value` pairs — like Amazon's `/ref=…` path segment. A raw rule can also carry a pattern and `$removeparam`-style options, with `rawrule=` last: `\|\|amazon.*^/dp/$rawrule=\\/ref=[^/?]*`. An `@@…$rawrule=` entry stops raw rules from running instead of matching anything itself.
+They run *before* `rules`, so they can strip things that aren't `name=value` pairs — like Amazon's `/ref=…` path segment. A raw rule can also carry a pattern and `$removeparam`-style options, with `rawrule=` last: `\|\|amazon.*^/dp/$rawrule=\\/ref=[^/?]*`. An `@@…$rawrule=` entry stops raw rules from running instead of matching anything itself. With nothing after `rawrule=` it stops every raw rule of the provider where its pattern matches; with a regex it stops the raw rules with that regex; as a rule object with a `targetId` it stops only the raw rule with that id or alias.
 
 ### Worked example
 
@@ -333,6 +333,10 @@ Any entry, in any list above, can be an object instead of a string — for a sta
 | `order` | number controlling when this entry runs relative to the other entries of its stage — lower numbers run earlier. Raw rules always run before field rules, whatever their `order`; inside a stage, every entry with an `order` runs before every entry without one. `"order": null` means "no order, and don't inherit one" (§Same text twice). `$removeparam` filters and `@@` entries take no `order`, `null` included — `lint-rules` rejects it there. The exact sequence is under §Processing order |
 | `referralMarketing` | `true`, set on an entry inside `rules`, makes it also behave as a referral-marketing rule without moving it into the separate `referralMarketing` array |
 | `active` | `false` disables just this one rule, leaving it in the file for later re-enabling |
+| `flags` | regex flags for this entry's `matchPattern`, as a string. Left out, an entry uses `i` (case-insensitive); a raw rule uses `gi`, or `g` with `match-case`. A rule's own `flags` always wins. Example: `"flags": "g"` |
+| `historyBypassProtection` | boolean; the same switch as the provider key above, for this one rule. It beats the provider's value and the file default |
+| `description` | a note for people reading the file; the engine ignores it. It must be a string |
+| `targetId` | only on an `@@…$rawrule=` exception: stops just the raw rule whose `id` or one of whose `aliases` equals this value, instead of every raw rule with that regex. Example: `{ "matchPattern": "@@\|\|amazon.*^$rawrule=", "targetId": "strip-ref" }` |
 
 ### Worked example
 
