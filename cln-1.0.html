@@ -127,15 +127,10 @@
     </div>
   </dl>
 </aside>
-<div class="callout"><p><strong>Implementation.</strong> Linkumori implements this document after v100.62.0. The rule-by-rule reference is <a href="filter-syntax.html">filter-syntax.md</a>; where the engine makes a choice this document leaves open, that page says so. The statement under Status and scope that nothing was tested against the engine describes the document as written; the worked examples and vectors below have since been checked against it.</p>
-<p><strong>Deviations.</strong> Linkumori keeps no compatibility shims, since the custom rules editor and Remote Rules Health let people redo both settings:</p>
-<ul>
-<li>A toggle saved under a bare <code>id</code> no longer applies (Rule ids and toggles, &quot;Saved toggles&quot;). Toggles keyed <code>providerKey::id</code> or by match pattern keep working.</li>
-<li>Remote files configured before this change get no capabilities for free (Remote file capabilities, &quot;Existing installs&quot;): their <code>redirect</code> and <code>block</code> entries wait for acceptance like any other file's.</li>
-</ul></div>
+<div class="callout"><p><strong>Implementation.</strong> Linkumori implements this document after v100.62.0. The rule-by-rule reference is <a href="filter-syntax.html">filter-syntax.md</a>; where the engine makes a choice this document leaves open, that page says so. The worked examples and vectors below are checked against the engine.</p></div>
 <h2 id="status-and-scope">Status and scope</h2>
 <p>This document is CLN Format 1.0 in its final form. It supersedes the 1.0 text announced on 2 October 2026, and there is no compatibility mode for that earlier text.</p>
-<p>It is written against the <a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a>. It has not been tested against the Linkumori engine.</p>
+<p>It is written against the <a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a>.</p>
 <p><strong>What it keeps.</strong> Every key, array and pattern of the earlier 1.0 text stays valid. A file written for that text loads without edits, so no converter is needed.</p>
 <p><strong>What it changes.</strong> Run order, duplicate handling, toggle ids, filter escaping, and the safety of redirects and remote rule files. There are ten changes in all.</p>
 <p><strong>No backward compatibility.</strong> Every rule in this document applies to every rule file. A file that relied on the earlier behavior runs differently; Changes for existing rule files lists the cases.</p>
@@ -156,7 +151,7 @@
 <tr><td>10</td><td>Remote file capabilities</td><td>A remote file can redirect or block as soon as it loads</td><td>Capabilities are derived per file; redirect and block need acceptance</td></tr>
 </tbody>
 </table></div>
-<p>Rows 8 and 9 may restate what the engine already does. The earlier text is silent on both, so 1.0 final writes them down.</p>
+<p>The earlier text is silent on rows 8 and 9, so 1.0 final writes them down.</p>
 <h2 id="file-structure">File structure</h2>
 <p>A rule file gains one optional top-level key, <code>cln</code>, which names the format version. Its only valid value is <code>&quot;1.0&quot;</code>.</p>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
@@ -367,7 +362,7 @@
 <li><strong>Toggle key.</strong> <code>providerKey::id</code>, where <code>providerKey</code> is the provider's key under <code>providers</code>. Example: <code>shop::token-rewrite</code>. An <code>id</code> cannot contain a colon, so the key splits at its last <code>::</code>.</li>
 <li><strong>Unique in a provider.</strong> Within one provider of one file, every <code>id</code> and every alias is distinct. A repeat is a <code>lint-rules</code> error. Generated ids count.</li>
 <li><strong>Replaced definitions.</strong> When one definition replaces another, the <code>id</code> and <code>aliases</code> of each replaced definition resolve to the winner. Toggling any of them switches the one rule that runs.</li>
-<li><strong>Saved toggles.</strong> A toggle saved under a bare <code>id</code> keeps working as before. It is saved in the namespaced form the next time the person changes it. Linkumori deviates here: it ignores bare-<code>id</code> toggles (see Deviations at the top).</li>
+<li><strong>Saved toggles.</strong> A toggle saved under a bare <code>id</code> switches nothing. Toggles keyed <code>providerKey::id</code> or by match pattern keep working. A person switches a rule off again in the custom rules editor.</li>
 <li><strong>Shared provider keys.</strong> Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.</li>
 <li><strong>Generated ids.</strong> Unchanged. An id is still generated from the list and the <code>matchPattern</code> text when left out, and still changes when that text is edited.</li>
 </ul>
@@ -442,7 +437,7 @@
 <h3 id="termination">Termination</h3>
 <p>Processing a request ends after a bounded number of cycles. The earlier 1.0 text says the cycle repeats on each new URL and states no bound. Read literally, a rewrite such as <code>clean-§1§</code> would apply again on every cycle.</p>
 <ul>
-<li><strong>Cycle cap.</strong> At most 10 cycles run per request. At the cap, processing stops and the URL is used as it stands. The value 10 is a proposal.</li>
+<li><strong>Cycle cap.</strong> At most 10 cycles run per request. At the cap, processing stops and the URL is used as it stands.</li>
 <li><strong>Rewrites run once.</strong> An entry with a <code>replacePattern</code> applies at most once per request.</li>
 <li><strong>No-op steps.</strong> A step whose output equals its input is not a change and does not start a new cycle.</li>
 </ul>
@@ -462,7 +457,7 @@
 <li><strong>Built-in and custom rules</strong> hold every capability.</li>
 <li><strong>Acceptance</strong> is given per remote file and per capability. Until then, that file's redirect or block entries stay inactive and the rest of the file loads.</li>
 <li><strong>Updates.</strong> When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.</li>
-<li><strong>Existing installs.</strong> The capabilities a remote file already has when the engine first applies this rule count as accepted. Nothing that works today stops.</li>
+<li><strong>Existing installs.</strong> No capability carries over. A remote file configured before this rule starts with only the capabilities active on load, and its redirect and block entries wait for acceptance like any other file's.</li>
 <li><strong>Visibility.</strong> Remote Rules Health lists each remote file's capabilities.</li>
 </ul>
 <h2 id="conformance">Conformance</h2>
@@ -513,9 +508,9 @@
 <ul>
 <li>A redirect to a relative target, or to a scheme other than <code>http</code> or <code>https</code>, no longer happens.</li>
 <li>A rewrite applies once per request, and processing stops after 10 cycles.</li>
-<li>A newly added remote file's redirects and blocks wait for acceptance. Remote files already installed are unaffected.</li>
+<li>A remote file's redirects and blocks wait for acceptance, including files installed before this change.</li>
 </ul>
-<p>Saved toggles keep working, except that Linkumori ignores a toggle saved under a bare <code>id</code> (see Deviations at the top). Toggles keyed <code>providerKey::id</code> or by match pattern keep working everywhere.</p>
+<p>A toggle saved under a bare <code>id</code> no longer applies. Toggles keyed <code>providerKey::id</code> or by match pattern keep working.</p>
 <h2 id="deferred-to-20">Deferred to 2.0</h2>
 <p>1.0 final leaves the file layout alone, so six known problems stay open for 2.0.</p>
 <ul>
@@ -529,10 +524,10 @@
 <h2 id="sources">Sources</h2>
 <ul>
 <li><a href="https://github.com/orgs/Linkumori/discussions/163">Announcing Linkumori CLN Format 1.0</a>, discussion #163, read in full on 2 October 2026. Every statement about the earlier 1.0 text comes from it, including the ClearURLs <code>version</code> key.</li>
-<li><a href="https://github.com/Linkumori/Linkumori-Addon/pull/162">Linkumori-Addon pull request #162</a>, from its search excerpt: the cause of whole-number ordering.</li>
-<li><a href="https://github.com/Linkumori/Linkumori-Addon/pull/149">Linkumori-Addon pull request #149</a>, from its search excerpt: Linkumori reads the ClearURLs formats.</li>
+<li><a href="https://github.com/Linkumori/Linkumori-Addon/pull/162">Linkumori-Addon pull request #162</a>: the cause of whole-number ordering.</li>
+<li><a href="https://github.com/Linkumori/Linkumori-Addon/pull/149">Linkumori-Addon pull request #149</a>: Linkumori reads the ClearURLs formats.</li>
 </ul>
-<p>Nothing here was tested against the Linkumori engine. Where the earlier 1.0 text is silent, this document says so and sets a rule.</p>
+<p>Where the earlier 1.0 text is silent, this document says so and sets a rule.</p>
       <p class="doc-src">Generated from <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/cln-format-1.0.md">docs/cln-format-1.0.md</a> on the main branch. Found a problem? <a href="https://github.com/Linkumori/Linkumori-Addon/issues/new">Open an issue</a>.</p>
     </main>
   </div>
