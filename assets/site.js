@@ -70,6 +70,18 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
+    // Copy buttons on code listings.
+    document.querySelectorAll('.codeblock .copy-code').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const code = btn.closest('.codeblock').querySelector('pre');
+        if (!code || !navigator.clipboard) return;
+        navigator.clipboard.writeText(code.innerText.replace(/\n$/, '')).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        }, function () { /* clipboard blocked */ });
+      });
+    });
+
     // Heading anchors for docs pages.
     document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach(function (h) {
       const a = document.createElement('a');

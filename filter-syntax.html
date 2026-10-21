@@ -132,7 +132,7 @@
 <p>This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in <a href="cln-1.0.html">CLN Format 1.0 (Final)</a>.</p>
 <p>Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a <code>providers</code> object (and, optionally, <code>cln</code>, <code>metadata</code> and <code>defaults</code>). Each key under <code>providers</code> is a name you choose; its value is a provider object.</p>
 <p>The optional top-level <code>cln</code> key names the format version. Its only valid value is <code>&quot;1.0&quot;</code>; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails <code>lint-rules</code>). It is not called <code>version</code> because the ClearURLs new rule format already uses that key.</p>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;amazon&quot;</span>: {
@@ -143,7 +143,7 @@
       <span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;\\/ref=[^/?]*&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <h2 id="provider-fields">Provider fields</h2>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Field</th><th scope="col">What it holds</th></tr></thead>
@@ -182,7 +182,7 @@
 </table></div>
 <p><code>^</code> means end-of-host or any separator (<code>/ ? :</code> or end of URL). <code>*</code> is a wildcard. A single <code>\|</code> needs a scheme after it (<code>\|https://…</code>) — for a domain you always want <code>\|\|</code>.</p>
 <h3 id="worked-example">Worked example</h3>
-<pre><code>||smile.amazon.*^</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>||smile.amazon.*^</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Piece</th><th scope="col">Meaning</th></tr></thead>
 <tbody>
@@ -203,7 +203,7 @@
 </tbody>
 </table></div>
 <p>To strip a parameter on only <em>some</em> of a provider's URLs, put a pattern in front of <code>$removeparam</code>:</p>
-<pre><code class="language-json"><span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;||amazon.de^$removeparam=tag&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;||amazon.de^$removeparam=tag&quot;</span>]</code></pre></div>
 <p><code>referralMarketing</code> uses the exact same syntax, but only runs while the person hasn't turned on &quot;allow referral marketing.&quot;</p>
 <h2 id="removeparam-filters">$removeparam filters</h2>
 <h3 id="syntax">Syntax</h3>
@@ -277,7 +277,7 @@
 </table></div>
 <p>Any request-type row above can be written with a leading <code>~</code> (e.g. <code>~xmlhttprequest</code>) to exclude that type instead of requiring it.</p>
 <h3 id="worked-example-1">Worked example</h3>
-<pre><code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Piece</th><th scope="col">Meaning</th></tr></thead>
 <tbody>
@@ -291,18 +291,18 @@
 <p>All four conditions must hold at once for <code>sid</code> to be stripped.</p>
 <h3 id="exceptions">Exceptions (<code>@@</code>)</h3>
 <p>A filter beginning with <code>@@</code> keeps the parameter instead of removing it — the pattern and modifiers work exactly the same way, they just flip the outcome:</p>
-<pre><code class="language-json"><span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;$removeparam=ref&quot;</span>, <span class="s">&quot;@@||github.com^$removeparam=ref&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;$removeparam=ref&quot;</span>, <span class="s">&quot;@@||github.com^$removeparam=ref&quot;</span>]</code></pre></div>
 <p>Here every provider-matched URL loses <code>ref</code>, except on <code>github.com</code>, where it's kept. An <code>@@</code> entry also reaches into <em>other</em> providers' filters when the request comes from a page this provider matches — handy for carving out one site from a site-wide rule defined elsewhere.</p>
 <p>An <code>@@</code> entry isn't a step with a place in the run order — where you list it doesn't matter, and it can't carry an <code>order</code>. For each parameter, the provider checks its <code>@@</code> entries first and its <code>$removeparam</code> filters second, and a matching <code>@@</code> entry keeps the parameter. It only guards against <code>$removeparam</code> filters: a plain <code>rules</code> entry such as <code>&quot;ref&quot;</code> still removes <code>ref</code> (use a rule object's <code>exceptions</code> for that), and raw rules have their own <code>@@…$rawrule=</code> entries. Its pattern and modifiers are checked against the URL as the provider received it at the start of the current cycle — before the provider's raw rules run — so an <code>@@</code> entry scoped to a path that a raw rule deletes still matches:</p>
-<pre><code class="language-json"><span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;\\/ref=[^/?]*&quot;</span>],
-<span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;$removeparam=tag&quot;</span>, <span class="s">&quot;@@||shop.example^/ref=$removeparam=tag&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;\\/ref=[^/?]*&quot;</span>],
+<span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;$removeparam=tag&quot;</span>, <span class="s">&quot;@@||shop.example^/ref=$removeparam=tag&quot;</span>]</code></pre></div>
 <p>For <code>https://shop.example/ref=abc?tag=1</code> the raw rule deletes <code>/ref=abc</code>, and <code>tag</code> is kept: the <code>@@</code> pattern is checked against the URL that still has <code>/ref=abc</code>.</p>
 <h2 id="rawrules">rawRules</h2>
 <p>Regexes run against the whole URL — every match gets deleted:</p>
-<pre><code class="language-json"><span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;\\/ref=[^/?]*&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;\\/ref=[^/?]*&quot;</span>]</code></pre></div>
 <p>They run <em>before</em> <code>rules</code>, so they can strip things that aren't <code>name=value</code> pairs — like Amazon's <code>/ref=…</code> path segment. A raw rule can also carry a pattern and <code>$removeparam</code>-style options, with <code>rawrule=</code> last: <code>\|\|amazon.*^/dp/$rawrule=\\/ref=[^/?]*</code>. An <code>@@…$rawrule=</code> entry stops raw rules from running instead of matching anything itself.</p>
 <h3 id="worked-example-2">Worked example</h3>
-<pre><code>||amazon.*^/dp/$rawrule=\/ref=[^/?]*</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>||amazon.*^/dp/$rawrule=\/ref=[^/?]*</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Piece</th><th scope="col">Meaning</th></tr></thead>
 <tbody>
@@ -313,10 +313,10 @@
 </table></div>
 <h2 id="exceptions-1">exceptions</h2>
 <p>Each entry is a regex against the full URL, or a domain pattern starting with <code>\|</code>:</p>
-<pre><code class="language-json"><span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https?:\\/\\/mail\\.google\\.com\\/mail\\/u\\/&quot;</span>, <span class="s">&quot;||accounts.google.com^&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https?:\\/\\/mail\\.google\\.com\\/mail\\/u\\/&quot;</span>, <span class="s">&quot;||accounts.google.com^&quot;</span>]</code></pre></div>
 <p>If the URL matches, none of the provider's rules run for that request.</p>
 <h3 id="worked-example-3">Worked example</h3>
-<pre><code>^https?:\/\/mail\.google\.com\/mail\/u\/</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>^https?:\/\/mail\.google\.com\/mail\/u\/</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Piece</th><th scope="col">Meaning</th></tr></thead>
 <tbody>
@@ -328,9 +328,9 @@
 <p>Any URL matching this stops the whole provider — Gmail keeps its tracking-looking parameters intact.</p>
 <h2 id="redirections">redirections</h2>
 <p>Either a regex with exactly one capture group — the request goes to whatever that group captures:</p>
-<pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre></div>
 <p>Or a fixed domain redirect:</p>
-<pre><code class="language-json"><span class="s">&quot;||go.example.com^$redirect=https://example.com/&quot;</span></code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="s">&quot;||go.example.com^$redirect=https://example.com/&quot;</span></code></pre></div>
 <h3 id="redirect-targets">Redirect targets</h3>
 <p>A redirect only happens to an absolute <code>http</code> or <code>https</code> URL with a host. This holds for all three kinds of target — the capture group (or <code>replacePattern</code>) of a <code>redirections</code> regex, the fixed target of a <code>$redirect=</code> entry, and the parameter value a <code>fieldRedirections</code> entry picks — and is checked after the entry's preprocessors (and after percent-decoding). An invalid target makes the entry count as not matching: no redirect happens, and the provider's later stages run on the unchanged URL. <code>lint-rules</code> rejects a <code>$redirect=</code> entry whose fixed target isn't <code>http</code> or <code>https</code>.</p>
 <div class="table-wrap"><table>
@@ -344,7 +344,7 @@
 </table></div>
 <p>A raw rule with a <code>replacePattern</code> whose result has a different scheme, host or port from its input is a redirect too: it needs a valid target, and in a remote file the <code>redirect</code> capability (§Remote file capabilities).</p>
 <h3 id="worked-example-4">Worked example</h3>
-<pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Piece</th><th scope="col">Meaning</th></tr></thead>
 <tbody>
@@ -357,7 +357,7 @@
 </table></div>
 <h2 id="fieldredirections">fieldRedirections</h2>
 <p>Names a parameter directly — its own value becomes the new URL, no regex needed:</p>
-<pre><code class="language-json"><span class="k">&quot;fieldRedirections&quot;</span>: [<span class="s">&quot;redirect&quot;</span>, <span class="s">&quot;continue_url&quot;</span>]</code></pre>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;fieldRedirections&quot;</span>: [<span class="s">&quot;redirect&quot;</span>, <span class="s">&quot;continue_url&quot;</span>]</code></pre></div>
 <p>Same entry types as <code>rules</code> (name, name regex, or <code>$removeparam</code> filter used just to pick the parameter). Whichever matching parameter comes first in the URL wins.</p>
 <h3 id="worked-example-5">Worked example</h3>
 <p>Given <code>https://site.example/away?redirect=https://real-destination.example/page</code>:</p>
@@ -370,15 +370,15 @@
 </table></div>
 <h2 id="rule-objects">Rule objects</h2>
 <p>Any entry, in any list above, can be an object instead of a string — for a stable id, a custom run order, or a rewrite instead of a delete:</p>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;id&quot;</span>: <span class="s">&quot;token-rewrite&quot;</span>,
   <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
   <span class="k">&quot;replacePattern&quot;</span>: <span class="s">&quot;clean-§1§&quot;</span>,
   <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>],
   <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/example\\.com\\/keep&quot;</span>],
-  <span class="k">&quot;order&quot;</span>: 5,
-  <span class="k">&quot;active&quot;</span>: true
-}</code></pre>
+  <span class="k">&quot;order&quot;</span>: <span class="n">5</span>,
+  <span class="k">&quot;active&quot;</span>: <span class="l">true</span>
+}</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Key</th><th scope="col">Does</th></tr></thead>
 <tbody>
@@ -407,10 +407,10 @@
 <p>Result: <code>?token=abc123</code> becomes <code>?token=clean-abc123</code>.</p>
 <h2 id="defaults">defaults</h2>
 <p>A top-level <code>defaults</code> block gives every rule of the file values it doesn't set itself, like the ClearURLs new rule format's <code>defaults</code>:</p>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>], <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/example\\.com\\/keep&quot;</span>] },
   <span class="k">&quot;providers&quot;</span>: { … }
-}</code></pre>
+}</code></pre></div>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Key</th><th scope="col">Default for each rule's…</th></tr></thead>
 <tbody>
@@ -523,27 +523,27 @@
 </table></div>
 <p>Remote Rules Health lists each rule a merge replaces as a <strong>notice</strong> naming the file whose definition won; an <strong>error</strong> is reserved for a file or entry that did not load. It also warns when a merge puts the same text in <code>rules</code> from one file and in <code>referralMarketing</code> (or a <code>rules</code> entry with <code>&quot;referralMarketing&quot;: true</code>) from another.</p>
 <h3 id="worked-example-7">Worked example</h3>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;shop&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
       <span class="k">&quot;rawRules&quot;</span>: [
         <span class="s">&quot;\\/ref=[^/?]*&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;strip-jsessionid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;;jsessionid=[^/?#]*&quot;</span>, <span class="k">&quot;order&quot;</span>: 20 }
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;strip-jsessionid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;;jsessionid=[^/?#]*&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">20</span> }
       ],
       <span class="k">&quot;rules&quot;</span>: [
         <span class="s">&quot;utm_source&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;token-rewrite&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>, <span class="k">&quot;replacePattern&quot;</span>: <span class="s">&quot;clean-§1§&quot;</span>, <span class="k">&quot;order&quot;</span>: 5 },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;token-rewrite&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>, <span class="k">&quot;replacePattern&quot;</span>: <span class="s">&quot;clean-§1§&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">5</span> },
         <span class="s">&quot;fbclid&quot;</span>,
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;aff-id&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;aff_id&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: true },
-        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;order&quot;</span>: 20 },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;aff-id&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;aff_id&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: <span class="l">true</span> },
+        { <span class="k">&quot;id&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;sid&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">20</span> },
         <span class="s">&quot;$removeparam=/^pk_/&quot;</span>
       ],
       <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>With &quot;allow referral marketing&quot; off, the provider runs:</p>
 <div class="table-wrap"><table class="sk-table">
 <thead><tr><th scope="col" rowspan="2">#</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk"><code>arrayIndex</code></th></tr></thead>
@@ -560,17 +560,17 @@
 </table></div>
 <p>Then <code>rules[5]</code> <code>&quot;$removeparam=/^pk_/&quot;</code>, with the provider's other <code>$removeparam</code> filters — it's outside the sort. With &quot;allow referral marketing&quot; on, 7 and 8 are left out and the rest keep their order. Both raw rules finish before <code>token-rewrite</code> reads the URL.</p>
 <h3 id="worked-example--whole-numbers">Worked example — whole numbers</h3>
-<pre><code class="language-json">{
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;providers&quot;</span>: {
     <span class="k">&quot;numbers&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||numbers.example^&quot;</span>],
       <span class="k">&quot;rawRules&quot;</span>: [<span class="s">&quot;r&quot;</span>, <span class="s">&quot;3&quot;</span>],
-      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;20&quot;</span>, { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;9&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: true }, <span class="s">&quot;b&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;20&quot;</span>, { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;9&quot;</span>, <span class="k">&quot;referralMarketing&quot;</span>: <span class="l">true</span> }, <span class="s">&quot;b&quot;</span>],
       <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;rm&quot;</span>, <span class="s">&quot;5&quot;</span>]
     }
   }
-}</code></pre>
+}</code></pre></div>
 <p>With &quot;allow referral marketing&quot; off:</p>
 <div class="table-wrap"><table class="sk-table">
 <thead><tr><th scope="col" rowspan="2">#</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk"><code>arrayIndex</code></th></tr></thead>

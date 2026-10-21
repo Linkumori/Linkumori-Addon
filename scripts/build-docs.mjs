@@ -128,10 +128,30 @@ function inline(text) {
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => codes[+i]);
 }
 
+// Colours JSON tokens: keys (k), strings (s), numbers (n), and true / false / null (l).
+// Works on the raw text, so escaped quotes inside strings stay inside their string.
 function highlightJson(code) {
-  return escapeHtml(code)
-    .replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;)(\s*:)/g, '<span class="k">$1</span>$2')
-    .replace(/(:\s*|\[\s*|,\s*|^\s*)(&quot;(?:[^&]|&(?!quot;))*?&quot;)/gm, '$1<span class="s">$2</span>');
+  const token = /"(?:[^"\\\n]|\\.)*"(?=\s*:)|"(?:[^"\\\n]|\\.)*"|-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b|\b(?:true|false|null)\b/g;
+  let out = '';
+  let last = 0;
+  for (const m of code.matchAll(token)) {
+    out += escapeHtml(code.slice(last, m.index));
+    const t = m[0];
+    const cls = t[0] === '"' ? (/^\s*:/.test(code.slice(m.index + t.length)) ? 'k' : 's')
+      : /^(true|false|null)$/.test(t) ? 'l' : 'n';
+    out += `<span class="${cls}">${escapeHtml(t)}</span>`;
+    last = m.index + t.length;
+  }
+  return out + escapeHtml(code.slice(last));
+}
+
+// A code listing with a language bar and a Copy button (wired up in site.js).
+const LANG_NAMES = { json: 'JSON' };
+function codeBlock(html, lang) {
+  const label = LANG_NAMES[lang] || '';
+  return `<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">${label}</span>` +
+    `<button type="button" class="copy-code" aria-label="Copy${label ? ' ' + label : ''} code">Copy</button></div>` +
+    `<pre><code${lang ? ` class="language-${lang}"` : ''}>${html}</code></pre></div>`;
 }
 
 function splitRow(line) {
@@ -197,7 +217,7 @@ function convert(md, ctx) {
       i++;
       const code = body.join('\n');
       const html = fence[1] === 'json' ? highlightJson(code) : escapeHtml(code);
-      out.push(`<pre><code${fence[1] ? ` class="language-${fence[1]}"` : ''}>${html}</code></pre>`);
+      out.push(codeBlock(html, fence[1]));
       continue;
     }
 
