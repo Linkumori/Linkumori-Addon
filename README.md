@@ -63,4 +63,4 @@ The site loads nothing from third parties: no analytics, CDNs or hosted fonts. T
 
 ## License
 
-LGPL-3.0-or-later, the same as Linkumori. The logo comes from `img/linkumori_icons.svg` on `main`.
+LGPL-3.0-or-later, the same as Linkumori, except the fonts in `assets/fonts`, which are under the SIL Open Font License 1.1 (see `assets/fonts/README.md`). The documentation pages and their diagrams follow the license of the docs they are built from. The site's [Terms of Use](legal/terms.md) list each one. The logo comes from `img/linkumori_icons.svg` on `main`.

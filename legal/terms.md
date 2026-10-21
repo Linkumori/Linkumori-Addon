@@ -18,7 +18,7 @@ By using this site you agree to these terms. If you do not agree, do not use thi
 
 ## What this site is
 
-This site describes Linkumori and publishes the CLN Format 1.0 standard and its filter syntax reference. It is provided for information only.
+This site describes Linkumori and publishes the CLN Format 1.0 standard, its filter syntax reference, and a description of how Linkumori works inside the browser. It is provided for information only.
 
 Linkumori is distributed separately, through Firefox Add-ons and GitHub Releases. Its use is governed by its own license and privacy policy, not by these terms. Nothing in these terms changes the license of Linkumori or of its source code.
 
@@ -26,9 +26,22 @@ Linkumori is distributed separately, through Firefox Add-ons and GitHub Releases
 
 The URL cleaning demo and the run-order calculator run entirely in your browser. They are simplified examples. Their results may differ from what Linkumori does, and you should not rely on them for any purpose.
 
-## Licenses and trademarks
+## Licenses
 
-Unless a file says otherwise, the site's code and text are licensed under the GNU Lesser General Public License, version 3 or any later version.
+Unless a file or this section says otherwise, the site's code and text are licensed under the GNU Lesser General Public License, version 3 or any later version.
+
+Some parts of the site are under other licenses:
+
+| Component | Files | License |
+| --- | --- | --- |
+| Inter typeface | `assets/fonts/inter-*.woff2` | SIL Open Font License 1.1. Copyright © 2016 The Inter Project Authors. See [Inter-OFL.txt](assets/fonts/Inter-OFL.txt) |
+| JetBrains Mono typeface | `assets/fonts/jetbrains-mono-*.woff2` | SIL Open Font License 1.1. Copyright © 2020 The JetBrains Mono Project Authors. See [JetBrainsMono-OFL.txt](assets/fonts/JetBrainsMono-OFL.txt) |
+| CLN Format 1.0, Filter syntax and Runtime architecture pages | built from `docs/` in the Linkumori repository | the license of that repository, described in its [License.md](https://github.com/Linkumori/Linkumori-Addon/blob/main/License.md) |
+| Diagrams | `assets/diagrams/*.svg` | the same license as the page they appear on. They are drawn from the Mermaid source in that page's document and rendered with Mermaid, an MIT-licensed tool that is not part of the site |
+
+The font files are used unmodified. The SIL Open Font License covers the font files only, not the pages or other files that use them. You may use, copy and redistribute the fonts under that license, but may not sell them by themselves.
+
+## Trademarks and attribution
 
 Linkumori is an independent fork of ClearURLs. Portions derived from ClearURLs remain the copyright of their respective authors. Firefox is a trademark of the Mozilla Foundation. This site is not affiliated with or endorsed by Mozilla, the ClearURLs project, or GitHub.
 
