@@ -150,4 +150,81 @@
     }
     render();
   });
+
+  // Hero specimen: a tracked link whose tracking parts strike out and fall away, in a loop.
+  const SPECIMENS = [
+    { site: 'amazon.com', base: 'https://www.amazon.com/dp/B0EXAMPLE', path: [['/ref=sr_1_3', 1]],
+      params: [['keywords=tea', 1], ['pd_rd_r=8d39e4cd-1e4f', 1], ['pf_rd_p=50bbfd25', 1], ['tag=affiliate-20', 1]] },
+    { site: 'news.example', base: 'https://news.example/story/42', path: [],
+      params: [['utm_source=newsletter', 1], ['id=7'], ['utm_medium=email', 1], ['utm_campaign=launch', 1], ['fbclid=IwAR2xYz8Qk', 1]] },
+    { site: 'youtu.be', base: 'https://youtu.be/dQw4w9WgXcQ', path: [],
+      params: [['si=Ab12Cd34Ef56Gh78', 1], ['t=42']] }
+  ];
+
+  function startSpecimen() {
+    const box = document.getElementById('specimen');
+    if (!box) return;
+    const countEl = document.getElementById('spec-count');
+    const bytesEl = document.getElementById('spec-bytes');
+    const siteEl = document.getElementById('spec-site');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+
+    function span(text, tracked) {
+      const s = document.createElement('span');
+      s.className = 'p' + (tracked ? ' track' : '');
+      s.textContent = text;
+      box.appendChild(s);
+      return s;
+    }
+
+    // The tracked link, with each parameter's separator kept inside its span.
+    function showDirty(spec) {
+      box.textContent = '';
+      span(spec.base);
+      spec.path.forEach(function (p) { span(p[0], p[1]); });
+      spec.params.forEach(function (p, i) { span((i ? '&' : '?') + p[0], p[1]); });
+      siteEl.textContent = spec.site;
+      countEl.textContent = '0';
+      bytesEl.textContent = '0 B';
+      return Array.from(box.querySelectorAll('.track'));
+    }
+
+    function showClean(spec) {
+      box.textContent = '';
+      span(spec.base);
+      spec.path.filter(function (p) { return !p[1]; }).forEach(function (p) { span(p[0]); });
+      spec.params.filter(function (p) { return !p[1]; }).forEach(function (p, i) { span((i ? '&' : '?') + p[0]); });
+    }
+
+    function play() {
+      const spec = SPECIMENS[index % SPECIMENS.length];
+      index++;
+      const tracked = showDirty(spec);
+      if (reduced) {
+        tracked.forEach(function (s) { s.classList.add('hit'); });
+        countEl.textContent = String(tracked.length);
+        bytesEl.textContent = tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0) + ' B';
+        return;
+      }
+      let removed = 0;
+      let bytes = 0;
+      tracked.forEach(function (s, i) {
+        setTimeout(function () {
+          s.classList.add('hit');
+          removed++;
+          bytes += s.textContent.length;
+          countEl.textContent = String(removed);
+          bytesEl.textContent = bytes + ' B';
+        }, 1100 + i * 260);
+      });
+      const struck = 1100 + tracked.length * 260 + 700;
+      setTimeout(function () { showClean(spec); }, struck);
+      setTimeout(play, struck + 3400);
+    }
+
+    play();
+  }
+
+  document.addEventListener('DOMContentLoaded', startSpecimen);
 })();
