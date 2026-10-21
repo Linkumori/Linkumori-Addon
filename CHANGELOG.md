@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.67.0] - 2026-10-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.66.0...linkumori-v100.67.0))
+### Added
+- Introduce unbounded mode to lift the 10-cycle cleaning limit (`2026-10-21`, hash: [`9d50c07`](https://github.com/Linkumori/Linkumori-Addon/commit/9d50c07))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-10-21`, hash: [`f0950c1`](https://github.com/Linkumori/Linkumori-Addon/commit/f0950c1))
+- Generated compressed URL cleaning rules bundle (`2026-10-21`, hash: [`f0950c1`](https://github.com/Linkumori/Linkumori-Addon/commit/f0950c1))
+- Let custom providers fully override providers with the same pattern (`2026-10-21`, hash: [`9e6bef3`](https://github.com/Linkumori/Linkumori-Addon/commit/9e6bef3))
+- Make the CLN 1.0 spec match the engine (`2026-10-21`, hash: [`3480593`](https://github.com/Linkumori/Linkumori-Addon/commit/3480593))
+- Say that switching a provider off matches on the pattern only (`2026-10-21`, hash: [`ef39610`](https://github.com/Linkumori/Linkumori-Addon/commit/ef39610))
+
+### Fixed
+- Resolve contradictory saved-toggle wording in the CLN 1.0 spec (#168) (`2026-10-21`, hash: [`4268f28`](https://github.com/Linkumori/Linkumori-Addon/commit/4268f28)) [#168](https://github.com/Linkumori/Linkumori-Addon/issues/168)
+
+### Documentation
+- Document capabilities of remote entries that can't be traced to a file (#171) (`2026-10-21`, hash: [`96cca51`](https://github.com/Linkumori/Linkumori-Addon/commit/96cca51)) [#171](https://github.com/Linkumori/Linkumori-Addon/issues/171)
+
 ## [v100.66.0] - 2026-10-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.65.0...linkumori-v100.66.0))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-10-18`, hash: [`5b583dd`](https://github.com/Linkumori/Linkumori-Addon/commit/5b583dd))
