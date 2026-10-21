@@ -91,7 +91,8 @@ var initializationComplete = false;
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
 // At most this many cleaning cycles run for one request; a redirect or a
-// change starts the next one (CLN 1.0 §Termination).
+// change starts the next one (CLN 1.0 §Termination). Unbounded mode
+// (storage.unboundedCyclesEnabled) lifts the cap.
 const LINKUMORI_MAX_CLEANING_CYCLES = 10;
 // Requests "Block hyperlink auditing" cancels.
 const PING_REQUEST_TYPES = Object.freeze(['ping', 'beacon']);
@@ -2714,7 +2715,7 @@ function start() {
             let result = { changes: false, url: "", redirect: false, cancel: false };
             // At the cap, processing stops and the URL is used as it stands.
             const cycleState = getRequestCycleState(request);
-            if (cycleState.cycles >= LINKUMORI_MAX_CLEANING_CYCLES) return {};
+            if (storage.unboundedCyclesEnabled !== true && cycleState.cycles >= LINKUMORI_MAX_CLEANING_CYCLES) return {};
             cycleState.cycles++;
 
             if (storage.pingBlocking && PING_REQUEST_TYPES.includes(request.type)) {

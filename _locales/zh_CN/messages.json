@@ -1247,6 +1247,14 @@
   "overload_mode_enabled_description": {
     "message": "启用后，内置规则和远程规则将一起加载，并在应用自定义规则之前合并。"
   },
+  "unbounded_cycles_enabled": {
+    "message": "无限清理循环",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "取消每个请求最多 10 次清理循环的限制。每次重写仍只应用一次，但来回重定向的规则可能导致页面无法加载，直到浏览器将其停止。除非某条规则链需要超过 10 次循环，否则请保持关闭。",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "已覆盖："
   },

@@ -1562,6 +1562,14 @@
     "message": "כאשר מופעל, כללים מובנים ומרוחקים נטענים יחד ומתמזגים לפני החלת כללים מותאמים אישית.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "מחזורי ניקוי ללא הגבלה",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "מסיר את המגבלה של 10 מחזורי ניקוי לכל בקשה. כל שכתוב עדיין חל פעם אחת בלבד, אבל כללים שמפנים הלוך ושוב עלולים למנוע מדף להיטען עד שהדפדפן יעצור אותם. השאירו אפשרות זו כבויה, אלא אם שרשרת כללים צריכה יותר מ־10 מחזורים.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "נדרסו:",
     "description": "Inline label for overridden provider count."

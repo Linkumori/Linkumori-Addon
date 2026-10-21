@@ -1562,6 +1562,14 @@
     "message": "Kad tas ir iespējots, iebūvētās un attālās kārtulas tiek ielādētas kopā un sapludinātas pirms pielāgoto kārtulu piemērošanas.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Neierobežoti tīrīšanas cikli",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Noņem 10 tīrīšanas ciklu ierobežojumu vienam pieprasījumam. Katra pārrakstīšana joprojām tiek lietota tikai vienreiz, taču noteikumi, kas pāradresē turp un atpakaļ, var neļaut lapai ielādēties, līdz pārlūks tos aptur. Atstājiet izslēgtu, ja vien noteikumu ķēdei nav nepieciešams vairāk par 10 cikliem.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ignorēts:",
     "description": "Inline label for overridden provider count."

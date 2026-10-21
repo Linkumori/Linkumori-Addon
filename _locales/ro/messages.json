@@ -1562,6 +1562,14 @@
     "message": "Când sunt activate, regulile încorporate și la distanță sunt încărcate împreună și îmbinate înainte ca regulile personalizate să fie aplicate.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Cicluri de curățare nelimitate",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Elimină limita de 10 cicluri de curățare per cerere. Fiecare rescriere se aplică în continuare o singură dată, dar regulile care redirecționează înainte și înapoi pot împiedica încărcarea unei pagini până când browserul le oprește. Lăsați opțiunea dezactivată, cu excepția cazului în care un lanț de reguli are nevoie de mai mult de 10 cicluri.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "anulat:",
     "description": "Inline label for overridden provider count."

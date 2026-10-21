@@ -1510,6 +1510,14 @@
     "message": "啟用時，內建和遠端規則會一起載入並在應用自訂規則之前進行合併。",
     "description": "超載模式切換開關的描述。"
   },
+  "unbounded_cycles_enabled": {
+    "message": "無限清理循環",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "取消每個請求最多 10 次清理循環的限制。每次改寫仍只會套用一次，但來回重新導向的規則可能導致頁面無法載入，直到瀏覽器將其停止。除非某條規則鏈需要超過 10 次循環，否則請保持關閉。",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "已覆蓋：",
     "description": "用於顯示已覆蓋提供者數量的行內標籤。"

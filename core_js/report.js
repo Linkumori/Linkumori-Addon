@@ -415,6 +415,7 @@ async function getConfigDataSections() {
             'remoteRulesEnabled',
             'builtInRulesEnabled',
             'overloadModeEnabled',
+            'unboundedCyclesEnabled',
             'hashStatus',
             'hashValidationStatus',
             'userWhitelist',
@@ -442,6 +443,7 @@ async function getConfigDataSections() {
                 remoteRulesEnabled: storage.remoteRulesEnabled === true,
                 builtInRulesEnabled: storage.builtInRulesEnabled !== false,
                 overloadModeEnabled: storage.overloadModeEnabled === true,
+                unboundedCyclesEnabled: storage.unboundedCyclesEnabled === true,
                 hashStatus: storage.hashStatus || 'unknown',
                 hashValidationStatus: storage.hashValidationStatus || 'unknown'
             },

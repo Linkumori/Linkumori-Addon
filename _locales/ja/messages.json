@@ -1562,6 +1562,14 @@
     "message": "有効にすると、組み込みルールとリモートルールが一緒に読み込まれ、カスタムルールを適用する前にマージされます。",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "クリーニングサイクルを無制限にする",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "1 リクエストあたり 10 回というクリーニングサイクルの上限を解除します。各書き換えは引き続き 1 回だけ適用されますが、相互にリダイレクトし合うルールがあると、ブラウザーが止めるまでページが読み込まれなくなることがあります。ルールの連鎖に 10 回を超えるサイクルが必要な場合を除き、オフのままにしてください。",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "上書き済み:",
     "description": "Inline label for overridden provider count."

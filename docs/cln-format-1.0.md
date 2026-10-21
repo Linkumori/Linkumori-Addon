@@ -352,6 +352,7 @@ The check covers all three sources of a target: the capture group of a `redirect
 Processing a request ends after a bounded number of cycles. The earlier 1.0 text says the cycle repeats on each new URL and states no bound. Read literally, a rewrite such as `clean-§1§` would apply again on every cycle.
 
 - **Cycle cap.** At most 10 cycles run per request. At the cap, processing stops and the URL is used as it stands.
+- **Unbounded mode.** An engine may offer a setting, off by default, that removes the cycle cap. Rewrites still run once and no-op steps still do not count. Processing then ends when a cycle changes nothing, or when the browser stops a redirect loop.
 - **Rewrites run once.** An entry with a `replacePattern` applies at most once per request.
 - **No-op steps.** A step whose output equals its input is not a change and does not start a new cycle.
 

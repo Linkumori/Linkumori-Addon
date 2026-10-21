@@ -1562,6 +1562,14 @@
     "message": "Когато е активирано, вградените и отдалечените правила се зареждат заедно и се обединяват, преди да се приложат персонализирани правила.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Неограничени цикли на почистване",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Премахва ограничението от 10 цикъла на почистване на заявка. Всяко пренаписване все още се прилага само веднъж, но правила, които пренасочват напред-назад, могат да попречат на зареждането на страницата, докато браузърът не ги спре. Оставете това изключено, освен ако верига от правила не изисква повече от 10 цикъла.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "отменено:",
     "description": "Inline label for overridden provider count."

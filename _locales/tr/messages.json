@@ -1562,6 +1562,14 @@
     "message": "Etkinleştirildiğinde, yerleşik ve uzak kurallar birlikte yüklenir ve özel kurallar uygulanmadan önce birleştirilir.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Sınırsız temizleme döngüleri",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "İstek başına 10 temizleme döngüsü sınırını kaldırır. Her yeniden yazma yine yalnızca bir kez uygulanır, ancak ileri geri yönlendiren kurallar tarayıcı onları durdurana kadar bir sayfanın yüklenmesini engelleyebilir. Bir kural zinciri 10'dan fazla döngü gerektirmedikçe bunu kapalı bırakın.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "geçersiz kılınan:",
     "description": "Inline label for overridden provider count."

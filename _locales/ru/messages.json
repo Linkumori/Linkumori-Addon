@@ -1562,6 +1562,14 @@
     "message": "Если включено, встроенные и удалённые правила загружаются вместе и объединяются перед применением пользовательских правил.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Неограниченные циклы очистки",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Снимает ограничение в 10 циклов очистки на запрос. Каждая перезапись по-прежнему применяется только один раз, но правила, перенаправляющие туда и обратно, могут не давать странице загрузиться, пока браузер их не остановит. Оставьте выключенным, если цепочке правил не требуется больше 10 циклов.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "переопределённых:",
     "description": "Inline label for overridden provider count."

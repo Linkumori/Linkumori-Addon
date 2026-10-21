@@ -1562,6 +1562,14 @@
     "message": "सक्षम होने पर, अंतर्निहित और दूरस्थ नियमों को एक साथ लोड किया जाता है और कस्टम नियम लागू करने से पहले विलय कर दिया जाता है।",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "असीमित सफ़ाई चक्र",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "प्रति अनुरोध 10 सफ़ाई चक्रों की सीमा हटा देता है। हर पुनर्लेखन अब भी केवल एक बार लागू होता है, लेकिन आगे-पीछे रीडायरेक्ट करने वाले नियम तब तक पेज को लोड होने से रोक सकते हैं जब तक ब्राउज़र उन्हें रोक न दे। जब तक किसी नियम-श्रृंखला को 10 से अधिक चक्रों की ज़रूरत न हो, इसे बंद रखें।",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ओवरराइड किया गया:",
     "description": "Inline label for overridden provider count."

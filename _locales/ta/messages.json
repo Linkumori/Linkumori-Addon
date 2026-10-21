@@ -1562,6 +1562,14 @@
     "message": "இயக்கப்பட்டால், தனிப்பயன் விதிகள் பயன்படுத்தப்படும் முன் உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை விதிகள் ஒன்றாக ஏற்றப்பட்டு ஒன்றிணைக்கப்படும்.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "வரம்பற்ற சுத்தம் செய்யும் சுழற்சிகள்",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "ஒவ்வொரு கோரிக்கைக்கும் 10 சுத்தம் செய்யும் சுழற்சிகள் என்ற வரம்பை நீக்குகிறது. ஒவ்வொரு மாற்றியெழுதலும் இன்னும் ஒருமுறை மட்டுமே பொருந்தும், ஆனால் முன்னும் பின்னும் திசைதிருப்பும் விதிகள் உலாவி அவற்றை நிறுத்தும் வரை பக்கம் ஏறாமல் தடுக்கலாம். ஒரு விதிச் சங்கிலிக்கு 10-க்கும் மேற்பட்ட சுழற்சிகள் தேவைப்படாவிட்டால் இதை அணைத்தே வைக்கவும்.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "மேலெழுதப்பட்டது:",
     "description": "Inline label for overridden provider count."

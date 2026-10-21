@@ -1562,6 +1562,14 @@
     "message": "Wenn aktiviert, werden integrierte und entfernte Regeln zusammen geladen und zusammengeführt, bevor benutzerdefinierte Regeln angewendet werden.",
     "description": "Beschreibung für den Overload-Modus-Schalter"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Unbegrenzte Bereinigungszyklen",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Hebt die Grenze von 10 Bereinigungszyklen pro Anfrage auf. Jede Umschreibung wird weiterhin nur einmal angewendet, aber Regeln, die hin und her weiterleiten, können das Laden einer Seite verhindern, bis der Browser sie stoppt. Lassen Sie dies deaktiviert, sofern eine Regelkette nicht mehr als 10 Zyklen benötigt.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "überschrieben:",
     "description": "Inline-Bezeichnung für überschriebene Anbieteranzahl."

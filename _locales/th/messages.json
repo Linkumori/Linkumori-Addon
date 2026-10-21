@@ -1562,6 +1562,14 @@
     "message": "เมื่อเปิดใช้งาน กฎในตัวและกฎระยะไกลจะถูกโหลดและรวมเข้าด้วยกันก่อนที่จะใช้กฎที่กำหนดเอง",
     "description": "คำอธิบายสำหรับสวิตช์โหมด Overload"
   },
+  "unbounded_cycles_enabled": {
+    "message": "รอบการล้างแบบไม่จำกัด",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "ยกเลิกขีดจำกัด 10 รอบการล้างต่อคำขอ การเขียนใหม่แต่ละครั้งยังคงใช้เพียงครั้งเดียว แต่กฎที่เปลี่ยนเส้นทางไปมาอาจทำให้หน้าเว็บโหลดไม่ได้จนกว่าเบราว์เซอร์จะหยุดกฎเหล่านั้น ปิดตัวเลือกนี้ไว้ เว้นแต่ชุดกฎต่อเนื่องจะต้องใช้มากกว่า 10 รอบ",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ถูกแทนที่:",
     "description": "ป้ายกำกับในบรรทัดสำหรับจำนวนผู้ให้บริการที่ถูกแทนที่"

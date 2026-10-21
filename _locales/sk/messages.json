@@ -1562,6 +1562,14 @@
     "message": "Keď je povolená, vstavané a vzdialené pravidlá sa načítajú a zlúčia pred použitím vlastných pravidiel.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Neobmedzené cykly čistenia",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Odstráni limit 10 cyklov čistenia na požiadavku. Každý prepis sa stále použije iba raz, ale pravidlá, ktoré presmerúvajú tam a späť, môžu brániť načítaniu stránky, kým ich prehliadač nezastaví. Nechajte vypnuté, pokiaľ reťazec pravidiel nepotrebuje viac ako 10 cyklov.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "prepísané:",
     "description": "Inline label for overridden provider count."

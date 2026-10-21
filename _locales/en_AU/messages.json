@@ -1562,6 +1562,14 @@
     "message": "When enabled, built-in and remote rules are loaded together and merged before custom rules are applied.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Unbounded cleaning cycles",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Removes the limit of 10 cleaning cycles per request. Each rewrite still applies only once, but rules that redirect back and forth can keep a page from loading until the browser stops them. Leave this off unless a rule chain needs more than 10 cycles.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "overridden:",
     "description": "Inline label for overridden provider count."

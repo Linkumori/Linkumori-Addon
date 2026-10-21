@@ -1562,6 +1562,14 @@
     "message": "ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ಕಸ್ಟಮ್ ನಿಯಮಗಳನ್ನು ಅನ್ವಯಿಸುವ ಮೊದಲು ಅಂತರ್ನಿರ್ಮಿತ ಮತ್ತು ರಿಮೋಟ್ ನಿಯಮಗಳನ್ನು ಒಟ್ಟಿಗೆ ಲೋಡ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ವಿಲೀನಗೊಳಿಸಲಾಗುತ್ತದೆ.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "ಮಿತಿಯಿಲ್ಲದ ಸ್ವಚ್ಛಗೊಳಿಸುವ ಚಕ್ರಗಳು",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "ಪ್ರತಿ ವಿನಂತಿಗೆ 10 ಸ್ವಚ್ಛಗೊಳಿಸುವ ಚಕ್ರಗಳ ಮಿತಿಯನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ. ಪ್ರತಿಯೊಂದು ಪುನರ್ಲೇಖನ ಇನ್ನೂ ಒಮ್ಮೆ ಮಾತ್ರ ಅನ್ವಯವಾಗುತ್ತದೆ, ಆದರೆ ಹಿಂದೆ-ಮುಂದೆ ಮರುನಿರ್ದೇಶಿಸುವ ನಿಯಮಗಳು ಬ್ರೌಸರ್ ಅವುಗಳನ್ನು ನಿಲ್ಲಿಸುವವರೆಗೆ ಪುಟ ಲೋಡ್ ಆಗದಂತೆ ತಡೆಯಬಹುದು. ನಿಯಮ ಸರಪಳಿಗೆ 10 ಕ್ಕಿಂತ ಹೆಚ್ಚು ಚಕ್ರಗಳು ಅಗತ್ಯವಿಲ್ಲದಿದ್ದರೆ ಇದನ್ನು ಆಫ್ ಆಗಿಯೇ ಬಿಡಿ.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ಅತಿಕ್ರಮಿಸಲಾಗಿದೆ:",
     "description": "Inline label for overridden provider count."

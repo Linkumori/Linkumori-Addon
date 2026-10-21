@@ -1562,6 +1562,14 @@
     "message": "När aktiverat laddas inbyggda och fjärrregler tillsammans och sammanfogas innan anpassade regler tillämpas.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Obegränsade rensningscykler",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Tar bort gränsen på 10 rensningscykler per begäran. Varje omskrivning tillämpas fortfarande bara en gång, men regler som omdirigerar fram och tillbaka kan hindra en sida från att läsas in tills webbläsaren stoppar dem. Låt detta vara avstängt om inte en regelkedja behöver fler än 10 cykler.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "åsidosatta:",
     "description": "Inline label for overridden provider count."

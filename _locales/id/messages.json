@@ -1562,6 +1562,14 @@
     "message": "Saat diaktifkan, aturan bawaan dan jarak jauh dimuat bersama dan digabungkan sebelum aturan khusus diterapkan.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Siklus pembersihan tanpa batas",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Menghapus batas 10 siklus pembersihan per permintaan. Setiap penulisan ulang tetap hanya diterapkan sekali, tetapi aturan yang mengalihkan bolak-balik dapat mencegah halaman dimuat sampai browser menghentikannya. Biarkan nonaktif kecuali rantai aturan membutuhkan lebih dari 10 siklus.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ditimpa:",
     "description": "Inline label for overridden provider count."
