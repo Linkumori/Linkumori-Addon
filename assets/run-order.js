@@ -233,11 +233,14 @@
       result.entries.forEach(function (e, i) {
         const tr = document.createElement('tr');
         cell(tr, String(i + 1));
-        cell(tr, '<code>' + esc(e.label) + '</code> ' + (e.name.startsWith('"') ? '<code>' + esc(e.name) + '</code>' : esc(e.name)));
-        cell(tr, '<code>(' + [e.stage, e.orderGroup, e.orderGroup === 0 ? e.order : '–', e.rank, e.arrayIndex].join(', ') + ')</code>');
+        // Array position on top, the rule's id or text underneath.
+        cell(tr, '<span class="ro-pos">' + esc(e.label) + '</span><span class="ro-name' + (e.name.startsWith('"') ? ' ro-text' : '') + '">' + esc(e.name) + '</span>');
+        cell(tr, '<span class="ro-key">(' + [e.stage, e.orderGroup, e.orderGroup === 0 ? e.order : '–', e.rank, e.arrayIndex].join(', ') + ')</span>');
         cell(tr, esc(e.notes.join('; ')));
         out.appendChild(tr);
       });
+      // The Notes column only shows when some entry has a note.
+      out.closest('table').classList.toggle('no-notes', !result.entries.some(function (e) { return e.notes.length; }));
       if (!result.entries.length) {
         const tr = document.createElement('tr');
         cell(tr, '');

@@ -12,6 +12,7 @@ This branch has no history in common with `main`. It holds only the site.
 | `privacy.html`, `terms.html` | The site's Privacy Policy and Terms of Use, generated from `legal/privacy.md` and `legal/terms.md` |
 | `assets/` | Styles, scripts and the logo |
 | `assets/og-image.png`, `assets/icon-32.png`, `assets/apple-touch-icon.png` | Share card and PNG icons, rendered by `scripts/make-images.py` |
+| `assets/popup-light.webp`, `assets/popup-dark.webp` | Screenshots of the real extension popup, taken by `scripts/capture-popup.sh` |
 | `404.html` | Shown by GitHub Pages for any missing path |
 | `sitemap.xml` | Every page, written by `scripts/build-docs.mjs` |
 | `partials/run-order-tool.html` | The calculator markup, placed into `cln-1.0.html` by the build |
@@ -34,6 +35,16 @@ It reads `docs/*.md` from the local `main` branch with `git show`. To read from 
 ```bash
 python3 scripts/make-images.py
 ```
+
+## Updating the popup screenshots
+
+The home page shows the real extension popup (`html/popup.html` on `main`). After the popup changes, retake both themes:
+
+```bash
+scripts/capture-popup.sh
+```
+
+It loads the popup from `main` with `scripts/popup-shot/shot-stub.js` standing in for the extension APIs, so the counters and the current site are sample values. It needs Microsoft Edge or Google Chrome, ImageMagick and Python 3.
 
 ## Previewing
 

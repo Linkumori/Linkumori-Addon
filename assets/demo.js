@@ -168,6 +168,8 @@
     const bytesEl = document.getElementById('spec-bytes');
     const siteEl = document.getElementById('spec-site');
     const badgeEl = document.getElementById('spec-badge');
+    // Any of the counters may be absent from the page.
+    function setText(el, value) { if (el) el.textContent = value; }
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let index = 0;
 
@@ -186,9 +188,9 @@
       spec.path.forEach(function (p) { span(p[0], p[1]); });
       spec.params.forEach(function (p, i) { span((i ? '&' : '?') + p[0], p[1]); });
       siteEl.textContent = spec.site;
-      countEl.textContent = '0';
-      if (badgeEl) badgeEl.textContent = '0';
-      bytesEl.textContent = '0';
+      setText(countEl, '0');
+      setText(badgeEl, '0');
+      setText(bytesEl, '0');
       return Array.from(box.querySelectorAll('.track'));
     }
 
@@ -205,9 +207,9 @@
       const tracked = showDirty(spec);
       if (reduced) {
         tracked.forEach(function (s) { s.classList.add('hit'); });
-        countEl.textContent = String(tracked.length);
-        if (badgeEl) badgeEl.textContent = String(tracked.length);
-        bytesEl.textContent = String(tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0));
+        setText(countEl, String(tracked.length));
+        setText(badgeEl, String(tracked.length));
+        setText(bytesEl, String(tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0)));
         return;
       }
       let removed = 0;
@@ -217,9 +219,9 @@
           s.classList.add('hit');
           removed++;
           bytes += s.textContent.length;
-          countEl.textContent = String(removed);
-          if (badgeEl) badgeEl.textContent = String(removed);
-          bytesEl.textContent = String(bytes);
+          setText(countEl, String(removed));
+          setText(badgeEl, String(removed));
+          setText(bytesEl, String(bytes));
         }, 1100 + i * 260);
       });
       const struck = 1100 + tracked.length * 260 + 700;
