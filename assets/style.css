@@ -1,9 +1,41 @@
 /*
  * Linkumori website styles.
- * Clean product-page look: system sans type, white and light-grey sections,
+ * Clean product-page look: Inter type, white and light-grey sections,
  * large centred headlines, rounded tiles and pill buttons.
- * Uses the reader's system font, so the site makes no font requests at all.
+ * Inter and JetBrains Mono are served from assets/fonts (SIL OFL 1.1), so the
+ * site makes no font requests to other hosts.
  */
+
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url("fonts/inter-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url("fonts/inter-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url("fonts/inter-latin-ext-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+  src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+  src: url("fonts/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
 :root {
   --bg: #ffffff;
@@ -39,8 +71,8 @@
   --shadow-sm: 0 2px 8px rgb(0 0 0 / 6%);
   --shadow: 0 4px 24px rgb(0 0 0 / 8%);
   --shadow-lg: 0 30px 80px -20px rgb(0 0 0 / 25%), 0 8px 24px rgb(0 0 0 / 6%);
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI Variable Text", "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI Variable Text", "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, "Cascadia Code", Consolas, "Liberation Mono", monospace;
   --r-sm: 12px;
   --r: 18px;
   --r-lg: 28px;
@@ -129,8 +161,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 17px/1.47 var(--font);
-  letter-spacing: -0.022em;
+  font: 17px/1.5 var(--font);
+  letter-spacing: -0.011em;
+  font-feature-settings: "cv11", "ss03";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -141,7 +174,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 img, svg { max-width: 100%; }
 
-code, pre, kbd { font-family: var(--mono); font-size: 0.88em; letter-spacing: 0; font-variant-ligatures: none; }
+code, pre, kbd { font-family: var(--mono); font-size: 0.86em; letter-spacing: 0; font-variant-ligatures: none; font-feature-settings: normal; }
 
 :not(pre) > code {
   background: var(--bg-alt);
@@ -479,13 +512,28 @@ pre .l { color: var(--code-lit); }
 
 /* Doc tables, as in Apple's developer documentation: one rounded outline, row rules only */
 .table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg); }
-table { border-collapse: collapse; width: 100%; font-size: 15px; letter-spacing: -0.01em; }
-th, td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; letter-spacing: -0.006em; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
 tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
-thead th { font-size: 13px; font-weight: 600; color: var(--text-2); white-space: nowrap; border-bottom: 1px solid var(--line); }
-/* Code inside a table reads as plain monospace, without a chip behind it */
-td code, th code { background: transparent; padding: 0; border-radius: 0; font-size: 13.5px; color: var(--text); }
-td code { white-space: nowrap; }
+thead th { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-2); white-space: nowrap; background: var(--bg-alt); border-bottom: 1px solid var(--line); }
+tbody tr:hover > * { background: color-mix(in srgb, var(--bg-alt) 55%, transparent); }
+/* Code inside a table reads as plain monospace, without a chip behind it. It may break
+   anywhere, so a long example wraps instead of running past the table's edge. */
+.prose .table-wrap td code, .prose .table-wrap th code, td code, th code { background: transparent; box-shadow: none; padding: 0; border-radius: 0; font-size: 13px; color: var(--text); overflow-wrap: anywhere; }
+/* The first column names the thing the row is about: keep it on one line, in the accent colour */
+.prose .table-wrap td:first-child code { white-space: nowrap; color: var(--code-key); font-weight: 500; }
+.prose td:first-child { width: 1%; }
+/* On a phone, a two-column table (name, then what it means) stacks each row: the
+   name on top, its description under it. Wider tables scroll sideways instead. */
+@media (max-width: 640px) {
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) thead { display: none; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) :is(tbody, tr, td) { display: block; width: auto; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) tr { padding: 12px 16px; border-bottom: 1px solid var(--line-soft); }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) tr:last-child { border-bottom: 0; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) td { padding: 0; border: 0; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) td:first-child { margin-bottom: 4px; font-weight: 600; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) td:first-child code { white-space: normal; }
+}
 
 /* Comparison, in a compare-page style: product columns, plain marks, hairlines */
 .compare-wrap { max-width: 860px; margin: 0 auto; }
@@ -549,8 +597,14 @@ td code { white-space: nowrap; }
 
 /* ---------- Callouts ---------- */
 
-.callout { background: var(--bg-alt); border-radius: var(--r); padding: 20px 24px; margin: 28px 0; }
+.callout { position: relative; background: color-mix(in srgb, var(--blue) 6%, var(--bg)); border: 1px solid color-mix(in srgb, var(--blue) 22%, var(--line-soft)); border-radius: var(--r); padding: 18px 22px 18px 52px; margin: 28px 0; font-size: 15.5px; line-height: 1.65; }
+.callout::before {
+  content: "i"; position: absolute; left: 20px; top: 20px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--blue); color: #fff; font: 700 12px/20px var(--font); text-align: center; font-style: normal;
+}
 .callout p { margin: 0.4em 0; }
+.callout p:first-child { margin-top: 0; }
+.callout p:last-child { margin-bottom: 0; }
 .callout ul { margin: 0.5em 0; }
 
 /* ---------- Docs ---------- */
@@ -574,21 +628,50 @@ td code { white-space: nowrap; }
 .toc summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-2); padding: 14px 0; }
 @media (min-width: 1040px) { .toc summary { pointer-events: none; list-style: none; padding-top: 2px; } .toc summary::-webkit-details-marker { display: none; } }
 .toc ol { list-style: none; margin: 0; padding: 0 0 12px; }
-.toc ol ol { padding: 0 0 4px 12px; }
-.toc a { display: block; padding: 5px 10px; margin: 1px 0; color: var(--text-2); border-radius: 8px; line-height: 1.35; }
-.toc ol ol a { font-size: 13px; }
+/* Sections, with their subsections hanging off a hairline rail */
+.toc ol ol { margin: 2px 0 8px 10px; padding: 0; border-left: 1px solid var(--line-soft); }
+.toc a { display: block; padding: 5px 10px; margin: 1px 0; color: var(--text-2); border-radius: 8px; line-height: 1.4; }
+.toc > details > ol > li > a { color: var(--text); font-weight: 500; }
+.toc ol ol a { font-size: 13px; margin-left: -1px; padding-left: 13px; border-radius: 0 8px 8px 0; border-left: 1px solid transparent; }
 .toc a:hover { color: var(--text); background: var(--bg-alt); text-decoration: none; }
-.toc a.active { color: var(--link); background: color-mix(in srgb, var(--blue) 10%, transparent); font-weight: 500; }
+.toc a.active { color: var(--link); background: color-mix(in srgb, var(--blue) 9%, transparent); }
+.toc ol ol a.active { border-left-color: var(--link); }
+.toc .h-num { display: inline-block; min-width: 1.6em; color: var(--text-3); font-weight: 400; font-variant-numeric: tabular-nums; }
+.toc ol ol .h-num { min-width: 2.1em; }
+.toc code { background: transparent; padding: 0; font-size: 0.92em; color: inherit; }
 
-.prose { min-width: 0; max-width: 760px; }
-.prose h2 { font-size: clamp(28px, 3.4vw, 34px); line-height: 1.15; font-weight: 700; letter-spacing: -0.025em; margin: 72px 0 16px; padding-top: 8px; }
-.prose > h2:first-of-type { margin-top: 0; }
-.prose h3 { font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -0.02em; margin: 44px 0 10px; }
-.prose h4 { font-size: 18px; font-weight: 600; margin: 32px 0 8px; }
-.prose ul, .prose ol { padding-left: 1.3em; }
-.prose li { margin: 6px 0; }
-.prose li::marker { color: var(--text-3); }
+.prose { min-width: 0; max-width: 760px; font-size: 16.5px; line-height: 1.7; letter-spacing: -0.008em; color: var(--text); }
+.prose p, .prose li { text-wrap: pretty; }
+.prose p { margin: 0 0 1.05em; }
+.prose strong { font-weight: 600; }
+
+/* Sections: a hairline above each, the section number set apart */
+.prose h2 { font-size: clamp(26px, 3vw, 31px); line-height: 1.2; font-weight: 650; letter-spacing: -0.024em; margin: 80px 0 18px; }
+.prose > h2 { padding-top: 36px; border-top: 1px solid var(--line-soft); }
+.prose > h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+.prose h3 { font-size: 20px; line-height: 1.3; font-weight: 620; letter-spacing: -0.018em; margin: 48px 0 10px; }
+.prose h4 { font-size: 16.5px; font-weight: 620; margin: 32px 0 8px; }
+.prose h2 + h3 { margin-top: 28px; }
+.h-num { margin-right: 0.45em; color: var(--text-3); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Lists: small round markers; a bold lead-in reads as the item's title */
+.prose ul, .prose ol { padding-left: 1.35em; margin: 0 0 1.2em; }
+.prose li { margin: 0.45em 0; padding-left: 0.2em; }
+.prose ul > li::marker { color: var(--text-3); font-size: 0.85em; }
+.prose ol > li::marker { color: var(--text-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+.prose li > strong:first-child { color: var(--text); }
+.prose li > ul, .prose li > ol { margin: 0.4em 0 0.6em; }
+
+/* Inline code: a hairline chip, quieter than the text around it */
+.prose :not(pre) > code {
+  font-size: 0.84em; padding: 0.14em 0.42em; border-radius: 6px;
+  background: var(--bg-alt); box-shadow: inset 0 0 0 1px var(--line-soft); color: var(--text);
+}
+.prose a code { color: var(--link); }
+.prose h2 code, .prose h3 code { font-size: 0.86em; font-weight: 600; background: transparent; box-shadow: none; padding: 0; }
+
 .prose a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--link) 35%, transparent); text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: currentColor; }
 .prose a.anchor { text-decoration: none; color: var(--text-3); margin-left: 8px; opacity: 0; font-weight: 400; }
 .prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose a.anchor:focus { opacity: 1; }
 .doc-src { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--text-2); }
