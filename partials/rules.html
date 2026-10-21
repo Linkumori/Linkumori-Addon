@@ -1,0 +1,259 @@
+<p class="rx-lede">Linkumori can take rules from several places at once. Before any request is cleaned, it picks the sources to use, merges them, puts your custom rules on top, and removes what you switched off. This page walks through each step, with every case.</p>
+
+<h2 id="the-pipeline">The pipeline</h2>
+<p>Rules are loaded at startup and again whenever you save custom rules or refresh remote rules in settings. Each load runs these steps, in order, and the engine then uses the result for every request until the next load.</p>
+<ol class="rx-flow" aria-label="How a rule set is built">
+  <li><span class="rx-step">1</span><b>Pick the sources</b><small>Built-in, remote, the verified cache, or none</small></li>
+  <li><span class="rx-step">2</span><b>Merge</b><small>Remote files with each other; with built-in in overload mode</small></li>
+  <li><span class="rx-step">3</span><b>Custom rules on top</b><small>A matching custom provider replaces; others are added</small></li>
+  <li><span class="rx-step">4</span><b>Switch things off</b><small>Excluded providers go; switched-off rules are skipped</small></li>
+  <li><span class="rx-step">5</span><b>Clean requests</b><small>Providers run in order, pass after pass</small></li>
+</ol>
+
+<h2 id="sources">Where rules come from</h2>
+<div class="rx-sources">
+  <article class="rx-source">
+    <span class="rx-tag rx-o-builtin">Built-in</span>
+    <h3>Built-in rules</h3>
+    <p>Ship with each release of the extension. On by default. Switch them off in settings to run only remote or custom rules.</p>
+  </article>
+  <article class="rx-source">
+    <span class="rx-tag rx-o-remote">Remote</span>
+    <h3>Remote rule files</h3>
+    <p>Off by default. Each is a pair of addresses: the rule file and a hash file. Linkumori fetches both, and loads the file only if its SHA-256 matches the hash.</p>
+  </article>
+  <article class="rx-source">
+    <span class="rx-tag rx-o-cache">Cache</span>
+    <h3>Verified cache</h3>
+    <p>The last remote rules that passed verification. Used when every remote file fails to load, if the cache belongs to the files you have configured.</p>
+  </article>
+  <article class="rx-source">
+    <span class="rx-tag rx-o-custom">Custom</span>
+    <h3>Custom rules</h3>
+    <p>The providers you write in the custom rules editor. Always applied last, on top of whatever else loaded.</p>
+  </article>
+</div>
+<p class="rx-note"><b>Safety net.</b> If the built-in rules file can't be read, Linkumori uses the remote cache, then the last rule set that loaded, then a small fallback list, so cleaning never stops entirely.</p>
+
+<h3 id="remote-verification">How a remote file is checked</h3>
+<ol class="rx-steps">
+  <li><b>Fetch the hash file.</b> It must hold 32 to 128 hexadecimal characters.</li>
+  <li><b>Fetch the rule file</b> and compare its SHA-256 with the hash. A mismatch rejects the file.</li>
+  <li><b>Parse it</b> as a CLN rule file with a <code>providers</code> object.</li>
+  <li><b>Merge</b> the files that passed, in the order you listed them, and save them as the verified cache.</li>
+</ol>
+<p>Both requests skip the browser cache, so a file and its hash always come from the same moment. Files are fetched in parallel, and one failing file doesn't stop the others.</p>
+
+<h2 id="which-sources-load">Which sources load</h2>
+<p>Three settings and what happens to the remote files decide the base rule set. Change the switches to see the path Linkumori takes.</p>
+
+<div class="rx-explorer" id="rx-explorer">
+  <div class="rx-controls" role="group" aria-label="Settings">
+    <fieldset class="rx-seg"><legend>Built-in rules</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-builtin" value="on" checked><span>On</span></label>
+      <label><input type="radio" name="rx-builtin" value="off"><span>Off</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg"><legend>Remote rules</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-remote" value="off" checked><span>Off</span></label>
+      <label><input type="radio" name="rx-remote" value="on"><span>On</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg" data-when="remote"><legend>Remote files</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-fetch" value="ok" checked><span>All verified</span></label>
+      <label><input type="radio" name="rx-fetch" value="some"><span>Some failed</span></label>
+      <label><input type="radio" name="rx-fetch" value="none"><span>All failed</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg" data-when="failed"><legend>Verified cache</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-cache" value="yes" checked><span>Available</span></label>
+      <label><input type="radio" name="rx-cache" value="no"><span>None</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg"><legend>Overload mode</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-overload" value="off" checked><span>Off</span></label>
+      <label><input type="radio" name="rx-overload" value="on"><span>On</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg"><legend>Custom rules</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-custom" value="yes" checked><span>Some</span></label>
+      <label><input type="radio" name="rx-custom" value="no"><span>None</span></label>
+    </div></fieldset>
+  </div>
+  <div class="rx-result" aria-live="polite">
+    <p class="rx-summary" id="rx-summary"></p>
+    <div class="rx-stack" id="rx-stack" aria-label="Rule set that runs, top to bottom"></div>
+    <ol class="rx-path" id="rx-path" aria-label="Steps taken"></ol>
+  </div>
+</div>
+
+<h3 id="every-combination">Every combination</h3>
+<p>The same decisions as a table. A dash means the setting makes no difference in that row. Custom rules, if you have any, go on top in every row.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">Remote files</th><th scope="col">Cache</th><th scope="col">Overload</th><th scope="col">Base rule set</th></tr></thead>
+<tbody>
+<tr><td>Off</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>None: custom rules only</td></tr>
+<tr><td>On</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>Built-in</td></tr>
+<tr><td>–</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>Off</td><td>Remote files that passed, merged. Built-in is not used</td></tr>
+<tr><td>On</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Built-in and remote, merged</td></tr>
+<tr><td>Off</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Remote. Overload mode needs built-in rules on</td></tr>
+<tr><td>On</td><td>On</td><td>All failed</td><td>Available</td><td>On</td><td>Cached remote and built-in, merged</td></tr>
+<tr><td>–</td><td>On</td><td>All failed</td><td>Available</td><td>Off</td><td>Cached remote</td></tr>
+<tr><td>On</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>Built-in</td></tr>
+<tr><td>Off</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>None: custom rules only</td></tr>
+</tbody>
+</table></div>
+<p class="rx-note">Remote rules switched on with no valid pair of addresses count as off.</p>
+
+<h2 id="overload-mode">Overload mode: merging sources</h2>
+<p>Without overload mode, remote rules <em>replace</em> the built-in ones. With it, both load and providers for the same site merge into one, so you can add to the built-in rules instead of copying them.</p>
+
+<h3 id="merge-order">Order and matching</h3>
+<ol class="rx-steps">
+  <li><b>Remote files merge first,</b> with each other, in the order you list them.</li>
+  <li><b>Then with built-in:</b> built-in providers first, remote providers after.</li>
+  <li><b>Providers merge only if they match:</b> the same <code>domainPatterns</code> (in any order) or the same <code>urlPattern</code>, and the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code>. Anything else stays a separate provider.</li>
+  <li><b>Lists join in load order:</b> <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>, built-in entries first. Exact copies count once.</li>
+  <li><b>The same text twice:</b> the later definition, from remote, wins. Without its own <code>order</code> it keeps the earlier one's place and <code>order</code>.</li>
+</ol>
+
+<h3 id="merge-example">Example: one site in both sources</h3>
+<div class="rx-merge" aria-label="A built-in and a remote provider for amazon merging into one">
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-builtin"><code>\/ref=[^/?]*</code><small>rawRules</small></li>
+      <li class="rx-o-builtin"><code>qid</code></li>
+      <li class="rx-o-builtin"><code>token</code><small>order 1</small></li>
+    </ul>
+  </div>
+  <div class="rx-plus" aria-hidden="true">+</div>
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-remote">Remote</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-remote"><code>token</code><small>no order</small></li>
+      <li class="rx-o-remote"><code>psc</code></li>
+    </ul>
+  </div>
+  <div class="rx-arrow" aria-hidden="true">→</div>
+  <div class="rx-prov rx-prov-out">
+    <div class="rx-prov-head"><span class="rx-tag">Merged</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-builtin"><code>\/ref=[^/?]*</code><small>rawRules</small></li>
+      <li class="rx-o-builtin"><code>qid</code></li>
+      <li class="rx-o-remote"><code>token</code><small>remote wins, keeps order 1</small></li>
+      <li class="rx-o-remote"><code>psc</code></li>
+    </ul>
+  </div>
+</div>
+<p class="rx-legend"><span class="rx-tag rx-o-builtin">Built-in</span> <span class="rx-tag rx-o-remote">Remote</span> show where each rule came from.</p>
+
+<h3 id="overload-cases">All the cases</h3>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">What runs</th></tr></thead>
+<tbody>
+<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>order: 50</code></td><td><code>token</code> at <code>order: 50</code></td></tr>
+<tr><td><code>token</code>, <code>order: 1</code></td><td><code>"token"</code></td><td><code>token</code> at <code>order: 1</code></td></tr>
+<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>"order": null</code></td><td><code>token</code> with no <code>order</code></td></tr>
+<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>order: 30</code></td><td><code>token</code> at <code>order: 30</code>: the last-listed file wins</td></tr>
+<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>"token"</code></td><td><code>token</code> at <code>order: 20</code></td></tr>
+<tr><td><code>a</code> <code>order: 1</code>, <code>b</code> <code>order: 2</code></td><td><code>b</code> <code>order: 1</code>, <code>a</code> <code>order: 2</code></td><td><code>b</code>, then <code>a</code></td></tr>
+<tr><td><code>fromBuiltIn</code>, <code>order: 5</code></td><td><code>fromRemote</code>, <code>order: 5</code></td><td>Both; <code>fromBuiltIn</code> first</td></tr>
+<tr><td><code>token</code> on <code>||site.example^</code></td><td><code>token</code> on <code>||other.example^</code></td><td>Not merged: two providers</td></tr>
+<tr><td><code>rules</code>: <code>"tag"</code></td><td><code>referralMarketing</code>: <code>"tag"</code></td><td>The <code>referralMarketing</code> entry replaces the <code>rules</code> one while referral-marketing rules run</td></tr>
+</tbody>
+</table></div>
+<p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
+
+<h2 id="custom-rules">Custom rules: replace or add</h2>
+<p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> a matching provider whole, or is <b>added</b> next to the others.</p>
+<div class="rx-callout"><b>A matching custom provider replaces the whole provider.</b> Its rules are not combined with the built-in or remote ones. To add one rule to a built-in provider, copy that provider into the editor and add your rule to the copy. Or use a different pattern, so yours is added alongside.</div>
+
+<h3 id="custom-example">Example: the same pattern replaces</h3>
+<div class="rx-merge" aria-label="A custom provider with the same pattern replacing the built-in one">
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-builtin"><code>qid</code></li>
+      <li class="rx-o-builtin"><code>pd_rd_[a-z]*</code></li>
+      <li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small></li>
+    </ul>
+  </div>
+  <div class="rx-plus" aria-hidden="true">+</div>
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-custom"><code>qid</code></li>
+      <li class="rx-o-custom"><code>ref_</code></li>
+    </ul>
+  </div>
+  <div class="rx-arrow" aria-hidden="true">→</div>
+  <div class="rx-prov rx-prov-out">
+    <div class="rx-prov-head"><span class="rx-tag">Runs</span><code>||amazon.*^</code></div>
+    <ul>
+      <li class="rx-o-custom"><code>qid</code></li>
+      <li class="rx-o-custom"><code>ref_</code></li>
+      <li class="rx-gone"><code>pd_rd_[a-z]*</code><small>no longer removed</small></li>
+      <li class="rx-gone"><code>tag</code><small>no longer removed</small></li>
+    </ul>
+  </div>
+</div>
+
+<h3 id="custom-cases">Every custom-rule case</h3>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Your custom provider</th><th scope="col">Result</th></tr></thead>
+<tbody>
+<tr><td>Same pattern and settings as a built-in or remote provider</td><td><b>Replaces</b> it. Only your rules run for that provider</td></tr>
+<tr><td>Same pattern, but different <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> or <code>forceRedirection</code></td><td><b>Added</b> as a separate provider. Both run</td></tr>
+<tr><td>A different pattern, such as <code>||amazon.de^</code> next to <code>||amazon.*^</code></td><td><b>Added.</b> Both run where both patterns match</td></tr>
+<tr><td>The same <code>domainPatterns</code> in a different order</td><td>Counts as the same pattern: <b>replaces</b></td></tr>
+<tr><td>A name already used by another provider, with a different pattern</td><td><b>Added</b> under a new name: <code>amazon_1</code>, <code>amazon_2</code>, …</td></tr>
+<tr><td>A provider you switched off in the custom rules editor</td><td><b>Removed</b> from both the base rules and the custom rules</td></tr>
+<tr><td>No <code>domainPatterns</code> or <code>urlPattern</code></td><td><b>Dropped</b>: it can't match anything</td></tr>
+</tbody>
+</table></div>
+<p>When both a base provider and a custom provider match a request, both still get to clean it. The first provider that changes, redirects or blocks the URL ends that pass, and the cleaned URL starts a new pass, so the other provider runs next.</p>
+
+<h2 id="switching-off">Switching rules off</h2>
+<p>You can switch off a single rule, or a whole provider, without editing any file. Switched-off rules are left out when the providers are built.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Scope</th><th scope="col">Saved as</th><th scope="col">Switches the rule off</th></tr></thead>
+<tbody>
+<tr><td>Provider</td><td><code>provider::id</code></td><td>Everywhere in that provider</td></tr>
+<tr><td>Pattern</td><td><code>domainPattern:||shop.example^::id</code></td><td>Only for URLs matching that one pattern</td></tr>
+</tbody>
+</table></div>
+<ul>
+  <li><b>Toggles survive merges.</b> If a merge replaces a rule, the replaced rule's id still switches the rule that runs.</li>
+  <li><b>Toggles survive edits.</b> Switching off a rule without its own <code>id</code> pins its generated id, so the setting keeps working when the rule's text changes a little. A pin that no longer matches any rule shows as an orphaned toggle in the editor.</li>
+  <li><b>Renames.</b> When a rule's <code>id</code> changes, its old ids in <code>aliases</code> keep saved toggles working.</li>
+</ul>
+
+<h2 id="defaults">Rule defaults</h2>
+<p>Each rule file can have a <code>defaults</code> block, for example request types or exceptions that every rule in the file gets unless it sets its own. In the custom rules editor, <i>Manage rule defaults</i> sets your own block and where it applies.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Setting</th><th scope="col">Built-in rules use</th><th scope="col">Remote files use</th><th scope="col">Custom rules use</th></tr></thead>
+<tbody>
+<tr><td>Each source's own (the default)</td><td>Their own</td><td>Each file's own</td><td>Their own</td></tr>
+<tr><td>Yours for built-in and remote rules</td><td>Yours</td><td>Yours</td><td>Their own</td></tr>
+<tr><td>Yours for all rules</td><td>Yours</td><td>Yours</td><td>Yours</td></tr>
+</tbody>
+</table></div>
+<p>A rule's own value always wins, and a provider's <code>exceptions</code> list is never changed by defaults. Defaults are applied to each file when it loads, so they stay with their file through overload mode.</p>
+
+<h2 id="remote-capabilities">What a remote file may do</h2>
+<p>A remote file gets capabilities from what it contains. Removing, rewriting and excepting work as soon as it loads. Redirecting and blocking wait until you accept them for that file in Remote Rules Health.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Capability</th><th scope="col">The file contains</th><th scope="col">Active</th></tr></thead>
+<tbody>
+<tr><td><code>strip</code></td><td><code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code> or <code>$removeparam</code> entries</td><td><span class="pill ok">On load</span></td></tr>
+<tr><td><code>rewrite</code></td><td>An entry with a <code>replacePattern</code></td><td><span class="pill ok">On load</span></td></tr>
+<tr><td><code>except</code></td><td>Provider <code>exceptions</code> or <code>@@</code> entries</td><td><span class="pill ok">On load</span></td></tr>
+<tr><td><code>redirect</code></td><td><code>redirections</code>, <code>fieldRedirections</code> or <code>forceRedirection</code></td><td><span class="pill wait">After you accept</span></td></tr>
+<tr><td><code>block</code></td><td>A provider with <code>"completeProvider": true</code></td><td><span class="pill wait">After you accept</span></td></tr>
+</tbody>
+</table></div>
+<p>Built-in and custom rules hold every capability. A file that gains a capability in an update waits for acceptance again.</p>
+
+<h2 id="at-run-time">At run time</h2>
+<ul>
+  <li><b>Providers run in turn.</b> For each request, every provider whose pattern matches is tried. The first that changes, redirects or blocks the URL ends the pass.</li>
+  <li><b>Passes repeat.</b> A changed URL starts a new pass, up to 10 per request. Settings → <i>Unbounded cleaning cycles</i> removes the cap; use it only for rules you trust, since two rules that redirect to each other then loop.</li>
+  <li><b>Inside a provider,</b> entries run in the exact order CLN 1.0 defines. See <a href="cln-1.0.html#processing-order">Processing order</a> and the run-order calculator.</li>
+  <li><b>Nothing reloads on a timer.</b> Rules load at startup, when you save custom rules, and when you refresh remote rules in settings.</li>
+</ul>
