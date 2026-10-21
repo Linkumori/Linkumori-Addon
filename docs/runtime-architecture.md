@@ -290,8 +290,9 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
    whatever their `methods`, `resourceTypes`, `completeProvider` and
    `forceRedirection` (`getProviderPatternOnlyGroupKey`). Their rules are not
    combined. Overload mode still merges built-in and remote providers only
-   when the pattern and all four settings match (§5.2), and switching a
-   provider off (step 1) still matches on all of them.
+   when the pattern and all four settings match (§5.2). Switching a provider
+   off (step 1) uses the pattern-only key too (`isProviderSignatureDisabled`),
+   so it removes every provider with that pattern.
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id

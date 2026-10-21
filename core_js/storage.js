@@ -2682,7 +2682,7 @@ function mergeCustomRules(bundledRules) {
 
                 // A custom provider fully overrides every base provider with the same
                 // pattern, whatever their methods, resourceTypes, completeProvider or
-                // forceRedirection. Switched-off providers still match on the full key.
+                // forceRedirection. Switched-off providers match on the pattern-only key too.
                 const customPatternKeys = new Set(customEntries.map(entry => entry.patternKey));
                 const basePatternKeys = new Set(baseEntries.map(entry => entry.patternKey));
                 const overriddenBaseEntries = baseEntries.filter(entry => customPatternKeys.has(entry.patternKey));
