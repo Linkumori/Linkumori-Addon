@@ -569,6 +569,14 @@ td code { white-space: nowrap; }
 .terms dd { margin: 4px 0 0; font-size: 15px; color: var(--text-2); }
 .terms code { white-space: nowrap; }
 
+/* Sort-key tables: (stage, orderGroup, order, rank, arrayIndex) as five columns */
+th.sk-group { text-align: center; border-bottom: 1px solid var(--line); }
+th.sk { text-align: center; font-weight: 400; padding: 8px 10px; }
+th.sk code { background: transparent; padding: 0; font-size: 12.5px; color: var(--text-2); }
+td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/1.4 var(--mono); letter-spacing: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sk-table thead tr:first-child th, .ro-table thead tr:first-child th { vertical-align: bottom; }
+thead th.sk-edge { border-right: 1px solid var(--line); }
+
 /* Run-order tool */
 .tool { background: var(--bg-alt); border-radius: var(--r-lg); padding: 26px; margin: 28px 0; }
 .tool textarea {
@@ -587,11 +595,10 @@ td code { white-space: nowrap; }
 .ro-pos { display: block; font: 13.5px/1.4 var(--mono); letter-spacing: 0; color: var(--text); white-space: nowrap; }
 .ro-name { display: block; margin-top: 2px; font-size: 14px; color: var(--text-2); overflow-wrap: anywhere; }
 .ro-name.ro-text { font: 13px/1.4 var(--mono); letter-spacing: 0; }
-.ro-key { font: 13.5px/1.4 var(--mono); letter-spacing: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.ro-key-head { display: block; margin-top: 2px; font: 400 12px/1.3 var(--mono); letter-spacing: 0; color: var(--text-2); white-space: nowrap; }
-.ro-table td:nth-child(4) { font-size: 14px; color: var(--text-2); }
-.ro-table.no-notes th:nth-child(4), .ro-table.no-notes td:nth-child(4) { display: none; }
-.ro-table.no-notes th:nth-child(3), .ro-table.no-notes td:nth-child(3) { border-right: 0; }
+.ro-table td.ro-notes { font-size: 14px; color: var(--text-2); }
+.ro-table.no-notes .ro-notes { display: none; }
+.ro-table.no-notes thead tr:first-child > :nth-last-child(2), .ro-table.no-notes tbody tr > :nth-last-child(2) { border-right: 0; }
+.ro-table.no-notes th.ro-edge { border-right: 0; }
 .tool-msg { font-size: 14px; margin: 8px 0; color: var(--text-2); }
 .tool-msg.err { color: var(--strike); }
 .tool-msg ul { margin: 6px 0; padding-left: 1.2em; }
