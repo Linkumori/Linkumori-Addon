@@ -236,6 +236,83 @@
 </table></div>
 <p>A rule's own value always wins, and a provider's <code>exceptions</code> list is never changed by defaults. Defaults are applied to each file when it loads, so they stay with their file through overload mode.</p>
 
+<h2 id="defaults-when-merging">Defaults when rules merge</h2>
+<p>When files with different <code>defaults</code> merge, nothing has to be looked up later: each file's defaults are written into that file's own rules as it loads, before any merge. Every rule then carries its values with it, so one merged provider can hold rules with different defaults side by side.</p>
+
+<ol class="rx-flow rx-flow-3" aria-label="How defaults travel through a merge">
+  <li><span class="rx-step">1</span><b>Pick each file's defaults</b><small>Its own, your edit of them, or yours, by the setting above</small></li>
+  <li><span class="rx-step">2</span><b>Write them into its rules</b><small>Only keys a rule doesn't set; the block is then removed</small></li>
+  <li><span class="rx-step">3</span><b>Then merge</b><small>Rules keep the values their file gave them</small></li>
+</ol>
+
+<h3 id="defaults-example">Example: two files, two sets of defaults</h3>
+<div class="rx-merge" aria-label="Rules from a built-in file and a remote file keeping their own defaults after merging">
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><code>||shop.example^</code></div>
+    <div class="rx-defaults"><span>defaults</span><code>none</code></div>
+    <ul>
+      <li class="rx-o-builtin"><code>qid</code></li>
+      <li class="rx-o-builtin"><code>token</code></li>
+    </ul>
+  </div>
+  <div class="rx-plus" aria-hidden="true">+</div>
+  <div class="rx-prov">
+    <div class="rx-prov-head"><span class="rx-tag rx-o-remote">Remote</span><code>||shop.example^</code></div>
+    <div class="rx-defaults"><span>defaults</span><code>"requestTypes": ["main_frame"]</code></div>
+    <ul>
+      <li class="rx-o-remote"><code>psc</code></li>
+      <li class="rx-o-remote"><code>token</code></li>
+    </ul>
+  </div>
+  <div class="rx-arrow" aria-hidden="true">→</div>
+  <div class="rx-prov rx-prov-out">
+    <div class="rx-prov-head"><span class="rx-tag">Merged</span><code>||shop.example^</code></div>
+    <ul>
+      <li class="rx-o-builtin"><code>qid</code><small>every request type</small></li>
+      <li class="rx-o-remote"><code>token</code><small>page loads only: the remote copy wins, with its file's value</small></li>
+      <li class="rx-o-remote"><code>psc</code><small>page loads only</small></li>
+    </ul>
+  </div>
+</div>
+
+<h3 id="defaults-rules">How it works</h3>
+<ul>
+  <li><b>Written in before merging.</b> Each source's defaults are chosen and written into its rules when the file loads: the built-in file, each remote file (and each cached one), and your custom rules. The merge then sees ordinary rules.</li>
+  <li><b>A rule's own value wins.</b> A default only fills a key the rule leaves out, such as <code>requestTypes</code> or <code>exceptions</code>.</li>
+  <li><b>The same text in two files:</b> the later definition wins whole, so the values its file wrote into it come along. Because the defaults are part of each rule by then, two entries with the same text but different file defaults are not exact copies.</li>
+  <li><b>Exceptions stay with their file.</b> A default <code>exceptions</code> list goes into that file's rules only. Merging never pools one file's exceptions into another file's rules.</li>
+  <li><b>History API setting.</b> A provider's own <code>historyBypassProtection</code> beats the file default. When providers merge, it is copied onto each of that provider's rules, since the merged provider can hold only one value.</li>
+  <li><b>Complete providers.</b> For a provider with <code>"completeProvider": true</code>, a file's <code>requestTypes</code> default becomes its <code>resourceTypes</code>, and default <code>exceptions</code> join its own. That happens before merging, and <code>resourceTypes</code> is part of what makes providers match, so the block can end up as a separate provider.</li>
+</ul>
+
+<h3 id="what-rules-carry">What each rule carries into a merge</h3>
+<p>Merging never looks back at the original files. Everything it needs later is written onto the rules first.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Carried on the rule</th><th scope="col">Written when</th><th scope="col">Used for</th></tr></thead>
+<tbody>
+<tr><td>Its file's defaults: <code>requestTypes</code>, <code>exceptions</code>, <code>preprocessors</code>, <code>active</code>, <code>description</code>, <code>historyBypassProtection</code></td><td>Its file loads</td><td>Where and how the rule runs</td></tr>
+<tr><td>Its provider's <code>historyBypassProtection</code></td><td>Providers merge</td><td>Whether the rule runs on History API changes</td></tr>
+<tr><td>The file it came from</td><td>Providers merge</td><td>Remote Rules Health naming the file whose definition won</td></tr>
+<tr><td>Whether it may redirect</td><td>Its remote file loads, from the capabilities you accepted for that file</td><td>A file's rewriting raw rules can't send a URL to another site until you accept <code>redirect</code> for that file</td></tr>
+</tbody>
+</table></div>
+<p>Order on load: a remote file's defaults are written in first, then its capabilities are applied, and only then does it merge. Before merging, a file without an accepted capability also loses the entries that need it: its redirect lists without <code>redirect</code>, and <code>completeProvider</code> without <code>block</code>. The file tags never leave the extension: the custom rules editor strips them when you export a rule.</p>
+
+<h3 id="defaults-cases">All the cases</h3>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Built-in file</th><th scope="col">Remote file</th><th scope="col">What runs</th></tr></thead>
+<tbody>
+<tr><td><code>qid</code>; no defaults</td><td><code>psc</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>qid</code> on every request type, <code>psc</code> on page loads only</td></tr>
+<tr><td><code>"token"</code>; no defaults</td><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on page loads only: the remote copy wins</td></tr>
+<tr><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>"token"</code>; no defaults</td><td><code>token</code> on every request type: the remote copy wins, and it has no limit</td></tr>
+<tr><td>defaults <code>"exceptions": [A]</code>; <code>a</code></td><td>defaults <code>"exceptions": [B]</code>; <code>b</code></td><td><code>a</code> skips A, <code>b</code> skips B</td></tr>
+<tr><td>defaults <code>"active": false</code>; <code>a</code></td><td><code>b</code>; no defaults</td><td>Only <code>b</code>: the built-in file's rules are off unless they set <code>"active": true</code></td></tr>
+<tr><td><code>"token"</code> with its own <code>"requestTypes": ["script"]</code></td><td>defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on scripts: its own value beats any default</td></tr>
+<tr><td colspan="2">Your defaults, with <i>Yours for built-in and remote rules</i></td><td>Both files get your defaults before merging; their own are ignored</td></tr>
+</tbody>
+</table></div>
+<p>The custom rules editor shows the defaults each loaded source used. Its <i>Merge from sources</i> tool is separate: it combines several <code>defaults</code> blocks into one block you can save, and doesn't change how rules merge.</p>
+
 <h2 id="remote-capabilities">What a remote file may do</h2>
 <p>A remote file gets capabilities from what it contains. Removing, rewriting and excepting work as soon as it loads. Redirecting and blocking wait until you accept them for that file in Remote Rules Health.</p>
 <div class="table-wrap"><table>

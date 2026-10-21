@@ -671,6 +671,8 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .rx-path { margin: 0; padding-left: 1.3em; font-size: 15px; color: var(--text-2); }
 .rx-path li { margin: 5px 0; }
 
+@media (min-width: 820px) { .rx-flow.rx-flow-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
 /* Merge diagrams */
 .rx-merge { display: grid; gap: 10px; align-items: center; margin: 24px 0 10px; grid-template-columns: 1fr; }
 @media (min-width: 760px) { .rx-merge { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1.15fr); } }
@@ -678,6 +680,8 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .rx-prov-out { border-color: var(--text-3); }
 .rx-prov-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 12px; border-bottom: 1px solid var(--line-soft); background: var(--bg-alt); }
 .rx-prov-head code { background: transparent; padding: 0; font-size: 12.5px; }
+.rx-defaults { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 8px 12px; border-bottom: 1px solid var(--line-soft); font-size: 12px; color: var(--text-2); }
+.rx-defaults code { background: transparent; padding: 0; font-size: 12px; color: var(--text); }
 .rx-prov ul { list-style: none; margin: 0; padding: 6px 0; }
 .rx-prov li { margin: 0; padding: 7px 12px 7px 14px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; border-left: 3px solid transparent; }
 .rx-prov li code { background: transparent; padding: 0; font-size: 13px; }
