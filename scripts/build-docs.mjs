@@ -446,7 +446,7 @@ function convert(md, ctx) {
         const id = ctx.slug(text);
         ctx.section = text.replace(/`/g, '');
         if (level <= 3) ctx.toc.push({ level, id, text });
-        out.push(`<h${level} id="${id}">${inline(text)}</h${level}>`);
+        out.push(`<h${level} id="${id}">${headingText(text)}</h${level}>`);
       }
       i++;
       continue;
@@ -535,11 +535,17 @@ function convert(md, ctx) {
   return out.join('\n');
 }
 
+// "4.2 Remote rules" → the section number in its own span, so it can be set apart.
+function headingText(text) {
+  const m = /^(\d+(?:\.\d+)*)\.?\s+(.+)$/.exec(text);
+  return m ? `<span class="h-num">${m[1]}</span>${inline(m[2])}` : inline(text);
+}
+
 function tocHtml(toc) {
   const parts = [];
   let open = false;
   for (const item of toc) {
-    const link = `<a href="#${item.id}">${inline(item.text)}</a>`;
+    const link = `<a href="#${item.id}">${headingText(item.text)}</a>`;
     if (item.level === 2) {
       if (open) parts.push('</ol></li>');
       parts.push(`<li>${link}<ol>`);
@@ -549,7 +555,7 @@ function tocHtml(toc) {
     }
   }
   if (open) parts.push('</ol></li>');
-  return parts.join('\n').replace(/<ol><\/ol>/g, '');
+  return parts.join('\n').replace(/<ol>\s*<\/ol>/g, '');
 }
 
 function template(page, ctx, body, toc, current) {
@@ -609,6 +615,7 @@ function template(page, ctx, body, toc, current) {
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/site.js"></script>
 ${scripts}

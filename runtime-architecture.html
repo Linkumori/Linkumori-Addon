@@ -21,7 +21,8 @@
   <link rel="icon" href="assets/logo.svg?v=5c55ee1e32" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
-  <link rel="stylesheet" href="assets/style.css?v=82d84e055b">
+  <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css?v=571ebf8b95">
   <script src="assets/site.js?v=bd1a8be389"></script>
 
 </head>
@@ -67,62 +68,54 @@
       <details open>
         <summary>Contents</summary>
         <ol>
-<li><a href="#1-overview">1. Overview</a><ol>
-</ol></li>
-<li><a href="#2-the-background-page">2. The background page</a><ol>
+<li><a href="#1-overview"><span class="h-num">1</span>Overview</a></li>
+<li><a href="#2-the-background-page"><span class="h-num">2</span>The background page</a><ol>
 <li><a href="#main-globals">Main globals</a></li>
 <li><a href="#keeping-the-page-alive">Keeping the page alive</a></li>
 </ol></li>
-<li><a href="#3-startup">3. Startup</a><ol>
+<li><a href="#3-startup"><span class="h-num">3</span>Startup</a><ol>
 <li><a href="#consent-gate">Consent gate</a></li>
 <li><a href="#start"><code>start()</code></a></li>
 </ol></li>
-<li><a href="#4-settings-and-persistence">4. Settings and persistence</a><ol>
+<li><a href="#4-settings-and-persistence"><span class="h-num">4</span>Settings and persistence</a></li>
+<li><a href="#5-rule-loading"><span class="h-num">5</span>Rule loading</a><ol>
+<li><a href="#51-sources"><span class="h-num">5.1</span>Sources</a></li>
+<li><a href="#52-remote-rules"><span class="h-num">5.2</span>Remote rules</a></li>
+<li><a href="#53-choosing-the-sources"><span class="h-num">5.3</span>Choosing the sources</a></li>
+<li><a href="#54-merging-custom-rules"><span class="h-num">5.4</span>Merging custom rules</a></li>
+<li><a href="#55-when-rules-reload"><span class="h-num">5.5</span>When rules reload</a></li>
 </ol></li>
-<li><a href="#5-rule-loading">5. Rule loading</a><ol>
-<li><a href="#51-sources">5.1 Sources</a></li>
-<li><a href="#52-remote-rules">5.2 Remote rules</a></li>
-<li><a href="#53-choosing-the-sources">5.3 Choosing the sources</a></li>
-<li><a href="#54-merging-custom-rules">5.4 Merging custom rules</a></li>
-<li><a href="#55-when-rules-reload">5.5 When rules reload</a></li>
+<li><a href="#6-the-engine-clearurlsjs"><span class="h-num">6</span>The engine (clearurls.js)</a><ol>
+<li><a href="#61-providers"><span class="h-num">6.1</span>Providers</a></li>
+<li><a href="#62-rule-ids-and-switched-off-rules"><span class="h-num">6.2</span>Rule ids and switched-off rules</a></li>
+<li><a href="#63-finding-the-providers-for-a-url"><span class="h-num">6.3</span>Finding the providers for a URL</a></li>
+<li><a href="#64-cleaning-a-request"><span class="h-num">6.4</span>Cleaning a request</a></li>
+<li><a href="#65-cname-uncloaking"><span class="h-num">6.5</span>CNAME uncloaking</a></li>
+<li><a href="#66-request-context"><span class="h-num">6.6</span>Request context</a></li>
+<li><a href="#67-public-suffix-list"><span class="h-num">6.7</span>Public Suffix List</a></li>
 </ol></li>
-<li><a href="#6-the-engine-clearurlsjs">6. The engine (clearurls.js)</a><ol>
-<li><a href="#61-providers">6.1 Providers</a></li>
-<li><a href="#62-rule-ids-and-switched-off-rules">6.2 Rule ids and switched-off rules</a></li>
-<li><a href="#63-finding-the-providers-for-a-url">6.3 Finding the providers for a URL</a></li>
-<li><a href="#64-cleaning-a-request">6.4 Cleaning a request</a></li>
-<li><a href="#65-cname-uncloaking">6.5 CNAME uncloaking</a></li>
-<li><a href="#66-request-context">6.6 Request context</a></li>
-<li><a href="#67-public-suffix-list">6.7 Public Suffix List</a></li>
+<li><a href="#7-other-cleaning-paths"><span class="h-num">7</span>Other cleaning paths</a><ol>
+<li><a href="#71-purecleaningurl"><span class="h-num">7.1</span><code>pureCleaning(url)</code></a></li>
+<li><a href="#72-history-api"><span class="h-num">7.2</span>History API</a></li>
+<li><a href="#73-search-link-fix-content-scripts"><span class="h-num">7.3</span>Search link fix (content scripts)</a></li>
+<li><a href="#74-etag-filtering"><span class="h-num">7.4</span>ETag filtering</a></li>
 </ol></li>
-<li><a href="#7-other-cleaning-paths">7. Other cleaning paths</a><ol>
-<li><a href="#71-purecleaningurl">7.1 <code>pureCleaning(url)</code></a></li>
-<li><a href="#72-history-api">7.2 History API</a></li>
-<li><a href="#73-search-link-fix-content-scripts">7.3 Search link fix (content scripts)</a></li>
-<li><a href="#74-etag-filtering">7.4 ETag filtering</a></li>
+<li><a href="#8-whitelists-and-pausing"><span class="h-num">8</span>Whitelists and pausing</a></li>
+<li><a href="#9-counters-badge-log-and-watchdog"><span class="h-num">9</span>Counters, badge, log and watchdog</a></li>
+<li><a href="#10-messaging-between-the-pages-and-the-background"><span class="h-num">10</span>Messaging between the pages and the background</a></li>
+<li><a href="#11-extension-pages"><span class="h-num">11</span>Extension pages</a><ol>
+<li><a href="#111-settings-page-safeguards"><span class="h-num">11.1</span>Settings page safeguards</a></li>
 </ol></li>
-<li><a href="#8-whitelists-and-pausing">8. Whitelists and pausing</a><ol>
-</ol></li>
-<li><a href="#9-counters-badge-log-and-watchdog">9. Counters, badge, log and watchdog</a><ol>
-</ol></li>
-<li><a href="#10-messaging-between-the-pages-and-the-background">10. Messaging between the pages and the background</a><ol>
-</ol></li>
-<li><a href="#11-extension-pages">11. Extension pages</a><ol>
-<li><a href="#111-settings-page-safeguards">11.1 Settings page safeguards</a></li>
-</ol></li>
-<li><a href="#12-code-shared-between-the-background-pages-and-cli">12. Code shared between the background, pages and CLI</a><ol>
-</ol></li>
-<li><a href="#13-build-time-and-runtime">13. Build time and runtime</a><ol>
-</ol></li>
-<li><a href="#14-things-to-know">14. Things to know</a><ol>
-</ol></li>
+<li><a href="#12-code-shared-between-the-background-pages-and-cli"><span class="h-num">12</span>Code shared between the background, pages and CLI</a></li>
+<li><a href="#13-build-time-and-runtime"><span class="h-num">13</span>Build time and runtime</a></li>
+<li><a href="#14-things-to-know"><span class="h-num">14</span>Things to know</a></li>
         </ol>
       </details>
     </aside>
     <main id="main" class="prose prose-wide">
 <p>How Linkumori works inside the browser: what runs where, how rules are loaded, and what happens to a request. It is written for people changing the code. The rule format itself is in <a href="filter-syntax.html">filter-syntax.md</a>; building and linting rules are in <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
 <p>File and function names are given so you can jump to the code. Line numbers are not, because they move.</p>
-<h2 id="1-overview">1. Overview</h2>
+<h2 id="1-overview"><span class="h-num">1</span>Overview</h2>
 <p>Linkumori is a Manifest V3 Firefox extension (desktop 140+, Android 142+). It has three kinds of runtime code:</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Part</th><th scope="col">Where it runs</th><th scope="col">What it does</th></tr></thead>
@@ -155,7 +148,7 @@
     BG &lt;-- browser.storage.local --&gt; DISK[(Storage)]
     BG -. optional .-&gt; REMOTE[Remote rule list + hash]</code></pre></div></details>
 </figure>
-<h2 id="2-the-background-page">2. The background page</h2>
+<h2 id="2-the-background-page"><span class="h-num">2</span>The background page</h2>
 <p>All background scripts are classic scripts in one global scope. They call each other's functions directly (<code>pureCleaning()</code>, <code>getData()</code>, <code>isWhitelisted()</code>, …), so <strong>load order matters</strong>: a script may only call another script's functions at <em>runtime</em>, never while loading, unless that script is listed earlier.</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Order</th><th scope="col">Script</th><th scope="col">Role</th></tr></thead>
@@ -200,7 +193,7 @@
 </table></div>
 <h3 id="keeping-the-page-alive">Keeping the page alive</h3>
 <p>Firefox can suspend an MV3 background event page when it is idle. <code>tools.js</code> calls <code>browser.runtime.getPlatformInfo</code> every 20 seconds (<code>keepAlive</code>) so the page, its in-memory <code>storage</code> and its compiled providers stay loaded.</p>
-<h2 id="3-startup">3. Startup</h2>
+<h2 id="3-startup"><span class="h-num">3</span>Startup</h2>
 <p><code>storage.js</code> calls <code>genesis()</code> once all background scripts have loaded:</p>
 <figure class="diagram">
   <div class="diagram-scroll" style="--w: 1238px" tabindex="0" role="group" aria-label="Diagram: 3. Startup">
@@ -243,7 +236,7 @@
 <li>calls <code>setBadgedStatus()</code>.</li>
 </ol>
 <p>It also defines <code>globalThis.updateProviderData()</code>, which rebuilds the providers from <code>storage.ClearURLsData</code> without a restart (§5.5).</p>
-<h2 id="4-settings-and-persistence">4. Settings and persistence</h2>
+<h2 id="4-settings-and-persistence"><span class="h-num">4</span>Settings and persistence</h2>
 <p><code>storage</code> is an in-memory object holding every setting. It is the source of truth while the extension runs; <code>browser.storage.local</code> is its saved copy.</p>
 <ul>
 <li><strong>Defaults:</strong> <code>initSettings()</code> sets every default. Remote rules, logging, ETag filtering, redirect bypass and the search link fix start <strong>off</strong>. Built-in rules, CNAME uncloaking, domain blocking, ping blocking, the History API listener and the context menu start <strong>on</strong>.</li>
@@ -284,9 +277,9 @@
 </tbody>
 </table></div>
 <p>The interface language is not in <code>storage</code>: the language selector in settings writes <code>linkumori_language</code> to <code>browser.storage.sync</code>, and <code>external_js/linkumori-i18n.js</code> reads it on every page. Left unset, the browser's language is used.</p>
-<h2 id="5-rule-loading">5. Rule loading</h2>
+<h2 id="5-rule-loading"><span class="h-num">5</span>Rule loading</h2>
 <p><code>loadBundledRules()</code> in storage.js decides which rule sources to use, merges them with the custom rules, and stores the result in <code>storage.ClearURLsData</code>.</p>
-<h3 id="51-sources">5.1 Sources</h3>
+<h3 id="51-sources"><span class="h-num">5.1</span>Sources</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Source</th><th scope="col">Where it comes from</th></tr></thead>
 <tbody>
@@ -297,7 +290,7 @@
 <tr><td>Fallback</td><td>a small built-in list in <code>getEnhancedFallbackRules()</code>, used when nothing else loads</td></tr>
 </tbody>
 </table></div>
-<h3 id="52-remote-rules">5.2 Remote rules</h3>
+<h3 id="52-remote-rules"><span class="h-num">5.2</span>Remote rules</h3>
 <p>Remote rules are off by default. Each source is a pair of URLs, and both must be valid (<code>areValidRemoteURLsPresent()</code>, <code>isValidRuleURL()</code>).</p>
 <ol>
 <li>Fetch the hash URL: 32–128 hex characters (<code>fetchRemoteHash</code>).</li>
@@ -309,7 +302,7 @@
 <p>Each source is checked for rule collisions (<code>LinkumoriRuleIds.findRuleCollisions</code>), and so is each merge, for the collisions merging creates. A merge is also checked for the same text in <code>rules</code> from one file and <code>referralMarketing</code> from another (<code>LinkumoriRuleIds.findReferralTextCollisions</code>). They are logged and shown in settings, and the rules still load.</p>
 <p>The outcome of every attempt is recorded in <code>remoteRulesHealth</code>, which settings shows.</p>
 <p><strong>Capabilities.</strong> When a remote file loads, <code>resolveRemoteFileCapabilities</code> records what its entries can do (<code>LinkumoriRuleIds.deriveRuleFileCapabilities</code>) in <code>remoteRuleCapabilities</code>. <code>strip</code>, <code>rewrite</code> and <code>except</code> are active at once; <code>redirect</code> and <code>block</code> stay off for that file until the user accepts them in Remote Rules Health, which calls <code>acceptRemoteRuleCapabilities</code> and reloads the remote rules. Entries that need a capability the file lacks are left out (<code>restrictRuleFileCapabilities</code>). The verified cache can't be traced to one file, so when it loads only the capabilities every configured file has accepted are active (<code>getCapabilitiesAcceptedByAllRemoteFiles</code>). See <a href="cln-1.0.html#remote-file-capabilities">CLN 1.0 §Remote file capabilities</a>.</p>
-<h3 id="53-choosing-the-sources">5.3 Choosing the sources</h3>
+<h3 id="53-choosing-the-sources"><span class="h-num">5.3</span>Choosing the sources</h3>
 <figure class="diagram">
   <div class="diagram-scroll" style="--w: 1092px" tabindex="0" role="group" aria-label="Diagram: 5.3 Choosing the sources">
     <img class="theme-light-only" src="assets/diagrams/c49909820c20-light.svg?v=9d5417d16f" width="1092" height="1629" alt="Diagram: 5.3 Choosing the sources. Its Mermaid source follows." loading="lazy">
@@ -338,7 +331,7 @@
     N --&gt; O</code></pre></div></details>
 </figure>
 <p><code>hashStatus</code> records which path was taken, for example <code>bundled_rules_loaded</code>, <code>remote_verified</code>, <code>remote_rules_partially_merged</code>, <code>cache_remote_rules_after_remote_failure</code> or <code>fallback_rules_used</code>. When custom rules are merged in, it gets a <code>custom</code> variant, such as <code>custom_rules_merged</code>.</p>
-<h3 id="54-merging-custom-rules">5.4 Merging custom rules</h3>
+<h3 id="54-merging-custom-rules"><span class="h-num">5.4</span>Merging custom rules</h3>
 <p><code>mergeCustomRules(baseRules)</code> builds the final list:</p>
 <ol>
 <li>Providers the user switched off (<code>customrules_import_exclusions</code>) are removed from both the base rules and the custom rules.</li>
@@ -348,15 +341,15 @@
 <li>Every provider goes through <code>attachProviderActivationIds()</code>: each rule gets its activation ids (<code>_linkumoriActivationIds</code>) and, if its id changed, its old ids (<code>_linkumoriLegacyRuleIds</code>); see §6.2.</li>
 <li>The result is saved as <code>ClearURLsData</code>, with <code>dataHash</code> (SHA-256 of a key-sorted serialisation) and <code>mergeStats</code>.</li>
 </ol>
-<h3 id="55-when-rules-reload">5.5 When rules reload</h3>
+<h3 id="55-when-rules-reload"><span class="h-num">5.5</span>When rules reload</h3>
 <p>Rules are loaded at startup, and again only when:</p>
 <ul>
 <li>the custom rules editor saves, or settings asks for a refresh (<code>reloadCustomRules()</code> / <code>refreshRemoteRulesNow()</code>). These call <code>updateProviderData()</code>, so the new rules apply without a restart;</li>
 <li>the extension restarts (<code>reload()</code>, used by some settings and by the watchdog).</li>
 </ul>
 <p>Nothing refreshes remote rules on a timer.</p>
-<h2 id="6-the-engine-clearurlsjs">6. The engine (clearurls.js)</h2>
-<h3 id="61-providers">6.1 Providers</h3>
+<h2 id="6-the-engine-clearurlsjs"><span class="h-num">6</span>The engine (clearurls.js)</h2>
+<h3 id="61-providers"><span class="h-num">6.1</span>Providers</h3>
 <p><code>createProviders()</code> turns every provider in <code>ClearURLsData</code> into a <code>Provider</code> object:</p>
 <ul>
 <li>its match pattern (<code>domainPatterns</code>, or <code>urlPattern</code> plus <code>indexPattern</code>);</li>
@@ -364,7 +357,7 @@
 <li>its <code>methods</code> and <code>resourceTypes</code>.</li>
 </ul>
 <p>Rules that fail to compile, or use an option the engine does not accept, are skipped. The custom rules editor and <code>lint-rules</code> report such rules before they are saved.</p>
-<h3 id="62-rule-ids-and-switched-off-rules">6.2 Rule ids and switched-off rules</h3>
+<h3 id="62-rule-ids-and-switched-off-rules"><span class="h-num">6.2</span>Rule ids and switched-off rules</h3>
 <p>Every rule has an id: its own <code>id</code>, or one generated by <code>LinkumoriRuleIds</code> from its list and text (see <a href="filter-syntax.html#rule-objects">filter-syntax.md: Rule objects</a>). The engine, storage.js, the custom rules editor and the CLI all use <code>core_js/linkumori_rule_ids.js</code>, so they always produce the same ids.</p>
 <p>A rule can be switched off in two ways; both are stored in <code>clearurls_disabled_rule_ids</code>:</p>
 <div class="table-wrap"><table>
@@ -382,7 +375,7 @@
 </ul>
 <p>A generated id changes with the rule's text, so the first switch-off of a rule without an <code>id</code> fixes it (<code>core_js/linkumori_rule_pins.js</code>). The editor writes the id onto a custom rule; for a rule from a built-in or remote list it stores a pin in <code>clearurls_rule_id_pins</code>: <code>{ provider, section, generatedId, sourceListId, fingerprintAtToggle, disableKeys }</code>. <code>createProviders()</code> matches each provider's pins to its current rules (same text, same generated id, or text at least 80% alike, <code>resolveProviderPins</code>) and gives a matched rule the pinned id, activation ids included (<code>applyCoreRulePin</code>). A switched-off rule that has no pin yet (switched off before pins existed) gets one, and a pin matched to drifted text remembers it as <code>lastSeenText</code>. Pins that match no rule are listed in <code>clearurlsProviderSnapshot.rulePins.orphaned</code>, which the editor shows as <em>Orphaned toggles</em>.</p>
 <p>The result is published as <code>clearurlsProviderSnapshot</code> (via <code>getData</code>), which the editor's <em>Disabled rules</em> page lists.</p>
-<h3 id="63-finding-the-providers-for-a-url">6.3 Finding the providers for a URL</h3>
+<h3 id="63-finding-the-providers-for-a-url"><span class="h-num">6.3</span>Finding the providers for a URL</h3>
 <p>Checking every provider against every URL would be slow, so the engine indexes providers by hostname token:</p>
 <ul>
 <li><strong>Providers.</strong> Each provider registers in <code>providersByToken</code> under the main label of each of its <code>domainPatterns</code>. A <code>urlPattern</code> provider uses its <code>indexPattern</code> instead. The main label is the one just before the public suffix: <code>||amazon.*^</code> and <code>||smile.amazon.co.uk^</code> both register under <code>amazon</code> (<code>getLookupTokens</code>).</li>
@@ -393,7 +386,7 @@
 <li>a provider with a <code>/regex/</code> domain pattern.</li>
 </ul></li>
 </ul>
-<h3 id="64-cleaning-a-request">6.4 Cleaning a request</h3>
+<h3 id="64-cleaning-a-request"><span class="h-num">6.4</span>Cleaning a request</h3>
 <p>The <code>webRequest.onBeforeRequest</code> listener (blocking) covers <code>&lt;all_urls&gt;</code> and the request types in <code>types</code> + <code>pingRequestTypes</code>. It records tab and frame URLs for <code>requestContextManager</code>, skips <code>data:</code> URLs, and calls <code>clearUrl(request)</code>:</p>
 <figure class="diagram">
   <div class="diagram-scroll" style="--w: 1268px" tabindex="0" role="group" aria-label="Diagram: 6.4 Cleaning a request">
@@ -432,7 +425,7 @@
 <li><code>$removeparam</code> filters run, minus their <code>@@</code> exceptions and the exceptions collected from the page's providers. <code>@@</code> entries are checked against the URL the provider received, before its raw rules ran.</li>
 </ol>
 <p>It logs each change and updates the badge unless called in quiet mode.</p>
-<h3 id="65-cname-uncloaking">6.5 CNAME uncloaking</h3>
+<h3 id="65-cname-uncloaking"><span class="h-num">6.5</span>CNAME uncloaking</h3>
 <p>If no provider made a decision, and CNAME uncloaking is on, <code>LinkumoriDNS.replayCNAMEIfNeeded()</code> (linkumori_dns.js) checks whether the request host is an alias:</p>
 <ul>
 <li>It asks <code>browser.dns.resolve(host, ['canonical_name'])</code>. Answers are cached for 10 minutes, up to 512 hosts.</li>
@@ -441,7 +434,7 @@
 <li>It runs <code>clearUrl()</code> again on the URL with the canonical host. Unless <code>cnameReplayFullURL</code> is on, that URL keeps only the host and drops the path and query.</li>
 <li>If that produces a block or a redirect, the decision is returned with the original hostname put back.</li>
 </ul>
-<h3 id="66-request-context">6.6 Request context</h3>
+<h3 id="66-request-context"><span class="h-num">6.6</span>Request context</h3>
 <p>Some decisions depend on the page a request comes from:</p>
 <ul>
 <li><code>@@</code> exceptions, which also cover requests made by a page the provider matches;</li>
@@ -454,7 +447,7 @@
 <li>the tab's URL, kept up to date from <code>tabs.onUpdated</code> and <code>webNavigation.onCommitted</code>;</li>
 <li>the URLs of the frame's ancestor frames.</li>
 </ul>
-<h3 id="67-public-suffix-list">6.7 Public Suffix List</h3>
+<h3 id="67-public-suffix-list"><span class="h-num">6.7</span>Public Suffix List</h3>
 <p><code>initPslSupport()</code> loads <code>data/public_suffix_list.dat</code> into <code>linkumoriPsl</code>. The engine uses it for:</p>
 <ul>
 <li>hostname tokens (§6.3);</li>
@@ -462,8 +455,8 @@
 <li><code>first-party</code> and <code>third-party</code>, which compare registrable domains.</li>
 </ul>
 <p>If it fails to load, hostname tokens fall back to plain labels, <code>.*</code> patterns (in rules and in the whitelist) stop matching, and <code>first-party</code> / <code>third-party</code> compare full hostnames instead of registrable domains.</p>
-<h2 id="7-other-cleaning-paths">7. Other cleaning paths</h2>
-<h3 id="71-purecleaningurl">7.1 <code>pureCleaning(url)</code></h3>
+<h2 id="7-other-cleaning-paths"><span class="h-num">7</span>Other cleaning paths</h2>
+<h3 id="71-purecleaningurl"><span class="h-num">7.1</span><code>pureCleaning(url)</code></h3>
 <p><code>pureCleaning()</code> (pureCleaning.js) cleans a URL outside <code>webRequest</code>. It runs every provider over the URL until it stops changing. It does not use the token index, and there is no request, so options that depend on the request (party, type, method) do not apply. It is used by:</p>
 <ul>
 <li>the <em>Copy clean link</em> context menu, which injects <code>clipboard-helper.js</code> and copies the result (context_menu.js);</li>
@@ -472,23 +465,23 @@
 <li>the watchdog (§9).</li>
 </ul>
 <p><code>runRuleTestLab()</code> and <code>pureCleaningTrace()</code> use the same loop, but record which provider and rule changed what. The custom rules editor's test lab shows this trace. <code>traceClearURLWebRequestTest()</code> does the same through the real <code>clearUrl()</code> for the regression page.</p>
-<h3 id="72-history-api">7.2 History API</h3>
+<h3 id="72-history-api"><span class="h-num">7.2</span>History API</h3>
 <p><code>webNavigation.onHistoryStateUpdated</code> (historyListener.js) fires when a page changes its own URL with <code>pushState</code> or <code>replaceState</code>. The listener:</p>
 <ol>
 <li>does nothing before cleaning has started (§3), and skips the URL if it is paused or whitelisted, including the History API whitelist and the temporary tab whitelist;</li>
 <li>cleans it with <code>pureCleaning(url, false, true)</code>, where rules with <code>historyBypassProtection: false</code> do not run;</li>
 <li>if the URL changed, runs <code>history.replaceState(null, &quot;&quot;, cleanUrl)</code> in the frame with <code>scripting.executeScript</code>.</li>
 </ol>
-<h3 id="73-search-link-fix-content-scripts">7.3 Search link fix (content scripts)</h3>
+<h3 id="73-search-link-fix-content-scripts"><span class="h-num">7.3</span>Search link fix (content scripts)</h3>
 <p><code>content_script_manager.js</code> registers two content scripts with <code>scripting.registerContentScripts</code>, and only while <code>searchLinkFixEnabled</code> is on (default off). They run at <code>document_end</code> in all frames:</p>
 <ul>
 <li><code>google_link_fix.js</code> on Google search domains stops Google from rewriting result links into tracking redirects;</li>
 <li><code>yandex_link_fix.js</code> does the same on Yandex.</li>
 </ul>
 <p>The registration is refreshed on install, on browser start, and when the setting changes.</p>
-<h3 id="74-etag-filtering">7.4 ETag filtering</h3>
+<h3 id="74-etag-filtering"><span class="h-num">7.4</span>ETag filtering</h3>
 <p><code>eTagFilter.js</code> registers a blocking <code>webRequest.onHeadersReceived</code> listener with <code>responseHeaders</code>. While <code>eTagFiltering</code> is on (default off), it replaces the value of each <code>ETag</code> response header with a random value of the same form, so the ETag cannot be used as a tracking id. It does nothing before cleaning has started (§3), and skips local hosts, whitelisted requests, and paused cleaning.</p>
-<h2 id="8-whitelists-and-pausing">8. Whitelists and pausing</h2>
+<h2 id="8-whitelists-and-pausing"><span class="h-num">8</span>Whitelists and pausing</h2>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Mechanism</th><th scope="col">Stored in</th><th scope="col">Skips</th></tr></thead>
 <tbody>
@@ -499,7 +492,7 @@
 </tbody>
 </table></div>
 <p>Whitelist entries are hostname patterns (<code>example.com</code> also covers its subdomains) or IP addresses (<code>matchWhitelistHostnamePattern</code>). The popup adds and removes entries over messaging.</p>
-<h2 id="9-counters-badge-log-and-watchdog">9. Counters, badge, log and watchdog</h2>
+<h2 id="9-counters-badge-log-and-watchdog"><span class="h-num">9</span>Counters, badge, log and watchdog</h2>
 <ul>
 <li><strong>Counters:</strong> <code>increaseTotalCounter</code> counts parameters seen and <code>increaseCleanedCounter</code> counts cleanings, while statistics are on. Both are saved with <code>deferSaveOnDisk</code>.</li>
 <li><strong>Badge:</strong> <code>increaseBadged(request)</code> (badgedHandler.js) counts cleanings per tab and shows the number on the toolbar button. The count resets when the tab's URL changes. Whitelisted requests never count.</li>
@@ -512,7 +505,7 @@
 </ul></li>
 <li><strong>Watchdog:</strong> every minute (alarm <code>watchdog</code>), watchdog.js cleans <code>https://linkumori.com?utm_source=addon</code> and checks that the result has no <code>utm_source</code>. It only runs while cleaning is on, consent is given, nothing is paused and a rule source is enabled. On failure it increases <code>watchDogErrorCount</code> and reloads the extension, at most twice in a row. A success resets the count.</li>
 </ul>
-<h2 id="10-messaging-between-the-pages-and-the-background">10. Messaging between the pages and the background</h2>
+<h2 id="10-messaging-between-the-pages-and-the-background"><span class="h-num">10</span>Messaging between the pages and the background</h2>
 <p>Pages call the background with:</p>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code class="language-js">browser.runtime.sendMessage({ function: 'getData', params: ['globalStatus'] })</code></pre></div>
 <p><code>handleMessage()</code> (message_handler.js) always answers with a promise of <code>{ response, error? }</code>.</p>
@@ -535,7 +528,7 @@
 </ul>
 <p><strong>To add a background function a page can call:</strong> define it in a background script, then add its name to the allowlist.</p>
 <p>Pages also read and write some keys directly with <code>browser.storage.local</code>: the popup's consent keys, and settings that background listeners watch (§4).</p>
-<h2 id="11-extension-pages">11. Extension pages</h2>
+<h2 id="11-extension-pages"><span class="h-num">11</span>Extension pages</h2>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Page</th><th scope="col">Script</th><th scope="col">Purpose</th><th scope="col">Main background calls</th></tr></thead>
 <tbody>
@@ -553,14 +546,14 @@
 </tbody>
 </table></div>
 <p>Every page loads <code>theme_bootstrap.js</code> (themes), <code>linkumori-i18n.js</code> (text), <code>accessibility_tools.js</code> (accessibility options) and usually <code>write_version.js</code> (version footer).</p>
-<h3 id="111-settings-page-safeguards">11.1 Settings page safeguards</h3>
+<h3 id="111-settings-page-safeguards"><span class="h-num">11.1</span>Settings page safeguards</h3>
 <p>settings.js asks before a few risky changes. These checks live in the page only; the background accepts the keys whatever their value.</p>
 <ul>
 <li><strong>Gatekeeper for remote rule addresses.</strong> When no remote addresses are saved, editing the rule URL, hash URL or remote rule sets field opens a disclaimer, and the change is kept only after the user types the confirmation phrase (<em>I accept full responsibility</em> in English; each language has its own). The confirmation lasts until the page is closed. Addresses that are already saved can be edited without it. The import and export buttons for remote addresses appear only after confirming.</li>
 <li><strong>Disable Gatekeeper</strong> (<code>disableGatekeeper</code>) skips that confirmation and shows the import and export buttons. Turning it on opens a risk warning, then the same disclaimer with a phrase of its own. Turning it off needs no confirmation.</li>
 <li><strong>Redirect bypass</strong> (<code>redirectionEnabled</code>): turning it on first shows a warning to review the redirect rules of every source; <em>Cancel</em> leaves it off.</li>
 </ul>
-<h2 id="12-code-shared-between-the-background-pages-and-cli">12. Code shared between the background, pages and CLI</h2>
+<h2 id="12-code-shared-between-the-background-pages-and-cli"><span class="h-num">12</span>Code shared between the background, pages and CLI</h2>
 <p>Some logic has to agree between the background, the custom rules editor (which does not load the background scripts) and <code>linkumori-cli-tool.js</code> (Node):</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Logic</th><th scope="col">Where it lives</th></tr></thead>
@@ -571,7 +564,7 @@
 <tr><td>Pattern matching and option parsing</td><td>the engine (clearurls.js); the CLI smoke tests use a simplified copy</td></tr>
 </tbody>
 </table></div>
-<h2 id="13-build-time-and-runtime">13. Build time and runtime</h2>
+<h2 id="13-build-time-and-runtime"><span class="h-num">13</span>Build time and runtime</h2>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Build time (CLI)</th><th scope="col">Runtime (extension)</th></tr></thead>
 <tbody>
@@ -582,7 +575,7 @@
 <tr><td><code>tests/regression-suite.json</code> is maintained in the repo</td><td>run by <code>regression.html</code></td></tr>
 </tbody>
 </table></div>
-<h2 id="14-things-to-know">14. Things to know</h2>
+<h2 id="14-things-to-know"><span class="h-num">14</span>Things to know</h2>
 <p>Facts that matter when changing the code:</p>
 <ul>
 <li><strong>Remote rules have no timer.</strong> They are fetched at startup and on a manual refresh (§5.5).</li>
