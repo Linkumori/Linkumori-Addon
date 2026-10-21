@@ -10,6 +10,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import vm from 'node:vm';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -209,7 +210,7 @@ function cellInline(text) {
 // ---------- Case cards for rules.html (data in rules-cases.mjs) ----------
 
 // JSON laid out the way people write rule files: short arrays and objects stay on one line.
-function formatJson(value, indent = '') {
+function formatJson(value, indent = '', prefix = 0) {
   const inline = v => {
     if (Array.isArray(v)) return `[${v.map(inline).join(', ')}]`;
     if (v && typeof v === 'object') {
@@ -219,11 +220,12 @@ function formatJson(value, indent = '') {
     return JSON.stringify(v);
   };
   const flat = inline(value);
-  // 46 columns fit the narrow panels of a case card without scrolling.
-  if (indent.length + flat.length <= 46 || value === null || typeof value !== 'object') return flat;
+  // 46 columns fit the narrow panels of a case card without scrolling; `prefix` is
+  // the width of the key already written on this line.
+  if (indent.length + prefix + flat.length <= 46 || value === null || typeof value !== 'object') return flat;
   const next = indent + '  ';
   if (Array.isArray(value)) return `[\n${value.map(v => next + formatJson(v, next)).join(',\n')}\n${indent}]`;
-  return `{\n${Object.entries(value).map(([k, v]) => `${next}${JSON.stringify(k)}: ${formatJson(v, next)}`).join(',\n')}\n${indent}}`;
+  return `{\n${Object.entries(value).map(([k, v]) => `${next}${JSON.stringify(k)}: ${formatJson(v, next, JSON.stringify(k).length + 2)}`).join(',\n')}\n${indent}}`;
 }
 
 const ORIGIN_LABELS = { builtin: 'Built-in', remote: 'Remote', custom: 'Custom', cache: 'Cache', off: 'Off' };
@@ -280,7 +282,54 @@ function sourceGallery(cases) {
 </article>`).join('\n')}\n</div>`;
 }
 
+// The editor's "Merge from sources" example, worked out by the extension's own planner
+// (core_js/linkumori_rule_defaults.js on main), so the page can't drift from it.
+function defaultsMergeExample() {
+  const sandbox = {};
+  sandbox.globalThis = sandbox;
+  vm.runInNewContext(readMain('core_js/linkumori_rule_defaults.js'), sandbox);
+  const { planRuleDefaultsMerge, resolveRuleDefaultsMerge } = sandbox.LinkumoriRuleDefaults;
+  const sources = [
+    { name: 'Your defaults', origin: 'custom', label: 'Yours', defaults: { requestTypes: ['main_frame'], exceptions: ['^https:\\/\\/shop\\.example\\/cart'] } },
+    { name: 'Built-in rules', origin: 'builtin', defaults: { requestTypes: ['main_frame', 'xmlhttprequest'], historyBypassProtection: false, exceptions: ['^https:\\/\\/shop\\.example\\/login'] } },
+    { name: 'rules.example.org', origin: 'remote', defaults: { requestTypes: ['main_frame'], description: 'Shop rules' } }
+  ];
+  const plan = planRuleDefaultsMerge(sources.map(({ name, defaults }) => ({ name, defaults })));
+  const result = resolveRuleDefaultsMerge(plan);
+  const show = v => v === undefined ? 'left out' : formatJson(v);
+  const notes = [];
+  Object.keys(plan.merged).forEach(key => {
+    if (plan.combined.some(c => c.key === key)) notes.push([key, 'Added together from every source', 'auto']);
+    else notes.push([key, 'Every source agrees', 'auto']);
+  });
+  plan.conflicts.forEach(c => {
+    const opts = c.options.map((o, i) => `${i === c.choice ? '<b>' : ''}${escapeHtml(show(o.value))}${o.combined ? ' (combined)' : ''}` +
+      `${o.sources.length ? ' from ' + escapeHtml(o.sources.join(', ')) : ''}${i === c.choice ? '</b>' : ''}`);
+    notes.push([c.key, `You choose: ${opts.join(' · ')}. Bold is preselected.`, 'you']);
+  });
+  const inputs = sources.map(src => `<div class="case-in">
+  <div class="case-label">${tag(src.origin, src.label)}<span>${escapeHtml(src.name)}</span></div>
+  ${codeBlock(highlightJson(formatJson({ defaults: src.defaults })), 'json')}
+</div>`).join('\n');
+  return `<article class="case" id="defaults-merge-tool">
+<header class="case-head"><span class="case-num"><i aria-hidden="true">✦</i></span><h4>Merge from sources: three defaults blocks</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+${inputs}
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>Merged defaults, with the preselected choices</span></div>
+  ${codeBlock(highlightJson(formatJson({ defaults: result })), 'json')}
+  <ul class="dm-notes">${notes.map(([k, t, who]) => `<li><span class="dm-who dm-${who}">${who === 'you' ? 'You choose' : 'Automatic'}</span><code>${escapeHtml(k)}</code><span>${t}</span></li>`).join('')}</ul>
+</div>
+</div>
+<p class="case-explain">Nothing is stored until you copy the merged block into one of your defaults sets and save. Picking another option for a key changes only that key.</p>
+</article>`;
+}
+
 const CASE_SLOTS = {
+  'cases:defaults-merge': () => defaultsMergeExample(),
   'cases:overload': () => caseGallery(overloadCases, 'Overload mode cases'),
   'cases:custom': () => caseGallery(customCases, 'Custom rule cases'),
   'cases:defaults': () => caseGallery(defaultsCases, 'Defaults cases'),
@@ -602,7 +651,7 @@ for (const page of pages) {
     // A hand-written HTML page: take its contents list from its own h2 and h3 headings.
     ctx.title = page.heading;
     const body = readFileSync(join(siteRoot, page.html), 'utf8').trim()
-      .replace(/<!-- (cases:[a-z]+) -->/g, (_, slot) => {
+      .replace(/<!-- (cases:[a-z-]+) -->/g, (_, slot) => {
         if (!CASE_SLOTS[slot]) throw new Error(`${page.html}: unknown slot ${slot}`);
         return CASE_SLOTS[slot]();
       });
