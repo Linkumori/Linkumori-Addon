@@ -9,6 +9,7 @@
 // fenced code, tables, nested lists, block quotes, inline code, links and emphasis.
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,6 +21,23 @@ const SITE = 'https://linkumori.github.io/Linkumori-Addon/';
 
 function readMain(path) {
   return execFileSync('git', ['show', `main:${path}`], { cwd: siteRoot, encoding: 'utf8' });
+}
+
+// Cache-busting: every link to a stylesheet, script or image under assets/ gets ?v=<hash of
+// the file>, so a browser never pairs a new page with an old cached script.
+const fingerprints = new Map();
+function fingerprint(path) {
+  if (!fingerprints.has(path)) {
+    fingerprints.set(path, createHash('sha256').update(readFileSync(join(siteRoot, path))).digest('hex').slice(0, 10));
+  }
+  return fingerprints.get(path);
+}
+function stampAssets(html) {
+  return html.replace(/(["'(])((?:[^"'()]*\/)?assets\/[\w./-]+\.(?:css|js|webp|png|svg))(?:\?v=[0-9a-f]+)?(?=["')])/g,
+    (_, q, url) => {
+      const local = url.replace(/^.*?(assets\/)/, '$1');
+      try { return `${q}${url}?v=${fingerprint(local)}`; } catch { return `${q}${url}`; }
+    });
 }
 
 // The extension version shown in the header, from main's manifest.
@@ -499,7 +517,7 @@ for (const page of pages) {
   }
   // A note shown above the document, such as what "earlier 1.0 text" and "1.0 final" mean.
   if (page.notice) body = readFileSync(join(siteRoot, page.notice), 'utf8').trim() + '\n' + body;
-  writeFileSync(join(siteRoot, page.out), template(page, ctx, body, tocHtml(ctx.toc), page.out));
+  writeFileSync(join(siteRoot, page.out), stampAssets(template(page, ctx, body, tocHtml(ctx.toc), page.out)));
   console.log(`${page.out}: ${ctx.toc.length} headings`);
 }
 
@@ -512,3 +530,10 @@ ${urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 console.log(`sitemap.xml: ${urls.length} pages`);
+
+// The hand-written pages get the same fingerprints.
+for (const file of ['index.html', '404.html']) {
+  const path = join(siteRoot, file);
+  writeFileSync(path, stampAssets(readFileSync(path, 'utf8')));
+}
+console.log('asset links fingerprinted');
