@@ -296,6 +296,7 @@ function template(page, ctx, body, toc, current) {
   <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/charis-sil-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/site.js"></script>
 ${scripts}
