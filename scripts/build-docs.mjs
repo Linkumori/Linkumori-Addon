@@ -11,9 +11,10 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { diagramHash, DIAGRAM_DIR } from './diagrams.mjs';
 import { overloadCases, customCases, defaultsCases, sourceCases, caseTriggers } from './rules-cases.mjs';
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -74,6 +75,17 @@ const pages = [
     scripts: []
   },
   {
+    source: 'runtime-architecture.md',
+    out: 'runtime-architecture.html',
+    title: 'Runtime architecture — Linkumori',
+    description: 'How Linkumori works inside the browser: the background page, startup, settings, rule loading and merging, the cleaning engine, messaging and the extension pages.',
+    kicker: 'For contributors',
+    status: 'Current',
+    version: 'main',
+    wide: true,
+    scripts: []
+  },
+  {
     html: 'partials/rules.html',
     out: 'rules.html',
     title: 'How rules work — Linkumori',
@@ -105,7 +117,8 @@ const pages = [
 
 const localLinks = {
   'cln-format-1.0.md': 'cln-1.0.html',
-  'filter-syntax.md': 'filter-syntax.html'
+  'filter-syntax.md': 'filter-syntax.html',
+  'runtime-architecture.md': 'runtime-architecture.html'
 };
 
 // The legal pages' "Last updated" line goes in the title block instead of the body.
@@ -143,6 +156,8 @@ function rewriteHref(href) {
   if (/^[a-z]+:/i.test(href)) return href;
   // Pages and files of this site stay relative.
   if (/\.html$/.test(path) || path.startsWith('assets/')) return href;
+  // Files outside docs/, such as ../manifest.json.
+  if (path.startsWith('../')) return `${REPO}/blob/main/${href.slice(3)}`;
   return `${REPO}/blob/main/docs/${href}`;
 }
 
@@ -179,6 +194,30 @@ function highlightJson(code) {
 
 // A code listing with a language bar and a Copy button (wired up in site.js).
 const LANG_NAMES = { json: 'JSON' };
+// A Mermaid diagram, as the light and dark renders from make-diagrams.mjs, with its
+// source under them for screen readers and for copying.
+function diagram(source, section) {
+  const hash = diagramHash(source);
+  const file = theme => `${DIAGRAM_DIR}/${hash}-${theme}.svg`;
+  for (const theme of ['light', 'dark']) {
+    if (!existsSync(join(siteRoot, file(theme)))) throw new Error(`No render of a diagram in "${section}": run scripts/make-diagrams.mjs`);
+  }
+  const alt = escapeHtml(`Diagram: ${section || 'overview'}. Its Mermaid source follows.`);
+  const [, width, height] = /<svg width="(\d+)" height="(\d+)"/.exec(readFileSync(join(siteRoot, file('light')), 'utf8'));
+  const img = theme => `<img class="theme-${theme}-only" src="${file(theme)}" width="${width}" height="${height}" alt="${alt}" loading="lazy">`;
+  const full = theme => `<a class="theme-${theme}-only" href="${file(theme)}">Open full size</a>`;
+  // --w lets the stylesheet keep the text readable: below 70% of full size the
+  // diagram scrolls sideways instead of shrinking further.
+  return `<figure class="diagram">
+  <div class="diagram-scroll" style="--w: ${width}px" tabindex="0" role="group" aria-label="${escapeHtml(`Diagram: ${section || 'overview'}`)}">
+    ${img('light')}
+    ${img('dark')}
+  </div>
+  <div class="diagram-links">${full('light')}${full('dark')}</div>
+  <details><summary>Diagram source</summary>${codeBlock(escapeHtml(source), 'mermaid')}</details>
+</figure>`;
+}
+
 function codeBlock(html, lang) {
   const label = LANG_NAMES[lang] || '';
   return `<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">${label}</span>` +
@@ -387,6 +426,10 @@ function convert(md, ctx) {
       while (i < lines.length && !/^```\s*$/.test(lines[i])) body.push(lines[i++]);
       i++;
       const code = body.join('\n');
+      if (fence[1] === 'mermaid') {
+        out.push(diagram(code, ctx.section));
+        continue;
+      }
       const html = fence[1] === 'json' ? highlightJson(code) : escapeHtml(code);
       out.push(codeBlock(html, fence[1]));
       continue;
@@ -401,6 +444,7 @@ function convert(md, ctx) {
         ctx.title = text;
       } else {
         const id = ctx.slug(text);
+        ctx.section = text.replace(/`/g, '');
         if (level <= 3) ctx.toc.push({ level, id, text });
         out.push(`<h${level} id="${id}">${inline(text)}</h${level}>`);
       }
@@ -641,6 +685,7 @@ ${body}
           <h3>Project</h3>
           <ul>
             <li><a href="${REPO}">Source</a></li>
+            <li><a href="runtime-architecture.html">Runtime architecture</a></li>
             <li><a href="${REPO}/blob/main/privacy.md">Extension privacy</a></li>
             <li><a href="${REPO}/blob/main/SECURITY.md">Security</a></li>
             <li><a href="${REPO}/blob/main/License.md">License</a></li>
