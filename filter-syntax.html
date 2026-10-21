@@ -116,6 +116,19 @@
       </details>
     </aside>
     <main id="main" class="prose">
+<aside class="terms" aria-labelledby="terms-title">
+  <h2 class="terms-title" id="terms-title">Two names for 1.0</h2>
+  <dl>
+    <div>
+      <dt>Earlier 1.0 text</dt>
+      <dd>CLN 1.0 as first announced on 2 October 2026, while the standard was not yet finalised. It is described here only to explain what changed.</dd>
+    </div>
+    <div>
+      <dt>1.0 final</dt>
+      <dd>The finalised standard. It is what Linkumori implements and what a rule file means by <code>"cln": "1.0"</code>.</dd>
+    </div>
+  </dl>
+</aside>
 <p>This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in <a href="cln-1.0.html">CLN Format 1.0 (Final)</a>.</p>
 <p>Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a <code>providers</code> object (and, optionally, <code>cln</code>, <code>metadata</code> and <code>defaults</code>). Each key under <code>providers</code> is a name you choose; its value is a provider object.</p>
 <p>The optional top-level <code>cln</code> key names the format version. Its only valid value is <code>&quot;1.0&quot;</code>; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails <code>lint-rules</code>). It is not called <code>version</code> because the ClearURLs new rule format already uses that key.</p>
