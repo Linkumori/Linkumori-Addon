@@ -522,12 +522,11 @@ tbody tr:hover > * { background: color-mix(in srgb, var(--bg-alt) 55%, transpare
 .prose .table-wrap td code, .prose .table-wrap th code, td code, th code { background: transparent; box-shadow: none; padding: 0; border-radius: 0; font-size: 13px; color: var(--text); overflow-wrap: anywhere; }
 /* The first column names the thing the row is about: keep it on one line, in the accent colour */
 .prose .table-wrap td:first-child code { white-space: nowrap; color: var(--code-key); font-weight: 500; }
-.prose td:first-child { width: 1%; }
 /* On a phone, a two-column table (name, then what it means) stacks each row: the
    name on top, its description under it. Wider tables scroll sideways instead. */
 @media (max-width: 640px) {
   .prose .table-wrap table:has(> thead th:nth-child(2):last-child) thead { display: none; }
-  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) :is(tbody, tr, td) { display: block; width: auto; }
+  .prose .table-wrap table:has(> thead th:nth-child(2):last-child) :is(tbody, tr, td) { display: block; }
   .prose .table-wrap table:has(> thead th:nth-child(2):last-child) tr { padding: 12px 16px; border-bottom: 1px solid var(--line-soft); }
   .prose .table-wrap table:has(> thead th:nth-child(2):last-child) tr:last-child { border-bottom: 0; }
   .prose .table-wrap table:has(> thead th:nth-child(2):last-child) td { padding: 0; border: 0; }
