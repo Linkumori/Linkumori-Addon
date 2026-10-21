@@ -136,8 +136,10 @@
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
 
 <h2 id="custom-rules">Custom rules: replace or add</h2>
-<p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> a matching provider whole, or is <b>added</b> next to the others.</p>
-<div class="rx-callout"><b>A matching custom provider replaces the whole provider.</b> Its rules are not combined with the built-in or remote ones. To add one rule to a built-in provider, copy that provider into the editor and add your rule to the copy. Or use a different pattern, so yours is added alongside.</div>
+<p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> every base provider with the same pattern, or is <b>added</b> next to the others.</p>
+<p><b>Only the pattern decides:</b> the same <code>urlPattern</code>, or the same <code>domainPatterns</code> in any order. A custom provider overrides a base provider even when its <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> or <code>forceRedirection</code> differ. (Overload mode is stricter: there, providers merge only when all of those match too.)</p>
+<p class="rx-version"><span class="rx-tag">Changed after 100.66.0</span> In Linkumori 100.66.0 and earlier, a custom provider replaced a base provider only when its <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code> matched too. If any differed, it was added next to the base provider and both ran.</p>
+<div class="rx-callout"><b>A custom provider with the same pattern replaces the whole provider.</b> Its rules are not combined with the built-in or remote ones. To add one rule to a built-in provider, copy that provider into the editor and add your rule to the copy. Or use a different pattern, so yours is added alongside.</div>
 
 <h3 id="custom-example">Example: the same pattern replaces</h3>
 <div class="rx-merge" aria-label="A custom provider with the same pattern replacing the built-in one">

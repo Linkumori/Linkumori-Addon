@@ -79,7 +79,8 @@ const pages = [
     heading: 'How rules work',
     description: 'How Linkumori picks its rule sources, merges built-in and remote rules in overload mode, applies custom rules on top, and handles toggles, defaults and remote file capabilities, with every case.',
     kicker: 'Guide',
-    facts: [['Covers', 'Sources, merging, custom rules'], ['Applies to', `Linkumori ${VERSION}`]],
+    // The page describes custom rules as they work after 100.66.0, and notes the older behaviour.
+    facts: [['Covers', 'Sources, merging, custom rules'], ['Applies to', 'Linkumori after 100.66.0']],
     wide: true,
     scripts: ['assets/rules.js']
   },
