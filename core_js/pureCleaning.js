@@ -66,6 +66,26 @@
 /*jshint esversion: 6 */
 
 /**
+ * Whether pure cleaning should run another cycle on `after`. Without unbounded
+ * mode at most LINKUMORI_MAX_CLEANING_CYCLES cycles run (CLN 1.0 §Termination).
+ * In unbounded mode no browser stops a redirect loop here, so cleaning stops
+ * when the URL comes back to one already seen.
+ *
+ * @param {String} before   URL the last cycle started from
+ * @param {String} after    URL the last cycle produced
+ * @param {number} cycles   cycles run so far
+ * @param {Set} seen        URLs this run has produced so far
+ * @return {boolean}
+ */
+function shouldRunAnotherCleaningCycle(before, after, cycles, seen) {
+    if (after === before) return false;
+    if (storage.unboundedCyclesEnabled !== true) return cycles < LINKUMORI_MAX_CLEANING_CYCLES;
+    if (seen.has(after)) return false;
+    seen.add(after);
+    return true;
+}
+
+/**
  * Cleans given URLs. Also do automatic redirection.
  *
  * @param  {String} url     url as string
@@ -77,15 +97,15 @@ function pureCleaning(url, quiet = false, isHistoryUpdate = false) {
     let after = url;
     const sessionRewrites = new Set();
 
+    const seen = new Set([url]);
     let cycles = 0;
 
-    // Clean again while the URL changes, at most LINKUMORI_MAX_CLEANING_CYCLES
-    // times (CLN 1.0 §Termination).
+    // Clean again while the URL changes.
     do {
         before = after;
         after = _cleaning(before, quiet, null, null, 1, '', null, sessionRewrites, isHistoryUpdate);
         cycles++;
-    } while (after !== before && cycles < LINKUMORI_MAX_CLEANING_CYCLES);
+    } while (shouldRunAnotherCleaningCycle(before, after, cycles, seen));
 
     return after;
 }
@@ -112,13 +132,14 @@ function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
     let after = url;
     const trace = [];
     const providerDiagnostics = [];
+    const seen = new Set([url]);
     let iterations = 0;
 
     do {
         before = after;
         after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails, sessionRewrites);
         iterations++;
-    } while (after !== before && iterations < LINKUMORI_MAX_CLEANING_CYCLES);
+    } while (shouldRunAnotherCleaningCycle(before, after, iterations, seen));
 
     const firstMatch = trace.length > 0 ? trace[0] : null;
     const firstPatternOnly = providerDiagnostics.find((entry) => entry.patternMatched) || null;

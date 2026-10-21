@@ -452,8 +452,10 @@ result. A redirect is a new request, so the cleaned URL goes through
 (`unboundedCyclesEnabled`) is on, and an entry with a `replacePattern`
 rewrites at most once per request
 ([Termination](filter-syntax.md#termination)). `pureCleaning()` (clipboard,
-context menu, rule tester) loops the same way, with the same cap; it
-keeps the cap even in unbounded mode.
+context menu, rule tester) loops the same way, with the same cap
+(`shouldRunAnotherCleaningCycle`). In unbounded mode no browser stops a
+redirect loop there, so it also stops when the URL comes back to one it
+already produced.
 
 A provider's `exceptions` are checked while matching the URL
 (`matchRequestURL`), so an excepted URL never reaches the next step.
