@@ -1562,6 +1562,14 @@
     "message": "وقتی فعال باشد، قوانین داخلی و راه دور با هم بارگیری می شوند و قبل از اعمال قوانین سفارشی ادغام می شوند.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "چرخه‌های پاک‌سازی نامحدود",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "محدودیت ۱۰ چرخهٔ پاک‌سازی برای هر درخواست را برمی‌دارد. هر بازنویسی همچنان فقط یک بار اعمال می‌شود، اما قوانینی که به‌صورت رفت‌وبرگشتی تغییر مسیر می‌دهند ممکن است تا زمانی که مرورگر آن‌ها را متوقف کند مانع بارگیری صفحه شوند. این گزینه را خاموش نگه دارید مگر اینکه زنجیره‌ای از قوانین به بیش از ۱۰ چرخه نیاز داشته باشد.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "نادیده گرفته شده:",
     "description": "Inline label for overridden provider count."

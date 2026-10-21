@@ -1562,6 +1562,14 @@
     "message": "Når det er aktiveret, indlæses indbyggede og eksterne regler sammen og flettes, før tilpassede regler anvendes.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Ubegrænsede rensecyklusser",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Fjerner grænsen på 10 rensecyklusser pr. anmodning. Hver omskrivning anvendes stadig kun én gang, men regler, der omdirigerer frem og tilbage, kan forhindre en side i at indlæse, indtil browseren stopper dem. Lad dette være slået fra, medmindre en regelkæde kræver mere end 10 cyklusser.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "tilsidesat:",
     "description": "Inline label for overridden provider count."

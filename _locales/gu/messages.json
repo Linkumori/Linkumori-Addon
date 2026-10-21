@@ -1562,6 +1562,14 @@
     "message": "જ્યારે સક્ષમ હોય, ત્યારે બિલ્ટ-ઇન અને રિમોટ નિયમો એકસાથે લોડ થાય છે અને કસ્ટમ નિયમો લાગુ થાય તે પહેલાં મર્જ કરવામાં આવે છે.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "અમર્યાદિત સફાઈ ચક્રો",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "દરેક વિનંતી માટે 10 સફાઈ ચક્રોની મર્યાદા દૂર કરે છે. દરેક પુનર્લેખન હજુ પણ માત્ર એક જ વાર લાગુ થાય છે, પરંતુ આગળ-પાછળ રીડાયરેક્ટ કરતા નિયમો બ્રાઉઝર તેમને અટકાવે ત્યાં સુધી પૃષ્ઠને લોડ થતું રોકી શકે છે. જો કોઈ નિયમ-શૃંખલાને 10 કરતાં વધુ ચક્રોની જરૂર ન હોય તો આને બંધ રાખો.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ઓવરરાઇડ કરેલ:",
     "description": "Inline label for overridden provider count."

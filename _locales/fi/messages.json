@@ -1562,6 +1562,14 @@
     "message": "Kun se on käytössä, sisäänrakennetut ja etäsäännöt ladataan yhteen ja yhdistetään ennen mukautettujen sääntöjen soveltamista.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Rajoittamattomat puhdistuskierrokset",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Poistaa 10 puhdistuskierroksen rajan pyyntöä kohden. Jokainen uudelleenkirjoitus otetaan edelleen käyttöön vain kerran, mutta edestakaisin uudelleenohjaavat säännöt voivat estää sivun latautumisen, kunnes selain pysäyttää ne. Pidä tämä pois päältä, ellei sääntöketju tarvitse yli 10 kierrosta.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ohitettu:",
     "description": "Inline label for overridden provider count."

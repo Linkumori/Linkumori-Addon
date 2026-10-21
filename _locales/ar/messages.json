@@ -1562,6 +1562,14 @@
     "message": "عند التمكين، يتم تحميل القواعد المضمنة والبعيدة معًا ودمجها قبل تطبيق القواعد المخصصة.",
     "description": "وصف لمفتاح تبديل وضع التحميل الزائد"
   },
+  "unbounded_cycles_enabled": {
+    "message": "دورات تنظيف غير محدودة",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "يزيل حد 10 دورات تنظيف لكل طلب. لا تزال كل إعادة كتابة تُطبَّق مرة واحدة فقط، لكن القواعد التي تعيد التوجيه ذهابًا وإيابًا قد تمنع تحميل الصفحة حتى يوقفها المتصفح. اترك هذا الخيار معطلًا ما لم تحتج سلسلة قواعد إلى أكثر من 10 دورات.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "تم تجاوزها:",
     "description": "تسمية مضمنة لعدد المزودين الذين تم تجاوزهم."

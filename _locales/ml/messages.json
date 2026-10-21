@@ -1562,6 +1562,14 @@
     "message": "പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ പ്രയോഗിക്കുന്നതിന് മുമ്പ് ബിൽറ്റ്-ഇൻ, റിമോട്ട് നിയമങ്ങൾ ഒരുമിച്ച് ലോഡ് ചെയ്യുകയും ലയിപ്പിക്കുകയും ചെയ്യുന്നു.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "പരിധിയില്ലാത്ത ക്ലീനിംഗ് സൈക്കിളുകൾ",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "ഓരോ അഭ്യർത്ഥനയ്ക്കും 10 ക്ലീനിംഗ് സൈക്കിളുകൾ എന്ന പരിധി നീക്കം ചെയ്യുന്നു. ഓരോ മാറ്റിയെഴുത്തും ഇപ്പോഴും ഒരിക്കൽ മാത്രമേ പ്രയോഗിക്കൂ, എന്നാൽ അങ്ങോട്ടുമിങ്ങോട്ടും റീഡയറക്ട് ചെയ്യുന്ന നിയമങ്ങൾ ബ്രൗസർ അവ നിർത്തുന്നതുവരെ പേജ് ലോഡ് ആകുന്നത് തടഞ്ഞേക്കാം. ഒരു നിയമ ശൃംഖലയ്ക്ക് 10-ൽ കൂടുതൽ സൈക്കിളുകൾ ആവശ്യമില്ലെങ്കിൽ ഇത് ഓഫായി വയ്ക്കുക.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "അസാധുവാക്കിയത്:",
     "description": "Inline label for overridden provider count."

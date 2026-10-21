@@ -3190,6 +3190,7 @@ function setData(key, value) {
         }
         case "remoteRulesEnabled":
         case "overloadModeEnabled":
+        case "unboundedCyclesEnabled":
         case "builtInRulesEnabled":
         case "linkumoriCNAMEUncloakEnabled":
         case "cnameIgnoreRootDocument":
@@ -3298,6 +3299,7 @@ function initSettings() {
     storage.remoteRulesEnabled = false;
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;
+    storage.unboundedCyclesEnabled = false;
     storage.ruleDefaultsMode = 'source';
     storage.userRuleDefaults = {};
     storage.sourceRuleDefaults = {};

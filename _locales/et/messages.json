@@ -1562,6 +1562,14 @@
     "message": "Kui see on lubatud, laaditakse sisseehitatud ja kaugreeglid kokku ja liidetakse enne kohandatud reeglite rakendamist.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Piiramatud puhastustsüklid",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Eemaldab piirangu 10 puhastustsüklit päringu kohta. Iga ümberkirjutus rakendub endiselt vaid korra, kuid reeglid, mis suunavad edasi-tagasi ümber, võivad takistada lehe laadimist, kuni brauser need peatab. Jätke see välja lülitatuks, kui reegliahel ei vaja üle 10 tsükli.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "tühistatud:",
     "description": "Inline label for overridden provider count."

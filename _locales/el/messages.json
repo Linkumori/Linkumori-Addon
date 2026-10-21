@@ -1562,6 +1562,14 @@
     "message": "Όταν είναι ενεργοποιημένοι, οι ενσωματωμένοι και οι απομακρυσμένοι κανόνες φορτώνονται μαζί και συγχωνεύονται πριν εφαρμοστούν προσαρμοσμένοι κανόνες.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Απεριόριστοι κύκλοι καθαρισμού",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Καταργεί το όριο των 10 κύκλων καθαρισμού ανά αίτημα. Κάθε επανεγγραφή εξακολουθεί να εφαρμόζεται μόνο μία φορά, αλλά κανόνες που ανακατευθύνουν μπρος-πίσω μπορεί να εμποδίζουν τη φόρτωση μιας σελίδας μέχρι να τους σταματήσει το πρόγραμμα περιήγησης. Αφήστε το απενεργοποιημένο, εκτός αν μια αλυσίδα κανόνων χρειάζεται περισσότερους από 10 κύκλους.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "παρακάμπτεται:",
     "description": "Inline label for overridden provider count."

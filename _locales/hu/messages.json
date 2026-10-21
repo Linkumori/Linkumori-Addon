@@ -1562,6 +1562,14 @@
     "message": "Ha engedélyezve van, a beépített és távoli szabályok együtt töltődnek be, és egyesülnek az egyéni szabályok alkalmazása előtt.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Korlátlan tisztítási ciklusok",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Megszünteti a kérésenkénti 10 tisztítási ciklus korlátját. Minden átírás továbbra is csak egyszer érvényesül, de az oda-vissza átirányító szabályok megakadályozhatják az oldal betöltését, amíg a böngésző le nem állítja őket. Hagyja kikapcsolva, hacsak egy szabálylánc nem igényel 10-nél több ciklust.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "felülírt:",
     "description": "Inline label for overridden provider count."

@@ -1562,6 +1562,14 @@
     "message": "Khi được bật, các quy tắc tích hợp và từ xa sẽ được tải cùng nhau và hợp nhất trước khi áp dụng quy tắc tùy chỉnh.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Chu kỳ làm sạch không giới hạn",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Bỏ giới hạn 10 chu kỳ làm sạch cho mỗi yêu cầu. Mỗi lần viết lại vẫn chỉ được áp dụng một lần, nhưng các quy tắc chuyển hướng qua lại có thể khiến trang không tải được cho đến khi trình duyệt dừng chúng. Hãy để tắt trừ khi một chuỗi quy tắc cần hơn 10 chu kỳ.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "ghi đè:",
     "description": "Inline label for overridden provider count."

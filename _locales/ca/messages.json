@@ -1562,6 +1562,14 @@
     "message": "Quan està habilitada, les regles integrades i remotes es carreguen juntes i es fusionen abans d'aplicar les regles personalitzades.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Cicles de neteja il·limitats",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Elimina el límit de 10 cicles de neteja per sol·licitud. Cada reescriptura encara s'aplica una sola vegada, però les regles que redirigeixen d'anada i tornada poden impedir que una pàgina es carregui fins que el navegador les aturi. Deixeu-ho desactivat tret que una cadena de regles necessiti més de 10 cicles.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "anul·lat:",
     "description": "Inline label for overridden provider count."

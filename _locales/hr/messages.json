@@ -1562,6 +1562,14 @@
     "message": "Kada je omogućeno, ugrađena i udaljena pravila zajedno se učitavaju i spajaju prije primjene prilagođenih pravila.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Neograničeni ciklusi čišćenja",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Uklanja ograničenje od 10 ciklusa čišćenja po zahtjevu. Svako prepisivanje i dalje se primjenjuje samo jednom, ali pravila koja preusmjeravaju naprijed-natrag mogu spriječiti učitavanje stranice dok ih preglednik ne zaustavi. Ostavite ovo isključeno osim ako lanac pravila ne treba više od 10 ciklusa.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "nadjačan:",
     "description": "Inline label for overridden provider count."
