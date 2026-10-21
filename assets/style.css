@@ -694,6 +694,8 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .rx-plus, .rx-arrow { text-align: center; font-size: 22px; color: var(--text-3); line-height: 1; }
 @media (max-width: 759px) { .rx-arrow { transform: rotate(90deg); } }
 
+.rx-version { font-size: 15px; color: var(--text-2); border-left: 3px solid var(--line); padding: 2px 0 2px 14px; }
+.rx-version .rx-tag { margin-right: 6px; }
 .rx-callout { border-radius: var(--r); padding: 16px 20px; margin: 20px 0; background: var(--warn-wash); color: var(--text); font-size: 16px; }
 .rx-callout b { color: var(--warn); }
 

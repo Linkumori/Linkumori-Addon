@@ -21,9 +21,9 @@
   <link rel="icon" href="assets/logo.svg?v=5c55ee1e32" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
-  <link rel="stylesheet" href="assets/style.css?v=1bcd3c28fd">
+  <link rel="stylesheet" href="assets/style.css?v=50164bd5a0">
   <script src="assets/site.js?v=bd1a8be389"></script>
-  <script src="assets/rules.js?v=c3064feec3" defer></script>
+  <script src="assets/rules.js?v=22fabb7803" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +56,7 @@
       <h1>How rules work</h1>
       <dl class="doc-facts">
           <div><dt>Covers</dt><dd>Sources, merging, custom rules</dd></div>
-          <div><dt>Applies to</dt><dd>Linkumori 100.66.0</dd></div>
+          <div><dt>Applies to</dt><dd>Linkumori after 100.66.0</dd></div>
       </dl>
     </div>
   </header>
@@ -847,8 +847,10 @@
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
 
 <h2 id="custom-rules">Custom rules: replace or add</h2>
-<p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> a matching provider whole, or is <b>added</b> next to the others.</p>
-<div class="rx-callout"><b>A matching custom provider replaces the whole provider.</b> Its rules are not combined with the built-in or remote ones. To add one rule to a built-in provider, copy that provider into the editor and add your rule to the copy. Or use a different pattern, so yours is added alongside.</div>
+<p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> every base provider with the same pattern, or is <b>added</b> next to the others.</p>
+<p><b>Only the pattern decides:</b> the same <code>urlPattern</code>, or the same <code>domainPatterns</code> in any order. A custom provider overrides a base provider even when its <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> or <code>forceRedirection</code> differ. (Overload mode is stricter: there, providers merge only when all of those match too.)</p>
+<p class="rx-version"><span class="rx-tag">Changed after 100.66.0</span> In Linkumori 100.66.0 and earlier, a custom provider replaced a base provider only when its <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code> matched too. If any differed, it was added next to the base provider and both ran.</p>
+<div class="rx-callout"><b>A custom provider with the same pattern replaces the whole provider.</b> Its rules are not combined with the built-in or remote ones. To add one rule to a built-in provider, copy that provider into the editor and add your rule to the copy. Or use a different pattern, so yours is added alongside.</div>
 
 <h3 id="custom-example">Example: the same pattern replaces</h3>
 <div class="rx-merge" aria-label="A custom provider with the same pattern replacing the built-in one">
@@ -883,8 +885,8 @@
 <h3 id="custom-cases">Every custom-rule case</h3>
 <p>The base rules here are the built-in ones; remote rules behave the same way.</p>
 <div class="cases" data-cases aria-label="Custom rule cases">
-<article class="case" id="cu-replace" data-case-title="Same pattern and settings">
-<header class="case-head"><span class="case-num">1</span><h4>Same pattern and settings</h4></header>
+<article class="case" id="cu-replace" data-case-title="The same pattern">
+<header class="case-head"><span class="case-num">1</span><h4>The same pattern</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -927,8 +929,8 @@
 </div>
 <p class="case-explain">The custom provider replaces the built-in one whole. Its rules are not combined, so the built-in pd_rd_[a-z]* and tag stop running.</p>
 </article>
-<article class="case" id="cu-methods" data-case-title="Same pattern, different settings">
-<header class="case-head"><span class="case-num">2</span><h4>Same pattern, different settings</h4></header>
+<article class="case" id="cu-methods" data-case-title="The same pattern, different settings">
+<header class="case-head"><span class="case-num">2</span><h4>The same pattern, different settings</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -959,14 +961,9 @@
 <div class="case-arrow" aria-hidden="true">→</div>
 <div class="case-out">
   <div class="case-label"><span>What runs</span></div>
-  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-builtin"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>pd_rd_[a-z]*</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon-get</b><code>||amazon.*^</code><small>GET only</small></div><ul><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon-get</b><code>||amazon.*^</code><small>GET only</small></div><ul><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-builtin rx-gone"><code>qid</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin rx-gone"><code>pd_rd_[a-z]*</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin rx-gone"><code>tag</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
   <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;providers&quot;</span>: {
-    <span class="k">&quot;amazon&quot;</span>: {
-      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
-      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
-      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
-    },
     <span class="k">&quot;amazon-get&quot;</span>: {
       <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
       <span class="k">&quot;methods&quot;</span>: [<span class="s">&quot;GET&quot;</span>],
@@ -976,10 +973,59 @@
 }</code></pre></div></details>
 </div>
 </div>
-<p class="case-explain">methods is part of what makes providers match, so the custom one is added next to the built-in one, and both clean amazon requests.</p>
+<p class="case-explain">Only the pattern decides. The custom provider replaces the built-in one even though its methods differ, so amazon requests other than GET are no longer cleaned at all.</p>
+</article>
+<article class="case" id="cu-two-base" data-case-title="Two base providers on the same pattern">
+<header class="case-head"><span class="case-num">3</span><h4>Two base providers on the same pattern</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    },
+    <span class="k">&quot;amazon-block&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;resourceTypes&quot;</span>: [<span class="s">&quot;script&quot;</span>],
+      <span class="k">&quot;completeProvider&quot;</span>: <span class="l">true</span>
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-custom"><code>qid</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-builtin rx-gone"><code>pd_rd_[a-z]*</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov rx-prov-off"><div class="rx-prov-head"><span class="rx-tag rx-o-off">Off</span><b class="rx-prov-name">amazon-block</b><code>||amazon.*^</code><small>replaced too: scripts no longer blocked</small></div></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">One custom provider replaces every base provider with its pattern, whatever their settings, including the one that blocks scripts.</p>
 </article>
 <article class="case" id="cu-pattern" data-case-title="A different pattern">
-<header class="case-head"><span class="case-num">3</span><h4>A different pattern</h4></header>
+<header class="case-head"><span class="case-num">4</span><h4>A different pattern</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -1028,7 +1074,7 @@
 <p class="case-explain">Added. On amazon.de both providers match, so both clean the request, one pass after another.</p>
 </article>
 <article class="case" id="cu-order" data-case-title="The same patterns in another order">
-<header class="case-head"><span class="case-num">4</span><h4>The same patterns in another order</h4></header>
+<header class="case-head"><span class="case-num">5</span><h4>The same patterns in another order</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -1071,7 +1117,7 @@
 <p class="case-explain">Patterns are compared as a set, sorted, so the order you write them in doesn't matter. This is the same provider, and it is replaced.</p>
 </article>
 <article class="case" id="cu-name" data-case-title="A name that is already taken">
-<header class="case-head"><span class="case-num">5</span><h4>A name that is already taken</h4></header>
+<header class="case-head"><span class="case-num">6</span><h4>A name that is already taken</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -1120,7 +1166,7 @@
 <p class="case-explain">Names don't decide matching; patterns do. The custom provider is added, and because amazon is taken, it becomes amazon_1.</p>
 </article>
 <article class="case" id="cu-off" data-case-title="A provider you switched off">
-<header class="case-head"><span class="case-num">6</span><h4>A provider you switched off</h4></header>
+<header class="case-head"><span class="case-num">7</span><h4>A provider you switched off</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">
@@ -1161,7 +1207,7 @@
 <p class="case-explain">Switching a provider off in the custom rules editor removes it from both the base rules and the custom rules, before they are combined.</p>
 </article>
 <article class="case" id="cu-nopattern" data-case-title="A provider with no pattern">
-<header class="case-head"><span class="case-num">7</span><h4>A provider with no pattern</h4></header>
+<header class="case-head"><span class="case-num">8</span><h4>A provider with no pattern</h4></header>
 <div class="case-body">
 <div class="case-inputs">
 <div class="case-in">

@@ -5,7 +5,8 @@
 // - overload: lists join in load order, built-in first; the same text is resolved at run
 //   time (the last definition wins and inherits the first one's place and the nearest
 //   earlier `order`);
-// - custom rules: a provider with the same pattern and settings replaces the base one whole;
+// - custom rules: a provider with the same pattern replaces every base provider on that
+//   pattern whole, whatever their methods, resourceTypes, completeProvider or forceRedirection;
 // - defaults: written into each file's own rules as it loads, before any merge.
 //
 // origin: 'builtin' | 'remote' | 'custom' | 'cache'. Rows with `gone: true` are struck out.
@@ -159,7 +160,7 @@ const builtInAmazon = { providers: { amazon: amazon({ rules: ['qid', 'pd_rd_[a-z
 export const customCases = [
   {
     id: 'cu-replace',
-    title: 'Same pattern and settings',
+    title: 'The same pattern',
     inputs: [
       { label: 'Built-in rules', origin: 'builtin', json: builtInAmazon },
       { label: 'Custom rules', origin: 'custom', json: { providers: { amazon: amazon({ rules: ['qid', 'ref_'] }) } } }
@@ -176,18 +177,42 @@ export const customCases = [
   },
   {
     id: 'cu-methods',
-    title: 'Same pattern, different settings',
+    title: 'The same pattern, different settings',
     inputs: [
       { label: 'Built-in rules', origin: 'builtin', json: builtInAmazon },
       { label: 'Custom rules', origin: 'custom', json: { providers: { 'amazon-get': amazon({ methods: ['GET'], rules: ['ref_'] }) } } }
     ],
     mergedLabel: 'Providers that run',
-    merged: { amazon: builtInAmazon.providers.amazon, 'amazon-get': amazon({ methods: ['GET'], rules: ['ref_'] }) },
-    runs: [
-      { pattern: '||amazon.*^', name: 'amazon', origin: 'builtin', rows: [{ text: 'qid', origin: 'builtin' }, { text: 'pd_rd_[a-z]*', origin: 'builtin' }, { text: 'tag', origin: 'builtin', note: 'referralMarketing' }] },
-      { pattern: '||amazon.*^', name: 'amazon-get', origin: 'custom', note: 'GET only', rows: [{ text: 'ref_', origin: 'custom' }] }
+    merged: { 'amazon-get': amazon({ methods: ['GET'], rules: ['ref_'] }) },
+    runs: [{ pattern: '||amazon.*^', name: 'amazon-get', origin: 'custom', note: 'GET only', rows: [
+      { text: 'ref_', origin: 'custom' },
+      { text: 'qid', origin: 'builtin', note: 'no longer removed', gone: true },
+      { text: 'pd_rd_[a-z]*', origin: 'builtin', note: 'no longer removed', gone: true },
+      { text: 'tag', origin: 'builtin', note: 'no longer removed', gone: true }
+    ] }],
+    explain: 'Only the pattern decides. The custom provider replaces the built-in one even though its methods differ, so amazon requests other than GET are no longer cleaned at all.'
+  },
+  {
+    id: 'cu-two-base',
+    title: 'Two base providers on the same pattern',
+    inputs: [
+      { label: 'Built-in rules', origin: 'builtin', json: { providers: {
+        amazon: builtInAmazon.providers.amazon,
+        'amazon-block': { domainPatterns: ['||amazon.*^'], resourceTypes: ['script'], completeProvider: true }
+      } } },
+      { label: 'Custom rules', origin: 'custom', json: { providers: { amazon: amazon({ rules: ['qid', 'ref_'] }) } } }
     ],
-    explain: 'methods is part of what makes providers match, so the custom one is added next to the built-in one, and both clean amazon requests.'
+    mergedLabel: 'Providers that run',
+    merged: { amazon: amazon({ rules: ['qid', 'ref_'] }) },
+    runs: [
+      { pattern: '||amazon.*^', name: 'amazon', origin: 'custom', rows: [
+        { text: 'qid', origin: 'custom' },
+        { text: 'ref_', origin: 'custom' },
+        { text: 'pd_rd_[a-z]*', origin: 'builtin', note: 'no longer removed', gone: true }
+      ] },
+      { pattern: '||amazon.*^', name: 'amazon-block', origin: 'off', note: 'replaced too: scripts no longer blocked', rows: [] }
+    ],
+    explain: 'One custom provider replaces every base provider with its pattern, whatever their settings, including the one that blocks scripts.'
   },
   {
     id: 'cu-pattern',

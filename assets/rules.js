@@ -84,7 +84,7 @@
       const steps = r.steps.slice();
       if (s.custom === 'yes') {
         steps.push(r.base.length
-          ? 'Your custom rules go on top: each replaces a provider with the same pattern and settings, or is added.'
+          ? 'Your custom rules go on top: each replaces every provider with the same pattern, or is added.'
           : 'Only your custom rules load.');
       }
       steps.push('Providers and rules you switched off are left out.');
