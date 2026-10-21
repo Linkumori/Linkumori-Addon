@@ -619,6 +619,7 @@
 <li><strong>Built-in and custom rules</strong> hold every capability.</li>
 <li><strong>Acceptance</strong> is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't rewrite a URL to another origin — while the rest of the file loads.</li>
 <li><strong>Updates.</strong> When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.</li>
+<li><strong>Old merged cache.</strong> A cached copy of the remote rules saved before files were cached one by one can't be traced to its files. Until the next refresh, its <code>redirect</code> and <code>block</code> entries stay inactive unless every configured remote file has accepted that capability.</li>
 <li><strong>No carry-over.</strong> Every remote file starts with only <code>strip</code>, <code>rewrite</code> and <code>except</code>, including files configured before capabilities existed; accept <code>redirect</code> and <code>block</code> in Remote Rules Health.</li>
 <li><strong>Visibility.</strong> Remote Rules Health lists each remote file's capabilities.</li>
 </ul>

@@ -457,6 +457,7 @@
 <li><strong>Built-in and custom rules</strong> hold every capability.</li>
 <li><strong>Acceptance</strong> is given per remote file and per capability. Until then, that file's redirect or block entries stay inactive and the rest of the file loads.</li>
 <li><strong>Updates.</strong> When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.</li>
+<li><strong>Untraceable entries.</strong> When an engine cannot tell which remote file an entry came from, the entry gets only the capabilities that every configured remote file has accepted.</li>
 <li><strong>Existing installs.</strong> No capability carries over. A remote file configured before this rule starts with only the capabilities active on load, and its redirect and block entries wait for acceptance like any other file's.</li>
 <li><strong>Visibility.</strong> Remote Rules Health lists each remote file's capabilities.</li>
 </ul>
