@@ -270,7 +270,7 @@
           <li><h3>Rule defaults</h3><p>Request types, exceptions and preprocessors for whole files.</p></li>
           <li><h3>Six themes</h3><p>Light, dark, midnight, sunset, ice-cold and legacy.</p></li>
           <li><h3>Accessibility</h3><p>Options on every page, checked against WCAG 2.2 AA.</p></li>
-          <li><h3>Your language</h3><p>Every string lives in <code>_locales</code>; a new language is one file.</p></li>
+          <li><h3>Your language</h3><p>Pick one in settings, or follow the browser. Each language is one file in <code>_locales</code>.</p></li>
         </ul>
       </div>
     </section>
@@ -314,7 +314,7 @@
           <p class="subhead">Linkumori collects nothing. No telemetry, no analytics, no usage data. Every URL is cleaned on your device.</p>
         </div>
         <div class="privacy-cols reveal">
-          <div><h3>Local by default.</h3><p>Built-in rules ship with each release. Nothing is fetched unless you turn remote rules on.</p></div>
+          <div><h3>Local by default.</h3><p>Built-in rules ship with each release. Nothing is fetched unless you turn remote rules on, and adding your first remote address asks you to confirm the risk.</p></div>
           <div><h3>Your server, your rules.</h3><p>Whoever runs a rules endpoint sees your IP address and when you connect. Use infrastructure you control, or a local network address.</p></div>
           <div><h3>This site, too.</h3><p>No cookies, analytics or third-party requests. Read the site's <a href="privacy.html">privacy policy</a>.</p></div>
         </div>
@@ -414,7 +414,7 @@
         </div>
         <div class="cln-points reveal">
           <div><b>Deterministic.</b><span>Every provider has exactly one run sequence. No <code>order</code> moves a field rule ahead of a raw rule.</span></div>
-          <div><b>Safe redirects.</b><span>Only absolute <code>http</code> or <code>https</code> targets, and at most 10 cycles per request.</span></div>
+          <div><b>Safe redirects.</b><span>Only absolute <code>http</code> or <code>https</code> targets, and at most 10 cycles per request unless you lift the cap.</span></div>
           <div><b>Capabilities.</b><span>Remote files strip, rewrite and except on load. Redirect and block wait for you.</span></div>
           <div><b>Conformance.</b><span>Worked examples, lint checks and test vectors define a conforming engine.</span></div>
         </div>
