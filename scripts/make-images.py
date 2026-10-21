@@ -22,7 +22,7 @@ TEXT_2 = (97, 97, 102)
 LINE = (232, 232, 237)
 STRIKE = (196, 0, 26)
 STRIKE_WASH = (255, 241, 242)
-GRAD = [(0, 113, 227), (63, 94, 251), (125, 92, 247)]
+BRAND = (37, 99, 235)  # the logo's blue, #2563eb
 
 HELVETICA = "/System/Library/Fonts/HelveticaNeue.ttc"
 MENLO = "/System/Library/Fonts/Menlo.ttc"
@@ -40,18 +40,11 @@ def logo_png(size):
     return Image.open(io.BytesIO(png)).convert("RGBA")
 
 
-def gradient(w, h):
-    """A left-to-right gradient through GRAD's stops."""
-    img = Image.new("RGB", (w, h))
-    px = img.load()
-    for x in range(w):
-        t = x / max(1, w - 1) * (len(GRAD) - 1)
-        i = min(int(t), len(GRAD) - 2)
-        f = t - i
-        c = tuple(round(GRAD[i][k] + (GRAD[i + 1][k] - GRAD[i][k]) * f) for k in range(3))
-        for y in range(h):
-            px[x, y] = c
-    return img
+def sparkle(d, cx, top, size, fill):
+    """The four-point star from the logo, `size` pixels tall, centred on cx."""
+    pts = [(11, 0), (14, 8), (22, 11), (14, 14), (11, 22), (8, 14), (0, 11), (8, 8)]
+    k = size / 22
+    d.polygon([(cx - size / 2 + x * k, top + y * k) for x, y in pts], fill=fill)
 
 
 def centered(d, y, text, font, fill, w):
@@ -74,12 +67,13 @@ def og_image():
     big = sans(92, bold=True)
     centered(d, 150, "Links, without", big, TEXT, w)
 
-    # Gradient second line: draw the text as a mask over a gradient fill.
+    # Second line in the logo's blue, with the logo's sparkle after it.
     line2 = "the tracking."
-    tw = round(d.textlength(line2, font=big))
-    mask = Image.new("L", (tw + 8, 120), 0)
-    ImageDraw.Draw(mask).text((0, 0), line2, font=big, fill=255)
-    img.paste(gradient(tw + 8, 120), (round((w - tw) / 2), 252), mask)
+    tw = d.textlength(line2, font=big)
+    spark = 28
+    x0 = (w - tw - spark - 4) / 2
+    d.text((x0, 252), line2, font=big, fill=BRAND)
+    sparkle(d, x0 + tw + 4 + spark / 2, 262, spark, BRAND)
 
     centered(d, 376, "Tracking parameters removed before the page loads. Nothing collected.", sans(26), TEXT_2, w)
 
