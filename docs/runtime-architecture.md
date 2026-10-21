@@ -197,6 +197,18 @@ Keys that shape the runtime:
 | `types`, `pingRequestTypes` | request types the `webRequest` listener receives |
 | `redirectionEnabled`, `domainBlocking`, `pingBlocking`, `referralMarketing`, `localHostsSkipping`, `eTagFiltering`, `linkumoriCNAMEUncloakEnabled`, … | feature switches |
 | `totalCounter`, `cleanedCounter`, `log`, `logLimit`, `loggingStatus` | statistics and the log (§9) |
+| `statisticsStatus` | counters on/off (default on) |
+| `badgedStatus`, `badged_color` | the toolbar badge on/off (default on) and its colour (default `#2563eb`) (§9) |
+| `historyListenerEnabled` | History API cleaning on/off (default on) (§7.2) |
+| `unboundedCyclesEnabled` | lift the 10-cycle limit on cleaning a request (default off) (§6.4) |
+| `ruleDefaultsMode`, `userRuleDefaults`, `sourceRuleDefaults` | rule defaults: where the user's own `defaults` replace the files' (`source`, `final` or `unified`; default `source`), the user's own `defaults` block, and the user's edits of a file's own block, by source ([defaults](filter-syntax.md#defaults)) |
+| `remoteRuleCapabilities` | what each remote file can do and what the user accepted, as `{ files: { [ruleURL]: { derived, accepted } } }` (§5.2) |
+| `disableGatekeeper` | skip the confirmation for remote rule addresses (default off) (§11.1) |
+
+The interface language is not in `storage`: the language selector in
+settings writes `linkumori_language` to `browser.storage.sync`, and
+`external_js/linkumori-i18n.js` reads it on every page. Left unset, the
+browser's language is used.
 
 ## 5. Rule loading
 
@@ -247,6 +259,17 @@ rules still load.
 
 The outcome of every attempt is recorded in `remoteRulesHealth`, which
 settings shows.
+
+**Capabilities.** When a remote file loads, `resolveRemoteFileCapabilities`
+records what its entries can do (`LinkumoriRuleIds.deriveRuleFileCapabilities`)
+in `remoteRuleCapabilities`. `strip`, `rewrite` and `except` are active at
+once; `redirect` and `block` stay off for that file until the user accepts
+them in Remote Rules Health, which calls `acceptRemoteRuleCapabilities` and
+reloads the remote rules. Entries that need a capability the file lacks are
+left out (`restrictRuleFileCapabilities`). The verified cache can't be traced
+to one file, so when it loads only the capabilities every configured file
+has accepted are active (`getCapabilitiesAcceptedByAllRemoteFiles`). See
+[CLN 1.0 §Remote file capabilities](cln-format-1.0.md#remote-file-capabilities).
 
 ### 5.3 Choosing the sources
 
@@ -425,10 +448,12 @@ The first provider that redirects, blocks or changes the URL decides the
 result. A redirect is a new request, so the cleaned URL goes through
 `clearUrl()` again. The browser keeps the `requestId` across redirects, so
 `clearUrl()` counts the cycles of each request and stops after
-`LINKUMORI_MAX_CLEANING_CYCLES` (10), and an entry with a `replacePattern`
+`LINKUMORI_MAX_CLEANING_CYCLES` (10), unless unbounded mode
+(`unboundedCyclesEnabled`) is on, and an entry with a `replacePattern`
 rewrites at most once per request
 ([Termination](filter-syntax.md#termination)). `pureCleaning()` (clipboard,
-context menu, rule tester) loops the same way, with the same cap.
+context menu, rule tester) loops the same way, with the same cap; it
+keeps the cap even in unbounded mode.
 
 A provider's `exceptions` are checked while matching the URL
 (`matchRequestURL`), so an excepted URL never reaches the next step.
@@ -620,13 +645,20 @@ browser.runtime.sendMessage({ function: 'getData', params: ['globalStatus'] })
 The allowlist covers:
 
 - whitelist changes (`addToWhitelist`, `addToTemporaryTabWhitelist`,
-  `removeFrom…`);
+  `addToHistoryApiWhitelist`, the matching `removeFrom…`,
+  `getHistoryApiWhitelist`, `getTemporaryTabWhitelistForTab`);
 - pausing (`pauseCleaningTemporarily`, `pauseCleaningUntilRestart`,
   `resumeCleaningNow`, `getTemporaryPauseState`);
 - rule information (`getRuleSourceInfo`, `getMergeStatistics`,
-  `getRemoteRulesHealth`, `refreshRemoteRulesNow`);
+  `getRemoteRulesHealth`, `refreshRemoteRulesNow`, `getRuleDefaultsStatus`,
+  which returns each source's `defaults`, the mode and the user's own and
+  edited blocks);
+- remote capabilities (`acceptRemoteRuleCapabilities(ruleURL,
+  capabilities)`, §5.2);
 - cleaning and tests (`pureCleaning`, `runRuleTestLab`,
-  `traceClearURLWebRequestTest`, `applyRegressionRuleData`);
+  `traceClearURLWebRequestTest`, `applyRegressionRuleData`, and
+  `setPendingRegressionSuite` / `getPendingRegressionSuite`, which hand a
+  suite from settings to `regression.html` in memory);
 - maintenance (`storageAsJSON`, `saveOnExit`, `initSettings`, `reload`,
   `start`, `changeIcon`, `setBadgedStatus`).
 
@@ -655,6 +687,26 @@ the popup's consent keys, and settings that background listeners watch (§4).
 Every page loads `theme_bootstrap.js` (themes), `linkumori-i18n.js` (text),
 `accessibility_tools.js` (accessibility options) and usually
 `write_version.js` (version footer).
+
+### 11.1 Settings page safeguards
+
+settings.js asks before a few risky changes. These checks live in the page
+only; the background accepts the keys whatever their value.
+
+- **Gatekeeper for remote rule addresses.** When no remote addresses are
+  saved, editing the rule URL, hash URL or remote rule sets field opens a
+  disclaimer, and the change is kept only after the user types the
+  confirmation phrase (*I accept full responsibility* in English; each
+  language has its own). The confirmation lasts until the page is closed.
+  Addresses that are already saved can be edited without it. The import and
+  export buttons for remote addresses appear only after confirming.
+- **Disable Gatekeeper** (`disableGatekeeper`) skips that confirmation and
+  shows the import and export buttons. Turning it on opens a risk warning,
+  then the same disclaimer with a phrase of its own. Turning it off needs no
+  confirmation.
+- **Redirect bypass** (`redirectionEnabled`): turning it on first shows a
+  warning to review the redirect rules of every source; *Cancel* leaves it
+  off.
 
 ## 12. Code shared between the background, pages and CLI
 
