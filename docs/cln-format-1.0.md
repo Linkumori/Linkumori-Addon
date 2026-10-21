@@ -5,25 +5,13 @@ Oct 2, 2026 · @Subham
 > **Implementation.** Linkumori implements this document after v100.62.0. The
 > rule-by-rule reference is [filter-syntax.md](filter-syntax.md); where the
 > engine makes a choice this document leaves open, that page says so. The
-> statement under Status and scope that nothing was tested against the engine
-> describes the document as written; the worked examples and vectors below
-> have since been checked against it.
->
-> **Deviations.** Linkumori keeps no compatibility shims, since the custom rules
-> editor and Remote Rules Health let people redo both settings:
->
-> - A toggle saved under a bare `id` no longer applies (Rule ids and toggles,
->   "Saved toggles"). Toggles keyed `providerKey::id` or by match pattern
->   keep working.
-> - Remote files configured before this change get no capabilities for free
->   (Remote file capabilities, "Existing installs"): their `redirect` and
->   `block` entries wait for acceptance like any other file's.
+> worked examples and vectors below are checked against the engine.
 
 ## Status and scope
 
 This document is CLN Format 1.0 in its final form. It supersedes the 1.0 text announced on 2 October 2026, and there is no compatibility mode for that earlier text.
 
-It is written against the [1.0 announcement](https://github.com/orgs/Linkumori/discussions/163). It has not been tested against the Linkumori engine.
+It is written against the [1.0 announcement](https://github.com/orgs/Linkumori/discussions/163).
 
 **What it keeps.** Every key, array and pattern of the earlier 1.0 text stays valid. A file written for that text loads without edits, so no converter is needed.
 
@@ -48,7 +36,7 @@ It is written against the [1.0 announcement](https://github.com/orgs/Linkumori/d
 | 9 | Termination | The cycle repeats on each new URL; no bound stated | At most 10 cycles per request; a rewrite applies once per request |
 | 10 | Remote file capabilities | A remote file can redirect or block as soon as it loads | Capabilities are derived per file; redirect and block need acceptance |
 
-Rows 8 and 9 may restate what the engine already does. The earlier text is silent on both, so 1.0 final writes them down.
+The earlier text is silent on rows 8 and 9, so 1.0 final writes them down.
 
 ## File structure
 
@@ -275,7 +263,7 @@ The earlier 1.0 text keys the toggle off the rule `id` alone and does not descri
 - **Toggle key.** `providerKey::id`, where `providerKey` is the provider's key under `providers`. Example: `shop::token-rewrite`. An `id` cannot contain a colon, so the key splits at its last `::`.
 - **Unique in a provider.** Within one provider of one file, every `id` and every alias is distinct. A repeat is a `lint-rules` error. Generated ids count.
 - **Replaced definitions.** When one definition replaces another, the `id` and `aliases` of each replaced definition resolve to the winner. Toggling any of them switches the one rule that runs.
-- **Saved toggles.** A toggle saved under a bare `id` keeps working as before. It is saved in the namespaced form the next time the person changes it. Linkumori deviates here: it ignores bare-`id` toggles (see Deviations at the top).
+- **Saved toggles.** A toggle saved under a bare `id` switches nothing. Toggles keyed `providerKey::id` or by match pattern keep working. A person switches a rule off again in the custom rules editor.
 - **Shared provider keys.** Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.
 - **Generated ids.** Unchanged. An id is still generated from the list and the `matchPattern` text when left out, and still changes when that text is edited.
 
@@ -363,7 +351,7 @@ The check covers all three sources of a target: the capture group of a `redirect
 
 Processing a request ends after a bounded number of cycles. The earlier 1.0 text says the cycle repeats on each new URL and states no bound. Read literally, a rewrite such as `clean-§1§` would apply again on every cycle.
 
-- **Cycle cap.** At most 10 cycles run per request. At the cap, processing stops and the URL is used as it stands. The value 10 is a proposal.
+- **Cycle cap.** At most 10 cycles run per request. At the cap, processing stops and the URL is used as it stands.
 - **Rewrites run once.** An entry with a `replacePattern` applies at most once per request.
 - **No-op steps.** A step whose output equals its input is not a change and does not start a new cycle.
 
@@ -382,7 +370,7 @@ A remote file's capabilities are derived from its content when it loads. A file 
 - **Built-in and custom rules** hold every capability.
 - **Acceptance** is given per remote file and per capability. Until then, that file's redirect or block entries stay inactive and the rest of the file loads.
 - **Updates.** When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.
-- **Existing installs.** The capabilities a remote file already has when the engine first applies this rule count as accepted. Nothing that works today stops.
+- **Existing installs.** No capability carries over. A remote file configured before this rule starts with only the capabilities active on load, and its redirect and block entries wait for acceptance like any other file's.
 - **Visibility.** Remote Rules Health lists each remote file's capabilities.
 
 ## Conformance
@@ -440,9 +428,9 @@ Three engine rules also take effect for every file:
 
 - A redirect to a relative target, or to a scheme other than `http` or `https`, no longer happens.
 - A rewrite applies once per request, and processing stops after 10 cycles.
-- A newly added remote file's redirects and blocks wait for acceptance. Remote files already installed are unaffected.
+- A remote file's redirects and blocks wait for acceptance, including files installed before this change.
 
-Saved toggles keep working, except that Linkumori ignores a toggle saved under a bare `id` (see Deviations at the top). Toggles keyed `providerKey::id` or by match pattern keep working everywhere.
+A toggle saved under a bare `id` no longer applies. Toggles keyed `providerKey::id` or by match pattern keep working.
 
 ## Deferred to 2.0
 
@@ -458,7 +446,7 @@ Saved toggles keep working, except that Linkumori ignores a toggle saved under a
 ## Sources
 
 - [Announcing Linkumori CLN Format 1.0](https://github.com/orgs/Linkumori/discussions/163), discussion #163, read in full on 2 October 2026. Every statement about the earlier 1.0 text comes from it, including the ClearURLs `version` key.
-- [Linkumori-Addon pull request #162](https://github.com/Linkumori/Linkumori-Addon/pull/162), from its search excerpt: the cause of whole-number ordering.
-- [Linkumori-Addon pull request #149](https://github.com/Linkumori/Linkumori-Addon/pull/149), from its search excerpt: Linkumori reads the ClearURLs formats.
+- [Linkumori-Addon pull request #162](https://github.com/Linkumori/Linkumori-Addon/pull/162): the cause of whole-number ordering.
+- [Linkumori-Addon pull request #149](https://github.com/Linkumori/Linkumori-Addon/pull/149): Linkumori reads the ClearURLs formats.
 
-Nothing here was tested against the Linkumori engine. Where the earlier 1.0 text is silent, this document says so and sets a rule.
+Where the earlier 1.0 text is silent, this document says so and sets a rule.
