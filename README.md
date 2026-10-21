@@ -26,7 +26,7 @@ The doc and legal pages are generated. Edit the spec Markdown on `main`, or `leg
 node scripts/build-docs.mjs
 ```
 
-It reads `docs/*.md` from the local `main` branch with `git show`. To read from a folder instead, pass its path, for example `node scripts/build-docs.mjs ../Linkumori-Addon/docs`.
+It reads `docs/*.md` from the local `main` branch with `git show`. It also stamps every link to a file in `assets/` with `?v=` and a hash of that file, in the generated pages and in `index.html` and `404.html`, so browsers never pair a new page with an old cached script or stylesheet. Run it after changing anything in `assets/`, including after `scripts/make-images.py` or `scripts/capture-popup.sh`. To read from a folder instead, pass its path, for example `node scripts/build-docs.mjs ../Linkumori-Addon/docs`.
 
 ## Regenerating the images
 
