@@ -225,6 +225,10 @@ const SWITCH_ACCESSIBILITY = {
     overloadModeEnabled: {
         labelId: 'overload_mode_enabled',
         descriptionId: 'overload_mode_enabled_description'
+    },
+    unboundedCyclesEnabled: {
+        labelId: 'unbounded_cycles_enabled',
+        descriptionId: 'unbounded_cycles_enabled_description'
     }
 };
 
@@ -2903,7 +2907,8 @@ function setupToggleSwitches() {
         { id: 'linkumoriCNAMEUncloakEnabled', storageKey: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'cnameIgnoreRootDocument', storageKey: 'cnameIgnoreRootDocument' },
         { id: 'cnameReplayFullURL', storageKey: 'cnameReplayFullURL' },
-        { id: 'overloadModeEnabled', storageKey: 'overloadModeEnabled' }
+        { id: 'overloadModeEnabled', storageKey: 'overloadModeEnabled' },
+        { id: 'unboundedCyclesEnabled', storageKey: 'unboundedCyclesEnabled' }
 
     ];
     
@@ -3343,7 +3348,8 @@ function save() {
         { id: 'linkumoriCNAMEUncloakEnabled', key: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'cnameIgnoreRootDocument', key: 'cnameIgnoreRootDocument' },
         { id: 'cnameReplayFullURL', key: 'cnameReplayFullURL' },
-        { id: 'overloadModeEnabled', key: 'overloadModeEnabled' }
+        { id: 'overloadModeEnabled', key: 'overloadModeEnabled' },
+        { id: 'unboundedCyclesEnabled', key: 'unboundedCyclesEnabled' }
     ];
     const toggleValues = {};
     toggleConfigs.forEach(({ id, key }) => {
@@ -3884,7 +3890,8 @@ async function getData() {
             loadData("builtInRulesEnabled"),
             loadData("linkumoriCNAMEUncloakEnabled"),
             loadData("cnameIgnoreRootDocument"),
-            loadData("cnameReplayFullURL")
+            loadData("cnameReplayFullURL"),
+            loadData("unboundedCyclesEnabled")
         ]);
 
         if (settings.remoteRulesEnabled) {
@@ -4683,6 +4690,8 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
     setElementText('overload_mode_defaults_note', 'overload_mode_defaults_note');
+    setElementText('unbounded_cycles_enabled', 'unbounded_cycles_enabled');
+    setElementText('unbounded_cycles_enabled_description', 'unbounded_cycles_enabled_description');
     
     // Rules section
     setElementText('bundled_rules_section_title', 'bundled_rules_section_title');

@@ -1562,6 +1562,14 @@
     "message": "Když je tato možnost povolena, vestavěná a vzdálená pravidla se načtou a sloučí před použitím vlastních pravidel.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Neomezené cykly čištění",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Odstraní limit 10 cyklů čištění na požadavek. Každý přepis se stále použije jen jednou, ale pravidla, která přesměrovávají tam a zpět, mohou bránit načtení stránky, dokud je prohlížeč nezastaví. Nechte vypnuté, pokud řetězec pravidel nepotřebuje více než 10 cyklů.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "přepsáno:",
     "description": "Inline label for overridden provider count."

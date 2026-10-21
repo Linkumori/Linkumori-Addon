@@ -1251,6 +1251,14 @@
   "overload_mode_enabled_description": {
     "message": "Якщо ввімкнено, вбудовані та віддалені правила завантажуються разом і об’єднуються перед застосуванням власних правил."
   },
+  "unbounded_cycles_enabled": {
+    "message": "Необмежені цикли очищення",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Знімає обмеження в 10 циклів очищення на запит. Кожне переписування й надалі застосовується лише один раз, але правила, що перенаправляють туди й назад, можуть не давати сторінці завантажитися, доки браузер їх не зупинить. Залиште вимкненим, якщо ланцюжку правил не потрібно більше 10 циклів.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "перевизначених:"
   },

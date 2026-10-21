@@ -1251,6 +1251,14 @@
   "overload_mode_enabled_description": {
     "message": "Po włączeniu reguły wbudowane i zdalne są ładowane razem i scalane przed zastosowaniem reguł niestandardowych."
   },
+  "unbounded_cycles_enabled": {
+    "message": "Nieograniczone cykle czyszczenia",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Usuwa limit 10 cykli czyszczenia na żądanie. Każde przepisanie nadal jest stosowane tylko raz, ale reguły przekierowujące tam i z powrotem mogą uniemożliwić wczytanie strony, dopóki przeglądarka ich nie zatrzyma. Pozostaw wyłączone, chyba że łańcuch reguł wymaga więcej niż 10 cykli.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "zastąpionych:"
   },

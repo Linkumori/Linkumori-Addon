@@ -1562,6 +1562,14 @@
     "message": "सक्षम केलेले असताना, अंगभूत आणि रिमोट नियम एकत्र लोड केले जातात आणि सानुकूल नियम लागू होण्यापूर्वी विलीन केले जातात.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "अमर्यादित स्वच्छता चक्रे",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "प्रत्येक विनंतीसाठी 10 स्वच्छता चक्रांची मर्यादा काढून टाकते. प्रत्येक पुनर्लेखन अजूनही फक्त एकदाच लागू होते, परंतु पुढे-मागे पुनर्निर्देशित करणारे नियम ब्राउझर त्यांना थांबवेपर्यंत पृष्ठ लोड होण्यापासून रोखू शकतात. नियम-साखळीला 10 पेक्षा जास्त चक्रांची गरज नसल्यास हे बंद ठेवा.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "अधिलिखित:",
     "description": "Inline label for overridden provider count."

@@ -1254,6 +1254,14 @@
   "overload_mode_enabled_description": {
     "message": "Wanneer ingeschakeld, worden ingebouwde en externe regels samen geladen en samengevoegd voordat aangepaste regels worden toegepast."
   },
+  "unbounded_cycles_enabled": {
+    "message": "Onbeperkte opschooncycli",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Verwijdert de limiet van 10 opschooncycli per verzoek. Elke herschrijving wordt nog steeds maar één keer toegepast, maar regels die heen en weer omleiden kunnen voorkomen dat een pagina laadt totdat de browser ze stopt. Laat dit uit, tenzij een regelketen meer dan 10 cycli nodig heeft.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "overschreven:"
   },

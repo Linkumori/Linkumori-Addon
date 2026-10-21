@@ -1562,6 +1562,14 @@
     "message": "Kapag pinagana, ang mga built-in at malayuang panuntunan ay nilo-load nang magkasama at pinagsasama bago ilapat ang mga custom na panuntunan.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Walang limitasyong mga cycle ng paglilinis",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Inaalis ang limitasyong 10 cycle ng paglilinis bawat request. Isang beses pa ring ilalapat ang bawat rewrite, pero ang mga rule na nagre-redirect nang pabalik-balik ay maaaring pumigil sa pag-load ng pahina hanggang ihinto ito ng browser. Iwanan itong naka-off maliban kung kailangan ng isang chain ng rule ang higit sa 10 cycle.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "na-override:",
     "description": "Inline label for overridden provider count."

@@ -1562,6 +1562,14 @@
     "message": "Quando ativado, as regras incorporadas e remotas são carregadas em conjunto e mescladas antes da aplicação das regras personalizadas.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Ciclos de limpeza ilimitados",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Remove o limite de 10 ciclos de limpeza por pedido. Cada reescrita continua a ser aplicada apenas uma vez, mas regras que redirecionam de um lado para o outro podem impedir uma página de carregar até o navegador as parar. Mantenha desativado, a menos que uma cadeia de regras precise de mais de 10 ciclos.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "substituídos:",
     "description": "Inline label for overridden provider count."

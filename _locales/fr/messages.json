@@ -1562,6 +1562,14 @@
     "message": "Lorsqu'il est activé, les règles intégrées et distantes sont chargées ensemble et fusionnées avant l'application des règles personnalisées.",
     "description": "Description pour l'interrupteur du mode Overload"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Cycles de nettoyage illimités",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Supprime la limite de 10 cycles de nettoyage par requête. Chaque réécriture ne s'applique toujours qu'une fois, mais des règles qui redirigent dans un sens puis dans l'autre peuvent empêcher une page de se charger jusqu'à ce que le navigateur les arrête. Laissez cette option désactivée sauf si une chaîne de règles nécessite plus de 10 cycles.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "remplacés :",
     "description": "Libellé en ligne pour le nombre de fournisseurs remplacés."

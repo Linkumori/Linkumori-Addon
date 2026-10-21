@@ -1562,6 +1562,14 @@
     "message": "যখন সক্ষম করা হয়, অন্তর্নির্মিত এবং দূরবর্তী নিয়মগুলি কাস্টম নিয়মগুলি প্রয়োগ করার আগে একসাথে লোড করা হয় এবং মার্জ করা হয় ।",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "সীমাহীন পরিষ্কারের চক্র",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "প্রতি অনুরোধে ১০টি পরিষ্কারের চক্রের সীমা সরিয়ে দেয়। প্রতিটি পুনর্লিখন এখনও একবারই প্রয়োগ হয়, তবে যে নিয়মগুলো বারবার আগে-পিছে রিডাইরেক্ট করে সেগুলো ব্রাউজার না থামানো পর্যন্ত পৃষ্ঠা লোড হতে বাধা দিতে পারে। কোনো নিয়ম-শৃঙ্খলের ১০টির বেশি চক্র প্রয়োজন না হলে এটি বন্ধ রাখুন।",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "পূনর্স্থাপন করা হয়েছে",
     "description": "Inline label for overridden provider count."

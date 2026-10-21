@@ -1253,6 +1253,14 @@
   "overload_mode_enabled_description": {
     "message": "Quando ativado, as regras internas e remotas são carregadas juntas e mescladas antes da aplicação das regras personalizadas."
   },
+  "unbounded_cycles_enabled": {
+    "message": "Ciclos de limpeza ilimitados",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Remove o limite de 10 ciclos de limpeza por solicitação. Cada reescrita ainda é aplicada apenas uma vez, mas regras que redirecionam de um lado para o outro podem impedir que uma página carregue até que o navegador as interrompa. Deixe desativado, a menos que uma cadeia de regras precise de mais de 10 ciclos.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "sobrescritos:"
   },

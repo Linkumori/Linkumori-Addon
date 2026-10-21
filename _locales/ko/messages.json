@@ -1562,6 +1562,14 @@
     "message": "활성화하면 내장 규칙과 원격 규칙이 함께 로드되고 사용자 지정 규칙이 적용되기 전에 병합됩니다.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "무제한 정리 주기",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "요청당 정리 주기 10회 제한을 없앱니다. 각 다시 쓰기는 여전히 한 번만 적용되지만, 서로 주고받으며 리디렉션하는 규칙은 브라우저가 멈출 때까지 페이지가 로드되지 않게 할 수 있습니다. 규칙 체인에 10회를 넘는 주기가 필요한 경우가 아니라면 꺼 두세요.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "재정의됨:",
     "description": "Inline label for overridden provider count."

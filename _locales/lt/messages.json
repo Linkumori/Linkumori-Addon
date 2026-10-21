@@ -1562,6 +1562,14 @@
     "message": "Kai įjungta, integruotos ir nuotolinės taisyklės įkeliamos kartu ir sujungiamos prieš taikant pasirinktines taisykles.",
     "description": "Description for overload mode toggle"
   },
+  "unbounded_cycles_enabled": {
+    "message": "Neriboti valymo ciklai",
+    "description": "Label for the toggle that removes the 10-cycle limit per request"
+  },
+  "unbounded_cycles_enabled_description": {
+    "message": "Pašalina 10 valymo ciklų vienai užklausai ribą. Kiekvienas perrašymas vis tiek taikomas tik kartą, tačiau taisyklės, peradresuojančios pirmyn ir atgal, gali neleisti puslapiui įsikelti, kol naršyklė jų nesustabdys. Palikite išjungtą, nebent taisyklių grandinei reikia daugiau nei 10 ciklų.",
+    "description": "Description for the unbounded cleaning cycles toggle"
+  },
   "overridden_providers_label": {
     "message": "nepaisoma:",
     "description": "Inline label for overridden provider count."
