@@ -267,8 +267,9 @@ once; `redirect` and `block` stay off for that file until the user accepts
 them in Remote Rules Health, which calls `acceptRemoteRuleCapabilities` and
 reloads the remote rules. Entries that need a capability the file lacks are
 left out (`restrictRuleFileCapabilities`). The verified cache can't be traced
-to one file, so when it loads only the capabilities every configured file
-has accepted are active (`getCapabilitiesAcceptedByAllRemoteFiles`). See
+to one file, so when it loads, `strip`, `rewrite` and `except` are active
+and `redirect` and `block` only if every configured file has accepted them
+(`getCapabilitiesAcceptedByAllRemoteFiles`). See
 [CLN 1.0 §Remote file capabilities](cln-format-1.0.md#remote-file-capabilities).
 
 ### 5.3 Choosing the sources
@@ -695,12 +696,14 @@ Every page loads `theme_bootstrap.js` (themes), `linkumori-i18n.js` (text),
 settings.js asks before a few risky changes. These checks live in the page
 only; the background accepts the keys whatever their value.
 
-- **Gatekeeper for remote rule addresses.** When no remote addresses are
-  saved, editing the rule URL, hash URL or remote rule sets field opens a
-  disclaimer, and the change is kept only after the user types the
-  confirmation phrase (*I accept full responsibility* in English; each
-  language has its own). The confirmation lasts until the page is closed.
-  Addresses that are already saved can be edited without it. The import and
+- **Gatekeeper for remote rule addresses.** Each of the rule URL, hash URL
+  and remote rule sets fields is checked on its own. A field that had a
+  saved value can be edited without confirmation as long as it isn't
+  emptied. Typing into an empty field, or emptying one, opens a disclaimer,
+  even when the other fields hold saved addresses, and the change is kept
+  only after the user types the confirmation phrase (*I accept full
+  responsibility* in English; each language has its own). The confirmation
+  lasts until the page is closed and covers every field. The import and
   export buttons for remote addresses appear only after confirming.
 - **Disable Gatekeeper** (`disableGatekeeper`) skips that confirmation and
   shows the import and export buttons. Turning it on opens a risk warning,
