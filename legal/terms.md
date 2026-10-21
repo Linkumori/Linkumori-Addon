@@ -34,7 +34,7 @@ Linkumori is an independent fork of ClearURLs. Portions derived from ClearURLs r
 
 ## Hosting by GitHub
 
-This site is hosted on GitHub Pages. Your use of GitHub's service is also subject to GitHub's own terms. How GitHub handles information from your visit is described in our [Privacy Policy](privacy.html).
+This site is hosted on GitHub Pages. Your use of GitHub's service is also subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service). How GitHub handles information from your visit is described in our [Privacy Policy](privacy.html).
 
 ## Links to other sites
 
