@@ -48,6 +48,13 @@
         const open = nav.classList.toggle('open');
         menuBtn.setAttribute('aria-expanded', String(open));
       });
+      // Escape closes the open menu and returns focus to its button.
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || !nav.classList.contains('open')) return;
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.focus();
+      });
     }
 
     // Fade sections in as they scroll into view.

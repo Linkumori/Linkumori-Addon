@@ -8,10 +8,36 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://linkumori.github.io/Linkumori-Addon/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Linkumori">
+  <meta property="og:url" content="https://linkumori.github.io/Linkumori-Addon/">
   <meta property="og:title" content="Linkumori — Clean URLs for Firefox">
   <meta property="og:description" content="Strip tracking parameters from every link, locally. Whitelist, custom rules, overload mode and the open CLN 1.0 rule format.">
-  <meta property="og:image" content="assets/logo.svg">
+  <meta property="og:image" content="https://linkumori.github.io/Linkumori-Addon/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linkumori: links, without the tracking.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Linkumori",
+    "description": "A Firefox extension that removes tracking parameters from URLs before they load.",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Firefox 140+, Firefox for Android 142+",
+    "softwareVersion": "100.66.0",
+    "license": "https://www.gnu.org/licenses/lgpl-3.0.html",
+    "url": "https://linkumori.github.io/Linkumori-Addon/",
+    "downloadUrl": "https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/",
+    "codeRepository": "https://github.com/Linkumori/Linkumori-Addon",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
   <link rel="preload" href="assets/fonts/charis-sil-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/site.js"></script>
@@ -32,7 +58,7 @@
         <a href="./#compare">Compare</a>
         <a href="cln-1.0.html">CLN 1.0</a>
         <a href="filter-syntax.html">Filter syntax</a>
-        <a href="https://github.com/Linkumori/Linkumori-Addon">GitHub</a>
+        <a class="gh" href="https://github.com/Linkumori/Linkumori-Addon"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
         <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
         <a class="btn btn-primary btn-sm nav-cta" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/">Add to Firefox</a>
       </nav>
@@ -53,6 +79,11 @@
             </a>
             <a class="btn btn-line" href="cln-1.0.html">Read the CLN 1.0 standard</a>
           </div>
+          <ul class="trust rise d4" aria-label="At a glance">
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>Free and open source</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>No account, no telemetry</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>Firefox desktop and Android</li>
+          </ul>
         </div>
 
         <figure class="specimen rise d5" aria-label="Animated example of a tracked link being cleaned">
@@ -63,18 +94,18 @@
           </div>
           <div class="specimen-url" id="specimen" aria-hidden="true"><span class="p">https://www.amazon.com/dp/B0EXAMPLE</span></div>
           <dl class="specimen-foot">
-            <div><dt>Removed</dt><dd class="num" id="spec-count">0</dd></div>
-            <div><dt>Tracking stripped</dt><dd class="num" id="spec-bytes">0 B</dd></div>
-            <div><dt>Sent anywhere</dt><dd class="num">0 B</dd></div>
+            <div><dt>Parameters removed</dt><dd class="num" id="spec-count">0</dd></div>
+            <div><dt>Characters removed</dt><dd class="num" id="spec-bytes">0</dd></div>
+            <div><dt>Cleaned</dt><dd class="num">On your device</dd></div>
             <div><dt>Page reloads</dt><dd class="num">None</dd></div>
           </dl>
         </figure>
 
         <div class="facts">
-          <div><strong>0</strong><span>bytes of telemetry, analytics or usage data</span></div>
-          <div><strong>MV3</strong><span>built natively for Firefox Manifest V3</span></div>
-          <div><strong>140+</strong><span>Firefox desktop, and 142+ on Android</span></div>
-          <div><strong>LGPL-3.0</strong><span>free and open source, forked from ClearURLs</span></div>
+          <div><strong>Zero</strong><span>telemetry, analytics or usage data, by design</span></div>
+          <div><strong>Firefox</strong><span>desktop 140+ and Android 142+, built natively for Manifest V3</span></div>
+          <div><strong>CLN 1.0</strong><span>an open, documented rule format with a defined run order</span></div>
+          <div><strong>LGPL-3.0</strong><span>free and open source, carrying ClearURLs forward</span></div>
         </div>
       </div>
     </section>
@@ -233,20 +264,20 @@
             <table class="compare">
               <thead><tr><th scope="col">Capability</th><th scope="col">ClearURLs</th><th scope="col" class="us">Linkumori</th></tr></thead>
               <tbody>
-                <tr class="group"><td colspan="3">Shared</td></tr>
-                <tr><td>Remove tracking parameters</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Block hyperlink auditing</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Block ETag tracking</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Prevent Google and Yandex search rewriting</td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr class="group"><td colspan="3">Only in Linkumori</td></tr>
-                <tr><td>Per-domain whitelist</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Custom rules that override built-ins</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Disable specific rules</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Multiple remote rule sources</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Overload mode</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>CNAME uncloaking</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Firefox Manifest V3 native</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
-                <tr><td>Active development</td><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr class="group"><th colspan="3" scope="colgroup">Shared</th></tr>
+                <tr><th scope="row">Remove tracking parameters</th><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Block hyperlink auditing</th><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Block ETag tracking</th><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Prevent Google and Yandex search rewriting</th><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr class="group"><th colspan="3" scope="colgroup">Only in Linkumori</th></tr>
+                <tr><th scope="row">Per-domain whitelist</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Custom rules that override built-ins</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Disable specific rules</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Multiple remote rule sources</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Overload mode</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">CNAME uncloaking</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Firefox Manifest V3 native</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Active development</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td class="us"><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
               </tbody>
             </table>
           </div>
