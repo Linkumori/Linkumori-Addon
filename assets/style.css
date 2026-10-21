@@ -718,6 +718,9 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .case-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .case-num { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 13px; font-weight: 600; flex: none; }
 .prose .case-head h4 { margin: 0; font-size: 19px; letter-spacing: -0.02em; }
+.case-trigger { list-style: none; margin: -4px 0 18px; padding: 12px 14px; display: grid; gap: 8px; background: var(--bg-alt); border-radius: var(--r-sm); }
+.case-trigger li { display: flex; align-items: baseline; gap: 10px; margin: 0; font-size: 14px; color: var(--text-2); }
+.case-trigger .dm-who { flex: none; min-width: 74px; text-align: center; }
 .case-body { display: grid; gap: 14px; }
 @media (min-width: 900px) { .case-body { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: start; } }
 .case-inputs, .case-out { display: grid; gap: 14px; min-width: 0; align-content: start; }
