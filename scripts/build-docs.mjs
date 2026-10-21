@@ -155,6 +155,27 @@ function cellInline(text) {
   return inline(text.replace(/\|/g, '\\|')).replace(/\\\|/g, '|');
 }
 
+// A column headed `(stage, orderGroup, order, rank, arrayIndex)` is drawn as five
+// columns under one "Sort key" heading, each tuple value in its own cell.
+const SORT_KEY = '(stage, orderGroup, order, rank, arrayIndex)';
+const SORT_PARTS = ['stage', 'orderGroup', 'order', 'rank', 'arrayIndex'];
+
+function sortKeyTable(head, rows, keyCol) {
+  const top = head.map((c, i) => i === keyCol
+    ? `<th scope="colgroup" colspan="${SORT_PARTS.length}" class="sk-group">Sort key</th>`
+    : `<th scope="col" rowspan="2">${cellInline(c)}</th>`).join('');
+  // The last key heading ends the second header row, but keeps its border when columns follow it.
+  const edge = keyCol < head.length - 1 ? ' sk-edge' : '';
+  const sub = SORT_PARTS.map((p, i) => `<th scope="col" class="sk${i ? '' : ' sk-first'}${i === SORT_PARTS.length - 1 ? edge : ''}"><code>${p}</code></th>`).join('');
+  const body = rows.map(r => '<tr>' + r.map((c, i) => {
+    if (i !== keyCol) return `<td>${cellInline(c)}</td>`;
+    const parts = c.replace(/`/g, '').trim().replace(/^\(|\)$/g, '').split(',').map(v => v.trim());
+    if (parts.length !== SORT_PARTS.length) throw new Error(`Sort key "${c}" does not have ${SORT_PARTS.length} parts`);
+    return parts.map((v, j) => `<td class="sk${j ? '' : ' sk-first'}">${escapeHtml(v)}</td>`).join('');
+  }).join('') + '</tr>').join('\n');
+  return `<div class="table-wrap"><table class="sk-table">\n<thead><tr>${top}</tr><tr>${sub}</tr></thead>\n<tbody>\n${body}\n</tbody>\n</table></div>`;
+}
+
 function convert(md, ctx) {
   const lines = md.replace(/\r\n/g, '\n').split('\n');
   const out = [];
@@ -208,6 +229,11 @@ function convert(md, ctx) {
       i += 2;
       const rows = [];
       while (i < lines.length && /^\s*\|/.test(lines[i])) rows.push(splitRow(lines[i++]));
+      const keyCol = head.findIndex(c => c.replace(/`/g, '').trim() === SORT_KEY);
+      if (keyCol !== -1) {
+        out.push(sortKeyTable(head, rows, keyCol));
+        continue;
+      }
       const th = head.map(c => `<th scope="col">${cellInline(c)}</th>`).join('');
       const tb = rows.map(r => `<tr>${r.map(c => `<td>${cellInline(c)}</td>`).join('')}</tr>`).join('\n');
       out.push(`<div class="table-wrap"><table>\n<thead><tr>${th}</tr></thead>\n<tbody>\n${tb}\n</tbody>\n</table></div>`);

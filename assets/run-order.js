@@ -184,9 +184,10 @@
     const out = document.getElementById('ro-out');
     const after = document.getElementById('ro-after');
 
-    function cell(row, html) {
+    function cell(row, html, className) {
       const td = document.createElement('td');
       td.innerHTML = html;
+      if (className) td.className = className;
       row.appendChild(td);
     }
 
@@ -235,8 +236,11 @@
         cell(tr, String(i + 1));
         // Array position on top, the rule's id or text underneath.
         cell(tr, '<span class="ro-pos">' + esc(e.label) + '</span><span class="ro-name' + (e.name.startsWith('"') ? ' ro-text' : '') + '">' + esc(e.name) + '</span>');
-        cell(tr, '<span class="ro-key">(' + [e.stage, e.orderGroup, e.orderGroup === 0 ? e.order : '–', e.rank, e.arrayIndex].join(', ') + ')</span>');
-        cell(tr, esc(e.notes.join('; ')));
+        // One cell per part of (stage, orderGroup, order, rank, arrayIndex).
+        [e.stage, e.orderGroup, e.orderGroup === 0 ? e.order : '–', e.rank, e.arrayIndex].forEach(function (v, j) {
+          cell(tr, esc(v), j ? 'sk' : 'sk sk-first');
+        });
+        cell(tr, esc(e.notes.join('; ')), 'ro-notes');
         out.appendChild(tr);
       });
       // The Notes column only shows when some entry has a note.
@@ -244,9 +248,11 @@
       if (!result.entries.length) {
         const tr = document.createElement('tr');
         cell(tr, '');
-        cell(tr, 'No entries run in stages 5 and 6.');
-        cell(tr, '');
-        cell(tr, '');
+        const empty = document.createElement('td');
+        empty.colSpan = 6;
+        empty.textContent = 'No entries run in stages 5 and 6.';
+        tr.appendChild(empty);
+        cell(tr, '', 'ro-notes');
         out.appendChild(tr);
       }
       if (result.filters.length) {

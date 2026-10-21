@@ -247,17 +247,17 @@
   }
 }</code></pre>
 <p>With &quot;allow referral marketing&quot; off, the provider runs in this sequence. The last column shows where the earlier 1.0 text put the same entry.</p>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Run</th><th scope="col">Entry</th><th scope="col"><code>(stage, orderGroup, order, rank, arrayIndex)</code></th><th scope="col">Earlier position</th></tr></thead>
+<div class="table-wrap"><table class="sk-table">
+<thead><tr><th scope="col" rowspan="2">Run</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th><th scope="col" rowspan="2">Earlier position</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk sk-edge"><code>arrayIndex</code></th></tr></thead>
 <tbody>
-<tr><td>1</td><td><code>rawRules[1]</code> <code>strip-jsessionid</code></td><td><code>(0, 0, 20, 0, 1)</code></td><td>2</td></tr>
-<tr><td>2</td><td><code>rawRules[0]</code> the <code>/ref=</code> rule</td><td><code>(0, 1, –, 0, 0)</code></td><td>4</td></tr>
-<tr><td>3</td><td><code>rules[1]</code> <code>token-rewrite</code></td><td><code>(1, 0, 5, 0, 1)</code></td><td>1</td></tr>
-<tr><td>4</td><td><code>rules[4]</code> <code>sid</code></td><td><code>(1, 0, 20, 0, 4)</code></td><td>3</td></tr>
-<tr><td>5</td><td><code>rules[0]</code> <code>utm_source</code></td><td><code>(1, 1, –, 0, 0)</code></td><td>5</td></tr>
-<tr><td>6</td><td><code>rules[2]</code> <code>fbclid</code></td><td><code>(1, 1, –, 0, 2)</code></td><td>6</td></tr>
-<tr><td>7</td><td><code>rules[3]</code> <code>aff-id</code></td><td><code>(1, 1, –, 1, 3)</code></td><td>7</td></tr>
-<tr><td>8</td><td><code>referralMarketing[0]</code> <code>tag</code></td><td><code>(1, 1, –, 2, 0)</code></td><td>8</td></tr>
+<tr><td>1</td><td><code>rawRules[1]</code> <code>strip-jsessionid</code></td><td class="sk sk-first">0</td><td class="sk">0</td><td class="sk">20</td><td class="sk">0</td><td class="sk">1</td><td>2</td></tr>
+<tr><td>2</td><td><code>rawRules[0]</code> the <code>/ref=</code> rule</td><td class="sk sk-first">0</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">0</td><td>4</td></tr>
+<tr><td>3</td><td><code>rules[1]</code> <code>token-rewrite</code></td><td class="sk sk-first">1</td><td class="sk">0</td><td class="sk">5</td><td class="sk">0</td><td class="sk">1</td><td>1</td></tr>
+<tr><td>4</td><td><code>rules[4]</code> <code>sid</code></td><td class="sk sk-first">1</td><td class="sk">0</td><td class="sk">20</td><td class="sk">0</td><td class="sk">4</td><td>3</td></tr>
+<tr><td>5</td><td><code>rules[0]</code> <code>utm_source</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">0</td><td>5</td></tr>
+<tr><td>6</td><td><code>rules[2]</code> <code>fbclid</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">2</td><td>6</td></tr>
+<tr><td>7</td><td><code>rules[3]</code> <code>aff-id</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">1</td><td class="sk">3</td><td>7</td></tr>
+<tr><td>8</td><td><code>referralMarketing[0]</code> <code>tag</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">2</td><td class="sk">0</td><td>8</td></tr>
 </tbody>
 </table></div>
 <p>The <code>$removeparam=/^pk_/</code> filter runs after row 8. In the earlier 1.0 text, <code>token-rewrite</code> read the URL before either raw rule had cleaned it. Here both raw rules finish first.</p>
@@ -275,7 +275,10 @@
   <div id="ro-msg" class="tool-msg" role="status"></div>
   <div class="table-wrap">
     <table class="ro-table">
-      <thead><tr><th scope="col">Run</th><th scope="col">Entry</th><th scope="col">Sort key <span class="ro-key-head">(stage, orderGroup, order, rank, arrayIndex)</span></th><th scope="col">Notes</th></tr></thead>
+      <thead>
+        <tr><th scope="col" rowspan="2">Run</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th><th scope="col" rowspan="2" class="ro-notes">Notes</th></tr>
+        <tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk sk-edge ro-edge"><code>arrayIndex</code></th></tr>
+      </thead>
       <tbody id="ro-out"></tbody>
     </table>
   </div>
@@ -299,17 +302,17 @@
   }
 }</code></pre>
 <p>With &quot;allow referral marketing&quot; off:</p>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Run</th><th scope="col">Entry</th><th scope="col"><code>(stage, orderGroup, order, rank, arrayIndex)</code></th><th scope="col">Earlier position</th></tr></thead>
+<div class="table-wrap"><table class="sk-table">
+<thead><tr><th scope="col" rowspan="2">Run</th><th scope="col" rowspan="2">Entry</th><th scope="colgroup" colspan="5" class="sk-group">Sort key</th><th scope="col" rowspan="2">Earlier position</th></tr><tr><th scope="col" class="sk sk-first"><code>stage</code></th><th scope="col" class="sk"><code>orderGroup</code></th><th scope="col" class="sk"><code>order</code></th><th scope="col" class="sk"><code>rank</code></th><th scope="col" class="sk sk-edge"><code>arrayIndex</code></th></tr></thead>
 <tbody>
-<tr><td>1</td><td><code>rawRules[0]</code> <code>&quot;r&quot;</code></td><td><code>(0, 1, –, 0, 0)</code></td><td>2</td></tr>
-<tr><td>2</td><td><code>rawRules[1]</code> <code>&quot;3&quot;</code></td><td><code>(0, 1, –, 0, 1)</code></td><td>1</td></tr>
-<tr><td>3</td><td><code>rules[0]</code> <code>&quot;a&quot;</code></td><td><code>(1, 1, –, 0, 0)</code></td><td>6</td></tr>
-<tr><td>4</td><td><code>rules[1]</code> <code>&quot;20&quot;</code></td><td><code>(1, 1, –, 0, 1)</code></td><td>5</td></tr>
-<tr><td>5</td><td><code>rules[3]</code> <code>&quot;b&quot;</code></td><td><code>(1, 1, –, 0, 3)</code></td><td>7</td></tr>
-<tr><td>6</td><td><code>rules[2]</code> <code>&quot;9&quot;</code></td><td><code>(1, 1, –, 1, 2)</code></td><td>4</td></tr>
-<tr><td>7</td><td><code>referralMarketing[0]</code> <code>&quot;rm&quot;</code></td><td><code>(1, 1, –, 2, 0)</code></td><td>8</td></tr>
-<tr><td>8</td><td><code>referralMarketing[1]</code> <code>&quot;5&quot;</code></td><td><code>(1, 1, –, 2, 1)</code></td><td>3</td></tr>
+<tr><td>1</td><td><code>rawRules[0]</code> <code>&quot;r&quot;</code></td><td class="sk sk-first">0</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">0</td><td>2</td></tr>
+<tr><td>2</td><td><code>rawRules[1]</code> <code>&quot;3&quot;</code></td><td class="sk sk-first">0</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">1</td><td>1</td></tr>
+<tr><td>3</td><td><code>rules[0]</code> <code>&quot;a&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">0</td><td>6</td></tr>
+<tr><td>4</td><td><code>rules[1]</code> <code>&quot;20&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">1</td><td>5</td></tr>
+<tr><td>5</td><td><code>rules[3]</code> <code>&quot;b&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">0</td><td class="sk">3</td><td>7</td></tr>
+<tr><td>6</td><td><code>rules[2]</code> <code>&quot;9&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">1</td><td class="sk">2</td><td>4</td></tr>
+<tr><td>7</td><td><code>referralMarketing[0]</code> <code>&quot;rm&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">2</td><td class="sk">0</td><td>8</td></tr>
+<tr><td>8</td><td><code>referralMarketing[1]</code> <code>&quot;5&quot;</code></td><td class="sk sk-first">1</td><td class="sk">1</td><td class="sk">–</td><td class="sk">2</td><td class="sk">1</td><td>3</td></tr>
 </tbody>
 </table></div>
 <p>Every entry runs where the file lists it. Rows 6 to 8 follow the unmarked <code>rules</code> entries because of <code>rank</code>, not because of their text.</p>
