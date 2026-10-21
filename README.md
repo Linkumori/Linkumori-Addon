@@ -12,6 +12,9 @@ This branch has no history in common with `main`. It holds only the site.
 | `privacy.html`, `terms.html` | The site's Privacy Policy and Terms of Use, generated from `legal/privacy.md` and `legal/terms.md` |
 | `assets/` | Styles, scripts and the logo |
 | `assets/fonts/` | Charis SIL, self-hosted, with its license (`OFL.txt`) |
+| `assets/og-image.png`, `assets/icon-32.png`, `assets/apple-touch-icon.png` | Share card and PNG icons, rendered by `scripts/make-images.py` |
+| `404.html` | Shown by GitHub Pages for any missing path |
+| `sitemap.xml` | Every page, written by `scripts/build-docs.mjs` |
 | `partials/run-order-tool.html` | The calculator markup, placed into `cln-1.0.html` by the build |
 | `scripts/build-docs.mjs` | Regenerates the two doc pages |
 
@@ -24,6 +27,14 @@ node scripts/build-docs.mjs
 ```
 
 It reads `docs/*.md` from the local `main` branch with `git show`. To read from a folder instead, pass its path, for example `node scripts/build-docs.mjs ../Linkumori-Addon/docs`.
+
+## Regenerating the images
+
+`scripts/make-images.py` draws the share card with the site's own font and renders the icons from `assets/logo.svg`. It needs Pillow, fontTools with brotli, and `rsvg-convert`:
+
+```bash
+python3 scripts/make-images.py
+```
 
 ## Previewing
 

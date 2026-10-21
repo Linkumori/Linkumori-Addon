@@ -186,7 +186,7 @@
       spec.params.forEach(function (p, i) { span((i ? '&' : '?') + p[0], p[1]); });
       siteEl.textContent = spec.site;
       countEl.textContent = '0';
-      bytesEl.textContent = '0 B';
+      bytesEl.textContent = '0';
       return Array.from(box.querySelectorAll('.track'));
     }
 
@@ -204,7 +204,7 @@
       if (reduced) {
         tracked.forEach(function (s) { s.classList.add('hit'); });
         countEl.textContent = String(tracked.length);
-        bytesEl.textContent = tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0) + ' B';
+        bytesEl.textContent = String(tracked.reduce(function (n, s) { return n + s.textContent.length; }, 0));
         return;
       }
       let removed = 0;
@@ -215,7 +215,7 @@
           removed++;
           bytes += s.textContent.length;
           countEl.textContent = String(removed);
-          bytesEl.textContent = bytes + ' B';
+          bytesEl.textContent = String(bytes);
         }, 1100 + i * 260);
       });
       const struck = 1100 + tracked.length * 260 + 700;
