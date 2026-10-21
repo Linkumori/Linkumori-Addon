@@ -275,7 +275,7 @@ The earlier 1.0 text keys the toggle off the rule `id` alone and does not descri
 - **Toggle key.** `providerKey::id`, where `providerKey` is the provider's key under `providers`. Example: `shop::token-rewrite`. An `id` cannot contain a colon, so the key splits at its last `::`.
 - **Unique in a provider.** Within one provider of one file, every `id` and every alias is distinct. A repeat is a `lint-rules` error. Generated ids count.
 - **Replaced definitions.** When one definition replaces another, the `id` and `aliases` of each replaced definition resolve to the winner. Toggling any of them switches the one rule that runs.
-- **Saved toggles.** A toggle saved under a bare `id` keeps working as before. It is saved in the namespaced form the next time the person changes it.
+- **Saved toggles.** A toggle saved under a bare `id` keeps working as before. It is saved in the namespaced form the next time the person changes it. Linkumori deviates here: it ignores bare-`id` toggles (see Deviations at the top).
 - **Shared provider keys.** Two providers that share a key but do not merge also share toggles for equal ids. Remote Rules Health warns about each such pair.
 - **Generated ids.** Unchanged. An id is still generated from the list and the `matchPattern` text when left out, and still changes when that text is edited.
 
@@ -442,7 +442,7 @@ Three engine rules also take effect for every file:
 - A rewrite applies once per request, and processing stops after 10 cycles.
 - A newly added remote file's redirects and blocks wait for acceptance. Remote files already installed are unaffected.
 
-Saved toggles keep working.
+Saved toggles keep working, except that Linkumori ignores a toggle saved under a bare `id` (see Deviations at the top). Toggles keyed `providerKey::id` or by match pattern keep working everywhere.
 
 ## Deferred to 2.0
 
