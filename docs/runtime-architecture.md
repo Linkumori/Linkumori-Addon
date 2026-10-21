@@ -285,9 +285,13 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
 1. Providers the user switched off (`customrules_import_exclusions`) are
    removed from both the base rules and the custom rules.
 2. Providers without `urlPattern` or `domainPatterns` are dropped.
-3. A custom provider **replaces** a base provider with the same group key
-   (the same pattern, `methods`, `resourceTypes`, `completeProvider` and
-   `forceRedirection`). Their rules are not combined.
+3. A custom provider **replaces** every base provider with the same pattern
+   (the same `urlPattern`, or the same `domainPatterns` in any order),
+   whatever their `methods`, `resourceTypes`, `completeProvider` and
+   `forceRedirection` (`getProviderPatternOnlyGroupKey`). Their rules are not
+   combined. Overload mode still merges built-in and remote providers only
+   when the pattern and all four settings match (§5.2), and switching a
+   provider off (step 1) still matches on all of them.
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id

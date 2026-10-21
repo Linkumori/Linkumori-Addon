@@ -2668,20 +2668,25 @@ function mergeCustomRules(bundledRules) {
                 const baseEntries = Object.entries(baseProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name)
+                    key: getProviderGroupKey(data, name),
+                    patternKey: getProviderPatternOnlyGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
                 const customProviders = filteredCustom.providers || {};
                 const customEntries = Object.entries(customProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name)
+                    key: getProviderGroupKey(data, name),
+                    patternKey: getProviderPatternOnlyGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
-                
-                const customKeysSet = new Set(customEntries.map(entry => entry.key));
-                const baseKeysSet = new Set(baseEntries.map(entry => entry.key));
-                const overriddenBaseEntries = baseEntries.filter(entry => customKeysSet.has(entry.key));
-                const overridingCustomEntries = customEntries.filter(entry => baseKeysSet.has(entry.key));
+
+                // A custom provider fully overrides every base provider with the same
+                // pattern, whatever their methods, resourceTypes, completeProvider or
+                // forceRedirection. Switched-off providers still match on the full key.
+                const customPatternKeys = new Set(customEntries.map(entry => entry.patternKey));
+                const basePatternKeys = new Set(baseEntries.map(entry => entry.patternKey));
+                const overriddenBaseEntries = baseEntries.filter(entry => customPatternKeys.has(entry.patternKey));
+                const overridingCustomEntries = customEntries.filter(entry => basePatternKeys.has(entry.patternKey));
                 const overriddenProviderNames = overriddenBaseEntries.map(entry => entry.name);
                 const activeBundledProviderCount = baseEntries.length - overriddenBaseEntries.length;
 
@@ -2689,7 +2694,7 @@ function mergeCustomRules(bundledRules) {
                 const usedNames = new Set();
 
                 baseEntries.forEach(entry => {
-                    if (customKeysSet.has(entry.key)) {
+                    if (customPatternKeys.has(entry.patternKey)) {
                         return;
                     }
                     addProviderWithUniqueName(finalProviders, usedNames, entry.name, entry.data);
