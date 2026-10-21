@@ -130,4 +130,60 @@
     root.addEventListener('change', render);
     render();
   });
+
+  // Case galleries: one case at a time, picked from a row of buttons. Without this
+  // script every case simply shows, one after another.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-cases]').forEach(function (gallery) {
+      const cases = Array.from(gallery.querySelectorAll('.case'));
+      if (cases.length < 2) return;
+      const nav = document.createElement('div');
+      nav.className = 'cases-nav';
+      nav.setAttribute('role', 'tablist');
+      nav.setAttribute('aria-label', gallery.getAttribute('aria-label') || 'Cases');
+      const buttons = cases.map(function (c, i) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.id = c.id + '-tab';
+        b.setAttribute('aria-controls', c.id);
+        b.innerHTML = '<span class="cases-nav-num">' + (i + 1) + '</span>';
+        b.appendChild(document.createTextNode(c.getAttribute('data-case-title')));
+        c.setAttribute('role', 'tabpanel');
+        c.setAttribute('aria-labelledby', b.id);
+        b.addEventListener('click', function () { show(i, true); });
+        b.addEventListener('keydown', function (e) {
+          const step = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+          if (!step) return;
+          e.preventDefault();
+          const next = (i + step + cases.length) % cases.length;
+          show(next, true);
+          buttons[next].focus();
+        });
+        nav.appendChild(b);
+        return b;
+      });
+      gallery.insertBefore(nav, gallery.firstChild);
+      gallery.classList.add('is-picker');
+
+      function show(index, fromUser) {
+        cases.forEach(function (c, i) {
+          c.classList.toggle('is-active', i === index);
+          buttons[i].setAttribute('aria-selected', String(i === index));
+          buttons[i].tabIndex = i === index ? 0 : -1;
+        });
+        if (fromUser && history.replaceState) history.replaceState(null, '', '#' + cases[index].id);
+      }
+      // A link to a case (rules.html#ov-inherit) opens that case, on load or later.
+      function openFromHash() {
+        const index = cases.findIndex(function (c) { return '#' + c.id === location.hash; });
+        if (index === -1) return false;
+        show(index, false);
+        gallery.scrollIntoView();
+        return true;
+      }
+      if (!openFromHash()) show(0, false);
+      window.addEventListener('hashchange', openFromHash);
+    });
+  });
 })();

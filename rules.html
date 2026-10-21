@@ -21,9 +21,9 @@
   <link rel="icon" href="assets/logo.svg?v=5c55ee1e32" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
-  <link rel="stylesheet" href="assets/style.css?v=9d2524cc3b">
+  <link rel="stylesheet" href="assets/style.css?v=1bcd3c28fd">
   <script src="assets/site.js?v=bd1a8be389"></script>
-  <script src="assets/rules.js?v=3fccb67138" defer></script>
+  <script src="assets/rules.js?v=c3064feec3" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -77,7 +77,7 @@
 <li><a href="#overload-mode">Overload mode: merging sources</a><ol>
 <li><a href="#merge-order">Order and matching</a></li>
 <li><a href="#merge-example">Example: one site in both sources</a></li>
-<li><a href="#overload-cases">All the cases</a></li>
+<li><a href="#overload-cases">Every overload case</a></li>
 </ol></li>
 <li><a href="#custom-rules">Custom rules: replace or add</a><ol>
 <li><a href="#custom-example">Example: the same pattern replaces</a></li>
@@ -91,7 +91,7 @@
 <li><a href="#defaults-example">Example: two files, two sets of defaults</a></li>
 <li><a href="#defaults-rules">How it works</a></li>
 <li><a href="#what-rules-carry">What each rule carries into a merge</a></li>
-<li><a href="#defaults-cases">All the cases</a></li>
+<li><a href="#defaults-cases">Every defaults case</a></li>
 </ol></li>
 <li><a href="#remote-capabilities">What a remote file may do</a><ol>
 </ol></li>
@@ -100,7 +100,7 @@
         </ol>
       </details>
     </aside>
-    <main id="main" class="prose">
+    <main id="main" class="prose prose-wide">
 <p class="rx-lede">Linkumori can take rules from several places at once. Before any request is cleaned, it picks the sources to use, merges them, puts your custom rules on top, and removes what you switched off. This page walks through each step, with every case.</p>
 
 <h2 id="the-pipeline">The pipeline</h2>
@@ -186,21 +186,54 @@
 </div>
 
 <h3 id="every-combination">Every combination</h3>
-<p>The same decisions as a table. A dash means the setting makes no difference in that row. Custom rules, if you have any, go on top in every row.</p>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">Remote files</th><th scope="col">Cache</th><th scope="col">Overload</th><th scope="col">Base rule set</th></tr></thead>
-<tbody>
-<tr><td>Off</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>None: custom rules only</td></tr>
-<tr><td>On</td><td>Off</td><td>–</td><td>–</td><td>–</td><td>Built-in</td></tr>
-<tr><td>–</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>Off</td><td>Remote files that passed, merged. Built-in is not used</td></tr>
-<tr><td>On</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Built-in and remote, merged</td></tr>
-<tr><td>Off</td><td>On</td><td>Verified, or some failed</td><td>–</td><td>On</td><td>Remote. Overload mode needs built-in rules on</td></tr>
-<tr><td>On</td><td>On</td><td>All failed</td><td>Available</td><td>On</td><td>Cached remote and built-in, merged</td></tr>
-<tr><td>–</td><td>On</td><td>All failed</td><td>Available</td><td>Off</td><td>Cached remote</td></tr>
-<tr><td>On</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>Built-in</td></tr>
-<tr><td>Off</td><td>On</td><td>All failed</td><td>None</td><td>–</td><td>None: custom rules only</td></tr>
-</tbody>
-</table></div>
+<p>Every decision as a card. A setting that isn't shown makes no difference in that case. Custom rules, if you have any, go on top in every one.</p>
+<div class="src-cases">
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>Off</dd></div><div><dt>Remote</dt><dd>Off</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-empty">No base rules</div></div>
+<p class="src-result">No base rules: custom rules only</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>On</dd></div><div><dt>Remote</dt><dd>Off</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-builtin"><b>Built-in rules</b></div></div>
+<p class="src-result">Built-in</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>Verified</dd></div><div><dt>Overload</dt><dd>Off</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-remote"><b>Remote rules</b></div></div>
+<p class="src-result">Remote replaces built-in</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>On</dd></div><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>Verified</dd></div><div><dt>Overload</dt><dd>On</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-remote rx-merged"><b>Remote rules</b></div><div class="rx-layer rx-o-builtin rx-merged"><b>Built-in rules</b></div></div>
+<p class="src-result">Built-in and remote, merged</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>Off</dd></div><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>Verified</dd></div><div><dt>Overload</dt><dd>On</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-remote"><b>Remote rules</b></div></div>
+<p class="src-result">Remote: overload needs built-in on</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>On</dd></div><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>All failed</dd></div><div><dt>Cache</dt><dd>Available</dd></div><div><dt>Overload</dt><dd>On</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-cache rx-merged"><b>Verified cache</b></div><div class="rx-layer rx-o-builtin rx-merged"><b>Built-in rules</b></div></div>
+<p class="src-result">Cached remote and built-in, merged</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>All failed</dd></div><div><dt>Cache</dt><dd>Available</dd></div><div><dt>Overload</dt><dd>Off</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-cache"><b>Verified cache</b></div></div>
+<p class="src-result">Cached remote</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>On</dd></div><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>All failed</dd></div><div><dt>Cache</dt><dd>None</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-o-builtin"><b>Built-in rules</b></div></div>
+<p class="src-result">Built-in</p>
+</article>
+<article class="src-case">
+<dl class="src-settings"><div><dt>Built-in</dt><dd>Off</dd></div><div><dt>Remote</dt><dd>On</dd></div><div><dt>Remote files</dt><dd>All failed</dd></div><div><dt>Cache</dt><dd>None</dd></div></dl>
+<div class="src-stack"><div class="rx-layer rx-empty">No base rules</div></div>
+<p class="src-result">No base rules: custom rules only</p>
+</article>
+</div>
 <p class="rx-note">Remote rules switched on with no valid pair of addresses count as off.</p>
 
 <h2 id="overload-mode">Overload mode: merging sources</h2>
@@ -246,21 +279,571 @@
 </div>
 <p class="rx-legend"><span class="rx-tag rx-o-builtin">Built-in</span> <span class="rx-tag rx-o-remote">Remote</span> show where each rule came from.</p>
 
-<h3 id="overload-cases">All the cases</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in</th><th scope="col">Remote</th><th scope="col">What runs</th></tr></thead>
-<tbody>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>order: 50</code></td><td><code>token</code> at <code>order: 50</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>"token"</code></td><td><code>token</code> at <code>order: 1</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td><code>token</code>, <code>"order": null</code></td><td><code>token</code> with no <code>order</code></td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>order: 30</code></td><td><code>token</code> at <code>order: 30</code>: the last-listed file wins</td></tr>
-<tr><td><code>token</code>, <code>order: 1</code></td><td>file 1: <code>order: 20</code>; file 2: <code>"token"</code></td><td><code>token</code> at <code>order: 20</code></td></tr>
-<tr><td><code>a</code> <code>order: 1</code>, <code>b</code> <code>order: 2</code></td><td><code>b</code> <code>order: 1</code>, <code>a</code> <code>order: 2</code></td><td><code>b</code>, then <code>a</code></td></tr>
-<tr><td><code>fromBuiltIn</code>, <code>order: 5</code></td><td><code>fromRemote</code>, <code>order: 5</code></td><td>Both; <code>fromBuiltIn</code> first</td></tr>
-<tr><td><code>token</code> on <code>||site.example^</code></td><td><code>token</code> on <code>||other.example^</code></td><td>Not merged: two providers</td></tr>
-<tr><td><code>rules</code>: <code>"tag"</code></td><td><code>referralMarketing</code>: <code>"tag"</code></td><td>The <code>referralMarketing</code> entry replaces the <code>rules</code> one while referral-marketing rules run</td></tr>
-</tbody>
-</table></div>
+<h3 id="overload-cases">Every overload case</h3>
+<p>Each case shows the files as JSON, what runs, and the merged provider Linkumori builds. Pick a case to see it.</p>
+<div class="cases" data-cases aria-label="Overload mode cases">
+<article class="case" id="ov-own-order" data-case-title="A remote copy with its own order">
+<header class="case-head"><span class="case-num">1</span><h4>A remote copy with its own order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">50</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>order 50, its own</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">50</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The lists join, so both definitions are in the merged provider. At run time the later one, from the remote file, wins whole, including its own order.</p>
+</article>
+<article class="case" id="ov-inherit" data-case-title="A remote copy without an order">
+<header class="case-head"><span class="case-num">2</span><h4>A remote copy without an order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>keeps order 1 and the first place</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        },
+        <span class="s">&quot;token&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The remote copy wins, but it has no order key, so it inherits the built-in order: 1. It also takes the first definition's position.</p>
+</article>
+<article class="case" id="ov-null" data-case-title="Dropping an inherited order">
+<header class="case-head"><span class="case-num">3</span><h4>Dropping an inherited order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="l">null</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>no order</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="l">null</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">&quot;order&quot;: null means no order, and don't inherit one. The rule runs with the unordered entries, at the first definition's position.</p>
+</article>
+<article class="case" id="ov-two-files" data-case-title="Two remote files, both with an order">
+<header class="case-head"><span class="case-num">4</span><h4>Two remote files, both with an order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file 1</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">20</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file 2</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">30</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>order 30, from file 2</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-remote rx-gone"><code>token</code><small>file 1, replaced</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">20</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">30</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Remote files merge in the order you list them, so the last-listed file's definition is the last one, and it wins.</p>
+</article>
+<article class="case" id="ov-two-files-inherit" data-case-title="Two remote files, the last without an order">
+<header class="case-head"><span class="case-num">5</span><h4>Two remote files, the last without an order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file 1</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">20</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file 2</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>from file 2, order 20 from file 1</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-remote rx-gone"><code>token</code><small>file 1, replaced</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">20</span>
+        },
+        <span class="s">&quot;token&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">File 2 wins. With no order of its own, it takes the order of the nearest earlier definition that has one: file 1's 20.</p>
+</article>
+<article class="case" id="ov-swap" data-case-title="The same two rules, orders swapped">
+<header class="case-head"><span class="case-num">6</span><h4>The same two rules, orders swapped</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">1</span> },
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;b&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">2</span> }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;b&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">1</span> },
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">2</span> }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>b</code><small>runs 1st, order 1</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-remote"><code>a</code><small>runs 2nd, order 2</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">1</span> },
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;b&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">2</span> },
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;b&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">1</span> },
+        { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>, <span class="k">&quot;order&quot;</span>: <span class="n">2</span> }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Each text resolves on its own: the remote a (order 2) and the remote b (order 1) win, so b now runs before a.</p>
+</article>
+<article class="case" id="ov-same-order" data-case-title="Different rules with the same order">
+<header class="case-head"><span class="case-num">7</span><h4>Different rules with the same order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;fromBuiltIn&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">5</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;fromRemote&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">5</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>fromBuiltIn</code><small>runs 1st</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>fromRemote</code><small>runs 2nd</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;fromBuiltIn&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">5</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;fromRemote&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">5</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Different text, so both run. At equal order, position decides, and built-in entries come first in the joined list.</p>
+</article>
+<article class="case" id="ov-other-pattern" data-case-title="A different pattern">
+<header class="case-head"><span class="case-num">8</span><h4>A different pattern</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;site&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||site.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;other&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||other.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">50</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||site.example^</code></div><ul><li class="rx-o-builtin"><code>token</code><small>order 1</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-head"><code>||other.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>order 50</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;site&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||site.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">1</span>
+        }
+      ]
+    },
+    <span class="k">&quot;other&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||other.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;order&quot;</span>: <span class="n">50</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Providers merge only with the same pattern and settings. These stay two providers, each with its own token.</p>
+</article>
+<article class="case" id="ov-referral" data-case-title="The same text in rules and referralMarketing">
+<header class="case-head"><span class="case-num">9</span><h4>The same text in rules and referralMarketing</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-caption">Referral marketing not allowed</div><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>tag</code><small>referralMarketing, in the rules entry's place</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>tag</code><small>rules, replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-caption">Referral marketing allowed</div><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>tag</code><small>rules, runs alone</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;tag&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">While referral-marketing rules run, the referral entry replaces the field entry with the same text. When you allow referral marketing, only the rules entry runs.</p>
+</article>
+</div>
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
 
 <h2 id="custom-rules">Custom rules: replace or add</h2>
@@ -298,18 +881,326 @@
 </div>
 
 <h3 id="custom-cases">Every custom-rule case</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Your custom provider</th><th scope="col">Result</th></tr></thead>
-<tbody>
-<tr><td>Same pattern and settings as a built-in or remote provider</td><td><b>Replaces</b> it. Only your rules run for that provider</td></tr>
-<tr><td>Same pattern, but different <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> or <code>forceRedirection</code></td><td><b>Added</b> as a separate provider. Both run</td></tr>
-<tr><td>A different pattern, such as <code>||amazon.de^</code> next to <code>||amazon.*^</code></td><td><b>Added.</b> Both run where both patterns match</td></tr>
-<tr><td>The same <code>domainPatterns</code> in a different order</td><td>Counts as the same pattern: <b>replaces</b></td></tr>
-<tr><td>A name already used by another provider, with a different pattern</td><td><b>Added</b> under a new name: <code>amazon_1</code>, <code>amazon_2</code>, …</td></tr>
-<tr><td>A provider you switched off in the custom rules editor</td><td><b>Removed</b> from both the base rules and the custom rules</td></tr>
-<tr><td>No <code>domainPatterns</code> or <code>urlPattern</code></td><td><b>Dropped</b>: it can't match anything</td></tr>
-</tbody>
-</table></div>
+<p>The base rules here are the built-in ones; remote rules behave the same way.</p>
+<div class="cases" data-cases aria-label="Custom rule cases">
+<article class="case" id="cu-replace" data-case-title="Same pattern and settings">
+<header class="case-head"><span class="case-num">1</span><h4>Same pattern and settings</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-custom"><code>qid</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-builtin rx-gone"><code>pd_rd_[a-z]*</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin rx-gone"><code>tag</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The custom provider replaces the built-in one whole. Its rules are not combined, so the built-in pd_rd_[a-z]* and tag stop running.</p>
+</article>
+<article class="case" id="cu-methods" data-case-title="Same pattern, different settings">
+<header class="case-head"><span class="case-num">2</span><h4>Same pattern, different settings</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon-get&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;methods&quot;</span>: [<span class="s">&quot;GET&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-builtin"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>pd_rd_[a-z]*</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon-get</b><code>||amazon.*^</code><small>GET only</small></div><ul><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    },
+    <span class="k">&quot;amazon-get&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;methods&quot;</span>: [<span class="s">&quot;GET&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">methods is part of what makes providers match, so the custom one is added next to the built-in one, and both clean amazon requests.</p>
+</article>
+<article class="case" id="cu-pattern" data-case-title="A different pattern">
+<header class="case-head"><span class="case-num">3</span><h4>A different pattern</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon-de&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.de^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-builtin"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>pd_rd_[a-z]*</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon-de</b><code>||amazon.de^</code></div><ul><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    },
+    <span class="k">&quot;amazon-de&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.de^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Added. On amazon.de both providers match, so both clean the request, one pass after another.</p>
+</article>
+<article class="case" id="cu-order" data-case-title="The same patterns in another order">
+<header class="case-head"><span class="case-num">4</span><h4>The same patterns in another order</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>, <span class="s">&quot;||amzn.to^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amzn.to^&quot;</span>, <span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon</b><code>||amazon.*^ ||amzn.to^</code></div><ul><li class="rx-o-custom"><code>qid</code><span class="rx-row-tag">Custom</span></li><li class="rx-o-builtin rx-gone"><code>pd_rd_[a-z]*</code><small>no longer removed</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amzn.to^&quot;</span>, <span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Patterns are compared as a set, sorted, so the order you write them in doesn't matter. This is the same provider, and it is replaced.</p>
+</article>
+<article class="case" id="cu-name" data-case-title="A name that is already taken">
+<header class="case-head"><span class="case-num">5</span><h4>A name that is already taken</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.de^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-builtin"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>pd_rd_[a-z]*</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-custom">Custom</span><b class="rx-prov-name">amazon_1</b><code>||amazon.de^</code><small>renamed</small></div><ul><li class="rx-o-custom"><code>ref_</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    },
+    <span class="k">&quot;amazon_1&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.de^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Names don't decide matching; patterns do. The custom provider is added, and because amazon is taken, it becomes amazon_1.</p>
+</article>
+<article class="case" id="cu-off" data-case-title="A provider you switched off">
+<header class="case-head"><span class="case-num">6</span><h4>A provider you switched off</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;ref_&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-off">Off</span><span>Switched off in the editor</span></div>
+  <p class="case-text">The provider for ||amazon.*^</p>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov rx-prov-off"><div class="rx-prov-head"><span class="rx-tag rx-o-off">Off</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code><small>switched off</small></div><ul><li class="rx-o-builtin rx-gone"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-custom rx-gone"><code>ref_</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><p class="case-text">No provider for this pattern.</p></details>
+</div>
+</div>
+<p class="case-explain">Switching a provider off in the custom rules editor removes it from both the base rules and the custom rules, before they are combined.</p>
+</article>
+<article class="case" id="cu-nopattern" data-case-title="A provider with no pattern">
+<header class="case-head"><span class="case-num">7</span><h4>A provider with no pattern</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Custom rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: { <span class="k">&quot;broken&quot;</span>: { <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;utm_extra&quot;</span>] } }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><b class="rx-prov-name">amazon</b><code>||amazon.*^</code></div><ul><li class="rx-o-builtin"><code>qid</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>pd_rd_[a-z]*</code><span class="rx-row-tag">Built-in</span></li><li class="rx-o-builtin"><code>tag</code><small>referralMarketing</small><span class="rx-row-tag">Built-in</span></li></ul></div><div class="rx-prov rx-prov-off"><div class="rx-prov-head"><span class="rx-tag rx-o-off">Off</span><b class="rx-prov-name">broken</b><code>no pattern</code><small>dropped</small></div><ul><li class="rx-o-custom rx-gone"><code>utm_extra</code><span class="rx-row-tag">Custom</span></li></ul></div></div>
+  <details class="case-json"><summary>Providers that run as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;amazon&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||amazon.*^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;pd_rd_[a-z]*&quot;</span>],
+      <span class="k">&quot;referralMarketing&quot;</span>: [<span class="s">&quot;tag&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Without domainPatterns or urlPattern a provider can't match anything, so it is dropped.</p>
+</article>
+</div>
 <p>When both a base provider and a custom provider match a request, both still get to clean it. The first provider that changes, redirects or blocks the URL ends that pass, and the cleaned URL starts a new pass, so the other provider runs next.</p>
 
 <h2 id="switching-off">Switching rules off</h2>
@@ -401,19 +1292,483 @@
 </table></div>
 <p>Order on load: a remote file's defaults are written in first, then its capabilities are applied, and only then does it merge. Before merging, a file without an accepted capability also loses the entries that need it: its redirect lists without <code>redirect</code>, and <code>completeProvider</code> without <code>block</code>. The file tags never leave the extension: the custom rules editor strips them when you export a rule.</p>
 
-<h3 id="defaults-cases">All the cases</h3>
-<div class="table-wrap"><table>
-<thead><tr><th scope="col">Built-in file</th><th scope="col">Remote file</th><th scope="col">What runs</th></tr></thead>
-<tbody>
-<tr><td><code>qid</code>; no defaults</td><td><code>psc</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>qid</code> on every request type, <code>psc</code> on page loads only</td></tr>
-<tr><td><code>"token"</code>; no defaults</td><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on page loads only: the remote copy wins</td></tr>
-<tr><td><code>"token"</code>; defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>"token"</code>; no defaults</td><td><code>token</code> on every request type: the remote copy wins, and it has no limit</td></tr>
-<tr><td>defaults <code>"exceptions": [A]</code>; <code>a</code></td><td>defaults <code>"exceptions": [B]</code>; <code>b</code></td><td><code>a</code> skips A, <code>b</code> skips B</td></tr>
-<tr><td>defaults <code>"active": false</code>; <code>a</code></td><td><code>b</code>; no defaults</td><td>Only <code>b</code>: the built-in file's rules are off unless they set <code>"active": true</code></td></tr>
-<tr><td><code>"token"</code> with its own <code>"requestTypes": ["script"]</code></td><td>defaults <code>"requestTypes": ["main_frame"]</code></td><td><code>token</code> on scripts: its own value beats any default</td></tr>
-<tr><td colspan="2">Your defaults, with <i>Yours for built-in and remote rules</i></td><td>Both files get your defaults before merging; their own are ignored</td></tr>
-</tbody>
-</table></div>
+<h3 id="defaults-cases">Every defaults case</h3>
+<div class="cases" data-cases aria-label="Defaults cases">
+<article class="case" id="de-different" data-case-title="Each file's defaults stay with its rules">
+<header class="case-head"><span class="case-num">1</span><h4>Each file's defaults stay with its rules</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;psc&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>qid</code><small>every request type</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>psc</code><small>page loads only</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        <span class="s">&quot;qid&quot;</span>,
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;psc&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The remote file's requestTypes default is written into psc as the file loads. After the merge, only psc carries it.</p>
+</article>
+<article class="case" id="de-remote-wins" data-case-title="The same rule, the remote file has a default">
+<header class="case-head"><span class="case-num">2</span><h4>The same rule, the remote file has a default</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>page loads only</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        <span class="s">&quot;token&quot;</span>,
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The remote copy wins whole, and it brings the value its file wrote into it.</p>
+</article>
+<article class="case" id="de-builtin-default" data-case-title="The same rule, the built-in file has a default">
+<header class="case-head"><span class="case-num">3</span><h4>The same rule, the built-in file has a default</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;token&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>every request type</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>token</code><small>replaced, with its limit</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        },
+        <span class="s">&quot;token&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The remote copy wins whole. It has no requestTypes, so the built-in file's limit goes with the replaced copy.</p>
+</article>
+<article class="case" id="de-exceptions" data-case-title="Different exceptions in each file">
+<header class="case-head"><span class="case-num">4</span><h4>Different exceptions in each file</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>]
+  },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>]
+  },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;b&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>a</code><small>skips /cart</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>b</code><small>skips /login</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>,
+          <span class="k">&quot;exceptions&quot;</span>: [
+            <span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>
+          ]
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;b&quot;</span>,
+          <span class="k">&quot;exceptions&quot;</span>: [
+            <span class="s">&quot;^https:\\/\\/shop\\.example\\/login&quot;</span>
+          ]
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">Each file's exceptions go into its own rules. Merging never pools them, so a skips only /cart and b only /login.</p>
+</article>
+<article class="case" id="de-active" data-case-title="A file whose rules are off by default">
+<header class="case-head"><span class="case-num">5</span><h4>A file whose rules are off by default</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;active&quot;</span>: <span class="l">false</span> },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        <span class="s">&quot;a&quot;</span>,
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;c&quot;</span>,
+          <span class="k">&quot;active&quot;</span>: <span class="l">true</span>
+        }
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;b&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>c</code><small>sets &quot;active&quot;: true itself</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>b</code><span class="rx-row-tag">Remote</span></li><li class="rx-o-builtin rx-gone"><code>a</code><small>off by its file's default</small><span class="rx-row-tag">Built-in</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>,
+          <span class="k">&quot;active&quot;</span>: <span class="l">false</span>
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;c&quot;</span>,
+          <span class="k">&quot;active&quot;</span>: <span class="l">true</span>
+        },
+        <span class="s">&quot;b&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">&quot;active&quot;: false switches off every rule of its file that doesn't say &quot;active&quot;: true. The remote file isn't affected.</p>
+</article>
+<article class="case" id="de-own-value" data-case-title="A rule's own value beats its file's default">
+<header class="case-head"><span class="case-num">6</span><h4>A rule's own value beats its file's default</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;script&quot;</span>]
+        },
+        <span class="s">&quot;psc&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-remote"><code>token</code><small>scripts: its own value</small><span class="rx-row-tag">Remote</span></li><li class="rx-o-remote"><code>psc</code><small>page loads: the default</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Rules after loading as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;token&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;script&quot;</span>]
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;psc&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">A default only fills a key the rule leaves out. token sets requestTypes, so the default doesn't touch it.</p>
+</article>
+<article class="case" id="de-yours" data-case-title="Your defaults for built-in and remote rules">
+<header class="case-head"><span class="case-num">7</span><h4>Your defaults for built-in and remote rules</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-custom">Custom</span><span>Your defaults</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{ <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] }</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: {
+    <span class="k">&quot;exceptions&quot;</span>: [<span class="s">&quot;^https:\\/\\/shop\\.example\\/cart&quot;</span>]
+  },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;psc&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>qid</code><small>page loads: your default</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>psc</code><small>page loads; the file's /cart exception is ignored</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;qid&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        },
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;psc&quot;</span>,
+          <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+        }
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">With &quot;Yours for built-in and remote rules&quot;, both files get your block in place of their own before merging. Custom rules keep their own.</p>
+</article>
+<article class="case" id="de-history" data-case-title="A provider-level History API setting">
+<header class="case-head"><span class="case-num">8</span><h4>A provider-level History API setting</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;historyBypassProtection&quot;</span>: <span class="l">false</span>,
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;a&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;b&quot;</span>]
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><code>||shop.example^</code></div><ul><li class="rx-o-builtin"><code>a</code><small>skipped on History API changes</small><span class="rx-row-tag">Built-in</span></li><li class="rx-o-remote"><code>b</code><small>runs on History API changes too</small><span class="rx-row-tag">Remote</span></li></ul></div></div>
+  <details class="case-json"><summary>Merged provider as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],
+      <span class="k">&quot;rules&quot;</span>: [
+        {
+          <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;a&quot;</span>,
+          <span class="k">&quot;historyBypassProtection&quot;</span>: <span class="l">false</span>
+        },
+        <span class="s">&quot;b&quot;</span>
+      ]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The merged provider can hold only one value, so the built-in provider's setting is copied onto its own rule first.</p>
+</article>
+<article class="case" id="de-complete" data-case-title="A complete provider with a requestTypes default">
+<header class="case-head"><span class="case-num">9</span><h4>A complete provider with a requestTypes default</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-builtin">Built-in</span><span>Built-in rules</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;trackers&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||tracker.example^&quot;</span>],
+      <span class="k">&quot;completeProvider&quot;</span>: <span class="l">true</span>
+    }
+  }
+}</code></pre></div>
+</div>
+<div class="case-in">
+  <div class="case-label"><span class="rx-tag rx-o-remote">Remote</span><span>Remote file</span></div>
+  <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;defaults&quot;</span>: { <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;trackers&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||tracker.example^&quot;</span>],
+      <span class="k">&quot;completeProvider&quot;</span>: <span class="l">true</span>
+    }
+  }
+}</code></pre></div>
+</div>
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs"><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-builtin">Built-in</span><code>||tracker.example^</code><small>blocks every request</small></div></div><div class="rx-prov"><div class="rx-prov-head"><span class="rx-tag rx-o-remote">Remote</span><code>||tracker.example^</code><small>blocks page loads, once you accept block</small></div></div></div>
+  <details class="case-json"><summary>The remote provider after loading as JSON</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;trackers&quot;</span>: {
+      <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||tracker.example^&quot;</span>],
+      <span class="k">&quot;completeProvider&quot;</span>: <span class="l">true</span>,
+      <span class="k">&quot;resourceTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>]
+    }
+  }
+}</code></pre></div></details>
+</div>
+</div>
+<p class="case-explain">The default becomes the remote provider's resourceTypes as it loads, and resourceTypes is part of what makes providers match. So these two stay separate providers.</p>
+</article>
+</div>
 <p>The custom rules editor shows the defaults each loaded source used. Its <i>Merge from sources</i> tool is separate: it combines several <code>defaults</code> blocks into one block you can save, and doesn't change how rules merge.</p>
 
 <h2 id="remote-capabilities">What a remote file may do</h2>

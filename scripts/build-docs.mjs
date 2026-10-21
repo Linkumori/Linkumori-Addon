@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { overloadCases, customCases, defaultsCases, sourceCases } from './rules-cases.mjs';
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const docsDir = process.argv[2];
@@ -79,6 +80,7 @@ const pages = [
     description: 'How Linkumori picks its rule sources, merges built-in and remote rules in overload mode, applies custom rules on top, and handles toggles, defaults and remote file capabilities, with every case.',
     kicker: 'Guide',
     facts: [['Covers', 'Sources, merging, custom rules'], ['Applies to', `Linkumori ${VERSION}`]],
+    wide: true,
     scripts: ['assets/rules.js']
   },
   {
@@ -202,6 +204,87 @@ function cellInline(text) {
   // Table cells already turned `\|` into `|`; keep other escapes for inline().
   return inline(text.replace(/\|/g, '\\|')).replace(/\\\|/g, '|');
 }
+
+// ---------- Case cards for rules.html (data in rules-cases.mjs) ----------
+
+// JSON laid out the way people write rule files: short arrays and objects stay on one line.
+function formatJson(value, indent = '') {
+  const inline = v => {
+    if (Array.isArray(v)) return `[${v.map(inline).join(', ')}]`;
+    if (v && typeof v === 'object') {
+      const parts = Object.entries(v).map(([k, x]) => `${JSON.stringify(k)}: ${inline(x)}`);
+      return parts.length ? `{ ${parts.join(', ')} }` : '{}';
+    }
+    return JSON.stringify(v);
+  };
+  const flat = inline(value);
+  // 46 columns fit the narrow panels of a case card without scrolling.
+  if (indent.length + flat.length <= 46 || value === null || typeof value !== 'object') return flat;
+  const next = indent + '  ';
+  if (Array.isArray(value)) return `[\n${value.map(v => next + formatJson(v, next)).join(',\n')}\n${indent}]`;
+  return `{\n${Object.entries(value).map(([k, v]) => `${next}${JSON.stringify(k)}: ${formatJson(v, next)}`).join(',\n')}\n${indent}}`;
+}
+
+const ORIGIN_LABELS = { builtin: 'Built-in', remote: 'Remote', custom: 'Custom', cache: 'Cache', off: 'Off' };
+const tag = (origin, label) => `<span class="rx-tag rx-o-${origin}">${escapeHtml(label || ORIGIN_LABELS[origin] || origin)}</span>`;
+
+function providerDiagram(p) {
+  const head = `<div class="rx-prov-head">${p.origin ? tag(p.origin, p.name ? undefined : undefined) : ''}` +
+    `${p.name ? `<b class="rx-prov-name">${escapeHtml(p.name)}</b>` : ''}<code>${escapeHtml(p.pattern)}</code>` +
+    `${p.note ? `<small>${escapeHtml(p.note)}</small>` : ''}</div>`;
+  const rows = p.rows.length
+    ? `<ul>${p.rows.map(r => `<li class="rx-o-${r.origin}${r.gone ? ' rx-gone' : ''}"><code>${escapeHtml(r.text)}</code>` +
+        `${r.note ? `<small>${escapeHtml(r.note)}</small>` : ''}<span class="rx-row-tag">${escapeHtml(ORIGIN_LABELS[r.origin])}</span></li>`).join('')}</ul>`
+    : '';
+  return `<div class="rx-prov${p.origin === 'off' ? ' rx-prov-off' : ''}">${p.caption ? `<div class="rx-prov-caption">${escapeHtml(p.caption)}</div>` : ''}${head}${rows}</div>`;
+}
+
+function caseCard(c, i) {
+  const inputs = c.inputs.map(input => `<div class="case-in">
+  <div class="case-label">${tag(input.origin, input.origin === 'off' ? 'Off' : undefined)}<span>${escapeHtml(input.label)}</span></div>
+  ${input.json !== undefined ? codeBlock(highlightJson(formatJson(input.json)), 'json') : `<p class="case-text">${escapeHtml(input.text)}</p>`}
+</div>`).join('\n');
+  const merged = c.merged && Object.keys(c.merged).length
+    ? codeBlock(highlightJson(formatJson({ providers: c.merged })), 'json')
+    : '<p class="case-text">No provider for this pattern.</p>';
+  return `<article class="case" id="${c.id}" data-case-title="${escapeHtml(c.title)}">
+<header class="case-head"><span class="case-num">${i + 1}</span><h4>${escapeHtml(c.title)}</h4></header>
+<div class="case-body">
+<div class="case-inputs">
+${inputs}
+</div>
+<div class="case-arrow" aria-hidden="true">→</div>
+<div class="case-out">
+  <div class="case-label"><span>What runs</span></div>
+  <div class="case-runs">${c.runs.map(providerDiagram).join('')}</div>
+  <details class="case-json"><summary>${escapeHtml(c.mergedLabel || 'Merged provider')} as JSON</summary>${merged}</details>
+</div>
+</div>
+<p class="case-explain">${escapeHtml(c.explain)}</p>
+</article>`;
+}
+
+function caseGallery(cases, label) {
+  return `<div class="cases" data-cases aria-label="${escapeHtml(label)}">\n${cases.map(caseCard).join('\n')}\n</div>`;
+}
+
+function sourceGallery(cases) {
+  const LAYER = { builtin: 'Built-in rules', remote: 'Remote rules', cache: 'Verified cache' };
+  return `<div class="src-cases">\n${cases.map(c => `<article class="src-case">
+<dl class="src-settings">${Object.entries(c.settings).map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>
+<div class="src-stack">${c.layers.length
+    ? c.layers.map(l => `<div class="rx-layer rx-o-${l}${c.merged ? ' rx-merged' : ''}"><b>${LAYER[l]}</b></div>`).join('')
+    : '<div class="rx-layer rx-empty">No base rules</div>'}</div>
+<p class="src-result">${escapeHtml(c.result)}</p>
+</article>`).join('\n')}\n</div>`;
+}
+
+const CASE_SLOTS = {
+  'cases:overload': () => caseGallery(overloadCases, 'Overload mode cases'),
+  'cases:custom': () => caseGallery(customCases, 'Custom rule cases'),
+  'cases:defaults': () => caseGallery(defaultsCases, 'Defaults cases'),
+  'cases:sources': () => sourceGallery(sourceCases)
+};
 
 // A column headed `(stage, orderGroup, order, rank, arrayIndex)` is drawn as five
 // columns under one "Sort key" heading, each tuple value in its own cell.
@@ -464,7 +547,7 @@ ${toc}
         </ol>
       </details>
     </aside>
-    <main id="main" class="prose">
+    <main id="main" class="prose${page.wide ? ' prose-wide' : ''}">
 ${body}
       <p class="doc-src">${sourceNote}</p>
     </main>
@@ -517,7 +600,11 @@ for (const page of pages) {
   if (page.html) {
     // A hand-written HTML page: take its contents list from its own h2 and h3 headings.
     ctx.title = page.heading;
-    const body = readFileSync(join(siteRoot, page.html), 'utf8').trim();
+    const body = readFileSync(join(siteRoot, page.html), 'utf8').trim()
+      .replace(/<!-- (cases:[a-z]+) -->/g, (_, slot) => {
+        if (!CASE_SLOTS[slot]) throw new Error(`${page.html}: unknown slot ${slot}`);
+        return CASE_SLOTS[slot]();
+      });
     for (const m of body.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)) {
       ctx.toc.push({ level: Number(m[1]), id: m[2], text: m[3].replace(/<[^>]+>/g, '') });
     }
