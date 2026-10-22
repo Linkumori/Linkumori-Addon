@@ -584,10 +584,22 @@
     }
     rerunSimulation = function () { simulateNow(true); };
 
+    // Steps forward on its own until the last frame.
+    function play(focusAction) {
+      stop();
+      if (!sim.frames.length) return;
+      if (sim.cursor >= sim.frames.length - 1) sim.cursor = 0;
+      sim.timer = setInterval(function () { go(sim.cursor + 1); }, 900);
+      render(focusAction);
+    }
+
+    // Run starts from the first step and plays, so a run always shows: the
+    // first frame alone looks the same as before it.
     simForm.addEventListener('submit', function (event) {
       event.preventDefault();
       sim.url = simUrl.value.trim();
       simulateNow(false);
+      play();
     });
     simOut.addEventListener('click', function (event) {
       const frameButton = event.target.closest('[data-frame]');
@@ -597,9 +609,7 @@
       const name = action.getAttribute('data-sim');
       if (name === 'play') {
         if (sim.timer) { stop(); render('play'); return; }
-        if (sim.cursor >= sim.frames.length - 1) sim.cursor = 0;
-        sim.timer = setInterval(function () { go(sim.cursor + 1); }, 900);
-        render('play');
+        play('play');
         return;
       }
       stop();
