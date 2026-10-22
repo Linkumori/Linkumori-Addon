@@ -970,7 +970,7 @@ let runOrderPendingFocus = null;
 const RUN_ORDER_STEP = 10;
 // Simulation: the test URL, the engine's answer, the frame on screen, and
 // the timer while it plays.
-let runOrderSim = { url: '', result: null, cursor: 0, timer: null };
+let runOrderSim = { url: '', result: null, cursor: 0, timer: null, generated: null };
 const RUN_ORDER_SIM_DELAY = 900;
 
 function readStoredFlag(key) {
@@ -1270,10 +1270,68 @@ function renderRunOrderSimulation() {
             <label class="linkumori-a11y-visually-hidden" for="run-order-sim-url">${i18n('customRulesEditor_runOrderSimUrlLabel')}</label>
             <input type="url" class="form-input" id="run-order-sim-url" placeholder="https://example.com/?utm_source=newsletter" value="${escapeHtml(sim.url)}" spellcheck="false" autocomplete="off">
             <button type="submit" class="btn btn-primary btn-sm">${i18n('customRulesEditor_runOrderSimRun')}</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-sim-generate>${i18n('customRulesEditor_runOrderSimGenerate')}</button>
         </form>
+        ${renderRunOrderGeneratedNote(sim.generated)}
         ${body}
     `);
     highlightRunOrderSimRow();
+}
+
+// What a generated test URL was made from, and what it leaves out.
+function renderRunOrderGeneratedNote(generated) {
+    if (!generated || generated.url !== runOrderSim.url) return '';
+    if (generated.error) return `<p class="run-order-note">${i18n('customRulesEditor_runOrderSimFailed')}</p>`;
+    const lines = [];
+    if (!generated.matched) {
+        lines.push(i18n(generated.excepted ? 'customRulesEditor_runOrderSimGeneratedExcepted' : 'customRulesEditor_runOrderSimGeneratedNoMatch'));
+    }
+    const raw = generated.parts.filter(part => part.list === 'rawRules').length;
+    lines.push(i18n('customRulesEditor_runOrderSimGenerated', getLocalizedNumber(raw), getLocalizedNumber(generated.parts.length - raw)));
+    if (generated.skipped.some(item => item.reason === 'removeAll')) lines.push(i18n('customRulesEditor_runOrderSimKeepGone'));
+    const reasons = {
+        sample: 'customRulesEditor_runOrderSimSkipSample',
+        exception: 'customRulesEditor_runOrderSimSkipException',
+        removeAll: 'customRulesEditor_runOrderSimSkipRemoveAll'
+    };
+    const skipped = generated.skipped.map(item => `
+        <li><code>${escapeHtml(`${item.list}[${item.index}]`)}</code> <code>${escapeHtml(item.text)}</code>: ${i18n(reasons[item.reason] || reasons.sample)}</li>`).join('');
+    return `
+        <div class="run-order-sim-generated">
+            ${lines.map(line => `<p class="run-order-note">${escapeHtml(line)}</p>`).join('')}
+            ${skipped ? `<details class="run-order-filters"><summary>${i18n('customRulesEditor_runOrderSimSkipped', getLocalizedNumber(generated.skipped.length))}</summary><ul>${skipped}</ul></details>` : ''}
+        </div>`;
+}
+
+// Fills the test URL from the provider's own rules and runs it.
+async function generateRunOrderTestUrl() {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor) return;
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        return;
+    }
+    let generated;
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'generateProviderTestUrl',
+            params: [currentProvider || '', provider, customRules.defaults || null]
+        });
+        generated = response?.response || { error: 'failed' };
+    } catch (_) {
+        generated = { error: 'failed' };
+    }
+    stopRunOrderSimulation();
+    runOrderSim.generated = generated;
+    if (generated.url) {
+        runOrderSim.url = generated.url;
+        await runRunOrderSimulation();
+    } else {
+        renderRunOrderSimulation();
+    }
+    document.querySelector('#json-run-order-sim [data-sim-generate]')?.focus();
 }
 
 // Marks the order list's row for the step on screen.
@@ -1327,6 +1385,10 @@ function setRunOrderSimCursor(cursor) {
 }
 
 function handleRunOrderSimClick(event) {
+    if (event.target.closest('[data-sim-generate]')) {
+        generateRunOrderTestUrl();
+        return true;
+    }
     const frameButton = event.target.closest('[data-sim-frame]');
     if (frameButton) {
         stopRunOrderSimulation();
