@@ -1184,12 +1184,18 @@ function safeDecodeLinkumoriParam(value) {
     return out;
 }
 
+// The request type rules are checked against. Cleaning with no request (a
+// copied link, the context menu, a History API update, the watchdog) cleans a
+// URL a page would load, so it counts as "main_frame".
+function getLinkumoriRequestType(request) {
+    return String(request && request.type || "main_frame").toLowerCase();
+}
+
 function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
     const requestTypes = Array.isArray(linkumoriRule?.requestTypes) ? linkumoriRule.requestTypes : [];
     const excludeRequestTypes = Array.isArray(linkumoriRule?.excludeRequestTypes) ? linkumoriRule.excludeRequestTypes : [];
     if (requestTypes.length === 0 && excludeRequestTypes.length === 0) return true;
-    const requestType = String(request && request.type || "").toLowerCase();
-    if (!requestType) return false;
+    const requestType = getLinkumoriRequestType(request);
     if (excludeRequestTypes.indexOf(requestType) !== -1) return false;
     return requestTypes.length === 0 || requestTypes.indexOf(requestType) !== -1;
 }
@@ -1536,8 +1542,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
     // Pattern and $removeparam-style options of a "…$…rawrule=" raw rule.
     if (compiledRule.rawFilter && !matchLinkumoriRemoveParamTarget(compiledRule.rawFilter, url, request, isHistoryUpdate)) return false;
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
-        const rt = String(request && request.type || "").toLowerCase();
-        if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
+        if (compiledRule.requestTypes.indexOf(getLinkumoriRequestType(request)) === -1) return false;
     }
     // A normalized rule (a fieldRedirections $removeparam entry) has no
     // matcher of its own yet; the shared one for its list is cached.

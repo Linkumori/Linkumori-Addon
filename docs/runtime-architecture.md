@@ -547,7 +547,10 @@ registrable domains.
 `pureCleaning()` (pureCleaning.js) cleans a URL outside `webRequest`. It
 runs every provider over the URL until it stops changing. It does not use
 the token index, and there is no request, so options that depend on the
-request (party, type, method) do not apply. It is used by:
+request (party, method) do not apply. For request types the URL counts as
+`main_frame` (`getLinkumoriRequestType()`), the page a link opens: a rule or
+`$removeparam` filter limited to other types is skipped, and one limited to
+`main_frame` applies. It is used by:
 
 - the *Copy clean link* context menu, which injects `clipboard-helper.js`
   and copies the result (context_menu.js);
