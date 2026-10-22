@@ -1003,7 +1003,9 @@ async function updateProviderRunOrder() {
             event.preventDefault();
             stopRunOrderSimulation();
             runOrderSim.url = (container.querySelector('#run-order-sim-url')?.value || '').trim();
-            runRunOrderSimulation();
+            // Run plays from the first step: the first frame alone looks the
+            // same as before the run.
+            runRunOrderSimulation().then(playRunOrderSimulation);
         });
         container.addEventListener('input', (event) => {
             if (event.target.id === 'run-order-sim-url') runOrderSim.url = event.target.value.trim();
@@ -1328,6 +1330,7 @@ async function generateRunOrderTestUrl() {
     if (generated.url) {
         runOrderSim.url = generated.url;
         await runRunOrderSimulation();
+        playRunOrderSimulation();
     } else {
         renderRunOrderSimulation();
     }
@@ -1372,6 +1375,16 @@ async function runRunOrderSimulation(keepCursor = false) {
     renderRunOrderSimulation();
 }
 
+// Steps forward on its own until the last frame.
+function playRunOrderSimulation() {
+    stopRunOrderSimulation();
+    const frames = getRunOrderSimFrames(runOrderSim.result);
+    if (frames.length < 2) return;
+    if (runOrderSim.cursor >= frames.length - 1) runOrderSim.cursor = 0;
+    runOrderSim.timer = setInterval(() => setRunOrderSimCursor(runOrderSim.cursor + 1), RUN_ORDER_SIM_DELAY);
+    renderRunOrderSimulation();
+}
+
 function stopRunOrderSimulation() {
     clearInterval(runOrderSim.timer);
     runOrderSim.timer = null;
@@ -1403,9 +1416,7 @@ function handleRunOrderSimClick(event) {
             stopRunOrderSimulation();
             renderRunOrderSimulation();
         } else {
-            if (runOrderSim.cursor >= frames.length - 1) runOrderSim.cursor = 0;
-            runOrderSim.timer = setInterval(() => setRunOrderSimCursor(runOrderSim.cursor + 1), RUN_ORDER_SIM_DELAY);
-            renderRunOrderSimulation();
+            playRunOrderSimulation();
         }
     } else {
         stopRunOrderSimulation();
