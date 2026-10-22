@@ -5687,6 +5687,36 @@
     "message": "This provider has a $removeparam filter without a name, which removes every parameter, keep=1 included.",
     "description": "Generated-URL note when a $removeparam filter removes every parameter"
   },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "no order",
+    "description": "Run-order chip for a step without an order value"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "description": "Run-order chip while dragging: the order a step has now and the one the drop would give it",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Restore order numbers",
+    "description": "Run-order panel button that puts every order value back as it was when the provider was opened"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Put every order back as it was when you opened this provider",
+    "description": "Tooltip of the Restore order numbers button"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Order numbers restored",
+    "description": "Screen-reader announcement after restoring order numbers"
+  },
   "customRulesEditor_lintHide": {
     "message": "Hide",
     "description": "Linter panel button that collapses the problem list"

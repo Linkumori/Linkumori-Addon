@@ -1618,6 +1618,29 @@
             color: var(--text-primary);
         }
 
+        .run-order-number {
+            padding: 0 7px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .run-order-number.is-none {
+            border-style: dashed;
+            color: var(--text-muted);
+        }
+
+        .run-order-number.is-preview.is-changed {
+            border-style: solid;
+            border-color: var(--button-primary);
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
         .run-order-meta {
             flex-basis: 100%;
             color: var(--text-muted);
