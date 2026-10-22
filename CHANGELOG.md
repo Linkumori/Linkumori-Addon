@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.69.0] - 2026-10-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.68.0...linkumori-v100.69.0))
+### Changed
+- Apply each regression case's whitelist; require redirects where needed (`2026-10-22`, hash: [`abcfddf`](https://github.com/Linkumori/Linkumori-Addon/commit/abcfddf))
+- Generated compressed URL cleaning rules bundle (`2026-10-22`, hash: [`13585e1`](https://github.com/Linkumori/Linkumori-Addon/commit/13585e1))
+- Leave a URL exactly as it was when a provider changes nothing (`2026-10-22`, hash: [`aa10cff`](https://github.com/Linkumori/Linkumori-Addon/commit/aa10cff))
+- Let a || pattern with a path match as a prefix in the regular expression fallback (`2026-10-22`, hash: [`54a59e7`](https://github.com/Linkumori/Linkumori-Addon/commit/54a59e7))
+- Let the run-order panel rearrange steps (`2026-10-22`, hash: [`6fcc0b0`](https://github.com/Linkumori/Linkumori-Addon/commit/6fcc0b0))
+- Match ^/ in domain patterns without needing the slash twice (`2026-10-22`, hash: [`283ab12`](https://github.com/Linkumori/Linkumori-Addon/commit/283ab12))
+- Simulate a provider step by step in the run-order panel (`2026-10-22`, hash: [`3d3323f`](https://github.com/Linkumori/Linkumori-Addon/commit/3d3323f))
+- Update the regression case for colliding generated ids (`2026-10-22`, hash: [`d91eff9`](https://github.com/Linkumori/Linkumori-Addon/commit/d91eff9)) [#166](https://github.com/Linkumori/Linkumori-Addon/issues/166)
+
+### Fixed
+- Resolve the CLI help: name the real script, drop commands that don't exist (`2026-10-22`, hash: [`6993b91`](https://github.com/Linkumori/Linkumori-Addon/commit/6993b91))
+
+### Removed
+- Remove the trailing comma that made package.json invalid JSON (`2026-10-22`, hash: [`f41736e`](https://github.com/Linkumori/Linkumori-Addon/commit/f41736e))
+
 ## [v100.68.0] - 2026-10-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.67.0...linkumori-v100.68.0))
 ### Added
 - Introduce a run-order calculator to the custom rules editor (`2026-10-22`, hash: [`c695c3f`](https://github.com/Linkumori/Linkumori-Addon/commit/c695c3f))
