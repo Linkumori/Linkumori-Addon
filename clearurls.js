@@ -778,8 +778,11 @@ function matchDomainPattern(url, patterns) {
         const source = linkumoriTokensToRegexSource(raw, hostEndIndex);
         const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
-        // ':' is a boundary too, so ||example.com matches http://example.com:8080/.
-        const domainBoundary = (domainAnchor && !raw.endsWith('^') && !endAnchor) ? '(?=[:/?#]|$)' : '';
+        // A "||" pattern that is only a host must end at the host: ':' is a
+        // boundary too, so ||example.com matches http://example.com:8080/. With
+        // a path the pattern is a prefix, so ||example.com^/go/ matches
+        // example.com/go/page, as the structured match treats it.
+        const domainBoundary = (domainAnchor && firstSpecialIndex(raw) === -1 && !endAnchor) ? '(?=[:/?#]|$)' : '';
 
         let regex = null;
         try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
