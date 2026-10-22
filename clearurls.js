@@ -184,8 +184,9 @@ let pendingCoreRuleAliasMigrations = new Map();
 // setting saved under a previous id is moved to the current id; one saved
 // under the id of a definition this rule replaced (`replacedIds`, CLN 1.0
 // §Rule ids and toggles) is left where it is, so it still applies to that
-// definition if it ever runs again.
-function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds, replacedIds = []) {
+// definition if it ever runs again. With `recordMigrations` false nothing
+// is queued for moving.
+function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds, replacedIds = [], recordMigrations = true) {
     if (disabledRuleIds.has(activationId)) return true;
     const sep = activationId.lastIndexOf("::");
     if (sep === -1) return false;
@@ -193,6 +194,7 @@ function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds, 
     for (const previousId of (Array.isArray(previousIds) ? previousIds : [])) {
         const oldActivationId = `${scope}::${previousId}`;
         if (disabledRuleIds.has(oldActivationId)) {
+            if (!recordMigrations) return true;
             if (!pendingCoreRuleAliasMigrations.has(oldActivationId)) pendingCoreRuleAliasMigrations.set(oldActivationId, new Set());
             pendingCoreRuleAliasMigrations.get(oldActivationId).add(activationId);
             return true;
@@ -202,7 +204,7 @@ function isCoreActivationIdDisabled(activationId, previousIds, disabledRuleIds, 
 }
 
 
-function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
+function filterCoreRuleActivationIds(compiledRule, disabledRuleIds, recordMigrations = true) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
     const previousIds = compiledRule.aliases || [];
     const replacedIds = compiledRule.replacedIds || [];
@@ -213,13 +215,13 @@ function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     };
     // A rule is switched off for its whole provider ("provider::ruleId") or
     // for one of its match patterns ("domainPattern:<pattern>::ruleId").
-    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, previousIds, disabledRuleIds, replacedIds)) {
+    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, previousIds, disabledRuleIds, replacedIds, recordMigrations)) {
         return disableWhole();
     }
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
     const active = [], disabled = [];
-    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, previousIds, disabledRuleIds, replacedIds) ? disabled : active).push(aId));
+    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, previousIds, disabledRuleIds, replacedIds, recordMigrations) ? disabled : active).push(aId));
     compiledRule.disabledActivationIds = disabled;
     compiledRule.activationIds = active;
     return active.length === 0;
@@ -1946,6 +1948,72 @@ function start() {
 
     function getKeys(obj) { prvKeys = Object.keys(obj || {}); }
 
+    // Patterns, lists, methods and request types of one provider, from its
+    // rule data (with its file's defaults already written in).
+    function fillProvider(provider, providerData) {
+        const urlPattern = providerData.getOrDefault('urlPattern', '');
+        const indexPattern = providerData.getOrDefault('indexPattern', []);
+        const domainPatterns = providerData.getOrDefault('domainPatterns', []);
+
+        if (Array.isArray(domainPatterns) && domainPatterns.length > 0) provider.setURLDomainPattern(domainPatterns);
+        else if (domainPatterns && typeof domainPatterns === 'string') provider.setURLDomainPattern(domainPatterns);
+        else if (urlPattern) {
+            provider.setURLPattern(urlPattern);
+            const hasIndex = Array.isArray(indexPattern) ? indexPattern.length > 0 : Boolean(indexPattern);
+            if (hasIndex) provider.setIndexPattern(indexPattern);
+        }
+
+        // A provider-level "historyBypassProtection" applies to every rule under
+        // this provider that doesn't set its own value inline.
+        const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection', undefined);
+        const providerDefaults = typeof providerHistoryBypassProtection === 'boolean'
+            ? { historyBypassProtection: providerHistoryBypassProtection }
+            : null;
+        const rules = providerData.getOrDefault('rules', []);
+        for (let r = 0; r < rules.length; r++) provider.addRule(rules[r], true, providerDefaults, r);
+        const rawRules = providerData.getOrDefault('rawRules', []);
+        for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults, raw);
+        const referralMarketingRules = providerData.getOrDefault('referralMarketing', []);
+        for (let rm = 0; rm < referralMarketingRules.length; rm++) provider.addReferralMarketing(referralMarketingRules[rm], true, providerDefaults, rm);
+        const exceptions = providerData.getOrDefault('exceptions', []);
+        for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
+        const redirections = providerData.getOrDefault('redirections', []);
+        for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
+        const fieldRedirections = providerData.getOrDefault('fieldRedirections', []);
+        for (let fr = 0; fr < fieldRedirections.length; fr++) provider.addFieldRedirection(fieldRedirections[fr], true, providerDefaults);
+        const methods = providerData.getOrDefault('methods', []);
+        for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
+        const resourceTypes = providerData.getOrDefault('resourceTypes', []);
+        for (let rt = 0; rt < resourceTypes.length; rt++) provider.addResourceType(resourceTypes[rt]);
+    }
+
+    // The run order of one provider as the custom rules editor has it, saved
+    // or not: the editor's run-order panel shows it. The provider is built
+    // the way createProviders() builds it, with the custom rules' defaults
+    // and the person's rule pins, but nothing about it is recorded.
+    // `fileDefaults` is the custom rules' "defaults" block.
+    function getProviderRunOrder(providerName, providerData, fileDefaults) {
+        if (!providerData || typeof providerData !== 'object' || Array.isArray(providerData)) return null;
+        const name = String(providerName || '');
+        const file = { providers: { [name]: providerData } };
+        if (fileDefaults && typeof fileDefaults === 'object' && !Array.isArray(fileDefaults)) file.defaults = fileDefaults;
+        const data = applySourceRuleDefaults('custom', file).providers[name];
+        const pins = LinkumoriRulePins.groupPinsByProvider(
+            LinkumoriRulePins.normalizePins(storage[LinkumoriRulePins.PIN_STORAGE_KEY])).get(name) || [];
+        const pinResolution = LinkumoriRulePins.resolveProviderPins(data, pins);
+        const provider = new Provider(name, data.getOrDefault('completeProvider', false),
+            data.getOrDefault('forceRedirection', false), new Set(), true);
+        provider.setRuleIdLookup(LinkumoriRulePins.withPinnedRuleIds(LinkumoriRuleIds.createRuleIdLookup(data), pinResolution.overrides));
+        provider.setRulePins(pins, pinResolution.overrides);
+        fillProvider(provider, data);
+        return {
+            ...provider.describeRunOrder(getClearURLsDisabledRuleIdSet()),
+            completeProvider: data.getOrDefault('completeProvider', false) === true,
+            referralMarketingAllowed: storage.referralMarketing === true
+        };
+    }
+    globalThis.getProviderRunOrder = getProviderRunOrder;
+
     function createProviders() {
         const data = storage.ClearURLsData;
         if (!data || !data.providers) return;
@@ -1981,41 +2049,7 @@ function start() {
             provider.setRuleIdLookup(LinkumoriRulePins.withPinnedRuleIds(LinkumoriRuleIds.createRuleIdLookup(providerData), pinResolution.overrides));
             provider.setRulePins(providerPins, pinResolution.overrides);
             providers.push(provider);
-
-            const urlPattern = providerData.getOrDefault('urlPattern', '');
-            const indexPattern = providerData.getOrDefault('indexPattern', []);
-            const domainPatterns = providerData.getOrDefault('domainPatterns', []);
-
-            if (Array.isArray(domainPatterns) && domainPatterns.length > 0) provider.setURLDomainPattern(domainPatterns);
-            else if (domainPatterns && typeof domainPatterns === 'string') provider.setURLDomainPattern(domainPatterns);
-            else if (urlPattern) {
-                provider.setURLPattern(urlPattern);
-                const hasIndex = Array.isArray(indexPattern) ? indexPattern.length > 0 : Boolean(indexPattern);
-                if (hasIndex) provider.setIndexPattern(indexPattern);
-            }
-
-            // A provider-level "historyBypassProtection" applies to every rule under
-            // this provider that doesn't set its own value inline.
-            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection', undefined);
-            const providerDefaults = typeof providerHistoryBypassProtection === 'boolean'
-                ? { historyBypassProtection: providerHistoryBypassProtection }
-                : null;
-            const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
-            for (let r = 0; r < rules.length; r++) provider.addRule(rules[r], true, providerDefaults, r);
-            const rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
-            for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults, raw);
-            const referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
-            for (let rm = 0; rm < referralMarketingRules.length; rm++) provider.addReferralMarketing(referralMarketingRules[rm], true, providerDefaults, rm);
-            const exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
-            for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
-            const redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
-            for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
-            const fieldRedirections = data.providers[prvKeys[p]].getOrDefault('fieldRedirections', []);
-            for (let fr = 0; fr < fieldRedirections.length; fr++) provider.addFieldRedirection(fieldRedirections[fr], true, providerDefaults);
-            const methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
-            for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
-            const resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
-            for (let rt = 0; rt < resourceTypes.length; rt++) provider.addResourceType(resourceTypes[rt]);
+            fillProvider(provider, providerData);
             provider.finalizeRules();
 
             const lookupTokens = provider.getLookupTokens();
@@ -2133,7 +2167,10 @@ function start() {
     // Provider
     // -----------------------------------------------------------------------
 
-    function Provider(_name, _completeProvider = false, _forceRedirection = false, _disabledRuleIds = new Set()) {
+    // A provider built with `_dryRun` (the custom rules editor's run-order
+    // panel) records nothing: its rules don't appear in the snapshot the rule
+    // controls read, and no pin is tracked.
+    function Provider(_name, _completeProvider = false, _forceRedirection = false, _disabledRuleIds = new Set(), _dryRun = false) {
         const name = _name;
         let urlPattern, urlPatternSource = '';
         let indexPatterns = [], domainPatterns = [];
@@ -2181,6 +2218,7 @@ function start() {
         // The rule, or null when it is switched off. `register` records it in
         // the snapshot the rule controls read, and tracks its pin.
         function applyDisabledState(compiled, register = true) {
+            if (_dryRun) register = false;
             const disabled = filterCoreRuleActivationIds(compiled, _disabledRuleIds);
             if (register && compiled.idGenerated) trackCoreRulePin(name, compiled, _disabledRuleIds, rulePins);
             if (disabled) {
@@ -2457,6 +2495,40 @@ function start() {
                 (a.rank - b.rank) ||
                 (a.arrayIndex - b.arrayIndex));
         }
+
+        // For the custom rules editor's run-order panel: the steps in the order
+        // they run, with referral-marketing rules (the person removes them) and
+        // without (the person allows them), each with its sort key and whether
+        // `disabledRuleIds` switches it off. Build the provider with an empty
+        // disabled set, so switched-off rules still get their place.
+        this.describeRunOrder = function (disabledRuleIds = new Set()) {
+            const describe = withReferral => buildOrderedSteps(withReferral, false).map(step => {
+                const compiled = step.compiled;
+                const copy = { ...compiled, activationIds: (compiled.activationIds || []).slice() };
+                const off = filterCoreRuleActivationIds(copy, disabledRuleIds, false);
+                return {
+                    stage: step.type,
+                    list: compiled.section || null,
+                    referral: compiled.section === 'referralMarketing' || isReferralMarketingRule(compiled.raw),
+                    matchPattern: compiled.matchPattern,
+                    id: compiled.id || null,
+                    idGenerated: !!compiled.idGenerated,
+                    replacedIds: (compiled.replacedIds || []).slice(),
+                    rewrite: compiled.replacePattern !== null && compiled.replacePattern !== undefined,
+                    order: step.order,
+                    sortKey: [step.stage, step.order === null ? 1 : 0, step.order, step.rank, step.arrayIndex],
+                    off: off ? 'all' : ((copy.disabledActivationIds || []).length > 0 ? 'some' : null)
+                };
+            });
+            const filters = (list, referral) => list.map(rule => ({ text: rule.raw, exception: !!rule.isException, referral }));
+            return {
+                withReferral: describe(true),
+                withoutReferral: describe(false),
+                removeParam: filters(linkumoriRemoveParamRules, false).concat(filters(referralMarketingRemoveParamRules, true)),
+                removeParamExceptions: filters(linkumoriRemoveParamExceptions, false).concat(filters(referralMarketingRemoveParamExceptions, true)),
+                rawRuleExceptions: rawRuleExceptions.length
+            };
+        };
 
         // Called once every list has been added.
         this.finalizeRules = function () {

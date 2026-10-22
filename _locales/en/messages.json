@@ -5337,6 +5337,124 @@
     "description": "Linter summary with problem counts",
     "placeholders": { "errors": { "content": "$1", "example": "2" }, "warnings": { "content": "$2", "example": "1" } }
   },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Run order",
+    "description": "Title of the run-order calculator panel under the JSON editor"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ step(s), in the order they run",
+    "description": "Run-order panel summary with the number of rawRules, rules and referralMarketing steps",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "No rawRules, rules or referralMarketing entries",
+    "description": "Run-order panel summary when the provider has nothing to order"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Worked out by the engine from the text above, saved or not. Steps sort by (stage, orderGroup, order, rank, arrayIndex): raw rules run before field rules; within a stage, entries with an order run first, lowest first, then the rest by list and position.",
+    "description": "Explanation under the run-order panel title"
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Referral marketing",
+    "description": "Accessible name of the run-order panel's referral-marketing view buttons"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral removed",
+    "description": "Run-order view: referral-marketing rules run (the person does not allow referral marketing)"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral allowed",
+    "description": "Run-order view: referral-marketing rules are left out (the person allows referral marketing)"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Raw",
+    "description": "Run-order badge for a rawRules step"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Field",
+    "description": "Run-order badge for a rules step"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Referral",
+    "description": "Run-order badge for a referral-marketing step"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id",
+    "description": "Label before a rule's id in the run-order panel"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generated)",
+    "description": "Shown after a rule id that was generated because the rule has no id"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "description": "A step's order value in the run-order panel",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "rewrites",
+    "description": "Shown for a step with a replacePattern"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "replaces $COUNT$ earlier definition(s)",
+    "description": "Shown for a step whose text is defined more than once; the last definition wins",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "added by completeProvider: removes every parameter",
+    "description": "Shown for the step a completeProvider adds"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Switched off",
+    "description": "Badge for a step the person switched off; it keeps its place but does not run"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Off for some patterns",
+    "description": "Badge for a step switched off for some of the provider's patterns"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Sort key: (stage, orderGroup, order, rank, arrayIndex)",
+    "description": "Tooltip of a step's sort key in the run-order panel"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Then $FILTERS$ $removeparam filter(s) and $EXCEPTIONS$ @@ exception(s), after every step above",
+    "description": "Run-order panel: $removeparam filters run after the ordered steps",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= exception(s) can stop raw rules above where they match",
+    "description": "Run-order panel note about raw-rule exceptions",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
   "customRulesEditor_lintHide": {
     "message": "Hide",
     "description": "Linter panel button that collapses the problem list"

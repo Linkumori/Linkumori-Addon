@@ -203,7 +203,7 @@ Keys that shape the runtime:
 | `unboundedCyclesEnabled` | lift the 10-cycle limit on cleaning a request (default off) (§6.4) |
 | `ruleDefaultsMode`, `userRuleDefaults`, `sourceRuleDefaults` | rule defaults: where the user's own `defaults` replace the files' (`source`, `final` or `unified`; default `source`), the user's own `defaults` block, and the user's edits of a file's own block, by source ([defaults](filter-syntax.md#defaults)) |
 | `remoteRuleCapabilities` | what each remote file can do and what the user accepted, as `{ files: { [ruleURL]: { derived, accepted } } }` (§5.2) |
-| `disableGatekeeper` | skip the confirmation for remote rule addresses (default off) (§11.1) |
+| `disableGatekeeper` | skip the confirmation for remote rule addresses (default off) (§11.2) |
 
 The interface language is not in `storage`: the language selector in
 settings writes `linkumori_language` to `browser.storage.sync`, and
@@ -658,6 +658,8 @@ The allowlist covers:
   edited blocks);
 - remote capabilities (`acceptRemoteRuleCapabilities(ruleURL,
   capabilities)`, §5.2);
+- the custom rules editor's run-order panel (`getProviderRunOrder(name,
+  provider, defaults)`, §11);
 - cleaning and tests (`pureCleaning`, `runRuleTestLab`,
   `traceClearURLWebRequestTest`, `applyRegressionRuleData`, and
   `setPendingRegressionSuite` / `getPendingRegressionSuite`, which hand a
@@ -677,7 +679,7 @@ the popup's consent keys, and settings that background listeners watch (§4).
 |---|---|---|---|
 | `popup.html` | popup.js | toolbar popup: on/off, counters, pause, whitelist this site, consent gate | `getData`, `setData`, temporary whitelist, pause functions |
 | `settings.html` (options page) | settings.js | all settings, rule sources, remote rules, export/import, statistics | `getData`, `setData`, `getRuleSourceInfo`, `getMergeStatistics`, `getRemoteRulesHealth`, `refreshRemoteRulesNow`, `storageAsJSON`, `reload` |
-| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab` |
+| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab, run-order panel | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab`, `getProviderRunOrder` |
 | `log.html` | log.js | the cleaning log, live | `getData`, `setData`, port `linkumori-logger` |
 | `cleaningTool.html` | cleaning_tool.js | clean pasted URLs | `pureCleaning` |
 | `siteBlockedAlert.html` | siteBlockedAlert.js | shown when a provider blocks a page (`completeProvider`); links to the blocked address so it can still be opened | — |
@@ -691,7 +693,23 @@ Every page loads `theme_bootstrap.js` (themes), `linkumori-i18n.js` (text),
 `accessibility_tools.js` (accessibility options) and usually
 `write_version.js` (version footer).
 
-### 11.1 Settings page safeguards
+### 11.1 Run-order panel
+
+Under the custom rules editor's JSON editor, the run-order panel lists the
+provider's `rawRules`, `rules` and `referralMarketing` entries in the order
+they run, with each step's sort key `(stage, orderGroup, order, rank,
+arrayIndex)`, followed by its `$removeparam` filters. It is worked out by the
+engine, not by the page: on every edit (debounced) the page sends the
+unsaved provider and the custom rules' `defaults` to `getProviderRunOrder`.
+That function, in clearurls.js, builds the provider the way
+`createProviders()` does (`fillProvider()`, the custom rules' defaults, the
+user's rule pins), but as a dry run: its rules are not added to the
+snapshot the rule controls read, and no pin or alias migration is recorded.
+`Provider.describeRunOrder()` returns both variants, with referral-marketing
+rules and without, and marks the steps the user switched off. The panel
+starts on the variant the user's referral-marketing setting selects.
+
+### 11.2 Settings page safeguards
 
 settings.js asks before a few risky changes. These checks live in the page
 only; the background accepts the keys whatever their value.
