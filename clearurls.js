@@ -1643,7 +1643,9 @@ function applyParamDecisionsToStore(store, decide, rewriteTracker, dedupeKey) {
     return changed;
 }
 
-function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null, isHistoryUpdate = false) {
+// `stepRecorder`, an array, receives the URL before and after each ordered step
+// and after the $removeparam filters (the editor's run-order simulation).
+function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null, isHistoryUpdate = false, stepRecorder = null) {
     let url = pureUrl;
     let domain = "", fragments = "", fields = "";
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
@@ -1875,11 +1877,20 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     };
 
+    // The URL as it stands mid-pass: field steps edit the parsed parts.
+    const currentUrl = () => (parsed && fieldsDirty ? buildURLFromParts() : url);
+
     provider.getOrderedCleaningSteps().forEach(step => {
+        const before = stepRecorder ? currentUrl() : null;
         if (step.type === 'raw') runRawStep(step.key, step.compiled);
         else runFieldStep(step.key, step.compiled);
+        if (stepRecorder) {
+            stepRecorder.push({ stage: step.type, matchPattern: step.compiled.matchPattern, id: step.compiled.id || null,
+                before, after: currentUrl() });
+        }
     });
 
+    const beforeRemoveParam = stepRecorder ? currentUrl() : null;
     parseURL();
     if (hadParams) {
         const { activeRules: activeLinkumoriRules, activeExceptions: activeLinkumoriExceptions, getDecision: getLinkumoriDecision } = getLinkumoriState();
@@ -1930,6 +1941,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
 
         url = buildURLFromParts();
+    }
+    if (stepRecorder && (linkumoriParamRules.length > 0 || linkumoriParamExceptions.length > 0)) {
+        stepRecorder.push({ stage: 'removeparam', matchPattern: null, id: null, before: beforeRemoveParam, after: url });
     }
 
     // A pass that ends where it started changed nothing.
@@ -1987,12 +2001,12 @@ function start() {
         for (let rt = 0; rt < resourceTypes.length; rt++) provider.addResourceType(resourceTypes[rt]);
     }
 
-    // The run order of one provider as the custom rules editor has it, saved
-    // or not: the editor's run-order panel shows it. The provider is built
-    // the way createProviders() builds it, with the custom rules' defaults
-    // and the person's rule pins, but nothing about it is recorded.
-    // `fileDefaults` is the custom rules' "defaults" block.
-    function getProviderRunOrder(providerName, providerData, fileDefaults) {
+    // One provider as the custom rules editor has it, saved or not, built the
+    // way createProviders() builds it, with the custom rules' defaults and the
+    // person's rule pins, but as a dry run: nothing about it is recorded.
+    // `fileDefaults` is the custom rules' "defaults" block. Returns the rule
+    // data with defaults written in, and the provider.
+    function buildEditorProvider(providerName, providerData, fileDefaults, disabledRuleIds) {
         if (!providerData || typeof providerData !== 'object' || Array.isArray(providerData)) return null;
         const name = String(providerName || '');
         const file = { providers: { [name]: providerData } };
@@ -2002,17 +2016,70 @@ function start() {
             LinkumoriRulePins.normalizePins(storage[LinkumoriRulePins.PIN_STORAGE_KEY])).get(name) || [];
         const pinResolution = LinkumoriRulePins.resolveProviderPins(data, pins);
         const provider = new Provider(name, data.getOrDefault('completeProvider', false),
-            data.getOrDefault('forceRedirection', false), new Set(), true);
+            data.getOrDefault('forceRedirection', false), disabledRuleIds, true);
         provider.setRuleIdLookup(LinkumoriRulePins.withPinnedRuleIds(LinkumoriRuleIds.createRuleIdLookup(data), pinResolution.overrides));
         provider.setRulePins(pins, pinResolution.overrides);
         fillProvider(provider, data);
+        return { data, provider };
+    }
+
+    // The run order of one provider in the editor: the editor's run-order
+    // panel shows it. Built with no rule switched off, so switched-off rules
+    // keep their place and are marked.
+    function getProviderRunOrder(providerName, providerData, fileDefaults) {
+        const built = buildEditorProvider(providerName, providerData, fileDefaults, new Set());
+        if (!built) return null;
         return {
-            ...provider.describeRunOrder(getClearURLsDisabledRuleIdSet()),
-            completeProvider: data.getOrDefault('completeProvider', false) === true,
+            ...built.provider.describeRunOrder(getClearURLsDisabledRuleIdSet()),
+            completeProvider: built.data.getOrDefault('completeProvider', false) === true,
             referralMarketingAllowed: storage.referralMarketing === true
         };
     }
     globalThis.getProviderRunOrder = getProviderRunOrder;
+
+    // Runs one provider in the editor on `url`, the way cleaning a copied
+    // link does (no request, nothing logged or counted), and returns each
+    // pass with the URL before and after every step. Passes repeat while the
+    // URL changes, up to the cycle limit. Switched-off rules don't run, and
+    // `referralAllowed` picks whether referral-marketing rules do.
+    function simulateProviderRunOrder(providerName, providerData, fileDefaults, url, referralAllowed) {
+        let parsedUrl;
+        try { parsedUrl = new URL(String(url || '')); } catch (_) { return { error: 'invalidUrl' }; }
+        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') return { error: 'invalidUrl' };
+        const built = buildEditorProvider(providerName, providerData, fileDefaults, getClearURLsDisabledRuleIdSet());
+        if (!built) return { error: 'invalidProvider' };
+        const provider = built.provider;
+        provider.finalizeRules();
+        const start = parsedUrl.href;
+        if (!provider.getAppliedPatternForUrl(start).patternType) return { url: start, matched: false, reason: 'pattern', passes: [] };
+        if (!provider.matchURL(start)) return { url: start, matched: false, reason: 'exception', passes: [] };
+        // The provider reads the setting while it runs; this call is synchronous,
+        // so the person's own setting is back before anything else can read it.
+        const savedReferral = storage.referralMarketing;
+        storage.referralMarketing = referralAllowed === true;
+        const passes = [];
+        try {
+            const sessionRewrites = new Set();
+            const seen = new Set([start]);
+            let current = start;
+            for (let cycles = 1; ; cycles++) {
+                const steps = [];
+                const result = removeFieldsFormURL(provider, current, true, null, null, [], sessionRewrites, false, steps);
+                passes.push({ before: current, after: result.url, steps, redirect: !!result.redirect, cancel: !!result.cancel });
+                if (result.redirect || result.cancel) break;
+                if (!shouldRunAnotherCleaningCycle(current, result.url, cycles, seen)) break;
+                current = result.url;
+                // The provider stops when the cleaned URL no longer matches it.
+                if (!provider.matchURL(current)) break;
+            }
+        } finally {
+            storage.referralMarketing = savedReferral;
+        }
+        const last = passes[passes.length - 1];
+        return { url: start, matched: true, result: last ? last.after : start, passes,
+            cycleLimit: storage.unboundedCyclesEnabled === true ? null : LINKUMORI_MAX_CLEANING_CYCLES };
+    }
+    globalThis.simulateProviderRunOrder = simulateProviderRunOrder;
 
     function createProviders() {
         const data = storage.ClearURLsData;
@@ -2219,7 +2286,7 @@ function start() {
         // the snapshot the rule controls read, and tracks its pin.
         function applyDisabledState(compiled, register = true) {
             if (_dryRun) register = false;
-            const disabled = filterCoreRuleActivationIds(compiled, _disabledRuleIds);
+            const disabled = filterCoreRuleActivationIds(compiled, _disabledRuleIds, !_dryRun);
             if (register && compiled.idGenerated) trackCoreRulePin(name, compiled, _disabledRuleIds, rulePins);
             if (disabled) {
                 if (register) registerDisabledCoreRuleInSnapshot(compiled);

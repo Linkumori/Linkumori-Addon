@@ -968,6 +968,10 @@ let runOrderDragIndex = null;
 let runOrderPendingFocus = null;
 // Each moved stage is renumbered 10, 20, 30, … so entries can later go in between.
 const RUN_ORDER_STEP = 10;
+// Simulation: the test URL, the engine's answer, the frame on screen, and
+// the timer while it plays.
+let runOrderSim = { url: '', result: null, cursor: 0, timer: null };
+const RUN_ORDER_SIM_DELAY = 900;
 
 function readStoredFlag(key) {
     try {
@@ -994,6 +998,16 @@ async function updateProviderRunOrder() {
     if (!container || !jsonEditor) return;
     if (!container.dataset.runOrderBound) {
         container.addEventListener('click', handleRunOrderClick);
+        container.addEventListener('submit', (event) => {
+            if (!event.target.closest('[data-sim-form]')) return;
+            event.preventDefault();
+            stopRunOrderSimulation();
+            runOrderSim.url = (container.querySelector('#run-order-sim-url')?.value || '').trim();
+            runRunOrderSimulation();
+        });
+        container.addEventListener('input', (event) => {
+            if (event.target.id === 'run-order-sim-url') runOrderSim.url = event.target.value.trim();
+        });
         bindRunOrderDragging(container);
         container.dataset.runOrderBound = 'true';
     }
@@ -1024,6 +1038,11 @@ async function updateProviderRunOrder() {
     if (request !== runOrderRequest) return;
     lastRunOrder = result;
     renderProviderRunOrder();
+    // An edit changes what the test URL turns into.
+    if (runOrderSim.result) {
+        stopRunOrderSimulation();
+        runRunOrderSimulation(true);
+    }
 }
 
 function formatRunOrderKey(key) {
@@ -1068,7 +1087,7 @@ function renderProviderRunOrder() {
         const off = step.off === 'all' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOff')}</span>`
             : (step.off === 'some' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOffSome')}</span>` : '');
         return `
-            <li class="run-order-step${step.off === 'all' ? ' is-off' : ''}${controls ? ' is-movable' : ''}" data-step-index="${index}"${controls ? ' draggable="true"' : ''}>
+            <li class="run-order-step${step.off === 'all' ? ' is-off' : ''}${controls ? ' is-movable' : ''}" data-step-index="${index}" data-sim-key="${escapeHtml(runOrderSimKey(step.stage, step.matchPattern))}"${controls ? ' draggable="true"' : ''}>
                 <span class="run-order-pos">${getLocalizedNumber(index + 1)}</span>
                 <span class="run-order-stage run-order-stage-${step.stage === 'raw' ? 'raw' : (step.referral ? 'referral' : 'field')}">${stageLabel(step)}</span>
                 <span class="run-order-body">
@@ -1114,10 +1133,228 @@ function renderProviderRunOrder() {
             ${steps.length > 1 ? `<p class="run-order-help">${i18n(movable ? 'customRulesEditor_runOrderRearrangeHelp' : 'customRulesEditor_runOrderRearrangeOtherView')}</p>` : ''}
             ${items ? `<ol class="run-order-list">${items}</ol>` : ''}
             ${notes.join('')}
+            <div class="run-order-sim" id="json-run-order-sim"></div>
         </div>
         <span class="linkumori-a11y-visually-hidden" id="json-run-order-status" aria-live="polite"></span>
     `);
+    renderRunOrderSimulation();
     restoreRunOrderFocus(container);
+}
+
+// ---- Simulation: run this provider on a URL and step through the order ----
+
+function runOrderSimKey(stage, matchPattern) {
+    return JSON.stringify([stage, matchPattern]);
+}
+
+// The frames the player steps through: the start, then every step of each
+// pass that changed the URL, then the pass that changed nothing (or the
+// redirect or block that ended it).
+function getRunOrderSimFrames(result) {
+    if (!result || !result.matched) return [];
+    const frames = [{ kind: 'start', url: result.url }];
+    result.passes.forEach((pass, passIndex) => {
+        const number = passIndex + 1;
+        if (pass.redirect || pass.cancel) {
+            frames.push({ kind: pass.redirect ? 'redirect' : 'cancel', pass: number, before: pass.before, url: pass.after });
+            return;
+        }
+        if (pass.before === pass.after) {
+            frames.push({ kind: 'done', pass: number, url: pass.after });
+            return;
+        }
+        pass.steps.forEach((step, stepIndex) => frames.push({
+            kind: 'step', pass: number, step: stepIndex + 1, total: pass.steps.length,
+            stage: step.stage, matchPattern: step.matchPattern, id: step.id,
+            before: step.before, url: step.after, changed: step.before !== step.after
+        }));
+    });
+    const last = result.passes[result.passes.length - 1];
+    if (last && last.before !== last.after && !last.redirect && !last.cancel) {
+        frames.push({ kind: 'limit', pass: result.passes.length, url: last.after });
+    }
+    return frames;
+}
+
+// a → b as a list of [kind, text] parts ('same', 'del', 'ins'), compared by
+// URL part (path segments and parameters), so a parameter that moves or
+// changes value shows as that parameter alone.
+function diffRunOrderUrls(a, b) {
+    const split = text => text.split(/([/?&#;])/).filter(part => part !== '');
+    const x = split(a), y = split(b);
+    // Longest common subsequence of the parts; URLs are short.
+    const lcs = Array.from({ length: x.length + 1 }, () => new Array(y.length + 1).fill(0));
+    for (let i = x.length - 1; i >= 0; i--) {
+        for (let j = y.length - 1; j >= 0; j--) {
+            lcs[i][j] = x[i] === y[j] ? lcs[i + 1][j + 1] + 1 : Math.max(lcs[i + 1][j], lcs[i][j + 1]);
+        }
+    }
+    const parts = [];
+    const push = (kind, text) => {
+        const last = parts[parts.length - 1];
+        if (last && last[0] === kind) last[1] += text;
+        else parts.push([kind, text]);
+    };
+    let i = 0, j = 0;
+    while (i < x.length && j < y.length) {
+        if (x[i] === y[j]) { push('same', x[i]); i++; j++; }
+        else if (lcs[i + 1][j] >= lcs[i][j + 1]) push('del', x[i++]);
+        else push('ins', y[j++]);
+    }
+    while (i < x.length) push('del', x[i++]);
+    while (j < y.length) push('ins', y[j++]);
+    return parts;
+}
+
+function renderRunOrderUrl(before, after) {
+    if (typeof before !== 'string' || before === after) return escapeHtml(after);
+    return diffRunOrderUrls(before, after).map(([kind, text]) =>
+        kind === 'same' ? escapeHtml(text) : `<${kind}>${escapeHtml(text)}</${kind}>`).join('');
+}
+
+function describeRunOrderSimFrame(frame) {
+    switch (frame.kind) {
+        case 'start': return i18n('customRulesEditor_runOrderSimStart');
+        case 'done': return i18n('customRulesEditor_runOrderSimDone', getLocalizedNumber(frame.pass));
+        case 'limit': return i18n('customRulesEditor_runOrderSimLimit');
+        case 'redirect': return i18n('customRulesEditor_runOrderSimRedirect', getLocalizedNumber(frame.pass));
+        case 'cancel': return i18n('customRulesEditor_runOrderSimCancel');
+        default: {
+            const what = frame.stage === 'removeparam' ? i18n('customRulesEditor_runOrderSimRemoveParam') : frame.matchPattern;
+            return i18n('customRulesEditor_runOrderSimStep', getLocalizedNumber(frame.pass), getLocalizedNumber(frame.step),
+                getLocalizedNumber(frame.total), what) + (frame.changed ? '' : ` · ${i18n('customRulesEditor_runOrderSimNoChange')}`);
+        }
+    }
+}
+
+function renderRunOrderSimulation() {
+    const host = document.getElementById('json-run-order-sim');
+    if (!host) return;
+    const sim = runOrderSim;
+    const result = sim.result;
+    let body = '';
+    if (result && result.error) {
+        body = `<p class="run-order-note">${i18n(result.error === 'invalidUrl' ? 'customRulesEditor_runOrderSimInvalidUrl' : 'customRulesEditor_runOrderSimFailed')}</p>`;
+    } else if (result && !result.matched) {
+        body = `<p class="run-order-note">${i18n(result.reason === 'exception' ? 'customRulesEditor_runOrderSimException' : 'customRulesEditor_runOrderSimNoMatch')}</p>`;
+    } else if (result) {
+        const frames = getRunOrderSimFrames(result);
+        const cursor = Math.min(sim.cursor, frames.length - 1);
+        const frame = frames[cursor];
+        const playing = sim.timer !== null;
+        const timeline = frames.map((f, index) => `
+            <li class="run-order-sim-frame${index === cursor ? ' is-current' : ''}${f.kind === 'step' && !f.changed ? ' is-unchanged' : ''}">
+                <button type="button" data-sim-frame="${index}"${index === cursor ? ' aria-current="step"' : ''}>${escapeHtml(describeRunOrderSimFrame(f))}</button>
+            </li>`).join('');
+        body = `
+            <div class="run-order-sim-player">
+                <div class="run-order-sim-controls" role="group" aria-label="${escapeHtml(i18n('customRulesEditor_runOrderSimControls'))}">
+                    <button type="button" class="json-lint-action" data-sim-action="first"${cursor === 0 ? ' disabled' : ''}>${i18n('customRulesEditor_runOrderSimFirst')}</button>
+                    <button type="button" class="json-lint-action" data-sim-action="prev"${cursor === 0 ? ' disabled' : ''}>${i18n('customRulesEditor_runOrderSimPrev')}</button>
+                    <button type="button" class="json-lint-action" data-sim-action="play">${i18n(playing ? 'customRulesEditor_runOrderSimPause' : 'customRulesEditor_runOrderSimPlay')}</button>
+                    <button type="button" class="json-lint-action" data-sim-action="next"${cursor >= frames.length - 1 ? ' disabled' : ''}>${i18n('customRulesEditor_runOrderSimNext')}</button>
+                    <button type="button" class="json-lint-action" data-sim-action="last"${cursor >= frames.length - 1 ? ' disabled' : ''}>${i18n('customRulesEditor_runOrderSimLast')}</button>
+                </div>
+                <p class="run-order-sim-caption" aria-live="polite">${escapeHtml(describeRunOrderSimFrame(frame))}</p>
+                <code class="run-order-sim-url">${renderRunOrderUrl(frame.before, frame.url)}</code>
+            </div>
+            <p class="run-order-sim-result"><span>${i18n('customRulesEditor_runOrderSimResult')}</span> <code>${escapeHtml(result.result)}</code></p>
+            <ol class="run-order-sim-timeline">${timeline}</ol>`;
+    }
+    setHTMLContent(host, `
+        <div class="run-order-sim-header">
+            <span class="json-lint-title">${i18n('customRulesEditor_runOrderSimTitle')}</span>
+        </div>
+        <p class="run-order-help">${i18n('customRulesEditor_runOrderSimHelp')}</p>
+        <form class="run-order-sim-form" data-sim-form>
+            <label class="linkumori-a11y-visually-hidden" for="run-order-sim-url">${i18n('customRulesEditor_runOrderSimUrlLabel')}</label>
+            <input type="url" class="form-input" id="run-order-sim-url" placeholder="https://example.com/?utm_source=newsletter" value="${escapeHtml(sim.url)}" spellcheck="false" autocomplete="off">
+            <button type="submit" class="btn btn-primary btn-sm">${i18n('customRulesEditor_runOrderSimRun')}</button>
+        </form>
+        ${body}
+    `);
+    highlightRunOrderSimRow();
+}
+
+// Marks the order list's row for the step on screen.
+function highlightRunOrderSimRow() {
+    const container = document.getElementById('json-run-order');
+    if (!container) return;
+    container.querySelectorAll('.run-order-step.is-sim-current').forEach(row => row.classList.remove('is-sim-current'));
+    const frames = getRunOrderSimFrames(runOrderSim.result);
+    const frame = frames[Math.min(runOrderSim.cursor, frames.length - 1)];
+    if (!frame || frame.kind !== 'step' || frame.stage === 'removeparam') return;
+    const key = runOrderSimKey(frame.stage, frame.matchPattern);
+    const row = [...container.querySelectorAll('.run-order-step')].find(r => r.dataset.simKey === key);
+    if (row) row.classList.add('is-sim-current');
+}
+
+async function runRunOrderSimulation(keepCursor = false) {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor || !runOrderSim.url) return;
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        return;
+    }
+    const view = runOrderReferralView || (lastRunOrder?.referralMarketingAllowed ? 'allowed' : 'removed');
+    let result;
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'simulateProviderRunOrder',
+            params: [currentProvider || '', provider, customRules.defaults || null, runOrderSim.url, view === 'allowed']
+        });
+        result = response?.response || { error: 'failed' };
+    } catch (_) {
+        result = { error: 'failed' };
+    }
+    runOrderSim.result = result;
+    if (!keepCursor) runOrderSim.cursor = 0;
+    renderRunOrderSimulation();
+}
+
+function stopRunOrderSimulation() {
+    clearInterval(runOrderSim.timer);
+    runOrderSim.timer = null;
+}
+
+function setRunOrderSimCursor(cursor) {
+    const frames = getRunOrderSimFrames(runOrderSim.result);
+    runOrderSim.cursor = Math.max(0, Math.min(cursor, frames.length - 1));
+    if (runOrderSim.cursor >= frames.length - 1) stopRunOrderSimulation();
+    renderRunOrderSimulation();
+}
+
+function handleRunOrderSimClick(event) {
+    const frameButton = event.target.closest('[data-sim-frame]');
+    if (frameButton) {
+        stopRunOrderSimulation();
+        setRunOrderSimCursor(Number(frameButton.dataset.simFrame));
+        return true;
+    }
+    const action = event.target.closest('[data-sim-action]')?.dataset.simAction;
+    if (!action) return false;
+    const frames = getRunOrderSimFrames(runOrderSim.result);
+    if (action === 'play') {
+        if (runOrderSim.timer !== null) {
+            stopRunOrderSimulation();
+            renderRunOrderSimulation();
+        } else {
+            if (runOrderSim.cursor >= frames.length - 1) runOrderSim.cursor = 0;
+            runOrderSim.timer = setInterval(() => setRunOrderSimCursor(runOrderSim.cursor + 1), RUN_ORDER_SIM_DELAY);
+            renderRunOrderSimulation();
+        }
+    } else {
+        stopRunOrderSimulation();
+        const target = { first: 0, prev: runOrderSim.cursor - 1, next: runOrderSim.cursor + 1, last: frames.length - 1 }[action];
+        setRunOrderSimCursor(target);
+    }
+    // Keep focus on the control that was pressed after the redraw, or on Play
+    // when that control is now disabled (at the start or the end).
+    const sim = document.getElementById('json-run-order-sim');
+    (sim?.querySelector(`[data-sim-action="${action}"]:not([disabled])`) || sim?.querySelector('[data-sim-action="play"]'))?.focus();
+    return true;
 }
 
 // The stage a step can move within, or null for one that can't move (the
@@ -1247,6 +1484,7 @@ function bindRunOrderDragging(container) {
 }
 
 function handleRunOrderClick(event) {
+    if (event.target.closest('#json-run-order-sim') && handleRunOrderSimClick(event)) return;
     const moveButton = event.target.closest('[data-run-order-move]');
     if (moveButton && !moveButton.disabled) {
         const from = Number(moveButton.dataset.stepIndex);
@@ -1262,6 +1500,10 @@ function handleRunOrderClick(event) {
     if (viewButton) {
         runOrderReferralView = viewButton.dataset.runOrderView;
         renderProviderRunOrder();
+        if (runOrderSim.result) {
+            stopRunOrderSimulation();
+            runRunOrderSimulation(true);
+        }
         return;
     }
     if (event.target.closest('[data-run-order-action="toggle"]')) {
@@ -6008,6 +6250,8 @@ function setupProviderEditorEvents() {
     renderProviderRuleIdControlsFromEditor();
     runOrderReferralView = null;
     runOrderUndoText = null;
+    stopRunOrderSimulation();
+    runOrderSim = { url: runOrderSim.url, result: null, cursor: 0, timer: null };
     updateProviderRunOrder();
 }
 
@@ -7397,10 +7641,12 @@ function initializeTheme() {
 /**
  * Escape HTML to prevent XSS
  */
+// Safe in text and in quoted attributes: quotes are escaped too, since
+// rule text (which may contain them) goes into value, title and aria-label.
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
-    return div.innerHTML;
+    return div.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 if (typeof browser !== 'undefined' && browser.storage && browser.storage.onChanged) {

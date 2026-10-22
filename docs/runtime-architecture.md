@@ -659,7 +659,8 @@ The allowlist covers:
 - remote capabilities (`acceptRemoteRuleCapabilities(ruleURL,
   capabilities)`, §5.2);
 - the custom rules editor's run-order panel (`getProviderRunOrder(name,
-  provider, defaults)`, §11);
+  provider, defaults)` and `simulateProviderRunOrder(name, provider,
+  defaults, url, referralAllowed)`, §11.1);
 - cleaning and tests (`pureCleaning`, `runRuleTestLab`,
   `traceClearURLWebRequestTest`, `applyRegressionRuleData`, and
   `setPendingRegressionSuite` / `getPendingRegressionSuite`, which hand a
@@ -679,7 +680,7 @@ the popup's consent keys, and settings that background listeners watch (§4).
 |---|---|---|---|
 | `popup.html` | popup.js | toolbar popup: on/off, counters, pause, whitelist this site, consent gate | `getData`, `setData`, temporary whitelist, pause functions |
 | `settings.html` (options page) | settings.js | all settings, rule sources, remote rules, export/import, statistics | `getData`, `setData`, `getRuleSourceInfo`, `getMergeStatistics`, `getRemoteRulesHealth`, `refreshRemoteRulesNow`, `storageAsJSON`, `reload` |
-| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab, run-order panel | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab`, `getProviderRunOrder` |
+| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab, run-order panel | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab`, `getProviderRunOrder`, `simulateProviderRunOrder` |
 | `log.html` | log.js | the cleaning log, live | `getData`, `setData`, port `linkumori-logger` |
 | `cleaningTool.html` | cleaning_tool.js | clean pasted URLs | `pureCleaning` |
 | `siteBlockedAlert.html` | siteBlockedAlert.js | shown when a provider blocks a page (`completeProvider`); links to the blocked address so it can still be opened | — |
@@ -718,6 +719,21 @@ last definition of its text, which `describeRunOrder()` reports as
 `source`). A plain string entry becomes `{ "matchPattern": …, "order": … }`;
 its generated id comes from the text, so it doesn't change. *Undo move*
 restores the editor text from before the last move, until the user types.
+
+**Simulate** runs the provider on a test URL and steps through it: start,
+previous, play, next and end, with the URL after each step (removed text
+struck through, added text highlighted, compared by URL part) and the step's
+row lit in the list. `simulateProviderRunOrder(name, provider, defaults,
+url, referralAllowed)` builds the same dry-run provider with the user's
+switched-off rules, then calls `removeFieldsFormURL()` with a `stepRecorder`
+array that receives the URL before and after every ordered step and after
+the `$removeparam` filters. It runs like cleaning a copied link (no request,
+quiet), pass after pass while the URL changes, within the cycle limit
+(`shouldRunAnotherCleaningCycle`), and stops at a redirect or block. Only
+this provider runs. `storage.referralMarketing` is set to the panel's
+choice for the duration of the call and restored; the call is synchronous,
+so nothing else can read it meanwhile. The simulation runs again after
+each edit or move.
 
 ### 11.2 Settings page safeguards
 

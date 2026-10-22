@@ -5509,6 +5509,132 @@
     "message": "Move undone",
     "description": "Screen-reader announcement after a run-order move is undone"
   },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulate",
+    "description": "Title of the run-order simulation"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Runs this provider on a URL the way cleaning a copied link does, with your switched-off rules and the referral choice above, and shows the URL after every step. Other providers don't run.",
+    "description": "Explanation of the run-order simulation"
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Test URL",
+    "description": "Label of the simulation's URL field"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Run",
+    "description": "Button that runs the simulation"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Step through the simulation",
+    "description": "Accessible name of the simulation's player buttons"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Start",
+    "description": "Simulation button: go to the URL before any step"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Previous",
+    "description": "Simulation button: one step back"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Next",
+    "description": "Simulation button: one step forward"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "End",
+    "description": "Simulation button: go to the final URL"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Play",
+    "description": "Simulation button: step forward automatically"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pause",
+    "description": "Simulation button: stop stepping automatically"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "The URL before any step",
+    "description": "Simulation caption for the starting URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Pass $PASS$ · step $STEP$ of $TOTAL$: $ENTRY$",
+    "description": "Simulation caption for one step",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "no change",
+    "description": "Simulation: the step left the URL as it was"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam filters",
+    "description": "Simulation: the step where every $removeparam filter runs"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Pass $PASS$ changes nothing, so cleaning stops",
+    "description": "Simulation caption when a pass leaves the URL as it was",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "This provider stops here: the cycle limit was reached, the URL came back to an earlier one, or it no longer matches the provider",
+    "description": "Simulation caption when passes stop while the URL still changes"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Pass $PASS$ redirects; cleaning goes on at the new address with every provider",
+    "description": "Simulation caption for a redirect",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "The provider blocks this request (completeProvider)",
+    "description": "Simulation caption for a blocked request"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Result",
+    "description": "Label before the simulation's final URL"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "This provider's patterns don't match this URL, so none of its rules run.",
+    "description": "Simulation message when the URL is outside the provider"
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "This URL matches one of the provider's exceptions, so none of its rules run.",
+    "description": "Simulation message when a provider exception matches"
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Enter a full http:// or https:// URL.",
+    "description": "Simulation message for an invalid URL"
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "The simulation could not run. Check the JSON above.",
+    "description": "Simulation message when the background could not run it"
+  },
   "customRulesEditor_lintHide": {
     "message": "Hide",
     "description": "Linter panel button that collapses the problem list"
