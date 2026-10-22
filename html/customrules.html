@@ -1514,6 +1514,166 @@
             background: #b45309;
         }
 
+        /* Run-order calculator, under the linter */
+        .json-run-order[hidden],
+        #json-run-order-body[hidden] {
+            display: none;
+        }
+
+        .run-order-views {
+            display: inline-flex;
+            gap: 0;
+        }
+
+        .run-order-views .json-lint-action {
+            border-radius: 0;
+        }
+
+        .run-order-views .json-lint-action:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .run-order-views .json-lint-action:last-child {
+            border-radius: 0 4px 4px 0;
+            border-left: 0;
+        }
+
+        .run-order-views .json-lint-action[aria-pressed="true"] {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .run-order-help,
+        .run-order-note {
+            color: var(--text-muted);
+            margin: 8px 0 0;
+            line-height: 1.5;
+        }
+
+        .run-order-list {
+            list-style: none;
+            margin: 8px 0 0;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-secondary);
+        }
+
+        .run-order-step {
+            display: grid;
+            /* Fixed badge column, so every row's entry starts at the same place */
+            grid-template-columns: 2.2em 5.6em minmax(0, 1fr) auto;
+            align-items: baseline;
+            gap: 4px 10px;
+            padding: 7px 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .run-order-step:first-child {
+            border-top: 0;
+        }
+
+        .run-order-step.is-off .run-order-pattern {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .run-order-pos {
+            color: var(--text-muted);
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .run-order-stage {
+            justify-self: start;
+            padding: 1px 7px;
+            border-radius: 999px;
+            font-size: 10px;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .run-order-stage-raw {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .run-order-stage-referral {
+            border-color: #b45309;
+            color: #b45309;
+        }
+
+        .run-order-body {
+            min-width: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 2px 8px;
+        }
+
+        .run-order-pattern {
+            overflow-wrap: anywhere;
+            color: var(--text-primary);
+        }
+
+        .run-order-meta {
+            flex-basis: 100%;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .run-order-meta code {
+            color: var(--text-secondary);
+        }
+
+        .run-order-off {
+            padding: 0 6px;
+            border-radius: 999px;
+            font-size: 10px;
+            background: var(--button-danger);
+            color: #ffffff;
+        }
+
+        .run-order-key {
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 11px;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .run-order-filters {
+            margin-top: 8px;
+        }
+
+        .run-order-filters summary {
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .run-order-filters ul {
+            margin: 6px 0 0;
+            padding-left: 18px;
+        }
+
+        .run-order-filters li {
+            overflow-wrap: anywhere;
+            margin: 2px 0;
+        }
+
+        @media (max-width: 560px) {
+            .run-order-step {
+                grid-template-columns: 2.2em minmax(0, 1fr);
+            }
+
+            .run-order-body,
+            .run-order-key {
+                grid-column: 2;
+            }
+        }
+
         .json-editor-valid {
             background: rgba(22, 163, 74, 0.1);
             border: 1px solid var(--button-success);

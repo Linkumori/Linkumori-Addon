@@ -428,6 +428,7 @@ function handleRegularFunction(request) {
             'changeIcon',
             'getMergeStatistics',
             'getPendingRegressionSuite',
+            'getProviderRunOrder',
             'getRemoteRulesHealth',
             'getRuleDefaultsStatus',
             'getRuleSourceInfo',

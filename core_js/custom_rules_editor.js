@@ -951,6 +951,164 @@ function renderProviderLint(jsonText) {
     `);
 }
 
+// Run-order calculator: the provider's rawRules, rules and referralMarketing
+// entries in the order the engine runs them (CLN 1.0 §Processing order),
+// worked out by the engine itself from the unsaved editor text. Shown with
+// referral-marketing rules or without, starting from the person's setting.
+const RUN_ORDER_COLLAPSED_STORAGE_KEY = 'linkumori-run-order-collapsed';
+let runOrderPanelCollapsed = readStoredFlag(RUN_ORDER_COLLAPSED_STORAGE_KEY);
+let runOrderReferralView = null; // 'removed' | 'allowed'; null follows the setting
+let runOrderTimer = null;
+let runOrderRequest = 0;
+let lastRunOrder = null;
+
+function readStoredFlag(key) {
+    try {
+        return localStorage.getItem(key) === 'true';
+    } catch (_) {
+        return false;
+    }
+}
+
+function storeFlag(key, value) {
+    try {
+        localStorage.setItem(key, String(value));
+    } catch (_) {}
+}
+
+function scheduleProviderRunOrder() {
+    clearTimeout(runOrderTimer);
+    runOrderTimer = setTimeout(updateProviderRunOrder, 250);
+}
+
+async function updateProviderRunOrder() {
+    const container = document.getElementById('json-run-order');
+    const jsonEditor = document.getElementById('json-editor');
+    if (!container || !jsonEditor) return;
+    if (!container.dataset.runOrderBound) {
+        container.addEventListener('click', handleRunOrderClick);
+        container.dataset.runOrderBound = 'true';
+    }
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        provider = null;
+    }
+    if (!isPlainObject(provider)) {
+        // The JSON error is shown above; keep the last good order hidden until it parses.
+        lastRunOrder = null;
+        container.hidden = true;
+        return;
+    }
+    const request = ++runOrderRequest;
+    let result = null;
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getProviderRunOrder',
+            params: [currentProvider || '', provider, customRules.defaults || null]
+        });
+        result = response?.response || null;
+    } catch (_) {
+        result = null;
+    }
+    // A newer edit has asked since; its answer wins.
+    if (request !== runOrderRequest) return;
+    lastRunOrder = result;
+    renderProviderRunOrder();
+}
+
+function formatRunOrderKey(key) {
+    return '(' + key.map(part => (part === null ? '–' : getLocalizedNumber(part))).join(', ') + ')';
+}
+
+function renderProviderRunOrder() {
+    const container = document.getElementById('json-run-order');
+    if (!container) return;
+    const result = lastRunOrder;
+    if (!result) {
+        container.hidden = true;
+        setHTMLContent(container, '');
+        return;
+    }
+    const view = runOrderReferralView || (result.referralMarketingAllowed ? 'allowed' : 'removed');
+    const steps = (view === 'allowed' ? result.withoutReferral : result.withReferral) || [];
+    const filters = (result.removeParam || []).filter(filter => view === 'removed' || !filter.referral);
+    const filterExceptions = (result.removeParamExceptions || []).filter(filter => view === 'removed' || !filter.referral);
+    const stageLabel = step => i18n(step.stage === 'raw' ? 'customRulesEditor_runOrderStageRaw'
+        : (step.referral ? 'customRulesEditor_runOrderStageReferral' : 'customRulesEditor_runOrderStageField'));
+    const items = steps.map((step, index) => {
+        const meta = [];
+        if (step.list === null) meta.push(i18n('customRulesEditor_runOrderCompleteProvider'));
+        else if (step.id) meta.push(`${i18n('customRulesEditor_runOrderId')} <code>${escapeHtml(step.id)}</code>${step.idGenerated ? ` ${i18n('customRulesEditor_runOrderIdGenerated')}` : ''}`);
+        if (step.order !== null) meta.push(i18n('customRulesEditor_runOrderOrder', getLocalizedNumber(step.order)));
+        if (step.rewrite) meta.push(i18n('customRulesEditor_runOrderRewrite'));
+        if (step.replacedIds.length > 0) meta.push(i18n('customRulesEditor_runOrderReplaces', getLocalizedNumber(step.replacedIds.length)));
+        const off = step.off === 'all' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOff')}</span>`
+            : (step.off === 'some' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOffSome')}</span>` : '');
+        return `
+            <li class="run-order-step${step.off === 'all' ? ' is-off' : ''}">
+                <span class="run-order-pos">${getLocalizedNumber(index + 1)}</span>
+                <span class="run-order-stage run-order-stage-${step.stage === 'raw' ? 'raw' : (step.referral ? 'referral' : 'field')}">${stageLabel(step)}</span>
+                <span class="run-order-body">
+                    <code class="run-order-pattern">${escapeHtml(step.matchPattern)}</code>${off}
+                    ${meta.length ? `<span class="run-order-meta">${meta.join(' · ')}</span>` : ''}
+                </span>
+                <span class="run-order-key" title="${escapeHtml(i18n('customRulesEditor_runOrderKeyTitle'))}">${formatRunOrderKey(step.sortKey)}</span>
+            </li>`;
+    }).join('');
+    const filterList = filters.concat(filterExceptions).map(filter => `
+        <li><code>${escapeHtml(filter.text)}</code>${filter.referral ? ` <span class="run-order-meta">${i18n('customRulesEditor_runOrderStageReferral')}</span>` : ''}</li>`).join('');
+    const notes = [];
+    if (filters.length + filterExceptions.length > 0) {
+        notes.push(`
+            <details class="run-order-filters">
+                <summary>${i18n('customRulesEditor_runOrderFilters', getLocalizedNumber(filters.length), getLocalizedNumber(filterExceptions.length))}</summary>
+                <ul>${filterList}</ul>
+            </details>`);
+    }
+    if (result.rawRuleExceptions > 0) {
+        notes.push(`<p class="run-order-note">${i18n('customRulesEditor_runOrderRawExceptions', getLocalizedNumber(result.rawRuleExceptions))}</p>`);
+    }
+    const summary = steps.length > 0
+        ? i18n('customRulesEditor_runOrderSummary', getLocalizedNumber(steps.length))
+        : i18n('customRulesEditor_runOrderEmpty');
+    const viewButton = (value, labelKey) => `<button type="button" class="json-lint-action" data-run-order-view="${value}" aria-pressed="${view === value}">${i18n(labelKey)}</button>`;
+    container.hidden = false;
+    container.dataset.collapsed = runOrderPanelCollapsed ? 'true' : 'false';
+    setHTMLContent(container, `
+        <div class="json-lint-header">
+            <span class="json-lint-title">${i18n('customRulesEditor_runOrderTitle')}</span>
+            <span class="json-lint-summary">${escapeHtml(summary)}</span>
+            <span class="json-lint-actions">
+                <span class="run-order-views" role="group" aria-label="${escapeHtml(i18n('customRulesEditor_runOrderViewLabel'))}">
+                    ${viewButton('removed', 'customRulesEditor_runOrderViewRemoved')}${viewButton('allowed', 'customRulesEditor_runOrderViewAllowed')}
+                </span>
+                <button type="button" class="json-lint-action" data-run-order-action="toggle" aria-expanded="${runOrderPanelCollapsed ? 'false' : 'true'}" aria-controls="json-run-order-body">${i18n(runOrderPanelCollapsed ? 'customRulesEditor_lintShow' : 'customRulesEditor_lintHide')}</button>
+            </span>
+        </div>
+        <div id="json-run-order-body"${runOrderPanelCollapsed ? ' hidden' : ''}>
+            <p class="run-order-help">${i18n('customRulesEditor_runOrderHelp')}</p>
+            ${items ? `<ol class="run-order-list">${items}</ol>` : ''}
+            ${notes.join('')}
+        </div>
+    `);
+}
+
+function handleRunOrderClick(event) {
+    const viewButton = event.target.closest('[data-run-order-view]');
+    if (viewButton) {
+        runOrderReferralView = viewButton.dataset.runOrderView;
+        renderProviderRunOrder();
+        return;
+    }
+    if (event.target.closest('[data-run-order-action="toggle"]')) {
+        runOrderPanelCollapsed = !runOrderPanelCollapsed;
+        storeFlag(RUN_ORDER_COLLAPSED_STORAGE_KEY, runOrderPanelCollapsed);
+        renderProviderRunOrder();
+    }
+}
+
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -1752,6 +1910,7 @@ function writeGeneratedRuleIdsIntoEditor(providerName, section, match, ruleId) {
     if (!writeGeneratedRuleIdsIntoProvider(provider, section, match, ruleId)) return false;
     jsonEditor.value = JSON.stringify(provider, null, 2);
     updateJsonTextMateHighlighting(jsonEditor);
+    scheduleProviderRunOrder();
     return true;
 }
 
@@ -5659,6 +5818,7 @@ function createProviderEditorHTML(provider) {
                     </div>
                     <div id="json-validation" style="display: none;"></div>
                     <div class="json-lint" id="json-lint" aria-live="polite"></div>
+                    <div class="json-lint json-run-order" id="json-run-order" hidden></div>
                 </div>
             </div>
         </div>
@@ -5684,6 +5844,8 @@ function setupProviderEditorEvents() {
     setupPatternEditorEvents();
     syncPatternEditorFromJson();
     renderProviderRuleIdControlsFromEditor();
+    runOrderReferralView = null;
+    updateProviderRunOrder();
 }
 
 function handleJsonEditorInput() {
@@ -5691,6 +5853,7 @@ function handleJsonEditorInput() {
     validateAndUpdateJSON();
     syncPatternEditorFromJson();
     renderProviderRuleIdControlsFromEditor();
+    scheduleProviderRunOrder();
 }
 
 // A rule object on its own does not say which list it belongs to, so the
@@ -5814,6 +5977,7 @@ async function renameProviderRuleId(section, index, oldId) {
     renameRuleIdInProvider(provider, section, match, oldId, newId);
     jsonEditor.value = JSON.stringify(provider, null, 2);
     updateJsonTextMateHighlighting(jsonEditor);
+    scheduleProviderRunOrder();
 
     // Saved right away when the rule is already saved, so the switched-off
     // settings moved to the new id keep matching it.
@@ -6017,6 +6181,8 @@ function applyPatternEditorToJson() {
 
     jsonEditor.value = JSON.stringify(provider, null, 2);
     updateJsonTextMateHighlighting(jsonEditor);
+
+    scheduleProviderRunOrder();
     validateAndUpdateJSON();
 }
 
@@ -6243,6 +6409,7 @@ function addCanonicalRuleTemplate(kind) {
         provider[list].push(template);
         jsonEditor.value = JSON.stringify(compactProviderForEditor(provider), null, 2);
         updateJsonTextMateHighlighting(jsonEditor);
+        scheduleProviderRunOrder();
         renderProviderRuleIdControlsFromEditor();
         hasUnsavedChanges = true;
         if (validation) validation.style.display = 'none';
@@ -6296,6 +6463,8 @@ function addJsonFieldIfMissing(key) {
 
     jsonEditor.value = JSON.stringify(provider, null, 2);
     updateJsonTextMateHighlighting(jsonEditor);
+
+    scheduleProviderRunOrder();
     if (validation) {
         validation.style.display = 'none';
     }
