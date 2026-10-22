@@ -350,8 +350,9 @@
 
     // A copy of a remote rule file with the entries of capabilities that
     // are not accepted switched off: without 'redirect', no redirections,
-    // fieldRedirections or forceRedirection, and raw rules may not rewrite
-    // to another origin; without 'block', no completeProvider.
+    // fieldRedirections or forceRedirection, and raw rules may not take the
+    // URL to another origin, by a rewrite or a deletion; without 'block', no
+    // completeProvider.
     function restrictRuleFileCapabilities(data, acceptedCapabilities) {
         const accepted = new Set(Array.isArray(acceptedCapabilities) ? acceptedCapabilities : []);
         if (accepted.has('redirect') && accepted.has('block')) return data;
@@ -364,9 +365,14 @@
                 delete copy.redirections;
                 delete copy.fieldRedirections;
                 delete copy.forceRedirection;
+                // Any raw rule may change the origin, by a rewrite or by deleting
+                // text, so each is marked; a plain string becomes an object with
+                // the same text, which keeps its generated id.
                 if (Array.isArray(copy.rawRules)) {
-                    copy.rawRules = copy.rawRules.map(rule => (rule && typeof rule === 'object' && !Array.isArray(rule) &&
-                        typeof rule.replacePattern === 'string') ? { ...rule, _linkumoriNoRedirect: true } : rule);
+                    copy.rawRules = copy.rawRules.map(rule => {
+                        if (typeof rule === 'string') return { matchPattern: rule, _linkumoriNoRedirect: true };
+                        return rule && typeof rule === 'object' && !Array.isArray(rule) ? { ...rule, _linkumoriNoRedirect: true } : rule;
+                    });
                 }
             }
             if (!accepted.has('block')) delete copy.completeProvider;

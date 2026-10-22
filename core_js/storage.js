@@ -570,6 +570,14 @@ function getStableRuleSignature(rule) {
         return '';
     }
 
+    // A rule that is only its text, tagged with where it came from or with
+    // _linkumoriNoRedirect (a remote file's raw rules without "redirect"), is
+    // the same rule as that text written as a string.
+    const ownKeys = Object.keys(rule).filter(key => key !== LINKUMORI_RULE_SOURCE_KEY && key !== '_linkumoriNoRedirect');
+    if (ownKeys.length === 1 && ownKeys[0] === 'matchPattern' && typeof rule.matchPattern === 'string') {
+        return `string:${rule.matchPattern.trim()}`;
+    }
+
     const normalized = {
         active: rule.active !== false,
         exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter(item => typeof item === 'string').slice().sort() : [],

@@ -282,6 +282,43 @@
       }
     },
     {
+      "id": "rawRules deletion that would break the URL leaves it unchanged",
+      "dialect": "provider",
+      "input": "https://example.com/raw-origin-broken/a/ref=1?x=1",
+      "expectedOutput": "https://example.com/raw-origin-broken/a?x=1",
+      "providers": {
+        "raw-origin-broken": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/raw-origin-broken(?:[/?#]|$)",
+          "rawRules": [
+            ":\\/\\/",
+            "\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules deletion that changes the host is a redirect to a valid target",
+      "dialect": "provider",
+      "input": "https://secure-bank.example.com/raw-origin-host?x=1",
+      "expectedOutput": "https://bank.example.com/raw-origin-host?x=1",
+      "providers": {
+        "raw-origin-host": {
+          "domainPatterns": [
+            "||secure-bank.example.com^"
+          ],
+          "rawRules": [
+            "secure-"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider referralMarketing",
       "dialect": "provider",
       "input": "https://example.com/provider-referral/?ref=x&keep=1",

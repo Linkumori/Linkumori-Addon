@@ -266,7 +266,11 @@ in `remoteRuleCapabilities`. `strip`, `rewrite` and `except` are active at
 once; `redirect` and `block` stay off for that file until the user accepts
 them in Remote Rules Health, which calls `acceptRemoteRuleCapabilities` and
 reloads the remote rules. Entries that need a capability the file lacks are
-left out (`restrictRuleFileCapabilities`). The verified cache can't be traced
+left out (`restrictRuleFileCapabilities`). Without `redirect`, every raw rule
+is kept but tagged `_linkumoriNoRedirect`: a raw rule can take the URL to
+another scheme, host or port by a rewrite or just by deleting text, which
+only shows when it runs, so `rawRuleMayChangeOrigin()` in clearurls.js then
+leaves such a URL unchanged. The verified cache can't be traced
 to one file, so when it loads, `strip`, `rewrite` and `except` are active
 and `redirect` and `block` only if every configured file has accepted them
 (`getCapabilitiesAcceptedByAllRemoteFiles`). See

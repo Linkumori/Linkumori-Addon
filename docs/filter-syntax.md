@@ -270,7 +270,7 @@ A redirect only happens to an absolute `http` or `https` URL with a host. This h
 | `javascript:alert(1)`, `ftp://files.example/x` | no — scheme is not `http` or `https` |
 | `//real.example/page`, `/local/page`, `real.example/page` | no — not an absolute URL |
 
-A raw rule with a `replacePattern` whose result has a different scheme, host or port from its input is a redirect too: it needs a valid target, and in a remote file the `redirect` capability (§Remote file capabilities).
+A raw rule whose result has a different scheme, host or port from its input is a redirect too, whether it rewrites with a `replacePattern` or only deletes text (`secure-` deleted from `https://secure-bank.example/` lands on another site): it needs a valid target, and in a remote file the `redirect` capability (§Remote file capabilities). Otherwise the rule leaves the URL as it was.
 
 ### Worked example
 
@@ -574,7 +574,7 @@ A remote file's capabilities are derived from its content when it loads; a file 
 | `block` | a provider with `"completeProvider": true` | after acceptance |
 
 - **Built-in and custom rules** hold every capability.
-- **Acceptance** is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't rewrite a URL to another origin — while the rest of the file loads.
+- **Acceptance** is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't take a URL to another origin, by a rewrite or a deletion — while the rest of the file loads.
 - **Updates.** When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.
 - **Old merged cache.** A cached copy of the remote rules saved before files were cached one by one can't be traced to its files. Until the next refresh, its `redirect` and `block` entries stay inactive unless every configured remote file has accepted that capability.
 - **No carry-over.** Every remote file starts with only `strip`, `rewrite` and `except`, including files configured before capabilities existed; accept `redirect` and `block` in Remote Rules Health.
