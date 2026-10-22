@@ -429,6 +429,7 @@ function handleRegularFunction(request) {
             'getMergeStatistics',
             'getPendingRegressionSuite',
             'getProviderRunOrder',
+            'simulateProviderRunOrder',
             'getRemoteRulesHealth',
             'getRuleDefaultsStatus',
             'getRuleSourceInfo',
