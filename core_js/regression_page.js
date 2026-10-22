@@ -84,6 +84,24 @@
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     let _lastRulesKey = null;
+
+    // Settings a case may set for itself in its "storage" block. The person's
+    // own values are used for cases that don't set them, and put back when the
+    // run ends.
+    const CASE_STORAGE_KEYS = ['userWhitelist', 'historyApiWhitelist'];
+    let _appliedCaseStorage = {};
+
+    async function applyStorageForCase(testCase, ownValues) {
+        const caseStorage = testCase.storage && typeof testCase.storage === 'object' ? testCase.storage : {};
+        for (const key of CASE_STORAGE_KEYS) {
+            const value = Object.prototype.hasOwnProperty.call(caseStorage, key) ? caseStorage[key] : ownValues[key];
+            const serialized = JSON.stringify(value === undefined ? null : value);
+            if (_appliedCaseStorage[key] === serialized) continue;
+            const response = await setData(key, value);
+            if (response && response.error) throw new Error(response.error);
+            _appliedCaseStorage[key] = serialized;
+        }
+    }
     async function applyRulesForCase(testCase) {
         const ruleData = {
             activationState: testCase.activationState || suite.activationState || undefined,
@@ -247,6 +265,10 @@
             snapshot.clearURLsData = await getData('ClearURLsData');
             snapshot.clearURLsDisabledRuleIds = await getData('clearurls_disabled_rule_ids');
             snapshot.clearURLsRuleIdPins = await getData('clearurls_rule_id_pins');
+            snapshot.caseStorage = {};
+            for (const key of CASE_STORAGE_KEYS) snapshot.caseStorage[key] = await getData(key);
+            _appliedCaseStorage = Object.fromEntries(CASE_STORAGE_KEYS.map(key =>
+                [key, JSON.stringify(snapshot.caseStorage[key] === undefined ? null : snapshot.caseStorage[key])]));
             await call('start');
             await setData('builtInRulesEnabled', false);
             await setData('remoteRulesEnabled', false);
@@ -256,6 +278,7 @@
                 const testCase = suite.cases[index];
                 status.textContent = `${t('regression_running')} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
                 await applyRulesForCase(testCase);
+                await applyStorageForCase(testCase, snapshot.caseStorage);
                 const skipNav = ciMode && testCase.expectedBlocked !== true;
                 const visitResult = skipNav ? { status: 'skipped', url: null } : await visit(testCase.input, testCase.expectedBlocked === true);
                 const loadStatus = visitResult.status;
@@ -335,6 +358,9 @@
             if ('clearURLsRuleIdPins' in snapshot) restoreOps.push(setData('clearurls_rule_id_pins', snapshot.clearURLsRuleIdPins || []));
             if ('clearURLsData' in snapshot) restoreOps.push(call('applyRegressionRuleData', [snapshot.clearURLsData]));
             if ('clearURLsDisabledRuleIds' in snapshot) restoreOps.push(setData('clearurls_disabled_rule_ids', snapshot.clearURLsDisabledRuleIds || []));
+            if (snapshot.caseStorage) {
+                CASE_STORAGE_KEYS.forEach(key => restoreOps.push(setData(key, snapshot.caseStorage[key])));
+            }
             await Promise.allSettled(restoreOps);
             runButton.disabled = false;
         }
