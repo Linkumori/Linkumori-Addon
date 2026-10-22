@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.67.0</span>
+      <span class="brand-ver">v100.68.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -104,7 +104,8 @@
 <li><a href="#9-counters-badge-log-and-watchdog"><span class="h-num">9</span>Counters, badge, log and watchdog</a></li>
 <li><a href="#10-messaging-between-the-pages-and-the-background"><span class="h-num">10</span>Messaging between the pages and the background</a></li>
 <li><a href="#11-extension-pages"><span class="h-num">11</span>Extension pages</a><ol>
-<li><a href="#111-settings-page-safeguards"><span class="h-num">11.1</span>Settings page safeguards</a></li>
+<li><a href="#111-run-order-panel"><span class="h-num">11.1</span>Run-order panel</a></li>
+<li><a href="#112-settings-page-safeguards"><span class="h-num">11.2</span>Settings page safeguards</a></li>
 </ol></li>
 <li><a href="#12-code-shared-between-the-background-pages-and-cli"><span class="h-num">12</span>Code shared between the background, pages and CLI</a></li>
 <li><a href="#13-build-time-and-runtime"><span class="h-num">13</span>Build time and runtime</a></li>
@@ -273,7 +274,7 @@
 <tr><td><code>unboundedCyclesEnabled</code></td><td>lift the 10-cycle limit on cleaning a request (default off) (§6.4)</td></tr>
 <tr><td><code>ruleDefaultsMode</code>, <code>userRuleDefaults</code>, <code>sourceRuleDefaults</code></td><td>rule defaults: where the user's own <code>defaults</code> replace the files' (<code>source</code>, <code>final</code> or <code>unified</code>; default <code>source</code>), the user's own <code>defaults</code> block, and the user's edits of a file's own block, by source (<a href="filter-syntax.html#defaults">defaults</a>)</td></tr>
 <tr><td><code>remoteRuleCapabilities</code></td><td>what each remote file can do and what the user accepted, as <code>{ files: { [ruleURL]: { derived, accepted } } }</code> (§5.2)</td></tr>
-<tr><td><code>disableGatekeeper</code></td><td>skip the confirmation for remote rule addresses (default off) (§11.1)</td></tr>
+<tr><td><code>disableGatekeeper</code></td><td>skip the confirmation for remote rule addresses (default off) (§11.2)</td></tr>
 </tbody>
 </table></div>
 <p>The interface language is not in <code>storage</code>: the language selector in settings writes <code>linkumori_language</code> to <code>browser.storage.sync</code>, and <code>external_js/linkumori-i18n.js</code> reads it on every page. Left unset, the browser's language is used.</p>
@@ -523,6 +524,7 @@
 <li>pausing (<code>pauseCleaningTemporarily</code>, <code>pauseCleaningUntilRestart</code>, <code>resumeCleaningNow</code>, <code>getTemporaryPauseState</code>);</li>
 <li>rule information (<code>getRuleSourceInfo</code>, <code>getMergeStatistics</code>, <code>getRemoteRulesHealth</code>, <code>refreshRemoteRulesNow</code>, <code>getRuleDefaultsStatus</code>, which returns each source's <code>defaults</code>, the mode and the user's own and edited blocks);</li>
 <li>remote capabilities (<code>acceptRemoteRuleCapabilities(ruleURL, capabilities)</code>, §5.2);</li>
+<li>the custom rules editor's run-order panel (<code>getProviderRunOrder(name, provider, defaults)</code> and <code>simulateProviderRunOrder(name, provider, defaults, url, referralAllowed)</code>, §11.1);</li>
 <li>cleaning and tests (<code>pureCleaning</code>, <code>runRuleTestLab</code>, <code>traceClearURLWebRequestTest</code>, <code>applyRegressionRuleData</code>, and <code>setPendingRegressionSuite</code> / <code>getPendingRegressionSuite</code>, which hand a suite from settings to <code>regression.html</code> in memory);</li>
 <li>maintenance (<code>storageAsJSON</code>, <code>saveOnExit</code>, <code>initSettings</code>, <code>reload</code>, <code>start</code>, <code>changeIcon</code>, <code>setBadgedStatus</code>).</li>
 </ul>
@@ -534,7 +536,7 @@
 <tbody>
 <tr><td><code>popup.html</code></td><td>popup.js</td><td>toolbar popup: on/off, counters, pause, whitelist this site, consent gate</td><td><code>getData</code>, <code>setData</code>, temporary whitelist, pause functions</td></tr>
 <tr><td><code>settings.html</code> (options page)</td><td>settings.js</td><td>all settings, rule sources, remote rules, export/import, statistics</td><td><code>getData</code>, <code>setData</code>, <code>getRuleSourceInfo</code>, <code>getMergeStatistics</code>, <code>getRemoteRulesHealth</code>, <code>refreshRemoteRulesNow</code>, <code>storageAsJSON</code>, <code>reload</code></td></tr>
-<tr><td><code>customrules.html</code></td><td>custom_rules_editor.js</td><td>custom providers, rule on/off, import, test lab</td><td><code>getData</code>, <code>setData</code>, <code>reloadCustomRules</code>, <code>getBundledRulesOnly</code>, <code>runRuleTestLab</code></td></tr>
+<tr><td><code>customrules.html</code></td><td>custom_rules_editor.js</td><td>custom providers, rule on/off, import, test lab, run-order panel</td><td><code>getData</code>, <code>setData</code>, <code>reloadCustomRules</code>, <code>getBundledRulesOnly</code>, <code>runRuleTestLab</code>, <code>getProviderRunOrder</code>, <code>simulateProviderRunOrder</code></td></tr>
 <tr><td><code>log.html</code></td><td>log.js</td><td>the cleaning log, live</td><td><code>getData</code>, <code>setData</code>, port <code>linkumori-logger</code></td></tr>
 <tr><td><code>cleaningTool.html</code></td><td>cleaning_tool.js</td><td>clean pasted URLs</td><td><code>pureCleaning</code></td></tr>
 <tr><td><code>siteBlockedAlert.html</code></td><td>siteBlockedAlert.js</td><td>shown when a provider blocks a page (<code>completeProvider</code>); links to the blocked address so it can still be opened</td><td>—</td></tr>
@@ -546,7 +548,11 @@
 </tbody>
 </table></div>
 <p>Every page loads <code>theme_bootstrap.js</code> (themes), <code>linkumori-i18n.js</code> (text), <code>accessibility_tools.js</code> (accessibility options) and usually <code>write_version.js</code> (version footer).</p>
-<h3 id="111-settings-page-safeguards"><span class="h-num">11.1</span>Settings page safeguards</h3>
+<h3 id="111-run-order-panel"><span class="h-num">11.1</span>Run-order panel</h3>
+<p>Under the custom rules editor's JSON editor, the run-order panel lists the provider's <code>rawRules</code>, <code>rules</code> and <code>referralMarketing</code> entries in the order they run, with each step's sort key <code>(stage, orderGroup, order, rank, arrayIndex)</code>, followed by its <code>$removeparam</code> filters. It is worked out by the engine, not by the page: on every edit (debounced) the page sends the unsaved provider and the custom rules' <code>defaults</code> to <code>getProviderRunOrder</code>. That function, in clearurls.js, builds the provider the way <code>createProviders()</code> does (<code>fillProvider()</code>, the custom rules' defaults, the user's rule pins), but as a dry run: its rules are not added to the snapshot the rule controls read, and no pin or alias migration is recorded. <code>Provider.describeRunOrder()</code> returns both variants, with referral-marketing rules and without, and marks the steps the user switched off. The panel starts on the variant the user's referral-marketing setting selects.</p>
+<p>Steps can be rearranged in the variant that lists every entry, by dragging or with each step's arrow buttons, but only within their stage: raw rules always run before field rules, and the step a <code>completeProvider</code> adds stays where it is. A move gives every step of that stage an <code>order</code> of 10, 20, 30, … in the new sequence, written on the entry that defines the step (the last definition of its text, which <code>describeRunOrder()</code> reports as <code>source</code>). A plain string entry becomes <code>{ &quot;matchPattern&quot;: …, &quot;order&quot;: … }</code>; its generated id comes from the text, so it doesn't change. <em>Undo move</em> restores the editor text from before the last move, until the user types.</p>
+<p><strong>Simulate</strong> runs the provider on a test URL and steps through it: start, previous, play, next and end, with the URL after each step (removed text struck through, added text highlighted, compared by URL part) and the step's row lit in the list. <code>simulateProviderRunOrder(name, provider, defaults, url, referralAllowed)</code> builds the same dry-run provider with the user's switched-off rules, then calls <code>removeFieldsFormURL()</code> with a <code>stepRecorder</code> array that receives the URL before and after every ordered step and after the <code>$removeparam</code> filters. It runs like cleaning a copied link (no request, quiet), pass after pass while the URL changes, within the cycle limit (<code>shouldRunAnotherCleaningCycle</code>), and stops at a redirect or block. Only this provider runs. <code>storage.referralMarketing</code> is set to the panel's choice for the duration of the call and restored; the call is synchronous, so nothing else can read it meanwhile. The simulation runs again after each edit or move.</p>
+<h3 id="112-settings-page-safeguards"><span class="h-num">11.2</span>Settings page safeguards</h3>
 <p>settings.js asks before a few risky changes. These checks live in the page only; the background accepts the keys whatever their value.</p>
 <ul>
 <li><strong>Gatekeeper for remote rule addresses.</strong> Each of the rule URL, hash URL and remote rule sets fields is checked on its own. A field that had a saved value can be edited without confirmation as long as it isn't emptied. Typing into an empty field, or emptying one, opens a disclaimer, even when the other fields hold saved addresses, and the change is kept only after the user types the confirmation phrase (<em>I accept full responsibility</em> in English; each language has its own). The confirmation lasts until the page is closed and covers every field. The import and export buttons for remote addresses appear only after confirming.</li>
