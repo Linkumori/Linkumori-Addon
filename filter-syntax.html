@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.68.0</span>
+      <span class="brand-ver">v100.69.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -340,7 +340,7 @@
 <tr><td><code>//real.example/page</code>, <code>/local/page</code>, <code>real.example/page</code></td><td>no — not an absolute URL</td></tr>
 </tbody>
 </table></div>
-<p>A raw rule with a <code>replacePattern</code> whose result has a different scheme, host or port from its input is a redirect too: it needs a valid target, and in a remote file the <code>redirect</code> capability (§Remote file capabilities).</p>
+<p>A raw rule whose result has a different scheme, host or port from its input is a redirect too, whether it rewrites with a <code>replacePattern</code> or only deletes text (<code>secure-</code> deleted from <code>https://secure-bank.example/</code> lands on another site): it needs a valid target, and in a remote file the <code>redirect</code> capability (§Remote file capabilities). Otherwise the rule leaves the URL as it was.</p>
 <h3 id="worked-example-4">Worked example</h3>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre></div>
 <div class="table-wrap"><table>
@@ -620,7 +620,7 @@
 </table></div>
 <ul>
 <li><strong>Built-in and custom rules</strong> hold every capability.</li>
-<li><strong>Acceptance</strong> is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't rewrite a URL to another origin — while the rest of the file loads.</li>
+<li><strong>Acceptance</strong> is given per remote file and per capability, in Remote Rules Health. Until then that file's redirect or block entries stay inactive — and its raw rules can't take a URL to another origin, by a rewrite or a deletion — while the rest of the file loads.</li>
 <li><strong>Updates.</strong> When an update gives a file a capability it did not have, the new capability's entries stay inactive until accepted.</li>
 <li><strong>Old merged cache.</strong> A cached copy of the remote rules saved before files were cached one by one can't be traced to its files. Until the next refresh, its <code>redirect</code> and <code>block</code> entries stay inactive unless every configured remote file has accepted that capability.</li>
 <li><strong>No carry-over.</strong> Every remote file starts with only <code>strip</code>, <code>rewrite</code> and <code>except</code>, including files configured before capabilities existed; accept <code>redirect</code> and <code>block</code> in Remote Rules Health.</li>
