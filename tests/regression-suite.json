@@ -19,6 +19,46 @@
       }
     },
     {
+      "id": "cleaning with no request counts as main_frame for requestTypes",
+      "dialect": "provider",
+      "input": "https://example.com/no-request-main-frame/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/no-request-main-frame/?keep=1",
+      "providers": {
+        "no-request-main-frame": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/no-request-main-frame(?:[/?#]|$)",
+          "rules": [
+            {
+              "matchPattern": "utm_source",
+              "requestTypes": [
+                "main_frame",
+                "sub_frame"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "cleaning with no request skips rules for other request types",
+      "dialect": "provider",
+      "input": "https://example.com/no-request-xhr/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/no-request-xhr/?utm_source=x&keep=1",
+      "providers": {
+        "no-request-xhr": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/no-request-xhr(?:[/?#]|$)",
+          "rules": [
+            "$removeparam=utm_source,xmlhttprequest"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider leaves an untouched URL exactly as it was",
       "dialect": "provider",
       "input": "https://example.com/provider-untouched/?q=a+b&ceid=US:en&empty=&keep=1",
