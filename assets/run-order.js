@@ -62,7 +62,9 @@
       const label = arrayName + '[' + index + ']';
       if (arrayName !== 'rawRules' && isFilter(obj.matchPattern)) {
         if (hasOwn(obj, 'order')) warnings.push(label + ': a $removeparam filter or @@ entry cannot carry an order (lint-rules error).');
-        filters.push(label + ' ' + JSON.stringify(obj.matchPattern));
+        filters.push({ label: label, text: obj.matchPattern,
+          referral: arrayName === 'referralMarketing' || obj.referralMarketing === true,
+          active: hasOwn(obj, 'active') ? obj.active !== false : defaults.active !== false });
         return;
       }
       const active = hasOwn(obj, 'active') ? obj.active !== false : defaults.active !== false;
@@ -82,7 +84,9 @@
         arrayIndex: index,
         hasOrderKey: hasOwn(obj, 'order'),
         order: typeof obj.order === 'number' ? obj.order : null,
-        active: active
+        active: active,
+        replacePattern: typeof obj.replacePattern === 'string' ? obj.replacePattern : null,
+        flags: typeof obj.flags === 'string' ? obj.flags : null
       });
     });
     return out;
@@ -175,6 +179,206 @@
     return { entries: entries, warnings: warnings, filters: filters };
   }
 
+  // ---- Simulation: a URL through the sorted entries, one step at a time ----
+
+  // A rewrite's §1§, §2§, … from the captured values.
+  function fillReplace(pattern, values) {
+    return pattern.replace(/§(\d+)§/g, function (_, n) { const v = values[Number(n) - 1]; return v === undefined ? '' : v; });
+  }
+
+  function decode(text) {
+    try { return decodeURIComponent(text.replace(/\+/g, ' ')); } catch (e) { return text; }
+  }
+
+  // The query and the fragment as lists of raw "name=value" parts, so parts
+  // nothing touches keep their exact text.
+  function splitUrl(url) {
+    const hashAt = url.indexOf('#');
+    const beforeHash = hashAt === -1 ? url : url.slice(0, hashAt);
+    const hash = hashAt === -1 ? null : url.slice(hashAt + 1);
+    const queryAt = beforeHash.indexOf('?');
+    return {
+      base: queryAt === -1 ? beforeHash : beforeHash.slice(0, queryAt),
+      query: queryAt === -1 ? null : beforeHash.slice(queryAt + 1).split('&').filter(Boolean),
+      hash: hash === null ? null : (hash.indexOf('=') === -1 ? hash : hash.split('&').filter(Boolean)),
+      hashIsParams: hash !== null && hash.indexOf('=') !== -1
+    };
+  }
+
+  function joinUrl(parts) {
+    let url = parts.base;
+    if (parts.query && parts.query.length) url += '?' + parts.query.join('&');
+    if (parts.hash !== null) {
+      if (parts.hashIsParams) { if (parts.hash.length) url += '#' + parts.hash.join('&'); }
+      else url += '#' + parts.hash;
+    }
+    return url;
+  }
+
+  // Calls `decide(name, value)` for every query and fragment parameter; it
+  // returns null to keep the part, '' to drop it, or new raw part text,
+  // which goes to the end of its list, as the engine writes a rewrite.
+  function editParams(url, decide) {
+    const parts = splitUrl(url);
+    const edit = function (list) {
+      const moved = [];
+      const kept = list.reduce(function (out, part) {
+        const eq = part.indexOf('=');
+        const name = decode(eq === -1 ? part : part.slice(0, eq));
+        const value = eq === -1 ? '' : decode(part.slice(eq + 1));
+        const result = decide(name, value, part);
+        if (result === null) out.push(part);
+        else if (result !== '') moved.push(result);
+        return out;
+      }, []);
+      return kept.concat(moved);
+    };
+    if (parts.query) parts.query = edit(parts.query);
+    if (parts.hashIsParams) parts.hash = edit(parts.hash);
+    return joinUrl(parts);
+  }
+
+  // The query as the engine writes it once it has changed it: each value
+  // encoded, a parameter without a value written without "=". The fragment
+  // stays as it is.
+  function engineQuery(url) {
+    const parts = splitUrl(url);
+    if (!parts.query) return url;
+    parts.query = parts.query.map(function (part) {
+      const eq = part.indexOf('=');
+      const name = decode(eq === -1 ? part : part.slice(0, eq));
+      const value = eq === -1 ? '' : decode(part.slice(eq + 1));
+      return value ? name + '=' + encodeURIComponent(value) : name;
+    });
+    return joinUrl(parts);
+  }
+
+  function makeRegex(source, flags) {
+    try { return new RegExp(source, flags); } catch (e) { return null; }
+  }
+
+  // The name test of a $removeparam filter: "=name", "=/regex/flags", or every name.
+  function removeParamTest(text) {
+    const at = text.search(/\$removeparam(?:[=,]|$)/);
+    const tail = text.slice(at + '$removeparam'.length);
+    const value = tail.charAt(0) === '=' ? tail.slice(1).split(/,(?=[a-z~-]+(?:=|,|$))/)[0] : '';
+    if (!value) return function () { return true; };
+    const literal = /^\/(.*)\/([a-z]*)$/i.exec(value);
+    if (literal) {
+      const re = makeRegex(literal[1], literal[2]);
+      return function (name, raw) { return !!re && (re.lastIndex = 0, re.test(raw)); };
+    }
+    return function (name) { return name === value; };
+  }
+
+  // One step on the URL; `rewritten` remembers rewrites, which apply once.
+  function applyEntry(entry, url, rewritten) {
+    if (entry.stage === 0) {
+      let source = entry.text;
+      const scoped = /[$,]rawrule=/i.exec(source);
+      if (scoped) source = source.slice(scoped.index + scoped[0].length);
+      if (!source) return url;
+      const re = makeRegex(source, entry.flags || 'gi');
+      if (!re) return url;
+      if (entry.replacePattern !== null) {
+        if (rewritten.has(entry.label)) return url;
+        const next = url.replace(re, function () {
+          const args = Array.prototype.slice.call(arguments);
+          const groups = args.slice(1, typeof args[args.length - 1] === 'object' ? -3 : -2);
+          return fillReplace(entry.replacePattern, groups.map(function (g) { return g === undefined ? '' : g; }));
+        });
+        if (next !== url) rewritten.add(entry.label);
+        return next;
+      }
+      return url.replace(re, '').replace(/\?&/, '?').replace(/&&+/g, '&').replace(/[?&]$/, '');
+    }
+    const re = makeRegex('^(?:' + entry.text + ')$', entry.flags || 'i');
+    if (!re) return url;
+    if (entry.replacePattern !== null && rewritten.has(entry.label)) return url;
+    let changed = false;
+    const next = editParams(url, function (name, value) {
+      if (!re.test(name)) return null;
+      changed = true;
+      if (entry.replacePattern === null) return '';
+      return encodeURIComponent(name) + '=' + encodeURIComponent(fillReplace(entry.replacePattern, [value]));
+    });
+    if (changed && entry.replacePattern !== null) rewritten.add(entry.label);
+    return next;
+  }
+
+  function applyFilters(filters, url) {
+    if (!filters.length) return url;
+    const keep = filters.filter(function (f) { return f.text.slice(0, 2) === '@@'; }).map(function (f) { return removeParamTest(f.text); });
+    const drop = filters.filter(function (f) { return f.text.slice(0, 2) !== '@@'; }).map(function (f) { return removeParamTest(f.text); });
+    return editParams(url, function (name, value, raw) {
+      if (keep.some(function (t) { return t(name, raw); })) return null;
+      return drop.some(function (t) { return t(name, raw); }) ? '' : null;
+    });
+  }
+
+  // Every pass while the URL changes, at most 10 (CLN 1.0 Termination).
+  function simulate(entries, filters, start) {
+    const passes = [];
+    const rewritten = new Set();
+    const seen = new Set([start]);
+    let current = start;
+    for (let pass = 1; pass <= 10; pass++) {
+      const steps = [];
+      let url = current;
+      entries.forEach(function (entry, index) {
+        const before = url;
+        url = applyEntry(entry, url, rewritten);
+        steps.push({ entryIndex: index, label: entry.label, name: entry.name, before: before, after: url });
+      });
+      if (filters.length) {
+        const before = url;
+        url = applyFilters(filters, url);
+        steps.push({ entryIndex: -1, label: '$removeparam', name: '$removeparam filters', before: before, after: url });
+      }
+      // Like the engine, a pass that changed the URL writes its query out again.
+      if (url !== current) {
+        const written = engineQuery(url);
+        if (written !== url && steps.length) steps[steps.length - 1].after = written;
+        url = written;
+      }
+      passes.push({ before: current, after: url, steps: steps });
+      if (url === current || seen.has(url)) break;
+      seen.add(url);
+      current = url;
+    }
+    return passes;
+  }
+
+  // a → b as [kind, text] parts, compared by URL part, for highlighting.
+  function diffUrls(a, b) {
+    const split = function (t) { return t.split(/([\/?&#;])/).filter(function (p) { return p !== ''; }); };
+    const x = split(a), y = split(b);
+    const lcs = [];
+    for (let i = 0; i <= x.length; i++) lcs.push(new Array(y.length + 1).fill(0));
+    for (let i = x.length - 1; i >= 0; i--) {
+      for (let j = y.length - 1; j >= 0; j--) {
+        lcs[i][j] = x[i] === y[j] ? lcs[i + 1][j + 1] + 1 : Math.max(lcs[i + 1][j], lcs[i][j + 1]);
+      }
+    }
+    const parts = [];
+    const push = function (kind, text) {
+      const last = parts[parts.length - 1];
+      if (last && last[0] === kind) last[1] += text; else parts.push([kind, text]);
+    };
+    let i = 0, j = 0;
+    while (i < x.length && j < y.length) {
+      if (x[i] === y[j]) { push('same', x[i]); i++; j++; }
+      else if (lcs[i + 1][j] >= lcs[i][j + 1]) push('del', x[i++]);
+      else push('ins', y[j++]);
+    }
+    while (i < x.length) push('del', x[i++]);
+    while (j < y.length) push('ins', y[j++]);
+    return parts;
+  }
+
+  let lastResult = null;
+  let rerunSimulation = function () {};
+
   document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('ro-input');
     if (!input) return;
@@ -255,9 +459,12 @@
         cell(tr, '', 'ro-notes');
         out.appendChild(tr);
       }
-      if (result.filters.length) {
-        after.innerHTML = 'Then, outside the sort: ' + result.filters.map(function (f) { return '<code>' + esc(f) + '</code>'; }).join(', ') + '.';
+      const shownFilters = result.filters.filter(function (f) { return !(referral.checked && f.referral); });
+      if (shownFilters.length) {
+        after.innerHTML = 'Then, outside the sort: ' + shownFilters.map(function (f) { return '<code>' + esc(f.label + ' ' + JSON.stringify(f.text)) + '</code>'; }).join(', ') + '.';
       }
+      lastResult = { entries: result.entries, filters: shownFilters.filter(function (f) { return f.active; }) };
+      rerunSimulation();
       const all = errors.concat(result.warnings);
       if (all.length) {
         msg.className = 'tool-msg err';
@@ -278,6 +485,130 @@
     referral.addEventListener('change', function () { run(true); });
     document.getElementById('ro-sample').addEventListener('click', function () { load('shop'); });
     document.getElementById('ro-numbers').addEventListener('click', function () { load('numbers'); });
+
+    // Simulation player
+    const simForm = document.getElementById('ro-sim-form');
+    const simUrl = document.getElementById('ro-url');
+    const simOut = document.getElementById('ro-sim-out');
+    const sim = { url: '', frames: [], cursor: 0, timer: null, result: '' };
+
+    function framesFor(passes, start) {
+      const frames = [{ kind: 'start', url: start, caption: 'The URL before any step' }];
+      passes.forEach(function (pass, p) {
+        if (pass.before === pass.after) {
+          frames.push({ kind: 'done', url: pass.after, caption: 'Pass ' + (p + 1) + ' changes nothing, so cleaning stops' });
+          return;
+        }
+        pass.steps.forEach(function (step, s) {
+          frames.push({
+            kind: 'step', url: step.after, before: step.before, entryIndex: step.entryIndex,
+            changed: step.before !== step.after,
+            caption: 'Pass ' + (p + 1) + ' · step ' + (s + 1) + ' of ' + pass.steps.length + ': ' + step.name +
+              (step.before === step.after ? ' · no change' : '')
+          });
+        });
+      });
+      const last = passes[passes.length - 1];
+      if (last && last.before !== last.after) frames.push({ kind: 'limit', url: last.after, caption: 'Stopped: 10 passes, or the URL came back to an earlier one' });
+      return frames;
+    }
+
+    function urlHtml(frame) {
+      if (!frame.before || frame.before === frame.url) return esc(frame.url);
+      return diffUrls(frame.before, frame.url).map(function (part) {
+        return part[0] === 'same' ? esc(part[1]) : '<' + part[0] + '>' + esc(part[1]) + '</' + part[0] + '>';
+      }).join('');
+    }
+
+    function highlightRow(frame) {
+      out.querySelectorAll('tr.is-sim').forEach(function (tr) { tr.classList.remove('is-sim'); });
+      if (frame && frame.kind === 'step' && frame.entryIndex >= 0 && out.rows[frame.entryIndex]) {
+        out.rows[frame.entryIndex].classList.add('is-sim');
+      }
+    }
+
+    function stop() { clearInterval(sim.timer); sim.timer = null; }
+
+    function render(focusAction) {
+      if (!sim.frames.length) { simOut.textContent = ''; highlightRow(null); return; }
+      const frame = sim.frames[sim.cursor];
+      const last = sim.frames.length - 1;
+      const button = function (action, label, disabled) {
+        return '<button type="button" class="btn btn-line btn-sm" data-sim="' + action + '"' + (disabled ? ' disabled' : '') + '>' + label + '</button>';
+      };
+      simOut.innerHTML =
+        '<div class="sim-player">' +
+          '<div class="sim-controls" role="group" aria-label="Step through the simulation">' +
+            button('first', 'Start', sim.cursor === 0) + button('prev', 'Previous', sim.cursor === 0) +
+            button('play', sim.timer ? 'Pause' : 'Play', false) +
+            button('next', 'Next', sim.cursor >= last) + button('last', 'End', sim.cursor >= last) +
+          '</div>' +
+          '<p class="sim-caption" aria-live="polite">' + esc(frame.caption) + '</p>' +
+          '<code class="sim-url">' + urlHtml(frame) + '</code>' +
+        '</div>' +
+        '<p class="sim-result"><b>Result</b> <code>' + esc(sim.result) + '</code></p>' +
+        '<ol class="sim-timeline">' + sim.frames.map(function (f, i) {
+          return '<li class="' + (i === sim.cursor ? 'is-current' : '') + (f.kind === 'step' && !f.changed ? ' is-unchanged' : '') + '">' +
+            '<button type="button" data-frame="' + i + '"' + (i === sim.cursor ? ' aria-current="step"' : '') + '>' + esc(f.caption) + '</button></li>';
+        }).join('') + '</ol>';
+      highlightRow(frame);
+      if (focusAction) {
+        const target = simOut.querySelector('[data-sim="' + focusAction + '"]:not([disabled])') || simOut.querySelector('[data-sim="play"]');
+        if (target) target.focus();
+      }
+    }
+
+    function go(cursor, focusAction) {
+      sim.cursor = Math.max(0, Math.min(cursor, sim.frames.length - 1));
+      if (sim.cursor >= sim.frames.length - 1) stop();
+      render(focusAction);
+    }
+
+    function simulateNow(keepCursor) {
+      stop();
+      if (!sim.url || !lastResult) { sim.frames = []; render(); return; }
+      const start = sim.url;
+      let valid = false;
+      try { valid = /^https?:$/.test(new URL(start).protocol); } catch (e) { valid = false; }
+      if (!valid) {
+        sim.frames = [];
+        simOut.innerHTML = '<p class="tool-msg err">Enter a full http:// or https:// URL, such as https://shop.example/?utm_source=x.</p>';
+        highlightRow(null);
+        return;
+      }
+      const passes = simulate(lastResult.entries, lastResult.filters, start);
+      sim.frames = framesFor(passes, start);
+      sim.result = passes.length ? passes[passes.length - 1].after : start;
+      if (!keepCursor) sim.cursor = 0;
+      go(sim.cursor);
+    }
+    rerunSimulation = function () { simulateNow(true); };
+
+    simForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      sim.url = simUrl.value.trim();
+      simulateNow(false);
+    });
+    simOut.addEventListener('click', function (event) {
+      const frameButton = event.target.closest('[data-frame]');
+      if (frameButton) { stop(); go(Number(frameButton.getAttribute('data-frame'))); return; }
+      const action = event.target.closest('[data-sim]');
+      if (!action || action.disabled) return;
+      const name = action.getAttribute('data-sim');
+      if (name === 'play') {
+        if (sim.timer) { stop(); render('play'); return; }
+        if (sim.cursor >= sim.frames.length - 1) sim.cursor = 0;
+        sim.timer = setInterval(function () { go(sim.cursor + 1); }, 900);
+        render('play');
+        return;
+      }
+      stop();
+      go({ first: 0, prev: sim.cursor - 1, next: sim.cursor + 1, last: sim.frames.length - 1 }[name], name);
+    });
+
+    // The worked example runs on a sample URL straight away.
+    simUrl.value = 'https://shop.example/item/ref=abc;jsessionid=XYZ?token=abc123&sid=9&utm_source=x&fbclid=y&aff_id=1&tag=t&pk_campaign=c&keep=1';
+    sim.url = simUrl.value;
     load('shop');
   });
 })();
