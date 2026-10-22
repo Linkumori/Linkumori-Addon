@@ -2456,7 +2456,8 @@ function start() {
                     if (id && id !== winner.compiled.id && !replacedIds.includes(id)) replacedIds.push(id);
                 });
             });
-            return { compiled: winner.compiled, order, rank: position.rank, arrayIndex: position.arrayIndex, replacedIds };
+            return { compiled: winner.compiled, order, rank: position.rank, arrayIndex: position.arrayIndex, replacedIds,
+                winnerArrayIndex: winner.arrayIndex };
         }
 
         // The run order of one variant: with or without referral-marketing
@@ -2471,7 +2472,8 @@ function start() {
                 const compiled = applyDisabledState({ ...resolved.compiled, replacedIds: resolved.replacedIds,
                     activationIds: (resolved.compiled.activationIds || []).slice() }, register);
                 if (!compiled) return;
-                steps.push({ type, key, compiled, stage, order: resolved.order, rank: resolved.rank, arrayIndex: resolved.arrayIndex });
+                steps.push({ type, key, compiled, stage, order: resolved.order, rank: resolved.rank, arrayIndex: resolved.arrayIndex,
+                    winnerArrayIndex: resolved.winnerArrayIndex });
             };
             ruleDefinitions.raw.forEach((defs, key) => addStep('raw', 0, key, defs));
             const fieldKeys = new Set(ruleDefinitions.field.keys());
@@ -2517,6 +2519,10 @@ function start() {
                     rewrite: compiled.replacePattern !== null && compiled.replacePattern !== undefined,
                     order: step.order,
                     sortKey: [step.stage, step.order === null ? 1 : 0, step.order, step.rank, step.arrayIndex],
+                    // The entry that defines this step (the last definition of its
+                    // text), so the editor can give it an "order"; null for the
+                    // step a completeProvider adds.
+                    source: compiled.section ? { list: compiled.section, index: step.winnerArrayIndex } : null,
                     off: off ? 'all' : ((copy.disabledActivationIds || []).length > 0 ? 'some' : null)
                 };
             });

@@ -1563,7 +1563,7 @@
         .run-order-step {
             display: grid;
             /* Fixed badge column, so every row's entry starts at the same place */
-            grid-template-columns: 2.2em 5.6em minmax(0, 1fr) auto;
+            grid-template-columns: 2.2em 5.6em minmax(0, 1fr) auto auto;
             align-items: baseline;
             gap: 4px 10px;
             padding: 7px 10px;
@@ -1644,6 +1644,64 @@
             font-variant-numeric: tabular-nums;
         }
 
+        .run-order-move {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            align-self: center;
+        }
+
+        .run-order-handle {
+            cursor: grab;
+            color: var(--text-muted);
+            padding: 0 4px;
+            user-select: none;
+        }
+
+        .run-order-move-btn {
+            min-width: 26px;
+            min-height: 26px;
+            padding: 0 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text-secondary);
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .run-order-move-btn:hover:not([disabled]) {
+            background: var(--bg-tertiary);
+            border-color: var(--button-primary);
+            color: var(--text-primary);
+        }
+
+        .run-order-move-btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--button-primary);
+        }
+
+        .run-order-move-btn[disabled] {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .run-order-step.is-movable {
+            cursor: grab;
+        }
+
+        .run-order-step.is-dragging {
+            opacity: 0.45;
+        }
+
+        .run-order-step.drop-before {
+            box-shadow: inset 0 2px 0 var(--button-primary);
+        }
+
+        .run-order-step.drop-after {
+            box-shadow: inset 0 -2px 0 var(--button-primary);
+        }
+
         .run-order-filters {
             margin-top: 8px;
         }
@@ -1669,8 +1727,13 @@
             }
 
             .run-order-body,
-            .run-order-key {
+            .run-order-key,
+            .run-order-move {
                 grid-column: 2;
+            }
+
+            .run-order-key {
+                text-align: left;
             }
         }
 
