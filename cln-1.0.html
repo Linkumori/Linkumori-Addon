@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.68.0</span>
+      <span class="brand-ver">v100.69.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -435,7 +435,7 @@
 <p>The check covers all three sources of a target: the capture group of a <code>redirections</code> regex, the fixed target of a <code>$redirect=</code> entry, and the parameter value picked by <code>fieldRedirections</code>. It runs after the entry's preprocessors.</p>
 <ul>
 <li><strong>Invalid target.</strong> No redirect happens. The entry is treated as not matching, and later stages run on the unchanged URL.</li>
-<li><strong>Cross-origin rewrite.</strong> A raw rule with a <code>replacePattern</code> whose result has a different scheme, host or port from its input is a redirect. It needs a valid target and, in a remote file, the <code>redirect</code> capability.</li>
+<li><strong>Cross-origin raw rule.</strong> A raw rule whose result has a different scheme, host or port from its input is a redirect, whether it rewrites with a <code>replacePattern</code> or only deletes text. It needs a valid target and, in a remote file, the <code>redirect</code> capability. Without them the rule leaves the URL unchanged. Deleting text can change the host as surely as a rewrite can: <code>secure-</code> deleted from <code>https://secure-bank.example/</code> gives <code>https://bank.example/</code>, another site.</li>
 <li><strong>Lint.</strong> A <code>$redirect=</code> entry whose fixed target is not <code>http</code> or <code>https</code> is a <code>lint-rules</code> error.</li>
 </ul>
 <h3 id="termination">Termination</h3>
@@ -510,11 +510,12 @@
 <tr><td>A remote copy of a built-in rule, without an <code>order</code></td><td>Dropped the built-in <code>order</code></td><td>Keeps it</td><td>Add <code>&quot;order&quot;: null</code></td></tr>
 </tbody>
 </table></div>
-<p>Three engine rules also take effect for every file:</p>
+<p>Four engine rules also take effect for every file:</p>
 <ul>
 <li>A redirect to a relative target, or to a scheme other than <code>http</code> or <code>https</code>, no longer happens.</li>
 <li>A rewrite applies once per request, and processing stops after 10 cycles.</li>
 <li>A remote file's redirects and blocks wait for acceptance, including files installed before this change.</li>
+<li>A raw rule that deletes text no longer changes the scheme, host or port unless the result is a valid target and, in a remote file, <code>redirect</code> is accepted (Linkumori after v100.69.0).</li>
 </ul>
 <p>A toggle saved under a bare <code>id</code> no longer applies. Toggles keyed <code>providerKey::id</code> or by match pattern keep working.</p>
 <h2 id="deferred-to-20">Deferred to 2.0</h2>
