@@ -487,7 +487,11 @@ function logMatchDomainPattern(url, patterns) {
             if (ch === '*') {
                 output += '.*';
             } else if (ch === '^') {
-                output += '(?:[^0-9A-Za-z_\\-.%]|$)';
+                // Followed by "/" ("^/path"), "^" only checks that a
+                // separator comes next, as in clearurls.js.
+                const next = input.charAt(i + 1);
+                const beforePath = next === '/';
+                output += beforePath ? '(?=[^0-9A-Za-z_\\-.%]|$)' : '(?:[^0-9A-Za-z_\\-.%]|$)';
             } else {
                 output += escapeRegexChar(ch);
             }
