@@ -964,6 +964,10 @@ let lastRunOrder = null;
 // Rearranging: the editor text before the last move (for Undo), the step
 // being dragged, and which control to focus once the panel redraws.
 let runOrderUndoText = null;
+// The provider's ordered lists as they were when it was opened, for
+// "Restore order numbers", and the step a drag last previewed a drop on.
+let runOrderBaseline = null;
+let runOrderPreviewTarget = null;
 let runOrderDragIndex = null;
 let runOrderPendingFocus = null;
 // Each moved stage is renumbered 10, 20, 30, … so entries can later go in between.
@@ -1083,7 +1087,6 @@ function renderProviderRunOrder() {
         const meta = [];
         if (step.list === null) meta.push(i18n('customRulesEditor_runOrderCompleteProvider'));
         else if (step.id) meta.push(`${i18n('customRulesEditor_runOrderId')} <code>${escapeHtml(step.id)}</code>${step.idGenerated ? ` ${i18n('customRulesEditor_runOrderIdGenerated')}` : ''}`);
-        if (step.order !== null) meta.push(i18n('customRulesEditor_runOrderOrder', getLocalizedNumber(step.order)));
         if (step.rewrite) meta.push(i18n('customRulesEditor_runOrderRewrite'));
         if (step.replacedIds.length > 0) meta.push(i18n('customRulesEditor_runOrderReplaces', getLocalizedNumber(step.replacedIds.length)));
         const off = step.off === 'all' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOff')}</span>`
@@ -1094,6 +1097,7 @@ function renderProviderRunOrder() {
                 <span class="run-order-stage run-order-stage-${step.stage === 'raw' ? 'raw' : (step.referral ? 'referral' : 'field')}">${stageLabel(step)}</span>
                 <span class="run-order-body">
                     <code class="run-order-pattern">${escapeHtml(step.matchPattern)}</code>${off}
+                    ${controls || step.order !== null ? `<span class="run-order-number${step.order === null ? ' is-none' : ''}" data-order-for="${index}">${escapeHtml(runOrderNumberLabel(step.order))}</span>` : ''}
                     ${meta.length ? `<span class="run-order-meta">${meta.join(' · ')}</span>` : ''}
                 </span>
                 <span class="run-order-key" title="${escapeHtml(i18n('customRulesEditor_runOrderKeyTitle'))}">${formatRunOrderKey(step.sortKey)}</span>${controls}
@@ -1127,6 +1131,7 @@ function renderProviderRunOrder() {
                     ${viewButton('removed', 'customRulesEditor_runOrderViewRemoved')}${viewButton('allowed', 'customRulesEditor_runOrderViewAllowed')}
                 </span>
                 ${runOrderUndoText !== null ? `<button type="button" class="json-lint-action" data-run-order-action="undo">${i18n('customRulesEditor_runOrderUndo')}</button>` : ''}
+                ${restoredRunOrderText(document.getElementById('json-editor')?.value || '') !== null ? `<button type="button" class="json-lint-action" data-run-order-action="restore" title="${escapeHtml(i18n('customRulesEditor_runOrderRestoreTitle'))}">${i18n('customRulesEditor_runOrderRestore')}</button>` : ''}
                 <button type="button" class="json-lint-action" data-run-order-action="toggle" aria-expanded="${runOrderPanelCollapsed ? 'false' : 'true'}" aria-controls="json-run-order-body">${i18n(runOrderPanelCollapsed ? 'customRulesEditor_lintShow' : 'customRulesEditor_lintHide')}</button>
             </span>
         </div>
@@ -1453,15 +1458,59 @@ function restoreRunOrderFocus(container) {
     (preferred || other || row).focus();
 }
 
+function runOrderNumberLabel(order) {
+    return order === null ? i18n('customRulesEditor_runOrderNoOrder') : i18n('customRulesEditor_runOrderOrder', getLocalizedNumber(order));
+}
+
+// The steps of `from`'s stage in the order they would run after moving it
+// to `to` (indexes in the full list), or null when it can't go there.
+function planRunOrderMove(from, to) {
+    const steps = lastRunOrder?.withReferral || [];
+    const moving = steps[from];
+    const group = runOrderGroup(moving);
+    if (!moving || group === null || from === to || !steps[to] || runOrderGroup(steps[to]) !== group) return null;
+    const sequence = steps.filter(step => runOrderGroup(step) === group);
+    const toInGroup = sequence.indexOf(steps[to]);
+    sequence.splice(sequence.indexOf(moving), 1);
+    sequence.splice(toInGroup, 0, moving);
+    return { steps, moving, group, sequence, toInGroup };
+}
+
+// While a step is dragged over a drop point, every step of its stage shows
+// the order number it would get; the numbers that change are marked.
+function previewRunOrderMove(container, from, to) {
+    clearRunOrderPreview(container);
+    const plan = planRunOrderMove(from, to);
+    if (!plan) return;
+    plan.sequence.forEach((step, position) => {
+        const index = plan.steps.indexOf(step);
+        const chip = container.querySelector(`.run-order-number[data-order-for="${index}"]`);
+        if (!chip) return;
+        const next = (position + 1) * RUN_ORDER_STEP;
+        chip.classList.add('is-preview');
+        chip.classList.toggle('is-changed', next !== step.order);
+        chip.textContent = step.order === next ? runOrderNumberLabel(next)
+            : i18n('customRulesEditor_runOrderOrderChange', step.order === null ? '–' : getLocalizedNumber(step.order), getLocalizedNumber(next));
+    });
+}
+
+function clearRunOrderPreview(container) {
+    const steps = lastRunOrder?.withReferral || [];
+    container.querySelectorAll('.run-order-number.is-preview').forEach(chip => {
+        chip.classList.remove('is-preview', 'is-changed');
+        const step = steps[Number(chip.dataset.orderFor)];
+        if (step) chip.textContent = runOrderNumberLabel(step.order);
+    });
+}
+
 // Moves step `from` to `to` (indexes in the full list) and writes the new
 // order into the editor: every step of that stage gets an "order" of 10, 20,
 // 30, … on the entry that defines it. A plain string entry becomes
 // { "matchPattern": …, "order": … }, which keeps its generated id.
 function moveRunOrderStep(from, to, direction) {
-    const steps = lastRunOrder?.withReferral || [];
-    const moving = steps[from];
-    const group = runOrderGroup(moving);
-    if (!moving || group === null || from === to || !steps[to] || runOrderGroup(steps[to]) !== group) return;
+    const plan = planRunOrderMove(from, to);
+    if (!plan) return;
+    const { steps, moving, group, sequence, toInGroup } = plan;
     const jsonEditor = document.getElementById('json-editor');
     let provider;
     try {
@@ -1469,11 +1518,6 @@ function moveRunOrderStep(from, to, direction) {
     } catch (_) {
         return;
     }
-    const sequence = steps.filter(step => runOrderGroup(step) === group);
-    const fromInGroup = sequence.indexOf(moving);
-    const toInGroup = sequence.indexOf(steps[to]);
-    sequence.splice(fromInGroup, 1);
-    sequence.splice(toInGroup, 0, moving);
     for (const [position, step] of sequence.entries()) {
         const list = provider[step.source.list];
         if (!Array.isArray(list) || list[step.source.index] === undefined) return;
@@ -1491,6 +1535,62 @@ function moveRunOrderStep(from, to, direction) {
         direction,
         announce: i18n('customRulesEditor_runOrderMoved', moving.matchPattern, getLocalizedNumber(firstOfGroup + toInGroup + 1))
     };
+    refreshEditorAfterRunOrderChange();
+}
+
+// The provider's rawRules, rules and referralMarketing entries with their
+// "order" as it was when the provider was opened: an entry that had none
+// loses it again (a { "matchPattern", "order" } object goes back to a plain
+// string), and one that had one gets it back. Entries whose text changed
+// since, or that were added, are left as they are. Null when nothing differs.
+function readRunOrderBaseline() {
+    try {
+        const provider = JSON.parse(document.getElementById('json-editor')?.value || '');
+        return Object.fromEntries(ORDERABLE_RULE_LISTS.map(name => [name, Array.isArray(provider[name]) ? JSON.parse(JSON.stringify(provider[name])) : null]));
+    } catch (_) {
+        return null;
+    }
+}
+
+function restoredRunOrderText(text) {
+    if (runOrderBaseline === null) return null;
+    let provider;
+    try {
+        provider = JSON.parse(text);
+    } catch (_) {
+        return null;
+    }
+    let changed = false;
+    ORDERABLE_RULE_LISTS.forEach(listName => {
+        const list = provider[listName];
+        const original = runOrderBaseline[listName];
+        if (!Array.isArray(list) || !Array.isArray(original)) return;
+        list.forEach((entry, index) => {
+            const before = original[index];
+            const textOf = value => (typeof value === 'string' ? value : (isPlainObject(value) ? value.matchPattern : undefined));
+            if (before === undefined || textOf(before) !== textOf(entry) || !isPlainObject(entry)) return;
+            const hadOrder = isPlainObject(before) && Object.prototype.hasOwnProperty.call(before, 'order');
+            if (hadOrder) {
+                if (entry.order !== before.order) { entry.order = before.order; changed = true; }
+                return;
+            }
+            if (!Object.prototype.hasOwnProperty.call(entry, 'order')) return;
+            delete entry.order;
+            changed = true;
+            const keys = Object.keys(entry);
+            if (typeof before === 'string' && keys.length === 1 && keys[0] === 'matchPattern') list[index] = entry.matchPattern;
+        });
+    });
+    return changed ? JSON.stringify(provider, null, 2) : null;
+}
+
+function restoreRunOrderNumbers() {
+    const jsonEditor = document.getElementById('json-editor');
+    const restored = jsonEditor ? restoredRunOrderText(jsonEditor.value) : null;
+    if (restored === null) return;
+    runOrderUndoText = jsonEditor.value;
+    jsonEditor.value = restored;
+    runOrderPendingFocus = { index: -1, direction: 'up', announce: i18n('customRulesEditor_runOrderRestored') };
     refreshEditorAfterRunOrderChange();
 }
 
@@ -1538,6 +1638,11 @@ function bindRunOrderDragging(container) {
         event.dataTransfer.dropEffect = 'move';
         const index = Number(row.dataset.stepIndex);
         if (index !== runOrderDragIndex) row.classList.add(index < runOrderDragIndex ? 'drop-before' : 'drop-after');
+        if (index !== runOrderPreviewTarget) {
+            runOrderPreviewTarget = index;
+            if (index === runOrderDragIndex) clearRunOrderPreview(container);
+            else previewRunOrderMove(container, runOrderDragIndex, index);
+        }
     });
     container.addEventListener('drop', (event) => {
         const row = targetRow(event);
@@ -1547,10 +1652,13 @@ function bindRunOrderDragging(container) {
         const from = runOrderDragIndex;
         const to = Number(row.dataset.stepIndex);
         runOrderDragIndex = null;
+        runOrderPreviewTarget = null;
         moveRunOrderStep(from, to, to < from ? 'up' : 'down');
     });
     container.addEventListener('dragend', () => {
         runOrderDragIndex = null;
+        runOrderPreviewTarget = null;
+        clearRunOrderPreview(container);
         clearMarks();
         container.querySelectorAll('.is-dragging').forEach(row => row.classList.remove('is-dragging'));
     });
@@ -1563,6 +1671,10 @@ function handleRunOrderClick(event) {
         const from = Number(moveButton.dataset.stepIndex);
         const direction = moveButton.dataset.runOrderMove;
         moveRunOrderStep(from, direction === 'up' ? from - 1 : from + 1, direction);
+        return;
+    }
+    if (event.target.closest('[data-run-order-action="restore"]')) {
+        restoreRunOrderNumbers();
         return;
     }
     if (event.target.closest('[data-run-order-action="undo"]')) {
@@ -6323,6 +6435,7 @@ function setupProviderEditorEvents() {
     renderProviderRuleIdControlsFromEditor();
     runOrderReferralView = null;
     runOrderUndoText = null;
+    runOrderBaseline = readRunOrderBaseline();
     stopRunOrderSimulation();
     runOrderSim = { url: runOrderSim.url, result: null, cursor: 0, timer: null };
     updateProviderRunOrder();

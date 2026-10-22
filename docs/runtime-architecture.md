@@ -725,8 +725,16 @@ where it is. A move gives every step of that stage an `order` of 10, 20,
 30, … in the new sequence, written on the entry that defines the step (the
 last definition of its text, which `describeRunOrder()` reports as
 `source`). A plain string entry becomes `{ "matchPattern": …, "order": … }`;
-its generated id comes from the text, so it doesn't change. *Undo move*
-restores the editor text from before the last move, until the user types.
+its generated id comes from the text, so it doesn't change. Each movable
+step shows its `order` (or "no order"); while a step is dragged over a drop
+point, every step of its stage shows the number the drop would give it
+(`order 5 → 20`), and the labels go back if the drag is cancelled. *Undo
+move* restores the editor text from before the last move, until the user
+types. *Restore order numbers* puts every `order` back as it was when the
+provider was opened: an entry that had none loses it again (and a
+`{ "matchPattern", "order" }` object goes back to a plain string), one that
+had one gets it back, and entries whose text changed since are left alone.
+It shows only while some `order` differs.
 
 **Simulate** runs the provider on a test URL and steps through it: start,
 previous, play, next and end, with the URL after each step (removed text
