@@ -961,6 +961,13 @@ let runOrderReferralView = null; // 'removed' | 'allowed'; null follows the sett
 let runOrderTimer = null;
 let runOrderRequest = 0;
 let lastRunOrder = null;
+// Rearranging: the editor text before the last move (for Undo), the step
+// being dragged, and which control to focus once the panel redraws.
+let runOrderUndoText = null;
+let runOrderDragIndex = null;
+let runOrderPendingFocus = null;
+// Each moved stage is renumbered 10, 20, 30, … so entries can later go in between.
+const RUN_ORDER_STEP = 10;
 
 function readStoredFlag(key) {
     try {
@@ -987,6 +994,7 @@ async function updateProviderRunOrder() {
     if (!container || !jsonEditor) return;
     if (!container.dataset.runOrderBound) {
         container.addEventListener('click', handleRunOrderClick);
+        bindRunOrderDragging(container);
         container.dataset.runOrderBound = 'true';
     }
     let provider;
@@ -1037,7 +1045,20 @@ function renderProviderRunOrder() {
     const filterExceptions = (result.removeParamExceptions || []).filter(filter => view === 'removed' || !filter.referral);
     const stageLabel = step => i18n(step.stage === 'raw' ? 'customRulesEditor_runOrderStageRaw'
         : (step.referral ? 'customRulesEditor_runOrderStageReferral' : 'customRulesEditor_runOrderStageField'));
+    // Steps can be rearranged in the view that shows every entry; a step moves
+    // only among the steps of its own stage.
+    const movable = view === 'removed';
     const items = steps.map((step, index) => {
+        const group = runOrderGroup(step);
+        const canUp = movable && group !== null && index > 0 && runOrderGroup(steps[index - 1]) === group;
+        const canDown = movable && group !== null && index < steps.length - 1 && runOrderGroup(steps[index + 1]) === group;
+        const moveLabel = (key) => escapeHtml(i18n(key, step.matchPattern));
+        const controls = movable && group !== null ? `
+                <span class="run-order-move">
+                    <span class="run-order-handle" aria-hidden="true" title="${escapeHtml(i18n('customRulesEditor_runOrderDrag'))}">⠿</span>
+                    <button type="button" class="run-order-move-btn" data-run-order-move="up" data-step-index="${index}" aria-label="${moveLabel('customRulesEditor_runOrderMoveUp')}" title="${moveLabel('customRulesEditor_runOrderMoveUp')}"${canUp ? '' : ' disabled'}>↑</button>
+                    <button type="button" class="run-order-move-btn" data-run-order-move="down" data-step-index="${index}" aria-label="${moveLabel('customRulesEditor_runOrderMoveDown')}" title="${moveLabel('customRulesEditor_runOrderMoveDown')}"${canDown ? '' : ' disabled'}>↓</button>
+                </span>` : '';
         const meta = [];
         if (step.list === null) meta.push(i18n('customRulesEditor_runOrderCompleteProvider'));
         else if (step.id) meta.push(`${i18n('customRulesEditor_runOrderId')} <code>${escapeHtml(step.id)}</code>${step.idGenerated ? ` ${i18n('customRulesEditor_runOrderIdGenerated')}` : ''}`);
@@ -1047,14 +1068,14 @@ function renderProviderRunOrder() {
         const off = step.off === 'all' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOff')}</span>`
             : (step.off === 'some' ? `<span class="run-order-off">${i18n('customRulesEditor_runOrderOffSome')}</span>` : '');
         return `
-            <li class="run-order-step${step.off === 'all' ? ' is-off' : ''}">
+            <li class="run-order-step${step.off === 'all' ? ' is-off' : ''}${controls ? ' is-movable' : ''}" data-step-index="${index}"${controls ? ' draggable="true"' : ''}>
                 <span class="run-order-pos">${getLocalizedNumber(index + 1)}</span>
                 <span class="run-order-stage run-order-stage-${step.stage === 'raw' ? 'raw' : (step.referral ? 'referral' : 'field')}">${stageLabel(step)}</span>
                 <span class="run-order-body">
                     <code class="run-order-pattern">${escapeHtml(step.matchPattern)}</code>${off}
                     ${meta.length ? `<span class="run-order-meta">${meta.join(' · ')}</span>` : ''}
                 </span>
-                <span class="run-order-key" title="${escapeHtml(i18n('customRulesEditor_runOrderKeyTitle'))}">${formatRunOrderKey(step.sortKey)}</span>
+                <span class="run-order-key" title="${escapeHtml(i18n('customRulesEditor_runOrderKeyTitle'))}">${formatRunOrderKey(step.sortKey)}</span>${controls}
             </li>`;
     }).join('');
     const filterList = filters.concat(filterExceptions).map(filter => `
@@ -1084,18 +1105,159 @@ function renderProviderRunOrder() {
                 <span class="run-order-views" role="group" aria-label="${escapeHtml(i18n('customRulesEditor_runOrderViewLabel'))}">
                     ${viewButton('removed', 'customRulesEditor_runOrderViewRemoved')}${viewButton('allowed', 'customRulesEditor_runOrderViewAllowed')}
                 </span>
+                ${runOrderUndoText !== null ? `<button type="button" class="json-lint-action" data-run-order-action="undo">${i18n('customRulesEditor_runOrderUndo')}</button>` : ''}
                 <button type="button" class="json-lint-action" data-run-order-action="toggle" aria-expanded="${runOrderPanelCollapsed ? 'false' : 'true'}" aria-controls="json-run-order-body">${i18n(runOrderPanelCollapsed ? 'customRulesEditor_lintShow' : 'customRulesEditor_lintHide')}</button>
             </span>
         </div>
         <div id="json-run-order-body"${runOrderPanelCollapsed ? ' hidden' : ''}>
             <p class="run-order-help">${i18n('customRulesEditor_runOrderHelp')}</p>
+            ${steps.length > 1 ? `<p class="run-order-help">${i18n(movable ? 'customRulesEditor_runOrderRearrangeHelp' : 'customRulesEditor_runOrderRearrangeOtherView')}</p>` : ''}
             ${items ? `<ol class="run-order-list">${items}</ol>` : ''}
             ${notes.join('')}
         </div>
+        <span class="linkumori-a11y-visually-hidden" id="json-run-order-status" aria-live="polite"></span>
     `);
+    restoreRunOrderFocus(container);
+}
+
+// The stage a step can move within, or null for one that can't move (the
+// step a completeProvider adds).
+function runOrderGroup(step) {
+    return step && step.source ? step.stage : null;
+}
+
+function restoreRunOrderFocus(container) {
+    const pending = runOrderPendingFocus;
+    runOrderPendingFocus = null;
+    if (!pending) return;
+    const status = container.querySelector('#json-run-order-status');
+    if (status) status.textContent = pending.announce;
+    const row = container.querySelector(`.run-order-step[data-step-index="${pending.index}"]`);
+    if (!row) {
+        // After Undo its button is gone; keep focus in the panel.
+        container.querySelector('[data-run-order-action="toggle"]')?.focus();
+        return;
+    }
+    const preferred = row.querySelector(`[data-run-order-move="${pending.direction}"]:not([disabled])`);
+    const other = row.querySelector('[data-run-order-move]:not([disabled])');
+    (preferred || other || row).focus();
+}
+
+// Moves step `from` to `to` (indexes in the full list) and writes the new
+// order into the editor: every step of that stage gets an "order" of 10, 20,
+// 30, … on the entry that defines it. A plain string entry becomes
+// { "matchPattern": …, "order": … }, which keeps its generated id.
+function moveRunOrderStep(from, to, direction) {
+    const steps = lastRunOrder?.withReferral || [];
+    const moving = steps[from];
+    const group = runOrderGroup(moving);
+    if (!moving || group === null || from === to || !steps[to] || runOrderGroup(steps[to]) !== group) return;
+    const jsonEditor = document.getElementById('json-editor');
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        return;
+    }
+    const sequence = steps.filter(step => runOrderGroup(step) === group);
+    const fromInGroup = sequence.indexOf(moving);
+    const toInGroup = sequence.indexOf(steps[to]);
+    sequence.splice(fromInGroup, 1);
+    sequence.splice(toInGroup, 0, moving);
+    for (const [position, step] of sequence.entries()) {
+        const list = provider[step.source.list];
+        if (!Array.isArray(list) || list[step.source.index] === undefined) return;
+        const entry = list[step.source.index];
+        const order = (position + 1) * RUN_ORDER_STEP;
+        if (typeof entry === 'string') list[step.source.index] = { matchPattern: entry, order };
+        else if (isPlainObject(entry)) entry.order = order;
+        else return;
+    }
+    runOrderUndoText = jsonEditor.value;
+    jsonEditor.value = JSON.stringify(provider, null, 2);
+    const firstOfGroup = steps.findIndex(step => runOrderGroup(step) === group);
+    runOrderPendingFocus = {
+        index: firstOfGroup + toInGroup,
+        direction,
+        announce: i18n('customRulesEditor_runOrderMoved', moving.matchPattern, getLocalizedNumber(firstOfGroup + toInGroup + 1))
+    };
+    refreshEditorAfterRunOrderChange();
+}
+
+function undoRunOrderMove() {
+    if (runOrderUndoText === null) return;
+    const jsonEditor = document.getElementById('json-editor');
+    jsonEditor.value = runOrderUndoText;
+    runOrderUndoText = null;
+    runOrderPendingFocus = { index: -1, direction: 'up', announce: i18n('customRulesEditor_runOrderUndone') };
+    refreshEditorAfterRunOrderChange();
+}
+
+function refreshEditorAfterRunOrderChange() {
+    updateJsonTextMateHighlighting();
+    validateAndUpdateJSON();
+    syncPatternEditorFromJson();
+    renderProviderRuleIdControlsFromEditor();
+    clearTimeout(runOrderTimer);
+    updateProviderRunOrder();
+}
+
+function bindRunOrderDragging(container) {
+    container.addEventListener('dragstart', (event) => {
+        const row = event.target.closest?.('.run-order-step.is-movable');
+        if (!row) return;
+        runOrderDragIndex = Number(row.dataset.stepIndex);
+        row.classList.add('is-dragging');
+        event.dataTransfer.effectAllowed = 'move';
+        try { event.dataTransfer.setData('text/plain', row.dataset.stepIndex); } catch (_) {}
+    });
+    const targetRow = (event) => {
+        const row = event.target.closest?.('.run-order-step.is-movable');
+        if (!row || runOrderDragIndex === null) return null;
+        const steps = lastRunOrder?.withReferral || [];
+        const index = Number(row.dataset.stepIndex);
+        return runOrderGroup(steps[index]) === runOrderGroup(steps[runOrderDragIndex]) ? row : null;
+    };
+    const clearMarks = () => container.querySelectorAll('.drop-before, .drop-after')
+        .forEach(row => row.classList.remove('drop-before', 'drop-after'));
+    container.addEventListener('dragover', (event) => {
+        const row = targetRow(event);
+        clearMarks();
+        if (!row) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+        const index = Number(row.dataset.stepIndex);
+        if (index !== runOrderDragIndex) row.classList.add(index < runOrderDragIndex ? 'drop-before' : 'drop-after');
+    });
+    container.addEventListener('drop', (event) => {
+        const row = targetRow(event);
+        clearMarks();
+        if (!row) return;
+        event.preventDefault();
+        const from = runOrderDragIndex;
+        const to = Number(row.dataset.stepIndex);
+        runOrderDragIndex = null;
+        moveRunOrderStep(from, to, to < from ? 'up' : 'down');
+    });
+    container.addEventListener('dragend', () => {
+        runOrderDragIndex = null;
+        clearMarks();
+        container.querySelectorAll('.is-dragging').forEach(row => row.classList.remove('is-dragging'));
+    });
 }
 
 function handleRunOrderClick(event) {
+    const moveButton = event.target.closest('[data-run-order-move]');
+    if (moveButton && !moveButton.disabled) {
+        const from = Number(moveButton.dataset.stepIndex);
+        const direction = moveButton.dataset.runOrderMove;
+        moveRunOrderStep(from, direction === 'up' ? from - 1 : from + 1, direction);
+        return;
+    }
+    if (event.target.closest('[data-run-order-action="undo"]')) {
+        undoRunOrderMove();
+        return;
+    }
     const viewButton = event.target.closest('[data-run-order-view]');
     if (viewButton) {
         runOrderReferralView = viewButton.dataset.runOrderView;
@@ -5845,10 +6007,13 @@ function setupProviderEditorEvents() {
     syncPatternEditorFromJson();
     renderProviderRuleIdControlsFromEditor();
     runOrderReferralView = null;
+    runOrderUndoText = null;
     updateProviderRunOrder();
 }
 
 function handleJsonEditorInput() {
+    // A move can't be undone over edits typed after it.
+    runOrderUndoText = null;
     updateJsonTextMateHighlighting();
     validateAndUpdateJSON();
     syncPatternEditorFromJson();

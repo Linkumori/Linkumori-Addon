@@ -709,6 +709,16 @@ snapshot the rule controls read, and no pin or alias migration is recorded.
 rules and without, and marks the steps the user switched off. The panel
 starts on the variant the user's referral-marketing setting selects.
 
+Steps can be rearranged in the variant that lists every entry, by dragging
+or with each step's arrow buttons, but only within their stage: raw rules
+always run before field rules, and the step a `completeProvider` adds stays
+where it is. A move gives every step of that stage an `order` of 10, 20,
+30, … in the new sequence, written on the entry that defines the step (the
+last definition of its text, which `describeRunOrder()` reports as
+`source`). A plain string entry becomes `{ "matchPattern": …, "order": … }`;
+its generated id comes from the text, so it doesn't change. *Undo move*
+restores the editor text from before the last move, until the user types.
+
 ### 11.2 Settings page safeguards
 
 settings.js asks before a few risky changes. These checks live in the page

@@ -5455,6 +5455,60 @@
       }
     }
   },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Drag a step, or use its arrows, to move it within its stage. Moving gives every entry of that stage an order of 10, 20, 30, … in the new sequence.",
+    "description": "Run-order panel: how to rearrange steps"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Switch to Referral removed to rearrange: that view shows every entry.",
+    "description": "Run-order panel: steps can only be moved in the view that lists every entry"
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Drag to move",
+    "description": "Tooltip of a run-order step's drag handle"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Move $ENTRY$ earlier",
+    "description": "Button that moves a run-order step up one place",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Move $ENTRY$ later",
+    "description": "Button that moves a run-order step down one place",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Moved $ENTRY$ to position $POSITION$",
+    "description": "Screen-reader announcement after a run-order step is moved",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Undo move",
+    "description": "Run-order panel button that restores the editor text from before the last move"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Move undone",
+    "description": "Screen-reader announcement after a run-order move is undone"
+  },
   "customRulesEditor_lintHide": {
     "message": "Hide",
     "description": "Linter panel button that collapses the problem list"
