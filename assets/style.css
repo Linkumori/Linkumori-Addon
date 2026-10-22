@@ -885,6 +885,32 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .tool-msg ul { margin: 6px 0; padding-left: 1.2em; }
 .tool-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
 
+/* Run-order simulation */
+.sim { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+.prose .sim-title { font-size: 17px; font-weight: 620; margin: 0 0 4px; }
+.sim-form { display: flex; gap: 10px; margin: 12px 0; }
+.sim-form input { flex: 1 1 auto; min-width: 0; font: 13px/1.5 var(--mono); letter-spacing: 0; color: var(--text); background: var(--bg); border: 1px solid var(--field); border-radius: 10px; padding: 8px 12px; }
+.sim-form input:focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
+.sim-player { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
+.sim-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.sim-controls .btn[disabled] { opacity: .4; pointer-events: none; }
+.sim-caption { margin: 12px 0 8px; font-size: 14px; color: var(--text-2); }
+.prose .sim-url { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg-alt); box-shadow: none; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.sim-url del { background: var(--strike-wash); color: var(--strike); text-decoration: line-through; }
+.sim-url ins { background: var(--keep-wash); color: var(--keep); text-decoration: none; }
+.prose .sim-result { font-size: 14px; margin: 14px 0 0; overflow-wrap: anywhere; }
+.sim-result b { font-weight: 600; margin-right: 6px; }
+.prose .sim-timeline { list-style: none; margin: 12px 0 0; padding: 0; max-height: 260px; overflow-y: auto; background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); }
+.prose .sim-timeline li { margin: 0; padding: 0; }
+.prose .sim-timeline li + li { border-top: 1px solid var(--line-soft); }
+.sim-timeline button { display: block; width: 100%; text-align: left; padding: 7px 12px; border: 0; background: transparent; font: inherit; font-size: 13.5px; color: var(--text); cursor: pointer; overflow-wrap: anywhere; }
+.sim-timeline .is-unchanged button { color: var(--text-3); }
+.sim-timeline .is-current button { background: color-mix(in srgb, var(--blue) 9%, transparent); box-shadow: inset 3px 0 0 var(--blue); }
+.sim-timeline button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.ro-table tr.is-sim > td { background: color-mix(in srgb, var(--blue) 10%, transparent); }
+.ro-table tr.is-sim > td:first-child { box-shadow: inset 3px 0 0 var(--blue); }
+@media (max-width: 560px) { .sim-form { flex-direction: column; } }
+
 /* ---------- 404 ---------- */
 
 .notfound { padding: 140px 0 160px; text-align: center; }

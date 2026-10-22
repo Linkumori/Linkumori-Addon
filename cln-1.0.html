@@ -22,9 +22,9 @@
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=c5c75bfa07">
+  <link rel="stylesheet" href="assets/style.css?v=e36de1294b">
   <script src="assets/site.js?v=bd1a8be389"></script>
-  <script src="assets/run-order.js?v=7b6f85b820" defer></script>
+  <script src="assets/run-order.js?v=7772aa55c2" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -272,6 +272,16 @@
     </table>
   </div>
   <p id="ro-after" class="tool-msg"></p>
+  <section class="sim" aria-labelledby="ro-sim-title">
+    <h4 class="sim-title" id="ro-sim-title">Simulate a URL</h4>
+    <p class="tool-msg">Runs the provider's entries on a URL in the order above, one step at a time, pass after pass while the URL changes. It's a model of the order, not the engine: the provider's patterns and exceptions, <code>$removeparam</code> modifiers and preprocessors aren't checked. The custom rules editor in Linkumori simulates with the engine itself.</p>
+    <form class="sim-form" id="ro-sim-form">
+      <label for="ro-url" class="visually-hidden">Test URL</label>
+      <input type="url" id="ro-url" spellcheck="false" autocomplete="off" placeholder="https://shop.example/item?utm_source=x">
+      <button type="submit" class="btn btn-primary btn-sm">Run</button>
+    </form>
+    <div id="ro-sim-out"></div>
+  </section>
 </div>
 <h2 id="whole-number-matchpattern-entries">Whole-number matchPattern entries</h2>
 <p>An entry written like <code>&quot;3&quot;</code> or <code>&quot;20&quot;</code> now runs at its array position, the same as any other entry.</p>
