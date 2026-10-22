@@ -2113,6 +2113,146 @@ function start() {
     }
     globalThis.simulateProviderRunOrder = simulateProviderRunOrder;
 
+    // A test URL for one provider in the editor, made from its own rules so
+    // each of them has something to act on: a host its patterns match, text
+    // for every raw rule in the path, a parameter for every rules,
+    // referralMarketing and $removeparam entry, and keep=1, which no rule
+    // should remove. Every sample is checked against the rule it is for.
+    // Returns { url, matched, parts: [{ list, index, text, sample }],
+    // skipped: [{ list, index, text, reason }] }.
+    function generateProviderTestUrl(providerName, providerData, fileDefaults) {
+        const built = buildEditorProvider(providerName, providerData, fileDefaults, new Set());
+        if (!built) return { error: 'invalidProvider' };
+        const { data, provider } = built;
+        const parts = [], skipped = [];
+        const urlSafe = /^[A-Za-z0-9._~\/;=:-]+$/;
+        const nameSafe = /^[A-Za-z0-9._~-]+$/;
+        // Of several samples that fit, the one nearest `ideal` characters long
+        // (0: the shortest, which for a parameter name is usually the name
+        // itself). The sampler can't read every regex; then nothing is returned.
+        const sample = (source, accept, ideal = 0) => {
+            if (typeof Regex === 'undefined' || !Regex.Analyzer) return null;
+            let samples;
+            try { samples = Regex.Analyzer(new RegExp(source)).sample(6, 40); } catch (_) { return null; }
+            return (Array.isArray(samples) ? samples : [samples])
+                .filter(s => typeof s === 'string' && s !== '' && accept(s))
+                .sort((a, b) => (Math.abs(a.length - ideal) - Math.abs(b.length - ideal)) || (a.length - b.length))[0] || null;
+        };
+        const textOf = rule => typeof rule === 'string' ? rule : (rule && typeof rule.matchPattern === 'string' ? rule.matchPattern : '');
+        const list = name => (Array.isArray(data[name]) ? data[name] : []);
+        const isActive = rule => !(rule && typeof rule === 'object' && rule.active === false);
+
+        // The host and path: from a domain pattern, or a sample of urlPattern.
+        const fromDomainPattern = pattern => {
+            let body = String(pattern || '').trim().replace(/^\|\|?/, '');
+            const end = body.search(/[\/^|$]/);
+            let host = (end === -1 ? body : body.slice(0, end)).toLowerCase();
+            let tail = end === -1 ? '' : body.slice(end);
+            if (!host || !/^[a-z0-9*.-]+$/.test(host)) return null;
+            host = host.replace(/^\*\./, 'www.').replace(/\.\*$/, '.com').replace(/\*/g, 'x');
+            if (!host.includes('.')) host += '.com';
+            tail = tail.replace(/\$.*$/, '').replace(/\|$/, '').replace(/^\^/, '').replace(/\^/g, '/').replace(/\*/g, 'x');
+            // A pattern that goes on into the query ("/s?") needs one.
+            if (tail.endsWith('?')) tail += 'q=test';
+            return 'https://' + host + (tail.startsWith('/') ? tail : '/' + tail);
+        };
+        const candidates = [];
+        const domainPatterns = Array.isArray(data.domainPatterns) ? data.domainPatterns : (data.domainPatterns ? [data.domainPatterns] : []);
+        domainPatterns.forEach(pattern => { const url = fromDomainPattern(pattern); if (url) candidates.push(url); });
+        if (typeof data.urlPattern === 'string' && data.urlPattern) {
+            for (let i = 0; i < 5; i++) {
+                const found = sample(data.urlPattern.replace(/^\^/, ''), s => /^https?:\/\//i.test(s) && !/[\s"'<>\\]/.test(s));
+                if (!found) break;
+                let url = found.replace(/^(https?):\/\//i, (m, scheme) => scheme.toLowerCase() + '://');
+                if (/\.$/.test(url)) url += 'com/';
+                candidates.push(url);
+            }
+        }
+        let base = null;
+        for (const candidate of candidates) {
+            try { new URL(candidate); } catch (_) { continue; }
+            if (provider.getAppliedPatternForUrl(candidate).patternType && provider.matchURL(candidate)) { base = new URL(candidate); break; }
+        }
+        const matched = !!base;
+        // A pattern can match and an exception still cover every URL it does.
+        const excepted = !matched && candidates.some(c => {
+            try { new URL(c); } catch (_) { return false; }
+            return !!provider.getAppliedPatternForUrl(c).patternType;
+        });
+        if (!base) base = new URL(candidates.find(c => { try { new URL(c); return true; } catch (_) { return false; } }) || 'https://example.com/');
+        // Whether a URL still reaches the provider's rules: when the pattern
+        // matched, a piece that makes an exception match is left out.
+        const reaches = url => !matched || provider.matchURL(url);
+
+        // Raw rules: their text, added to the path.
+        let path = base.pathname;
+        list('rawRules').forEach((rule, index) => {
+            const text = textOf(rule);
+            if (!text || !isActive(rule)) return;
+            if (text.startsWith('@@')) return;
+            const scoped = parseLinkumoriRawRuleText(text);
+            const source = scoped ? scoped.regex : text;
+            let tester;
+            try { tester = new RegExp(source, rule && typeof rule.flags === 'string' ? rule.flags : 'i'); } catch (_) { return; }
+            // Raw text a little longer than the least that matches, so the
+            // run shows what the rule removes.
+            const found = sample(source, s => urlSafe.test(s) && !/[?#]/.test(s), 10);
+            if (!found) { skipped.push({ list: 'rawRules', index, text, reason: 'sample' }); return; }
+            // One "/" between the path and the text, never two.
+            const joined = path.endsWith('/') && found.startsWith('/') ? path.slice(0, -1) + found : path + found;
+            const next = found.startsWith('/') || found.startsWith(';') || path.endsWith('/') ? joined : path + '/' + found;
+            if (!tester.test(base.origin + next)) { skipped.push({ list: 'rawRules', index, text, reason: 'sample' }); return; }
+            if (!reaches(base.origin + next + base.search)) { skipped.push({ list: 'rawRules', index, text, reason: 'exception' }); return; }
+            path = next;
+            parts.push({ list: 'rawRules', index, text, sample: found });
+        });
+
+        // Parameters: one for each field rule and $removeparam filter.
+        const params = [];
+        const taken = new Set();
+        const query = extra => (base.search ? base.search + (extra.length ? '&' : '') : (extra.length ? '?' : '')) + extra.join('&');
+        const addParam = (list, index, text, name, value) => {
+            const key = name.toLowerCase();
+            if (taken.has(key)) return;
+            const param = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+            if (!reaches(base.origin + path + query(params.concat(param)))) {
+                skipped.push({ list, index, text, reason: 'exception' });
+                return;
+            }
+            taken.add(key);
+            params.push(param);
+            parts.push({ list, index, text, sample: name });
+        };
+        ['rules', 'referralMarketing'].forEach(listName => {
+            list(listName).forEach((rule, index) => {
+                const text = textOf(rule);
+                if (!text || !isActive(rule)) return;
+                const filter = parseLinkumoriRemoveParamRuleDefinition(rule);
+                if (filter) {
+                    if (filter.isException || filter.negate) return;
+                    if (filter.removeAll) { skipped.push({ list: listName, index, text, reason: 'removeAll' }); return; }
+                    let name = filter.literalParam;
+                    if (!name && filter.regexParam) {
+                        const source = filter.regexParam.source;
+                        name = sample(source, s => nameSafe.test(s) && filter.regexParam.test(s));
+                    }
+                    if (!name) { skipped.push({ list: listName, index, text, reason: 'sample' }); return; }
+                    addParam(listName, index, text, name, 'x');
+                    return;
+                }
+                let tester;
+                try { tester = new RegExp('^(?:' + text + ')$', rule && typeof rule.flags === 'string' ? rule.flags : 'i'); } catch (_) { return; }
+                const name = sample('^(?:' + text + ')$', s => nameSafe.test(s) && tester.test(s));
+                if (!name) { skipped.push({ list: listName, index, text, reason: 'sample' }); return; }
+                addParam(listName, index, text, name, rule && typeof rule === 'object' && typeof rule.replacePattern === 'string' ? 'abc123' : 'x');
+            });
+        });
+        if (!taken.has('keep')) params.push('keep=1');
+        const url = base.origin + path + query(params);
+        return { url, matched, excepted, parts, skipped };
+    }
+    globalThis.generateProviderTestUrl = generateProviderTestUrl;
+
     function createProviders() {
         const data = storage.ClearURLsData;
         if (!data || !data.providers) return;

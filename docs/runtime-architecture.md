@@ -666,8 +666,9 @@ The allowlist covers:
 - remote capabilities (`acceptRemoteRuleCapabilities(ruleURL,
   capabilities)`, §5.2);
 - the custom rules editor's run-order panel (`getProviderRunOrder(name,
-  provider, defaults)` and `simulateProviderRunOrder(name, provider,
-  defaults, url, referralAllowed)`, §11.1);
+  provider, defaults)`, `simulateProviderRunOrder(name, provider,
+  defaults, url, referralAllowed)` and `generateProviderTestUrl(name,
+  provider, defaults)`, §11.1);
 - cleaning and tests (`pureCleaning`, `runRuleTestLab`,
   `traceClearURLWebRequestTest`, `applyRegressionRuleData`, and
   `setPendingRegressionSuite` / `getPendingRegressionSuite`, which hand a
@@ -687,7 +688,7 @@ the popup's consent keys, and settings that background listeners watch (§4).
 |---|---|---|---|
 | `popup.html` | popup.js | toolbar popup: on/off, counters, pause, whitelist this site, consent gate | `getData`, `setData`, temporary whitelist, pause functions |
 | `settings.html` (options page) | settings.js | all settings, rule sources, remote rules, export/import, statistics | `getData`, `setData`, `getRuleSourceInfo`, `getMergeStatistics`, `getRemoteRulesHealth`, `refreshRemoteRulesNow`, `storageAsJSON`, `reload` |
-| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab, run-order panel | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab`, `getProviderRunOrder`, `simulateProviderRunOrder` |
+| `customrules.html` | custom_rules_editor.js | custom providers, rule on/off, import, test lab, run-order panel | `getData`, `setData`, `reloadCustomRules`, `getBundledRulesOnly`, `runRuleTestLab`, `getProviderRunOrder`, `simulateProviderRunOrder`, `generateProviderTestUrl` |
 | `log.html` | log.js | the cleaning log, live | `getData`, `setData`, port `linkumori-logger` |
 | `cleaningTool.html` | cleaning_tool.js | clean pasted URLs | `pureCleaning` |
 | `siteBlockedAlert.html` | siteBlockedAlert.js | shown when a provider blocks a page (`completeProvider`); links to the blocked address so it can still be opened | — |
@@ -741,6 +742,19 @@ this provider runs. `storage.referralMarketing` is set to the panel's
 choice for the duration of the call and restored; the call is synchronous,
 so nothing else can read it meanwhile. The simulation runs again after
 each edit or move.
+
+**Generate test URL** fills the test URL from the provider's own rules
+(`generateProviderTestUrl(name, provider, defaults)`): a host its
+`domainPatterns` or `urlPattern` match, text in the path for each raw rule,
+a parameter for each `rules`, `referralMarketing` and named `$removeparam`
+entry, and `keep=1`, which no rule should remove. Samples come from
+`Regex.Analyzer` (external_js/regex_analyzer.js), and each is checked
+against the rule it is for and against the provider's exceptions; what
+can't be sampled, or would make an exception match, is left out and
+listed. Redirects and blocks are left out too, since they would end the
+run before the other rules. On the 704 bundled providers it makes a
+matching URL for all but the two whose exceptions cover every URL they
+match.
 
 ### 11.2 Settings page safeguards
 

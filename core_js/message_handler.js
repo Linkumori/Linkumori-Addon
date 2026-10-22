@@ -430,6 +430,7 @@ function handleRegularFunction(request) {
             'getPendingRegressionSuite',
             'getProviderRunOrder',
             'simulateProviderRunOrder',
+            'generateProviderTestUrl',
             'getRemoteRulesHealth',
             'getRuleDefaultsStatus',
             'getRuleSourceInfo',

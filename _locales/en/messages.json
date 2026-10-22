@@ -5514,7 +5514,7 @@
     "description": "Title of the run-order simulation"
   },
   "customRulesEditor_runOrderSimHelp": {
-    "message": "Runs this provider on a URL the way cleaning a copied link does, with your switched-off rules and the referral choice above, and shows the URL after every step. Other providers don't run.",
+    "message": "Runs this provider on a URL the way cleaning a copied link does, with your switched-off rules and the referral choice above, and shows the URL after every step. Other providers don't run. Generate test URL makes one from this provider's own rules.",
     "description": "Explanation of the run-order simulation"
   },
   "customRulesEditor_runOrderSimUrlLabel": {
@@ -5634,6 +5634,58 @@
   "customRulesEditor_runOrderSimFailed": {
     "message": "The simulation could not run. Check the JSON above.",
     "description": "Simulation message when the background could not run it"
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generate test URL",
+    "description": "Simulation button that makes a test URL from the provider's own rules and runs it"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Made from this provider's rules: text for $RAW$ raw rule(s) and $PARAMS$ parameter(s), each checked against its rule. keep=1 matches no rule and should stay. Redirects and blocks aren't included, since they would end the run before the other rules.",
+    "description": "Note under the simulation form after a test URL is generated",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "No host could be made that this provider's patterns match, so the URL uses another host and the provider won't run on it.",
+    "description": "Generated-URL note when no matching host was found"
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Every URL this provider's patterns match is covered by one of its own exceptions, so its rules never run.",
+    "description": "Generated-URL note when the provider's exceptions cover all its patterns"
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ rule(s) left out of the test URL",
+    "description": "Summary of the rules a generated test URL leaves out",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "no text could be made that it matches",
+    "description": "Why a rule is left out of a generated test URL: its regex couldn't be sampled"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "its text would make one of the provider's exceptions match",
+    "description": "Why a rule is left out of a generated test URL: an exception would match"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "it removes every parameter, so it needs no parameter of its own",
+    "description": "Why a $removeparam filter without a name is left out of a generated test URL"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "This provider has a $removeparam filter without a name, which removes every parameter, keep=1 included.",
+    "description": "Generated-URL note when a $removeparam filter removes every parameter"
   },
   "customRulesEditor_lintHide": {
     "message": "Hide",
