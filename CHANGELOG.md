@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.68.0] - 2026-10-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.67.0...linkumori-v100.68.0))
+### Added
+- Introduce a run-order calculator to the custom rules editor (`2026-10-22`, hash: [`c695c3f`](https://github.com/Linkumori/Linkumori-Addon/commit/c695c3f))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-22`, hash: [`0adab00`](https://github.com/Linkumori/Linkumori-Addon/commit/0adab00))
+- Let unbounded mode lift the cycle cap for pure cleaning too (`2026-10-21`, hash: [`c5ad94b`](https://github.com/Linkumori/Linkumori-Addon/commit/c5ad94b))
+
+### Fixed
+- Correct the cache capability and gatekeeper descriptions (`2026-10-21`, hash: [`cf57b6f`](https://github.com/Linkumori/Linkumori-Addon/commit/cf57b6f))
+
+### Documentation
+- Document settings, messages and rule keys the docs missed (`2026-10-21`, hash: [`3d459e5`](https://github.com/Linkumori/Linkumori-Addon/commit/3d459e5))
+
 ## [v100.67.0] - 2026-10-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.66.0...linkumori-v100.67.0))
 ### Added
 - Introduce unbounded mode to lift the 10-cycle cleaning limit (`2026-10-21`, hash: [`9d50c07`](https://github.com/Linkumori/Linkumori-Addon/commit/9d50c07))
