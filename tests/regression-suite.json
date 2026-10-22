@@ -19,6 +19,23 @@
       }
     },
     {
+      "id": "provider leaves an untouched URL exactly as it was",
+      "dialect": "provider",
+      "input": "https://example.com/provider-untouched/?q=a+b&ceid=US:en&empty=&keep=1",
+      "expectedOutput": "https://example.com/provider-untouched/?q=a+b&ceid=US:en&empty=&keep=1",
+      "providers": {
+        "provider-untouched": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-untouched(?:[/?#]|$)",
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider canonical clearurls dialect field rule",
       "dialect": "provider",
       "input": "https://example.com/provider-canonical/?utm_source=x&keep=1",
