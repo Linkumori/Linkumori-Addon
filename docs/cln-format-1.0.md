@@ -344,7 +344,7 @@ A redirect target is valid when it parses as an absolute URL, its scheme is `htt
 The check covers all three sources of a target: the capture group of a `redirections` regex, the fixed target of a `$redirect=` entry, and the parameter value picked by `fieldRedirections`. It runs after the entry's preprocessors.
 
 - **Invalid target.** No redirect happens. The entry is treated as not matching, and later stages run on the unchanged URL.
-- **Cross-origin rewrite.** A raw rule with a `replacePattern` whose result has a different scheme, host or port from its input is a redirect. It needs a valid target and, in a remote file, the `redirect` capability.
+- **Cross-origin raw rule.** A raw rule whose result has a different scheme, host or port from its input is a redirect, whether it rewrites with a `replacePattern` or only deletes text. It needs a valid target and, in a remote file, the `redirect` capability. Without them the rule leaves the URL unchanged. Deleting text can change the host as surely as a rewrite can: `secure-` deleted from `https://secure-bank.example/` gives `https://bank.example/`, another site.
 - **Lint.** A `$redirect=` entry whose fixed target is not `http` or `https` is a `lint-rules` error.
 
 ### Termination
@@ -426,11 +426,12 @@ Every file written for the earlier 1.0 text is a valid 1.0 final file, so there 
 | A `$removeparam` name value that contains a backslash | Read literally | Read as an escape; an unknown escape is a lint error | Write the backslash twice |
 | A remote copy of a built-in rule, without an `order` | Dropped the built-in `order` | Keeps it | Add `"order": null` |
 
-Three engine rules also take effect for every file:
+Four engine rules also take effect for every file:
 
 - A redirect to a relative target, or to a scheme other than `http` or `https`, no longer happens.
 - A rewrite applies once per request, and processing stops after 10 cycles.
 - A remote file's redirects and blocks wait for acceptance, including files installed before this change.
+- A raw rule that deletes text no longer changes the scheme, host or port unless the result is a valid target and, in a remote file, `redirect` is accepted (Linkumori after v100.69.0).
 
 A toggle saved under a bare `id` no longer applies. Toggles keyed `providerKey::id` or by match pattern keep working.
 

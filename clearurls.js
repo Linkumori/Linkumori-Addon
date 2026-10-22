@@ -1607,6 +1607,16 @@ function getLinkumoriUrlOrigin(value) {
     } catch (_) { return null; }
 }
 
+// A raw rule whose result has another scheme, host or port, by a rewrite
+// or by deleting text, is a redirect: it needs a valid target, and in a
+// remote file the "redirect" capability, which a file without it marks on
+// its raw rules as _linkumoriNoRedirect (CLN 1.0 §Redirect and block safety).
+function rawRuleMayChangeOrigin(before, after, compiled) {
+    if (getLinkumoriUrlOrigin(after) === getLinkumoriUrlOrigin(before)) return true;
+    if (!getLinkumoriRedirectTarget(after)) return false;
+    return !(compiled && compiled.raw && typeof compiled.raw === 'object' && compiled.raw._linkumoriNoRedirect === true);
+}
+
 function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
     return value.replace(regex, (match, ...args) => {
         const hasNamedGroups = args.length >= 3 && typeof args[args.length - 1] === 'object' && args[args.length - 1] !== null;
@@ -1821,17 +1831,13 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 return applyCoreReplacePattern(compiled.replacePattern, values);
             });
             if (rewritten === url) return;
-            // A rewrite to another scheme, host or port is a redirect: it
-            // needs a valid target, and in a remote file the "redirect"
-            // capability (CLN 1.0 §Redirect and block safety).
-            if (getLinkumoriUrlOrigin(rewritten) !== getLinkumoriUrlOrigin(url)) {
-                if (!getLinkumoriRedirectTarget(rewritten)) return;
-                if (compiled.raw && typeof compiled.raw === 'object' && compiled.raw._linkumoriNoRedirect === true) return;
-            }
+            if (!rawRuleMayChangeOrigin(url, rewritten, compiled)) return;
             url = rewritten;
             appliedFieldRewrites.add(rewriteKey);
         } else {
-            url = removeRawRuleMatchesPreservingQueryBoundary(url, activeRegex);
+            const removed = removeRawRuleMatchesPreservingQueryBoundary(url, activeRegex);
+            if (!rawRuleMayChangeOrigin(url, removed, compiled)) return;
+            url = removed;
         }
         if (beforeReplace !== url) {
             if (storage.loggingStatus && !quiet) pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
