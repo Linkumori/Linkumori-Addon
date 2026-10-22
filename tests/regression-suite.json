@@ -1204,13 +1204,13 @@
       }
     },
     {
-      "id": "provider disabled id shared by several rules keeps them all off",
+      "id": "provider rules whose generated ids would collide switch off one at a time",
       "dialect": "provider",
       "input": "https://example.com/generated-id-collision/?rdr=1&_rdr=2&keep=1",
-      "expectedOutput": "https://example.com/generated-id-collision/?rdr=1&_rdr=2&keep=1",
+      "expectedOutput": "https://example.com/generated-id-collision/?rdr=1&keep=1",
       "activationState": {
         "disabledRuleIds": [
-          "generated-id-collision::field-removeparam-rdr"
+          "generated-id-collision::field-removeparam-rdr-15wzedx"
         ]
       },
       "providers": {
