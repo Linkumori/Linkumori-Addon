@@ -2226,6 +2226,26 @@
       }
     },
     {
+      "id": "provider exceptions domain pattern with ^/ inside the path",
+      "dialect": "provider",
+      "input": "https://example.com/merged-exceptions/separator/page?utm_source=x",
+      "expectedOutput": "https://example.com/merged-exceptions/separator/page?utm_source=x",
+      "providers": {
+        "provider-merged-exceptions": {
+          "urlPattern": "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions",
+          "rules": [
+            "utm_source"
+          ],
+          "exceptions": [
+            "||example.com/merged-exceptions^/separator"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider exceptions regex pattern",
       "dialect": "provider",
       "input": "https://example.com/merged-exceptions/regex?utm_source=x",

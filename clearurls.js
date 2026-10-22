@@ -730,12 +730,22 @@ function matchDomainPattern(url, patterns) {
         return /[\\^$.*+?()[\]{}|]/.test(char) ? ('\\' + char) : char;
     }
 
-    function linkumoriTokensToRegexSource(input) {
+    // "^" is a separator: any character but a letter, digit, "_", "-", "."
+    // or "%", or the end. Followed by "/" ("^/path"), it only checks that a
+    // separator comes next, so "||example.com^/path" matches
+    // "example.com/path" (the "/" is not needed twice). At `hostEndIndex`, the
+    // "^" right after a "||" pattern's host, a port may come first.
+    function linkumoriTokensToRegexSource(input, hostEndIndex = -1) {
         let output = '';
         for (let i = 0; i < input.length; i++) {
             const ch = input.charAt(i);
             if (ch === '*') output += '.*';
-            else if (ch === '^') output += '(?:[^0-9A-Za-z_\\-.%]|$)';
+            else if (ch === '^') {
+                const next = input.charAt(i + 1);
+                const beforePath = next === '/';
+                if (i === hostEndIndex) output += '(?::[0-9]+)?';
+                output += beforePath ? '(?=[^0-9A-Za-z_\\-.%]|$)' : '(?:[^0-9A-Za-z_\\-.%]|$)';
+            }
             else output += escapeRegexChar(ch);
         }
         return output;
@@ -756,13 +766,16 @@ function matchDomainPattern(url, patterns) {
         if (raw.startsWith('||')) { domainAnchor = true; raw = raw.slice(2); }
         else if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
         if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
+        let hostEndIndex = -1;
         if (domainAnchor) {
             const hb = firstSpecialIndex(raw);
             const hx = hb === -1 ? raw : raw.slice(0, hb);
             if (hx.startsWith('*.')) raw = raw.slice(2);
+            const end = firstSpecialIndex(raw);
+            if (end !== -1 && raw.charAt(end) === '^') hostEndIndex = end;
         }
 
-        const source = linkumoriTokensToRegexSource(raw);
+        const source = linkumoriTokensToRegexSource(raw, hostEndIndex);
         const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
         // ':' is a boundary too, so ||example.com matches http://example.com:8080/.
