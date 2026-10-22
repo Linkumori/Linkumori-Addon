@@ -4299,8 +4299,8 @@ coverage/**
     this.header('Linkumori CLI - Command Line Usage (Bun Version - Enhanced)');
     
     this.log('\nUsage:', 'cyan');
-    this.log('  bun run linkumori-cli-bun-merged.js [command]', 'white');
-    this.log('  bun run linkumori-cli-bun-merged.js              # Interactive menu', 'dim');
+    this.log('  bun run linkumori-cli-tool.js [command]', 'white');
+    this.log('  bun run linkumori-cli-tool.js              # Interactive menu', 'dim');
     
     this.log('\nCommands:', 'cyan');
     this.log('  build                 Build extension (copyright + clearurls + fonts + icons + web-ext)', 'white');
@@ -4335,22 +4335,20 @@ coverage/**
     this.log('  help                  Show this help message', 'white');
     
     this.log('\nExamples:', 'cyan');
-    this.log('  bun run linkumori-cli-bun-merged.js build', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js build offline', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js licenses', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js copyright', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js clearurls', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js icons', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js lint-rules', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js compress-lz4 data/linkumori-clearurls.json', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js serialize-url-patterns data/linkumori-clearurls-min.json.lz4', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js benchmark-url-patterns data/linkumori-clearurls-min.json.lz4 1000 urls.txt', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js unminify', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js commit-history', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js release', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js dev', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js sync-i18n-extra', 'dim');
-    this.log('  bun run linkumori-cli-bun-merged.js psl online', 'dim');
+    this.log('  bun run linkumori-cli-tool.js build', 'dim');
+    this.log('  bun run linkumori-cli-tool.js build offline', 'dim');
+    this.log('  bun run linkumori-cli-tool.js licenses', 'dim');
+    this.log('  bun run linkumori-cli-tool.js copyright', 'dim');
+    this.log('  bun run linkumori-cli-tool.js clearurls', 'dim');
+    this.log('  bun run linkumori-cli-tool.js icons', 'dim');
+    this.log('  bun run linkumori-cli-tool.js lint-rules', 'dim');
+    this.log('  bun run linkumori-cli-tool.js compress-lz4 data/linkumori-clearurls.json', 'dim');
+    this.log('  bun run linkumori-cli-tool.js unminify', 'dim');
+    this.log('  bun run linkumori-cli-tool.js commit-history', 'dim');
+    this.log('  bun run linkumori-cli-tool.js release', 'dim');
+    this.log('  bun run linkumori-cli-tool.js dev', 'dim');
+    this.log('  bun run linkumori-cli-tool.js sync-i18n-extra', 'dim');
+    this.log('  bun run linkumori-cli-tool.js psl online', 'dim');
     
     this.log('\n🆕 Enhanced Features:', 'cyan');
     this.log('  - Local license file loading (no internet required)', 'white');
