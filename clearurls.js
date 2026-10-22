@@ -1942,6 +1942,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             if (localChange) {
                 rewrittenNow.forEach(key => appliedFieldRewrites.add(key));
                 changes = true;
+                fieldsDirty = true;
                 if (!actionType) actionType = 'removeparam';
                 if (!matchedRuleForTrace) matchedRuleForTrace = matchedRuleForLog || '$removeparam';
                 if (storage.loggingStatus) {
@@ -1956,7 +1957,11 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             }
         }
 
-        url = buildURLFromParts();
+        // Rebuilt (which also tidies what raw rules left, such as "?&") only
+        // when this pass changed the URL: rebuilding re-encodes every value
+        // (":" as "%3A", "+" as "%20") and drops the "=" of an empty value,
+        // so an untouched URL would otherwise still come back different.
+        if (fieldsDirty || url !== pureUrl) url = buildURLFromParts();
     }
     if (stepRecorder && (linkumoriParamRules.length > 0 || linkumoriParamExceptions.length > 0)) {
         stepRecorder.push({ stage: 'removeparam', matchPattern: null, id: null, before: beforeRemoveParam, after: url });
