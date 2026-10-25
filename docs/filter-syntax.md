@@ -4,7 +4,7 @@ Oct 2, 2026 · @Subham
 
 This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in [CLN Format 1.0 (Final)](cln-format-1.0.md).
 
-Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `cln`, `metadata` and `defaults`). Each key under `providers` is a name you choose; its value is a provider object.
+Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `cln`, `metadata`, `defaults` and, in a remote file, `patches`). Each key under `providers` is a name you choose; its value is a provider object.
 
 The optional top-level `cln` key names the format version. Its only valid value is `"1.0"`; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails `lint-rules`). It is not called `version` because the ClearURLs new rule format already uses that key.
 
@@ -579,6 +579,45 @@ A remote file's capabilities are derived from its content when it loads; a file 
 - **Old merged cache.** A cached copy of the remote rules saved before files were cached one by one can't be traced to its files. Until the next refresh, its `redirect` and `block` entries stay inactive unless every configured remote file has accepted that capability.
 - **No carry-over.** Every remote file starts with only `strip`, `rewrite` and `except`, including files configured before capabilities existed; accept `redirect` and `block` in Remote Rules Health.
 - **Visibility.** Remote Rules Health lists each remote file's capabilities.
+
+### Rule patches
+
+A remote rule file can replace rules that are already loaded, from the built-in rules or from another remote file, without publishing a whole copy of them. It lists the replacements in a top-level `patches` array:
+
+```json
+{
+  "cln": "1.0",
+  "patches": [
+    {
+      "target": "amazon::field-qid",
+      "section": "rules",
+      "replace": { "matchPattern": "qid", "requestTypes": ["main_frame"] },
+      "description": "Only strip qid on page loads"
+    },
+    {
+      "target": "domainPattern:||amazon.*^::strip-ref",
+      "section": "rawRules",
+      "replace": "\\/ref=[^/?#]*"
+    }
+  ]
+}
+```
+
+| Key | Does |
+| --- | --- |
+| `target` | required — the rule to replace, written like its on/off toggle key (§Rule ids and toggles): `providerKey::id`, `domainPattern:<pattern>::id` or `urlPattern:<regex>::id`. The id can be the rule's `id`, one of its `aliases`, or its generated id |
+| `section` | required — the list the rule is in: `rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections` or `fieldRedirections` |
+| `replace` | required — the new rule: a plain entry or a rule object, as it would be written in that list |
+| `description` | a note for people reading the file; it must be a string |
+
+- **What it patches.** Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only `patches` needs no `providers`; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules.
+- **Matching.** A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the `domainPattern:` / `urlPattern:` form is the one that always finds them.
+- **Ids and toggles.** The replacement keeps the replaced rule's id unless it sets its own `id`; then the old id becomes one of its `aliases`. Either way, an on/off setting saved for the old rule keeps applying.
+- **Defaults.** The patch file's `defaults` (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.
+- **Capabilities.** A file's patches count toward its capabilities (§Remote file capabilities). A patch for a `redirections` or `fieldRedirections` rule is skipped until the file's `redirect` capability is accepted, and a patched raw rule can't take a URL to another origin until then.
+- **Order.** Patches run in the order of the configured remote files, then in array order, so a later patch can replace an earlier patch's replacement (it kept the id).
+- **Checked.** An invalid `patches` array (unknown keys, a malformed `target`, a missing `section` or `replace`) rejects the whole file, like an invalid `defaults` block; `lint-rules` reports the same problems. A patch whose target matches no loaded rule changes nothing.
+- **Visibility.** Remote Rules Health lists each patch as applied, unmatched or skipped.
 
 ### Possible 2.0 direction
 

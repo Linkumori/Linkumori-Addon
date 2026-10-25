@@ -134,7 +134,8 @@ function ensureRemoteRulesHealthShape() {
             lastFailureStage: null,
             lastRuleURL: null,
             lastHashURL: null,
-            ruleCollisions: null
+            ruleCollisions: null,
+            rulePatches: null
         };
         return;
     }
@@ -147,7 +148,8 @@ function ensureRemoteRulesHealthShape() {
         lastFailureStage: current.lastFailureStage || null,
         lastRuleURL: current.lastRuleURL || null,
         lastHashURL: current.lastHashURL || null,
-        ruleCollisions: current.ruleCollisions && typeof current.ruleCollisions === 'object' ? current.ruleCollisions : null
+        ruleCollisions: current.ruleCollisions && typeof current.ruleCollisions === 'object' ? current.ruleCollisions : null,
+        rulePatches: current.rulePatches && typeof current.rulePatches === 'object' ? current.rulePatches : null
     };
 }
 
@@ -389,11 +391,14 @@ function getSourceRuleDefaultsOverride(sourceKind, ruleURL = null) {
 // A rules file with the defaults its source gets written into its rules:
 // the file's own (or the user's edit of them), or the user's own defaults
 // (storage.ruleDefaultsMode).
-function applySourceRuleDefaults(sourceKind, rulesData, ruleURL = null) {
+function getEffectiveSourceRuleDefaults(sourceKind, rulesData, ruleURL = null) {
     const override = getSourceRuleDefaultsOverride(sourceKind, ruleURL);
     const fileDefaults = override !== undefined ? override : rulesData?.defaults;
-    return LinkumoriRuleDefaults.applyRuleFileDefaults(rulesData, LinkumoriRuleDefaults.pickRuleDefaults(
-        storage.ruleDefaultsMode, sourceKind, fileDefaults, storage.userRuleDefaults));
+    return LinkumoriRuleDefaults.pickRuleDefaults(storage.ruleDefaultsMode, sourceKind, fileDefaults, storage.userRuleDefaults);
+}
+
+function applySourceRuleDefaults(sourceKind, rulesData, ruleURL = null) {
+    return LinkumoriRuleDefaults.applyRuleFileDefaults(rulesData, getEffectiveSourceRuleDefaults(sourceKind, rulesData, ruleURL));
 }
 
 // { builtIn?: defaults, remote?: { [ruleURL]: defaults } } with only valid
@@ -1333,6 +1338,102 @@ function mergeRemoteRulesSources(successfulSources, failedSources = [], collisio
     return mergedRules;
 }
 
+function hasRuleProviders(rules) {
+    return !!(rules && rules.providers && typeof rules.providers === 'object' && !Array.isArray(rules.providers) &&
+        Object.keys(rules.providers).length > 0);
+}
+
+// The remote rules when every loaded file holds only "patches".
+function createPatchOnlyRemoteRules(successfulSources, failedSources = []) {
+    return {
+        providers: {},
+        metadata: {
+            name: 'Remote Rule Patches',
+            source: 'remote_patches',
+            sourceURL: successfulSources.length > 1 ? 'multiple' : (successfulSources[0]?.ruleURL || null),
+            providerCount: 0,
+            mergedSourceCount: successfulSources.length,
+            failedSourceCount: failedSources.length,
+            remoteSources: successfulSources.map(source => ({
+                ruleURL: source.ruleURL,
+                hashURL: source.hashURL,
+                providerCount: 0,
+                patchCount: Array.isArray(source.patches) ? source.patches.length : 0,
+                defaults: source.defaults || {}
+            })),
+            failedSources: failedSources.map(source => ({
+                ruleURL: source.ruleURL,
+                hashURL: source.hashURL,
+                error: source.error
+            }))
+        }
+    };
+}
+
+// The built-in rules, unmerged so their provider names stay, as the base
+// for files of only "patches".
+function withPatchOnlyBuiltInRules(patchOnlyRules, bundledRules) {
+    return {
+        ...bundledRules,
+        metadata: {
+            ...(patchOnlyRules?.metadata || {}),
+            name: 'Built-in Rules + Remote Rule Patches',
+            source: 'remote_patches_built_in',
+            providerCount: Object.keys(bundledRules?.providers || {}).length
+        }
+    };
+}
+
+// Remote rule patches (docs/filter-syntax.md §Rule patches): each loaded
+// remote file's "patches", in file order, with the defaults and the
+// capabilities that file gets.
+function getRemotePatchSets(sources) {
+    return (Array.isArray(sources) ? sources : [])
+        .filter(source => Array.isArray(source.patches) && source.patches.length > 0)
+        .map(source => ({
+            source: source.ruleURL || 'remote',
+            patches: source.patches,
+            defaults: source.patchDefaults,
+            capabilities: source.capabilities || []
+        }));
+}
+
+// The patches applied to the merged remote (and built-in) rules, before
+// custom rules, which still override them. Results go to Remote Rules Health.
+function applyRemoteRulePatches(rules, patchSets) {
+    const sets = Array.isArray(patchSets) ? patchSets : [];
+    if (sets.length === 0) {
+        recordRulePatchResults([]);
+        return rules;
+    }
+    const { rules: patched, results } = LinkumoriRulePatches.applyRulePatches(rules, sets, {
+        getScopeIds: getProviderActivationScopeIds,
+        attachActivationIds: attachProviderActivationIds
+    });
+    recordRulePatchResults(results);
+    return patched;
+}
+
+const MAX_REPORTED_RULE_PATCHES = 100;
+
+function recordRulePatchResults(results) {
+    const list = Array.isArray(results) ? results : [];
+    list.forEach(item => {
+        if (item.status !== 'applied') {
+            console.info(`[Linkumori] Remote rule patch ${item.status} (${item.source}) ${item.target}: ${item.message}`);
+        }
+    });
+    updateRemoteRulesHealth({
+        rulePatches: {
+            checkedAt: new Date().toISOString(),
+            appliedCount: list.filter(item => item.status === 'applied').length,
+            unmatchedCount: list.filter(item => item.status === 'unmatched').length,
+            skippedCount: list.filter(item => item.status === 'skipped').length,
+            items: list.slice(0, MAX_REPORTED_RULE_PATCHES)
+        }
+    }, true);
+}
+
 function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = null) {
     const remoteProviders = remoteRules?.providers || {};
     const bundledProviders = bundledRules?.providers || {};
@@ -1707,7 +1808,11 @@ function remoteRulesCacheMatches(cache, expectedHash = null, expectedSources = n
     return true;
 }
 
+// The "patches" of the cached remote files last loaded from the cache.
+let cachedRemotePatchSets = [];
+
 function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used', expectedSources = null) {
+    cachedRemotePatchSets = [];
     const cache = storage.remoteRulescache;
 
     if (!cache || typeof cache !== 'object' || Array.isArray(cache)) {
@@ -1723,10 +1828,12 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     }
 
     const rawCachedData = cache.data;
-    if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers || Object.keys(rawCachedData.providers).length === 0) {
+    const hasSourceFiles = Array.isArray(cache.sourceFiles) && cache.sourceFiles.length > 0;
+    // Files of only "patches" cache a merge without providers.
+    if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers ||
+        (Object.keys(rawCachedData.providers).length === 0 && !hasSourceFiles)) {
         return null;
     }
-    const hasSourceFiles = Array.isArray(cache.sourceFiles) && cache.sourceFiles.length > 0;
     let cachedData = rebuildRemoteRulesFromCacheFiles(cache.sourceFiles);
     // Cached files that no longer load (a "cln" this version rejects, an
     // invalid "defaults" block) are not replaced by the merged copy.
@@ -1770,16 +1877,22 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
 // now; null when the cache has no usable files.
 function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
     if (!Array.isArray(sourceFiles) || sourceFiles.length === 0) return null;
+    const hasPatches = rules => Array.isArray(rules.patches) && rules.patches.length > 0;
     const sources = sourceFiles
         .filter(file => file && typeof file === 'object' && file.rules && typeof file.rules === 'object' &&
-            file.rules.providers && typeof file.rules.providers === 'object' &&
+            ((file.rules.providers && typeof file.rules.providers === 'object') || hasPatches(file.rules)) &&
             !LinkumoriRuleIds.findClnVersionProblem(file.rules) &&
-            LinkumoriRuleDefaults.findRuleDefaultsProblems(file.rules.defaults).length === 0)
+            LinkumoriRuleDefaults.findRuleDefaultsProblems(file.rules.defaults).length === 0 &&
+            LinkumoriRulePatches.findRulePatchProblems(file.rules.patches).length === 0)
         .map(file => prepareRemoteRuleSource(file.ruleURL || null, file.hashURL || null, file.rules));
     if (sources.length !== sourceFiles.length) return null;
     try {
-        const rebuilt = mergeRemoteRulesSources(sources);
+        const providerSources = sources.filter(source => hasRuleProviders(source.rules));
+        const rebuilt = providerSources.length > 0
+            ? mergeRemoteRulesSources(providerSources)
+            : createPatchOnlyRemoteRules(sources);
         ruleDefaultsStatus.remote = sources.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
+        cachedRemotePatchSets = getRemotePatchSets(sources);
         return rebuilt;
     } catch (error) {
         return null;
@@ -1816,7 +1929,11 @@ function ensureRemoteRuleCapabilitiesInitialized() {
 function resolveRemoteFileCapabilities(ruleURL, file) {
     ensureRemoteRuleCapabilitiesInitialized();
     const state = storage.remoteRuleCapabilities;
-    const derived = LinkumoriRuleIds.deriveRuleFileCapabilities(file);
+    const derivedFromFile = new Set([
+        ...LinkumoriRuleIds.deriveRuleFileCapabilities(file),
+        ...LinkumoriRuleIds.deriveRuleFileCapabilities(LinkumoriRulePatches.patchesAsProviders(file?.patches))
+    ]);
+    const derived = LinkumoriRuleIds.RULE_FILE_CAPABILITIES.filter(capability => derivedFromFile.has(capability));
     const key = ruleURL || '';
     let entry = state.files[key];
     let changed = false;
@@ -1885,6 +2002,8 @@ function prepareRemoteRuleSource(ruleURL, hashURL, file) {
         defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(file.defaults),
         rules: LinkumoriRuleIds.restrictRuleFileCapabilities(applySourceRuleDefaults('remote', file, ruleURL), capabilities),
         capabilities,
+        patches: Array.isArray(file.patches) ? file.patches : [],
+        patchDefaults: getEffectiveSourceRuleDefaults('remote', file, ruleURL),
         file
     };
 }
@@ -1980,12 +2099,19 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
 
             const remoteRules = remoteRulesData;
 
-            if (!remoteRules.providers || typeof remoteRules.providers !== 'object' || Array.isArray(remoteRules.providers)) {
-                throw new Error('Remote rules missing providers object');
+            const patchProblems = LinkumoriRulePatches.findRulePatchProblems(remoteRules.patches);
+            if (patchProblems.length > 0) {
+                throw new Error(`Invalid remote rules: ${patchProblems[0]}`);
             }
+            // A file of only "patches" changes the rules of other files and
+            // needs no providers of its own.
+            const hasPatches = Array.isArray(remoteRules.patches) && remoteRules.patches.length > 0;
 
-            const providerCount = Object.keys(remoteRules.providers).length;
-            if (providerCount === 0) {
+            if (remoteRules.providers === undefined && hasPatches) {
+                // patch-only file
+            } else if (!remoteRules.providers || typeof remoteRules.providers !== 'object' || Array.isArray(remoteRules.providers)) {
+                throw new Error('Remote rules missing providers object');
+            } else if (Object.keys(remoteRules.providers).length === 0 && !hasPatches) {
                 throw new Error('No providers found in remote rules');
             }
 
@@ -2161,6 +2287,10 @@ async function getBundledRulesOnly() {
 }
 
 function loadBundledRules() {
+    // Patch results are recorded again by whichever load applies patches.
+    if (storage.remoteRulesHealth && storage.remoteRulesHealth.rulePatches) {
+        updateRemoteRulesHealth({ rulePatches: null }, true);
+    }
     ruleDefaultsStatus.builtIn = null;
     ruleDefaultsStatus.remote = [];
     ruleDefaultsStatus.custom = null;
@@ -2240,18 +2370,28 @@ function loadBundledRules() {
                 ruleCollisions.push(...findProvidersRuleCollisions(source.rules?.providers, source.ruleURL));
             });
 
-            const mergedRemoteRules = mergeRemoteRulesSources(successful, failed, ruleCollisions);
+            // Files of only "patches" add no providers; when every file is
+            // one, the patches apply to the built-in rules.
+            const providerSources = successful.filter(source => hasRuleProviders(source.rules));
+            const patchOnly = providerSources.length === 0;
+            const mergedRemoteRules = patchOnly
+                ? createPatchOnlyRemoteRules(successful, failed)
+                : mergeRemoteRulesSources(providerSources, failed, ruleCollisions);
             ruleDefaultsStatus.remote = successful.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
             let finalRules = mergedRemoteRules;
+            const withBuiltIn = storage.builtInRulesEnabled !== false && (patchOnly || storage.overloadModeEnabled === true);
 
-            if (storage.overloadModeEnabled === true && storage.builtInRulesEnabled !== false) {
+            if (withBuiltIn) {
                 try {
                     const bundledRules = await fetchBundledRulesRaw();
-                    finalRules = mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions);
+                    finalRules = patchOnly
+                        ? withPatchOnlyBuiltInRules(mergedRemoteRules, bundledRules)
+                        : mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions);
                 } catch (e) {
                 }
             }
             recordRuleCollisions(ruleCollisions);
+            finalRules = applyRemoteRulePatches(finalRules, getRemotePatchSets(successful));
 
             storage.rulesMetadata = finalRules.metadata;
             storage.hashFailureReason = failed.length > 0
@@ -2263,7 +2403,7 @@ function loadBundledRules() {
                 recordRemoteFetchSuccess(successful[0]?.ruleURL || null, successful[0]?.hashURL || null);
             }
 
-            if (storage.overloadModeEnabled === true && storage.builtInRulesEnabled !== false) {
+            if (withBuiltIn) {
                 storage.hashStatus = "remote_built_in_merged";
                 storage.hashValidationStatus = failed.length > 0 ? 'partially_verified' : 'verified';
             } else {
@@ -2308,19 +2448,23 @@ function loadBundledRules() {
             const cacheRules = loadRemoteRulesFromCache(null, 'after_remote_failure', configuredRemoteSets);
             if (cacheRules) {
                 storage.hashValidationStatus = 'cache_used_after_remote_failure';
+                const patchSets = cachedRemotePatchSets;
 
-                if (storage.overloadModeEnabled === true && storage.builtInRulesEnabled !== false) {
+                if (storage.builtInRulesEnabled !== false &&
+                    (storage.overloadModeEnabled === true || !hasRuleProviders(cacheRules))) {
                     try {
                         const bundledRules = await fetchBundledRulesRaw();
-                        const mergedCachedRules = mergeRemoteWithBundledRules(cacheRules, bundledRules);
+                        const mergedCachedRules = hasRuleProviders(cacheRules)
+                            ? mergeRemoteWithBundledRules(cacheRules, bundledRules)
+                            : withPatchOnlyBuiltInRules(cacheRules, bundledRules);
                         storage.hashStatus = "cache_remote_built_in_merged";
-                        return mergeCustomRules(mergedCachedRules);
+                        return mergeCustomRules(applyRemoteRulePatches(mergedCachedRules, patchSets));
                     } catch (mergeError) {
                         // Fall back to cached remote-only rules when bundled rules cannot be loaded.
                     }
                 }
 
-                return mergeCustomRules(cacheRules);
+                return mergeCustomRules(applyRemoteRulePatches(cacheRules, patchSets));
             }
 
             if (storage.builtInRulesEnabled === false) {
@@ -2377,7 +2521,7 @@ function loadBundledRulesInternal(isFallback = false) {
             const cacheRules = loadRemoteRulesFromCache(null, 'after_bundled_failure', getConfiguredRemoteRuleSets());
             if (cacheRules) {
                 storage.hashValidationStatus = 'cache_used_bundled_failed';
-                return mergeCustomRules(cacheRules);
+                return mergeCustomRules(applyRemoteRulePatches(cacheRules, cachedRemotePatchSets));
             }
             
             if (storage.ClearURLsData && Object.keys(storage.ClearURLsData).length > 0) {

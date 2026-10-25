@@ -67,8 +67,9 @@ import vm from 'vm';
 import './core_js/linkumori_rule_ids.js';
 import './core_js/linkumori_rule_defaults.js';
 import './core_js/linkumori_rule_pins.js';
+import './core_js/linkumori_rule_patches.js';
 
-const { LinkumoriRuleDefaults, LinkumoriRuleIds, LinkumoriRulePins } = globalThis;
+const { LinkumoriRuleDefaults, LinkumoriRuleIds, LinkumoriRulePatches, LinkumoriRulePins } = globalThis;
 
 // Rule ids and aliases (see docs/filter-syntax.md §9).
 const RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
@@ -2007,12 +2008,14 @@ ${commit.message}
       return false;
     }
 
-    // { metadata?, providers }
-    if (!data.providers || typeof data.providers !== 'object' || Array.isArray(data.providers)) {
+    // { metadata?, providers } — a remote file of only "patches" may leave
+    // "providers" out (docs/filter-syntax.md §Rule patches).
+    const patchOnly = data.providers === undefined && Array.isArray(data.patches) && data.patches.length > 0;
+    if (!patchOnly && (!data.providers || typeof data.providers !== 'object' || Array.isArray(data.providers))) {
       this.error('❌ Rules file must have a "providers" object');
       return false;
     }
-    const providersObj = data.providers;
+    const providersObj = patchOnly ? {} : data.providers;
     const formatLabel = data.metadata ? 'rules with metadata (LZ4 payload)' : 'source rules';
 
     const providerEntries = Object.entries(providersObj);
@@ -2031,6 +2034,14 @@ ${commit.message}
     // The optional "cln" key names the format version (CLN 1.0 §File structure).
     const clnProblem = LinkumoriRuleIds.findClnVersionProblem(data);
     if (clnProblem) errors.push(`[cln] ${clnProblem}`);
+
+    // A top-level "patches" array (core_js/linkumori_rule_patches.js).
+    for (const problem of LinkumoriRulePatches.findRulePatchProblems(data.patches)) {
+      errors.push(`[patches] ${problem}`);
+    }
+    if (Array.isArray(data.patches) && data.patches.length > 0) {
+      this.info(`🩹 Rule patches found: ${data.patches.length}`);
+    }
 
     // helper — try to compile a regex, push error on failure
     const tryRegex = (pattern, flags, label) => {
