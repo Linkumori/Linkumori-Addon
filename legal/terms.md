@@ -1,6 +1,6 @@
 # Terms of Use
 
-**Last updated:** October 21, 2026
+**Last updated:** October 25, 2026
 
 ## Definitions
 
@@ -24,7 +24,19 @@ Linkumori is distributed separately, through Firefox Add-ons and GitHub Releases
 
 ## Tools on this site
 
-The URL cleaning demo and the run-order calculator run entirely in your browser. They are simplified examples. Their results may differ from what Linkumori does, and you should not rely on them for any purpose.
+The URL cleaning demo, the run-order calculator and the filter list converter run entirely in your browser. They are simplified tools. Their results may differ from what Linkumori does, and you should not rely on them for any purpose. Check a converted rule file before you use or share it.
+
+## Content you fetch from other sites
+
+The filter list converter fetches filter lists from addresses that you enter, and from addresses those lists name with `!#include`. Your browser makes these requests directly. We do not choose, host, review, check, or endorse those addresses, the sites behind them, or anything they return.
+
+You are solely responsible for:
+
+- the addresses you enter and the sites you fetch from;
+- having the right to fetch, convert, use, and share each list, and following its license, including crediting its authors when you share a converted file;
+- anything you do with the converted rule file, including loading it into Linkumori or any other software.
+
+We are not responsible or liable for any content fetched from another site, including its accuracy, legality, safety, availability, or license, or for any harm, loss, or claim that results from fetching, converting, or using it. A fetched list is treated as plain text and is never run as code, but you should still only fetch lists from sources you trust.
 
 ## Licenses
 
@@ -51,7 +63,7 @@ This site is hosted on GitHub Pages. Your use of GitHub's service is also subjec
 
 ## Links to other sites
 
-This site links to sites we do not control, including Firefox Add-ons and GitHub. We are not responsible for their content, availability, or practices.
+This site links to sites we do not control, including Firefox Add-ons and GitHub, and its converter can fetch content from sites you choose. We are not responsible for their content, availability, or practices.
 
 ## No warranty
 

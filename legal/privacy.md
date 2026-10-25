@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** October 21, 2026
+**Last updated:** October 25, 2026
 
 ## Definitions
 
@@ -11,6 +11,16 @@
 ## What we collect
 
 We do not collect, store, or share any personal information. This site uses no cookies, analytics, or trackers.
+
+## Information kept in your browser
+
+Some pages save small preferences in your browser's local storage, such as the light or dark theme and the list addresses you type into the filter list converter. They stay on your device and are never sent to us. You can remove them at any time by clearing this site's data in your browser.
+
+## Filter list converter and other sites
+
+The [filter list converter](converter.html) can fetch a filter list from an address you enter. When you press **Fetch** or **Fetch all**, or a list you load uses `!#include`, your browser connects directly to the site at that address. That site, not us, receives your IP address and whatever else your browser sends with the request, and handles it under its own privacy policy. We do not receive, see, or store the request, the address, or the list you fetch.
+
+We do not choose, check, or control the addresses you enter or the sites behind them, and we are not responsible for how those sites collect, use, or share information. Only fetch lists from sites you trust. If you paste a list or load it from a file instead, nothing leaves your browser.
 
 ## Hosting by GitHub
 

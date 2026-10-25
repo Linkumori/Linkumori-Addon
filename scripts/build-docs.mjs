@@ -98,6 +98,17 @@ const pages = [
     scripts: ['assets/rules.js']
   },
   {
+    html: 'partials/converter.html',
+    out: 'converter.html',
+    title: 'AdGuard filter converter — Linkumori',
+    heading: 'AdGuard filters to CLN 1.0',
+    description: 'Convert AdGuard and uBlock Origin $removeparam filter lists into one Linkumori CLN 1.0 rule file, in your browser, with a conversion report and a URL tester.',
+    kicker: 'Tool',
+    facts: [['Input', 'AdGuard and uBlock Origin lists'], ['Output', 'CLN 1.0 rule file'], ['Runs', 'In your browser']],
+    wide: true,
+    scripts: ['assets/converter-core.js', 'assets/converter.js']
+  },
+  {
     local: 'legal/privacy.md',
     out: 'privacy.html',
     title: 'Privacy Policy — Linkumori',
@@ -685,6 +696,7 @@ ${body}
             <li><a href="rules.html">How rules work</a></li>
             <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
             <li><a href="filter-syntax.html">Filter syntax</a></li>
+            <li><a href="converter.html">AdGuard converter</a></li>
             <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
           </ul>
         </div>
