@@ -1511,7 +1511,7 @@ documentation when you run the build process.
 
     const providersBlock = providerLines ? `\n${providerLines}\n` : '\n';
 
-    const metadataBlock = includeMetadata
+      const metadataBlock = includeMetadata
       ? `  "metadata": ${metadataInline},\n`
       : '';
 
@@ -2250,13 +2250,23 @@ ${commit.message}
 
     const getRemoveParamValue = (rule) => {
       const rulePattern = getRulePattern(rule);
-      const modifierStart = rulePattern.indexOf('$');
+      const modifierStart = findRuleModifierStart(rulePattern);
       if (modifierStart === -1) return null;
       const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
       const token = modifiers.find(part => /^removeparam(?:=|$)/i.test(part.trim()));
       if (!token) return null;
       const eqIndex = token.indexOf('=');
       return eqIndex === -1 ? '' : token.slice(eqIndex + 1).trim();
+    };
+
+    const getRemoveParamUrlPattern = (rule) => {
+      const rulePattern = getRulePattern(rule);
+      const modifierStart = findRuleModifierStart(rulePattern);
+      if (modifierStart === -1) return null;
+      const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
+      if (!modifiers.some(part => /^removeparam(?:=|$)/i.test(part.trim()))) return null;
+      const offset = rulePattern.startsWith('@@') ? 2 : 0;
+      return rulePattern.slice(offset, modifierStart).trim() || '*';
     };
 
     const validateRemoveParamRule = (rule, label) => {
@@ -2302,6 +2312,77 @@ ${commit.message}
       return negate ? !matched : matched;
     };
 
+    const removeParamRuleMatchesUrl = (rule, inputUrl) => {
+      const pattern = getRemoveParamUrlPattern(rule);
+      if (pattern === null || !domainPatternMatchesUrl(pattern, inputUrl)) return false;
+
+      let hostname;
+      try { hostname = new URL(inputUrl).hostname.toLowerCase(); }
+      catch { return false; }
+
+      const modifiers = getRemoveParamOptions(getRulePattern(rule));
+      const valuesFor = name => modifiers
+        .filter(option => option.slice(0, option.indexOf('=')).toLowerCase() === name)
+        .map(option => option.slice(option.indexOf('=') + 1).trim());
+      const splitValues = value => {
+        const values = [];
+        let current = '', inRegex = false, escaped = false;
+        for (const ch of String(value || '')) {
+          if (escaped) { current += ch; escaped = false; continue; }
+          if (ch === '\\') { current += ch; escaped = true; continue; }
+          if (ch === '/') inRegex = !inRegex;
+          if (ch === '|' && !inRegex) {
+            if (current.trim()) values.push(current.trim());
+            current = '';
+          } else current += ch;
+        }
+        if (current.trim()) values.push(current.trim());
+        return values;
+      };
+      const hostMatches = rawPattern => {
+        const value = String(rawPattern || '').trim();
+        if (!value) return false;
+        const regexLiteral = parseRegexLiteral(value);
+        if (regexLiteral) {
+          try { return new RegExp(regexLiteral.body, regexLiteral.flags || 'i').test(hostname); }
+          catch { return false; }
+        }
+        return domainPatternMatchesUrl(value.startsWith('||') ? value : `||${value.replace(/^\*\./, '')}^`, inputUrl);
+      };
+      const hostScopeMatches = name => {
+        const values = valuesFor(name).flatMap(splitValues);
+        const included = values.filter(value => !value.startsWith('~'));
+        const excluded = values.filter(value => value.startsWith('~')).map(value => value.slice(1));
+        return (!included.length || included.some(hostMatches)) && !excluded.some(hostMatches);
+      };
+      if (!hostScopeMatches('domain') || !hostScopeMatches('to')) return false;
+
+      const methods = valuesFor('method').flatMap(splitValues).map(value => value.toUpperCase());
+      const includedMethods = methods.filter(value => !value.startsWith('~'));
+      const excludedMethods = methods.filter(value => value.startsWith('~')).map(value => value.slice(1));
+      if ((includedMethods.length && !includedMethods.includes('GET')) || excludedMethods.includes('GET')) return false;
+
+      const typeNames = {
+        document: 'main_frame', subdocument: 'sub_frame', script: 'script', stylesheet: 'stylesheet',
+        image: 'image', imageset: 'imageset', media: 'media', object: 'object', other: 'other',
+        ping: 'ping', websocket: 'websocket', xmlhttprequest: 'xmlhttprequest', font: 'font'
+      };
+      const types = modifiers.map(option => option.toLowerCase())
+        .filter(option => option.replace(/^~/, '') in typeNames)
+        .map(option => option.startsWith('~')
+          ? { excluded: true, type: typeNames[option.slice(1)] }
+          : { excluded: false, type: typeNames[option] });
+      const includedTypes = types.filter(option => !option.excluded).map(option => option.type);
+      const excludedTypes = types.filter(option => option.excluded).map(option => option.type);
+      if ((includedTypes.length && !includedTypes.includes('main_frame')) || excludedTypes.includes('main_frame')) return false;
+
+      // Smoke-test URLs represent a top-level GET navigation without a referrer.
+      // The runtime skips third-party-only filters in that context.
+      const flags = new Set(modifiers.map(option => option.toLowerCase()));
+      if (flags.has('third-party') || flags.has('strict-third-party') || flags.has('strict-first-party')) return false;
+      return true;
+    };
+
     const domainPatternMatchesUrl = (pattern, inputUrl) => {
       const rawPattern = String(pattern || '').trim();
       if (!rawPattern) return false;
@@ -2316,27 +2397,52 @@ ${commit.message}
         }
       }
 
-      let urlObj;
+      const firstSpecialIndex = value => {
+        const indices = ['/','^','|'].map(ch => value.indexOf(ch)).filter(index => index !== -1);
+        return indices.length ? Math.min(...indices) : -1;
+      };
+      const toPatternSource = (value, hostEndIndex = -1) => {
+        let source = '';
+        for (let i = 0; i < value.length; i++) {
+          const ch = value[i];
+          if (ch === '*') source += '.*';
+          else if (ch === '^') {
+            const beforePath = value[i + 1] === '/';
+            if (i === hostEndIndex) source += '(?::[0-9]+)?';
+            source += beforePath
+              ? '(?=[^0-9A-Za-z_\\-.%]|$)'
+              : '(?:[^0-9A-Za-z_\\-.%]|$)';
+          } else source += /[\\^$.*+?()[\]{}|]/.test(ch) ? `\\${ch}` : ch;
+        }
+        return source;
+      };
+
+      let body = rawPattern, prefix = '', suffix = '', domainBoundary = '';
+      if (body.startsWith('||')) {
+        body = body.slice(2);
+        const hostEndIndex = firstSpecialIndex(body);
+        const caretIndex = hostEndIndex !== -1 && body[hostEndIndex] === '^' ? hostEndIndex : -1;
+        if (caretIndex !== -1 && body.slice(0, caretIndex).startsWith('*.')) body = body.slice(2);
+        prefix = '^[A-Za-z][A-Za-z0-9+.-]*:\\/+([^/?#]*\\.)?';
+        if (firstSpecialIndex(body) === -1) domainBoundary = '(?=[:/?#]|$)';
+        try {
+          return new RegExp(prefix + toPatternSource(body, caretIndex) + domainBoundary, 'i').test(inputUrl);
+        } catch {
+          return false;
+        }
+      }
+
+      const startAnchor = body.startsWith('|');
+      if (startAnchor) body = body.slice(1);
+      const endAnchor = body.endsWith('|');
+      if (endAnchor) body = body.slice(0, -1);
+      if (startAnchor) prefix = '^';
+      if (endAnchor) suffix = '$';
       try {
-        urlObj = new URL(inputUrl);
+        return new RegExp(prefix + toPatternSource(body) + suffix, 'i').test(inputUrl);
       } catch {
         return false;
       }
-
-      if (rawPattern.startsWith('||')) {
-        const body = rawPattern.slice(2);
-        const boundaryIndex = body.search(/[\^/?#]/);
-        const hostPattern = (boundaryIndex === -1 ? body : body.slice(0, boundaryIndex)).replace(/^\*\./, '');
-        const tail = boundaryIndex === -1 ? '' : body.slice(boundaryIndex).replace(/^\^/, '');
-        const hostRegex = '^(.+\\.)?' + hostPattern
-          .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-          .replace(/\\\*/g, '[^.]+') + '$';
-        if (!new RegExp(hostRegex, 'i').test(urlObj.hostname)) return false;
-        if (!tail) return true;
-        return (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase().startsWith(tail.toLowerCase());
-      }
-
-      return inputUrl.toLowerCase().includes(rawPattern.toLowerCase());
     };
 
     const providerMatchesUrl = (provider, inputUrl) => {
@@ -2738,7 +2844,7 @@ ${commit.message}
           for (const key of params.keys()) {
             // Fresh RegExp each time — avoids stateful lastIndex with 'g' flag
             if (isRemoveParamRule(rule)) {
-              if (removeParamRuleMatchesKey(rule, key)) toDelete.push(key);
+              if (removeParamRuleMatchesUrl(rule, urlStr) && removeParamRuleMatchesKey(rule, key)) toDelete.push(key);
             } else if (new RegExp(`^${rulePattern}$`, 'gi').test(key)) {
               toDelete.push(key);
             }
@@ -2871,10 +2977,10 @@ ${commit.message}
     const bundledFile = stats.outputFile || this.clearurlsConfig.compressedRulesFile;
     const describeOutputFile = (file) => {
       if (file === sourceFile || file.endsWith('.json')) {
-        return 'Canonical metadata-free ClearURLs source JSON';
+        return 'Canonical ClearURLs source JSON with Linkumori metadata';
       }
       if (file.endsWith('.lz4')) {
-        return `LZ4-compressed bundle generated from ${sourceFile} with Linkumori metadata v${version} injected`;
+        return `LZ4-compressed bundle generated from ${sourceFile} with Linkumori metadata v${version}`;
       }
       return `Generated ClearURLs artifact v${version}`;
     };
@@ -2899,7 +3005,7 @@ ${outputFiles.map(file => `- \`${file}\` - ${describeOutputFile(file)}`).join('\
 
 ### Build Summary
 
-This build used ${sourceFile} as the canonical metadata-free ClearURLs source JSON, injected Linkumori metadata only into the generated rules payload, and compressed that payload into ${bundledFile}.
+This build used ${sourceFile} as the canonical ClearURLs source JSON, wrote Linkumori metadata into the source and generated rules payload, and compressed the generated payload into ${bundledFile}.
 
 ### Provenance Notice
 
@@ -2931,15 +3037,15 @@ ${sourceFile} carries forward the historical rule-source modifications from depr
 
 ## About This Build
 
-This directory contains the canonical metadata-free Linkumori ClearURLs source JSON and the compressed rules bundle generated from it.
+This directory contains the canonical Linkumori ClearURLs source JSON with metadata and the compressed rules bundle generated from it.
 
 ### What This Script Does
 
 The Linkumori ClearURLs Rules Builder performs the following operations:
 
 1. **Loads Source Rules**: Reads canonical URL cleaning rules from ${sourceFile}
-2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers, without writing metadata to the source file
-3. **Generates Output**: Injects Linkumori metadata into the generated payload and compresses it into ${bundledFile}
+2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers and Linkumori metadata
+3. **Generates Output**: Writes matching Linkumori metadata into the source and generated payload, then compresses it into ${bundledFile}
 4. **Validation**: Ensures rules have proper structure and compile before bundling
 
 ### Versioning System
@@ -2958,7 +3064,7 @@ This enhanced version includes metadata for the Linkumori URL cleaning project:
 - **Homepage**: https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/
 - **Issues**: https://github.com/Linkumori/Linkumori-Addon/issues
 - **This script written by subham mahesh in 2026 some significated part taken from cleaurls Kevin Röbert which is licensed under LGPL 3.0**
-- **linkumori-clearurls.json** is the canonical metadata-free source rules file; it carries forward historical modifications and provenance from the deprecated data/custom-rules.json, data/downloaded-official-rules.json, and earlier data/linkumori-clearurls-min.json.lz4 bundle.
+- **linkumori-clearurls.json** is the canonical source rules file with Linkumori metadata; it carries forward historical modifications and provenance from the deprecated data/custom-rules.json, data/downloaded-official-rules.json, and earlier data/linkumori-clearurls-min.json.lz4 bundle.
 - **Copyright**: Linkumori modifications and curated additions are Copyright (c) 2025-2026 Subham Mahesh. ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.
 - **Sidecar notices**: data/linkumori-clearurls.json.txt, data/linkumori-clearurls-min.json.lz4.txt, data/custom-rules.json.txt, and data/downloaded-official-rules.json.txt.
 - **Final output generated by script**: ${bundledFile}
@@ -3036,12 +3142,11 @@ ${currentBuildInfo}`;
       this.addIndexPatternsForUrlProviders(sourceRules.providers);
 
       const minifiedRules = this.minifyRules(sourceRules);
-      delete minifiedRules.metadata;
-      const sourceOutputContent = this.formatMinifiedOutput(minifiedRules, { includeMetadata: false });
-      fs.writeFileSync(sourceFile, sourceOutputContent);
-      this.success(`📄 Metadata-free source rules normalized: ${sourceFile}`);
-
       const linkumoriRules = this.createLinkumoriJSON(minifiedRules);
+      const sourceOutputContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
+      fs.writeFileSync(sourceFile, sourceOutputContent);
+      this.success(`📄 Source rules with Linkumori metadata normalized: ${sourceFile}`);
+
       const lz4PayloadContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
       const lz4Stats = this.writeLZ4CompressedContent(lz4PayloadContent, outputFile);
       this.success(`🗜️ LZ4 rules saved to: ${lz4Stats.outputFile}`);
@@ -3062,7 +3167,7 @@ ${currentBuildInfo}`;
       this.success(`📅 Version: ${generatedVersion}`);
       this.info(`📂 Source file: ${sourceFile}`);
       this.info(`📊 Providers: ${stats.sourceProviderCount}`);
-      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} injected into LZ4 only`);
+      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} written to source JSON and LZ4 bundle`);
       this.info(`📁 Source JSON: ${Math.round(sourceStats.size / 1024)}KB`);
       this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
       this.info(`📋 Documentation: ${config.noticeFile}`);
@@ -4403,8 +4508,8 @@ coverage/**
     this.log('\nClearURLs Source Bundle:', 'cyan');
     this.log('  The ClearURLs builder:', 'white');
     this.log('  - Reads data/linkumori-clearurls.json as the source of truth', 'dim');
-    this.log('  - Normalizes the wrapped ClearURLsData JSON without writing metadata to source', 'dim');
-    this.log('  - Injects Linkumori metadata only into data/linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('  - Normalizes the wrapped ClearURLsData JSON with Linkumori metadata', 'dim');
+    this.log('  - Writes matching Linkumori metadata into source JSON and data/linkumori-clearurls-min.json.lz4', 'dim');
     this.log('  - Does not download or merge downloaded-official-rules.json/custom-rules.json', 'dim');
     this.log('  - Generates detailed statistics and documentation', 'dim');
     this.log('  - Creates/updates NOTICE.md with build history', 'dim');
