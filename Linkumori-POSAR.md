@@ -1,6 +1,6 @@
 # Linkumori — Performance of Software and Acceptance of Risk
 
-**Version 2.0**
+**Version 3.0**
 
 ---
 
@@ -204,8 +204,11 @@ The User enables and uses Remote Rules entirely at their own risk. Linkumori sha
 
 10.3 Regardless of age or consent status, Linkumori does not collect, process, or transmit any personal data.
 
-10.4 In the event of any conflict between this Document and the Privacy Policy or applicable local law regarding data collection and privacy, the Privacy Policy and applicable local law shall prevail.
+10.4 Since Minor cannot contract it is advised not to agree on anything even if Minor agreed it shall be void ab into.
 
+10.5 It shall be parents duty how Minor give permissions to access thier device we shall not be liable for any damages on any thing that harm author,distributor on any other person in relation to this software
+
+10.4 10.5 Parental Responsibility for Minors: It shall be the responsibility of parents or legal guardians to grant and supervise any minor’s permission to access or use their device. To the maximum extent permitted by applicable law, the author(s) and distributor(s) of this software shall not be liable for any damages, harm, or claims arising from a minor’s access to or use of the software, including harm to the minor or any other person.
 ---
 
 ## Section 11 — Scope and Official Versions
@@ -260,4 +263,4 @@ For questions regarding this Document, please contact Linkumori through the offi
 
 ---
 
-*Linkumori — Performance of Software and Acceptance of Risk — Version 2.0*
+*Linkumori — Performance of Software and Acceptance of Risk — Version 3.0*
