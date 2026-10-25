@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.72.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.71.0...linkumori-v100.72.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`549ef02`](https://github.com/Linkumori/Linkumori-Addon/commit/549ef02))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`bcc6bad`](https://github.com/Linkumori/Linkumori-Addon/commit/bcc6bad))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`d2e46e5`](https://github.com/Linkumori/Linkumori-Addon/commit/d2e46e5))
+- Update commit history (`2026-10-25`, hash: [`2d8d992`](https://github.com/Linkumori/Linkumori-Addon/commit/2d8d992))
+- Update rules (`2026-10-25`, hash: [`bcc6bad`](https://github.com/Linkumori/Linkumori-Addon/commit/bcc6bad))
+- Update rules (`2026-10-25`, hash: [`d2e46e5`](https://github.com/Linkumori/Linkumori-Addon/commit/d2e46e5))
+- Update rules (`2026-10-25`, hash: [`d40cff0`](https://github.com/Linkumori/Linkumori-Addon/commit/d40cff0))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`549ef02`](https://github.com/Linkumori/Linkumori-Addon/commit/549ef02))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`bcc6bad`](https://github.com/Linkumori/Linkumori-Addon/commit/bcc6bad))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`d2e46e5`](https://github.com/Linkumori/Linkumori-Addon/commit/d2e46e5))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`d40cff0`](https://github.com/Linkumori/Linkumori-Addon/commit/d40cff0))
+
 ## [v100.71.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.70.0...linkumori-v100.71.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`edd736b`](https://github.com/Linkumori/Linkumori-Addon/commit/edd736b))
