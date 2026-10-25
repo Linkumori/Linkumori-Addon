@@ -16,6 +16,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.73.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.72.0...linkumori-v100.73.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`041ec69`](https://github.com/Linkumori/Linkumori-Addon/commit/041ec69))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`0636e1b`](https://github.com/Linkumori/Linkumori-Addon/commit/0636e1b))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`186f95c`](https://github.com/Linkumori/Linkumori-Addon/commit/186f95c))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`5daff9d`](https://github.com/Linkumori/Linkumori-Addon/commit/5daff9d))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`f6cb913`](https://github.com/Linkumori/Linkumori-Addon/commit/f6cb913))
+- Move the bundled defaults.exceptions to @@ $removeparam filters (#181) (`2026-10-25`, hash: [`186f95c`](https://github.com/Linkumori/Linkumori-Addon/commit/186f95c)) [#181](https://github.com/Linkumori/Linkumori-Addon/issues/181)
+- Update rules (`2026-10-25`, hash: [`5451630`](https://github.com/Linkumori/Linkumori-Addon/commit/5451630))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`041ec69`](https://github.com/Linkumori/Linkumori-Addon/commit/041ec69))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`0636e1b`](https://github.com/Linkumori/Linkumori-Addon/commit/0636e1b))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`186f95c`](https://github.com/Linkumori/Linkumori-Addon/commit/186f95c))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`5451630`](https://github.com/Linkumori/Linkumori-Addon/commit/5451630))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`5daff9d`](https://github.com/Linkumori/Linkumori-Addon/commit/5daff9d))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`f6cb913`](https://github.com/Linkumori/Linkumori-Addon/commit/f6cb913))
+
+### Fixed
+- Resolve Lazada and Shopee rules that never matched (`2026-10-25`, hash: [`f6cb913`](https://github.com/Linkumori/Linkumori-Addon/commit/f6cb913))
+- Resolve rules (#179) (`2026-10-25`, hash: [`0636e1b`](https://github.com/Linkumori/Linkumori-Addon/commit/0636e1b)) [#179](https://github.com/Linkumori/Linkumori-Addon/issues/179)
+
+### Removed
+- Drop provider rule exceptions that are already covered or never match (`2026-10-25`, hash: [`041ec69`](https://github.com/Linkumori/Linkumori-Addon/commit/041ec69)) [#179](https://github.com/Linkumori/Linkumori-Addon/issues/179)
+
 ## [v100.72.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.71.0...linkumori-v100.72.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`549ef02`](https://github.com/Linkumori/Linkumori-Addon/commit/549ef02))
