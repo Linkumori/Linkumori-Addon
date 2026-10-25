@@ -10,6 +10,7 @@ This branch has no history in common with `main`. It holds only the site.
 | `cln-1.0.html` | CLN Format 1.0 (final), generated from `docs/cln-format-1.0.md`, with a run-order calculator |
 | `filter-syntax.html` | Filter syntax reference, generated from `docs/filter-syntax.md` |
 | `rules.html` | How rules work: sources, merging, custom rules, toggles, defaults and capabilities, built from `partials/rules.html`, with the source explorer and case picker in `assets/rules.js`. Every case card (input JSON, what runs, resulting JSON) comes from `scripts/rules-cases.mjs` |
+| `converter.html` | AdGuard / uBlock Origin `$removeparam` lists to one CLN 1.0 rule file, built from `partials/converter.html`. The conversion is in `assets/converter-core.js` (no DOM; also loads in Node with `require`), the page in `assets/converter.js` |
 | `privacy.html`, `terms.html` | The site's Privacy Policy and Terms of Use, generated from `legal/privacy.md` and `legal/terms.md` |
 | `assets/` | Styles, scripts and the logo |
 | `assets/og-image.png`, `assets/icon-32.png`, `assets/apple-touch-icon.png` | Share card and PNG icons, rendered by `scripts/make-images.py` |
