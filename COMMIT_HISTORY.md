@@ -1,16 +1,35 @@
 # Git Commit History
 
-**Generated**: 2026-10-25T14:05:44.047Z
-**Total Commits**: 828
+**Generated**: 2026-10-25T14:15:22.603Z
+**Total Commits**: 829
 
 ---
 
-## Commit 1: feat: add overload mode patch strategies
+## Commit 1: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-10-25 14:05:44 +0000
+**Commit Hash**: `8aeb3100568562fe6c1cd9c02f8c69149911bff7`
+**Short Hash**: `8aeb310`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 2: feat: add overload mode patch strategies
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:59:05 +0530
-**Commit Hash**: `37f6fb0ed5d4a888470d0d91ac4820bf87b28636`
-**Short Hash**: `37f6fb0`
+**Commit Hash**: `d0fc08a34e8f8ebd972b60ff4f45c8ae8c1d32af`
+**Short Hash**: `d0fc08a`
 
 ### Files Modified
 
@@ -85,12 +104,12 @@ feat: add overload mode patch strategies
 
 ---
 
-## Commit 2: chore: update commit history
+## Commit 3: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:36:00 +0000
-**Commit Hash**: `4e11e2e442078aba825dbf25e3125d8e85da8891`
-**Short Hash**: `4e11e2e`
+**Commit Hash**: `3a9e390aefbc004be6751a3d01aa2b73f72cb699`
+**Short Hash**: `3a9e390`
 
 ### Files Modified
 
@@ -104,12 +123,12 @@ chore: update commit history
 
 ---
 
-## Commit 3: Update consent_config.js
+## Commit 4: Update consent_config.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:05:48 +0530
-**Commit Hash**: `0ef4b4f63049f68fb277dffaca5bb379a24395f0`
-**Short Hash**: `0ef4b4f`
+**Commit Hash**: `7e562bd440d44c3209114d9eac3385727c02e14f`
+**Short Hash**: `7e562bd`
 
 ### Files Modified
 
@@ -123,12 +142,12 @@ Update consent_config.js
 
 ---
 
-## Commit 4: chore: update commit history
+## Commit 5: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:34:46 +0000
-**Commit Hash**: `6d754ee1416ef871771e36b2ea5d85e48c9294e5`
-**Short Hash**: `6d754ee`
+**Commit Hash**: `b880a00e7a2334392743e103e86161a49ece0e6e`
+**Short Hash**: `b880a00`
 
 ### Files Modified
 
@@ -142,12 +161,12 @@ chore: update commit history
 
 ---
 
-## Commit 5: Update Linkumori-POSAR.md
+## Commit 6: Update Linkumori-POSAR.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:04:31 +0530
-**Commit Hash**: `3f6cfa072c7f304c12b80f1022564174f6dc183a`
-**Short Hash**: `3f6cfa0`
+**Commit Hash**: `a8bf59ca247d259c0ba4af37e178b908c12666ab`
+**Short Hash**: `a8bf59c`
 
 ### Files Modified
 
@@ -161,12 +180,12 @@ Update Linkumori-POSAR.md
 
 ---
 
-## Commit 6: chore: update commit history
+## Commit 7: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:31:02 +0000
-**Commit Hash**: `d3b9052a4400661955e13c079cd145191e686992`
-**Short Hash**: `d3b9052`
+**Commit Hash**: `2e82cffa715a9c3c26907a2e92aac6f545031385`
+**Short Hash**: `2e82cff`
 
 ### Files Modified
 
@@ -180,12 +199,12 @@ chore: update commit history
 
 ---
 
-## Commit 7: Update Linkumori-POSAR.md
+## Commit 8: Update Linkumori-POSAR.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:00:47 +0530
-**Commit Hash**: `cd82a576fee3a61989f5767980bee4cb62de9955`
-**Short Hash**: `cd82a57`
+**Commit Hash**: `156d3a541e0bc20afe106b026bd91603b1e3b196`
+**Short Hash**: `156d3a5`
 
 ### Files Modified
 
@@ -199,12 +218,12 @@ Update Linkumori-POSAR.md
 
 ---
 
-## Commit 8: chore: update commit history
+## Commit 9: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:35:55 +0000
-**Commit Hash**: `e165fd1672976a2265cb67260afb45bacf3c4772`
-**Short Hash**: `e165fd1`
+**Commit Hash**: `66c44d8694fb4a33e5b9ee1c7195c1db4b1b7bb0`
+**Short Hash**: `66c44d8`
 
 ### Files Modified
 
@@ -218,12 +237,12 @@ chore: update commit history
 
 ---
 
-## Commit 9: Add remote rule patches (#182)
+## Commit 10: Add remote rule patches
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 16:05:40 +0530
-**Commit Hash**: `c3c7eb734913dcd77d0c55c0271a3eb13541b5cf`
-**Short Hash**: `c3c7eb7`
+**Commit Hash**: `a4b31c2f0257fc1440bdde3339fb6fdf0fb60658`
+**Short Hash**: `a4b31c2`
 
 ### Files Modified
 
@@ -298,17 +317,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Add remote rule patches (#182)
+Add remote rule patches
 ```
 
 ---
 
-## Commit 10: chore: update changelog for v100.73.0
+## Commit 11: chore: update changelog for v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:55 +0000
-**Commit Hash**: `04e9d4fd5a8bdae69ebb3070b7959015663a2e42`
-**Short Hash**: `04e9d4f`
+**Commit Hash**: `0c260691d39886d3356336acfec0e19d9790fb37`
+**Short Hash**: `0c26069`
 
 ### Files Modified
 
@@ -322,12 +341,12 @@ chore: update changelog for v100.73.0
 
 ---
 
-## Commit 11: chore: update commit history for v100.73.0
+## Commit 12: chore: update commit history for v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:53 +0000
-**Commit Hash**: `befdf74a68b722ceeaf955840b5b4e2ce59ca309`
-**Short Hash**: `befdf74`
+**Commit Hash**: `bc926c5fed3114908dd938e4b4c7cb285c394aaa`
+**Short Hash**: `bc926c5`
 
 ### Files Modified
 
@@ -341,12 +360,12 @@ chore: update commit history for v100.73.0
 
 ---
 
-## Commit 12: release 100.73.0
+## Commit 13: chore: release v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:52 +0000
-**Commit Hash**: `5daff9d73c4884c7e870dc9c663c9bbe2e8fdd2e`
-**Short Hash**: `5daff9d`
+**Commit Hash**: `2f74e2ddba42ed91af14ed79f5e8f59862b35989`
+**Short Hash**: `2f74e2d`
 
 ### Files Modified
 
@@ -358,17 +377,17 @@ chore: update commit history for v100.73.0
 ### Commit Message
 
 ```text
-release 100.73.0
+chore: release v100.73.0
 ```
 
 ---
 
-## Commit 13: Move the bundled defaults.exceptions to @@ $removeparam filters (#181)
+## Commit 14: Move the bundled defaults.exceptions to @@ $removeparam filters
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 15:38:28 +0530
-**Commit Hash**: `186f95c06c1821f15e565e3028956689f5aa6496`
-**Short Hash**: `186f95c`
+**Commit Hash**: `b3dcc5318d310916f19a265b71e74586a1089976`
+**Short Hash**: `b3dcc53`
 
 ### Files Modified
 
@@ -380,17 +399,17 @@ release 100.73.0
 ### Commit Message
 
 ```text
-Move the bundled defaults.exceptions to @@ $removeparam filters (#181)
+Move the bundled defaults.exceptions to @@ $removeparam filters
 ```
 
 ---
 
-## Commit 14: Drop provider rule exceptions that are already covered or never match
+## Commit 15: Drop provider rule exceptions that are already covered or never match
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 15:30:16 +0530
-**Commit Hash**: `041ec69929b6c0e76f926c50cbd77eaa7a0915fb`
-**Short Hash**: `041ec69`
+**Commit Hash**: `2727a9b53b886c320a873b8908551696a8f1ce85`
+**Short Hash**: `2727a9b`
 
 ### Files Modified
 
@@ -406,12 +425,12 @@ Drop provider rule exceptions that are already covered or never match
 
 ---
 
-## Commit 15: fix rules (#179)
+## Commit 16: fix: remove redundant provider rule exceptions
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 14:37:49 +0530
-**Commit Hash**: `0636e1b033de562d97e6a1e7dd790394769cc498`
-**Short Hash**: `0636e1b`
+**Commit Hash**: `54f6bc1a0ae90c6ca16f5e201310875a5132c7ae`
+**Short Hash**: `54f6bc1`
 
 ### Files Modified
 
@@ -422,17 +441,17 @@ Drop provider rule exceptions that are already covered or never match
 ### Commit Message
 
 ```text
-fix rules (#179)
+fix: remove redundant provider rule exceptions
 ```
 
 ---
 
-## Commit 16: chore: update commit history
+## Commit 17: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:27:57 +0000
-**Commit Hash**: `2c3627b87fc7ac9671f012612e63519b3e217011`
-**Short Hash**: `2c3627b`
+**Commit Hash**: `00b22dd4bcff821fa65c4055e7a10eddd48c1394`
+**Short Hash**: `00b22dd`
 
 ### Files Modified
 
@@ -446,12 +465,12 @@ chore: update commit history
 
 ---
 
-## Commit 17: Fix Lazada and Shopee rules that never matched
+## Commit 18: Fix Lazada and Shopee rules that never matched
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:57:32 +0530
-**Commit Hash**: `f6cb9132117073a111258d560ee73e269332c2fe`
-**Short Hash**: `f6cb913`
+**Commit Hash**: `4063d56cd70f73833e9482f31ad131a11a59aa00`
+**Short Hash**: `4063d56`
 
 ### Files Modified
 
@@ -467,12 +486,12 @@ Fix Lazada and Shopee rules that never matched
 
 ---
 
-## Commit 18: updated rules
+## Commit 19: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:56:57 +0530
-**Commit Hash**: `5451630e2d6bbb8aaee1111579d6e2de7ae638b7`
-**Short Hash**: `5451630`
+**Commit Hash**: `9bbb629280a02f2c2e1f7776954a7d880d2a7ff1`
+**Short Hash**: `9bbb629`
 
 ### Files Modified
 
@@ -481,17 +500,17 @@ Fix Lazada and Shopee rules that never matched
 ### Commit Message
 
 ```text
-updated rules
+data: update bundled provider rules
 ```
 
 ---
 
-## Commit 19: chore: update changelog for v100.72.0
+## Commit 20: chore: update changelog for v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:21 +0000
-**Commit Hash**: `657335fc3991be7361bdabdcc225f31287e4ae14`
-**Short Hash**: `657335f`
+**Commit Hash**: `0cd19a7b075d0fa444e79cc766a1d4f3e9f59e29`
+**Short Hash**: `0cd19a7`
 
 ### Files Modified
 
@@ -505,12 +524,12 @@ chore: update changelog for v100.72.0
 
 ---
 
-## Commit 20: chore: update commit history for v100.72.0
+## Commit 21: chore: update commit history for v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:20 +0000
-**Commit Hash**: `d30a927a713da2f94468e6cd767e3162a3c98a4d`
-**Short Hash**: `d30a927`
+**Commit Hash**: `98b9c2ad1e090d42e3f98eb85884dd886fc6e6be`
+**Short Hash**: `98b9c2a`
 
 ### Files Modified
 
@@ -524,12 +543,12 @@ chore: update commit history for v100.72.0
 
 ---
 
-## Commit 21: release 100.72.0
+## Commit 22: chore: release v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:19 +0000
-**Commit Hash**: `549ef026edff39336e22646eda0e60856fd61a19`
-**Short Hash**: `549ef02`
+**Commit Hash**: `c0d92cc82216e276b564a1581cfc3ecb5ebb6e2d`
+**Short Hash**: `c0d92cc`
 
 ### Files Modified
 
@@ -541,17 +560,17 @@ chore: update commit history for v100.72.0
 ### Commit Message
 
 ```text
-release 100.72.0
+chore: release v100.72.0
 ```
 
 ---
 
-## Commit 22: updated commit history
+## Commit 23: chore: update commit history
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:39:57 +0530
-**Commit Hash**: `2d8d99272af569562e5f65e18122a744f2af2bbe`
-**Short Hash**: `2d8d992`
+**Commit Hash**: `648528e2c91ae965096b9487058117fa2cce4808`
+**Short Hash**: `648528e`
 
 ### Files Modified
 
@@ -560,17 +579,17 @@ release 100.72.0
 ### Commit Message
 
 ```text
-updated commit history
+chore: update commit history
 ```
 
 ---
 
-## Commit 23: updated rules
+## Commit 24: data: update bundled provider rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:38:21 +0530
-**Commit Hash**: `d2e46e563af747cd0b702ec65c573abc1104b430`
-**Short Hash**: `d2e46e5`
+**Commit Hash**: `bf038e8bd7a43c6a45762f5c6aca50169a0a260b`
+**Short Hash**: `bf038e8`
 
 ### Files Modified
 
@@ -582,17 +601,17 @@ updated commit history
 ### Commit Message
 
 ```text
-updated rules
+data: update bundled provider rules
 ```
 
 ---
 
-## Commit 24: chore: update commit history
+## Commit 25: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 06:18:35 +0000
-**Commit Hash**: `7c71df576ebff1534c57eceecf45555089d47838`
-**Short Hash**: `7c71df5`
+**Commit Hash**: `5cdaa01077af1ea9b2a833ef408e2361ee68115e`
+**Short Hash**: `5cdaa01`
 
 ### Files Modified
 
@@ -606,12 +625,12 @@ chore: update commit history
 
 ---
 
-## Commit 25: updated rules
+## Commit 26: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:48:11 +0530
-**Commit Hash**: `bcc6badcde755256d203cf5464cff5ac2d758184`
-**Short Hash**: `bcc6bad`
+**Commit Hash**: `f10bd05ef105d2789110d16625b6052d027d35be`
+**Short Hash**: `f10bd05`
 
 ### Files Modified
 
@@ -622,17 +641,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-updated rules
+data: update bundled provider rules
 ```
 
 ---
 
-## Commit 26: chore: update commit history
+## Commit 27: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 06:17:20 +0000
-**Commit Hash**: `e5214cc332d1467cebbecb8cc9f58124ece68c65`
-**Short Hash**: `e5214cc`
+**Commit Hash**: `269447a299ee2bd22cd57ebea5db024d97f18a23`
+**Short Hash**: `269447a`
 
 ### Files Modified
 
@@ -646,12 +665,12 @@ chore: update commit history
 
 ---
 
-## Commit 27: updated rules
+## Commit 28: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:45:34 +0530
-**Commit Hash**: `d40cff0fa03f0c9d83cdf037a2784fba45b5db61`
-**Short Hash**: `d40cff0`
+**Commit Hash**: `15c7d834b08fa0d16a037b07870050dea9d23bcd`
+**Short Hash**: `15c7d83`
 
 ### Files Modified
 
@@ -660,17 +679,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-updated rules
+data: update bundled provider rules
 ```
 
 ---
 
-## Commit 28: chore: update changelog for v100.71.0
+## Commit 29: chore: update changelog for v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:56 +0000
-**Commit Hash**: `728ea7d40997cea851383ee7a0ce4cd26eb564fc`
-**Short Hash**: `728ea7d`
+**Commit Hash**: `5852872bd482f5d4b0d4101c1622f648f83dd85a`
+**Short Hash**: `5852872`
 
 ### Files Modified
 
@@ -684,12 +703,12 @@ chore: update changelog for v100.71.0
 
 ---
 
-## Commit 29: chore: update commit history for v100.71.0
+## Commit 30: chore: update commit history for v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:54 +0000
-**Commit Hash**: `9b8f97663c2cd08d02f71949bdab6e4f5eb30672`
-**Short Hash**: `9b8f976`
+**Commit Hash**: `c8acd8e41591d9aeb9c80857d6dc7332e8cb00de`
+**Short Hash**: `c8acd8e`
 
 ### Files Modified
 
@@ -703,12 +722,12 @@ chore: update commit history for v100.71.0
 
 ---
 
-## Commit 30: release 100.71.0
+## Commit 31: chore: release v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:53 +0000
-**Commit Hash**: `edd736b3358921330ed290534a289565553acf07`
-**Short Hash**: `edd736b`
+**Commit Hash**: `07fb38a2a4c2e56d78722a758d85213a2d08da0c`
+**Short Hash**: `07fb38a`
 
 ### Files Modified
 
@@ -720,17 +739,17 @@ chore: update commit history for v100.71.0
 ### Commit Message
 
 ```text
-release 100.71.0
+chore: release v100.71.0
 ```
 
 ---
 
-## Commit 31: chore: update commit history
+## Commit 32: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:21 +0000
-**Commit Hash**: `b49e17ed557effd75a9b8a94c2fbc880a6ff9f15`
-**Short Hash**: `b49e17e`
+**Commit Hash**: `9e408c7a0d973843100bb4fb3665a12a2678541f`
+**Short Hash**: `9e408c7`
 
 ### Files Modified
 
@@ -744,12 +763,12 @@ chore: update commit history
 
 ---
 
-## Commit 32: reoptimised our rules
+## Commit 33: perf: optimize provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:18:32 +0530
-**Commit Hash**: `443ff56d096ea9ef4e15be707212dfc96c1159ce`
-**Short Hash**: `443ff56`
+**Commit Hash**: `1391d37ec3c216be9e8909b40c85c90092025e47`
+**Short Hash**: `1391d37`
 
 ### Files Modified
 
@@ -759,17 +778,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-reoptimised our rules
+perf: optimize provider rules
 ```
 
 ---
 
-## Commit 33: chore: update changelog for v100.70.0
+## Commit 34: chore: update changelog for v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:11 +0000
-**Commit Hash**: `0529440820b9d3075aa6855add35026b5b9febd9`
-**Short Hash**: `0529440`
+**Commit Hash**: `f935e964e9916a95ab7eccabe4d114096c9b9025`
+**Short Hash**: `f935e96`
 
 ### Files Modified
 
@@ -783,12 +802,12 @@ chore: update changelog for v100.70.0
 
 ---
 
-## Commit 34: chore: update commit history for v100.70.0
+## Commit 35: chore: update commit history for v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:09 +0000
-**Commit Hash**: `197c4880852225eeca25006d3a0e79cbaf07199a`
-**Short Hash**: `197c488`
+**Commit Hash**: `a196a791438160b33c082614bfd3d0b0d1413314`
+**Short Hash**: `a196a79`
 
 ### Files Modified
 
@@ -802,12 +821,12 @@ chore: update commit history for v100.70.0
 
 ---
 
-## Commit 35: release 100.70.0
+## Commit 36: chore: release v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:08 +0000
-**Commit Hash**: `5d61209ea78121216d43a61d99865cf862db238c`
-**Short Hash**: `5d61209`
+**Commit Hash**: `81ac9d0228721b2215179c93cd3ddcb7f8cfc307`
+**Short Hash**: `81ac9d0`
 
 ### Files Modified
 
@@ -819,17 +838,17 @@ chore: update commit history for v100.70.0
 ### Commit Message
 
 ```text
-release 100.70.0
+chore: release v100.70.0
 ```
 
 ---
 
-## Commit 36: chore: update commit history
+## Commit 37: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 15:39:34 +0000
-**Commit Hash**: `40677d524b071307a8ecc2bc695d454a98a8f181`
-**Short Hash**: `40677d5`
+**Commit Hash**: `3c637465d163ede2bce218bb066434fa7d8cf9ef`
+**Short Hash**: `3c63746`
 
 ### Files Modified
 
@@ -843,12 +862,12 @@ chore: update commit history
 
 ---
 
-## Commit 37: Show order numbers live while dragging; restore them
+## Commit 38: Show order numbers live while dragging; restore them
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 21:09:18 +0530
-**Commit Hash**: `8ff4b4edd1093c8b7e85031cfa1f82a465e1aa3a`
-**Short Hash**: `8ff4b4e`
+**Commit Hash**: `955db277d5348107e69eb9fab3f7ab38f7ea9524`
+**Short Hash**: `955db27`
 
 ### Files Modified
 
@@ -865,12 +884,12 @@ Show order numbers live while dragging; restore them
 
 ---
 
-## Commit 38: chore: update commit history
+## Commit 39: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 15:17:26 +0000
-**Commit Hash**: `a1f3748ac65bbd89ec5ce47f5de041c5e40908e1`
-**Short Hash**: `a1f3748`
+**Commit Hash**: `e81b27120e7225be64e5ac564eec0841412be9e9`
+**Short Hash**: `e81b271`
 
 ### Files Modified
 
@@ -884,12 +903,12 @@ chore: update commit history
 
 ---
 
-## Commit 39: Make Run play the simulation in the run-order panel
+## Commit 40: Make Run play the simulation in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 20:47:07 +0530
-**Commit Hash**: `a8ffb003895345e00c9777e7e12cacd0c2455b42`
-**Short Hash**: `a8ffb00`
+**Commit Hash**: `3b6daa90358f694b360ab8af55d89a4ef70a5de3`
+**Short Hash**: `3b6daa9`
 
 ### Files Modified
 
@@ -903,12 +922,12 @@ Make Run play the simulation in the run-order panel
 
 ---
 
-## Commit 40: chore: update commit history
+## Commit 41: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 13:38:14 +0000
-**Commit Hash**: `126aea5f6bb3c6509bad5142c50c45c84c0ef182`
-**Short Hash**: `126aea5`
+**Commit Hash**: `53cc8dfbaccecb060daf771f0dea1d4042274c0c`
+**Short Hash**: `53cc8df`
 
 ### Files Modified
 
@@ -922,12 +941,12 @@ chore: update commit history
 
 ---
 
-## Commit 41: Generate a test URL from a provider's rules in the run-order panel
+## Commit 42: Generate a test URL from a provider's rules in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 19:07:56 +0530
-**Commit Hash**: `34b32844a10507e0fbc009a70c1e94925ef3dd73`
-**Short Hash**: `34b3284`
+**Commit Hash**: `81e2bfc907c6c67ac7eaebc53f51f865b7076f89`
+**Short Hash**: `81e2bfc`
 
 ### Files Modified
 
@@ -946,12 +965,12 @@ Generate a test URL from a provider's rules in the run-order panel
 
 ---
 
-## Commit 42: Clean without a request as a main_frame request
+## Commit 43: Clean without a request as a main_frame request
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 19:04:42 +0530
-**Commit Hash**: `291fed4598586abf38ab263c679dc3a5be897a04`
-**Short Hash**: `291fed4`
+**Commit Hash**: `05cf9a65d4656903dba010aa3b0e7ec71ff0c2d0`
+**Short Hash**: `05cf9a6`
 
 ### Files Modified
 
@@ -968,12 +987,12 @@ Clean without a request as a main_frame request
 
 ---
 
-## Commit 43: chore: update commit history
+## Commit 44: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:34:32 +0000
-**Commit Hash**: `d7b4a1aa468cf38068ec043952bc6ff1e5797eec`
-**Short Hash**: `d7b4a1a`
+**Commit Hash**: `0c5703bae4b1fde944c4174f912ee96830820e76`
+**Short Hash**: `0c5703b`
 
 ### Files Modified
 
@@ -987,12 +1006,12 @@ chore: update commit history
 
 ---
 
-## Commit 44: Treat a raw deletion that changes the origin as a redirect
+## Commit 45: Treat a raw deletion that changes the origin as a redirect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 17:04:16 +0530
-**Commit Hash**: `b1306bf064d94ca03133c3685a0a32a50890bcc2`
-**Short Hash**: `b1306bf`
+**Commit Hash**: `dca3ad2e4331f2b37ba8a1d4c3ed07f0a544ec97`
+**Short Hash**: `dca3ad2`
 
 ### Files Modified
 
@@ -1012,12 +1031,12 @@ Treat a raw deletion that changes the origin as a redirect
 
 ---
 
-## Commit 45: chore: update changelog for v100.69.0
+## Commit 46: chore: update changelog for v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:22:00 +0000
-**Commit Hash**: `cdea23029e8a6aca7695403936a3cd0ce37c2f9f`
-**Short Hash**: `cdea230`
+**Commit Hash**: `b7f97855ff238e973254a223d89cff0078898d7d`
+**Short Hash**: `b7f9785`
 
 ### Files Modified
 
@@ -1031,12 +1050,12 @@ chore: update changelog for v100.69.0
 
 ---
 
-## Commit 46: chore: update commit history for v100.69.0
+## Commit 47: chore: update commit history for v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:21:58 +0000
-**Commit Hash**: `bf3c4dc6d915c4a043e66271685dce81596f8bd6`
-**Short Hash**: `bf3c4dc`
+**Commit Hash**: `450a4949ce9064f92fb31f6bf9fc930648774691`
+**Short Hash**: `450a494`
 
 ### Files Modified
 
@@ -1050,12 +1069,12 @@ chore: update commit history for v100.69.0
 
 ---
 
-## Commit 47: release 100.69.0
+## Commit 48: chore: release v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:21:57 +0000
-**Commit Hash**: `13585e1333051da1bc6306c09c150c8007102911`
-**Short Hash**: `13585e1`
+**Commit Hash**: `ec72cb558651fcdf60a46b98c36334a46d3d6b8f`
+**Short Hash**: `ec72cb5`
 
 ### Files Modified
 
@@ -1066,17 +1085,17 @@ chore: update commit history for v100.69.0
 ### Commit Message
 
 ```text
-release 100.69.0
+chore: release v100.69.0
 ```
 
 ---
 
-## Commit 48: chore: update commit history
+## Commit 49: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:16:52 +0000
-**Commit Hash**: `77f35cd86463ae3f95a5d63d70486abb495525a2`
-**Short Hash**: `77f35cd`
+**Commit Hash**: `7dbba5852da81d4185044438d28ed4659dd2a333`
+**Short Hash**: `7dbba58`
 
 ### Files Modified
 
@@ -1090,12 +1109,12 @@ chore: update commit history
 
 ---
 
-## Commit 49: Apply each regression case's whitelist; require redirects where needed
+## Commit 50: Apply each regression case's whitelist; require redirects where needed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
-**Commit Hash**: `abcfddfa7cf5618e9fd24cd3ab4bfba92aff99ad`
-**Short Hash**: `abcfddf`
+**Commit Hash**: `53279ab38831aa0e4829d7f8994bad217d9f3652`
+**Short Hash**: `53279ab`
 
 ### Files Modified
 
@@ -1110,12 +1129,12 @@ Apply each regression case's whitelist; require redirects where needed
 
 ---
 
-## Commit 50: Update the regression case for colliding generated ids
+## Commit 51: Update the regression case for colliding generated ids
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
-**Commit Hash**: `d91eff980717a3b9518589024f4e0c6f38451255`
-**Short Hash**: `d91eff9`
+**Commit Hash**: `7c8614b979d6253f3cf85c1db4d63f4fbb73c2fe`
+**Short Hash**: `7c8614b`
 
 ### Files Modified
 
@@ -1129,12 +1148,12 @@ Update the regression case for colliding generated ids
 
 ---
 
-## Commit 51: Leave a URL exactly as it was when a provider changes nothing
+## Commit 52: Leave a URL exactly as it was when a provider changes nothing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
-**Commit Hash**: `aa10cff1b08756cc3af3a362cb2b1355cf82ed5d`
-**Short Hash**: `aa10cff`
+**Commit Hash**: `803b0479316f9aa245f823a8ed16b81fec969e2b`
+**Short Hash**: `803b047`
 
 ### Files Modified
 
@@ -1149,12 +1168,12 @@ Leave a URL exactly as it was when a provider changes nothing
 
 ---
 
-## Commit 52: Fix the CLI help: name the real script, drop commands that don't exist
+## Commit 53: Fix the CLI help: name the real script, drop commands that don't exist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:38 +0530
-**Commit Hash**: `6993b915e1989525186e5aadbff9466a798e6ff1`
-**Short Hash**: `6993b91`
+**Commit Hash**: `d1f3d9f323161a147b9e618a31f0df11ec52f047`
+**Short Hash**: `d1f3d9f`
 
 ### Files Modified
 
@@ -1168,12 +1187,12 @@ Fix the CLI help: name the real script, drop commands that don't exist
 
 ---
 
-## Commit 53: Remove the trailing comma that made package.json invalid JSON
+## Commit 54: Remove the trailing comma that made package.json invalid JSON
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:38 +0530
-**Commit Hash**: `f41736e5467ba70ad6ee7533dff9de7077152f32`
-**Short Hash**: `f41736e`
+**Commit Hash**: `3894faf7f58fdea14679ab933dd90ce246c0cb54`
+**Short Hash**: `3894faf`
 
 ### Files Modified
 
@@ -1187,12 +1206,12 @@ Remove the trailing comma that made package.json invalid JSON
 
 ---
 
-## Commit 54: Let a 
+## Commit 55: Let a 
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:37 +0530
-**Commit Hash**: `54a59e79df80a61b0e08bb589fbaca8580df8c07`
-**Short Hash**: `54a59e7`
+**Commit Hash**: `8ae96be6101cbcd471c6ed732a3215069b33c940`
+**Short Hash**: `8ae96be`
 
 ### Files Modified
 
@@ -1206,12 +1225,12 @@ Let a
 
 ---
 
-## Commit 55: Match ^/ in domain patterns without needing the slash twice
+## Commit 56: Match ^/ in domain patterns without needing the slash twice
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:31:47 +0530
-**Commit Hash**: `283ab12fcd4627719a0fcf8820fd80b3c620c51e`
-**Short Hash**: `283ab12`
+**Commit Hash**: `d40dfa7cd6225ce49f7631d6903619fcd1322569`
+**Short Hash**: `d40dfa7`
 
 ### Files Modified
 
@@ -1227,12 +1246,12 @@ Match ^/ in domain patterns without needing the slash twice
 
 ---
 
-## Commit 56: chore: update commit history
+## Commit 57: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:16:10 +0000
-**Commit Hash**: `fa8ee30cf1b1ec315290a385339f27dba6de4d6c`
-**Short Hash**: `fa8ee30`
+**Commit Hash**: `c7c3a02192e9ad59fcf6791f18d4de19ecaac4b0`
+**Short Hash**: `c7c3a02`
 
 ### Files Modified
 
@@ -1246,12 +1265,12 @@ chore: update commit history
 
 ---
 
-## Commit 57: Simulate a provider step by step in the run-order panel
+## Commit 58: Simulate a provider step by step in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:25:39 +0530
-**Commit Hash**: `3d3323ff5581d023d296e61f92c801c03b239e75`
-**Short Hash**: `3d3323f`
+**Commit Hash**: `4ee8e29449ce2a72d1ae0589840d62c8abec1c4b`
+**Short Hash**: `4ee8e29`
 
 ### Files Modified
 
@@ -1270,12 +1289,12 @@ Simulate a provider step by step in the run-order panel
 
 ---
 
-## Commit 58: Let the run-order panel rearrange steps
+## Commit 59: Let the run-order panel rearrange steps
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:19:25 +0530
-**Commit Hash**: `6fcc0b009249bfe625f7a9fe547badad18bf88e4`
-**Short Hash**: `6fcc0b0`
+**Commit Hash**: `508faf1e9c72440415051201f5f40776bd2b1e25`
+**Short Hash**: `508faf1`
 
 ### Files Modified
 
@@ -1293,12 +1312,12 @@ Let the run-order panel rearrange steps
 
 ---
 
-## Commit 59: chore: update changelog for v100.68.0
+## Commit 60: chore: update changelog for v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:44 +0000
-**Commit Hash**: `229cda5243f6fde7293bcd58c7b213db574cad0d`
-**Short Hash**: `229cda5`
+**Commit Hash**: `bc34132a89753842afc69f7bf8273d913dacc9c9`
+**Short Hash**: `bc34132`
 
 ### Files Modified
 
@@ -1312,12 +1331,12 @@ chore: update changelog for v100.68.0
 
 ---
 
-## Commit 60: chore: update commit history for v100.68.0
+## Commit 61: chore: update commit history for v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:43 +0000
-**Commit Hash**: `6d424720dd55a4849c6b70729789f846a3640bdc`
-**Short Hash**: `6d42472`
+**Commit Hash**: `422b4bf12800d30b945a1a17332d3ce6f326f84c`
+**Short Hash**: `422b4bf`
 
 ### Files Modified
 
@@ -1331,12 +1350,12 @@ chore: update commit history for v100.68.0
 
 ---
 
-## Commit 61: release 100.68.0
+## Commit 62: chore: release v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:42 +0000
-**Commit Hash**: `0adab00a600c4585412901d1d6b9deec8d306b7a`
-**Short Hash**: `0adab00`
+**Commit Hash**: `84fcfe7f843a16237254bba274e2a56e0a05117a`
+**Short Hash**: `84fcfe7`
 
 ### Files Modified
 
@@ -1347,17 +1366,17 @@ chore: update commit history for v100.68.0
 ### Commit Message
 
 ```text
-release 100.68.0
+chore: release v100.68.0
 ```
 
 ---
 
-## Commit 62: chore: update commit history
+## Commit 63: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:25:55 +0000
-**Commit Hash**: `051e267405345c9db559e424fa973f38dbe2759c`
-**Short Hash**: `051e267`
+**Commit Hash**: `50acdeabd6aeb004435579c3e2e69bb8c5a32647`
+**Short Hash**: `50acdea`
 
 ### Files Modified
 
@@ -1371,12 +1390,12 @@ chore: update commit history
 
 ---
 
-## Commit 63: Add a run-order calculator to the custom rules editor
+## Commit 64: Add a run-order calculator to the custom rules editor
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 06:54:31 +0530
-**Commit Hash**: `c695c3f12a031fab3777e548cddcc258b7b0d5e2`
-**Short Hash**: `c695c3f`
+**Commit Hash**: `579acf86fc4952a2d0ce2107934add7ecaf35b92`
+**Short Hash**: `579acf8`
 
 ### Files Modified
 
@@ -1395,12 +1414,12 @@ Add a run-order calculator to the custom rules editor
 
 ---
 
-## Commit 64: chore: update commit history
+## Commit 65: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:49:29 +0000
-**Commit Hash**: `df99d3d8908acb4eff73f2a993ebbaaaeaed931e`
-**Short Hash**: `df99d3d`
+**Commit Hash**: `0049c68c980d86ed1cffcceaa407c541039ea3e5`
+**Short Hash**: `0049c68`
 
 ### Files Modified
 
@@ -1414,12 +1433,12 @@ chore: update commit history
 
 ---
 
-## Commit 65: Correct the cache capability and gatekeeper descriptions
+## Commit 66: Correct the cache capability and gatekeeper descriptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:18:56 +0530
-**Commit Hash**: `cf57b6f21219455d50ab5e98b2f7bade1c3f4105`
-**Short Hash**: `cf57b6f`
+**Commit Hash**: `9e9ed8ee0e0d10f919ef7f1207286dc04e9bf535`
+**Short Hash**: `9e9ed8e`
 
 ### Files Modified
 
@@ -1433,12 +1452,12 @@ Correct the cache capability and gatekeeper descriptions
 
 ---
 
-## Commit 66: chore: update commit history
+## Commit 67: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:47:43 +0000
-**Commit Hash**: `83927d37b8ec51f0cc03738b6f02e98e588f16a3`
-**Short Hash**: `83927d3`
+**Commit Hash**: `cbfeee97d3e8e3569c4b12f133639edf84c45057`
+**Short Hash**: `cbfeee9`
 
 ### Files Modified
 
@@ -1452,12 +1471,12 @@ chore: update commit history
 
 ---
 
-## Commit 67: Let unbounded mode lift the cycle cap for pure cleaning too
+## Commit 68: Let unbounded mode lift the cycle cap for pure cleaning too
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:52:28 +0530
-**Commit Hash**: `c5ad94bfadd5695c6cb1f40ee3322381a19ca6bc`
-**Short Hash**: `c5ad94b`
+**Commit Hash**: `2dd0637db73637be8d9319925148991341543b33`
+**Short Hash**: `2dd0637`
 
 ### Files Modified
 
@@ -1473,12 +1492,12 @@ Let unbounded mode lift the cycle cap for pure cleaning too
 
 ---
 
-## Commit 68: chore: update commit history
+## Commit 69: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:20:36 +0000
-**Commit Hash**: `bfc0525b4a5da47980dd466e7bb6f0a445dc2610`
-**Short Hash**: `bfc0525`
+**Commit Hash**: `f343d66e3f05d1e2322de6a26fa92e793ecba0d1`
+**Short Hash**: `f343d66`
 
 ### Files Modified
 
@@ -1492,12 +1511,12 @@ chore: update commit history
 
 ---
 
-## Commit 69: Document settings, messages and rule keys the docs missed
+## Commit 70: Document settings, messages and rule keys the docs missed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:49:39 +0530
-**Commit Hash**: `3d459e5f2babe7b11fac17242dcff0892e9a5017`
-**Short Hash**: `3d459e5`
+**Commit Hash**: `a26b46a84c8d5bc89a0cead4e342882466db9189`
+**Short Hash**: `a26b46a`
 
 ### Files Modified
 
@@ -1512,12 +1531,12 @@ Document settings, messages and rule keys the docs missed
 
 ---
 
-## Commit 70: chore: update changelog for v100.67.0
+## Commit 71: chore: update changelog for v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:04 +0000
-**Commit Hash**: `211417da2183c0412742ee0d3ceab321cdd42830`
-**Short Hash**: `211417d`
+**Commit Hash**: `5334c6e38cd9a5c342d385a1d2a4c42c49c6cda9`
+**Short Hash**: `5334c6e`
 
 ### Files Modified
 
@@ -1531,12 +1550,12 @@ chore: update changelog for v100.67.0
 
 ---
 
-## Commit 71: chore: update commit history for v100.67.0
+## Commit 72: chore: update commit history for v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:02 +0000
-**Commit Hash**: `96d412cf17f53f78ae7e5b90ad7d07f6a2ffee01`
-**Short Hash**: `96d412c`
+**Commit Hash**: `405891044714da5d190bd60e0bdb6742fec59f50`
+**Short Hash**: `4058910`
 
 ### Files Modified
 
@@ -1550,12 +1569,12 @@ chore: update commit history for v100.67.0
 
 ---
 
-## Commit 72: release 100.67.0
+## Commit 73: chore: release v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:01 +0000
-**Commit Hash**: `f0950c176640a6cf44a18907d451083bd098a294`
-**Short Hash**: `f0950c1`
+**Commit Hash**: `b7eb77564712d3bb5cc2affb6662c0ba4ff77309`
+**Short Hash**: `b7eb775`
 
 ### Files Modified
 
@@ -1567,17 +1586,17 @@ chore: update commit history for v100.67.0
 ### Commit Message
 
 ```text
-release 100.67.0
+chore: release v100.67.0
 ```
 
 ---
 
-## Commit 73: Say that switching a provider off matches on the pattern only
+## Commit 74: Say that switching a provider off matches on the pattern only
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 20:35:05 +0530
-**Commit Hash**: `ef39610f5578438f52a2a6b77bc5d3465464e6d8`
-**Short Hash**: `ef39610`
+**Commit Hash**: `61a307b48b1d4ac9a04c5466c1a2de8de3e1165d`
+**Short Hash**: `61a307b`
 
 ### Files Modified
 
@@ -1592,12 +1611,12 @@ Say that switching a provider off matches on the pattern only
 
 ---
 
-## Commit 74: Let custom providers fully override providers with the same pattern
+## Commit 75: Let custom providers fully override providers with the same pattern
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 20:12:13 +0530
-**Commit Hash**: `9e6bef3e98873041e03d27a0c11041bc8ea8df0b`
-**Short Hash**: `9e6bef3`
+**Commit Hash**: `75b6f91b1ac22d2fb1064e6065bb7a979b707dcf`
+**Short Hash**: `75b6f91`
 
 ### Files Modified
 
@@ -1612,12 +1631,12 @@ Let custom providers fully override providers with the same pattern
 
 ---
 
-## Commit 75: Add unbounded mode to lift the 10-cycle cleaning limit
+## Commit 76: Add unbounded mode to lift the 10-cycle cleaning limit
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:40:10 +0530
-**Commit Hash**: `9d50c0700a7dd26b6306193279cdf5506e3caf13`
-**Short Hash**: `9d50c07`
+**Commit Hash**: `a0d5342aec0e7ab2789148e7338d305f6a9e373c`
+**Short Hash**: `a0d5342`
 
 ### Files Modified
 
@@ -1692,12 +1711,12 @@ Add unbounded mode to lift the 10-cycle cleaning limit
 
 ---
 
-## Commit 76: chore: update commit history
+## Commit 77: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:57:33 +0000
-**Commit Hash**: `1ad961294d751d15a138104caeebe4c7863c7445`
-**Short Hash**: `1ad9612`
+**Commit Hash**: `171bcaaca4e7e4aac69224ef12cf7ce5a1d40e54`
+**Short Hash**: `171bcaa`
 
 ### Files Modified
 
@@ -1711,12 +1730,12 @@ chore: update commit history
 
 ---
 
-## Commit 77: Document capabilities of remote entries that can't be traced to a file (#171)
+## Commit 78: Document capabilities of remote entries that can't be traced to a file
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:27:19 +0530
-**Commit Hash**: `96cca51a906009af8ab2b900786e707bc0cd4e1a`
-**Short Hash**: `96cca51`
+**Commit Hash**: `85405564359d72f6676788532d173692b71557ba`
+**Short Hash**: `8540556`
 
 ### Files Modified
 
@@ -1727,17 +1746,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Document capabilities of remote entries that can't be traced to a file (#171)
+Document capabilities of remote entries that can't be traced to a file
 ```
 
 ---
 
-## Commit 78: chore: update commit history
+## Commit 79: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:50:23 +0000
-**Commit Hash**: `2b5e6ac9023c9c4dd9647496cee26082c25bc3d2`
-**Short Hash**: `2b5e6ac`
+**Commit Hash**: `0857bc839bbf8e61a3440909c2d41001f5b0c828`
+**Short Hash**: `0857bc8`
 
 ### Files Modified
 
@@ -1751,12 +1770,12 @@ chore: update commit history
 
 ---
 
-## Commit 79: Make the CLN 1.0 spec match the engine
+## Commit 80: Make the CLN 1.0 spec match the engine
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:20:11 +0530
-**Commit Hash**: `3480593ab90ef70c1e86de4ff281557df3078107`
-**Short Hash**: `3480593`
+**Commit Hash**: `36b36391efc7c3d6fea004ffc670387262cf03c1`
+**Short Hash**: `36b3639`
 
 ### Files Modified
 
@@ -1771,12 +1790,12 @@ Make the CLN 1.0 spec match the engine
 
 ---
 
-## Commit 80: chore: update commit history
+## Commit 81: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:43:58 +0000
-**Commit Hash**: `1925ce0766ba1ca34a474edf6f745ee648ee189c`
-**Short Hash**: `1925ce0`
+**Commit Hash**: `897d9b77683b0c1f246f1fb2d409f666ddaa2f5c`
+**Short Hash**: `897d9b7`
 
 ### Files Modified
 
@@ -1790,12 +1809,12 @@ chore: update commit history
 
 ---
 
-## Commit 81: Fix contradictory saved-toggle wording in the CLN 1.0 spec (#168)
+## Commit 82: Fix contradictory saved-toggle wording in the CLN 1.0 spec
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:13:46 +0530
-**Commit Hash**: `4268f28c144b82cfb53054a3d1606620d4e89b29`
-**Short Hash**: `4268f28`
+**Commit Hash**: `87fa31f6dd1fa67a5fbc82c6f73c9fc5d0f93fb3`
+**Short Hash**: `87fa31f`
 
 ### Files Modified
 
@@ -1805,17 +1824,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Fix contradictory saved-toggle wording in the CLN 1.0 spec (#168)
+Fix contradictory saved-toggle wording in the CLN 1.0 spec
 ```
 
 ---
 
-## Commit 82: chore: update changelog for v100.66.0
+## Commit 83: chore: update changelog for v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:36 +0000
-**Commit Hash**: `9741d0e24d18d1abbe3b1a3c5f49bb8370294601`
-**Short Hash**: `9741d0e`
+**Commit Hash**: `b72115a653e6d419daf72da57920674b0c989acd`
+**Short Hash**: `b72115a`
 
 ### Files Modified
 
@@ -1829,12 +1848,12 @@ chore: update changelog for v100.66.0
 
 ---
 
-## Commit 83: chore: update commit history for v100.66.0
+## Commit 84: chore: update commit history for v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:34 +0000
-**Commit Hash**: `1a7bcf74ebf5b5ed5b2c6f38fb349625b40a3d2e`
-**Short Hash**: `1a7bcf7`
+**Commit Hash**: `c68711a3994d5e41dfdb7f148f9a51eb934f4c0c`
+**Short Hash**: `c68711a`
 
 ### Files Modified
 
@@ -1848,12 +1867,12 @@ chore: update commit history for v100.66.0
 
 ---
 
-## Commit 84: release 100.66.0
+## Commit 85: chore: release v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:33 +0000
-**Commit Hash**: `5b583dd320b56e4e497c53bb6391fdf39adfce70`
-**Short Hash**: `5b583dd`
+**Commit Hash**: `496434766630285329d194cf1f02dd18a8669af4`
+**Short Hash**: `4964347`
 
 ### Files Modified
 
@@ -1865,17 +1884,17 @@ chore: update commit history for v100.66.0
 ### Commit Message
 
 ```text
-release 100.66.0
+chore: release v100.66.0
 ```
 
 ---
 
-## Commit 85: chore: update changelog for v100.65.0
+## Commit 86: chore: update changelog for v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:49 +0000
-**Commit Hash**: `e6e891b02394c38c26a28c30d96607513cb910b8`
-**Short Hash**: `e6e891b`
+**Commit Hash**: `d00e8bbc847e960921a732028975f39f2e63ea14`
+**Short Hash**: `d00e8bb`
 
 ### Files Modified
 
@@ -1889,12 +1908,12 @@ chore: update changelog for v100.65.0
 
 ---
 
-## Commit 86: chore: update commit history for v100.65.0
+## Commit 87: chore: update commit history for v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:47 +0000
-**Commit Hash**: `31681639361985de73c766e149736e6811d585bd`
-**Short Hash**: `3168163`
+**Commit Hash**: `a320a61c34cb4b26eb7a616652b326726f1ddf8b`
+**Short Hash**: `a320a61`
 
 ### Files Modified
 
@@ -1908,12 +1927,12 @@ chore: update commit history for v100.65.0
 
 ---
 
-## Commit 87: release 100.65.0
+## Commit 88: chore: release v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:45 +0000
-**Commit Hash**: `780b59f328528c79225a8a3e61829ad586393084`
-**Short Hash**: `780b59f`
+**Commit Hash**: `47abecf6a4c881187f2565b530a5dda2eebf32ff`
+**Short Hash**: `47abecf`
 
 ### Files Modified
 
@@ -1925,17 +1944,17 @@ chore: update commit history for v100.65.0
 ### Commit Message
 
 ```text
-release 100.65.0
+chore: release v100.65.0
 ```
 
 ---
 
-## Commit 88: chore: update changelog for v100.64.0
+## Commit 89: chore: update changelog for v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:31 +0000
-**Commit Hash**: `702ef856bad4b4e6182765eefd10706e185b34f0`
-**Short Hash**: `702ef85`
+**Commit Hash**: `f07fa55d68e27747f7a327bbcf18e348ec786366`
+**Short Hash**: `f07fa55`
 
 ### Files Modified
 
@@ -1949,12 +1968,12 @@ chore: update changelog for v100.64.0
 
 ---
 
-## Commit 89: chore: update commit history for v100.64.0
+## Commit 90: chore: update commit history for v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:29 +0000
-**Commit Hash**: `8d5b2e17e4c737ad50fa5622ba1ca716182c22c0`
-**Short Hash**: `8d5b2e1`
+**Commit Hash**: `e0202b89a76c708c08db76751e58c90b4641487b`
+**Short Hash**: `e0202b8`
 
 ### Files Modified
 
@@ -1968,12 +1987,12 @@ chore: update commit history for v100.64.0
 
 ---
 
-## Commit 90: release 100.64.0
+## Commit 91: chore: release v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:28 +0000
-**Commit Hash**: `9f49029b56ee52344d6e08e2a168f0e8a650d079`
-**Short Hash**: `9f49029`
+**Commit Hash**: `1e5f64599bb6273bb1ad125e43413d4af08fff27`
+**Short Hash**: `1e5f645`
 
 ### Files Modified
 
@@ -1985,17 +2004,17 @@ chore: update commit history for v100.64.0
 ### Commit Message
 
 ```text
-release 100.64.0
+chore: release v100.64.0
 ```
 
 ---
 
-## Commit 91: chore: update changelog for v100.63.0
+## Commit 92: chore: update changelog for v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:22 +0000
-**Commit Hash**: `da1fa9361035ccc3fb50c5d21fcb77974a8045cf`
-**Short Hash**: `da1fa93`
+**Commit Hash**: `d20c14b95c456c374a5d26b074d7a75fa33a7841`
+**Short Hash**: `d20c14b`
 
 ### Files Modified
 
@@ -2009,12 +2028,12 @@ chore: update changelog for v100.63.0
 
 ---
 
-## Commit 92: chore: update commit history for v100.63.0
+## Commit 93: chore: update commit history for v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:20 +0000
-**Commit Hash**: `da69eec207c8ea8500dad8ec90edf42ade5d5fae`
-**Short Hash**: `da69eec`
+**Commit Hash**: `d53c216fef96409e7ecb4b8484c1d5337ae578d3`
+**Short Hash**: `d53c216`
 
 ### Files Modified
 
@@ -2028,12 +2047,12 @@ chore: update commit history for v100.63.0
 
 ---
 
-## Commit 93: release 100.63.0
+## Commit 94: chore: release v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:19 +0000
-**Commit Hash**: `2782b41cb9eddd063583fbb117d049745e5d5c88`
-**Short Hash**: `2782b41`
+**Commit Hash**: `58ba60bee2bab30b2dd9e71e9fdee8178a139ac0`
+**Short Hash**: `58ba60b`
 
 ### Files Modified
 
@@ -2044,17 +2063,17 @@ chore: update commit history for v100.63.0
 ### Commit Message
 
 ```text
-release 100.63.0
+chore: release v100.63.0
 ```
 
 ---
 
-## Commit 94: Remove dead code  (#166)
+## Commit 95: Remove dead code
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 16:00:27 +0530
-**Commit Hash**: `0b746f0234cb9d41c6a2bb1d1a1441866ea5ef5c`
-**Short Hash**: `0b746f0`
+**Commit Hash**: `50d76547f0641633c4405a4e6413988d9df876c4`
+**Short Hash**: `50d7654`
 
 ### Files Modified
 
@@ -2068,17 +2087,17 @@ release 100.63.0
 ### Commit Message
 
 ```text
-Remove dead code  (#166)
+Remove dead code
 ```
 
 ---
 
-## Commit 95: perf(rules): write bundled rules in their most efficient CLN form (#165)
+## Commit 96: perf(rules): write bundled rules in their most efficient CLN form
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 15:32:39 +0530
-**Commit Hash**: `7547b84d1dbbfe4ad5460f5916ccaa9f2515f196`
-**Short Hash**: `7547b84`
+**Commit Hash**: `a940e7a910157e7cde83e23eda1f70262ba4aad3`
+**Short Hash**: `a940e7a`
 
 ### Files Modified
 
@@ -2089,17 +2108,17 @@ Remove dead code  (#166)
 ### Commit Message
 
 ```text
-perf(rules): write bundled rules in their most efficient CLN form (#165)
+perf(rules): write bundled rules in their most efficient CLN form
 ```
 
 ---
 
-## Commit 96: * feat: implement CLN Format 1.0 (final)
+## Commit 97: * feat: implement CLN Format 1.0 (final)
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 15:20:29 +0530
-**Commit Hash**: `2410ac9b41ad1ff69debf81a1a7600a5fd503057`
-**Short Hash**: `2410ac9`
+**Commit Hash**: `822fb1c4c1f4ae7ecbaedc1f58522ce31c2a99ee`
+**Short Hash**: `822fb1c`
 
 ### Files Modified
 
@@ -2184,12 +2203,12 @@ perf(rules): write bundled rules in their most efficient CLN form (#165)
 
 ---
 
-## Commit 97: chore: update changelog for v100.62.0
+## Commit 98: chore: update changelog for v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:49 +0000
-**Commit Hash**: `9805556af17d7a1c2eb1dcf7a8d59f85e09c44fe`
-**Short Hash**: `9805556`
+**Commit Hash**: `0435fceac7d6ffba74f72fdb70dd73453883db16`
+**Short Hash**: `0435fce`
 
 ### Files Modified
 
@@ -2203,12 +2222,12 @@ chore: update changelog for v100.62.0
 
 ---
 
-## Commit 98: chore: update commit history for v100.62.0
+## Commit 99: chore: update commit history for v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:48 +0000
-**Commit Hash**: `da87970ab9447e62f749fae97d5254ad45a162dc`
-**Short Hash**: `da87970`
+**Commit Hash**: `b1404bfb09789e63aa1d1d4825331de6ab21502f`
+**Short Hash**: `b1404bf`
 
 ### Files Modified
 
@@ -2222,12 +2241,12 @@ chore: update commit history for v100.62.0
 
 ---
 
-## Commit 99: release 100.62.0
+## Commit 100: chore: release v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:46 +0000
-**Commit Hash**: `c920d84bcc8f626d9d8b771fa1b78c55d1fd298e`
-**Short Hash**: `c920d84`
+**Commit Hash**: `1d925b013e62f5c56425cb304179e8825777ef51`
+**Short Hash**: `1d925b0`
 
 ### Files Modified
 
@@ -2239,17 +2258,17 @@ chore: update commit history for v100.62.0
 ### Commit Message
 
 ```text
-release 100.62.0
+chore: release v100.62.0
 ```
 
 ---
 
-## Commit 100: update docs
+## Commit 101: docs: update architecture and format guides
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-30 23:43:37 +0530
-**Commit Hash**: `9f4bae8df2d5bf905072c601c6f4f19cf427dd92`
-**Short Hash**: `9f4bae8`
+**Commit Hash**: `976dcd2ace6c71fd3be383013414455dcd71e3ba`
+**Short Hash**: `976dcd2`
 
 ### Files Modified
 
@@ -2261,17 +2280,17 @@ release 100.62.0
 ### Commit Message
 
 ```text
-update docs
+docs: update architecture and format guides
 ```
 
 ---
 
-## Commit 101: FIX THE ORDER IN SPEC
+## Commit 102: feat: add rule IDs and clarify filter syntax
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-30 23:29:10 +0530
-**Commit Hash**: `0482c5d20a8dd9f42217a43041c0659d7ff569cf`
-**Short Hash**: `0482c5d`
+**Commit Hash**: `cc5d41ce9e9946358c4ff4c7761e17f0433f86f0`
+**Short Hash**: `cc5d41c`
 
 ### Files Modified
 
@@ -2285,17 +2304,17 @@ update docs
 ### Commit Message
 
 ```text
-FIX THE ORDER IN SPEC
+feat: add rule IDs and clarify filter syntax
 ```
 
 ---
 
-## Commit 102: chore: update commit history
+## Commit 103: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-28 10:17:27 +0000
-**Commit Hash**: `80e9978d8accfd3c1a40b8a083fa736c4dcfaa6c`
-**Short Hash**: `80e9978`
+**Commit Hash**: `df363b1e0b86702611d4128faa944631c7ecadc3`
+**Short Hash**: `df363b1`
 
 ### Files Modified
 
@@ -2309,12 +2328,12 @@ chore: update commit history
 
 ---
 
-## Commit 103: 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code
+## Commit 104: 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-28 15:45:54 +0530
-**Commit Hash**: `7acb6c3c5af95d4ca112e05c0e5a003be8a7b45c`
-**Short Hash**: `7acb6c3`
+**Commit Hash**: `0798237761e1a654a3ec87979c7eb6f256432727`
+**Short Hash**: `0798237`
 
 ### Files Modified
 
@@ -2328,12 +2347,12 @@ chore: update commit history
 
 ---
 
-## Commit 104: chore: update commit history
+## Commit 105: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-28 10:06:29 +0000
-**Commit Hash**: `87f2016630b978a6d761ff06f8e08ebea9af4592`
-**Short Hash**: `87f2016`
+**Commit Hash**: `a5c877a5c6328c2bbe6002e008f59e88e903f5f7`
+**Short Hash**: `a5c877a`
 
 ### Files Modified
 
@@ -2347,12 +2366,12 @@ chore: update commit history
 
 ---
 
-## Commit 105: perf: run $removeparam eligibility checks only for rules whose name matches
+## Commit 106: perf: run $removeparam eligibility checks only for rules whose name matches
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-28 15:36:04 +0530
-**Commit Hash**: `fe7b390a7a1eaaaee25ff80ed9c16a47086f36ae`
-**Short Hash**: `fe7b390`
+**Commit Hash**: `dafde1ecf2f83b16b2df5e574e26259002033027`
+**Short Hash**: `dafde1e`
 
 ### Files Modified
 
@@ -2366,12 +2385,12 @@ perf: run $removeparam eligibility checks only for rules whose name matches
 
 ---
 
-## Commit 106: chore: update changelog for v100.61.1
+## Commit 107: chore: update changelog for v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:36 +0000
-**Commit Hash**: `fd8f611e84d9fb56c1c52124cca717a75e30f038`
-**Short Hash**: `fd8f611`
+**Commit Hash**: `4f0bd958717ac9d4d745f75f84cc2959151a400c`
+**Short Hash**: `4f0bd95`
 
 ### Files Modified
 
@@ -2385,12 +2404,12 @@ chore: update changelog for v100.61.1
 
 ---
 
-## Commit 107: chore: update commit history for v100.61.1
+## Commit 108: chore: update commit history for v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:34 +0000
-**Commit Hash**: `9896195b5547180519202a80ab8bd922fcd52756`
-**Short Hash**: `9896195`
+**Commit Hash**: `56ae3036f64dbfb5fea9e249c7da029af12e4bd8`
+**Short Hash**: `56ae303`
 
 ### Files Modified
 
@@ -2404,12 +2423,12 @@ chore: update commit history for v100.61.1
 
 ---
 
-## Commit 108: release 100.61.1
+## Commit 109: chore: release v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:32 +0000
-**Commit Hash**: `899e6fb2dc9574b57112d755553cbbd12ff4575a`
-**Short Hash**: `899e6fb`
+**Commit Hash**: `bec1a92dddbafa461434ca7e8885cbe8442715fb`
+**Short Hash**: `bec1a92`
 
 ### Files Modified
 
@@ -2420,26 +2439,7 @@ chore: update commit history for v100.61.1
 ### Commit Message
 
 ```text
-release 100.61.1
-```
-
----
-
-## Commit 109: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-09-27 13:48:22 +0000
-**Commit Hash**: `700ecd56a26b692d1e91d555d4ce8402e178c377`
-**Short Hash**: `700ecd5`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
+chore: release v100.61.1
 ```
 
 ---
@@ -2447,9 +2447,9 @@ chore: update commit history
 ## Commit 110: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-09-27 13:47:06 +0000
-**Commit Hash**: `d70c493e1992d291a9782759643a3896ff5b65f8`
-**Short Hash**: `d70c493`
+**Date**: 2026-09-27 13:48:22 +0000
+**Commit Hash**: `18bb5bfbca443ca901ff059724e783be5dec5b73`
+**Short Hash**: `18bb5bf`
 
 ### Files Modified
 
@@ -2463,12 +2463,31 @@ chore: update commit history
 
 ---
 
-## Commit 111: feat: merge rule defaults from several sources
+## Commit 111: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-09-27 13:47:06 +0000
+**Commit Hash**: `c84536b2f3a7e56f33cd3a2d6a3cfe51acb40a10`
+**Short Hash**: `c84536b`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 112: feat: merge rule defaults from several sources
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 19:16:48 +0530
-**Commit Hash**: `b39daafbd5387f7a3eb6f41d42a8f6adaabc70b3`
-**Short Hash**: `b39daaf`
+**Commit Hash**: `7b727427313a5e44a3082b5c54bbb1b825fbfb93`
+**Short Hash**: `7b72742`
 
 ### Files Modified
 
@@ -2540,12 +2559,12 @@ feat: merge rule defaults from several sources
 
 ---
 
-## Commit 112: chore: update commit history
+## Commit 113: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:21:16 +0000
-**Commit Hash**: `e3ae47eab35a01030721258813343ba266612e4c`
-**Short Hash**: `e3ae47e`
+**Commit Hash**: `a08e90e1434b542434751ffe863071970054a997`
+**Short Hash**: `a08e90e`
 
 ### Files Modified
 
@@ -2559,12 +2578,12 @@ chore: update commit history
 
 ---
 
-## Commit 113: feat: edit built-in and remote rule defaults; compact defaults summary
+## Commit 114: feat: edit built-in and remote rule defaults; compact defaults summary
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:50:58 +0530
-**Commit Hash**: `cba2d649f66bd4ddda4b01501ca8fde484e7afa0`
-**Short Hash**: `cba2d64`
+**Commit Hash**: `00eb28286ed6057a0df1f2df04d7f19221658f0e`
+**Short Hash**: `00eb282`
 
 ### Files Modified
 
@@ -2638,12 +2657,12 @@ feat: edit built-in and remote rule defaults; compact defaults summary
 
 ---
 
-## Commit 114: chore: update commit history
+## Commit 115: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 12:53:54 +0000
-**Commit Hash**: `75a451a0668fc0f0b961cd895cdadb38955ca5cf`
-**Short Hash**: `75a451a`
+**Commit Hash**: `42a61381bfac17b88752420a455ce87e370cf09f`
+**Short Hash**: `42a6138`
 
 ### Files Modified
 
@@ -2657,12 +2676,12 @@ chore: update commit history
 
 ---
 
-## Commit 115: feat: bundled rules carry defaults; global exceptions move into them
+## Commit 116: feat: bundled rules carry defaults; global exceptions move into them
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:23:37 +0530
-**Commit Hash**: `51b8464458712abf622daaad5aed73c774297012`
-**Short Hash**: `51b8464`
+**Commit Hash**: `27a34d7736dbab365a4591a34d33f6aceea29ce9`
+**Short Hash**: `27a34d7`
 
 ### Files Modified
 
@@ -2680,12 +2699,12 @@ feat: bundled rules carry defaults; global exceptions move into them
 
 ---
 
-## Commit 116: chore: update commit history
+## Commit 117: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 12:41:45 +0000
-**Commit Hash**: `7d73dd51d38da2e9166fcbdd0be9bc8a32a9f0be`
-**Short Hash**: `7d73dd5`
+**Commit Hash**: `56152d2de48e6ef304c03ea7a07423deb6344163`
+**Short Hash**: `56152d2`
 
 ### Files Modified
 
@@ -2699,12 +2718,12 @@ chore: update commit history
 
 ---
 
-## Commit 117: feat: user rule defaults with a modes choice; request types from rules
+## Commit 118: feat: user rule defaults with a modes choice; request types from rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:11:25 +0530
-**Commit Hash**: `661bab8d70f239639e936950e8e4359e19dfa84c`
-**Short Hash**: `661bab8`
+**Commit Hash**: `8515a8512039d526335118b6a69adf125324da36`
+**Short Hash**: `8515a85`
 
 ### Files Modified
 
@@ -2783,12 +2802,12 @@ feat: user rule defaults with a modes choice; request types from rules
 
 ---
 
-## Commit 118: chore: update commit history
+## Commit 119: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 09:58:14 +0000
-**Commit Hash**: `2cb238b77d995d940956cf332af534618b93f571`
-**Short Hash**: `2cb238b`
+**Commit Hash**: `0e9769e32bd057b64afa2deb7154325294321bb5`
+**Short Hash**: `0e9769e`
 
 ### Files Modified
 
@@ -2802,12 +2821,12 @@ chore: update commit history
 
 ---
 
-## Commit 119: feat: add ClearURLs 2.0 style rule defaults, applied per source
+## Commit 120: feat: add ClearURLs 2.0 style rule defaults, applied per source
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 15:27:56 +0530
-**Commit Hash**: `3752cde5907412dfbf3e8fc5bd752757186be20b`
-**Short Hash**: `3752cde`
+**Commit Hash**: `4c97698e99783f8b7f860e4c7e2b803425be793d`
+**Short Hash**: `4c97698`
 
 ### Files Modified
 
@@ -2888,12 +2907,12 @@ feat: add ClearURLs 2.0 style rule defaults, applied per source
 
 ---
 
-## Commit 120: chore: update commit history
+## Commit 121: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 08:12:53 +0000
-**Commit Hash**: `d0af9167b9b97c38f989ef1dea14079102880dbc`
-**Short Hash**: `d0af916`
+**Commit Hash**: `043284b406b35e94be9bd552633a0c8203e16f82`
+**Short Hash**: `043284b`
 
 ### Files Modified
 
@@ -2907,12 +2926,12 @@ chore: update commit history
 
 ---
 
-## Commit 121: docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
+## Commit 122: docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:42:38 +0530
-**Commit Hash**: `8143863cdc8e1572ed5f2337748611aa0461487b`
-**Short Hash**: `8143863`
+**Commit Hash**: `38e3c434cc5500e8d7e35669101ba7f9fd5b652a`
+**Short Hash**: `38e3c43`
 
 ### Files Modified
 
@@ -2927,12 +2946,12 @@ docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
 
 ---
 
-## Commit 122: chore: update commit history
+## Commit 123: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 08:04:54 +0000
-**Commit Hash**: `916e9a669387d625a38d7bfee7fdf3c0da784372`
-**Short Hash**: `916e9a6`
+**Commit Hash**: `49f221992d6448a5d59a364fdd1343faa8fa401f`
+**Short Hash**: `49f2219`
 
 ### Files Modified
 
@@ -2946,12 +2965,12 @@ chore: update commit history
 
 ---
 
-## Commit 123: docs: fix mis-decoded characters in filter-syntax.md
+## Commit 124: docs: fix mis-decoded characters in filter-syntax.md
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
-**Commit Hash**: `36ce24abbf9cbe87e74381649e930a48829c8e14`
-**Short Hash**: `36ce24a`
+**Commit Hash**: `13289f2a9798d06d7db0e19493c89ac838ce0416`
+**Short Hash**: `13289f2`
 
 ### Files Modified
 
@@ -2965,12 +2984,12 @@ docs: fix mis-decoded characters in filter-syntax.md
 
 ---
 
-## Commit 124: fix: lint imported custom rules like saved ones
+## Commit 125: fix: lint imported custom rules like saved ones
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
-**Commit Hash**: `ae9ac5256d5463b08ebdfe090670a45c695a4849`
-**Short Hash**: `ae9ac52`
+**Commit Hash**: `54ac2a7ac176a206d8c950806e09403d0b68ae58`
+**Short Hash**: `54ac2a7`
 
 ### Files Modified
 
@@ -2984,12 +3003,12 @@ fix: lint imported custom rules like saved ones
 
 ---
 
-## Commit 125: fix: stop remote rule merging from dropping rules and provider settings
+## Commit 126: fix: stop remote rule merging from dropping rules and provider settings
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
-**Commit Hash**: `b124ed6efc2fdb952c567b50c94411045af8f287`
-**Short Hash**: `b124ed6`
+**Commit Hash**: `5cb73318f059e1e2c3b989755542d5514b225f3e`
+**Short Hash**: `5cb7331`
 
 ### Files Modified
 
@@ -3004,12 +3023,12 @@ fix: stop remote rule merging from dropping rules and provider settings
 
 ---
 
-## Commit 126: chore: update commit history
+## Commit 127: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 07:57:40 +0000
-**Commit Hash**: `19b9c3263fe684656ad1145fa5be6e6d0b6736d4`
-**Short Hash**: `19b9c32`
+**Commit Hash**: `1101345cf64ed49552ae9ef03c91e0166af129ab`
+**Short Hash**: `1101345`
 
 ### Files Modified
 
@@ -3023,12 +3042,12 @@ chore: update commit history
 
 ---
 
-## Commit 127: feat: detect rule collisions in the linter and in remote rules
+## Commit 128: feat: detect rule collisions in the linter and in remote rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:27:18 +0530
-**Commit Hash**: `0f42183bf7f6c527bb832754356cf6aff6f4edf4`
-**Short Hash**: `0f42183`
+**Commit Hash**: `13258e476ba802e0c181a8fbea1a09458671d3d6`
+**Short Hash**: `13258e4`
 
 ### Files Modified
 
@@ -3103,12 +3122,12 @@ feat: detect rule collisions in the linter and in remote rules
 
 ---
 
-## Commit 128: i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
+## Commit 129: i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:27:17 +0530
-**Commit Hash**: `db2141ef805f3b929afef4f1c3a94e547c1a0166`
-**Short Hash**: `db2141e`
+**Commit Hash**: `6e1bae443b90b4a8d2e1b8e5d37f3ec40b96bb43`
+**Short Hash**: `6e1bae4`
 
 ### Files Modified
 
@@ -3176,12 +3195,12 @@ i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
 
 ---
 
-## Commit 129: chore: update changelog for v100.61.0
+## Commit 130: chore: update changelog for v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:33 +0000
-**Commit Hash**: `7bde9b4f53ab6a96fc21ae7048ee8e9dc9c81607`
-**Short Hash**: `7bde9b4`
+**Commit Hash**: `57cd0eede39760635da05f5dd5fc821e898269a2`
+**Short Hash**: `57cd0ee`
 
 ### Files Modified
 
@@ -3195,12 +3214,12 @@ chore: update changelog for v100.61.0
 
 ---
 
-## Commit 130: chore: update commit history for v100.61.0
+## Commit 131: chore: update commit history for v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:31 +0000
-**Commit Hash**: `6d22d33fc49a157cdc11ae505a5677013728cda3`
-**Short Hash**: `6d22d33`
+**Commit Hash**: `9a13f2939a2611754b4243dd62b343b7c84d6a5f`
+**Short Hash**: `9a13f29`
 
 ### Files Modified
 
@@ -3214,12 +3233,12 @@ chore: update commit history for v100.61.0
 
 ---
 
-## Commit 131: release 100.61.0
+## Commit 132: chore: release v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:30 +0000
-**Commit Hash**: `1a4506efe3baa577c1049dfee6bb0375267da4cc`
-**Short Hash**: `1a4506e`
+**Commit Hash**: `b0748a4f9e3381cbdaec598b2a3427c98d4de75d`
+**Short Hash**: `b0748a4`
 
 ### Files Modified
 
@@ -3230,17 +3249,17 @@ chore: update commit history for v100.61.0
 ### Commit Message
 
 ```text
-release 100.61.0
+chore: release v100.61.0
 ```
 
 ---
 
-## Commit 132: chore: update commit history
+## Commit 133: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 19:56:54 +0000
-**Commit Hash**: `f04113bedfeea63a63502b263173a513c8077c39`
-**Short Hash**: `f04113b`
+**Commit Hash**: `65b0d4c206f4650382f237e9545a5d988fdadde3`
+**Short Hash**: `65b0d4c`
 
 ### Files Modified
 
@@ -3254,12 +3273,12 @@ chore: update commit history
 
 ---
 
-## Commit 133: Update filter-syntax.md
+## Commit 134: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 01:26:39 +0530
-**Commit Hash**: `c6b9ab7280434dc5bd58982e53c7d2127710afc4`
-**Short Hash**: `c6b9ab7`
+**Commit Hash**: `5a31b20a1d4fcca42a1a55d79d70f4ee19212f10`
+**Short Hash**: `5a31b20`
 
 ### Files Modified
 
@@ -3268,17 +3287,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update filter-syntax.md
+docs: update filter syntax guide
 ```
 
 ---
 
-## Commit 134: chore: update commit history
+## Commit 135: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 19:45:30 +0000
-**Commit Hash**: `9e4d3448a857050dba2e2cc4bd1069c4ee07d137`
-**Short Hash**: `9e4d344`
+**Commit Hash**: `d365192b082d6c59756a19baff0a01a545e86f30`
+**Short Hash**: `d365192`
 
 ### Files Modified
 
@@ -3292,12 +3311,12 @@ chore: update commit history
 
 ---
 
-## Commit 135: Update filter-syntax.md
+## Commit 136: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 01:15:17 +0530
-**Commit Hash**: `08f0c22ff1005f5ffc915274983b7aa0a96490cc`
-**Short Hash**: `08f0c22`
+**Commit Hash**: `b5a8bc8ed5eb91c8f11a7b179f36968156398f37`
+**Short Hash**: `b5a8bc8`
 
 ### Files Modified
 
@@ -3306,17 +3325,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update filter-syntax.md
+docs: update filter syntax guide
 ```
 
 ---
 
-## Commit 136: chore: update changelog for v100.60.0
+## Commit 137: chore: update changelog for v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:55 +0000
-**Commit Hash**: `1db8b03dc70d56ea6b676b7a52a2ab4e1b340c37`
-**Short Hash**: `1db8b03`
+**Commit Hash**: `7ed613b920ec8f1a7d36e33c487110424cbbb797`
+**Short Hash**: `7ed613b`
 
 ### Files Modified
 
@@ -3330,12 +3349,12 @@ chore: update changelog for v100.60.0
 
 ---
 
-## Commit 137: chore: update commit history for v100.60.0
+## Commit 138: chore: update commit history for v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:54 +0000
-**Commit Hash**: `212ca7e1ce62fda67fdc7cb4cc2cfd06807c9cd7`
-**Short Hash**: `212ca7e`
+**Commit Hash**: `38409e286a5e83332af337a6f283430bdb90f0e6`
+**Short Hash**: `38409e2`
 
 ### Files Modified
 
@@ -3349,12 +3368,12 @@ chore: update commit history for v100.60.0
 
 ---
 
-## Commit 138: release 100.60.0
+## Commit 139: chore: release v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:53 +0000
-**Commit Hash**: `38dbb0774093785ecb1c6ed1082b144c4249f3df`
-**Short Hash**: `38dbb07`
+**Commit Hash**: `9c02f5017534987c888a036994cbb9f47372f2e0`
+**Short Hash**: `9c02f50`
 
 ### Files Modified
 
@@ -3365,17 +3384,17 @@ chore: update commit history for v100.60.0
 ### Commit Message
 
 ```text
-release 100.60.0
+chore: release v100.60.0
 ```
 
 ---
 
-## Commit 139: Add hide/clear to rule linter; restyle rules guide like the rest of the UI (#159)
+## Commit 140: Add hide/clear to rule linter; restyle rules guide like the rest of the UI
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 21:07:45 +0530
-**Commit Hash**: `2f706340b8d6d5e06e1a43340ab964d7595ae289`
-**Short Hash**: `2f70634`
+**Commit Hash**: `44b38f80db40052c73c0d6935a8756490d381026`
+**Short Hash**: `44b38f8`
 
 ### Files Modified
 
@@ -3442,17 +3461,17 @@ release 100.60.0
 ### Commit Message
 
 ```text
-Add hide/clear to rule linter; restyle rules guide like the rest of the UI (#159)
+Add hide/clear to rule linter; restyle rules guide like the rest of the UI
 ```
 
 ---
 
-## Commit 140: * **Disable rule by provider or pattern**
+## Commit 141: * **Disable rule by provider or pattern**
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 20:49:33 +0530
-**Commit Hash**: `3226d26d1a6f7eba6b99310d8366caac5c07e70b`
-**Short Hash**: `3226d26`
+**Commit Hash**: `e1ed8c1ff869a2f926314d6facf43e04a2a93f4a`
+**Short Hash**: `e1ed8c1`
 
 ### Files Modified
 
@@ -3470,12 +3489,12 @@ Add hide/clear to rule linter; restyle rules guide like the rest of the UI (#159
 
 ---
 
-## Commit 141: chore: update changelog for v100.59.0
+## Commit 142: chore: update changelog for v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:47 +0000
-**Commit Hash**: `6b35f76676420cba38a92290a00eeb110bd301b4`
-**Short Hash**: `6b35f76`
+**Commit Hash**: `516381f2c87cb7b23cda5755c5af1bb5bf792278`
+**Short Hash**: `516381f`
 
 ### Files Modified
 
@@ -3489,12 +3508,12 @@ chore: update changelog for v100.59.0
 
 ---
 
-## Commit 142: chore: update commit history for v100.59.0
+## Commit 143: chore: update commit history for v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:45 +0000
-**Commit Hash**: `ff1e44243cd73f0b901237a85a1e20e5dcc7ea9b`
-**Short Hash**: `ff1e442`
+**Commit Hash**: `6f9e2cbaa3ff74318720de7f738129e5b0c309cb`
+**Short Hash**: `6f9e2cb`
 
 ### Files Modified
 
@@ -3508,12 +3527,12 @@ chore: update commit history for v100.59.0
 
 ---
 
-## Commit 143: release 100.59.0
+## Commit 144: chore: release v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:43 +0000
-**Commit Hash**: `b018a40655cf20864f3b0070ab59d92b68a3d9fc`
-**Short Hash**: `b018a40`
+**Commit Hash**: `77dcf5da8bd7275b79a3b8326c43006e2c41efad`
+**Short Hash**: `77dcf5d`
 
 ### Files Modified
 
@@ -3524,17 +3543,17 @@ chore: update commit history for v100.59.0
 ### Commit Message
 
 ```text
-release 100.59.0
+chore: release v100.59.0
 ```
 
 ---
 
-## Commit 144: Add a Rename ID action to Provider rule ID controls (#156)
+## Commit 145: Add a Rename ID action to Provider rule ID controls
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 19:50:09 +0530
-**Commit Hash**: `71713353fdb9dae47ca598a95c4d670984d2b516`
-**Short Hash**: `7171335`
+**Commit Hash**: `9e50e8d97ddac91ee3a85d00aeea625caf0b3d86`
+**Short Hash**: `9e50e8d`
 
 ### Files Modified
 
@@ -3546,17 +3565,17 @@ release 100.59.0
 ### Commit Message
 
 ```text
-Add a Rename ID action to Provider rule ID controls (#156)
+Add a Rename ID action to Provider rule ID controls
 ```
 
 ---
 
-## Commit 145: Pin a rule's generated id the first time it is switched off (#155)
+## Commit 146: Pin a rule's generated id the first time it is switched off
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 19:22:53 +0530
-**Commit Hash**: `9c7badf94ca351b461dc693ea633c1f9cb5844b2`
-**Short Hash**: `9c7badf`
+**Commit Hash**: `50d58837ab312ac92793246bef415ff7c6e3edda`
+**Short Hash**: `50d5883`
 
 ### Files Modified
 
@@ -3578,17 +3597,17 @@ Add a Rename ID action to Provider rule ID controls (#156)
 ### Commit Message
 
 ```text
-Pin a rule's generated id the first time it is switched off (#155)
+Pin a rule's generated id the first time it is switched off
 ```
 
 ---
 
-## Commit 146: chore: update commit history
+## Commit 147: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 13:13:52 +0000
-**Commit Hash**: `4c76db54b9e249d405161a5132f15d6d2b165748`
-**Short Hash**: `4c76db5`
+**Commit Hash**: `b00388ac7cb282fd4da201e6d4a78e7024eb28f7`
+**Short Hash**: `b00388a`
 
 ### Files Modified
 
@@ -3602,12 +3621,12 @@ chore: update commit history
 
 ---
 
-## Commit 147: Add a comparison of the ClearURLs rule format 2 and the Linkumori format
+## Commit 148: Add a comparison of the ClearURLs rule format 2 and the Linkumori format
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 18:42:56 +0530
-**Commit Hash**: `b7972733721f6cd82e5aa7a60c3ffb180fdaac9c`
-**Short Hash**: `b797273`
+**Commit Hash**: `3d43aa59cd3fb8367baabf0dc2cdf3aa82d90947`
+**Short Hash**: `3d43aa5`
 
 ### Files Modified
 
@@ -3621,12 +3640,12 @@ Add a comparison of the ClearURLs rule format 2 and the Linkumori format
 
 ---
 
-## Commit 148: Rewrite the rules guide from the current syntax and translate it
+## Commit 149: Rewrite the rules guide from the current syntax and translate it
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 18:42:56 +0530
-**Commit Hash**: `3401f1a89d3c157ca757077c219826f180a0c8cc`
-**Short Hash**: `3401f1a`
+**Commit Hash**: `a0bff609bcde62576c40330317ff1470b971e900`
+**Short Hash**: `a0bff60`
 
 ### Files Modified
 
@@ -3696,12 +3715,12 @@ Rewrite the rules guide from the current syntax and translate it
 
 ---
 
-## Commit 149: COMMIT
+## Commit 150: feat: add rule tracking and update project docs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 16:38:55 +0530
-**Commit Hash**: `477c674e9fd26921eee8280e0a7d964c80808289`
-**Short Hash**: `477c674`
+**Commit Hash**: `4b029b3e7756a84bad2c06ba4620f25de6fa350b`
+**Short Hash**: `4b029b3`
 
 ### Files Modified
 
@@ -3721,17 +3740,17 @@ Rewrite the rules guide from the current syntax and translate it
 ### Commit Message
 
 ```text
-COMMIT
+feat: add rule tracking and update project docs
 ```
 
 ---
 
-## Commit 150: chore: update commit history
+## Commit 151: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 10:49:58 +0000
-**Commit Hash**: `8b723ce2f387901f5d4e19d162dd3e65aefdc811`
-**Short Hash**: `8b723ce`
+**Commit Hash**: `8b7b802ae3d1d8aa35e6bf953cc1172a867f7eab`
+**Short Hash**: `8b7b802`
 
 ### Files Modified
 
@@ -3745,12 +3764,12 @@ chore: update commit history
 
 ---
 
-## Commit 151: Make generated rule ids unique; replace denyallow and flags tags
+## Commit 152: Make generated rule ids unique; replace denyallow and flags tags
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 16:19:01 +0530
-**Commit Hash**: `0a7506c46ddc859c10266409b5b31eab74853ec0`
-**Short Hash**: `0a7506c`
+**Commit Hash**: `d1f3b39085ae2b810e539ef4c96c56ef9d05db7f`
+**Short Hash**: `d1f3b39`
 
 ### Files Modified
 
@@ -3775,12 +3794,12 @@ Make generated rule ids unique; replace denyallow and flags tags
 
 ---
 
-## Commit 152: chore: update commit history
+## Commit 153: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 10:33:57 +0000
-**Commit Hash**: `d3c1fd1841ef58d1bdf5bbbf1c4ce1a3c46ee9f5`
-**Short Hash**: `d3c1fd1`
+**Commit Hash**: `11d8b67e9c707198974c33c165e83956c041f7e1`
+**Short Hash**: `11d8b67`
 
 ### Files Modified
 
@@ -3794,12 +3813,12 @@ chore: update commit history
 
 ---
 
-## Commit 153: update
+## Commit 154: fix: remove unsupported badfilter handling
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 15:58:51 +0530
-**Commit Hash**: `2719581bdc3a244f87c3de15ec7bfa3853fc6d83`
-**Short Hash**: `2719581`
+**Commit Hash**: `3f2cd7ec48d6eef517d42883f28ed5918521976e`
+**Short Hash**: `3f2cd7e`
 
 ### Files Modified
 
@@ -3813,17 +3832,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-update
+fix: remove unsupported badfilter handling
 ```
 
 ---
 
-## Commit 154: chore: update commit history
+## Commit 155: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 09:09:59 +0000
-**Commit Hash**: `75183a1a305f37a21779d610eef62ca324039d9e`
-**Short Hash**: `75183a1`
+**Commit Hash**: `4d5501a1fcd031af895387b09095bbab4949bd0f`
+**Short Hash**: `4d5501a`
 
 ### Files Modified
 
@@ -3837,12 +3856,12 @@ chore: update commit history
 
 ---
 
-## Commit 155: Update filter-syntax.md
+## Commit 156: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 14:39:48 +0530
-**Commit Hash**: `d1a612cd232a9e398128f14a7404f2992bfd652f`
-**Short Hash**: `d1a612c`
+**Commit Hash**: `f29e7386fbb43c5b64b16ebb4372b1eea249b719`
+**Short Hash**: `f29e738`
 
 ### Files Modified
 
@@ -3851,17 +3870,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update filter-syntax.md
+docs: update filter syntax guide
 ```
 
 ---
 
-## Commit 156: chore: update commit history
+## Commit 157: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 09:04:54 +0000
-**Commit Hash**: `fd92a805a686efc731c6f38cdc5aeae4f70dbb0d`
-**Short Hash**: `fd92a80`
+**Commit Hash**: `fab17d82617338ed5bc7fadbdb51eecc7ec650ed`
+**Short Hash**: `fab17d8`
 
 ### Files Modified
 
@@ -3875,12 +3894,12 @@ chore: update commit history
 
 ---
 
-## Commit 157: commit
+## Commit 158: refactor: remove legacy rule format converter
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 14:34:24 +0530
-**Commit Hash**: `6d62a9c729bf901ba4ad2ff11ec5a5baaf10b1b5`
-**Short Hash**: `6d62a9c`
+**Commit Hash**: `5fd7dcbc4cb6eec240baa2be26a0c8d7a2ff3925`
+**Short Hash**: `5fd7dcb`
 
 ### Files Modified
 
@@ -3896,17 +3915,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-commit
+refactor: remove legacy rule format converter
 ```
 
 ---
 
-## Commit 158: chore: update changelog for v100.58.0
+## Commit 159: chore: update changelog for v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:29 +0000
-**Commit Hash**: `4f77140d5e607ccf9ed221027dca9df789714d80`
-**Short Hash**: `4f77140`
+**Commit Hash**: `bf4426cf3e88dfd11974d514a32b5cd47f11ccdc`
+**Short Hash**: `bf4426c`
 
 ### Files Modified
 
@@ -3920,12 +3939,12 @@ chore: update changelog for v100.58.0
 
 ---
 
-## Commit 159: chore: update commit history for v100.58.0
+## Commit 160: chore: update commit history for v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:27 +0000
-**Commit Hash**: `dfee5d8ec1a24d90ba4988bf5b28bcaadb69558f`
-**Short Hash**: `dfee5d8`
+**Commit Hash**: `08b8423dd85a7090323a021a60ac78be96c75e39`
+**Short Hash**: `08b8423`
 
 ### Files Modified
 
@@ -3939,12 +3958,12 @@ chore: update commit history for v100.58.0
 
 ---
 
-## Commit 160: release 100.58.0
+## Commit 161: chore: release v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:26 +0000
-**Commit Hash**: `e62aad8e799888d0f3fe16674a540fae017c0c10`
-**Short Hash**: `e62aad8`
+**Commit Hash**: `81f269a080c27290e79492dd299563f272bf3de7`
+**Short Hash**: `81f269a`
 
 ### Files Modified
 
@@ -3955,17 +3974,17 @@ chore: update commit history for v100.58.0
 ### Commit Message
 
 ```text
-release 100.58.0
+chore: release v100.58.0
 ```
 
 ---
 
-## Commit 161: chore: update changelog for v100.57.0
+## Commit 162: chore: update changelog for v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:38 +0000
-**Commit Hash**: `79774002592791a3a87eb15fcf4ed7609b62889b`
-**Short Hash**: `7977400`
+**Commit Hash**: `4857a30b4d8afa3ca25f455e82f6bd4e46e4841f`
+**Short Hash**: `4857a30`
 
 ### Files Modified
 
@@ -3979,12 +3998,12 @@ chore: update changelog for v100.57.0
 
 ---
 
-## Commit 162: chore: update commit history for v100.57.0
+## Commit 163: chore: update commit history for v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:37 +0000
-**Commit Hash**: `9a97442a52bba084e330395be3f228d50d497e44`
-**Short Hash**: `9a97442`
+**Commit Hash**: `e965c4c94be684a82db640a0cb86e86b234f0e18`
+**Short Hash**: `e965c4c`
 
 ### Files Modified
 
@@ -3998,12 +4017,12 @@ chore: update commit history for v100.57.0
 
 ---
 
-## Commit 163: release 100.57.0
+## Commit 164: chore: release v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:35 +0000
-**Commit Hash**: `4d63965df1b6e83b3abd7d9f15d9e4603ad32913`
-**Short Hash**: `4d63965`
+**Commit Hash**: `f3ca3b0b9d935920e1097cdb324bdd9eac36361c`
+**Short Hash**: `f3ca3b0`
 
 ### Files Modified
 
@@ -4014,17 +4033,17 @@ chore: update commit history for v100.57.0
 ### Commit Message
 
 ```text
-release 100.57.0
+chore: release v100.57.0
 ```
 
 ---
 
-## Commit 164: Domain pattern rawrules bq2cl6 (#153)
+## Commit 165: feat: support scoped raw rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 12:55:11 +0530
-**Commit Hash**: `13e6576c79404fdc44267903540ef7daedc7608f`
-**Short Hash**: `13e6576`
+**Commit Hash**: `81e66ccf8d0714a7aba6cf11355413a9ee629dbb`
+**Short Hash**: `81e66cc`
 
 ### Files Modified
 
@@ -4039,17 +4058,17 @@ release 100.57.0
 ### Commit Message
 
 ```text
-Domain pattern rawrules bq2cl6 (#153)
+feat: support scoped raw rules
 ```
 
 ---
 
-## Commit 165: Implement fieldRedirections, rule order and flags tags (#151)
+## Commit 166: Implement fieldRedirections, rule order and flags tags
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 23:19:27 +0530
-**Commit Hash**: `6d9cd0d031298a259bad651c363019a65677edcd`
-**Short Hash**: `6d9cd0d`
+**Commit Hash**: `835eaed9d1d5f87a14dac6e5a28984b45c3a5ce0`
+**Short Hash**: `835eaed`
 
 ### Files Modified
 
@@ -4066,17 +4085,17 @@ Domain pattern rawrules bq2cl6 (#153)
 ### Commit Message
 
 ```text
-Implement fieldRedirections, rule order and flags tags (#151)
+Implement fieldRedirections, rule order and flags tags
 ```
 
 ---
 
-## Commit 166: chore: update commit history
+## Commit 167: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:48:55 +0000
-**Commit Hash**: `6657b8f11df7cfcf6d4ab114467161fbf58318a3`
-**Short Hash**: `6657b8f`
+**Commit Hash**: `f8b2139ccb77daeaca7a0b7d81308285a429589c`
+**Short Hash**: `f8b2139`
 
 ### Files Modified
 
@@ -4090,12 +4109,12 @@ chore: update commit history
 
 ---
 
-## Commit 167: Update rule-syntax.md
+## Commit 168: docs: update rule syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 21:18:40 +0530
-**Commit Hash**: `46679772fb486c44f6dd8d93108e3acdd07ff56c`
-**Short Hash**: `4667977`
+**Commit Hash**: `d309db907a207cf2d1a2a6de262f555a5c92e022`
+**Short Hash**: `d309db9`
 
 ### Files Modified
 
@@ -4104,17 +4123,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update rule-syntax.md
+docs: update rule syntax guide
 ```
 
 ---
 
-## Commit 168: chore: update changelog for v100.56.0
+## Commit 169: chore: update changelog for v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:04 +0000
-**Commit Hash**: `315707580b6256dd29e7900c0d404ceaf42f3796`
-**Short Hash**: `3157075`
+**Commit Hash**: `e1ec4f0a090ad37d4df65335e5819f3609904ea8`
+**Short Hash**: `e1ec4f0`
 
 ### Files Modified
 
@@ -4128,12 +4147,12 @@ chore: update changelog for v100.56.0
 
 ---
 
-## Commit 169: chore: update commit history for v100.56.0
+## Commit 170: chore: update commit history for v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:02 +0000
-**Commit Hash**: `970ce6f3ca740d470e921228e57065b680accd8a`
-**Short Hash**: `970ce6f`
+**Commit Hash**: `b0a49b6b77098adf6053d5aba483a40e669f3ae6`
+**Short Hash**: `b0a49b6`
 
 ### Files Modified
 
@@ -4147,12 +4166,12 @@ chore: update commit history for v100.56.0
 
 ---
 
-## Commit 170: release 100.56.0
+## Commit 171: chore: release v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:01 +0000
-**Commit Hash**: `013e7a053f3ca02b99e84617bca8ad83efb79264`
-**Short Hash**: `013e7a0`
+**Commit Hash**: `8ad20c8dafa1c96a8391c1f0f94a652df66ed068`
+**Short Hash**: `8ad20c8`
 
 ### Files Modified
 
@@ -4163,17 +4182,17 @@ chore: update commit history for v100.56.0
 ### Commit Message
 
 ```text
-release 100.56.0
+chore: release v100.56.0
 ```
 
 ---
 
-## Commit 171: chore: update commit history
+## Commit 172: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:17:00 +0000
-**Commit Hash**: `21222968275eb09a36c8030cd09d21e74db5c258`
-**Short Hash**: `2122296`
+**Commit Hash**: `8e66bc8fe134c413a42f414c9732b029ab8ad068`
+**Short Hash**: `8e66bc8`
 
 ### Files Modified
 
@@ -4187,12 +4206,12 @@ chore: update commit history
 
 ---
 
-## Commit 172: added faq
+## Commit 173: docs: remove the obsolete custom rules FAQ
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 20:46:42 +0530
-**Commit Hash**: `ac4b9871e1eb7b1e21fb309ccab1d4b4f446c37e`
-**Short Hash**: `ac4b987`
+**Commit Hash**: `1d2a33db4b09a5acd455cfec63b441ee82f7a937`
+**Short Hash**: `1d2a33d`
 
 ### Files Modified
 
@@ -4201,17 +4220,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-added faq
+docs: remove the obsolete custom rules FAQ
 ```
 
 ---
 
-## Commit 173: chore: update changelog for v100.55.0
+## Commit 174: chore: update changelog for v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:50 +0000
-**Commit Hash**: `3a877f48ba607d56bbfe3029f4b986ad1f68512d`
-**Short Hash**: `3a877f4`
+**Commit Hash**: `92ea67c4508b685a9f7a6d9be4c0870a72435109`
+**Short Hash**: `92ea67c`
 
 ### Files Modified
 
@@ -4225,12 +4244,12 @@ chore: update changelog for v100.55.0
 
 ---
 
-## Commit 174: chore: update commit history for v100.55.0
+## Commit 175: chore: update commit history for v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:48 +0000
-**Commit Hash**: `4dae311dff0d2ac8334bc29adb6a999ceedf468f`
-**Short Hash**: `4dae311`
+**Commit Hash**: `8d9cc9dbbbbf69341e448f453f44d13c3ae92a5d`
+**Short Hash**: `8d9cc9d`
 
 ### Files Modified
 
@@ -4244,12 +4263,12 @@ chore: update commit history for v100.55.0
 
 ---
 
-## Commit 175: release 100.55.0
+## Commit 176: chore: release v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:46 +0000
-**Commit Hash**: `c8949c9a2845de61c60c8c84b4dc289c4ca1c1a9`
-**Short Hash**: `c8949c9`
+**Commit Hash**: `ea75992674d839068a0d5705ef25374ab2697dbc`
+**Short Hash**: `ea75992`
 
 ### Files Modified
 
@@ -4261,17 +4280,17 @@ chore: update commit history for v100.55.0
 ### Commit Message
 
 ```text
-release 100.55.0
+chore: release v100.55.0
 ```
 
 ---
 
-## Commit 176: chore: update commit history
+## Commit 177: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:00 +0000
-**Commit Hash**: `c22f8c882ea3439bd9f1d566a46e050a5e81a67a`
-**Short Hash**: `c22f8c8`
+**Commit Hash**: `023423e132dae7c48778effa02ec016feb5472bb`
+**Short Hash**: `023423e`
 
 ### Files Modified
 
@@ -4285,12 +4304,12 @@ chore: update commit history
 
 ---
 
-## Commit 177: refactor: simplify rule format and strengthen validation
+## Commit 178: refactor: simplify rule format and strengthen validation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 20:29:26 +0530
-**Commit Hash**: `c395b0f3a393be90ff33006a6b72bf854d1e0774`
-**Short Hash**: `c395b0f`
+**Commit Hash**: `91dd5837524fcaf99250d6514292003d788ac9d1`
+**Short Hash**: `91dd583`
 
 ### Files Modified
 
@@ -4371,12 +4390,12 @@ refactor: simplify rule format and strengthen validation
 
 ---
 
-## Commit 178: chore: update changelog for v100.54.0
+## Commit 179: chore: update changelog for v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:56 +0000
-**Commit Hash**: `dc0e443dc29dc71c962f974e68798d5cb5efe5fb`
-**Short Hash**: `dc0e443`
+**Commit Hash**: `9ca8b2f4e53e55b172b7390957963c3c1a4a1977`
+**Short Hash**: `9ca8b2f`
 
 ### Files Modified
 
@@ -4390,12 +4409,12 @@ chore: update changelog for v100.54.0
 
 ---
 
-## Commit 179: chore: update commit history for v100.54.0
+## Commit 180: chore: update commit history for v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:54 +0000
-**Commit Hash**: `09e208fa8354f7e9777e6e5cab89143aa5f9c41e`
-**Short Hash**: `09e208f`
+**Commit Hash**: `f8560d00488c5a0c5bdfbb01f15912310421422e`
+**Short Hash**: `f8560d0`
 
 ### Files Modified
 
@@ -4409,12 +4428,12 @@ chore: update commit history for v100.54.0
 
 ---
 
-## Commit 180: release 100.54.0
+## Commit 181: chore: release v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:53 +0000
-**Commit Hash**: `0b1136ee0ae274e6defb5ada45a40a280ebf3255`
-**Short Hash**: `0b1136e`
+**Commit Hash**: `066d5c1e906ea26bbf84753bb8cd4da25d01e476`
+**Short Hash**: `066d5c1`
 
 ### Files Modified
 
@@ -4426,17 +4445,17 @@ chore: update commit history for v100.54.0
 ### Commit Message
 
 ```text
-release 100.54.0
+chore: release v100.54.0
 ```
 
 ---
 
-## Commit 181: chore: update changelog for v100.53.2
+## Commit 182: chore: update changelog for v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:14 +0000
-**Commit Hash**: `7cd366eec400c88dd5f402d3e6a520835972e546`
-**Short Hash**: `7cd366e`
+**Commit Hash**: `f29b9e43424350c54c7ba2f5c88bc376b0959c4f`
+**Short Hash**: `f29b9e4`
 
 ### Files Modified
 
@@ -4450,12 +4469,12 @@ chore: update changelog for v100.53.2
 
 ---
 
-## Commit 182: chore: update commit history for v100.53.2
+## Commit 183: chore: update commit history for v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:12 +0000
-**Commit Hash**: `1874aa2dc34b4663ebd28df65d61b7c47754861c`
-**Short Hash**: `1874aa2`
+**Commit Hash**: `397cc5ddec68ece881a9f893950b0070a4c0406c`
+**Short Hash**: `397cc5d`
 
 ### Files Modified
 
@@ -4469,12 +4488,12 @@ chore: update commit history for v100.53.2
 
 ---
 
-## Commit 183: release 100.53.2
+## Commit 184: chore: release v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:11 +0000
-**Commit Hash**: `8e12ae74c3c42d5bf21ce695de9a8cf7f2b4cde8`
-**Short Hash**: `8e12ae7`
+**Commit Hash**: `71050f7e03685b369b5fc6c5957d7b316032467b`
+**Short Hash**: `71050f7`
 
 ### Files Modified
 
@@ -4486,17 +4505,17 @@ chore: update commit history for v100.53.2
 ### Commit Message
 
 ```text
-release 100.53.2
+chore: release v100.53.2
 ```
 
 ---
 
-## Commit 184: chore: update commit history
+## Commit 185: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-18 18:40:42 +0000
-**Commit Hash**: `b68906128c56b58eeb92b59270e2adc00b30753c`
-**Short Hash**: `b689061`
+**Commit Hash**: `1033f9d5d86b8c4b598ccc14f2166c4ac0876ee8`
+**Short Hash**: `1033f9d`
 
 ### Files Modified
 
@@ -4510,12 +4529,12 @@ chore: update commit history
 
 ---
 
-## Commit 185: Fix popup button background/centering regressions from href conversion
+## Commit 186: Fix popup button background/centering regressions from href conversion
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-19 00:10:03 +0530
-**Commit Hash**: `173aeebfa3e55fb502fc0228d8808ca360212f9a`
-**Short Hash**: `173aeeb`
+**Commit Hash**: `ae899a15dd93ad489325c547edb76f5758058d11`
+**Short Hash**: `ae899a1`
 
 ### Files Modified
 
@@ -4529,12 +4548,12 @@ Fix popup button background/centering regressions from href conversion
 
 ---
 
-## Commit 186: chore: update changelog for v100.53.1
+## Commit 187: chore: update changelog for v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 17:00:02 +0000
-**Commit Hash**: `fc599b15904bffbe5614cee4c4c905e6a867c091`
-**Short Hash**: `fc599b1`
+**Commit Hash**: `abbec565559088203a59df158841f4585f3a7e08`
+**Short Hash**: `abbec56`
 
 ### Files Modified
 
@@ -4548,12 +4567,12 @@ chore: update changelog for v100.53.1
 
 ---
 
-## Commit 187: chore: update commit history for v100.53.1
+## Commit 188: chore: update commit history for v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 17:00:00 +0000
-**Commit Hash**: `136d44d1786c18c822d85c618aeac793450122af`
-**Short Hash**: `136d44d`
+**Commit Hash**: `bb0abcb9dd797d9d37efae14ce8170088a825f29`
+**Short Hash**: `bb0abcb`
 
 ### Files Modified
 
@@ -4567,12 +4586,12 @@ chore: update commit history for v100.53.1
 
 ---
 
-## Commit 188: release 100.53.1
+## Commit 189: chore: release v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:59:59 +0000
-**Commit Hash**: `52cd78ab947c7e097118b3da3b4d3d7daf275985`
-**Short Hash**: `52cd78a`
+**Commit Hash**: `8cde3e1a5b945ec8a74bbcc9b680b417663b73f4`
+**Short Hash**: `8cde3e1`
 
 ### Files Modified
 
@@ -4583,17 +4602,17 @@ chore: update commit history for v100.53.1
 ### Commit Message
 
 ```text
-release 100.53.1
+chore: release v100.53.1
 ```
 
 ---
 
-## Commit 189: chore: update commit history
+## Commit 190: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:59:18 +0000
-**Commit Hash**: `ec7cc76f24b68dbbf334b823658422da0ab217f1`
-**Short Hash**: `ec7cc76`
+**Commit Hash**: `1b19b63bd8e2bee8d68ba5a18ce51fe1f54799b6`
+**Short Hash**: `1b19b63`
 
 ### Files Modified
 
@@ -4607,12 +4626,12 @@ chore: update commit history
 
 ---
 
-## Commit 190: Use real <a href> links instead of tabs.create() for internal page navigation
+## Commit 191: Use real <a href> links instead of tabs.create() for internal page navigation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:28:57 +0530
-**Commit Hash**: `ca702750127f84739235dcd3dcc607359da5557d`
-**Short Hash**: `ca70275`
+**Commit Hash**: `e7ee5a56f6253d20bcd8441df6b3cf98cfbd6b15`
+**Short Hash**: `e7ee5a5`
 
 ### Files Modified
 
@@ -4631,12 +4650,12 @@ Use real <a href> links instead of tabs.create() for internal page navigation
 
 ---
 
-## Commit 191: Fix settings/custom rules save being lost on reload on Android
+## Commit 192: Fix settings/custom rules save being lost on reload on Android
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:28:51 +0530
-**Commit Hash**: `ee63f3a66b3f6c087bda44602173677a5fe77873`
-**Short Hash**: `ee63f3a`
+**Commit Hash**: `786494600c8663a2c45b916c6e88589fe4293581`
+**Short Hash**: `7864946`
 
 ### Files Modified
 
@@ -4651,12 +4670,12 @@ Fix settings/custom rules save being lost on reload on Android
 
 ---
 
-## Commit 192: chore: update commit history
+## Commit 193: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:31:28 +0000
-**Commit Hash**: `60841b823c509d03638cf14992e1bc2f7e66ae3f`
-**Short Hash**: `60841b8`
+**Commit Hash**: `47c0f018d0ef2b409cbeabad62d6b375aa80dd4a`
+**Short Hash**: `47c0f01`
 
 ### Files Modified
 
@@ -4670,12 +4689,12 @@ chore: update commit history
 
 ---
 
-## Commit 193: update COMMIT_HISTORY.md
+## Commit 194: update COMMIT_HISTORY.md
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:01:01 +0530
-**Commit Hash**: `0625f83d33ba2fe90d176aa577664d5b06bcc506`
-**Short Hash**: `0625f83`
+**Commit Hash**: `47c7ff27bf8d5993f982b1d7f867d7d334510d92`
+**Short Hash**: `47c7ff2`
 
 ### Files Modified
 
@@ -4689,52 +4708,12 @@ update COMMIT_HISTORY.md
 
 ---
 
-## Commit 194: update commit history
+## Commit 195: chore: update commit history
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 21:59:18 +0530
-**Commit Hash**: `accfc0f972b97fc3bdd7a5a382d9146bfba2fd5d`
-**Short Hash**: `accfc0f`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-update commit history
-```
-
----
-
-## Commit 195: bump to 100.53.0
-
-**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
-**Date**: 2026-09-17 21:58:26 +0530
-**Commit Hash**: `8b846fe7242b3be5f72a5aeb70923073f337ff11`
-**Short Hash**: `8b846fe`
-
-### Files Modified
-
-- **Modified**: `data/NOTICE.md`
-- **Modified**: `data/linkumori-clearurls-min.json.lz4`
-- **Modified**: `manifest.json`
-
-### Commit Message
-
-```text
-bump to 100.53.0
-```
-
----
-
-## Commit 196: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-09-17 16:26:51 +0000
-**Commit Hash**: `e308b2e1bc4813c550106df74c1a3b6277644419`
-**Short Hash**: `e308b2e`
+**Commit Hash**: `ccdbf3b1e59272c42793e9879fa4d70d717b45ee`
+**Short Hash**: `ccdbf3b`
 
 ### Files Modified
 
@@ -4748,12 +4727,52 @@ chore: update commit history
 
 ---
 
-## Commit 197: Add Firefox for Android support and touch-target accessibility sizing
+## Commit 196: chore: release v100.53.0
+
+**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-09-17 21:58:26 +0530
+**Commit Hash**: `2092ad453f03b4e8ae24bccdfd63cda7f8c529d8`
+**Short Hash**: `2092ad4`
+
+### Files Modified
+
+- **Modified**: `data/NOTICE.md`
+- **Modified**: `data/linkumori-clearurls-min.json.lz4`
+- **Modified**: `manifest.json`
+
+### Commit Message
+
+```text
+chore: release v100.53.0
+```
+
+---
+
+## Commit 197: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-09-17 16:26:51 +0000
+**Commit Hash**: `4cd791b43fbf03eca763e1228bc1e2b3f3d606bd`
+**Short Hash**: `4cd791b`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 198: Add Firefox for Android support and touch-target accessibility sizing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 21:56:32 +0530
-**Commit Hash**: `b9fac3a3f95cdb2fc6d27b10e07f7bababde5dcc`
-**Short Hash**: `b9fac3a`
+**Commit Hash**: `19a97966b668b61457528961206d9c6c01a380f3`
+**Short Hash**: `19a9796`
 
 ### Files Modified
 
@@ -4776,12 +4795,12 @@ Add Firefox for Android support and touch-target accessibility sizing
 
 ---
 
-## Commit 198: chore: update changelog for v100.52.0
+## Commit 199: chore: update changelog for v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:17 +0000
-**Commit Hash**: `115316e0739f90d33b716cc0049a93055821fdd8`
-**Short Hash**: `115316e`
+**Commit Hash**: `7455fac8845cfda00bde94daeabcd9cfc69e049f`
+**Short Hash**: `7455fac`
 
 ### Files Modified
 
@@ -4795,12 +4814,12 @@ chore: update changelog for v100.52.0
 
 ---
 
-## Commit 199: chore: update commit history for v100.52.0
+## Commit 200: chore: update commit history for v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:15 +0000
-**Commit Hash**: `3492050b451116e5c6d33620b0f8aefb7b91809a`
-**Short Hash**: `3492050`
+**Commit Hash**: `65e6c48d2cb0aa026db82c3e439b291c7315f3ae`
+**Short Hash**: `65e6c48`
 
 ### Files Modified
 
@@ -4814,12 +4833,12 @@ chore: update commit history for v100.52.0
 
 ---
 
-## Commit 200: release 100.52.0
+## Commit 201: chore: release v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:13 +0000
-**Commit Hash**: `34505a9e626373ddfc5ac9535f11c4c7c8d3e413`
-**Short Hash**: `34505a9`
+**Commit Hash**: `139b778863e3765e3f2121b66671438cdca68ccd`
+**Short Hash**: `139b778`
 
 ### Files Modified
 
@@ -4830,17 +4849,17 @@ chore: update commit history for v100.52.0
 ### Commit Message
 
 ```text
-release 100.52.0
+chore: release v100.52.0
 ```
 
 ---
 
-## Commit 201: chore: update changelog for v100.51.0
+## Commit 202: chore: update changelog for v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:45 +0000
-**Commit Hash**: `507f350f40a1f88bbed204a375032d8c52aff91d`
-**Short Hash**: `507f350`
+**Commit Hash**: `44edf13863f1e427fda267ca15bdbbc8a45a528f`
+**Short Hash**: `44edf13`
 
 ### Files Modified
 
@@ -4854,12 +4873,12 @@ chore: update changelog for v100.51.0
 
 ---
 
-## Commit 202: chore: update commit history for v100.51.0
+## Commit 203: chore: update commit history for v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:44 +0000
-**Commit Hash**: `52882d01f5f4b74c7e0c8e31d340cdb344d14ba5`
-**Short Hash**: `52882d0`
+**Commit Hash**: `9820a97abb7315ee51e9cd17cf64545fcf43a44c`
+**Short Hash**: `9820a97`
 
 ### Files Modified
 
@@ -4873,12 +4892,12 @@ chore: update commit history for v100.51.0
 
 ---
 
-## Commit 203: release 100.51.0
+## Commit 204: chore: release v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:42 +0000
-**Commit Hash**: `cce230cf0e1a38e4e44e1a880e4f38d69af56b3b`
-**Short Hash**: `cce230c`
+**Commit Hash**: `836fcaf36a00dfc15381445502d7af19ca18c9be`
+**Short Hash**: `836fcaf`
 
 ### Files Modified
 
@@ -4889,17 +4908,17 @@ chore: update commit history for v100.51.0
 ### Commit Message
 
 ```text
-release 100.51.0
+chore: release v100.51.0
 ```
 
 ---
 
-## Commit 204: chore: update commit history
+## Commit 205: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 17:07:46 +0000
-**Commit Hash**: `defeff4219eb3230b981b7a2fca705f3f862bf13`
-**Short Hash**: `defeff4`
+**Commit Hash**: `60c40dbe0491ff86c0c0c24d82c6e9b320579449`
+**Short Hash**: `60c40db`
 
 ### Files Modified
 
@@ -4913,12 +4932,12 @@ chore: update commit history
 
 ---
 
-## Commit 205: Add history-bypass-protection flag for in-page navigation cleanup
+## Commit 206: Add history-bypass-protection flag for in-page navigation cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-16 22:36:31 +0530
-**Commit Hash**: `87922255c6b7d869c7c11007792a836fdbe8d539`
-**Short Hash**: `8792225`
+**Commit Hash**: `dc114454938496122b4cdfc3f7b0461eb43c6566`
+**Short Hash**: `dc11445`
 
 ### Files Modified
 
@@ -4942,12 +4961,12 @@ Add history-bypass-protection flag for in-page navigation cleanup
 
 ---
 
-## Commit 206: chore: update changelog for v100.50.0
+## Commit 207: chore: update changelog for v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:27:01 +0000
-**Commit Hash**: `58c1427e8ddd95e89f71cdf6d7ffc8ed9fb0ac4f`
-**Short Hash**: `58c1427`
+**Commit Hash**: `42b0bfb71772bb6121d165f2ba85dc1ff0b7a9a2`
+**Short Hash**: `42b0bfb`
 
 ### Files Modified
 
@@ -4961,12 +4980,12 @@ chore: update changelog for v100.50.0
 
 ---
 
-## Commit 207: chore: update commit history for v100.50.0
+## Commit 208: chore: update commit history for v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:26:59 +0000
-**Commit Hash**: `335d6903dcd062db9950147814b13c889552a868`
-**Short Hash**: `335d690`
+**Commit Hash**: `a468ddeee66c6bbf1ae5540cd2125feea16b41f4`
+**Short Hash**: `a468dde`
 
 ### Files Modified
 
@@ -4980,12 +4999,12 @@ chore: update commit history for v100.50.0
 
 ---
 
-## Commit 208: release 100.50.0
+## Commit 209: chore: release v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:26:58 +0000
-**Commit Hash**: `1627694397055d495e29a263d66ceffbf0e4d944`
-**Short Hash**: `1627694`
+**Commit Hash**: `454e473c8a1c30028e2cf9773fd08b7548be06be`
+**Short Hash**: `454e473`
 
 ### Files Modified
 
@@ -4996,17 +5015,17 @@ chore: update commit history for v100.50.0
 ### Commit Message
 
 ```text
-release 100.50.0
+chore: release v100.50.0
 ```
 
 ---
 
-## Commit 209: chore: update commit history
+## Commit 210: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:25:59 +0000
-**Commit Hash**: `c95ce96421de6b1c3c5959d386f7a0440e9c45d1`
-**Short Hash**: `c95ce96`
+**Commit Hash**: `2c93a461be6e466047f6a713782fc9738073599f`
+**Short Hash**: `2c93a46`
 
 ### Files Modified
 
@@ -5020,12 +5039,12 @@ chore: update commit history
 
 ---
 
-## Commit 210: Add scoped History API whitelist
+## Commit 211: Add scoped History API whitelist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-16 18:55:07 +0530
-**Commit Hash**: `f37ea143f880c0db5a9fc52c3179524c991adee3`
-**Short Hash**: `f37ea14`
+**Commit Hash**: `b950fdb4fd2fcbc76dd63dde6e3453de5b23279a`
+**Short Hash**: `b950fdb`
 
 ### Files Modified
 
@@ -5048,12 +5067,12 @@ Add scoped History API whitelist
 
 ---
 
-## Commit 211: chore: update changelog for v100.49.0
+## Commit 212: chore: update changelog for v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:17 +0000
-**Commit Hash**: `39a48a6ec9219ae8630334d19b6702057b1a0312`
-**Short Hash**: `39a48a6`
+**Commit Hash**: `fc2d2d1b614fb45b6329f998e95f5b6447920a61`
+**Short Hash**: `fc2d2d1`
 
 ### Files Modified
 
@@ -5067,12 +5086,12 @@ chore: update changelog for v100.49.0
 
 ---
 
-## Commit 212: chore: update commit history for v100.49.0
+## Commit 213: chore: update commit history for v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:16 +0000
-**Commit Hash**: `fa005b9046fd5e69bd34c39f18bbaa52d15b4ff7`
-**Short Hash**: `fa005b9`
+**Commit Hash**: `f86b8b2d401b42ba6297fd3e817d58c9e812e966`
+**Short Hash**: `f86b8b2`
 
 ### Files Modified
 
@@ -5086,12 +5105,12 @@ chore: update commit history for v100.49.0
 
 ---
 
-## Commit 213: release 100.49.0
+## Commit 214: chore: release v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:14 +0000
-**Commit Hash**: `0932460dba95c702309c5c355d1829231e952bf6`
-**Short Hash**: `0932460`
+**Commit Hash**: `da17ffcf5e6435e57878c89e2e2e34c9ea3ecd6f`
+**Short Hash**: `da17ffc`
 
 ### Files Modified
 
@@ -5103,17 +5122,17 @@ chore: update commit history for v100.49.0
 ### Commit Message
 
 ```text
-release 100.49.0
+chore: release v100.49.0
 ```
 
 ---
 
-## Commit 214: chore: update commit history
+## Commit 215: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 10:57:18 +0000
-**Commit Hash**: `3eb18af2d4e48a97179020247e4178d7d551ac8e`
-**Short Hash**: `3eb18af`
+**Commit Hash**: `e5ee389426410a2734ac09e88ec0f2416340dc4f`
+**Short Hash**: `e5ee389`
 
 ### Files Modified
 
@@ -5127,12 +5146,12 @@ chore: update commit history
 
 ---
 
-## Commit 215: Update clearurls.js
+## Commit 216: refactor: simplify URL cleaning logic
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-13 16:27:06 +0530
-**Commit Hash**: `b18050b90e33dcf8f70c4f8ff6cc5ff9316fcfd2`
-**Short Hash**: `b18050b`
+**Commit Hash**: `ecc43d8145134a378fb85708bb6cd4a1c54ba402`
+**Short Hash**: `ecc43d8`
 
 ### Files Modified
 
@@ -5141,17 +5160,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update clearurls.js
+refactor: simplify URL cleaning logic
 ```
 
 ---
 
-## Commit 216: chore: update changelog for v100.48.0
+## Commit 217: chore: update changelog for v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:35 +0000
-**Commit Hash**: `4fa91433347f944038ce74ffdd33f68e1745c3d9`
-**Short Hash**: `4fa9143`
+**Commit Hash**: `67e06bf533549e213a36f30a120f2e315e0a7f0b`
+**Short Hash**: `67e06bf`
 
 ### Files Modified
 
@@ -5165,12 +5184,12 @@ chore: update changelog for v100.48.0
 
 ---
 
-## Commit 217: chore: update commit history for v100.48.0
+## Commit 218: chore: update commit history for v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:34 +0000
-**Commit Hash**: `a9e14a82b14cfd6283ffd41aad4683be2d96c2c7`
-**Short Hash**: `a9e14a8`
+**Commit Hash**: `c161f92dc5a6b855bf17d7dbeca705d52ba2a0ad`
+**Short Hash**: `c161f92`
 
 ### Files Modified
 
@@ -5184,12 +5203,12 @@ chore: update commit history for v100.48.0
 
 ---
 
-## Commit 218: release 100.48.0
+## Commit 219: chore: release v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:31 +0000
-**Commit Hash**: `926ac18a56ecbdc72e11843fc78079a61395dd84`
-**Short Hash**: `926ac18`
+**Commit Hash**: `ab03b5959830c6a0f0d6922714a6759392eedab5`
+**Short Hash**: `ab03b59`
 
 ### Files Modified
 
@@ -5201,17 +5220,17 @@ chore: update commit history for v100.48.0
 ### Commit Message
 
 ```text
-release 100.48.0
+chore: release v100.48.0
 ```
 
 ---
 
-## Commit 219: chore: update changelog for v100.47.0
+## Commit 220: chore: update changelog for v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:57 +0000
-**Commit Hash**: `be3d4634a614c37e46b68e695e3b87e0a311a83e`
-**Short Hash**: `be3d463`
+**Commit Hash**: `4a0cb8e2942150ad92ecfc99a282280be8bfdc0c`
+**Short Hash**: `4a0cb8e`
 
 ### Files Modified
 
@@ -5225,12 +5244,12 @@ chore: update changelog for v100.47.0
 
 ---
 
-## Commit 220: chore: update commit history for v100.47.0
+## Commit 221: chore: update commit history for v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:56 +0000
-**Commit Hash**: `ae58a717ed0335465859c483a6c25d454c5ea6de`
-**Short Hash**: `ae58a71`
+**Commit Hash**: `1032a2d908a5133ffc116ec83d577de644c7b9a2`
+**Short Hash**: `1032a2d`
 
 ### Files Modified
 
@@ -5244,12 +5263,12 @@ chore: update commit history for v100.47.0
 
 ---
 
-## Commit 221: release 100.47.0
+## Commit 222: chore: release v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:54 +0000
-**Commit Hash**: `e1cfc3ec6482d3c7f14f5396128ae5903209ee72`
-**Short Hash**: `e1cfc3e`
+**Commit Hash**: `934db2a7c3b9a9718662eee90dfa012dfc86936f`
+**Short Hash**: `934db2a`
 
 ### Files Modified
 
@@ -5261,17 +5280,17 @@ chore: update commit history for v100.47.0
 ### Commit Message
 
 ```text
-release 100.47.0
+chore: release v100.47.0
 ```
 
 ---
 
-## Commit 222: chore: update changelog for v100.46.0
+## Commit 223: chore: update changelog for v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:56 +0000
-**Commit Hash**: `bbb1e5b1851fd6d7b369e080f12a1abafc300733`
-**Short Hash**: `bbb1e5b`
+**Commit Hash**: `8266c860f03fd3355df8bcb06db62c171328426f`
+**Short Hash**: `8266c86`
 
 ### Files Modified
 
@@ -5285,12 +5304,12 @@ chore: update changelog for v100.46.0
 
 ---
 
-## Commit 223: chore: update commit history for v100.46.0
+## Commit 224: chore: update commit history for v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:55 +0000
-**Commit Hash**: `02a4e70cf00f200b10ca1dd19c4442ae722a22f0`
-**Short Hash**: `02a4e70`
+**Commit Hash**: `cd9bcee67717c95df53161a6b33ae47843e64ea5`
+**Short Hash**: `cd9bcee`
 
 ### Files Modified
 
@@ -5304,12 +5323,12 @@ chore: update commit history for v100.46.0
 
 ---
 
-## Commit 224: release 100.46.0
+## Commit 225: chore: release v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:54 +0000
-**Commit Hash**: `e03981c3090ba980c72b7669676106344799256e`
-**Short Hash**: `e03981c`
+**Commit Hash**: `1eca3ac7ace03aa72a54c6d2c5e1b96f2e25f9b4`
+**Short Hash**: `1eca3ac`
 
 ### Files Modified
 
@@ -5320,17 +5339,17 @@ chore: update commit history for v100.46.0
 ### Commit Message
 
 ```text
-release 100.46.0
+chore: release v100.46.0
 ```
 
 ---
 
-## Commit 225: chore: update commit history
+## Commit 226: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-29 18:29:57 +0000
-**Commit Hash**: `61143344e58cc3d1bc6713462004720f0b7957d1`
-**Short Hash**: `6114334`
+**Commit Hash**: `72484f8b125b9413eebbcdfcd441c122a8a1bdd1`
+**Short Hash**: `72484f8`
 
 ### Files Modified
 
@@ -5344,12 +5363,12 @@ chore: update commit history
 
 ---
 
-## Commit 226: Delete core_js/regression_batch.js
+## Commit 227: Delete core_js/regression_batch.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-29 23:59:42 +0530
-**Commit Hash**: `310f8f90a2cc2796b394b428e80c91df02a7003d`
-**Short Hash**: `310f8f9`
+**Commit Hash**: `d1704f3a16dc8f95670692ec85a89689cedf26d9`
+**Short Hash**: `d1704f3`
 
 ### Files Modified
 
@@ -5363,12 +5382,12 @@ Delete core_js/regression_batch.js
 
 ---
 
-## Commit 227: chore: update commit history
+## Commit 228: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-29 18:26:13 +0000
-**Commit Hash**: `a2621eeb1d3e6101e8203f930cdb3ab1e4a46dd3`
-**Short Hash**: `a2621ee`
+**Commit Hash**: `8339fa81bfe3cc2dbd2cccdc0eb8169143ee9d44`
+**Short Hash**: `8339fa8`
 
 ### Files Modified
 
@@ -5382,12 +5401,12 @@ chore: update commit history
 
 ---
 
-## Commit 228: Update privacy policy GitHub definition
+## Commit 229: Update privacy policy GitHub definition
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-29 23:55:19 +0530
-**Commit Hash**: `661bdd04c7b13e3ace1600182d476360d6e7da07`
-**Short Hash**: `661bdd0`
+**Commit Hash**: `64e55dbd7cb8ec0add6e25712b01e57b22fdcafc`
+**Short Hash**: `64e55db`
 
 ### Files Modified
 
@@ -5402,12 +5421,12 @@ Update privacy policy GitHub definition
 
 ---
 
-## Commit 229: chore: update changelog for v100.45.0
+## Commit 230: chore: update changelog for v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:11 +0000
-**Commit Hash**: `da0fa88696dfd9e96e9a3d5c2aabcb5978788a21`
-**Short Hash**: `da0fa88`
+**Commit Hash**: `832a18a158fda1a65c800a92cc81064c65bb8a1b`
+**Short Hash**: `832a18a`
 
 ### Files Modified
 
@@ -5421,12 +5440,12 @@ chore: update changelog for v100.45.0
 
 ---
 
-## Commit 230: chore: update commit history for v100.45.0
+## Commit 231: chore: update commit history for v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:10 +0000
-**Commit Hash**: `8d64f6d6fcae2748743c06b96efcdf02be54ec78`
-**Short Hash**: `8d64f6d`
+**Commit Hash**: `25f30cd8d26129af48d284b1b22c123c33fdc92d`
+**Short Hash**: `25f30cd`
 
 ### Files Modified
 
@@ -5440,12 +5459,12 @@ chore: update commit history for v100.45.0
 
 ---
 
-## Commit 231: release 100.45.0
+## Commit 232: chore: release v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:09 +0000
-**Commit Hash**: `8df36a0e47178b4279317861d36d2444b92c6e58`
-**Short Hash**: `8df36a0`
+**Commit Hash**: `61213100a34267ef390a0715dcf2b745367dd0c5`
+**Short Hash**: `6121310`
 
 ### Files Modified
 
@@ -5456,17 +5475,17 @@ chore: update commit history for v100.45.0
 ### Commit Message
 
 ```text
-release 100.45.0
+chore: release v100.45.0
 ```
 
 ---
 
-## Commit 232: chore: update commit history
+## Commit 233: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 20:50:49 +0000
-**Commit Hash**: `0947c67f80dd1a402058d85ccd9fc26220b56fde`
-**Short Hash**: `0947c67`
+**Commit Hash**: `e82c751aef54cb35f83439de58197ab00a7eb1a2`
+**Short Hash**: `e82c751`
 
 ### Files Modified
 
@@ -5480,12 +5499,12 @@ chore: update commit history
 
 ---
 
-## Commit 233: Update README.MD
+## Commit 234: docs: update README
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-22 02:20:37 +0530
-**Commit Hash**: `249354e15d50f97d94a470a2e9a2f57b8e52866b`
-**Short Hash**: `249354e`
+**Commit Hash**: `12c196732561ced6be0e1c2d990bca80430fd5a6`
+**Short Hash**: `12c1967`
 
 ### Files Modified
 
@@ -5494,17 +5513,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update README.MD
+docs: update README
 ```
 
 ---
 
-## Commit 234: chore: update changelog for v100.44.0
+## Commit 235: chore: update changelog for v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:48 +0000
-**Commit Hash**: `b42384589c01a6cd09997be7e34f36445b186fff`
-**Short Hash**: `b423845`
+**Commit Hash**: `33833147ce07e6e5db2b545d9f91cc4b3762c5b5`
+**Short Hash**: `3383314`
 
 ### Files Modified
 
@@ -5518,12 +5537,12 @@ chore: update changelog for v100.44.0
 
 ---
 
-## Commit 235: chore: update commit history for v100.44.0
+## Commit 236: chore: update commit history for v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:46 +0000
-**Commit Hash**: `fe654669b9972ca7d9cfef339d006ae2235b9027`
-**Short Hash**: `fe65466`
+**Commit Hash**: `cf30baa5f2122db15a51640e495dac8c97d83be5`
+**Short Hash**: `cf30baa`
 
 ### Files Modified
 
@@ -5537,12 +5556,12 @@ chore: update commit history for v100.44.0
 
 ---
 
-## Commit 236: release 100.44.0
+## Commit 237: chore: release v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:45 +0000
-**Commit Hash**: `4ee46d51f8a277cf3e00aa5094f7f80508db8952`
-**Short Hash**: `4ee46d5`
+**Commit Hash**: `c00cf95292fd804e4df27824fb85e9609ec702a9`
+**Short Hash**: `c00cf95`
 
 ### Files Modified
 
@@ -5553,17 +5572,17 @@ chore: update commit history for v100.44.0
 ### Commit Message
 
 ```text
-release 100.44.0
+chore: release v100.44.0
 ```
 
 ---
 
-## Commit 237: chore: update commit history
+## Commit 238: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:01 +0000
-**Commit Hash**: `856f3ab231fd5e7d02342c932aca8b3bd259ceaa`
-**Short Hash**: `856f3ab`
+**Commit Hash**: `98d9a2be56d1e4212b5476754c7ed8751abff904`
+**Short Hash**: `98d9a2b`
 
 ### Files Modified
 
@@ -5577,12 +5596,12 @@ chore: update commit history
 
 ---
 
-## Commit 238: Fix temporary pause controls
+## Commit 239: Fix temporary pause controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-21 23:48:20 +0530
-**Commit Hash**: `a0e40bc8a9af3fa0ef585a1130efdce3552bd6df`
-**Short Hash**: `a0e40bc`
+**Commit Hash**: `5028d36672c8691969234f4f235427666417898c`
+**Short Hash**: `5028d36`
 
 ### Files Modified
 
@@ -5597,12 +5616,12 @@ Fix temporary pause controls
 
 ---
 
-## Commit 239: chore: update changelog for v100.43.0
+## Commit 240: chore: update changelog for v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:12:02 +0000
-**Commit Hash**: `7bb2915cb2af7c47761bdf147c6d2ef753a6eb9e`
-**Short Hash**: `7bb2915`
+**Commit Hash**: `8f93e5b322bb0f4333a99ab1933c8f3523efa2bb`
+**Short Hash**: `8f93e5b`
 
 ### Files Modified
 
@@ -5616,12 +5635,12 @@ chore: update changelog for v100.43.0
 
 ---
 
-## Commit 240: chore: update commit history for v100.43.0
+## Commit 241: chore: update commit history for v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:12:00 +0000
-**Commit Hash**: `38dc1fd0f88a062dbf95373bf7109387ea872f2b`
-**Short Hash**: `38dc1fd`
+**Commit Hash**: `4e434d1fde5c50928299e39fc861a6c91a30cd59`
+**Short Hash**: `4e434d1`
 
 ### Files Modified
 
@@ -5635,12 +5654,12 @@ chore: update commit history for v100.43.0
 
 ---
 
-## Commit 241: release 100.43.0
+## Commit 242: chore: release v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:11:59 +0000
-**Commit Hash**: `839f96b8b57a4b16a62d70c1284c73833f9b79d5`
-**Short Hash**: `839f96b`
+**Commit Hash**: `4cbeea3ede36a92675f1fb33d2ca85920cc610b0`
+**Short Hash**: `4cbeea3`
 
 ### Files Modified
 
@@ -5652,17 +5671,17 @@ chore: update commit history for v100.43.0
 ### Commit Message
 
 ```text
-release 100.43.0
+chore: release v100.43.0
 ```
 
 ---
 
-## Commit 242: chore: update changelog for v100.42.0
+## Commit 243: chore: update changelog for v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:48 +0000
-**Commit Hash**: `138c3dc6efb6c361993df2b49bf26f8fd0ce6daa`
-**Short Hash**: `138c3dc`
+**Commit Hash**: `1edf0607b315c88984ff6fe7c72fae08369be274`
+**Short Hash**: `1edf060`
 
 ### Files Modified
 
@@ -5676,12 +5695,12 @@ chore: update changelog for v100.42.0
 
 ---
 
-## Commit 243: chore: update commit history for v100.42.0
+## Commit 244: chore: update commit history for v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:47 +0000
-**Commit Hash**: `a0b952ace3a71676dd26180193ce517e368dbd7a`
-**Short Hash**: `a0b952a`
+**Commit Hash**: `adeae69fa086534ca2dbb718365251021a291534`
+**Short Hash**: `adeae69`
 
 ### Files Modified
 
@@ -5695,12 +5714,12 @@ chore: update commit history for v100.42.0
 
 ---
 
-## Commit 244: release 100.42.0
+## Commit 245: chore: release v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:46 +0000
-**Commit Hash**: `e1ccbd6f5c6c04f38d31555821f01bc6e1dcb709`
-**Short Hash**: `e1ccbd6`
+**Commit Hash**: `f2a4800c19187fc7a4895c9f1b8000951a918272`
+**Short Hash**: `f2a4800`
 
 ### Files Modified
 
@@ -5712,17 +5731,17 @@ chore: update commit history for v100.42.0
 ### Commit Message
 
 ```text
-release 100.42.0
+chore: release v100.42.0
 ```
 
 ---
 
-## Commit 245: chore: update commit history
+## Commit 246: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-14 13:58:46 +0000
-**Commit Hash**: `b82ea951613a40e2711079497165bb7fed4502d4`
-**Short Hash**: `b82ea95`
+**Commit Hash**: `c197eda02fa1e0d7a2acfaa5974153e6703ce059`
+**Short Hash**: `c197eda`
 
 ### Files Modified
 
@@ -5736,12 +5755,12 @@ chore: update commit history
 
 ---
 
-## Commit 246: fix: keep skip link hidden with line height tools
+## Commit 247: fix: keep skip link hidden with line height tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-14 00:38:39 +0530
-**Commit Hash**: `abd82f77e63eea5442efd0a409e57918bf565f58`
-**Short Hash**: `abd82f7`
+**Commit Hash**: `23c2c52189de69c8d1d71e473312b70c838461e3`
+**Short Hash**: `23c2c52`
 
 ### Files Modified
 
@@ -5755,12 +5774,12 @@ fix: keep skip link hidden with line height tools
 
 ---
 
-## Commit 247: chore: update commit history
+## Commit 248: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-13 10:59:51 +0000
-**Commit Hash**: `761f93bbb2e9ddb4dfdfb9a39535447620ae7f40`
-**Short Hash**: `761f93b`
+**Commit Hash**: `bb296b7e82615ab87052cdbb25d679ac10967145`
+**Short Hash**: `bb296b7`
 
 ### Files Modified
 
@@ -5774,12 +5793,12 @@ chore: update commit history
 
 ---
 
-## Commit 248: fixed old bugs
+## Commit 249: fix: correct custom rules and report UI behavior
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-13 16:29:08 +0530
-**Commit Hash**: `deecb4a9115d8bc42ced7e0450c35c6fa4e2f297`
-**Short Hash**: `deecb4a`
+**Commit Hash**: `5dad672c6014e63a82edc79d0bc76e5b70acffa6`
+**Short Hash**: `5dad672`
 
 ### Files Modified
 
@@ -5792,17 +5811,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-fixed old bugs
+fix: correct custom rules and report UI behavior
 ```
 
 ---
 
-## Commit 249: chore: update changelog for v100.41.0
+## Commit 250: chore: update changelog for v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:32 +0000
-**Commit Hash**: `abd554a9e2e84f94ccd0cce9c94de6957b6e9f0d`
-**Short Hash**: `abd554a`
+**Commit Hash**: `31afff2af2b069bf4088cd6e5acfb0f068ad60f9`
+**Short Hash**: `31afff2`
 
 ### Files Modified
 
@@ -5816,12 +5835,12 @@ chore: update changelog for v100.41.0
 
 ---
 
-## Commit 250: chore: update commit history for v100.41.0
+## Commit 251: chore: update commit history for v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:30 +0000
-**Commit Hash**: `0c8a6ee56059e29b0114f6598e787ad626260068`
-**Short Hash**: `0c8a6ee`
+**Commit Hash**: `0e41cae287b56b466e67858293fda183ad2cfb2c`
+**Short Hash**: `0e41cae`
 
 ### Files Modified
 
@@ -5835,12 +5854,12 @@ chore: update commit history for v100.41.0
 
 ---
 
-## Commit 251: release 100.41.0
+## Commit 252: chore: release v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:29 +0000
-**Commit Hash**: `31e56016c63274e2c7dbac164a79fd93272a2a5d`
-**Short Hash**: `31e5601`
+**Commit Hash**: `29c5edfc96413207a1fa4948bc26487bfdb4f0d3`
+**Short Hash**: `29c5edf`
 
 ### Files Modified
 
@@ -5851,17 +5870,17 @@ chore: update commit history for v100.41.0
 ### Commit Message
 
 ```text
-release 100.41.0
+chore: release v100.41.0
 ```
 
 ---
 
-## Commit 252: chore: update commit history
+## Commit 253: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:47:48 +0000
-**Commit Hash**: `6cee2c6f1e0dac8ff1ac6e2d3247ccf8f08072d7`
-**Short Hash**: `6cee2c6`
+**Commit Hash**: `e2c05edaa0f989071fce99632c770a8f0daeb8a9`
+**Short Hash**: `e2c05ed`
 
 ### Files Modified
 
@@ -5875,12 +5894,12 @@ chore: update commit history
 
 ---
 
-## Commit 253: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 254: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 22:17:32 +0530
-**Commit Hash**: `065781af57aa1f3461518d4675aa80ddbcab4620`
-**Short Hash**: `065781a`
+**Commit Hash**: `6c0531c65d0d288b8dc3b7c4dd59166ecc807b82`
+**Short Hash**: `6c0531c`
 
 ### Files Modified
 
@@ -5894,12 +5913,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 254: updated js
+## Commit 255: feat: improve settings and theme support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 22:17:17 +0530
-**Commit Hash**: `2013e9a319ffa045a25f2c405347edf367d4087f`
-**Short Hash**: `2013e9a`
+**Commit Hash**: `2c2552bfd020fe34d8010efc423deddea8caaf33`
+**Short Hash**: `2c2552b`
 
 ### Files Modified
 
@@ -5910,17 +5929,17 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 ### Commit Message
 
 ```text
-updated js
+feat: improve settings and theme support
 ```
 
 ---
 
-## Commit 255: chore: update changelog for v100.40.0
+## Commit 256: chore: update changelog for v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:22 +0000
-**Commit Hash**: `7064d237fa86b4a1f7b57de433adbf85d3510b88`
-**Short Hash**: `7064d23`
+**Commit Hash**: `4e887db7a98b0fcacd9796efd1afb343af629605`
+**Short Hash**: `4e887db`
 
 ### Files Modified
 
@@ -5934,12 +5953,12 @@ chore: update changelog for v100.40.0
 
 ---
 
-## Commit 256: chore: update commit history for v100.40.0
+## Commit 257: chore: update commit history for v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:20 +0000
-**Commit Hash**: `fa1c50a86e2bb67f7825dca6c87e8f23d198580c`
-**Short Hash**: `fa1c50a`
+**Commit Hash**: `41ff1d9d634b3bdc4d20054d85ce6acc71a109be`
+**Short Hash**: `41ff1d9`
 
 ### Files Modified
 
@@ -5953,12 +5972,12 @@ chore: update commit history for v100.40.0
 
 ---
 
-## Commit 257: release 100.40.0
+## Commit 258: chore: release v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:19 +0000
-**Commit Hash**: `1606cc4653f58f73ec920749a9568dc76154d77b`
-**Short Hash**: `1606cc4`
+**Commit Hash**: `1b5e06e35cce9e062b1d76fc0c52064b8aff3790`
+**Short Hash**: `1b5e06e`
 
 ### Files Modified
 
@@ -5969,17 +5988,17 @@ chore: update commit history for v100.40.0
 ### Commit Message
 
 ```text
-release 100.40.0
+chore: release v100.40.0
 ```
 
 ---
 
-## Commit 258: chore: update commit history
+## Commit 259: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 15:43:20 +0000
-**Commit Hash**: `c3273eda6ac60f61de09f0dad31acc2823920b8a`
-**Short Hash**: `c3273ed`
+**Commit Hash**: `9c9d578916c8a4bdff90a2ae40586016180d0c4d`
+**Short Hash**: `9c9d578`
 
 ### Files Modified
 
@@ -5993,12 +6012,12 @@ chore: update commit history
 
 ---
 
-## Commit 259: feat: expand accessibility overlay tools
+## Commit 260: feat: expand accessibility overlay tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 21:12:34 +0530
-**Commit Hash**: `637cbb6fe80c9d092c8e2d30030f6deefa99af8b`
-**Short Hash**: `637cbb6`
+**Commit Hash**: `4c14c03156e9d36b3a40612aaf1bb1d50d018db7`
+**Short Hash**: `4c14c03`
 
 ### Files Modified
 
@@ -6069,12 +6088,12 @@ feat: expand accessibility overlay tools
 
 ---
 
-## Commit 260: chore: update changelog for v100.39.1
+## Commit 261: chore: update changelog for v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:42 +0000
-**Commit Hash**: `6eee5d0f755b45c5172175115e50832a48c5ea11`
-**Short Hash**: `6eee5d0`
+**Commit Hash**: `e4a16869e6298b45f777b3d70f7c6992786e43e9`
+**Short Hash**: `e4a1686`
 
 ### Files Modified
 
@@ -6088,12 +6107,12 @@ chore: update changelog for v100.39.1
 
 ---
 
-## Commit 261: chore: update commit history for v100.39.1
+## Commit 262: chore: update commit history for v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:41 +0000
-**Commit Hash**: `a6407caed33cedf31ab11770bce09220257bbb71`
-**Short Hash**: `a6407ca`
+**Commit Hash**: `dcb9807ffac92ea2db2046c784a35422f3a53276`
+**Short Hash**: `dcb9807`
 
 ### Files Modified
 
@@ -6107,12 +6126,12 @@ chore: update commit history for v100.39.1
 
 ---
 
-## Commit 262: release 100.39.1
+## Commit 263: chore: release v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:39 +0000
-**Commit Hash**: `0e3a83628c5493dc871647fd6bf2a59ab52ff5e5`
-**Short Hash**: `0e3a836`
+**Commit Hash**: `92a436695ff0a93362b992231b6bba3db6336bed`
+**Short Hash**: `92a4366`
 
 ### Files Modified
 
@@ -6124,17 +6143,17 @@ chore: update commit history for v100.39.1
 ### Commit Message
 
 ```text
-release 100.39.1
+chore: release v100.39.1
 ```
 
 ---
 
-## Commit 263: chore: update commit history
+## Commit 264: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:31:38 +0000
-**Commit Hash**: `4a92196cd862a03c11312cb3f75a90122aa8171a`
-**Short Hash**: `4a92196`
+**Commit Hash**: `ba1543246d9ab337512afbc1ede00a6241f2d728`
+**Short Hash**: `ba15432`
 
 ### Files Modified
 
@@ -6148,12 +6167,12 @@ chore: update commit history
 
 ---
 
-## Commit 264: Add shared accessibility tools
+## Commit 265: Add shared accessibility tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 19:00:48 +0530
-**Commit Hash**: `f42d9beb1cdb58a0fe7a475938fda24593492581`
-**Short Hash**: `f42d9be`
+**Commit Hash**: `262eab4686bd488e80b2d6c3cecfb9d61d06e721`
+**Short Hash**: `262eab4`
 
 ### Files Modified
 
@@ -6180,12 +6199,12 @@ Add shared accessibility tools
 
 ---
 
-## Commit 265: chore: update changelog for v100.39.0
+## Commit 266: chore: update changelog for v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:27 +0000
-**Commit Hash**: `42086d5f59e8a976dfda29daac1120c9ff215fdf`
-**Short Hash**: `42086d5`
+**Commit Hash**: `9f077657ad12026d43f0ab4acf8fd31545f2e4a4`
+**Short Hash**: `9f07765`
 
 ### Files Modified
 
@@ -6199,12 +6218,12 @@ chore: update changelog for v100.39.0
 
 ---
 
-## Commit 266: chore: update commit history for v100.39.0
+## Commit 267: chore: update commit history for v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:26 +0000
-**Commit Hash**: `4f47bb782c6a369a922e4680658f9a55351f2f37`
-**Short Hash**: `4f47bb7`
+**Commit Hash**: `eee520dffdddaed774a3b02b110975b95b3b2ec5`
+**Short Hash**: `eee520d`
 
 ### Files Modified
 
@@ -6218,12 +6237,12 @@ chore: update commit history for v100.39.0
 
 ---
 
-## Commit 267: release 100.39.0
+## Commit 268: chore: release v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:25 +0000
-**Commit Hash**: `cc7b34ecea53246ed06dc22623a0c8cb1a0b285d`
-**Short Hash**: `cc7b34e`
+**Commit Hash**: `2fcb5971854890649f674bc76e1218d0e1bcd845`
+**Short Hash**: `2fcb597`
 
 ### Files Modified
 
@@ -6234,17 +6253,17 @@ chore: update commit history for v100.39.0
 ### Commit Message
 
 ```text
-release 100.39.0
+chore: release v100.39.0
 ```
 
 ---
 
-## Commit 268: chore: update changelog for v100.38.2
+## Commit 269: chore: update changelog for v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:57 +0000
-**Commit Hash**: `dc8d076f7f3392ec1f3750619223d03c5acbab4a`
-**Short Hash**: `dc8d076`
+**Commit Hash**: `813138ebf6f7cda2fc16ca50c00cfe10987500c3`
+**Short Hash**: `813138e`
 
 ### Files Modified
 
@@ -6258,12 +6277,12 @@ chore: update changelog for v100.38.2
 
 ---
 
-## Commit 269: chore: update commit history for v100.38.2
+## Commit 270: chore: update commit history for v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:55 +0000
-**Commit Hash**: `0914ab573ed4ba1ad34564ecdc83942130e66419`
-**Short Hash**: `0914ab5`
+**Commit Hash**: `d0bb134028e5cba5beb00db6b7aae56da3a7bdbc`
+**Short Hash**: `d0bb134`
 
 ### Files Modified
 
@@ -6277,12 +6296,12 @@ chore: update commit history for v100.38.2
 
 ---
 
-## Commit 270: release 100.38.2
+## Commit 271: chore: release v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:54 +0000
-**Commit Hash**: `56ad06d3fd2f734c5866d5a82fc4332a7d3bc48e`
-**Short Hash**: `56ad06d`
+**Commit Hash**: `b4e00a933e1a5cec3fb7ab3d658cad286e5186bc`
+**Short Hash**: `b4e00a9`
 
 ### Files Modified
 
@@ -6293,26 +6312,7 @@ chore: update commit history for v100.38.2
 ### Commit Message
 
 ```text
-release 100.38.2
-```
-
----
-
-## Commit 271: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-06 11:20:56 +0000
-**Commit Hash**: `9ba873ef06d8e2a173035942e60c0c2827c87e69`
-**Short Hash**: `9ba873e`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
+chore: release v100.38.2
 ```
 
 ---
@@ -6320,9 +6320,9 @@ chore: update commit history
 ## Commit 272: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-06 11:20:06 +0000
-**Commit Hash**: `52bfa4356d5f6bf5cb9fb682bc9f6a5d6659bc1e`
-**Short Hash**: `52bfa43`
+**Date**: 2026-08-06 11:20:56 +0000
+**Commit Hash**: `e63c06190abfc4e444fcff6b08214a80f15f5751`
+**Short Hash**: `e63c061`
 
 ### Files Modified
 
@@ -6336,12 +6336,31 @@ chore: update commit history
 
 ---
 
-## Commit 273: Extend IP-Ranger: fix classification gaps and add network utilities
+## Commit 273: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-08-06 11:20:06 +0000
+**Commit Hash**: `8845f84b0f748dbee34013cb982d78a6c4c8ba55`
+**Short Hash**: `8845f84`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 274: Extend IP-Ranger: fix classification gaps and add network utilities
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-06 16:48:11 +0530
-**Commit Hash**: `0aff808e08224188bdc95e797e29ffa4feaee37c`
-**Short Hash**: `0aff808`
+**Commit Hash**: `4c69316846418b91c6a9c3e88d665ae6deb7521c`
+**Short Hash**: `4c69316`
 
 ### Files Modified
 
@@ -6356,12 +6375,12 @@ Extend IP-Ranger: fix classification gaps and add network utilities
 
 ---
 
-## Commit 274: chore: update changelog for v100.38.1
+## Commit 275: chore: update changelog for v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:48 +0000
-**Commit Hash**: `e733169ac7e381a18bc9f7fe2672e492bd7cab2e`
-**Short Hash**: `e733169`
+**Commit Hash**: `6fbdcdf145d7cc71bd2efad09962ac8e5d01f285`
+**Short Hash**: `6fbdcdf`
 
 ### Files Modified
 
@@ -6375,12 +6394,12 @@ chore: update changelog for v100.38.1
 
 ---
 
-## Commit 275: chore: update commit history for v100.38.1
+## Commit 276: chore: update commit history for v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:46 +0000
-**Commit Hash**: `fbbee4a16153289278f396da452e34b9c27137cf`
-**Short Hash**: `fbbee4a`
+**Commit Hash**: `658a942576e610e883381f253c7513b123450cec`
+**Short Hash**: `658a942`
 
 ### Files Modified
 
@@ -6394,12 +6413,12 @@ chore: update commit history for v100.38.1
 
 ---
 
-## Commit 276: release 100.38.1
+## Commit 277: chore: release v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:44 +0000
-**Commit Hash**: `96770ab29d77d24331e43530c05c6f3c51509940`
-**Short Hash**: `96770ab`
+**Commit Hash**: `fe3fd76892cb9b7d430c54bb555b6284ce121d88`
+**Short Hash**: `fe3fd76`
 
 ### Files Modified
 
@@ -6410,17 +6429,17 @@ chore: update commit history for v100.38.1
 ### Commit Message
 
 ```text
-release 100.38.1
+chore: release v100.38.1
 ```
 
 ---
 
-## Commit 277: chore: update commit history
+## Commit 278: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:50 +0000
-**Commit Hash**: `87984fd6de158f858910c4a5cc26f4ac1d437563`
-**Short Hash**: `87984fd`
+**Commit Hash**: `87ac248d56ecf6d7b6c75a35c9c9b1b7cc4ba255`
+**Short Hash**: `87ac248`
 
 ### Files Modified
 
@@ -6434,12 +6453,12 @@ chore: update commit history
 
 ---
 
-## Commit 278: Update package.json
+## Commit 279: chore: update package metadata
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:48:31 +0530
-**Commit Hash**: `a1ee936d878ee0e1aff03e2c160818974a061bfd`
-**Short Hash**: `a1ee936`
+**Commit Hash**: `8f894aa3f1e3fc95d65c01aed2f600b9ff4044fa`
+**Short Hash**: `8f894aa`
 
 ### Files Modified
 
@@ -6448,17 +6467,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update package.json
+chore: update package metadata
 ```
 
 ---
 
-## Commit 279: chore: update commit history
+## Commit 280: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:23 +0000
-**Commit Hash**: `e03a1d222b0438d9766a2855869156f83d11d4cc`
-**Short Hash**: `e03a1d2`
+**Commit Hash**: `bc1b67c0c111ef79120d95730f8acf280064c281`
+**Short Hash**: `bc1b67c`
 
 ### Files Modified
 
@@ -6472,12 +6491,12 @@ chore: update commit history
 
 ---
 
-## Commit 280: Delete .github/workflows/regression-test.yml
+## Commit 281: Delete .github/workflows/regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:48:09 +0530
-**Commit Hash**: `a043662ab3317fab3df15de32343f2d572d5ca4e`
-**Short Hash**: `a043662`
+**Commit Hash**: `877700f53642baf582b1c4b92d86d09f2e3ad395`
+**Short Hash**: `877700f`
 
 ### Files Modified
 
@@ -6491,12 +6510,12 @@ Delete .github/workflows/regression-test.yml
 
 ---
 
-## Commit 281: chore: update commit history
+## Commit 282: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:03 +0000
-**Commit Hash**: `004ff55cdf022061b13951b9b80da7b961b91ce3`
-**Short Hash**: `004ff55`
+**Commit Hash**: `03c5ff97b39d4a9a962c0955f0979f5c8ef0a55d`
+**Short Hash**: `03c5ff9`
 
 ### Files Modified
 
@@ -6510,12 +6529,12 @@ chore: update commit history
 
 ---
 
-## Commit 282: Delete tests/ci-runner.js
+## Commit 283: Delete tests/ci-runner.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:49 +0530
-**Commit Hash**: `1c9cdb716ea485596a9f9c30b9463dae809d17b6`
-**Short Hash**: `1c9cdb7`
+**Commit Hash**: `96da523d5de7c5b68ca4d76462492fbe6e6dac2b`
+**Short Hash**: `96da523`
 
 ### Files Modified
 
@@ -6529,12 +6548,12 @@ Delete tests/ci-runner.js
 
 ---
 
-## Commit 283: Delete tests/regression-server.js
+## Commit 284: Delete tests/regression-server.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:40 +0530
-**Commit Hash**: `243f345989967a658d67912bf8ccb524a4796b78`
-**Short Hash**: `243f345`
+**Commit Hash**: `b49e56355497b0b0f28f1fa2efc429aa26acf71d`
+**Short Hash**: `b49e563`
 
 ### Files Modified
 
@@ -6548,12 +6567,12 @@ Delete tests/regression-server.js
 
 ---
 
-## Commit 284: Delete tests/package.json
+## Commit 285: Delete tests/package.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:31 +0530
-**Commit Hash**: `964ea98a9d5882c30a466e05d66697f399077b8c`
-**Short Hash**: `964ea98`
+**Commit Hash**: `c2ceddd1976607f457c46d3baf54c7412c4e78c2`
+**Short Hash**: `c2ceddd`
 
 ### Files Modified
 
@@ -6567,12 +6586,12 @@ Delete tests/package.json
 
 ---
 
-## Commit 285: Delete tests/package-lock.json
+## Commit 286: Delete tests/package-lock.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:20 +0530
-**Commit Hash**: `3756bd3d4ece81f6171ebb1daf1b02d21b523cb6`
-**Short Hash**: `3756bd3`
+**Commit Hash**: `e1f18dc18d4cff6642de1b370ac663ee12c57f5f`
+**Short Hash**: `e1f18dc`
 
 ### Files Modified
 
@@ -6586,31 +6605,12 @@ Delete tests/package-lock.json
 
 ---
 
-## Commit 286: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-05 16:14:57 +0000
-**Commit Hash**: `0e56624d240dad1d10e824471482d8bd32659118`
-**Short Hash**: `0e56624`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
-```
-
----
-
 ## Commit 287: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-05 16:14:25 +0000
-**Commit Hash**: `7ec7d517d7d5f14e2f5621bc8397eb18c3a66078`
-**Short Hash**: `7ec7d51`
+**Date**: 2026-08-05 16:14:57 +0000
+**Commit Hash**: `26f333d8c959cd43a75dd11d4bf1ba025234ccf3`
+**Short Hash**: `26f333d`
 
 ### Files Modified
 
@@ -6624,12 +6624,31 @@ chore: update commit history
 
 ---
 
-## Commit 288: Launch Firefox with -remote-allow-system-access for chrome-context fallback
+## Commit 288: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-08-05 16:14:25 +0000
+**Commit Hash**: `3eba8f293d5047917c817137dc30a2cb9ceaafd5`
+**Short Hash**: `3eba8f2`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 289: Launch Firefox with -remote-allow-system-access for chrome-context fallback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:43:33 +0530
-**Commit Hash**: `7cee2155cb65921834d12e9868fed69733e30af4`
-**Short Hash**: `7cee215`
+**Commit Hash**: `ad8cd13d3dd22977db1de5aede3f02bf68703863`
+**Short Hash**: `ad8cd13`
 
 ### Files Modified
 
@@ -6643,31 +6662,12 @@ Launch Firefox with -remote-allow-system-access for chrome-context fallback
 
 ---
 
-## Commit 289: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-05 16:12:49 +0000
-**Commit Hash**: `305ce246c683da6aee2dbb5e64dbcfbba5a35c36`
-**Short Hash**: `305ce24`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
-```
-
----
-
 ## Commit 290: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-05 16:12:12 +0000
-**Commit Hash**: `51dfdc77648c4125c289f504f3d6c897e91759ac`
-**Short Hash**: `51dfdc7`
+**Date**: 2026-08-05 16:12:49 +0000
+**Commit Hash**: `7882ad683381502d48c454ba9e8b7f937b002725`
+**Short Hash**: `7882ad6`
 
 ### Files Modified
 
@@ -6681,12 +6681,31 @@ chore: update commit history
 
 ---
 
-## Commit 291: Fix regression runner navigation to extension pages
+## Commit 291: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-08-05 16:12:12 +0000
+**Commit Hash**: `930156572d58fbd5b99132b77b1d1758971d62af`
+**Short Hash**: `9301565`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 292: Fix regression runner navigation to extension pages
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:39:53 +0530
-**Commit Hash**: `cc6377346a0326c81cef7fa6734c5c965ba89bae`
-**Short Hash**: `cc63773`
+**Commit Hash**: `12361c6f4c28f334ca9a4b0add5f1d212d085a69`
+**Short Hash**: `12361c6`
 
 ### Files Modified
 
@@ -6700,12 +6719,12 @@ Fix regression runner navigation to extension pages
 
 ---
 
-## Commit 292: Fix parser and storage bugs in clearurls, IP-Ranger, and storage
+## Commit 293: Fix parser and storage bugs in clearurls, IP-Ranger, and storage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:39:45 +0530
-**Commit Hash**: `3534415607224be63374b7f2b75e5cbdac8bc5a3`
-**Short Hash**: `3534415`
+**Commit Hash**: `6adfec4c0935697991cb7652796206456815719b`
+**Short Hash**: `6adfec4`
 
 ### Files Modified
 
@@ -6721,31 +6740,12 @@ Fix parser and storage bugs in clearurls, IP-Ranger, and storage
 
 ---
 
-## Commit 293: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-04 20:25:48 +0000
-**Commit Hash**: `797e31a703e6b7c24d866f42c81950f3d814575a`
-**Short Hash**: `797e31a`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
-```
-
----
-
 ## Commit 294: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-04 20:22:27 +0000
-**Commit Hash**: `94043cc714409ebbce3395df82d85666966a9673`
-**Short Hash**: `94043cc`
+**Date**: 2026-08-04 20:25:48 +0000
+**Commit Hash**: `04a76c74801d35526b79b1c02d286cabedd5852e`
+**Short Hash**: `04a76c7`
 
 ### Files Modified
 
@@ -6759,12 +6759,31 @@ chore: update commit history
 
 ---
 
-## Commit 295: Migrate GitHub Actions workflows to Node 24 runtime
+## Commit 295: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-08-04 20:22:27 +0000
+**Commit Hash**: `74bc0fd869c04ce9f219381ab48c36167bed484c`
+**Short Hash**: `74bc0fd`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 296: Migrate GitHub Actions workflows to Node 24 runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:52:04 +0530
-**Commit Hash**: `09e0405a74cdfd25fef7acdc573b891666f935c5`
-**Short Hash**: `09e0405`
+**Commit Hash**: `74b3f563395b4995f6c8f2278de87c447a89209b`
+**Short Hash**: `74b3f56`
 
 ### Files Modified
 
@@ -6780,12 +6799,12 @@ Migrate GitHub Actions workflows to Node 24 runtime
 
 ---
 
-## Commit 296: chore: update commit history
+## Commit 297: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:18:52 +0000
-**Commit Hash**: `42d975db550f80e53e7a3ee95220f4c6e2170a3f`
-**Short Hash**: `42d975d`
+**Commit Hash**: `9fed5f7fa6380b104208ebf970e21ff8bb9df510`
+**Short Hash**: `9fed5f7`
 
 ### Files Modified
 
@@ -6799,12 +6818,12 @@ chore: update commit history
 
 ---
 
-## Commit 297: Update regression-test.yml
+## Commit 298: Update regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:48:30 +0530
-**Commit Hash**: `f46b0b7c926e850e051845daeace41cdfe4bf033`
-**Short Hash**: `f46b0b7`
+**Commit Hash**: `218d47209d03179d8ef0283048a281ad084f3302`
+**Short Hash**: `218d472`
 
 ### Files Modified
 
@@ -6818,12 +6837,12 @@ Update regression-test.yml
 
 ---
 
-## Commit 298: chore: update commit history
+## Commit 299: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:16:32 +0000
-**Commit Hash**: `a2ee6778f44b66cc7edd10e4b869a585da36eed5`
-**Short Hash**: `a2ee677`
+**Commit Hash**: `7dfedf875a5dbcde1f59d84e96d374de8dba007e`
+**Short Hash**: `7dfedf8`
 
 ### Files Modified
 
@@ -6837,12 +6856,12 @@ chore: update commit history
 
 ---
 
-## Commit 299: Update regression-test.yml
+## Commit 300: Update regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:46:16 +0530
-**Commit Hash**: `c4fb5f947036cdeb92f8d704939cfd3aefba4536`
-**Short Hash**: `c4fb5f9`
+**Commit Hash**: `8e675969426b1cc3938400a012419b18c4774802`
+**Short Hash**: `8e67596`
 
 ### Files Modified
 
@@ -6856,12 +6875,12 @@ Update regression-test.yml
 
 ---
 
-## Commit 300: chore: update changelog for v100.38.0
+## Commit 301: chore: update changelog for v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:30 +0000
-**Commit Hash**: `d464d1947a73d1447d520a95abaf74f8ba1722f6`
-**Short Hash**: `d464d19`
+**Commit Hash**: `a8822abf50ffa3ffe686de1cfd30b21d485e6d01`
+**Short Hash**: `a8822ab`
 
 ### Files Modified
 
@@ -6875,12 +6894,12 @@ chore: update changelog for v100.38.0
 
 ---
 
-## Commit 301: chore: update commit history for v100.38.0
+## Commit 302: chore: update commit history for v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:28 +0000
-**Commit Hash**: `1e0e8932cb28190eae0a56b8bdaaf431b5ceb0ec`
-**Short Hash**: `1e0e893`
+**Commit Hash**: `c481d69c0ecc7734f44d07b3b8ab74abdcce05df`
+**Short Hash**: `c481d69`
 
 ### Files Modified
 
@@ -6894,12 +6913,12 @@ chore: update commit history for v100.38.0
 
 ---
 
-## Commit 302: release 100.38.0
+## Commit 303: chore: release v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:27 +0000
-**Commit Hash**: `c4608a1decd427c6c82c1b8b75293b97aa6d8f58`
-**Short Hash**: `c4608a1`
+**Commit Hash**: `e72ec707edfe3025c53b6da9f9594040e77c477c`
+**Short Hash**: `e72ec70`
 
 ### Files Modified
 
@@ -6910,26 +6929,7 @@ chore: update commit history for v100.38.0
 ### Commit Message
 
 ```text
-release 100.38.0
-```
-
----
-
-## Commit 303: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-04 20:05:33 +0000
-**Commit Hash**: `4ac21f3e4172de028a6a3e82b1a4e0fadec7f381`
-**Short Hash**: `4ac21f3`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
+chore: release v100.38.0
 ```
 
 ---
@@ -6937,9 +6937,9 @@ chore: update commit history
 ## Commit 304: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-08-04 20:02:30 +0000
-**Commit Hash**: `c67d38a26d35bb5d7acb3fdac9a2bd1f1413b719`
-**Short Hash**: `c67d38a`
+**Date**: 2026-08-04 20:05:33 +0000
+**Commit Hash**: `41223d7c60c4da51291b40e1473ebd12f4f115e8`
+**Short Hash**: `41223d7`
 
 ### Files Modified
 
@@ -6953,12 +6953,31 @@ chore: update commit history
 
 ---
 
-## Commit 305: Support IPv4/IPv6 addresses in the whitelist
+## Commit 305: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-08-04 20:02:30 +0000
+**Commit Hash**: `11a5565381541a9d82f15acbbc436cb92b349022`
+**Short Hash**: `11a5565`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 306: Support IPv4/IPv6 addresses in the whitelist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:31:37 +0530
-**Commit Hash**: `e61d08904ffdbc00aef60e42c81ed51448bc31f2`
-**Short Hash**: `e61d089`
+**Commit Hash**: `26c3a413f01a8da98500768c606427bc82456140`
+**Short Hash**: `26c3a41`
 
 ### Files Modified
 
@@ -6981,12 +7000,12 @@ Support IPv4/IPv6 addresses in the whitelist
 
 ---
 
-## Commit 306: chore: update changelog for v100.37.0
+## Commit 307: chore: update changelog for v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:46 +0000
-**Commit Hash**: `9b3d1ad3a15c49f67542c476a87bc1d9c9537f3a`
-**Short Hash**: `9b3d1ad`
+**Commit Hash**: `83ba9ab0cfdca6fea03a350fc2e49f66b9f5511e`
+**Short Hash**: `83ba9ab`
 
 ### Files Modified
 
@@ -7000,12 +7019,12 @@ chore: update changelog for v100.37.0
 
 ---
 
-## Commit 307: chore: update commit history for v100.37.0
+## Commit 308: chore: update commit history for v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:45 +0000
-**Commit Hash**: `d9014faba84dae2551d2b30fb64fded810d14233`
-**Short Hash**: `d9014fa`
+**Commit Hash**: `397e7619b3c60c7b5c2becb982711941074daaf1`
+**Short Hash**: `397e761`
 
 ### Files Modified
 
@@ -7019,12 +7038,12 @@ chore: update commit history for v100.37.0
 
 ---
 
-## Commit 308: release 100.37.0
+## Commit 309: chore: release v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:44 +0000
-**Commit Hash**: `5cbd87e1ece364ac401e6c22c5f38b43ca3faa39`
-**Short Hash**: `5cbd87e`
+**Commit Hash**: `badc7e9ae3b146ecec5cb13ccfd2af1383cff93e`
+**Short Hash**: `badc7e9`
 
 ### Files Modified
 
@@ -7036,17 +7055,17 @@ chore: update commit history for v100.37.0
 ### Commit Message
 
 ```text
-release 100.37.0
+chore: release v100.37.0
 ```
 
 ---
 
-## Commit 309: chore: update changelog for v100.36.1
+## Commit 310: chore: update changelog for v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:17 +0000
-**Commit Hash**: `be1960bf446396660a338dcca3d0846832ae310b`
-**Short Hash**: `be1960b`
+**Commit Hash**: `5221c998baeea499fb7e59da956996136d380d5d`
+**Short Hash**: `5221c99`
 
 ### Files Modified
 
@@ -7060,12 +7079,12 @@ chore: update changelog for v100.36.1
 
 ---
 
-## Commit 310: chore: update commit history for v100.36.1
+## Commit 311: chore: update commit history for v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:16 +0000
-**Commit Hash**: `8822c725859d25925bd9b574178c0ad2696948f7`
-**Short Hash**: `8822c72`
+**Commit Hash**: `930c769c224b6f1705305f0a648ada49307e3eb8`
+**Short Hash**: `930c769`
 
 ### Files Modified
 
@@ -7079,12 +7098,12 @@ chore: update commit history for v100.36.1
 
 ---
 
-## Commit 311: release 100.36.1
+## Commit 312: chore: release v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:15 +0000
-**Commit Hash**: `7ec8e1c2faeb44198bad21f32bf5cf53aba05cfe`
-**Short Hash**: `7ec8e1c`
+**Commit Hash**: `3e866c3b2de367058702b1651fffb7d031f8b4db`
+**Short Hash**: `3e866c3`
 
 ### Files Modified
 
@@ -7095,17 +7114,17 @@ chore: update commit history for v100.36.1
 ### Commit Message
 
 ```text
-release 100.36.1
+chore: release v100.36.1
 ```
 
 ---
 
-## Commit 312: chore: update commit history
+## Commit 313: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:33:09 +0000
-**Commit Hash**: `4451d8ed87c42cec1864d9092ba677e0bf07ccc1`
-**Short Hash**: `4451d8e`
+**Commit Hash**: `9d438ae36ddbdc221ec688eb52b94380c4d473ab`
+**Short Hash**: `9d438ae`
 
 ### Files Modified
 
@@ -7119,12 +7138,12 @@ chore: update commit history
 
 ---
 
-## Commit 313: Fix WCAG 2.1 AA gaps across extension UI
+## Commit 314: Fix WCAG 2.1 AA gaps across extension UI
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-07-26 18:02:11 +0530
-**Commit Hash**: `5fb416e1202380d8e3e42405db996ce771bad550`
-**Short Hash**: `5fb416e`
+**Commit Hash**: `e3635bb7a6a040b5bc0e0036954396c2725bb543`
+**Short Hash**: `e3635bb`
 
 ### Files Modified
 
@@ -7153,12 +7172,12 @@ Fix WCAG 2.1 AA gaps across extension UI
 
 ---
 
-## Commit 314: chore: update changelog for v100.36.0
+## Commit 315: chore: update changelog for v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:16 +0000
-**Commit Hash**: `d09637e88ab29f9a22c3028da6702f147534eafc`
-**Short Hash**: `d09637e`
+**Commit Hash**: `6246f9228d8352421668085de9f398e6c791abeb`
+**Short Hash**: `6246f92`
 
 ### Files Modified
 
@@ -7172,12 +7191,12 @@ chore: update changelog for v100.36.0
 
 ---
 
-## Commit 315: chore: update commit history for v100.36.0
+## Commit 316: chore: update commit history for v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:15 +0000
-**Commit Hash**: `69ae261aa0f719843297caa7980fb6bda93c42df`
-**Short Hash**: `69ae261`
+**Commit Hash**: `9f151f79fb933dcfa4af8f522338e77535d5082e`
+**Short Hash**: `9f151f7`
 
 ### Files Modified
 
@@ -7191,12 +7210,12 @@ chore: update commit history for v100.36.0
 
 ---
 
-## Commit 316: release 100.36.0
+## Commit 317: chore: release v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:14 +0000
-**Commit Hash**: `4ca64adacb5ee5391f712fc27eda7605f5595e6f`
-**Short Hash**: `4ca64ad`
+**Commit Hash**: `0f2eb77e3cc69ce1e62babc4cda41b3ec28b4546`
+**Short Hash**: `0f2eb77`
 
 ### Files Modified
 
@@ -7208,17 +7227,17 @@ chore: update commit history for v100.36.0
 ### Commit Message
 
 ```text
-release 100.36.0
+chore: release v100.36.0
 ```
 
 ---
 
-## Commit 317: chore: update changelog for v100.35.0
+## Commit 318: chore: update changelog for v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:29:02 +0000
-**Commit Hash**: `0d274430396b4e91512cca9f760cdd878b0f0a42`
-**Short Hash**: `0d27443`
+**Commit Hash**: `b75597a2b144cfe5c3abfab2cf82d1b25a61b65a`
+**Short Hash**: `b75597a`
 
 ### Files Modified
 
@@ -7232,12 +7251,12 @@ chore: update changelog for v100.35.0
 
 ---
 
-## Commit 318: chore: update commit history for v100.35.0
+## Commit 319: chore: update commit history for v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:29:00 +0000
-**Commit Hash**: `5f085dacb06aaa1f3a9e1d2307799c9f32fd68e8`
-**Short Hash**: `5f085da`
+**Commit Hash**: `7289863c2967de13de212c311f32899572d954fe`
+**Short Hash**: `7289863`
 
 ### Files Modified
 
@@ -7251,12 +7270,12 @@ chore: update commit history for v100.35.0
 
 ---
 
-## Commit 319: release 100.35.0
+## Commit 320: chore: release v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:28:59 +0000
-**Commit Hash**: `10a356891ea785dc8fe8d9ffa2401e06c022bc55`
-**Short Hash**: `10a3568`
+**Commit Hash**: `ba492aa739e2091b864a15e67cf9b988bde22983`
+**Short Hash**: `ba492aa`
 
 ### Files Modified
 
@@ -7268,17 +7287,17 @@ chore: update commit history for v100.35.0
 ### Commit Message
 
 ```text
-release 100.35.0
+chore: release v100.35.0
 ```
 
 ---
 
-## Commit 320: chore: update changelog for v100.34.0
+## Commit 321: chore: update changelog for v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:42 +0000
-**Commit Hash**: `974c9a163ab7fc7d43d5bb17b0673a3b2307b334`
-**Short Hash**: `974c9a1`
+**Commit Hash**: `aacbfb495c33eabbba9dc2648e4663094665f902`
+**Short Hash**: `aacbfb4`
 
 ### Files Modified
 
@@ -7292,12 +7311,12 @@ chore: update changelog for v100.34.0
 
 ---
 
-## Commit 321: chore: update commit history for v100.34.0
+## Commit 322: chore: update commit history for v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:40 +0000
-**Commit Hash**: `026bfbadffdbeb4e52b6afb90f7037c27da857d8`
-**Short Hash**: `026bfba`
+**Commit Hash**: `7da0b031c3dea0485d95ffa863c36b4e733d7ad8`
+**Short Hash**: `7da0b03`
 
 ### Files Modified
 
@@ -7311,12 +7330,12 @@ chore: update commit history for v100.34.0
 
 ---
 
-## Commit 322: release 100.34.0
+## Commit 323: chore: release v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:39 +0000
-**Commit Hash**: `635655dad2a22e9883dec9f44e2f320ede58d9d2`
-**Short Hash**: `635655d`
+**Commit Hash**: `23aee209128756ea849ba51c7738dc1dc915373c`
+**Short Hash**: `23aee20`
 
 ### Files Modified
 
@@ -7327,17 +7346,17 @@ chore: update commit history for v100.34.0
 ### Commit Message
 
 ```text
-release 100.34.0
+chore: release v100.34.0
 ```
 
 ---
 
-## Commit 323: chore: update commit history
+## Commit 324: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:01:34 +0000
-**Commit Hash**: `9bd600861fa790a70e8ca5db8ca6375df4048f5a`
-**Short Hash**: `9bd6008`
+**Commit Hash**: `adf4047c542a9b354f885b34c2a480c8233e48e7`
+**Short Hash**: `adf4047`
 
 ### Files Modified
 
@@ -7351,12 +7370,12 @@ chore: update commit history
 
 ---
 
-## Commit 324: Add Samarth ref removeparam exception
+## Commit 325: Add Samarth ref removeparam exception
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-07-12 18:30:55 +0530
-**Commit Hash**: `2065850402fd8d9117dc426ee21a8822e8997884`
-**Short Hash**: `2065850`
+**Commit Hash**: `213807b57b52aeb437ccda14bdbba53a7a815159`
+**Short Hash**: `213807b`
 
 ### Files Modified
 
@@ -7370,12 +7389,12 @@ Add Samarth ref removeparam exception
 
 ---
 
-## Commit 325: chore: update changelog for v100.33.0
+## Commit 326: chore: update changelog for v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:03 +0000
-**Commit Hash**: `4608c0881f9e579297214cf65e0d5cdb59688cc1`
-**Short Hash**: `4608c08`
+**Commit Hash**: `da4766c5c29c793ef52f232b680493e7d10e0c0f`
+**Short Hash**: `da4766c`
 
 ### Files Modified
 
@@ -7389,12 +7408,12 @@ chore: update changelog for v100.33.0
 
 ---
 
-## Commit 326: chore: update commit history for v100.33.0
+## Commit 327: chore: update commit history for v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:02 +0000
-**Commit Hash**: `204e38c84256bad228ad532f16c108a7ce480b6a`
-**Short Hash**: `204e38c`
+**Commit Hash**: `16e7834796855c62bd14cdb11febd0b4bf06ec61`
+**Short Hash**: `16e7834`
 
 ### Files Modified
 
@@ -7408,12 +7427,12 @@ chore: update commit history for v100.33.0
 
 ---
 
-## Commit 327: release 100.33.0
+## Commit 328: chore: release v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:01 +0000
-**Commit Hash**: `0870758b48fa023051adcec4204ec77104ee6d92`
-**Short Hash**: `0870758`
+**Commit Hash**: `faebabba335b0d02ff5da24df40db167f25a2580`
+**Short Hash**: `faebabb`
 
 ### Files Modified
 
@@ -7425,17 +7444,17 @@ chore: update commit history for v100.33.0
 ### Commit Message
 
 ```text
-release 100.33.0
+chore: release v100.33.0
 ```
 
 ---
 
-## Commit 328: chore: update changelog for v100.32.0
+## Commit 329: chore: update changelog for v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:37 +0000
-**Commit Hash**: `0ebcf03ca6438a403a52e6a46b49f2d94d4f683a`
-**Short Hash**: `0ebcf03`
+**Commit Hash**: `b2292c385c49228fd958f63913c3eeab87270647`
+**Short Hash**: `b2292c3`
 
 ### Files Modified
 
@@ -7449,12 +7468,12 @@ chore: update changelog for v100.32.0
 
 ---
 
-## Commit 329: chore: update commit history for v100.32.0
+## Commit 330: chore: update commit history for v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:36 +0000
-**Commit Hash**: `ed1b80451f741981598d91b88e6be4c6c5f6d763`
-**Short Hash**: `ed1b804`
+**Commit Hash**: `7e9a8d455cc5c1e522b6fa57c8530c45adb695fd`
+**Short Hash**: `7e9a8d4`
 
 ### Files Modified
 
@@ -7468,12 +7487,12 @@ chore: update commit history for v100.32.0
 
 ---
 
-## Commit 330: release 100.32.0
+## Commit 331: chore: release v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:35 +0000
-**Commit Hash**: `3383ba6ea59326253bb65b5bf621b458c6607d84`
-**Short Hash**: `3383ba6`
+**Commit Hash**: `4fb0573b5f8de5ecb0f4493a293973a986c20434`
+**Short Hash**: `4fb0573`
 
 ### Files Modified
 
@@ -7485,17 +7504,17 @@ chore: update commit history for v100.32.0
 ### Commit Message
 
 ```text
-release 100.32.0
+chore: release v100.32.0
 ```
 
 ---
 
-## Commit 331: chore: update changelog for v100.31.0
+## Commit 332: chore: update changelog for v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:08 +0000
-**Commit Hash**: `2295529e10ad79e281aa4c145a4dfd762c5863c9`
-**Short Hash**: `2295529`
+**Commit Hash**: `088b295046eeb98987c50dcedad1ddb19ae721c5`
+**Short Hash**: `088b295`
 
 ### Files Modified
 
@@ -7509,12 +7528,12 @@ chore: update changelog for v100.31.0
 
 ---
 
-## Commit 332: chore: update commit history for v100.31.0
+## Commit 333: chore: update commit history for v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:07 +0000
-**Commit Hash**: `eb6d7b0a880ae2327c7c8afe0b50e0e6f0242830`
-**Short Hash**: `eb6d7b0`
+**Commit Hash**: `710e3f512f3d94363aae33f46b60900ed4eb82f5`
+**Short Hash**: `710e3f5`
 
 ### Files Modified
 
@@ -7528,12 +7547,12 @@ chore: update commit history for v100.31.0
 
 ---
 
-## Commit 333: release 100.31.0
+## Commit 334: chore: release v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:05 +0000
-**Commit Hash**: `d30fcfa3cd0e9503d176787ae291e58277079483`
-**Short Hash**: `d30fcfa`
+**Commit Hash**: `322f4a5b12671ea1ccdac5a7a30c9fdb3b9b43ad`
+**Short Hash**: `322f4a5`
 
 ### Files Modified
 
@@ -7545,17 +7564,17 @@ chore: update commit history for v100.31.0
 ### Commit Message
 
 ```text
-release 100.31.0
+chore: release v100.31.0
 ```
 
 ---
 
-## Commit 334: chore: update commit history
+## Commit 335: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-29 15:11:34 +0000
-**Commit Hash**: `0f8ddc2b0a8539153e9372030cf2857478c810ae`
-**Short Hash**: `0f8ddc2`
+**Commit Hash**: `33fe505f5a9ab65b071971a3a389e3214a447017`
+**Short Hash**: `33fe505`
 
 ### Files Modified
 
@@ -7569,12 +7588,12 @@ chore: update commit history
 
 ---
 
-## Commit 335: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 336: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-29 20:41:16 +0530
-**Commit Hash**: `40e5477ed568f0980f52ef2dcee582fb0fb34313`
-**Short Hash**: `40e5477`
+**Commit Hash**: `b410cd12ed058cd03628fa9b7534e757b3e36572`
+**Short Hash**: `b410cd1`
 
 ### Files Modified
 
@@ -7588,12 +7607,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 336: wcag complaince we donot know how much we done i think we complaint with wcag with good faith
+## Commit 337: wcag complaince we donot know how much we done i think we complaint with wcag with good faith
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-29 20:40:25 +0530
-**Commit Hash**: `7d566cd866bda34cb0a9a2f3bcda495a96807812`
-**Short Hash**: `7d566cd`
+**Commit Hash**: `723653e1dd2f56e248600e998e009b0955e315ed`
+**Short Hash**: `723653e`
 
 ### Files Modified
 
@@ -7626,12 +7645,12 @@ wcag complaince we donot know how much we done i think we complaint with wcag wi
 
 ---
 
-## Commit 337: chore: update changelog for v100.30.0
+## Commit 338: chore: update changelog for v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:29 +0000
-**Commit Hash**: `4f367c1714dbd1cef2fb739941e47464c8195fa7`
-**Short Hash**: `4f367c1`
+**Commit Hash**: `6e05a816289c636a6000378e90aadd74891d0c75`
+**Short Hash**: `6e05a81`
 
 ### Files Modified
 
@@ -7645,12 +7664,12 @@ chore: update changelog for v100.30.0
 
 ---
 
-## Commit 338: chore: update commit history for v100.30.0
+## Commit 339: chore: update commit history for v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:28 +0000
-**Commit Hash**: `edac6cc8d03b470ceb1a8115825861ea47fe689b`
-**Short Hash**: `edac6cc`
+**Commit Hash**: `842caa05fda00e790522ca9d7b5515bb50b3bec1`
+**Short Hash**: `842caa0`
 
 ### Files Modified
 
@@ -7664,12 +7683,12 @@ chore: update commit history for v100.30.0
 
 ---
 
-## Commit 339: release 100.30.0
+## Commit 340: chore: release v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:27 +0000
-**Commit Hash**: `e63689873cfde64ac4e937ecc978ddf057f19b62`
-**Short Hash**: `e636898`
+**Commit Hash**: `be9f265084b1d11342b335d3cc26ab63e9ff996b`
+**Short Hash**: `be9f265`
 
 ### Files Modified
 
@@ -7681,17 +7700,17 @@ chore: update commit history for v100.30.0
 ### Commit Message
 
 ```text
-release 100.30.0
+chore: release v100.30.0
 ```
 
 ---
 
-## Commit 340: chore: update changelog for v100.29.0
+## Commit 341: chore: update changelog for v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:23 +0000
-**Commit Hash**: `39638c6555f33c998ee90b27a2d09cb8dba85457`
-**Short Hash**: `39638c6`
+**Commit Hash**: `ad6276b7ff5fc591b8783fb68817baf24d59f223`
+**Short Hash**: `ad6276b`
 
 ### Files Modified
 
@@ -7705,12 +7724,12 @@ chore: update changelog for v100.29.0
 
 ---
 
-## Commit 341: chore: update commit history for v100.29.0
+## Commit 342: chore: update commit history for v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:22 +0000
-**Commit Hash**: `26a80af85253ab6edff6ae513149469c3c33774f`
-**Short Hash**: `26a80af`
+**Commit Hash**: `9b178791e6785c253c3e0b46b40313b1a534617b`
+**Short Hash**: `9b17879`
 
 ### Files Modified
 
@@ -7724,12 +7743,12 @@ chore: update commit history for v100.29.0
 
 ---
 
-## Commit 342: release 100.29.0
+## Commit 343: chore: release v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:21 +0000
-**Commit Hash**: `33f7fb26e66507b93dba5ffea8ba092df9b71fc2`
-**Short Hash**: `33f7fb2`
+**Commit Hash**: `698e3490667e5a18bd0cb2f3818f74d69ec6b020`
+**Short Hash**: `698e349`
 
 ### Files Modified
 
@@ -7740,17 +7759,17 @@ chore: update commit history for v100.29.0
 ### Commit Message
 
 ```text
-release 100.29.0
+chore: release v100.29.0
 ```
 
 ---
 
-## Commit 343: chore: update changelog for v100.28.1
+## Commit 344: chore: update changelog for v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:33 +0000
-**Commit Hash**: `c20d728e03479f6ad26e64110b3be324794088b8`
-**Short Hash**: `c20d728`
+**Commit Hash**: `757dc1fc41fcabdc5c4be6086ec654ca74b67d7c`
+**Short Hash**: `757dc1f`
 
 ### Files Modified
 
@@ -7764,12 +7783,12 @@ chore: update changelog for v100.28.1
 
 ---
 
-## Commit 344: chore: update commit history for v100.28.1
+## Commit 345: chore: update commit history for v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:32 +0000
-**Commit Hash**: `1fa36581c9c76410b3441a63df62b0b07f3db307`
-**Short Hash**: `1fa3658`
+**Commit Hash**: `77cca7d04cc19b6ba46852ef9af61856039672b5`
+**Short Hash**: `77cca7d`
 
 ### Files Modified
 
@@ -7783,12 +7802,12 @@ chore: update commit history for v100.28.1
 
 ---
 
-## Commit 345: release 100.28.1
+## Commit 346: chore: release v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:31 +0000
-**Commit Hash**: `b79948b7b709f8be2ad466fa78434fa156c54636`
-**Short Hash**: `b79948b`
+**Commit Hash**: `d6cc25676732eeb501a1ffee73b66014d6d656c1`
+**Short Hash**: `d6cc256`
 
 ### Files Modified
 
@@ -7799,17 +7818,17 @@ chore: update commit history for v100.28.1
 ### Commit Message
 
 ```text
-release 100.28.1
+chore: release v100.28.1
 ```
 
 ---
 
-## Commit 346: chore: update commit history
+## Commit 347: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 17:58:51 +0000
-**Commit Hash**: `63e08de6a9b03cb8fc15ca778680bc6d43364f6c`
-**Short Hash**: `63e08de`
+**Commit Hash**: `899e3ce3924a10c47a17049f3f077c394803f211`
+**Short Hash**: `899e3ce`
 
 ### Files Modified
 
@@ -7823,12 +7842,12 @@ chore: update commit history
 
 ---
 
-## Commit 347: added withdrawn button
+## Commit 348: feat: add a withdrawn-state control
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-20 23:28:16 +0530
-**Commit Hash**: `a1c4df5cad87ed8c92e017ff7a9dd491f1c61076`
-**Short Hash**: `a1c4df5`
+**Commit Hash**: `73089f7dd9fa7442972c5569f001a7b83f88c76d`
+**Short Hash**: `73089f7`
 
 ### Files Modified
 
@@ -7893,17 +7912,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-added withdrawn button
+feat: add a withdrawn-state control
 ```
 
 ---
 
-## Commit 348: chore: update changelog for v100.28.0
+## Commit 349: chore: update changelog for v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:43 +0000
-**Commit Hash**: `bdcd1642d0c426f3ee59398fd4258421a0e46109`
-**Short Hash**: `bdcd164`
+**Commit Hash**: `04d9c95040be07e643f872ed6fa4b08575038460`
+**Short Hash**: `04d9c95`
 
 ### Files Modified
 
@@ -7917,12 +7936,12 @@ chore: update changelog for v100.28.0
 
 ---
 
-## Commit 349: chore: update commit history for v100.28.0
+## Commit 350: chore: update commit history for v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:41 +0000
-**Commit Hash**: `4045d2dbc6a541b923bf0337087dab7b28c3a28c`
-**Short Hash**: `4045d2d`
+**Commit Hash**: `a212d9040e94b2fa9d08f7ba857d9f7591d2f2ce`
+**Short Hash**: `a212d90`
 
 ### Files Modified
 
@@ -7936,12 +7955,12 @@ chore: update commit history for v100.28.0
 
 ---
 
-## Commit 350: release 100.28.0
+## Commit 351: chore: release v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:40 +0000
-**Commit Hash**: `4d2644045a7e7e3d506f4a0b7b3409229f43ea58`
-**Short Hash**: `4d26440`
+**Commit Hash**: `089b16651c02e6962b26f58200b9a675b49c5b8a`
+**Short Hash**: `089b166`
 
 ### Files Modified
 
@@ -7952,17 +7971,17 @@ chore: update commit history for v100.28.0
 ### Commit Message
 
 ```text
-release 100.28.0
+chore: release v100.28.0
 ```
 
 ---
 
-## Commit 351: chore: update commit history
+## Commit 352: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 17:35:12 +0000
-**Commit Hash**: `70c56ec51705d025cf5aaaf81425f3ffada34b89`
-**Short Hash**: `70c56ec`
+**Commit Hash**: `12ff4b31fde5bef1aaeef95609908d4fdd834e39`
+**Short Hash**: `12ff4b3`
 
 ### Files Modified
 
@@ -7976,12 +7995,12 @@ chore: update commit history
 
 ---
 
-## Commit 352: Although we do not collect any personal data from users, there has been increasing pressure in recent years from various groups advocating for broader age-verification and surveillance measures. To address these concerns while preserving user privacy, we have adopted the following approach.
+## Commit 353: Although we do not collect any personal data from users, there has been increasing pressure in recent years from various groups advocating for broader age-verification and surveillance measures. To address these concerns while preserving user privacy, we have adopted the following approach.
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 23:03:33 +0530
-**Commit Hash**: `43769ffdeb73d1f5d26536485d3d3d9fd42cf48c`
-**Short Hash**: `43769ff`
+**Commit Hash**: `fcadede50c583d38340f353ecc3343e843f5f12b`
+**Short Hash**: `fcadede`
 
 ### Files Modified
 
@@ -8057,12 +8076,12 @@ Although we do not collect any personal data from users, there has been increasi
 
 ---
 
-## Commit 353: chore: update commit history
+## Commit 354: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:09:38 +0000
-**Commit Hash**: `d8f65f0bf316f0b0abf385a201a33cbb09a28785`
-**Short Hash**: `d8f65f0`
+**Commit Hash**: `b4df37ac8e255ba123a6fb18d0417ba953ea3a4b`
+**Short Hash**: `b4df37a`
 
 ### Files Modified
 
@@ -8076,12 +8095,12 @@ chore: update commit history
 
 ---
 
-## Commit 354: Refine Thai guide translation
+## Commit 355: Refine Thai guide translation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 16:39:03 +0530
-**Commit Hash**: `84efb16cd131a5ff807221f237f6afc46c64b9c0`
-**Short Hash**: `84efb16`
+**Commit Hash**: `fb851414c405194f6afcf19ac817bf46fd41cf03`
+**Short Hash**: `fb85141`
 
 ### Files Modified
 
@@ -8095,12 +8114,12 @@ Refine Thai guide translation
 
 ---
 
-## Commit 355: chore: update changelog for v100.27.0
+## Commit 356: chore: update changelog for v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:16 +0000
-**Commit Hash**: `09980ad3aba05802dcf01a1d9022a2f7bfbff0ef`
-**Short Hash**: `09980ad`
+**Commit Hash**: `5241cde484a9f9cd1c5a2e56e87a512a6c0f668d`
+**Short Hash**: `5241cde`
 
 ### Files Modified
 
@@ -8114,12 +8133,12 @@ chore: update changelog for v100.27.0
 
 ---
 
-## Commit 356: chore: update commit history for v100.27.0
+## Commit 357: chore: update commit history for v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:14 +0000
-**Commit Hash**: `8649192981b78b721c500cb5d0dac0e10b596f9f`
-**Short Hash**: `8649192`
+**Commit Hash**: `0a1a3d65cbf3bfdd0c1e22b73f7224626d085672`
+**Short Hash**: `0a1a3d6`
 
 ### Files Modified
 
@@ -8133,12 +8152,12 @@ chore: update commit history for v100.27.0
 
 ---
 
-## Commit 357: release 100.27.0
+## Commit 358: chore: release v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:13 +0000
-**Commit Hash**: `1374a25e5538e2e25af71c9a4655ab3741ccda8c`
-**Short Hash**: `1374a25`
+**Commit Hash**: `ac80d20948434f621b6d2a4d8b9ee1895fdd9dfc`
+**Short Hash**: `ac80d20`
 
 ### Files Modified
 
@@ -8150,17 +8169,17 @@ chore: update commit history for v100.27.0
 ### Commit Message
 
 ```text
-release 100.27.0
+chore: release v100.27.0
 ```
 
 ---
 
-## Commit 358: chore: update commit history
+## Commit 359: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:05:42 +0000
-**Commit Hash**: `f678bc5bf5c86cf2b202949fa5213c318b89b643`
-**Short Hash**: `f678bc5`
+**Commit Hash**: `2f2b0eb577fbbc048c059a00e9faee256af5ebd9`
+**Short Hash**: `2f2b0eb`
 
 ### Files Modified
 
@@ -8174,12 +8193,12 @@ chore: update commit history
 
 ---
 
-## Commit 359: Update privacy notices and rules guide
+## Commit 360: Update privacy notices and rules guide
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 16:34:53 +0530
-**Commit Hash**: `dd19cccda2154e39fb3d3b4fe6b02071694c10ea`
-**Short Hash**: `dd19ccc`
+**Commit Hash**: `a81163fa2d7cff34833660b3cca8351e7d8adc63`
+**Short Hash**: `a81163f`
 
 ### Files Modified
 
@@ -8253,12 +8272,12 @@ Update privacy notices and rules guide
 
 ---
 
-## Commit 360: Add chained legal consent review modal
+## Commit 361: Add chained legal consent review modal
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 14:44:30 +0530
-**Commit Hash**: `d92644640590165f386a7e8db510b84853dc1132`
-**Short Hash**: `d926446`
+**Commit Hash**: `ef823cbf66c02db2249682ef64ad0a78e95f8e65`
+**Short Hash**: `ef823cb`
 
 ### Files Modified
 
@@ -8328,12 +8347,12 @@ Add chained legal consent review modal
 
 ---
 
-## Commit 361: chore: update changelog for v100.26.0
+## Commit 362: chore: update changelog for v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:05 +0000
-**Commit Hash**: `769f83910478ab8035de53153a00ae6a7428dc80`
-**Short Hash**: `769f839`
+**Commit Hash**: `2c92f8fef28af3989fcf5dbeb63d211aac47fc02`
+**Short Hash**: `2c92f8f`
 
 ### Files Modified
 
@@ -8347,12 +8366,12 @@ chore: update changelog for v100.26.0
 
 ---
 
-## Commit 362: chore: update commit history for v100.26.0
+## Commit 363: chore: update commit history for v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:04 +0000
-**Commit Hash**: `1bc4d306b2f3acdc44454df77fff11bf7c2a78e0`
-**Short Hash**: `1bc4d30`
+**Commit Hash**: `8695596b3c7cd53561889cd8ee0b69df15621116`
+**Short Hash**: `8695596`
 
 ### Files Modified
 
@@ -8366,12 +8385,12 @@ chore: update commit history for v100.26.0
 
 ---
 
-## Commit 363: release 100.26.0
+## Commit 364: chore: release v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:03 +0000
-**Commit Hash**: `cd1f102910f481966e42c5bbe67724e5c0610fa2`
-**Short Hash**: `cd1f102`
+**Commit Hash**: `fd81fb25a73116e688bccd09e187b3ceab7364be`
+**Short Hash**: `fd81fb2`
 
 ### Files Modified
 
@@ -8382,17 +8401,17 @@ chore: update commit history for v100.26.0
 ### Commit Message
 
 ```text
-release 100.26.0
+chore: release v100.26.0
 ```
 
 ---
 
-## Commit 364: chore: update changelog for v100.25.0
+## Commit 365: chore: update changelog for v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:18 +0000
-**Commit Hash**: `92b0d72549f2a496362278c0f75af56f8aa5fa70`
-**Short Hash**: `92b0d72`
+**Commit Hash**: `aa540f810d6172561d5490390cecf021074032e3`
+**Short Hash**: `aa540f8`
 
 ### Files Modified
 
@@ -8406,12 +8425,12 @@ chore: update changelog for v100.25.0
 
 ---
 
-## Commit 365: chore: update commit history for v100.25.0
+## Commit 366: chore: update commit history for v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:17 +0000
-**Commit Hash**: `3dbb588e1ebc55216bc09170d40c131125d698da`
-**Short Hash**: `3dbb588`
+**Commit Hash**: `4dd213ac1530742772d19a2349f5a3bea66c0282`
+**Short Hash**: `4dd213a`
 
 ### Files Modified
 
@@ -8425,12 +8444,12 @@ chore: update commit history for v100.25.0
 
 ---
 
-## Commit 366: release 100.25.0
+## Commit 367: chore: release v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:16 +0000
-**Commit Hash**: `3e059567cced41f58a78dc61e481348b1429ee37`
-**Short Hash**: `3e05956`
+**Commit Hash**: `4d82709ab1d9fc3ac3160b52664d909371cb0e39`
+**Short Hash**: `4d82709`
 
 ### Files Modified
 
@@ -8441,17 +8460,17 @@ chore: update commit history for v100.25.0
 ### Commit Message
 
 ```text
-release 100.25.0
+chore: release v100.25.0
 ```
 
 ---
 
-## Commit 367: chore: update commit history
+## Commit 368: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 17:35:03 +0000
-**Commit Hash**: `2fd2483e3a148acb20a3f1ac96083dc2c425bf01`
-**Short Hash**: `2fd2483`
+**Commit Hash**: `7382359f4c086a627984ba0c0b6ec5b9b2ed7b67`
+**Short Hash**: `7382359`
 
 ### Files Modified
 
@@ -8465,12 +8484,12 @@ chore: update commit history
 
 ---
 
-## Commit 368: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 369: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 23:04:48 +0530
-**Commit Hash**: `4898433449b4e02bdbdc78a081c549835265c997`
-**Short Hash**: `4898433`
+**Commit Hash**: `96349ee6edc26eefa9d909303e46a3721ae191f6`
+**Short Hash**: `96349ee`
 
 ### Files Modified
 
@@ -8484,12 +8503,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 369: updated privacy policy
+## Commit 370: docs: update the privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 23:04:21 +0530
-**Commit Hash**: `ad826fcb2cff5ca582e54989e3c5870bd837b7df`
-**Short Hash**: `ad826fc`
+**Commit Hash**: `40123ea99d6ef877c7d66db6270d301084699059`
+**Short Hash**: `40123ea`
 
 ### Files Modified
 
@@ -8499,17 +8518,17 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 ### Commit Message
 
 ```text
-updated privacy policy
+docs: update the privacy policy
 ```
 
 ---
 
-## Commit 370: chore: update commit history
+## Commit 371: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 10:17:45 +0000
-**Commit Hash**: `2be28b0478ef89a26c193c38c61c70d8c1fd99d4`
-**Short Hash**: `2be28b0`
+**Commit Hash**: `7ac96b4ec29effc823b844e923965db82923c730`
+**Short Hash**: `7ac96b4`
 
 ### Files Modified
 
@@ -8523,12 +8542,12 @@ chore: update commit history
 
 ---
 
-## Commit 371: Add POSAR consent flow and translations
+## Commit 372: Add POSAR consent flow and translations
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 15:46:57 +0530
-**Commit Hash**: `c1be6e67e6094867a22355be69275e82f8a6de08`
-**Short Hash**: `c1be6e6`
+**Commit Hash**: `69f70f6cc370f07863f6f9d96aebe9966b9db16b`
+**Short Hash**: `69f70f6`
 
 ### Files Modified
 
@@ -8601,12 +8620,12 @@ Add POSAR consent flow and translations
 
 ---
 
-## Commit 372: chore: update commit history
+## Commit 373: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 11:15:03 +0000
-**Commit Hash**: `6db4af90f268cf4185890e089890310fc0dd7cde`
-**Short Hash**: `6db4af9`
+**Commit Hash**: `a26399b8d9b19a2bf22f6859ae02109a4be92a9a`
+**Short Hash**: `a26399b`
 
 ### Files Modified
 
@@ -8620,12 +8639,12 @@ chore: update commit history
 
 ---
 
-## Commit 373: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 374: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:44:46 +0530
-**Commit Hash**: `688dabae9f326a9e878927af817029001c65e814`
-**Short Hash**: `688daba`
+**Commit Hash**: `a8c53854f397128689fa3aafe4dfd82f6eef87f6`
+**Short Hash**: `a8c5385`
 
 ### Files Modified
 
@@ -8639,12 +8658,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 374: updated
+## Commit 375: updated
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:44:33 +0530
-**Commit Hash**: `daeacd3f8519e3c70355e3deda921b63b513ecc7`
-**Short Hash**: `daeacd3`
+**Commit Hash**: `18f259ae80d02445688a1697eaaaa40d84a3bbf5`
+**Short Hash**: `18f259a`
 
 ### Files Modified
 
@@ -8658,12 +8677,12 @@ updated
 
 ---
 
-## Commit 375: chore: update commit history
+## Commit 376: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 11:00:35 +0000
-**Commit Hash**: `ebeb2e0f686c891b2df0bb44806503bf0e5bae20`
-**Short Hash**: `ebeb2e0`
+**Commit Hash**: `d23c789cf68cec9819654b87525f463e4407831d`
+**Short Hash**: `d23c789`
 
 ### Files Modified
 
@@ -8677,12 +8696,12 @@ chore: update commit history
 
 ---
 
-## Commit 376: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 377: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:30:20 +0530
-**Commit Hash**: `6578055a3824c506d3c7ab85ac772e8caa8dc074`
-**Short Hash**: `6578055`
+**Commit Hash**: `bfcd5128f36cbea414094cb6e6eb6b6aebf65fbf`
+**Short Hash**: `bfcd512`
 
 ### Files Modified
 
@@ -8696,12 +8715,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 377: new policy
+## Commit 378: docs: add the Linkumori privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:30:00 +0530
-**Commit Hash**: `779538453645eb993997ada752eb84539737438d`
-**Short Hash**: `7795384`
+**Commit Hash**: `601d0e746daf5b2308d3e560f2d9f0704ffa72ca`
+**Short Hash**: `601d0e7`
 
 ### Files Modified
 
@@ -8710,17 +8729,17 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 ### Commit Message
 
 ```text
-new policy
+docs: add the Linkumori privacy policy
 ```
 
 ---
 
-## Commit 378: chore: update changelog for v100.24.0
+## Commit 379: chore: update changelog for v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:32 +0000
-**Commit Hash**: `b9d6c79f720a3cc8367851eaca9732322b96c915`
-**Short Hash**: `b9d6c79`
+**Commit Hash**: `0827726b5858d847935809a87d1312f121a38577`
+**Short Hash**: `0827726`
 
 ### Files Modified
 
@@ -8734,12 +8753,12 @@ chore: update changelog for v100.24.0
 
 ---
 
-## Commit 379: chore: update commit history for v100.24.0
+## Commit 380: chore: update commit history for v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:31 +0000
-**Commit Hash**: `34f02563789cc2e63b5d3e6a20c821fdf7a3ea44`
-**Short Hash**: `34f0256`
+**Commit Hash**: `691dd45d95ff3d0460ef9793212939a9d879ffe9`
+**Short Hash**: `691dd45`
 
 ### Files Modified
 
@@ -8753,12 +8772,12 @@ chore: update commit history for v100.24.0
 
 ---
 
-## Commit 380: release 100.24.0
+## Commit 381: chore: release v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:30 +0000
-**Commit Hash**: `64afe4b25f9b0bcdb7a9e528441db4453d629c8a`
-**Short Hash**: `64afe4b`
+**Commit Hash**: `610d3d0a4122ba4e463dfe0b400f1f5215bde2c4`
+**Short Hash**: `610d3d0`
 
 ### Files Modified
 
@@ -8769,17 +8788,17 @@ chore: update commit history for v100.24.0
 ### Commit Message
 
 ```text
-release 100.24.0
+chore: release v100.24.0
 ```
 
 ---
 
-## Commit 381: chore: update changelog for v100.23.0
+## Commit 382: chore: update changelog for v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:03 +0000
-**Commit Hash**: `d0e5a79f22118d52aefd2ce8470bc47f75348794`
-**Short Hash**: `d0e5a79`
+**Commit Hash**: `1a6dbd67d90382812db9560b47703844c514d233`
+**Short Hash**: `1a6dbd6`
 
 ### Files Modified
 
@@ -8793,12 +8812,12 @@ chore: update changelog for v100.23.0
 
 ---
 
-## Commit 382: chore: update commit history for v100.23.0
+## Commit 383: chore: update commit history for v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:02 +0000
-**Commit Hash**: `80f59a6435c4f6080e3f6d405c1a07623c5815c3`
-**Short Hash**: `80f59a6`
+**Commit Hash**: `c6d83948fe75f21c42db3d0ca3bd09b2720405a6`
+**Short Hash**: `c6d8394`
 
 ### Files Modified
 
@@ -8812,12 +8831,12 @@ chore: update commit history for v100.23.0
 
 ---
 
-## Commit 383: release 100.23.0
+## Commit 384: chore: release v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:01 +0000
-**Commit Hash**: `929761c7bd6a97fa1e016e10ad36d09bac6d2071`
-**Short Hash**: `929761c`
+**Commit Hash**: `d993c9846ea2b9346f909e00dd541a8e1102bfd6`
+**Short Hash**: `d993c98`
 
 ### Files Modified
 
@@ -8828,17 +8847,17 @@ chore: update commit history for v100.23.0
 ### Commit Message
 
 ```text
-release 100.23.0
+chore: release v100.23.0
 ```
 
 ---
 
-## Commit 384: chore: update changelog for v100.22.0
+## Commit 385: chore: update changelog for v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:05 +0000
-**Commit Hash**: `19d77aebe5622cf1bd0c1cb1be9b6d07908ff5f1`
-**Short Hash**: `19d77ae`
+**Commit Hash**: `a1805239e4e9aa0e4a5cfc2ba7aa20bf8e7ad7df`
+**Short Hash**: `a180523`
 
 ### Files Modified
 
@@ -8852,12 +8871,12 @@ chore: update changelog for v100.22.0
 
 ---
 
-## Commit 385: chore: update commit history for v100.22.0
+## Commit 386: chore: update commit history for v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:03 +0000
-**Commit Hash**: `6af12319ae64ac57deab9d819429801f617a7fb6`
-**Short Hash**: `6af1231`
+**Commit Hash**: `d3b8f3e428a51a6f0b56e45480ace9225ccaf125`
+**Short Hash**: `d3b8f3e`
 
 ### Files Modified
 
@@ -8871,12 +8890,12 @@ chore: update commit history for v100.22.0
 
 ---
 
-## Commit 386: release 100.22.0
+## Commit 387: chore: release v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:02 +0000
-**Commit Hash**: `fe153b23d42c8cc76b118b57a107ff8fe0c040ba`
-**Short Hash**: `fe153b2`
+**Commit Hash**: `4882c92de93473c36dc3f7480ad03304a63a0e5b`
+**Short Hash**: `4882c92`
 
 ### Files Modified
 
@@ -8889,17 +8908,17 @@ chore: update commit history for v100.22.0
 ### Commit Message
 
 ```text
-release 100.22.0
+chore: release v100.22.0
 ```
 
 ---
 
-## Commit 387: chore: update commit history
+## Commit 388: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 13:29:37 +0000
-**Commit Hash**: `ed57f1c67b8972ad421d53d98c86773366bbd5f0`
-**Short Hash**: `ed57f1c`
+**Commit Hash**: `7fc616e9677f0f874230c80c7f3beadbbb5d6a38`
+**Short Hash**: `7fc616e`
 
 ### Files Modified
 
@@ -8913,12 +8932,12 @@ chore: update commit history
 
 ---
 
-## Commit 388: Replace logger controls with SVG icons
+## Commit 389: Replace logger controls with SVG icons
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-10 18:59:14 +0530
-**Commit Hash**: `4f7d14ee266055d05a9ed90d450f62f8854285d5`
-**Short Hash**: `4f7d14e`
+**Commit Hash**: `1a99e46a80f30356568939690273eb587b309ce0`
+**Short Hash**: `1a99e46`
 
 ### Files Modified
 
@@ -8936,12 +8955,12 @@ Replace logger controls with SVG icons
 
 ---
 
-## Commit 389: chore: update changelog for v100.21.2
+## Commit 390: chore: update changelog for v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:50 +0000
-**Commit Hash**: `73d9af0551ec5a40587a27db13db92150c590692`
-**Short Hash**: `73d9af0`
+**Commit Hash**: `1bdc0a3b1a186cd697f07d271661a60de1523671`
+**Short Hash**: `1bdc0a3`
 
 ### Files Modified
 
@@ -8955,12 +8974,12 @@ chore: update changelog for v100.21.2
 
 ---
 
-## Commit 390: chore: update commit history for v100.21.2
+## Commit 391: chore: update commit history for v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:49 +0000
-**Commit Hash**: `4a0c4603357f21c56e5beaafdd32f512ee22fe8a`
-**Short Hash**: `4a0c460`
+**Commit Hash**: `670a4821827771672188ccb083dabf90c7351fa9`
+**Short Hash**: `670a482`
 
 ### Files Modified
 
@@ -8974,12 +8993,12 @@ chore: update commit history for v100.21.2
 
 ---
 
-## Commit 391: release 100.21.2
+## Commit 392: chore: release v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:48 +0000
-**Commit Hash**: `47f9b5c6d6a04fd24bd5e5c83efc76dace5f3111`
-**Short Hash**: `47f9b5c`
+**Commit Hash**: `5eed72e17555bab2f68aa59d45ad953196b8ad9f`
+**Short Hash**: `5eed72e`
 
 ### Files Modified
 
@@ -8991,26 +9010,7 @@ chore: update commit history for v100.21.2
 ### Commit Message
 
 ```text
-release 100.21.2
-```
-
----
-
-## Commit 392: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-06-10 09:49:30 +0000
-**Commit Hash**: `58b22350427ee8e675a5a6fdf71043c2a24cc02b`
-**Short Hash**: `58b2235`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
+chore: release v100.21.2
 ```
 
 ---
@@ -9018,9 +9018,9 @@ chore: update commit history
 ## Commit 393: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-06-10 09:46:40 +0000
-**Commit Hash**: `c5f2f23e2fb70b190e131b2aa8009c35f95e21de`
-**Short Hash**: `c5f2f23`
+**Date**: 2026-06-10 09:49:30 +0000
+**Commit Hash**: `2f35021c7aa22fb94610bc913f8fbf0cf34c05b3`
+**Short Hash**: `2f35021`
 
 ### Files Modified
 
@@ -9034,12 +9034,31 @@ chore: update commit history
 
 ---
 
-## Commit 394: every things is anicca hope so there is no need this type of software to exist
+## Commit 394: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-06-10 09:46:40 +0000
+**Commit Hash**: `9f01560bf2425e883dd5d5c456e8d50b812de93a`
+**Short Hash**: `9f01560`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 395: every things is anicca hope so there is no need this type of software to exist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-10 15:15:45 +0530
-**Commit Hash**: `f518f5264ef6c0e24dffc636193e86445cd39021`
-**Short Hash**: `f518f52`
+**Commit Hash**: `c301386ca35671d54ca8c9f7b1d3f2611a310eec`
+**Short Hash**: `c301386`
 
 ### Files Modified
 
@@ -9053,12 +9072,12 @@ every things is anicca hope so there is no need this type of software to exist
 
 ---
 
-## Commit 395: chore: update changelog for v100.21.1
+## Commit 396: chore: update changelog for v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:06 +0000
-**Commit Hash**: `92920219b13695b6f539e9836e9751766d9b86e2`
-**Short Hash**: `9292021`
+**Commit Hash**: `0724634453fbcc1ed2a214e05d1c4776cc426bd2`
+**Short Hash**: `0724634`
 
 ### Files Modified
 
@@ -9072,12 +9091,12 @@ chore: update changelog for v100.21.1
 
 ---
 
-## Commit 396: chore: update commit history for v100.21.1
+## Commit 397: chore: update commit history for v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:05 +0000
-**Commit Hash**: `67fbc76fe2e543095ee1959f5c79508f50d6d292`
-**Short Hash**: `67fbc76`
+**Commit Hash**: `ca14fb508b0baa5e384495edec2379036734af91`
+**Short Hash**: `ca14fb5`
 
 ### Files Modified
 
@@ -9091,12 +9110,12 @@ chore: update commit history for v100.21.1
 
 ---
 
-## Commit 397: release 100.21.1
+## Commit 398: chore: release v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:04 +0000
-**Commit Hash**: `22d1b4f892403c3a353922a39eba3b975c93b320`
-**Short Hash**: `22d1b4f`
+**Commit Hash**: `2fb528926e16911f012935f19368bb5b1486a767`
+**Short Hash**: `2fb5289`
 
 ### Files Modified
 
@@ -9107,17 +9126,17 @@ chore: update commit history for v100.21.1
 ### Commit Message
 
 ```text
-release 100.21.1
+chore: release v100.21.1
 ```
 
 ---
 
-## Commit 398: chore: update commit history
+## Commit 399: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-08 19:50:47 +0000
-**Commit Hash**: `41eb786e8830e7c4debe7a4ecb237eb112919be5`
-**Short Hash**: `41eb786`
+**Commit Hash**: `c037d09c9fd93eb4b40524717bb56de8bb519ab1`
+**Short Hash**: `c037d09`
 
 ### Files Modified
 
@@ -9131,12 +9150,12 @@ chore: update commit history
 
 ---
 
-## Commit 399: update privacy policy
+## Commit 400: docs: update the privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-09 01:17:24 +0530
-**Commit Hash**: `4605601019344464d54d5c5f32ec90fb7242657f`
-**Short Hash**: `4605601`
+**Commit Hash**: `24b09f446865f03b34a6627917b0a4124b69ad86`
+**Short Hash**: `24b09f4`
 
 ### Files Modified
 
@@ -9146,17 +9165,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-update privacy policy
+docs: update the privacy policy
 ```
 
 ---
 
-## Commit 400: chore: update changelog for v100.21.0
+## Commit 401: chore: update changelog for v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:30 +0000
-**Commit Hash**: `bbfa49f6257f172ad17e5317bb57133e41ee496c`
-**Short Hash**: `bbfa49f`
+**Commit Hash**: `877f34a2c23533e42bee178cce8062fb84e94f15`
+**Short Hash**: `877f34a`
 
 ### Files Modified
 
@@ -9170,12 +9189,12 @@ chore: update changelog for v100.21.0
 
 ---
 
-## Commit 401: chore: update commit history for v100.21.0
+## Commit 402: chore: update commit history for v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:29 +0000
-**Commit Hash**: `b5788c08397439809b539210728683fb0ee310e8`
-**Short Hash**: `b5788c0`
+**Commit Hash**: `ecfe09398be0de081c2b1f30c2b861312cc73cfd`
+**Short Hash**: `ecfe093`
 
 ### Files Modified
 
@@ -9189,12 +9208,12 @@ chore: update commit history for v100.21.0
 
 ---
 
-## Commit 402: release 100.21.0
+## Commit 403: chore: release v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:28 +0000
-**Commit Hash**: `2ac1fc8622691a936a8e3b8829bfa30b4072c579`
-**Short Hash**: `2ac1fc8`
+**Commit Hash**: `a1b6409ef22fc163d4d9fe978f4f1159d214d911`
+**Short Hash**: `a1b6409`
 
 ### Files Modified
 
@@ -9205,17 +9224,17 @@ chore: update commit history for v100.21.0
 ### Commit Message
 
 ```text
-release 100.21.0
+chore: release v100.21.0
 ```
 
 ---
 
-## Commit 403: chore: update changelog for v100.20.2
+## Commit 404: chore: update changelog for v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:13 +0000
-**Commit Hash**: `cdfa216023c12bfe63ec2d900aaff625d5fc8e46`
-**Short Hash**: `cdfa216`
+**Commit Hash**: `875e862d8db2521fae9b4bbdd9b5d83e56d463ea`
+**Short Hash**: `875e862`
 
 ### Files Modified
 
@@ -9229,12 +9248,12 @@ chore: update changelog for v100.20.2
 
 ---
 
-## Commit 404: chore: update commit history for v100.20.2
+## Commit 405: chore: update commit history for v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:12 +0000
-**Commit Hash**: `aea1f23cb373b24e0fab81479db6a5699ed2c8da`
-**Short Hash**: `aea1f23`
+**Commit Hash**: `213f6878f422608dcfa049a18e02579ff460892b`
+**Short Hash**: `213f687`
 
 ### Files Modified
 
@@ -9248,12 +9267,12 @@ chore: update commit history for v100.20.2
 
 ---
 
-## Commit 405: release 100.20.2
+## Commit 406: chore: release v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:10 +0000
-**Commit Hash**: `d7eae6cc908ed28270836a574a864322586cfb2a`
-**Short Hash**: `d7eae6c`
+**Commit Hash**: `4da7a956feb423603a29b6cab6acbf1482cab253`
+**Short Hash**: `4da7a95`
 
 ### Files Modified
 
@@ -9265,17 +9284,17 @@ chore: update commit history for v100.20.2
 ### Commit Message
 
 ```text
-release 100.20.2
+chore: release v100.20.2
 ```
 
 ---
 
-## Commit 406: chore: update commit history
+## Commit 407: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:53:01 +0000
-**Commit Hash**: `4dacc25bedae6fdcb24fc15a5d39aa58110071b7`
-**Short Hash**: `4dacc25`
+**Commit Hash**: `dc6d2ad0f4ac12849eb3681bad068450e6cc3582`
+**Short Hash**: `dc6d2ad`
 
 ### Files Modified
 
@@ -9289,12 +9308,12 @@ chore: update commit history
 
 ---
 
-## Commit 407: updated template
+## Commit 408: docs: update the template guidance
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-03 22:22:19 +0530
-**Commit Hash**: `d86c6883ac0940173fc7410e251028f1d8c67a5f`
-**Short Hash**: `d86c688`
+**Commit Hash**: `6c5e77b9f144b20425257be1cdc128cdf88f4185`
+**Short Hash**: `6c5e77b`
 
 ### Files Modified
 
@@ -9303,17 +9322,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-updated template
+docs: update the template guidance
 ```
 
 ---
 
-## Commit 408: chore: update commit history
+## Commit 409: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:59:36 +0000
-**Commit Hash**: `eb4d5b743ae9ddd027708f144bd6c0cc6f98a2fe`
-**Short Hash**: `eb4d5b7`
+**Commit Hash**: `78f6471f58e861b2afdd20294ed5e7f77c45f6ef`
+**Short Hash**: `78f6471`
 
 ### Files Modified
 
@@ -9327,12 +9346,12 @@ chore: update commit history
 
 ---
 
-## Commit 409: Remove legacy interoperability runtime traces
+## Commit 410: Remove legacy interoperability runtime traces
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 21:28:47 +0530
-**Commit Hash**: `479fc0615e37922156de9a76c0aedfa0f8401ff9`
-**Short Hash**: `479fc06`
+**Commit Hash**: `f4283b7390dc4b730bdc2f79a0309556162aae0e`
+**Short Hash**: `f4283b7`
 
 ### Files Modified
 
@@ -9407,12 +9426,12 @@ Remove legacy interoperability runtime traces
 
 ---
 
-## Commit 410: chore: update commit history
+## Commit 411: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:48:45 +0000
-**Commit Hash**: `e2e36e059168f6be6ac870155f3676dd3711632b`
-**Short Hash**: `e2e36e0`
+**Commit Hash**: `ce12bf287abcc364031026c2ecfecfc2f8d27b6f`
+**Short Hash**: `ce12bf2`
 
 ### Files Modified
 
@@ -9426,12 +9445,12 @@ chore: update commit history
 
 ---
 
-## Commit 411: Remove legacy interoperability runtime docs
+## Commit 412: Remove legacy interoperability runtime docs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 21:18:14 +0530
-**Commit Hash**: `a832a064c79ff9d90735f0778c4e05cc171b2f89`
-**Short Hash**: `a832a06`
+**Commit Hash**: `b183d210dc2599b9153c4dbaabd5124ecc1b9475`
+**Short Hash**: `b183d21`
 
 ### Files Modified
 
@@ -9507,12 +9526,12 @@ Remove legacy interoperability runtime docs
 
 ---
 
-## Commit 412: chore: update commit history
+## Commit 413: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:24:25 +0000
-**Commit Hash**: `c07fecaf5e50c3f9ccd7486969802a6a887a99c6`
-**Short Hash**: `c07feca`
+**Commit Hash**: `21b63c8dc8bc04ed9739b9d773f7534dd25c1ec5`
+**Short Hash**: `21b63c8`
 
 ### Files Modified
 
@@ -9526,12 +9545,12 @@ chore: update commit history
 
 ---
 
-## Commit 413: Remove unused filtering context runtime
+## Commit 414: Remove unused filtering context runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 20:53:48 +0530
-**Commit Hash**: `3f54f5b0ded91af698cef36cfd93c6d874efe943`
-**Short Hash**: `3f54f5b`
+**Commit Hash**: `7cf60ec63fe74eac61e2f27181acee66c28d39d4`
+**Short Hash**: `7cf60ec`
 
 ### Files Modified
 
@@ -9546,12 +9565,12 @@ Remove unused filtering context runtime
 
 ---
 
-## Commit 414: chore: update commit history
+## Commit 415: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 10:58:33 +0000
-**Commit Hash**: `755288e7d0cd506aa2583cb337953f8174d9d0f8`
-**Short Hash**: `755288e`
+**Commit Hash**: `fd3589bc6372aef310f0ec22d6743a297045e95d`
+**Short Hash**: `fd3589b`
 
 ### Files Modified
 
@@ -9565,12 +9584,12 @@ chore: update commit history
 
 ---
 
-## Commit 415: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 416: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:28:19 +0530
-**Commit Hash**: `aeb5a978fb73b07da62b3611c406ad42ba8aaf4d`
-**Short Hash**: `aeb5a97`
+**Commit Hash**: `4e1629ee00a0be42788b391a06d34bc215c4c93d`
+**Short Hash**: `4e1629e`
 
 ### Files Modified
 
@@ -9584,12 +9603,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 416: Remove unsupported removeparam modifiers
+## Commit 417: Remove unsupported removeparam modifiers
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:28:14 +0530
-**Commit Hash**: `c1114dac7c89e65bdbba83bcb82b2ec7426aae68`
-**Short Hash**: `c1114da`
+**Commit Hash**: `87630e22a72b978f688c560c07c1e8d3dca623c9`
+**Short Hash**: `87630e2`
 
 ### Files Modified
 
@@ -9603,12 +9622,12 @@ Remove unsupported removeparam modifiers
 
 ---
 
-## Commit 417: chore: update commit history
+## Commit 418: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 10:31:16 +0000
-**Commit Hash**: `08f7e449e6ac0bb2035b69fb15039c2dbb7e4a2f`
-**Short Hash**: `08f7e44`
+**Commit Hash**: `047e43ae40f2e66da5d38430352cf6735f8c59a5`
+**Short Hash**: `047e43a`
 
 ### Files Modified
 
@@ -9622,12 +9641,12 @@ chore: update commit history
 
 ---
 
-## Commit 418: Remove removeparam app modifier
+## Commit 419: Remove removeparam app modifier
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:00:56 +0530
-**Commit Hash**: `f1b725f745a9300b73bcd5511572354916980982`
-**Short Hash**: `f1b725f`
+**Commit Hash**: `10d5d10b9272e0c9e81da47d5cc6ee4fceb8167c`
+**Short Hash**: `10d5d10`
 
 ### Files Modified
 
@@ -9643,12 +9662,12 @@ Remove removeparam app modifier
 
 ---
 
-## Commit 419: chore: update commit history
+## Commit 420: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 19:13:59 +0000
-**Commit Hash**: `10b98a77b6130acdd24e951470fdade40b9ea297`
-**Short Hash**: `10b98a7`
+**Commit Hash**: `d4785e987a7874521db4e6876f8fed784645e1c9`
+**Short Hash**: `d4785e9`
 
 ### Files Modified
 
@@ -9662,12 +9681,12 @@ chore: update commit history
 
 ---
 
-## Commit 420: Retire url filter runtime
+## Commit 421: Retire url filter runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 00:43:06 +0530
-**Commit Hash**: `ab8e1a23b3d88c959b9fb416ae1c15194bb1ed6e`
-**Short Hash**: `ab8e1a2`
+**Commit Hash**: `4db87cf8ba08527769756d92e3fb6a3873a33845`
+**Short Hash**: `4db87cf`
 
 ### Files Modified
 
@@ -9698,12 +9717,12 @@ Retire url filter runtime
 
 ---
 
-## Commit 421: chore: update commit history
+## Commit 422: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 18:34:55 +0000
-**Commit Hash**: `3e6979808b2ee389f4891691632be5a2c0259330`
-**Short Hash**: `3e69798`
+**Commit Hash**: `b150d2d8b0457e556bead4943079abe1b407ddd2`
+**Short Hash**: `b150d2d`
 
 ### Files Modified
 
@@ -9717,12 +9736,12 @@ chore: update commit history
 
 ---
 
-## Commit 422: Fix ClearURLs removeparam modifiers
+## Commit 423: Fix ClearURLs removeparam modifiers
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 00:04:26 +0530
-**Commit Hash**: `37a555474087036a75c24d95aa1a626c1dea71a4`
-**Short Hash**: `37a5554`
+**Commit Hash**: `99f1293d94ebd1fb3222e7c97a6176ebfbc09479`
+**Short Hash**: `99f1293`
 
 ### Files Modified
 
@@ -9739,12 +9758,12 @@ Fix ClearURLs removeparam modifiers
 
 ---
 
-## Commit 423: chore: update changelog for v100.20.1
+## Commit 424: chore: update changelog for v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:55 +0000
-**Commit Hash**: `9ea64b9f2d648749cbdcfa5cc0087fb4457c957f`
-**Short Hash**: `9ea64b9`
+**Commit Hash**: `c9d5ed9bb3f37d6074b0dc58090cab539ff06fb9`
+**Short Hash**: `c9d5ed9`
 
 ### Files Modified
 
@@ -9758,12 +9777,12 @@ chore: update changelog for v100.20.1
 
 ---
 
-## Commit 424: chore: update commit history for v100.20.1
+## Commit 425: chore: update commit history for v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:54 +0000
-**Commit Hash**: `44d812700e6cac6f22f2ad170ae84f1b8d4cb9cd`
-**Short Hash**: `44d8127`
+**Commit Hash**: `1a0fa2e3dd1e1d4410ae46e24dda8a1b666c2fbf`
+**Short Hash**: `1a0fa2e`
 
 ### Files Modified
 
@@ -9777,12 +9796,12 @@ chore: update commit history for v100.20.1
 
 ---
 
-## Commit 425: release 100.20.1
+## Commit 426: chore: release v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:52 +0000
-**Commit Hash**: `216d97a21b6296b888a837bc8e2ec9f6b52ad416`
-**Short Hash**: `216d97a`
+**Commit Hash**: `15ad9da037015ac187a61758248f1239d6c5218c`
+**Short Hash**: `15ad9da`
 
 ### Files Modified
 
@@ -9793,17 +9812,17 @@ chore: update commit history for v100.20.1
 ### Commit Message
 
 ```text
-release 100.20.1
+chore: release v100.20.1
 ```
 
 ---
 
-## Commit 426: chore: update commit history
+## Commit 427: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:28:28 +0000
-**Commit Hash**: `404bc1ee8e2bdcee904d43ae1ca4b1a81bdb5ff1`
-**Short Hash**: `404bc1e`
+**Commit Hash**: `fcf3f9e8cd1b1017270984ec732328ffc41b3ad0`
+**Short Hash**: `fcf3f9e`
 
 ### Files Modified
 
@@ -9817,12 +9836,12 @@ chore: update commit history
 
 ---
 
-## Commit 427: Add configurable report sharing
+## Commit 428: Add configurable report sharing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-01 20:57:54 +0530
-**Commit Hash**: `75eeebe65e5d842419dc4934e894b0ec67b17604`
-**Short Hash**: `75eeebe`
+**Commit Hash**: `32c82e0c13c1f2d0050ce9ceda4a7e25dd40baf8`
+**Short Hash**: `32c82e0`
 
 ### Files Modified
 
@@ -9892,12 +9911,12 @@ Add configurable report sharing
 
 ---
 
-## Commit 428: chore: update changelog for v100.20.0
+## Commit 429: chore: update changelog for v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:47 +0000
-**Commit Hash**: `9d4be3a2d0430ce25bc75289ad2769da71599408`
-**Short Hash**: `9d4be3a`
+**Commit Hash**: `2bf2de9caa11cfbaad78c9149e0f7d65d3d52752`
+**Short Hash**: `2bf2de9`
 
 ### Files Modified
 
@@ -9911,12 +9930,12 @@ chore: update changelog for v100.20.0
 
 ---
 
-## Commit 429: chore: update commit history for v100.20.0
+## Commit 430: chore: update commit history for v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:46 +0000
-**Commit Hash**: `4833d9dbba50788aa38b4678f9859ff810dbd843`
-**Short Hash**: `4833d9d`
+**Commit Hash**: `134928075b8b3c502200bf6783201ccdda19a83f`
+**Short Hash**: `1349280`
 
 ### Files Modified
 
@@ -9930,12 +9949,12 @@ chore: update commit history for v100.20.0
 
 ---
 
-## Commit 430: release 100.20.0
+## Commit 431: chore: release v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:45 +0000
-**Commit Hash**: `c87a16a6dd01746bfc1ef318b2474fc738c897b5`
-**Short Hash**: `c87a16a`
+**Commit Hash**: `0e968b59785c65a10155d01921e0df23fe0bb707`
+**Short Hash**: `0e968b5`
 
 ### Files Modified
 
@@ -9946,17 +9965,17 @@ chore: update commit history for v100.20.0
 ### Commit Message
 
 ```text
-release 100.20.0
+chore: release v100.20.0
 ```
 
 ---
 
-## Commit 431: chore: update commit history
+## Commit 432: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 16:03:26 +0000
-**Commit Hash**: `6cef6ca4db950ca07d632119e9ce2973621483c9`
-**Short Hash**: `6cef6ca`
+**Commit Hash**: `a95332c326b89cbdcc3686ba3a14a2a5911a2a74`
+**Short Hash**: `a95332c`
 
 ### Files Modified
 
@@ -9970,12 +9989,12 @@ chore: update commit history
 
 ---
 
-## Commit 432: Fix custom provider count calculation
+## Commit 433: Fix custom provider count calculation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 21:32:36 +0530
-**Commit Hash**: `a36d245c831ed9a065bd793585b9769910cab08b`
-**Short Hash**: `a36d245`
+**Commit Hash**: `0142288e39ab46d9cf8e1be5194b7db6830342ae`
+**Short Hash**: `0142288`
 
 ### Files Modified
 
@@ -9991,12 +10010,12 @@ Fix custom provider count calculation
 
 ---
 
-## Commit 433: chore: update changelog for v100.19.0
+## Commit 434: chore: update changelog for v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:37 +0000
-**Commit Hash**: `ba2ce7afd81cd739060a7505db3dfe363b1eda01`
-**Short Hash**: `ba2ce7a`
+**Commit Hash**: `e6988d6c6353a48fb1f895be0b5e9dcc6c635533`
+**Short Hash**: `e6988d6`
 
 ### Files Modified
 
@@ -10010,12 +10029,12 @@ chore: update changelog for v100.19.0
 
 ---
 
-## Commit 434: chore: update commit history for v100.19.0
+## Commit 435: chore: update commit history for v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:36 +0000
-**Commit Hash**: `484eb6a9350297cda1e6681e5b786a565631bad9`
-**Short Hash**: `484eb6a`
+**Commit Hash**: `6a4dcfb9011c94443f17e15cccc495822d02a114`
+**Short Hash**: `6a4dcfb`
 
 ### Files Modified
 
@@ -10029,12 +10048,12 @@ chore: update commit history for v100.19.0
 
 ---
 
-## Commit 435: release 100.19.0
+## Commit 436: chore: release v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:35 +0000
-**Commit Hash**: `14a8a64970d0e7bb0c055d68c3797115363f336b`
-**Short Hash**: `14a8a64`
+**Commit Hash**: `c6f287d5e40498cb5beec712620eedddb7ff34e9`
+**Short Hash**: `c6f287d`
 
 ### Files Modified
 
@@ -10047,17 +10066,17 @@ chore: update commit history for v100.19.0
 ### Commit Message
 
 ```text
-release 100.19.0
+chore: release v100.19.0
 ```
 
 ---
 
-## Commit 436: chore: update commit history
+## Commit 437: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 11:48:55 +0000
-**Commit Hash**: `6ccad13c7fe09f4335f2f3a02e8c46901c439d44`
-**Short Hash**: `6ccad13`
+**Commit Hash**: `53c36216c8d27c5ddc6ebbda826e6efd4713e9b9`
+**Short Hash**: `53c3621`
 
 ### Files Modified
 
@@ -10071,12 +10090,12 @@ chore: update commit history
 
 ---
 
-## Commit 437: added guidebook completly fully
+## Commit 438: added guidebook completly fully
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 17:18:06 +0530
-**Commit Hash**: `303caa14d4fb38221f7fc1dfdc939c1263b70010`
-**Short Hash**: `303caa1`
+**Commit Hash**: `d509bcd2574bb1a3a33047be5cf4b174a348e855`
+**Short Hash**: `d509bcd`
 
 ### Files Modified
 
@@ -10146,12 +10165,12 @@ added guidebook completly fully
 
 ---
 
-## Commit 438: chore: update commit history
+## Commit 439: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 10:52:18 +0000
-**Commit Hash**: `abf64cab25c332337b4e20d76daed6799f2e65d7`
-**Short Hash**: `abf64ca`
+**Commit Hash**: `0846d692e2d10660db930e10ae6d7f9f8d98ecde`
+**Short Hash**: `0846d69`
 
 ### Files Modified
 
@@ -10165,12 +10184,12 @@ chore: update commit history
 
 ---
 
-## Commit 439: updated translations and update guide.html and guide.js
+## Commit 440: updated translations and update guide.html and guide.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 16:21:18 +0530
-**Commit Hash**: `4587cd72448d68189f6677b4f6680aaf7b1753e2`
-**Short Hash**: `4587cd7`
+**Commit Hash**: `f8da5864a42bcf6ce3e0c47442fee8835e29b84e`
+**Short Hash**: `f8da586`
 
 ### Files Modified
 
@@ -10241,12 +10260,12 @@ updated translations and update guide.html and guide.js
 
 ---
 
-## Commit 440: chore: update commit history
+## Commit 441: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-29 17:44:56 +0000
-**Commit Hash**: `63c845c167cb10e75488d085508811022f40d9c8`
-**Short Hash**: `63c845c`
+**Commit Hash**: `094cfe11d94f6c278197f1cd1a5832080f4b1c8d`
+**Short Hash**: `094cfe1`
 
 ### Files Modified
 
@@ -10260,12 +10279,12 @@ chore: update commit history
 
 ---
 
-## Commit 441: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 442: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 23:14:40 +0530
-**Commit Hash**: `45b8a97adc17a3ebe97bd70cfbb613dd4340c62b`
-**Short Hash**: `45b8a97`
+**Commit Hash**: `c69eb3971fef6b8411e2030a460a3ebe12458004`
+**Short Hash**: `c69eb39`
 
 ### Files Modified
 
@@ -10279,12 +10298,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 442: added guide
+## Commit 443: docs: add the user guide
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 23:14:23 +0530
-**Commit Hash**: `d36c1a401c74a48ba83623ab86bfc9ddfe9e3cb1`
-**Short Hash**: `d36c1a4`
+**Commit Hash**: `c30695471204d30b45878c756ed9538a3d5d60a0`
+**Short Hash**: `c306954`
 
 ### Files Modified
 
@@ -10294,17 +10313,17 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 ### Commit Message
 
 ```text
-added guide
+docs: add the user guide
 ```
 
 ---
 
-## Commit 443: deleted file we replaced with html
+## Commit 444: deleted file we replaced with html
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 22:33:42 +0530
-**Commit Hash**: `7ffd77f9b7ecb87c0d7c0a54fbfc9dac1e6fe7e5`
-**Short Hash**: `7ffd77f`
+**Commit Hash**: `15cefa47c32fcdc376058421b7efefa2a347c111`
+**Short Hash**: `15cefa4`
 
 ### Files Modified
 
@@ -10319,12 +10338,12 @@ deleted file we replaced with html
 
 ---
 
-## Commit 444: chore: update commit history
+## Commit 445: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-29 16:47:37 +0000
-**Commit Hash**: `aee1c6d7310bdbe4b24a838651e5bbc5eb10a2c9`
-**Short Hash**: `aee1c6d`
+**Commit Hash**: `7fb6ca8088e5a1b5bb95460012eb889ca520d46b`
+**Short Hash**: `7fb6ca8`
 
 ### Files Modified
 
@@ -10338,12 +10357,12 @@ chore: update commit history
 
 ---
 
-## Commit 445: add proper syntax docs
+## Commit 446: docs: add filter syntax references
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 22:16:09 +0530
-**Commit Hash**: `e28fd7282a5604153a2611494b4318cd51802fa5`
-**Short Hash**: `e28fd72`
+**Commit Hash**: `09389202120a4fdf7740010b09a77e09bfa79f91`
+**Short Hash**: `0938920`
 
 ### Files Modified
 
@@ -10353,17 +10372,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-add proper syntax docs
+docs: add filter syntax references
 ```
 
 ---
 
-## Commit 446: chore: update changelog for v100.18.0
+## Commit 447: chore: update changelog for v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:18 +0000
-**Commit Hash**: `653f4f5560aa777faa3551e5543a9aa2bff0e777`
-**Short Hash**: `653f4f5`
+**Commit Hash**: `02a0fd8b9fbef053fa2d954ceba25ecdef7806c1`
+**Short Hash**: `02a0fd8`
 
 ### Files Modified
 
@@ -10377,12 +10396,12 @@ chore: update changelog for v100.18.0
 
 ---
 
-## Commit 447: chore: update commit history for v100.18.0
+## Commit 448: chore: update commit history for v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:17 +0000
-**Commit Hash**: `b75eeb037a31d26f71d99b523fcfa7d68e985dea`
-**Short Hash**: `b75eeb0`
+**Commit Hash**: `513c0d13ba164452001358caa52e10039f9844a1`
+**Short Hash**: `513c0d1`
 
 ### Files Modified
 
@@ -10396,12 +10415,12 @@ chore: update commit history for v100.18.0
 
 ---
 
-## Commit 448: release 100.18.0
+## Commit 449: chore: release v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:16 +0000
-**Commit Hash**: `d55c1cb469875d71f86eadd377759f648f1b92ff`
-**Short Hash**: `d55c1cb`
+**Commit Hash**: `cdbc820bbdff776e9237cda509b7ac5b06b785ba`
+**Short Hash**: `cdbc820`
 
 ### Files Modified
 
@@ -10412,17 +10431,17 @@ chore: update commit history for v100.18.0
 ### Commit Message
 
 ```text
-release 100.18.0
+chore: release v100.18.0
 ```
 
 ---
 
-## Commit 449: chore: update commit history
+## Commit 450: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 15:51:40 +0000
-**Commit Hash**: `4b98b54b51ba947dae2d9c2f74a821e3d0858831`
-**Short Hash**: `4b98b54`
+**Commit Hash**: `d62a75bcd6260da82cbbefbe05b29a19d74124f6`
+**Short Hash**: `d62a75b`
 
 ### Files Modified
 
@@ -10436,12 +10455,12 @@ chore: update commit history
 
 ---
 
-## Commit 450: adopted more syntax removeparam for clearurls.js
+## Commit 451: adopted more syntax removeparam for clearurls.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-28 21:20:39 +0530
-**Commit Hash**: `19278ccd2467bf1a9655b06e44166765323002d3`
-**Short Hash**: `19278cc`
+**Commit Hash**: `6ec4dbe1acb7d44dddc55e95b3de39e391528a25`
+**Short Hash**: `6ec4dbe`
 
 ### Files Modified
 
@@ -10464,12 +10483,12 @@ adopted more syntax removeparam for clearurls.js
 
 ---
 
-## Commit 451: chore: update commit history
+## Commit 452: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 14:23:54 +0000
-**Commit Hash**: `fe2b9815598240c57ea1fcaeb0b62137fb133340`
-**Short Hash**: `fe2b981`
+**Commit Hash**: `8b632c1fa8c028042752a60a017da54b9c524ac2`
+**Short Hash**: `8b632c1`
 
 ### Files Modified
 
@@ -10483,12 +10502,12 @@ chore: update commit history
 
 ---
 
-## Commit 452: Use pattern-scoped rule disable IDs
+## Commit 453: Use pattern-scoped rule disable IDs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-28 19:53:32 +0530
-**Commit Hash**: `2580ea80da075d8f0057ecded450850432d51d5d`
-**Short Hash**: `2580ea8`
+**Commit Hash**: `5a8d4931b7acb795680ef4a0d1f3a986b2690919`
+**Short Hash**: `5a8d493`
 
 ### Files Modified
 
@@ -10504,12 +10523,12 @@ Use pattern-scoped rule disable IDs
 
 ---
 
-## Commit 453: chore: update changelog for v100.17.1
+## Commit 454: chore: update changelog for v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:57 +0000
-**Commit Hash**: `c2f9d1429c8f87f21114bfba5d857bd39b46c986`
-**Short Hash**: `c2f9d14`
+**Commit Hash**: `9c6635d92aa8495d53fa72e95791bc63abbe60ec`
+**Short Hash**: `9c6635d`
 
 ### Files Modified
 
@@ -10523,12 +10542,12 @@ chore: update changelog for v100.17.1
 
 ---
 
-## Commit 454: chore: update commit history for v100.17.1
+## Commit 455: chore: update commit history for v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:56 +0000
-**Commit Hash**: `9a14e12866728151ca345d1afb91bae62d14d21e`
-**Short Hash**: `9a14e12`
+**Commit Hash**: `0cc411acd340330bec83ddbd039dbf5c7cd25771`
+**Short Hash**: `0cc411a`
 
 ### Files Modified
 
@@ -10542,12 +10561,12 @@ chore: update commit history for v100.17.1
 
 ---
 
-## Commit 455: release 100.17.1
+## Commit 456: chore: release v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:55 +0000
-**Commit Hash**: `c344b483808de9fab451d41bf5c6864739157570`
-**Short Hash**: `c344b48`
+**Commit Hash**: `3910825e6f87a8c15cbbe1f1ab2ff75dce1e593b`
+**Short Hash**: `3910825`
 
 ### Files Modified
 
@@ -10559,17 +10578,17 @@ chore: update commit history for v100.17.1
 ### Commit Message
 
 ```text
-release 100.17.1
+chore: release v100.17.1
 ```
 
 ---
 
-## Commit 456: chore: update commit history
+## Commit 457: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 17:21:20 +0000
-**Commit Hash**: `6ec2d7578d10691a0318f97682e3f84492e41cd4`
-**Short Hash**: `6ec2d75`
+**Commit Hash**: `ffd7bc8e8551c30f8e31fa703da07d1d1adb92ab`
+**Short Hash**: `ffd7bc8`
 
 ### Files Modified
 
@@ -10583,12 +10602,12 @@ chore: update commit history
 
 ---
 
-## Commit 457: Migrate ClearURLs rules to canonical Linkumori source
+## Commit 458: Migrate ClearURLs rules to canonical Linkumori source
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 22:43:11 +0530
-**Commit Hash**: `ed29c3b3d631f63a021c630a6af899bda922b4d4`
-**Short Hash**: `ed29c3b`
+**Commit Hash**: `adcb7b5bc880944f1b59c02df2578ee0a442d3c4`
+**Short Hash**: `adcb7b5`
 
 ### Files Modified
 
@@ -10626,12 +10645,12 @@ Migrate ClearURLs rules to canonical Linkumori source
 
 ---
 
-## Commit 458: chore: update commit history
+## Commit 459: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 07:13:59 +0000
-**Commit Hash**: `899df07c45ccd1ffd14143110806a6a482f8771f`
-**Short Hash**: `899df07`
+**Commit Hash**: `bde7dedaf625b8f5259ecb9d7cf3665a4673802c`
+**Short Hash**: `bde7ded`
 
 ### Files Modified
 
@@ -10645,12 +10664,12 @@ chore: update commit history
 
 ---
 
-## Commit 459: Allow regression page to read imported suite
+## Commit 460: Allow regression page to read imported suite
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 12:43:44 +0530
-**Commit Hash**: `71e4d1d26f3d9bf6141782c67fe647e923284bc3`
-**Short Hash**: `71e4d1d`
+**Commit Hash**: `15b80b3de882b3e2cc3f22758dcc79dad8578b1e`
+**Short Hash**: `15b80b3`
 
 ### Files Modified
 
@@ -10664,12 +10683,12 @@ Allow regression page to read imported suite
 
 ---
 
-## Commit 460: chore: update commit history
+## Commit 461: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 07:11:41 +0000
-**Commit Hash**: `1c5245e5cd2950649f8c5cd0cd6024abbe00a376`
-**Short Hash**: `1c5245e`
+**Commit Hash**: `59488c2b8410116a7893979bbc8b495016df5b21`
+**Short Hash**: `59488c2`
 
 ### Files Modified
 
@@ -10683,12 +10702,12 @@ chore: update commit history
 
 ---
 
-## Commit 461: Fix settings regression suite import
+## Commit 462: Fix settings regression suite import
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 12:41:25 +0530
-**Commit Hash**: `e65c12ff506ba97309d51fa761e92f8b4bb03ff4`
-**Short Hash**: `e65c12f`
+**Commit Hash**: `951e26fc1a9585586d9bf7e9e18e9b6853151dd9`
+**Short Hash**: `951e26f`
 
 ### Files Modified
 
@@ -10704,12 +10723,12 @@ Fix settings regression suite import
 
 ---
 
-## Commit 462: chore: update changelog for v100.17.0
+## Commit 463: chore: update changelog for v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:03 +0000
-**Commit Hash**: `b14458c7242317052be0048b9c5f15f5d62cb0df`
-**Short Hash**: `b14458c`
+**Commit Hash**: `7c19a3e817b1dd321e326fbc369b69af2ea0a67d`
+**Short Hash**: `7c19a3e`
 
 ### Files Modified
 
@@ -10723,12 +10742,12 @@ chore: update changelog for v100.17.0
 
 ---
 
-## Commit 463: chore: update commit history for v100.17.0
+## Commit 464: chore: update commit history for v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:01 +0000
-**Commit Hash**: `0afb2e9e93f16dedade8445a904136e5b1758f5d`
-**Short Hash**: `0afb2e9`
+**Commit Hash**: `28b9cbd1bae8333e16baa1d18fd9d91eac2e14ad`
+**Short Hash**: `28b9cbd`
 
 ### Files Modified
 
@@ -10742,12 +10761,12 @@ chore: update commit history for v100.17.0
 
 ---
 
-## Commit 464: release 100.17.0
+## Commit 465: chore: release v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:00 +0000
-**Commit Hash**: `6ed7d25b10297ef318044aa0a844dde85c7003f9`
-**Short Hash**: `6ed7d25`
+**Commit Hash**: `5a4bc8013935f56b987bcad70e398440147bb5a9`
+**Short Hash**: `5a4bc80`
 
 ### Files Modified
 
@@ -10756,17 +10775,17 @@ chore: update commit history for v100.17.0
 ### Commit Message
 
 ```text
-release 100.17.0
+chore: release v100.17.0
 ```
 
 ---
 
-## Commit 465: chore: update commit history
+## Commit 466: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:28:11 +0000
-**Commit Hash**: `7dc5a24d9db1c5bac5e7662f319c0dfce7f27c3d`
-**Short Hash**: `7dc5a24`
+**Commit Hash**: `010d93276a07586fe170f0e9a30c7906beb64adf`
+**Short Hash**: `010d932`
 
 ### Files Modified
 
@@ -10780,12 +10799,12 @@ chore: update commit history
 
 ---
 
-## Commit 466: Audit webrequest regression coverage
+## Commit 467: Audit webrequest regression coverage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:57:51 +0530
-**Commit Hash**: `662a121f597f01d0ed22dcefd3ef1010e94117b8`
-**Short Hash**: `662a121`
+**Commit Hash**: `4c8451d7f0d19931bbf947b1b805109e9b458711`
+**Short Hash**: `4c8451d`
 
 ### Files Modified
 
@@ -10809,12 +10828,12 @@ Audit webrequest regression coverage
 
 ---
 
-## Commit 467: chore: update commit history
+## Commit 468: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:10:03 +0000
-**Commit Hash**: `db92a7727853fdeeb4ad19283d93d218920c078d`
-**Short Hash**: `db92a77`
+**Commit Hash**: `73acbc0754a4130d50836928f2b9eea7cb38b6f5`
+**Short Hash**: `73acbc0`
 
 ### Files Modified
 
@@ -10828,12 +10847,12 @@ chore: update commit history
 
 ---
 
-## Commit 468: Honor method filters for context exceptions
+## Commit 469: Honor method filters for context exceptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:39:27 +0530
-**Commit Hash**: `be07bba6b609c8985adf1cfd58750891e3e3e02f`
-**Short Hash**: `be07bba`
+**Commit Hash**: `853b5f4974f2ac867db250dae9c23d1299e224e4`
+**Short Hash**: `853b5f4`
 
 ### Files Modified
 
@@ -10847,12 +10866,12 @@ Honor method filters for context exceptions
 
 ---
 
-## Commit 469: chore: update commit history
+## Commit 470: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:05:36 +0000
-**Commit Hash**: `58932f70647847d25d01d2e851ad7c88e8afa765`
-**Short Hash**: `58932f7`
+**Commit Hash**: `5df78b160e97676cea1139e9681eae9a63893b28`
+**Short Hash**: `5df78b1`
 
 ### Files Modified
 
@@ -10866,12 +10885,12 @@ chore: update commit history
 
 ---
 
-## Commit 470: Fix scoped removeparam context exceptions
+## Commit 471: Fix scoped removeparam context exceptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:34:47 +0530
-**Commit Hash**: `b827f5a9111d7d3ec3d41e00b503140ab0476242`
-**Short Hash**: `b827f5a`
+**Commit Hash**: `dcd19b562145669a6fea21abb35f6345c397ed5f`
+**Short Hash**: `dcd19b5`
 
 ### Files Modified
 
@@ -10885,12 +10904,12 @@ Fix scoped removeparam context exceptions
 
 ---
 
-## Commit 471: chore: update changelog for v100.16.0
+## Commit 472: chore: update changelog for v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:54 +0000
-**Commit Hash**: `df5774ea512efe699836420f6fe1c1782cc9f8a3`
-**Short Hash**: `df5774e`
+**Commit Hash**: `f24abd8b5b6a8f13ca34976ca698f0af78bb1a69`
+**Short Hash**: `f24abd8`
 
 ### Files Modified
 
@@ -10904,12 +10923,12 @@ chore: update changelog for v100.16.0
 
 ---
 
-## Commit 472: chore: update commit history for v100.16.0
+## Commit 473: chore: update commit history for v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:53 +0000
-**Commit Hash**: `413b08cbb1af48edb8bf4f5aba2c057f0af216d4`
-**Short Hash**: `413b08c`
+**Commit Hash**: `bf1d738596feefc72f03d6aaca08f67888b3428c`
+**Short Hash**: `bf1d738`
 
 ### Files Modified
 
@@ -10923,12 +10942,12 @@ chore: update commit history for v100.16.0
 
 ---
 
-## Commit 473: release 100.16.0
+## Commit 474: chore: release v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:52 +0000
-**Commit Hash**: `797da94f0330639dae4deda0de5bb1aef75c9e9b`
-**Short Hash**: `797da94`
+**Commit Hash**: `ddf0909185c459428068db9d48b2589a23188f97`
+**Short Hash**: `ddf0909`
 
 ### Files Modified
 
@@ -10937,17 +10956,17 @@ chore: update commit history for v100.16.0
 ### Commit Message
 
 ```text
-release 100.16.0
+chore: release v100.16.0
 ```
 
 ---
 
-## Commit 474: chore: update commit history
+## Commit 475: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:10:37 +0000
-**Commit Hash**: `9b5cb3ab23072c55bcb0026c3867f5af16a03b34`
-**Short Hash**: `9b5cb3a`
+**Commit Hash**: `586fd624908453a7280f7f51df69b8da180cdc6e`
+**Short Hash**: `586fd62`
 
 ### Files Modified
 
@@ -10961,12 +10980,12 @@ chore: update commit history
 
 ---
 
-## Commit 475: chore: update changelog for v100.15.0
+## Commit 476: chore: update changelog for v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:50 +0000
-**Commit Hash**: `4a5bb8293054f527bed990f26712cb8f3ef9f1da`
-**Short Hash**: `4a5bb82`
+**Commit Hash**: `0bbcec94a6f1e1b486e86be8fed5183b8aca4a56`
+**Short Hash**: `0bbcec9`
 
 ### Files Modified
 
@@ -10980,12 +10999,12 @@ chore: update changelog for v100.15.0
 
 ---
 
-## Commit 476: chore: update commit history for v100.15.0
+## Commit 477: chore: update commit history for v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:49 +0000
-**Commit Hash**: `f9557ca9b1eeea890e03c1296566c09244b5c915`
-**Short Hash**: `f9557ca`
+**Commit Hash**: `a782c0029b55fbad0f291f18074f3b998348a40f`
+**Short Hash**: `a782c00`
 
 ### Files Modified
 
@@ -10999,12 +11018,12 @@ chore: update commit history for v100.15.0
 
 ---
 
-## Commit 477: release 100.15.0
+## Commit 478: chore: release v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:48 +0000
-**Commit Hash**: `e5424a717e794e69338b4012174599d2e85e0bbf`
-**Short Hash**: `e5424a7`
+**Commit Hash**: `5d6777d05aa4452aed5ea2681a12b6f00bee53b7`
+**Short Hash**: `5d6777d`
 
 ### Files Modified
 
@@ -11013,17 +11032,17 @@ chore: update commit history for v100.15.0
 ### Commit Message
 
 ```text
-release 100.15.0
+chore: release v100.15.0
 ```
 
 ---
 
-## Commit 478: update script
+## Commit 479: chore: update the AMO upload script
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 01:06:08 +0530
-**Commit Hash**: `924cabd537862cbe47f3da32426187f6145401ac`
-**Short Hash**: `924cabd`
+**Commit Hash**: `7733a591055f6c7dfe50d75ab5bd7c618208b964`
+**Short Hash**: `7733a59`
 
 ### Files Modified
 
@@ -11032,17 +11051,17 @@ release 100.15.0
 ### Commit Message
 
 ```text
-update script
+chore: update the AMO upload script
 ```
 
 ---
 
-## Commit 479: chore: update changelog for v100.14.0
+## Commit 480: chore: update changelog for v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:20 +0000
-**Commit Hash**: `3c8ea4190a9109a3c123bb0fdb1004b203770c89`
-**Short Hash**: `3c8ea41`
+**Commit Hash**: `65c1c4c95ecaa34f750a6d260c7291b29aeea195`
+**Short Hash**: `65c1c4c`
 
 ### Files Modified
 
@@ -11056,12 +11075,12 @@ chore: update changelog for v100.14.0
 
 ---
 
-## Commit 480: chore: update commit history for v100.14.0
+## Commit 481: chore: update commit history for v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:19 +0000
-**Commit Hash**: `81d62de1384482ccbb57aefaf35745d1602b22a7`
-**Short Hash**: `81d62de`
+**Commit Hash**: `9957a13fbebb1f6a71e05e5d797126175ae7de37`
+**Short Hash**: `9957a13`
 
 ### Files Modified
 
@@ -11075,12 +11094,12 @@ chore: update commit history for v100.14.0
 
 ---
 
-## Commit 481: release 100.14.0
+## Commit 482: chore: release v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:18 +0000
-**Commit Hash**: `ed02ca01ddbbde7a9b425aaa02f543a8127355e8`
-**Short Hash**: `ed02ca0`
+**Commit Hash**: `753f9d5a9f1872ca4f98417cef35997585d66b75`
+**Short Hash**: `753f9d5`
 
 ### Files Modified
 
@@ -11089,17 +11108,17 @@ chore: update commit history for v100.14.0
 ### Commit Message
 
 ```text
-release 100.14.0
+chore: release v100.14.0
 ```
 
 ---
 
-## Commit 482: update logic
+## Commit 483: refactor: improve the AMO upload script
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 01:02:37 +0530
-**Commit Hash**: `752323965f67b437bf32880d455024ccd86a0b91`
-**Short Hash**: `7523239`
+**Commit Hash**: `6e08245cd0c022b6a9a467befe4dbebb50473dc7`
+**Short Hash**: `6e08245`
 
 ### Files Modified
 
@@ -11108,17 +11127,17 @@ release 100.14.0
 ### Commit Message
 
 ```text
-update logic
+refactor: improve the AMO upload script
 ```
 
 ---
 
-## Commit 483: chore: update changelog for v100.13.0
+## Commit 484: chore: update changelog for v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:44 +0000
-**Commit Hash**: `f535b3fe52ef9f24c83baf583f142054e98d47f7`
-**Short Hash**: `f535b3f`
+**Commit Hash**: `114772ef92c4f8d73aa1e611fc5b6d4e305aacd1`
+**Short Hash**: `114772e`
 
 ### Files Modified
 
@@ -11132,12 +11151,12 @@ chore: update changelog for v100.13.0
 
 ---
 
-## Commit 484: chore: update commit history for v100.13.0
+## Commit 485: chore: update commit history for v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:42 +0000
-**Commit Hash**: `7638ea8615bc6d1f4d8258626b57a3393d8a674f`
-**Short Hash**: `7638ea8`
+**Commit Hash**: `1534ad02c1a80106219b7c8120a6d0fc65f69bde`
+**Short Hash**: `1534ad0`
 
 ### Files Modified
 
@@ -11151,12 +11170,12 @@ chore: update commit history for v100.13.0
 
 ---
 
-## Commit 485: release 100.13.0
+## Commit 486: chore: release v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:41 +0000
-**Commit Hash**: `53f369f7fbddfaed4b13b8b8074883ea5c8e56be`
-**Short Hash**: `53f369f`
+**Commit Hash**: `79b4dfdd8f32cecffa94e8de153d225a31035dd9`
+**Short Hash**: `79b4dfd`
 
 ### Files Modified
 
@@ -11165,17 +11184,17 @@ chore: update commit history for v100.13.0
 ### Commit Message
 
 ```text
-release 100.13.0
+chore: release v100.13.0
 ```
 
 ---
 
-## Commit 486: fix: resolve .build-ignore relative to script file in CI
+## Commit 487: fix: resolve .build-ignore relative to script file in CI
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 00:42:46 +0530
-**Commit Hash**: `219d940f30f52c97e28636e10708b2330dd7a54b`
-**Short Hash**: `219d940`
+**Commit Hash**: `a722990abb8b68f43186526a534b58d90243d480`
+**Short Hash**: `a722990`
 
 ### Files Modified
 
@@ -11189,12 +11208,12 @@ fix: resolve .build-ignore relative to script file in CI
 
 ---
 
-## Commit 487: chore: update changelog for v100.12.0
+## Commit 488: chore: update changelog for v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:48 +0000
-**Commit Hash**: `60f1e924e316f7a4740a98a20723cbc51968d571`
-**Short Hash**: `60f1e92`
+**Commit Hash**: `4bf7eaa6c611a326851665bec894b8bdac1f5a52`
+**Short Hash**: `4bf7eaa`
 
 ### Files Modified
 
@@ -11208,12 +11227,12 @@ chore: update changelog for v100.12.0
 
 ---
 
-## Commit 488: chore: update commit history for v100.12.0
+## Commit 489: chore: update commit history for v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:47 +0000
-**Commit Hash**: `da587d7c0991b342a8d90e368bc1ec9baa4352c4`
-**Short Hash**: `da587d7`
+**Commit Hash**: `bd148f8dd96d146874780ed430fe482d2a1d6fea`
+**Short Hash**: `bd148f8`
 
 ### Files Modified
 
@@ -11227,12 +11246,12 @@ chore: update commit history for v100.12.0
 
 ---
 
-## Commit 489: release 100.12.0
+## Commit 490: chore: release v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:46 +0000
-**Commit Hash**: `de3c4b70d34b986ec8cae2a3582300f36f09c281`
-**Short Hash**: `de3c4b7`
+**Commit Hash**: `0755caacf9fa956d5804f6bd54fa796d500baede`
+**Short Hash**: `0755caa`
 
 ### Files Modified
 
@@ -11241,17 +11260,17 @@ chore: update commit history for v100.12.0
 ### Commit Message
 
 ```text
-release 100.12.0
+chore: release v100.12.0
 ```
 
 ---
 
-## Commit 490: update translations
+## Commit 491: i18n: update translations
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 00:13:19 +0530
-**Commit Hash**: `d78099729a51b12851192944d001ea92d278683e`
-**Short Hash**: `d780997`
+**Commit Hash**: `c3d290c571bb5d325ec24ad008c5f8a90cdd130a`
+**Short Hash**: `c3d290c`
 
 ### Files Modified
 
@@ -11313,17 +11332,17 @@ release 100.12.0
 ### Commit Message
 
 ```text
-update translations
+i18n: update translations
 ```
 
 ---
 
-## Commit 491: chore: update commit history
+## Commit 492: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 17:17:26 +0000
-**Commit Hash**: `b4a1d7a9586dc4d1621f72a20352f9cfa40d87b1`
-**Short Hash**: `b4a1d7a`
+**Commit Hash**: `b3a5a780ca2d6484fa6f27af91e849e36597d0f9`
+**Short Hash**: `b3a5a78`
 
 ### Files Modified
 
@@ -11337,12 +11356,12 @@ chore: update commit history
 
 ---
 
-## Commit 492: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 493: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:47:14 +0530
-**Commit Hash**: `55d4e01a712ce0e935615d4cfa82bc53cf6775a1`
-**Short Hash**: `55d4e01`
+**Commit Hash**: `ad4076c6064e6f468d55a92ec13c157a39fbf95e`
+**Short Hash**: `ad4076c`
 
 ### Files Modified
 
@@ -11356,12 +11375,12 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 493: updated rules
+## Commit 494: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:46:56 +0530
-**Commit Hash**: `f2db5d14d0852387d0473cb7a7141526ecdce7bb`
-**Short Hash**: `f2db5d1`
+**Commit Hash**: `d8a65b1317f902e9b65a7bc06b0e26ded097aa8f`
+**Short Hash**: `d8a65b1`
 
 ### Files Modified
 
@@ -11371,17 +11390,17 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 ### Commit Message
 
 ```text
-updated rules
+data: update bundled provider rules
 ```
 
 ---
 
-## Commit 494: chore: update commit history
+## Commit 495: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 17:13:55 +0000
-**Commit Hash**: `f2210ec8eb97eabcc2cf533bc36ef5f47d2b5f8b`
-**Short Hash**: `f2210ec`
+**Commit Hash**: `2ea7888e02e286787fc30448e98b39dc488afd16`
+**Short Hash**: `2ea7888`
 
 ### Files Modified
 
@@ -11395,12 +11414,12 @@ chore: update commit history
 
 ---
 
-## Commit 495: Address PR review cleanup
+## Commit 496: Address PR review cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:43:33 +0530
-**Commit Hash**: `abcb3a7b078c4934b66124f0b17a64656f4af0ff`
-**Short Hash**: `abcb3a7`
+**Commit Hash**: `ef4a73ec5d6bcda3a525a16a74586d15768c50ae`
+**Short Hash**: `ef4a73e`
 
 ### Files Modified
 
@@ -11415,12 +11434,12 @@ Address PR review cleanup
 
 ---
 
-## Commit 496: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 497: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:28:03 +0530
-**Commit Hash**: `4f9104226c4b0ef92827b3d675977807b814604c`
-**Short Hash**: `4f91042`
+**Commit Hash**: `a5ea7a0e43d2c037714cf65bf033c91e45b15dcc`
+**Short Hash**: `a5ea7a0`
 
 ### Files Modified
 
@@ -11434,12 +11453,12 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 497: Merge branch 'main' into consolidation
+## Commit 498: Merge branch 'main' into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:27:48 +0530
-**Commit Hash**: `7771ead2a6d8ee5e1e6d6d6bd0b0df9f573500e8`
-**Short Hash**: `7771ead`
+**Commit Hash**: `340a1a03366fe61c60a8b2e7d03fda1c56f56071`
+**Short Hash**: `340a1a0`
 
 ### Files Modified
 
@@ -11453,12 +11472,12 @@ Merge branch 'main' into consolidation
 
 ---
 
-## Commit 498: chore: update commit history
+## Commit 499: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 16:51:53 +0000
-**Commit Hash**: `320c983a26bd154d80257b45ccf62a23792359c9`
-**Short Hash**: `320c983`
+**Commit Hash**: `49d46af6b40a237e323426d177b44a2a087ace5c`
+**Short Hash**: `49d46af`
 
 ### Files Modified
 
@@ -11472,12 +11491,12 @@ chore: update commit history
 
 ---
 
-## Commit 499: Align provider context with ClearURLs core
+## Commit 500: Align provider context with ClearURLs core
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:21:27 +0530
-**Commit Hash**: `e8b6d06d6c841a9d516879b0d10930385d463dcb`
-**Short Hash**: `e8b6d06`
+**Commit Hash**: `e29ed930be750b787f3aba1a3c86ee2448a5e235`
+**Short Hash**: `e29ed93`
 
 ### Files Modified
 
@@ -11494,12 +11513,12 @@ Align provider context with ClearURLs core
 
 ---
 
-## Commit 500: chore: update commit history
+## Commit 501: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 16:35:38 +0000
-**Commit Hash**: `4a7189e96ada6bea17f106838171bc83b19fd003`
-**Short Hash**: `4a7189e`
+**Commit Hash**: `7a7618a18cc007c748c99190936b94dc216749bd`
+**Short Hash**: `7a7618a`
 
 ### Files Modified
 
@@ -11513,12 +11532,12 @@ chore: update commit history
 
 ---
 
-## Commit 501: Polish provider import labels
+## Commit 502: Polish provider import labels
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:04:45 +0530
-**Commit Hash**: `5c543953b14e6a87aea71b44005727a405d2cbc1`
-**Short Hash**: `5c54395`
+**Commit Hash**: `575b8b84a77ed2bd61f7198927ee287ad07629be`
+**Short Hash**: `575b8b8`
 
 ### Files Modified
 
@@ -11534,12 +11553,12 @@ Polish provider import labels
 
 ---
 
-## Commit 502: chore: update commit history
+## Commit 503: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 14:46:26 +0000
-**Commit Hash**: `c991d660310fea1afcca3faa6010e22a0d9fdd2c`
-**Short Hash**: `c991d66`
+**Commit Hash**: `8a4794599def017b32c5f4246752d6b8b58f8ace`
+**Short Hash**: `8a47945`
 
 ### Files Modified
 
@@ -11553,12 +11572,12 @@ chore: update commit history
 
 ---
 
-## Commit 503: Merge pull request #133 from Linkumori/consolidation
+## Commit 504: Merge pull request from Linkumori/consolidation
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 20:16:14 +0530
-**Commit Hash**: `bb407e1e46f9a4332f71b9af7e8d905f8dd0bd83`
-**Short Hash**: `bb407e1`
+**Commit Hash**: `9fb3d329375b2c04ad79776e2dc69f96030f6e38`
+**Short Hash**: `9fb3d32`
 
 ### Files Modified
 
@@ -11567,17 +11586,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #133 from Linkumori/consolidation
+Merge pull request from Linkumori/consolidation
 ```
 
 ---
 
-## Commit 504: chore: update commit history
+## Commit 505: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 14:43:58 +0000
-**Commit Hash**: `f7d3cdba242580c2e9a7107a38d1a96c9db0a120`
-**Short Hash**: `f7d3cdb`
+**Commit Hash**: `534140405d23aa03f9e4add45177f5368e0096cf`
+**Short Hash**: `5341404`
 
 ### Files Modified
 
@@ -11591,12 +11610,12 @@ chore: update commit history
 
 ---
 
-## Commit 505: Address PR review feedback
+## Commit 506: Address PR review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 20:13:29 +0530
-**Commit Hash**: `05e8e0394d816e390ec6e9f9f409594031d8bdec`
-**Short Hash**: `05e8e03`
+**Commit Hash**: `aedef1142f21916b507245582c1feb1b34a8d574`
+**Short Hash**: `aedef11`
 
 ### Files Modified
 
@@ -11612,12 +11631,12 @@ Address PR review feedback
 
 ---
 
-## Commit 506: chore: update commit history
+## Commit 507: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 13:52:38 +0000
-**Commit Hash**: `e2d7575ea2eeececb53ed3f6f6944999d6d11276`
-**Short Hash**: `e2d7575`
+**Commit Hash**: `b5e451b6e8cf501750cef4b6ae584e958a87a0d7`
+**Short Hash**: `b5e451b`
 
 ### Files Modified
 
@@ -11631,12 +11650,12 @@ chore: update commit history
 
 ---
 
-## Commit 507: Align ClearURLs rule identity and provider counts
+## Commit 508: Align ClearURLs rule identity and provider counts
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 19:22:06 +0530
-**Commit Hash**: `e91cae1ca786f8c52ad65de8aaa75cb2c5322a97`
-**Short Hash**: `e91cae1`
+**Commit Hash**: `d2da02d8b4fbfe6f9f9820ef2a1f46ca198b803c`
+**Short Hash**: `d2da02d`
 
 ### Files Modified
 
@@ -11658,12 +11677,12 @@ Align ClearURLs rule identity and provider counts
 
 ---
 
-## Commit 508: chore: update commit history
+## Commit 509: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:33:59 +0000
-**Commit Hash**: `30325f01920e59e0a2301c223896fa2125bce92b`
-**Short Hash**: `30325f0`
+**Commit Hash**: `f457da7804f21c33f959d40b2d9b3a18ba15c4b9`
+**Short Hash**: `f457da7`
 
 ### Files Modified
 
@@ -11677,12 +11696,12 @@ chore: update commit history
 
 ---
 
-## Commit 509: Pass activation state in regression batch
+## Commit 510: Pass activation state in regression batch
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 17:03:29 +0530
-**Commit Hash**: `1cbb45fb1bbb67f4d62c20665ba1cea6d67b2057`
-**Short Hash**: `1cbb45f`
+**Commit Hash**: `f8a3009165d3c280494a5bfc67daa0e4817a48ee`
+**Short Hash**: `f8a3009`
 
 ### Files Modified
 
@@ -11696,12 +11715,12 @@ Pass activation state in regression batch
 
 ---
 
-## Commit 510: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 511: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:59:30 +0530
-**Commit Hash**: `05555ff8ebb42fcd47ddecff85a5688a606ba964`
-**Short Hash**: `05555ff`
+**Commit Hash**: `932e9feae005d6a0ee2c12980418dcda406351d9`
+**Short Hash**: `932e9fe`
 
 ### Files Modified
 
@@ -11715,12 +11734,12 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 511: Merge branch 'main' into consolidation
+## Commit 512: Merge branch 'main' into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:59:13 +0530
-**Commit Hash**: `401b61c2b3fa3279c8d2984070dfdcfb9defaaa4`
-**Short Hash**: `401b61c`
+**Commit Hash**: `f7aa2fd2d2acbaa2349b51386e6f976411bc27cb`
+**Short Hash**: `f7aa2fd`
 
 ### Files Modified
 
@@ -11734,12 +11753,12 @@ Merge branch 'main' into consolidation
 
 ---
 
-## Commit 512: chore: update commit history
+## Commit 513: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:29:13 +0000
-**Commit Hash**: `78ca1a379df2a091ea30d8df515f253ec47c59da`
-**Short Hash**: `78ca1a3`
+**Commit Hash**: `91d8f85031bc7d11dbbd3b8544769f5bacbb5c75`
+**Short Hash**: `91d8f85`
 
 ### Files Modified
 
@@ -11753,12 +11772,12 @@ chore: update commit history
 
 ---
 
-## Commit 513: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 514: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:58:58 +0530
-**Commit Hash**: `8019bfdbb66e08be5be0672d138fdfbc50bcba0d`
-**Short Hash**: `8019bfd`
+**Commit Hash**: `f7db5f2584f5fef24974614b14ad5816972ad4e0`
+**Short Hash**: `f7db5f2`
 
 ### Files Modified
 
@@ -11772,12 +11791,12 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 514: deleted useless files
+## Commit 515: test: remove obsolete rule fixtures
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:58:38 +0530
-**Commit Hash**: `58e6b69e01ae544c0732afec9a2f25877fc7403f`
-**Short Hash**: `58e6b69`
+**Commit Hash**: `2b5bc4e72c883c5d87b87a984b167438eaefa734`
+**Short Hash**: `2b5bc4e`
 
 ### Files Modified
 
@@ -11787,17 +11806,17 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 ### Commit Message
 
 ```text
-deleted useless files
+test: remove obsolete rule fixtures
 ```
 
 ---
 
-## Commit 515: chore: update commit history
+## Commit 516: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:26:17 +0000
-**Commit Hash**: `25ac09f4b2d66fafe2c96712882733acbebcec75`
-**Short Hash**: `25ac09f`
+**Commit Hash**: `0ce56212a26dc043ada07adfc93d711f4b36be49`
+**Short Hash**: `0ce5621`
 
 ### Files Modified
 
@@ -11811,12 +11830,12 @@ chore: update commit history
 
 ---
 
-## Commit 516: Align rule activation with ClearURLs origins
+## Commit 517: Align rule activation with ClearURLs origins
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:55:00 +0530
-**Commit Hash**: `439adc02e469aac80fa68c2196a89585e236ec57`
-**Short Hash**: `439adc0`
+**Commit Hash**: `4f10f2933b34ebd13fdbc1ba4d898c66b7feaee6`
+**Short Hash**: `4f10f29`
 
 ### Files Modified
 
@@ -11839,12 +11858,12 @@ Align rule activation with ClearURLs origins
 
 ---
 
-## Commit 517: chore: update commit history
+## Commit 518: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 17:55:05 +0000
-**Commit Hash**: `1d123dab23f98183e390cb894df52f16539c07e6`
-**Short Hash**: `1d123da`
+**Commit Hash**: `e83efb123c3d373110f83c1b52b5e8c06d520f80`
+**Short Hash**: `e83efb1`
 
 ### Files Modified
 
@@ -11858,12 +11877,12 @@ chore: update commit history
 
 ---
 
-## Commit 518: Merge pull request #132 from Linkumori/consolidation
+## Commit 519: Merge pull request from Linkumori/consolidation
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 23:24:54 +0530
-**Commit Hash**: `388aae6aa503e88536fe5454455f151ecd7c51d3`
-**Short Hash**: `388aae6`
+**Commit Hash**: `50d42df79ec49045008f4231302ccc18e23a04f3`
+**Short Hash**: `50d42df`
 
 ### Files Modified
 
@@ -11872,17 +11891,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #132 from Linkumori/consolidation
+Merge pull request from Linkumori/consolidation
 ```
 
 ---
 
-## Commit 519: chore: update commit history
+## Commit 520: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:55:09 +0000
-**Commit Hash**: `4cc2490bdea427c325a38f11e9e2b3a53b134fc0`
-**Short Hash**: `4cc2490`
+**Commit Hash**: `f7c3a08d1972435a2ed77402492487e385cd3623`
+**Short Hash**: `f7c3a08`
 
 ### Files Modified
 
@@ -11896,12 +11915,12 @@ chore: update commit history
 
 ---
 
-## Commit 520: fix: thread sessionRewrites set through cleaning loop
+## Commit 521: fix: thread sessionRewrites set through cleaning loop
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 17:23:23 +0530
-**Commit Hash**: `d3c7d2f8733b5e4176211cdd516a6ca58a2dc93b`
-**Short Hash**: `d3c7d2f`
+**Commit Hash**: `70c807950e66afb335735295451becbbc5d79cee`
+**Short Hash**: `70c8079`
 
 ### Files Modified
 
@@ -11916,12 +11935,12 @@ fix: thread sessionRewrites set through cleaning loop
 
 ---
 
-## Commit 521: chore: update commit history
+## Commit 522: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:33:50 +0000
-**Commit Hash**: `c27dd16fd2f8944368b693c3eb67772cc1957bea`
-**Short Hash**: `c27dd16`
+**Commit Hash**: `38418d5512ee7847ee9ee219a19286cf15e8d2b3`
+**Short Hash**: `38418d5`
 
 ### Files Modified
 
@@ -11935,12 +11954,12 @@ chore: update commit history
 
 ---
 
-## Commit 522: test: add regression cases for engine improvements
+## Commit 523: test: add regression cases for engine improvements
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 16:57:53 +0530
-**Commit Hash**: `035acb74004d8c6f60220a407629b116180e90be`
-**Short Hash**: `035acb7`
+**Commit Hash**: `c93aacfc481d893f9c90b5a102b1e828af64459c`
+**Short Hash**: `c93aacf`
 
 ### Files Modified
 
@@ -11954,12 +11973,12 @@ test: add regression cases for engine improvements
 
 ---
 
-## Commit 523: chore: update commit history
+## Commit 524: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:00:06 +0000
-**Commit Hash**: `37b69db85dd3d6a9cc57ab0f6b3bc4dcc1be7089`
-**Short Hash**: `37b69db`
+**Commit Hash**: `4994970f2a52261cf1b69a2a57542aadaec462e1`
+**Short Hash**: `4994970`
 
 ### Files Modified
 
@@ -11973,12 +11992,12 @@ chore: update commit history
 
 ---
 
-## Commit 524: fix: apply PR #130 review fixes
+## Commit 525: fix: address review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 16:42:43 +0530
-**Commit Hash**: `c1f2a73c06a7aa626e1efdbea507db749dbae548`
-**Short Hash**: `c1f2a73`
+**Commit Hash**: `8a22ada579393959bffb32d75d463227674f7a55`
+**Short Hash**: `8a22ada`
 
 ### Files Modified
 
@@ -11989,17 +12008,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-fix: apply PR #130 review fixes
+fix: address review feedback
 ```
 
 ---
 
-## Commit 525: chore: update commit history
+## Commit 526: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-23 19:08:10 +0000
-**Commit Hash**: `2b4125966aedf089312187a6d0d5dce5d7e9fd3c`
-**Short Hash**: `2b41259`
+**Commit Hash**: `e2490f6e94f4da92a80474bb70dddedd5c627836`
+**Short Hash**: `e2490f6`
 
 ### Files Modified
 
@@ -12013,12 +12032,12 @@ chore: update commit history
 
 ---
 
-## Commit 526: feat: engine improvements and dialect documentation consolidation
+## Commit 527: feat: engine improvements and dialect documentation consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 00:37:48 +0530
-**Commit Hash**: `53ebce379877fcb723c4608af8ff5a0650ea2529`
-**Short Hash**: `53ebce3`
+**Commit Hash**: `37f3b5ee9dc5f6b8ae631b192ea60c5ad6766f26`
+**Short Hash**: `37f3b5e`
 
 ### Files Modified
 
@@ -12037,12 +12056,12 @@ feat: engine improvements and dialect documentation consolidation
 
 ---
 
-## Commit 527: chore: update changelog for v100.11.0
+## Commit 528: chore: update changelog for v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:51 +0000
-**Commit Hash**: `857fde486f9c97b411d4f180b938c5414ca80845`
-**Short Hash**: `857fde4`
+**Commit Hash**: `c5d6bb25b21a5f0df39ac0c4eb6c5995da181a0c`
+**Short Hash**: `c5d6bb2`
 
 ### Files Modified
 
@@ -12056,12 +12075,12 @@ chore: update changelog for v100.11.0
 
 ---
 
-## Commit 528: chore: update commit history for v100.11.0
+## Commit 529: chore: update commit history for v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:50 +0000
-**Commit Hash**: `02740f004bc1f9f4e03b0f2600aa05aa17066456`
-**Short Hash**: `02740f0`
+**Commit Hash**: `e8e17e5b06e1d85c61e4aefc43594fbb4c630363`
+**Short Hash**: `e8e17e5`
 
 ### Files Modified
 
@@ -12075,12 +12094,12 @@ chore: update commit history for v100.11.0
 
 ---
 
-## Commit 529: release 100.11.0
+## Commit 530: chore: release v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:49 +0000
-**Commit Hash**: `7366536a06c9d11037b125a046ed1845686e20ce`
-**Short Hash**: `7366536`
+**Commit Hash**: `7160ae5180c57de7dffbe411d45a5a5e02b99c26`
+**Short Hash**: `7160ae5`
 
 ### Files Modified
 
@@ -12089,17 +12108,17 @@ chore: update commit history for v100.11.0
 ### Commit Message
 
 ```text
-release 100.11.0
+chore: release v100.11.0
 ```
 
 ---
 
-## Commit 530: chore: update commit history
+## Commit 531: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 19:27:27 +0000
-**Commit Hash**: `40787c718ce8d9b3692aeca1822748c674ddd5cd`
-**Short Hash**: `40787c7`
+**Commit Hash**: `c85e8d70e432ebef17143e9782f1579e79dbc3ae`
+**Short Hash**: `c85e8d7`
 
 ### Files Modified
 
@@ -12113,12 +12132,12 @@ chore: update commit history
 
 ---
 
-## Commit 531: updated wiki
+## Commit 532: docs: update the rule syntax wiki
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-23 00:57:01 +0530
-**Commit Hash**: `9ab23c60de6d8a96c36ed48c0132b095c01f481a`
-**Short Hash**: `9ab23c6`
+**Commit Hash**: `bf66e69d8e870e807b73ffa49a06c5a51d7de9a9`
+**Short Hash**: `bf66e69`
 
 ### Files Modified
 
@@ -12127,17 +12146,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-updated wiki
+docs: update the rule syntax wiki
 ```
 
 ---
 
-## Commit 532: chore: update changelog for v100.10.0
+## Commit 533: chore: update changelog for v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:25 +0000
-**Commit Hash**: `3dd675ea21867576fa3437e5b095aa44cd566ddf`
-**Short Hash**: `3dd675e`
+**Commit Hash**: `2d58a8891568410db8e0fd1c67441304353a63d8`
+**Short Hash**: `2d58a88`
 
 ### Files Modified
 
@@ -12151,12 +12170,12 @@ chore: update changelog for v100.10.0
 
 ---
 
-## Commit 533: chore: update commit history for v100.10.0
+## Commit 534: chore: update commit history for v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:23 +0000
-**Commit Hash**: `443adc1bb90cba0c34a3b1cf0ccd947c02c1126f`
-**Short Hash**: `443adc1`
+**Commit Hash**: `a7fd905163458e220a88eaa7794a768417421b83`
+**Short Hash**: `a7fd905`
 
 ### Files Modified
 
@@ -12170,12 +12189,12 @@ chore: update commit history for v100.10.0
 
 ---
 
-## Commit 534: release 100.10.0
+## Commit 535: chore: release v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:22 +0000
-**Commit Hash**: `ba3ddf860a771fc004fa628ae023e18d6306b36c`
-**Short Hash**: `ba3ddf8`
+**Commit Hash**: `dfbfe36df6759d42b99f0f0cb34bd265e04b3e7d`
+**Short Hash**: `dfbfe36`
 
 ### Files Modified
 
@@ -12184,17 +12203,17 @@ chore: update commit history for v100.10.0
 ### Commit Message
 
 ```text
-release 100.10.0
+chore: release v100.10.0
 ```
 
 ---
 
-## Commit 535: chore: update commit history
+## Commit 536: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:43:21 +0000
-**Commit Hash**: `ff16eb6792f4152e9506d54bde9939f2c5e864e7`
-**Short Hash**: `ff16eb6`
+**Commit Hash**: `9a946ed14186db9e00d573f32f64492672f69547`
+**Short Hash**: `9a946ed`
 
 ### Files Modified
 
@@ -12208,12 +12227,12 @@ chore: update commit history
 
 ---
 
-## Commit 536: Merge pull request #129 from Linkumori/beta/remove-runtime-snapshot-cleanup
+## Commit 537: Merge pull request from Linkumori/beta/remove-runtime-snapshot-cleanup
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 17:13:07 +0530
-**Commit Hash**: `d58ee6c274533a7f5295db4ef91c23314b09acb3`
-**Short Hash**: `d58ee6c`
+**Commit Hash**: `a0a9522c16799f693dfb5ecc9425f91d6fc70d96`
+**Short Hash**: `a0a9522`
 
 ### Files Modified
 
@@ -12222,17 +12241,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #129 from Linkumori/beta/remove-runtime-snapshot-cleanup
+Merge pull request from Linkumori/beta/remove-runtime-snapshot-cleanup
 ```
 
 ---
 
-## Commit 537: chore: update commit history
+## Commit 538: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:42:22 +0000
-**Commit Hash**: `c9b9cfb86182f56bd34845e139ac041272c8e234`
-**Short Hash**: `c9b9cfb`
+**Commit Hash**: `6656af3917f871b9f82d49a7ba076358e79bb705`
+**Short Hash**: `6656af3`
 
 ### Files Modified
 
@@ -12246,12 +12265,12 @@ chore: update commit history
 
 ---
 
-## Commit 538: Address valid cleanup review feedback
+## Commit 539: Address valid cleanup review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 17:12:03 +0530
-**Commit Hash**: `95dab88cd4dee955200ad54c9052580527b4a555`
-**Short Hash**: `95dab88`
+**Commit Hash**: `1515005d7b90dbb8054a72dd8edf9162fd79c084`
+**Short Hash**: `1515005`
 
 ### Files Modified
 
@@ -12267,12 +12286,12 @@ Address valid cleanup review feedback
 
 ---
 
-## Commit 539: Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
+## Commit 540: Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:57:57 +0530
-**Commit Hash**: `8ef7eab8837241e72da449b95b9d191b19c3081e`
-**Short Hash**: `8ef7eab`
+**Commit Hash**: `6dcce1848bf04fad4f6ebd448eba602e7916401d`
+**Short Hash**: `6dcce18`
 
 ### Files Modified
 
@@ -12286,12 +12305,12 @@ Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
 
 ---
 
-## Commit 540: Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cleanup
+## Commit 541: Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:57:40 +0530
-**Commit Hash**: `91ba940441301ae1172e100fb15524561f712c13`
-**Short Hash**: `91ba940`
+**Commit Hash**: `4cd2bbc47b6fa6feba3ea37241fa73ee32d9a766`
+**Short Hash**: `4cd2bbc`
 
 ### Files Modified
 
@@ -12305,12 +12324,12 @@ Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cle
 
 ---
 
-## Commit 541: chore: update commit history
+## Commit 542: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:25:34 +0000
-**Commit Hash**: `c7ffdbb329916322b87b74a4f0d3f13ecfc97231`
-**Short Hash**: `c7ffdbb`
+**Commit Hash**: `c6f702110bb70b66fa992cfd14b0c8c60a0c9f2b`
+**Short Hash**: `c6f7021`
 
 ### Files Modified
 
@@ -12324,12 +12343,12 @@ chore: update commit history
 
 ---
 
-## Commit 542: Remove redundant runtime snapshot plumbing
+## Commit 543: Remove redundant runtime snapshot plumbing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:55:08 +0530
-**Commit Hash**: `8294ca3d9306330731f6bcb2d8bde8894c8b44ba`
-**Short Hash**: `8294ca3`
+**Commit Hash**: `42831d1d3f52bdcf3269b74e0ed82f71fc46e487`
+**Short Hash**: `42831d1`
 
 ### Files Modified
 
@@ -12350,12 +12369,12 @@ Remove redundant runtime snapshot plumbing
 
 ---
 
-## Commit 543: chore: update commit history
+## Commit 544: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 10:21:28 +0000
-**Commit Hash**: `f5f3a3c800838fb0146b0fa172c74c3e7c67e3ed`
-**Short Hash**: `f5f3a3c`
+**Commit Hash**: `0254dbf33315c23bbf0148f8899cd5e6171667ac`
+**Short Hash**: `0254dbf`
 
 ### Files Modified
 
@@ -12369,12 +12388,12 @@ chore: update commit history
 
 ---
 
-## Commit 544: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 545: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 15:51:12 +0530
-**Commit Hash**: `8d1e564ad03eb889e06a7ab29dca60547cb76743`
-**Short Hash**: `8d1e564`
+**Commit Hash**: `55281f6641040f1e45127ac4781536fb5cd17bb2`
+**Short Hash**: `55281f6`
 
 ### Files Modified
 
@@ -12388,12 +12407,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 545: tool.js now integerate with ip-ranger.js
+## Commit 546: tool.js now integerate with ip-ranger.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 14:36:34 +0530
-**Commit Hash**: `d4833418fc22ac3d652dc72a50874f46176b89c7`
-**Short Hash**: `d483341`
+**Commit Hash**: `d0056dd9850f425c67bbd91952c01514a6df0226`
+**Short Hash**: `d0056dd`
 
 ### Files Modified
 
@@ -12407,12 +12426,12 @@ tool.js now integerate with ip-ranger.js
 
 ---
 
-## Commit 546: chore: update changelog for v100.9.1
+## Commit 547: chore: update changelog for v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:11 +0000
-**Commit Hash**: `f0fb72fd941347846eb60b79fbb9600abbe3ec0d`
-**Short Hash**: `f0fb72f`
+**Commit Hash**: `15bd4a169f378356a7c29ec2813e7c4f7afe8863`
+**Short Hash**: `15bd4a1`
 
 ### Files Modified
 
@@ -12426,12 +12445,12 @@ chore: update changelog for v100.9.1
 
 ---
 
-## Commit 547: chore: update commit history for v100.9.1
+## Commit 548: chore: update commit history for v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:09 +0000
-**Commit Hash**: `e6442483862037ff59cfeec5802419a508841ef6`
-**Short Hash**: `e644248`
+**Commit Hash**: `415d6a86bdf9b7336eea8f0ae94177288ebc9306`
+**Short Hash**: `415d6a8`
 
 ### Files Modified
 
@@ -12445,12 +12464,12 @@ chore: update commit history for v100.9.1
 
 ---
 
-## Commit 548: release 100.9.1
+## Commit 549: chore: release v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:08 +0000
-**Commit Hash**: `1937189442d9055582f52013cb5e1ee35e53a2dd`
-**Short Hash**: `1937189`
+**Commit Hash**: `408f05b39606c05da4283c19225095d8cc2a67dc`
+**Short Hash**: `408f05b`
 
 ### Files Modified
 
@@ -12459,17 +12478,17 @@ chore: update commit history for v100.9.1
 ### Commit Message
 
 ```text
-release 100.9.1
+chore: release v100.9.1
 ```
 
 ---
 
-## Commit 549: chore: update commit history
+## Commit 550: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 14:47:17 +0000
-**Commit Hash**: `31a645055c33928af20bf02c51b5819b77a59611`
-**Short Hash**: `31a6450`
+**Commit Hash**: `a7533efb4b4398d619f95941f4df75538b6bad3b`
+**Short Hash**: `a7533ef`
 
 ### Files Modified
 
@@ -12483,12 +12502,12 @@ chore: update commit history
 
 ---
 
-## Commit 550: fix(regression): fix 5 failing provider snapshot and preprocessor tests
+## Commit 551: fix(regression): fix 5 failing provider snapshot and preprocessor tests
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 20:16:52 +0530
-**Commit Hash**: `bd9d4e868dfc7c02d6cb27a6250bc7fd624700a3`
-**Short Hash**: `bd9d4e8`
+**Commit Hash**: `72cdc223ccf845932df314b05160af647e0813d1`
+**Short Hash**: `72cdc22`
 
 ### Files Modified
 
@@ -12503,12 +12522,12 @@ fix(regression): fix 5 failing provider snapshot and preprocessor tests
 
 ---
 
-## Commit 551: chore: update commit history
+## Commit 552: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 14:05:22 +0000
-**Commit Hash**: `c2c5672519d083d100c7e54d0d7cbc7192157830`
-**Short Hash**: `c2c5672`
+**Commit Hash**: `6b5ad1e9619df8dabc2c99ed3df58a18f047b284`
+**Short Hash**: `6b5ad1e`
 
 ### Files Modified
 
@@ -12522,12 +12541,12 @@ chore: update commit history
 
 ---
 
-## Commit 552: feat(nav): replace localStorage view state with URL fragment navigation
+## Commit 553: feat(nav): replace localStorage view state with URL fragment navigation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 19:34:55 +0530
-**Commit Hash**: `ae7c1f1c835bc284b30ea40a052507f634637260`
-**Short Hash**: `ae7c1f1`
+**Commit Hash**: `3c9552ff0076054d5e7bfb7bd82f36ebfb2734d2`
+**Short Hash**: `3c9552f`
 
 ### Files Modified
 
@@ -12542,12 +12561,12 @@ feat(nav): replace localStorage view state with URL fragment navigation
 
 ---
 
-## Commit 553: chore: update changelog for v100.9.0
+## Commit 554: chore: update changelog for v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:54 +0000
-**Commit Hash**: `2cc8e87fc353d1c1f6b608d565f24a1c54ccdbf7`
-**Short Hash**: `2cc8e87`
+**Commit Hash**: `5f5cd2ab7ba9af464e18420208d7940ccab91d88`
+**Short Hash**: `5f5cd2a`
 
 ### Files Modified
 
@@ -12561,12 +12580,12 @@ chore: update changelog for v100.9.0
 
 ---
 
-## Commit 554: chore: update commit history for v100.9.0
+## Commit 555: chore: update commit history for v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:53 +0000
-**Commit Hash**: `bf5b4603e9263cab6ca47f2dabd95d37c238d38e`
-**Short Hash**: `bf5b460`
+**Commit Hash**: `e43ac6b529b9cddf58cc2154f34c21cf351996b1`
+**Short Hash**: `e43ac6b`
 
 ### Files Modified
 
@@ -12580,12 +12599,12 @@ chore: update commit history for v100.9.0
 
 ---
 
-## Commit 555: release 100.9.0
+## Commit 556: chore: release v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:52 +0000
-**Commit Hash**: `502d44ddd080bd88af85d78e83e1221f0a39219f`
-**Short Hash**: `502d44d`
+**Commit Hash**: `4da64576e33eae581b45be8250f8a402ec5f9ff4`
+**Short Hash**: `4da6457`
 
 ### Files Modified
 
@@ -12594,17 +12613,17 @@ chore: update commit history for v100.9.0
 ### Commit Message
 
 ```text
-release 100.9.0
+chore: release v100.9.0
 ```
 
 ---
 
-## Commit 556: chore: update commit history
+## Commit 557: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:18:58 +0000
-**Commit Hash**: `c2b226f5d582f1dff505aeb55174a1f9b468d313`
-**Short Hash**: `c2b226f`
+**Commit Hash**: `a677e56758ff2ecef1fe66f31a71294970fdd2a6`
+**Short Hash**: `a677e56`
 
 ### Files Modified
 
@@ -12618,12 +12637,12 @@ chore: update commit history
 
 ---
 
-## Commit 557: docs(privacy): add Issue Reporting Feature clause and bump consent version
+## Commit 558: docs(privacy): add Issue Reporting Feature clause and bump consent version
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 17:48:33 +0530
-**Commit Hash**: `6bc4ae1016a3594d6b9a76e6a12b740b24356783`
-**Short Hash**: `6bc4ae1`
+**Commit Hash**: `3a4e51c317c84467bc199da363f7bcbb2b66aef4`
+**Short Hash**: `3a4e51c`
 
 ### Files Modified
 
@@ -12638,12 +12657,12 @@ docs(privacy): add Issue Reporting Feature clause and bump consent version
 
 ---
 
-## Commit 558: chore: update changelog for v100.8.0
+## Commit 559: chore: update changelog for v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:33 +0000
-**Commit Hash**: `54053dbc9d71c78fa4ab3edb7cb01607d4b1f5b5`
-**Short Hash**: `54053db`
+**Commit Hash**: `ba4dfc42175f7a11aeb17efdda03aff767b4b661`
+**Short Hash**: `ba4dfc4`
 
 ### Files Modified
 
@@ -12657,12 +12676,12 @@ chore: update changelog for v100.8.0
 
 ---
 
-## Commit 559: chore: update commit history for v100.8.0
+## Commit 560: chore: update commit history for v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:31 +0000
-**Commit Hash**: `4133e5db085a73f425c4343e62608629a74a440b`
-**Short Hash**: `4133e5d`
+**Commit Hash**: `da7b2529460dd65325b6fd1033dba5213726ce8b`
+**Short Hash**: `da7b252`
 
 ### Files Modified
 
@@ -12676,12 +12695,12 @@ chore: update commit history for v100.8.0
 
 ---
 
-## Commit 560: release 100.8.0
+## Commit 561: chore: release v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:30 +0000
-**Commit Hash**: `8087f1c4748e434e90aae23a502282c868539a16`
-**Short Hash**: `8087f1c`
+**Commit Hash**: `e7fa09df5a77650be9adead642115b920e0bb44c`
+**Short Hash**: `e7fa09d`
 
 ### Files Modified
 
@@ -12690,17 +12709,17 @@ chore: update commit history for v100.8.0
 ### Commit Message
 
 ```text
-release 100.8.0
+chore: release v100.8.0
 ```
 
 ---
 
-## Commit 561: chore: update commit history
+## Commit 562: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:10:31 +0000
-**Commit Hash**: `f356ad28782c0a3a562fa8ae1b577d625f8ee704`
-**Short Hash**: `f356ad2`
+**Commit Hash**: `dc63b407b949829f1794b6f8989c90d1b25ce5c3`
+**Short Hash**: `dc63b40`
 
 ### Files Modified
 
@@ -12714,12 +12733,12 @@ chore: update commit history
 
 ---
 
-## Commit 562: feat: add bug report button and GitHub issue report page
+## Commit 563: feat: add bug report button and GitHub issue report page
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 17:39:59 +0530
-**Commit Hash**: `9b584c977a9f0ef0468d4ef425a9c3fe2fd98643`
-**Short Hash**: `9b584c9`
+**Commit Hash**: `e21ba3c8e0a793679bcc2ef5cb67cc290afe4688`
+**Short Hash**: `e21ba3c`
 
 ### Files Modified
 
@@ -12803,12 +12822,12 @@ feat: add bug report button and GitHub issue report page
 
 ---
 
-## Commit 563: chore: update commit history
+## Commit 564: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 10:08:51 +0000
-**Commit Hash**: `82f345336a65faf6ee751928abd1474a9bf95bad`
-**Short Hash**: `82f3453`
+**Commit Hash**: `a1ab0a8b6b60281806b14407c506e937b127e0fe`
+**Short Hash**: `a1ab0a8`
 
 ### Files Modified
 
@@ -12822,12 +12841,12 @@ chore: update commit history
 
 ---
 
-## Commit 564: perf: speed up removeparam matching
+## Commit 565: perf: speed up removeparam matching
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 15:37:59 +0530
-**Commit Hash**: `7c74de506dafa21eb9df430409b270b93c9630c6`
-**Short Hash**: `7c74de5`
+**Commit Hash**: `38018e869205a4664b276e19f6475e33ecd0ec09`
+**Short Hash**: `38018e8`
 
 ### Files Modified
 
@@ -12843,12 +12862,12 @@ perf: speed up removeparam matching
 
 ---
 
-## Commit 565: chore: update changelog for v100.7.1
+## Commit 566: chore: update changelog for v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:10 +0000
-**Commit Hash**: `41ec0dd59c0a6aea76c228ee337084daad0fa3d5`
-**Short Hash**: `41ec0dd`
+**Commit Hash**: `9dd6c9c7c18020d549555454b202eb851209ad1d`
+**Short Hash**: `9dd6c9c`
 
 ### Files Modified
 
@@ -12862,12 +12881,12 @@ chore: update changelog for v100.7.1
 
 ---
 
-## Commit 566: chore: update commit history for v100.7.1
+## Commit 567: chore: update commit history for v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:09 +0000
-**Commit Hash**: `d6a0dc68f4ff9145fbafaa174061002cfbc39235`
-**Short Hash**: `d6a0dc6`
+**Commit Hash**: `5e4ac58c209da609265ab1f03a4ffe16349471f5`
+**Short Hash**: `5e4ac58`
 
 ### Files Modified
 
@@ -12881,12 +12900,12 @@ chore: update commit history for v100.7.1
 
 ---
 
-## Commit 567: release 100.7.1
+## Commit 568: chore: release v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:07 +0000
-**Commit Hash**: `3a4878566358e8596d1697bbda0271dce6a4819a`
-**Short Hash**: `3a48785`
+**Commit Hash**: `91054b09fbdd02fdd57f6f02da5b9517e4b825df`
+**Short Hash**: `91054b0`
 
 ### Files Modified
 
@@ -12895,17 +12914,17 @@ chore: update commit history for v100.7.1
 ### Commit Message
 
 ```text
-release 100.7.1
+chore: release v100.7.1
 ```
 
 ---
 
-## Commit 568: chore: update changelog for v100.7.0
+## Commit 569: chore: update changelog for v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:11 +0000
-**Commit Hash**: `1d5f8244385ad91e89a233c7ffb4c4e7298d4c12`
-**Short Hash**: `1d5f824`
+**Commit Hash**: `e7fb79223af606acb6d79a11ab13e8f573534104`
+**Short Hash**: `e7fb792`
 
 ### Files Modified
 
@@ -12919,12 +12938,12 @@ chore: update changelog for v100.7.0
 
 ---
 
-## Commit 569: chore: update commit history for v100.7.0
+## Commit 570: chore: update commit history for v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:09 +0000
-**Commit Hash**: `5a76815c7d911d838e9ec1a3b9906ea02fa81138`
-**Short Hash**: `5a76815`
+**Commit Hash**: `6c154c24b9effe4438ae5301bdb8bf6ec9c91656`
+**Short Hash**: `6c154c2`
 
 ### Files Modified
 
@@ -12938,12 +12957,12 @@ chore: update commit history for v100.7.0
 
 ---
 
-## Commit 570: release 100.7.0
+## Commit 571: chore: release v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:08 +0000
-**Commit Hash**: `7c75bdd782672463af9c23478413d4650d0096a2`
-**Short Hash**: `7c75bdd`
+**Commit Hash**: `d3a3a0ecc112ae3650d16346691d56d6fc5be262`
+**Short Hash**: `d3a3a0e`
 
 ### Files Modified
 
@@ -12952,17 +12971,17 @@ chore: update commit history for v100.7.0
 ### Commit Message
 
 ```text
-release 100.7.0
+chore: release v100.7.0
 ```
 
 ---
 
-## Commit 571: Delete .github/workflows/npm-publish-github-packages.yml
+## Commit 572: Delete .github/workflows/npm-publish-github-packages.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 22:47:12 +0530
-**Commit Hash**: `91a6074ec7b0f7a8989208037c0204800e422019`
-**Short Hash**: `91a6074`
+**Commit Hash**: `522044b2556c4013cffde3be25ec0ad15b8c68ec`
+**Short Hash**: `522044b`
 
 ### Files Modified
 
@@ -12976,12 +12995,12 @@ Delete .github/workflows/npm-publish-github-packages.yml
 
 ---
 
-## Commit 572: Create npm-publish-github-packages.yml
+## Commit 573: Create npm-publish-github-packages.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 22:45:56 +0530
-**Commit Hash**: `bd70d63adce5eb366a75a8dc790d90cb68ce061f`
-**Short Hash**: `bd70d63`
+**Commit Hash**: `f46ec7272242af0eb6790bda63bf0950c42e2248`
+**Short Hash**: `f46ec72`
 
 ### Files Modified
 
@@ -12995,12 +13014,12 @@ Create npm-publish-github-packages.yml
 
 ---
 
-## Commit 573: chore: update changelog for v100.6.1
+## Commit 574: chore: update changelog for v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:43 +0000
-**Commit Hash**: `32af9ad0c99d4d3cc30c3ef932c153b3ac87b935`
-**Short Hash**: `32af9ad`
+**Commit Hash**: `90d52ec2eca43d2239b597e607ce5e1c89345ddc`
+**Short Hash**: `90d52ec`
 
 ### Files Modified
 
@@ -13014,12 +13033,12 @@ chore: update changelog for v100.6.1
 
 ---
 
-## Commit 574: chore: update commit history for v100.6.1
+## Commit 575: chore: update commit history for v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:42 +0000
-**Commit Hash**: `fe0c2b372b1d58a2da73ba89d33b7b9856318d5e`
-**Short Hash**: `fe0c2b3`
+**Commit Hash**: `613242939917d3ea69cfdd05f29d122dd09a4b15`
+**Short Hash**: `6132429`
 
 ### Files Modified
 
@@ -13033,12 +13052,12 @@ chore: update commit history for v100.6.1
 
 ---
 
-## Commit 575: release 100.6.1
+## Commit 576: chore: release v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:41 +0000
-**Commit Hash**: `10612c93ed6678d669594661e312625b45ad7317`
-**Short Hash**: `10612c9`
+**Commit Hash**: `bf61aaf13901bade564f8b860008514f9ea37712`
+**Short Hash**: `bf61aaf`
 
 ### Files Modified
 
@@ -13047,17 +13066,17 @@ chore: update commit history for v100.6.1
 ### Commit Message
 
 ```text
-release 100.6.1
+chore: release v100.6.1
 ```
 
 ---
 
-## Commit 576: chore: update commit history
+## Commit 577: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 15:09:50 +0000
-**Commit Hash**: `be4d554316a03efbfbab7facf4682880d88f91b8`
-**Short Hash**: `be4d554`
+**Commit Hash**: `665775c9dd797d53bba68e3c2c07a2153ad5510d`
+**Short Hash**: `665775c`
 
 ### Files Modified
 
@@ -13071,12 +13090,12 @@ chore: update commit history
 
 ---
 
-## Commit 577: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 578: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 20:39:27 +0530
-**Commit Hash**: `74ef4539dcae1644a96f1b18f5ff476d5056ef61`
-**Short Hash**: `74ef453`
+**Commit Hash**: `7cbc1c1778984e2b9de14b872a8cce5522b7cf90`
+**Short Hash**: `7cbc1c1`
 
 ### Files Modified
 
@@ -13090,12 +13109,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 578: Implement ClearURLs dialect runtime snapshots
+## Commit 579: Implement ClearURLs dialect runtime snapshots
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 20:39:19 +0530
-**Commit Hash**: `6682fbbd04f085a5eab156af69c2281110b0e430`
-**Short Hash**: `6682fbb`
+**Commit Hash**: `2cbf7ef6ac03f749a0ba9cb43580b8cd207c5f58`
+**Short Hash**: `2cbf7ef`
 
 ### Files Modified
 
@@ -13115,12 +13134,12 @@ Implement ClearURLs dialect runtime snapshots
 
 ---
 
-## Commit 579: chore: update commit history
+## Commit 580: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 14:08:40 +0000
-**Commit Hash**: `f2903a68989ba5a6d77858639911b9fdee55d98e`
-**Short Hash**: `f2903a6`
+**Commit Hash**: `278c9965b1ac67be1a0248b1a5e62be913682232`
+**Short Hash**: `278c996`
 
 ### Files Modified
 
@@ -13134,12 +13153,12 @@ chore: update commit history
 
 ---
 
-## Commit 580: align ClearURLs dialect with core engine
+## Commit 581: align ClearURLs dialect with core engine
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 19:38:05 +0530
-**Commit Hash**: `e74dfacfc457ba48636aa8d9639e925e6391d8b8`
-**Short Hash**: `e74dfac`
+**Commit Hash**: `1122574e2e88de771cc8ad07555e4ed1667356a4`
+**Short Hash**: `1122574`
 
 ### Files Modified
 
@@ -13155,12 +13174,12 @@ align ClearURLs dialect with core engine
 
 ---
 
-## Commit 581: chore: update commit history
+## Commit 582: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 10:14:52 +0000
-**Commit Hash**: `f4618341bbe37aec521933b5ab9e98c1dcf51eec`
-**Short Hash**: `f461834`
+**Commit Hash**: `b94681faf9693c18cb4426fb3875e1cf45c41114`
+**Short Hash**: `b94681f`
 
 ### Files Modified
 
@@ -13174,12 +13193,12 @@ chore: update commit history
 
 ---
 
-## Commit 582: improve regression runner diagnostics
+## Commit 583: improve regression runner diagnostics
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 15:44:34 +0530
-**Commit Hash**: `a38c68b27c4e612d0379b60a29c7bdad49c4be5c`
-**Short Hash**: `a38c68b`
+**Commit Hash**: `190e628d90f881a8626fe689a3c604ec45ff3da1`
+**Short Hash**: `190e628`
 
 ### Files Modified
 
@@ -13194,12 +13213,12 @@ improve regression runner diagnostics
 
 ---
 
-## Commit 583: chore: update changelog for v100.6.0
+## Commit 584: chore: update changelog for v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:42 +0000
-**Commit Hash**: `dde675f80f918944def62a637f4c7288bf170c69`
-**Short Hash**: `dde675f`
+**Commit Hash**: `bf1726bf216ace65c05896cc0abf9f3f8f1dc2ec`
+**Short Hash**: `bf1726b`
 
 ### Files Modified
 
@@ -13213,12 +13232,12 @@ chore: update changelog for v100.6.0
 
 ---
 
-## Commit 584: chore: update commit history for v100.6.0
+## Commit 585: chore: update commit history for v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:41 +0000
-**Commit Hash**: `43455e84cc3500e7bfa2c97f1d40f4382222768c`
-**Short Hash**: `43455e8`
+**Commit Hash**: `2f351483433927d303538e430b42fd9fa527053e`
+**Short Hash**: `2f35148`
 
 ### Files Modified
 
@@ -13232,12 +13251,12 @@ chore: update commit history for v100.6.0
 
 ---
 
-## Commit 585: release 100.6.0
+## Commit 586: chore: release v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:40 +0000
-**Commit Hash**: `b88f270e3de604b4a6bbc004a6e3bcb8d6cc7f15`
-**Short Hash**: `b88f270`
+**Commit Hash**: `04aa98931b64c169c04147014be0d2b8150292de`
+**Short Hash**: `04aa989`
 
 ### Files Modified
 
@@ -13246,17 +13265,17 @@ chore: update commit history for v100.6.0
 ### Commit Message
 
 ```text
-release 100.6.0
+chore: release v100.6.0
 ```
 
 ---
 
-## Commit 586: chore: update commit history
+## Commit 587: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:32:56 +0000
-**Commit Hash**: `0fae1c1a054b88f815226fbbf25ae2648fe82958`
-**Short Hash**: `0fae1c1`
+**Commit Hash**: `b6ed8d2619c361b1601aba6df47c69695f2286e4`
+**Short Hash**: `b6ed8d2`
 
 ### Files Modified
 
@@ -13270,12 +13289,12 @@ chore: update commit history
 
 ---
 
-## Commit 587: document both custom rule dialects side by side
+## Commit 588: document both custom rule dialects side by side
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 13:02:39 +0530
-**Commit Hash**: `38ef20cf1cf9ecf9fda8ee7b40f4aeab67b4f8bc`
-**Short Hash**: `38ef20c`
+**Commit Hash**: `fe4ef9281265c974deaf3d12cf53ccd02727d02e`
+**Short Hash**: `fe4ef92`
 
 ### Files Modified
 
@@ -13289,12 +13308,12 @@ document both custom rule dialects side by side
 
 ---
 
-## Commit 588: chore: update commit history
+## Commit 589: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:31:24 +0000
-**Commit Hash**: `000729f888457805621d958b609127da0e6d3285`
-**Short Hash**: `000729f`
+**Commit Hash**: `101c9cb65ecfd6f361b2c9ed37131e4145f849fb`
+**Short Hash**: `101c9cb`
 
 ### Files Modified
 
@@ -13308,12 +13327,12 @@ chore: update commit history
 
 ---
 
-## Commit 589: document ClearURLs rule dialects
+## Commit 590: document ClearURLs rule dialects
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 13:01:07 +0530
-**Commit Hash**: `ee64b97120bba08355350b85dad2b1ef35d233bb`
-**Short Hash**: `ee64b97`
+**Commit Hash**: `a4405d2a254b704fa1fc05d1b4e3ec19e9eefb48`
+**Short Hash**: `a4405d2`
 
 ### Files Modified
 
@@ -13328,12 +13347,12 @@ document ClearURLs rule dialects
 
 ---
 
-## Commit 590: chore: update commit history
+## Commit 591: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:28:16 +0000
-**Commit Hash**: `a3916e6ec9c7756fa703aa35259b47f962142fce`
-**Short Hash**: `a3916e6`
+**Commit Hash**: `01794dc8f765b85386dd1dadc94a7909959c01b3`
+**Short Hash**: `01794dc`
 
 ### Files Modified
 
@@ -13347,12 +13366,12 @@ chore: update commit history
 
 ---
 
-## Commit 591: name legacy syntax Linkumori ClearURLs dialect
+## Commit 592: name legacy syntax Linkumori ClearURLs dialect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:57:54 +0530
-**Commit Hash**: `fadc7028166a6321defc8f494631d27214daa448`
-**Short Hash**: `fadc702`
+**Commit Hash**: `30f1bc4859f5db081d984c31c219f76225f17ba1`
+**Short Hash**: `30f1bc4`
 
 ### Files Modified
 
@@ -13421,12 +13440,12 @@ name legacy syntax Linkumori ClearURLs dialect
 
 ---
 
-## Commit 592: chore: update commit history
+## Commit 593: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:24:35 +0000
-**Commit Hash**: `96304192032823a039a0fbf521cde2636f48a856`
-**Short Hash**: `9630419`
+**Commit Hash**: `0288b2c267610379d5d36cd6af467c5ee609462e`
+**Short Hash**: `0288b2c`
 
 ### Files Modified
 
@@ -13440,12 +13459,12 @@ chore: update commit history
 
 ---
 
-## Commit 593: rename v3 editor mode to ClearURLs dialect
+## Commit 594: rename v3 editor mode to ClearURLs dialect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:54:16 +0530
-**Commit Hash**: `e9fe7f96ee5ca6ecbdb8f9b24982e904a096c8d9`
-**Short Hash**: `e9fe7f9`
+**Commit Hash**: `7c745a940ad38bc0b008674323bb1360e1f78cca`
+**Short Hash**: `7c745a9`
 
 ### Files Modified
 
@@ -13515,12 +13534,12 @@ rename v3 editor mode to ClearURLs dialect
 
 ---
 
-## Commit 594: chore: update commit history
+## Commit 595: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:16:59 +0000
-**Commit Hash**: `cbf916a97873daad1b4b1ab1800690451d78c348`
-**Short Hash**: `cbf916a`
+**Commit Hash**: `9a0bc02c6dc6a600b1776932bfac0de4953d2473`
+**Short Hash**: `9a0bc02`
 
 ### Files Modified
 
@@ -13534,12 +13553,12 @@ chore: update commit history
 
 ---
 
-## Commit 595: fix neutral v3 custom rule templates
+## Commit 596: fix neutral v3 custom rule templates
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:46:35 +0530
-**Commit Hash**: `221ffea843b1dfd5a95fc2889115f2fa76bbf65f`
-**Short Hash**: `221ffea`
+**Commit Hash**: `4496612269bb04fe4dde78c8cf7bd2a8bd57bf0d`
+**Short Hash**: `4496612`
 
 ### Files Modified
 
@@ -13608,12 +13627,12 @@ fix neutral v3 custom rule templates
 
 ---
 
-## Commit 596: performance boost for index
+## Commit 597: performance boost for index
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:30:00 +0530
-**Commit Hash**: `587793d52896356e7758ed02990c15076fb5ac7c`
-**Short Hash**: `587793d`
+**Commit Hash**: `ae2fdc9a07438b7177321c0af202a8a18aa15a1a`
+**Short Hash**: `ae2fdc9`
 
 ### Files Modified
 
@@ -13627,12 +13646,12 @@ performance boost for index
 
 ---
 
-## Commit 597: chore: update changelog for v100.5.2
+## Commit 598: chore: update changelog for v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:12 +0000
-**Commit Hash**: `5c661e493888620c4d769886577f31a4fc5616a4`
-**Short Hash**: `5c661e4`
+**Commit Hash**: `e94e1fa4bde9124d7109ab77f762f060d687b37e`
+**Short Hash**: `e94e1fa`
 
 ### Files Modified
 
@@ -13646,12 +13665,12 @@ chore: update changelog for v100.5.2
 
 ---
 
-## Commit 598: chore: update commit history for v100.5.2
+## Commit 599: chore: update commit history for v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:11 +0000
-**Commit Hash**: `596ae9893252195f24258ea6a1f1885055c14e4b`
-**Short Hash**: `596ae98`
+**Commit Hash**: `cf4cf52cc443f1fbd5a4bb14a4d717c354e3195d`
+**Short Hash**: `cf4cf52`
 
 ### Files Modified
 
@@ -13665,12 +13684,12 @@ chore: update commit history for v100.5.2
 
 ---
 
-## Commit 599: release 100.5.2
+## Commit 600: chore: release v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:10 +0000
-**Commit Hash**: `f775ad924eb1839665adeae3ad53ab78374b1ceb`
-**Short Hash**: `f775ad9`
+**Commit Hash**: `fbdaa6435b9ffef59ff7114f1f3ca7af32266cf6`
+**Short Hash**: `fbdaa64`
 
 ### Files Modified
 
@@ -13679,17 +13698,17 @@ chore: update commit history for v100.5.2
 ### Commit Message
 
 ```text
-release 100.5.2
+chore: release v100.5.2
 ```
 
 ---
 
-## Commit 600: chore: update changelog for v100.5.1
+## Commit 601: chore: update changelog for v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:08 +0000
-**Commit Hash**: `c5e2fb141f21577765b9614a6b82d5da86dc9e10`
-**Short Hash**: `c5e2fb1`
+**Commit Hash**: `1b887155371a925cda92824fcbc8f6f927add609`
+**Short Hash**: `1b88715`
 
 ### Files Modified
 
@@ -13703,12 +13722,12 @@ chore: update changelog for v100.5.1
 
 ---
 
-## Commit 601: chore: update commit history for v100.5.1
+## Commit 602: chore: update commit history for v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:07 +0000
-**Commit Hash**: `cc272eaf12b264a2ae1aaee6b772d19b66814046`
-**Short Hash**: `cc272ea`
+**Commit Hash**: `168b52ee22e75efcf939353d732a60577bedb54f`
+**Short Hash**: `168b52e`
 
 ### Files Modified
 
@@ -13722,12 +13741,12 @@ chore: update commit history for v100.5.1
 
 ---
 
-## Commit 602: release 100.5.1
+## Commit 603: chore: release v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:06 +0000
-**Commit Hash**: `81b7265e538ec82e23b3de8b65b08ef4d0713e02`
-**Short Hash**: `81b7265`
+**Commit Hash**: `a4ddc09ecaf6c0aafa3b37a7932a496e098c82d3`
+**Short Hash**: `a4ddc09`
 
 ### Files Modified
 
@@ -13736,17 +13755,17 @@ chore: update commit history for v100.5.1
 ### Commit Message
 
 ```text
-release 100.5.1
+chore: release v100.5.1
 ```
 
 ---
 
-## Commit 603: chore: update commit history
+## Commit 604: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:32:19 +0000
-**Commit Hash**: `ff0981681763a7d3c0901851a527ad6233b9b15d`
-**Short Hash**: `ff09816`
+**Commit Hash**: `645de6035be435af6da42e40d7971287affbd78f`
+**Short Hash**: `645de60`
 
 ### Files Modified
 
@@ -13760,12 +13779,12 @@ chore: update commit history
 
 ---
 
-## Commit 604: add localized Linkumori v3 editor mode
+## Commit 605: add localized Linkumori v3 editor mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-19 01:02:00 +0530
-**Commit Hash**: `71b0bb2c2d6c53697b6114e5ec0b7064da8674ab`
-**Short Hash**: `71b0bb2`
+**Commit Hash**: `3fc6e5a5f256f27497e13b554abf338dd6a478af`
+**Short Hash**: `3fc6e5a`
 
 ### Files Modified
 
@@ -13835,12 +13854,12 @@ add localized Linkumori v3 editor mode
 
 ---
 
-## Commit 605: chore: update commit history
+## Commit 606: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 17:42:42 +0000
-**Commit Hash**: `b5176ddf103ad5a791afe2373931ceeddf4bc1e4`
-**Short Hash**: `b5176dd`
+**Commit Hash**: `e7832b983e4c77cde9055d473ea6c004d81cab25`
+**Short Hash**: `e7832b9`
 
 ### Files Modified
 
@@ -13854,12 +13873,12 @@ chore: update commit history
 
 ---
 
-## Commit 606: Update ci-runner.js
+## Commit 607: ci: update the upload runner
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 23:12:20 +0530
-**Commit Hash**: `0e0cac26b2a8beccf0d63623e89f1de34f8002ac`
-**Short Hash**: `0e0cac2`
+**Commit Hash**: `e9545fe1543e990a8b30af920ea477193a8def36`
+**Short Hash**: `e9545fe`
 
 ### Files Modified
 
@@ -13868,17 +13887,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update ci-runner.js
+ci: update the upload runner
 ```
 
 ---
 
-## Commit 607: chore: update commit history
+## Commit 608: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 17:42:03 +0000
-**Commit Hash**: `1f5ffa1a77ec2d119289ba61809450f832c87a64`
-**Short Hash**: `1f5ffa1`
+**Commit Hash**: `754693deb73cffd0d2edbd029d7fe1b5e5a64c46`
+**Short Hash**: `754693d`
 
 ### Files Modified
 
@@ -13892,12 +13911,12 @@ chore: update commit history
 
 ---
 
-## Commit 608: Update regression-server.js
+## Commit 609: Update regression-server.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 23:11:41 +0530
-**Commit Hash**: `b72de950b100ac75c79565b54c37bd80433be450`
-**Short Hash**: `b72de95`
+**Commit Hash**: `8fb66f700ba50ebcb4402c6a5f1ef261d5acb2c8`
+**Short Hash**: `8fb66f7`
 
 ### Files Modified
 
@@ -13911,12 +13930,12 @@ Update regression-server.js
 
 ---
 
-## Commit 609: chore: update commit history
+## Commit 610: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 16:35:30 +0000
-**Commit Hash**: `e00832ec954e7ab5b77052e7a15b6fe2ba246b84`
-**Short Hash**: `e00832e`
+**Commit Hash**: `c00b029b668d4ba997b348bd53a143536c7d403f`
+**Short Hash**: `c00b029`
 
 ### Files Modified
 
@@ -13930,12 +13949,12 @@ chore: update commit history
 
 ---
 
-## Commit 610: support canonical v2 ClearURLs rules
+## Commit 611: support canonical v2 ClearURLs rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 22:05:11 +0530
-**Commit Hash**: `6f4c43c0b65315cdd3a496cd2b49d457ef663e23`
-**Short Hash**: `6f4c43c`
+**Commit Hash**: `0445cb133a609d9a973912f7da84385eb6a2df84`
+**Short Hash**: `0445cb1`
 
 ### Files Modified
 
@@ -13949,12 +13968,12 @@ support canonical v2 ClearURLs rules
 
 ---
 
-## Commit 611: chore: update commit history
+## Commit 612: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 16:08:35 +0000
-**Commit Hash**: `760eccfd99abefce60ec28df44c5b284df3fe306`
-**Short Hash**: `760eccf`
+**Commit Hash**: `bbc7719fc5241e5b553b8d5087a5fa059b171dba`
+**Short Hash**: `bbc7719`
 
 ### Files Modified
 
@@ -13968,12 +13987,12 @@ chore: update commit history
 
 ---
 
-## Commit 612: support canonical v2 ClearURLs rules
+## Commit 613: support canonical v2 ClearURLs rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 21:38:13 +0530
-**Commit Hash**: `593757d05b237129b71398375ee07b37a2334ffb`
-**Short Hash**: `593757d`
+**Commit Hash**: `230cb97b0fd56544371ed1ec3874c51cbcdc72af`
+**Short Hash**: `230cb97`
 
 ### Files Modified
 
@@ -13994,12 +14013,12 @@ support canonical v2 ClearURLs rules
 
 ---
 
-## Commit 613: Merge pull request #1 from Linkumori/dev
+## Commit 614: Merge pull request from Linkumori/dev
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 21:24:27 +0530
-**Commit Hash**: `a5da9582c6c0c1e2d2968020923d8e1580c4ee52`
-**Short Hash**: `a5da958`
+**Commit Hash**: `7bbc84b7b93a8f9902899422d8a1b418220714bb`
+**Short Hash**: `7bbc84b`
 
 ### Files Modified
 
@@ -14008,17 +14027,17 @@ support canonical v2 ClearURLs rules
 ### Commit Message
 
 ```text
-Merge pull request #1 from Linkumori/dev
+Merge pull request from Linkumori/dev
 ```
 
 ---
 
-## Commit 614: Merge branch 'main' into dev
+## Commit 615: Merge branch 'main' into dev
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:57:06 +0530
-**Commit Hash**: `e42aa9d87733122b85199dea2132a478d0b1c93a`
-**Short Hash**: `e42aa9d`
+**Commit Hash**: `cb939a7ba08e2b4cd7be91917f21e5f0cd8caac7`
+**Short Hash**: `cb939a7`
 
 ### Files Modified
 
@@ -14032,31 +14051,12 @@ Merge branch 'main' into dev
 
 ---
 
-## Commit 615: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-18 15:23:29 +0000
-**Commit Hash**: `7f7b59194b47efaf1bcd85b432ced9fc76dc3afd`
-**Short Hash**: `7f7b591`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
-```
-
----
-
 ## Commit 616: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-18 15:22:48 +0000
-**Commit Hash**: `2031564765aa482046c3c9edd4910ab96143c781`
-**Short Hash**: `2031564`
+**Date**: 2026-05-18 15:23:29 +0000
+**Commit Hash**: `1747bc73d70dba6a47e933f107ecb54b3f591fe9`
+**Short Hash**: `1747bc7`
 
 ### Files Modified
 
@@ -14070,12 +14070,31 @@ chore: update commit history
 
 ---
 
-## Commit 617: add rich syntax support based on clearurls based on dev branch
+## Commit 617: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-18 15:22:48 +0000
+**Commit Hash**: `15711b5074c4f698368fd3b1deb1467675dbe3af`
+**Short Hash**: `15711b5`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 618: add rich syntax support based on clearurls based on dev branch
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:52:19 +0530
-**Commit Hash**: `b9b5071ab6042f1fa4e30a1300203ac659bd3755`
-**Short Hash**: `b9b5071`
+**Commit Hash**: `2ff28c71c9f679d5717f313eaa1b6cfc111c6c09`
+**Short Hash**: `2ff28c7`
 
 ### Files Modified
 
@@ -14100,12 +14119,12 @@ add rich syntax support based on clearurls based on dev branch
 
 ---
 
-## Commit 618: Revert "fix: harden native rule runtime edge cases"
+## Commit 619: Revert "fix: harden native rule runtime edge cases"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:42:12 +0530
-**Commit Hash**: `80eda8f4cd7df3cce02788e3fb8f32b15072fdbf`
-**Short Hash**: `80eda8f`
+**Commit Hash**: `23bd98356e3488208987f580a839bf7d8e66a1e7`
+**Short Hash**: `23bd983`
 
 ### Files Modified
 
@@ -14123,12 +14142,12 @@ Revert "fix: harden native rule runtime edge cases"
 
 ---
 
-## Commit 619: Revert "fix: address native rule review feedback"
+## Commit 620: Revert "fix: address native rule review feedback"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:41:24 +0530
-**Commit Hash**: `ad980b66e2e57988e0bd07fb54ead96670a1e04a`
-**Short Hash**: `ad980b6`
+**Commit Hash**: `913faafc43b049522b3605c7ba636422ad570d3e`
+**Short Hash**: `913faaf`
 
 ### Files Modified
 
@@ -14146,12 +14165,12 @@ Revert "fix: address native rule review feedback"
 
 ---
 
-## Commit 620: Revert "feat: add durable native rule identity support"
+## Commit 621: Revert "feat: add durable native rule identity support"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:40:37 +0530
-**Commit Hash**: `2c860e77720596599311e251a8b38d28538c1f08`
-**Short Hash**: `2c860e7`
+**Commit Hash**: `e353e6a875271734e1789e2e1b6595315bfe0cf8`
+**Short Hash**: `e353e6a`
 
 ### Files Modified
 
@@ -14226,12 +14245,12 @@ Revert "feat: add durable native rule identity support"
 
 ---
 
-## Commit 621: Revert "feat:(rules): introduce Linkumori-native superset format"
+## Commit 622: Revert "feat:(rules): introduce Linkumori-native superset format"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:39:51 +0530
-**Commit Hash**: `b950ecdd86bbe647920e81da3671a0f93d95f129`
-**Short Hash**: `b950ecd`
+**Commit Hash**: `b305947a0bc076ae309aa4ad470e499bebd28f65`
+**Short Hash**: `b305947`
 
 ### Files Modified
 
@@ -14249,12 +14268,12 @@ Revert "feat:(rules): introduce Linkumori-native superset format"
 
 ---
 
-## Commit 622: add rich ClearURLs rule syntax support
+## Commit 623: add rich ClearURLs rule syntax support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:37:15 +0530
-**Commit Hash**: `f0b5911a80e803f40c07f66f41fa1c106e513ef3`
-**Short Hash**: `f0b5911`
+**Commit Hash**: `7d338854bc1ad9da2216acb9a65b759a6325a8c6`
+**Short Hash**: `7d33885`
 
 ### Files Modified
 
@@ -14273,12 +14292,12 @@ add rich ClearURLs rule syntax support
 
 ---
 
-## Commit 623: chore: update commit history
+## Commit 624: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 08:03:52 +0000
-**Commit Hash**: `fdc125f477562c96ba78d9dacc0438d534d7b64c`
-**Short Hash**: `fdc125f`
+**Commit Hash**: `5dd9efc4d91189736b865bad0544dcec380f7ba0`
+**Short Hash**: `5dd9efc`
 
 ### Files Modified
 
@@ -14292,12 +14311,12 @@ chore: update commit history
 
 ---
 
-## Commit 624: fix: harden native rule runtime edge cases
+## Commit 625: fix: harden native rule runtime edge cases
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 13:23:32 +0530
-**Commit Hash**: `253ccdd55377487b399bc809b28409a083a7c1c0`
-**Short Hash**: `253ccdd`
+**Commit Hash**: `3c84591574c414a1f25cd03d9fab31561e17f63e`
+**Short Hash**: `3c84591`
 
 ### Files Modified
 
@@ -14315,12 +14334,12 @@ fix: harden native rule runtime edge cases
 
 ---
 
-## Commit 625: chore: update commit history
+## Commit 626: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 07:18:03 +0000
-**Commit Hash**: `2eada0b4ea7243a86c777b9140d424bc932f524b`
-**Short Hash**: `2eada0b`
+**Commit Hash**: `8aebfd0916141986bb8b5f125995fca8112eaa7a`
+**Short Hash**: `8aebfd0`
 
 ### Files Modified
 
@@ -14334,12 +14353,12 @@ chore: update commit history
 
 ---
 
-## Commit 626: fix: address native rule review feedback
+## Commit 627: fix: address native rule review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 12:47:29 +0530
-**Commit Hash**: `35b5e6b9754a8e19135e5095269c75dba7bb7a44`
-**Short Hash**: `35b5e6b`
+**Commit Hash**: `cf4048e11a77396115293873284d8a4f1c342e7a`
+**Short Hash**: `cf4048e`
 
 ### Files Modified
 
@@ -14357,12 +14376,12 @@ fix: address native rule review feedback
 
 ---
 
-## Commit 627: chore: update commit history
+## Commit 628: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 02:15:51 +0000
-**Commit Hash**: `2fd2fe1d8642051ca6084d71b6477b7671d6f62b`
-**Short Hash**: `2fd2fe1`
+**Commit Hash**: `2377538c2ddf7e73d6180af79e44ba909a004138`
+**Short Hash**: `2377538`
 
 ### Files Modified
 
@@ -14376,12 +14395,12 @@ chore: update commit history
 
 ---
 
-## Commit 628: feat: add durable native rule identity support
+## Commit 629: feat: add durable native rule identity support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 07:45:31 +0530
-**Commit Hash**: `112fb7e4b24ebf0ade864acce4e73804ce7ff889`
-**Short Hash**: `112fb7e`
+**Commit Hash**: `2cd57349147417ba14439e25f633fdfbc71b3a4c`
+**Short Hash**: `2cd5734`
 
 ### Files Modified
 
@@ -14456,12 +14475,12 @@ feat: add durable native rule identity support
 
 ---
 
-## Commit 629: chore: update commit history
+## Commit 630: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 01:49:58 +0000
-**Commit Hash**: `b059a574960037aff748e073b8232d4efb34f4f7`
-**Short Hash**: `b059a57`
+**Commit Hash**: `096980a43b90fdea4326a65b4eeee0a78c2d9ea0`
+**Short Hash**: `096980a`
 
 ### Files Modified
 
@@ -14475,12 +14494,12 @@ chore: update commit history
 
 ---
 
-## Commit 630: Implement native superset rules across tooling
+## Commit 631: Implement native superset rules across tooling
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 07:19:41 +0530
-**Commit Hash**: `f26f882a2798e18843b2c17ca300edad38fb58b1`
-**Short Hash**: `f26f882`
+**Commit Hash**: `14e930cc21aadf3b7fdbd0b1ef011fd63094adcf`
+**Short Hash**: `14e930c`
 
 ### Files Modified
 
@@ -14503,12 +14522,12 @@ Implement native superset rules across tooling
 
 ---
 
-## Commit 631: chore: update commit history
+## Commit 632: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 19:11:35 +0000
-**Commit Hash**: `764528003f5a0569044362cb3e111c933219a4c1`
-**Short Hash**: `7645280`
+**Commit Hash**: `77350c4546f25710b1ebcd6802d77c5f8534bf8b`
+**Short Hash**: `77350c4`
 
 ### Files Modified
 
@@ -14522,12 +14541,12 @@ chore: update commit history
 
 ---
 
-## Commit 632: feat:(rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format
+## Commit 633: feat:(rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 00:40:08 +0530
-**Commit Hash**: `0255e8e8b3743624ddd4f2114814b0e9a23be9b7`
-**Short Hash**: `0255e8e`
+**Commit Hash**: `fc69683ce4ab3e4d4e18d9d2184b14a296314e6f`
+**Short Hash**: `fc69683`
 
 ### Files Modified
 
@@ -14545,12 +14564,12 @@ feat:(rules): introduce Linkumori-native superset format https://gitlab.com/Clea
 
 ---
 
-## Commit 633: chore: update commit history
+## Commit 634: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:11:35 +0000
-**Commit Hash**: `b6013c8064728b94c683b500df37652155758fa6`
-**Short Hash**: `b6013c8`
+**Commit Hash**: `c2e1fbc29b28fb52f75dec862e56c05451381fe9`
+**Short Hash**: `c2e1fbc`
 
 ### Files Modified
 
@@ -14564,12 +14583,12 @@ chore: update commit history
 
 ---
 
-## Commit 634: fix ubo removeparam interoperability
+## Commit 635: fix ubo removeparam interoperability
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-17 20:41:22 +0530
-**Commit Hash**: `645f681acfdb195d6399422009224f367c0288fb`
-**Short Hash**: `645f681`
+**Commit Hash**: `d7a758d59d1f2734ce36ced3ac2c46dba4783a7b`
+**Short Hash**: `d7a758d`
 
 ### Files Modified
 
@@ -14585,12 +14604,12 @@ fix ubo removeparam interoperability
 
 ---
 
-## Commit 635: chore: update changelog for v100.5.0
+## Commit 636: chore: update changelog for v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:42 +0000
-**Commit Hash**: `ca0bf6636f76b5da7af365e367731f63cd2c8ce6`
-**Short Hash**: `ca0bf66`
+**Commit Hash**: `8d4a94073f13c551135f20ca80f96a2ff2f59e97`
+**Short Hash**: `8d4a940`
 
 ### Files Modified
 
@@ -14604,12 +14623,12 @@ chore: update changelog for v100.5.0
 
 ---
 
-## Commit 636: chore: update commit history for v100.5.0
+## Commit 637: chore: update commit history for v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:41 +0000
-**Commit Hash**: `b277cc9a6e4b08d50f18156097b03b0699a2e3f8`
-**Short Hash**: `b277cc9`
+**Commit Hash**: `3facf46b15313df6a515698e96d54cd59ca499ef`
+**Short Hash**: `3facf46`
 
 ### Files Modified
 
@@ -14623,12 +14642,12 @@ chore: update commit history for v100.5.0
 
 ---
 
-## Commit 637: release 100.5.0
+## Commit 638: chore: release v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:40 +0000
-**Commit Hash**: `de9360a19a761f24f83b17d1bd66163f316a9d4f`
-**Short Hash**: `de9360a`
+**Commit Hash**: `fc992e104eb825b39d6902373e8700531f5047f0`
+**Short Hash**: `fc992e1`
 
 ### Files Modified
 
@@ -14637,17 +14656,17 @@ chore: update commit history for v100.5.0
 ### Commit Message
 
 ```text
-release 100.5.0
+chore: release v100.5.0
 ```
 
 ---
 
-## Commit 638: chore: update commit history
+## Commit 639: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:05:35 +0000
-**Commit Hash**: `7f8676ef59d30bce0883f559fdfc7207a5cda2e9`
-**Short Hash**: `7f8676e`
+**Commit Hash**: `017a142c960374755d41bfe77bd93291994ad046`
+**Short Hash**: `017a142`
 
 ### Files Modified
 
@@ -14661,12 +14680,12 @@ chore: update commit history
 
 ---
 
-## Commit 639: chore: update changelog for v100.4.0
+## Commit 640: chore: update changelog for v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:35:14 +0530
-**Commit Hash**: `15108a0e900e6258abd66b29117ea80cedf7ec3e`
-**Short Hash**: `15108a0`
+**Commit Hash**: `f50b46f3dfdb9d3ca65445ea9fe73120a21beeed`
+**Short Hash**: `f50b46f`
 
 ### Files Modified
 
@@ -14680,12 +14699,12 @@ chore: update changelog for v100.4.0
 
 ---
 
-## Commit 640: chore: update commit history for v100.4.0
+## Commit 641: chore: update commit history for v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:34:41 +0530
-**Commit Hash**: `d32104f93426f816ba256480457a1d9cde7f48d0`
-**Short Hash**: `d32104f`
+**Commit Hash**: `c91708c07eeca09535290495c149c44c58d3a48e`
+**Short Hash**: `c91708c`
 
 ### Files Modified
 
@@ -14699,12 +14718,12 @@ chore: update commit history for v100.4.0
 
 ---
 
-## Commit 641: release 100.4.0
+## Commit 642: chore: release v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:33:47 +0530
-**Commit Hash**: `833a9d952786b1f2ca96994e089a1e7fa350e5bb`
-**Short Hash**: `833a9d9`
+**Commit Hash**: `e260a6791dd1f5992e184fbf7a0f9e54eac08fa7`
+**Short Hash**: `e260a67`
 
 ### Files Modified
 
@@ -14713,17 +14732,17 @@ chore: update commit history for v100.4.0
 ### Commit Message
 
 ```text
-release 100.4.0
+chore: release v100.4.0
 ```
 
 ---
 
-## Commit 642: ci: run regression suite as single background batch call
+## Commit 643: ci: run regression suite as single background batch call
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-17 14:34:05 +0530
-**Commit Hash**: `807b930ab566afe4ffdef2107d5ade30881dcafa`
-**Short Hash**: `807b930`
+**Commit Hash**: `03e8e04936ec7251c7606b42a806d937bd8f3ff2`
+**Short Hash**: `03e8e04`
 
 ### Files Modified
 
@@ -14738,12 +14757,12 @@ ci: run regression suite as single background batch call
 
 ---
 
-## Commit 643: chore: update changelog for v100.3.0
+## Commit 644: chore: update changelog for v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:33 +0000
-**Commit Hash**: `5c4eb8c7c80e1e39159318322f3127e590c0dfdf`
-**Short Hash**: `5c4eb8c`
+**Commit Hash**: `893e8a17f207ead128e20f3f29778209114f4092`
+**Short Hash**: `893e8a1`
 
 ### Files Modified
 
@@ -14757,12 +14776,12 @@ chore: update changelog for v100.3.0
 
 ---
 
-## Commit 644: chore: update commit history for v100.3.0
+## Commit 645: chore: update commit history for v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:32 +0000
-**Commit Hash**: `076f0bc87ad3ea04ac5b3d13098436283c49012e`
-**Short Hash**: `076f0bc`
+**Commit Hash**: `4eddc6174b5fd9795d2de402d135563ea350c9bf`
+**Short Hash**: `4eddc61`
 
 ### Files Modified
 
@@ -14776,12 +14795,12 @@ chore: update commit history for v100.3.0
 
 ---
 
-## Commit 645: release 100.3.0
+## Commit 646: chore: release v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:31 +0000
-**Commit Hash**: `f841863309021a3c03bed7baa5c88d6ae782b0d7`
-**Short Hash**: `f841863`
+**Commit Hash**: `3e99a74eba81d2fb3aa053feb681adad9e4c0e4f`
+**Short Hash**: `3e99a74`
 
 ### Files Modified
 
@@ -14790,17 +14809,17 @@ chore: update commit history for v100.3.0
 ### Commit Message
 
 ```text
-release 100.3.0
+chore: release v100.3.0
 ```
 
 ---
 
-## Commit 646: chore: update changelog for v100.2.0
+## Commit 647: chore: update changelog for v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:05 +0000
-**Commit Hash**: `0d17e8a8f80fcf630f52723039feecabc8909e93`
-**Short Hash**: `0d17e8a`
+**Commit Hash**: `66473f251e9cf3b358cfc71377cf199aebfd0006`
+**Short Hash**: `66473f2`
 
 ### Files Modified
 
@@ -14814,12 +14833,12 @@ chore: update changelog for v100.2.0
 
 ---
 
-## Commit 647: chore: update commit history for v100.2.0
+## Commit 648: chore: update commit history for v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:04 +0000
-**Commit Hash**: `cfdc079c62cd061a243f148f78b35b9adb194237`
-**Short Hash**: `cfdc079`
+**Commit Hash**: `95b8dc44721ac1c13fed4edd930e9cc3c52e69aa`
+**Short Hash**: `95b8dc4`
 
 ### Files Modified
 
@@ -14833,12 +14852,12 @@ chore: update commit history for v100.2.0
 
 ---
 
-## Commit 648: release 100.2.0
+## Commit 649: chore: release v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:03 +0000
-**Commit Hash**: `0b21c6ef8eb41d85427f4a533431a323ae5a63f7`
-**Short Hash**: `0b21c6e`
+**Commit Hash**: `95335edece3bd6b56784776a3966ad21fbe65dfe`
+**Short Hash**: `95335ed`
 
 ### Files Modified
 
@@ -14847,17 +14866,17 @@ chore: update commit history for v100.2.0
 ### Commit Message
 
 ```text
-release 100.2.0
+chore: release v100.2.0
 ```
 
 ---
 
-## Commit 649: chore: update commit history
+## Commit 650: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:27:25 +0000
-**Commit Hash**: `c21a4b96c287b92b4d1e61cf292fa045e2853c7c`
-**Short Hash**: `c21a4b9`
+**Commit Hash**: `60fd352fa9b1308c5f2ba597a4367e9fbea365a8`
+**Short Hash**: `60fd352`
 
 ### Files Modified
 
@@ -14871,12 +14890,12 @@ chore: update commit history
 
 ---
 
-## Commit 650: Merge pull request #10 from Linkumori/master
+## Commit 651: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:57:11 +0530
-**Commit Hash**: `2c2051750c544815816d2ab739dd78edb70a099b`
-**Short Hash**: `2c20517`
+**Commit Hash**: `ba7f2f3f79b65f1fe7288ee2f88b403228b886fc`
+**Short Hash**: `ba7f2f3`
 
 ### Files Modified
 
@@ -14885,17 +14904,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #10 from Linkumori/master
+Merge pull request from Linkumori/master
 ```
 
 ---
 
-## Commit 651: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 652: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:56:37 +0530
-**Commit Hash**: `8ec904018ce9abde8dbddda3dabc4b6198dc7c75`
-**Short Hash**: `8ec9040`
+**Commit Hash**: `38253313b15305965cd305c1ac424287d51e0b47`
+**Short Hash**: `3825331`
 
 ### Files Modified
 
@@ -14909,12 +14928,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 652: Merge branch 'main' into master
+## Commit 653: Merge branch 'main' into master
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:56:23 +0530
-**Commit Hash**: `0c9a461a89fdcaa87255b3091214ffe0cbb523b2`
-**Short Hash**: `0c9a461`
+**Commit Hash**: `bc5dbc15b0310c182d51c02d1ecd21568c3ec200`
+**Short Hash**: `bc5dbc1`
 
 ### Files Modified
 
@@ -14928,31 +14947,12 @@ Merge branch 'main' into master
 
 ---
 
-## Commit 653: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-16 16:25:29 +0000
-**Commit Hash**: `1fc4ed5c981eb04d68a18ea9dcaa47a4d1f226e7`
-**Short Hash**: `1fc4ed5`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
-```
-
----
-
 ## Commit 654: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-16 13:09:29 +0000
-**Commit Hash**: `186a6acbbb872e86ba239f073026546ad0d2fe1d`
-**Short Hash**: `186a6ac`
+**Date**: 2026-05-16 16:25:29 +0000
+**Commit Hash**: `4b28d210503dc84ca2ab326e12a15199348f3ad4`
+**Short Hash**: `4b28d21`
 
 ### Files Modified
 
@@ -14969,9 +14969,9 @@ chore: update commit history
 ## Commit 655: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-16 11:52:13 +0000
-**Commit Hash**: `131cd5c3cfeec294bee074b964365640d41ed9e9`
-**Short Hash**: `131cd5c`
+**Date**: 2026-05-16 13:09:29 +0000
+**Commit Hash**: `66ad9e7b2516dbd8b1e51bf52d7501baded35de0`
+**Short Hash**: `66ad9e7`
 
 ### Files Modified
 
@@ -14985,12 +14985,31 @@ chore: update commit history
 
 ---
 
-## Commit 656: chore: update changelog for v100.1.0
+## Commit 656: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-16 11:52:13 +0000
+**Commit Hash**: `b4c8d706988417a3a2f6969d5db103669b1ab197`
+**Short Hash**: `b4c8d70`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 657: chore: update changelog for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:21 +0000
-**Commit Hash**: `8bdeb6d26fcde758336e9c06ac5c0ddedebdffb3`
-**Short Hash**: `8bdeb6d`
+**Commit Hash**: `be8d54583af8bd23419b73765db545e74e5eb04c`
+**Short Hash**: `be8d545`
 
 ### Files Modified
 
@@ -15004,12 +15023,12 @@ chore: update changelog for v100.1.0
 
 ---
 
-## Commit 657: chore: update commit history for v100.1.0
+## Commit 658: chore: update commit history for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:20 +0000
-**Commit Hash**: `486796faad72a7ef65da1483c43208336b7a1e43`
-**Short Hash**: `486796f`
+**Commit Hash**: `571f955826f8ef37bdf0f925f75f8de23ccc12ef`
+**Short Hash**: `571f955`
 
 ### Files Modified
 
@@ -15023,12 +15042,12 @@ chore: update commit history for v100.1.0
 
 ---
 
-## Commit 658: release 100.1.0
+## Commit 659: chore: release v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:19 +0000
-**Commit Hash**: `bb837f95c478d1f41bbf2a8100ca34798f387bce`
-**Short Hash**: `bb837f9`
+**Commit Hash**: `632bb04e8f22bf37993df49ad6271639ee37e698`
+**Short Hash**: `632bb04`
 
 ### Files Modified
 
@@ -15037,17 +15056,17 @@ chore: update commit history for v100.1.0
 ### Commit Message
 
 ```text
-release 100.1.0
+chore: release v100.1.0
 ```
 
 ---
 
-## Commit 659: chore: update changelog for v100.1.0
+## Commit 660: chore: update changelog for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:21 +0000
-**Commit Hash**: `fe8b7e6420dbdca5f6bc089714546344f1b2a8e9`
-**Short Hash**: `fe8b7e6`
+**Commit Hash**: `6cfb4060d9e7ed7bd49b6b3ac8a755c24872eef0`
+**Short Hash**: `6cfb406`
 
 ### Files Modified
 
@@ -15061,12 +15080,12 @@ chore: update changelog for v100.1.0
 
 ---
 
-## Commit 660: chore: update commit history for v100.1.0
+## Commit 661: chore: update commit history for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:20 +0000
-**Commit Hash**: `c6a23b74d5f037321cd135ac83f0aca12a3a457f`
-**Short Hash**: `c6a23b7`
+**Commit Hash**: `c1a80d6b0a38105e7d94f438ceed41506c407d23`
+**Short Hash**: `c1a80d6`
 
 ### Files Modified
 
@@ -15080,12 +15099,12 @@ chore: update commit history for v100.1.0
 
 ---
 
-## Commit 661: release 100.1.0
+## Commit 662: chore: release v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:19 +0000
-**Commit Hash**: `cd2c5517d03d2a72a02eaad0f1111a7df9b670ca`
-**Short Hash**: `cd2c551`
+**Commit Hash**: `618d70356eb1ba65f3e46459de9b319c71835992`
+**Short Hash**: `618d703`
 
 ### Files Modified
 
@@ -15094,17 +15113,17 @@ chore: update commit history for v100.1.0
 ### Commit Message
 
 ```text
-release 100.1.0
+chore: release v100.1.0
 ```
 
 ---
 
-## Commit 662: chore: update commit history
+## Commit 663: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:30:35 +0000
-**Commit Hash**: `8809e4938677ad20506aa7df47392d7be71714b2`
-**Short Hash**: `8809e49`
+**Commit Hash**: `1198e249ee59ab47b5d11714961bb2696b42745d`
+**Short Hash**: `1198e24`
 
 ### Files Modified
 
@@ -15118,12 +15137,12 @@ chore: update commit history
 
 ---
 
-## Commit 663: ci: skip redundant rule-apply calls and reduce sleeps in CI mode
+## Commit 664: ci: skip redundant rule-apply calls and reduce sleeps in CI mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:59:42 +0530
-**Commit Hash**: `55362428cc54d014c65eebcefe50e2f086e30ca7`
-**Short Hash**: `5536242`
+**Commit Hash**: `d462a6b35d9d2e18f944bb5476980360bdceba77`
+**Short Hash**: `d462a6b`
 
 ### Files Modified
 
@@ -15137,12 +15156,12 @@ ci: skip redundant rule-apply calls and reduce sleeps in CI mode
 
 ---
 
-## Commit 664: chore: update commit history
+## Commit 665: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:14:39 +0000
-**Commit Hash**: `713c301aebbc4f6b4ed8238ed90e233a3cc8f9cb`
-**Short Hash**: `713c301`
+**Commit Hash**: `557e5351496aee95af2c43c402f6fcc3fed571e4`
+**Short Hash**: `557e535`
 
 ### Files Modified
 
@@ -15156,12 +15175,12 @@ chore: update commit history
 
 ---
 
-## Commit 665: ci: log live progress while waiting for regression suite
+## Commit 666: ci: log live progress while waiting for regression suite
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:44:23 +0530
-**Commit Hash**: `db18bf1469fbe803ec32383d83fd857f81e3e43f`
-**Short Hash**: `db18bf1`
+**Commit Hash**: `05c1fe15b0c74d1d7be42d1be01dc539a78d322e`
+**Short Hash**: `05c1fe1`
 
 ### Files Modified
 
@@ -15175,12 +15194,12 @@ ci: log live progress while waiting for regression suite
 
 ---
 
-## Commit 666: chore: update commit history
+## Commit 667: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:13:27 +0000
-**Commit Hash**: `c35eb192313dc4c295e4281d8964e07a57dee20f`
-**Short Hash**: `c35eb19`
+**Commit Hash**: `540eb8fbf7204fc27e4437a4725b62e171ea804d`
+**Short Hash**: `540eb8f`
 
 ### Files Modified
 
@@ -15194,12 +15213,12 @@ chore: update commit history
 
 ---
 
-## Commit 667: ci: auto-detect Firefox binary path per platform
+## Commit 668: ci: auto-detect Firefox binary path per platform
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:43:10 +0530
-**Commit Hash**: `da4180796a764c973758d9a1f9916f5b45ead910`
-**Short Hash**: `da41807`
+**Commit Hash**: `06e89a5cb20b2ea688dd13bad75f13e4ea788a64`
+**Short Hash**: `06e89a5`
 
 ### Files Modified
 
@@ -15213,12 +15232,12 @@ ci: auto-detect Firefox binary path per platform
 
 ---
 
-## Commit 668: chore: update commit history
+## Commit 669: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:10:31 +0000
-**Commit Hash**: `ddd58c32991b903d2f04f0d9d4867b12fdbc8823`
-**Short Hash**: `ddd58c3`
+**Commit Hash**: `5fe8a948d38231c85fdc90c67c2c5ff46c0a0f33`
+**Short Hash**: `5fe8a94`
 
 ### Files Modified
 
@@ -15232,12 +15251,12 @@ chore: update commit history
 
 ---
 
-## Commit 669: ci: skip tab navigation for non-blocked tests in CI mode
+## Commit 670: ci: skip tab navigation for non-blocked tests in CI mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:40:11 +0530
-**Commit Hash**: `5d30b5dd97fc2a077bce42d20c306a40197ae0b6`
-**Short Hash**: `5d30b5d`
+**Commit Hash**: `2793cf514403c9a9d100b62cb68a1d367af26a9b`
+**Short Hash**: `2793cf5`
 
 ### Files Modified
 
@@ -15252,12 +15271,12 @@ ci: skip tab navigation for non-blocked tests in CI mode
 
 ---
 
-## Commit 670: chore: update commit history
+## Commit 671: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:49:56 +0000
-**Commit Hash**: `141ac8e354d8103e3b080623b7481cffdb775776`
-**Short Hash**: `141ac8e`
+**Commit Hash**: `37eb175243ea689d64bb49daf4d9852471021299`
+**Short Hash**: `37eb175`
 
 ### Files Modified
 
@@ -15271,12 +15290,12 @@ chore: update commit history
 
 ---
 
-## Commit 671: ci: add regression test server
+## Commit 672: ci: add regression test server
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:19:39 +0530
-**Commit Hash**: `8296edbb8dba0b40e7a12f970385886e69ce0995`
-**Short Hash**: `8296edb`
+**Commit Hash**: `e6cc23146a00c06eeb22be18d4b83e401cf4ff63`
+**Short Hash**: `e6cc231`
 
 ### Files Modified
 
@@ -15290,12 +15309,12 @@ ci: add regression test server
 
 ---
 
-## Commit 672: chore: update commit history
+## Commit 673: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:11:07 +0000
-**Commit Hash**: `39561dd8bdf66764e7dde780548e076d5c3dd221`
-**Short Hash**: `39561dd`
+**Commit Hash**: `293d96aafa5c50fe1bcba847cf8000e46926c5d3`
+**Short Hash**: `293d96a`
 
 ### Files Modified
 
@@ -15309,12 +15328,12 @@ chore: update commit history
 
 ---
 
-## Commit 673: ci: use browser-actions to install Firefox and geckodriver
+## Commit 674: ci: use browser-actions to install Firefox and geckodriver
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 18:40:51 +0530
-**Commit Hash**: `9ede97ac5149457444f78e1f1d6a489141dd4daf`
-**Short Hash**: `9ede97a`
+**Commit Hash**: `6da2f3a9807ebb3962502f7b194f661ea6b03f70`
+**Short Hash**: `6da2f3a`
 
 ### Files Modified
 
@@ -15328,12 +15347,12 @@ ci: use browser-actions to install Firefox and geckodriver
 
 ---
 
-## Commit 674: chore: update commit history
+## Commit 675: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:09:29 +0000
-**Commit Hash**: `ae83f632a643d99e5e17728b093f6135ecbcd9e0`
-**Short Hash**: `ae83f63`
+**Commit Hash**: `24c730ce291836a36eb5c83a900e5ce1f82b4432`
+**Short Hash**: `24c730c`
 
 ### Files Modified
 
@@ -15347,12 +15366,12 @@ chore: update commit history
 
 ---
 
-## Commit 675: ci: add Firefox regression test workflow and CI runner
+## Commit 676: ci: add Firefox regression test workflow and CI runner
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 18:39:10 +0530
-**Commit Hash**: `45561d396348e2ef940528048a9693528a720c10`
-**Short Hash**: `45561d3`
+**Commit Hash**: `0edcc4a92c739ffd7ff9232e0a96f00cfb38161d`
+**Short Hash**: `0edcc4a`
 
 ### Files Modified
 
@@ -15370,12 +15389,12 @@ ci: add Firefox regression test workflow and CI runner
 
 ---
 
-## Commit 676: chore: update commit history
+## Commit 677: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 11:52:13 +0000
-**Commit Hash**: `6ee6507ae36995ad45e094e644ab9129ab0d6055`
-**Short Hash**: `6ee6507`
+**Commit Hash**: `b58f7137cc5099c234854d0e6e35f872c40f69be`
+**Short Hash**: `b58f713`
 
 ### Files Modified
 
@@ -15389,12 +15408,12 @@ chore: update commit history
 
 ---
 
-## Commit 677: fix: untyped removeparam rules default to document type only
+## Commit 678: fix: untyped removeparam rules default to document type only
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 17:22:01 +0530
-**Commit Hash**: `76fc7bbb9bc791a1d0d80db0df7c880bdd152b27`
-**Short Hash**: `76fc7bb`
+**Commit Hash**: `9d110bb54503f6a9005bc80bef5a1d4001a4824e`
+**Short Hash**: `9d110bb`
 
 ### Files Modified
 
@@ -15408,12 +15427,12 @@ fix: untyped removeparam rules default to document type only
 
 ---
 
-## Commit 678: chore: update commit history
+## Commit 679: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 11:41:05 +0000
-**Commit Hash**: `04aa09a87209d8630bb0d49a680cbdbb9bcf86e5`
-**Short Hash**: `04aa09a`
+**Commit Hash**: `69f8b751c71ae16e20f1dd4ae6a5635226a2d6e4`
+**Short Hash**: `69f8b75`
 
 ### Files Modified
 
@@ -15427,12 +15446,12 @@ chore: update commit history
 
 ---
 
-## Commit 679: fix: regression suite, URL filter interoperability, and AdGuard spec compliance
+## Commit 680: fix: regression suite, URL filter interoperability, and AdGuard spec compliance
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 17:09:03 +0530
-**Commit Hash**: `05de7496a5a401d3444c7adbf2f8a794bff421b1`
-**Short Hash**: `05de749`
+**Commit Hash**: `b42f12d82bce08eb47554bc28132ecbfd7508bce`
+**Short Hash**: `b42f12d`
 
 ### Files Modified
 
@@ -15449,12 +15468,12 @@ fix: regression suite, URL filter interoperability, and AdGuard spec compliance
 
 ---
 
-## Commit 680: chore: update changelog for v100.0.4
+## Commit 681: chore: update changelog for v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:56 +0000
-**Commit Hash**: `ca57a95e893bc928c2c117b8309d389142b10be1`
-**Short Hash**: `ca57a95`
+**Commit Hash**: `402886c1414cfc47827e06778eb6365c470cc37f`
+**Short Hash**: `402886c`
 
 ### Files Modified
 
@@ -15468,12 +15487,12 @@ chore: update changelog for v100.0.4
 
 ---
 
-## Commit 681: chore: update commit history for v100.0.4
+## Commit 682: chore: update commit history for v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:55 +0000
-**Commit Hash**: `931c195605202585237e4dd25e4a903a0a06e8b6`
-**Short Hash**: `931c195`
+**Commit Hash**: `3f6dca91e11bca0672aa6567b0ebe49ae15356e8`
+**Short Hash**: `3f6dca9`
 
 ### Files Modified
 
@@ -15487,12 +15506,12 @@ chore: update commit history for v100.0.4
 
 ---
 
-## Commit 682: release 100.0.4
+## Commit 683: chore: release v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:54 +0000
-**Commit Hash**: `e0f3774c7a67be820c023f45ca8adf47e714f58a`
-**Short Hash**: `e0f3774`
+**Commit Hash**: `4df365ca794ecda95a16d31f29f65375fffe81ee`
+**Short Hash**: `4df365c`
 
 ### Files Modified
 
@@ -15501,17 +15520,17 @@ chore: update commit history for v100.0.4
 ### Commit Message
 
 ```text
-release 100.0.4
+chore: release v100.0.4
 ```
 
 ---
 
-## Commit 683: chore: update commit history
+## Commit 684: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:05:19 +0000
-**Commit Hash**: `b47dda58e972b4f1a8ddf6263aaa37810a301bfa`
-**Short Hash**: `b47dda5`
+**Commit Hash**: `b29cd30da15c750afa355095b95f7349d1e46feb`
+**Short Hash**: `b29cd30`
 
 ### Files Modified
 
@@ -15525,12 +15544,12 @@ chore: update commit history
 
 ---
 
-## Commit 684: Merge pull request #7 from Linkumori/master (add regression suite)
+## Commit 685: Merge pull request from Linkumori/master: add regression suite
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:35:05 +0530
-**Commit Hash**: `6d32bc7abdb573f104b8bce8c355d8da6affcd61`
-**Short Hash**: `6d32bc7`
+**Commit Hash**: `49369639379b1554ed8278a8d00a2c9732fe1edc`
+**Short Hash**: `4936963`
 
 ### Files Modified
 
@@ -15539,17 +15558,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #7 from Linkumori/master (add regression suite)
+Merge pull request from Linkumori/master: add regression suite
 ```
 
 ---
 
-## Commit 685: chore: update commit history
+## Commit 686: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 04:45:00 +0000
-**Commit Hash**: `adcffa084660c43e73fb46cc61eb17f7686629df`
-**Short Hash**: `adcffa0`
+**Commit Hash**: `33ed24f0d06a34e37e18e2315590748390fdaa79`
+**Short Hash**: `33ed24f`
 
 ### Files Modified
 
@@ -15563,12 +15582,12 @@ chore: update commit history
 
 ---
 
-## Commit 686: exclude regression suite from builds
+## Commit 687: exclude regression suite from builds
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:14:47 +0530
-**Commit Hash**: `26696b3c313664da211ffce17ccc37e9673a998c`
-**Short Hash**: `26696b3`
+**Commit Hash**: `d4bf2d7272089adedd10c34359bc9540f6c0f45b`
+**Short Hash**: `d4bf2d7`
 
 ### Files Modified
 
@@ -15584,12 +15603,12 @@ exclude regression suite from builds
 
 ---
 
-## Commit 687: chore: update commit history
+## Commit 688: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 04:40:36 +0000
-**Commit Hash**: `e72a43bfb7178cffba4a7437127d6c88666d7409`
-**Short Hash**: `e72a43b`
+**Commit Hash**: `104b97925fa26b452558a422b13f0bdc176ed1f7`
+**Short Hash**: `104b979`
 
 ### Files Modified
 
@@ -15603,12 +15622,12 @@ chore: update commit history
 
 ---
 
-## Commit 688: address regression suite review feedback
+## Commit 689: address regression suite review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:10:18 +0530
-**Commit Hash**: `4df27f5e00f95dbb79eefe41db1b5f4f2f7809b9`
-**Short Hash**: `4df27f5`
+**Commit Hash**: `cc84c9c17f987c86a95880e381ff02e52ef172df`
+**Short Hash**: `cc84c9c`
 
 ### Files Modified
 
@@ -15683,12 +15702,12 @@ address regression suite review feedback
 
 ---
 
-## Commit 689: chore: update commit history
+## Commit 690: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 19:00:52 +0000
-**Commit Hash**: `f5ea77c85d29ed39af633599c674ca641f1b4d30`
-**Short Hash**: `f5ea77c`
+**Commit Hash**: `5ba289a1d88cbc9d38abf2779df0814da0c10470`
+**Short Hash**: `5ba289a`
 
 ### Files Modified
 
@@ -15702,12 +15721,12 @@ chore: update commit history
 
 ---
 
-## Commit 690: add in-extension regression suite runner
+## Commit 691: add in-extension regression suite runner
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 00:30:34 +0530
-**Commit Hash**: `0b3aa2b13018bae66ab9635420cf9a124c5e402b`
-**Short Hash**: `0b3aa2b`
+**Commit Hash**: `ee11099bc5d8c864f1345d14438e1ae9a59e6fd2`
+**Short Hash**: `ee11099`
 
 ### Files Modified
 
@@ -15728,12 +15747,12 @@ add in-extension regression suite runner
 
 ---
 
-## Commit 691: chore: update commit history
+## Commit 692: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 13:02:17 +0000
-**Commit Hash**: `6bdebf9b4ee0ef890be8aa72152c3ff2f515ba2b`
-**Short Hash**: `6bdebf9`
+**Commit Hash**: `86d3176e1eda04044aef89d0d132d6798906b67f`
+**Short Hash**: `86d3176`
 
 ### Files Modified
 
@@ -15747,12 +15766,12 @@ chore: update commit history
 
 ---
 
-## Commit 692: chore: update changelog for v100.0.3
+## Commit 693: chore: update changelog for v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:10 +0000
-**Commit Hash**: `90bbe7e8cdfd63828abcb1e2f2480a3e171e66f0`
-**Short Hash**: `90bbe7e`
+**Commit Hash**: `ae6929cf35c979c4a3a3913460d63b5e171088be`
+**Short Hash**: `ae6929c`
 
 ### Files Modified
 
@@ -15766,12 +15785,12 @@ chore: update changelog for v100.0.3
 
 ---
 
-## Commit 693: chore: update commit history for v100.0.3
+## Commit 694: chore: update commit history for v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:08 +0000
-**Commit Hash**: `1c31b7d717c1fde7ee1dc5c66c9c80dfb03b51ba`
-**Short Hash**: `1c31b7d`
+**Commit Hash**: `b2ffecaf435b25eb4820b9e9854b82e96e8b5c02`
+**Short Hash**: `b2ffeca`
 
 ### Files Modified
 
@@ -15785,12 +15804,12 @@ chore: update commit history for v100.0.3
 
 ---
 
-## Commit 694: release 100.0.3
+## Commit 695: chore: release v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:07 +0000
-**Commit Hash**: `f4be0b7f538b490b66b9566b55df4fb2b0a0a1f1`
-**Short Hash**: `f4be0b7`
+**Commit Hash**: `cd99fb5e1a14aff6de5dd24c7946b89349114e7b`
+**Short Hash**: `cd99fb5`
 
 ### Files Modified
 
@@ -15800,17 +15819,17 @@ chore: update commit history for v100.0.3
 ### Commit Message
 
 ```text
-release 100.0.3
+chore: release v100.0.3
 ```
 
 ---
 
-## Commit 695: chore: update commit history
+## Commit 696: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:47:13 +0000
-**Commit Hash**: `ab5e4a7fb246c49533ef4bba9b2dbdf89960f998`
-**Short Hash**: `ab5e4a7`
+**Commit Hash**: `7721ee709c4b944040a255d8b576d0cd43a5ef12`
+**Short Hash**: `7721ee7`
 
 ### Files Modified
 
@@ -15824,12 +15843,12 @@ chore: update commit history
 
 ---
 
-## Commit 696: Merge pull request #6 from Linkumori/master
+## Commit 697: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:16:58 +0530
-**Commit Hash**: `f5c808e49f48536626ba56864eb7b9b1d80e8a6c`
-**Short Hash**: `f5c808e`
+**Commit Hash**: `35c11a73383996fea5cb20598bb0fb07055c26ce`
+**Short Hash**: `35c11a7`
 
 ### Files Modified
 
@@ -15838,17 +15857,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #6 from Linkumori/master
+Merge pull request from Linkumori/master
 ```
 
 ---
 
-## Commit 697: chore: update commit history
+## Commit 698: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:46:00 +0000
-**Commit Hash**: `b18a9901282c37d9ee58acfb4dca1744d6750445`
-**Short Hash**: `b18a990`
+**Commit Hash**: `ac32f7493c39aae4facb2c688e4e56689956065f`
+**Short Hash**: `ac32f74`
 
 ### Files Modified
 
@@ -15862,12 +15881,12 @@ chore: update commit history
 
 ---
 
-## Commit 698: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 699: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:15:46 +0530
-**Commit Hash**: `305992092c00ca7a2a2009281eda84a4c7cd7425`
-**Short Hash**: `3059920`
+**Commit Hash**: `0fb93ed12d9eceecfc23dd45b03e78a926afc6da`
+**Short Hash**: `0fb93ed`
 
 ### Files Modified
 
@@ -15881,12 +15900,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 699: remove inferred main frame source fallback
+## Commit 700: remove inferred main frame source fallback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:15:36 +0530
-**Commit Hash**: `b68dcf10afd96254b1b2f4799e3c9669562758e8`
-**Short Hash**: `b68dcf1`
+**Commit Hash**: `8534b286c9eaad920338dcf97e7f1e40ac33d4ab`
+**Short Hash**: `8534b28`
 
 ### Files Modified
 
@@ -15901,12 +15920,12 @@ remove inferred main frame source fallback
 
 ---
 
-## Commit 700: chore: update commit history
+## Commit 701: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:39:05 +0000
-**Commit Hash**: `de983509e3e44e882fecc3680f8d458b81e88822`
-**Short Hash**: `de98350`
+**Commit Hash**: `992736612324e83a6b3b4f4f7215da30829a5077`
+**Short Hash**: `9927366`
 
 ### Files Modified
 
@@ -15920,12 +15939,12 @@ chore: update commit history
 
 ---
 
-## Commit 701: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 702: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:08:40 +0530
-**Commit Hash**: `32bfefc6a212be7ea1028a6ac784088d3b4b8763`
-**Short Hash**: `32bfefc`
+**Commit Hash**: `73c15cdae38b9aaecd08f589d39eb3b4e0beb904`
+**Short Hash**: `73c15cd`
 
 ### Files Modified
 
@@ -15939,12 +15958,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 702: address pr review feedback
+## Commit 703: address pr review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:07:47 +0530
-**Commit Hash**: `327c2fa14882681b0d0ad3934f618a601bbdb6c3`
-**Short Hash**: `327c2fa`
+**Commit Hash**: `b02438b07c0d903048987db4aa6c010c670a5c40`
+**Short Hash**: `b02438b`
 
 ### Files Modified
 
@@ -15962,12 +15981,12 @@ address pr review feedback
 
 ---
 
-## Commit 703: chore: update commit history
+## Commit 704: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:28:16 +0000
-**Commit Hash**: `46fd74624d371ec1c0d3a312a0448ce6f9f27898`
-**Short Hash**: `46fd746`
+**Commit Hash**: `e987da0de737b2a352e3d08c6cd68843faa87aaf`
+**Short Hash**: `e987da0`
 
 ### Files Modified
 
@@ -15981,12 +16000,12 @@ chore: update commit history
 
 ---
 
-## Commit 704: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 705: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 17:57:40 +0530
-**Commit Hash**: `07551f0856ce7bef413fe174c8961cd7fec95541`
-**Short Hash**: `07551f0`
+**Commit Hash**: `6aa42c62ec196116c78f87cd15ecd6e5801340f3`
+**Short Hash**: `6aa42c6`
 
 ### Files Modified
 
@@ -16000,12 +16019,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 705: fix url filter syntax handling and provider indexing
+## Commit 706: fix url filter syntax handling and provider indexing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 17:57:16 +0530
-**Commit Hash**: `ca1bcd255df1a00208185801bcec28186ed9d82a`
-**Short Hash**: `ca1bcd2`
+**Commit Hash**: `3f403bb15a6b58fe8efcd8a6d45ab5e3cd695ab0`
+**Short Hash**: `3f403bb`
 
 ### Files Modified
 
@@ -16026,12 +16045,12 @@ fix url filter syntax handling and provider indexing
 
 ---
 
-## Commit 706: chore: update commit history
+## Commit 707: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:07:19 +0000
-**Commit Hash**: `eb6d4fd8474413fdb7fe5894a849884588e8530e`
-**Short Hash**: `eb6d4fd`
+**Commit Hash**: `e7e48ca3289eb9a0db766021f2ce867371baf8b8`
+**Short Hash**: `e7e48ca`
 
 ### Files Modified
 
@@ -16045,12 +16064,12 @@ chore: update commit history
 
 ---
 
-## Commit 707: chore: update changelog for v100.0.2
+## Commit 708: chore: update changelog for v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:52 +0000
-**Commit Hash**: `ab666973702856b6b85e13bd9f84c2e81d4f2e11`
-**Short Hash**: `ab66697`
+**Commit Hash**: `1f312cd94bdc90909c794115193c7674310bb17e`
+**Short Hash**: `1f312cd`
 
 ### Files Modified
 
@@ -16064,12 +16083,12 @@ chore: update changelog for v100.0.2
 
 ---
 
-## Commit 708: chore: update commit history for v100.0.2
+## Commit 709: chore: update commit history for v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:51 +0000
-**Commit Hash**: `24d0b44b385e90e09d75dbdd487b74d329527c3b`
-**Short Hash**: `24d0b44`
+**Commit Hash**: `b4cc5b0bfe25af16c23c8a4110d4d92a9da1fa79`
+**Short Hash**: `b4cc5b0`
 
 ### Files Modified
 
@@ -16083,12 +16102,12 @@ chore: update commit history for v100.0.2
 
 ---
 
-## Commit 709: release 100.0.2
+## Commit 710: chore: release v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:50 +0000
-**Commit Hash**: `2b779ed09447fed3ce2bf43b16dfe25c2f676d48`
-**Short Hash**: `2b779ed`
+**Commit Hash**: `996b38ee35388e4a4f6929e9dc26a3bc3ed9907f`
+**Short Hash**: `996b38e`
 
 ### Files Modified
 
@@ -16098,17 +16117,17 @@ chore: update commit history for v100.0.2
 ### Commit Message
 
 ```text
-release 100.0.2
+chore: release v100.0.2
 ```
 
 ---
 
-## Commit 710: chore: update commit history
+## Commit 711: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 16:17:21 +0000
-**Commit Hash**: `d1b680c12539d524a711814d5a26718f82bc0200`
-**Short Hash**: `d1b680c`
+**Commit Hash**: `e973c88ab1fcdf6d0c753137755871b9e53ec4fb`
+**Short Hash**: `e973c88`
 
 ### Files Modified
 
@@ -16122,12 +16141,12 @@ chore: update commit history
 
 ---
 
-## Commit 711: Merge pull request #5 from Linkumori/master
+## Commit 712: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 21:46:49 +0530
-**Commit Hash**: `68ecdd317118c71a70faf2ecef5ced856acc6bb9`
-**Short Hash**: `68ecdd3`
+**Commit Hash**: `9907bffebaa7333596c3199c2bd0353591c974ab`
+**Short Hash**: `9907bff`
 
 ### Files Modified
 
@@ -16136,17 +16155,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #5 from Linkumori/master
+Merge pull request from Linkumori/master
 ```
 
 ---
 
-## Commit 712: chore: update commit history
+## Commit 713: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 16:16:25 +0000
-**Commit Hash**: `bad068fd935f5cb62a9d923c2ffcd27fb5dee413`
-**Short Hash**: `bad068f`
+**Commit Hash**: `7e597a5a71d0e1dc4553c0cb8b9f797b486152a6`
+**Short Hash**: `7e597a5`
 
 ### Files Modified
 
@@ -16160,12 +16179,12 @@ chore: update commit history
 
 ---
 
-## Commit 713: recompile from same source code using new version of fontforge
+## Commit 714: recompile from same source code using new version of fontforge
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 21:44:45 +0530
-**Commit Hash**: `a6386d86cc243d175170e353fd12816f8a6d9537`
-**Short Hash**: `a6386d8`
+**Commit Hash**: `8792e1d299284aea9de07b2736349648a0423e34`
+**Short Hash**: `8792e1d`
 
 ### Files Modified
 
@@ -16179,12 +16198,12 @@ recompile from same source code using new version of fontforge
 
 ---
 
-## Commit 714: chore: update changelog for v100.0.1
+## Commit 715: chore: update changelog for v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:13 +0000
-**Commit Hash**: `095bdd162c517a0eb17c2f4e2b3fa6d87ab8ac97`
-**Short Hash**: `095bdd1`
+**Commit Hash**: `ba5243ea20466372d011d7bcb3c5617e195b1e55`
+**Short Hash**: `ba5243e`
 
 ### Files Modified
 
@@ -16198,12 +16217,12 @@ chore: update changelog for v100.0.1
 
 ---
 
-## Commit 715: chore: update commit history for v100.0.1
+## Commit 716: chore: update commit history for v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:12 +0000
-**Commit Hash**: `fc36f1340a4df8cd577697d7f967e6825babd22e`
-**Short Hash**: `fc36f13`
+**Commit Hash**: `dec24403909d2b50568161e58abb4fac436a4a8a`
+**Short Hash**: `dec2440`
 
 ### Files Modified
 
@@ -16217,12 +16236,12 @@ chore: update commit history for v100.0.1
 
 ---
 
-## Commit 716: release 100.0.1
+## Commit 717: chore: release v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:11 +0000
-**Commit Hash**: `eef951d22d5e771ebcf7225f9d8355f55a30182d`
-**Short Hash**: `eef951d`
+**Commit Hash**: `64d78e3e82eab941c984968e3a2d0b2b5df1bad9`
+**Short Hash**: `64d78e3`
 
 ### Files Modified
 
@@ -16231,17 +16250,17 @@ chore: update commit history for v100.0.1
 ### Commit Message
 
 ```text
-release 100.0.1
+chore: release v100.0.1
 ```
 
 ---
 
-## Commit 717: chore: update commit history
+## Commit 718: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:20:21 +0000
-**Commit Hash**: `a7ff4c540f9325c067c9e63f7cf421849e55fa60`
-**Short Hash**: `a7ff4c5`
+**Commit Hash**: `e05b715b052cc2cc6f7f92d0bf7991b163c740f4`
+**Short Hash**: `e05b715`
 
 ### Files Modified
 
@@ -16255,12 +16274,12 @@ chore: update commit history
 
 ---
 
-## Commit 718: Merge pull request #4 from Linkumori/master
+## Commit 719: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:50:04 +0530
-**Commit Hash**: `70ecd3d7d46799f1e4ce47866bb14238bf2fc50d`
-**Short Hash**: `70ecd3d`
+**Commit Hash**: `0a0ab5ae319028e080a1230879911d869751a184`
+**Short Hash**: `0a0ab5a`
 
 ### Files Modified
 
@@ -16269,26 +16288,7 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #4 from Linkumori/master
-```
-
----
-
-## Commit 719: chore: update commit history
-
-**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-13 09:58:03 +0000
-**Commit Hash**: `442279a64cb526f351fb0ec2a51496f2619614e0`
-**Short Hash**: `442279a`
-
-### Files Modified
-
-- **Modified**: `COMMIT_HISTORY.md`
-
-### Commit Message
-
-```text
-chore: update commit history
+Merge pull request from Linkumori/master
 ```
 
 ---
@@ -16296,9 +16296,9 @@ chore: update commit history
 ## Commit 720: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-**Date**: 2026-05-13 13:12:30 +0000
-**Commit Hash**: `4f0394987497e52f2cb2284d3b810f77d1e3bdd4`
-**Short Hash**: `4f03949`
+**Date**: 2026-05-13 09:58:03 +0000
+**Commit Hash**: `65776b6215ad72d04b748f29e2db040d8e06a131`
+**Short Hash**: `65776b6`
 
 ### Files Modified
 
@@ -16312,12 +16312,31 @@ chore: update commit history
 
 ---
 
-## Commit 721: changed to manfiest.json
+## Commit 721: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-13 13:12:30 +0000
+**Commit Hash**: `f422a72ce2b330fd869704fa1c994212d5417233`
+**Short Hash**: `f422a72`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 722: changed to manfiest.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:41:31 +0530
-**Commit Hash**: `1bf5b4a9a1cc8ffa0c0c3850d74b28fb924a7800`
-**Short Hash**: `1bf5b4a`
+**Commit Hash**: `b433d70af4028012dce3fa86eb9327df51247464`
+**Short Hash**: `b433d70`
 
 ### Files Modified
 
@@ -16331,12 +16350,12 @@ changed to manfiest.json
 
 ---
 
-## Commit 722: chore: update commit history
+## Commit 723: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:11:43 +0000
-**Commit Hash**: `69a4657b02211eabf49cdcf9a28f9bb67358db14`
-**Short Hash**: `69a4657`
+**Commit Hash**: `1ccc27a3cfcd26b75419979127fdccc7f26b48d9`
+**Short Hash**: `1ccc27a`
 
 ### Files Modified
 
@@ -16350,12 +16369,12 @@ chore: update commit history
 
 ---
 
-## Commit 723: ci: add stable and patch version semantics
+## Commit 724: ci: add stable and patch version semantics
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:41:19 +0530
-**Commit Hash**: `66dd9497d8305e3069adee1640f7350e6ae600cd`
-**Short Hash**: `66dd949`
+**Commit Hash**: `499cf549366353455df0ddc64a9c42c014d74ff2`
+**Short Hash**: `499cf54`
 
 ### Files Modified
 
@@ -16369,12 +16388,12 @@ ci: add stable and patch version semantics
 
 ---
 
-## Commit 724: chore: update commit history
+## Commit 725: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 09:58:03 +0000
-**Commit Hash**: `4b804cebc24c35538af3c2c8d817766b91ce7828`
-**Short Hash**: `4b804ce`
+**Commit Hash**: `3b4b2b853b992563509d3c45c9604693b0d1e227`
+**Short Hash**: `3b4b2b8`
 
 ### Files Modified
 
@@ -16388,12 +16407,12 @@ chore: update commit history
 
 ---
 
-## Commit 725: Merge pull request #3 from Linkumori/master
+## Commit 726: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 15:27:51 +0530
-**Commit Hash**: `2543d6e0129fc3d2f0d14002ecd5a6c219b47ed0`
-**Short Hash**: `2543d6e`
+**Commit Hash**: `9445516e0e9af856c18e1a948a2570e4546adf3f`
+**Short Hash**: `9445516`
 
 ### Files Modified
 
@@ -16402,17 +16421,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #3 from Linkumori/master
+Merge pull request from Linkumori/master
 ```
 
 ---
 
-## Commit 726: chore: update commit history
+## Commit 727: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 09:11:54 +0000
-**Commit Hash**: `ea420777769a5dfa4a16b2cc68babad06b66e74d`
-**Short Hash**: `ea42077`
+**Commit Hash**: `b5969f1796abd9f9749770aa75b829db59a176bd`
+**Short Hash**: `b5969f1`
 
 ### Files Modified
 
@@ -16426,12 +16445,12 @@ chore: update commit history
 
 ---
 
-## Commit 727: fix inaccuracy in README.MD
+## Commit 728: fix inaccuracy in README.MD
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 14:41:08 +0530
-**Commit Hash**: `9f9e45f72ed60d1f0e054f5ccc2daf795333555e`
-**Short Hash**: `9f9e45f`
+**Commit Hash**: `110177a8f8545768402798d17b8c03641248045d`
+**Short Hash**: `110177a`
 
 ### Files Modified
 
@@ -16445,12 +16464,12 @@ fix inaccuracy in README.MD
 
 ---
 
-## Commit 728: chore: update commit history
+## Commit 729: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:28:26 +0000
-**Commit Hash**: `4351a5a772b000ad7819d399be28c816c4f0dc5e`
-**Short Hash**: `4351a5a`
+**Commit Hash**: `f597dcb5b94dbd5d99f86b86c2544f59de8e0a45`
+**Short Hash**: `f597dcb`
 
 ### Files Modified
 
@@ -16464,12 +16483,12 @@ chore: update commit history
 
 ---
 
-## Commit 729: updated package-lock.json
+## Commit 730: updated package-lock.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:57:46 +0530
-**Commit Hash**: `abf3869734506d0d4323068eeb95a892382de0df`
-**Short Hash**: `abf3869`
+**Commit Hash**: `e037e89ceb64c92fbd9e69861c3fd1f5961fa460`
+**Short Hash**: `e037e89`
 
 ### Files Modified
 
@@ -16483,12 +16502,12 @@ updated package-lock.json
 
 ---
 
-## Commit 730: chore: update changelog for v67.0
+## Commit 731: chore: update changelog for v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:38 +0000
-**Commit Hash**: `29fcfca1a1bcf17c92d9cdfe85d4ce58ac7a525f`
-**Short Hash**: `29fcfca`
+**Commit Hash**: `c7f1cf65546c226787b680564388faeaa4390d55`
+**Short Hash**: `c7f1cf6`
 
 ### Files Modified
 
@@ -16502,12 +16521,12 @@ chore: update changelog for v67.0
 
 ---
 
-## Commit 731: chore: update commit history for v67.0
+## Commit 732: chore: update commit history for v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:36 +0000
-**Commit Hash**: `0f623cf10ced04cb96a7e80ad41f560746fd6fdb`
-**Short Hash**: `0f623cf`
+**Commit Hash**: `fffbec6de64efa370a7e2b4be8a32e5fd1f0032e`
+**Short Hash**: `fffbec6`
 
 ### Files Modified
 
@@ -16521,12 +16540,12 @@ chore: update commit history for v67.0
 
 ---
 
-## Commit 732: release 67.0
+## Commit 733: chore: release v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:35 +0000
-**Commit Hash**: `eca88e4b2f992d048743eac3234b1c09e2b8b6eb`
-**Short Hash**: `eca88e4`
+**Commit Hash**: `db9bf49ab8fbc16e488000e8285984b84a84e2a2`
+**Short Hash**: `db9bf49`
 
 ### Files Modified
 
@@ -16535,17 +16554,17 @@ chore: update commit history for v67.0
 ### Commit Message
 
 ```text
-release 67.0
+chore: release v67.0
 ```
 
 ---
 
-## Commit 733: chore: update commit history
+## Commit 734: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:10:40 +0000
-**Commit Hash**: `14e2d52a3cbab6b5703cb43370ab28049fc3d92d`
-**Short Hash**: `14e2d52`
+**Commit Hash**: `ea5cb7f6fad0d7bf01a41675434ee5b91fb38946`
+**Short Hash**: `ea5cb7f`
 
 ### Files Modified
 
@@ -16559,12 +16578,12 @@ chore: update commit history
 
 ---
 
-## Commit 734: Merge pull request #2 from Linkumori/master
+## Commit 735: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:40:21 +0530
-**Commit Hash**: `c303a985abab1aedabaea99bae4fa3eafe56c258`
-**Short Hash**: `c303a98`
+**Commit Hash**: `cf2bd26d301eb5e426d47c3ae30ec9325b9b92c2`
+**Short Hash**: `cf2bd26`
 
 ### Files Modified
 
@@ -16573,17 +16592,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #2 from Linkumori/master
+Merge pull request from Linkumori/master
 ```
 
 ---
 
-## Commit 735: chore: update commit history
+## Commit 736: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:09:44 +0000
-**Commit Hash**: `c94471a69b0fac4d7dc018d3465fbc7850a4e4f6`
-**Short Hash**: `c94471a`
+**Commit Hash**: `de6565bd8a9e4cd0588d021b6f79540137e6a980`
+**Short Hash**: `de6565b`
 
 ### Files Modified
 
@@ -16597,12 +16616,12 @@ chore: update commit history
 
 ---
 
-## Commit 736: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 737: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:38:48 +0530
-**Commit Hash**: `a51a08d4bfefbe125e871fa23239003ba35314fb`
-**Short Hash**: `a51a08d`
+**Commit Hash**: `74abccd223f068f65962ceaf88de24c5ce018b41`
+**Short Hash**: `74abccd`
 
 ### Files Modified
 
@@ -16616,12 +16635,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 737: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 738: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:38:08 +0530
-**Commit Hash**: `9b39aa72d231fd567f4ad799e4eb5ce69c44ade5`
-**Short Hash**: `9b39aa7`
+**Commit Hash**: `6da48d07517b3b932b40f518cc0205176260149d`
+**Short Hash**: `6da48d0`
 
 ### Files Modified
 
@@ -16635,12 +16654,12 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 738: chore: update commit history
+## Commit 739: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:07:53 +0000
-**Commit Hash**: `101e46c499a496b019779c110c9a597466dd60f0`
-**Short Hash**: `101e46c`
+**Commit Hash**: `5669ffead8551f989e1b605983cbb67f8c4bdbe0`
+**Short Hash**: `5669ffe`
 
 ### Files Modified
 
@@ -16654,12 +16673,12 @@ chore: update commit history
 
 ---
 
-## Commit 739: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 740: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:37:38 +0530
-**Commit Hash**: `5eac17a6e1fb1aa7422e1575147cc6884654077a`
-**Short Hash**: `5eac17a`
+**Commit Hash**: `0f68e80017b9b38e04fed4e347678df2d327e5fa`
+**Short Hash**: `0f68e80`
 
 ### Files Modified
 
@@ -16673,12 +16692,12 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 740: add updated rules
+## Commit 741: data: refresh bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:37:17 +0530
-**Commit Hash**: `f034c94bd4db9d490b15109b7a557ca36c6700aa`
-**Short Hash**: `f034c94`
+**Commit Hash**: `586bd5e7e9c8f58bdcb68511aa45ab13249d9e1f`
+**Short Hash**: `586bd5e`
 
 ### Files Modified
 
@@ -16688,17 +16707,17 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 ### Commit Message
 
 ```text
-add updated rules
+data: refresh bundled provider rules
 ```
 
 ---
 
-## Commit 741: chore: update commit history
+## Commit 742: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:06:16 +0000
-**Commit Hash**: `cd8f609605cfb74b9d910e4bebf4d3385576b7cf`
-**Short Hash**: `cd8f609`
+**Commit Hash**: `24b5e9bc74fc85bd45983cc1f9b7d21988a76ce9`
+**Short Hash**: `24b5e9b`
 
 ### Files Modified
 
@@ -16712,12 +16731,12 @@ chore: update commit history
 
 ---
 
-## Commit 742: Merge pull request #1 from Linkumori/master refactor: unify url filter rules under ClearURLsData
+## Commit 743: Merge pull request from Linkumori/master refactor: unify url filter rules under ClearURLsData
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:36:01 +0530
-**Commit Hash**: `4f8cf2940c25868f240f2e4a1c59b86e9cb35860`
-**Short Hash**: `4f8cf29`
+**Commit Hash**: `ad20e0884f0788166830cb533186524dacae7b38`
+**Short Hash**: `ad20e08`
 
 ### Files Modified
 
@@ -16726,17 +16745,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #1 from Linkumori/master refactor: unify url filter rules under ClearURLsData
+Merge pull request from Linkumori/master refactor: unify url filter rules under ClearURLsData
 ```
 
 ---
 
-## Commit 743: chore: update commit history
+## Commit 744: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:03:32 +0000
-**Commit Hash**: `32b64ed3fc923ff2ddf9555363d3db0bca5c41c3`
-**Short Hash**: `32b64ed`
+**Commit Hash**: `ed2dddf0048c961e433fd1aafdf7542850908208`
+**Short Hash**: `ed2dddf`
 
 ### Files Modified
 
@@ -16750,12 +16769,12 @@ chore: update commit history
 
 ---
 
-## Commit 744: fix: address PR review findings
+## Commit 745: fix: address PR review findings
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:33:12 +0530
-**Commit Hash**: `30afe951322440de305eac6fc62d7026da9166ee`
-**Short Hash**: `30afe95`
+**Commit Hash**: `64587384745865454b745e68fd52c962cd899611`
+**Short Hash**: `6458738`
 
 ### Files Modified
 
@@ -16772,12 +16791,12 @@ fix: address PR review findings
 
 ---
 
-## Commit 745: chore: update commit history
+## Commit 746: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:54:31 +0000
-**Commit Hash**: `0f6edbe7369bd220f3f78033182d03938e871dd6`
-**Short Hash**: `0f6edbe`
+**Commit Hash**: `66ef8143533d39e5dede3a91dedb9fdf1b0a3d51`
+**Short Hash**: `66ef814`
 
 ### Files Modified
 
@@ -16791,12 +16810,12 @@ chore: update commit history
 
 ---
 
-## Commit 746: fix: align settings import with unified ClearURLsData
+## Commit 747: fix: align settings import with unified ClearURLsData
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:24:09 +0530
-**Commit Hash**: `f6bcb1d27d20ac992d38237d9f55ce90f1be256c`
-**Short Hash**: `f6bcb1d`
+**Commit Hash**: `4cc4d0b1439a3c453e5ef02376d5ad586e5b29ee`
+**Short Hash**: `4cc4d0b`
 
 ### Files Modified
 
@@ -16811,12 +16830,12 @@ fix: align settings import with unified ClearURLsData
 
 ---
 
-## Commit 747: chore: update commit history
+## Commit 748: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:50:09 +0000
-**Commit Hash**: `3e515c8ba40d44a108bb6a5308fab394c4838a9d`
-**Short Hash**: `3e515c8`
+**Commit Hash**: `ce06c894358e1d488da0ca45dcca8d3718685f5f`
+**Short Hash**: `ce06c89`
 
 ### Files Modified
 
@@ -16830,12 +16849,12 @@ chore: update commit history
 
 ---
 
-## Commit 748: refactor: unify CLI clearurls URL filter output
+## Commit 749: refactor: unify CLI clearurls URL filter output
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:19:44 +0530
-**Commit Hash**: `be4caf215561c912af4a3acc3fa3e5280931d853`
-**Short Hash**: `be4caf2`
+**Commit Hash**: `4b311b18799eee0c9b44ac36096c42a25f43a969`
+**Short Hash**: `4b311b1`
 
 ### Files Modified
 
@@ -16852,12 +16871,12 @@ refactor: unify CLI clearurls URL filter output
 
 ---
 
-## Commit 749: chore: update commit history
+## Commit 750: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:44:13 +0000
-**Commit Hash**: `422c794ca831300774e0a074935cc0408aa5c30c`
-**Short Hash**: `422c794`
+**Commit Hash**: `6179aee344195b1ddef0a35fb34869c8700087ce`
+**Short Hash**: `6179aee`
 
 ### Files Modified
 
@@ -16871,12 +16890,12 @@ chore: update commit history
 
 ---
 
-## Commit 750: refactor: unify url filter rules under ClearURLsData
+## Commit 751: refactor: unify url filter rules under ClearURLsData
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:13:40 +0530
-**Commit Hash**: `b6d7804898d6623f813afc6d3f38009e7f4940c6`
-**Short Hash**: `b6d7804`
+**Commit Hash**: `fd611f4485380c90720a89f9669f93158f7d9fc5`
+**Short Hash**: `fd611f4`
 
 ### Files Modified
 
@@ -16898,12 +16917,12 @@ refactor: unify url filter rules under ClearURLsData
 
 ---
 
-## Commit 751: chore: update commit history
+## Commit 752: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:21:17 +0000
-**Commit Hash**: `bc85d86e3006ce74aa409cd5dbb2e8d15ceb8732`
-**Short Hash**: `bc85d86`
+**Commit Hash**: `9bebc929aa4a447659f0cfa215182b0ff35e1f77`
+**Short Hash**: `9bebc92`
 
 ### Files Modified
 
@@ -16917,12 +16936,12 @@ chore: update commit history
 
 ---
 
-## Commit 752: docs: add maintainer wiki and refresh rule syntax
+## Commit 753: docs: add maintainer wiki and refresh rule syntax
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 12:50:52 +0530
-**Commit Hash**: `e8828692daf09dcc6d435e3de92239a2f1a08d80`
-**Short Hash**: `e882869`
+**Commit Hash**: `79185dfb0696f54309a33b7ee7fd6c875a424d64`
+**Short Hash**: `79185df`
 
 ### Files Modified
 
@@ -16945,12 +16964,12 @@ docs: add maintainer wiki and refresh rule syntax
 
 ---
 
-## Commit 753: chore: update commit history
+## Commit 754: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 06:27:35 +0000
-**Commit Hash**: `12f418c14987baaccab853af8542e7f8a59f4a2a`
-**Short Hash**: `12f418c`
+**Commit Hash**: `b6132667314d4d2607aa7d66854ee18eafc4b953`
+**Short Hash**: `b613266`
 
 ### Files Modified
 
@@ -16964,12 +16983,12 @@ chore: update commit history
 
 ---
 
-## Commit 754: Tighten index pattern extraction
+## Commit 755: Tighten index pattern extraction
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 11:57:17 +0530
-**Commit Hash**: `d102adca567c8ff3d1761a5e397d6a8956f19e2d`
-**Short Hash**: `d102adc`
+**Commit Hash**: `0e560742cb48bbbdf33fa8a3ca60f5d2ac88317a`
+**Short Hash**: `0e56074`
 
 ### Files Modified
 
@@ -16985,12 +17004,12 @@ Tighten index pattern extraction
 
 ---
 
-## Commit 755: chore: update commit history
+## Commit 756: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 05:49:29 +0000
-**Commit Hash**: `cafb8d6ee7da59df80338b570e246fdabbb864c4`
-**Short Hash**: `cafb8d6`
+**Commit Hash**: `61b83159b0304ab53ef9d680fde10c16a60176e7`
+**Short Hash**: `61b8315`
 
 ### Files Modified
 
@@ -17004,12 +17023,12 @@ chore: update commit history
 
 ---
 
-## Commit 756: Improve trie persistence and index pattern generation
+## Commit 757: Improve trie persistence and index pattern generation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 11:18:32 +0530
-**Commit Hash**: `19ae20a3ec7c82cc6fbde1c7a40839544b5b11dc`
-**Short Hash**: `19ae20a`
+**Commit Hash**: `b6ac125c9fe435ae1d9f22f971396657c52e294f`
+**Short Hash**: `b6ac125`
 
 ### Files Modified
 
@@ -17028,12 +17047,12 @@ Improve trie persistence and index pattern generation
 
 ---
 
-## Commit 757: removed more stuff for enchanced speed
+## Commit 758: removed more stuff for enchanced speed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 07:47:46 +0530
-**Commit Hash**: `ba246b8208b98fe649a216e3ab9e7f5214bed2a3`
-**Short Hash**: `ba246b8`
+**Commit Hash**: `60fa757cc1d956639564858025a12658b31d716c`
+**Short Hash**: `60fa757`
 
 ### Files Modified
 
@@ -17047,12 +17066,12 @@ removed more stuff for enchanced speed
 
 ---
 
-## Commit 758: chore: update changelog for v66.0
+## Commit 759: chore: update changelog for v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:23 +0000
-**Commit Hash**: `a3b0a2214ba5b3af9d3cdd870eaa98feb3bc29d2`
-**Short Hash**: `a3b0a22`
+**Commit Hash**: `405ee5e1d052c9185afd4a75382858fae3ee1070`
+**Short Hash**: `405ee5e`
 
 ### Files Modified
 
@@ -17066,12 +17085,12 @@ chore: update changelog for v66.0
 
 ---
 
-## Commit 759: chore: update commit history for v66.0
+## Commit 760: chore: update commit history for v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:22 +0000
-**Commit Hash**: `415248befcece4ffba8e6f11b80a096a68538e9d`
-**Short Hash**: `415248b`
+**Commit Hash**: `cf5b118e5c7f5e76afa33834bab28c32ba958eeb`
+**Short Hash**: `cf5b118`
 
 ### Files Modified
 
@@ -17085,12 +17104,12 @@ chore: update commit history for v66.0
 
 ---
 
-## Commit 760: release 66.0
+## Commit 761: chore: release v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:21 +0000
-**Commit Hash**: `5481e3fe765009bf445fea78e57749abb1d98214`
-**Short Hash**: `5481e3f`
+**Commit Hash**: `0243eb57974288537f42b9d07e62b37987bd2424`
+**Short Hash**: `0243eb5`
 
 ### Files Modified
 
@@ -17099,17 +17118,17 @@ chore: update commit history for v66.0
 ### Commit Message
 
 ```text
-release 66.0
+chore: release v66.0
 ```
 
 ---
 
-## Commit 761: chore: update commit history
+## Commit 762: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 19:34:58 +0000
-**Commit Hash**: `ca46140e6d42799db71b66c1eb5769dae8c02f61`
-**Short Hash**: `ca46140`
+**Commit Hash**: `443a12d1bfbb6c04f08502b790b151d8fb18b399`
+**Short Hash**: `443a12d`
 
 ### Files Modified
 
@@ -17123,12 +17142,12 @@ chore: update commit history
 
 ---
 
-## Commit 762: updated index logic and update matching logic
+## Commit 763: updated index logic and update matching logic
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 01:04:15 +0530
-**Commit Hash**: `4401705a8ba8694cb7bf9d6564b3295d4df28607`
-**Short Hash**: `4401705`
+**Commit Hash**: `22f1ffe82b12eb0f77970d771987c9d53417969d`
+**Short Hash**: `22f1ffe`
 
 ### Files Modified
 
@@ -17145,12 +17164,12 @@ updated index logic and update matching logic
 
 ---
 
-## Commit 763: chore: update commit history
+## Commit 764: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:56:22 +0000
-**Commit Hash**: `5207b8a0ddf0134bbac938d2959b3517db37e657`
-**Short Hash**: `5207b8a`
+**Commit Hash**: `a8f311736939bc338b9c73118fc438c6cb12dfc3`
+**Short Hash**: `a8f3117`
 
 ### Files Modified
 
@@ -17164,12 +17183,12 @@ chore: update commit history
 
 ---
 
-## Commit 764: removed useless fuction to get best speed
+## Commit 765: removed useless fuction to get best speed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 00:25:38 +0530
-**Commit Hash**: `1881a5e21dd7a0d2e684f3ed6493ab84b70e22b9`
-**Short Hash**: `1881a5e`
+**Commit Hash**: `c84522e2908a76208a2a0bcd2d2bb24c55777bc9`
+**Short Hash**: `c84522e`
 
 ### Files Modified
 
@@ -17183,12 +17202,12 @@ removed useless fuction to get best speed
 
 ---
 
-## Commit 765: chore: update changelog for v65.0
+## Commit 766: chore: update changelog for v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:51 +0000
-**Commit Hash**: `dc6854c4c8175af44f28eb2415fc1ef5e7c5e0ad`
-**Short Hash**: `dc6854c`
+**Commit Hash**: `e03cec2d3fc8eb2baac84ba41f6404c26327acbd`
+**Short Hash**: `e03cec2`
 
 ### Files Modified
 
@@ -17202,12 +17221,12 @@ chore: update changelog for v65.0
 
 ---
 
-## Commit 766: chore: update commit history for v65.0
+## Commit 767: chore: update commit history for v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:50 +0000
-**Commit Hash**: `f1999afca68f9e429c31b5953f31cda779139161`
-**Short Hash**: `f1999af`
+**Commit Hash**: `2c67a56302c6f04eac93021cab3fc3b27cf19970`
+**Short Hash**: `2c67a56`
 
 ### Files Modified
 
@@ -17221,12 +17240,12 @@ chore: update commit history for v65.0
 
 ---
 
-## Commit 767: release 65.0
+## Commit 768: chore: release v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:49 +0000
-**Commit Hash**: `8288d795dafe90fdfc6ed571fc3868b18e5b211b`
-**Short Hash**: `8288d79`
+**Commit Hash**: `73e03cd3910b51cb2aa5e2085f7adb3985a3af50`
+**Short Hash**: `73e03cd`
 
 ### Files Modified
 
@@ -17235,17 +17254,17 @@ chore: update commit history for v65.0
 ### Commit Message
 
 ```text
-release 65.0
+chore: release v65.0
 ```
 
 ---
 
-## Commit 768: chore: update commit history
+## Commit 769: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:40:38 +0000
-**Commit Hash**: `7fceaf9dcb37bb99e48799101c8be077ad005e6f`
-**Short Hash**: `7fceaf9`
+**Commit Hash**: `b871f04e31a8489c5f6af7c9941eb535bb3727b1`
+**Short Hash**: `b871f04`
 
 ### Files Modified
 
@@ -17259,12 +17278,12 @@ chore: update commit history
 
 ---
 
-## Commit 769: add rules with index with cli updated
+## Commit 770: add rules with index with cli updated
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 00:03:18 +0530
-**Commit Hash**: `3f92ac8dd65407100e07e4d51760f27f58a5f00b`
-**Short Hash**: `3f92ac8`
+**Commit Hash**: `be95640955a29ec744df5ef0877e52d1e9549f2d`
+**Short Hash**: `be95640`
 
 ### Files Modified
 
@@ -17280,12 +17299,12 @@ add rules with index with cli updated
 
 ---
 
-## Commit 770: feat: updated all translation added multiple indexpattern in one provider and some bug fixes
+## Commit 771: feat: updated all translation added multiple indexpattern in one provider and some bug fixes
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 23:37:07 +0530
-**Commit Hash**: `9cf017772c9689f40929579c44b2c6c8f2319e77`
-**Short Hash**: `9cf0177`
+**Commit Hash**: `d23e2e54e62ceb426cdae1a924086c7978cb7262`
+**Short Hash**: `d23e2e5`
 
 ### Files Modified
 
@@ -17355,12 +17374,12 @@ feat: updated all translation added multiple indexpattern in one provider and so
 
 ---
 
-## Commit 771: chore: update commit history
+## Commit 772: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 15:54:55 +0000
-**Commit Hash**: `c6f050993bde1501cfa3ae98fe588ddbb37f0763`
-**Short Hash**: `c6f0509`
+**Commit Hash**: `49783e294affdb7cca660a6fc9b6eaad7dfbaa65`
+**Short Hash**: `49783e2`
 
 ### Files Modified
 
@@ -17374,12 +17393,12 @@ chore: update commit history
 
 ---
 
-## Commit 772: feat: added index pattern in other subsytem
+## Commit 773: feat: added index pattern in other subsytem
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 20:33:43 +0530
-**Commit Hash**: `13bcb9ad621ed23179403661d860ed0b2b32291f`
-**Short Hash**: `13bcb9a`
+**Commit Hash**: `115c92588f4de07e348b6b5835e7852e0d3241a3`
+**Short Hash**: `115c925`
 
 ### Files Modified
 
@@ -17397,12 +17416,12 @@ feat: added index pattern in other subsytem
 
 ---
 
-## Commit 773: chore: update commit history
+## Commit 774: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 15:44:35 +0000
-**Commit Hash**: `2f16c45c86971d0ef90159d5d55443b48fd06538`
-**Short Hash**: `2f16c45`
+**Commit Hash**: `fc1fe03a31b10b4c609cd5387ee7d8db446ff6f6`
+**Short Hash**: `fc1fe03`
 
 ### Files Modified
 
@@ -17416,12 +17435,12 @@ chore: update commit history
 
 ---
 
-## Commit 774: chore: update changelog for v64.0
+## Commit 775: chore: update changelog for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:08 +0000
-**Commit Hash**: `1922e60c556040c1ba7ea23edd6fca5724ac19f8`
-**Short Hash**: `1922e60`
+**Commit Hash**: `7413c4ed529bd54f35bfa43c3db0d11ca3168658`
+**Short Hash**: `7413c4e`
 
 ### Files Modified
 
@@ -17435,12 +17454,12 @@ chore: update changelog for v64.0
 
 ---
 
-## Commit 775: chore: update commit history for v64.0
+## Commit 776: chore: update commit history for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
-**Commit Hash**: `0177553e5b27678e37981deb3130d7ea9ccb0e90`
-**Short Hash**: `0177553`
+**Commit Hash**: `d8c7069296d65dfd1d69419f1ba8bd52f41a12d2`
+**Short Hash**: `d8c7069`
 
 ### Files Modified
 
@@ -17454,12 +17473,12 @@ chore: update commit history for v64.0
 
 ---
 
-## Commit 776: release 64.0
+## Commit 777: chore: release v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
-**Commit Hash**: `d5aa27ebdb7748de291a48ed547da81afe2ae7ad`
-**Short Hash**: `d5aa27e`
+**Commit Hash**: `81731bf95834cb7ae6087f353bc83a53b5de51cc`
+**Short Hash**: `81731bf`
 
 ### Files Modified
 
@@ -17468,17 +17487,17 @@ chore: update commit history for v64.0
 ### Commit Message
 
 ```text
-release 64.0
+chore: release v64.0
 ```
 
 ---
 
-## Commit 777: chore: update changelog for v63.0
+## Commit 778: chore: update changelog for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:25 +0000
-**Commit Hash**: `05d9831f7bd9e1076f72915efa3ac651a83131bc`
-**Short Hash**: `05d9831`
+**Commit Hash**: `ccb7b14c30ef1ce23baea7c360fe7385c20e7a03`
+**Short Hash**: `ccb7b14`
 
 ### Files Modified
 
@@ -17492,12 +17511,12 @@ chore: update changelog for v63.0
 
 ---
 
-## Commit 778: chore: update commit history for v63.0
+## Commit 779: chore: update commit history for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:24 +0000
-**Commit Hash**: `7dd1c9e934faef54fc99881fb4d5cdc748da6e3d`
-**Short Hash**: `7dd1c9e`
+**Commit Hash**: `6e5f1fd8d52ff42f12a2bfd018697af313200def`
+**Short Hash**: `6e5f1fd`
 
 ### Files Modified
 
@@ -17511,12 +17530,12 @@ chore: update commit history for v63.0
 
 ---
 
-## Commit 779: release 63.0
+## Commit 780: chore: release v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:23 +0000
-**Commit Hash**: `2cd408c1465c2d690e64fc35c1abdf85b33f14c3`
-**Short Hash**: `2cd408c`
+**Commit Hash**: `fe8a1abb175deab3d6b8c71193403a138ee4ea4c`
+**Short Hash**: `fe8a1ab`
 
 ### Files Modified
 
@@ -17525,17 +17544,17 @@ chore: update commit history for v63.0
 ### Commit Message
 
 ```text
-release 63.0
+chore: release v63.0
 ```
 
 ---
 
-## Commit 780: chore: update commit history
+## Commit 781: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:41:48 +0000
-**Commit Hash**: `4114b182ec77589a7a1214f19b703037ccd1993d`
-**Short Hash**: `4114b18`
+**Commit Hash**: `d44294ca94177238847af9fd68869cdc311be2e4`
+**Short Hash**: `d44294c`
 
 ### Files Modified
 
@@ -17549,12 +17568,12 @@ chore: update commit history
 
 ---
 
-## Commit 781: change linkumori to "ClearURLs(Linkumori)" in manifest.json
+## Commit 782: change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 13:11:01 +0530
-**Commit Hash**: `965c9de185a5e8b146da21c8876e6fb527e8dd0e`
-**Short Hash**: `965c9de`
+**Commit Hash**: `abab3bc2e4f6e87497c6f1009eea087b08d6888e`
+**Short Hash**: `abab3bc`
 
 ### Files Modified
 
@@ -17568,12 +17587,12 @@ change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 ---
 
-## Commit 782: chore: update commit history
+## Commit 783: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:49:46 +0000
-**Commit Hash**: `75f68973eac68c414ba9ba25dfd389f0d15cbe0b`
-**Short Hash**: `75f6897`
+**Commit Hash**: `30831e236a0c0b735ecfc8f8a0b46afb7f22a0a6`
+**Short Hash**: `30831e2`
 
 ### Files Modified
 
@@ -17587,12 +17606,12 @@ chore: update commit history
 
 ---
 
-## Commit 783: Merge pull request #1 from Linkumori/subham8907-patch-1
+## Commit 784: Merge pull request from Linkumori/subham8907-patch-1
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:19:24 +0530
-**Commit Hash**: `49aed1e8f8a03158fa00bb2927bb5e52fbb76a09`
-**Short Hash**: `49aed1e`
+**Commit Hash**: `6df4c3a88e844388739371b34bfff75faf81a11f`
+**Short Hash**: `6df4c3a`
 
 ### Files Modified
 
@@ -17601,17 +17620,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #1 from Linkumori/subham8907-patch-1
+Merge pull request from Linkumori/subham8907-patch-1
 ```
 
 ---
 
-## Commit 784: chore: update commit history
+## Commit 785: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:38:14 +0000
-**Commit Hash**: `a0ee4f4386e94d347460f4c8264a6ff5d388261c`
-**Short Hash**: `a0ee4f4`
+**Commit Hash**: `5572632a6da5e6c8577e1753e1862f0217784457`
+**Short Hash**: `5572632`
 
 ### Files Modified
 
@@ -17625,12 +17644,12 @@ chore: update commit history
 
 ---
 
-## Commit 785: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns  ── Problem ──────────────────────────────────────────────────────────  providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes:  1. Alternation groups like (?:youtube\.com
+## Commit 786: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns ── Problem ────────────────────────────────────────────────────────── providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes: 1. Alternation groups like (?:youtube\.com
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:07:56 +0530
-**Commit Hash**: `71431070cf71b3dcf7e0d5b299458a99a66c418b`
-**Short Hash**: `7143107`
+**Commit Hash**: `f9cc6eb06618b26a6fc42b623ecf978c197e923d`
+**Short Hash**: `f9cc6eb`
 
 ### Files Modified
 
@@ -17639,17 +17658,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns  ── Problem ──────────────────────────────────────────────────────────  providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes:  1. Alternation groups like (?:youtube\.com
+feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns ── Problem ────────────────────────────────────────────────────────── providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes: 1. Alternation groups like (?:youtube\.com
 ```
 
 ---
 
-## Commit 786: chore: update changelog for v62.0
+## Commit 787: chore: update changelog for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:30 +0000
-**Commit Hash**: `63360524737e131f63dd40610e5b0e129ebf4adb`
-**Short Hash**: `6336052`
+**Commit Hash**: `15c84cc3810f59b1aaa430c541e9b65a1226518d`
+**Short Hash**: `15c84cc`
 
 ### Files Modified
 
@@ -17663,12 +17682,12 @@ chore: update changelog for v62.0
 
 ---
 
-## Commit 787: chore: update commit history for v62.0
+## Commit 788: chore: update commit history for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:29 +0000
-**Commit Hash**: `ccb7e6cb8ac0586fea13ce99721f08c0acdc2753`
-**Short Hash**: `ccb7e6c`
+**Commit Hash**: `d180a45ac065e5f2b7e92c6af1e4d3c96e299937`
+**Short Hash**: `d180a45`
 
 ### Files Modified
 
@@ -17682,12 +17701,12 @@ chore: update commit history for v62.0
 
 ---
 
-## Commit 788: release 62.0
+## Commit 789: chore: release v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:27 +0000
-**Commit Hash**: `2a49bf22993a6836bd76dfd775ca841670c175ec`
-**Short Hash**: `2a49bf2`
+**Commit Hash**: `3d91d4070eec7daaeed0e4de38230eedfdd16e3e`
+**Short Hash**: `3d91d40`
 
 ### Files Modified
 
@@ -17696,17 +17715,17 @@ chore: update commit history for v62.0
 ### Commit Message
 
 ```text
-release 62.0
+chore: release v62.0
 ```
 
 ---
 
-## Commit 789: chore: update commit history
+## Commit 790: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:20:18 +0000
-**Commit Hash**: `ed33ff97d23f6948703960ea618edeecfa12e6b1`
-**Short Hash**: `ed33ff9`
+**Commit Hash**: `339594cae52eea3420260e18c178feda9c51d8d1`
+**Short Hash**: `339594c`
 
 ### Files Modified
 
@@ -17720,12 +17739,12 @@ chore: update commit history
 
 ---
 
-## Commit 790: Update manifest.json
+## Commit 791: chore: update the extension manifest
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 20:50:00 +0530
-**Commit Hash**: `e6473b04966a00c3fb920d4eca2052acc4931d9c`
-**Short Hash**: `e6473b0`
+**Commit Hash**: `8536eedb5eb4a5481bae9211b1964988bbafe3f4`
+**Short Hash**: `8536eed`
 
 ### Files Modified
 
@@ -17734,17 +17753,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update manifest.json
+chore: update the extension manifest
 ```
 
 ---
 
-## Commit 791: chore: update commit history
+## Commit 792: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 09:11:05 +0000
-**Commit Hash**: `5154abc26ee74393b410c9a60930fcafb77e28f8`
-**Short Hash**: `5154abc`
+**Commit Hash**: `e78f5ae777ea377f5e25a7bf70b974fa03a2c788`
+**Short Hash**: `e78f5ae`
 
 ### Files Modified
 
@@ -17758,12 +17777,12 @@ chore: update commit history
 
 ---
 
-## Commit 792: chore: update changelog for v60.0
+## Commit 793: chore: update changelog for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:28 +0000
-**Commit Hash**: `98275b0da4b9ead2658d6503cbae6452309ac621`
-**Short Hash**: `98275b0`
+**Commit Hash**: `201f17ed4753fdfd28d2ccd5c9ee065bf9fd2a6f`
+**Short Hash**: `201f17e`
 
 ### Files Modified
 
@@ -17777,12 +17796,12 @@ chore: update changelog for v60.0
 
 ---
 
-## Commit 793: chore: update commit history for v60.0
+## Commit 794: chore: update commit history for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:27 +0000
-**Commit Hash**: `4e8895ff4a5a95391d816ae691841ae153530a50`
-**Short Hash**: `4e8895f`
+**Commit Hash**: `2df25a29a10a3dc79af6f6ff89f83466baf9aca0`
+**Short Hash**: `2df25a2`
 
 ### Files Modified
 
@@ -17796,12 +17815,12 @@ chore: update commit history for v60.0
 
 ---
 
-## Commit 794: release 60.0
+## Commit 795: chore: release v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:26 +0000
-**Commit Hash**: `ddd28254a800ad01fca9070b249e5a19bcbcf51c`
-**Short Hash**: `ddd2825`
+**Commit Hash**: `c343212290019d294341b280f8355ac8ceb7b596`
+**Short Hash**: `c343212`
 
 ### Files Modified
 
@@ -17810,17 +17829,17 @@ chore: update commit history for v60.0
 ### Commit Message
 
 ```text
-release 60.0
+chore: release v60.0
 ```
 
 ---
 
-## Commit 795: chore: update commit history
+## Commit 796: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 11:21:19 +0000
-**Commit Hash**: `3715922b893ef3ce74bd7f4aae666398962ec774`
-**Short Hash**: `3715922`
+**Commit Hash**: `4b0bb826aca14baef2aeb9e3676841b31de8044e`
+**Short Hash**: `4b0bb82`
 
 ### Files Modified
 
@@ -17834,12 +17853,12 @@ chore: update commit history
 
 ---
 
-## Commit 796: Merge pull request #1 from Linkumori/beta_performance
+## Commit 797: Merge pull request from Linkumori/beta_performance
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:51:07 +0530
-**Commit Hash**: `7f7362d5facb10f6b2fcf8d448be2aa299f5ac66`
-**Short Hash**: `7f7362d`
+**Commit Hash**: `7f28ba52ff16a7005952635f73fe4dc616c151d7`
+**Short Hash**: `7f28ba5`
 
 ### Files Modified
 
@@ -17848,17 +17867,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Merge pull request #1 from Linkumori/beta_performance
+Merge pull request from Linkumori/beta_performance
 ```
 
 ---
 
-## Commit 797: chore: update commit history
+## Commit 798: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 10:57:16 +0000
-**Commit Hash**: `7c89e5d18688ee6bda5ac91daba8d8da81951d47`
-**Short Hash**: `7c89e5d`
+**Commit Hash**: `f8017a04d9dc83b0e7c4c9d1eeef87aed2a5c870`
+**Short Hash**: `f8017a0`
 
 ### Files Modified
 
@@ -17872,12 +17891,12 @@ chore: update commit history
 
 ---
 
-## Commit 798: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
+## Commit 799: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:04:46 +0530
-**Commit Hash**: `3ff3614e85c64d52e9e4c1c24f5630ddf41359c0`
-**Short Hash**: `3ff3614`
+**Commit Hash**: `b326b2325ebe3bf349908edb1bee2591798fa707`
+**Short Hash**: `b326b23`
 
 ### Files Modified
 
@@ -17891,12 +17910,12 @@ we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-
 
 ---
 
-## Commit 799: chore: update commit history
+## Commit 800: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 18:38:01 +0000
-**Commit Hash**: `e9c2fe13c69193dd4e4355ec2fad189c36dd84bb`
-**Short Hash**: `e9c2fe1`
+**Commit Hash**: `db04ead5a871b87dc448f3b79ebe46f497782322`
+**Short Hash**: `db04ead`
 
 ### Files Modified
 
@@ -17910,12 +17929,12 @@ chore: update commit history
 
 ---
 
-## Commit 800: Update privacy-policy-cli.md
+## Commit 801: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 00:07:47 +0530
-**Commit Hash**: `49134e8485d635244c2b51d8fdfec8a14153bfef`
-**Short Hash**: `49134e8`
+**Commit Hash**: `45d56fbdcaa21a365fe3010bccbd3762f377da88`
+**Short Hash**: `45d56fb`
 
 ### Files Modified
 
@@ -17929,12 +17948,12 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 801: chore: update changelog for v59.0
+## Commit 802: chore: update changelog for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:26 +0000
-**Commit Hash**: `adb271757f3c72fc6f8228740829d96378f81711`
-**Short Hash**: `adb2717`
+**Commit Hash**: `a37c81e3042b228ae5c24b1d755b625ce073e12a`
+**Short Hash**: `a37c81e`
 
 ### Files Modified
 
@@ -17948,12 +17967,12 @@ chore: update changelog for v59.0
 
 ---
 
-## Commit 802: chore: update commit history for v59.0
+## Commit 803: chore: update commit history for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:25 +0000
-**Commit Hash**: `d06cacf43ebf26fc95ac6eb7449d84346bdc5315`
-**Short Hash**: `d06cacf`
+**Commit Hash**: `8f1bdb8ba15162d411e32799eb1709dd80e57522`
+**Short Hash**: `8f1bdb8`
 
 ### Files Modified
 
@@ -17967,12 +17986,12 @@ chore: update commit history for v59.0
 
 ---
 
-## Commit 803: release 59.0
+## Commit 804: chore: release v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:24 +0000
-**Commit Hash**: `22bd962e832231b221c5fa9d9138ec4fb24b6d00`
-**Short Hash**: `22bd962`
+**Commit Hash**: `232e7853840d0c7acdab3ac6a591bc40fb17c4ad`
+**Short Hash**: `232e785`
 
 ### Files Modified
 
@@ -17981,17 +18000,17 @@ chore: update commit history for v59.0
 ### Commit Message
 
 ```text
-release 59.0
+chore: release v59.0
 ```
 
 ---
 
-## Commit 804: chore: update commit history
+## Commit 805: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:11:57 +0000
-**Commit Hash**: `a2b0a7eb5192fdcaf5e7d60b3414393dd51d44d7`
-**Short Hash**: `a2b0a7e`
+**Commit Hash**: `a6aa405a852f91912816f9a73ea609666a267661`
+**Short Hash**: `a6aa405`
 
 ### Files Modified
 
@@ -18005,12 +18024,12 @@ chore: update commit history
 
 ---
 
-## Commit 805: feat: add Firefox CNAME uncloaking controls
+## Commit 806: feat: add Firefox CNAME uncloaking controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 16:40:55 +0530
-**Commit Hash**: `30a0ffc8b69f3437072f30056e45507818506c00`
-**Short Hash**: `30a0ffc`
+**Commit Hash**: `86757c2a47e91243eff464c3eee017ad5d4dbdc3`
+**Short Hash**: `86757c2`
 
 ### Files Modified
 
@@ -18083,12 +18102,12 @@ feat: add Firefox CNAME uncloaking controls
 
 ---
 
-## Commit 806: chore: update changelog for v58.0
+## Commit 807: chore: update changelog for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:57 +0000
-**Commit Hash**: `6076863f1f9c838e61086afca548703b64c55058`
-**Short Hash**: `6076863`
+**Commit Hash**: `01e69dd8fe01f6d944360dec2068b1ce87c0bc03`
+**Short Hash**: `01e69dd`
 
 ### Files Modified
 
@@ -18102,12 +18121,12 @@ chore: update changelog for v58.0
 
 ---
 
-## Commit 807: chore: update commit history for v58.0
+## Commit 808: chore: update commit history for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:55 +0000
-**Commit Hash**: `de12a24322d0c0dec7a491fb6c0c2f3daf358e6d`
-**Short Hash**: `de12a24`
+**Commit Hash**: `70f7bae1c39b479a5cca3c2f55f7460a4671726d`
+**Short Hash**: `70f7bae`
 
 ### Files Modified
 
@@ -18121,12 +18140,12 @@ chore: update commit history for v58.0
 
 ---
 
-## Commit 808: release 58.0
+## Commit 809: chore: release v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:54 +0000
-**Commit Hash**: `2c71c5bc38a9ac41cd8cedd9c3421944262a3719`
-**Short Hash**: `2c71c5b`
+**Commit Hash**: `d9671e6daafd8d2a44b139d3a3f577c45eab0d08`
+**Short Hash**: `d9671e6`
 
 ### Files Modified
 
@@ -18135,17 +18154,17 @@ chore: update commit history for v58.0
 ### Commit Message
 
 ```text
-release 58.0
+chore: release v58.0
 ```
 
 ---
 
-## Commit 809: chore: update commit history
+## Commit 810: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 06:53:53 +0000
-**Commit Hash**: `cc4a4e765fa276868ea25470e68eeadea512830c`
-**Short Hash**: `cc4a4e7`
+**Commit Hash**: `d5f428eda7d51e3f022494bacd5ab937fafc2f61`
+**Short Hash**: `d5f428e`
 
 ### Files Modified
 
@@ -18159,12 +18178,12 @@ chore: update commit history
 
 ---
 
-## Commit 810: Update privacy-policy-cli.md
+## Commit 811: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 12:23:34 +0530
-**Commit Hash**: `a8abad5c07b14014fb5613d8c97588bae36a89b6`
-**Short Hash**: `a8abad5`
+**Commit Hash**: `e24f2292a9b1a1e43cbc0bbcdbd691b4995eba8d`
+**Short Hash**: `e24f229`
 
 ### Files Modified
 
@@ -18178,12 +18197,12 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 811: chore: update changelog for v57.0
+## Commit 812: chore: update changelog for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:48 +0000
-**Commit Hash**: `1def31d121e80981bb2786734b27cb3d33e2dc83`
-**Short Hash**: `1def31d`
+**Commit Hash**: `d12329882d061763a0ad3c8821bff5d12f02a512`
+**Short Hash**: `d123298`
 
 ### Files Modified
 
@@ -18197,12 +18216,12 @@ chore: update changelog for v57.0
 
 ---
 
-## Commit 812: chore: update commit history for v57.0
+## Commit 813: chore: update commit history for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:47 +0000
-**Commit Hash**: `10c16997efa023951658c0bc18900988f88b2ff9`
-**Short Hash**: `10c1699`
+**Commit Hash**: `0fd1499c57c03635ccc40a464be32be556041faa`
+**Short Hash**: `0fd1499`
 
 ### Files Modified
 
@@ -18216,12 +18235,12 @@ chore: update commit history for v57.0
 
 ---
 
-## Commit 813: release 57.0
+## Commit 814: chore: release v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:46 +0000
-**Commit Hash**: `e6e62e4354965d701be0d1d6a1a43397a07967d9`
-**Short Hash**: `e6e62e4`
+**Commit Hash**: `e3867b27f010c28c91285c152a24607adbc0ae69`
+**Short Hash**: `e3867b2`
 
 ### Files Modified
 
@@ -18230,17 +18249,17 @@ chore: update commit history for v57.0
 ### Commit Message
 
 ```text
-release 57.0
+chore: release v57.0
 ```
 
 ---
 
-## Commit 814: chore: update commit history
+## Commit 815: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:03 +0000
-**Commit Hash**: `9561d6c964da4c33cbba9c3763d3f921828fa0d9`
-**Short Hash**: `9561d6c`
+**Commit Hash**: `1b64362aa7776f57fd02542df020feea5fa6ee41`
+**Short Hash**: `1b64362`
 
 ### Files Modified
 
@@ -18254,12 +18273,12 @@ chore: update commit history
 
 ---
 
-## Commit 815: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
+## Commit 816: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 11:21:50 +0530
-**Commit Hash**: `0032076975e85e4e11d8d73d0093a8ac9619a3e2`
-**Short Hash**: `0032076`
+**Commit Hash**: `db11c83d5391a94eb8ad591053a7a5f4c4e5a13e`
+**Short Hash**: `db11c83`
 
 ### Files Modified
 
@@ -18340,12 +18359,12 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ---
 
-## Commit 816: chore: update commit history
+## Commit 817: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 03:39:22 +0000
-**Commit Hash**: `f1b202084ebaf7d56b8e78fec5b28d99c7089147`
-**Short Hash**: `f1b2020`
+**Commit Hash**: `3372888a8ddfe4c1c16fcca71e8ec993d222504e`
+**Short Hash**: `3372888`
 
 ### Files Modified
 
@@ -18359,12 +18378,12 @@ chore: update commit history
 
 ---
 
-## Commit 817: Fix deprecated Components warning
+## Commit 818: Fix deprecated Components warning
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 09:07:23 +0530
-**Commit Hash**: `e55a6ce3f00d6fa169d5143a78cf3ce4aa40c7ee`
-**Short Hash**: `e55a6ce`
+**Commit Hash**: `71b3b4fa1b4594f56b5e986371a070a7a6269b80`
+**Short Hash**: `71b3b4f`
 
 ### Files Modified
 
@@ -18380,12 +18399,12 @@ Fix deprecated Components warning
 
 ---
 
-## Commit 818: chore: update commit history
+## Commit 819: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 02:27:49 +0000
-**Commit Hash**: `ce26f46ae36fd66c4850e10d35c8764a22c443d0`
-**Short Hash**: `ce26f46`
+**Commit Hash**: `ff5f8f59c68650517d111cf08dfab3b01e95fbe9`
+**Short Hash**: `ff5f8f5`
 
 ### Files Modified
 
@@ -18399,12 +18418,12 @@ chore: update commit history
 
 ---
 
-## Commit 819: reverse some change made earlier reapplied
+## Commit 820: reverse some change made earlier reapplied
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:56:57 +0530
-**Commit Hash**: `ffac0e0f596012018e88619c400d2f1334f6d20d`
-**Short Hash**: `ffac0e0`
+**Commit Hash**: `b8edfa62438849615a8c917fc01ebdad70925777`
+**Short Hash**: `b8edfa6`
 
 ### Files Modified
 
@@ -18418,12 +18437,12 @@ reverse some change made earlier reapplied
 
 ---
 
-## Commit 820: chore: update commit history
+## Commit 821: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 01:59:03 +0000
-**Commit Hash**: `11ddf05a51fc7a9279c38aeb08143b2b531ea70a`
-**Short Hash**: `11ddf05`
+**Commit Hash**: `8909f1ea8c12f8e1177c8f3f2290f2eed1ee6ff7`
+**Short Hash**: `8909f1e`
 
 ### Files Modified
 
@@ -18437,12 +18456,12 @@ chore: update commit history
 
 ---
 
-## Commit 821: Update audit.js
+## Commit 822: fix: update link audit behavior
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:28:53 +0530
-**Commit Hash**: `1252062092efb9ab3073e9fc09f4be2fe5fafc08`
-**Short Hash**: `1252062`
+**Commit Hash**: `3814559b962cb5e301197274e2e1e68844700ac7`
+**Short Hash**: `3814559`
 
 ### Files Modified
 
@@ -18451,17 +18470,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update audit.js
+fix: update link audit behavior
 ```
 
 ---
 
-## Commit 822: chore: update changelog for v56.0
+## Commit 823: chore: update changelog for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:21 +0000
-**Commit Hash**: `0d6a4beff23c182cc2613e66270c83dbb3d77646`
-**Short Hash**: `0d6a4be`
+**Commit Hash**: `25cc1fae67e441560791e584ed53e331348a73cc`
+**Short Hash**: `25cc1fa`
 
 ### Files Modified
 
@@ -18475,12 +18494,12 @@ chore: update changelog for v56.0
 
 ---
 
-## Commit 823: chore: update commit history for v56.0
+## Commit 824: chore: update commit history for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:19 +0000
-**Commit Hash**: `393554bf5cd092e066ef8a0da5ed6fc3343472af`
-**Short Hash**: `393554b`
+**Commit Hash**: `832af8d04d67ac9951cc635698c81e1a02147c12`
+**Short Hash**: `832af8d`
 
 ### Files Modified
 
@@ -18494,12 +18513,12 @@ chore: update commit history for v56.0
 
 ---
 
-## Commit 824: release 56.0
+## Commit 825: chore: release v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:18 +0000
-**Commit Hash**: `48e5aad5ad71ba689bf007f6c4d992549bfa6548`
-**Short Hash**: `48e5aad`
+**Commit Hash**: `957b8311173975d69273d553d3b3ce2b5239575d`
+**Short Hash**: `957b831`
 
 ### Files Modified
 
@@ -18513,17 +18532,17 @@ chore: update commit history for v56.0
 ### Commit Message
 
 ```text
-release 56.0
+chore: release v56.0
 ```
 
 ---
 
-## Commit 825: chore: update commit history
+## Commit 826: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:09:44 +0000
-**Commit Hash**: `405fa9915a99a80e9f6ffddbece5060381b904ea`
-**Short Hash**: `405fa99`
+**Commit Hash**: `1b8ec2674ea2cba32731f94d430952f1aca52dc8`
+**Short Hash**: `1b8ec26`
 
 ### Files Modified
 
@@ -18537,12 +18556,12 @@ chore: update commit history
 
 ---
 
-## Commit 826: Update manifest.json
+## Commit 827: chore: update the extension manifest
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:39:32 +0530
-**Commit Hash**: `7987ad134e3e99d5609c801d2583c6b48305afb0`
-**Short Hash**: `7987ad1`
+**Commit Hash**: `466e71294e10073eaafd170bbb5c87e500475955`
+**Short Hash**: `466e712`
 
 ### Files Modified
 
@@ -18551,17 +18570,17 @@ chore: update commit history
 ### Commit Message
 
 ```text
-Update manifest.json
+chore: update the extension manifest
 ```
 
 ---
 
-## Commit 827: chore: update commit history
+## Commit 828: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:04:03 +0000
-**Commit Hash**: `cb01facbc0ef739c9d8198d808bd00f04c8024a8`
-**Short Hash**: `cb01fac`
+**Commit Hash**: `8aa3488e0a9a27f399d4942a209e4eaef7b242fe`
+**Short Hash**: `8aa3488`
 
 ### Files Modified
 
@@ -18575,12 +18594,12 @@ chore: update commit history
 
 ---
 
-## Commit 828: linkumori release
+## Commit 829: chore: release Linkumori
 
 **Author**: subham8907 <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:32:17 +0530
-**Commit Hash**: `192873b50f20282718fe7070f7ac8d6c11466735`
-**Short Hash**: `192873b`
+**Commit Hash**: `8be5996a18cc9c10e5ccfdb7f28f75be581675e6`
+**Short Hash**: `8be5996`
 
 ### Files Modified
 
@@ -18867,7 +18886,7 @@ chore: update commit history
 ### Commit Message
 
 ```text
-linkumori release
+chore: release Linkumori
 ```
 
 ---
@@ -18875,4 +18894,4 @@ linkumori release
 
 *End of Commit History*
 
-**Generated by Linkumori CLI** - 2026-10-25T14:05:44.047Z
+**Generated by Linkumori CLI** - 2026-10-25T14:15:22.603Z
