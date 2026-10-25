@@ -64,7 +64,7 @@
  */
 
 const Linkumoriversion = 12;
-const LinkumoriPOSARversion = 2;
+const LinkumoriPOSARversion = 3;
 
 globalThis.Linkumoriversion = Linkumoriversion;
 globalThis.LinkumoriPOSARversion = LinkumoriPOSARversion;
