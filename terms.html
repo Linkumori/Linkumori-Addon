@@ -22,7 +22,7 @@
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=e36de1294b">
+  <link rel="stylesheet" href="assets/style.css?v=295bc528a1">
   <script src="assets/site.js?v=bd1a8be389"></script>
 
 </head>
@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.69.0</span>
+      <span class="brand-ver">v100.71.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -57,7 +57,7 @@
       <h1>Terms of Use</h1>
       <dl class="doc-facts">
           <div><dt>Applies to</dt><dd>This website</dd></div>
-          <div><dt>Last updated</dt><dd>October 21, 2026</dd></div>
+          <div><dt>Last updated</dt><dd>October 25, 2026</dd></div>
       </dl>
     </div>
   </header>
@@ -71,6 +71,7 @@
 <li><a href="#acceptance">Acceptance</a></li>
 <li><a href="#what-this-site-is">What this site is</a></li>
 <li><a href="#tools-on-this-site">Tools on this site</a></li>
+<li><a href="#content-you-fetch-from-other-sites">Content you fetch from other sites</a></li>
 <li><a href="#licenses">Licenses</a></li>
 <li><a href="#trademarks-and-attribution">Trademarks and attribution</a></li>
 <li><a href="#hosting-by-github">Hosting by GitHub</a></li>
@@ -94,7 +95,16 @@
 <p>This site describes Linkumori and publishes the CLN Format 1.0 standard, its filter syntax reference, and a description of how Linkumori works inside the browser. It is provided for information only.</p>
 <p>Linkumori is distributed separately, through Firefox Add-ons and GitHub Releases. Its use is governed by its own license and privacy policy, not by these terms. Nothing in these terms changes the license of Linkumori or of its source code.</p>
 <h2 id="tools-on-this-site">Tools on this site</h2>
-<p>The URL cleaning demo and the run-order calculator run entirely in your browser. They are simplified examples. Their results may differ from what Linkumori does, and you should not rely on them for any purpose.</p>
+<p>The URL cleaning demo, the run-order calculator and the filter list converter run entirely in your browser. They are simplified tools. Their results may differ from what Linkumori does, and you should not rely on them for any purpose. Check a converted rule file before you use or share it.</p>
+<h2 id="content-you-fetch-from-other-sites">Content you fetch from other sites</h2>
+<p>The filter list converter fetches filter lists from addresses that you enter, and from addresses those lists name with <code>!#include</code>. Your browser makes these requests directly. We do not choose, host, review, check, or endorse those addresses, the sites behind them, or anything they return.</p>
+<p>You are solely responsible for:</p>
+<ul>
+<li>the addresses you enter and the sites you fetch from;</li>
+<li>having the right to fetch, convert, use, and share each list, and following its license, including crediting its authors when you share a converted file;</li>
+<li>anything you do with the converted rule file, including loading it into Linkumori or any other software.</li>
+</ul>
+<p>We are not responsible or liable for any content fetched from another site, including its accuracy, legality, safety, availability, or license, or for any harm, loss, or claim that results from fetching, converting, or using it. A fetched list is treated as plain text and is never run as code, but you should still only fetch lists from sources you trust.</p>
 <h2 id="licenses">Licenses</h2>
 <p>Unless a file or this section says otherwise, the site's code and text are licensed under the GNU Lesser General Public License, version 3 or any later version.</p>
 <p>Some parts of the site are under other licenses:</p>
@@ -113,7 +123,7 @@
 <h2 id="hosting-by-github">Hosting by GitHub</h2>
 <p>This site is hosted on GitHub Pages. Your use of GitHub's service is also subject to the <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service">GitHub Terms of Service</a>. How GitHub handles information from your visit is described in our <a href="privacy.html">Privacy Policy</a>.</p>
 <h2 id="links-to-other-sites">Links to other sites</h2>
-<p>This site links to sites we do not control, including Firefox Add-ons and GitHub. We are not responsible for their content, availability, or practices.</p>
+<p>This site links to sites we do not control, including Firefox Add-ons and GitHub, and its converter can fetch content from sites you choose. We are not responsible for their content, availability, or practices.</p>
 <h2 id="no-warranty">No warranty</h2>
 <p>This site and everything on it are provided &quot;as is&quot; and &quot;as available&quot;, without warranty of any kind, express or implied, including warranties of accuracy, merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the site will be available, error-free, or free of harmful components.</p>
 <h2 id="limitation-of-liability">Limitation of liability</h2>
@@ -147,6 +157,7 @@
             <li><a href="rules.html">How rules work</a></li>
             <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
             <li><a href="filter-syntax.html">Filter syntax</a></li>
+            <li><a href="converter.html">AdGuard converter</a></li>
             <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
           </ul>
         </div>
