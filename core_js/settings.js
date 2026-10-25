@@ -3639,6 +3639,35 @@ function renderRemoteRulesHealth(health) {
 
     renderRemoteRuleCollisions(payload.ruleCollisions);
     renderRemoteFileCapabilities(payload.remoteFileCapabilities);
+    renderRemoteRulePatches(payload.rulePatches);
+}
+
+// Remote rule patches: each patch of a remote file and whether it replaced
+// a rule. A patch that found no rule, or was skipped, changes nothing.
+function renderRemoteRulePatches(rulePatches) {
+    const summaryEl = document.getElementById('remoteHealthRulePatches');
+    const listEl = document.getElementById('remoteHealthRulePatchesList');
+    if (!summaryEl || !listEl) {
+        return;
+    }
+
+    const items = rulePatches && Array.isArray(rulePatches.items) ? rulePatches.items : [];
+    listEl.replaceChildren();
+    listEl.hidden = items.length === 0;
+    if (items.length === 0) {
+        summaryEl.textContent = translate('settings_remote_health_none');
+        return;
+    }
+
+    summaryEl.textContent = translate('settings_remote_health_rule_patches_summary',
+        String(rulePatches.appliedCount || 0),
+        String((rulePatches.unmatchedCount || 0) + (rulePatches.skippedCount || 0)));
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = item.status === 'applied' ? 'remote-health-collision-notice' : 'remote-health-collision-warning';
+        li.textContent = `${item.source} [${item.target}] ${item.status}: ${item.message}`;
+        listEl.appendChild(li);
+    });
 }
 
 // What each remote file can do (CLN 1.0 §Remote file capabilities). Its
@@ -4567,6 +4596,7 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     setElementText('remoteHealthHashStatusLabel', 'settings_remote_health_hash_status_label');
     setElementText('remoteHealthRuleCollisionsLabel', 'settings_remote_health_rule_collisions_label');
     setElementText('remoteHealthCapabilitiesLabel', 'settings_remote_health_capabilities_label');
+    setElementText('remoteHealthRulePatchesLabel', 'settings_remote_health_rule_patches_label');
     
     // Set appropriate placeholders - always locked initially (never persisted)
     const ruleURLInput = document.getElementById('ruleURL');

@@ -71,6 +71,7 @@ No redirect. No popup. No reload. It just works.
 - **Rule disable/restore** — disable specific rules or entire built-in/remote rule sets without creating counter-rules, then restore them anytime
 - **Multiple remote rule sources** — load and merge several remote rule sets simultaneously
 - **Overload mode** — merges built-in and remote rules together before applying your custom rules on top
+- **Remote rule patches** — a remote file can replace existing built-in or remote rules by id with a `patches` list, without republishing the whole rule set (see `docs/filter-syntax.md` §Rule patches)
 
 
 

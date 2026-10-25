@@ -63,6 +63,7 @@ script is listed earlier.
 | 12 | `external_js/regex_analyzer.js` | regex analysis |
 | 13 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
 | 14 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
+| 14a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
 | 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
 | 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
 | 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
@@ -300,6 +301,15 @@ flowchart TD
     C --> O[ClearURLsData]
     N --> O
 ```
+
+**Rule patches.** A remote file's `patches` (see
+[filter syntax §Rule patches](filter-syntax.md#rule-patches)) are applied by
+`applyRemoteRulePatches()` to the rules chosen above, just before
+`mergeCustomRules`, including when the remote cache is used. When every
+loaded remote file holds only `patches`, the base is the bundled rules,
+unmerged so their provider names stay (`withPatchOnlyBuiltInRules`), and
+`hashStatus` is `remote_built_in_merged`. Each patch's result (applied,
+unmatched or skipped) is stored in `remoteRulesHealth.rulePatches`.
 
 `hashStatus` records which path was taken, for example `bundled_rules_loaded`,
 `remote_verified`, `remote_rules_partially_merged`,

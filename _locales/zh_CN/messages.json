@@ -3161,6 +3161,24 @@
       }
     }
   },
+  "settings_remote_health_rule_patches_label": {
+    "message": "Rule patches:",
+    "description": "Remote Rules Health label for the patches remote rule files apply to existing rules"
+  },
+  "settings_remote_health_rule_patches_summary": {
+    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "description": "Remote Rules Health summary of remote rule patches; a patch is not applied when no loaded rule matches it or it was skipped",
+    "placeholders": {
+      "applied": {
+        "content": "$1",
+        "example": "3"
+      },
+      "not_applied": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
   "customRulesEditor_defaultsTitle": {
     "message": "Rule defaults",
     "description": "Custom rules editor heading for the defaults each rule source applies to its own rules"
