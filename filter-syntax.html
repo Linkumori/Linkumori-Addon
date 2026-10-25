@@ -33,7 +33,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.71.0</span>
+      <span class="brand-ver">v100.73.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -502,7 +502,8 @@
 </table></div>
 <p>Inheritance exists for merges across files, not as an authoring feature: <code>lint-rules</code> and the editor reject two different entries with the same text in one array, and warn about an exact copy. They also warn about the same text in <code>rules</code> and <code>referralMarketing</code>, and in <code>rules</code> with and without <code>&quot;referralMarketing&quot;: true</code>. <code>$removeparam</code> filters don't count here — each one runs.</p>
 <h4 id="overload-mode">Overload mode</h4>
-<p>In overload mode the built-in rules and your remote rule files load together, and one site can have a provider in more than one of them. Before any rule runs, those providers are merged into one:</p>
+<p>In <strong>Patch mode + merge</strong> and <strong>No patch mode + merge</strong>, built-in rules and remote rule files load together, and one site can have a provider in more than one of them. Provider merging in either mode follows these rules:</p>
+<p>The overload settings offer three strategies: <strong>Patch mode only</strong> applies remote patches to the built-in rules and omits remote provider rules; <strong>Patch mode + merge</strong> merges built-in and remote providers, then applies patches; <strong>No patch mode + merge</strong> merges the providers and skips remote patches. The strategy is used only while overload mode is enabled. If built-in rules are disabled, patch-only mode has no built-in rules to patch.</p>
 <ol>
 <li><strong>Load order.</strong> Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.</li>
 <li><strong>Which providers merge.</strong> Only providers with the same <code>domainPatterns</code> (or the same <code>urlPattern</code>) <em>and</em> the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code>. Any other provider stays separate and keeps its own rules.</li>
@@ -655,7 +656,7 @@
 </tbody>
 </table></div>
 <ul>
-<li><strong>What it patches.</strong> Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only <code>patches</code> needs no <code>providers</code>; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules.</li>
+<li><strong>What it patches.</strong> Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only <code>patches</code> needs no <code>providers</code>; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules. In overload <strong>No patch mode + merge</strong>, patch files are validated and loaded but their patches are not applied; in <strong>Patch mode only</strong>, remote provider rules are omitted and patches target the built-in rules.</li>
 <li><strong>Matching.</strong> A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always finds them.</li>
 <li><strong>Ids and toggles.</strong> The replacement keeps the replaced rule's id unless it sets its own <code>id</code>; then the old id becomes one of its <code>aliases</code>. Either way, an on/off setting saved for the old rule keeps applying.</li>
 <li><strong>Defaults.</strong> The patch file's <code>defaults</code> (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.</li>
