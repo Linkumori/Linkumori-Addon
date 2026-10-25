@@ -47,6 +47,9 @@
   --line: #d2d2d7;
   --line-soft: #e8e8ed;
   --field: #8e8e93;
+  --field-bg: #ffffff;
+  --field-line: #86868b;
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23616166' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
   --link: #1d4ed8;
   --blue: #2563eb;
   --blue-hover: #1d4ed8;
@@ -92,6 +95,9 @@
     --line: #38383c;
     --line-soft: #2a2a2d;
     --field: #6e6e73;
+    --field-bg: #1c1c1e;
+    --field-line: #636366;
+    --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23a1a1a6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
     --link: #60a5fa;
     --blue: #2563eb;
     --blue-hover: #3b82f6;
@@ -127,6 +133,9 @@
   --line: #38383c;
   --line-soft: #2a2a2d;
   --field: #6e6e73;
+  --field-bg: #1c1c1e;
+  --field-line: #636366;
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23a1a1a6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
   --link: #60a5fa;
   --blue: #2563eb;
   --blue-hover: #3b82f6;
@@ -305,18 +314,18 @@ pre .l { color: var(--code-lit); }
 
 /* ---------- Form fields ---------- */
 
-/* Text boxes, text areas and menus in the demo and the tools share one look: a grey hairline
-   on the page background and a blue ring on focus. Each tool sets its own size and type. */
-:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input) { color: var(--text); background-color: var(--bg); border: 1px solid var(--field); border-radius: 10px; }
-:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
+/* Text boxes, text areas and menus in the demo and the tools share one look, modelled on
+   apple.com's form fields: 12px corners, a grey hairline, a solid blue ring on focus and
+   44px tap targets. Each tool sets its own size and type. */
+:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input) { color: var(--text); background-color: var(--field-bg); border: 1px solid var(--field-line); border-radius: 12px; transition: border-color .2s, box-shadow .2s; }
+:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 55%, transparent); }
 :is(.demo textarea, .tool textarea, .sim-form input, .cv-input, .cv-field input)::placeholder { color: var(--text-3); opacity: 1; }
 :is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):disabled { opacity: .5; cursor: not-allowed; }
-.cv-input[type="search"] { appearance: none; }
+.cv-input[type="search"] { appearance: none; -webkit-appearance: none; }
 /* Menus draw their own chevron, so they look the same in every browser and in both themes. */
 .tool select {
-  appearance: none; min-width: 0; max-width: 100%; cursor: pointer;
-  background-image: linear-gradient(45deg, transparent 50%, var(--text-2) 50%), linear-gradient(135deg, var(--text-2) 50%, transparent 50%);
-  background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat;
+  appearance: none; -webkit-appearance: none; min-width: 0; max-width: 100%; cursor: pointer;
+  background-image: var(--chevron); background-position: right 16px center; background-size: 12px 12px; background-repeat: no-repeat;
 }
 
 /* ---------- Type ---------- */
@@ -495,7 +504,7 @@ pre .l { color: var(--code-lit); }
 .demo .lbl { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
 .demo textarea {
   width: 100%; min-height: 156px; resize: vertical; display: block;
-  font: 14px/1.6 var(--mono); letter-spacing: 0; border-radius: var(--r-sm);
+  font: 14px/1.6 var(--mono); letter-spacing: 0;
   padding: 14px 16px; word-break: break-all;
 }
 .url-out {
@@ -879,12 +888,12 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .tool { background: var(--bg-alt); border-radius: var(--r-lg); padding: 26px; margin: 28px 0; }
 .tool textarea {
   width: 100%; min-height: 280px; font: 13px/1.55 var(--mono); letter-spacing: 0;
-  border-radius: var(--r-sm); padding: 14px 16px; resize: vertical; tab-size: 2;
+  padding: 14px 16px; resize: vertical; tab-size: 2;
 }
 .tool-bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 16px 0; font-size: 15px; }
 .tool-bar label { display: inline-flex; gap: 8px; align-items: center; max-width: 100%; cursor: pointer; }
 .tool-bar input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--blue); }
-.tool-bar select { font: 14px/1.4 var(--font); letter-spacing: -0.01em; padding: 6px 34px 6px 12px; min-height: 32px; }
+.tool-bar select { font: 15px/1.4 var(--font); letter-spacing: -0.01em; padding: 8px 40px 8px 14px; min-height: 40px; }
 .tool .table-wrap { background: var(--bg); }
 .ro-table { font-size: 15px; }
 .ro-table th, .ro-table td { padding: 12px 14px; vertical-align: top; }
@@ -903,7 +912,8 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .sim { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
 .prose .sim-title { font-size: 17px; font-weight: 620; margin: 0 0 4px; }
 .sim-form { display: flex; gap: 10px; margin: 12px 0; }
-.sim-form input { flex: 1 1 auto; min-width: 0; min-height: 36px; font: 13px/1.5 var(--mono); letter-spacing: 0; padding: 7px 12px; }
+.sim-form { align-items: center; }
+.sim-form input { flex: 1 1 auto; min-width: 0; min-height: 44px; font: 14px/1.5 var(--mono); letter-spacing: 0; padding: 10px 16px; }
 .sim-player { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
 .sim-controls { display: flex; flex-wrap: wrap; gap: 8px; }
 .sim-caption { margin: 12px 0 8px; font-size: 14px; color: var(--text-2); }
@@ -927,18 +937,19 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 
 .cv-tool > .tool-bar:last-child { margin-bottom: 0; }
 .tool .btn-sm { min-height: 32px; padding: 6px 16px; font-size: 14px; }
-.cv-sources { display: grid; gap: 14px; }
+.cv-sources { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .cv-source { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
 .cv-source.is-over { border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
 .cv-source-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .cv-source-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; font-weight: 600; letter-spacing: -0.015em; }
 .cv-source-head .link-btn { min-height: 28px; padding: 5px 12px; font-size: 13px; }
-.cv-input, .cv-field select, .cv-field input { width: 100%; min-height: 36px; font: 14px/1.4 var(--font); letter-spacing: -0.01em; padding: 7px 12px; }
-.cv-input[type="url"], .cv-field input[type="text"] { font: 13px/1.5 var(--mono); letter-spacing: 0; }
-.cv-field select { padding-right: 34px; }
+.cv-input, .cv-field select, .cv-field input { width: 100%; min-height: 44px; font: 15px/1.4 var(--font); letter-spacing: -0.01em; padding: 10px 16px; }
+.cv-input[type="url"], .cv-field input[type="text"] { font: 14px/1.5 var(--mono); letter-spacing: 0; }
+.cv-field select { padding-right: 40px; }
 .tool textarea.cv-list { min-height: 110px; margin-top: 10px; font-size: 12.5px; }
 .cv-file { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 10px; font-size: 13px; }
 .cv-file input { font: inherit; color: var(--text-2); max-width: 100%; }
+.cv-file .cv-hint { flex-basis: 100%; }
 .cv-file input::file-selector-button {
   margin-right: 10px; font: 400 13px/1 var(--font); letter-spacing: -0.01em; padding: 5px 12px; min-height: 28px; border-radius: 999px; cursor: pointer;
   background: var(--bg); border: 1px solid var(--field); color: var(--text);
