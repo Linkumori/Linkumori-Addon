@@ -39,9 +39,9 @@
   }
   </script>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=85dfda724a">
+  <link rel="stylesheet" href="assets/style.css?v=2a58c32644">
   <script src="assets/site.js?v=bd1a8be389"></script>
-  <script src="assets/demo.js?v=d89316e88d" defer></script>
+  <script src="assets/demo.js?v=77fd6edfa2" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -286,8 +286,10 @@
         </div>
         <div class="demo reveal">
           <div class="demo-pane">
-            <label class="lbl" for="demo-in">Tracked URL</label>
-            <textarea id="demo-in" spellcheck="false">https://news.example.com/story/42?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=launch&amp;fbclid=IwAR2xYz&amp;id=42</textarea>
+            <div class="code-field">
+              <div class="code-field-bar"><label for="demo-in">Tracked URL</label><span>Paste any link</span></div>
+              <textarea id="demo-in" spellcheck="false" autocapitalize="off" autocomplete="off">https://news.example.com/story/42?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=launch&amp;fbclid=IwAR2xYz&amp;id=42</textarea>
+            </div>
             <div class="samples" aria-label="Sample links">
               <button type="button" data-sample="https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=%C3%85M%C3%85Z%C3%95%C3%91&amp;keywords=tea&amp;pd_rd_i=exampleProduct&amp;pd_rd_r=8d39e4cd-1e4f-43db&amp;pd_rd_w=1pcKM&amp;tag=affiliate-20">Amazon</button>
               <button type="button" data-sample="https://youtu.be/dQw4w9WgXcQ?si=Ab12Cd34Ef56Gh78&amp;t=42">YouTube</button>
@@ -296,9 +298,11 @@
             <label class="check"><input type="checkbox" id="demo-referral"> <span>Allow referral marketing, which keeps affiliate tags like <code>tag</code></span></label>
           </div>
           <div class="demo-pane">
-            <div class="lbl"><span>Clean URL</span><button type="button" id="demo-copy" class="link-btn">Copy</button></div>
-            <div id="demo-out" class="url-out" aria-live="polite"></div>
-            <div class="lbl" style="margin-top:24px">Removed</div>
+            <div class="code-field is-output">
+              <div class="code-field-bar">Clean URL<button type="button" id="demo-copy" class="link-btn">Copy</button></div>
+              <div id="demo-out" class="url-out" aria-live="polite"></div>
+            </div>
+            <div class="lbl demo-removed-lbl">Removed</div>
             <div id="demo-removed" class="removed" aria-label="Removed parts"></div>
             <p class="demo-note">Nothing you paste leaves this page.</p>
           </div>

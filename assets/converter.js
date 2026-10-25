@@ -284,7 +284,7 @@
     const passes = res.steps.length
       ? '<p class="tool-msg">' + res.steps.length + ' pass' + (res.steps.length === 1 ? '' : 'es') + ': ' + res.steps.map(s => esc(s.provider)).join(' → ') + '</p>'
       : '';
-    out.innerHTML = '<div class="sim-final"><p class="sim-result"><b>Result</b></p><code class="sim-url">' + res.result.split(/(?=[\/?&;#])/).map(esc).join('<wbr>') + '</code></div>' + passes +
+    out.innerHTML = '<div class="sim-final"><p class="sim-result"><b>Result</b></p><code class="sim-url">' + res.result.split(/(?<![:\/])(?=\/)|(?=[?&;#])/).map(esc).join('<wbr>') + '</code></div>' + passes +
       (res.rows.length
         ? '<div class="table-wrap cv-test-wrap"><table class="cv-table"><thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Result</th><th scope="col">Rule</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
         : '<p class="tool-msg">The URL has no query parameters.</p>');

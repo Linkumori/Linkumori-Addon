@@ -317,10 +317,10 @@ pre .l { color: var(--code-lit); }
 /* Text boxes, text areas and menus in the demo and the tools share one look, modelled on
    apple.com's form fields: 12px corners, a grey hairline, a solid blue ring on focus and
    44px tap targets. Each tool sets its own size and type. */
-:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input) { color: var(--text); background-color: var(--field-bg); border: 1px solid var(--field-line); border-radius: 12px; transition: border-color .2s, box-shadow .2s; }
-:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 55%, transparent); }
-:is(.demo textarea, .tool textarea, .sim-form input, .cv-input, .cv-field input)::placeholder { color: var(--text-3); opacity: 1; }
-:is(.demo textarea, .tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):disabled { opacity: .5; cursor: not-allowed; }
+:is(.tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input) { color: var(--text); background-color: var(--field-bg); border: 1px solid var(--field-line); border-radius: 12px; transition: border-color .2s, box-shadow .2s; }
+:is(.tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 55%, transparent); }
+:is(.tool textarea, .sim-form input, .cv-input, .cv-field input)::placeholder { color: var(--text-3); opacity: 1; }
+:is(.tool textarea, .tool select, .sim-form input, .cv-input, .cv-field input):disabled { opacity: .5; cursor: not-allowed; }
 .cv-input[type="search"] { appearance: none; -webkit-appearance: none; }
 /* Menus draw their own chevron, so they look the same in every browser and in both themes. */
 .tool select {
@@ -502,15 +502,20 @@ pre .l { color: var(--code-lit); }
 .demo-pane { padding: 32px; min-width: 0; }
 .demo-pane + .demo-pane { background: var(--bg-alt); }
 .demo .lbl { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
-.demo textarea {
-  width: 100%; min-height: 156px; resize: vertical; display: block;
-  font: 14px/1.6 var(--mono); letter-spacing: 0;
-  padding: 14px 16px; word-break: break-all;
+.demo .code-field textarea {
+  width: 100%; min-height: 156px; resize: vertical;
+  font: 14px/1.6 var(--mono); letter-spacing: 0; color: var(--text);
+  padding: 14px 16px; white-space: pre-wrap; word-break: break-all;
 }
+/* The clean URL sits in the same pane as the input, tinted green, wrapping at URL separators. */
 .url-out {
-  font: 14px/1.6 var(--mono); letter-spacing: 0; padding: 14px 16px; border-radius: var(--r-sm);
-  background: var(--keep-wash); color: var(--text); word-break: break-all; min-height: 54px;
+  font: 14px/1.6 var(--mono); letter-spacing: 0; padding: 14px 16px;
+  background: var(--keep-wash); color: var(--text); overflow-wrap: anywhere; min-height: 82px;
 }
+.code-field.is-output:focus-within { border-color: var(--line); box-shadow: none; }
+.code-field-bar .link-btn { min-height: 28px; padding: 5px 12px; font-size: 13px; font-weight: 400; }
+.demo-removed-lbl { margin-top: 24px; }
+@media (max-width: 600px) { .demo-pane { padding: 20px; } }
 .removed { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; min-height: 26px; }
 .chip { font: 12.5px/1 var(--mono); letter-spacing: 0; padding: 6px 10px; border-radius: 999px; background: var(--strike-wash); color: var(--strike); text-decoration: line-through; }
 .demo-note { font-size: 14px; color: var(--text-2); margin: 18px 0 0; }
@@ -895,8 +900,9 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .code-field { background: var(--field-bg); border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; transition: border-color .2s, box-shadow .2s; }
 .code-field:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 55%, transparent); }
 .code-field-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 16px; border-bottom: 1px solid var(--line-soft); background: color-mix(in srgb, var(--text) 3%, transparent); font-size: 13px; font-weight: 600; }
-.code-field-bar span { font-size: 12px; color: var(--text-2); }
-.tool .code-field textarea, .tool .code-field textarea:focus { display: block; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--code-text); white-space: pre; overflow: auto; overflow-wrap: normal; }
+.code-field-bar > label { white-space: nowrap; }
+.code-field-bar span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; font-weight: 400; color: var(--text-2); }
+.code-field textarea, .code-field textarea:focus { display: block; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--code-text); white-space: pre; overflow: auto; overflow-wrap: normal; }
 .tool-bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 16px 0; font-size: 15px; }
 .tool-bar label { display: inline-flex; gap: 8px; align-items: center; max-width: 100%; cursor: pointer; }
 .tool-bar input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--blue); }
@@ -966,7 +972,7 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .cv-list-field { margin-top: 10px; }
 .tool .cv-list-field textarea.cv-list { min-height: 130px; margin: 0; }
 .cv-list-field .code-field-bar { padding-top: 6px; padding-bottom: 6px; }
-.cv-file-btn { position: relative; display: inline-flex; align-items: center; min-height: 28px; padding: 5px 12px; font-size: 13px; font-weight: 400; }
+.cv-file-btn { position: relative; display: inline-flex; align-items: center; }
 .cv-file-btn:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
 .cv-list-hint { margin-top: 8px; }
 .cv-msg { margin: 10px 0 0; }

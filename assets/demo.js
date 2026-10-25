@@ -116,7 +116,12 @@
         output.textContent = input.value.trim() ? 'Enter a full http(s) URL.' : '';
         return;
       }
-      output.textContent = result.url;
+      // Let the URL wrap before / ? & ; # rather than in the middle of a word.
+      output.textContent = '';
+      result.url.split(/(?<![:\/])(?=\/)|(?=[?&;#])/).forEach(function (part, i) {
+        if (i) output.appendChild(document.createElement('wbr'));
+        output.appendChild(document.createTextNode(part));
+      });
       if (!result.removed.length) {
         const none = document.createElement('span');
         none.className = 'demo-note';

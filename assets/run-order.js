@@ -514,7 +514,7 @@
     }
 
     // Lets long URLs wrap before / ? & ; # rather than in the middle of a word.
-    function urlText(s) { return s.split(/(?=[\/?&;#])/).map(esc).join('<wbr>'); }
+    function urlText(s) { return s.split(/(?<![:\/])(?=\/)|(?=[?&;#])/).map(esc).join('<wbr>'); }
 
     function urlHtml(frame) {
       if (!frame.before || frame.before === frame.url) return urlText(frame.url);
