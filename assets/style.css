@@ -890,6 +890,13 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
   width: 100%; min-height: 280px; font: 13px/1.55 var(--mono); letter-spacing: 0;
   padding: 14px 16px; resize: vertical; tab-size: 2;
 }
+/* Code text areas look like an editor pane: a label bar over unwrapped, scrollable code,
+   with the focus ring around the whole pane. */
+.code-field { background: var(--field-bg); border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+.code-field:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 55%, transparent); }
+.code-field-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 16px; border-bottom: 1px solid var(--line-soft); background: color-mix(in srgb, var(--text) 3%, transparent); font-size: 13px; font-weight: 600; }
+.code-field-bar span { font-size: 12px; color: var(--text-2); }
+.tool .code-field textarea, .tool .code-field textarea:focus { display: block; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--code-text); white-space: pre; overflow: auto; overflow-wrap: normal; }
 .tool-bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 16px 0; font-size: 15px; }
 .tool-bar label { display: inline-flex; gap: 8px; align-items: center; max-width: 100%; cursor: pointer; }
 .tool-bar input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--blue); }
@@ -982,7 +989,7 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .cv-stat.is-good dd { color: var(--keep); }
 .cv-stat.is-warn dd { color: var(--warn); }
 .cv-size { margin: 0 0 0 auto; }
-.tool textarea.cv-out { min-height: 340px; height: 440px; white-space: pre; overflow: auto; overflow-wrap: normal; }
+.tool textarea.cv-out { min-height: 340px; height: 440px; }
 
 .cv-report-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
 .cv-filters { display: flex; flex-wrap: wrap; gap: 6px; flex: 1 1 auto; }
@@ -1014,7 +1021,8 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 #cv-test-out .sim-result { margin-top: 4px; }
 #cv-test-out .sim-url { background: var(--bg); }
 @media (max-width: 560px) {
-  .tool.cv-tool { padding: 18px; }
+  .tool { padding: 16px; }
+  .tool .code-field textarea { font-size: 12.5px; padding: 12px 14px; }
   .cv-size { margin-left: 0; flex-basis: 100%; }
   .cv-search { flex-basis: 100%; }
 }

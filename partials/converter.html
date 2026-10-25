@@ -76,8 +76,10 @@
     <button type="button" class="link-btn" id="cv-download">Download .json</button>
     <span class="tool-msg cv-size" id="cv-size"></span>
   </div>
-  <label for="cv-out" class="visually-hidden">Converted CLN JSON</label>
-  <textarea id="cv-out" class="cv-out" readonly spellcheck="false"></textarea>
+  <div class="code-field">
+    <div class="code-field-bar"><label for="cv-out">Converted rule file</label><span>JSON</span></div>
+    <textarea id="cv-out" class="cv-out" readonly spellcheck="false" wrap="off"></textarea>
+  </div>
 </div>
 
 <h2 id="conversion-report">Conversion report</h2>

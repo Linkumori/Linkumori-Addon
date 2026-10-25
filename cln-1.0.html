@@ -23,7 +23,7 @@
   <link rel="icon" href="assets/icon-32.png?v=ddb1f7474f" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=a37b6ff955">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=a2be5454ce">
+  <link rel="stylesheet" href="assets/style.css?v=04fcc48356">
   <script src="assets/site.js?v=bd1a8be389"></script>
   <script src="assets/run-order.js?v=9bddefd19a" defer></script>
 </head>
@@ -254,8 +254,10 @@
 <h3 id="run-order-calculator">Run-order calculator</h3>
 <p>Paste a CLN rule file and pick a provider to see the sequence its <code>rawRules</code>, <code>rules</code> and <code>referralMarketing</code> entries run in under this document's sort key. It applies the rules above and in <a href="#same-text-twice">Same text twice</a>; it runs in your browser and sends nothing anywhere. The sample is the worked example.</p>
 <div class="tool" id="run-order-tool">
-  <label for="ro-input" class="tool-label">Rule file (JSON)</label>
-  <textarea id="ro-input" spellcheck="false" aria-describedby="ro-msg"></textarea>
+  <div class="code-field">
+    <div class="code-field-bar"><label for="ro-input">Rule file</label><span>JSON</span></div>
+    <textarea id="ro-input" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" aria-describedby="ro-msg"></textarea>
+  </div>
   <div class="tool-bar">
     <label>Provider <select id="ro-provider"></select></label>
     <label><input type="checkbox" id="ro-referral"> Allow referral marketing</label>

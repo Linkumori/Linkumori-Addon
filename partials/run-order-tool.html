@@ -1,8 +1,10 @@
 <h3 id="run-order-calculator">Run-order calculator</h3>
 <p>Paste a CLN rule file and pick a provider to see the sequence its <code>rawRules</code>, <code>rules</code> and <code>referralMarketing</code> entries run in under this document's sort key. It applies the rules above and in <a href="#same-text-twice">Same text twice</a>; it runs in your browser and sends nothing anywhere. The sample is the worked example.</p>
 <div class="tool" id="run-order-tool">
-  <label for="ro-input" class="tool-label">Rule file (JSON)</label>
-  <textarea id="ro-input" spellcheck="false" aria-describedby="ro-msg"></textarea>
+  <div class="code-field">
+    <div class="code-field-bar"><label for="ro-input">Rule file</label><span>JSON</span></div>
+    <textarea id="ro-input" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" aria-describedby="ro-msg"></textarea>
+  </div>
   <div class="tool-bar">
     <label>Provider <select id="ro-provider"></select></label>
     <label><input type="checkbox" id="ro-referral"> Allow referral marketing</label>
