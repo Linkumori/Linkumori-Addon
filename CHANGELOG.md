@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.74.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.73.0...linkumori-v100.74.0))
+### Added
+- Introduce overload mode patch strategies (`2026-10-25`, hash: [`d0fc08a`](https://github.com/Linkumori/Linkumori-Addon/commit/d0fc08a))
+- Introduce remote rule patches (`2026-10-25`, hash: [`a4b31c2`](https://github.com/Linkumori/Linkumori-Addon/commit/a4b31c2))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`736f57c`](https://github.com/Linkumori/Linkumori-Addon/commit/736f57c))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`ae389f9`](https://github.com/Linkumori/Linkumori-Addon/commit/ae389f9))
+- Update Linkumori-POSAR.md (`2026-10-25`, hash: [`156d3a5`](https://github.com/Linkumori/Linkumori-Addon/commit/156d3a5))
+- Update Linkumori-POSAR.md (`2026-10-25`, hash: [`a8bf59c`](https://github.com/Linkumori/Linkumori-Addon/commit/a8bf59c))
+- Update consent_config.js (`2026-10-25`, hash: [`7e562bd`](https://github.com/Linkumori/Linkumori-Addon/commit/7e562bd))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`736f57c`](https://github.com/Linkumori/Linkumori-Addon/commit/736f57c))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`ae389f9`](https://github.com/Linkumori/Linkumori-Addon/commit/ae389f9))
+
+### Fixed
+- Preserve MID on Bilibili media requests (`2026-10-25`, hash: [`736f57c`](https://github.com/Linkumori/Linkumori-Addon/commit/736f57c))
+
 ## [v100.73.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.72.0...linkumori-v100.73.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`041ec69`](https://github.com/Linkumori/Linkumori-Addon/commit/041ec69))
