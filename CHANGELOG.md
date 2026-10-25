@@ -16,6 +16,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.70.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.69.0...linkumori-v100.70.0))
+### Changed
+- Clean without a request as a main_frame request (`2026-10-22`, hash: [`291fed4`](https://github.com/Linkumori/Linkumori-Addon/commit/291fed4))
+- Downloaded latest public suffix list from upstream (`2026-10-25`, hash: [`5d61209`](https://github.com/Linkumori/Linkumori-Addon/commit/5d61209))
+- Generate a test URL from a provider's rules in the run-order panel (`2026-10-22`, hash: [`34b3284`](https://github.com/Linkumori/Linkumori-Addon/commit/34b3284))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`5d61209`](https://github.com/Linkumori/Linkumori-Addon/commit/5d61209))
+- Make Run play the simulation in the run-order panel (`2026-10-22`, hash: [`a8ffb00`](https://github.com/Linkumori/Linkumori-Addon/commit/a8ffb00))
+- Show order numbers live while dragging; restore them (`2026-10-22`, hash: [`8ff4b4e`](https://github.com/Linkumori/Linkumori-Addon/commit/8ff4b4e))
+- Treat a raw deletion that changes the origin as a redirect (`2026-10-22`, hash: [`b1306bf`](https://github.com/Linkumori/Linkumori-Addon/commit/b1306bf))
+
 ## [v100.69.0] - 2026-10-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.68.0...linkumori-v100.69.0))
 ### Changed
 - Apply each regression case's whitelist; require redirects where needed (`2026-10-22`, hash: [`abcfddf`](https://github.com/Linkumori/Linkumori-Addon/commit/abcfddf))
