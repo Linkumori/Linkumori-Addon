@@ -622,6 +622,7 @@ function template(page, ctx, body, toc, current) {
   <meta property="og:image" content="${SITE}assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linkumori: links, without the tracking.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
@@ -768,9 +769,12 @@ ${urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 `);
 console.log(`sitemap.xml: ${urls.length} pages`);
 
-// The hand-written pages get the same fingerprints.
+// The hand-written pages get the same fingerprints, and the same version as the generated ones.
 for (const file of ['index.html', '404.html']) {
   const path = join(siteRoot, file);
-  writeFileSync(path, stampAssets(readFileSync(path, 'utf8')));
+  const html = readFileSync(path, 'utf8')
+    .replace(/(<span class="brand-ver">v)[^<]*(<\/span>)/, `$1${VERSION}$2`)
+    .replace(/("softwareVersion": ")[^"]*(")/, `$1${VERSION}$2`);
+  writeFileSync(path, stampAssets(html));
 }
-console.log('asset links fingerprinted');
+console.log('asset links fingerprinted, version ' + VERSION);
