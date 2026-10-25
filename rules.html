@@ -79,6 +79,7 @@
 <li><a href="#merge-example">Example: one site in both sources</a></li>
 <li><a href="#overload-cases">Every overload case</a></li>
 </ol></li>
+<li><a href="#rule-patches">Remote rule patches</a></li>
 <li><a href="#custom-rules">Custom rules: replace or add</a><ol>
 <li><a href="#custom-example">Example: the same pattern replaces</a></li>
 <li><a href="#custom-cases">Every custom-rule case</a></li>
@@ -104,7 +105,7 @@
 <p>Rules are loaded at startup and again whenever you save custom rules or refresh remote rules in settings. Each load runs these steps, in order, and the engine then uses the result for every request until the next load.</p>
 <ol class="rx-flow" aria-label="How a rule set is built">
   <li><span class="rx-step">1</span><b>Pick the sources</b><small>Built-in, remote, the verified cache, or none</small></li>
-  <li><span class="rx-step">2</span><b>Merge</b><small>Remote files with each other; with built-in in overload mode</small></li>
+  <li><span class="rx-step">2</span><b>Merge</b><small>Remote files with each other; with built-in in overload mode; then remote patches</small></li>
   <li><span class="rx-step">3</span><b>Custom rules on top</b><small>A matching custom provider replaces; others are added</small></li>
   <li><span class="rx-step">4</span><b>Switch things off</b><small>Excluded providers go; switched-off rules are skipped</small></li>
   <li><span class="rx-step">5</span><b>Clean requests</b><small>Providers run in order, pass after pass</small></li>
@@ -851,6 +852,34 @@
 </article>
 </div>
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
+
+<h2 id="rule-patches">Remote rule patches</h2>
+<p>A remote file can change single rules that are already loaded, from the built-in rules or another remote file, without shipping a copy of them. It lists the changes in a top-level <code>patches</code> array. Each patch names one rule and the rule that takes its place.</p>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
+  <span class="k">&quot;patches&quot;</span>: [
+    { <span class="k">&quot;target&quot;</span>: <span class="s">&quot;amazon::field-qid&quot;</span>, <span class="k">&quot;section&quot;</span>: <span class="s">&quot;rules&quot;</span>,
+      <span class="k">&quot;replace&quot;</span>: { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;qid&quot;</span>, <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] } }
+  ]
+}</code></pre></div>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Key</th><th scope="col">What it holds</th></tr></thead>
+<tbody>
+<tr><td><code>target</code></td><td>The rule to replace, written like its on/off toggle key: <code>provider::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> or <code>urlPattern:&lt;regex&gt;::id</code>. The id can be the rule's <code>id</code>, an alias, or its generated id</td></tr>
+<tr><td><code>section</code></td><td>The list the rule is in: <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> or <code>fieldRedirections</code></td></tr>
+<tr><td><code>replace</code></td><td>The new rule, a plain entry or a rule object, as it would be written in that list</td></tr>
+<tr><td><code>description</code></td><td>A note for people reading the file</td></tr>
+</tbody>
+</table></div>
+<ul>
+  <li><b>When they run.</b> After remote files merge (and, in overload mode, merge with built-in), before custom rules. A custom provider still overrides a patched one.</li>
+  <li><b>Patch-only files.</b> A file with only <code>patches</code> needs no <code>providers</code>. When every remote file is one, the patches apply to the built-in rules. Without overload mode, built-in rules aren't loaded next to remote files with providers, so patches then reach only those files' rules.</li>
+  <li><b>Finding the rule.</b> Merging can rename providers, so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always matches.</li>
+  <li><b>Toggles stay.</b> The replacement keeps the old rule's id unless it sets its own; then the old id becomes an alias. A rule you switched off stays off.</li>
+  <li><b>Same safety as the file.</b> The file's defaults apply to its replacements. A patch for a redirect list waits until you accept <code>redirect</code> for that file.</li>
+  <li><b>Checked.</b> An invalid <code>patches</code> array rejects the whole file. Remote Rules Health lists each patch as applied, unmatched or skipped.</li>
+</ul>
+<p>The full syntax is in <a href="filter-syntax.html#rule-patches">Filter syntax → Rule patches</a>.</p>
 
 <h2 id="custom-rules">Custom rules: replace or add</h2>
 <p>Custom rules go on top of whatever base rule set loaded. Unlike overload mode, they don't join lists. Each custom provider either <b>replaces</b> every base provider with the same pattern, or is <b>added</b> next to the others.</p>
