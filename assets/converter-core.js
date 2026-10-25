@@ -480,6 +480,28 @@
     expires: 'expires', license: 'license', 'last modified': 'lastModified', 'last updated': 'lastModified'
   };
 
+  // "||lazada.(com|co.th|sg)^$removeparam=x" lists several hosts in one pattern.
+  // Linkumori's domain patterns have no alternation, so the rule would never
+  // match; it becomes one rule per host ("||lazada.com^…", "||lazada.co.th^…").
+  // Only a group inside the host is expanded, and only when every alternative
+  // is plain host text.
+  const HOST_GROUP_RE = /^(@@)?(\|\||\|[a-z][a-z0-9+.-]*:\/\/)([a-z0-9*.-]*)\(([a-z0-9.|-]+)\)([a-z0-9*.()|-]*)(?=[\/^$:?#|]|$)([\s\S]*)$/i;
+
+  function expandHostGroups(line) {
+    const m = line.match(HOST_GROUP_RE);
+    if (!m) return null;
+    const [, exc = '', anchor, before, group, after, rest] = m;
+    const alts = group.split('|');
+    if (alts.length < 2 || alts.some(a => !a)) return null;
+    const out = [];
+    for (const a of alts) {
+      const next = exc + anchor + before + a + after + rest;
+      // A second group in the same host ("||(a|b).(com|net)^") expands too.
+      out.push(...(expandHostGroups(next) || [next]));
+    }
+    return out;
+  }
+
   async function readList(text, ctx, fileLabel, baseUrl, depth, header) {
     if (!ctx.fileOrder.includes(fileLabel)) ctx.fileOrder.push(fileLabel);
     const lines = String(text).replace(/^﻿/, '').split(/\r?\n/);
@@ -536,13 +558,21 @@
         ctx.report.push({ ...ref, status: 'skipped', message: 'cosmetic / scriptlet rule: CLN only cleans URLs' });
         continue;
       }
-      const res = convertNetworkRule(line, ctx.opts);
-      if (res.status === 'skipped') {
-        ctx.stats.skipped++;
-        ctx.report.push({ ...ref, status: 'skipped', message: res.reason });
-        continue;
+      const expanded = expandHostGroups(line);
+      if (!expanded && /^(?:@@)?\|\|?[^\/^$]*\(/.test(line)) {
+        ctx.report.push({ ...ref, status: 'warning', message: 'host contains “(” that could not be split into hosts; Linkumori patterns have no groups, so this rule will not match' });
       }
-      ctx.entries.push({ ...res, ref });
+      for (const one of expanded || [line]) {
+        const res = convertNetworkRule(one, ctx.opts);
+        if (res.status === 'skipped') {
+          ctx.stats.skipped++;
+          ctx.report.push({ ...ref, status: 'skipped', message: res.reason });
+          break;
+        }
+        // One note for the source line, on its first rule.
+        if (one === expanded?.[0]) res.notes = ['host group “(…|…)” split into ' + expanded.length + ' rules, one per host'].concat(res.notes);
+        ctx.entries.push({ ...res, ref });
+      }
     }
     if (stack.length) ctx.report.push({ file: fileLabel, line: lines.length, text: '', status: 'warning', message: stack.length + ' unclosed !#if block(s)' });
   }
