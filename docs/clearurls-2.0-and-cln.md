@@ -146,10 +146,11 @@ ClearURLs 2.0. CLN reads the same keys (`active`, `description`,
 - **Complete providers.** A `completeProvider` blocks a site before any
   rule is checked, so `requestTypes` and `exceptions` from `defaults` also
   limit the block. Provider `exceptions` lists are otherwise left alone.
-- **The bundled rules use it.** Their `defaults` hold the request types
-  the Settings list used to hold, and the site exceptions that used to sit
-  on the `globalRules` provider. Every built-in rule therefore skips those
-  sites, and `globalRules` keeps only its rules.
+- **The bundled rules don't use it.** They have no `defaults` block. Their
+  site exceptions are `@@…$removeparam` filters on `linkumori-global`,
+  copied to the site's own provider (such as `google.*` or `amazon.*`)
+  where that provider has rules for the same pages, because an `@@` filter
+  only covers the rules of its own provider.
 
 The full reference is [filter-syntax.md § defaults](filter-syntax.md#defaults).
 
