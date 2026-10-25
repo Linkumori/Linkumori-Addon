@@ -535,6 +535,30 @@
         <div class="toggle-description" id="overload_mode_defaults_note"></div>
     </div>
 </div>
+<fieldset class="overload-mode-options" id="overloadModeOptions" hidden>
+    <legend id="overload_mode_strategy_label"></legend>
+    <label class="overload-mode-option" for="overloadModePatchOnly">
+        <input type="radio" name="overloadModeStrategy" id="overloadModePatchOnly" value="patch-only">
+        <span class="overload-mode-option-content">
+            <span class="overload-mode-option-title" id="overload_mode_patch_only"></span>
+            <span class="overload-mode-option-description" id="overload_mode_patch_only_description"></span>
+        </span>
+    </label>
+    <label class="overload-mode-option" for="overloadModePatchMerge">
+        <input type="radio" name="overloadModeStrategy" id="overloadModePatchMerge" value="patch-and-merge">
+        <span class="overload-mode-option-content">
+            <span class="overload-mode-option-title" id="overload_mode_patch_merge"></span>
+            <span class="overload-mode-option-description" id="overload_mode_patch_merge_description"></span>
+        </span>
+    </label>
+    <label class="overload-mode-option" for="overloadModeMergeOnly">
+        <input type="radio" name="overloadModeStrategy" id="overloadModeMergeOnly" value="merge-only">
+        <span class="overload-mode-option-content">
+            <span class="overload-mode-option-title" id="overload_mode_merge_only"></span>
+            <span class="overload-mode-option-description" id="overload_mode_merge_only_description"></span>
+        </span>
+    </label>
+</fieldset>
 <div class="toggle-container">
     <div class="toggle-switch" id="unboundedCyclesEnabled"></div>
     <div class="toggle-content">

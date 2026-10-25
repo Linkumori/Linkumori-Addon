@@ -190,7 +190,7 @@ Keys that shape the runtime:
 | `customrules_import_exclusions` | providers the user switched off (by provider signature) |
 | `clearurls_disabled_rule_ids` | rules the user switched off, as `<scope>::<ruleId>` (§6.2) |
 | `userWhitelist`, `historyApiWhitelist` | whitelists (§8) |
-| `builtInRulesEnabled`, `remoteRulesEnabled`, `overloadModeEnabled` | which rule sources to use (§5) |
+| `builtInRulesEnabled`, `remoteRulesEnabled`, `overloadModeEnabled`, `overloadModeStrategy` | which rule sources to use and how overload mode handles patches (§5) |
 | `ruleURL` + `hashURL`, `remoteRuleSets` | remote rule sources |
 | `remoteRulescache`, `remoteRulesHealth` | last verified remote rules; fetch history |
 | `hashStatus`, `hashValidationStatus`, `dataHash`, `mergeStats`, `rulesMetadata` | what was loaded, from where, and how it merged; shown in settings |
@@ -289,7 +289,10 @@ flowchart TD
     E -- no --> C
     D -- yes --> G[fetch + verify every source]
     G -- at least one passed --> H{overload mode?}
-    H -- yes --> I[remote merged with bundled]
+    H -- yes --> I{overload strategy}
+    I -- patch-only --> I1[bundled rules + remote patches]
+    I -- patch-and-merge --> I2[remote merged with bundled,<br/>then patched]
+    I -- merge-only --> I3[remote merged with bundled,<br/>patches skipped]
     H -- no --> J[remote]
     G -- all failed --> K{verified cache<br/>for these sources?}
     K -- yes --> L[cached remote<br/>+ bundled in overload mode]
@@ -297,7 +300,7 @@ flowchart TD
     E2 -- yes --> F
     E2 -- no --> C
     F -- LZ4 fails --> M[remote cache, else last<br/>ClearURLsData, else fallback list]
-    I & J & L & F & M --> N[mergeCustomRules]
+    I1 & I2 & I3 & J & L & F & M --> N[mergeCustomRules]
     C --> O[ClearURLsData]
     N --> O
 ```
@@ -305,11 +308,15 @@ flowchart TD
 **Rule patches.** A remote file's `patches` (see
 [filter syntax §Rule patches](filter-syntax.md#rule-patches)) are applied by
 `applyRemoteRulePatches()` to the rules chosen above, just before
-`mergeCustomRules`, including when the remote cache is used. When every
-loaded remote file holds only `patches`, the base is the bundled rules,
-unmerged so their provider names stay (`withPatchOnlyBuiltInRules`), and
-`hashStatus` is `remote_built_in_merged`. Each patch's result (applied,
-unmatched or skipped) is stored in `remoteRulesHealth.rulePatches`.
+`mergeCustomRules`, including when the remote cache is used. With overload
+mode on, `overloadModeStrategy` selects patch-only (use bundled rules as the
+base and omit remote providers), patch-and-merge (merge remote and bundled
+providers, then apply patches), or merge-only (merge providers and skip
+patches). With overload mode off, the strategy is ignored and existing remote
+rule behavior applies. When every loaded remote file holds only `patches`,
+the base is the bundled rules, unmerged so their provider names stay
+(`withPatchOnlyBuiltInRules`). Each patch's result (applied, unmatched or
+skipped) is stored in `remoteRulesHealth.rulePatches`.
 
 `hashStatus` records which path was taken, for example `bundled_rules_loaded`,
 `remote_verified`, `remote_rules_partially_merged`,

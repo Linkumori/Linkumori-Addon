@@ -445,7 +445,16 @@ Inheritance exists for merges across files, not as an authoring feature: `lint-r
 
 #### Overload mode
 
-In overload mode the built-in rules and your remote rule files load together, and one site can have a provider in more than one of them. Before any rule runs, those providers are merged into one:
+In **Patch mode + merge** and **No patch mode + merge**, built-in rules and
+remote rule files load together, and one site can have a provider in more
+than one of them. Provider merging in either mode follows these rules:
+
+The overload settings offer three strategies: **Patch mode only** applies
+remote patches to the built-in rules and omits remote provider rules;
+**Patch mode + merge** merges built-in and remote providers, then applies
+patches; **No patch mode + merge** merges the providers and skips remote patches. The
+strategy is used only while overload mode is enabled. If built-in rules are
+disabled, patch-only mode has no built-in rules to patch.
 
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
 2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
@@ -610,7 +619,7 @@ A remote rule file can replace rules that are already loaded, from the built-in 
 | `replace` | required — the new rule: a plain entry or a rule object, as it would be written in that list |
 | `description` | a note for people reading the file; it must be a string |
 
-- **What it patches.** Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only `patches` needs no `providers`; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules.
+- **What it patches.** Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only `patches` needs no `providers`; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules. In overload **No patch mode + merge**, patch files are validated and loaded but their patches are not applied; in **Patch mode only**, remote provider rules are omitted and patches target the built-in rules.
 - **Matching.** A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the `domainPattern:` / `urlPattern:` form is the one that always finds them.
 - **Ids and toggles.** The replacement keeps the replaced rule's id unless it sets its own `id`; then the old id becomes one of its `aliases`. Either way, an on/off setting saved for the old rule keeps applying.
 - **Defaults.** The patch file's `defaults` (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.

@@ -1343,6 +1343,12 @@ function hasRuleProviders(rules) {
         Object.keys(rules.providers).length > 0);
 }
 
+const OVERLOAD_MODE_STRATEGIES = new Set(['patch-only', 'patch-and-merge', 'merge-only']);
+
+function normalizeOverloadModeStrategy(value) {
+    return OVERLOAD_MODE_STRATEGIES.has(value) ? value : 'patch-and-merge';
+}
+
 // The remote rules when every loaded file holds only "patches".
 function createPatchOnlyRemoteRules(successfulSources, failedSources = []) {
     return {
@@ -1400,8 +1406,20 @@ function getRemotePatchSets(sources) {
 
 // The patches applied to the merged remote (and built-in) rules, before
 // custom rules, which still override them. Results go to Remote Rules Health.
-function applyRemoteRulePatches(rules, patchSets) {
+function applyRemoteRulePatches(rules, patchSets, options = {}) {
     const sets = Array.isArray(patchSets) ? patchSets : [];
+    if (options.skip === true) {
+        const results = sets.flatMap(set =>
+            (Array.isArray(set.patches) ? set.patches : []).map(patch => ({
+                source: set.source || 'remote',
+                target: patch?.target || '',
+                status: 'skipped',
+                message: 'Skipped because overload mode is set to merge without patches.'
+            }))
+        );
+        recordRulePatchResults(results);
+        return rules;
+    }
     if (sets.length === 0) {
         recordRulePatchResults([]);
         return rules;
@@ -2364,19 +2382,32 @@ function loadBundledRules() {
                 throw new Error(failed.map(item => item.error).join('; ') || 'All remote sources failed');
             }
 
-            // Collisions inside each file, then ones merging creates.
+            const overloadModeStrategy = storage.overloadModeEnabled === true
+                ? normalizeOverloadModeStrategy(storage.overloadModeStrategy)
+                : null;
+            const patchOnlyMode = overloadModeStrategy === 'patch-only';
+            const skipRemotePatches = overloadModeStrategy === 'merge-only';
+
+            // Collisions inside each file, then ones merging creates. In
+            // patch-only mode remote providers are ignored, so they cannot
+            // contribute collisions to the active ruleset.
             const ruleCollisions = [];
-            successful.forEach(source => {
-                ruleCollisions.push(...findProvidersRuleCollisions(source.rules?.providers, source.ruleURL));
-            });
+            if (!patchOnlyMode) {
+                successful.forEach(source => {
+                    ruleCollisions.push(...findProvidersRuleCollisions(source.rules?.providers, source.ruleURL));
+                });
+            }
 
             // Files of only "patches" add no providers; when every file is
             // one, the patches apply to the built-in rules.
             const providerSources = successful.filter(source => hasRuleProviders(source.rules));
             const patchOnly = providerSources.length === 0;
-            const mergedRemoteRules = patchOnly
-                ? createPatchOnlyRemoteRules(successful, failed)
-                : mergeRemoteRulesSources(providerSources, failed, ruleCollisions);
+            const patchSources = successful.filter(source => Array.isArray(source.patches) && source.patches.length > 0);
+            const mergedRemoteRules = patchOnlyMode
+                ? createPatchOnlyRemoteRules(patchSources, failed)
+                : (patchOnly
+                    ? createPatchOnlyRemoteRules(successful, failed)
+                    : mergeRemoteRulesSources(providerSources, failed, ruleCollisions));
             ruleDefaultsStatus.remote = successful.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
             let finalRules = mergedRemoteRules;
             const withBuiltIn = storage.builtInRulesEnabled !== false && (patchOnly || storage.overloadModeEnabled === true);
@@ -2384,14 +2415,16 @@ function loadBundledRules() {
             if (withBuiltIn) {
                 try {
                     const bundledRules = await fetchBundledRulesRaw();
-                    finalRules = patchOnly
+                    finalRules = patchOnlyMode || patchOnly
                         ? withPatchOnlyBuiltInRules(mergedRemoteRules, bundledRules)
                         : mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions);
                 } catch (e) {
                 }
             }
             recordRuleCollisions(ruleCollisions);
-            finalRules = applyRemoteRulePatches(finalRules, getRemotePatchSets(successful));
+            finalRules = applyRemoteRulePatches(finalRules, getRemotePatchSets(successful), {
+                skip: skipRemotePatches
+            });
 
             storage.rulesMetadata = finalRules.metadata;
             storage.hashFailureReason = failed.length > 0
@@ -2449,22 +2482,40 @@ function loadBundledRules() {
             if (cacheRules) {
                 storage.hashValidationStatus = 'cache_used_after_remote_failure';
                 const patchSets = cachedRemotePatchSets;
+                const overloadModeStrategy = storage.overloadModeEnabled === true
+                    ? normalizeOverloadModeStrategy(storage.overloadModeStrategy)
+                    : null;
+                const skipRemotePatches = overloadModeStrategy === 'merge-only';
+                const patchOnlyMode = overloadModeStrategy === 'patch-only';
+                const cachedPatchOnlyRules = patchOnlyMode
+                    ? createPatchOnlyRemoteRules(patchSets.map(set => ({
+                        ruleURL: set.source,
+                        patches: set.patches,
+                        defaults: set.defaults
+                    })))
+                    : cacheRules;
 
                 if (storage.builtInRulesEnabled !== false &&
                     (storage.overloadModeEnabled === true || !hasRuleProviders(cacheRules))) {
                     try {
                         const bundledRules = await fetchBundledRulesRaw();
-                        const mergedCachedRules = hasRuleProviders(cacheRules)
+                        const mergedCachedRules = patchOnlyMode
+                            ? withPatchOnlyBuiltInRules(cachedPatchOnlyRules, bundledRules)
+                            : hasRuleProviders(cacheRules)
                             ? mergeRemoteWithBundledRules(cacheRules, bundledRules)
                             : withPatchOnlyBuiltInRules(cacheRules, bundledRules);
                         storage.hashStatus = "cache_remote_built_in_merged";
-                        return mergeCustomRules(applyRemoteRulePatches(mergedCachedRules, patchSets));
+                        return mergeCustomRules(applyRemoteRulePatches(mergedCachedRules, patchSets, {
+                            skip: skipRemotePatches
+                        }));
                     } catch (mergeError) {
                         // Fall back to cached remote-only rules when bundled rules cannot be loaded.
                     }
                 }
 
-                return mergeCustomRules(applyRemoteRulePatches(cacheRules, patchSets));
+                return mergeCustomRules(applyRemoteRulePatches(cachedPatchOnlyRules, patchSets, {
+                    skip: skipRemotePatches
+                }));
             }
 
             if (storage.builtInRulesEnabled === false) {
@@ -3355,6 +3406,9 @@ function setData(key, value) {
         case "redirectionEnabled":
             storage[key] = value === true || value === "true";
             break;
+        case "overloadModeStrategy":
+            storage[key] = normalizeOverloadModeStrategy(value);
+            break;
         case "redirection":
         case "domainredirection":
         case "domainRedirection":
@@ -3456,6 +3510,7 @@ function initSettings() {
     storage.remoteRulesEnabled = false;
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;
+    storage.overloadModeStrategy = 'patch-and-merge';
     storage.unboundedCyclesEnabled = false;
     storage.ruleDefaultsMode = 'source';
     storage.userRuleDefaults = {};

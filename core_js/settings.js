@@ -70,6 +70,12 @@
  */
 
 var settings = [];
+
+const OVERLOAD_MODE_STRATEGIES = ['patch-only', 'patch-and-merge', 'merge-only'];
+
+function normalizeOverloadModeStrategy(value) {
+    return OVERLOAD_MODE_STRATEGIES.includes(value) ? value : 'patch-and-merge';
+}
 let linkumoriPicker = null; // Initialize as null first
 const {
     THEME_STORAGE_KEY,
@@ -2226,6 +2232,7 @@ function setupEventHandlers() {
     
     // Set up toggle switches
     setupToggleSwitches();
+    setupOverloadModeStrategy();
     
     // Set up enhanced URL validation with security modal
     setupEnhancedURLValidation();
@@ -3356,6 +3363,9 @@ function save() {
         const toggleEl = document.getElementById(id);
         toggleValues[key] = toggleEl ? toggleEl.classList.contains('active') : !!settings[key];
     });
+    const overloadModeStrategyValue = normalizeOverloadModeStrategy(
+        document.querySelector('input[name="overloadModeStrategy"]:checked')?.value || settings.overloadModeStrategy
+    );
     
     // Validate URLs before saving
     let urlValidationPassed = true;
@@ -3431,6 +3441,7 @@ function save() {
     // Save all settings
     Promise.all([
         ...toggleConfigs.map(({ key }) => saveData(key, toggleValues[key])),
+        saveData('overloadModeStrategy', overloadModeStrategyValue),
         saveData("badged_color", currentColor),
         saveData("logLimit", logLimitValue),
         saveData("ruleURL", ruleURLValue),
@@ -3442,6 +3453,7 @@ function save() {
             toggleConfigs.forEach(({ key }) => {
                 settings[key] = toggleValues[key];
             });
+            settings.overloadModeStrategy = overloadModeStrategyValue;
             settings["badged_color"] = currentColor;
             settings["ruleURL"] = ruleURLValue;
             settings["hashURL"] = hashURLValue;
@@ -3862,8 +3874,17 @@ async function getData() {
             loadData("remoteRuleSets"),
             loadData("remoteRulesEnabled"),
             loadData("disableGatekeeper"),
-            loadData("overloadModeEnabled")
+            loadData("overloadModeEnabled"),
+            loadData("overloadModeStrategy")
         ]);
+
+        const overloadModeStrategyInput = document.querySelector(
+            `input[name="overloadModeStrategy"][value="${normalizeOverloadModeStrategy(settings.overloadModeStrategy)}"]`
+        );
+        if (overloadModeStrategyInput) {
+            overloadModeStrategyInput.checked = true;
+        }
+        updateOverloadModeOptionsVisibility();
 
         if (Array.isArray(settings.remoteRuleSets) && settings.remoteRuleSets.length > 0) {
             const firstSet = settings.remoteRuleSets[0];
@@ -4415,8 +4436,28 @@ function changeSwitchButton(id, storageID) {
         }
 
         setSwitchVisualState(element, newValue);
+        if (storageID === 'overloadModeEnabled') {
+            updateOverloadModeOptionsVisibility();
+        }
         showStatus(translate('settings_change_pending_save_apply'), 'info');
     };
+}
+
+function updateOverloadModeOptionsVisibility() {
+    const options = document.getElementById('overloadModeOptions');
+    const overloadToggle = document.getElementById('overloadModeEnabled');
+    if (!options || !overloadToggle) {
+        return;
+    }
+    options.hidden = !overloadToggle.classList.contains('active');
+}
+
+function setupOverloadModeStrategy() {
+    document.querySelectorAll('input[name="overloadModeStrategy"]').forEach(input => {
+        input.addEventListener('change', () => {
+            showStatus(translate('settings_change_pending_save_apply'), 'info');
+        });
+    });
 }
 
 /**
@@ -4720,6 +4761,13 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
     setElementText('overload_mode_defaults_note', 'overload_mode_defaults_note');
+    setElementText('overload_mode_strategy_label', 'overload_mode_strategy_label');
+    setElementText('overload_mode_patch_only', 'overload_mode_patch_only');
+    setElementText('overload_mode_patch_only_description', 'overload_mode_patch_only_description');
+    setElementText('overload_mode_patch_merge', 'overload_mode_patch_merge');
+    setElementText('overload_mode_patch_merge_description', 'overload_mode_patch_merge_description');
+    setElementText('overload_mode_merge_only', 'overload_mode_merge_only');
+    setElementText('overload_mode_merge_only_description', 'overload_mode_merge_only_description');
     setElementText('unbounded_cycles_enabled', 'unbounded_cycles_enabled');
     setElementText('unbounded_cycles_enabled_description', 'unbounded_cycles_enabled_description');
     

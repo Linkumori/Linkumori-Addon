@@ -1554,6 +1554,34 @@
   "openSettings": {
     "message": "Otevřete Nastavení Linkumori"
   },
+  "overload_mode_strategy_label": {
+    "message": "Overload mode behavior",
+    "description": "Heading for the mutually exclusive overload mode strategies"
+  },
+  "overload_mode_patch_only": {
+    "message": "Patch mode only",
+    "description": "Overload mode strategy that applies remote patches without adding remote providers"
+  },
+  "overload_mode_patch_only_description": {
+    "message": "Apply remote patches to built-in rules. Remote provider rules are not included.",
+    "description": "Description for the patch-only overload mode strategy"
+  },
+  "overload_mode_patch_merge": {
+    "message": "Patch mode + merge",
+    "description": "Overload mode strategy that merges rule sources and applies remote patches"
+  },
+  "overload_mode_patch_merge_description": {
+    "message": "Merge built-in and remote provider rules, then apply remote patches.",
+    "description": "Description for the patch-and-merge overload mode strategy"
+  },
+  "overload_mode_merge_only": {
+    "message": "No patch mode + merge",
+    "description": "Overload mode strategy that merges rule sources without applying patches"
+  },
+  "overload_mode_merge_only_description": {
+    "message": "Merge built-in and remote provider rules without applying remote patches.",
+    "description": "Description for the merge-only overload mode strategy"
+  },
   "overload_mode_enabled": {
     "message": "Povolit režim přetížení",
     "description": "Label for toggle that merges built-in and remote rules together"
