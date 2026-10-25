@@ -534,7 +534,7 @@
       const frame = sim.frames[sim.cursor];
       const last = sim.frames.length - 1;
       const button = function (action, label, disabled) {
-        return '<button type="button" class="btn btn-line btn-sm" data-sim="' + action + '"' + (disabled ? ' disabled' : '') + '>' + label + '</button>';
+        return '<button type="button" class="link-btn" data-sim="' + action + '"' + (disabled ? ' disabled' : '') + '>' + label + '</button>';
       };
       simOut.innerHTML =
         '<div class="sim-player">' +
