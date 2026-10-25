@@ -16,6 +16,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.75.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.74.0...linkumori-v100.75.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`51cf6e2`](https://github.com/Linkumori/Linkumori-Addon/commit/51cf6e2))
+- Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`6a7a6c9`](https://github.com/Linkumori/Linkumori-Addon/commit/6a7a6c9))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`51cf6e2`](https://github.com/Linkumori/Linkumori-Addon/commit/51cf6e2))
+- Updated canonical URL cleaning rules source (`2026-10-25`, hash: [`6a7a6c9`](https://github.com/Linkumori/Linkumori-Addon/commit/6a7a6c9))
+
+### Fixed
+- Limit global MID cleanup to page requests (`2026-10-25`, hash: [`6a7a6c9`](https://github.com/Linkumori/Linkumori-Addon/commit/6a7a6c9))
+
 ## [v100.74.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.73.0...linkumori-v100.74.0))
 ### Added
 - Introduce overload mode patch strategies (`2026-10-25`, hash: [`d0fc08a`](https://github.com/Linkumori/Linkumori-Addon/commit/d0fc08a))
