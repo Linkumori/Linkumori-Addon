@@ -107,6 +107,7 @@
 <li><a href="#rule-ids-and-toggles">Rule ids and toggles</a></li>
 <li><a href="#termination">Termination</a></li>
 <li><a href="#remote-file-capabilities">Remote file capabilities</a></li>
+<li><a href="#rule-patches">Rule patches</a></li>
 <li><a href="#possible-20-direction">Possible 2.0 direction</a></li>
 </ol></li>
 <li><a href="#user-whitelist">User whitelist</a></li>
@@ -128,7 +129,7 @@
   </dl>
 </aside>
 <p>This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in <a href="cln-1.0.html">CLN Format 1.0 (Final)</a>.</p>
-<p>Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a <code>providers</code> object (and, optionally, <code>cln</code>, <code>metadata</code> and <code>defaults</code>). Each key under <code>providers</code> is a name you choose; its value is a provider object.</p>
+<p>Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a <code>providers</code> object (and, optionally, <code>cln</code>, <code>metadata</code>, <code>defaults</code> and, in a remote file, <code>patches</code>). Each key under <code>providers</code> is a name you choose; its value is a provider object.</p>
 <p>The optional top-level <code>cln</code> key names the format version. Its only valid value is <code>&quot;1.0&quot;</code>; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails <code>lint-rules</code>). It is not called <code>version</code> because the ClearURLs new rule format already uses that key.</p>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
@@ -625,6 +626,43 @@
 <li><strong>Old merged cache.</strong> A cached copy of the remote rules saved before files were cached one by one can't be traced to its files. Until the next refresh, its <code>redirect</code> and <code>block</code> entries stay inactive unless every configured remote file has accepted that capability.</li>
 <li><strong>No carry-over.</strong> Every remote file starts with only <code>strip</code>, <code>rewrite</code> and <code>except</code>, including files configured before capabilities existed; accept <code>redirect</code> and <code>block</code> in Remote Rules Health.</li>
 <li><strong>Visibility.</strong> Remote Rules Health lists each remote file's capabilities.</li>
+</ul>
+<h3 id="rule-patches">Rule patches</h3>
+<p>A remote rule file can replace rules that are already loaded, from the built-in rules or from another remote file, without publishing a whole copy of them. It lists the replacements in a top-level <code>patches</code> array:</p>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
+  <span class="k">&quot;patches&quot;</span>: [
+    {
+      <span class="k">&quot;target&quot;</span>: <span class="s">&quot;amazon::field-qid&quot;</span>,
+      <span class="k">&quot;section&quot;</span>: <span class="s">&quot;rules&quot;</span>,
+      <span class="k">&quot;replace&quot;</span>: { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;qid&quot;</span>, <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] },
+      <span class="k">&quot;description&quot;</span>: <span class="s">&quot;Only strip qid on page loads&quot;</span>
+    },
+    {
+      <span class="k">&quot;target&quot;</span>: <span class="s">&quot;domainPattern:||amazon.*^::strip-ref&quot;</span>,
+      <span class="k">&quot;section&quot;</span>: <span class="s">&quot;rawRules&quot;</span>,
+      <span class="k">&quot;replace&quot;</span>: <span class="s">&quot;\\/ref=[^/?#]*&quot;</span>
+    }
+  ]
+}</code></pre></div>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Key</th><th scope="col">Does</th></tr></thead>
+<tbody>
+<tr><td><code>target</code></td><td>required — the rule to replace, written like its on/off toggle key (§Rule ids and toggles): <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> or <code>urlPattern:&lt;regex&gt;::id</code>. The id can be the rule's <code>id</code>, one of its <code>aliases</code>, or its generated id</td></tr>
+<tr><td><code>section</code></td><td>required — the list the rule is in: <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> or <code>fieldRedirections</code></td></tr>
+<tr><td><code>replace</code></td><td>required — the new rule: a plain entry or a rule object, as it would be written in that list</td></tr>
+<tr><td><code>description</code></td><td>a note for people reading the file; it must be a string</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>What it patches.</strong> Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only <code>patches</code> needs no <code>providers</code>; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules.</li>
+<li><strong>Matching.</strong> A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always finds them.</li>
+<li><strong>Ids and toggles.</strong> The replacement keeps the replaced rule's id unless it sets its own <code>id</code>; then the old id becomes one of its <code>aliases</code>. Either way, an on/off setting saved for the old rule keeps applying.</li>
+<li><strong>Defaults.</strong> The patch file's <code>defaults</code> (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.</li>
+<li><strong>Capabilities.</strong> A file's patches count toward its capabilities (§Remote file capabilities). A patch for a <code>redirections</code> or <code>fieldRedirections</code> rule is skipped until the file's <code>redirect</code> capability is accepted, and a patched raw rule can't take a URL to another origin until then.</li>
+<li><strong>Order.</strong> Patches run in the order of the configured remote files, then in array order, so a later patch can replace an earlier patch's replacement (it kept the id).</li>
+<li><strong>Checked.</strong> An invalid <code>patches</code> array (unknown keys, a malformed <code>target</code>, a missing <code>section</code> or <code>replace</code>) rejects the whole file, like an invalid <code>defaults</code> block; <code>lint-rules</code> reports the same problems. A patch whose target matches no loaded rule changes nothing.</li>
+<li><strong>Visibility.</strong> Remote Rules Health lists each patch as applied, unmatched or skipped.</li>
 </ul>
 <h3 id="possible-20-direction">Possible 2.0 direction</h3>
 <p>Left for 2.0 (see <a href="cln-1.0.html#deferred-to-20">CLN Format 1.0 (Final)</a>):</p>

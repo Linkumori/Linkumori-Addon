@@ -167,6 +167,7 @@
 <tr><td>12</td><td><code>external_js/regex_analyzer.js</code></td><td>regex analysis</td></tr>
 <tr><td>13</td><td><code>core_js/linkumori_rule_ids.js</code></td><td><code>LinkumoriRuleIds</code>: generated rule ids, shared with the editor and CLI (§6.2)</td></tr>
 <tr><td>14</td><td><code>core_js/linkumori_rule_pins.js</code></td><td><code>LinkumoriRulePins</code>: ids pinned for switched-off rules, shared with the editor and CLI (§6.2)</td></tr>
+<tr><td>14a</td><td><code>core_js/linkumori_rule_patches.js</code></td><td><code>LinkumoriRulePatches</code>: checks and applies remote rule patches, shared with the CLI (§5.3)</td></tr>
 <tr><td>15</td><td><code>clearurls.js</code></td><td>the engine: providers, request cleaning, <code>start()</code> (§6)</td></tr>
 <tr><td>16</td><td><code>core_js/linkumori_dns.js</code></td><td><code>LinkumoriDNS</code>: CNAME uncloaking (§6.5)</td></tr>
 <tr><td>17</td><td><code>core_js/whitelist.js</code></td><td>whitelists and the temporary tab whitelist (§8)</td></tr>
@@ -331,6 +332,7 @@
     C --&gt; O[ClearURLsData]
     N --&gt; O</code></pre></div></details>
 </figure>
+<p><strong>Rule patches.</strong> A remote file's <code>patches</code> (see <a href="filter-syntax.html#rule-patches">filter syntax §Rule patches</a>) are applied by <code>applyRemoteRulePatches()</code> to the rules chosen above, just before <code>mergeCustomRules</code>, including when the remote cache is used. When every loaded remote file holds only <code>patches</code>, the base is the bundled rules, unmerged so their provider names stay (<code>withPatchOnlyBuiltInRules</code>), and <code>hashStatus</code> is <code>remote_built_in_merged</code>. Each patch's result (applied, unmatched or skipped) is stored in <code>remoteRulesHealth.rulePatches</code>.</p>
 <p><code>hashStatus</code> records which path was taken, for example <code>bundled_rules_loaded</code>, <code>remote_verified</code>, <code>remote_rules_partially_merged</code>, <code>cache_remote_rules_after_remote_failure</code> or <code>fallback_rules_used</code>. When custom rules are merged in, it gets a <code>custom</code> variant, such as <code>custom_rules_merged</code>.</p>
 <h3 id="54-merging-custom-rules"><span class="h-num">5.4</span>Merging custom rules</h3>
 <p><code>mergeCustomRules(baseRules)</code> builds the final list:</p>
