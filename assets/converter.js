@@ -69,15 +69,17 @@
     const box = document.createElement('div');
     box.className = 'cv-source';
     box.innerHTML =
-      '<div class="cv-source-head"><span class="cv-source-name"></span>' +
+      '<div class="cv-source-head"><span class="cv-source-name"></span><span class="cv-source-actions">' +
       '<button type="button" class="link-btn cv-fetch">Fetch</button>' +
-      '<button type="button" class="link-btn cv-remove" aria-label="Remove this list">Remove</button></div>' +
+      '<button type="button" class="link-btn cv-remove" aria-label="Remove this list">Remove</button></span></div>' +
       '<label class="tool-label" for="cv-url-' + id + '">List address</label>' +
       '<input id="cv-url-' + id + '" class="cv-input" type="url" spellcheck="false" autocomplete="off" placeholder="https://…/filter.txt">' +
-      '<label class="visually-hidden" for="cv-text-' + id + '">List text</label>' +
-      '<textarea id="cv-text-' + id + '" class="cv-list" spellcheck="false" placeholder="…or paste the list here, or drop the .txt file on this box"></textarea>' +
-      '<div class="cv-file"><input type="file" accept=".txt,text/plain" aria-label="Choose list file">' +
-      '<span class="cv-hint">The address is still used for metadata and <code>!#include</code>.</span></div>' +
+      '<div class="code-field cv-list-field">' +
+        '<div class="code-field-bar"><label for="cv-text-' + id + '">Or paste the list</label>' +
+        '<label class="link-btn cv-file-btn">Choose file<input type="file" class="visually-hidden" accept=".txt,text/plain"></label></div>' +
+        '<textarea id="cv-text-' + id + '" class="cv-list" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" placeholder="Paste or drop a .txt file"></textarea>' +
+      '</div>' +
+      '<span class="cv-hint cv-list-hint">The address is still used for metadata and <code>!#include</code>.</span>' +
       '<p class="tool-msg cv-msg" role="status" aria-live="polite" hidden></p>';
     const s = {
       box, url: box.querySelector('input[type=url]'), ta: box.querySelector('textarea'),
@@ -282,7 +284,7 @@
     const passes = res.steps.length
       ? '<p class="tool-msg">' + res.steps.length + ' pass' + (res.steps.length === 1 ? '' : 'es') + ': ' + res.steps.map(s => esc(s.provider)).join(' → ') + '</p>'
       : '';
-    out.innerHTML = '<p class="sim-result"><b>Result</b></p><code class="sim-url">' + esc(res.result) + '</code>' + passes +
+    out.innerHTML = '<div class="sim-final"><p class="sim-result"><b>Result</b></p><code class="sim-url">' + res.result.split(/(?=[\/?&;#])/).map(esc).join('<wbr>') + '</code></div>' + passes +
       (res.rows.length
         ? '<div class="table-wrap cv-test-wrap"><table class="cv-table"><thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Result</th><th scope="col">Rule</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
         : '<p class="tool-msg">The URL has no query parameters.</p>');

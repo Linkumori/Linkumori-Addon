@@ -513,12 +513,24 @@
       return frames;
     }
 
+    // Lets long URLs wrap before / ? & ; # rather than in the middle of a word.
+    function urlText(s) { return s.split(/(?=[\/?&;#])/).map(esc).join('<wbr>'); }
+
     function urlHtml(frame) {
-      if (!frame.before || frame.before === frame.url) return esc(frame.url);
+      if (!frame.before || frame.before === frame.url) return urlText(frame.url);
       return diffUrls(frame.before, frame.url).map(function (part) {
-        return part[0] === 'same' ? esc(part[1]) : '<' + part[0] + '>' + esc(part[1]) + '</' + part[0] + '>';
+        return part[0] === 'same' ? urlText(part[1]) : '<' + part[0] + '>' + urlText(part[1]) + '</' + part[0] + '>';
       }).join('');
     }
+
+    const ICONS = {
+      first: '<path d="M6 5v14M18 6l-8 6 8 6z"/>',
+      prev: '<path d="M15 6l-6 6 6 6"/>',
+      play: '<path d="M8 5.5v13l10-6.5z"/>',
+      pause: '<path d="M8.5 5.5v13M15.5 5.5v13"/>',
+      next: '<path d="M9 6l6 6-6 6"/>',
+      last: '<path d="M18 5v14M6 6l8 6-8 6z"/>'
+    };
 
     function highlightRow(frame) {
       out.querySelectorAll('tr.is-sim').forEach(function (tr) { tr.classList.remove('is-sim'); });
@@ -533,20 +545,21 @@
       if (!sim.frames.length) { simOut.textContent = ''; highlightRow(null); return; }
       const frame = sim.frames[sim.cursor];
       const last = sim.frames.length - 1;
-      const button = function (action, label, disabled) {
-        return '<button type="button" class="link-btn" data-sim="' + action + '"' + (disabled ? ' disabled' : '') + '>' + label + '</button>';
+      const button = function (action, label, disabled, icon) {
+        return '<button type="button" class="sim-btn" data-sim="' + action + '" aria-label="' + label + '" title="' + label + '"' + (disabled ? ' disabled' : '') + '>' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[icon || action] + '</svg></button>';
       };
       simOut.innerHTML =
         '<div class="sim-player">' +
           '<div class="sim-controls" role="group" aria-label="Step through the simulation">' +
             button('first', 'Start', sim.cursor === 0) + button('prev', 'Previous', sim.cursor === 0) +
-            button('play', sim.timer ? 'Pause' : 'Play', false) +
+            button('play', sim.timer ? 'Pause' : 'Play', false, sim.timer ? 'pause' : 'play') +
             button('next', 'Next', sim.cursor >= last) + button('last', 'End', sim.cursor >= last) +
           '</div>' +
           '<p class="sim-caption" aria-live="polite">' + esc(frame.caption) + '</p>' +
           '<code class="sim-url">' + urlHtml(frame) + '</code>' +
         '</div>' +
-        '<p class="sim-result"><b>Result</b> <code>' + esc(sim.result) + '</code></p>' +
+        '<div class="sim-final"><p class="sim-result"><b>Result</b></p><code class="sim-url">' + urlText(sim.result) + '</code></div>' +
         '<ol class="sim-timeline">' + sim.frames.map(function (f, i) {
           return '<li class="' + (i === sim.cursor ? 'is-current' : '') + (f.kind === 'step' && !f.changed ? ' is-unchanged' : '') + '">' +
             '<button type="button" data-frame="' + i + '"' + (i === sim.cursor ? ' aria-current="step"' : '') + '>' + esc(f.caption) + '</button></li>';

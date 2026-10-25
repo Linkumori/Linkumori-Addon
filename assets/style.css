@@ -918,27 +918,36 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 /* Run-order simulation */
 .sim { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
 .prose .sim-title { font-size: 17px; font-weight: 620; margin: 0 0 4px; }
-.sim-form { display: flex; gap: 10px; margin: 12px 0; }
-.sim-form { align-items: center; }
+.sim-form { display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+.tool .sim-form .btn { flex: none; min-height: 44px; padding: 0 20px; font-size: 15px; }
 .sim-form input { flex: 1 1 auto; min-width: 0; min-height: 44px; font: 14px/1.5 var(--mono); letter-spacing: 0; padding: 10px 16px; }
-.sim-player { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
-.sim-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.sim-player { background: var(--field-bg); border: 1px solid var(--line); border-radius: var(--r); padding: 12px; }
+/* Transport controls: one segmented bar of icon buttons, like a media player. */
+.sim-controls { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; padding: 3px; border-radius: 12px; background: var(--bg-alt); }
+.sim-btn { display: grid; place-items: center; min-height: 36px; border: 0; border-radius: 9px; background: transparent; color: var(--text); cursor: pointer; }
+.sim-btn:hover { background: color-mix(in srgb, var(--text) 8%, transparent); }
+.sim-btn[data-sim="play"] { background: var(--blue); color: var(--on-blue); }
+.sim-btn[data-sim="play"]:hover { background: var(--blue-hover); }
+.sim-btn[data-sim="play"] svg { fill: currentColor; }
+.sim-btn:disabled { color: var(--text-3); opacity: .5; cursor: default; background: transparent; }
+.sim-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
 .sim-caption { margin: 12px 0 8px; font-size: 14px; color: var(--text-2); }
-.prose .sim-url { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg-alt); box-shadow: none; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.prose .sim-url { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg-alt); box-shadow: none; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; word-break: normal; }
 .sim-url del { background: var(--strike-wash); color: var(--strike); text-decoration: line-through; }
 .sim-url ins { background: var(--keep-wash); color: var(--keep); text-decoration: none; }
-.prose .sim-result { font-size: 14px; margin: 14px 0 0; overflow-wrap: anywhere; }
-.sim-result b { font-weight: 600; margin-right: 6px; }
-.prose .sim-timeline { list-style: none; margin: 12px 0 0; padding: 0; max-height: 260px; overflow-y: auto; background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); }
+.sim-final { margin: 14px 0 0; padding: 12px; border-radius: var(--r); background: var(--keep-wash); }
+.prose .sim-result { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--keep); }
+.sim-result b { font-weight: inherit; }
+.prose .sim-final .sim-url { background: var(--field-bg); }
+.prose .sim-timeline { list-style: none; margin: 12px 0 0; padding: 4px; max-height: 280px; overflow-y: auto; background: var(--field-bg); border: 1px solid var(--line); border-radius: var(--r); }
 .prose .sim-timeline li { margin: 0; padding: 0; }
-.prose .sim-timeline li + li { border-top: 1px solid var(--line-soft); }
-.sim-timeline button { display: block; width: 100%; text-align: left; padding: 7px 12px; border: 0; background: transparent; font: inherit; font-size: 13.5px; color: var(--text); cursor: pointer; overflow-wrap: anywhere; }
+.sim-timeline button { display: block; width: 100%; text-align: left; padding: 8px 12px; border: 0; border-radius: 9px; background: transparent; font: 400 14px/1.45 var(--font); letter-spacing: -0.01em; color: var(--text); cursor: pointer; overflow-wrap: anywhere; }
+.sim-timeline button:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
 .sim-timeline .is-unchanged button { color: var(--text-3); }
-.sim-timeline .is-current button { background: color-mix(in srgb, var(--blue) 9%, transparent); box-shadow: inset 3px 0 0 var(--blue); }
+.sim-timeline .is-current button { background: color-mix(in srgb, var(--blue) 14%, transparent); color: var(--link); font-weight: 600; }
 .sim-timeline button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
 .ro-table tr.is-sim > td { background: color-mix(in srgb, var(--blue) 10%, transparent); }
 .ro-table tr.is-sim > td:first-child { box-shadow: inset 3px 0 0 var(--blue); }
-@media (max-width: 560px) { .sim-form { flex-direction: column; } }
 
 /* ---------- AdGuard → CLN converter (converter.html) ---------- */
 
@@ -947,21 +956,19 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .cv-sources { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .cv-source { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
 .cv-source.is-over { border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
-.cv-source-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-.cv-source-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; font-weight: 600; letter-spacing: -0.015em; }
+.cv-source-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.cv-source-actions { display: flex; gap: 8px; flex: none; }
+.cv-source-name { flex: 1 1 4em; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; font-weight: 600; letter-spacing: -0.015em; }
 .cv-source-head .link-btn { min-height: 28px; padding: 5px 12px; font-size: 13px; }
 .cv-input, .cv-field select, .cv-field input { width: 100%; min-height: 44px; font: 15px/1.4 var(--font); letter-spacing: -0.01em; padding: 10px 16px; }
 .cv-input[type="url"], .cv-field input[type="text"] { font: 14px/1.5 var(--mono); letter-spacing: 0; }
 .cv-field select { padding-right: 40px; }
-.tool textarea.cv-list { min-height: 110px; margin-top: 10px; font-size: 12.5px; }
-.cv-file { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 10px; font-size: 13px; }
-.cv-file input { font: inherit; color: var(--text-2); max-width: 100%; }
-.cv-file .cv-hint { flex-basis: 100%; }
-.cv-file input::file-selector-button {
-  margin-right: 10px; font: 400 13px/1 var(--font); letter-spacing: -0.01em; padding: 5px 12px; min-height: 28px; border-radius: 999px; cursor: pointer;
-  background: var(--bg); border: 1px solid var(--field); color: var(--text);
-}
-.cv-file input:hover::file-selector-button { border-color: var(--link); color: var(--link); }
+.cv-list-field { margin-top: 10px; }
+.tool .cv-list-field textarea.cv-list { min-height: 130px; margin: 0; }
+.cv-list-field .code-field-bar { padding-top: 6px; padding-bottom: 6px; }
+.cv-file-btn { position: relative; display: inline-flex; align-items: center; min-height: 28px; padding: 5px 12px; font-size: 13px; font-weight: 400; }
+.cv-file-btn:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
+.cv-list-hint { margin-top: 8px; }
 .cv-msg { margin: 10px 0 0; }
 .cv-msg.is-ok { color: var(--keep); }
 .cv-msg.is-err { color: var(--strike); }
@@ -1018,11 +1025,10 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
 .cv-b-info, .cv-b-kept { background: var(--keep-wash); color: var(--keep); }
 .cv-b-duplicate, .cv-b-excluded { background: var(--bg-alt); color: var(--text-2); box-shadow: inset 0 0 0 1px var(--line); }
 .cv-test-wrap { margin: 16px 0 0; }
-#cv-test-out .sim-result { margin-top: 4px; }
-#cv-test-out .sim-url { background: var(--bg); }
 @media (max-width: 560px) {
   .tool { padding: 16px; }
   .tool .code-field textarea { font-size: 12.5px; padding: 12px 14px; }
+  .cv-source { padding: 14px; }
   .cv-size { margin-left: 0; flex-basis: 100%; }
   .cv-search { flex-basis: 100%; }
 }
@@ -1062,5 +1068,4 @@ td.sk { text-align: center; padding-left: 10px; padding-right: 10px; font: 14px/
   .js .reveal { opacity: 0; transform: translateY(32px); transition: opacity .9s ease, transform .9s cubic-bezier(.16, 1, .3, 1); }
   .js .reveal.in { opacity: 1; transform: none; }
   .btn, .icon-btn, .toc a, .samples button, .link-btn, .cv-filters button { transition: background-color .2s, border-color .2s, color .2s, opacity .2s; }
-  .cv-file input::file-selector-button { transition: border-color .2s, color .2s; }
 }
