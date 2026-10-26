@@ -1101,6 +1101,29 @@
             flex: 1;
         }
 
+        .troubleshooter-experimental {
+            flex: none;
+            padding: 1px 7px;
+            border: 1px solid #d97706;
+            border-radius: 999px;
+            color: #d97706;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .troubleshooter-warning {
+            margin: 0;
+            padding: 6px 8px;
+            border: 1px solid #d97706;
+            border-left-width: 4px;
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
         .troubleshooter-back {
             padding: 4px 7px;
             background: var(--bg-tertiary);
@@ -1714,7 +1737,7 @@
     <main id="main-content" tabindex="-1">
     <!-- Main Content -->
     <div id="mainContent">
-        <button type="button" id="openTroubleshooter" class="troubleshooter-launch" data-ts="launch">Troubleshoot this tab</button>
+        <button type="button" id="openTroubleshooter" class="troubleshooter-launch" data-ts="launch">Troubleshoot this tab (experimental)</button>
 
         <div class="toggle-container">
             <div class="toggle-switch" id="globalStatus"></div>
@@ -1792,7 +1815,9 @@
         <div class="troubleshooter-heading-row">
             <button type="button" id="troubleshooterBack" class="troubleshooter-back" data-ts="back" data-ts-aria="back_aria">Back</button>
             <h2 id="troubleshooterTitle" data-ts="title">Tab troubleshooter</h2>
+            <span class="troubleshooter-experimental" data-ts="experimental">Experimental</span>
         </div>
+        <p class="troubleshooter-warning" role="note" data-ts="experimental_warning"></p>
         <p id="troubleshooterPage" class="troubleshooter-page"></p>
         <details class="troubleshooter-about">
             <summary data-ts="about_summary">How recording works</summary>

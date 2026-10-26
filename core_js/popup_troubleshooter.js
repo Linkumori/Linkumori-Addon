@@ -44,8 +44,10 @@
     // English text. Each key is looked up as "troubleshooter_<key>" in the
     // locale files; a missing translation falls back to this text.
     const TS_TEXT = {
-        launch: 'Troubleshoot this tab',
+        launch: 'Troubleshoot this tab (experimental)',
         back: 'Back',
+        experimental: 'Experimental',
+        experimental_warning: 'Experimental: this troubleshooter is not fully stable. Its results can be wrong, and it switches rules off while it tests. If something looks wrong afterwards, check your rules in the custom rules editor, or use Stop search to switch them back on.',
         back_aria: 'Back to extension controls',
         title: 'Tab troubleshooter',
         page: 'Page',
