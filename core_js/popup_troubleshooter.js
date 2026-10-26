@@ -154,6 +154,11 @@
         diag_not_found_title: 'No single rule found',
         diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on.',
         diag_failed: 'Could not run the check: $1',
+        diag_off_title: 'Rule switched off',
+        diag_off_text: 'Rule $1$2 is now off. Reload the tab to check that the page works.',
+        diag_reload_tab: 'Reload tab',
+        diag_enable_again: 'Turn it back on',
+        diag_culprit_enabled: 'Rule switched back on. Reload the tab to check.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -517,6 +522,11 @@
             if (!Array.isArray(capture.failures)) capture.failures = [];
             const { findings, linkedFailures } = buildFindings(tab, capture, traceResponse?.response);
             const groups = groupFindings(findings);
+            const diagnosisData = diagnosisResponse?.response;
+            if (diagnosisData?.phase === 'found' && diagnosisData.culprit?.identity) {
+                const culpritState = await message('getTroubleshooterRuleState', [diagnosisData.culprit.identity]).catch(() => null);
+                diagnosisData.culpritState = culpritState?.response || null;
+            }
             await loadRuleStates(groups.slice(0, MAX_GROUPS * 2));
             if (isStale()) return;
 
@@ -864,24 +874,47 @@
             const culprit = diagnosis.culprit || {};
             const label = culprit.label || culprit.ruleId || '';
             const provider = culprit.providerName ? ts('diag_found_provider', culprit.providerName) : '';
-            const disable = button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable', async () => {
-                disable.disabled = true;
+            const setCulprit = (enabled, doneText) => async event => {
+                const node = event.currentTarget;
+                node.disabled = true;
                 try {
-                    const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, false]);
+                    const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, enabled]);
                     if (!response?.response?.success) throw new Error(response?.response?.error || '');
-                    $('troubleshooterStatus').textContent = ts('diag_culprit_disabled');
                     await refresh({ quiet: true });
+                    $('troubleshooterStatus').textContent = doneText;
                 } catch (error) {
                     $('troubleshooterStatus').textContent = error?.message || ts('status_rule_failed');
-                    disable.disabled = false;
+                    node.disabled = false;
                 }
-            });
+            };
             const report = button(ts('diag_report_culprit'), '', () => {
                 openReport(data.tab.url, '', label, culprit.providerName || '',
                     `Troubleshooter: the page works with cleaning paused, and the rule search points to rule ${label}${culprit.providerName ? ` (${culprit.providerName})` : ''}.`)
                     .catch(() => { $('troubleshooterStatus').textContent = ts('status_report_failed'); });
             });
-            diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [disable, report, done], 'warning');
+            if (diagnosis.culpritState?.available && diagnosis.culpritState.enabled === false) {
+                // Already switched off: offer the next step instead of the same button again.
+                const reload = button(ts('diag_reload_tab'), 'troubleshooter-primary', async () => {
+                    try {
+                        await browser.tabs.reload(data.tab.id);
+                    } catch (_) {
+                        // The tab may have closed.
+                    }
+                });
+                diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
+                    reload,
+                    button(ts('diag_enable_again'), '', setCulprit(true, ts('diag_culprit_enabled'))),
+                    report,
+                    done
+                ], 'ok');
+                return;
+            }
+            diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [
+                button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
+                    setCulprit(false, ts('diag_culprit_disabled'))),
+                report,
+                done
+            ], 'warning');
             return;
         }
         case 'not-found':
