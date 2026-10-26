@@ -4331,6 +4331,10 @@
     "message": "De naam is slechts een label. Welke URL's een Aanbieder afhandelt, wordt bepaald door <code>domainPatterns</code> of <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "De optionele sleutel <code>cln</code> noemt de formaatversie. De enige geldige waarde is <code>\"1.0\"</code>; een bestand zonder deze sleutel wordt ook als 1.0 gelezen, en een bestand met een andere waarde wordt geweigerd. Een bestand kan ook <code>metadata</code> hebben, een <code>defaults</code>-blok met waarden voor elke regel die ze niet zelf instelt, en in een externe regellijst <code>patches</code> (hoofdstuk 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Velden van de Aanbieder",
     "description": "Guide page text."
@@ -4567,6 +4571,10 @@
     "message": "precies die parameter; hoofdletters worden genegeerd tenzij u <code>match-case</code> toevoegt",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "de parameter met de naam <code>~ref</code>. Een backslash maakt het volgende teken letterlijk: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. Schrijf in JSON elke backslash twee keer",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Opties",
     "description": "Guide page text."
@@ -4624,7 +4632,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Een <code>@@</code> filter omvat ook verzoeken die zijn gemaakt door een pagina die deze Aanbieder overeenkomt, zelfs wanneer een andere Aanbieder deze afhandelt.",
+    "message": "Een <code>@@</code>-filter beschermt alleen tegen <code>$removeparam</code>-filters: een gewone regel zoals <code>\"ref\"</code> verwijdert de parameter nog steeds. Het patroon wordt vergeleken met de URL zoals de provider die ontving, voordat ruwe regels draaien. Het geldt ook voor verzoeken van een pagina die bij deze provider past, ook als een andere provider ze afhandelt.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -4709,6 +4717,14 @@
   },
   "guide_redir_p5": {
     "message": "De eerste overeenkomende parameter die een waarde heeft, wint. Een omleiding stopt alle verdere verwerking voor het verzoek.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "De bestemming moet een volledig <code>http</code>- of <code>https</code>-adres met een host zijn. Anders wordt er niet doorgestuurd en draaien de andere stappen van de provider op de ongewijzigde URL. Een ruwe regel waarvan het resultaat op een andere site ligt, telt ook als doorsturing.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "In een externe regellijst blijven doorsturingen en <code>completeProvider</code>-blokkeringen uit tot je ze voor die lijst accepteert in de status van externe regels (Remote Rules Health). De rest van de lijst werkt meteen.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -4811,16 +4827,20 @@
     "message": "Een gegenereerd id verandert wanneer de tekst van de regel verandert. Geef een regel een eigen <code>id</code> wanneer de aan/uit-instelling behouden moet blijven na bewerkingen.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "Een regel wordt aan- en uitgezet via zijn provider en id samen, zoals <code>shop::session-token</code>, zodat twee providers hetzelfde id kunnen gebruiken. Binnen één provider moet elk id en elke alias anders zijn, en een id mag geen dubbele punt bevatten. Een externe regellijst kan één geladen regel vervangen door deze sleutel in haar <code>patches</code> te noemen:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Een regel eerder of later uitvoeren",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Ruwe regels worden normaal gesproken eerst uitgevoerd, daarna <code>rules</code> en <code>referralMarketing</code>. Een regel met <code>order</code> wordt uitgevoerd vóór regels zonder deze, beginnend bij de laagste waarde. Hier wordt het token eerst vervangen en daarna verwijderd:",
+    "message": "Ruwe regels draaien altijd vóór <code>rules</code> en <code>referralMarketing</code>, en <code>order</code> verandert dat niet. Binnen elk van deze twee fasen draait een regel met <code>order</code> vóór regels zonder, de laagste eerst. Hier wordt het token herschreven voordat <code>utm_source</code> wordt verwijderd, hoewel het als tweede staat:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> werkt in <code>rules</code>, <code>rawRules</code> en <code>referralMarketing</code>, maar niet op <code>$removeparam</code>-filters, die altijd als laatste worden uitgevoerd.",
+    "message": "<code>order</code> werkt in <code>rules</code>, <code>rawRules</code> en <code>referralMarketing</code>. <code>$removeparam</code>-filters en <code>@@</code>-regels kunnen er geen hebben; filters draaien altijd als laatste. <code>\"order\": null</code> betekent geen volgorde en laat een volgorde vallen die een eerdere kopie van dezelfde regel instelde.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -4896,7 +4916,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "De eerste Aanbieder die de aanvraag wijzigt, omleidt of blokkeert, bepaalt het resultaat. De nieuwe URL doorloopt vervolgens opnieuw dezelfde stappen.",
+    "message": "De eerste provider die het verzoek wijzigt, doorstuurt of blokkeert, bepaalt het resultaat. De nieuwe URL doorloopt daarna dezelfde stappen opnieuw, hoogstens 10 keer per verzoek. Een regel met <code>replacePattern</code> wordt maar één keer per verzoek toegepast.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -4965,6 +4985,22 @@
   },
   "guide_check_6": {
     "message": "een <code>@@…$rawrule=</code> vermelding die geen enkele Ruwe regel stopt",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "een <code>cln</code>-waarde anders dan <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "een id of alias dat twee keer in één provider voorkomt",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "een <code>$redirect=</code>-adres dat geen <code>http</code> of <code>https</code> is",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "een backslash in een <code>$removeparam</code>-naam vóór een teken zonder escape",
     "description": "Guide page text."
   },
   "guide_check_p2": {

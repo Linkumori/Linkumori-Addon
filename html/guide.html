@@ -817,6 +817,7 @@
 <h2 id="rules-file" data-i18n-html="guide_file_title"></h2>
 <p data-i18n-html="guide_file_p1"></p>
 <pre><code class="language-json">{
+  "cln": "1.0",
   "providers": {
     "example": {
       "domainPatterns": ["||example.com^"],
@@ -828,6 +829,7 @@
 <pre><code class="language-txt">https://www.example.com/page?utm_source=news&amp;utm_medium=mail&amp;id=10
 → https://www.example.com/page?id=10</code></pre>
 <p data-i18n-html="guide_file_p3"></p>
+<p data-i18n-html="guide_file_p4"></p>
 </section>
 <section class="card guide-section" aria-labelledby="provider-fields">
 <h2 id="provider-fields" data-i18n-html="guide_fields_title"></h2>
@@ -919,6 +921,7 @@
 <tr><td><code>$removeparam=/^utm_/i</code></td><td data-i18n-html="guide_rp_v_regex"></td></tr>
 <tr><td><code>$removeparam=|utm_</code></td><td data-i18n-html="guide_rp_v_prefix"></td></tr>
 <tr><td><code>$removeparam=fbclid</code></td><td data-i18n-html="guide_rp_v_name"></td></tr>
+<tr><td><code>$removeparam=\~ref</code></td><td data-i18n-html="guide_rp_v_escape"></td></tr>
 </tbody>
 </table></div>
 <h3 id="removeparam-options" data-i18n-html="guide_rp_options_title"></h3>
@@ -995,6 +998,8 @@
 <p data-i18n-html="guide_redir_p4"></p>
 <pre><code class="language-json">"fieldRedirections": ["redirect", "continue_url", "$removeparam=/^(u|dest)$/i"]</code></pre>
 <p data-i18n-html="guide_redir_p5"></p>
+<p data-i18n-html="guide_redir_p6"></p>
+<p data-i18n-html="guide_redir_p7"></p>
 </section>
 <section class="card guide-section" aria-labelledby="rule-objects">
 <h2 id="rule-objects" data-i18n-html="guide_obj_title"></h2>
@@ -1051,13 +1056,19 @@
 <h3 id="rule-ids" data-i18n-html="guide_obj_ids_title"></h3>
 <p data-i18n-html="guide_obj_p5"></p>
 <p data-i18n-html="guide_obj_p6"></p>
+<p data-i18n-html="guide_obj_p9"></p>
+<pre><code class="language-json">"patches": [
+  {
+    "target": "shop::session-token",
+    "section": "rules",
+    "replace": { "matchPattern": "token", "requestTypes": ["main_frame"] }
+  }
+]</code></pre>
 <h3 id="order" data-i18n-html="guide_obj_order_title"></h3>
 <p data-i18n-html="guide_obj_p7"></p>
 <pre><code class="language-json">"rules": [
-  { "id": "mark-token", "matchPattern": "token", "replacePattern": "secret", "order": 1 }
-],
-"rawRules": [
-  { "id": "strip-secret", "matchPattern": "secret", "order": 2 }
+  "utm_source",
+  { "id": "token-rewrite", "matchPattern": "token", "replacePattern": "clean-§1§", "order": 1 }
 ]</code></pre>
 <p data-i18n-html="guide_obj_p8"></p>
 </section>
@@ -1111,6 +1122,7 @@
 <h3 id="example-shop" data-i18n-html="guide_ex1_title"></h3>
 <p data-i18n-html="guide_ex1_p"></p>
 <pre><code class="language-json">{
+  "cln": "1.0",
   "providers": {
     "shop": {
       "domainPatterns": ["||shop.example^"],
@@ -1123,6 +1135,7 @@
 <h3 id="example-utm" data-i18n-html="guide_ex2_title"></h3>
 <p data-i18n-html="guide_ex2_p"></p>
 <pre><code class="language-json">{
+  "cln": "1.0",
   "providers": {
     "everywhere": {
       "domainPatterns": ["*"],
@@ -1133,6 +1146,7 @@
 <h3 id="example-click-tracker" data-i18n-html="guide_ex3_title"></h3>
 <p data-i18n-html="guide_ex3_p"></p>
 <pre><code class="language-json">{
+  "cln": "1.0",
   "providers": {
     "click-tracker": {
       "domainPatterns": ["||click.example.net^"],
@@ -1143,6 +1157,7 @@
 <h3 id="example-keep" data-i18n-html="guide_ex4_title"></h3>
 <p data-i18n-html="guide_ex4_p"></p>
 <pre><code class="language-json">{
+  "cln": "1.0",
   "providers": {
     "site": {
       "domainPatterns": ["||example.com^"],
@@ -1164,6 +1179,10 @@
 <li data-i18n-html="guide_check_4"></li>
 <li data-i18n-html="guide_check_5"></li>
 <li data-i18n-html="guide_check_6"></li>
+<li data-i18n-html="guide_check_7"></li>
+<li data-i18n-html="guide_check_8"></li>
+<li data-i18n-html="guide_check_9"></li>
+<li data-i18n-html="guide_check_10"></li>
 </ul>
 <p data-i18n-html="guide_check_p2"></p>
 </section>

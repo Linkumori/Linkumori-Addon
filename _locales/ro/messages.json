@@ -5159,6 +5159,10 @@
     "message": "Numele este doar o etichetă. URL-urile pe care un Furnizor le gestionează sunt decise de <code>domainPatterns</code> sau <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "Cheia opțională <code>cln</code> numește versiunea formatului. Singura valoare validă este <code>\"1.0\"</code>; un fișier fără ea este citit tot ca 1.0, iar un fișier cu altă valoare este respins. Un fișier poate avea și <code>metadata</code>, un bloc <code>defaults</code> cu valori pentru fiecare regulă care nu le setează singură și, într-o listă de reguli la distanță, <code>patches</code> (capitolul 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Câmpurile Furnizorului",
     "description": "Guide page text."
@@ -5395,6 +5399,10 @@
     "message": "exact acel parametru; majusculele sunt ignorate decât dacă adăugați <code>match-case</code>",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "parametrul numit <code>~ref</code>. O bară oblică inversă face literal caracterul următor: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. În JSON, scrieți fiecare bară oblică inversă de două ori",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Opțiuni",
     "description": "Guide page text."
@@ -5452,7 +5460,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Un filtru <code>@@</code> acoperă și cererile efectuate de o pagină pe care acest Furnizor o potrivește, chiar și atunci când alt Furnizor le gestionează.",
+    "message": "Un filtru <code>@@</code> protejează doar împotriva filtrelor <code>$removeparam</code>: o intrare simplă precum <code>\"ref\"</code> tot elimină parametrul. Modelul său este comparat cu URL-ul așa cum l-a primit furnizorul, înainte de regulile brute. Acoperă și cererile făcute de o pagină care se potrivește cu acest furnizor, chiar dacă le tratează alt furnizor.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -5537,6 +5545,14 @@
   },
   "guide_redir_p5": {
     "message": "Primul parametru corespunzător care are o valoare câștigă. O redirecționare oprește orice altă procesare pentru cerere.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "Destinația trebuie să fie o adresă <code>http</code> sau <code>https</code> completă, cu gazdă. Altfel nu se redirecționează nimic, iar ceilalți pași ai furnizorului rulează pe URL-ul neschimbat. O regulă brută al cărei rezultat este pe alt site contează și ea ca redirecționare.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "Într-o listă de reguli la distanță, redirecționările și blocările <code>completeProvider</code> rămân oprite până le acceptați pentru acea listă în starea regulilor la distanță (Remote Rules Health). Restul listei funcționează imediat.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -5639,16 +5655,20 @@
     "message": "Un ID generat se modifică atunci când textul regulii se schimbă. Atribuiți unei reguli propriul <code>id</code> atunci când aceasta trebuie să își păstreze setarea on/off în urma editărilor.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "O regulă este pornită și oprită prin furnizorul și id-ul ei împreună, de exemplu <code>shop::session-token</code>, astfel încât doi furnizori pot folosi același id. Într-un furnizor, fiecare id și alias trebuie să fie diferit, iar un id nu poate conține două puncte. O listă de reguli la distanță poate înlocui o regulă încărcată numind această cheie în <code>patches</code>:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Executarea unei reguli mai devreme sau mai târziu",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Regulile brute rulează în mod normal primele, apoi <code>rules</code> și <code>referralMarketing</code>. O regulă cu <code>order</code> rulează înainte de regulile fără acesta, începând cu cea mai mică valoare. Aici, token-ul este înlocuit mai întâi și apoi șters:",
+    "message": "Regulile brute rulează mereu înainte de <code>rules</code> și <code>referralMarketing</code>, iar <code>order</code> nu schimbă asta. În fiecare dintre aceste două etape, o regulă cu <code>order</code> rulează înaintea regulilor fără, cea mai mică întâi. Aici tokenul este rescris înainte ca <code>utm_source</code> să fie eliminat, deși vine al doilea:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> funcționează în <code>rules</code>, <code>rawRules</code> și <code>referralMarketing</code>, dar nu și pe filtrele <code>$removeparam</code>, care rulează întotdeauna ultimele.",
+    "message": "<code>order</code> funcționează în <code>rules</code>, <code>rawRules</code> și <code>referralMarketing</code>. Filtrele <code>$removeparam</code> și intrările <code>@@</code> nu pot avea unul; filtrele rulează mereu ultimele. <code>\"order\": null</code> înseamnă fără ordine și renunță la ordinea setată de o copie anterioară a aceleiași reguli.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -5724,7 +5744,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "Primul Furnizor care modifică, redirecționează sau blochează cererea decide rezultatul. Noul URL trece apoi din nou prin aceleași etape.",
+    "message": "Primul furnizor care modifică, redirecționează sau blochează cererea decide rezultatul. Noul URL trece apoi din nou prin aceiași pași, de cel mult 10 ori pe cerere. O regulă cu <code>replacePattern</code> se aplică o singură dată pe cerere.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -5793,6 +5813,22 @@
   },
   "guide_check_6": {
     "message": "o intrare <code>@@…$rawrule=</code> care nu oprește nicio regulă brută",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "o valoare <code>cln</code> diferită de <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "un id sau alias folosit de două ori într-un furnizor",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "o adresă <code>$redirect=</code> care nu este <code>http</code> sau <code>https</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "o bară oblică inversă într-un nume <code>$removeparam</code> înaintea unui caracter fără escape",
     "description": "Guide page text."
   },
   "guide_check_p2": {

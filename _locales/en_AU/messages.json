@@ -5159,6 +5159,10 @@
     "message": "The name is only a label. Which URLs a provider handles is decided by <code>domainPatterns</code> or <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "The optional <code>cln</code> key names the format version. Its only valid value is <code>\"1.0\"</code>; a file without it is read as 1.0 too, and a file with any other value is rejected. A file can also have <code>metadata</code>, a <code>defaults</code> block with values for every rule that doesn't set its own, and, in a remote rule list, <code>patches</code> (chapter 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Provider fields",
     "description": "Guide page text."
@@ -5395,6 +5399,10 @@
     "message": "exactly that parameter; case is ignored unless you add <code>match-case</code>",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "the parameter named <code>~ref</code>. A backslash makes the next character literal: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code> and <code>\\\\</code>. In JSON, write each backslash twice",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Options",
     "description": "Guide page text."
@@ -5452,7 +5460,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "An <code>@@</code> filter also covers requests made by a page this provider matches, even when another provider handles them.",
+    "message": "An <code>@@</code> filter only protects against <code>$removeparam</code> filters: a plain entry such as <code>\"ref\"</code> still removes the parameter. Its pattern is checked against the URL as the provider received it, before raw rules run. It also covers requests made by a page this provider matches, even when another provider handles them.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -5537,6 +5545,14 @@
   },
   "guide_redir_p5": {
     "message": "The first matching parameter that has a value wins. A redirect stops all other processing for the request.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "The destination must be a full <code>http</code> or <code>https</code> address with a host. Otherwise nothing is redirected, and the provider's other steps run on the unchanged URL. A raw rule whose result is on another site counts as a redirect too.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "In a remote rule list, redirects and <code>completeProvider</code> blocks stay off until you accept them for that list in Remote Rules Health. The rest of the list works right away.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -5639,16 +5655,20 @@
     "message": "A generated id changes when the rule's text changes. Give a rule its own <code>id</code> when it must keep its on/off setting through edits.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "A rule is switched on and off by its provider and id together, such as <code>shop::session-token</code>, so two providers can use the same id. Within one provider, every id and alias must be different, and an id can't contain a colon. A remote rule list can replace one loaded rule by naming this key in its <code>patches</code>:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Running a rule earlier or later",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Raw rules normally run first, then <code>rules</code> and <code>referralMarketing</code>. A rule with <code>order</code> runs before rules without one, lowest first. Here the token is replaced first, and then deleted:",
+    "message": "Raw rules always run before <code>rules</code> and <code>referralMarketing</code>, and <code>order</code> never changes that. Within each of these two stages, a rule with <code>order</code> runs before rules without one, lowest first. Here the token is rewritten before <code>utm_source</code> is removed, although it comes second:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> works in <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>, but not on <code>$removeparam</code> filters, which always run last.",
+    "message": "<code>order</code> works in <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>. <code>$removeparam</code> filters and <code>@@</code> entries can't have one; filters always run last. <code>\"order\": null</code> means no order, and drops one that an earlier copy of the same rule set.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -5724,7 +5744,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "The first provider that changes, redirects or blocks the request decides the result. The new URL then goes through the same steps again.",
+    "message": "The first provider that changes, redirects or blocks the request decides the result. The new URL then goes through the same steps again, at most 10 times per request. A rule with <code>replacePattern</code> applies only once per request.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -5793,6 +5813,22 @@
   },
   "guide_check_6": {
     "message": "an <code>@@…$rawrule=</code> entry that stops no raw rule",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "a <code>cln</code> value other than <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "an id or alias used twice in one provider",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "a <code>$redirect=</code> address that is not <code>http</code> or <code>https</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "a backslash in a <code>$removeparam</code> name before a character that has no escape",
     "description": "Guide page text."
   },
   "guide_check_p2": {

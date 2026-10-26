@@ -5159,6 +5159,10 @@
     "message": "El nom és només una etiqueta. Quines URL gestiona un Proveïdor es decideix mitjançant <code>domainPatterns</code> o <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "La clau opcional <code>cln</code> indica la versió del format. L'únic valor vàlid és <code>\"1.0\"</code>; un fitxer sense ella també es llegeix com a 1.0, i un fitxer amb qualsevol altre valor es rebutja. Un fitxer també pot tenir <code>metadata</code>, un bloc <code>defaults</code> amb valors per a cada regla que no els defineix i, en una llista de regles remota, <code>patches</code> (capítol 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Camps del Proveïdor",
     "description": "Guide page text."
@@ -5395,6 +5399,10 @@
     "message": "exactament aquest paràmetre; es ignoren les majúscules i minúscules a menys que afegiu <code>match-case</code>",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "el paràmetre anomenat <code>~ref</code>. Una barra inversa fa literal el caràcter següent: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. En JSON, escriviu cada barra inversa dues vegades",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Opcions",
     "description": "Guide page text."
@@ -5452,7 +5460,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Un filtre <code>@@</code> també cobreix les sol·licituds fetes per una pàgina que aquest Proveïdor coincideix, fins i tot quan un altre Proveïdor les gestiona.",
+    "message": "Un filtre <code>@@</code> només protegeix dels filtres <code>$removeparam</code>: una entrada simple com <code>\"ref\"</code> continua eliminant el paràmetre. El seu patró es compara amb l'URL tal com l'ha rebut el proveïdor, abans de les regles en brut. També cobreix les sol·licituds fetes per una pàgina que coincideix amb aquest proveïdor, encara que les gestioni un altre proveïdor.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -5537,6 +5545,14 @@
   },
   "guide_redir_p5": {
     "message": "Guanya el primer paràmetre coincident que tingui un valor. Una redirecció atura tota la resta del processament de la sol·licitud.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "La destinació ha de ser una adreça <code>http</code> o <code>https</code> completa amb un amfitrió. Si no, no es redirigeix res i els altres passos del proveïdor s'executen sobre l'URL sense canvis. Una regla en brut el resultat de la qual és en un altre lloc també compta com a redirecció.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "En una llista de regles remota, les redireccions i els blocatges <code>completeProvider</code> queden desactivats fins que els accepteu per a aquella llista a l'estat de les regles remotes (Remote Rules Health). La resta de la llista funciona de seguida.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -5639,16 +5655,20 @@
     "message": "Un id generat canvia quan el text de la regla canvia. Atribueix a una regla el seu propi <code>id</code> quan hagi de mantenir la seva configuració d'activació/desactivació després de les edicions.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "Una regla s'activa i es desactiva pel seu proveïdor i el seu id junts, com <code>shop::session-token</code>, de manera que dos proveïdors poden fer servir el mateix id. Dins d'un proveïdor, cada id i àlies ha de ser diferent, i un id no pot contenir dos punts. Una llista de regles remota pot substituir una regla carregada esmentant aquesta clau als seus <code>patches</code>:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Executar una regla abans o després",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Les Regles brutes normalment s'executen primer, després <code>rules</code> i <code>referralMarketing</code>. Una regla amb <code>order</code> s'executa abans que les regles que no en tenen, començant per la més baixa. Aquí el token es substitueix primer i després s'elimina:",
+    "message": "Les regles en brut sempre s'executen abans de <code>rules</code> i <code>referralMarketing</code>, i <code>order</code> no ho canvia. Dins de cadascuna d'aquestes dues etapes, una regla amb <code>order</code> s'executa abans que les regles sense, la més baixa primer. Aquí el testimoni es reescriu abans d'eliminar <code>utm_source</code>, tot i que va en segon lloc:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> funciona en <code>rules</code>, <code>rawRules</code> i <code>referralMarketing</code>, però no en els filtres <code>$removeparam</code>, que sempre s'executen al final.",
+    "message": "<code>order</code> funciona a <code>rules</code>, <code>rawRules</code> i <code>referralMarketing</code>. Els filtres <code>$removeparam</code> i les entrades <code>@@</code> no en poden tenir; els filtres sempre s'executen al final. <code>\"order\": null</code> vol dir sense ordre i descarta el que va fixar una còpia anterior de la mateixa regla.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -5724,7 +5744,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "El primer Proveïdor que canvia, redirecciona o bloqueja la sol·licitud decideix el resultat. La nova URL torna a passar pels mateixos passos.",
+    "message": "El primer proveïdor que canvia, redirigeix o bloca la sol·licitud decideix el resultat. El nou URL torna a passar pels mateixos passos, com a màxim 10 vegades per sol·licitud. Una regla amb <code>replacePattern</code> s'aplica només una vegada per sol·licitud.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -5793,6 +5813,22 @@
   },
   "guide_check_6": {
     "message": "una entrada de <code>@@…$rawrule=</code> que no atura cap Regla bruta",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "un valor de <code>cln</code> diferent de <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "un id o àlies usat dues vegades en un proveïdor",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "una adreça <code>$redirect=</code> que no és <code>http</code> ni <code>https</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "una barra inversa en un nom <code>$removeparam</code> davant d'un caràcter sense escapament",
     "description": "Guide page text."
   },
   "guide_check_p2": {

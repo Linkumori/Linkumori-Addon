@@ -4320,6 +4320,10 @@
     "message": "O nome é apenas um rótulo. Quais URLs um Provedor manipula é decidido por <code>domainPatterns</code> ou <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "A chave opcional <code>cln</code> indica a versão do formato. Seu único valor válido é <code>\"1.0\"</code>; um arquivo sem ela também é lido como 1.0, e um arquivo com qualquer outro valor é rejeitado. Um arquivo também pode ter <code>metadata</code>, um bloco <code>defaults</code> com valores para cada regra que não os define e, em uma lista de regras remota, <code>patches</code> (capítulo 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Campos do Provedor",
     "description": "Guide page text."
@@ -4556,6 +4560,10 @@
     "message": "exatamente esse parâmetro; ignora maiúsculas e minúsculas, a menos que você adicione <code>match-case</code>",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "o parâmetro chamado <code>~ref</code>. Uma barra invertida torna literal o próximo caractere: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. Em JSON, escreva cada barra invertida duas vezes",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Opções",
     "description": "Guide page text."
@@ -4613,7 +4621,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Um filtro <code>@@</code> também abrange requisições feitas por uma página que este Provedor corresponde, mesmo quando outro provedor as manipula.",
+    "message": "Um filtro <code>@@</code> só protege contra filtros <code>$removeparam</code>: uma entrada simples como <code>\"ref\"</code> ainda remove o parâmetro. Seu padrão é comparado com a URL como o provedor a recebeu, antes das regras brutas. Ele também cobre solicitações feitas por uma página que corresponde a este provedor, mesmo quando outro provedor as trata.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -4698,6 +4706,14 @@
   },
   "guide_redir_p5": {
     "message": "O primeiro parâmetro correspondente que possuir um valor vence. Um redirecionamento interrompe todo o processamento posterior da requisição.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "O destino deve ser um endereço <code>http</code> ou <code>https</code> completo com um host. Caso contrário, nada é redirecionado e as demais etapas do provedor rodam na URL inalterada. Uma regra bruta cujo resultado está em outro site também conta como redirecionamento.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "Em uma lista de regras remota, redirecionamentos e bloqueios <code>completeProvider</code> ficam desativados até você aceitá-los para essa lista em Saúde das regras remotas (Remote Rules Health). O resto da lista funciona na hora.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -4800,16 +4816,20 @@
     "message": "Um id gerado muda quando o texto da regra muda. Atribua à regra seu próprio <code>id</code> quando ela precisar manter sua configuração de ativado/desativado durante as edições.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "Uma regra é ligada e desligada pelo provedor e pelo id juntos, como <code>shop::session-token</code>, então dois provedores podem usar o mesmo id. Dentro de um provedor, cada id e alias deve ser diferente, e um id não pode conter dois-pontos. Uma lista de regras remota pode substituir uma regra carregada citando essa chave em seus <code>patches</code>:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Executando uma regra mais cedo ou mais tarde",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Regras brutas normalmente são executadas primeiro, depois <code>rules</code> e <code>referralMarketing</code>. Uma regra com <code>order</code> é executada antes de regras sem um, começando pela menor. Aqui, o token é substituído primeiro e depois excluído:",
+    "message": "As regras brutas sempre rodam antes de <code>rules</code> e <code>referralMarketing</code>, e <code>order</code> não muda isso. Dentro de cada uma dessas duas etapas, uma regra com <code>order</code> roda antes das regras sem, a menor primeiro. Aqui o token é reescrito antes de <code>utm_source</code> ser removido, embora venha em segundo:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> funciona em <code>rules</code>, <code>rawRules</code> e <code>referralMarketing</code>, mas não em filtros <code>$removeparam</code>, que sempre são executados por último.",
+    "message": "<code>order</code> funciona em <code>rules</code>, <code>rawRules</code> e <code>referralMarketing</code>. Filtros <code>$removeparam</code> e entradas <code>@@</code> não podem tê-lo; os filtros sempre rodam por último. <code>\"order\": null</code> significa sem ordem e descarta a que uma cópia anterior da mesma regra definiu.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -4885,7 +4905,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "O primeiro Provedor que altera, redireciona ou bloqueia a requisição decide o resultado. A nova URL então passa pelas mesmas etapas novamente.",
+    "message": "O primeiro provedor que altera, redireciona ou bloqueia a solicitação decide o resultado. A nova URL passa então pelas mesmas etapas de novo, no máximo 10 vezes por solicitação. Uma regra com <code>replacePattern</code> se aplica só uma vez por solicitação.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -4954,6 +4974,22 @@
   },
   "guide_check_6": {
     "message": "uma entrada de <code>@@…$rawrule=</code> que não interrompe nenhuma Regra bruta",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "um valor de <code>cln</code> diferente de <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "um id ou alias usado duas vezes em um provedor",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "um endereço <code>$redirect=</code> que não é <code>http</code> nem <code>https</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "uma barra invertida em um nome <code>$removeparam</code> antes de um caractere sem escape",
     "description": "Guide page text."
   },
   "guide_check_p2": {
