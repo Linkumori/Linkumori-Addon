@@ -205,6 +205,37 @@ async function restoreTroubleshooterTestRound(state, keepOff = []) {
         testing.map(index => ({ identity: state.rules[index].identity, enabled: true })));
 }
 
+// The rules a search would test: those that are on now, one entry per
+// rule however many keys it was seen under. Shared by the count the popup
+// shows and by the search itself, so the two always agree.
+function collectTroubleshooterBisectRules(identities) {
+    if (typeof globalThis.getTroubleshooterRuleState !== 'function') return [];
+    const seen = new Set();
+    const rules = [];
+    (Array.isArray(identities) ? identities : []).forEach(identity => {
+        if (!identity || typeof identity !== 'object') return;
+        const ruleState = globalThis.getTroubleshooterRuleState(identity);
+        const ruleKey = ruleState?.runtimeRuleId || ruleState?.toggleId;
+        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleKey)) return;
+        seen.add(ruleKey);
+        rules.push({
+            identity,
+            ruleId: ruleState.ruleId,
+            runtimeRuleId: ruleState.runtimeRuleId || '',
+            providerName: ruleState.providerName,
+            section: ruleState.section,
+            label: String(identity.ruleId || ruleState.ruleId || '')
+        });
+    });
+    if (rules.length > LINKUMORI_DIAGNOSIS_MAX_RULES) rules.length = LINKUMORI_DIAGNOSIS_MAX_RULES;
+    return rules;
+}
+
+// How many rules "Find the rule" would test right now.
+function countTroubleshooterBisectRules(identities) {
+    return { success: true, count: collectTroubleshooterBisectRules(identities).length };
+}
+
 // Step 2: find the rule. identities are the rules that fired on this tab,
 // as the popup knows them. The popup reloads the tab after each round.
 async function startTroubleshooterBisect(tabId, identities) {
@@ -219,29 +250,10 @@ async function startTroubleshooterBisect(tabId, identities) {
     if (previous?.phase === 'bisect') await restoreTroubleshooterTestRound(previous);
     if (previous?.phase === 'paused') endTroubleshooterPause(id, previous);
 
-    // Only rules that are on now can be tested; one entry per switch.
-    const seen = new Set();
-    const rules = [];
-    (Array.isArray(identities) ? identities : []).forEach(identity => {
-        if (!identity || typeof identity !== 'object') return;
-        const ruleState = globalThis.getTroubleshooterRuleState(identity);
-        // One entry per rule, however many keys it was seen under.
-        const ruleKey = ruleState?.runtimeRuleId || ruleState?.toggleId;
-        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleKey)) return;
-        seen.add(ruleKey);
-        rules.push({
-            identity,
-            ruleId: ruleState.ruleId,
-            runtimeRuleId: ruleState.runtimeRuleId || '',
-            providerName: ruleState.providerName,
-            section: ruleState.section,
-            label: String(identity.ruleId || ruleState.ruleId || '')
-        });
-    });
+    const rules = collectTroubleshooterBisectRules(identities);
     if (rules.length === 0) {
         return { success: false, error: 'None of the rules that fired on this page can be switched off.' };
     }
-    if (rules.length > LINKUMORI_DIAGNOSIS_MAX_RULES) rules.length = LINKUMORI_DIAGNOSIS_MAX_RULES;
 
     const state = {
         phase: 'bisect',

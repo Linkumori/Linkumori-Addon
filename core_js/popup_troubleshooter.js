@@ -175,6 +175,7 @@
         diag_stop_search: 'Stop search',
         diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
         diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again.',
+        working: 'Working…',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -235,10 +236,17 @@
         return node;
     }
 
+    let lastClickedButton = null;
+
     function button(label, className, onClick) {
         const node = el('button', className, label);
         node.type = 'button';
-        if (onClick) node.addEventListener('click', onClick);
+        if (onClick) {
+            node.addEventListener('click', event => {
+                lastClickedButton = node;
+                return onClick(event);
+            });
+        }
         return node;
     }
 
@@ -311,6 +319,10 @@
     let captureState = null;
     let lastData = null;
     let searchDebounce = null;
+    // The page URL check is the slowest call; reuse it for the same URL
+    // for a short while. "Refresh" always runs it again.
+    const TRACE_CACHE_MS = 60000;
+    let traceCache = null;
 
     function stopTimer() {
         if (timerInterval) clearInterval(timerInterval);
@@ -534,9 +546,15 @@
             const isWebPage = isWebUrl(tab.url);
             const [captureResponse, traceResponse, diagnosisResponse] = await Promise.all([
                 message('getTabTroubleshooterCapture', [tab.id]).catch(() => null),
-                isWebPage
-                    ? message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }]).catch(() => null)
-                    : Promise.resolve(null),
+                !isWebPage ? Promise.resolve(null)
+                    : (!options.fresh && traceCache && traceCache.url === tab.url && Date.now() - traceCache.at < TRACE_CACHE_MS)
+                        ? Promise.resolve(traceCache.response)
+                        : message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }])
+                            .then(response => {
+                                traceCache = { url: tab.url, at: Date.now(), response };
+                                return response;
+                            })
+                            .catch(() => null),
                 message('getTroubleshooterDiagnosis', [tab.id])
                     .catch(error => (error?.outdatedBackground ? { outdated: true } : null))
             ]);
@@ -555,7 +573,23 @@
             await loadRuleStates(groups.slice(0, MAX_GROUPS * 2));
             if (isStale()) return;
 
+            // The count on "Find the rule" comes from the background, which
+            // decides what the search tests, so the button never over-promises.
+            const diagnosisPhase = diagnosisResponse?.response?.phase || 'idle';
+            let bisectCount = null;
+            if (isWebPage && (diagnosisPhase === 'idle' || diagnosisPhase === 'checked')) {
+                const candidates = bisectCandidates({ groups });
+                if (candidates.length) {
+                    const countResponse = await message('countTroubleshooterBisectRules', [candidates.map(group => group.identity)]).catch(() => null);
+                    if (Number.isInteger(countResponse?.response?.count)) bisectCount = countResponse.response.count;
+                } else {
+                    bisectCount = 0;
+                }
+                if (isStale()) return;
+            }
+
             lastData = {
+                bisectCount,
                 tab,
                 isWebPage,
                 capture,
@@ -816,10 +850,22 @@
         });
     }
 
+    // Candidates the search can test; empty when the background says none.
+    function findableCandidates(data) {
+        const candidates = bisectCandidates(data);
+        return data?.bisectCount === 0 ? [] : candidates;
+    }
+
+    function findCount(data, candidates) {
+        return Number.isInteger(data?.bisectCount) ? data.bisectCount : candidates.length;
+    }
+
     async function runDiagnosisStep(functionName, params, reloadAfter) {
         const status = $('troubleshooterStatus');
         const box = $('troubleshooterDiagnosis');
         box?.querySelectorAll('button').forEach(node => { node.disabled = true; });
+        // Show at once that the click registered; the step can take a moment.
+        if (lastClickedButton && box?.contains(lastClickedButton)) lastClickedButton.textContent = ts('working');
         try {
             const tab = await getActiveTab();
             if (!tab) throw new Error(ts('status_no_tab'));
@@ -901,10 +947,10 @@
             return;
         case 'checked':
             if (diagnosis.verdict === 'linkumori') {
-                const candidates = bisectCandidates(data);
+                const candidates = findableCandidates(data);
                 const buttons = [];
                 if (candidates.length) {
-                    buttons.push(button(ts('diag_find_button', candidates.length), 'troubleshooter-primary',
+                    buttons.push(button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                         () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning)));
                 }
                 buttons.push(done);
@@ -1019,9 +1065,9 @@
                     return false;
                 }
             };
-            const candidates = bisectCandidates(data);
+            const candidates = findableCandidates(data);
             const find = candidates.length
-                ? button(ts('diag_find_button', candidates.length), 'troubleshooter-primary',
+                ? button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                     () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
                 : button(ts('diag_find_record'), 'troubleshooter-primary', async event => {
                     const node = event.currentTarget;
@@ -1192,7 +1238,7 @@
 
     openButton?.addEventListener('click', () => openPanel());
     backButton?.addEventListener('click', closePanel);
-    $('troubleshooterRefresh')?.addEventListener('click', () => refresh());
+    $('troubleshooterRefresh')?.addEventListener('click', () => refresh({ fresh: true }));
     $('troubleshooterCopy')?.addEventListener('click', copySummary);
     $('troubleshooterExport')?.addEventListener('click', exportRecording);
     $('troubleshooterCategoryFilter')?.addEventListener('change', render);
