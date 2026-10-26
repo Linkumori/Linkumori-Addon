@@ -188,10 +188,13 @@ async function applyTroubleshooterTestRound(state) {
         testing.map(index => ({ identity: state.rules[index].identity, enabled: false })));
 }
 
-async function restoreTroubleshooterTestRound(state) {
+// Switch the round's rules back on, except those in keepOff.
+async function restoreTroubleshooterTestRound(state, keepOff = []) {
     if (!Array.isArray(state?.testing) || state.testing.length === 0) return;
-    const testing = state.testing;
+    const keep = new Set(keepOff);
+    const testing = state.testing.filter(index => !keep.has(index));
     state.testing = [];
+    if (testing.length === 0) return;
     await globalThis.setTroubleshooterRulesEnabledBatch(
         testing.map(index => ({ identity: state.rules[index].identity, enabled: true })));
 }
@@ -263,17 +266,19 @@ async function answerTroubleshooterBisect(tabId, fixedNow) {
     if (!state || state.phase !== 'bisect') return { success: false, error: 'No rule search is running for this tab' };
     const testing = state.testing.slice();
     const tested = new Set(testing);
-    const wasConfirming = state.confirming === true;
     state.confirming = false;
     state.suspects = fixedNow === true
         ? state.suspects.filter(index => tested.has(index))
         : state.suspects.filter(index => !tested.has(index));
-    await restoreTroubleshooterTestRound(state);
+    // Found: the page works with this rule off, so it stays off; every
+    // other rule of the round goes back on. The popup offers to undo.
+    const foundNow = fixedNow === true && state.suspects.length === 1;
+    await restoreTroubleshooterTestRound(state, foundNow ? state.suspects : []);
 
     if (state.suspects.length === 0) {
         // "Not fixed" with nothing left to test: no single rule explains it.
         state.phase = 'not-found';
-    } else if (state.suspects.length === 1 && (fixedNow === true || wasConfirming)) {
+    } else if (foundNow) {
         // Switching this rule off (alone or in its group) fixed the page.
         state.phase = 'found';
         state.culprit = state.suspects[0];
