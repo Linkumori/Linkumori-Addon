@@ -127,8 +127,8 @@
         change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
-        diag_idle_text: 'Records this tab and reloads it once with cleaning paused for this site, to see whether Linkumori is the cause.',
-        diag_idle_button: 'Check with cleaning paused',
+        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off a few at a time, and you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
+        diag_idle_button: 'Check with cleaning paused first',
         diag_paused_title: 'Cleaning is paused for $1 in this tab',
         diag_paused_text: 'The tab reloaded without cleaning. Does the page work now?',
         diag_yes_works: 'Yes, it works',
@@ -159,6 +159,10 @@
         diag_reload_tab: 'Reload tab',
         diag_enable_again: 'Turn it back on',
         diag_culprit_enabled: 'Rule switched back on. Reload the tab to check.',
+        diag_find_record: 'Record and find the rule',
+        diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
+        advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
+        advice_search_running: 'The rule search is running. Change rules after it ends.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -724,9 +728,15 @@
         card.appendChild(details);
 
         const state = group.ruleState;
-        card.appendChild(el('p', '', state?.available
-            ? (state.enabled ? ts('advice_enabled') : ts('advice_disabled'))
-            : group.category === 'protection' ? ts('advice_protection') : ts('advice_review')));
+        const diagnosis = lastData?.diagnosis || {};
+        const searchRunning = diagnosis.phase === 'bisect';
+        const inThisRound = searchRunning && state?.runtimeRuleId &&
+            (diagnosis.testingRuleIds || []).includes(state.runtimeRuleId);
+        card.appendChild(el('p', '', inThisRound ? ts('advice_in_search')
+            : searchRunning && state?.available ? ts('advice_search_running')
+            : state?.available
+                ? (state.enabled ? ts('advice_enabled') : ts('advice_disabled'))
+                : group.category === 'protection' ? ts('advice_protection') : ts('advice_review')));
 
         const actions = el('div', 'troubleshooter-card-actions');
         const first = group.hits[0];
@@ -734,8 +744,12 @@
             openReport(first.pageUrl, first.resourceUrl, group.rule, group.providerName, summaryForGroup(group))
                 .catch(() => { status.textContent = ts('status_report_failed'); });
         }));
-        if (state?.available) renderRuleToggle(group, actions, status);
-        else if (group.category !== 'protection') card.appendChild(el('p', '', ts('rule_unresolved')));
+        // No switching while the rule search runs: it switches rules itself.
+        if (state?.available) {
+            if (!searchRunning) renderRuleToggle(group, actions, status);
+        } else if (group.category !== 'protection') {
+            card.appendChild(el('p', '', ts('rule_unresolved')));
+        }
         card.appendChild(actions);
         return card;
     }
@@ -930,23 +944,46 @@
         case 'not-found':
             diagnosisBox(ts('diag_not_found_title'), ts('diag_not_found_text'), [done], 'ok');
             return;
-        default:
-            diagnosisBox(ts('diag_idle_title'), ts('diag_idle_text'), [
-                button(ts('diag_idle_button'), '', async () => {
-                    // The rule search needs a recording to know which rules run,
-                    // so start one first; a recording already running is kept.
-                    if (!data.capture?.active) {
-                        try {
-                            const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
-                            if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
-                        } catch (error) {
-                            $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
-                            return;
-                        }
+        default: {
+            // The rule search needs a recording to know which rules run;
+            // start one if needed (a running recording is kept).
+            const ensureRecording = async () => {
+                if (data.capture?.active) return true;
+                try {
+                    const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
+                    if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
+                    return true;
+                } catch (error) {
+                    $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
+                    return false;
+                }
+            };
+            const candidates = bisectCandidates(data);
+            const find = candidates.length
+                ? button(ts('diag_find_button', candidates.length), 'troubleshooter-primary',
+                    () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
+                : button(ts('diag_find_record'), 'troubleshooter-primary', async event => {
+                    const node = event.currentTarget;
+                    node.disabled = true;
+                    if (!(await ensureRecording())) {
+                        node.disabled = false;
+                        return;
                     }
-                    await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
-                })
-            ]);
+                    try {
+                        await browser.tabs.reload(data.tab.id);
+                    } catch (_) {
+                        // The tab may have closed.
+                    }
+                    await refresh({ quiet: true });
+                });
+            const pauseFirst = button(ts('diag_idle_button'), '', async () => {
+                if (await ensureRecording()) await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
+            });
+            const recordingWithoutRules = !candidates.length && data.capture?.active;
+            if (recordingWithoutRules) find.disabled = true;
+            diagnosisBox(ts('diag_idle_title'),
+                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, pauseFirst]);
+        }
         }
     }
 

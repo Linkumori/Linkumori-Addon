@@ -109,7 +109,12 @@ function publicTroubleshooterDiagnosis(state) {
         testing: Array.isArray(state.testing) ? state.testing.length : 0,
         roundsLeft: Array.isArray(state.suspects) && state.suspects.length > 1
             ? Math.ceil(Math.log2(state.suspects.length)) : 0,
-        culprit: null
+        culprit: null,
+        // Rules the current round switched off, so the popup can tell them
+        // apart from rules the person switched off.
+        testingRuleIds: state.phase === 'bisect' && Array.isArray(state.testing)
+            ? state.testing.map(index => state.rules?.[index]?.runtimeRuleId).filter(Boolean)
+            : []
     };
     if (Number.isInteger(state.culprit) && state.rules?.[state.culprit]) {
         out.culprit = { ...state.rules[state.culprit] };
@@ -218,6 +223,7 @@ async function startTroubleshooterBisect(tabId, identities) {
         rules.push({
             identity,
             ruleId: ruleState.ruleId,
+            runtimeRuleId: ruleState.runtimeRuleId || '',
             providerName: ruleState.providerName,
             section: ruleState.section,
             label: String(identity.ruleId || ruleState.ruleId || '')
