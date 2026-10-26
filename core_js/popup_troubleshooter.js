@@ -182,6 +182,10 @@
         diag_skip_one: 'Skip this rule',
         diag_single_text: 'Only this rule is switched off, and the tab reloaded. Is the page fixed now?',
         diag_bisect_title_single: 'Testing one rule at a time — rule $1 of $2',
+        diag_skip_next: 'Skip — turn it back on, test next ($1 left)',
+        diag_test_next: 'Test the next rule ($1 left)',
+        diag_skip_next_done: 'Rule $1 is back on and left out. Testing the next rule.',
+        diag_not_found_passed: 'No other rule fixes the page on its own. The $1 rule(s) you skipped are back on too, so every rule is on again. To start over, click Clear.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -936,7 +940,7 @@
         if (!box) return;
         box.className = `troubleshooter-diagnosis${tone ? ` troubleshooter-diagnosis-${tone}` : ''}`;
         const row = el('div', 'troubleshooter-diagnosis-actions');
-        buttons.forEach(node => row.appendChild(node));
+        buttons.filter(Boolean).forEach(node => row.appendChild(node));
         box.replaceChildren(...[el('strong', '', title), el('p', '', text), extra, row].filter(Boolean));
         box.hidden = false;
     }
@@ -1060,8 +1064,14 @@
                     await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false);
                     $('troubleshooterStatus').textContent = ts('diag_kept_off', label);
                 });
-                // Skip: turn the rule back on, end the search, and reload.
-                const skip = button(ts('diag_skip_found'), '', async event => {
+                // Skip: turn the rule back on. With untested rules left, carry
+                // on with the next one; otherwise end the search and reload.
+                const skip = diagnosis.remaining > 0
+                    ? button(ts('diag_skip_next', diagnosis.remaining), '', async () => {
+                        await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
+                    })
+                    : button(ts('diag_skip_found'), '', async event => {
                     const node = event.currentTarget;
                     node.disabled = true;
                     try {
@@ -1087,6 +1097,10 @@
             diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
+                diagnosis.remaining > 0 ? button(ts('diag_test_next', diagnosis.remaining), '', async () => {
+                    await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                    $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
+                }) : null,
                 report,
                 done,
                 button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
@@ -1095,7 +1109,8 @@
         }
         case 'not-found':
             diagnosisBox(ts('diag_not_found_title'),
-                diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
+                diagnosis.passed ? ts('diag_not_found_passed', diagnosis.passed)
+                    : diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
             return;
         default: {
             // The rule search needs a recording to know which rules run;
