@@ -438,7 +438,9 @@
     function groupFindings(findings) {
         const groups = new Map();
         findings.forEach(finding => {
-            const key = [finding.matchedRuleDisableId || finding.matchedRuleId || finding.rule,
+            // One card per rule: the same rule can be logged under its
+            // provider key and under a pattern key.
+            const key = [finding.matchedRuleId || finding.matchedRuleDisableId || finding.rule,
                 finding.providerName, finding.category].join('\u0000');
             if (!groups.has(key)) {
                 groups.set(key, {
@@ -464,6 +466,13 @@
                 });
             }
             const group = groups.get(key);
+            // Prefer the pattern key (what the engine actually switches) for the toggle.
+            if (group.identity && finding.matchedRuleDisableId && finding.matchedRuleDisableId !== finding.matchedRuleId &&
+                group.identity.disableId === group.identity.runtimeRuleId) {
+                group.identity.disableId = finding.matchedRuleDisableId;
+                group.identity.patternType = finding.patternType || group.identity.patternType;
+                group.identity.patternValue = finding.patternValue || group.identity.patternValue;
+            }
             group.hits.push(finding);
             group.sources.add(finding.source);
             if (finding.requestType) group.requestTypes.add(finding.requestType);
@@ -774,7 +783,7 @@
         const seen = new Set();
         return (data?.groups || []).filter(group => {
             if (!group.identity || !group.ruleState?.available || !group.ruleState.enabled) return false;
-            const key = group.ruleState.toggleId || JSON.stringify(group.identity);
+            const key = group.ruleState.runtimeRuleId || group.ruleState.toggleId || JSON.stringify(group.identity);
             if (seen.has(key)) return false;
             seen.add(key);
             return true;
