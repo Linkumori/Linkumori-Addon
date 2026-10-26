@@ -236,7 +236,8 @@ const reportedPage = (function() {
             baseUrl: baseUrl.href,
             affectedUrl: url.searchParams.get('affectedUrl') || '',
             affectedRule: url.searchParams.get('affectedRule') || '',
-            affectedProvider: url.searchParams.get('affectedProvider') || ''
+            affectedProvider: url.searchParams.get('affectedProvider') || '',
+            troubleshooterContext: (url.searchParams.get('troubleshooterContext') || '').slice(0, 1500)
         };
     } catch (error) {
         console.error('Error processing URL parameters:', error);
@@ -1248,11 +1249,13 @@ async function initReportPage() {
         // Populate the URL dropdown with actual URLs
         populateUrlDropdown();
 
-        if (reportedPage?.affectedUrl || reportedPage?.affectedRule || reportedPage?.affectedProvider) {
+        if (reportedPage?.affectedUrl || reportedPage?.affectedRule || reportedPage?.affectedProvider ||
+            reportedPage?.troubleshooterContext) {
             const contextLines = [];
             if (reportedPage.affectedUrl) contextLines.push(`Affected resource URL: ${reportedPage.affectedUrl}`);
             if (reportedPage.affectedRule) contextLines.push(`Applied rule: ${reportedPage.affectedRule}`);
             if (reportedPage.affectedProvider) contextLines.push(`Provider: ${reportedPage.affectedProvider}`);
+            if (reportedPage.troubleshooterContext) contextLines.push(reportedPage.troubleshooterContext);
             const additionalInfo = $('#additionalInfo');
             if (additionalInfo) {
                 additionalInfo.value = `${contextLines.join('\n')}\n\n`;
