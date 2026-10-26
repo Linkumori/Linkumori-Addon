@@ -211,8 +211,10 @@ async function startTroubleshooterBisect(tabId, identities) {
     (Array.isArray(identities) ? identities : []).forEach(identity => {
         if (!identity || typeof identity !== 'object') return;
         const ruleState = globalThis.getTroubleshooterRuleState(identity);
-        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleState.toggleId)) return;
-        seen.add(ruleState.toggleId);
+        // One entry per rule, however many keys it was seen under.
+        const ruleKey = ruleState?.runtimeRuleId || ruleState?.toggleId;
+        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleKey)) return;
+        seen.add(ruleKey);
         rules.push({
             identity,
             ruleId: ruleState.ruleId,
@@ -237,13 +239,11 @@ async function startTroubleshooterBisect(tabId, identities) {
         round: 0,
         culprit: null
     };
-    if (state.suspects.length === 1) {
-        state.phase = 'found';
-        state.culprit = 0;
-    } else {
-        const result = await applyTroubleshooterTestRound(state);
-        if (!result?.success) return { success: false, error: result?.error || 'Could not switch the rules off' };
-    }
+    // With one rule this round tests it alone, so it is confirmed rather
+    // than named untested.
+    if (state.suspects.length === 1) state.confirming = true;
+    const result = await applyTroubleshooterTestRound(state);
+    if (!result?.success) return { success: false, error: result?.error || 'Could not switch the rules off' };
     linkumoriDiagnoses.set(id, state);
     await saveTroubleshooterDiagnosis(id);
     return { success: true, diagnosis: publicTroubleshooterDiagnosis(state) };

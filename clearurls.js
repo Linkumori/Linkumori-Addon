@@ -2523,11 +2523,17 @@ function start() {
             aliases.forEach(alias => relatedDisableIds.add(`${scopePrefix}::${alias}`));
             replacedIds.forEach(replacedId => relatedDisableIds.add(`${scopePrefix}::${replacedId}`));
         }
+        // A rule switched off under another of its keys (for example its
+        // pattern key, while this finding names the provider key) is off too.
+        // Ids the rule is off under, so "enable" can clear all of them.
+        const ownDisabledIds = disabledIds.filter(id => relatedDisableIds.has(id) || isKnownScopedId(id));
+        const fullyDisabled = !!(snapshot?.disabledRules && snapshot.disabledRules[ruleInfo.runtimeRuleId]);
+        const patternScoped = /^(domainPattern|urlPattern):/.test(scopePrefix);
         return {
             rule: ruleInfo,
             toggleId,
-            disabled: disabledIds.some(id => relatedDisableIds.has(id)),
-            relatedDisableIds: Array.from(relatedDisableIds)
+            disabled: disabledIds.some(id => relatedDisableIds.has(id)) || (!patternScoped && fullyDisabled),
+            relatedDisableIds: Array.from(new Set([...relatedDisableIds, ...(patternScoped ? [] : ownDisabledIds)]))
         };
     }
 
@@ -2540,6 +2546,7 @@ function start() {
             toggleId: target.toggleId,
             runtimeRuleId: target.rule.runtimeRuleId,
             ruleId: target.rule.id,
+            label: target.rule.id,
             providerName: target.rule.providerName,
             section: target.rule.section
         } : { available: false, disabled: false, enabled: false };
