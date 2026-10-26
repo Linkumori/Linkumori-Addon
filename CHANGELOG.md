@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.77.0] - 2026-10-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.76.0...linkumori-v100.77.0))
+### Added
+- Feature/bug fixing (#190) (`2026-10-26`, hash: [`ee55e71`](https://github.com/Linkumori/Linkumori-Addon/commit/ee55e71)) [#190](https://github.com/Linkumori/Linkumori-Addon/issues/190)
+- Feature/bug fixing (`2026-10-26`, hash: [`258dd7c`](https://github.com/Linkumori/Linkumori-Addon/commit/258dd7c))
+- Feature/bug fixing (`2026-10-26`, hash: [`be5b566`](https://github.com/Linkumori/Linkumori-Addon/commit/be5b566))
+- Feature/bug fixing (`2026-10-26`, hash: [`bf3a4bc`](https://github.com/Linkumori/Linkumori-Addon/commit/bf3a4bc))
+- Feature/bug fixing (`2026-10-26`, hash: [`fc1ffd8`](https://github.com/Linkumori/Linkumori-Addon/commit/fc1ffd8))
+
+### Changed
+- Find the rule one at a time (`2026-10-26`, hash: [`d0b2d59`](https://github.com/Linkumori/Linkumori-Addon/commit/d0b2d59))
+- Generated compressed URL cleaning rules bundle (`2026-10-26`, hash: [`0cac8ff`](https://github.com/Linkumori/Linkumori-Addon/commit/0cac8ff))
+- Store troubleshooter captures in session storage (`2026-10-26`, hash: [`fdea280`](https://github.com/Linkumori/Linkumori-Addon/commit/fdea280))
+- Updated canonical URL cleaning rules source (`2026-10-26`, hash: [`0cac8ff`](https://github.com/Linkumori/Linkumori-Addon/commit/0cac8ff))
+
 ## [v100.76.0] - 2026-10-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.75.0...linkumori-v100.76.0))
 ### Added
 - Introduce explicit ids to bundled rules (`2026-10-26`, hash: [`c8b1f97`](https://github.com/Linkumori/Linkumori-Addon/commit/c8b1f97))
