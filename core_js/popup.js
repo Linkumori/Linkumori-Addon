@@ -2683,7 +2683,10 @@ async function refreshPopupTroubleshooter() {
             finding.ruleToggleState = stateResponse?.response || null;
         }));
 
-        if (capture.active) {
+        if (capture.storedInSession === false) {
+            const recordingState = capture.active ? 'Recording is active' : 'Recording stopped';
+            status.textContent = `${recordingState}, but data could not be saved in session storage. ${capture.entries.length} URL change(s) may be lost if the extension restarts.`;
+        } else if (capture.active) {
             const captureTime = new Date(capture.startedAt).toLocaleTimeString();
             status.textContent = `Recording active since ${captureTime}. ${capture.entries.length} URL change(s) captured.`;
         } else if (capture.startedAt) {
@@ -2836,11 +2839,13 @@ if (troubleshooterScanButton) {
                 return;
             }
             const response = await popupTroubleshooterMessage('startTabTroubleshooterCapture', [tab.id]);
-            if (!response?.response?.success) throw new Error('Could not start scan');
+            if (!response?.response?.success) {
+                throw new Error(response?.response?.error || 'Could not start scan');
+            }
             status.textContent = 'Recording started. Reloading this tab; reopen the extension popup after the page loads.';
             await browser.tabs.reload(tab.id);
         } catch (error) {
-            status.textContent = 'Could not start the scan for this tab.';
+            status.textContent = error?.message || 'Could not start the scan for this tab.';
         }
     });
 }
@@ -2853,7 +2858,9 @@ if (troubleshooterStopButton) {
             if (!tab || typeof tab.id !== 'number') throw new Error('No active tab');
             const response = await popupTroubleshooterMessage('stopTabTroubleshooterCapture', [tab.id]);
             if (!response?.response?.success) throw new Error('Could not stop recording');
-            status.textContent = `Recording stopped. ${response.response.entries} URL change(s) captured.`;
+            status.textContent = response.response.storedInSession
+                ? `Recording stopped. ${response.response.entries} URL change(s) captured and saved for this browser session.`
+                : `Recording stopped. ${response.response.entries} URL change(s) captured, but session storage could not save them.`;
             await refreshPopupTroubleshooter();
         } catch (error) {
             status.textContent = 'Could not stop recording for this tab.';

@@ -2580,6 +2580,10 @@ function start() {
     let initAttempts = 0;
     const maxInitAttempts = 50;
     function tryInitialize() {
+        if (typeof isTroubleshooterCaptureSessionLoaded === 'function' && !isTroubleshooterCaptureSessionLoaded()) {
+            setTimeout(tryInitialize, 50);
+            return;
+        }
         initAttempts++;
         if (initializeProviders()) { initializationComplete = true; return; }
         if (initAttempts < maxInitAttempts) setTimeout(tryInitialize, 200);

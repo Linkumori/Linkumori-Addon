@@ -73,10 +73,107 @@ const enc = new TextEncoder();
 const logThreshold = 5000;
 const LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS = 15 * 60 * 1000;
 const LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES = 250;
+const LINKUMORI_TROUBLESHOOTER_SESSION_KEY_PREFIX = 'linkumori_troubleshooter_capture_';
 const linkumoriTroubleshooterCaptures = new Map();
+const linkumoriTroubleshooterCaptureWriteQueues = new Map();
+const linkumoriTroubleshooterCaptureStorageFailures = new Set();
+const linkumoriTroubleshooterClosedTabsDuringSessionLoad = new Set();
+let linkumoriTroubleshooterCaptureSessionLoaded = false;
 const THEME_STORAGE_KEY = 'linkumori-theme';
 const DEFAULT_THEME = 'dark';
 const SUPPORTED_THEMES = new Set(['light', 'midnight', 'dark', 'icecold', 'sunset', 'legacy']);
+
+function isTroubleshooterCaptureSessionLoaded() {
+    return linkumoriTroubleshooterCaptureSessionLoaded;
+}
+
+function getTroubleshooterCaptureSessionKey(tabId) {
+    return `${LINKUMORI_TROUBLESHOOTER_SESSION_KEY_PREFIX}${tabId}`;
+}
+
+function persistTroubleshooterCapture(tabId) {
+    const id = Number(tabId);
+    const sessionArea = typeof browser !== 'undefined' ? browser.storage?.session : null;
+    if (!Number.isInteger(id) || !sessionArea?.set || !sessionArea?.remove) return Promise.resolve(false);
+
+    const capture = linkumoriTroubleshooterCaptures.get(id);
+    const snapshot = capture ? {
+        active: capture.active !== false,
+        startedAt: capture.startedAt,
+        endedAt: capture.endedAt || null,
+        expiresAt: capture.expiresAt,
+        entries: capture.entries.slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES).map(entry => ({ ...entry }))
+    } : null;
+    const key = getTroubleshooterCaptureSessionKey(id);
+    const previousWrite = linkumoriTroubleshooterCaptureWriteQueues.get(id) || Promise.resolve();
+    const write = previousWrite.catch(() => {}).then(async () => {
+        if (snapshot) await sessionArea.set({ [key]: snapshot });
+        else await sessionArea.remove(key);
+        linkumoriTroubleshooterCaptureStorageFailures.delete(id);
+        return true;
+    }).catch(() => {
+        if (snapshot) linkumoriTroubleshooterCaptureStorageFailures.add(id);
+        return false;
+    });
+    let queuedWrite;
+    queuedWrite = write.finally(() => {
+        if (linkumoriTroubleshooterCaptureWriteQueues.get(id) === queuedWrite) {
+            linkumoriTroubleshooterCaptureWriteQueues.delete(id);
+        }
+    });
+    linkumoriTroubleshooterCaptureWriteQueues.set(id, queuedWrite);
+    return queuedWrite;
+}
+
+const linkumoriTroubleshooterCaptureSessionReady = (async () => {
+    const sessionArea = typeof browser !== 'undefined' ? browser.storage?.session : null;
+    if (!sessionArea?.get) {
+        linkumoriTroubleshooterCaptureSessionLoaded = true;
+        return false;
+    }
+
+    const staleKeys = [];
+    try {
+        const stored = await sessionArea.get(null);
+        const now = Date.now();
+        const savedCaptures = Object.entries(stored || {}).flatMap(([key, value]) => {
+            if (!key.startsWith(LINKUMORI_TROUBLESHOOTER_SESSION_KEY_PREFIX)) return [];
+            const tabId = Number(key.slice(LINKUMORI_TROUBLESHOOTER_SESSION_KEY_PREFIX.length));
+            if (!Number.isInteger(tabId) || tabId < 0 || !value || typeof value !== 'object' ||
+                !Number.isFinite(value.startedAt) || !Number.isFinite(value.expiresAt) || !Array.isArray(value.entries)) {
+                staleKeys.push(key);
+                return [];
+            }
+            if (linkumoriTroubleshooterClosedTabsDuringSessionLoad.has(tabId)) {
+                staleKeys.push(key);
+                return [];
+            }
+            const capture = {
+                active: value.active !== false && now <= value.expiresAt,
+                startedAt: value.startedAt,
+                endedAt: value.endedAt || (now > value.expiresAt ? value.expiresAt : null),
+                expiresAt: value.expiresAt,
+                entries: value.entries.slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES)
+                    .filter(entry => entry && typeof entry === 'object')
+            };
+            return [{ tabId, capture }];
+        }).sort((left, right) => left.capture.startedAt - right.capture.startedAt);
+
+        savedCaptures.slice(0, Math.max(0, savedCaptures.length - 8)).forEach(({ tabId }) => {
+            staleKeys.push(getTroubleshooterCaptureSessionKey(tabId));
+        });
+        savedCaptures.slice(-8).forEach(({ tabId, capture }) => {
+            linkumoriTroubleshooterCaptures.set(tabId, capture);
+        });
+        if (staleKeys.length > 0) await sessionArea.remove(staleKeys);
+    } catch (_) {
+        // Keep the troubleshooter usable in browsers that expose but cannot read session storage.
+    } finally {
+        linkumoriTroubleshooterCaptureSessionLoaded = true;
+        linkumoriTroubleshooterClosedTabsDuringSessionLoad.clear();
+    }
+    return true;
+})();
 
 const THEME_ICON_PATHS = {
     light: 'img/linkumori_icon_theme_light.svg',
@@ -450,35 +547,56 @@ function pushToLog(beforeProcessing, afterProcessing, rule, providerMatch = null
         if (capture.entries.length > LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES) {
             capture.entries.splice(0, capture.entries.length - LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES);
         }
+        persistTroubleshooterCapture(tabId);
     }
 }
 
-function startTabTroubleshooterCapture(tabId) {
+async function startTabTroubleshooterCapture(tabId) {
+    await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
     if (!Number.isInteger(id) || id < 0) return { success: false, error: 'Invalid tab' };
     const now = Date.now();
+    linkumoriTroubleshooterCaptures.delete(id);
     linkumoriTroubleshooterCaptures.set(id, {
         active: true,
         startedAt: now,
         expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS,
         entries: []
     });
+    const evictedTabIds = [];
     while (linkumoriTroubleshooterCaptures.size > 8) {
-        linkumoriTroubleshooterCaptures.delete(linkumoriTroubleshooterCaptures.keys().next().value);
+        const oldestTabId = linkumoriTroubleshooterCaptures.keys().next().value;
+        linkumoriTroubleshooterCaptures.delete(oldestTabId);
+        evictedTabIds.push(oldestTabId);
     }
-    return { success: true, startedAt: now, expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS };
+    await Promise.all(evictedTabIds.map(persistTroubleshooterCapture));
+    const saved = await persistTroubleshooterCapture(id);
+    if (!saved) {
+        linkumoriTroubleshooterCaptures.delete(id);
+        await persistTroubleshooterCapture(id);
+        return { success: false, error: 'Could not save the recording in session storage' };
+    }
+    return {
+        success: true,
+        storedInSession: true,
+        startedAt: now,
+        expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS
+    };
 }
 
-function stopTabTroubleshooterCapture(tabId) {
+async function stopTabTroubleshooterCapture(tabId) {
+    await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
     const capture = Number.isInteger(id) ? linkumoriTroubleshooterCaptures.get(id) : null;
     if (!capture || capture.active === false) return { success: false, error: 'No active recording for this tab' };
     capture.active = false;
     capture.endedAt = Date.now();
-    return { success: true, endedAt: capture.endedAt, entries: capture.entries.length };
+    const saved = await persistTroubleshooterCapture(id);
+    return { success: true, storedInSession: saved, endedAt: capture.endedAt, entries: capture.entries.length };
 }
 
-function getTabTroubleshooterCapture(tabId) {
+async function getTabTroubleshooterCapture(tabId) {
+    await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
     const capture = Number.isInteger(id) ? linkumoriTroubleshooterCaptures.get(id) : null;
     if (!capture) return { active: false, startedAt: null, entries: [] };
@@ -486,13 +604,25 @@ function getTabTroubleshooterCapture(tabId) {
         capture.active = false;
         capture.endedAt = capture.endedAt || capture.expiresAt;
     }
+    const storedInSession = await persistTroubleshooterCapture(id);
     return {
         active: capture.active !== false,
         startedAt: capture.startedAt,
         endedAt: capture.endedAt || null,
         expiresAt: capture.expiresAt,
+        storedInSession: storedInSession && !linkumoriTroubleshooterCaptureStorageFailures.has(id),
         entries: capture.entries.slice()
     };
+}
+
+if (typeof browser !== 'undefined' && browser.tabs?.onRemoved?.addListener) {
+    browser.tabs.onRemoved.addListener((tabId) => {
+        if (!linkumoriTroubleshooterCaptureSessionLoaded) {
+            linkumoriTroubleshooterClosedTabsDuringSessionLoad.add(tabId);
+        }
+        linkumoriTroubleshooterCaptures.delete(tabId);
+        persistTroubleshooterCapture(tabId);
+    });
 }
 
 function isTabTroubleshooterCaptureActive(tabId) {
