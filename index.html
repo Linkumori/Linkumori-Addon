@@ -266,6 +266,29 @@
               </div>
             </div>
           </article>
+          <article class="tile">
+            <span class="kicker">Pause check</span>
+            <h3>Is it even Linkumori?</h3>
+            <p>Reload the tab with cleaning paused. If the page still breaks, the cause is elsewhere: the site, another extension or the network.</p>
+            <div class="ui" aria-hidden="true">
+              <div class="ui-card">
+                <div class="row"><span class="grow">Works with cleaning paused?</span></div>
+                <div class="row"><span class="pill ok">Yes, it works</span><span class="pill">No</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="tile w4">
+            <span class="kicker">Tab troubleshooter · Experimental</span>
+            <h3>A page broke? Find the rule.</h3>
+            <p>Record a tab from the popup to see every request a rule changed, grouped by rule, and which requests failed right after. The rule search then switches rules off one at a time; you say whether the page is fixed, and every other rule goes back on at the end. Keep the culprit off, report it, or export the recording as JSON. Recordings stay in session storage and stop after 15 minutes.</p>
+            <div class="ui" aria-hidden="true">
+              <div class="ui-card">
+                <div class="row"><code class="grow">shop::token-rewrite</code><span class="pill">12 hits</span><span class="pill wait">2 failed</span></div>
+                <div class="row"><code class="grow">google::ved</code><span class="pill">3 hits</span></div>
+                <div class="row"><span class="grow">Culprit found</span><span class="pill ok">Keep it off</span></div>
+              </div>
+            </div>
+          </article>
         </div>
         <ul class="list-plain reveal">
           <li><h3>Rule defaults</h3><p>Request types, exceptions and preprocessors for whole files.</p></li>
@@ -356,6 +379,7 @@
                 <tr><th scope="row">Multiple remote rule sources</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Overload mode</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Remote rule patches</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Tab troubleshooter that finds a breaking rule</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">CNAME uncloaking</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Firefox Manifest V3 native</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Active development</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
