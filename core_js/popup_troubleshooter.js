@@ -153,7 +153,9 @@
         diag_culprit_disabled: 'Rule disabled. Reload the tab to check.',
         diag_not_found_title: 'No single rule found',
         diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on.',
-        diag_failed: 'Could not run the check: $1'
+        diag_failed: 'Could not run the check: $1',
+        diag_outdated_title: 'Reload Linkumori to use this check',
+        diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
 
     function ts(key, ...subs) {
@@ -188,8 +190,21 @@
     const MAX_URLS_PER_GROUP = 10;
     const $ = id => document.getElementById(id);
 
-    function message(functionName, params = []) {
-        return browser.runtime.sendMessage({ function: functionName, params });
+    // An updated popup can talk to a background that still runs the old
+    // code (a temporary add-on that was not reloaded). It then rejects the
+    // new functions; report that as "outdated" rather than a raw error.
+    function isOutdatedBackgroundError(error) {
+        return /is not allowed|not found or not callable/.test(String(error || ''));
+    }
+
+    async function message(functionName, params = []) {
+        const response = await browser.runtime.sendMessage({ function: functionName, params });
+        if (response && isOutdatedBackgroundError(response.error)) {
+            const error = new Error(ts('diag_outdated_text'));
+            error.outdatedBackground = true;
+            throw error;
+        }
+        return response;
     }
 
     function el(tag, className, text) {
@@ -489,7 +504,8 @@
                 isWebPage
                     ? message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }]).catch(() => null)
                     : Promise.resolve(null),
-                message('getTroubleshooterDiagnosis', [tab.id]).catch(() => null)
+                message('getTroubleshooterDiagnosis', [tab.id])
+                    .catch(error => (error?.outdatedBackground ? { outdated: true } : null))
             ]);
             if (isStale()) return;
 
@@ -508,7 +524,9 @@
                 groups,
                 findings,
                 linkedFailures,
-                diagnosis: diagnosisResponse?.response || { phase: 'idle' }
+                diagnosis: diagnosisResponse?.outdated
+                    ? { phase: 'outdated' }
+                    : diagnosisResponse?.response || { phase: 'idle' }
             };
 
             if (capture.active && Number.isFinite(capture.startedAt) && Number.isFinite(capture.expiresAt)) {
@@ -765,7 +783,11 @@
             }
             await refresh({ quiet: true });
         } catch (error) {
-            if (status) status.textContent = ts('diag_failed', error?.message || '');
+            if (status) {
+                status.textContent = error?.outdatedBackground
+                    ? error.message
+                    : ts('diag_failed', error?.message || '');
+            }
             box?.querySelectorAll('button').forEach(node => { node.disabled = false; });
         }
     }
@@ -798,6 +820,9 @@
             () => runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false));
 
         switch (diagnosis.phase) {
+        case 'outdated':
+            diagnosisBox(ts('diag_outdated_title'), ts('diag_outdated_text'), [], 'warning');
+            return;
         case 'paused':
             diagnosisBox(ts('diag_paused_title', diagnosis.domain || host), ts('diag_paused_text'), [
                 button(ts('diag_yes_works'), 'troubleshooter-primary',
