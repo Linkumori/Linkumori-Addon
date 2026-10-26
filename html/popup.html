@@ -1069,9 +1069,6 @@
             width: 100%;
             min-height: 34px;
             font-size: 12px;
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
         }
 
         #troubleshooterPanel {
@@ -1126,8 +1123,6 @@
 
         .troubleshooter-back {
             padding: 4px 7px;
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
         }
 
         .troubleshooter-note,
@@ -1323,8 +1318,8 @@
         .troubleshooter-badge {
             padding: 1px 6px;
             border-radius: 999px;
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
+            background: var(--button-primary);
+            color: var(--button-text, #ffffff);
             font-size: 10px;
             white-space: nowrap;
         }
@@ -1482,9 +1477,13 @@
         }
 
         .troubleshooter-card-actions .troubleshooter-rule-enable {
-            background: var(--bg-tertiary);
-            border-color: var(--border-color);
-            color: var(--text-primary);
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: var(--button-text, #ffffff);
+        }
+
+        .troubleshooter-card-actions .troubleshooter-rule-enable:hover {
+            background: var(--button-hover);
         }
 
         .troubleshooter-rule-action:disabled { opacity: 0.65; cursor: wait; }
@@ -1603,6 +1602,15 @@
 
         #popupConsentGate.hidden {
             display: none;
+        }
+
+        /* Until the stored consent is read: block clicks, show nothing. */
+        #popupConsentGate.pending {
+            background: transparent;
+        }
+
+        #popupConsentGate.pending .popup-consent-card {
+            visibility: hidden;
         }
 
         .popup-consent-card {
@@ -1883,7 +1891,7 @@
         </div>
     </main>
 
-    <div id="popupConsentGate" role="dialog" aria-modal="true" aria-labelledby="popupConsentTitle">
+    <div id="popupConsentGate" class="pending" role="dialog" aria-modal="true" aria-labelledby="popupConsentTitle">
         <div class="popup-consent-card">
             <h2 id="popupConsentTitle" class="popup-consent-title"></h2>
             <p id="popupConsentDescription" class="popup-consent-description"></p>

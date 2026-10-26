@@ -297,6 +297,7 @@ function setPopupConsentLock(locked) {
         return;
     }
 
+    consentGate.classList.remove('pending');
     if (locked) {
         consentGate.classList.remove('hidden');
     } else {
@@ -1970,7 +1971,7 @@ async function openLoggerWindow() {
 (async function initializePopup() {
     try {
         const i18nReadyPromise = waitForPopupI18n();
-        const consentGatePromise = initializePopupConsentGate().catch(() => {});
+        const consentGatePromise = initializePopupConsentGate().catch(() => setPopupConsentLock(true));
 
         // Paint the popup immediately, then refresh when LinkumoriI18n is ready.
         init();
