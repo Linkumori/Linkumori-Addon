@@ -163,6 +163,11 @@
         diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
         advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
         advice_search_running: 'The rule search is running. Change rules after it ends.',
+        diag_skip_round: 'Skip — turn rules back on',
+        diag_skip_found: 'Skip — turn it back on',
+        diag_keep_off: 'Keep it off',
+        diag_skipped: 'Rule search skipped; every rule is on again.',
+        diag_kept_off: 'Rule $1 stays off.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -891,7 +896,11 @@
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
-                    cancel
+                    // Same as Cancel: every rule switched off for the test goes back on.
+                    button(ts('diag_skip_round'), 'troubleshooter-back', async () => {
+                        await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skipped');
+                    })
                 ], 'active');
             return;
         case 'found': {
@@ -925,11 +934,32 @@
                         // The tab may have closed.
                     }
                 });
+                reload.className = 'troubleshooter-back';
+                // Keep it off: accept the fix and end the search.
+                const keepOff = button(ts('diag_keep_off'), 'troubleshooter-primary', async () => {
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false);
+                    $('troubleshooterStatus').textContent = ts('diag_kept_off', label);
+                });
+                // Skip: turn the rule back on, end the search, and reload.
+                const skip = button(ts('diag_skip_found'), '', async event => {
+                    const node = event.currentTarget;
+                    node.disabled = true;
+                    try {
+                        const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, true]);
+                        if (!response?.response?.success) throw new Error(response?.response?.error || '');
+                    } catch (error) {
+                        $('troubleshooterStatus').textContent = error?.message || ts('status_rule_failed');
+                        node.disabled = false;
+                        return;
+                    }
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
+                    $('troubleshooterStatus').textContent = ts('diag_skipped');
+                });
                 diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
+                    keepOff,
+                    skip,
                     reload,
-                    button(ts('diag_enable_again'), '', setCulprit(true, ts('diag_culprit_enabled'))),
-                    report,
-                    done
+                    report
                 ], 'ok');
                 return;
             }
