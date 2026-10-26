@@ -5159,6 +5159,10 @@
     "message": "Il nome è solo un'etichetta. Quali URL un Fornitore gestisce è deciso da <code>domainPatterns</code> o <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "La chiave facoltativa <code>cln</code> indica la versione del formato. Il suo unico valore valido è <code>\"1.0\"</code>; un file senza di essa viene letto comunque come 1.0, e un file con un altro valore viene rifiutato. Un file può avere anche <code>metadata</code>, un blocco <code>defaults</code> con valori per ogni regola che non li imposta da sé e, in un elenco di regole remoto, <code>patches</code> (capitolo 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Campi del Fornitore",
     "description": "Guide page text."
@@ -5395,6 +5399,10 @@
     "message": "esattamente quel parametro; le maiuscole sono ignorate a meno di non aggiungere <code>match-case</code>",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "il parametro chiamato <code>~ref</code>. Una barra rovesciata rende letterale il carattere successivo: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. In JSON, scrivi ogni barra rovesciata due volte",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Opzioni",
     "description": "Guide page text."
@@ -5452,7 +5460,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Un filtro <code>@@</code> copre anche le richieste effettuate da una pagina corrispondente a questo Fornitore, anche quando vengono gestite da un altro Fornitore.",
+    "message": "Un filtro <code>@@</code> protegge solo dai filtri <code>$removeparam</code>: una voce semplice come <code>\"ref\"</code> rimuove comunque il parametro. Il suo schema viene confrontato con l'URL così come il provider l'ha ricevuto, prima delle regole grezze. Copre anche le richieste fatte da una pagina che corrisponde a questo provider, anche quando le gestisce un altro provider.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -5537,6 +5545,14 @@
   },
   "guide_redir_p5": {
     "message": "Vince il primo parametro corrispondente che ha un valore. Un reindirizzamento interrompe ogni altra elaborazione per la richiesta.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "La destinazione deve essere un indirizzo <code>http</code> o <code>https</code> completo con un host. Altrimenti non avviene alcun reindirizzamento e gli altri passaggi del provider vengono eseguiti sull'URL invariato. Anche una regola grezza il cui risultato è su un altro sito conta come reindirizzamento.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "In un elenco di regole remoto, i reindirizzamenti e i blocchi <code>completeProvider</code> restano disattivati finché non li accetti per quell'elenco in Stato regole remote (Remote Rules Health). Il resto dell'elenco funziona subito.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -5639,16 +5655,20 @@
     "message": "Un ID generato cambia quando il testo della regola cambia. Assegna a una regola il proprio <code>id</code> quando deve mantenere l'impostazione on/off attraverso le modifiche.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "Una regola si attiva e disattiva tramite provider e id insieme, ad esempio <code>shop::session-token</code>, così due provider possono usare lo stesso id. In un provider, ogni id e alias deve essere diverso, e un id non può contenere i due punti. Un elenco di regole remoto può sostituire una regola caricata indicando questa chiave nelle sue <code>patches</code>:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Esecuzione di una regola prima o dopo",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Le Regole grezze normalmente vengono eseguite per prime, poi <code>rules</code> e <code>referralMarketing</code>. Una regola con <code>order</code> viene eseguita prima delle regole che ne sono prive, partendo dal valore più basso. In questo caso, il token viene prima sostituito e poi eliminato:",
+    "message": "Le regole grezze vengono sempre eseguite prima di <code>rules</code> e <code>referralMarketing</code>, e <code>order</code> non lo cambia. All'interno di ciascuna di queste due fasi, una regola con <code>order</code> viene eseguita prima delle regole senza, dalla più bassa. Qui il token viene riscritto prima che <code>utm_source</code> sia rimosso, anche se viene per secondo:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> funziona in <code>rules</code>, <code>rawRules</code> e <code>referralMarketing</code>, ma non sui filtri <code>$removeparam</code>, che vengono sempre eseguiti per ultimi.",
+    "message": "<code>order</code> funziona in <code>rules</code>, <code>rawRules</code> e <code>referralMarketing</code>. I filtri <code>$removeparam</code> e le voci <code>@@</code> non possono averlo; i filtri vengono sempre eseguiti per ultimi. <code>\"order\": null</code> significa nessun ordine ed elimina quello impostato da una copia precedente della stessa regola.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -5724,7 +5744,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "Il primo Fornitore che modifica, reindirizza o blocca la richiesta decide il risultato. Il nuovo URL passa quindi nuovamente attraverso gli stessi passaggi.",
+    "message": "Il primo provider che modifica, reindirizza o blocca la richiesta decide il risultato. Il nuovo URL ripassa poi per gli stessi passaggi, al massimo 10 volte per richiesta. Una regola con <code>replacePattern</code> si applica una sola volta per richiesta.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -5793,6 +5813,22 @@
   },
   "guide_check_6": {
     "message": "una voce <code>@@…$rawrule=</code> che non blocca alcuna Regola grezza",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "un valore <code>cln</code> diverso da <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "un id o alias usato due volte in un provider",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "un indirizzo <code>$redirect=</code> che non è <code>http</code> o <code>https</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "una barra rovesciata in un nome <code>$removeparam</code> prima di un carattere senza escape",
     "description": "Guide page text."
   },
   "guide_check_p2": {

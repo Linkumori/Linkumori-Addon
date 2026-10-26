@@ -5159,6 +5159,10 @@
     "message": "Der Name ist nur eine Bezeichnung. Welche URLs ein Anbieter behandelt, bestimmen <code>domainPatterns</code> oder <code>urlPattern</code>.",
     "description": "Guide page text."
   },
+  "guide_file_p4": {
+    "message": "Der optionale Schlüssel <code>cln</code> nennt die Formatversion. Sein einziger gültiger Wert ist <code>\"1.0\"</code>; eine Datei ohne ihn wird ebenfalls als 1.0 gelesen, eine Datei mit einem anderen Wert wird abgelehnt. Eine Datei kann außerdem <code>metadata</code> enthalten, einen <code>defaults</code>-Block mit Werten für jede Regel, die sie nicht selbst setzt, und in einer Remote-Regelliste <code>patches</code> (Kapitel 9).",
+    "description": "Guide page text."
+  },
   "guide_fields_title": {
     "message": "2. Anbieterfelder",
     "description": "Guide page text."
@@ -5395,6 +5399,10 @@
     "message": "genau diesen Parameter; Groß- und Kleinschreibung wird ignoriert, außer du fügst <code>match-case</code> hinzu",
     "description": "Guide page text."
   },
+  "guide_rp_v_escape": {
+    "message": "der Parameter namens <code>~ref</code>. Ein Backslash macht das nächste Zeichen wörtlich: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code>, <code>\\\\</code>. In JSON wird jeder Backslash doppelt geschrieben",
+    "description": "Guide page text."
+  },
   "guide_rp_options_title": {
     "message": "Optionen",
     "description": "Guide page text."
@@ -5452,7 +5460,7 @@
     "description": "Guide page text."
   },
   "guide_rp_p6": {
-    "message": "Ein <code>@@</code>-Filter gilt auch für Anfragen, die eine Seite dieses Anbieters stellt, selbst wenn ein anderer Anbieter sie behandelt.",
+    "message": "Ein <code>@@</code>-Filter schützt nur vor <code>$removeparam</code>-Filtern: Ein einfacher Eintrag wie <code>\"ref\"</code> entfernt den Parameter trotzdem. Sein Muster wird mit der URL verglichen, wie der Anbieter sie erhalten hat, bevor rohe Regeln laufen. Er gilt auch für Anfragen, die eine Seite dieses Anbieters stellt, selbst wenn ein anderer Anbieter sie behandelt.",
     "description": "Guide page text."
   },
   "guide_raw_title": {
@@ -5537,6 +5545,14 @@
   },
   "guide_redir_p5": {
     "message": "Der erste passende Parameter mit einem Wert gewinnt. Eine Weiterleitung beendet jede weitere Verarbeitung der Anfrage.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p6": {
+    "message": "Das Ziel muss eine vollständige <code>http</code>- oder <code>https</code>-Adresse mit Host sein. Sonst wird nicht weitergeleitet, und die übrigen Schritte des Anbieters laufen auf der unveränderten URL. Eine rohe Regel, deren Ergebnis auf einer anderen Website liegt, zählt ebenfalls als Weiterleitung.",
+    "description": "Guide page text."
+  },
+  "guide_redir_p7": {
+    "message": "In einer Remote-Regelliste bleiben Weiterleitungen und <code>completeProvider</code>-Sperren aus, bis du sie für diese Liste in der Remote-Regel-Übersicht (Remote Rules Health) akzeptierst. Der Rest der Liste wirkt sofort.",
     "description": "Guide page text."
   },
   "guide_obj_title": {
@@ -5639,16 +5655,20 @@
     "message": "Eine erzeugte ID ändert sich, wenn sich der Text der Regel ändert. Gib einer Regel eine eigene <code>id</code>, wenn sie ihre Ein-/Aus-Einstellung über Änderungen hinweg behalten muss.",
     "description": "Guide page text."
   },
+  "guide_obj_p9": {
+    "message": "Eine Regel wird über ihren Anbieter und ihre ID zusammen ein- und ausgeschaltet, etwa <code>shop::session-token</code>, sodass zwei Anbieter dieselbe ID nutzen können. Innerhalb eines Anbieters müssen alle IDs und Aliasse verschieden sein, und eine ID darf keinen Doppelpunkt enthalten. Eine Remote-Regelliste kann eine geladene Regel ersetzen, indem sie diesen Schlüssel in ihren <code>patches</code> nennt:",
+    "description": "Guide page text."
+  },
   "guide_obj_order_title": {
     "message": "Eine Regel früher oder später ausführen",
     "description": "Guide page text."
   },
   "guide_obj_p7": {
-    "message": "Rohe Regeln laufen normalerweise zuerst, danach <code>rules</code> und <code>referralMarketing</code>. Eine Regel mit <code>order</code> läuft vor Regeln ohne, die niedrigste zuerst. Hier wird das Token zuerst ersetzt und dann gelöscht:",
+    "message": "Rohe Regeln laufen immer vor <code>rules</code> und <code>referralMarketing</code>, und <code>order</code> ändert daran nichts. Innerhalb jeder dieser beiden Stufen läuft eine Regel mit <code>order</code> vor Regeln ohne, die niedrigste zuerst. Hier wird das Token umgeschrieben, bevor <code>utm_source</code> entfernt wird, obwohl es an zweiter Stelle steht:",
     "description": "Guide page text."
   },
   "guide_obj_p8": {
-    "message": "<code>order</code> funktioniert in <code>rules</code>, <code>rawRules</code> und <code>referralMarketing</code>, aber nicht bei <code>$removeparam</code>-Filtern, die immer zuletzt laufen.",
+    "message": "<code>order</code> funktioniert in <code>rules</code>, <code>rawRules</code> und <code>referralMarketing</code>. <code>$removeparam</code>-Filter und <code>@@</code>-Einträge können keins haben; Filter laufen immer zuletzt. <code>\"order\": null</code> bedeutet keine Reihenfolge und verwirft eine, die eine frühere Kopie derselben Regel gesetzt hat.",
     "description": "Guide page text."
   },
   "guide_ref_title": {
@@ -5724,7 +5744,7 @@
     "description": "Guide page text."
   },
   "guide_order_p2": {
-    "message": "Der erste Anbieter, der die Anfrage ändert, weiterleitet oder blockiert, bestimmt das Ergebnis. Die neue URL durchläuft danach dieselben Schritte erneut.",
+    "message": "Der erste Anbieter, der die Anfrage ändert, weiterleitet oder blockiert, bestimmt das Ergebnis. Die neue URL durchläuft danach dieselben Schritte erneut, höchstens 10-mal pro Anfrage. Eine Regel mit <code>replacePattern</code> wirkt nur einmal pro Anfrage.",
     "description": "Guide page text."
   },
   "guide_ex_title": {
@@ -5793,6 +5813,22 @@
   },
   "guide_check_6": {
     "message": "ein <code>@@…$rawrule=</code>-Eintrag, der keine rohe Regel stoppt",
+    "description": "Guide page text."
+  },
+  "guide_check_7": {
+    "message": "einen <code>cln</code>-Wert außer <code>\"1.0\"</code>",
+    "description": "Guide page text."
+  },
+  "guide_check_8": {
+    "message": "eine ID oder einen Alias, der in einem Anbieter zweimal vorkommt",
+    "description": "Guide page text."
+  },
+  "guide_check_9": {
+    "message": "eine <code>$redirect=</code>-Adresse, die nicht <code>http</code> oder <code>https</code> ist",
+    "description": "Guide page text."
+  },
+  "guide_check_10": {
+    "message": "einen Backslash in einem <code>$removeparam</code>-Namen vor einem Zeichen, das kein Escape hat",
     "description": "Guide page text."
   },
   "guide_check_p2": {
