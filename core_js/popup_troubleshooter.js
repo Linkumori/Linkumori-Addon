@@ -67,12 +67,12 @@
         resource_type: 'Resource type',
         type_all: 'All resource types',
         search_placeholder: 'Search rules, providers and URLs',
-        timer: 'Recording $1 · stops in $2',
+        timer: 'Recording $1 · $2 left',
         status_checking: 'Checking this tab…',
         status_no_tab: 'No active tab is available.',
         status_not_web: 'This page does not allow URL rule scanning. Open a regular http or https webpage.',
         status_off: 'Recording is off. Start recording to inspect resource URLs loaded by this page.',
-        status_active: 'Recording since $1. $2 URL change(s) captured; new ones appear here automatically.',
+        status_active: '$1 URL change(s) captured so far. New ones appear here automatically.',
         status_stopped: 'Recording stopped. $1 URL change(s) captured.',
         status_not_saved: 'Recording data could not be saved in session storage. $1 URL change(s) may be lost if the extension restarts.',
         status_started: 'Recording started and the tab is reloading. Captured URLs appear here as the page loads.',
@@ -124,7 +124,7 @@
         change_path: 'path changed',
         change_fragment: 'fragment changed',
         change_other: 'URL changed',
-        change_blocked: 'blocked',
+        change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
         diag_idle_text: 'Reload it once with cleaning paused for this site in this tab, to see whether Linkumori is the cause.',
@@ -258,8 +258,7 @@
 
     // What Linkumori did to one URL, in a few words.
     function describeChange(before, after) {
-        if (!after) return [ts('change_blocked')];
-        if (before === after) return [];
+        if (!after || before === after) return [ts('change_blocked')];
         let a;
         let b;
         try {
@@ -305,6 +304,7 @@
         if (!timer || !captureState) return;
         const now = Date.now();
         timer.textContent = ts('timer', formatDuration(now - captureState.startedAt), formatDuration(captureState.expiresAt - now));
+        timer.title = new Date(captureState.startedAt).toLocaleTimeString();
         timer.hidden = false;
     }
 
@@ -416,7 +416,10 @@
             const key = [finding.source, finding.matchedRuleId || finding.rule, finding.resourceUrl, finding.after].join('\u0000');
             if (seen.has(key)) return;
             seen.add(key);
-            const failure = finding.after ? failuresByUrl.get(stripHash(finding.after)) : null;
+            // A blocked request (same URL before and after) fails on purpose;
+            // only a URL Linkumori rewrote can fail because of the rewrite.
+            const rewritten = finding.after && finding.after !== finding.resourceUrl;
+            const failure = rewritten ? failuresByUrl.get(stripHash(finding.after)) : null;
             if (failure) {
                 finding.failure = failure;
                 linkedFailures.add(failure);
@@ -538,7 +541,7 @@
             if (capture.storedInSession === false) {
                 status.textContent = ts('status_not_saved', capture.entries.length);
             } else if (capture.active) {
-                status.textContent = ts('status_active', new Date(capture.startedAt).toLocaleTimeString(), capture.entries.length);
+                status.textContent = ts('status_active', capture.entries.length);
             } else if (capture.startedAt) {
                 status.textContent = ts('status_stopped', capture.entries.length);
             } else if (!isWebPage) {
