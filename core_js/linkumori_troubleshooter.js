@@ -25,11 +25,10 @@
  * 1. Pause check: cleaning is paused for the tab's site (temporary tab
  *    whitelist), the tab reloads, and the person says whether the page
  *    works now.
- * 2. Rule hunt: the rules that fired on the tab are split in half. One
- *    half is switched off, the tab reloads, and the person says whether
- *    the page is fixed. The half that holds the culprit is kept and split
- *    again, until one rule is left. Every rule switched off for a test is
- *    switched back on afterwards.
+ * 2. Rule hunt: the rules that fired on the tab are switched off one at
+ *    a time; after each, the tab reloads and the person says whether the
+ *    page is fixed. The rule that fixes it stays off; every other rule is
+ *    switched back on.
  *
  * The state is kept in session storage, so it survives the popup closing
  * and the background page unloading.
@@ -107,9 +106,7 @@ function publicTroubleshooterDiagnosis(state) {
         totalRules: Array.isArray(state.rules) ? state.rules.length : 0,
         suspects: Array.isArray(state.suspects) ? state.suspects.length : 0,
         testing: Array.isArray(state.testing) ? state.testing.length : 0,
-        mode: state.mode === 'single' ? 'single' : 'halves',
-        roundsLeft: Array.isArray(state.suspects) && state.suspects.length > 1
-            ? (state.mode === 'single' ? state.suspects.length : Math.ceil(Math.log2(state.suspects.length))) : 0,
+        roundsLeft: Array.isArray(state.suspects) ? state.suspects.length : 0,
         culprit: null,
         // Rules the current round switched off, so the popup can tell them
         // apart from rules the person switched off.
@@ -188,9 +185,8 @@ async function answerTroubleshooterPauseCheck(tabId, worksNow) {
 }
 
 async function applyTroubleshooterTestRound(state) {
-    // "single" tests one rule per round; otherwise half of the suspects.
-    const size = state.mode === 'single' ? 1 : Math.ceil(state.suspects.length / 2);
-    const testing = state.suspects.slice(0, size);
+    // One rule per round.
+    const testing = state.suspects.slice(0, 1);
     state.testing = testing;
     state.round = (state.round || 0) + 1;
     return globalThis.setTroubleshooterRulesEnabledBatch(
@@ -241,9 +237,7 @@ function countTroubleshooterBisectRules(identities) {
 
 // Step 2: find the rule. identities are the rules that fired on this tab,
 // as the popup knows them. The popup reloads the tab after each round.
-// mode: 'halves' (default) switches half of the suspects off per round;
-// 'single' switches one rule off per round.
-async function startTroubleshooterBisect(tabId, identities, mode = 'halves') {
+async function startTroubleshooterBisect(tabId, identities) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     if (id === null) return { success: false, error: 'Invalid tab' };
@@ -265,7 +259,6 @@ async function startTroubleshooterBisect(tabId, identities, mode = 'halves') {
         domain: previous?.domain || '',
         verdict: previous?.verdict || null,
         startedAt: Date.now(),
-        mode: mode === 'single' ? 'single' : 'halves',
         rules,
         suspects: rules.map((_, index) => index),
         testing: [],

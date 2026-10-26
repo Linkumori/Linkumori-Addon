@@ -6500,7 +6500,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_idle_text": {
-    "message": "Find the rule that breaks it: the rules that ran on this page are switched off a few at a time, and you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.",
+    "message": "Find the rule that breaks it: the rules that ran on this page are switched off one at a time, and after each you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_idle_button": {
@@ -6544,7 +6544,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_linkumori_text": {
-    "message": "The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.",
+    "message": "The page works with cleaning paused. Find the rule: the rules are switched off one at a time, the tab reloads, and you say whether the page is fixed. Every other rule is switched back on at the end.",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_linkumori_no_rules": {
@@ -6553,14 +6553,6 @@
   },
   "troubleshooter_diag_find_button": {
     "message": "Find the rule ($1 rules)",
-    "description": "Popup tab troubleshooter text."
-  },
-  "troubleshooter_diag_bisect_title": {
-    "message": "Finding the rule — round $1 (about $2 rounds in total)",
-    "description": "Popup tab troubleshooter text."
-  },
-  "troubleshooter_diag_bisect_text": {
-    "message": "These $1 rules are switched off for this test ($2 rules are still suspected). The tab reloaded. Is the page fixed now?",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_yes_fixed": {
@@ -6600,7 +6592,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_not_found_text": {
-    "message": "Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.",
+    "message": "Switching the rules off one at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_failed": {
@@ -6651,10 +6643,6 @@
     "message": "The rule search is running. Change rules after it ends.",
     "description": "Popup tab troubleshooter text."
   },
-  "troubleshooter_diag_skip_round": {
-    "message": "Skip these rules",
-    "description": "Popup tab troubleshooter text."
-  },
   "troubleshooter_diag_skip_found": {
     "message": "Skip — turn it back on",
     "description": "Popup tab troubleshooter text."
@@ -6684,7 +6672,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_skipped_round": {
-    "message": "Skipped: those rules are back on and left out. Testing the rest.",
+    "message": "Skipped: that rule is back on and left out. Testing the next one.",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_not_found_skipped": {
@@ -6701,10 +6689,6 @@
   },
   "troubleshooter_working": {
     "message": "Working…",
-    "description": "Popup tab troubleshooter text."
-  },
-  "troubleshooter_diag_bisect_text_one": {
-    "message": "This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_record_again": {
@@ -6729,10 +6713,6 @@
   },
   "troubleshooter_status_cleared_off": {
     "message": "Cleared. Rule $1 stays off.",
-    "description": "Popup tab troubleshooter text."
-  },
-  "troubleshooter_diag_find_single": {
-    "message": "One rule at a time ($1 rules)",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_diag_bisect_title_single": {

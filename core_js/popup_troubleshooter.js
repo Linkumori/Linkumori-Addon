@@ -129,7 +129,7 @@
         change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
-        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off a few at a time, and you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
+        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off one at a time, and after each you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
         diag_idle_button: 'Check with cleaning paused first',
         diag_paused_title: 'Cleaning is paused for $1 in this tab',
         diag_paused_text: 'The tab reloaded without cleaning. Does the page work now?',
@@ -140,11 +140,9 @@
         diag_not_linkumori_title: 'Probably not Linkumori',
         diag_not_linkumori_text: 'The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network. To start over, click Clear.',
         diag_linkumori_title: 'Linkumori is likely the cause',
-        diag_linkumori_text: 'The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.',
+        diag_linkumori_text: 'The page works with cleaning paused. Find the rule: the rules are switched off one at a time, the tab reloads, and you say whether the page is fixed. Every other rule is switched back on at the end.',
         diag_linkumori_no_rules: 'The tab is reloading with cleaning back on, to record which rules run on this page. They appear here in a moment. If none do, use the page until it breaks.',
         diag_find_button: 'Find the rule ($1 rules)',
-        diag_bisect_title: 'Finding the rule — round $1 (about $2 rounds in total)',
-        diag_bisect_text: 'These $1 rules are switched off for this test ($2 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_yes_fixed: 'Yes, fixed',
         diag_no_still: 'No, still broken',
         diag_found_title: 'Found it',
@@ -154,7 +152,7 @@
         diag_report_culprit: 'Report it',
         diag_culprit_disabled: 'Rule switched off. Reload the tab to check. To start over, click Clear.',
         diag_not_found_title: 'No single rule found',
-        diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.',
+        diag_not_found_text: 'Switching the rules off one at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.',
         diag_failed: 'Could not run the check: $1',
         diag_off_title: 'Found it',
         diag_off_text: 'The page breaks because of rule $1$2. It stays switched off so the page works; all other rules are back on. Reload the tab to check. To start over, click Clear.',
@@ -165,16 +163,14 @@
         diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
         advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
         advice_search_running: 'The rule search is running. Change rules after it ends.',
-        diag_skip_round: 'Skip these rules',
         diag_skip_found: 'Skip — turn it back on',
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again. To start over, click Clear.',
         diag_kept_off: 'Rule $1 stays off. To start over, click Clear.',
-        diag_bisect_text_one: 'This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_testing_rules: 'Switched off for this test:',
         diag_testing_more: '…and $1 more',
         diag_stop_search: 'Stop search',
-        diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
+        diag_skipped_round: 'Skipped: that rule is back on and left out. Testing the next one.',
         diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again. To start over, click Clear.',
         working: 'Working…',
         diag_record_again: 'Record again',
@@ -183,7 +179,6 @@
         clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
         status_cleared: 'Cleared. Rules stay as they are.',
         status_cleared_off: 'Cleared. Rule $1 stays off.',
-        diag_find_single: 'One rule at a time ($1 rules)',
         diag_skip_one: 'Skip this rule',
         diag_single_text: 'Only this rule is switched off, and the tab reloaded. Is the page fixed now?',
         diag_bisect_title_single: 'Testing one rule at a time — rule $1 of $2',
@@ -1002,8 +997,6 @@
                 if (candidates.length) {
                     buttons.push(button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                         () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning)));
-                    buttons.push(button(ts('diag_find_single', findCount(data, candidates)), '',
-                        () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity), 'single'], reloadIfRunning)));
                 }
                 buttons.push(done);
                 diagnosisBox(ts('diag_linkumori_title'),
@@ -1013,20 +1006,13 @@
             }
             return;
         case 'bisect':
-            diagnosisBox(diagnosis.mode === 'single'
-                ? ts('diag_bisect_title_single', diagnosis.round, diagnosis.totalRules)
-                : ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
-                diagnosis.mode === 'single'
-                    ? ts('diag_single_text')
-                    : diagnosis.testing === 1
-                    ? ts('diag_bisect_text_one', diagnosis.suspects)
-                    : ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
+            diagnosisBox(ts('diag_bisect_title_single', diagnosis.round, diagnosis.totalRules), ts('diag_single_text'), [
                     button(ts('diag_yes_fixed'), 'troubleshooter-primary',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
-                    // Skip: these rules go back on and leave the search; it carries on.
-                    button(diagnosis.testing === 1 ? ts('diag_skip_one') : ts('diag_skip_round'), '', async () => {
+                    // Skip: this rule goes back on and leaves the search; it carries on.
+                    button(ts('diag_skip_one'), '', async () => {
                         await runDiagnosisStep('answerTroubleshooterBisect', [false, true], true);
                         $('troubleshooterStatus').textContent = ts('diag_skipped_round');
                     }),
@@ -1152,10 +1138,6 @@
                 ? button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                     () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
                 : button(ts('diag_find_record'), 'troubleshooter-primary', recordFresh);
-            const findSingle = candidates.length
-                ? button(ts('diag_find_single', findCount(data, candidates)), '',
-                    () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity), 'single'], reloadIfRunning))
-                : null;
             const recordAgain = candidates.length ? button(ts('diag_record_again'), '', recordFresh) : null;
             const pauseFirst = button(ts('diag_idle_button'), '', async () => {
                 if (await ensureRecording()) await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
@@ -1163,7 +1145,7 @@
             const recordingWithoutRules = !candidates.length && data.capture?.active;
             if (recordingWithoutRules) find.disabled = true;
             diagnosisBox(ts('diag_idle_title'),
-                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, findSingle, recordAgain, pauseFirst].filter(Boolean));
+                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, recordAgain, pauseFirst].filter(Boolean));
         }
         }
     }
