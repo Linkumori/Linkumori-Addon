@@ -143,8 +143,8 @@
         diag_linkumori_text: 'The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.',
         diag_linkumori_no_rules: 'The tab is reloading with cleaning back on, to record which rules run on this page. They appear here in a moment. If none do, use the page until it breaks.',
         diag_find_button: 'Find the rule ($1 rules)',
-        diag_bisect_title: 'Finding the rule: round $1 of about $2',
-        diag_bisect_text: '$1 of $2 remaining rules are switched off and the tab reloaded. Is the page fixed now?',
+        diag_bisect_title: 'Finding the rule — round $1 (about $2 rounds in total)',
+        diag_bisect_text: 'These $1 rules are switched off for this test ($2 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_yes_fixed: 'Yes, fixed',
         diag_no_still: 'No, still broken',
         diag_found_title: 'Found it',
@@ -170,7 +170,8 @@
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again.',
         diag_kept_off: 'Rule $1 stays off.',
-        diag_testing_rules: 'Switched off now:',
+        diag_bisect_text_one: 'This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?',
+        diag_testing_rules: 'Switched off for this test:',
         diag_testing_more: '…and $1 more',
         diag_stop_search: 'Stop search',
         diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
@@ -962,7 +963,9 @@
             return;
         case 'bisect':
             diagnosisBox(ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
-                ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
+                diagnosis.testing === 1
+                    ? ts('diag_bisect_text_one', diagnosis.suspects)
+                    : ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
                     button(ts('diag_yes_fixed'), 'troubleshooter-primary',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
