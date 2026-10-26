@@ -6905,7 +6905,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_timer": {
-    "message": "Recording $1 · stops in $2",
+    "message": "Recording $1 · $2 left",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_status_checking": {
@@ -6925,7 +6925,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_status_active": {
-    "message": "Recording since $1. $2 URL change(s) captured; new ones appear here automatically.",
+    "message": "$1 URL change(s) captured so far. New ones appear here automatically.",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_status_stopped": {
@@ -7133,7 +7133,7 @@
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_change_blocked": {
-    "message": "blocked",
+    "message": "blocked on purpose",
     "description": "Popup tab troubleshooter text."
   },
   "troubleshooter_failures_summary": {
@@ -7250,6 +7250,34 @@
   },
   "troubleshooter_diag_failed": {
     "message": "Could not run the check: $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Reload Linkumori to use this check",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Rule switched off",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Rule $1$2 is now off. Reload the tab to check that the page works.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Reload tab",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Turn it back on",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Rule switched back on. Reload the tab to check.",
     "description": "Popup tab troubleshooter text."
   }
 }

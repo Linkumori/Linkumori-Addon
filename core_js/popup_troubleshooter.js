@@ -67,12 +67,12 @@
         resource_type: 'Resource type',
         type_all: 'All resource types',
         search_placeholder: 'Search rules, providers and URLs',
-        timer: 'Recording $1 · stops in $2',
+        timer: 'Recording $1 · $2 left',
         status_checking: 'Checking this tab…',
         status_no_tab: 'No active tab is available.',
         status_not_web: 'This page does not allow URL rule scanning. Open a regular http or https webpage.',
         status_off: 'Recording is off. Start recording to inspect resource URLs loaded by this page.',
-        status_active: 'Recording since $1. $2 URL change(s) captured; new ones appear here automatically.',
+        status_active: '$1 URL change(s) captured so far. New ones appear here automatically.',
         status_stopped: 'Recording stopped. $1 URL change(s) captured.',
         status_not_saved: 'Recording data could not be saved in session storage. $1 URL change(s) may be lost if the extension restarts.',
         status_started: 'Recording started and the tab is reloading. Captured URLs appear here as the page loads.',
@@ -124,7 +124,7 @@
         change_path: 'path changed',
         change_fragment: 'fragment changed',
         change_other: 'URL changed',
-        change_blocked: 'blocked',
+        change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
         diag_idle_text: 'Reload it once with cleaning paused for this site in this tab, to see whether Linkumori is the cause.',
@@ -153,7 +153,14 @@
         diag_culprit_disabled: 'Rule disabled. Reload the tab to check.',
         diag_not_found_title: 'No single rule found',
         diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on.',
-        diag_failed: 'Could not run the check: $1'
+        diag_failed: 'Could not run the check: $1',
+        diag_off_title: 'Rule switched off',
+        diag_off_text: 'Rule $1$2 is now off. Reload the tab to check that the page works.',
+        diag_reload_tab: 'Reload tab',
+        diag_enable_again: 'Turn it back on',
+        diag_culprit_enabled: 'Rule switched back on. Reload the tab to check.',
+        diag_outdated_title: 'Reload Linkumori to use this check',
+        diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
 
     function ts(key, ...subs) {
@@ -188,8 +195,21 @@
     const MAX_URLS_PER_GROUP = 10;
     const $ = id => document.getElementById(id);
 
-    function message(functionName, params = []) {
-        return browser.runtime.sendMessage({ function: functionName, params });
+    // An updated popup can talk to a background that still runs the old
+    // code (a temporary add-on that was not reloaded). It then rejects the
+    // new functions; report that as "outdated" rather than a raw error.
+    function isOutdatedBackgroundError(error) {
+        return /is not allowed|not found or not callable/.test(String(error || ''));
+    }
+
+    async function message(functionName, params = []) {
+        const response = await browser.runtime.sendMessage({ function: functionName, params });
+        if (response && isOutdatedBackgroundError(response.error)) {
+            const error = new Error(ts('diag_outdated_text'));
+            error.outdatedBackground = true;
+            throw error;
+        }
+        return response;
     }
 
     function el(tag, className, text) {
@@ -243,8 +263,7 @@
 
     // What Linkumori did to one URL, in a few words.
     function describeChange(before, after) {
-        if (!after) return [ts('change_blocked')];
-        if (before === after) return [];
+        if (!after || before === after) return [ts('change_blocked')];
         let a;
         let b;
         try {
@@ -290,6 +309,7 @@
         if (!timer || !captureState) return;
         const now = Date.now();
         timer.textContent = ts('timer', formatDuration(now - captureState.startedAt), formatDuration(captureState.expiresAt - now));
+        timer.title = new Date(captureState.startedAt).toLocaleTimeString();
         timer.hidden = false;
     }
 
@@ -401,7 +421,10 @@
             const key = [finding.source, finding.matchedRuleId || finding.rule, finding.resourceUrl, finding.after].join('\u0000');
             if (seen.has(key)) return;
             seen.add(key);
-            const failure = finding.after ? failuresByUrl.get(stripHash(finding.after)) : null;
+            // A blocked request (same URL before and after) fails on purpose;
+            // only a URL Linkumori rewrote can fail because of the rewrite.
+            const rewritten = finding.after && finding.after !== finding.resourceUrl;
+            const failure = rewritten ? failuresByUrl.get(stripHash(finding.after)) : null;
             if (failure) {
                 finding.failure = failure;
                 linkedFailures.add(failure);
@@ -489,7 +512,8 @@
                 isWebPage
                     ? message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }]).catch(() => null)
                     : Promise.resolve(null),
-                message('getTroubleshooterDiagnosis', [tab.id]).catch(() => null)
+                message('getTroubleshooterDiagnosis', [tab.id])
+                    .catch(error => (error?.outdatedBackground ? { outdated: true } : null))
             ]);
             if (isStale()) return;
 
@@ -498,6 +522,11 @@
             if (!Array.isArray(capture.failures)) capture.failures = [];
             const { findings, linkedFailures } = buildFindings(tab, capture, traceResponse?.response);
             const groups = groupFindings(findings);
+            const diagnosisData = diagnosisResponse?.response;
+            if (diagnosisData?.phase === 'found' && diagnosisData.culprit?.identity) {
+                const culpritState = await message('getTroubleshooterRuleState', [diagnosisData.culprit.identity]).catch(() => null);
+                diagnosisData.culpritState = culpritState?.response || null;
+            }
             await loadRuleStates(groups.slice(0, MAX_GROUPS * 2));
             if (isStale()) return;
 
@@ -508,7 +537,9 @@
                 groups,
                 findings,
                 linkedFailures,
-                diagnosis: diagnosisResponse?.response || { phase: 'idle' }
+                diagnosis: diagnosisResponse?.outdated
+                    ? { phase: 'outdated' }
+                    : diagnosisResponse?.response || { phase: 'idle' }
             };
 
             if (capture.active && Number.isFinite(capture.startedAt) && Number.isFinite(capture.expiresAt)) {
@@ -520,7 +551,7 @@
             if (capture.storedInSession === false) {
                 status.textContent = ts('status_not_saved', capture.entries.length);
             } else if (capture.active) {
-                status.textContent = ts('status_active', new Date(capture.startedAt).toLocaleTimeString(), capture.entries.length);
+                status.textContent = ts('status_active', capture.entries.length);
             } else if (capture.startedAt) {
                 status.textContent = ts('status_stopped', capture.entries.length);
             } else if (!isWebPage) {
@@ -765,7 +796,11 @@
             }
             await refresh({ quiet: true });
         } catch (error) {
-            if (status) status.textContent = ts('diag_failed', error?.message || '');
+            if (status) {
+                status.textContent = error?.outdatedBackground
+                    ? error.message
+                    : ts('diag_failed', error?.message || '');
+            }
             box?.querySelectorAll('button').forEach(node => { node.disabled = false; });
         }
     }
@@ -798,6 +833,9 @@
             () => runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false));
 
         switch (diagnosis.phase) {
+        case 'outdated':
+            diagnosisBox(ts('diag_outdated_title'), ts('diag_outdated_text'), [], 'warning');
+            return;
         case 'paused':
             diagnosisBox(ts('diag_paused_title', diagnosis.domain || host), ts('diag_paused_text'), [
                 button(ts('diag_yes_works'), 'troubleshooter-primary',
@@ -836,24 +874,47 @@
             const culprit = diagnosis.culprit || {};
             const label = culprit.label || culprit.ruleId || '';
             const provider = culprit.providerName ? ts('diag_found_provider', culprit.providerName) : '';
-            const disable = button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable', async () => {
-                disable.disabled = true;
+            const setCulprit = (enabled, doneText) => async event => {
+                const node = event.currentTarget;
+                node.disabled = true;
                 try {
-                    const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, false]);
+                    const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, enabled]);
                     if (!response?.response?.success) throw new Error(response?.response?.error || '');
-                    $('troubleshooterStatus').textContent = ts('diag_culprit_disabled');
                     await refresh({ quiet: true });
+                    $('troubleshooterStatus').textContent = doneText;
                 } catch (error) {
                     $('troubleshooterStatus').textContent = error?.message || ts('status_rule_failed');
-                    disable.disabled = false;
+                    node.disabled = false;
                 }
-            });
+            };
             const report = button(ts('diag_report_culprit'), '', () => {
                 openReport(data.tab.url, '', label, culprit.providerName || '',
                     `Troubleshooter: the page works with cleaning paused, and the rule search points to rule ${label}${culprit.providerName ? ` (${culprit.providerName})` : ''}.`)
                     .catch(() => { $('troubleshooterStatus').textContent = ts('status_report_failed'); });
             });
-            diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [disable, report, done], 'warning');
+            if (diagnosis.culpritState?.available && diagnosis.culpritState.enabled === false) {
+                // Already switched off: offer the next step instead of the same button again.
+                const reload = button(ts('diag_reload_tab'), 'troubleshooter-primary', async () => {
+                    try {
+                        await browser.tabs.reload(data.tab.id);
+                    } catch (_) {
+                        // The tab may have closed.
+                    }
+                });
+                diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
+                    reload,
+                    button(ts('diag_enable_again'), '', setCulprit(true, ts('diag_culprit_enabled'))),
+                    report,
+                    done
+                ], 'ok');
+                return;
+            }
+            diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [
+                button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
+                    setCulprit(false, ts('diag_culprit_disabled'))),
+                report,
+                done
+            ], 'warning');
             return;
         }
         case 'not-found':
