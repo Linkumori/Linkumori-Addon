@@ -183,6 +183,10 @@
         clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
         status_cleared: 'Cleared. Rules stay as they are.',
         status_cleared_off: 'Cleared. Rule $1 stays off.',
+        diag_find_single: 'One rule at a time ($1 rules)',
+        diag_skip_one: 'Skip this rule',
+        diag_single_text: 'Only this rule is switched off, and the tab reloaded. Is the page fixed now?',
+        diag_bisect_title_single: 'Testing one rule at a time — rule $1 of $2',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -998,6 +1002,8 @@
                 if (candidates.length) {
                     buttons.push(button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                         () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning)));
+                    buttons.push(button(ts('diag_find_single', findCount(data, candidates)), '',
+                        () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity), 'single'], reloadIfRunning)));
                 }
                 buttons.push(done);
                 diagnosisBox(ts('diag_linkumori_title'),
@@ -1007,8 +1013,12 @@
             }
             return;
         case 'bisect':
-            diagnosisBox(ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
-                diagnosis.testing === 1
+            diagnosisBox(diagnosis.mode === 'single'
+                ? ts('diag_bisect_title_single', diagnosis.round, diagnosis.totalRules)
+                : ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
+                diagnosis.mode === 'single'
+                    ? ts('diag_single_text')
+                    : diagnosis.testing === 1
                     ? ts('diag_bisect_text_one', diagnosis.suspects)
                     : ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
                     button(ts('diag_yes_fixed'), 'troubleshooter-primary',
@@ -1016,7 +1026,7 @@
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
                     // Skip: these rules go back on and leave the search; it carries on.
-                    button(ts('diag_skip_round'), '', async () => {
+                    button(diagnosis.testing === 1 ? ts('diag_skip_one') : ts('diag_skip_round'), '', async () => {
                         await runDiagnosisStep('answerTroubleshooterBisect', [false, true], true);
                         $('troubleshooterStatus').textContent = ts('diag_skipped_round');
                     }),
@@ -1142,6 +1152,10 @@
                 ? button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                     () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
                 : button(ts('diag_find_record'), 'troubleshooter-primary', recordFresh);
+            const findSingle = candidates.length
+                ? button(ts('diag_find_single', findCount(data, candidates)), '',
+                    () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity), 'single'], reloadIfRunning))
+                : null;
             const recordAgain = candidates.length ? button(ts('diag_record_again'), '', recordFresh) : null;
             const pauseFirst = button(ts('diag_idle_button'), '', async () => {
                 if (await ensureRecording()) await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
@@ -1149,7 +1163,7 @@
             const recordingWithoutRules = !candidates.length && data.capture?.active;
             if (recordingWithoutRules) find.disabled = true;
             diagnosisBox(ts('diag_idle_title'),
-                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, recordAgain, pauseFirst].filter(Boolean));
+                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, findSingle, recordAgain, pauseFirst].filter(Boolean));
         }
         }
     }
