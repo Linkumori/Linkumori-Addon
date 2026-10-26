@@ -467,6 +467,7 @@ function handleRegularFunction(request) {
             'answerTroubleshooterBisect',
             'cancelTroubleshooterDiagnosis',
             'countTroubleshooterBisectRules',
+            'countTroubleshooterExtraRules',
             'continueTroubleshooterBisect',
             'clearTabTroubleshooterCapture',
             'exportTroubleshooterRecording',

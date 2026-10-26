@@ -184,6 +184,10 @@
         diag_bisect_title_single: 'Testing one rule at a time — rule $1 of $2',
         diag_skip_next: 'Skip — turn it back on, test next ($1 left)',
         diag_test_next: 'Test the next rule ($1 left)',
+        diag_continue_question: '$1 other rule(s) that ran on this page were not tested. Do you want to continue testing them?',
+        diag_keep_off_next: 'Keep it off, test next ($1 left)',
+        diag_kept_off_next_done: 'Rule $1 stays off. Testing the next rule.',
+        diag_not_found_kept: 'No other rule fixes the page on its own. The $1 rule(s) you kept off stay off; every other rule is on again. To start over, click Clear.',
         diag_skip_next_done: 'Rule $1 is back on and left out. Testing the next rule.',
         diag_not_found_passed: 'No other rule fixes the page on its own. The $1 rule(s) you skipped are back on too, so every rule is on again. To start over, click Clear.',
         diag_outdated_title: 'Reload Linkumori to use this check',
@@ -629,9 +633,23 @@
                 }
                 if (isStale()) return;
             }
+            // After a found rule: rules that ran on the page but are not in
+            // the search yet (e.g. recorded after it started) can be tested next.
+            let extraIdentities = [];
+            let extraCount = 0;
+            if (isWebPage && diagnosisPhase === 'found') {
+                extraIdentities = bisectCandidates({ groups }).map(group => group.identity);
+                if (extraIdentities.length) {
+                    const countResponse = await message('countTroubleshooterExtraRules', [tab.id, extraIdentities]).catch(() => null);
+                    if (Number.isInteger(countResponse?.response?.count)) extraCount = countResponse.response.count;
+                }
+                if (isStale()) return;
+            }
 
             lastData = {
                 bisectCount,
+                extraIdentities,
+                extraCount,
                 tab,
                 isWebPage,
                 capture,
@@ -1031,6 +1049,10 @@
             const culprit = diagnosis.culprit || {};
             const label = culprit.label || culprit.ruleId || '';
             const provider = culprit.providerName ? ts('diag_found_provider', culprit.providerName) : '';
+            // Untested rules of the search plus rules that ran on the page
+            // but were not in it yet.
+            const nextCount = (diagnosis.remaining || 0) + (data.extraCount || 0);
+            const nextIdentities = data.extraIdentities || [];
             const setCulprit = (enabled, doneText) => async event => {
                 const node = event.currentTarget;
                 node.disabled = true;
@@ -1066,9 +1088,9 @@
                 });
                 // Skip: turn the rule back on. With untested rules left, carry
                 // on with the next one; otherwise end the search and reload.
-                const skip = diagnosis.remaining > 0
-                    ? button(ts('diag_skip_next', diagnosis.remaining), '', async () => {
-                        await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                const skip = nextCount > 0
+                    ? button(ts('diag_skip_next', nextCount), '', async () => {
+                        await runDiagnosisStep('continueTroubleshooterBisect', [nextIdentities], true);
                         $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
                     })
                     : button(ts('diag_skip_found'), '', async event => {
@@ -1085,31 +1107,43 @@
                     await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
                     $('troubleshooterStatus').textContent = ts('diag_skipped');
                 });
+                // Keep it off and go on: look for more rules that break the page.
+                const keepOffNext = nextCount > 0
+                    ? button(ts('diag_keep_off_next', nextCount), '', async () => {
+                        await runDiagnosisStep('continueTroubleshooterBisect', [nextIdentities, true], true);
+                        $('troubleshooterStatus').textContent = ts('diag_kept_off_next_done', label);
+                    })
+                    : null;
+                const question = nextCount > 0
+                    ? el('p', '', ts('diag_continue_question', nextCount))
+                    : null;
                 diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
                     keepOff,
+                    keepOffNext,
                     skip,
                     reload,
                     report,
                     button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter(label))
-                ], 'ok');
+                ], 'ok', question);
                 return;
             }
             diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
-                diagnosis.remaining > 0 ? button(ts('diag_test_next', diagnosis.remaining), '', async () => {
-                    await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                nextCount > 0 ? button(ts('diag_test_next', nextCount), '', async () => {
+                    await runDiagnosisStep('continueTroubleshooterBisect', [nextIdentities], true);
                     $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
                 }) : null,
                 report,
                 done,
                 button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
-            ], 'warning');
+            ], 'warning', nextCount > 0 ? el('p', '', ts('diag_continue_question', nextCount)) : null);
             return;
         }
         case 'not-found':
             diagnosisBox(ts('diag_not_found_title'),
-                diagnosis.passed ? ts('diag_not_found_passed', diagnosis.passed)
+                diagnosis.keptOff ? ts('diag_not_found_kept', diagnosis.keptOff)
+                    : diagnosis.passed ? ts('diag_not_found_passed', diagnosis.passed)
                     : diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
             return;
         default: {

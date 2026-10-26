@@ -117,6 +117,7 @@ function publicTroubleshooterDiagnosis(state) {
             : [],
         skipped: Array.isArray(state.skipped) ? state.skipped.length : 0,
         passed: Array.isArray(state.passed) ? state.passed.length : 0,
+        keptOff: Array.isArray(state.keptOff) ? state.keptOff.length : 0,
         // Names of the rules switched off in this round, for the popup.
         testingRules: state.phase === 'bisect' && Array.isArray(state.testing)
             ? state.testing.map(index => state.rules?.[index]).filter(Boolean)
@@ -238,6 +239,29 @@ function countTroubleshooterBisectRules(identities) {
     return { success: true, count: collectTroubleshooterBisectRules(identities).length };
 }
 
+// Rules that ran on the page but are not part of this search yet, e.g.
+// ones recorded after it started. A found rule can be skipped for them.
+function troubleshooterRuleKey(rule) {
+    return rule?.runtimeRuleId || `${rule?.providerName || ''}\u0000${rule?.label || rule?.ruleId || ''}`;
+}
+
+function newTroubleshooterSearchRules(state, identities) {
+    const known = new Set((Array.isArray(state?.rules) ? state.rules : []).map(troubleshooterRuleKey));
+    const room = Math.max(0, LINKUMORI_DIAGNOSIS_MAX_RULES - (state?.rules?.length || 0));
+    return collectTroubleshooterBisectRules(identities)
+        .filter(rule => !known.has(troubleshooterRuleKey(rule)))
+        .slice(0, room);
+}
+
+// How many more rules "Test the next rule" would add after a found rule.
+async function countTroubleshooterExtraRules(tabId, identities) {
+    await loadTroubleshooterDiagnoses();
+    const id = normalizeTabId(tabId);
+    const state = id === null ? null : linkumoriDiagnoses.get(id);
+    if (!state || state.phase !== 'found') return { success: true, count: 0 };
+    return { success: true, count: newTroubleshooterSearchRules(state, identities).length };
+}
+
 // Step 2: find the rule. identities are the rules that fired on this tab,
 // as the popup knows them. The popup reloads the tab after each round.
 async function startTroubleshooterBisect(tabId, identities) {
@@ -332,15 +356,19 @@ async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
 }
 
 // After "Found it": switch the found rule back on, leave it out, and carry
-// on with the rules not tested yet. With none left, the search ends with
-// every rule on.
-async function continueTroubleshooterBisect(tabId) {
+// on with the rules not tested yet, plus any rules in identities that ran
+// on the page but were not in the search. keepOff: the found rule stays
+// off instead, and the search carries on to find more. With none left, the
+// search ends with every rule on except those kept off.
+async function continueTroubleshooterBisect(tabId, identities = [], keepOff = false) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
     if (!state || state.phase !== 'found') return { success: false, error: 'No found rule to skip for this tab' };
     const culprit = state.culprit;
-    if (Number.isInteger(culprit) && state.rules[culprit]) {
+    if (keepOff === true && Number.isInteger(culprit) && state.rules[culprit]) {
+        state.keptOff = (Array.isArray(state.keptOff) ? state.keptOff : []).concat([culprit]);
+    } else if (Number.isInteger(culprit) && state.rules[culprit]) {
         await globalThis.setTroubleshooterRulesEnabledBatch([{ identity: state.rules[culprit].identity, enabled: true }]);
         // Tested and it fixed the page, so not "skipped untested".
         state.passed = (Array.isArray(state.passed) ? state.passed : []).concat([culprit]);
@@ -348,6 +376,10 @@ async function continueTroubleshooterBisect(tabId) {
     state.culprit = null;
     state.suspects = Array.isArray(state.remaining) ? state.remaining.slice() : [];
     state.remaining = [];
+    newTroubleshooterSearchRules(state, identities).forEach(rule => {
+        state.suspects.push(state.rules.length);
+        state.rules.push(rule);
+    });
     state.testing = [];
     state.confirming = false;
     if (state.suspects.length === 0) {
