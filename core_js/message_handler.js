@@ -466,6 +466,8 @@ function handleRegularFunction(request) {
             'startTroubleshooterBisect',
             'answerTroubleshooterBisect',
             'cancelTroubleshooterDiagnosis',
+            'countTroubleshooterBisectRules',
+            'clearTabTroubleshooterCapture',
             'traceClearURLWebRequestTest',
             'storageAsJSON'
         ]);

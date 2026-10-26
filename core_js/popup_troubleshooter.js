@@ -44,8 +44,10 @@
     // English text. Each key is looked up as "troubleshooter_<key>" in the
     // locale files; a missing translation falls back to this text.
     const TS_TEXT = {
-        launch: 'Troubleshoot this tab',
+        launch: 'Troubleshoot this tab (experimental)',
         back: 'Back',
+        experimental: 'Experimental',
+        experimental_warning: 'Experimental: this troubleshooter is not fully stable. Its results can be wrong, and it switches rules off while it tests. If something looks wrong afterwards, check your rules in the custom rules editor, or use Stop search to switch them back on.',
         back_aria: 'Back to extension controls',
         title: 'Tab troubleshooter',
         page: 'Page',
@@ -127,8 +129,8 @@
         change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
-        diag_idle_text: 'Records this tab and reloads it once with cleaning paused for this site, to see whether Linkumori is the cause.',
-        diag_idle_button: 'Check with cleaning paused',
+        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off a few at a time, and you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
+        diag_idle_button: 'Check with cleaning paused first',
         diag_paused_title: 'Cleaning is paused for $1 in this tab',
         diag_paused_text: 'The tab reloaded without cleaning. Does the page work now?',
         diag_yes_works: 'Yes, it works',
@@ -136,29 +138,51 @@
         diag_cancel: 'Cancel',
         diag_done: 'Done',
         diag_not_linkumori_title: 'Probably not Linkumori',
-        diag_not_linkumori_text: 'The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network.',
+        diag_not_linkumori_text: 'The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network. To start over, click Clear.',
         diag_linkumori_title: 'Linkumori is likely the cause',
         diag_linkumori_text: 'The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.',
         diag_linkumori_no_rules: 'The tab is reloading with cleaning back on, to record which rules run on this page. They appear here in a moment. If none do, use the page until it breaks.',
         diag_find_button: 'Find the rule ($1 rules)',
-        diag_bisect_title: 'Finding the rule: round $1 of about $2',
-        diag_bisect_text: '$1 of $2 remaining rules are switched off and the tab reloaded. Is the page fixed now?',
+        diag_bisect_title: 'Finding the rule — round $1 (about $2 rounds in total)',
+        diag_bisect_text: 'These $1 rules are switched off for this test ($2 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_yes_fixed: 'Yes, fixed',
         diag_no_still: 'No, still broken',
         diag_found_title: 'Found it',
-        diag_found_text: 'The page breaks because of rule $1$2. All rules are switched back on.',
+        diag_found_text: 'The page breaks because of rule $1$2. It is switched on again. To start over, click Clear.',
         diag_found_provider: ' ($1)',
         diag_disable_culprit: 'Disable this rule',
         diag_report_culprit: 'Report it',
-        diag_culprit_disabled: 'Rule disabled. Reload the tab to check.',
+        diag_culprit_disabled: 'Rule switched off. Reload the tab to check. To start over, click Clear.',
         diag_not_found_title: 'No single rule found',
-        diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on.',
+        diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.',
         diag_failed: 'Could not run the check: $1',
-        diag_off_title: 'Rule switched off',
-        diag_off_text: 'Rule $1$2 is now off. Reload the tab to check that the page works.',
+        diag_off_title: 'Found it',
+        diag_off_text: 'The page breaks because of rule $1$2. It stays switched off so the page works; all other rules are back on. Reload the tab to check. To start over, click Clear.',
         diag_reload_tab: 'Reload tab',
         diag_enable_again: 'Turn it back on',
-        diag_culprit_enabled: 'Rule switched back on. Reload the tab to check.',
+        diag_culprit_enabled: 'Rule switched back on. Reload the tab to check. To start over, click Clear.',
+        diag_find_record: 'Record and find the rule',
+        diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
+        advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
+        advice_search_running: 'The rule search is running. Change rules after it ends.',
+        diag_skip_round: 'Skip these rules',
+        diag_skip_found: 'Skip — turn it back on',
+        diag_keep_off: 'Keep it off',
+        diag_skipped: 'Rule search skipped; every rule is on again. To start over, click Clear.',
+        diag_kept_off: 'Rule $1 stays off. To start over, click Clear.',
+        diag_bisect_text_one: 'This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?',
+        diag_testing_rules: 'Switched off for this test:',
+        diag_testing_more: '…and $1 more',
+        diag_stop_search: 'Stop search',
+        diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
+        diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again. To start over, click Clear.',
+        working: 'Working…',
+        diag_record_again: 'Record again',
+        diag_recorded_fresh: 'Old recording cleared. Recording this tab again from a fresh load.',
+        clear: 'Clear',
+        clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
+        status_cleared: 'Cleared. Rules stay as they are.',
+        status_cleared_off: 'Cleared. Rule $1 stays off.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -219,10 +243,17 @@
         return node;
     }
 
+    let lastClickedButton = null;
+
     function button(label, className, onClick) {
         const node = el('button', className, label);
         node.type = 'button';
-        if (onClick) node.addEventListener('click', onClick);
+        if (onClick) {
+            node.addEventListener('click', event => {
+                lastClickedButton = node;
+                return onClick(event);
+            });
+        }
         return node;
     }
 
@@ -295,6 +326,10 @@
     let captureState = null;
     let lastData = null;
     let searchDebounce = null;
+    // The page URL check is the slowest call; reuse it for the same URL
+    // for a short while. "Refresh" always runs it again.
+    const TRACE_CACHE_MS = 60000;
+    let traceCache = null;
 
     function stopTimer() {
         if (timerInterval) clearInterval(timerInterval);
@@ -483,6 +518,37 @@
             (right.failed > 0) - (left.failed > 0) || right.hits.length - left.hits.length);
     }
 
+    // Log entries name a rule in different ways (provider key, pattern key,
+    // or neither), so one rule can start out as several groups. Once each
+    // group's rule is resolved, merge groups that are the same rule.
+    function mergeGroupsByRule(groups) {
+        const byRule = new Map();
+        const merged = [];
+        groups.forEach(group => {
+            const ruleKey = group.ruleState?.available && group.ruleState.runtimeRuleId
+                ? `${group.category}\u0000${group.ruleState.runtimeRuleId}` : null;
+            const target = ruleKey ? byRule.get(ruleKey) : null;
+            if (!target) {
+                if (ruleKey) byRule.set(ruleKey, group);
+                merged.push(group);
+                return;
+            }
+            group.hits.forEach(hit => target.hits.push(hit));
+            group.sources.forEach(source => target.sources.add(source));
+            group.requestTypes.forEach(type => target.requestTypes.add(type));
+            group.changes.forEach(change => target.changes.add(change));
+            target.failed += group.failed;
+            // Keep the pattern key for the switch when one of them has it.
+            if (target.identity && group.identity && target.identity.disableId === target.identity.runtimeRuleId &&
+                group.identity.disableId && group.identity.disableId !== group.identity.runtimeRuleId) {
+                target.identity = group.identity;
+                target.ruleState = group.ruleState;
+            }
+        });
+        return merged.sort((left, right) =>
+            (right.failed > 0) - (left.failed > 0) || right.hits.length - left.hits.length);
+    }
+
     async function loadRuleStates(groups) {
         const requests = new Map();
         await Promise.all(groups.map(async group => {
@@ -518,9 +584,15 @@
             const isWebPage = isWebUrl(tab.url);
             const [captureResponse, traceResponse, diagnosisResponse] = await Promise.all([
                 message('getTabTroubleshooterCapture', [tab.id]).catch(() => null),
-                isWebPage
-                    ? message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }]).catch(() => null)
-                    : Promise.resolve(null),
+                !isWebPage ? Promise.resolve(null)
+                    : (!options.fresh && traceCache && traceCache.url === tab.url && Date.now() - traceCache.at < TRACE_CACHE_MS)
+                        ? Promise.resolve(traceCache.response)
+                        : message('runRuleTestLab', [tab.url, '', { type: 'main_frame', method: 'GET', tabId: tab.id, frameId: 0 }])
+                            .then(response => {
+                                traceCache = { url: tab.url, at: Date.now(), response };
+                                return response;
+                            })
+                            .catch(() => null),
                 message('getTroubleshooterDiagnosis', [tab.id])
                     .catch(error => (error?.outdatedBackground ? { outdated: true } : null))
             ]);
@@ -530,7 +602,7 @@
             if (!Array.isArray(capture.entries)) capture.entries = [];
             if (!Array.isArray(capture.failures)) capture.failures = [];
             const { findings, linkedFailures } = buildFindings(tab, capture, traceResponse?.response);
-            const groups = groupFindings(findings);
+            let groups = groupFindings(findings);
             const diagnosisData = diagnosisResponse?.response;
             if (diagnosisData?.phase === 'found' && diagnosisData.culprit?.identity) {
                 const culpritState = await message('getTroubleshooterRuleState', [diagnosisData.culprit.identity]).catch(() => null);
@@ -538,8 +610,25 @@
             }
             await loadRuleStates(groups.slice(0, MAX_GROUPS * 2));
             if (isStale()) return;
+            groups = mergeGroupsByRule(groups);
+
+            // The count on "Find the rule" comes from the background, which
+            // decides what the search tests, so the button never over-promises.
+            const diagnosisPhase = diagnosisResponse?.response?.phase || 'idle';
+            let bisectCount = null;
+            if (isWebPage && (diagnosisPhase === 'idle' || diagnosisPhase === 'checked')) {
+                const candidates = bisectCandidates({ groups });
+                if (candidates.length) {
+                    const countResponse = await message('countTroubleshooterBisectRules', [candidates.map(group => group.identity)]).catch(() => null);
+                    if (Number.isInteger(countResponse?.response?.count)) bisectCount = countResponse.response.count;
+                } else {
+                    bisectCount = 0;
+                }
+                if (isStale()) return;
+            }
 
             lastData = {
+                bisectCount,
                 tab,
                 isWebPage,
                 capture,
@@ -601,6 +690,13 @@
             const node = $(id);
             if (node) node.disabled = !hasData;
         });
+        const clearButton = $('troubleshooterClear');
+        if (clearButton) {
+            const phase = data?.diagnosis?.phase || 'idle';
+            // Not while a search or pause check runs: those have Stop/Cancel.
+            clearButton.disabled = !(hasData || data?.capture?.startedAt || ['found', 'not-found', 'checked'].includes(phase)) ||
+                phase === 'bisect' || phase === 'paused';
+        }
     }
 
     function renderFailures(data) {
@@ -724,9 +820,15 @@
         card.appendChild(details);
 
         const state = group.ruleState;
-        card.appendChild(el('p', '', state?.available
-            ? (state.enabled ? ts('advice_enabled') : ts('advice_disabled'))
-            : group.category === 'protection' ? ts('advice_protection') : ts('advice_review')));
+        const diagnosis = lastData?.diagnosis || {};
+        const searchRunning = diagnosis.phase === 'bisect';
+        const inThisRound = searchRunning && state?.runtimeRuleId &&
+            (diagnosis.testingRuleIds || []).includes(state.runtimeRuleId);
+        card.appendChild(el('p', '', inThisRound ? ts('advice_in_search')
+            : searchRunning && state?.available ? ts('advice_search_running')
+            : state?.available
+                ? (state.enabled ? ts('advice_enabled') : ts('advice_disabled'))
+                : group.category === 'protection' ? ts('advice_protection') : ts('advice_review')));
 
         const actions = el('div', 'troubleshooter-card-actions');
         const first = group.hits[0];
@@ -734,8 +836,12 @@
             openReport(first.pageUrl, first.resourceUrl, group.rule, group.providerName, summaryForGroup(group))
                 .catch(() => { status.textContent = ts('status_report_failed'); });
         }));
-        if (state?.available) renderRuleToggle(group, actions, status);
-        else if (group.category !== 'protection') card.appendChild(el('p', '', ts('rule_unresolved')));
+        // No switching while the rule search runs: it switches rules itself.
+        if (state?.available) {
+            if (!searchRunning) renderRuleToggle(group, actions, status);
+        } else if (group.category !== 'protection') {
+            card.appendChild(el('p', '', ts('rule_unresolved')));
+        }
         card.appendChild(actions);
         return card;
     }
@@ -790,10 +896,22 @@
         });
     }
 
+    // Candidates the search can test; empty when the background says none.
+    function findableCandidates(data) {
+        const candidates = bisectCandidates(data);
+        return data?.bisectCount === 0 ? [] : candidates;
+    }
+
+    function findCount(data, candidates) {
+        return Number.isInteger(data?.bisectCount) ? data.bisectCount : candidates.length;
+    }
+
     async function runDiagnosisStep(functionName, params, reloadAfter) {
         const status = $('troubleshooterStatus');
         const box = $('troubleshooterDiagnosis');
         box?.querySelectorAll('button').forEach(node => { node.disabled = true; });
+        // Show at once that the click registered; the step can take a moment.
+        if (lastClickedButton && box?.contains(lastClickedButton)) lastClickedButton.textContent = ts('working');
         try {
             const tab = await getActiveTab();
             if (!tab) throw new Error(ts('status_no_tab'));
@@ -814,14 +932,32 @@
         }
     }
 
-    function diagnosisBox(title, text, buttons, tone) {
+    function diagnosisBox(title, text, buttons, tone, extra = null) {
         const box = $('troubleshooterDiagnosis');
         if (!box) return;
         box.className = `troubleshooter-diagnosis${tone ? ` troubleshooter-diagnosis-${tone}` : ''}`;
         const row = el('div', 'troubleshooter-diagnosis-actions');
         buttons.forEach(node => row.appendChild(node));
-        box.replaceChildren(el('strong', '', title), el('p', '', text), row);
+        box.replaceChildren(...[el('strong', '', title), el('p', '', text), extra, row].filter(Boolean));
         box.hidden = false;
+    }
+
+    // The rules a round switched off, by name.
+    function testingRulesList(rules) {
+        if (!Array.isArray(rules) || rules.length === 0) return null;
+        const shown = 8;
+        const wrap = el('div', 'troubleshooter-testing');
+        wrap.appendChild(el('p', 'troubleshooter-testing-label', ts('diag_testing_rules')));
+        const list = el('ul', 'troubleshooter-testing-list');
+        rules.slice(0, shown).forEach(rule => {
+            const item = el('li');
+            item.appendChild(el('code', '', rule.label));
+            if (rule.providerName) item.appendChild(el('span', '', ` (${rule.providerName})`));
+            list.appendChild(item);
+        });
+        wrap.appendChild(list);
+        if (rules.length > shown) wrap.appendChild(el('p', 'troubleshooter-testing-label', ts('diag_testing_more', rules.length - shown)));
+        return wrap;
     }
 
     function renderDiagnosis(data) {
@@ -857,10 +993,10 @@
             return;
         case 'checked':
             if (diagnosis.verdict === 'linkumori') {
-                const candidates = bisectCandidates(data);
+                const candidates = findableCandidates(data);
                 const buttons = [];
                 if (candidates.length) {
-                    buttons.push(button(ts('diag_find_button', candidates.length), 'troubleshooter-primary',
+                    buttons.push(button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                         () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning)));
                 }
                 buttons.push(done);
@@ -872,13 +1008,24 @@
             return;
         case 'bisect':
             diagnosisBox(ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
-                ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
+                diagnosis.testing === 1
+                    ? ts('diag_bisect_text_one', diagnosis.suspects)
+                    : ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
                     button(ts('diag_yes_fixed'), 'troubleshooter-primary',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
-                    cancel
-                ], 'active');
+                    // Skip: these rules go back on and leave the search; it carries on.
+                    button(ts('diag_skip_round'), '', async () => {
+                        await runDiagnosisStep('answerTroubleshooterBisect', [false, true], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skipped_round');
+                    }),
+                    // Stop: end the search, every rule back on.
+                    button(ts('diag_stop_search'), 'troubleshooter-back', async () => {
+                        await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skipped');
+                    })
+                ], 'active', testingRulesList(diagnosis.testingRules));
             return;
         case 'found': {
             const culprit = diagnosis.culprit || {};
@@ -911,11 +1058,33 @@
                         // The tab may have closed.
                     }
                 });
+                reload.className = 'troubleshooter-back';
+                // Keep it off: accept the fix and end the search.
+                const keepOff = button(ts('diag_keep_off'), 'troubleshooter-primary', async () => {
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false);
+                    $('troubleshooterStatus').textContent = ts('diag_kept_off', label);
+                });
+                // Skip: turn the rule back on, end the search, and reload.
+                const skip = button(ts('diag_skip_found'), '', async event => {
+                    const node = event.currentTarget;
+                    node.disabled = true;
+                    try {
+                        const response = await message('setTroubleshooterRuleEnabled', [culprit.identity, true]);
+                        if (!response?.response?.success) throw new Error(response?.response?.error || '');
+                    } catch (error) {
+                        $('troubleshooterStatus').textContent = error?.message || ts('status_rule_failed');
+                        node.disabled = false;
+                        return;
+                    }
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
+                    $('troubleshooterStatus').textContent = ts('diag_skipped');
+                });
                 diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
+                    keepOff,
+                    skip,
                     reload,
-                    button(ts('diag_enable_again'), '', setCulprit(true, ts('diag_culprit_enabled'))),
                     report,
-                    done
+                    button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter(label))
                 ], 'ok');
                 return;
             }
@@ -923,30 +1092,87 @@
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
                 report,
-                done
+                done,
+                button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
             ], 'warning');
             return;
         }
         case 'not-found':
-            diagnosisBox(ts('diag_not_found_title'), ts('diag_not_found_text'), [done], 'ok');
+            diagnosisBox(ts('diag_not_found_title'),
+                diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
             return;
-        default:
-            diagnosisBox(ts('diag_idle_title'), ts('diag_idle_text'), [
-                button(ts('diag_idle_button'), '', async () => {
-                    // The rule search needs a recording to know which rules run,
-                    // so start one first; a recording already running is kept.
-                    if (!data.capture?.active) {
-                        try {
-                            const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
-                            if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
-                        } catch (error) {
-                            $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
-                            return;
-                        }
-                    }
-                    await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
-                })
-            ]);
+        default: {
+            // The rule search needs a recording to know which rules run;
+            // start one if needed (a running recording is kept).
+            const ensureRecording = async () => {
+                if (data.capture?.active) return true;
+                try {
+                    const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
+                    if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
+                    return true;
+                } catch (error) {
+                    $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
+                    return false;
+                }
+            };
+            // Clear the old recording of this tab and record it again from a
+            // reload, so the search only sees rules from the current page load.
+            const recordFresh = async event => {
+                const node = event.currentTarget;
+                node.disabled = true;
+                try {
+                    const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
+                    if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
+                } catch (error) {
+                    $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
+                    node.disabled = false;
+                    return;
+                }
+                traceCache = null;
+                try {
+                    await browser.tabs.reload(data.tab.id);
+                } catch (_) {
+                    // The tab may have closed.
+                }
+                await refresh({ quiet: true });
+                $('troubleshooterStatus').textContent = ts('diag_recorded_fresh');
+            };
+            const candidates = findableCandidates(data);
+            const find = candidates.length
+                ? button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
+                    () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
+                : button(ts('diag_find_record'), 'troubleshooter-primary', recordFresh);
+            const recordAgain = candidates.length ? button(ts('diag_record_again'), '', recordFresh) : null;
+            const pauseFirst = button(ts('diag_idle_button'), '', async () => {
+                if (await ensureRecording()) await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
+            });
+            const recordingWithoutRules = !candidates.length && data.capture?.active;
+            if (recordingWithoutRules) find.disabled = true;
+            diagnosisBox(ts('diag_idle_title'),
+                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, recordAgain, pauseFirst].filter(Boolean));
+        }
+        }
+    }
+
+    // Forget this tab's recording, findings and finished search. Rules are
+    // left as they are; keptOffLabel names a rule the person kept off.
+    async function clearTroubleshooter(keptOffLabel = '') {
+        const status = $('troubleshooterStatus');
+        try {
+            const tab = await getActiveTab();
+            if (!tab) throw new Error(ts('status_no_tab'));
+            const phase = lastData?.diagnosis?.phase;
+            // A running search or pause check is ended properly (rules back on).
+            if (phase && phase !== 'idle') await message('cancelTroubleshooterDiagnosis', [tab.id]).catch(() => null);
+            await message('clearTabTroubleshooterCapture', [tab.id]);
+            traceCache = null;
+            stopTimer();
+            const results = $('troubleshooterResults');
+            if (results) results.replaceChildren();
+            await refresh({ quiet: true });
+            status.textContent = keptOffLabel ? ts('status_cleared_off', keptOffLabel) : ts('status_cleared');
+        } catch (error) {
+            status.textContent = error?.message || ts('status_read_failed');
         }
     }
 
@@ -1094,9 +1320,10 @@
 
     openButton?.addEventListener('click', () => openPanel());
     backButton?.addEventListener('click', closePanel);
-    $('troubleshooterRefresh')?.addEventListener('click', () => refresh());
+    $('troubleshooterRefresh')?.addEventListener('click', () => refresh({ fresh: true }));
     $('troubleshooterCopy')?.addEventListener('click', copySummary);
     $('troubleshooterExport')?.addEventListener('click', exportRecording);
+    $('troubleshooterClear')?.addEventListener('click', () => clearTroubleshooter());
     $('troubleshooterCategoryFilter')?.addEventListener('change', render);
     $('troubleshooterTypeFilter')?.addEventListener('change', render);
     $('troubleshooterSearch')?.addEventListener('input', () => {

@@ -109,7 +109,18 @@ function publicTroubleshooterDiagnosis(state) {
         testing: Array.isArray(state.testing) ? state.testing.length : 0,
         roundsLeft: Array.isArray(state.suspects) && state.suspects.length > 1
             ? Math.ceil(Math.log2(state.suspects.length)) : 0,
-        culprit: null
+        culprit: null,
+        // Rules the current round switched off, so the popup can tell them
+        // apart from rules the person switched off.
+        testingRuleIds: state.phase === 'bisect' && Array.isArray(state.testing)
+            ? state.testing.map(index => state.rules?.[index]?.runtimeRuleId).filter(Boolean)
+            : [],
+        skipped: Array.isArray(state.skipped) ? state.skipped.length : 0,
+        // Names of the rules switched off in this round, for the popup.
+        testingRules: state.phase === 'bisect' && Array.isArray(state.testing)
+            ? state.testing.map(index => state.rules?.[index]).filter(Boolean)
+                .map(rule => ({ label: rule.label || rule.ruleId || '', providerName: rule.providerName || '' }))
+            : []
     };
     if (Number.isInteger(state.culprit) && state.rules?.[state.culprit]) {
         out.culprit = { ...state.rules[state.culprit] };
@@ -183,12 +194,46 @@ async function applyTroubleshooterTestRound(state) {
         testing.map(index => ({ identity: state.rules[index].identity, enabled: false })));
 }
 
-async function restoreTroubleshooterTestRound(state) {
+// Switch the round's rules back on, except those in keepOff.
+async function restoreTroubleshooterTestRound(state, keepOff = []) {
     if (!Array.isArray(state?.testing) || state.testing.length === 0) return;
-    const testing = state.testing;
+    const keep = new Set(keepOff);
+    const testing = state.testing.filter(index => !keep.has(index));
     state.testing = [];
+    if (testing.length === 0) return;
     await globalThis.setTroubleshooterRulesEnabledBatch(
         testing.map(index => ({ identity: state.rules[index].identity, enabled: true })));
+}
+
+// The rules a search would test: those that are on now, one entry per
+// rule however many keys it was seen under. Shared by the count the popup
+// shows and by the search itself, so the two always agree.
+function collectTroubleshooterBisectRules(identities) {
+    if (typeof globalThis.getTroubleshooterRuleState !== 'function') return [];
+    const seen = new Set();
+    const rules = [];
+    (Array.isArray(identities) ? identities : []).forEach(identity => {
+        if (!identity || typeof identity !== 'object') return;
+        const ruleState = globalThis.getTroubleshooterRuleState(identity);
+        const ruleKey = ruleState?.runtimeRuleId || ruleState?.toggleId;
+        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleKey)) return;
+        seen.add(ruleKey);
+        rules.push({
+            identity,
+            ruleId: ruleState.ruleId,
+            runtimeRuleId: ruleState.runtimeRuleId || '',
+            providerName: ruleState.providerName,
+            section: ruleState.section,
+            label: String(identity.ruleId || ruleState.ruleId || '')
+        });
+    });
+    if (rules.length > LINKUMORI_DIAGNOSIS_MAX_RULES) rules.length = LINKUMORI_DIAGNOSIS_MAX_RULES;
+    return rules;
+}
+
+// How many rules "Find the rule" would test right now.
+function countTroubleshooterBisectRules(identities) {
+    return { success: true, count: collectTroubleshooterBisectRules(identities).length };
 }
 
 // Step 2: find the rule. identities are the rules that fired on this tab,
@@ -205,28 +250,10 @@ async function startTroubleshooterBisect(tabId, identities) {
     if (previous?.phase === 'bisect') await restoreTroubleshooterTestRound(previous);
     if (previous?.phase === 'paused') endTroubleshooterPause(id, previous);
 
-    // Only rules that are on now can be tested; one entry per switch.
-    const seen = new Set();
-    const rules = [];
-    (Array.isArray(identities) ? identities : []).forEach(identity => {
-        if (!identity || typeof identity !== 'object') return;
-        const ruleState = globalThis.getTroubleshooterRuleState(identity);
-        // One entry per rule, however many keys it was seen under.
-        const ruleKey = ruleState?.runtimeRuleId || ruleState?.toggleId;
-        if (!ruleState?.available || !ruleState.enabled || seen.has(ruleKey)) return;
-        seen.add(ruleKey);
-        rules.push({
-            identity,
-            ruleId: ruleState.ruleId,
-            providerName: ruleState.providerName,
-            section: ruleState.section,
-            label: String(identity.ruleId || ruleState.ruleId || '')
-        });
-    });
+    const rules = collectTroubleshooterBisectRules(identities);
     if (rules.length === 0) {
         return { success: false, error: 'None of the rules that fired on this page can be switched off.' };
     }
-    if (rules.length > LINKUMORI_DIAGNOSIS_MAX_RULES) rules.length = LINKUMORI_DIAGNOSIS_MAX_RULES;
 
     const state = {
         phase: 'bisect',
@@ -250,24 +277,32 @@ async function startTroubleshooterBisect(tabId, identities) {
 }
 
 // The person's answer to "is the page fixed now?" for the current round.
-async function answerTroubleshooterBisect(tabId, fixedNow) {
+// skip: the person does not want this round's rules tested. They go back
+// on, leave the search, and the search carries on with the rest.
+async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
     if (!state || state.phase !== 'bisect') return { success: false, error: 'No rule search is running for this tab' };
     const testing = state.testing.slice();
     const tested = new Set(testing);
-    const wasConfirming = state.confirming === true;
     state.confirming = false;
+    if (skip === true) {
+        fixedNow = false;
+        state.skipped = (Array.isArray(state.skipped) ? state.skipped : []).concat(testing);
+    }
     state.suspects = fixedNow === true
         ? state.suspects.filter(index => tested.has(index))
         : state.suspects.filter(index => !tested.has(index));
-    await restoreTroubleshooterTestRound(state);
+    // Found: the page works with this rule off, so it stays off; every
+    // other rule of the round goes back on. The popup offers to undo.
+    const foundNow = fixedNow === true && state.suspects.length === 1;
+    await restoreTroubleshooterTestRound(state, foundNow ? state.suspects : []);
 
     if (state.suspects.length === 0) {
         // "Not fixed" with nothing left to test: no single rule explains it.
         state.phase = 'not-found';
-    } else if (state.suspects.length === 1 && (fixedNow === true || wasConfirming)) {
+    } else if (foundNow) {
         // Switching this rule off (alone or in its group) fixed the page.
         state.phase = 'found';
         state.culprit = state.suspects[0];

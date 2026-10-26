@@ -590,6 +590,17 @@ async function startTabTroubleshooterCapture(tabId) {
     };
 }
 
+// Forget this tab's recording entirely (stops it if running).
+async function clearTabTroubleshooterCapture(tabId) {
+    await linkumoriTroubleshooterCaptureSessionReady;
+    const id = Number(tabId);
+    if (!Number.isInteger(id) || id < 0) return { success: false, error: 'Invalid tab' };
+    linkumoriTroubleshooterCaptures.delete(id);
+    linkumoriTroubleshooterCaptureStorageFailures.delete(id);
+    await persistTroubleshooterCapture(id);
+    return { success: true };
+}
+
 async function stopTabTroubleshooterCapture(tabId) {
     await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
