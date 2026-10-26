@@ -114,6 +114,11 @@ function publicTroubleshooterDiagnosis(state) {
         // apart from rules the person switched off.
         testingRuleIds: state.phase === 'bisect' && Array.isArray(state.testing)
             ? state.testing.map(index => state.rules?.[index]?.runtimeRuleId).filter(Boolean)
+            : [],
+        // Names of the rules switched off in this round, for the popup.
+        testingRules: state.phase === 'bisect' && Array.isArray(state.testing)
+            ? state.testing.map(index => state.rules?.[index]).filter(Boolean)
+                .map(rule => ({ label: rule.label || rule.ruleId || '', providerName: rule.providerName || '' }))
             : []
     };
     if (Number.isInteger(state.culprit) && state.rules?.[state.culprit]) {

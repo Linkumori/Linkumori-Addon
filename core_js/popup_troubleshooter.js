@@ -168,6 +168,8 @@
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again.',
         diag_kept_off: 'Rule $1 stays off.',
+        diag_testing_rules: 'Switched off now:',
+        diag_testing_more: '…and $1 more',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -833,14 +835,32 @@
         }
     }
 
-    function diagnosisBox(title, text, buttons, tone) {
+    function diagnosisBox(title, text, buttons, tone, extra = null) {
         const box = $('troubleshooterDiagnosis');
         if (!box) return;
         box.className = `troubleshooter-diagnosis${tone ? ` troubleshooter-diagnosis-${tone}` : ''}`;
         const row = el('div', 'troubleshooter-diagnosis-actions');
         buttons.forEach(node => row.appendChild(node));
-        box.replaceChildren(el('strong', '', title), el('p', '', text), row);
+        box.replaceChildren(...[el('strong', '', title), el('p', '', text), extra, row].filter(Boolean));
         box.hidden = false;
+    }
+
+    // The rules a round switched off, by name.
+    function testingRulesList(rules) {
+        if (!Array.isArray(rules) || rules.length === 0) return null;
+        const shown = 8;
+        const wrap = el('div', 'troubleshooter-testing');
+        wrap.appendChild(el('p', 'troubleshooter-testing-label', ts('diag_testing_rules')));
+        const list = el('ul', 'troubleshooter-testing-list');
+        rules.slice(0, shown).forEach(rule => {
+            const item = el('li');
+            item.appendChild(el('code', '', rule.label));
+            if (rule.providerName) item.appendChild(el('span', '', ` (${rule.providerName})`));
+            list.appendChild(item);
+        });
+        wrap.appendChild(list);
+        if (rules.length > shown) wrap.appendChild(el('p', 'troubleshooter-testing-label', ts('diag_testing_more', rules.length - shown)));
+        return wrap;
     }
 
     function renderDiagnosis(data) {
@@ -901,7 +921,7 @@
                         await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
                         $('troubleshooterStatus').textContent = ts('diag_skipped');
                     })
-                ], 'active');
+                ], 'active', testingRulesList(diagnosis.testingRules));
             return;
         case 'found': {
             const culprit = diagnosis.culprit || {};
