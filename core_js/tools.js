@@ -73,6 +73,7 @@ const enc = new TextEncoder();
 const logThreshold = 5000;
 const LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS = 15 * 60 * 1000;
 const LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES = 250;
+const LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_FAILURES = 100;
 const LINKUMORI_TROUBLESHOOTER_SESSION_KEY_PREFIX = 'linkumori_troubleshooter_capture_';
 const linkumoriTroubleshooterCaptures = new Map();
 const linkumoriTroubleshooterCaptureWriteQueues = new Map();
@@ -102,7 +103,8 @@ function persistTroubleshooterCapture(tabId) {
         startedAt: capture.startedAt,
         endedAt: capture.endedAt || null,
         expiresAt: capture.expiresAt,
-        entries: capture.entries.slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES).map(entry => ({ ...entry }))
+        entries: capture.entries.slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES).map(entry => ({ ...entry })),
+        failures: (capture.failures || []).slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_FAILURES).map(failure => ({ ...failure }))
     } : null;
     const key = getTroubleshooterCaptureSessionKey(id);
     const previousWrite = linkumoriTroubleshooterCaptureWriteQueues.get(id) || Promise.resolve();
@@ -154,7 +156,10 @@ const linkumoriTroubleshooterCaptureSessionReady = (async () => {
                 endedAt: value.endedAt || (now > value.expiresAt ? value.expiresAt : null),
                 expiresAt: value.expiresAt,
                 entries: value.entries.slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES)
-                    .filter(entry => entry && typeof entry === 'object')
+                    .filter(entry => entry && typeof entry === 'object'),
+                failures: (Array.isArray(value.failures) ? value.failures : [])
+                    .slice(-LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_FAILURES)
+                    .filter(failure => failure && typeof failure === 'object' && typeof failure.url === 'string')
             };
             return [{ tabId, capture }];
         }).sort((left, right) => left.capture.startedAt - right.capture.startedAt);
@@ -561,7 +566,8 @@ async function startTabTroubleshooterCapture(tabId) {
         active: true,
         startedAt: now,
         expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS,
-        entries: []
+        entries: [],
+        failures: []
     });
     const evictedTabIds = [];
     while (linkumoriTroubleshooterCaptures.size > 8) {
@@ -611,8 +617,57 @@ async function getTabTroubleshooterCapture(tabId) {
         endedAt: capture.endedAt || null,
         expiresAt: capture.expiresAt,
         storedInSession: storedInSession && !linkumoriTroubleshooterCaptureStorageFailures.has(id),
-        entries: capture.entries.slice()
+        entries: capture.entries.slice(),
+        failures: (capture.failures || []).slice()
     };
+}
+
+// Requests the browser cancels on purpose (navigation away, a redirect the
+// extension made) are not failures of the page.
+const LINKUMORI_TROUBLESHOOTER_IGNORED_ERRORS = new Set([
+    'NS_BINDING_ABORTED', 'NS_BINDING_REDIRECTED', 'NS_ERROR_ABORT', 'net::ERR_ABORTED', 'net::ERR_BLOCKED_BY_CLIENT'
+]);
+
+// Record a request of a recorded tab that failed: a network error, or an
+// HTTP status of 400 or more.
+function recordTroubleshooterFailure(details, kind) {
+    if (!details || !isTabTroubleshooterCaptureActive(details.tabId)) return;
+    const capture = linkumoriTroubleshooterCaptures.get(Number(details.tabId));
+    if (!capture) return;
+    let reason = '';
+    if (kind === 'error') {
+        const error = String(details.error || '');
+        if (!error || LINKUMORI_TROUBLESHOOTER_IGNORED_ERRORS.has(error)) return;
+        reason = error;
+    } else {
+        const statusCode = Number(details.statusCode);
+        if (!Number.isFinite(statusCode) || statusCode < 400) return;
+        reason = `HTTP ${statusCode}`;
+    }
+    if (!Array.isArray(capture.failures)) capture.failures = [];
+    capture.failures.push({
+        url: String(details.url || ''),
+        reason,
+        requestType: typeof details.type === 'string' ? details.type : '',
+        timestamp: Date.now()
+    });
+    if (capture.failures.length > LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_FAILURES) {
+        capture.failures.splice(0, capture.failures.length - LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_FAILURES);
+    }
+    persistTroubleshooterCapture(details.tabId);
+}
+
+if (typeof browser !== 'undefined' && browser.webRequest?.onErrorOccurred?.addListener) {
+    browser.webRequest.onErrorOccurred.addListener(
+        details => recordTroubleshooterFailure(details, 'error'),
+        { urls: ['<all_urls>'] }
+    );
+}
+if (typeof browser !== 'undefined' && browser.webRequest?.onCompleted?.addListener) {
+    browser.webRequest.onCompleted.addListener(
+        details => recordTroubleshooterFailure(details, 'http'),
+        { urls: ['<all_urls>'] }
+    );
 }
 
 if (typeof browser !== 'undefined' && browser.tabs?.onRemoved?.addListener) {

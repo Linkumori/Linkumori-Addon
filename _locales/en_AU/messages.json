@@ -6166,5 +6166,445 @@
   "accessibility_tools_reset_announcement": {
     "message": "All accessibility settings reset",
     "description": "Live-region announcement after resetting accessibility tools."
+  },
+  "troubleshooter_launch": {
+    "message": "Troubleshoot this tab",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_back": {
+    "message": "Back",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_back_aria": {
+    "message": "Back to extension controls",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_title": {
+    "message": "Tab troubleshooter",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_page": {
+    "message": "Page",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_about_summary": {
+    "message": "How recording works",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_about_note": {
+    "message": "Opening this view may check the page URL, but records nothing. Recording stays off until you choose Start recording. Starting reloads this tab to capture its resource requests. Captured URLs stay in session storage for this browser session and are cleared when this tab closes or the browser session ends. Recording stops after 15 minutes unless you stop it sooner. Resource URLs may contain private query data.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_start": {
+    "message": "Start recording",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_starting": {
+    "message": "Starting…",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_recording": {
+    "message": "Recording…",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_stop": {
+    "message": "Stop recording",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_refresh": {
+    "message": "Refresh",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_copy": {
+    "message": "Copy summary",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_export": {
+    "message": "Export",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_export_title": {
+    "message": "Save the recording as a JSON file. Resource URLs may contain private query data.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_category": {
+    "message": "Category",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_category_all": {
+    "message": "All categories",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL rules",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Redirects",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_category_protection": {
+    "message": "Protection and bypasses",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_resource_type": {
+    "message": "Resource type",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_type_all": {
+    "message": "All resource types",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Search rules, providers and URLs",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_timer": {
+    "message": "Recording $1 · stops in $2",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_checking": {
+    "message": "Checking this tab…",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "No active tab is available.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "This page does not allow URL rule scanning. Open a regular http or https webpage.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_off": {
+    "message": "Recording is off. Start recording to inspect resource URLs loaded by this page.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_active": {
+    "message": "Recording since $1. $2 URL change(s) captured; new ones appear here automatically.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Recording stopped. $1 URL change(s) captured.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Recording data could not be saved in session storage. $1 URL change(s) may be lost if the extension restarts.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_started": {
+    "message": "Recording started and the tab is reloading. Captured URLs appear here as the page loads.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Recording stopped. $1 URL change(s) captured and saved for this browser session.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Recording stopped. $1 URL change(s) captured, but session storage could not save them.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Open a regular http or https webpage first.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Could not start recording for this tab.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Could not stop recording for this tab.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Could not read this tab. Try closing and reopening the popup.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Summary copied.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Could not copy the summary.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Recording exported.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Could not export the recording.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Could not open the report form.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Rule enabled; reload the tab to compare.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Rule disabled; reload the tab to compare.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Could not update this rule.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_empty_web": {
+    "message": "No rule changes found yet. Start recording to inspect this page’s resource URLs.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "This browser page cannot be scanned.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "No findings match these filters.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Showing the first $1 rules.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 hit(s)",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 failed",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_rule_id": {
+    "message": "Rule ID: $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Built-in protection action (no rule ID)",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Rule ID: unavailable for this finding",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Could not resolve this rule ID in the current ruleset.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Observed request",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_source_page": {
+    "message": "Page URL check",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_changes": {
+    "message": "What changed: $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Affected URLs ($1)",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_more_urls": {
+    "message": "…and $1 more",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_after": {
+    "message": "After Linkumori",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_failed_after": {
+    "message": "Failed after Linkumori changed it: $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "This rule is enabled. Turn it off and reload to compare the page.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "This rule is disabled. Turn it on and reload to restore its behavior.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "This is a built-in protection action, not an individual rule.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Review the affected URL before changing rules.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_report": {
+    "message": "Report this rule",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Disable rule",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Enable rule",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Disable rule $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Enable rule $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_saving": {
+    "message": "Saving…",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_removed": {
+    "message": "removed $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_added": {
+    "message": "added $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_changed": {
+    "message": "changed $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_redirect": {
+    "message": "redirected to $1",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_path": {
+    "message": "path changed",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment changed",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_other": {
+    "message": "URL changed",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_change_blocked": {
+    "message": "blocked",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 request(s) failed on this page; $2 right after Linkumori changed the URL",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Is this page broken?",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Reload it once with cleaning paused for this site in this tab, to see whether Linkumori is the cause.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Check with cleaning paused",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Cleaning is paused for $1 in this tab",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "The tab reloaded without cleaning. Does the page work now?",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Yes, it works",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "No, still broken",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Cancel",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_done": {
+    "message": "Done",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Probably not Linkumori",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori is likely the cause",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "No rules have been seen on this page yet. Start recording, use the page until it breaks, then come back to find the rule.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Find the rule ($1 rules)",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_bisect_title": {
+    "message": "Finding the rule: round $1 of about $2",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_bisect_text": {
+    "message": "$1 of $2 remaining rules are switched off and the tab reloaded. Is the page fixed now?",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Yes, fixed",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "No, still broken",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Found it",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "The page breaks because of rule $1$2. All rules are switched back on.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Disable this rule",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Report it",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Rule disabled. Reload the tab to check.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "No single rule found",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on.",
+    "description": "Popup tab troubleshooter text."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Could not run the check: $1",
+    "description": "Popup tab troubleshooter text."
   }
 }

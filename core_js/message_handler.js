@@ -460,6 +460,12 @@ function handleRegularFunction(request) {
             'start',
             'startTabTroubleshooterCapture',
             'stopTabTroubleshooterCapture',
+            'getTroubleshooterDiagnosis',
+            'startTroubleshooterPauseCheck',
+            'answerTroubleshooterPauseCheck',
+            'startTroubleshooterBisect',
+            'answerTroubleshooterBisect',
+            'cancelTroubleshooterDiagnosis',
             'traceClearURLWebRequestTest',
             'storageAsJSON'
         ]);

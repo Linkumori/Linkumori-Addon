@@ -1080,7 +1080,7 @@
             flex-direction: column;
             gap: 8px;
             min-height: 0;
-            overflow: hidden;
+            overflow-y: auto;
             padding: 8px;
         }
 
@@ -1156,10 +1156,141 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            overflow-y: auto;
-            min-height: 0;
             padding: 1px 2px 4px 1px;
         }
+
+        #troubleshooterPanel > * { flex: none; }
+
+        .troubleshooter-about summary,
+        .troubleshooter-failures summary,
+        .troubleshooter-hits summary {
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 11px;
+        }
+
+        .troubleshooter-about .troubleshooter-note { margin-top: 4px; }
+
+        .troubleshooter-diagnosis {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+            border-radius: 6px;
+            background: var(--bg-secondary);
+        }
+
+        .troubleshooter-diagnosis[hidden] { display: none; }
+        .troubleshooter-diagnosis-active { border-left-color: var(--input-focus); }
+        .troubleshooter-diagnosis-warning { border-left-color: #d97706; }
+        .troubleshooter-diagnosis-ok { border-left-color: #16a34a; }
+
+        .troubleshooter-diagnosis strong {
+            color: var(--text-primary);
+            font-size: 12px;
+        }
+
+        .troubleshooter-diagnosis p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        .troubleshooter-diagnosis-actions,
+        .troubleshooter-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .troubleshooter-diagnosis-actions button,
+        .troubleshooter-tools button {
+            flex: 1 1 auto;
+            min-height: 28px;
+            font-size: 11px;
+        }
+
+        .troubleshooter-tools button:disabled { opacity: 0.55; cursor: default; }
+
+        .troubleshooter-primary {
+            background: var(--button-primary);
+            color: var(--button-text);
+            font-weight: 600;
+        }
+
+        .troubleshooter-failures {
+            padding: 6px 8px;
+            border: 1px solid #dc2626;
+            border-radius: 6px;
+            background: var(--bg-secondary);
+        }
+
+        .troubleshooter-failures[hidden] { display: none; }
+        .troubleshooter-failures summary { color: var(--text-primary); }
+
+        .troubleshooter-failure-list,
+        .troubleshooter-hits {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .troubleshooter-failure-list { margin-top: 6px; }
+
+        .troubleshooter-failure p,
+        .troubleshooter-hit p {
+            margin: 2px 0;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .troubleshooter-hit {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-top: 4px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .troubleshooter-hit-failed { color: #dc2626 !important; font-weight: 600; }
+
+        .troubleshooter-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px 8px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            font: inherit;
+            font-size: 11px;
+        }
+
+        .troubleshooter-card-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .troubleshooter-card-header strong { flex: 1 1 auto; min-width: 0; }
+
+        .troubleshooter-badge {
+            padding: 1px 6px;
+            border-radius: 999px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .troubleshooter-badge-failed { background: #dc2626; color: #fff; }
+        .troubleshooter-card-failed { border-color: #dc2626; }
+
+        .troubleshooter-card .troubleshooter-changes { color: var(--text-secondary); }
 
         .troubleshooter-empty {
             padding: 12px 8px;
@@ -1537,7 +1668,7 @@
     <main id="main-content" tabindex="-1">
     <!-- Main Content -->
     <div id="mainContent">
-        <button type="button" id="openTroubleshooter" class="troubleshooter-launch">Troubleshoot this tab</button>
+        <button type="button" id="openTroubleshooter" class="troubleshooter-launch" data-ts="launch">Troubleshoot this tab</button>
 
         <div class="toggle-container">
             <div class="toggle-switch" id="globalStatus"></div>
@@ -1613,33 +1744,43 @@
 
     <section id="troubleshooterPanel" aria-labelledby="troubleshooterTitle" hidden>
         <div class="troubleshooter-heading-row">
-            <button type="button" id="troubleshooterBack" class="troubleshooter-back" aria-label="Back to extension controls">Back</button>
-            <h2 id="troubleshooterTitle">Tab troubleshooter</h2>
+            <button type="button" id="troubleshooterBack" class="troubleshooter-back" data-ts="back" data-ts-aria="back_aria">Back</button>
+            <h2 id="troubleshooterTitle" data-ts="title">Tab troubleshooter</h2>
         </div>
         <p id="troubleshooterPage" class="troubleshooter-page"></p>
-        <p class="troubleshooter-note">Opening this view may check the page URL, but records nothing. Recording stays off until you choose Start recording. Starting reloads this tab to capture its resource requests. Captured URLs stay in session storage for this browser session and are cleared when this tab closes or the browser session ends. Recording stops after 15 minutes unless you stop it sooner. Resource URLs may contain private query data.</p>
+        <details class="troubleshooter-about">
+            <summary data-ts="about_summary">How recording works</summary>
+            <p class="troubleshooter-note" data-ts="about_note"></p>
+        </details>
+        <section id="troubleshooterDiagnosis" class="troubleshooter-diagnosis" aria-live="polite" hidden></section>
         <div class="troubleshooter-actions">
-            <button type="button" id="troubleshooterScan">Start recording</button>
-            <button type="button" id="troubleshooterStop" class="troubleshooter-back" hidden>Stop recording</button>
+            <button type="button" id="troubleshooterScan" data-ts="start">Start recording</button>
+            <button type="button" id="troubleshooterStop" class="troubleshooter-back" data-ts="stop" hidden>Stop recording</button>
         </div>
         <p id="troubleshooterTimer" class="troubleshooter-timer" role="timer" aria-live="off" hidden></p>
-        <button type="button" id="troubleshooterRefresh" class="troubleshooter-back">Refresh results</button>
         <p id="troubleshooterStatus" class="troubleshooter-status" role="status" aria-live="polite"></p>
+        <div class="troubleshooter-tools">
+            <button type="button" id="troubleshooterRefresh" class="troubleshooter-back" data-ts="refresh">Refresh</button>
+            <button type="button" id="troubleshooterCopy" class="troubleshooter-back" data-ts="copy" disabled>Copy summary</button>
+            <button type="button" id="troubleshooterExport" class="troubleshooter-back" data-ts="export" data-ts-title="export_title" disabled>Export</button>
+        </div>
+        <details id="troubleshooterFailures" class="troubleshooter-failures" hidden></details>
         <div class="troubleshooter-filters">
-            <label for="troubleshooterCategoryFilter">Category
+            <label for="troubleshooterCategoryFilter"><span data-ts="category">Category</span>
                 <select id="troubleshooterCategoryFilter">
-                    <option value="all">All categories</option>
-                    <option value="url-rules">URL rules</option>
-                    <option value="redirects">Redirects</option>
-                    <option value="protection">Protection and bypasses</option>
+                    <option value="all" data-ts="category_all">All categories</option>
+                    <option value="url-rules" data-ts="category_url_rules">URL rules</option>
+                    <option value="redirects" data-ts="category_redirects">Redirects</option>
+                    <option value="protection" data-ts="category_protection">Protection and bypasses</option>
                 </select>
             </label>
-            <label for="troubleshooterTypeFilter">Resource type
+            <label for="troubleshooterTypeFilter"><span data-ts="resource_type">Resource type</span>
                 <select id="troubleshooterTypeFilter">
-                    <option value="all">All resource types</option>
+                    <option value="all" data-ts="type_all">All resource types</option>
                 </select>
             </label>
         </div>
+        <input type="search" id="troubleshooterSearch" class="troubleshooter-search" data-ts-placeholder="search_placeholder" data-ts-aria="search_placeholder">
         <div id="troubleshooterResults" aria-live="polite"></div>
     </section>
 
@@ -1690,6 +1831,7 @@
 <script src="../external_js/IP-Ranger.js"></script>
 <script src="../external_js/linkumori-i18n.js"></script>
 <script src="../core_js/popup.js"></script>
+<script src="../core_js/popup_troubleshooter.js"></script>
 <script src="../core_js/accessibility_tools.js"></script>
 <script src="../core_js/write_version.js"></script>
 </body>

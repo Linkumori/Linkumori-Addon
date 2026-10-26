@@ -2567,6 +2567,28 @@ function start() {
         };
     };
 
+    // Switch several rules in one save and one provider rebuild.
+    // changes: [{ identity, enabled }]
+    globalThis.setTroubleshooterRulesEnabledBatch = async function (changes) {
+        const disabledIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+        const nextDisabledIds = new Set(disabledIds);
+        let changed = 0;
+        (Array.isArray(changes) ? changes : []).forEach(change => {
+            const target = resolveTroubleshooterRuleToggle(change?.identity);
+            if (!target) return;
+            if (change.enabled === true) target.relatedDisableIds.forEach(id => nextDisabledIds.delete(id));
+            else nextDisabledIds.add(target.toggleId);
+            changed++;
+        });
+        if (changed === 0) return { success: false, error: 'Could not resolve these rule IDs', changed };
+        storage.clearurls_disabled_rule_ids = Array.from(nextDisabledIds);
+        if (typeof saveOnDisk === 'function') await saveOnDisk(['clearurls_disabled_rule_ids']);
+        const applied = typeof globalThis.updateProviderData === 'function'
+            ? !!globalThis.updateProviderData()
+            : false;
+        return { success: true, applied, changed };
+    };
+
     globalThis.disableTroubleshooterRule = async function (identity) {
         return globalThis.setTroubleshooterRuleEnabled(identity, false);
     };
