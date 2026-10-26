@@ -115,6 +115,7 @@ function publicTroubleshooterDiagnosis(state) {
         testingRuleIds: state.phase === 'bisect' && Array.isArray(state.testing)
             ? state.testing.map(index => state.rules?.[index]?.runtimeRuleId).filter(Boolean)
             : [],
+        skipped: Array.isArray(state.skipped) ? state.skipped.length : 0,
         // Names of the rules switched off in this round, for the popup.
         testingRules: state.phase === 'bisect' && Array.isArray(state.testing)
             ? state.testing.map(index => state.rules?.[index]).filter(Boolean)
@@ -264,7 +265,9 @@ async function startTroubleshooterBisect(tabId, identities) {
 }
 
 // The person's answer to "is the page fixed now?" for the current round.
-async function answerTroubleshooterBisect(tabId, fixedNow) {
+// skip: the person does not want this round's rules tested. They go back
+// on, leave the search, and the search carries on with the rest.
+async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
@@ -272,6 +275,10 @@ async function answerTroubleshooterBisect(tabId, fixedNow) {
     const testing = state.testing.slice();
     const tested = new Set(testing);
     state.confirming = false;
+    if (skip === true) {
+        fixedNow = false;
+        state.skipped = (Array.isArray(state.skipped) ? state.skipped : []).concat(testing);
+    }
     state.suspects = fixedNow === true
         ? state.suspects.filter(index => tested.has(index))
         : state.suspects.filter(index => !tested.has(index));

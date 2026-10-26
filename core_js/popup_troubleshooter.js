@@ -163,13 +163,16 @@
         diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
         advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
         advice_search_running: 'The rule search is running. Change rules after it ends.',
-        diag_skip_round: 'Skip — turn rules back on',
+        diag_skip_round: 'Skip these rules',
         diag_skip_found: 'Skip — turn it back on',
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again.',
         diag_kept_off: 'Rule $1 stays off.',
         diag_testing_rules: 'Switched off now:',
         diag_testing_more: '…and $1 more',
+        diag_stop_search: 'Stop search',
+        diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
+        diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -916,8 +919,13 @@
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
-                    // Same as Cancel: every rule switched off for the test goes back on.
-                    button(ts('diag_skip_round'), 'troubleshooter-back', async () => {
+                    // Skip: these rules go back on and leave the search; it carries on.
+                    button(ts('diag_skip_round'), '', async () => {
+                        await runDiagnosisStep('answerTroubleshooterBisect', [false, true], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skipped_round');
+                    }),
+                    // Stop: end the search, every rule back on.
+                    button(ts('diag_stop_search'), 'troubleshooter-back', async () => {
                         await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
                         $('troubleshooterStatus').textContent = ts('diag_skipped');
                     })
@@ -992,7 +1000,8 @@
             return;
         }
         case 'not-found':
-            diagnosisBox(ts('diag_not_found_title'), ts('diag_not_found_text'), [done], 'ok');
+            diagnosisBox(ts('diag_not_found_title'),
+                diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
             return;
         default: {
             // The rule search needs a recording to know which rules run;
