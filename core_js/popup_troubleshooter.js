@@ -127,7 +127,7 @@
         change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
-        diag_idle_text: 'Reload it once with cleaning paused for this site in this tab, to see whether Linkumori is the cause.',
+        diag_idle_text: 'Records this tab and reloads it once with cleaning paused for this site, to see whether Linkumori is the cause.',
         diag_idle_button: 'Check with cleaning paused',
         diag_paused_title: 'Cleaning is paused for $1 in this tab',
         diag_paused_text: 'The tab reloaded without cleaning. Does the page work now?',
@@ -139,7 +139,7 @@
         diag_not_linkumori_text: 'The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network.',
         diag_linkumori_title: 'Linkumori is likely the cause',
         diag_linkumori_text: 'The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.',
-        diag_linkumori_no_rules: 'No rules have been seen on this page yet. Start recording, use the page until it breaks, then come back to find the rule.',
+        diag_linkumori_no_rules: 'The tab is reloading with cleaning back on, to record which rules run on this page. They appear here in a moment. If none do, use the page until it breaks.',
         diag_find_button: 'Find the rule ($1 rules)',
         diag_bisect_title: 'Finding the rule: round $1 of about $2',
         diag_bisect_text: '$1 of $2 remaining rules are switched off and the tab reloaded. Is the page fixed now?',
@@ -848,7 +848,8 @@
         case 'paused':
             diagnosisBox(ts('diag_paused_title', diagnosis.domain || host), ts('diag_paused_text'), [
                 button(ts('diag_yes_works'), 'troubleshooter-primary',
-                    () => runDiagnosisStep('answerTroubleshooterPauseCheck', [true], false)),
+                    // Reload with cleaning back on, so the rules that run get recorded.
+                    () => runDiagnosisStep('answerTroubleshooterPauseCheck', [true], true)),
                 button(ts('diag_no_broken'), '',
                     () => runDiagnosisStep('answerTroubleshooterPauseCheck', [false], true)),
                 cancel
@@ -931,7 +932,20 @@
             return;
         default:
             diagnosisBox(ts('diag_idle_title'), ts('diag_idle_text'), [
-                button(ts('diag_idle_button'), '', () => runDiagnosisStep('startTroubleshooterPauseCheck', [host], true))
+                button(ts('diag_idle_button'), '', async () => {
+                    // The rule search needs a recording to know which rules run,
+                    // so start one first; a recording already running is kept.
+                    if (!data.capture?.active) {
+                        try {
+                            const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
+                            if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
+                        } catch (error) {
+                            $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
+                            return;
+                        }
+                    }
+                    await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
+                })
             ]);
         }
     }
