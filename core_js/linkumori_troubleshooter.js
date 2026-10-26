@@ -374,6 +374,38 @@ async function cancelTroubleshooterDiagnosis(tabId) {
     return { success: true, diagnosis: publicTroubleshooterDiagnosis(null) };
 }
 
+// Save an exported recording. The popup cannot do this itself: the save
+// dialog closes the popup, which revokes its blob URL and cancels the
+// download. The background page outlives the dialog.
+async function exportTroubleshooterRecording(json, filename) {
+    if (typeof json !== 'string' || !browser.downloads?.download) {
+        return { success: false, error: 'Download unavailable' };
+    }
+    const safeName = String(filename || 'linkumori-troubleshooter.json')
+        .replace(/[^a-z0-9._-]/gi, '_');
+    const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
+    try {
+        await browser.downloads.download({ url, filename: safeName, saveAs: true });
+    } catch (error) {
+        // Closing the save dialog is not a failure.
+        if (/cancel/i.test(String(error?.message || error))) {
+            URL.revokeObjectURL(url);
+            return { success: false, canceled: true };
+        }
+        // Some builds (Firefox for Android) reject saveAs: save straight
+        // to the downloads folder instead.
+        try {
+            await browser.downloads.download({ url, filename: safeName });
+        } catch (retryError) {
+            URL.revokeObjectURL(url);
+            console.error('[Linkumori] Troubleshooter export failed:', error, retryError);
+            return { success: false, error: String(retryError?.message || retryError) };
+        }
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    return { success: true };
+}
+
 if (typeof browser !== 'undefined' && browser.tabs?.onRemoved?.addListener) {
     browser.tabs.onRemoved.addListener(async (tabId) => {
         await loadTroubleshooterDiagnoses();

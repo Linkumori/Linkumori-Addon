@@ -1268,25 +1268,22 @@
                 })),
                 failedRequests: data.capture.failures
             };
-            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
             let host = 'page';
             try { host = new URL(data.tab.url).hostname || host; } catch (_) {}
             const stamp = new Date().toISOString().replace(/[:.]/g, '-');
             const filename = `linkumori-troubleshooter-${host}-${stamp}.json`.replace(/[^a-z0-9._-]/gi, '_');
-            if (browser.downloads?.download) {
-                await browser.downloads.download({ url, filename, saveAs: true });
-                setTimeout(() => URL.revokeObjectURL(url), 60000);
-            } else {
-                const link = el('a');
-                link.href = url;
-                link.download = filename;
-                link.click();
-                setTimeout(() => URL.revokeObjectURL(url), 60000);
-            }
+            // The background saves the file: the save dialog closes this
+            // popup, which would cancel a download started from here.
+            const response = await message('exportTroubleshooterRecording',
+                [JSON.stringify(payload, null, 2), filename]);
+            const result = response?.response;
+            if (result?.canceled) return;
+            if (!result?.success) throw new Error(response?.error || result?.error || 'export failed');
             status.textContent = ts('status_exported');
-        } catch (_) {
-            status.textContent = ts('status_export_failed');
+        } catch (error) {
+            console.error('[Linkumori] Troubleshooter export failed:', error);
+            const detail = error?.message ? ` (${error.message})` : '';
+            status.textContent = ts('status_export_failed') + detail;
         }
     }
 
