@@ -179,6 +179,10 @@
         working: 'Working…',
         diag_record_again: 'Record again',
         diag_recorded_fresh: 'Old recording cleared. Recording this tab again from a fresh load.',
+        clear: 'Clear',
+        clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
+        status_cleared: 'Cleared. Rules stay as they are.',
+        status_cleared_off: 'Cleared. Rule $1 stays off.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -654,6 +658,13 @@
             const node = $(id);
             if (node) node.disabled = !hasData;
         });
+        const clearButton = $('troubleshooterClear');
+        if (clearButton) {
+            const phase = data?.diagnosis?.phase || 'idle';
+            // Not while a search or pause check runs: those have Stop/Cancel.
+            clearButton.disabled = !(hasData || data?.capture?.startedAt || ['found', 'not-found', 'checked'].includes(phase)) ||
+                phase === 'bisect' || phase === 'paused';
+        }
     }
 
     function renderFailures(data) {
@@ -1040,7 +1051,8 @@
                     keepOff,
                     skip,
                     reload,
-                    report
+                    report,
+                    button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter(label))
                 ], 'ok');
                 return;
             }
@@ -1048,7 +1060,8 @@
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
                 report,
-                done
+                done,
+                button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
             ], 'warning');
             return;
         }
@@ -1106,6 +1119,28 @@
             diagnosisBox(ts('diag_idle_title'),
                 recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, recordAgain, pauseFirst].filter(Boolean));
         }
+        }
+    }
+
+    // Forget this tab's recording, findings and finished search. Rules are
+    // left as they are; keptOffLabel names a rule the person kept off.
+    async function clearTroubleshooter(keptOffLabel = '') {
+        const status = $('troubleshooterStatus');
+        try {
+            const tab = await getActiveTab();
+            if (!tab) throw new Error(ts('status_no_tab'));
+            const phase = lastData?.diagnosis?.phase;
+            // A running search or pause check is ended properly (rules back on).
+            if (phase && phase !== 'idle') await message('cancelTroubleshooterDiagnosis', [tab.id]).catch(() => null);
+            await message('clearTabTroubleshooterCapture', [tab.id]);
+            traceCache = null;
+            stopTimer();
+            const results = $('troubleshooterResults');
+            if (results) results.replaceChildren();
+            await refresh({ quiet: true });
+            status.textContent = keptOffLabel ? ts('status_cleared_off', keptOffLabel) : ts('status_cleared');
+        } catch (error) {
+            status.textContent = error?.message || ts('status_read_failed');
         }
     }
 
@@ -1256,6 +1291,7 @@
     $('troubleshooterRefresh')?.addEventListener('click', () => refresh({ fresh: true }));
     $('troubleshooterCopy')?.addEventListener('click', copySummary);
     $('troubleshooterExport')?.addEventListener('click', exportRecording);
+    $('troubleshooterClear')?.addEventListener('click', () => clearTroubleshooter());
     $('troubleshooterCategoryFilter')?.addEventListener('change', render);
     $('troubleshooterTypeFilter')?.addEventListener('change', render);
     $('troubleshooterSearch')?.addEventListener('input', () => {
