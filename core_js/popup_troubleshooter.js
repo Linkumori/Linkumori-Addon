@@ -518,6 +518,37 @@
             (right.failed > 0) - (left.failed > 0) || right.hits.length - left.hits.length);
     }
 
+    // Log entries name a rule in different ways (provider key, pattern key,
+    // or neither), so one rule can start out as several groups. Once each
+    // group's rule is resolved, merge groups that are the same rule.
+    function mergeGroupsByRule(groups) {
+        const byRule = new Map();
+        const merged = [];
+        groups.forEach(group => {
+            const ruleKey = group.ruleState?.available && group.ruleState.runtimeRuleId
+                ? `${group.category}\u0000${group.ruleState.runtimeRuleId}` : null;
+            const target = ruleKey ? byRule.get(ruleKey) : null;
+            if (!target) {
+                if (ruleKey) byRule.set(ruleKey, group);
+                merged.push(group);
+                return;
+            }
+            group.hits.forEach(hit => target.hits.push(hit));
+            group.sources.forEach(source => target.sources.add(source));
+            group.requestTypes.forEach(type => target.requestTypes.add(type));
+            group.changes.forEach(change => target.changes.add(change));
+            target.failed += group.failed;
+            // Keep the pattern key for the switch when one of them has it.
+            if (target.identity && group.identity && target.identity.disableId === target.identity.runtimeRuleId &&
+                group.identity.disableId && group.identity.disableId !== group.identity.runtimeRuleId) {
+                target.identity = group.identity;
+                target.ruleState = group.ruleState;
+            }
+        });
+        return merged.sort((left, right) =>
+            (right.failed > 0) - (left.failed > 0) || right.hits.length - left.hits.length);
+    }
+
     async function loadRuleStates(groups) {
         const requests = new Map();
         await Promise.all(groups.map(async group => {
@@ -571,7 +602,7 @@
             if (!Array.isArray(capture.entries)) capture.entries = [];
             if (!Array.isArray(capture.failures)) capture.failures = [];
             const { findings, linkedFailures } = buildFindings(tab, capture, traceResponse?.response);
-            const groups = groupFindings(findings);
+            let groups = groupFindings(findings);
             const diagnosisData = diagnosisResponse?.response;
             if (diagnosisData?.phase === 'found' && diagnosisData.culprit?.identity) {
                 const culpritState = await message('getTroubleshooterRuleState', [diagnosisData.culprit.identity]).catch(() => null);
@@ -579,6 +610,7 @@
             }
             await loadRuleStates(groups.slice(0, MAX_GROUPS * 2));
             if (isStale()) return;
+            groups = mergeGroupsByRule(groups);
 
             // The count on "Find the rule" comes from the background, which
             // decides what the search tests, so the button never over-promises.
