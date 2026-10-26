@@ -25,11 +25,10 @@
  * 1. Pause check: cleaning is paused for the tab's site (temporary tab
  *    whitelist), the tab reloads, and the person says whether the page
  *    works now.
- * 2. Rule hunt: the rules that fired on the tab are split in half. One
- *    half is switched off, the tab reloads, and the person says whether
- *    the page is fixed. The half that holds the culprit is kept and split
- *    again, until one rule is left. Every rule switched off for a test is
- *    switched back on afterwards.
+ * 2. Rule hunt: the rules that fired on the tab are switched off one at
+ *    a time; after each, the tab reloads and the person says whether the
+ *    page is fixed. The rule that fixes it stays off; every other rule is
+ *    switched back on.
  *
  * The state is kept in session storage, so it survives the popup closing
  * and the background page unloading.
@@ -107,8 +106,9 @@ function publicTroubleshooterDiagnosis(state) {
         totalRules: Array.isArray(state.rules) ? state.rules.length : 0,
         suspects: Array.isArray(state.suspects) ? state.suspects.length : 0,
         testing: Array.isArray(state.testing) ? state.testing.length : 0,
-        roundsLeft: Array.isArray(state.suspects) && state.suspects.length > 1
-            ? Math.ceil(Math.log2(state.suspects.length)) : 0,
+        roundsLeft: Array.isArray(state.suspects) ? state.suspects.length : 0,
+        // Untested rules a found rule can be skipped for.
+        remaining: state.phase === 'found' && Array.isArray(state.remaining) ? state.remaining.length : 0,
         culprit: null,
         // Rules the current round switched off, so the popup can tell them
         // apart from rules the person switched off.
@@ -116,6 +116,7 @@ function publicTroubleshooterDiagnosis(state) {
             ? state.testing.map(index => state.rules?.[index]?.runtimeRuleId).filter(Boolean)
             : [],
         skipped: Array.isArray(state.skipped) ? state.skipped.length : 0,
+        passed: Array.isArray(state.passed) ? state.passed.length : 0,
         // Names of the rules switched off in this round, for the popup.
         testingRules: state.phase === 'bisect' && Array.isArray(state.testing)
             ? state.testing.map(index => state.rules?.[index]).filter(Boolean)
@@ -187,7 +188,8 @@ async function answerTroubleshooterPauseCheck(tabId, worksNow) {
 }
 
 async function applyTroubleshooterTestRound(state) {
-    const testing = state.suspects.slice(0, Math.ceil(state.suspects.length / 2));
+    // One rule per round.
+    const testing = state.suspects.slice(0, 1);
     state.testing = testing;
     state.round = (state.round || 0) + 1;
     return globalThis.setTroubleshooterRulesEnabledBatch(
@@ -291,12 +293,16 @@ async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
         fixedNow = false;
         state.skipped = (Array.isArray(state.skipped) ? state.skipped : []).concat(testing);
     }
+    // Rules not tested yet, kept so a found rule can be skipped and the
+    // search carried on with them.
+    const notTested = state.suspects.filter(index => !tested.has(index));
     state.suspects = fixedNow === true
         ? state.suspects.filter(index => tested.has(index))
-        : state.suspects.filter(index => !tested.has(index));
+        : notTested;
     // Found: the page works with this rule off, so it stays off; every
     // other rule of the round goes back on. The popup offers to undo.
     const foundNow = fixedNow === true && state.suspects.length === 1;
+    state.remaining = foundNow ? notTested : [];
     await restoreTroubleshooterTestRound(state, foundNow ? state.suspects : []);
 
     if (state.suspects.length === 0) {
@@ -320,6 +326,36 @@ async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
         if (!result?.success) {
             state.phase = 'not-found';
         }
+    }
+    await saveTroubleshooterDiagnosis(id);
+    return { success: true, diagnosis: publicTroubleshooterDiagnosis(state) };
+}
+
+// After "Found it": switch the found rule back on, leave it out, and carry
+// on with the rules not tested yet. With none left, the search ends with
+// every rule on.
+async function continueTroubleshooterBisect(tabId) {
+    await loadTroubleshooterDiagnoses();
+    const id = normalizeTabId(tabId);
+    const state = id === null ? null : linkumoriDiagnoses.get(id);
+    if (!state || state.phase !== 'found') return { success: false, error: 'No found rule to skip for this tab' };
+    const culprit = state.culprit;
+    if (Number.isInteger(culprit) && state.rules[culprit]) {
+        await globalThis.setTroubleshooterRulesEnabledBatch([{ identity: state.rules[culprit].identity, enabled: true }]);
+        // Tested and it fixed the page, so not "skipped untested".
+        state.passed = (Array.isArray(state.passed) ? state.passed : []).concat([culprit]);
+    }
+    state.culprit = null;
+    state.suspects = Array.isArray(state.remaining) ? state.remaining.slice() : [];
+    state.remaining = [];
+    state.testing = [];
+    state.confirming = false;
+    if (state.suspects.length === 0) {
+        state.phase = 'not-found';
+    } else {
+        state.phase = 'bisect';
+        const result = await applyTroubleshooterTestRound(state);
+        if (!result?.success) state.phase = 'not-found';
     }
     await saveTroubleshooterDiagnosis(id);
     return { success: true, diagnosis: publicTroubleshooterDiagnosis(state) };

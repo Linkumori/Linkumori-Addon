@@ -129,7 +129,7 @@
         change_blocked: 'blocked on purpose',
         failures_summary: '$1 request(s) failed on this page; $2 right after Linkumori changed the URL',
         diag_idle_title: 'Is this page broken?',
-        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off a few at a time, and you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
+        diag_idle_text: 'Find the rule that breaks it: the rules that ran on this page are switched off one at a time, and after each you say whether the page is fixed. Not sure Linkumori is the cause? Check with cleaning paused first.',
         diag_idle_button: 'Check with cleaning paused first',
         diag_paused_title: 'Cleaning is paused for $1 in this tab',
         diag_paused_text: 'The tab reloaded without cleaning. Does the page work now?',
@@ -140,11 +140,9 @@
         diag_not_linkumori_title: 'Probably not Linkumori',
         diag_not_linkumori_text: 'The page was still broken with cleaning paused, so the problem is likely elsewhere: the site itself, another extension or the network. To start over, click Clear.',
         diag_linkumori_title: 'Linkumori is likely the cause',
-        diag_linkumori_text: 'The page works with cleaning paused. Find the rule: some rules are switched off, the tab reloads, and you say whether the page is fixed. Every rule is switched back on at the end.',
+        diag_linkumori_text: 'The page works with cleaning paused. Find the rule: the rules are switched off one at a time, the tab reloads, and you say whether the page is fixed. Every other rule is switched back on at the end.',
         diag_linkumori_no_rules: 'The tab is reloading with cleaning back on, to record which rules run on this page. They appear here in a moment. If none do, use the page until it breaks.',
         diag_find_button: 'Find the rule ($1 rules)',
-        diag_bisect_title: 'Finding the rule — round $1 (about $2 rounds in total)',
-        diag_bisect_text: 'These $1 rules are switched off for this test ($2 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_yes_fixed: 'Yes, fixed',
         diag_no_still: 'No, still broken',
         diag_found_title: 'Found it',
@@ -154,7 +152,7 @@
         diag_report_culprit: 'Report it',
         diag_culprit_disabled: 'Rule switched off. Reload the tab to check. To start over, click Clear.',
         diag_not_found_title: 'No single rule found',
-        diag_not_found_text: 'Switching off rules one group at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.',
+        diag_not_found_text: 'Switching the rules off one at a time did not fix the page, so it is probably caused by several rules together, or by a protection setting. Every rule is switched back on. To start over, click Clear.',
         diag_failed: 'Could not run the check: $1',
         diag_off_title: 'Found it',
         diag_off_text: 'The page breaks because of rule $1$2. It stays switched off so the page works; all other rules are back on. Reload the tab to check. To start over, click Clear.',
@@ -165,16 +163,14 @@
         diag_idle_recording: 'Recording which rules run on this page. Use the page until it breaks; the rules show up here.',
         advice_in_search: 'Switched off for now by the rule search. It comes back on when the search ends.',
         advice_search_running: 'The rule search is running. Change rules after it ends.',
-        diag_skip_round: 'Skip these rules',
         diag_skip_found: 'Skip — turn it back on',
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again. To start over, click Clear.',
         diag_kept_off: 'Rule $1 stays off. To start over, click Clear.',
-        diag_bisect_text_one: 'This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_testing_rules: 'Switched off for this test:',
         diag_testing_more: '…and $1 more',
         diag_stop_search: 'Stop search',
-        diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
+        diag_skipped_round: 'Skipped: that rule is back on and left out. Testing the next one.',
         diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again. To start over, click Clear.',
         working: 'Working…',
         diag_record_again: 'Record again',
@@ -183,6 +179,13 @@
         clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
         status_cleared: 'Cleared. Rules stay as they are.',
         status_cleared_off: 'Cleared. Rule $1 stays off.',
+        diag_skip_one: 'Skip this rule',
+        diag_single_text: 'Only this rule is switched off, and the tab reloaded. Is the page fixed now?',
+        diag_bisect_title_single: 'Testing one rule at a time — rule $1 of $2',
+        diag_skip_next: 'Skip — turn it back on, test next ($1 left)',
+        diag_test_next: 'Test the next rule ($1 left)',
+        diag_skip_next_done: 'Rule $1 is back on and left out. Testing the next rule.',
+        diag_not_found_passed: 'No other rule fixes the page on its own. The $1 rule(s) you skipped are back on too, so every rule is on again. To start over, click Clear.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -937,7 +940,7 @@
         if (!box) return;
         box.className = `troubleshooter-diagnosis${tone ? ` troubleshooter-diagnosis-${tone}` : ''}`;
         const row = el('div', 'troubleshooter-diagnosis-actions');
-        buttons.forEach(node => row.appendChild(node));
+        buttons.filter(Boolean).forEach(node => row.appendChild(node));
         box.replaceChildren(...[el('strong', '', title), el('p', '', text), extra, row].filter(Boolean));
         box.hidden = false;
     }
@@ -1007,16 +1010,13 @@
             }
             return;
         case 'bisect':
-            diagnosisBox(ts('diag_bisect_title', diagnosis.round, Math.max(diagnosis.round, diagnosis.round + diagnosis.roundsLeft - 1)),
-                diagnosis.testing === 1
-                    ? ts('diag_bisect_text_one', diagnosis.suspects)
-                    : ts('diag_bisect_text', diagnosis.testing, diagnosis.suspects), [
+            diagnosisBox(ts('diag_bisect_title_single', diagnosis.round, diagnosis.totalRules), ts('diag_single_text'), [
                     button(ts('diag_yes_fixed'), 'troubleshooter-primary',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [true], true)),
                     button(ts('diag_no_still'), '',
                         () => runDiagnosisStep('answerTroubleshooterBisect', [false], true)),
-                    // Skip: these rules go back on and leave the search; it carries on.
-                    button(ts('diag_skip_round'), '', async () => {
+                    // Skip: this rule goes back on and leaves the search; it carries on.
+                    button(ts('diag_skip_one'), '', async () => {
                         await runDiagnosisStep('answerTroubleshooterBisect', [false, true], true);
                         $('troubleshooterStatus').textContent = ts('diag_skipped_round');
                     }),
@@ -1064,8 +1064,14 @@
                     await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false);
                     $('troubleshooterStatus').textContent = ts('diag_kept_off', label);
                 });
-                // Skip: turn the rule back on, end the search, and reload.
-                const skip = button(ts('diag_skip_found'), '', async event => {
+                // Skip: turn the rule back on. With untested rules left, carry
+                // on with the next one; otherwise end the search and reload.
+                const skip = diagnosis.remaining > 0
+                    ? button(ts('diag_skip_next', diagnosis.remaining), '', async () => {
+                        await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                        $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
+                    })
+                    : button(ts('diag_skip_found'), '', async event => {
                     const node = event.currentTarget;
                     node.disabled = true;
                     try {
@@ -1091,6 +1097,10 @@
             diagnosisBox(ts('diag_found_title'), ts('diag_found_text', label, provider), [
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
+                diagnosis.remaining > 0 ? button(ts('diag_test_next', diagnosis.remaining), '', async () => {
+                    await runDiagnosisStep('continueTroubleshooterBisect', [], true);
+                    $('troubleshooterStatus').textContent = ts('diag_skip_next_done', label);
+                }) : null,
                 report,
                 done,
                 button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
@@ -1099,7 +1109,8 @@
         }
         case 'not-found':
             diagnosisBox(ts('diag_not_found_title'),
-                diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
+                diagnosis.passed ? ts('diag_not_found_passed', diagnosis.passed)
+                    : diagnosis.skipped ? ts('diag_not_found_skipped', diagnosis.skipped) : ts('diag_not_found_text'), [done], 'ok');
             return;
         default: {
             // The rule search needs a recording to know which rules run;
