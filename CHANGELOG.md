@@ -16,6 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.76.0] - 2026-10-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.75.0...linkumori-v100.76.0))
+### Added
+- Introduce explicit ids to bundled rules (`2026-10-26`, hash: [`c8b1f97`](https://github.com/Linkumori/Linkumori-Addon/commit/c8b1f97))
+- Introduce opt-in tab troubleshooter controls (`2026-10-26`, hash: [`8ac5c85`](https://github.com/Linkumori/Linkumori-Addon/commit/8ac5c85))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-26`, hash: [`0dbc946`](https://github.com/Linkumori/Linkumori-Addon/commit/0dbc946))
+- Update guide  (#185) (`2026-10-26`, hash: [`0647ec8`](https://github.com/Linkumori/Linkumori-Addon/commit/0647ec8)) [#185](https://github.com/Linkumori/Linkumori-Addon/issues/185)
+- Updated canonical URL cleaning rules source (`2026-10-26`, hash: [`0dbc946`](https://github.com/Linkumori/Linkumori-Addon/commit/0dbc946))
+- Updated canonical URL cleaning rules source (`2026-10-26`, hash: [`c8b1f97`](https://github.com/Linkumori/Linkumori-Addon/commit/c8b1f97))
+
 ## [v100.75.0] - 2026-10-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.74.0...linkumori-v100.75.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-10-25`, hash: [`51cf6e2`](https://github.com/Linkumori/Linkumori-Addon/commit/51cf6e2))
