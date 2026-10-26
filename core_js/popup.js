@@ -2539,6 +2539,104 @@ function popupTroubleshooterElement(tag, className, text) {
     return node;
 }
 
+// Long URLs are clamped to a few lines; click or press Enter to show all of it.
+function popupTroubleshooterUrl(url, className = 'troubleshooter-url') {
+    const node = popupTroubleshooterElement('code', className, url);
+    node.title = url;
+    node.tabIndex = 0;
+    node.setAttribute('role', 'button');
+    node.setAttribute('aria-expanded', 'false');
+    const toggle = () => {
+        const expanded = node.classList.toggle('expanded');
+        node.setAttribute('aria-expanded', String(expanded));
+    };
+    node.addEventListener('click', () => {
+        // Leave a text selection alone so the URL can still be copied.
+        if (window.getSelection && String(window.getSelection())) return;
+        toggle();
+    });
+    node.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggle();
+        }
+    });
+    return node;
+}
+
+function formatTroubleshooterDuration(ms) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+let troubleshooterRefreshGeneration = 0;
+let troubleshooterTimerInterval = null;
+let troubleshooterPollTick = 0;
+let troubleshooterCaptureState = null;
+
+function stopTroubleshooterTimer() {
+    if (troubleshooterTimerInterval) clearInterval(troubleshooterTimerInterval);
+    troubleshooterTimerInterval = null;
+    troubleshooterCaptureState = null;
+    const timer = document.getElementById('troubleshooterTimer');
+    if (timer) timer.hidden = true;
+}
+
+function renderTroubleshooterTimer() {
+    const timer = document.getElementById('troubleshooterTimer');
+    const state = troubleshooterCaptureState;
+    if (!timer || !state) return;
+    const now = Date.now();
+    const elapsed = formatTroubleshooterDuration(now - state.startedAt);
+    const left = formatTroubleshooterDuration(state.expiresAt - now);
+    timer.textContent = `Recording ${elapsed} · stops in ${left}`;
+    timer.hidden = false;
+}
+
+// While a recording runs: tick the timer every second, and every 3 seconds
+// pick up newly captured URLs.
+function startTroubleshooterTimer(capture, tabId) {
+    troubleshooterCaptureState = {
+        tabId,
+        startedAt: capture.startedAt,
+        expiresAt: capture.expiresAt,
+        entries: Array.isArray(capture.entries) ? capture.entries.length : 0
+    };
+    renderTroubleshooterTimer();
+    if (troubleshooterTimerInterval) return;
+    troubleshooterPollTick = 0;
+    troubleshooterTimerInterval = setInterval(async () => {
+        const state = troubleshooterCaptureState;
+        const panel = document.getElementById('troubleshooterPanel');
+        if (!state || !panel || panel.hidden) {
+            stopTroubleshooterTimer();
+            return;
+        }
+        renderTroubleshooterTimer();
+        if (Date.now() >= state.expiresAt) {
+            stopTroubleshooterTimer();
+            refreshPopupTroubleshooter({ quiet: true });
+            return;
+        }
+        troubleshooterPollTick = (troubleshooterPollTick + 1) % 3;
+        if (troubleshooterPollTick !== 0) return;
+        try {
+            const response = await popupTroubleshooterMessage('getTabTroubleshooterCapture', [state.tabId]);
+            const capture = response?.response;
+            if (!capture || troubleshooterCaptureState !== state) return;
+            const count = Array.isArray(capture.entries) ? capture.entries.length : 0;
+            if (!capture.active || count !== state.entries) {
+                state.entries = count;
+                refreshPopupTroubleshooter({ quiet: true });
+            }
+        } catch (_) {
+            // Try again on the next poll.
+        }
+    }, 1000);
+}
+
 function openTroubleshooterReport(pageUrl, resourceUrl, rule, providerName) {
     const reportUrl = new URL(browser.runtime.getURL('html/report.html'));
     if (pageUrl) reportUrl.searchParams.set('url', pageUrl);
@@ -2548,7 +2646,10 @@ function openTroubleshooterReport(pageUrl, resourceUrl, rule, providerName) {
     return browser.tabs.create({ url: reportUrl.toString() });
 }
 
-async function refreshPopupTroubleshooter() {
+async function refreshPopupTroubleshooter(options = {}) {
+    const quiet = options && options.quiet === true;
+    const generation = ++troubleshooterRefreshGeneration;
+    const isStale = () => generation !== troubleshooterRefreshGeneration;
     const status = document.getElementById('troubleshooterStatus');
     const results = document.getElementById('troubleshooterResults');
     const pageLabel = document.getElementById('troubleshooterPage');
@@ -2556,18 +2657,32 @@ async function refreshPopupTroubleshooter() {
     const typeFilter = document.getElementById('troubleshooterTypeFilter');
     if (!status || !results || !pageLabel) return;
 
-    results.replaceChildren();
-    status.textContent = 'Checking this tab…';
+    // Build into a fragment and swap it in at the end, so an auto-refresh
+    // does not flash an empty list and two refreshes never mix their cards.
+    const fragment = document.createDocumentFragment();
+    const scrollTop = results.scrollTop;
+    const showResults = () => {
+        if (isStale()) return;
+        results.replaceChildren(fragment);
+        results.scrollTop = scrollTop;
+    };
+    if (!quiet) status.textContent = 'Checking this tab…';
 
     try {
         const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+        if (isStale()) return;
         if (!tab || typeof tab.id !== 'number' || !tab.url) {
             status.textContent = 'No active tab is available.';
             pageLabel.textContent = '';
+            stopTroubleshooterTimer();
+            showResults();
             return;
         }
 
-        pageLabel.textContent = `Page: ${tab.url}`;
+        pageLabel.replaceChildren(
+            popupTroubleshooterElement('span', 'troubleshooter-page-label', 'Page'),
+            popupTroubleshooterUrl(tab.url, 'troubleshooter-page-url')
+        );
         const isWebPage = /^https?:\/\//i.test(tab.url);
         const [captureResponse, traceResponse] = await Promise.all([
             popupTroubleshooterMessage('getTabTroubleshooterCapture', [tab.id]).catch(() => null),
@@ -2578,14 +2693,24 @@ async function refreshPopupTroubleshooter() {
                 : Promise.resolve(null)
         ]);
 
+        if (isStale()) return;
         const capture = captureResponse?.response || { active: false, entries: [] };
+        if (!Array.isArray(capture.entries)) capture.entries = [];
         const scanButton = document.getElementById('troubleshooterScan');
         const stopButton = document.getElementById('troubleshooterStop');
         if (scanButton) {
             scanButton.disabled = !!capture.active;
-            scanButton.textContent = capture.active ? 'Recording active' : 'Start recording';
+            scanButton.textContent = capture.active ? 'Recording…' : 'Start recording';
         }
-        if (stopButton) stopButton.hidden = !capture.active;
+        if (stopButton) {
+            stopButton.hidden = !capture.active;
+            stopButton.disabled = false;
+        }
+        if (capture.active && Number.isFinite(capture.startedAt) && Number.isFinite(capture.expiresAt)) {
+            startTroubleshooterTimer(capture, tab.id);
+        } else {
+            stopTroubleshooterTimer();
+        }
         const trace = traceResponse?.response;
         const findings = [];
         const getCategory = (entry) => {
@@ -2682,13 +2807,14 @@ async function refreshPopupTroubleshooter() {
             const stateResponse = await ruleStateRequests.get(JSON.stringify(finding.ruleToggleIdentity));
             finding.ruleToggleState = stateResponse?.response || null;
         }));
+        if (isStale()) return;
 
         if (capture.storedInSession === false) {
             const recordingState = capture.active ? 'Recording is active' : 'Recording stopped';
             status.textContent = `${recordingState}, but data could not be saved in session storage. ${capture.entries.length} URL change(s) may be lost if the extension restarts.`;
         } else if (capture.active) {
             const captureTime = new Date(capture.startedAt).toLocaleTimeString();
-            status.textContent = `Recording active since ${captureTime}. ${capture.entries.length} URL change(s) captured.`;
+            status.textContent = `Recording since ${captureTime}. ${capture.entries.length} URL change(s) captured; new ones appear here automatically.`;
         } else if (capture.startedAt) {
             status.textContent = `Recording stopped. ${capture.entries.length} URL change(s) captured.`;
         } else if (!isWebPage) {
@@ -2701,12 +2827,14 @@ async function refreshPopupTroubleshooter() {
             const empty = popupTroubleshooterElement('p', 'troubleshooter-empty', isWebPage
                 ? 'No rule changes found yet. Start recording and reload this tab to inspect its resource URLs.'
                 : 'This browser page cannot be scanned.');
-            results.appendChild(empty);
+            fragment.appendChild(empty);
+            showResults();
             return;
         }
 
         if (visibleFindings.length === 0) {
-            results.appendChild(popupTroubleshooterElement('p', 'troubleshooter-empty', 'No findings match these filters.'));
+            fragment.appendChild(popupTroubleshooterElement('p', 'troubleshooter-empty', 'No findings match these filters.'));
+            showResults();
             return;
         }
 
@@ -2724,9 +2852,10 @@ async function refreshPopupTroubleshooter() {
                 : finding.category === 'protection' ? 'Built-in protection action (no rule ID)' : 'Rule ID: unavailable for this finding';
             card.appendChild(popupTroubleshooterElement('p', '', ruleIdLabel));
             card.appendChild(popupTroubleshooterElement('p', '', 'Affected resource URL'));
-            card.appendChild(popupTroubleshooterElement('code', 'troubleshooter-resource', finding.resourceUrl));
+            card.appendChild(popupTroubleshooterUrl(finding.resourceUrl));
             if (finding.after && finding.after !== finding.resourceUrl) {
-                card.appendChild(popupTroubleshooterElement('p', '', `After Linkumori: ${finding.after}`));
+                card.appendChild(popupTroubleshooterElement('p', '', 'After Linkumori'));
+                card.appendChild(popupTroubleshooterUrl(finding.after));
             }
             const ruleAdvice = toggleState?.available
                 ? (toggleState.enabled
@@ -2788,12 +2917,14 @@ async function refreshPopupTroubleshooter() {
                 }
             }
             card.appendChild(actions);
-            results.appendChild(card);
+            fragment.appendChild(card);
         });
         if (visibleFindings.length > 60) {
-            results.appendChild(popupTroubleshooterElement('p', 'troubleshooter-empty', 'Showing the first 60 findings.'));
+            fragment.appendChild(popupTroubleshooterElement('p', 'troubleshooter-empty', 'Showing the first 60 findings.'));
         }
+        showResults();
     } catch (error) {
+        if (isStale()) return;
         status.textContent = 'Could not read this tab. Try closing and reopening the popup.';
     }
 }
@@ -2816,6 +2947,7 @@ if (openTroubleshooterButton && troubleshooterPanel && mainContentPanel) {
 if (troubleshooterBackButton && troubleshooterPanel && mainContentPanel) {
     troubleshooterBackButton.addEventListener('click', () => {
         troubleshooterPanel.hidden = true;
+        stopTroubleshooterTimer();
         if (popupNavBar) popupNavBar.style.display = '';
         mainContentPanel.style.display = '';
         document.getElementById('licenseContent').style.display = 'none';
@@ -2823,15 +2955,19 @@ if (troubleshooterBackButton && troubleshooterPanel && mainContentPanel) {
     });
 }
 const troubleshooterRefreshButton = document.getElementById('troubleshooterRefresh');
-if (troubleshooterRefreshButton) troubleshooterRefreshButton.addEventListener('click', refreshPopupTroubleshooter);
+if (troubleshooterRefreshButton) troubleshooterRefreshButton.addEventListener('click', () => refreshPopupTroubleshooter());
 const troubleshooterCategoryFilter = document.getElementById('troubleshooterCategoryFilter');
 const troubleshooterTypeFilter = document.getElementById('troubleshooterTypeFilter');
-if (troubleshooterCategoryFilter) troubleshooterCategoryFilter.addEventListener('change', refreshPopupTroubleshooter);
-if (troubleshooterTypeFilter) troubleshooterTypeFilter.addEventListener('change', refreshPopupTroubleshooter);
+if (troubleshooterCategoryFilter) troubleshooterCategoryFilter.addEventListener('change', () => refreshPopupTroubleshooter());
+if (troubleshooterTypeFilter) troubleshooterTypeFilter.addEventListener('change', () => refreshPopupTroubleshooter());
 const troubleshooterScanButton = document.getElementById('troubleshooterScan');
 if (troubleshooterScanButton) {
     troubleshooterScanButton.addEventListener('click', async () => {
         const status = document.getElementById('troubleshooterStatus');
+        if (troubleshooterScanButton.disabled) return;
+        troubleshooterScanButton.disabled = true;
+        troubleshooterScanButton.textContent = 'Starting…';
+        let started = false;
         try {
             const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
             if (!tab || typeof tab.id !== 'number' || !/^https?:\/\//i.test(tab.url || '')) {
@@ -2842,10 +2978,18 @@ if (troubleshooterScanButton) {
             if (!response?.response?.success) {
                 throw new Error(response?.response?.error || 'Could not start scan');
             }
-            status.textContent = 'Recording started. Reloading this tab; reopen the extension popup after the page loads.';
+            started = true;
             await browser.tabs.reload(tab.id);
+            await refreshPopupTroubleshooter({ quiet: true });
+            status.textContent = 'Recording started and the tab is reloading. Captured URLs appear here as the page loads.';
         } catch (error) {
             status.textContent = error?.message || 'Could not start the scan for this tab.';
+            if (started) refreshPopupTroubleshooter({ quiet: true });
+        } finally {
+            if (!started) {
+                troubleshooterScanButton.disabled = false;
+                troubleshooterScanButton.textContent = 'Start recording';
+            }
         }
     });
 }
@@ -2853,17 +2997,21 @@ const troubleshooterStopButton = document.getElementById('troubleshooterStop');
 if (troubleshooterStopButton) {
     troubleshooterStopButton.addEventListener('click', async () => {
         const status = document.getElementById('troubleshooterStatus');
+        if (troubleshooterStopButton.disabled) return;
+        troubleshooterStopButton.disabled = true;
         try {
             const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
             if (!tab || typeof tab.id !== 'number') throw new Error('No active tab');
             const response = await popupTroubleshooterMessage('stopTabTroubleshooterCapture', [tab.id]);
             if (!response?.response?.success) throw new Error('Could not stop recording');
+            stopTroubleshooterTimer();
+            await refreshPopupTroubleshooter({ quiet: true });
             status.textContent = response.response.storedInSession
                 ? `Recording stopped. ${response.response.entries} URL change(s) captured and saved for this browser session.`
                 : `Recording stopped. ${response.response.entries} URL change(s) captured, but session storage could not save them.`;
-            await refreshPopupTroubleshooter();
         } catch (error) {
             status.textContent = 'Could not stop recording for this tab.';
+            troubleshooterStopButton.disabled = false;
         }
     });
 }
