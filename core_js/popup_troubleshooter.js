@@ -169,7 +169,7 @@
         diag_skip_found: 'Skip — turn it back on',
         diag_keep_off: 'Keep it off',
         diag_skipped: 'Rule search skipped; every rule is on again.',
-        diag_kept_off: '✓ Done: rule $1 stays off, so the page works. The troubleshooter is cleared.',
+        diag_kept_off: 'Rule $1 stays off.',
         diag_bisect_text_one: 'This rule is switched off for this test ($1 rules are still suspected). The tab reloaded. Is the page fixed now?',
         diag_testing_rules: 'Switched off for this test:',
         diag_testing_more: '…and $1 more',
@@ -183,8 +183,6 @@
         clear_title: 'Clear this tab\'s recording, findings and finished rule search. Rules stay as they are.',
         status_cleared: 'Cleared. Rules stay as they are.',
         status_cleared_off: 'Cleared. Rule $1 stays off.',
-        diag_skip_done: '✓ Done: every rule is on again. The troubleshooter is cleared.',
-        diag_finished: '✓ Done. The troubleshooter is cleared.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -976,9 +974,8 @@
         const reloadIfRunning = next => next?.phase === 'bisect';
         const cancel = button(ts('diag_cancel'), 'troubleshooter-back',
             () => runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true));
-        // Done: the check is over, so clear it all.
         const done = button(ts('diag_done'), 'troubleshooter-back',
-            () => clearTroubleshooter(ts('diag_finished'), true));
+            () => runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false));
 
         switch (diagnosis.phase) {
         case 'outdated':
@@ -1063,8 +1060,10 @@
                 });
                 reload.className = 'troubleshooter-back';
                 // Keep it off: accept the fix and end the search.
-                const keepOff = button(ts('diag_keep_off'), 'troubleshooter-primary',
-                    () => clearTroubleshooter(ts('diag_kept_off', label), true));
+                const keepOff = button(ts('diag_keep_off'), 'troubleshooter-primary', async () => {
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], false);
+                    $('troubleshooterStatus').textContent = ts('diag_kept_off', label);
+                });
                 // Skip: turn the rule back on, end the search, and reload.
                 const skip = button(ts('diag_skip_found'), '', async event => {
                     const node = event.currentTarget;
@@ -1077,18 +1076,15 @@
                         node.disabled = false;
                         return;
                     }
-                    try {
-                        await browser.tabs.reload(data.tab.id);
-                    } catch (_) {
-                        // The tab may have closed.
-                    }
-                    await clearTroubleshooter(ts('diag_skip_done'), true);
+                    await runDiagnosisStep('cancelTroubleshooterDiagnosis', [], true);
+                    $('troubleshooterStatus').textContent = ts('diag_skipped');
                 });
                 diagnosisBox(ts('diag_off_title'), ts('diag_off_text', label, provider), [
                     keepOff,
                     skip,
                     reload,
-                    report
+                    report,
+                    button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter(label))
                 ], 'ok');
                 return;
             }
@@ -1096,7 +1092,8 @@
                 button(ts('diag_disable_culprit'), 'troubleshooter-rule-action troubleshooter-rule-disable',
                     setCulprit(false, ts('diag_culprit_disabled'))),
                 report,
-                done
+                done,
+                button(ts('clear'), 'troubleshooter-back', () => clearTroubleshooter())
             ], 'warning');
             return;
         }
@@ -1159,7 +1156,7 @@
 
     // Forget this tab's recording, findings and finished search. Rules are
     // left as they are; keptOffLabel names a rule the person kept off.
-    async function clearTroubleshooter(statusText = '', success = false) {
+    async function clearTroubleshooter(keptOffLabel = '') {
         const status = $('troubleshooterStatus');
         try {
             const tab = await getActiveTab();
@@ -1173,27 +1170,10 @@
             const results = $('troubleshooterResults');
             if (results) results.replaceChildren();
             await refresh({ quiet: true });
-            showStatus(statusText || ts('status_cleared'), success);
+            status.textContent = keptOffLabel ? ts('status_cleared_off', keptOffLabel) : ts('status_cleared');
         } catch (error) {
-            showStatus(error?.message || ts('status_read_failed'));
+            status.textContent = error?.message || ts('status_read_failed');
         }
-    }
-
-    // Status line; a success message is shown in green until the next one.
-    let statusObserver = null;
-    function showStatus(text, success = false) {
-        const status = $('troubleshooterStatus');
-        if (!status) return;
-        status.textContent = text;
-        status.classList.toggle('troubleshooter-status-success', success === true);
-        // Drop the green look as soon as anything else writes to the line.
-        if (!statusObserver && typeof MutationObserver === 'function') {
-            statusObserver = new MutationObserver(() => {
-                if (status.dataset.successText !== status.textContent) status.classList.remove('troubleshooter-status-success');
-            });
-            statusObserver.observe(status, { childList: true, characterData: true, subtree: true });
-        }
-        status.dataset.successText = success === true ? text : '';
     }
 
     // ── Report, copy, export ─────────────────────────────────────────────
