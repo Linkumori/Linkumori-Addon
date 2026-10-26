@@ -1326,7 +1326,8 @@
 
         .troubleshooter-page-label {
             flex: none;
-            font-weight: 600;
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
         /* Long URLs: one line (page) or three lines (cards), click to expand. */
@@ -1337,18 +1338,25 @@
             -webkit-line-clamp: 3;
             overflow: hidden;
             min-width: 0;
-            /* Vertical space as border, so the clipped next line can't show through padding. */
-            padding: 0 6px;
-            border: solid var(--bg-tertiary);
-            border-width: 4px 0;
-            border-radius: 4px;
-            background: var(--bg-tertiary);
             color: var(--text-secondary);
-            font: 10px/1.35 monospace;
+            font-family: inherit;
+            font-size: 10.5px;
+            font-weight: 400;
+            line-height: 1.4;
             overflow-wrap: anywhere;
             word-break: break-all;
             cursor: pointer;
             user-select: text;
+        }
+
+        .troubleshooter-url {
+            /* Vertical space as border, so the clipped next line can't show through padding. */
+            padding: 0 7px;
+            border: solid transparent;
+            border-width: 4px 0;
+            border-radius: 4px;
+            box-shadow: inset 0 0 0 1px var(--border-color);
+            background: transparent;
         }
 
         .troubleshooter-page-url {
