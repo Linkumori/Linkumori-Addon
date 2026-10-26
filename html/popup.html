@@ -1065,6 +1065,169 @@
             display: block;
         }
 
+        .troubleshooter-launch {
+            width: 100%;
+            min-height: 34px;
+            font-size: 12px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        #troubleshooterPanel {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 0;
+            overflow: hidden;
+            padding: 8px;
+        }
+
+        #troubleshooterPanel[hidden] { display: none !important; }
+
+        .troubleshooter-heading-row,
+        .troubleshooter-actions,
+        .troubleshooter-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .troubleshooter-heading-row h2 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .troubleshooter-back {
+            padding: 4px 7px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .troubleshooter-page,
+        .troubleshooter-note,
+        .troubleshooter-status {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        .troubleshooter-page { color: var(--text-secondary); }
+        .troubleshooter-note { color: var(--text-muted); }
+        .troubleshooter-status { color: var(--text-primary); }
+
+        .troubleshooter-actions button { flex: 1; min-height: 32px; }
+        .troubleshooter-actions button[hidden] { display: none; }
+
+        .troubleshooter-filters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .troubleshooter-filters label {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .troubleshooter-filters select {
+            width: 100%;
+            min-width: 0;
+            padding: 5px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            font: inherit;
+        }
+
+        #troubleshooterResults {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            overflow-y: auto;
+            min-height: 0;
+            padding: 1px 2px 4px 1px;
+        }
+
+        .troubleshooter-empty {
+            padding: 12px 8px;
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .troubleshooter-card {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            min-width: 0;
+        }
+
+        .troubleshooter-card strong {
+            color: var(--text-primary);
+            font-size: 11px;
+            overflow-wrap: anywhere;
+        }
+
+        .troubleshooter-card code,
+        .troubleshooter-resource {
+            display: block;
+            max-height: 52px;
+            overflow: auto;
+            color: var(--text-secondary);
+            font: 10px/1.3 monospace;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            user-select: text;
+        }
+
+        .troubleshooter-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 10px;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+        }
+
+        .troubleshooter-card-actions button { flex: 1; min-height: 28px; font-size: 10px; }
+
+        .troubleshooter-rule-action {
+            border: 1px solid transparent;
+            font-weight: 600;
+        }
+
+        .troubleshooter-card-actions .troubleshooter-rule-disable {
+            background: #dc2626;
+            border-color: #dc2626;
+            color: #fff;
+        }
+
+        .troubleshooter-card-actions .troubleshooter-rule-disable:hover {
+            background: #b91c1c;
+            border-color: #b91c1c;
+        }
+
+        .troubleshooter-card-actions .troubleshooter-rule-enable {
+            background: var(--bg-tertiary);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .troubleshooter-rule-action:disabled { opacity: 0.65; cursor: wait; }
+
         .bottom-actions {
             position: sticky;
             bottom: 0;
@@ -1301,7 +1464,7 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="nav-bar" data-i18n-aria="popupNavAriaLabel" aria-label="Popup navigation">
+    <nav class="nav-bar" id="popupNavBar" data-i18n-aria="popupNavAriaLabel" aria-label="Popup navigation">
         <button type="button" class="nav-item active" id="navMain" data-target="mainContent">
             <span id="nav_main_label"></span>
         </button>
@@ -1313,6 +1476,8 @@
     <main id="main-content" tabindex="-1">
     <!-- Main Content -->
     <div id="mainContent">
+        <button type="button" id="openTroubleshooter" class="troubleshooter-launch">Troubleshoot this tab</button>
+
         <div class="toggle-container">
             <div class="toggle-switch" id="globalStatus"></div>
             <span class="toggle-label" id="configs_switch_filter"></span>
@@ -1384,6 +1549,37 @@
         </div>
 
     </div>
+
+    <section id="troubleshooterPanel" aria-labelledby="troubleshooterTitle" hidden>
+        <div class="troubleshooter-heading-row">
+            <button type="button" id="troubleshooterBack" class="troubleshooter-back" aria-label="Back to extension controls">Back</button>
+            <h2 id="troubleshooterTitle">Tab troubleshooter</h2>
+        </div>
+        <p id="troubleshooterPage" class="troubleshooter-page"></p>
+        <p class="troubleshooter-note">Opening this view may check the page URL, but records nothing. Recording stays off until you choose Start recording. Starting reloads this tab to capture its resource requests. Recording stays on this device and stops after 15 minutes unless you stop it sooner. Resource URLs may contain private query data.</p>
+        <div class="troubleshooter-actions">
+            <button type="button" id="troubleshooterScan">Start recording</button>
+            <button type="button" id="troubleshooterStop" class="troubleshooter-back" hidden>Stop recording</button>
+        </div>
+        <button type="button" id="troubleshooterRefresh" class="troubleshooter-back">Refresh results</button>
+        <p id="troubleshooterStatus" class="troubleshooter-status" role="status" aria-live="polite"></p>
+        <div class="troubleshooter-filters">
+            <label for="troubleshooterCategoryFilter">Category
+                <select id="troubleshooterCategoryFilter">
+                    <option value="all">All categories</option>
+                    <option value="url-rules">URL rules</option>
+                    <option value="redirects">Redirects</option>
+                    <option value="protection">Protection and bypasses</option>
+                </select>
+            </label>
+            <label for="troubleshooterTypeFilter">Resource type
+                <select id="troubleshooterTypeFilter">
+                    <option value="all">All resource types</option>
+                </select>
+            </label>
+        </div>
+        <div id="troubleshooterResults" aria-live="polite"></div>
+    </section>
 
     <!-- License Content -->
     <div id="licenseContent">

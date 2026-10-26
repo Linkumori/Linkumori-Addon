@@ -426,6 +426,8 @@ function handleRegularFunction(request) {
             'addToWhitelist',
             'applyRegressionRuleData',
             'changeIcon',
+            'disableTroubleshooterRule',
+            'getTroubleshooterRuleState',
             'getMergeStatistics',
             'getPendingRegressionSuite',
             'getProviderRunOrder',
@@ -437,6 +439,7 @@ function handleRegularFunction(request) {
             'getHistoryApiWhitelist',
             'getTemporaryPauseState',
             'getTemporaryTabWhitelistForTab',
+            'getTabTroubleshooterCapture',
             'initSettings',
             'pauseCleaningTemporarily',
             'pauseCleaningUntilRestart',
@@ -452,8 +455,11 @@ function handleRegularFunction(request) {
             'acceptRemoteRuleCapabilities',
             'addToHistoryApiWhitelist',
             'setBadgedStatus',
+            'setTroubleshooterRuleEnabled',
             'setPendingRegressionSuite',
             'start',
+            'startTabTroubleshooterCapture',
+            'stopTabTroubleshooterCapture',
             'traceClearURLWebRequestTest',
             'storageAsJSON'
         ]);

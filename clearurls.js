@@ -173,6 +173,21 @@ function attachCoreRuleIdentity(providerName, compiledRule, section, activationS
     return compiledRule;
 }
 
+function getCoreTroubleshooterDisableId(compiledRule, providerMatch) {
+    if (!compiledRule || !compiledRule.runtimeRuleId) return null;
+    const patternType = providerMatch?.patternType;
+    const patternValue = providerMatch?.patternValue;
+    const scopePrefix = patternType === 'domainPatterns' ? 'domainPattern'
+        : patternType === 'urlPattern' ? 'urlPattern' : '';
+    if (scopePrefix && patternValue) {
+        const scopedId = `${scopePrefix}:${patternValue}::${compiledRule.id}`;
+        if (Array.isArray(compiledRule.activationIds) && compiledRule.activationIds.includes(scopedId)) {
+            return scopedId;
+        }
+    }
+    return compiledRule.runtimeRuleId;
+}
+
 // Disabled ids saved under a rule's old name (one of its "aliases"),
 // keyed by that old id, with the ids they now belong to. One old
 // generated id can belong to several rules. Filled while providers are built
@@ -1681,7 +1696,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     let domain = "", fragments = "", fields = "";
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
     let linkumoriParamExceptions = provider.getLinkumoriRemoveParamExceptions();
-    let changes = false, actionType = null, matchedRuleForTrace = null;
+    let changes = false, actionType = null, matchedRuleForTrace = null, matchedRuleSectionForTrace = null;
+    let matchedRuleIdForTrace = null, matchedRuleDisableIdForTrace = null;
     let urlObject = new URL(url);
     const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
     const providerMatch = {
@@ -1692,6 +1708,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         requestMethod: request && typeof request.method === 'string' ? request.method : null,
         requestType: request && typeof request.type === 'string' ? request.type : null,
         tabId: request && typeof request.tabId === 'number' ? request.tabId : -1,
+        frameId: request && typeof request.frameId === 'number' ? request.frameId : null,
+        resourceURL: request && typeof request.linkumoriOriginalURL === 'string'
+            ? request.linkumoriOriginalURL
+            : (request && typeof request.url === 'string' ? request.url : pureUrl),
         aliasURL: request && typeof request.linkumoriAliasURL === 'string' ? request.linkumoriAliasURL : null,
         cname: request && typeof request.linkumoriCNAME === 'string' ? request.linkumoriCNAME : null
     };
@@ -1702,26 +1722,46 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     // A redirect to the URL itself is no change (CLN 1.0 §Termination).
     let re = storage.redirectionEnabled ? provider.getRedirection(url, request) : null;
-    if (re !== null && re !== pureUrl) {
-        url = re;
+    if (re && re.url !== pureUrl) {
+        url = re.url;
+        providerMatch.matchedRuleId = re.matchedRuleId || null;
+        providerMatch.matchedRuleDisableId = re.matchedRuleDisableId || null;
+        providerMatch.matchedRuleSection = 'redirections';
         if (!quiet) {
-            pushToLog(pureUrl, url, translate('log_redirect'), providerMatch);
+            pushToLog(pureUrl, url, re.rule || translate('log_redirect'), providerMatch);
             increaseTotalCounter(1);
             increaseBadged(false, request);
         }
-        return { redirect: true, url, providerMatch, matchedRule: translate('log_redirect'), action: 'redirect' };
+        return {
+            redirect: true, url, providerMatch,
+            matchedRule: re.rule || translate('log_redirect'),
+            matchedRuleId: re.matchedRuleId || null,
+            matchedRuleDisableId: re.matchedRuleDisableId || null,
+            matchedRuleSection: 'redirections',
+            action: 'redirect'
+        };
     }
 
     if (storage.redirectionEnabled) {
         const fieldRedirect = provider.getFieldRedirection(url, request, isHistoryUpdate);
         if (fieldRedirect && fieldRedirect.url !== pureUrl) {
             url = fieldRedirect.url;
+            providerMatch.matchedRuleId = fieldRedirect.matchedRuleId || null;
+            providerMatch.matchedRuleDisableId = fieldRedirect.matchedRuleDisableId || null;
+            providerMatch.matchedRuleSection = 'fieldRedirections';
             if (!quiet) {
-                pushToLog(pureUrl, url, translate('log_redirect'), providerMatch);
+                pushToLog(pureUrl, url, fieldRedirect.rule || translate('log_redirect'), providerMatch);
                 increaseTotalCounter(1);
                 increaseBadged(false, request);
             }
-            return { redirect: true, url, providerMatch, matchedRule: translate('log_redirect'), action: 'redirect' };
+            return {
+                redirect: true, url, providerMatch,
+                matchedRule: fieldRedirect.rule || translate('log_redirect'),
+                matchedRuleId: fieldRedirect.matchedRuleId || null,
+                matchedRuleDisableId: fieldRedirect.matchedRuleDisableId || null,
+                matchedRuleSection: 'fieldRedirections',
+                action: 'redirect'
+            };
         }
     }
 
@@ -1845,11 +1885,21 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             url = removed;
         }
         if (beforeReplace !== url) {
-            if (storage.loggingStatus && !quiet) pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
+            if (!quiet && (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId))) {
+                providerMatch.matchedRuleId = compiled?.runtimeRuleId || null;
+                providerMatch.matchedRuleDisableId = getCoreTroubleshooterDisableId(compiled, providerMatch);
+                providerMatch.matchedRuleSection = compiled?.section || 'rawRules';
+                pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
+            }
             if (!quiet) increaseBadged(false, request);
             changes = true;
             if (!actionType) actionType = 'raw_rule';
-            if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rawRuleStr);
+            if (!matchedRuleForTrace) {
+                matchedRuleForTrace = getCoreRuleTraceName(compiled, rawRuleStr);
+                matchedRuleIdForTrace = compiled?.runtimeRuleId || null;
+                matchedRuleDisableIdForTrace = getCoreTroubleshooterDisableId(compiled, providerMatch);
+                matchedRuleSectionForTrace = compiled?.section || 'rawRules';
+            }
         }
     };
 
@@ -1891,14 +1941,24 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             changes = true;
             fieldsDirty = true;
             if (!actionType) actionType = 'rule';
-            if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
-            if (storage.loggingStatus) {
+            if (!matchedRuleForTrace) {
+                matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
+                matchedRuleIdForTrace = compiled?.runtimeRuleId || null;
+                matchedRuleDisableIdForTrace = getCoreTroubleshooterDisableId(compiled, providerMatch);
+                matchedRuleSectionForTrace = compiled?.section || 'rules';
+            }
+            if (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId)) {
                 let tempURL = domain, tempBeforeURL = domain;
                 if (fields.toString() !== "") tempURL += "?" + fields.toString();
                 if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
                 if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
                 if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
-                if (!quiet) pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
+                if (!quiet) {
+                    providerMatch.matchedRuleId = compiled?.runtimeRuleId || null;
+                    providerMatch.matchedRuleDisableId = getCoreTroubleshooterDisableId(compiled, providerMatch);
+                    providerMatch.matchedRuleSection = compiled?.section || 'rules';
+                    pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
+                }
             }
             if (!quiet) increaseBadged(false, request);
         }
@@ -1923,7 +1983,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const { activeRules: activeLinkumoriRules, activeExceptions: activeLinkumoriExceptions, getDecision: getLinkumoriDecision } = getLinkumoriState();
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
-            let matchedRuleForLog = null;
+            let matchedRuleForLog = null, matchedRuleIdForLog = null, matchedRuleDisableIdForLog = null, matchedRuleSectionForLog = null;
             const removeParamRewriteKey = rule => rewriteKeyOf(rule, getLinkumoriRemoveParamTraceName(rule));
             const rewrittenBefore = new Set(appliedFieldRewrites);
             const rewrittenNow = new Set();
@@ -1936,7 +1996,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                     if (rewrittenBefore.has(rewriteKey)) return { handled: false };
                     rewrittenNow.add(rewriteKey);
                 }
-                if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
+                if (!matchedRuleForLog && decision.matchedRule) {
+                    matchedRuleForLog = decision.matchedRule;
+                    matchedRuleIdForLog = decision.rule?.runtimeRuleId || null;
+                    matchedRuleDisableIdForLog = getCoreTroubleshooterDisableId(decision.rule, providerMatch);
+                    matchedRuleSectionForLog = decision.rule?.section || null;
+                }
                 return decision;
             };
             // Original dedup keys used the rule that matched *this specific
@@ -1955,14 +2020,24 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 changes = true;
                 fieldsDirty = true;
                 if (!actionType) actionType = 'removeparam';
-                if (!matchedRuleForTrace) matchedRuleForTrace = matchedRuleForLog || '$removeparam';
-                if (storage.loggingStatus) {
+                if (!matchedRuleForTrace) {
+                    matchedRuleForTrace = matchedRuleForLog || '$removeparam';
+                    matchedRuleIdForTrace = matchedRuleIdForLog;
+                    matchedRuleDisableIdForTrace = matchedRuleDisableIdForLog;
+                    matchedRuleSectionForTrace = matchedRuleSectionForLog || 'rules';
+                }
+                if (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId)) {
                     let tempURL = domain, tempBeforeURL = domain;
                     if (fields.toString() !== "") tempURL += "?" + fields.toString();
                     if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
                     if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
                     if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
-                    if (!quiet) pushToLog(tempBeforeURL, tempURL, matchedRuleForLog || '$removeparam', providerMatch);
+                    if (!quiet) {
+                        providerMatch.matchedRuleId = matchedRuleIdForLog;
+                        providerMatch.matchedRuleDisableId = matchedRuleDisableIdForLog;
+                        providerMatch.matchedRuleSection = matchedRuleSectionForLog || 'rules';
+                        pushToLog(tempBeforeURL, tempURL, matchedRuleForLog || '$removeparam', providerMatch);
+                    }
                 }
                     if (!quiet) increaseBadged(false, request);
             }
@@ -1980,7 +2055,13 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     // A pass that ends where it started changed nothing.
     if (url === pureUrl) changes = false;
-    return { changes, url, providerMatch, matchedRule: matchedRuleForTrace, action: actionType };
+    return {
+        changes, url, providerMatch, matchedRule: matchedRuleForTrace,
+        matchedRuleId: matchedRuleIdForTrace,
+        matchedRuleDisableId: matchedRuleDisableIdForTrace,
+        matchedRuleSection: matchedRuleSectionForTrace,
+        action: actionType
+    };
 }
 
 
@@ -2384,6 +2465,112 @@ function start() {
         );
     }
 
+    function resolveTroubleshooterRuleToggle(identity) {
+        const requested = typeof identity === 'string' ? { runtimeRuleId: identity } : (identity || {});
+        const snapshot = globalThis.linkumoriClearURLProviderSnapshot || clearurlsProviderSnapshot;
+        const ruleEntries = [
+            ...Object.values(snapshot?.ruleIds || {}),
+            ...Object.values(snapshot?.disabledRules || {})
+        ];
+        const runtimeRuleId = String(requested.runtimeRuleId || '').trim();
+        const visibleRuleId = String(requested.ruleId || '').trim();
+        const providerName = String(requested.providerName || '').trim();
+        const section = String(requested.section || '').trim();
+        let ruleInfo = runtimeRuleId
+            ? ruleEntries.find(rule => rule.runtimeRuleId === runtimeRuleId)
+            : null;
+        if (!ruleInfo && visibleRuleId && providerName) {
+            const candidates = ruleEntries.filter(rule =>
+                [rule.id, ...(rule.aliases || []), ...(rule.replacedIds || [])].includes(visibleRuleId) &&
+                rule.providerName === providerName);
+            ruleInfo = candidates.find(rule => !section || rule.section === section) || candidates[0] || null;
+        }
+        if (!ruleInfo || !ruleInfo.runtimeRuleId) return null;
+
+        const aliases = Array.isArray(ruleInfo.aliases) ? ruleInfo.aliases : [];
+        const replacedIds = Array.isArray(ruleInfo.replacedIds) ? ruleInfo.replacedIds : [];
+        const compatibleRuleIds = new Set([ruleInfo.id, ...aliases, ...replacedIds].filter(Boolean));
+        const activationIds = [
+            ...(Array.isArray(ruleInfo.activationIds) ? ruleInfo.activationIds : []),
+            ...(Array.isArray(ruleInfo.disabledActivationIds) ? ruleInfo.disabledActivationIds : [])
+        ];
+        const disabledIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+        const requestedDisableId = String(requested.disableId || '').trim();
+        const scopeType = requested.patternType === 'domainPatterns' ? 'domainPattern'
+            : requested.patternType === 'urlPattern' ? 'urlPattern' : '';
+        const scopedId = scopeType && requested.patternValue
+            ? `${scopeType}:${requested.patternValue}::${ruleInfo.id}` : '';
+        const isKnownScopedId = value => {
+            const separator = value.lastIndexOf('::');
+            if (separator === -1) return false;
+            const scope = value.slice(0, separator);
+            const scopedRuleId = value.slice(separator + 2);
+            return /^(domainPattern|urlPattern):/.test(scope) && compatibleRuleIds.has(scopedRuleId) &&
+                (activationIds.includes(value) || disabledIds.includes(value));
+        };
+        const isKnownDisableId = value => value === ruleInfo.runtimeRuleId ||
+            activationIds.includes(value) || isKnownScopedId(value);
+        const toggleId = isKnownDisableId(requestedDisableId) ? requestedDisableId
+            : isKnownDisableId(scopedId) ? scopedId : ruleInfo.runtimeRuleId;
+        const scopePrefix = toggleId.includes('::') ? toggleId.slice(0, toggleId.lastIndexOf('::')) : '';
+        const relatedDisableIds = new Set([
+            ruleInfo.runtimeRuleId,
+            toggleId,
+            ...aliases.map(alias => `${ruleInfo.providerName}::${alias}`),
+            ...replacedIds.map(replacedId => `${ruleInfo.providerName}::${replacedId}`)
+        ]);
+        if (scopePrefix && /^(domainPattern|urlPattern):/.test(scopePrefix)) {
+            aliases.forEach(alias => relatedDisableIds.add(`${scopePrefix}::${alias}`));
+            replacedIds.forEach(replacedId => relatedDisableIds.add(`${scopePrefix}::${replacedId}`));
+        }
+        return {
+            rule: ruleInfo,
+            toggleId,
+            disabled: disabledIds.some(id => relatedDisableIds.has(id)),
+            relatedDisableIds: Array.from(relatedDisableIds)
+        };
+    }
+
+    globalThis.getTroubleshooterRuleState = function (identity) {
+        const target = resolveTroubleshooterRuleToggle(identity);
+        return target ? {
+            available: true,
+            disabled: target.disabled,
+            enabled: !target.disabled,
+            toggleId: target.toggleId,
+            runtimeRuleId: target.rule.runtimeRuleId,
+            ruleId: target.rule.id,
+            providerName: target.rule.providerName,
+            section: target.rule.section
+        } : { available: false, disabled: false, enabled: false };
+    };
+
+    globalThis.setTroubleshooterRuleEnabled = async function (identity, enabled) {
+        const target = resolveTroubleshooterRuleToggle(identity);
+        if (!target) return { success: false, error: 'Could not resolve this rule ID' };
+        const disabledIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+        const nextDisabledIds = new Set(disabledIds);
+        if (enabled === true) target.relatedDisableIds.forEach(id => nextDisabledIds.delete(id));
+        else nextDisabledIds.add(target.toggleId);
+        storage.clearurls_disabled_rule_ids = Array.from(nextDisabledIds);
+        if (typeof saveOnDisk === 'function') await saveOnDisk(['clearurls_disabled_rule_ids']);
+        const applied = typeof globalThis.updateProviderData === 'function'
+            ? !!globalThis.updateProviderData()
+            : false;
+        return {
+            success: true,
+            applied,
+            enabled: enabled === true,
+            disabled: enabled !== true,
+            toggleId: target.toggleId,
+            rule: target.rule
+        };
+    };
+
+    globalThis.disableTroubleshooterRule = async function (identity) {
+        return globalThis.setTroubleshooterRuleEnabled(identity, false);
+    };
+
     globalThis.updateProviderData = function () {
         const refreshed = rebuildProvidersFromStorage();
         if (refreshed) initializationComplete = true;
@@ -2415,6 +2602,7 @@ function start() {
         let indexPatterns = [], domainPatterns = [];
         const exceptionRuleMap = {};
         const domainExceptionPatterns = [], domainRedirectionRules = [];
+        const domainRedirectionCompiledRules = new Map();
         const canceling = _completeProvider;
         const redirectionRuleMap = {};
         const rawRuleExceptions = [];
@@ -2609,6 +2797,11 @@ function start() {
                 const activeRule = activateCompiledRule(normalizedRule, section);
                 if (!activeRule) return true;
                 parsedLinkumoriRule.id = activeRule.id;
+                parsedLinkumoriRule.runtimeRuleId = activeRule.runtimeRuleId;
+                parsedLinkumoriRule.providerName = activeRule.providerName;
+                parsedLinkumoriRule.section = activeRule.section;
+                parsedLinkumoriRule.aliases = (activeRule.aliases || []).slice();
+                parsedLinkumoriRule.replacedIds = (activeRule.replacedIds || []).slice();
                 parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
                 // The rule object's requestTypes apply only when the filter's
                 // own options name no request type.
@@ -2864,7 +3057,12 @@ function start() {
                         ? applyCoreReplacePattern(entry.compiled.replacePattern, values)
                         : values[0];
                     const validTarget = getLinkumoriRedirectTarget(target);
-                    if (validTarget) return { url: validTarget, rule: getCoreRuleTraceName(entry.compiled, entry.compiled.matchPattern) };
+                    if (validTarget) return {
+                        url: validTarget,
+                        rule: getCoreRuleTraceName(entry.compiled, entry.compiled.matchPattern),
+                        matchedRuleId: entry.compiled.runtimeRuleId || null,
+                        matchedRuleDisableId: getCoreTroubleshooterDisableId(entry.compiled, this.getAppliedPatternForUrl(url))
+                    };
                 }
             }
             return null;
@@ -2933,7 +3131,9 @@ function start() {
             const normalized = normalizeCoreRuleDefinition(redirection, "i", defaults);
             const pattern = normalized ? normalized.matchPattern.trim() : '';
             if (pattern.startsWith('|')) {
-                if (isActive && normalized.active !== false) this.addDomainRedirection(pattern);
+                if (!isActive || normalized.active === false) return;
+                const activeCompiled = activateCompiledRule(normalized, 'redirections');
+                if (activeCompiled) this.addDomainRedirection(pattern, activeCompiled);
                 return;
             }
             const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
@@ -2943,9 +3143,11 @@ function start() {
             redirectionRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
-        this.addDomainRedirection = function (redirection) {
+        this.addDomainRedirection = function (redirection, compiled = null) {
             const normalized = typeof redirection === 'string' ? redirection.trim() : '';
-            if (normalized.includes('$redirect=') && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
+            if (!normalized.includes('$redirect=')) return;
+            if (domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
+            if (compiled) domainRedirectionCompiledRules.set(normalized, compiled);
         };
 
         this.getRedirection = function (url, request = null) {
@@ -2963,7 +3165,14 @@ function start() {
                     else if (captured[1] !== undefined) target = values[0];
                     // An invalid target makes the entry not match.
                     re = getLinkumoriRedirectTarget(target);
-                    if (re) break;
+                    if (re) {
+                        return {
+                            url: re,
+                            rule: getCoreRuleTraceName(compiled, compiled.matchPattern),
+                            matchedRuleId: compiled.runtimeRuleId || null,
+                            matchedRuleDisableId: getCoreTroubleshooterDisableId(compiled, this.getAppliedPatternForUrl(url))
+                        };
+                    }
                 }
             }
             if (!re && domainRedirectionRules.length > 0) {
@@ -2972,10 +3181,19 @@ function start() {
                     const [pattern, redirectTarget] = dr.split('$redirect=');
                     if (!matchDomainPattern(url, [pattern.trim()])) continue;
                     re = getLinkumoriRedirectTarget(redirectTarget);
-                    if (re) break;
+                    if (re) {
+                        const compiled = domainRedirectionCompiledRules.get(dr);
+                        return {
+                            url: re,
+                            rule: compiled ? getCoreRuleTraceName(compiled, dr.trim()) : dr.trim(),
+                            matchedRuleId: compiled?.runtimeRuleId || null,
+                            matchedRuleDisableId: compiled
+                                ? getCoreTroubleshooterDisableId(compiled, this.getAppliedPatternForUrl(url)) : null
+                        };
+                    }
                 }
             }
-            return re;
+            return null;
         };
     } // end Provider
 
@@ -3014,7 +3232,7 @@ function start() {
         if (typeof isTemporarilyPaused === 'function' && isTemporarilyPaused()) return {};
 
         if (isWhitelisted(request.url, request)) {
-            if (storage.loggingStatus) {
+            if (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId)) {
                 pushToLog(request.url, request.url, translate('log_whitelist_bypass'), {
                     logCategory: 'feature',
                     requestMethod: request && typeof request.method === 'string' ? request.method : null,

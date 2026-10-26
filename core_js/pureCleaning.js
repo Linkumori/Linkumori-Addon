@@ -289,7 +289,11 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
 
     for (let i = 0; i < providers.length; i++) {
         const effectiveRequest = requestDetails
-            ? { ...requestDetails, url: cleanURL }
+            ? {
+                ...requestDetails,
+                url: cleanURL,
+                linkumoriOriginalURL: requestDetails.linkumoriOriginalURL || requestDetails.url
+            }
             : null;
         const requestMatches = !effectiveRequest || (
             providers[i].matchMethod(effectiveRequest) &&
@@ -326,7 +330,10 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
                 providerName: providerMatch.providerName || providers[i].getName(),
                 patternType: providerMatch.patternType || null,
                 patternValue: providerMatch.patternValue || null,
+                matchedRuleSection: providerMatch.matchedRuleSection || null,
                 matchedRule: result.matchedRule || null,
+                matchedRuleId: result.matchedRuleId || null,
+                matchedRuleDisableId: result.matchedRuleDisableId || null,
                 action: result.action || (result.redirect ? 'redirect' : (result.cancel ? 'cancel' : 'rule')),
                 iteration,
                 before: url,

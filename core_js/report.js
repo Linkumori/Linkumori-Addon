@@ -233,7 +233,10 @@ const reportedPage = (function() {
             hostname: parsedURL.hostname.replace(/^(m|mobile|www)\./, ''),
             cleanedUrl: url.searchParams.get('cleanedUrl'),
             originalUrl: pageURL,
-            baseUrl: baseUrl.href
+            baseUrl: baseUrl.href,
+            affectedUrl: url.searchParams.get('affectedUrl') || '',
+            affectedRule: url.searchParams.get('affectedRule') || '',
+            affectedProvider: url.searchParams.get('affectedProvider') || ''
         };
     } catch (error) {
         console.error('Error processing URL parameters:', error);
@@ -1094,7 +1097,7 @@ async function reportIssue() {
                 descriptionText += `Cleaned URL: ${reportedPage.cleanedUrl}\n`;
             }
         }
-        
+
         if ($('#isNSFW')?.checked) {
             descriptionText += `Content Warning: This issue contains NSFW content.\n`;
         }
@@ -1244,6 +1247,17 @@ async function initReportPage() {
         
         // Populate the URL dropdown with actual URLs
         populateUrlDropdown();
+
+        if (reportedPage?.affectedUrl || reportedPage?.affectedRule || reportedPage?.affectedProvider) {
+            const contextLines = [];
+            if (reportedPage.affectedUrl) contextLines.push(`Affected resource URL: ${reportedPage.affectedUrl}`);
+            if (reportedPage.affectedRule) contextLines.push(`Applied rule: ${reportedPage.affectedRule}`);
+            if (reportedPage.affectedProvider) contextLines.push(`Provider: ${reportedPage.affectedProvider}`);
+            const additionalInfo = $('#additionalInfo');
+            if (additionalInfo) {
+                additionalInfo.value = `${contextLines.join('\n')}\n\n`;
+            }
+        }
         
         // Create consent checkboxes based on the new YAML template
         

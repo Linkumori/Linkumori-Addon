@@ -71,6 +71,9 @@ const enc = new TextEncoder();
 
 // Max amount of log entries to prevent performance issues
 const logThreshold = 5000;
+const LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS = 15 * 60 * 1000;
+const LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES = 250;
+const linkumoriTroubleshooterCaptures = new Map();
 const THEME_STORAGE_KEY = 'linkumori-theme';
 const DEFAULT_THEME = 'dark';
 const SUPPORTED_THEMES = new Set(['light', 'midnight', 'dark', 'icecold', 'sunset', 'legacy']);
@@ -396,15 +399,15 @@ function broadcastLogEntry(entry) {
 
 function pushToLog(beforeProcessing, afterProcessing, rule, providerMatch = null) {
     const limit = Math.max(0, storage.logLimit);
-    if (storage.loggingStatus && limit !== 0 && !isNaN(limit)) {
-        while (storage.log.log.length >= limit
-        || storage.log.log.length >= logThreshold) {
-            storage.log.log.shift();
-        }
+    const safeProviderMatch = providerMatch && typeof providerMatch === 'object' ? providerMatch : {};
+    const tabId = typeof safeProviderMatch.tabId === 'number' ? safeProviderMatch.tabId : -1;
+    const capture = tabId >= 0 ? linkumoriTroubleshooterCaptures.get(tabId) : null;
+    const captureActive = !!(capture && capture.active !== false && Date.now() <= capture.expiresAt);
+    const loggingActive = !!(storage.loggingStatus && limit !== 0 && !isNaN(limit));
 
-        const safeProviderMatch = providerMatch && typeof providerMatch === 'object' ? providerMatch : {};
+    if (!loggingActive && !captureActive) return;
 
-        const entry = {
+    const entry = {
             "before": beforeProcessing,
             "after": afterProcessing,
             "rule": rule,
@@ -424,14 +427,78 @@ function pushToLog(beforeProcessing, afterProcessing, rule, providerMatch = null
                 : null,
             "aliasURL": typeof safeProviderMatch.aliasURL === 'string' ? safeProviderMatch.aliasURL : null,
             "cname": typeof safeProviderMatch.cname === 'string' ? safeProviderMatch.cname : null,
-            "tabId": typeof safeProviderMatch.tabId === 'number' ? safeProviderMatch.tabId : -1,
+            "resourceURL": typeof safeProviderMatch.resourceURL === 'string' ? safeProviderMatch.resourceURL : beforeProcessing,
+            "tabId": tabId,
+            "frameId": typeof safeProviderMatch.frameId === 'number' ? safeProviderMatch.frameId : null,
+            "matchedRuleId": typeof safeProviderMatch.matchedRuleId === 'string' ? safeProviderMatch.matchedRuleId : null,
+            "matchedRuleDisableId": typeof safeProviderMatch.matchedRuleDisableId === 'string' ? safeProviderMatch.matchedRuleDisableId : null,
+            "matchedRuleSection": typeof safeProviderMatch.matchedRuleSection === 'string' ? safeProviderMatch.matchedRuleSection : null,
             "timestamp": Date.now()
         };
 
+    if (loggingActive) {
+        while (storage.log.log.length >= limit || storage.log.log.length >= logThreshold) {
+            storage.log.log.shift();
+        }
         storage.log.log.push(entry);
         deferSaveOnDisk('log');
         broadcastLogEntry(entry);
     }
+
+    if (captureActive) {
+        capture.entries.push(entry);
+        if (capture.entries.length > LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES) {
+            capture.entries.splice(0, capture.entries.length - LINKUMORI_TROUBLESHOOTER_MAX_CAPTURE_ENTRIES);
+        }
+    }
+}
+
+function startTabTroubleshooterCapture(tabId) {
+    const id = Number(tabId);
+    if (!Number.isInteger(id) || id < 0) return { success: false, error: 'Invalid tab' };
+    const now = Date.now();
+    linkumoriTroubleshooterCaptures.set(id, {
+        active: true,
+        startedAt: now,
+        expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS,
+        entries: []
+    });
+    while (linkumoriTroubleshooterCaptures.size > 8) {
+        linkumoriTroubleshooterCaptures.delete(linkumoriTroubleshooterCaptures.keys().next().value);
+    }
+    return { success: true, startedAt: now, expiresAt: now + LINKUMORI_TROUBLESHOOTER_CAPTURE_TTL_MS };
+}
+
+function stopTabTroubleshooterCapture(tabId) {
+    const id = Number(tabId);
+    const capture = Number.isInteger(id) ? linkumoriTroubleshooterCaptures.get(id) : null;
+    if (!capture || capture.active === false) return { success: false, error: 'No active recording for this tab' };
+    capture.active = false;
+    capture.endedAt = Date.now();
+    return { success: true, endedAt: capture.endedAt, entries: capture.entries.length };
+}
+
+function getTabTroubleshooterCapture(tabId) {
+    const id = Number(tabId);
+    const capture = Number.isInteger(id) ? linkumoriTroubleshooterCaptures.get(id) : null;
+    if (!capture) return { active: false, startedAt: null, entries: [] };
+    if (Date.now() > capture.expiresAt) {
+        capture.active = false;
+        capture.endedAt = capture.endedAt || capture.expiresAt;
+    }
+    return {
+        active: capture.active !== false,
+        startedAt: capture.startedAt,
+        endedAt: capture.endedAt || null,
+        expiresAt: capture.expiresAt,
+        entries: capture.entries.slice()
+    };
+}
+
+function isTabTroubleshooterCaptureActive(tabId) {
+    const id = Number(tabId);
+    const capture = Number.isInteger(id) ? linkumoriTroubleshooterCaptures.get(id) : null;
+    return !!(capture && capture.active !== false && Date.now() <= capture.expiresAt);
 }
 /**
  * Checks if the storage is available.
