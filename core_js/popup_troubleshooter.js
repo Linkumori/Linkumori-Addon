@@ -177,6 +177,8 @@
         diag_skipped_round: 'Skipped: those rules are back on and left out. Testing the rest.',
         diag_not_found_skipped: 'No rule found among the rules tested. $1 rule(s) you skipped were not tested. Every rule is on again.',
         working: 'Working…',
+        diag_record_again: 'Record again',
+        diag_recorded_fresh: 'Old recording cleared. Recording this tab again from a fresh load.',
         diag_outdated_title: 'Reload Linkumori to use this check',
         diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
     };
@@ -1068,31 +1070,41 @@
                     return false;
                 }
             };
+            // Clear the old recording of this tab and record it again from a
+            // reload, so the search only sees rules from the current page load.
+            const recordFresh = async event => {
+                const node = event.currentTarget;
+                node.disabled = true;
+                try {
+                    const response = await message('startTabTroubleshooterCapture', [data.tab.id]);
+                    if (!response?.response?.success) throw new Error(response?.response?.error || ts('status_start_failed'));
+                } catch (error) {
+                    $('troubleshooterStatus').textContent = error?.message || ts('status_start_failed');
+                    node.disabled = false;
+                    return;
+                }
+                traceCache = null;
+                try {
+                    await browser.tabs.reload(data.tab.id);
+                } catch (_) {
+                    // The tab may have closed.
+                }
+                await refresh({ quiet: true });
+                $('troubleshooterStatus').textContent = ts('diag_recorded_fresh');
+            };
             const candidates = findableCandidates(data);
             const find = candidates.length
                 ? button(ts('diag_find_button', findCount(data, candidates)), 'troubleshooter-primary',
                     () => runDiagnosisStep('startTroubleshooterBisect', [candidates.map(group => group.identity)], reloadIfRunning))
-                : button(ts('diag_find_record'), 'troubleshooter-primary', async event => {
-                    const node = event.currentTarget;
-                    node.disabled = true;
-                    if (!(await ensureRecording())) {
-                        node.disabled = false;
-                        return;
-                    }
-                    try {
-                        await browser.tabs.reload(data.tab.id);
-                    } catch (_) {
-                        // The tab may have closed.
-                    }
-                    await refresh({ quiet: true });
-                });
+                : button(ts('diag_find_record'), 'troubleshooter-primary', recordFresh);
+            const recordAgain = candidates.length ? button(ts('diag_record_again'), '', recordFresh) : null;
             const pauseFirst = button(ts('diag_idle_button'), '', async () => {
                 if (await ensureRecording()) await runDiagnosisStep('startTroubleshooterPauseCheck', [host], true);
             });
             const recordingWithoutRules = !candidates.length && data.capture?.active;
             if (recordingWithoutRules) find.disabled = true;
             diagnosisBox(ts('diag_idle_title'),
-                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, pauseFirst]);
+                recordingWithoutRules ? ts('diag_idle_recording') : ts('diag_idle_text'), [find, recordAgain, pauseFirst].filter(Boolean));
         }
         }
     }
