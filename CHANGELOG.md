@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.78.0] - 2026-10-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.77.0...linkumori-v100.78.0))
+### Changed
+- Exempt samarth.edu.in from the global reference rule (`2026-10-27`, hash: [`812dfbf`](https://github.com/Linkumori/Linkumori-Addon/commit/812dfbf))
+- Generated compressed URL cleaning rules bundle (`2026-10-27`, hash: [`812dfbf`](https://github.com/Linkumori/Linkumori-Addon/commit/812dfbf))
+- Generated compressed URL cleaning rules bundle (`2026-10-27`, hash: [`8293d4b`](https://github.com/Linkumori/Linkumori-Addon/commit/8293d4b))
+- Let the troubleshooter keep testing after a rule is found (`2026-10-27`, hash: [`5aa7dcb`](https://github.com/Linkumori/Linkumori-Addon/commit/5aa7dcb))
+- Merge the logs and live logger into one Logs view (`2026-10-27`, hash: [`3e3e49f`](https://github.com/Linkumori/Linkumori-Addon/commit/3e3e49f))
+- Move the troubleshooter into the popup nav bar (`2026-10-27`, hash: [`3f605ba`](https://github.com/Linkumori/Linkumori-Addon/commit/3f605ba))
+- Updated canonical URL cleaning rules source (`2026-10-27`, hash: [`812dfbf`](https://github.com/Linkumori/Linkumori-Addon/commit/812dfbf))
+- Updated canonical URL cleaning rules source (`2026-10-27`, hash: [`8293d4b`](https://github.com/Linkumori/Linkumori-Addon/commit/8293d4b))
+
+### Fixed
+- Resolve troubleshooter colours and consent box flash in the popup (`2026-10-26`, hash: [`af91519`](https://github.com/Linkumori/Linkumori-Addon/commit/af91519))
+- Resolve troubleshooter export not downloading the JSON file (`2026-10-26`, hash: [`9882d38`](https://github.com/Linkumori/Linkumori-Addon/commit/9882d38))
+
 ## [v100.77.0] - 2026-10-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.76.0...linkumori-v100.77.0))
 ### Added
 - Feature/bug fixing (#190) (`2026-10-26`, hash: [`ee55e71`](https://github.com/Linkumori/Linkumori-Addon/commit/ee55e71)) [#190](https://github.com/Linkumori/Linkumori-Addon/issues/190)
