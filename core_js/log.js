@@ -135,7 +135,9 @@ function t(key, fallback) {
 
 const LOGGER_BUTTON_ICONS = Object.freeze({
     pause: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"></path></svg>',
-    play: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7L8 5z"></path></svg>'
+    play: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7L8 5z"></path></svg>',
+    record: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="6"></circle></svg>',
+    stop: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"></path></svg>'
 });
 
 function stripLeadingButtonSymbol(value, fallback = '') {
@@ -261,49 +263,16 @@ function setI18nText() {
         element.title = translate(element.getAttribute('data-i18n-title'));
     });
 
-    // Static log table headers (head_4 kept last — preserves sort button)
-    const headIds = ['head_1','head_2','head_3','head_5','head_6','head_7','head_8'];
-    headIds.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = translate(`log_html_table_head_${[1,2,3,5,6,7,8][i]}`);
-    });
-
-    const timestampHeader = document.getElementById('head_4');
-    const sortButton = document.getElementById('time-sort-btn');
-    if (timestampHeader && sortButton) {
-        Array.from(timestampHeader.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) timestampHeader.removeChild(node);
-        });
-        timestampHeader.insertBefore(
-            document.createTextNode(translate('log_html_table_head_4')),
-            sortButton
-        );
-    }
-
     // Log-view button labels
     const resetText  = document.getElementById('reset_log_btn_text');
-    const exportText = document.getElementById('export_log_btn_text');
     const importText = document.getElementById('import_log_btn_text');
     if (resetText)  resetText.textContent  = translate('log_html_reset_button');
-    if (exportText) exportText.textContent = translate('log_html_export_button');
     if (importText) importText.textContent = translate('log_html_import_button');
 
     const resetBtn  = document.getElementById('reset_log_btn');
-    const exportBtn = document.getElementById('export_log_btn');
     const importBtn = document.getElementById('import_log_btn');
     if (resetBtn)  resetBtn.setAttribute('title',  translate('log_html_reset_button_title'));
-    if (exportBtn) exportBtn.setAttribute('title', translate('log_html_export_button_title'));
     if (importBtn) importBtn.setAttribute('title', translate('log_html_import_button_title'));
-
-    // Localize numeric length-select options
-    const lengthSelect = document.getElementById('length_select');
-    if (lengthSelect) {
-        Array.from(lengthSelect.options).forEach(option => {
-            if (option.value !== '-1' && !isNaN(Number(option.value))) {
-                option.textContent = localizeNumber(option.value);
-            }
-        });
-    }
 
     // ── Logger view explicit injection ────────────────────────
     // Uses the same LinkumoriI18n pattern as the rest of the file:
@@ -318,8 +287,6 @@ function setI18nText() {
         if (el) el.placeholder = translate(key);
     };
 
-    setI18n('logger_nav_label');
-    setLoggerButtonLabel('btn-pause', 'logger_btn_pause', 'Pause');
     setLoggerButtonLabel('btn-clear', 'logger_btn_clear', 'Clear');
     setLoggerButtonLabel('btn-scroll', 'logger_btn_autoscroll', 'Auto-scroll');
     setI18n('logger_filter_label');
@@ -339,7 +306,7 @@ function setI18nText() {
     setI18n('logger_logging_disabled_banner');
 }
 
-// ── Reset / Export / Import ───────────────────────────────────
+// ── Reset / Import ───────────────────────────────────
 
 function resetGlobalLog() {
     LinkumoriI18n.ready().then(() => {
@@ -361,20 +328,6 @@ function resetGlobalLog() {
     });
 }
 
-function exportGlobalLog() {
-    browser.runtime.sendMessage({ function: 'getData', params: ['log'] })
-        .then(data => {
-            const blob = new Blob(
-                [JSON.stringify(data.response, null, 2)],
-                { type: 'application/json' }
-            );
-            browser.downloads.download({
-                url: URL.createObjectURL(blob),
-                filename: 'ClearURLsLogExport.json',
-                saveAs: true
-            }).catch(handleError);
-        }).catch(handleError);
-}
 
 function importGlobalLog(evt) {
     const file = evt.target.files[0];
@@ -827,27 +780,7 @@ function formatStatsDateKey(dateKey) {
 
 // ── Sorting ───────────────────────────────────────────────────
 
-function sortLogByTime(logs, order = 'desc') {
-    return [...logs].sort((a, b) => {
-        let timeA = a.timestamp || 0;
-        let timeB = b.timestamp || 0;
-        if (typeof timeA === 'string') timeA = !isNaN(Number(timeA)) ? Number(timeA) : 0;
-        if (typeof timeB === 'string') timeB = !isNaN(Number(timeB)) ? Number(timeB) : 0;
-        return order === 'desc' ? timeB - timeA : timeA - timeB;
-    });
-}
 
-function updateSortButton(sortOrder) {
-    const timeSortBtn = document.getElementById('time-sort-btn');
-    if (timeSortBtn) {
-        timeSortBtn.className = `sort-button active ${sortOrder}`;
-        timeSortBtn.setAttribute('title',
-            sortOrder === 'desc'
-                ? translate('log_html_sort_oldest_first')
-                : translate('log_html_sort_newest_first')
-        );
-    }
-}
 
 // ── Theme ─────────────────────────────────────────────────────
 
@@ -866,33 +799,7 @@ function initializeTheme() {
 
 // ── State persistence ─────────────────────────────────────────
 
-function saveState() {
-    const state = {
-        page:      window.currentPage || 1,
-        length:    parseInt(document.getElementById('length_select').value),
-        search:    document.getElementById('search_input').value,
-        sortOrder: window.sortOrder || 'desc',
-        time:      Date.now()
-    };
-    localStorage.setItem('linkumori-log-state', JSON.stringify(state));
-}
 
-function loadState() {
-    try {
-        const saved = localStorage.getItem('linkumori-log-state');
-        if (saved) {
-            const state = JSON.parse(saved);
-            if (Date.now() - state.time < 3600000) {
-                window.currentPage = state.page || 1;
-                window.sortOrder   = state.sortOrder || 'desc';
-                document.getElementById('length_select').value = state.length || 25;
-                document.getElementById('search_input').value  = state.search  || '';
-                return true;
-            }
-        }
-    } catch (e) { console.warn('Failed to load pagination state:', e); }
-    return false;
-}
 
 // ── Loading overlay ───────────────────────────────────────────
 
@@ -927,7 +834,7 @@ function showErrorMessage(message) {
  * - Calls onViewChange(viewName) when the tab changes.
  */
 function setupViewNavigation(onViewChange = null) {
-    const VIEWS = ['dashboard', 'logs', 'logger'];
+    const VIEWS = ['dashboard', 'logger'];
 
     const applyView = (targetView) => {
         VIEWS.forEach(v => {
@@ -958,8 +865,9 @@ function setupViewNavigation(onViewChange = null) {
     });
 
     // Restore last viewed tab, defaulting to dashboard
+    // 'logs' was the old stored-log tab, now merged into the logger tab.
     const saved = localStorage.getItem('linkumori-log-view');
-    applyView(VIEWS.includes(saved) ? saved : 'dashboard');
+    applyView(saved === 'logs' ? 'logger' : VIEWS.includes(saved) ? saved : 'dashboard');
 }
 
 // ── Stats rendering ───────────────────────────────────────────
@@ -1142,59 +1050,7 @@ function renderOverallStats(logs, clearUrlsData = null) {
 
 // ── Pagination ────────────────────────────────────────────────
 
-function getPageNumbers(totalPages, currentPage, maxButtons = 7) {
-    const pages = [];
-    const half  = Math.floor(maxButtons / 2);
-    const showFirstLast = maxButtons >= 5;
 
-    function range(start, end) {
-        const r = [];
-        for (let i = start; i < end; i++) r.push(i);
-        return r;
-    }
-
-    if (totalPages <= maxButtons) return range(1, totalPages + 1);
-
-    if (maxButtons === 3) {
-        if (currentPage <= 1)             return [1, 2, '...'];
-        if (currentPage >= totalPages)    return ['...', totalPages - 1, totalPages];
-        return ['...', currentPage, '...'];
-    }
-    if (maxButtons === 5) {
-        if (currentPage <= 2)             return [1, 2, 3, '...', totalPages];
-        if (currentPage >= totalPages - 1)return [1, '...', totalPages - 2, totalPages - 1, totalPages];
-        return [1, '...', currentPage, '...', totalPages];
-    }
-
-    const boundarySize = showFirstLast ? 2 : 1;
-    const leftOffset   = showFirstLast ? 1 : 0;
-    if (currentPage <= half) {
-        pages.push(...range(1, maxButtons - boundarySize + 1));
-        pages.push('...');
-        if (showFirstLast) pages.push(totalPages);
-    } else if (currentPage >= totalPages - half) {
-        if (showFirstLast) pages.push(1);
-        pages.push('...');
-        pages.push(...range(totalPages - (maxButtons - boundarySize) + 1, totalPages + 1));
-    } else {
-        if (showFirstLast) pages.push(1);
-        pages.push('...');
-        pages.push(...range(currentPage - half + leftOffset, currentPage + half - leftOffset + 1));
-        pages.push('...');
-        if (showFirstLast) pages.push(totalPages);
-    }
-    return pages;
-}
-
-function createPaginationButton(text, onClick, action = null) {
-    const button = document.createElement('button');
-    button.textContent = (typeof text === 'number' || (typeof text === 'string' && !isNaN(Number(text))))
-        ? localizeNumber(text) : text;
-    button.className = 'pagination-btn';
-    button.addEventListener('click', onClick);
-    if (action) button.setAttribute('data-action', action);
-    return button;
-}
 
 // ── Language change status (used by settings page) ────────────
 
@@ -1226,15 +1082,7 @@ function initializeApplication() {
 
     let fullLog      = [];
     let clearUrlsData = null;
-    window.currentPage = 1;
-    window.sortOrder   = 'desc';
 
-    const tbody              = document.getElementById('tbody');
-    const searchInput        = document.getElementById('search_input');
-    const lengthSelect       = document.getElementById('length_select');
-    const paginationInfo     = document.getElementById('pagination-info');
-    const paginationControls = document.getElementById('pagination-controls');
-    const timeSortBtn        = document.getElementById('time-sort-btn');
     const statsChartReload   = document.getElementById('stats-chart-reload');
     const statsChartCanvas   = document.getElementById('stats-chart-canvas');
     const statsChartTooltip  = document.getElementById('stats-chart-tooltip');
@@ -1253,17 +1101,6 @@ function initializeApplication() {
     });
 
     window.addEventListener('resize', rerenderChartWhenVisible);
-
-    // Sort toggle
-    if (timeSortBtn) {
-        timeSortBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            window.sortOrder = window.sortOrder === 'desc' ? 'asc' : 'desc';
-            updateSortButton(window.sortOrder);
-            window.currentPage = 1;
-            renderTable();
-        });
-    }
 
     // Chart reload
     if (statsChartReload) {
@@ -1318,178 +1155,12 @@ function initializeApplication() {
         });
     }
 
-    // ── Render table ───────────────────────────────────────────
-
-    function renderTable() {
-        showLoading(true);
-        setTimeout(() => {
-            LinkumoriI18n.ready().then(() => {
-                try {
-                    _doRenderTable();
-                    showLoading(false);
-                    saveState();
-                } catch (error) {
-                    showLoading(false);
-                    handleError(error);
-                    showErrorMessage(translate('error_rendering_table'));
-                }
-            }).catch(() => {
-                try {
-                    _doRenderTable();
-                    showLoading(false);
-                    saveState();
-                } catch (fallbackError) {
-                    showLoading(false);
-                    handleError(fallbackError);
-                    showErrorMessage(translate('error_rendering_table'));
-                }
-            });
-        }, 10);
-    }
-
-    function _doRenderTable() {
-        const sortedLog   = sortLogByTime(fullLog, window.sortOrder);
-        const searchTerm  = searchInput.value.toLowerCase();
-        const filteredLog = searchTerm
-            ? sortedLog.filter(entry => getLogSearchBlob(entry, clearUrlsData).includes(searchTerm))
-            : sortedLog;
-
-        const itemsPerPage = parseInt(lengthSelect.value, 10);
-        const totalItems   = filteredLog.length;
-        const totalPages   = Math.ceil(totalItems / itemsPerPage) || 1;
-        if (window.currentPage > totalPages) window.currentPage = totalPages;
-
-        const startIndex   = (window.currentPage - 1) * itemsPerPage;
-        const endIndex     = startIndex + itemsPerPage;
-        const paginatedLog = itemsPerPage === -1 ? filteredLog : filteredLog.slice(startIndex, endIndex);
-
-        tbody.innerHTML = '';
-        if (paginatedLog.length === 0) {
-            const row  = tbody.insertRow();
-            row.className = 'empty-row';
-            const cell = row.insertCell(0);
-            cell.colSpan = 8;
-            cell.textContent = searchTerm
-                ? translate('datatable_zero_records')
-                : translate('datatable_empty_table');
-        } else {
-            paginatedLog.forEach(log => {
-                const context = resolveLogContext(log, clearUrlsData);
-                const row = tbody.insertRow();
-                row.insertCell(0).textContent = log.before;
-                row.insertCell(1).textContent = log.after;
-                row.insertCell(2).textContent = log.rule;
-                row.insertCell(3).textContent = context.providerName || '-';
-                row.insertCell(4).textContent = getPatternText(context);
-                row.insertCell(5).textContent = getMethodText(context);
-                row.insertCell(6).textContent = getResourceTypeText(context);
-                row.insertCell(7).textContent = toDate(log.timestamp);
-            });
-        }
-
-        if (itemsPerPage !== -1) {
-            renderPagination(totalItems, totalPages, startIndex, Math.min(endIndex, totalItems));
-        } else {
-            paginationInfo.textContent = translate('datatable_showing_all', [localizeNumber(totalItems)]);
-            paginationControls.innerHTML = '';
-        }
-    }
-
-    // ── Render pagination ──────────────────────────────────────
-
-    function renderPagination(totalItems, totalPages, startIndex, endIndex) {
-        LinkumoriI18n.ready().then(() => {
-            if (totalItems === 0) {
-                paginationInfo.textContent = translate('datatable_info_empty');
-            } else {
-                paginationInfo.textContent = translate('datatable_showing_entries', [
-                    localizeNumber(startIndex + 1),
-                    localizeNumber(Math.min(endIndex, totalItems)),
-                    localizeNumber(totalItems)
-                ]);
-            }
-
-            paginationControls.innerHTML = '';
-            if (totalPages <= 1) return;
-
-            const containerWidth = paginationControls.offsetWidth || window.innerWidth;
-            let maxButtons = 7;
-            if (containerWidth < 480) maxButtons = 3;
-            else if (containerWidth < 768) maxButtons = 5;
-
-            const mkBtn = (label, cb, aria, dtIdx) => {
-                const b = createPaginationButton(label, cb);
-                if (aria)  b.setAttribute('aria-label', aria);
-                if (dtIdx) b.setAttribute('data-dt-idx', dtIdx);
-                return b;
-            };
-
-            const firstBtn = mkBtn(translate('pagination_first'), () => {
-                if (window.currentPage > 1) { window.currentPage = 1; renderTable(); }
-            }, translate('pagination_first_aria'), 'first');
-            if (window.currentPage === 1) firstBtn.disabled = true;
-            paginationControls.appendChild(firstBtn);
-
-            const prevBtn = mkBtn(translate('pagination_previous'), () => {
-                if (window.currentPage > 1) { window.currentPage--; renderTable(); }
-            }, translate('pagination_previous_aria'), 'previous');
-            if (window.currentPage === 1) prevBtn.disabled = true;
-            paginationControls.appendChild(prevBtn);
-
-            getPageNumbers(totalPages, window.currentPage, maxButtons).forEach(page => {
-                if (page === '...') {
-                    const ellipsis = document.createElement('span');
-                    ellipsis.textContent = '…';
-                    ellipsis.className = 'pagination-ellipsis';
-                    ellipsis.setAttribute('aria-hidden', 'true');
-                    paginationControls.appendChild(ellipsis);
-                } else {
-                    const pageBtn = mkBtn(page, () => {
-                        if (window.currentPage !== page) { window.currentPage = page; renderTable(); }
-                    }, translate('pagination_page_aria', [localizeNumber(page)]), page);
-                    if (page === window.currentPage) {
-                        pageBtn.classList.add('active');
-                        pageBtn.disabled = true;
-                        pageBtn.setAttribute('aria-current', 'page');
-                        pageBtn.setAttribute('aria-label', translate('pagination_current_page_aria', [localizeNumber(page)]));
-                    }
-                    paginationControls.appendChild(pageBtn);
-                }
-            });
-
-            const nextBtn = mkBtn(translate('pagination_next'), () => {
-                if (window.currentPage < totalPages) { window.currentPage++; renderTable(); }
-            }, translate('pagination_next_aria'), 'next');
-            if (window.currentPage === totalPages) nextBtn.disabled = true;
-            paginationControls.appendChild(nextBtn);
-
-            const lastBtn = mkBtn(translate('pagination_last'), () => {
-                if (window.currentPage < totalPages) { window.currentPage = totalPages; renderTable(); }
-            }, translate('pagination_last_aria'), 'last');
-            if (window.currentPage === totalPages) lastBtn.disabled = true;
-            paginationControls.appendChild(lastBtn);
-        });
-    }
-
-    // ── Event listeners (static log) ──────────────────────────
+    // ── Event listeners (stored log) ──────────────────────────
 
     document.getElementById('reset_log_btn').addEventListener('click', resetGlobalLog);
-    document.getElementById('export_log_btn').addEventListener('click', exportGlobalLog);
     document.getElementById('importLog').addEventListener('change', importGlobalLog);
 
-    searchInput.addEventListener('input', () => {
-        window.currentPage = 1;
-        renderTable();
-    });
-    lengthSelect.addEventListener('change', () => {
-        window.currentPage = 1;
-        renderTable();
-    });
-
     // ── Initial data fetch ─────────────────────────────────────
-
-    const stateRestored = loadState();
-    updateSortButton(window.sortOrder);
 
     Promise.all([
         browser.runtime.sendMessage({ function: 'getData', params: ['log'] }),
@@ -1498,17 +1169,12 @@ function initializeApplication() {
         fullLog       = (logData?.response && Array.isArray(logData.response.log)) ? logData.response.log : [];
         clearUrlsData = rulesData?.response || null;
         renderOverallStats(fullLog, clearUrlsData);
-        if (stateRestored) {
-            const ipp     = parseInt(lengthSelect.value, 10);
-            const maxPages = ipp !== -1 ? Math.ceil(fullLog.length / ipp) : 1;
-            if (window.currentPage > maxPages) window.currentPage = Math.max(1, maxPages);
-        }
-        renderTable();
+        // The logs view uses the rules to name providers on older entries.
+        setLoggerRulesData(clearUrlsData);
     }).catch(error => {
         handleError(error);
         fullLog = []; clearUrlsData = null;
         renderOverallStats(fullLog, clearUrlsData);
-        renderTable();
         LinkumoriI18n.ready()
             .then(() => showErrorMessage(translate('error_loading_data')))
             .catch(()  => showErrorMessage(translate('error_loading_data')));
@@ -1548,13 +1214,19 @@ function formatTime(ts) {
 
 let allEntries      = [];
 let filteredEntries = [];
-let paused          = false;
 let autoScroll      = true;
 let selectedIndex   = -1;
 let filterText      = '';
 let selectedTabId   = 'all';
 let port            = null;
 let loggingEnabled  = false;
+let loggerRulesData = null;
+let actionFilter    = 'all';
+let typeFilter      = 'all';
+let groupByRule     = false;
+let selectedGroupKey = null;
+let groupRenderTimer = null;
+const seenTypes     = new Set();
 
 const MAX_ENTRIES = 5000;
 
@@ -1562,8 +1234,33 @@ const MAX_ENTRIES = 5000;
 
 // Populated in initLogger() after DOM is ready
 let logTbody, emptyState, statusBar, footerStatus, liveDot,
-    btnPause, btnClear, btnScroll, filterInput, tabFilter,
-    logScroll, detailPanel, detailInner, detailClose, loggingBanner;
+    btnLogging, btnClear, btnScroll, filterInput, tabFilter,
+    logScroll, detailPanel, detailInner, detailClose, loggingBanner,
+    btnGroup, btnCopySummary, btnExportLive, actionFilterSelect, typeFilterSelect,
+    logTable, groupTable, groupTbody, detailActions, detailTitle, toolbarStatus;
+
+// Translation with an English fallback. A missing key comes back as the
+// key itself, so treat that as missing too. $1, $2… take subs.
+function lt(key, fallback, subs = []) {
+    let msg = '';
+    try {
+        msg = LinkumoriI18n.getMessage(key, subs);
+    } catch (_) {
+        msg = '';
+    }
+    if (msg && msg !== key) return msg;
+    return String(fallback || key).replace(/\$(\d+)/g, (match, n) => {
+        const value = subs[Number(n) - 1];
+        return value === undefined ? match : String(value);
+    });
+}
+
+function applyLoggerExtraText() {
+    document.querySelectorAll('[data-logger-text]').forEach(node => {
+        if (!node.dataset.loggerFallback) node.dataset.loggerFallback = node.textContent.trim();
+        node.textContent = lt(node.dataset.loggerText, node.dataset.loggerFallback);
+    });
+}
 
 // ── HTML escaping ─────────────────────────────────────────────
 
@@ -1579,16 +1276,16 @@ function esc(str) {
 
 function matchesFilter(entry, filter) {
     if (!filter) return true;
-    const lower = filter.toLowerCase();
-    return (
-        (entry.before        || '').toLowerCase().includes(lower) ||
-        (entry.after         || '').toLowerCase().includes(lower) ||
-        (entry.rule          || '').toLowerCase().includes(lower) ||
-        (entry.providerName  || '').toLowerCase().includes(lower) ||
-        (entry.patternValue  || '').toLowerCase().includes(lower) ||
-        (entry.requestType   || '').toLowerCase().includes(lower) ||
-        (entry.requestMethod || '').toLowerCase().includes(lower)
-    );
+    return getLogSearchBlob(entry, loggerRulesData).includes(filter.toLowerCase());
+}
+
+// Rules arrive after the first render; re-render so older entries
+// without a provider get one inferred.
+function setLoggerRulesData(rulesData) {
+    loggerRulesData = rulesData || null;
+    if (!logTbody) return;
+    applyFilter();
+    renderAll();
 }
 
 function matchesTabFilter(entry) {
@@ -1596,22 +1293,108 @@ function matchesTabFilter(entry) {
     return entry.tabId === selectedTabId;
 }
 
+function matchesActionFilter(entry) {
+    return actionFilter === 'all' || classifyEntry(entry) === actionFilter;
+}
+
+function matchesTypeFilter(entry) {
+    return typeFilter === 'all' || (entry.requestType || '') === typeFilter;
+}
+
+function matchesAllFilters(entry) {
+    return matchesFilter(entry, filterText) && matchesTabFilter(entry) &&
+        matchesActionFilter(entry) && matchesTypeFilter(entry);
+}
+
+function isFiltered() {
+    return !!filterText || selectedTabId !== 'all' || actionFilter !== 'all' || typeFilter !== 'all';
+}
+
 function applyFilter() {
-    filteredEntries = allEntries.filter(
-        e => matchesFilter(e, filterText) && matchesTabFilter(e)
-    );
+    filteredEntries = allEntries.filter(matchesAllFilters);
+}
+
+// Keep the Type filter in step with the resource types seen so far.
+function noteEntryType(entry) {
+    const type = entry?.requestType;
+    if (!type || seenTypes.has(type) || !typeFilterSelect) return;
+    seenTypes.add(type);
+    const options = [...seenTypes].sort();
+    const current = typeFilterSelect.value;
+    while (typeFilterSelect.options.length > 1) typeFilterSelect.remove(1);
+    options.forEach(value => {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = value;
+        typeFilterSelect.appendChild(opt);
+    });
+    typeFilterSelect.value = options.includes(current) ? current : 'all';
+}
+
+// ── Rule identity (same shape the popup troubleshooter uses) ──
+
+function entryRuleIdentity(entry) {
+    if (!entry || (!entry.matchedRuleId && !entry.matchedRuleDisableId && !entry.providerName)) return null;
+    return {
+        runtimeRuleId: entry.matchedRuleId || '',
+        disableId: entry.matchedRuleDisableId || '',
+        ruleId: entry.rule || '',
+        providerName: entry.providerName || '',
+        section: entry.matchedRuleSection || '',
+        patternType: entry.patternType || '',
+        patternValue: entry.patternValue || ''
+    };
+}
+
+function entryGroupKey(entry) {
+    return [entry.matchedRuleId || entry.matchedRuleDisableId || entry.rule || '',
+        entry.providerName || ''].join('\u0000');
+}
+
+// One group per rule, in order of last hit (newest first).
+function buildGroups(entries) {
+    const groups = new Map();
+    entries.forEach(entry => {
+        const key = entryGroupKey(entry);
+        let group = groups.get(key);
+        if (!group) {
+            group = {
+                key,
+                rule: entry.rule || '',
+                providerName: entry.providerName || '',
+                identity: entryRuleIdentity(entry),
+                entries: [],
+                actions: new Set(),
+                types: new Set(),
+                tabs: new Set(),
+                lastSeen: 0
+            };
+            groups.set(key, group);
+        }
+        // Prefer the pattern key (what the engine actually switches) for the toggle.
+        if (group.identity && entry.matchedRuleDisableId && !group.identity.disableId) {
+            group.identity = entryRuleIdentity(entry);
+        }
+        group.entries.push(entry);
+        group.actions.add(classifyEntry(entry));
+        if (entry.requestType) group.types.add(entry.requestType);
+        if (typeof entry.tabId === 'number' && entry.tabId >= 0) group.tabs.add(entry.tabId);
+        group.lastSeen = Math.max(group.lastSeen, entry.timestamp || 0);
+    });
+    return [...groups.values()].sort((a, b) => b.lastSeen - a.lastSeen);
 }
 
 // ── Row rendering ─────────────────────────────────────────────
 
 function buildRow(entry, index) {
+    const context  = resolveLogContext(entry, loggerRulesData);
     const action   = classifyEntry(entry);
     const url      = entry.before || '';
     const rule     = String(entry.rule || '').replace(/^log_/, '');
-    const provider = entry.providerName  || '';
-    const pattern  = entry.patternValue  || '';
-    const type     = entry.requestType   || '';
-    const method   = (entry.requestMethod || '').toUpperCase();
+    const provider = context.providerName || '';
+    const pattern  = context.patternValue  || '';
+    const type     = context.requestType   || '';
+    const method   = (context.requestMethod || '').toUpperCase();
 
     const tr = document.createElement('tr');
     tr.className   = `action-${action}`;
@@ -1633,6 +1416,10 @@ function buildRow(entry, index) {
 // ── Full re-render ────────────────────────────────────────────
 
 function renderAll() {
+    if (groupByRule) {
+        renderGroups();
+        return;
+    }
     logTbody.innerHTML = '';
     selectedIndex = -1;
     detailPanel.classList.remove('open');
@@ -1650,7 +1437,11 @@ function renderAll() {
 // ── Append single live row ────────────────────────────────────
 
 function appendRow(entry) {
-    if (!matchesFilter(entry, filterText) || !matchesTabFilter(entry)) return;
+    if (!matchesAllFilters(entry)) return;
+    if (groupByRule) {
+        scheduleGroupRender();
+        return;
+    }
 
     if (logTbody.children.length >= MAX_ENTRIES) {
         logTbody.removeChild(logTbody.firstChild);
@@ -1705,7 +1496,271 @@ function selectRow(index, trEl) {
         </div>
     `).join('');
 
+    if (detailTitle) detailTitle.textContent = t('logger_detail_title', 'Entry detail');
+    renderRuleActions(entryRuleIdentity(entry), entry);
     detailPanel.classList.add('open');
+}
+
+// ── Grouped view ──────────────────────────────────────────────
+
+function scheduleGroupRender() {
+    if (groupRenderTimer) return;
+    groupRenderTimer = setTimeout(() => {
+        groupRenderTimer = null;
+        renderGroups();
+    }, 250);
+}
+
+function renderGroups() {
+    const groups = buildGroups(filteredEntries);
+    const frag = document.createDocumentFragment();
+    groups.forEach(group => {
+        const actions = [...group.actions];
+        const tr = document.createElement('tr');
+        tr.className = `action-${actions[0] || 'info'}`;
+        if (group.key === selectedGroupKey) tr.classList.add('selected');
+        const rule = String(group.rule || '').replace(/^log_/, '');
+        tr.innerHTML = `
+            <td title="${esc(group.rule)}">${esc(rule)}</td>
+            <td title="${esc(group.providerName)}">${esc(group.providerName)}</td>
+            <td class="cell-hits">${esc(localizeNumber(group.entries.length))}</td>
+            <td>${actions.map(action => `<span class="badge badge-${action}">${esc(action)}</span>`).join(' ')}</td>
+            <td>${esc([...group.types].join(', '))}</td>
+            <td class="cell-time">${esc(formatTime(group.lastSeen))}</td>
+        `;
+        tr.addEventListener('click', () => selectGroup(group.key, tr));
+        frag.appendChild(tr);
+    });
+    groupTbody.replaceChildren(frag);
+
+    const selected = groups.find(group => group.key === selectedGroupKey);
+    if (selected) {
+        showGroupDetail(selected, false);
+    } else if (selectedGroupKey) {
+        selectedGroupKey = null;
+        detailPanel.classList.remove('open');
+    }
+    emptyState.classList.toggle('visible', groups.length === 0);
+    updateStatusBar();
+}
+
+function selectGroup(key, trEl) {
+    groupTbody.querySelectorAll('tr.selected').forEach(row => row.classList.remove('selected'));
+    if (selectedGroupKey === key) {
+        selectedGroupKey = null;
+        detailPanel.classList.remove('open');
+        return;
+    }
+    selectedGroupKey = key;
+    trEl.classList.add('selected');
+    const group = buildGroups(filteredEntries).find(item => item.key === key);
+    if (group) showGroupDetail(group, true);
+}
+
+let groupDetailSignature = '';
+
+function showGroupDetail(group, refreshActions) {
+    // Live updates re-run this; skip when nothing changed so the panel
+    // keeps its scroll position while the person reads the URLs.
+    const signature = `${group.key}\u0000${group.entries.length}\u0000${group.lastSeen}`;
+    if (!refreshActions && signature === groupDetailSignature && detailPanel.classList.contains('open')) return;
+    groupDetailSignature = signature;
+    const scrollTop = refreshActions ? 0 : detailPanel.scrollTop;
+    // Every URL the rule changed, newest first.
+    const all = group.entries.slice().reverse();
+    const changes = all.map(entry => {
+        const changed = entry.before !== entry.after;
+        return `<li><span class="${changed ? 'url-before' : 'url-same'}">${esc(entry.before)}</span>${changed && entry.after
+            ? `<br>→ <span class="url-after">${esc(entry.after)}</span>` : ''}</li>`;
+    }).join('');
+    const fields = [
+        ['logger_detail_rule', 'Rule', group.rule],
+        ['logger_detail_provider', 'Provider', group.providerName],
+        ['logger_col_hits', 'Hits', localizeNumber(group.entries.length)],
+        ['logger_detail_type', 'Type', [...group.types].join(', ')],
+        ['logger_detail_tabs', 'Tabs', localizeNumber(group.tabs.size)],
+        ['logger_col_last_seen', 'Last seen', group.lastSeen ? new Date(group.lastSeen).toLocaleString() : '']
+    ].filter(([, , val]) => val);
+    detailInner.innerHTML = fields.map(([key, fallback, val]) => `
+        <div class="detail-field">
+            <div class="detail-label">${esc(lt(key, fallback))}</div>
+            <div class="detail-value">${esc(val)}</div>
+        </div>
+    `).join('') + `
+        <div class="detail-field detail-wide">
+            <div class="detail-label">${esc(lt('logger_detail_all_urls', 'URLs ($1)',
+                [localizeNumber(all.length)]))}</div>
+            <ul class="detail-value detail-changes">${changes}</ul>
+        </div>
+    `;
+    if (detailTitle) detailTitle.textContent = lt('logger_detail_group_title', 'Rule detail');
+    if (refreshActions || !detailActions.childElementCount) {
+        renderRuleActions(group.identity, group.entries[group.entries.length - 1]);
+    }
+    detailPanel.classList.add('open');
+    detailPanel.scrollTop = scrollTop;
+}
+
+function setGroupByRule(enabled) {
+    groupByRule = enabled;
+    btnGroup.classList.toggle('active', enabled);
+    btnGroup.setAttribute('aria-pressed', String(enabled));
+    logTable.style.display = enabled ? 'none' : '';
+    groupTable.style.display = enabled ? '' : 'none';
+    selectedIndex = -1;
+    selectedGroupKey = null;
+    detailPanel.classList.remove('open');
+    if (enabled) {
+        logTbody.innerHTML = '';
+        renderGroups();
+    } else {
+        groupTbody.innerHTML = '';
+        renderAll();
+    }
+}
+
+// ── Rule actions (switch off/on, report) ──────────────────────
+
+async function sendLoggerMessage(functionName, params) {
+    const response = await browser.runtime.sendMessage({ function: functionName, params });
+    if (response?.error) throw new Error(response.error);
+    return response?.response;
+}
+
+let ruleActionsToken = 0;
+
+async function renderRuleActions(identity, entry) {
+    const token = ++ruleActionsToken;
+    detailActions.replaceChildren();
+    const report = document.createElement('button');
+    report.type = 'button';
+    report.className = 'btn btn-secondary';
+    report.textContent = lt('logger_report_rule', 'Report it');
+    report.addEventListener('click', () => openRuleReport(entry).catch(handleError));
+
+    if (!identity) {
+        detailActions.append(report);
+        return;
+    }
+    let state = null;
+    try {
+        state = await sendLoggerMessage('getTroubleshooterRuleState', [identity]);
+    } catch (_) {
+        state = null;
+    }
+    if (token !== ruleActionsToken) return;
+    if (!state?.available) {
+        const note = document.createElement('span');
+        note.className = 'detail-rule-state';
+        note.textContent = lt('logger_rule_unavailable', 'This rule cannot be switched from here.');
+        detailActions.append(note, report);
+        return;
+    }
+    const label = document.createElement('span');
+    label.className = `detail-rule-state${state.enabled ? '' : ' state-off'}`;
+    label.textContent = state.enabled
+        ? lt('logger_rule_on', 'Rule is on')
+        : lt('logger_rule_off', 'Rule is switched off');
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = state.enabled ? 'btn btn-danger' : 'btn btn-success';
+    toggle.textContent = state.enabled
+        ? lt('logger_rule_disable', 'Switch rule off')
+        : lt('logger_rule_enable', 'Switch rule on');
+    toggle.addEventListener('click', async () => {
+        toggle.disabled = true;
+        try {
+            const result = await sendLoggerMessage('setTroubleshooterRuleEnabled', [identity, !state.enabled]);
+            if (!result?.success) throw new Error(result?.error || '');
+            setToolbarStatus(state.enabled
+                ? lt('logger_rule_disabled_done', 'Rule $1 switched off. Reload the page to check.', [state.label || identity.ruleId])
+                : lt('logger_rule_enabled_done', 'Rule $1 switched back on.', [state.label || identity.ruleId]));
+        } catch (error) {
+            setToolbarStatus(error?.message || lt('logger_rule_failed', 'Could not change the rule.'));
+        }
+        if (token === ruleActionsToken) renderRuleActions(identity, entry);
+    });
+    detailActions.append(label, toggle, report);
+}
+
+async function openRuleReport(entry) {
+    if (!entry) return;
+    let pageUrl = entry.before || '';
+    if (typeof entry.tabId === 'number' && entry.tabId >= 0) {
+        try {
+            const tab = await browser.tabs.get(entry.tabId);
+            if (tab?.url) pageUrl = tab.url;
+        } catch (_) {
+            // The tab may have closed.
+        }
+    }
+    const reportUrl = new URL(browser.runtime.getURL('html/report.html'));
+    if (pageUrl) reportUrl.searchParams.set('url', pageUrl);
+    if (entry.before) reportUrl.searchParams.set('affectedUrl', entry.before);
+    if (entry.rule) reportUrl.searchParams.set('affectedRule', entry.rule);
+    if (entry.providerName) reportUrl.searchParams.set('affectedProvider', entry.providerName);
+    reportUrl.searchParams.set('troubleshooterContext',
+        `Live logger: rule ${entry.rule || ''}${entry.providerName ? ` (${entry.providerName})` : ''} changed ${entry.before || ''}`.slice(0, 1500));
+    await browser.tabs.create({ url: reportUrl.toString() });
+}
+
+// ── Copy summary / export ─────────────────────────────────────
+
+let toolbarStatusTimer = null;
+
+function setToolbarStatus(text) {
+    if (!toolbarStatus) return;
+    toolbarStatus.textContent = text;
+    clearTimeout(toolbarStatusTimer);
+    toolbarStatusTimer = setTimeout(() => { toolbarStatus.textContent = ''; }, 6000);
+}
+
+function describeFilters() {
+    const parts = [];
+    if (filterText) parts.push(`text "${filterText}"`);
+    if (selectedTabId !== 'all') parts.push(`tab ${selectedTabId}`);
+    if (actionFilter !== 'all') parts.push(`action ${actionFilter}`);
+    if (typeFilter !== 'all') parts.push(`type ${typeFilter}`);
+    return parts.join(', ');
+}
+
+function buildLoggerSummary() {
+    const groups = buildGroups(filteredEntries);
+    const filters = describeFilters();
+    const lines = [`Linkumori live logger — ${filteredEntries.length} entr${filteredEntries.length === 1 ? 'y' : 'ies'}, ${groups.length} rule(s)${filters ? ` (filtered: ${filters})` : ''}`, ''];
+    groups.forEach(group => {
+        const last = group.entries[group.entries.length - 1];
+        lines.push(`- ${group.rule}${group.providerName ? ` [${group.providerName}]` : ''}: ${group.entries.length} hit(s), ${[...group.actions].join('/')}${group.types.size ? `, ${[...group.types].join(', ')}` : ''}`);
+        if (last?.before) lines.push(`    ${last.before}${last.after && last.after !== last.before ? ` → ${last.after}` : ''}`);
+    });
+    return lines.join('\n');
+}
+
+async function copyLoggerSummary() {
+    try {
+        await navigator.clipboard.writeText(buildLoggerSummary());
+        setToolbarStatus(lt('logger_summary_copied', 'Summary copied.'));
+    } catch (error) {
+        setToolbarStatus(lt('logger_summary_copy_failed', 'Could not copy the summary.'));
+    }
+}
+
+function exportLiveEntries() {
+    // Same shape as the stored log ({ log: [...] }), so Import reads it back.
+    const payload = {
+        log: filteredEntries,
+        exportedAt: new Date().toISOString(),
+        source: 'Linkumori logs',
+        filters: { text: filterText, tab: selectedTabId, action: actionFilter, type: typeFilter }
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+    browser.downloads.download({
+        url: URL.createObjectURL(blob),
+        filename: `linkumori-log-${stamp}.json`,
+        saveAs: true
+    }).then(() => setToolbarStatus(lt('logger_exported', 'Exported $1 entries.', [localizeNumber(filteredEntries.length)])))
+        .catch(handleError);
 }
 
 // ── Logger helpers ────────────────────────────────────────────
@@ -1722,28 +1777,60 @@ function updateStatusBar() {
     const total = allEntries.length;
     const shown = filteredEntries.length;
     const label = t('logger_status_entries', 'entries');
-    statusBar.textContent   = (filterText || selectedTabId !== 'all')
+    statusBar.textContent   = isFiltered()
         ? `${shown} / ${total} ${label}`
         : `${total} ${label}`;
+    if (groupByRule) {
+        statusBar.textContent += ` · ${lt('logger_status_rules', '$1 rule(s)', [localizeNumber(buildGroups(filteredEntries).length)])}`;
+    }
     footerStatus.textContent = statusBar.textContent;
 }
 
 function updateLiveDot() {
-    liveDot.classList.toggle('paused',       paused);
+    liveDot.classList.toggle('paused',       !loggingEnabled);
     liveDot.classList.toggle('disconnected', port === null);
 }
 
-function updateBtnPause() {
-    if (paused) {
-        setLoggerButtonIcon(btnPause, 'play');
-        setLoggerButtonLabel(btnPause, 'logger_btn_resume', 'Resume');
-        btnPause.classList.remove('btn-primary');
-        btnPause.classList.add('btn-secondary', 'active');
+// The logging button shows and switches the global logging preference
+// (the same one as the popup's Logging switch).
+function updateBtnLogging() {
+    if (!btnLogging) return;
+    btnLogging.setAttribute('aria-pressed', String(loggingEnabled));
+    if (loggingEnabled) {
+        setLoggerButtonIcon(btnLogging, 'stop');
+        btnLogging.querySelector('.btn-label').textContent = lt('logger_btn_logging_on', 'Logging on');
+        btnLogging.title = lt('logger_btn_logging_on_title', 'Logging is on. Click to switch it off.');
+        btnLogging.classList.remove('btn-secondary');
+        btnLogging.classList.add('btn-primary');
     } else {
-        setLoggerButtonIcon(btnPause, 'pause');
-        setLoggerButtonLabel(btnPause, 'logger_btn_pause', 'Pause');
-        btnPause.classList.remove('btn-secondary', 'active');
-        btnPause.classList.add('btn-primary');
+        setLoggerButtonIcon(btnLogging, 'record');
+        btnLogging.querySelector('.btn-label').textContent = lt('logger_btn_logging_off', 'Logging off');
+        btnLogging.title = lt('logger_btn_logging_off_title', 'Logging is off. Click to switch it on.');
+        btnLogging.classList.remove('btn-primary');
+        btnLogging.classList.add('btn-secondary');
+    }
+    btnLogging.setAttribute('aria-label', btnLogging.title);
+}
+
+function setLoggingEnabled(enabled) {
+    loggingEnabled = !!enabled;
+    updateBtnLogging();
+    updateLiveDot();
+    updateLoggingBanner();
+}
+
+async function toggleLogging() {
+    const next = !loggingEnabled;
+    btnLogging.disabled = true;
+    try {
+        await browser.runtime.sendMessage({ function: 'setData', params: ['loggingStatus', next] });
+        browser.runtime.sendMessage({ function: 'saveOnExit', params: [] }).catch(() => {});
+        setLoggingEnabled(next);
+    } catch (error) {
+        handleError(error);
+        setToolbarStatus(lt('logger_logging_toggle_failed', 'Could not change the logging setting.'));
+    } finally {
+        btnLogging.disabled = false;
     }
 }
 
@@ -1767,18 +1854,16 @@ function updateLoggingBanner() {
 // ── Logger toolbar event listeners ───────────────────────────
 
 function bindLoggerToolbarEvents() {
-    btnPause.addEventListener('click', () => {
-        paused = !paused;
-        updateBtnPause();
-        updateLiveDot();
-    });
+    btnLogging.addEventListener('click', toggleLogging);
 
     btnClear.addEventListener('click', () => {
         allEntries      = [];
         filteredEntries = [];
         selectedIndex   = -1;
+        selectedGroupKey = null;
         detailPanel.classList.remove('open');
         logTbody.innerHTML = '';
+        groupTbody.innerHTML = '';
         updateEmptyState();
         updateStatusBar();
     });
@@ -1802,6 +1887,22 @@ function bindLoggerToolbarEvents() {
         renderAll();
     });
 
+    actionFilterSelect.addEventListener('change', () => {
+        actionFilter = actionFilterSelect.value;
+        applyFilter();
+        renderAll();
+    });
+
+    typeFilterSelect.addEventListener('change', () => {
+        typeFilter = typeFilterSelect.value;
+        applyFilter();
+        renderAll();
+    });
+
+    btnGroup.addEventListener('click', () => setGroupByRule(!groupByRule));
+    btnCopySummary.addEventListener('click', copyLoggerSummary);
+    btnExportLive.addEventListener('click', exportLiveEntries);
+
     // Disable auto-scroll when user scrolls up manually
     logScroll.addEventListener('scroll', () => {
         const nearBottom = logScroll.scrollHeight - logScroll.scrollTop - logScroll.clientHeight < 40;
@@ -1815,7 +1916,9 @@ function bindLoggerToolbarEvents() {
         detailPanel.classList.remove('open');
         const prev = logTbody.querySelector('tr.selected');
         if (prev) prev.classList.remove('selected');
+        groupTbody.querySelectorAll('tr.selected').forEach(row => row.classList.remove('selected'));
         selectedIndex = -1;
+        selectedGroupKey = null;
     });
 }
 
@@ -1876,17 +1979,15 @@ function connectPort() {
 
     port.onMessage.addListener(msg => {
         if (!msg || msg.type !== 'entry') return;
-        if (paused) return;
 
         const entry = msg.data;
+        noteEntryType(entry);
         allEntries.push(entry);
-        filteredEntries.push(entry);
+        if (matchesAllFilters(entry)) filteredEntries.push(entry);
 
         if (allEntries.length > MAX_ENTRIES) {
             allEntries.shift();
-            filteredEntries = allEntries.filter(
-                e => matchesFilter(e, filterText) && matchesTabFilter(e)
-            );
+            applyFilter();
             renderAll();
         } else {
             appendRow(entry);
@@ -1909,13 +2010,13 @@ async function loadInitialLoggerData() {
             browser.runtime.sendMessage({ function: 'getData', params: ['loggingStatus'] }),
         ]);
 
-        loggingEnabled = !!statusResp?.response;
-        updateLoggingBanner();
+        setLoggingEnabled(!!statusResp?.response);
 
         const logData = logResp?.response;
         const entries = Array.isArray(logData?.log) ? logData.log : [];
 
         allEntries = entries;
+        entries.forEach(noteEntryType);
         applyFilter();
         renderAll();
     } catch (err) {
@@ -1932,7 +2033,7 @@ async function initLogger() {
     statusBar     = document.getElementById('status-bar');
     footerStatus  = document.getElementById('footer-status');
     liveDot       = document.getElementById('live-dot');
-    btnPause      = document.getElementById('btn-pause');
+    btnLogging    = document.getElementById('btn-logging');
     btnClear      = document.getElementById('btn-clear');
     btnScroll     = document.getElementById('btn-scroll');
     filterInput   = document.getElementById('filter-input');
@@ -1942,10 +2043,22 @@ async function initLogger() {
     detailInner   = document.getElementById('detail-panel-inner');
     detailClose   = document.getElementById('detail-close');
     loggingBanner = document.getElementById('logging-banner');
+    btnGroup           = document.getElementById('btn-group');
+    btnCopySummary     = document.getElementById('btn-copy-summary');
+    btnExportLive      = document.getElementById('btn-export-live');
+    actionFilterSelect = document.getElementById('action-filter');
+    typeFilterSelect   = document.getElementById('type-filter');
+    logTable           = document.getElementById('log-table');
+    groupTable         = document.getElementById('group-table');
+    groupTbody         = document.getElementById('group-tbody');
+    detailActions      = document.getElementById('detail-actions');
+    detailTitle        = document.getElementById('detail-title');
+    toolbarStatus      = document.getElementById('logger-toolbar-status');
+    applyLoggerExtraText();
 
     // i18n already applied by setI18nText() before initLogger() is called;
     // just sync the dynamic button states that depend on runtime variables.
-    updateBtnPause();
+    updateBtnLogging();
     updateBtnScroll();
     updateLiveDot();
     updateEmptyState();
@@ -1966,6 +2079,10 @@ if (typeof browser !== 'undefined' && browser.storage && browser.storage.onChang
             document.documentElement.setAttribute(
                 'data-theme', normalizeTheme(changes[THEME_STORAGE_KEY].newValue));
             syncBootstrapTheme(changes[THEME_STORAGE_KEY].newValue);
+        }
+        // Logging switched from the popup or settings.
+        if (changes.loggingStatus && btnLogging) {
+            setLoggingEnabled(!!changes.loggingStatus.newValue);
         }
     });
 }

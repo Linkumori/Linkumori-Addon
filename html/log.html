@@ -514,7 +514,7 @@
         .btn-danger { background: var(--button-danger); color: #ffffff; }
         .btn-danger:hover { background: var(--button-danger-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(220,38,38,0.3); }
 
-        /* btn-secondary — used by Live Logger (auto-scroll, pause-while-paused) */
+        /* btn-secondary — used by the logs view (auto-scroll, logging off) */
         .btn-secondary {
             background: var(--bg-tertiary);
             color: var(--text-primary);
@@ -1043,7 +1043,7 @@
             border-radius: 8px;
             background: var(--bg-secondary);
             margin-top: 16px;
-            max-height: 220px;
+            max-height: 60vh;
             overflow-y: auto;
             display: none;
             scrollbar-width: thin;
@@ -1083,6 +1083,25 @@
         .detail-value.url-before { color: #ef4444; }
         .detail-value.url-after  { color: #22c55e; }
         .detail-value.url-same   { color: var(--text-secondary); }
+
+        /* Live logger: rule actions and grouped view */
+        #detail-actions {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+            padding: 0 14px 12px;
+        }
+        #detail-actions:empty { display: none; }
+        #detail-actions .btn { padding: 6px 12px; font-size: 12px; }
+        .detail-rule-state { font-size: 12px; color: var(--text-secondary); }
+        .detail-rule-state.state-off { color: #ef4444; font-weight: 600; }
+        .detail-wide { grid-column: 1 / -1; }
+        .detail-changes { margin: 0; padding-left: 18px; }
+        .detail-changes li { margin-bottom: 4px; }
+        .detail-changes .url-before { color: #ef4444; }
+        .detail-changes .url-after  { color: #22c55e; }
+        .detail-changes .url-same   { color: var(--text-secondary); }
+        .cell-hits { font-variant-numeric: tabular-nums; font-weight: 600; }
+        #logger-toolbar-status { font-size: 12px; color: var(--text-muted); }
+        #logger-view .button-controls { flex-wrap: wrap; }
 
         /* ============================================================
            LOADING OVERLAY  (from log.html)
@@ -1206,7 +1225,7 @@
 
     <!-- ── Logging disabled banner (Live Logger only) ─────────────────── -->
     <div id="logging-banner" data-i18n="logger_logging_disabled_banner">
-        Logging is disabled — enable it in Settings to capture new entries.
+        Logging is off — switch it on with the Logging button to capture new entries.
     </div>
 
     <!-- ── Main container ─────────────────────────────────────────────── -->
@@ -1216,10 +1235,8 @@
         <nav class="view-nav" data-i18n-aria="logViewNavAriaLabel" aria-label="Log views">
             <button type="button" id="nav-dashboard" class="view-nav-btn active"
                     data-i18n="log_nav_dashboard"></button>
-            <button type="button" id="nav-logs" class="view-nav-btn"
-                    data-i18n="log_nav_logs"></button>
             <button type="button" id="nav-logger" class="view-nav-btn"
-                    data-i18n="logger_nav_label">Live Logger</button>
+                    data-i18n="log_nav_logs">Logs</button>
         </nav>
 
         <!-- ═══════════════════════════════════════════════════════════
@@ -1344,95 +1361,17 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             TAB 2 · LOGS (static, paginated)  (unchanged from log.html)
-        ═══════════════════════════════════════════════════════════ -->
-        <section id="logs-view" class="view-panel">
-            <div class="button-controls">
-                <button type="button" id="reset_log_btn" class="btn btn-danger"
-                        data-i18n-title="log_html_reset_button_title">
-                    <span id="reset_log_btn_text" data-i18n="log_html_reset_button"></span>
-                </button>
-                <button type="button" id="export_log_btn" class="btn btn-success"
-                        data-i18n-title="log_html_export_button_title">
-                    <span id="export_log_btn_text" data-i18n="log_html_export_button"></span>
-                </button>
-                <label id="import_log_btn" class="btn btn-success file-input-wrapper"
-                       data-i18n-title="log_html_import_button_title">
-                    <span id="import_log_btn_text" data-i18n="log_html_import_button"></span>
-                    <input type="file" name="file" id="importLog" accept=".json"/>
-                </label>
-            </div>
-
-            <div class="table-container">
-                <div class="table-controls">
-                    <div class="length-control">
-                        <label for="length_select" data-i18n="log_html_show_entries"></label>
-                        <select id="length_select">
-                            <option value="10">10</option>
-                            <option value="25" selected>25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            <option value="-1" data-i18n="log_html_show_all"></option>
-                        </select>
-                    </div>
-                    <div class="search-control">
-                        <label for="search_input" data-i18n="log_html_search"></label>
-                        <input type="text" id="search_input"
-                               data-i18n-placeholder="log_html_search_placeholder">
-                    </div>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="log-table" width="100%" id="logTable" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th id="head_1" data-i18n="log_html_table_head_1"></th>
-                                <th id="head_2" data-i18n="log_html_table_head_2"></th>
-                                <th id="head_3" data-i18n="log_html_table_head_3"></th>
-                                <th id="head_5" data-i18n="log_html_table_head_5"></th>
-                                <th id="head_6" data-i18n="log_html_table_head_6"></th>
-                                <th id="head_7" data-i18n="log_html_table_head_7"></th>
-                                <th id="head_8" data-i18n="log_html_table_head_8"></th>
-                                <th id="head_4" data-i18n="log_html_table_head_4">
-                                    <span class="sort-button" id="time-sort-btn">
-                                        <div class="sort-arrow up"></div>
-                                        <div class="sort-arrow down"></div>
-                                    </span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            <!-- Populated by log.js -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="pagination-footer">
-                    <div id="pagination-info" data-i18n="datatable_info_empty"></div>
-                    <div id="pagination-controls">
-                        <!-- Populated by log.js -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════════════════
-             TAB 3 · LIVE LOGGER
-             Identical structure to the Logs tab — same classes,
-             same CSS, same visual behaviour. Only the content differs.
+             TAB 2 · LOGS
+             The stored log plus new entries as they happen (live).
         ═══════════════════════════════════════════════════════════ -->
         <section id="logger-view" class="view-panel">
 
             <!-- Toolbar: live-dot + Pause / Clear / Auto-scroll -->
             <div class="button-controls">
                 <div id="live-dot"></div>
-                <button type="button" class="btn btn-primary" id="btn-pause" aria-label="Pause">
-                    <span class="btn-icon" aria-hidden="true">
-                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"></path>
-                        </svg>
-                    </span>
-                    <span class="btn-label">Pause</span>
+                <button type="button" class="btn btn-secondary" id="btn-logging" aria-pressed="false">
+                    <span class="btn-icon" aria-hidden="true"></span>
+                    <span class="btn-label">Logging off</span>
                 </button>
                 <button type="button" class="btn btn-danger" id="btn-clear" aria-label="Clear">
                     <span class="btn-icon" aria-hidden="true">
@@ -1450,6 +1389,40 @@
                     </span>
                     <span class="btn-label">Auto-scroll</span>
                 </button>
+                <button type="button" class="btn btn-secondary" id="btn-group" aria-pressed="false">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 5h18v2H3V5zm4 6h14v2H7v-2zm4 6h10v2H11v-2z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label" data-logger-text="logger_btn_group">Group by rule</span>
+                </button>
+                <button type="button" class="btn btn-secondary" id="btn-copy-summary">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label" data-logger-text="logger_btn_copy_summary">Copy summary</span>
+                </button>
+                <button type="button" class="btn btn-success" id="btn-export-live">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label" data-logger-text="logger_btn_export">Export</span>
+                </button>
+                <button type="button" id="reset_log_btn" class="btn btn-danger"
+                        data-i18n-title="log_html_reset_button_title">
+                    <span id="reset_log_btn_text" data-i18n="log_html_reset_button"></span>
+                </button>
+                <label id="import_log_btn" class="btn btn-success file-input-wrapper"
+                       data-i18n-title="log_html_import_button_title">
+                    <span id="import_log_btn_text" data-i18n="log_html_import_button"></span>
+                    <input type="file" name="file" id="importLog" accept=".json"/>
+                </label>
+                <span id="logger-toolbar-status" role="status" aria-live="polite"></span>
             </div>
 
             <div class="table-container">
@@ -1465,6 +1438,23 @@
                         <label for="tab-filter" data-i18n="logger_tab_filter_label">Tab</label>
                         <select id="tab-filter">
                             <option value="all" data-i18n="logger_tab_all">All tabs</option>
+                        </select>
+                    </div>
+                    <div class="length-control">
+                        <label for="action-filter" data-logger-text="logger_action_filter_label">Action</label>
+                        <select id="action-filter">
+                            <option value="all" data-logger-text="logger_filter_all">All</option>
+                            <option value="modified" data-logger-text="logger_action_modified">Modified</option>
+                            <option value="blocked" data-logger-text="logger_action_blocked">Blocked</option>
+                            <option value="redirected" data-logger-text="logger_action_redirected">Redirected</option>
+                            <option value="allowed" data-logger-text="logger_action_allowed">Allowed</option>
+                            <option value="info" data-logger-text="logger_action_info">Info</option>
+                        </select>
+                    </div>
+                    <div class="length-control">
+                        <label for="type-filter" data-logger-text="logger_type_filter_label">Type</label>
+                        <select id="type-filter">
+                            <option value="all" data-logger-text="logger_filter_all">All</option>
                         </select>
                     </div>
                     <span id="status-bar">0 entries</span>
@@ -1487,6 +1477,21 @@
                                 </tr>
                             </thead>
                             <tbody id="log-tbody"></tbody>
+                        </table>
+
+                        <!-- Grouped view: one row per rule (Group by rule) -->
+                        <table class="log-table" id="group-table" style="display: none;">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="logger_col_rule">Rule</th>
+                                    <th data-i18n="logger_col_provider">Provider</th>
+                                    <th data-logger-text="logger_col_hits">Hits</th>
+                                    <th data-i18n="logger_col_action">Action</th>
+                                    <th data-i18n="logger_col_type">Type</th>
+                                    <th data-logger-text="logger_col_last_seen">Last seen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="group-tbody"></tbody>
                         </table>
 
                         <div id="empty-state">
@@ -1513,6 +1518,7 @@
                     </button>
                 </div>
                 <div id="detail-panel-inner"></div>
+                <div id="detail-actions" aria-live="polite"></div>
             </div>
 
         </section>
