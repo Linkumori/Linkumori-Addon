@@ -45,10 +45,9 @@
     // locale files; a missing translation falls back to this text.
     const TS_TEXT = {
         launch: 'Troubleshoot this tab (experimental)',
-        back: 'Back',
+        nav_label: 'Troubleshoot',
         experimental: 'Experimental',
         experimental_warning: 'Experimental: this troubleshooter is not fully stable. Its results can be wrong, and it switches rules off while it tests. If something looks wrong afterwards, check your rules in the custom rules editor, or use Stop search to switch them back on.',
-        back_aria: 'Back to extension controls',
         title: 'Tab troubleshooter',
         page: 'Page',
         about_summary: 'How recording works',
@@ -1325,30 +1324,17 @@
 
     const panel = $('troubleshooterPanel');
     const mainContent = $('mainContent');
-    const navBar = $('popupNavBar');
     const openButton = $('openTroubleshooter');
-    const backButton = $('troubleshooterBack');
 
-    function openPanel(focusBack = true) {
+    // The Troubleshoot nav tab; Main and License close it (popup.js).
+    function openPanel() {
         if (!panel || !mainContent) return;
         mainContent.style.display = 'none';
         const license = $('licenseContent');
         if (license) license.style.display = 'none';
-        if (navBar) navBar.style.display = 'none';
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.toggle('active', item === openButton));
         panel.hidden = false;
-        if (focusBack) backButton?.focus();
         refresh();
-    }
-
-    function closePanel() {
-        if (!panel || !mainContent) return;
-        panel.hidden = true;
-        stopTimer();
-        if (navBar) navBar.style.display = '';
-        mainContent.style.display = '';
-        const license = $('licenseContent');
-        if (license) license.style.display = 'none';
-        openButton?.focus();
     }
 
     applyStaticText();
@@ -1361,7 +1347,6 @@
     }
 
     openButton?.addEventListener('click', () => openPanel());
-    backButton?.addEventListener('click', closePanel);
     $('troubleshooterRefresh')?.addEventListener('click', () => refresh({ fresh: true }));
     $('troubleshooterCopy')?.addEventListener('click', copySummary);
     $('troubleshooterExport')?.addEventListener('click', exportRecording);
@@ -1436,7 +1421,7 @@
             ]);
             const recording = !!capture?.response?.active;
             const phase = diagnosis?.response?.phase || 'idle';
-            if (recording || phase !== 'idle') openPanel(false);
+            if (recording || phase !== 'idle') openPanel();
         } catch (_) {
             // Stay on the main view.
         }

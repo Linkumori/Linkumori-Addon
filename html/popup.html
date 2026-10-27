@@ -1065,12 +1065,6 @@
             display: block;
         }
 
-        .troubleshooter-launch {
-            width: 100%;
-            min-height: 34px;
-            font-size: 12px;
-        }
-
         #troubleshooterPanel {
             display: flex;
             flex: 1;
@@ -1740,13 +1734,14 @@
         <button type="button" class="nav-item" id="navLicense" data-target="licenseContent">
             <span id="nav_license_label"></span>
         </button>
+        <button type="button" class="nav-item" id="openTroubleshooter" data-target="troubleshooterPanel" data-ts-title="launch">
+            <span data-ts="nav_label">Troubleshoot</span>
+        </button>
     </nav>
 
     <main id="main-content" tabindex="-1">
     <!-- Main Content -->
     <div id="mainContent">
-        <button type="button" id="openTroubleshooter" class="troubleshooter-launch" data-ts="launch">Troubleshoot this tab (experimental)</button>
-
         <div class="toggle-container">
             <div class="toggle-switch" id="globalStatus"></div>
             <span class="toggle-label" id="configs_switch_filter"></span>
@@ -1821,7 +1816,6 @@
 
     <section id="troubleshooterPanel" aria-labelledby="troubleshooterTitle" hidden>
         <div class="troubleshooter-heading-row">
-            <button type="button" id="troubleshooterBack" class="troubleshooter-back" data-ts="back" data-ts-aria="back_aria">Back</button>
             <h2 id="troubleshooterTitle" data-ts="title">Tab troubleshooter</h2>
             <span class="troubleshooter-experimental" data-ts="experimental">Experimental</span>
         </div>

@@ -996,7 +996,12 @@ function initializeNavigation() {
             // Add active class to clicked nav item
             navItem.classList.add('active');
             
-            // Show appropriate content
+            // Show appropriate content; the troubleshooter tab opens its
+            // own panel (popup_troubleshooter.js).
+            if (target !== 'troubleshooterPanel') {
+                const troubleshooterPanel = document.getElementById('troubleshooterPanel');
+                if (troubleshooterPanel) troubleshooterPanel.hidden = true;
+            }
             if (target === 'mainContent') {
                 showMainContent();
             } else if (target === 'licenseContent') {
