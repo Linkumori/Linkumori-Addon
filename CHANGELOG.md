@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.79.0] - 2026-10-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.78.0...linkumori-v100.79.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-28`, hash: [`18d69f7`](https://github.com/Linkumori/Linkumori-Addon/commit/18d69f7))
+- Updated canonical URL cleaning rules source (`2026-10-28`, hash: [`18d69f7`](https://github.com/Linkumori/Linkumori-Addon/commit/18d69f7))
+
 ## [v100.78.0] - 2026-10-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.77.0...linkumori-v100.78.0))
 ### Changed
 - Exempt samarth.edu.in from the global reference rule (`2026-10-27`, hash: [`812dfbf`](https://github.com/Linkumori/Linkumori-Addon/commit/812dfbf))
