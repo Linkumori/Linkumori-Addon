@@ -590,15 +590,15 @@
     "description": "FAQ question about completeProvider"
   },
   "faq_complete_provider_explanation": {
-    "message": "When set to true, completeProvider marks matching requests for blocking. Actual blocking happens only when the global \"Domain Blocking\" setting is enabled. When false, you can use normal rules, exceptions, and redirections.",
+    "message": "completeProvider: true blocks every request the provider matches, before any rule runs. Blocking only happens while \"Allow domain blocking\" is on in Settings. In a remote rule list, it also waits until you approve that list's block capability in Remote Rules Health.",
     "description": "FAQ answer explaining completeProvider"
   },
   "faq_complete_provider_usage": {
-    "message": "Most custom rules should set this to false and use specific parameter removal rules instead.",
+    "message": "Most providers leave completeProvider out (false) and remove parameters instead.",
     "description": "FAQ guidance on completeProvider usage"
   },
   "faq_complete_provider_warning": {
-    "message": "If Domain Blocking is enabled, this can block full access for matching URLs.",
+    "message": "This blocks the whole site or URL for every matching request, which can break pages.",
     "description": "FAQ warning about completeProvider"
   },
   "faq_complex_example": {
@@ -606,15 +606,15 @@
     "description": "FAQ question requesting complex example"
   },
   "faq_complex_example_explanation": {
-    "message": "This provider removes tracking parameters and fragments, handles redirects, but protects API, login, and checkout pages from modification.",
+    "message": "This provider removes tracking parameters and a path segment, rewrites a session token, unwraps redirect links, and leaves API, login and checkout pages alone.",
     "description": "FAQ explanation of complex example"
   },
   "faq_complex_example_intro": {
-    "message": "Here's an advanced provider with redirections and exceptions:",
+    "message": "Here's an advanced provider with raw rules, a rewrite, redirects and exceptions:",
     "description": "FAQ intro to complex example"
   },
   "faq_custom_rules_note": {
-    "message": "Custom rules run together with built-in rules and can override imported bundled/remote provider entries by name.",
+    "message": "Custom rules are applied last. A custom provider replaces every built-in or remote provider with the same domainPatterns or urlPattern; their rules are not combined. Other custom providers are added alongside them.",
     "description": "Note about custom rules precedence"
   },
   "faq_default_note": {
@@ -622,23 +622,23 @@
     "description": "Label for default behavior notes in FAQ"
   },
   "faq_domain_pattern_adblock": {
-    "message": "||example.com^ - Hostname match for example.com and its subdomains",
+    "message": "||example.com^ - example.com and every subdomain",
     "description": "FAQ explanation of AdBlock domain pattern"
   },
   "faq_domain_pattern_adblock_wildcard": {
-    "message": "||*.example.com^ - Hostname wildcard; each * matches one label (dot segment)",
+    "message": "||*.example.com^ - the same as ||example.com^",
     "description": "FAQ explanation of AdBlock wildcard pattern"
   },
   "faq_domain_pattern_basic": {
-    "message": "example.com - Simple substring match on full URL (can also match inside longer hostnames/paths)",
+    "message": "example.com - URLs that contain this text anywhere, which can also be inside a longer host name or path",
     "description": "FAQ explanation of basic domain pattern"
   },
   "faq_domain_pattern_full_wildcard": {
-    "message": "||*.example.*^ - Matches subdomains with wildcard TLDs, including multi-part TLDs (a.example.co.uk)",
+    "message": "||*.example.*^ - the same as ||example.*^",
     "description": "FAQ explanation of full wildcard pattern"
   },
   "faq_domain_pattern_tld": {
-    "message": "||example.*^ - Matches the domain with wildcard TLDs, including multi-part TLDs (example.co.uk, example.gov.in)",
+    "message": "||example.*^ - example on any public suffix, including multi-part ones (example.de, example.co.uk)",
     "description": "FAQ explanation of TLD wildcard domain pattern"
   },
   "faq_domain_pattern_types": {
@@ -646,7 +646,7 @@
     "description": "FAQ section title for domain pattern types"
   },
   "faq_domain_pattern_wildcard": {
-    "message": "*.example.com - Wildcard regex match on full URL, not strict hostname-only matching",
+    "message": "*.example.com - also a contains match, with * as a wildcard; use ||example.com^ for a domain",
     "description": "FAQ explanation of wildcard domain pattern"
   },
   "faq_domain_patterns": {
@@ -654,7 +654,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domain Patterns support simple tokens and AdBlock-style forms. When domainPatterns is non-empty, clearurls.js uses them for provider matching and lookup-token extraction before any urlPattern fallback:",
+    "message": "domainPatterns is a list of AdBlock-style patterns. A URL matches if any of them matches. Public suffixes are handled correctly, so ||example.*^ also covers example.co.uk:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_example": {
@@ -666,11 +666,11 @@
     "description": "FAQ question about exceptions"
   },
   "faq_exceptions_explanation": {
-    "message": "Exceptions match URLs where no processing should occur. Each entry is either a URL regex (for example ^https?:\\/\\/example\\.com\\/login) or a domain pattern starting with | (for example ||example.com^/login). If a URL matches an exception, all other rules of the provider are ignored.",
+    "message": "Exceptions list URLs the provider leaves alone. Each entry is a regex for the full URL (for example ^https?:\\/\\/example\\.com\\/login) or a domain pattern starting with | (for example ||example.com^/login). If a URL matches, none of the provider's rules run.",
     "description": "FAQ explanation of exceptions"
   },
   "faq_exceptions_usage": {
-    "message": "Use exceptions to protect login pages, API endpoints, or other sensitive URLs from being modified.",
+    "message": "Use exceptions to protect login pages, API endpoints or other URLs that break when cleaned. To skip one rule instead of the whole provider, give that rule its own exceptions.",
     "description": "FAQ guidance on exceptions usage"
   },
   "faq_force_redirection": {
@@ -678,15 +678,15 @@
     "description": "FAQ question about forceRedirection"
   },
   "faq_force_redirection_explanation": {
-    "message": "Some websites manipulate links through JavaScript, preventing normal redirections. forceRedirection writes the URL directly to the browser's main frame.",
+    "message": "Normally a redirect only changes the network request. With forceRedirection: true, a redirect on a page load (main_frame) makes the whole tab navigate to the new address.",
     "description": "FAQ explanation of forceRedirection"
   },
   "faq_force_redirection_usage": {
-    "message": "Enable this for websites like Google that use onClick handlers instead of direct href attributes.",
+    "message": "Use it when a site's redirect page doesn't follow a normal redirect, so the tab would otherwise stay on the tracking page.",
     "description": "FAQ guidance on forceRedirection usage"
   },
   "faq_force_redirection_warning": {
-    "message": "Only use when normal redirections fail, as this method is more intrusive.",
+    "message": "Only use it when normal redirections don't work, because it navigates the tab directly.",
     "description": "FAQ warning about forceRedirection"
   },
   "faq_history_bypass_protection": {
@@ -694,15 +694,15 @@
     "description": "FAQ question about historyBypassProtection"
   },
   "faq_history_bypass_protection_explanation": {
-    "message": "Single-page sites sometimes change the URL with history.pushState/replaceState instead of loading a new page. Linkumori cleans those URLs too. Add history-bypass-protection=false to a $removeparam rule to skip just that rule during this in-page cleanup — it still runs normally on real page loads.",
+    "message": "Single-page sites often change the address with history.pushState/replaceState instead of loading a new page. Linkumori cleans those addresses too. Add history-bypass-protection=false to a $removeparam filter to skip just that filter for these in-page changes; it still runs on normal requests.",
     "description": "FAQ explanation of the history-bypass-protection modifier"
   },
   "faq_history_bypass_protection_provider": {
-    "message": "To skip every rule in a provider at once instead of repeating the modifier, set it at the provider level:",
+    "message": "To skip a whole provider for in-page changes, set it on the provider:",
     "description": "FAQ note about the provider-level historyBypassProtection field"
   },
   "faq_history_bypass_protection_default": {
-    "message": "Missing means true (protection stays on). A rule can still opt back in with history-bypass-protection=true even when its provider sets the blanket above.",
+    "message": "Left out, it is true and in-page changes are cleaned. A rule's own setting beats the provider's, so a rule can opt back in with history-bypass-protection=true, or \"historyBypassProtection\": true in a rule object.",
     "description": "FAQ note about the default value of historyBypassProtection"
   },
   "faq_how_providers_work": {
@@ -714,7 +714,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern is a provider lookup hint, not a match condition. clearurls.js extracts hostname tokens from indexPattern to place a urlPattern provider into providersByToken candidate buckets. The provider still matches only if provider.matchRequestURL() passes the real urlPattern and exceptions do not match.",
+    "message": "indexPattern is a lookup hint for a provider that uses urlPattern, not a match condition. It lists hosts as domain patterns such as ||example.com^, so the provider is only checked for URLs on those hosts. The URL must still match urlPattern. It only works together with urlPattern.",
     "description": "FAQ answer explaining indexPattern"
   },
   "faq_http_methods": {
@@ -730,7 +730,7 @@
     "description": "FAQ list item for DELETE method"
   },
   "faq_http_methods_explanation": {
-    "message": "HTTP Methods allow you to apply rules only to specific types of HTTP requests (GET, POST, PUT, DELETE, etc.). This gives you control over which request methods trigger your rules.",
+    "message": "methods limits a provider to some HTTP methods, such as [\"GET\"]. A $removeparam filter can do the same with a modifier such as method=get|~post.",
     "description": "FAQ explanation of HTTP methods"
   },
   "faq_http_methods_get": {
@@ -754,59 +754,59 @@
     "description": "FAQ list item for PUT method"
   },
   "faq_http_methods_tip": {
-    "message": "Leave empty to apply to all HTTP methods, or specify only the methods you want to target.",
+    "message": "Leave methods out to handle every method.",
     "description": "FAQ tip about HTTP methods"
   },
   "faq_import_benefit_quick": {
-    "message": "Quick setup - no need to manually create complex patterns",
+    "message": "Quick setup: start from a working provider instead of writing one from scratch",
     "description": "FAQ benefit of quick setup via import"
   },
   "faq_import_benefit_search": {
-    "message": "Search and filter to find exactly what you need",
+    "message": "Search and filter to find the provider you need",
     "description": "FAQ benefit of search functionality"
   },
   "faq_import_benefit_tested": {
-    "message": "Pre-tested rules that are known to work correctly",
+    "message": "Start from rules that are already in use",
     "description": "FAQ benefit of tested rules via import"
   },
   "faq_import_benefit_updates": {
-    "message": "Easy to keep rules updated with new providers",
+    "message": "Disabled providers stay disabled when the rules update",
     "description": "FAQ benefit of easy updates via import"
   },
   "faq_list_feature_actions": {
-    "message": "Edit, duplicate, or delete providers with single clicks",
+    "message": "Edit, duplicate or delete a provider with one click",
     "description": "FAQ feature of quick actions"
   },
   "faq_list_feature_overview": {
-    "message": "Quick overview of all providers with key statistics",
+    "message": "Every custom provider at a glance",
     "description": "FAQ feature of provider overview"
   },
   "faq_list_feature_search": {
-    "message": "Search providers by name to find specific ones quickly",
+    "message": "Search providers by name",
     "description": "FAQ feature of provider search"
   },
   "faq_list_feature_stats": {
-    "message": "See rule counts and pattern types at a glance",
+    "message": "See each provider's patterns and rule counts",
     "description": "FAQ feature of statistics display"
   },
   "faq_mistake_broad": {
-    "message": "Making urlPattern too broad (matching unintended sites)",
+    "message": "Making domainPatterns or urlPattern too broad, so it matches sites you didn't intend",
     "description": "FAQ common mistake about broad patterns"
   },
   "faq_mistake_complete": {
-    "message": "Setting completeProvider to true unless you really want to block the site",
+    "message": "Setting completeProvider to true when you only want to remove parameters",
     "description": "FAQ common mistake about completeProvider"
   },
   "faq_mistake_escape": {
-    "message": "Forgetting to escape special regex characters in patterns",
+    "message": "Forgetting to escape regex special characters, or to write each backslash twice in JSON",
     "description": "FAQ common mistake about escaping regex"
   },
   "faq_mistake_exceptions": {
-    "message": "Not adding exceptions for important functionality",
+    "message": "Not adding exceptions for pages that break when cleaned",
     "description": "FAQ common mistake about missing exceptions"
   },
   "faq_mistake_testing": {
-    "message": "Not testing rules thoroughly before deploying",
+    "message": "Not testing rules before relying on them",
     "description": "FAQ common mistake about insufficient testing"
   },
   "faq_note": {
@@ -814,27 +814,27 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "For authored custom providers, choose either domainPatterns or urlPattern. In clearurls.js runtime data, non-empty domainPatterns win and urlPattern is used only when domainPatterns is missing or empty. Domain matching is PSL-aware for supported AdBlock-style forms, including registrable-domain handling and multi-part TLD support.",
+    "message": "A provider has either domainPatterns or urlPattern, never both; the editor rejects a provider with both. If you need both kinds of match, make two providers.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
-    "message": "Combine multiple similar patterns into one regex",
+    "message": "Combine similar parameter names into one name regex",
     "description": "FAQ performance tip about combining patterns"
   },
   "faq_perf_limit": {
-    "message": "Limit the number of providers to what you actually need",
+    "message": "Keep only the providers you actually need",
     "description": "FAQ performance tip about limiting providers"
   },
   "faq_perf_review": {
-    "message": "Regularly review and clean up unused rules",
+    "message": "Review and remove rules you no longer use",
     "description": "FAQ performance tip about regular review"
   },
   "faq_perf_simple": {
-    "message": "Use simple rules instead of complex rawRules when possible",
+    "message": "Use rules instead of rawRules when the text is a normal parameter",
     "description": "FAQ performance tip about simple rules"
   },
   "faq_perf_specific": {
-    "message": "Make urlPattern as specific as possible",
+    "message": "Prefer domainPatterns; with urlPattern, always add indexPattern",
     "description": "FAQ performance tip about specific patterns"
   },
   "faq_performance_tips": {
@@ -842,7 +842,7 @@
     "description": "FAQ question about performance optimization"
   },
   "faq_provider_example": {
-    "message": "For example, a \"Google\" provider would handle all Google services with rules to remove tracking parameters from search results, YouTube links, etc.",
+    "message": "For example, a \"Google\" provider handles Google sites, with rules that remove tracking parameters from search results and unwrap Google's redirect links.",
     "description": "FAQ example of provider usage"
   },
   "faq_provider_import": {
@@ -854,11 +854,11 @@
     "description": "FAQ section title for import benefits"
   },
   "faq_provider_import_explanation": {
-    "message": "The Provider Import feature allows you to quickly add providers from the built-in rule catalog. Click the 'Import from Rules' button to browse and select providers.",
+    "message": "\"Import/Disable Providers\" lets you browse the providers of the built-in and remote rules. Import the ones you pick as custom rules to edit them, or disable providers you don't want.",
     "description": "FAQ explanation of provider import feature"
   },
   "faq_provider_import_tip": {
-    "message": "You can import multiple providers at once by selecting them and clicking Import.",
+    "message": "You can select several providers and import or disable them at once. \"Disabled Rules\" lists what you disabled and lets you restore it.",
     "description": "FAQ tip about provider import"
   },
   "faq_provider_list": {
@@ -866,7 +866,7 @@
     "description": "FAQ question about provider list management"
   },
   "faq_provider_list_explanation": {
-    "message": "The Provider List view gives you a quick overview of all custom providers. You can search, edit, duplicate, or delete providers without opening each one individually.",
+    "message": "When no provider is open, the editor shows All Providers, a list of your custom providers. You can search, edit, duplicate or delete providers without opening each one.",
     "description": "FAQ explanation of provider list feature"
   },
   "faq_provider_list_features": {
@@ -874,23 +874,23 @@
     "description": "FAQ section title for provider list features"
   },
   "faq_provider_list_tip": {
-    "message": "Open the Provider List from the editor toolbar to browse and manage providers.",
+    "message": "Close the open provider to return to the list.",
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Providers are named containers that group matcher fields and URL-cleaning rules. Candidate lookup uses hostname tokens from domainPatterns or indexPattern; the provider name is only a label/key and does not decide whether a request matches.",
+    "message": "A provider is a named group of rules for some URLs. domainPatterns or urlPattern decides which URLs it handles. The provider name is only a label and does not affect matching.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Canonical raw rule objects apply regex patterns to the entire URL. Use for complex patterns that don't fit the standard parameter format.",
+    "message": "Each entry is a regular expression run on the whole URL; every match is deleted. Raw rules always run before rules.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Raw rule objects:",
+    "message": "rawRules:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Use rules[] objects with kind: \"raw\" for fragments, path segments, or complex parameter patterns.",
+    "message": "Use rawRules for text that isn't a name=value parameter, such as a /ref=… path segment. Any entry in either list can also be a rule object with matchPattern and optional id, replacePattern, order and more.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -898,23 +898,23 @@
     "description": "FAQ question about redirections"
   },
   "faq_redirections_example": {
-    "message": "https://redirect.com?url=https%3A//target.com becomes https://target.com",
+    "message": "https://redirect.example/?url=https%3A%2F%2Ftarget.example%2F becomes https://target.example/",
     "description": "FAQ example of redirection process"
   },
   "faq_redirections_explanation": {
-    "message": "Redirections send the request somewhere else. A regex entry redirects to its capture group, so it needs exactly one ( … ). An entry starting with | is a domain redirect: \"||go.example.com^$redirect=https://example.com/\" sends every matching URL to that address.",
+    "message": "Redirections send the request somewhere else. A regex entry redirects to its capture group, so it needs exactly one ( … ). An entry starting with | is a fixed redirect: \"||go.example.com^$redirect=https://example.com/\" sends every matching URL to that address. Redirects only run while \"Enable Third-Party Redirect Bypass\" is on in Settings (off by default).",
     "description": "FAQ explanation of redirections"
   },
   "faq_redirections_process": {
-    "message": "The captured URL is automatically decoded with decodeURIComponent() and replaces the original URL.",
+    "message": "The captured value is URL-decoded and must be an absolute http or https address; otherwise nothing is redirected and the provider's other rules run. fieldRedirections redirects to a parameter's value without a regex. In a remote rule list, redirects wait until you approve that list's redirect capability.",
     "description": "FAQ explanation of redirection processing"
   },
   "faq_referral_default": {
-    "message": "Referral marketing is disabled by default, so these parameters will be removed unless explicitly allowed by the user.",
+    "message": "\"Allow referral marketing\" is off by default, so these parameters are removed unless the user turns it on.",
     "description": "FAQ note about referralMarketing default behavior"
   },
   "faq_referral_explanation": {
-    "message": "Referral marketing parameters help content creators earn commissions. These parameters are only removed when the user has disabled referral marketing support in settings.",
+    "message": "referralMarketing takes the same entries as rules, for affiliate and referral parameters that support creators and shops. They are removed only while \"Allow referral marketing\" is off in Settings. A rule in rules can count as referral marketing with \"referralMarketing\": true.",
     "description": "FAQ explanation of referralMarketing"
   },
   "faq_referral_marketing": {
@@ -930,11 +930,11 @@
     "description": "FAQ section title for common resource types"
   },
   "faq_resource_types_explanation": {
-    "message": "Resource Types allow you to apply rules only to specific types of web requests (images, scripts, main pages, etc.). This gives you fine-grained control over when rules are applied.",
+    "message": "resourceTypes limits a provider to some request types (pages, frames, scripts, images and so on). A rule object can do the same with requestTypes, and a $removeparam filter with modifiers such as document or xmlhttprequest.",
     "description": "FAQ explanation of resource types"
   },
   "faq_resource_types_tip": {
-    "message": "Leave empty to apply to all resource types, or specify only the types you want to target.",
+    "message": "Leave it out to handle every request type. There is no request type list in Settings; request types come only from the rules.",
     "description": "FAQ tip about resource types"
   },
   "faq_rt_font": {
@@ -958,7 +958,7 @@
     "description": "FAQ resource type media"
   },
   "faq_rt_object": {
-    "message": "object - Embedded objects (Flash, plugins)",
+    "message": "object - Embedded content (<object>, <embed>)",
     "description": "FAQ resource type object"
   },
   "faq_rt_object_subrequest": {
@@ -998,19 +998,19 @@
     "description": "FAQ resource type xslt"
   },
   "faq_rules_converted": {
-    "message": "Example: \"utm_source\" matches exactly; \"utm_.*\" matches utm_source and utm_campaign. Scoped Linkumori exceptions/rules are resolved first, then normal/regex rules run only for unmatched keys.",
+    "message": "Example: \"utm_source\" removes exactly that parameter; \"utm_.*\" removes utm_source, utm_campaign and so on. Names and regexes run first, then $removeparam filters, except where an @@ entry keeps the parameter.",
     "description": "FAQ examples for rules key matching"
   },
   "faq_rules_explanation": {
-    "message": "Rules match query parameter keys and hash fragment keys. Use simple names (exact key), regex (broader matching), or Linkumori scoped rules like ||example.com^$removeparam=... to target specific domains.",
+    "message": "Each entry removes matching parameters from the query (?a=1) and the fragment (#a=1). An entry is a parameter name, a regex for the whole name, or a $removeparam filter, optionally with a pattern in front such as ||example.com^$removeparam=tag.",
     "description": "FAQ explanation of rules"
   },
   "faq_rules_title": {
-    "message": "Rules:",
+    "message": "rules:",
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "What rule shapes can rules[] contain?",
+    "message": "What can rules and rawRules contain?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1042,31 +1042,31 @@
     "description": "FAQ question requesting simple example"
   },
   "faq_simple_example_explanation": {
-    "message": "This removes Facebook click IDs and UTM parameters, but preserves affiliate links if the user allows referral marketing.",
+    "message": "This removes Facebook click ids and UTM parameters. The affiliate parameters are removed only while referral marketing isn't allowed.",
     "description": "FAQ explanation of simple example"
   },
   "faq_simple_example_intro": {
-    "message": "Here's a basic provider that removes tracking parameters from a fictional shopping site:",
+    "message": "Here's a basic provider that removes tracking parameters on a fictional shop:",
     "description": "FAQ intro to simple example"
   },
   "faq_test_backup": {
-    "message": "Export your rules before making major changes",
+    "message": "Export your rules before making big changes",
     "description": "FAQ tip about backing up rules"
   },
   "faq_test_exceptions": {
-    "message": "Always add exceptions for critical pages (login, checkout, API)",
+    "message": "Add exceptions for pages that must keep their parameters (login, checkout, API)",
     "description": "FAQ tip about adding exceptions"
   },
   "faq_test_regex": {
-    "message": "Test regex patterns using online tools like regex101.com",
+    "message": "Test regex patterns before saving, and remember to write each backslash twice in JSON",
     "description": "FAQ tip about testing regex patterns"
   },
   "faq_test_reload": {
-    "message": "Use the \"Enforce Rules\" button to reload changes without restarting the browser",
+    "message": "Use \"Enforce Rules\" to apply your changes without restarting the browser, and \"Rule Test Lab\" to try a URL",
     "description": "FAQ tip about enforcing rules"
   },
   "faq_test_small": {
-    "message": "Start with simple rules and gradually add complexity",
+    "message": "Start with simple rules and add complexity step by step",
     "description": "FAQ tip about starting small"
   },
   "faq_testing_tips": {
@@ -1086,27 +1086,27 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern is a regular expression tested against the full request URL when the provider does not have non-empty domainPatterns. If you use urlPattern, add indexPattern when possible so clearurls.js can find the provider by hostname tokens before testing the regex.",
+    "message": "urlPattern is one regular expression, tested case-insensitively against the full URL, that decides which URLs the provider handles. Use it or domainPatterns, never both. Add indexPattern so the provider is only checked on matching hosts instead of against every URL.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
-    "message": "The typical structure covers: protocol + subdomain + domain + TLD + directories + parameters",
+    "message": "A typical urlPattern covers the scheme, any subdomains, the domain and, when needed, the start of the path.",
     "description": "FAQ explanation of urlPattern structure"
   },
   "faq_url_pattern_tip": {
-    "message": "Use online regex testers to validate your patterns before adding them.",
+    "message": "In JSON, write each backslash twice. Test the regex before saving; the editor rejects invalid ones.",
     "description": "FAQ tip for testing urlPattern"
   },
   "faq_url_patterns_explanation": {
-    "message": "URL Patterns use full regex for precise control over which URLs match:",
+    "message": "urlPattern is one regular expression for the full URL, for matches that domain patterns can't express:",
     "description": "FAQ explanation of URL patterns"
   },
   "faq_use_domain_patterns": {
-    "message": "Use Domain Patterns for simpler hostname/path matching without writing full urlPattern regex.",
+    "message": "Use domainPatterns for sites and paths. It is simpler, and it lets the provider be found by host name.",
     "description": "FAQ guidance for using domain patterns"
   },
   "faq_use_url_patterns": {
-    "message": "Use URL Patterns for complex matching (specific paths, query parameters, etc.)",
+    "message": "Use urlPattern only when you need a regular expression, and add indexPattern with it.",
     "description": "FAQ guidance for using URL patterns"
   },
   "faq_warning": {
@@ -1118,7 +1118,7 @@
     "description": "FAQ question about custom rules"
   },
   "faq_what_is_custom_rules_answer": {
-    "message": "Custom rules allow you to create your own URL cleaning patterns for websites that aren't covered by the built-in rules. They follow the same structure as the main catalog but are managed separately.",
+    "message": "Custom rules are your own providers, for sites the built-in rules don't cover or to change how a site is cleaned. They use CLN Format 1.0, the same JSON format as the built-in and remote rules, and are stored separately in the extension.",
     "description": "FAQ answer explaining custom rules"
   },
   "faq_when_to_use_patterns": {
@@ -4039,7 +4039,7 @@
     "description": "Title for the audit FAQ modal"
   },
   "audit_faq_intro": {
-    "message": "These notes describe the provider fields that clearurls.js actually reads when it builds and applies rules.",
+    "message": "These notes describe the provider fields of CLN Format 1.0, the rule format Linkumori reads.",
     "description": "Intro text for the audit FAQ modal"
   },
   "audit_faq_audit_provider_title": {
@@ -4055,7 +4055,7 @@
     "description": "FAQ title for custom rule editing and overrides"
   },
   "audit_faq_override_body": {
-    "message": "<p>Use the Custom Rules Editor when you want rule-by-rule control. That is the place where you can import rules as custom rules, edit provider fields, and save your own version of a provider.</p><p>You can use it to enable or disable individual providers or individual rule content by turning the imported or edited provider into your custom version. That custom version is then merged into the runtime rules.</p><p>You can also override bundled rules and remote rules individually. Audit <span class=\"faq-code\">Bundled Rules</span> or <span class=\"faq-code\">Latest Cached Remote Rules</span> to find the provider you want, then inspect <span class=\"faq-code\">Custom Rules</span> and <span class=\"faq-code\">Final Rules</span> to confirm your custom edit or override is taking effect.</p><p>If you import a ruleset into the Custom Rules Editor, you can keep only the parts you want, disable the parts you do not want, and edit the provider so the final merged output behaves the way you intend.</p>",
+    "message": "<p>Use the Custom Rules Editor for rule-by-rule control. There you can import a built-in or remote provider as a custom rule, edit it, switch single rules off, or disable whole providers.</p><p>A custom provider replaces every built-in or remote provider with the same <span class=\"faq-code\">domainPatterns</span> or <span class=\"faq-code\">urlPattern</span>; their rules are not combined.</p><p>Audit <span class=\"faq-code\">Bundled Rules</span> or <span class=\"faq-code\">Latest Cached Remote Rules</span> to find the provider you want, then check <span class=\"faq-code\">Custom Rules</span> and <span class=\"faq-code\">Final Rules</span> to confirm your change takes effect.</p>",
     "description": "FAQ body for custom rule editing and overrides"
   },
   "audit_faq_url_pattern_title": {
@@ -4063,7 +4063,7 @@
     "description": "FAQ title for urlPattern"
   },
   "audit_faq_url_pattern_body": {
-    "message": "<p><span class=\"faq-code\">urlPattern</span> is the regex used to decide whether a provider matches a URL.</p><p>If a provider has <span class=\"faq-code\">urlPattern</span>, ClearURLs uses that regex first. In clearurls.js, this is turned into a real RegExp by <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "message": "<p><span class=\"faq-code\">urlPattern</span> is one regular expression, tested case-insensitively against the full URL, that decides which URLs the provider handles.</p><p>A provider has <span class=\"faq-code\">urlPattern</span> or <span class=\"faq-code\">domainPatterns</span>, never both. <span class=\"faq-code\">indexPattern</span> lists the hosts a <span class=\"faq-code\">urlPattern</span> provider is checked on, so it isn't tested against every URL.</p>",
     "description": "FAQ body for urlPattern"
   },
   "audit_faq_domain_patterns_title": {
@@ -4071,31 +4071,31 @@
     "description": "FAQ title for domainPatterns"
   },
   "audit_faq_domain_patterns_body": {
-    "message": "<p><span class=\"faq-code\">domainPatterns</span> is the domain-based matcher used when a provider does not rely on <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs stores these with <span class=\"faq-code\">setURLDomainPattern()</span> and then checks them with domain matching logic instead of regex URL matching.</p>",
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> lists AdBlock-style patterns such as <span class=\"faq-code\">||example.com^</span> (the domain and its subdomains) or <span class=\"faq-code\">||example.*^</span> (any public suffix). A URL matches if any of them matches.</p><p>Use it or <span class=\"faq-code\">urlPattern</span>, never both. Domain patterns let the provider be found by host name, so they are faster than a regex.</p>",
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "What can rules[] contain?",
+    "message": "What can rules, rawRules and referralMarketing contain?",
     "description": "FAQ title for unified Linkumori-ClearURLs rules"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> accepts simple parameter strings, inline <span class=\"faq-code\">$removeparam</span> filters, and canonical objects.</p><p>Use <span class=\"faq-code\">kind: \"raw\"</span> for whole-URL regex cleanup and <span class=\"faq-code\">kind: \"redirection\"</span> for redirect extraction.</p><p>Use <span class=\"faq-code\">referralMarketing: true</span> on a field rule when the parameter depends on the referral-marketing setting.</p>",
+    "message": "<p><span class=\"faq-code\">rules</span> entries are parameter names, name regexes, <span class=\"faq-code\">$removeparam</span> filters, or rule objects with <span class=\"faq-code\">matchPattern</span> and optional <span class=\"faq-code\">id</span>, <span class=\"faq-code\">replacePattern</span>, <span class=\"faq-code\">order</span> and more.</p><p><span class=\"faq-code\">rawRules</span> entries are regular expressions run on the whole URL; every match is deleted. They always run before <span class=\"faq-code\">rules</span>.</p><p><span class=\"faq-code\">referralMarketing</span> takes the same entries as <span class=\"faq-code\">rules</span>, but only runs while referral marketing is not allowed. A <span class=\"faq-code\">rules</span> object can do the same with <span class=\"faq-code\">\"referralMarketing\": true</span>.</p>",
     "description": "FAQ body for unified Linkumori-ClearURLs rules"
   },
   "audit_faq_exceptions_title": {
-    "message": "What are exceptions and domainExceptions?",
+    "message": "What are exceptions?",
     "description": "FAQ title for exceptions and domainExceptions"
   },
   "audit_faq_exceptions_body": {
-    "message": "<p><span class=\"faq-code\">exceptions</span> are regex patterns that stop a provider from acting on matching URLs.</p><p><span class=\"faq-code\">domainExceptions</span> do the same thing with domain-based matching instead of URL regex matching.</p><p>If an exception matches, the provider is bypassed even if its main pattern matched first.</p>",
+    "message": "<p><span class=\"faq-code\">exceptions</span> lists URLs the provider leaves alone. Each entry is a regular expression, or a domain pattern that starts with <span class=\"faq-code\">|</span>, such as <span class=\"faq-code\">||example.com^/login</span>.</p><p>If one matches, none of the provider's rules run, even though the provider matched. To keep a single parameter instead, use an <span class=\"faq-code\">@@</span> entry in <span class=\"faq-code\">rules</span>.</p>",
     "description": "FAQ body for exceptions and domainExceptions"
   },
   "audit_faq_redirections_title": {
-    "message": "What are redirections and domainRedirections?",
+    "message": "What are redirections and fieldRedirections?",
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> entries with <span class=\"faq-code\">kind: \"redirection\"</span> are regex-based unwrappers. They usually capture the real destination URL in group 1, and ClearURLs redirects to that captured value.</p><p><span class=\"faq-code\">domainRedirections</span> are domain-style redirect rules. In this codebase they are checked for entries shaped like <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>If a regex redirection matches first, that wins. If not, ClearURLs checks domain redirections next.</p>",
+    "message": "<p><span class=\"faq-code\">redirections</span> entries are regular expressions with exactly one capture group, whose URL-decoded value becomes the new address, or fixed redirects such as <span class=\"faq-code\">||go.example.com^$redirect=https://example.com/</span>.</p><p><span class=\"faq-code\">fieldRedirections</span> names a parameter whose value becomes the new address.</p><p>A redirect only happens to an absolute <span class=\"faq-code\">http</span> or <span class=\"faq-code\">https</span> address, and only while Third-Party Redirect Bypass is on. In a remote rule list it also waits for that list's redirect approval in Remote Rules Health.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -4103,7 +4103,7 @@
     "description": "FAQ title for methods and resourceTypes"
   },
   "audit_faq_methods_resources_body": {
-    "message": "<p><span class=\"faq-code\">methods</span> restrict a provider to specific HTTP methods such as <span class=\"faq-code\">GET</span> or <span class=\"faq-code\">POST</span>. If no methods are listed, all methods are allowed.</p><p><span class=\"faq-code\">resourceTypes</span> restrict a provider to webRequest resource types such as <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span>, or <span class=\"faq-code\">xmlhttprequest</span>.</p><p>If no resource types are listed, ClearURLs falls back to the global allowed request types from settings.</p>",
+    "message": "<p><span class=\"faq-code\">methods</span> restricts a provider to HTTP methods such as <span class=\"faq-code\">GET</span> or <span class=\"faq-code\">POST</span>. If none are listed, every method is handled.</p><p><span class=\"faq-code\">resourceTypes</span> restricts a provider to request types such as <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span> or <span class=\"faq-code\">xmlhttprequest</span>. If none are listed, every request type is handled.</p><p>Single rules can be limited with <span class=\"faq-code\">requestTypes</span>, directly or through the file's <span class=\"faq-code\">defaults</span>. There is no request type list in Settings.</p>",
     "description": "FAQ body for methods and resourceTypes"
   },
   "audit_faq_complete_force_title": {
@@ -4111,15 +4111,15 @@
     "description": "FAQ title for completeProvider and forceRedirection"
   },
   "audit_faq_complete_force_body": {
-    "message": "<p><span class=\"faq-code\">completeProvider</span> turns the provider into a blocking provider. In clearurls.js, that means the provider can cancel matching requests when domain blocking is enabled.</p><p><span class=\"faq-code\">forceRedirection</span> makes a redirect more aggressive. When a redirection is found on a <span class=\"faq-code\">main_frame</span> request, ClearURLs can update the browser tab directly instead of returning a normal redirect response.</p>",
+    "message": "<p><span class=\"faq-code\">completeProvider</span>: <span class=\"faq-code\">true</span> blocks every matching request before any rule runs, while domain blocking is allowed in Settings.</p><p><span class=\"faq-code\">forceRedirection</span>: <span class=\"faq-code\">true</span> makes a redirect on a page load (<span class=\"faq-code\">main_frame</span>) navigate the whole tab instead of only the network request.</p><p>In a remote rule list, both wait until you approve that list's block or redirect capability in Remote Rules Health.</p>",
     "description": "FAQ body for completeProvider and forceRedirection"
   },
   "audit_faq_fields_title": {
-    "message": "Which provider fields does clearurls.js use here?",
+    "message": "Which provider fields are there?",
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>The provider-building path in this branch reads these authoring keys: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, and <span class=\"faq-code\">resourceTypes</span>.</p><p>Raw cleanup, referral-marketing cleanup, and regex redirections can use the retained ClearURLs fields or canonical objects inside <span class=\"faq-code\">rules[]</span>.</p><p>When auditing behavior, the most important place to check is <span class=\"faq-code\">Final Rules</span>, because that shows the merged result after bundled, remote, and custom sources have been combined.</p>",
+    "message": "<p>A provider can have: <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">fieldRedirections</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">methods</span>, <span class=\"faq-code\">resourceTypes</span>, <span class=\"faq-code\">historyBypassProtection</span> and <span class=\"faq-code\">active</span>.</p><p>Besides <span class=\"faq-code\">providers</span>, a rule file can have <span class=\"faq-code\">cln</span> (the format version, <span class=\"faq-code\">\"1.0\"</span>), <span class=\"faq-code\">metadata</span>, <span class=\"faq-code\">defaults</span> and, in a remote rule list, <span class=\"faq-code\">patches</span>.</p><p>When auditing behavior, check <span class=\"faq-code\">Final Rules</span> first: it shows the result after built-in, remote and custom rules are combined and patches are applied.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -5654,726 +5654,6 @@
     "message": "Rule templates",
     "description": "Custom rules editor label for rule templates in unified Linkumori-ClearURLs mode"
   },
-  "guide_page_title": {
-    "message": "Linkumori — Rules Guide",
-    "description": "Guide page text."
-  },
-  "guide_toc_label": {
-    "message": "Contents",
-    "description": "Guide page text."
-  },
-  "guide_toc_search": {
-    "message": "Filter sections",
-    "description": "Placeholder and label of the search box that filters the guide contents list."
-  },
-  "guide_toc_no_results": {
-    "message": "No matching sections.",
-    "description": "Shown in the guide contents list when the filter matches nothing."
-  },
-  "guide_title": {
-    "message": "Writing Linkumori rules",
-    "description": "Guide page text."
-  },
-  "guide_intro_1": {
-    "message": "Linkumori cleans URLs with rules. This guide shows how to write them, from a first rule to every option, with examples you can copy.",
-    "description": "Guide page text."
-  },
-  "guide_intro_2": {
-    "message": "Rules are JSON. You write them in the custom rules editor, which checks them when you save. The bundled rule list and remote rule lists use the same format.",
-    "description": "Guide page text."
-  },
-  "guide_file_title": {
-    "message": "1. The rules file",
-    "description": "Guide page text."
-  },
-  "guide_file_p1": {
-    "message": "A rules file is one JSON object. Its <code>providers</code> object maps a name of your choice to a provider:",
-    "description": "Guide page text."
-  },
-  "guide_file_p2": {
-    "message": "A provider says which URLs it handles and what to do with them. This one removes <code>utm_source</code> and <code>utm_medium</code> from every URL on <code>example.com</code> and its subdomains:",
-    "description": "Guide page text."
-  },
-  "guide_file_p3": {
-    "message": "The name is only a label. Which URLs a provider handles is decided by <code>domainPatterns</code> or <code>urlPattern</code>.",
-    "description": "Guide page text."
-  },
-  "guide_file_p4": {
-    "message": "The optional <code>cln</code> key names the format version. Its only valid value is <code>\"1.0\"</code>; a file without it is read as 1.0 too, and a file with any other value is rejected. A file can also have <code>metadata</code>, a <code>defaults</code> block with values for every rule that doesn't set its own, and, in a remote rule list, <code>patches</code> (chapter 9).",
-    "description": "Guide page text."
-  },
-  "guide_fields_title": {
-    "message": "2. Provider fields",
-    "description": "Guide page text."
-  },
-  "guide_th_field": {
-    "message": "Field",
-    "description": "Guide page text."
-  },
-  "guide_th_meaning": {
-    "message": "What it does",
-    "description": "Guide page text."
-  },
-  "guide_field_domainpatterns": {
-    "message": "Which URLs the provider handles, as domain patterns (chapter 3). Use this or <code>urlPattern</code>, never both.",
-    "description": "Guide page text."
-  },
-  "guide_field_urlpattern": {
-    "message": "Which URLs the provider handles, as a regular expression matched against the full URL. Case is ignored.",
-    "description": "Guide page text."
-  },
-  "guide_field_indexpattern": {
-    "message": "Only with <code>urlPattern</code>: host hints such as <code>||example.com^</code>, so the provider is only checked for those hosts. Without it, the provider is checked against every URL.",
-    "description": "Guide page text."
-  },
-  "guide_field_rules": {
-    "message": "Parameters to remove (chapters 4 and 5).",
-    "description": "Guide page text."
-  },
-  "guide_field_referral": {
-    "message": "Referral and affiliate parameters to remove. They are skipped while <em>Allow referral marketing</em> is on (chapter 10).",
-    "description": "Guide page text."
-  },
-  "guide_field_rawrules": {
-    "message": "Regular expressions run on the full URL; every match is deleted (chapter 6).",
-    "description": "Guide page text."
-  },
-  "guide_field_exceptions": {
-    "message": "URLs the provider leaves alone (chapter 7).",
-    "description": "Guide page text."
-  },
-  "guide_field_redirections": {
-    "message": "Where to send the request instead (chapter 8).",
-    "description": "Guide page text."
-  },
-  "guide_field_fieldredirections": {
-    "message": "Redirect to the value of a parameter (chapter 8).",
-    "description": "Guide page text."
-  },
-  "guide_field_completeprovider": {
-    "message": "<code>true</code> blocks every request the provider matches, while <em>Allow domain blocking</em> is on.",
-    "description": "Guide page text."
-  },
-  "guide_field_forceredirection": {
-    "message": "<code>true</code>: when a page itself is redirected, the tab opens the new address.",
-    "description": "Guide page text."
-  },
-  "guide_field_methods": {
-    "message": "Only handle these HTTP methods, for example <code>[\"GET\"]</code>. Default: all.",
-    "description": "Guide page text."
-  },
-  "guide_field_resourcetypes": {
-    "message": "Only handle these request types, for example <code>[\"main_frame\"]</code>. Default: every request type.",
-    "description": "Guide page text."
-  },
-  "guide_field_history": {
-    "message": "<code>false</code> skips the provider when a page changes its own address with the History API.",
-    "description": "Guide page text."
-  },
-  "guide_field_active": {
-    "message": "<code>false</code> switches the provider off.",
-    "description": "Guide page text."
-  },
-  "guide_match_title": {
-    "message": "3. Which URLs a provider handles",
-    "description": "Guide page text."
-  },
-  "guide_match_p1": {
-    "message": "<code>domainPatterns</code> is a list of domain patterns. A URL matches if any of them matches:",
-    "description": "Guide page text."
-  },
-  "guide_th_pattern": {
-    "message": "Pattern",
-    "description": "Guide page text."
-  },
-  "guide_th_matches": {
-    "message": "Matches",
-    "description": "Guide page text."
-  },
-  "guide_pat_domain": {
-    "message": "<code>example.com</code> and every subdomain",
-    "description": "Guide page text."
-  },
-  "guide_pat_anysuffix": {
-    "message": "<code>example</code> on any public suffix (<code>example.de</code>, <code>example.co.uk</code>, …)",
-    "description": "Guide page text."
-  },
-  "guide_pat_path": {
-    "message": "that host and its subdomains, when the path starts with <code>/path</code>",
-    "description": "Guide page text."
-  },
-  "guide_pat_star": {
-    "message": "the same as <code>||example.com^</code>",
-    "description": "Guide page text."
-  },
-  "guide_pat_start": {
-    "message": "URLs that start with exactly this text",
-    "description": "Guide page text."
-  },
-  "guide_pat_end": {
-    "message": "URLs that end with exactly this text",
-    "description": "Guide page text."
-  },
-  "guide_pat_regex": {
-    "message": "the full URL, as a regular expression (case matters unless you add <code>i</code>)",
-    "description": "Guide page text."
-  },
-  "guide_pat_contains": {
-    "message": "URLs that contain this text anywhere",
-    "description": "Guide page text."
-  },
-  "guide_pat_all": {
-    "message": "every URL",
-    "description": "Guide page text."
-  },
-  "guide_match_p2": {
-    "message": "<code>^</code> marks the end of the host name, or a separator such as <code>/</code>, <code>?</code> or <code>:</code>. <code>*</code> matches anything. Apart from <code>/regex/</code>, patterns ignore case.",
-    "description": "Guide page text."
-  },
-  "guide_match_p3": {
-    "message": "<code>||</code> stands for a domain, while a single <code>|</code> stands for the very start of the URL and must be followed by a scheme such as <code>https://</code>. <code>|example.com^</code> can never match, so the editor rejects it.",
-    "description": "Guide page text."
-  },
-  "guide_match_p4": {
-    "message": "To match with a regular expression instead, use <code>urlPattern</code>, and add <code>indexPattern</code> so the provider is only checked on those hosts:",
-    "description": "Guide page text."
-  },
-  "guide_match_p5": {
-    "message": "A provider has <code>domainPatterns</code> or <code>urlPattern</code>, never both. If you need both kinds of match, make two providers.",
-    "description": "Guide page text."
-  },
-  "guide_rules_title": {
-    "message": "4. Removing parameters",
-    "description": "Guide page text."
-  },
-  "guide_rules_p1": {
-    "message": "Each entry in <code>rules</code> removes parameters from the query (<code>?a=1</code>) and from the fragment (<code>#a=1</code>). An entry is one of:",
-    "description": "Guide page text."
-  },
-  "guide_th_entry": {
-    "message": "Entry",
-    "description": "Guide page text."
-  },
-  "guide_th_example": {
-    "message": "Example",
-    "description": "Guide page text."
-  },
-  "guide_th_removes": {
-    "message": "Removes",
-    "description": "Guide page text."
-  },
-  "guide_rules_name": {
-    "message": "a parameter name",
-    "description": "Guide page text."
-  },
-  "guide_rules_regex": {
-    "message": "a name regex",
-    "description": "Guide page text."
-  },
-  "guide_rules_regex_removes": {
-    "message": "every parameter whose whole name matches; <code>^…$</code> is added for you, and case is ignored",
-    "description": "Guide page text."
-  },
-  "guide_rules_filter": {
-    "message": "a <code>$removeparam</code> filter",
-    "description": "Guide page text."
-  },
-  "guide_rules_filter_removes": {
-    "message": "see chapter 5",
-    "description": "Guide page text."
-  },
-  "guide_rules_p2": {
-    "message": "<code>\"fbclid\"</code> and <code>\"$removeparam=fbclid\"</code> remove the same thing. Use the plain name unless you need something from chapter 5.",
-    "description": "Guide page text."
-  },
-  "guide_rules_part_title": {
-    "message": "Rules for part of a provider",
-    "description": "Guide page text."
-  },
-  "guide_rules_p3": {
-    "message": "A plain name applies to every URL the provider matches. To remove a parameter on only some of them, put a pattern in front of a <code>$removeparam</code> filter:",
-    "description": "Guide page text."
-  },
-  "guide_rules_p4": {
-    "message": "Here <code>qid</code> is removed on every Amazon site, <code>tag</code> only on <code>amazon.de</code>, <code>sr</code> only on <code>smile.amazon</code>, and <code>ref_</code> only under <code>/gp/</code>. The pattern narrows the provider's own patterns; it cannot widen them.",
-    "description": "Guide page text."
-  },
-  "guide_rp_title": {
-    "message": "5. $removeparam filters",
-    "description": "Guide page text."
-  },
-  "guide_rp_p1": {
-    "message": "A <code>$removeparam</code> filter has this shape; the parts in brackets are optional:",
-    "description": "Guide page text."
-  },
-  "guide_rp_value_title": {
-    "message": "The value",
-    "description": "Guide page text."
-  },
-  "guide_rp_p2": {
-    "message": "The first character of the value decides what it means:",
-    "description": "Guide page text."
-  },
-  "guide_th_filter": {
-    "message": "Filter",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_all": {
-    "message": "every parameter",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_except": {
-    "message": "every parameter except <code>ref</code> (also works with <code>~/regex/</code> and <code>~|prefix</code>)",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_regex": {
-    "message": "parameters whose name, or <code>name=value</code>, matches the regular expression; case matters unless you add <code>i</code>",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_prefix": {
-    "message": "parameters whose name starts with <code>utm_</code>; case is ignored",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_name": {
-    "message": "exactly that parameter; case is ignored unless you add <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_escape": {
-    "message": "the parameter named <code>~ref</code>. A backslash makes the next character literal: <code>\\~</code>, <code>\\|</code>, <code>\\/</code>, <code>\\,</code> and <code>\\\\</code>. In JSON, write each backslash twice",
-    "description": "Guide page text."
-  },
-  "guide_rp_options_title": {
-    "message": "Options",
-    "description": "Guide page text."
-  },
-  "guide_rp_p3": {
-    "message": "Options come after the value, separated by commas. Separate several values of one option with <code>|</code>, and put <code>~</code> in front of a value to exclude it:",
-    "description": "Guide page text."
-  },
-  "guide_th_option": {
-    "message": "Option",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_domain": {
-    "message": "only on pages from these domains",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_to": {
-    "message": "only for requests to these domains",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_method": {
-    "message": "only for these HTTP methods",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_party": {
-    "message": "only for requests to the same site as the page, or only to other sites",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_strict": {
-    "message": "the same, but comparing the exact host instead of the site",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_types": {
-    "message": "only for these request types; <code>~type</code> excludes one",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_matchcase": {
-    "message": "parameter names are case-sensitive",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_history": {
-    "message": "skip this filter when a page changes its own address with the History API",
-    "description": "Guide page text."
-  },
-  "guide_rp_p4": {
-    "message": "Each option has one spelling. Contradictory options, such as <code>first-party,third-party</code>, are rejected.",
-    "description": "Guide page text."
-  },
-  "guide_rp_keep_title": {
-    "message": "Keeping a parameter with @@",
-    "description": "Guide page text."
-  },
-  "guide_rp_p5": {
-    "message": "A filter that starts with <code>@@</code> keeps the parameter instead of removing it. Here <code>ref</code> is removed everywhere except on GitHub:",
-    "description": "Guide page text."
-  },
-  "guide_rp_p6": {
-    "message": "An <code>@@</code> filter only protects against <code>$removeparam</code> filters: a plain entry such as <code>\"ref\"</code> still removes the parameter. Its pattern is checked against the URL as the provider received it, before raw rules run. It also covers requests made by a page this provider matches, even when another provider handles them.",
-    "description": "Guide page text."
-  },
-  "guide_raw_title": {
-    "message": "6. Raw rules",
-    "description": "Guide page text."
-  },
-  "guide_raw_p1": {
-    "message": "A raw rule is a regular expression run on the full URL; every match is deleted. Use it for text that is not a <code>name=value</code> parameter, such as Amazon's <code>/ref=…</code> path segment:",
-    "description": "Guide page text."
-  },
-  "guide_raw_p2": {
-    "message": "Raw rules ignore case and replace every match. In JSON, write each backslash twice.",
-    "description": "Guide page text."
-  },
-  "guide_raw_scope_title": {
-    "message": "Only on some URLs",
-    "description": "Guide page text."
-  },
-  "guide_raw_p3": {
-    "message": "A raw rule can take the pattern and options of a <code>$removeparam</code> filter, with <code>rawrule=</code> last. Everything after <code>rawrule=</code> is the regular expression:",
-    "description": "Guide page text."
-  },
-  "guide_raw_p4": {
-    "message": "The pattern and options decide where the rule runs; the regular expression is still what gets deleted. <code>match-case</code> makes it case-sensitive.",
-    "description": "Guide page text."
-  },
-  "guide_raw_stop_title": {
-    "message": "Stopping raw rules on some URLs",
-    "description": "Guide page text."
-  },
-  "guide_raw_p5": {
-    "message": "An entry that starts with <code>@@</code> keeps raw rules from running where its pattern matches. Give the raw rule an <code>id</code> and name it with <code>targetId</code>:",
-    "description": "Guide page text."
-  },
-  "guide_raw_p6": {
-    "message": "With nothing after <code>rawrule=</code> and no <code>targetId</code>, the entry stops every raw rule of the provider on those URLs. To skip the whole provider, use <code>exceptions</code> instead.",
-    "description": "Guide page text."
-  },
-  "guide_exc_title": {
-    "message": "7. Exceptions",
-    "description": "Guide page text."
-  },
-  "guide_exc_p1": {
-    "message": "If a URL matches an entry in <code>exceptions</code>, none of the provider's rules run. An entry is a regular expression, or a domain pattern that starts with <code>|</code>:",
-    "description": "Guide page text."
-  },
-  "guide_exc_p2": {
-    "message": "Exceptions ignore case.",
-    "description": "Guide page text."
-  },
-  "guide_redir_title": {
-    "message": "8. Redirects",
-    "description": "Guide page text."
-  },
-  "guide_redir_p1": {
-    "message": "Redirect rules skip tracking pages by going straight to the real destination. They only run while <em>Enable Third-Party Redirect Bypass</em> is on.",
-    "description": "Guide page text."
-  },
-  "guide_redir_regex_title": {
-    "message": "Redirect to part of the URL",
-    "description": "Guide page text."
-  },
-  "guide_redir_p2": {
-    "message": "An entry in <code>redirections</code> is a regular expression with exactly one capture group, <code>( … )</code>. The request goes to what the group captured, URL-decoded. Write any other group as <code>(?: … )</code>:",
-    "description": "Guide page text."
-  },
-  "guide_redir_fixed_title": {
-    "message": "Redirect to a fixed address",
-    "description": "Guide page text."
-  },
-  "guide_redir_p3": {
-    "message": "An entry that starts with <code>|</code> sends every matching URL to one address:",
-    "description": "Guide page text."
-  },
-  "guide_redir_field_title": {
-    "message": "Redirect to a parameter's value",
-    "description": "Guide page text."
-  },
-  "guide_redir_p4": {
-    "message": "<code>fieldRedirections</code> names the parameter that holds the destination, so no regular expression is needed. It takes the same entries as <code>rules</code>:",
-    "description": "Guide page text."
-  },
-  "guide_redir_p5": {
-    "message": "The first matching parameter that has a value wins. A redirect stops all other processing for the request.",
-    "description": "Guide page text."
-  },
-  "guide_redir_p6": {
-    "message": "The destination must be a full <code>http</code> or <code>https</code> address with a host. Otherwise nothing is redirected, and the provider's other steps run on the unchanged URL. A raw rule whose result is on another site counts as a redirect too.",
-    "description": "Guide page text."
-  },
-  "guide_redir_p7": {
-    "message": "In a remote rule list, redirects and <code>completeProvider</code> blocks stay off until you accept them for that list in Remote Rules Health. The rest of the list works right away.",
-    "description": "Guide page text."
-  },
-  "guide_obj_title": {
-    "message": "9. Rule objects",
-    "description": "Guide page text."
-  },
-  "guide_obj_p1": {
-    "message": "Any entry can be an object instead of a string. Use one when a rule needs an id, should start switched off, should rewrite instead of remove, or should only run in some cases:",
-    "description": "Guide page text."
-  },
-  "guide_th_key": {
-    "message": "Key",
-    "description": "Guide page text."
-  },
-  "guide_key_matchpattern": {
-    "message": "the text you would write as a plain entry",
-    "description": "Guide page text."
-  },
-  "guide_key_id": {
-    "message": "a stable name (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>) used to switch the rule on and off",
-    "description": "Guide page text."
-  },
-  "guide_key_aliases": {
-    "message": "the rule's previous ids, so a rule you switched off stays off after a rename",
-    "description": "Guide page text."
-  },
-  "guide_key_replacepattern": {
-    "message": "rewrite instead of remove; <code>§1§</code>, <code>§2§</code>, … are the captured values",
-    "description": "Guide page text."
-  },
-  "guide_key_preprocessors": {
-    "message": "change the captured values first",
-    "description": "Guide page text."
-  },
-  "guide_key_requesttypes": {
-    "message": "only for these request types, for example <code>[\"main_frame\"]</code>",
-    "description": "Guide page text."
-  },
-  "guide_key_exceptions": {
-    "message": "URLs where this one rule does not run",
-    "description": "Guide page text."
-  },
-  "guide_key_flags": {
-    "message": "regular expression flags, as a string (default <code>i</code>; <code>gi</code> in <code>rawRules</code>)",
-    "description": "Guide page text."
-  },
-  "guide_key_order": {
-    "message": "run the rule earlier or later",
-    "description": "Guide page text."
-  },
-  "guide_key_referral": {
-    "message": "<code>true</code>: a rule in <code>rules</code> counts as a referral-marketing rule",
-    "description": "Guide page text."
-  },
-  "guide_key_history": {
-    "message": "<code>false</code>: skip this rule when a page changes its own address with the History API",
-    "description": "Guide page text."
-  },
-  "guide_key_active": {
-    "message": "<code>false</code>: the rule starts switched off",
-    "description": "Guide page text."
-  },
-  "guide_key_description": {
-    "message": "free text",
-    "description": "Guide page text."
-  },
-  "guide_key_targetid": {
-    "message": "only on <code>@@…$rawrule=</code> entries: the raw rule it stops",
-    "description": "Guide page text."
-  },
-  "guide_obj_rewrite_title": {
-    "message": "Rewriting instead of removing",
-    "description": "Guide page text."
-  },
-  "guide_obj_p2": {
-    "message": "With <code>replacePattern</code>, a rule in <code>rules</code> keeps the parameter and replaces its value, which is <code>§1§</code>. In <code>rawRules</code> and <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … are the capture groups:",
-    "description": "Guide page text."
-  },
-  "guide_obj_pre_title": {
-    "message": "Preprocessors",
-    "description": "Guide page text."
-  },
-  "guide_obj_p3": {
-    "message": "Preprocessors change captured values before <code>replacePattern</code> uses them. <code>inputs</code> is <code>\"all\"</code> or a list of group numbers:",
-    "description": "Guide page text."
-  },
-  "guide_obj_p4": {
-    "message": "The types are <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> and <code>base64Decode</code>.",
-    "description": "Guide page text."
-  },
-  "guide_obj_ids_title": {
-    "message": "Rule ids",
-    "description": "Guide page text."
-  },
-  "guide_obj_p5": {
-    "message": "Every rule has an id. A rule without <code>id</code> gets one from its list and its text: <code>\"utm_source\"</code> in <code>rules</code> becomes <code>field-utm-source</code>. If two rules would get the same id, both get a short hash on the end.",
-    "description": "Guide page text."
-  },
-  "guide_obj_p6": {
-    "message": "A generated id changes when the rule's text changes. Give a rule its own <code>id</code> when it must keep its on/off setting through edits.",
-    "description": "Guide page text."
-  },
-  "guide_obj_p9": {
-    "message": "A rule is switched on and off by its provider and id together, such as <code>shop::session-token</code>, so two providers can use the same id. Within one provider, every id and alias must be different, and an id can't contain a colon. A remote rule list can replace one loaded rule by naming this key in its <code>patches</code>:",
-    "description": "Guide page text."
-  },
-  "guide_obj_order_title": {
-    "message": "Running a rule earlier or later",
-    "description": "Guide page text."
-  },
-  "guide_obj_p7": {
-    "message": "Raw rules always run before <code>rules</code> and <code>referralMarketing</code>, and <code>order</code> never changes that. Within each of these two stages, a rule with <code>order</code> runs before rules without one, lowest first. Here the token is rewritten before <code>utm_source</code> is removed, although it comes second:",
-    "description": "Guide page text."
-  },
-  "guide_obj_p8": {
-    "message": "<code>order</code> works in <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>. <code>$removeparam</code> filters and <code>@@</code> entries can't have one; filters always run last. <code>\"order\": null</code> means no order, and drops one that an earlier copy of the same rule set.",
-    "description": "Guide page text."
-  },
-  "guide_ref_title": {
-    "message": "10. Referral marketing",
-    "description": "Guide page text."
-  },
-  "guide_ref_p1": {
-    "message": "<code>referralMarketing</code> takes the same entries as <code>rules</code>. They are skipped while <em>Allow referral marketing</em> is on, so affiliate links keep working if you want them to:",
-    "description": "Guide page text."
-  },
-  "guide_ref_p2": {
-    "message": "A rule can stay in <code>rules</code> and still count as referral marketing, with <code>\"referralMarketing\": true</code>.",
-    "description": "Guide page text."
-  },
-  "guide_req_title": {
-    "message": "11. Methods and request types",
-    "description": "Guide page text."
-  },
-  "guide_req_p1": {
-    "message": "These narrow down when a provider or a rule runs:",
-    "description": "Guide page text."
-  },
-  "guide_req_methods": {
-    "message": "HTTP methods the provider handles",
-    "description": "Guide page text."
-  },
-  "guide_req_resourcetypes": {
-    "message": "request types the provider handles",
-    "description": "Guide page text."
-  },
-  "guide_req_requesttypes": {
-    "message": "request types one rule object handles",
-    "description": "Guide page text."
-  },
-  "guide_req_options": {
-    "message": "the same for one <code>$removeparam</code> filter or raw rule",
-    "description": "Guide page text."
-  },
-  "guide_req_p2": {
-    "message": "Request types use the browser's names: <code>main_frame</code> (a page), <code>sub_frame</code> (a frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> and so on. Filter options call the first two <code>document</code> and <code>subdocument</code>.",
-    "description": "Guide page text."
-  },
-  "guide_order_title": {
-    "message": "12. How a URL is processed",
-    "description": "Guide page text."
-  },
-  "guide_order_p1": {
-    "message": "For each provider that matches the URL and allows the request:",
-    "description": "Guide page text."
-  },
-  "guide_order_1": {
-    "message": "<code>exceptions</code>: if one matches, the provider is skipped.",
-    "description": "Guide page text."
-  },
-  "guide_order_2": {
-    "message": "<code>redirections</code>, then <code>fieldRedirections</code>: a match redirects the request, and nothing else runs.",
-    "description": "Guide page text."
-  },
-  "guide_order_3": {
-    "message": "<code>completeProvider</code>: the request is blocked.",
-    "description": "Guide page text."
-  },
-  "guide_order_4": {
-    "message": "<code>rawRules</code> run on the full URL.",
-    "description": "Guide page text."
-  },
-  "guide_order_5": {
-    "message": "<code>rules</code> and <code>referralMarketing</code> remove parameters.",
-    "description": "Guide page text."
-  },
-  "guide_order_6": {
-    "message": "<code>$removeparam</code> filters run, except where an <code>@@</code> filter keeps the parameter.",
-    "description": "Guide page text."
-  },
-  "guide_order_p2": {
-    "message": "The first provider that changes, redirects or blocks the request decides the result. The new URL then goes through the same steps again, at most 10 times per request. A rule with <code>replacePattern</code> applies only once per request.",
-    "description": "Guide page text."
-  },
-  "guide_ex_title": {
-    "message": "13. Complete examples",
-    "description": "Guide page text."
-  },
-  "guide_ex1_title": {
-    "message": "Clean one shop",
-    "description": "Guide page text."
-  },
-  "guide_ex1_p": {
-    "message": "Removes tracking parameters and an affiliate id on one shop, and leaves its checkout pages alone:",
-    "description": "Guide page text."
-  },
-  "guide_ex2_title": {
-    "message": "Remove UTM parameters everywhere",
-    "description": "Guide page text."
-  },
-  "guide_ex2_p": {
-    "message": "The pattern <code>*</code> matches every URL:",
-    "description": "Guide page text."
-  },
-  "guide_ex3_title": {
-    "message": "Skip a click tracker",
-    "description": "Guide page text."
-  },
-  "guide_ex3_p": {
-    "message": "Sends links through a click tracker straight to their destination, which is in the <code>url</code> parameter:",
-    "description": "Guide page text."
-  },
-  "guide_ex4_title": {
-    "message": "Keep a parameter on one page",
-    "description": "Guide page text."
-  },
-  "guide_ex4_p": {
-    "message": "Removes <code>ref</code> everywhere on the site except on the login page, which needs it:",
-    "description": "Guide page text."
-  },
-  "guide_check_title": {
-    "message": "14. Checking your rules",
-    "description": "Guide page text."
-  },
-  "guide_check_p1": {
-    "message": "The custom rules editor checks rules when you save or import them. Besides broken JSON and invalid regular expressions, it rejects rules that would load but quietly do the wrong thing, such as:",
-    "description": "Guide page text."
-  },
-  "guide_check_1": {
-    "message": "<code>domainPatterns</code> and <code>urlPattern</code> on one provider",
-    "description": "Guide page text."
-  },
-  "guide_check_2": {
-    "message": "a pattern with a single <code>|</code> and no scheme, such as <code>|example.com^</code>",
-    "description": "Guide page text."
-  },
-  "guide_check_3": {
-    "message": "a regular-expression redirect without exactly one capture group",
-    "description": "Guide page text."
-  },
-  "guide_check_4": {
-    "message": "unknown fields, keys and options",
-    "description": "Guide page text."
-  },
-  "guide_check_5": {
-    "message": "<code>order</code> or <code>referralMarketing</code> where it would do nothing",
-    "description": "Guide page text."
-  },
-  "guide_check_6": {
-    "message": "an <code>@@…$rawrule=</code> entry that stops no raw rule",
-    "description": "Guide page text."
-  },
-  "guide_check_7": {
-    "message": "a <code>cln</code> value other than <code>\"1.0\"</code>",
-    "description": "Guide page text."
-  },
-  "guide_check_8": {
-    "message": "an id or alias used twice in one provider",
-    "description": "Guide page text."
-  },
-  "guide_check_9": {
-    "message": "a <code>$redirect=</code> address that is not <code>http</code> or <code>https</code>",
-    "description": "Guide page text."
-  },
-  "guide_check_10": {
-    "message": "a backslash in a <code>$removeparam</code> name before a character that has no escape",
-    "description": "Guide page text."
-  },
-  "guide_check_p2": {
-    "message": "If saving fails, the message names the provider, the list and the entry.",
-    "description": "Guide page text."
-  },
   "popup_html_guide_link": {
     "message": "Provider JSON Guide",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
@@ -6387,11 +5667,11 @@
     "description": "FAQ question for the unified Linkumori rule syntax guide."
   },
   "faq_rules_guide_syntax_answer": {
-    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "message": "Use CLN Format 1.0, the JSON format described in the rules guide. Parameter names, name regexes, $removeparam filters and rule objects all go in the same provider lists, and the editor checks them when you save.",
     "description": "FAQ answer explaining the unified Linkumori rule syntax."
   },
   "faq_rules_guide_syntax_note": {
-    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "message": "$removeparam filters go inside a provider's rules, referralMarketing or fieldRedirections list, not on their own. An official ClearURLs rule catalog is already a valid CLN file; a ClearURLs 2.0 YAML file can't be read and must be moved by hand.",
     "description": "FAQ note for the unified Linkumori rule syntax."
   },
   "faq_rules_guide_open_page": {
