@@ -73,6 +73,34 @@
 
     const hasStorage = typeof browser !== 'undefined' && browser.storage && browser.storage.local;
 
+    function translateGuide(key) {
+        if (!key) return '';
+        if (
+            window.LinkumoriI18n &&
+            typeof window.LinkumoriI18n.getMessage === 'function' &&
+            (!window.LinkumoriI18n.isReady || window.LinkumoriI18n.isReady())
+        ) {
+            const translated = window.LinkumoriI18n.getMessage(key);
+            if (translated && translated !== key) return translated;
+        }
+        return '';
+    }
+
+    function applyGuideI18n() {
+        const apply = (attribute, set) => {
+            document.querySelectorAll(`[${attribute}]`).forEach((element) => {
+                const translated = translateGuide(element.getAttribute(attribute));
+                if (translated) set(element, translated);
+            });
+        };
+        apply('data-i18n', (element, text) => { element.textContent = text; });
+        apply('data-i18n-html', (element, html) => { element.innerHTML = html; });
+        apply('data-i18n-placeholder', (element, text) => { element.placeholder = text; });
+        apply('data-i18n-aria', (element, text) => { element.setAttribute('aria-label', text); });
+        apply('data-i18n-title', (element, text) => { element.title = text; });
+        filterToc();
+    }
+
     // Theme: the same stored theme and light/dark toggle as the other pages.
     function applyTheme(theme) {
         const normalized = normalizeTheme(theme);
@@ -189,6 +217,9 @@
     document.addEventListener('DOMContentLoaded', () => {
         initializeTheme();
         initializeToc();
-        filterToc();
+        applyGuideI18n();
+        if (window.LinkumoriI18n && typeof window.LinkumoriI18n.ready === 'function') {
+            window.LinkumoriI18n.ready(applyGuideI18n);
+        }
     });
 })();
