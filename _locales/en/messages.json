@@ -27,10 +27,6 @@
     "message": "Active Remote Providers:",
     "description": "Label for active remote providers count."
   },
-  "addDomainToWhitelist": {
-    "message": "Add $1 to whitelist",
-    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
-  },
   "addcurrentdomain_to_whitelist": {
     "message": "Add Current Domain to Whitelist",
     "description": "Button label to add the current domain to the whitelist."
@@ -392,9 +388,6 @@
   "customRulesEditor_jsonRequired": {
     "message": "JSON content is required"
   },
-  "customRulesEditor_jsonToolbarHelp": {
-    "message": "Clicking urlPattern removes domainPatterns, and vice versa."
-  },
   "customRulesEditor_jsonToolbarTitle": {
     "message": "Add field to JSON"
   },
@@ -426,9 +419,6 @@
   },
   "customRulesEditor_providerHasEmptyDomainPattern": {
     "message": "Provider \"$1\" has empty domain patterns"
-  },
-  "customRulesEditor_providerMissingUrlPattern": {
-    "message": "Provider \"$1\" is missing urlPattern"
   },
   "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
     "message": "Provider \"$1\" must have either urlPattern or domainPatterns"
@@ -544,26 +534,6 @@
     "message": "No data available in table",
     "description": "DataTables empty table message"
   },
-  "datatable_info": {
-    "message": "Showing _START_ to _END_ of _TOTAL_ entries",
-    "description": "DataTables pagination info"
-  },
-  "datatable_info_empty": {
-    "message": "Showing 0 to 0 of 0 entries",
-    "description": "DataTables info when no data"
-  },
-  "datatable_showing_all": {
-    "message": "Showing all $1 entries",
-    "description": "Info message when showing all entries. $1=total count"
-  },
-  "datatable_showing_entries": {
-    "message": "Showing $1 to $2 of $3 entries",
-    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
-  },
-  "datatable_zero_records": {
-    "message": "No matching records found",
-    "description": "DataTables no search results message"
-  },
   "domain_blocking_enabled": {
     "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlockers)",
     "description": "This string is used as label for the domain blocking switch"
@@ -599,10 +569,6 @@
   "error_loading_data": {
     "message": "Failed to load log data. Please refresh the page.",
     "description": "Error message when log data cannot be loaded from storage"
-  },
-  "error_rendering_table": {
-    "message": "Error rendering table data",
-    "description": "Error message when table fails to render"
   },
   "extension_description": {
     "message": "Remove tracking elements from URLs.",
@@ -1275,34 +1241,6 @@
     "message": "Enable Google and Yandex content scripts that remove redirect tracking from search result links.",
     "description": "Description for the combined search result content script toggle"
   },
-  "google_link_fix_enabled": {
-    "message": "Google link fix",
-    "description": "Label for the Google content script toggle"
-  },
-  "google_link_fix_enabled_description": {
-    "message": "Enable the Google content script that removes redirect tracking from Google result links.",
-    "description": "Description for the Google content script toggle"
-  },
-  "yandex_link_fix_enabled": {
-    "message": "Yandex link fix",
-    "description": "Label for the Yandex content script toggle"
-  },
-  "yandex_link_fix_enabled_description": {
-    "message": "Enable the Yandex content script that removes redirect tracking from Yandex result links.",
-    "description": "Description for the Yandex content script toggle"
-  },
-  "import_invalid_format": {
-    "message": "Invalid file format or corrupted data",
-    "description": "Error message for invalid file format"
-  },
-  "import_parse_error": {
-    "message": "Failed to parse file. Please check the file format.",
-    "description": "Error message when file parsing fails"
-  },
-  "import_read_error": {
-    "message": "Failed to read file",
-    "description": "Error message when file reading fails"
-  },
   "inputUrlsDescription": {
     "message": "With this tool you can paste in URLs and ClearURLs will clean the URLs after a click on the green button. You can paste in multiple URLs at once, but every URL must be on a separate line.",
     "description": "Description text for the input URLs section."
@@ -1407,14 +1345,6 @@
     "message": "This domain is blocked",
     "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
   },
-  "log_html_export_button": {
-    "message": "Export",
-    "description": "This string is used for the export button on the log page."
-  },
-  "log_html_export_button_title": {
-    "message": "Exports the global log",
-    "description": "This string is used as title for the export button on the log page."
-  },
   "log_html_import_button": {
     "message": "Import",
     "description": "This string is used for the import button on the log page."
@@ -1447,54 +1377,6 @@
     "message": "Are you sure you want to reset the log? This action cannot be undone.",
     "description": "Confirmation dialog when user clicks reset button"
   },
-  "log_html_search": {
-    "message": "Search",
-    "description": "Label for the search input field"
-  },
-  "log_html_search_placeholder": {
-    "message": "Search logs...",
-    "description": "Placeholder text in the search input field"
-  },
-  "log_html_show_all": {
-    "message": "All",
-    "description": "Option in entries dropdown to show all entries"
-  },
-  "log_html_show_entries": {
-    "message": "Show entries",
-    "description": "Label for the dropdown to select how many entries to show per page"
-  },
-  "log_html_table_head_1": {
-    "message": "Before ",
-    "description": "This string is used as table title on the log page."
-  },
-  "log_html_table_head_2": {
-    "message": "After ",
-    "description": "This string is used as table title on the log page."
-  },
-  "log_html_table_head_3": {
-    "message": "Rule",
-    "description": "This string is used as table title on the log page."
-  },
-  "log_html_table_head_4": {
-    "message": "Time",
-    "description": "This string is used as table title on the log page."
-  },
-  "log_html_table_head_5": {
-    "message": "Provider",
-    "description": "Column header for matched provider name on the log page."
-  },
-  "log_html_table_head_6": {
-    "message": "Pattern",
-    "description": "Column header for matched urlPattern/domainPattern on the log page."
-  },
-  "log_html_table_head_7": {
-    "message": "Method",
-    "description": "Column header for request method and provider methods on the log page."
-  },
-  "log_html_table_head_8": {
-    "message": "Resource Type",
-    "description": "Column header for request resource type and provider resource types on the log page."
-  },
   "log_nav_dashboard": {
     "message": "Dashboard",
     "description": "Tab label for dashboard view on log page"
@@ -1514,14 +1396,6 @@
   "log_provider_pattern_url": {
     "message": "urlPattern",
     "description": "Label for URL pattern provider matching in log entries."
-  },
-  "log_provider_request_method": {
-    "message": "method",
-    "description": "Label for the current request method in provider match details."
-  },
-  "log_provider_methods": {
-    "message": "provider methods",
-    "description": "Label for provider method filters in provider match details."
   },
   "log_redirect": {
     "message": "This url is redirected",
@@ -1726,46 +1600,6 @@
     "message": "Overridden Providers:",
     "description": "Label for overridden provider names list."
   },
-  "pagination_current_page_aria": {
-    "message": "Current page, page $1",
-    "description": "Screen reader label for current active page. $1=page number"
-  },
-  "pagination_first": {
-    "message": "First",
-    "description": "Button text to go to first page"
-  },
-  "pagination_first_aria": {
-    "message": "First page",
-    "description": "Screen reader label for first page button"
-  },
-  "pagination_last": {
-    "message": "Last",
-    "description": "Button text to go to last page"
-  },
-  "pagination_last_aria": {
-    "message": "Last page",
-    "description": "Screen reader label for last page button"
-  },
-  "pagination_next": {
-    "message": "Next",
-    "description": "Button text to go to next page"
-  },
-  "pagination_next_aria": {
-    "message": "Next page",
-    "description": "Screen reader label for next page button"
-  },
-  "pagination_page_aria": {
-    "message": "Page $1",
-    "description": "Screen reader label for numbered page buttons. $1=page number"
-  },
-  "pagination_previous": {
-    "message": "Previous",
-    "description": "Button text to go to previous page"
-  },
-  "pagination_previous_aria": {
-    "message": "Previous page",
-    "description": "Screen reader label for previous page button"
-  },
   "percentage_symbol": {
     "message": "%",
     "description": "Symbol used for percentages in this language"
@@ -1805,10 +1639,6 @@
   "popup_html_version_label": {
     "message": "Version:",
     "description": "Version label shown in popup license section"
-  },
-  "popup_html_firefox_signature_label": {
-    "message": "Firefox Add-on Signature",
-    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
   },
   "popup_html_firefox_signature_title": {
     "message": "Firefox Add-on Signature",
@@ -2349,22 +2179,6 @@
     "message": "These optional protections start disabled by default. Turn on the ones you want, then save and reload Linkumori.",
     "description": "Description for the optional feature toggles section on the legal page"
   },
-  "legal_optional_feature_disabled": {
-    "message": "Disabled",
-    "description": "Status badge shown when an optional legal-page feature is disabled"
-  },
-  "legal_optional_feature_enabled": {
-    "message": "Enabled",
-    "description": "Status badge shown when an optional legal-page feature is enabled"
-  },
-  "legal_optional_feature_pending_enable": {
-    "message": "Enable on save",
-    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
-  },
-  "legal_optional_feature_pending_disable": {
-    "message": "Disable on save",
-    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
-  },
   "legal_optional_features_note": {
     "message": "Changes are saved only when you use the button on the right.",
     "description": "Initial helper note below the optional feature toggles on the legal page"
@@ -2409,10 +2223,6 @@
     "message": "Settings",
     "description": "This string is used for the settings button on the popup page."
   },
-  "popup_html_statistics": {
-    "message": "Statistics",
-    "description": "Toggle label for statistics feature"
-  },
   "popup_html_statistics_blocked": {
     "message": "Blocked",
     "description": "This string is used as name for the blocked elements on the popup page."
@@ -2428,10 +2238,6 @@
   "popup_html_statistics_reset_button": {
     "message": "Reset",
     "description": "This string is used as name for the statistics reset button on the popup page."
-  },
-  "popup_html_tools_button": {
-    "message": "Tools",
-    "description": "This string is used for the tools button on the popup page."
   },
   "popup_html_tools_button_title": {
     "message": "Open cleaning tools",
@@ -2468,10 +2274,6 @@
   "privacyVersionDescription": {
     "message": "Choose which Translation of privacy policy You wanted to see.Please note that only English version is available for now, and other languages may be added in the future.",
     "description": "Helper description for privacy version selector"
-  },
-  "privacyVersionEnGlobal": {
-    "message": "English",
-    "description": "Option label for global English privacy policy file"
   },
   "privacyVersionLabel": {
     "message": "Privacy Policy ",
@@ -2568,17 +2370,32 @@
   "customRulesEditor_renameRuleIdPrompt": {
     "message": "New id for $OLD$ (a-z, 0-9, - and _). The old id is kept as an alias, so rules switched off under it stay off.",
     "description": "Prompt when renaming a rule id",
-    "placeholders": { "old": { "content": "$1", "example": "field-dd" } }
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
   },
   "customRulesEditor_renameRuleIdInvalid": {
     "message": "\"$ID$\" is not a valid id. Use lowercase letters, digits, - and _, starting with a letter or digit.",
     "description": "Alert when a new rule id has invalid characters",
-    "placeholders": { "id": { "content": "$1", "example": "Field DD" } }
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
   },
   "customRulesEditor_renameRuleIdTaken": {
     "message": "Another rule of this provider already uses \"$ID$\".",
     "description": "Alert when a new rule id is already used in the provider",
-    "placeholders": { "id": { "content": "$1", "example": "field-dd" } }
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
   },
   "customRulesEditor_disableRuleScopeTitle": {
     "message": "Disable rule",
@@ -2587,7 +2404,12 @@
   "customRulesEditor_disableRuleScopePrompt": {
     "message": "Disable $ID$ for the whole provider, or only for this URL/domain pattern?",
     "description": "Dialog message asking whether to disable a rule by provider or by URL/domain pattern",
-    "placeholders": { "id": { "content": "$1", "example": "field-sx" } }
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
   },
   "customRulesEditor_disableRuleForProvider": {
     "message": "My provider",
@@ -2600,7 +2422,12 @@
   "customRulesEditor_ruleIdRenamed": {
     "message": "Rule id renamed to $ID$",
     "description": "Status after a rule id was renamed and saved",
-    "placeholders": { "id": { "content": "$1", "example": "strip-dd" } }
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
   },
   "providerImport_orphanedToggles": {
     "message": "Orphaned toggles",
@@ -2613,10 +2440,6 @@
   "providerImport_orphanedToggleRemove": {
     "message": "Remove",
     "description": "Button label to remove an orphaned toggle"
-  },
-  "providerImport_allProviders": {
-    "message": "All providers",
-    "description": "Filter label for showing rule activations from every provider"
   },
   "providerImport_disableByPattern": {
     "message": "By URL/domain pattern",
@@ -2710,28 +2533,6 @@
   "providerImport_overwrittenCount": {
     "message": "Overwritten: $1 providers"
   },
-  "providerImport_rawRules": {
-    "message": "Raw Rules",
-    "description": "Full text for raw rules tooltip in provider cards"
-  },
-  "providerImport_rawRulesAbbr": {
-    "message": "Raw",
-    "description": "Abbreviation for raw rules count in provider cards"
-  },
-  "providerImport_redirections": {
-    "message": "Redirections"
-  },
-  "providerImport_redirectionsAbbr": {
-    "message": "red"
-  },
-  "providerImport_referralAbbr": {
-    "message": "Ref",
-    "description": "Abbreviation for referral marketing count in provider cards"
-  },
-  "providerImport_referralMarketing": {
-    "message": "Referral Marketing",
-    "description": "Full text for referral marketing tooltip in provider cards"
-  },
   "providerImport_rules": {
     "message": "rules"
   },
@@ -2760,10 +2561,6 @@
   "providerImport_title": {
     "message": "Import or Disable Providers",
     "description": "Title of the provider import modal dialog."
-  },
-  "providerList_button": {
-    "message": "List All custom Providers and search",
-    "description": "Button text to open the provider list modal"
   },
   "providerList_complete": {
     "message": "Complete",
@@ -2830,18 +2627,6 @@
   "providerList_noUrlPattern": {
     "message": "No URL pattern",
     "description": "Text shown when a provider has no URL pattern defined"
-  },
-  "providerList_rawRules": {
-    "message": "Raw Rules",
-    "description": "Label for raw rules count in provider statistics"
-  },
-  "providerList_redirections": {
-    "message": "Redirections",
-    "description": "Label for redirections count in provider statistics"
-  },
-  "providerList_referral": {
-    "message": "Referral",
-    "description": "Label for referral marketing count in provider statistics"
   },
   "providerList_rules": {
     "message": "Rules",
@@ -2937,10 +2722,6 @@
     "message": "Settings change is pending. Click Save to apply.",
     "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
   },
-  "removeDomainFromWhitelist": {
-    "message": "Remove $1 from whitelist",
-    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
-  },
   "rule_url_placeholder": {
     "message": "https://example.com/rules.json",
     "description": "Placeholder text for rule URL field after confirmation"
@@ -2980,10 +2761,6 @@
   "rules_metadata_name_remote_merged": {
     "message": "Merged Remote Rules",
     "description": "Display name for merged remote rules metadata in settings."
-  },
-  "rules_metadata_section": {
-    "message": "Rules Information:",
-    "description": "Section header for rules metadata information"
   },
   "rules_name_label": {
     "message": "Rules Name:",
@@ -3205,16 +2982,6 @@
     "message": "Open the audit page",
     "description": "This string is used as title for the audit button on the settings page."
   },
-  "setting_log_limit_label": {
-    "message": "Limit the log to $LIMIT$ entries.",
-    "description": "This string is used as name for the log limit label.",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "100"
-      }
-    }
-  },
   "setting_log_limit_label_with_range": {
     "message": "Log Limit (0-5000)",
     "description": "Label for the log limit input field."
@@ -3432,14 +3199,6 @@
   "theme_name_icecold": {
     "message": "Ice Cold",
     "description": "Name for the ice cold theme"
-  },
-  "theme_name_zengray": {
-    "message": "Zen Grey",
-    "description": "Name for the zen grey theme"
-  },
-  "theme_name_forest": {
-    "message": "Forest",
-    "description": "Name for the forest theme"
   },
   "theme_name_light": {
     "message": "Light",
@@ -3683,17 +3442,9 @@
     "message": "Failed to add domain to whitelist",
     "description": "Error message when adding domain fails"
   },
-  "whitelist_added": {
-    "message": "Added %s to whitelist",
-    "description": "Success message when domain is added. %s is replaced with domain name."
-  },
   "whitelist_already_exists": {
     "message": "Domain already in whitelist or invalid",
     "description": "Error message when domain already exists or is invalid"
-  },
-  "whitelist_count": {
-    "message": "%d domain(s) whitelisted",
-    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
   },
   "whitelist_exception_count": {
     "message": "%d exception(s)",
@@ -3702,10 +3453,6 @@
   "whitelist_exception_empty": {
     "message": "No whitelist exceptions",
     "description": "Text shown when there are no general or History API whitelist exceptions."
-  },
-  "whitelist_empty": {
-    "message": "No domains whitelisted",
-    "description": "Text shown when whitelist is empty"
   },
   "whitelist_enter_domain": {
     "message": "Please enter a domain name",
@@ -3767,10 +3514,6 @@
     "message": "Whitelist scope",
     "description": "Accessible label for the whitelist exception type selector."
   },
-  "whitelist_mode_tab_only": {
-    "message": "This tab only",
-    "description": "Temporary whitelist mode that is limited to the current tab."
-  },
   "whitelist_invalid_format": {
     "message": "Invalid format. Use a domain (example.com, *.example.com) or an IP address (192.168.1.1, ::1)",
     "description": "Error message for invalid domain format"
@@ -3786,10 +3529,6 @@
   "whitelist_remove_failed": {
     "message": "Failed to remove domain from whitelist",
     "description": "Error message when removing domain fails"
-  },
-  "whitelist_removed": {
-    "message": "Removed %s from whitelist",
-    "description": "Success message when domain is removed. %s is replaced with domain name."
   },
   "whitelist_removed_general": {
     "message": "Removed %s from general whitelist",
@@ -4130,10 +3869,6 @@
   "configs_switch_statistics_title": {
     "message": "switch for on/off statistics",
     "description": "Title for the button that switches to the license and credits view in the popup"
-  },
-  "popup_html_statistics_element_title": {
-    "message": "Elements",
-    "description": "Title for the statistics section in the popup"
   },
   "popup_html_statistics_blocked_title": {
     "message": "Blocked",
@@ -4479,11 +4214,6 @@
     "message": "Rule collisions:",
     "description": "Remote Rules Health label for rule collisions found in the loaded remote rules"
   },
-  "settings_remote_health_rule_collisions_summary": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings",
-    "description": "Remote Rules Health summary of rule collisions",
-    "placeholders": { "errors": { "content": "$1", "example": "1" }, "warnings": { "content": "$2", "example": "2" } }
-  },
   "settings_remote_health_rule_collisions_summary_notices": {
     "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
     "description": "Remote Rules Health summary of rule collisions; a notice is a rule another file replaced",
@@ -4579,7 +4309,12 @@
   "customRulesEditor_defaultsRemote": {
     "message": "Remote: $URL$",
     "description": "Label for one remote rule file's defaults",
-    "placeholders": { "url": { "content": "$1", "example": "https://example.com/rules.json" } }
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "https://example.com/rules.json"
+      }
+    }
   },
   "customRulesEditor_defaultsModeLabel": {
     "message": "Which defaults apply",
@@ -4608,12 +4343,22 @@
   "customRulesEditor_defaultsCountRequestTypes": {
     "message": "$COUNT$ request types",
     "description": "Rule defaults sidebar summary: number of request types",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsCountExceptions": {
     "message": "$COUNT$ URL exceptions",
     "description": "Rule defaults sidebar summary: number of exceptions",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
     "message": "1 URL exception",
@@ -4622,7 +4367,12 @@
   "customRulesEditor_defaultsCountPreprocessors": {
     "message": "$COUNT$ preprocessors",
     "description": "Rule defaults sidebar summary: number of preprocessors",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsModeSourceNote": {
     "message": "Each source's rules get that source's own defaults.",
@@ -4727,7 +4477,12 @@
   "customRulesEditor_defaultsMergeExceptionsAdded": {
     "message": "Exceptions are added together from every source: $COUNT$ in total.",
     "description": "Defaults merge: exceptions never conflict, they are combined",
-    "placeholders": { "count": { "content": "$1", "example": "50" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "50"
+      }
+    }
   },
   "customRulesEditor_defaultsMergeCombined": {
     "message": "Combined from every source",
@@ -4736,7 +4491,12 @@
   "customRulesEditor_defaultsMergeFrom": {
     "message": "From: $SOURCES$",
     "description": "Which sources a value in the defaults merge comes from",
-    "placeholders": { "sources": { "content": "$1", "example": "Built-in rules, Custom rules' defaults" } }
+    "placeholders": {
+      "sources": {
+        "content": "$1",
+        "example": "Built-in rules, Custom rules' defaults"
+      }
+    }
   },
   "customRulesEditor_defaultsMergeUnset": {
     "message": "Not set (built-in behaviour)",
@@ -4829,7 +4589,12 @@
   "customRulesEditor_defaultsInputsInvalid": {
     "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
     "description": "Error for invalid preprocessor inputs",
-    "placeholders": { "inputs": { "content": "$1", "example": "1, x" } }
+    "placeholders": {
+      "inputs": {
+        "content": "$1",
+        "example": "1, x"
+      }
+    }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
     "message": "Turn off history bypass protection (historyBypassProtection: false)",
@@ -4915,14 +4680,6 @@
     "message": "Detecting domain...",
     "description": "Temporary label shown while popup detects current tab domain for whitelist button"
   },
-  "popup_dynamic_whitelist_loading_add": {
-    "message": "Adding %s...",
-    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
-  },
-  "popup_dynamic_whitelist_loading_remove": {
-    "message": "Removing %s...",
-    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
-  },
   "popup_dynamic_whitelist_unavailable_title": {
     "message": "Cannot detect domain for this page",
     "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
@@ -4998,14 +4755,6 @@
   "log_i18n_load_failed": {
     "message": "Failed to load internationalization. Some features may not work properly.",
     "description": "Error message shown when log page translations fail to load."
-  },
-  "log_html_sort_oldest_first": {
-    "message": "Click to show oldest first",
-    "description": "Tooltip for log timestamp sort button when currently newest-first."
-  },
-  "log_html_sort_newest_first": {
-    "message": "Click to show newest first",
-    "description": "Tooltip for log timestamp sort button when currently oldest-first."
   },
   "customRulesEditor_ruleTestLab_close_aria": {
     "message": "Close Rule Test Lab",
@@ -5103,58 +4852,9 @@
     "message": "No",
     "description": "Boolean false label in Rule Test Lab output."
   },
-  "color_picket_clear": {
-    "message": "Clear",
-    "description": "Clear button in color picker."
-  },
-  "customRulesAnswer_enforceRules": {
-    "message": "Enforce Rules",
-    "description": "Legacy/alias label for enforcing custom rules."
-  },
-  "log_stats_chart_type_bar": {
-    "message": "Bar Chart",
-    "description": "Label for the bar chart option."
-  },
-  "log_stats_chart_type_line": {
-    "message": "Line Chart",
-    "description": "Label for the line chart option."
-  },
-  "log_stats_daily_activity": {
-    "message": "Daily Activity (Last 14 Days)",
-    "description": "Stats section title for daily activity chart/table."
-  },
-  "log_stats_date_col": {
-    "message": "Date",
-    "description": "Header for the date column in daily stats table."
-  },
-  "log_stats_entries_col": {
-    "message": "Entries",
-    "description": "Header for the entries column in daily stats table."
-  },
-  "log_stats_no_activity": {
-    "message": "No activity",
-    "description": "Fallback row label when no daily stats data is available."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "message": "Linkumori CLN Format 1.0",
     "description": "Group heading for native Linkumori CLN Format 1.0 rule status in the custom rules editor."
-  },
-  "popup_whitelist_state_permanent": {
-    "message": "Whitelisted: $1 — click again for tab-only",
-    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
-  },
-  "popup_whitelist_state_temporary": {
-    "message": "Tab-only: $1 — click to remove",
-    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
-  },
-  "logger_nav_label": {
-    "message": "Live Logger"
-  },
-  "logger_btn_pause": {
-    "message": "⏸ Pause"
-  },
-  "logger_btn_resume": {
-    "message": "▶ Resume"
   },
   "logger_btn_clear": {
     "message": "🗑 Clear"
@@ -5430,38 +5130,6 @@
     "message": "Run failed",
     "description": "Status prefix shown when the regression run fails."
   },
-  "customRulesEditor_syntaxModeLabel": {
-    "message": "Rule layout",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
-  },
-  "customRulesEditor_syntaxLegacy": {
-    "message": "Classic arrays",
-    "description": "Custom rules editor syntax mode label for classic Linkumori-ClearURLs rules"
-  },
-  "customRulesEditor_syntaxV3": {
-    "message": "Canonical objects",
-    "description": "Custom rules editor syntax mode label for canonical Linkumori-ClearURLs rules"
-  },
-  "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs keeps old ClearURLs fields and adds simple strings, inline $removeparam rules, and canonical rule objects in rules[].",
-    "description": "Custom rules editor help text for Linkumori-ClearURLs rule layout"
-  },
-  "customRulesEditor_syntaxV3Help": {
-    "message": "Canonical Linkumori-ClearURLs rules use kind + action inside rules[]. Old rawRules, referralMarketing, and redirections fields still work.",
-    "description": "Custom rules editor help text for canonical Linkumori-ClearURLs rules"
-  },
-  "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use linkumori-clearurls-dialect for all provider rules.",
-    "description": "Custom rules editor JSON help text for unified Linkumori-ClearURLs rules"
-  },
-  "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
-    "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
-  },
-  "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "Linkumori-ClearURLs keeps old ClearURLs fields and adds rules[] strings, $removeparam filters, and canonical objects with id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for unified Linkumori-ClearURLs rules"
-  },
   "customRulesEditor_addFieldRule": {
     "message": "Add field rule",
     "description": "Auto-added i18n key: customRulesEditor_addFieldRule"
@@ -5484,7 +5152,7 @@
   },
   "customRulesEditor_addRawExceptionRule": {
     "message": "Add raw rule exception",
-    "description": "Rule template button: adds an @@\u2026$rawrule= exception with targetId to rawRules"
+    "description": "Rule template button: adds an @@…$rawrule= exception with targetId to rawRules"
   },
   "customRulesEditor_addFieldRedirectRule": {
     "message": "Add field redirect",
@@ -5517,7 +5185,16 @@
   "customRulesEditor_lintSummary": {
     "message": "$ERRORS$ error(s), $WARNINGS$ warning(s)",
     "description": "Linter summary with problem counts",
-    "placeholders": { "errors": { "content": "$1", "example": "2" }, "warnings": { "content": "$2", "example": "1" } }
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
   },
   "customRulesEditor_runOrderTitle": {
     "message": "Run order",
@@ -5918,27 +5595,60 @@
   "customRulesEditor_lintClearedCount": {
     "message": "$COUNT$ warning(s) cleared",
     "description": "Linter summary suffix with the number of cleared warnings",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "customRulesEditor_lintNoIndexPattern": {
     "message": "$PROVIDER$: urlPattern without indexPattern is checked against every URL; add indexPattern hints such as \"||example.com^\"",
     "description": "Linter warning for a urlPattern provider without indexPattern",
-    "placeholders": { "provider": { "content": "$1", "example": "example" } }
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
   },
   "customRulesEditor_lintDuplicateEntry": {
     "message": "$WHERE$ repeats \"$ENTRY$\"; the copy does nothing and both share one id",
     "description": "Linter warning for the same entry twice in one list",
-    "placeholders": { "where": { "content": "$1", "example": "rules[3]" }, "entry": { "content": "$2", "example": "utm_source" } }
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
   },
   "customRulesEditor_lintPlaceholder": {
     "message": "$WHERE$ still has the template placeholder \"$PATTERN$\"; replace it with the real pattern",
     "description": "Linter warning for a rule template whose matchPattern was not edited",
-    "placeholders": { "where": { "content": "$1", "example": "rules[0]" }, "pattern": { "content": "$2", "example": "$removeparam=example_param" } }
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
   },
   "customRulesEditor_lintNeverMatches": {
     "message": "$WHERE$ has matchPattern \"(?!)\", which never matches anything",
     "description": "Linter warning for the old never-matching template pattern",
-    "placeholders": { "where": { "content": "$1", "example": "rules[0]" } }
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Rule templates",
