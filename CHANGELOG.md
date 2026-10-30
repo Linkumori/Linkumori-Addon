@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.82.0] - 2026-10-30 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.81.0...linkumori-v100.82.0))
+### Added
+- Introduce whitelist manager to popup (`2026-10-30`, hash: [`971f1e4`](https://github.com/Linkumori/Linkumori-Addon/commit/971f1e4))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-10-30`, hash: [`9c2fbaa`](https://github.com/Linkumori/Linkumori-Addon/commit/9c2fbaa))
+- Improve custom rules loading and localize whitelist UI (`2026-10-30`, hash: [`86165c3`](https://github.com/Linkumori/Linkumori-Addon/commit/86165c3))
+- Updated canonical URL cleaning rules source (`2026-10-30`, hash: [`9c2fbaa`](https://github.com/Linkumori/Linkumori-Addon/commit/9c2fbaa))
+
 ## [v100.81.0] - 2026-10-30 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.80.0...linkumori-v100.81.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-10-30`, hash: [`3b53ab0`](https://github.com/Linkumori/Linkumori-Addon/commit/3b53ab0))
