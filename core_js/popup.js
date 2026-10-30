@@ -996,16 +996,22 @@ function initializeNavigation() {
             // Add active class to clicked nav item
             navItem.classList.add('active');
             
-            // Show appropriate content; the troubleshooter tab opens its
-            // own panel (popup_troubleshooter.js).
+            // The troubleshooter and whitelist tabs open their own panels.
             if (target !== 'troubleshooterPanel') {
                 const troubleshooterPanel = document.getElementById('troubleshooterPanel');
                 if (troubleshooterPanel) troubleshooterPanel.hidden = true;
+            }
+            if (target !== 'whitelistPanel') {
+                const whitelistPanel = document.getElementById('whitelistPanel');
+                if (whitelistPanel) whitelistPanel.hidden = true;
             }
             if (target === 'mainContent') {
                 showMainContent();
             } else if (target === 'licenseContent') {
                 showLicenseContent();
+            } else {
+                mainContent.style.display = 'none';
+                licenseContent.style.display = 'none';
             }
         });
     });
@@ -2116,11 +2122,6 @@ async function openLoggerWindow() {
         const customrulesBtn = document.getElementById('customrules');
         if (customrulesBtn) {
             customrulesBtn.href = browser.runtime.getURL('./html/customrules.html#customrule');
-        }
-
-        const whitelistPageBtn = document.getElementById('whitelist_page');
-        if (whitelistPageBtn) {
-            whitelistPageBtn.href = browser.runtime.getURL('./html/customrules.html#whitelist');
         }
 
         // Set up legal link

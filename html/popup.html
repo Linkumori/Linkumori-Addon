@@ -1077,6 +1077,154 @@
 
         #troubleshooterPanel[hidden] { display: none !important; }
 
+        #whitelistPanel {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 0;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        #whitelistPanel[hidden] { display: none !important; }
+
+        .whitelist-heading h2 {
+            color: var(--text-primary);
+            font-size: 14px;
+            margin: 0 0 3px;
+        }
+
+        .whitelist-heading p,
+        .whitelist-hint,
+        .whitelist-punycode-preview,
+        .whitelist-status {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 10.5px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        .whitelist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .whitelist-form label,
+        .whitelist-search-label {
+            color: var(--text-secondary);
+            font-size: 10.5px;
+            font-weight: 600;
+        }
+
+        .whitelist-form input,
+        .whitelist-form select,
+        .whitelist-search {
+            width: 100%;
+            min-width: 0;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            padding: 6px 7px;
+            font: inherit;
+            font-size: 11px;
+        }
+
+        .whitelist-form input:focus,
+        .whitelist-form select:focus,
+        .whitelist-search:focus {
+            outline: 2px solid var(--input-focus);
+            outline-offset: 1px;
+        }
+
+        .whitelist-form select option { color: #111827; }
+
+        .whitelist-punycode-preview {
+            min-height: 14px;
+            font-family: monospace;
+            overflow-wrap: anywhere;
+        }
+
+        .whitelist-form button { min-height: 30px; }
+
+        .whitelist-list-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .whitelist-count {
+            color: var(--text-muted);
+            font-size: 10px;
+            flex: 0 0 auto;
+        }
+
+        .whitelist-popup-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 190px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        .whitelist-popup-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 7px;
+            padding: 7px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .whitelist-popup-item:last-child { border-bottom: none; }
+
+        .whitelist-popup-entry {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .whitelist-popup-domain {
+            display: block;
+            color: var(--text-primary);
+            font-size: 11px;
+            overflow-wrap: anywhere;
+        }
+
+        .whitelist-popup-ascii {
+            display: block;
+            margin-top: 2px;
+            color: var(--text-muted);
+            font-family: monospace;
+            font-size: 9px;
+            overflow-wrap: anywhere;
+        }
+
+        .whitelist-popup-scope {
+            display: inline-block;
+            margin-top: 3px;
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+        .whitelist-popup-remove {
+            flex: 0 0 auto;
+            background: var(--button-danger);
+            font-size: 10px;
+            padding: 5px 7px;
+        }
+
+        .whitelist-popup-remove:hover { background: var(--button-danger-hover); }
+
+        .whitelist-status.success { color: #16a34a; }
+        .whitelist-status.error { color: #dc2626; }
+
         .troubleshooter-heading-row,
         .troubleshooter-actions,
         .troubleshooter-card-actions {
@@ -1807,12 +1955,39 @@
 
             <div class="button-group">
                  <a href="#" id="customrules" class="btn-action" role="button" target="_blank" rel="noopener"></a>
-                <a href="#" id="whitelist_page" class="btn-action" role="button" target="_blank" rel="noopener"></a>
+                <button type="button" id="whitelist_page" class="btn-action" aria-controls="whitelistPanel"></button>
                 <a href="#" id="settings" class="btn-action" role="button" target="_blank" rel="noopener"></a>
             </div>
         </div>
 
     </div>
+
+    <section id="whitelistPanel" aria-labelledby="whitelistTitle" hidden>
+        <div class="whitelist-heading">
+            <h2 id="whitelistTitle"></h2>
+            <p id="whitelistDescription"></p>
+        </div>
+        <form id="popupWhitelistForm" class="whitelist-form">
+            <label for="popupWhitelistInput" id="popupWhitelistInputLabel"></label>
+            <input type="text" id="popupWhitelistInput" autocomplete="off" spellcheck="false" aria-describedby="popupWhitelistHint popupWhitelistPunycode">
+            <p id="popupWhitelistHint" class="whitelist-hint"></p>
+            <p id="popupWhitelistPunycode" class="whitelist-punycode-preview" aria-live="polite"></p>
+            <label for="popupWhitelistScope" id="popupWhitelistScopeLabel"></label>
+            <select id="popupWhitelistScope">
+                <option value="general"></option>
+                <option value="history"></option>
+            </select>
+            <p id="popupWhitelistScopeHint" class="whitelist-hint"></p>
+            <button type="submit" id="popupWhitelistAdd"></button>
+        </form>
+        <div class="whitelist-list-toolbar">
+            <label for="popupWhitelistSearch" id="popupWhitelistSearchLabel" class="whitelist-search-label"></label>
+            <span id="popupWhitelistCount" class="whitelist-count" aria-live="polite"></span>
+        </div>
+        <input type="search" id="popupWhitelistSearch" class="whitelist-search">
+        <ul id="popupWhitelistEntries" class="whitelist-popup-list" aria-live="polite"></ul>
+        <p id="popupWhitelistStatus" class="whitelist-status" role="status" aria-live="polite"></p>
+    </section>
 
     <section id="troubleshooterPanel" aria-labelledby="troubleshooterTitle" hidden>
         <div class="troubleshooter-heading-row">
@@ -1905,6 +2080,7 @@
 <script src="../external_js/IP-Ranger.js"></script>
 <script src="../external_js/linkumori-i18n.js"></script>
 <script src="../core_js/popup.js"></script>
+<script src="../core_js/popup_whitelist.js"></script>
 <script src="../core_js/popup_troubleshooter.js"></script>
 <script src="../core_js/accessibility_tools.js"></script>
 <script src="../core_js/write_version.js"></script>
