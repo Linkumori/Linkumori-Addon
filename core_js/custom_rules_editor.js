@@ -150,6 +150,8 @@ let clearURLsDisabledRuleIds = [];
 let clearURLsRuleIdPins = [];
 let clearURLsProviderSnapshot = null;
 let disabledRulesActivationMode = 'pattern';
+const DISABLED_RULES_ACTIVATION_PAGE_SIZE = 100;
+let disabledRulesActivationVisibleLimit = DISABLED_RULES_ACTIVATION_PAGE_SIZE;
 let userWhitelist = [];
 let historyApiWhitelist = [];
 let whitelistSearchTerm = '';
@@ -3372,6 +3374,7 @@ function setupCustomRulesViews() {
         '#customrule':    'rules',
         '#whitelist':     'whitelist',
         '#provider-list': 'provider-list',
+        '#disabled-rule': 'disabled-rules',
         '#disabled-rules': 'disabled-rules',
     };
     const VIEW_TO_HASH = {
@@ -3529,7 +3532,24 @@ function initializeApp() {
     setupEventListeners();
     setupWhitelistUI();
     loadWhitelist();
-    loadCustomRules(); // Load this last so UI is ready
+    const customRulesLoad = loadCustomRules();
+    if (window.location.hash === '#disabled-rules' || window.location.hash === '#disabled-rule') {
+        // The disabled-rules view does not depend on custom rule editor data.
+        // Start its own reads immediately instead of waiting for that load.
+        showDisabledRulesPage().catch(error => {
+            console.error('Error loading disabled rules page:', error);
+        });
+    }
+    customRulesLoad.then(() => {
+        // Deep links select the view before its content data has loaded.
+        // The provider list does depend on custom rules, so populate it after
+        // that data is available.
+        if (window.location.hash === '#provider-list') {
+            showProviderListModal();
+        }
+    }).catch(error => {
+        console.error('Error loading initial custom rules view:', error);
+    });
 }
 
 /**
@@ -4004,9 +4024,12 @@ function setupDisabledRulesViewEvents() {
 
 async function showDisabledRulesPage() {
     if (!disabledRulesView) return;
-    await loadImportExclusions();
-    await loadClearURLsDisabledRuleIds();
-    await loadClearURLsProviderSnapshot();
+    disabledRulesActivationVisibleLimit = DISABLED_RULES_ACTIVATION_PAGE_SIZE;
+    await Promise.all([
+        loadImportExclusions(),
+        loadClearURLsDisabledRuleIds(),
+        loadClearURLsProviderSnapshot()
+    ]);
     renderDisabledRulesPageContent();
     switchCustomRulesView('disabled-rules');
 }
@@ -4201,7 +4224,8 @@ function renderRuleActivationSection() {
     `).join('');
 
     const rows = disabledRulesActivationMode === 'provider' ? providerRows : patternRows;
-    const items = rows.map(row => `
+    const visibleRows = rows.slice(0, disabledRulesActivationVisibleLimit);
+    const items = visibleRows.map(row => `
         <li class="provider-disabled-item rule-activation-item" data-runtime-id="${escapeHtml(row.runtimeRuleId)}" data-pin-target="${escapeHtml(JSON.stringify({
             providerName: row.providerName,
             section: row.section,
@@ -4230,7 +4254,9 @@ function renderRuleActivationSection() {
                 ${modes}
             </div>
             ${rows.length > 0
-                ? `<ul class="provider-disabled-list rule-activation-list">${items}</ul>`
+                ? `<ul class="provider-disabled-list rule-activation-list">${items}</ul>${visibleRows.length < rows.length
+                    ? `<div class="rule-activation-more-wrap"><button type="button" class="btn btn-secondary rule-activation-more-btn">${escapeHtml(i18n('providerImport_showMoreRuleActivations'))}</button></div>`
+                    : ''}`
                 : `<p class="provider-disabled-empty">${escapeHtml(i18n('providerImport_noProviderRuleActivations'))}</p>`}
         </div>
     `;
@@ -4239,6 +4265,7 @@ function renderRuleActivationSection() {
 function renderDisabledRulesPageContent() {
     const container = document.getElementById('disabled-rules-page-content');
     if (!container) return;
+    const previousScrollTop = container.scrollTop;
 
     // Toggles whose rule is gone upstream are listed on their own, at the
     // bottom, instead of among the ids that still switch a rule off.
@@ -4335,6 +4362,7 @@ function renderDisabledRulesPageContent() {
             ${orphanedSection}
         </div>
     `);
+    container.scrollTop = previousScrollTop;
 
     container.querySelectorAll('.orphaned-toggle-remove-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
@@ -4352,6 +4380,14 @@ function renderDisabledRulesPageContent() {
         btn.addEventListener('click', () => {
             const mode = btn.dataset.activationMode || 'pattern';
             disabledRulesActivationMode = mode === 'provider' ? 'provider' : 'pattern';
+            disabledRulesActivationVisibleLimit = DISABLED_RULES_ACTIVATION_PAGE_SIZE;
+            renderDisabledRulesPageContent();
+        });
+    });
+
+    container.querySelectorAll('.rule-activation-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            disabledRulesActivationVisibleLimit += DISABLED_RULES_ACTIVATION_PAGE_SIZE;
             renderDisabledRulesPageContent();
         });
     });

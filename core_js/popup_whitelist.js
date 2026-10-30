@@ -90,14 +90,20 @@
         const input = $('popupWhitelistInput');
         if (input) input.placeholder = localized('whitelist_input_placeholder', 'example.com, *.example.com, or 192.168.1.1');
         const inputLabel = $('popupWhitelistInputLabel');
-        if (inputLabel) inputLabel.textContent = 'Domain or IP address';
+        if (inputLabel) inputLabel.textContent = localized('popup_whitelist_input_label', 'Domain or IP address');
         const hint = $('popupWhitelistHint');
-        if (hint) hint.textContent = 'Use a domain, *.example.com, or an IP address. International names are converted to Punycode when saved.';
+        if (hint) hint.textContent = localized(
+            'popup_whitelist_input_hint',
+            'Use a domain, *.example.com, or an IP address. International domain names are converted to Punycode when saved.'
+        );
 
         const scopeLabel = $('popupWhitelistScopeLabel');
         if (scopeLabel) scopeLabel.textContent = localized('whitelist_mode_label', 'Whitelist scope');
         const scopeHint = $('popupWhitelistScopeHint');
-        if (scopeHint) scopeHint.textContent = 'General bypasses URL cleaning; History API only exempts same-page navigation checks.';
+        if (scopeHint) scopeHint.textContent = localized(
+            'popup_whitelist_scope_hint',
+            'General bypasses all URL cleaning; History API only skips cleaning after same-page navigation.'
+        );
         const generalOption = $('popupWhitelistScope')?.querySelector('option[value="general"]');
         if (generalOption) generalOption.textContent = localized('whitelist_mode_general', 'General whitelist');
         const historyOption = $('popupWhitelistScope')?.querySelector('option[value="history"]');
