@@ -39,7 +39,7 @@
     "message": "தொகுக்கப்பட்ட Linkumori/ClearURLs விதிகளைப் பயன்படுத்தவும். தொலைநிலை விதிகள் மற்றும்/அல்லது தனிப்பயன் விதிகளுடன் மட்டும் இயங்க இதை முடக்கவும்."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori ஒரே ஒருங்கிணைந்த ClearURLsData வழங்குநர் விதித்தொகுப்பைப் பயன்படுத்துகிறது. சொந்த வழங்குநர் JSON, நியமன விதிப் பொருள்கள் மற்றும் வழங்குநர்-உள்ளூர் $removeparam வடிகட்டிகள் clearurls.js இயங்குவதற்கு முன் ஒன்றிணைக்கப்படுகின்றன."
   },
   "bundled_rules_section_title": {
     "message": "விதிகள் தகவல்"
@@ -393,7 +393,7 @@
     "message": "URL பேட்டர்ன் அல்லது டொமைன் பேட்டர்ன்கள் தேவை"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\\\/\\\\/(?:[a-z0-9-]+\\\\.)*?example\\\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "URL பேட்டர்ன் தேவை"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori அமைப்புகளைத் திறக்கவும்"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "ஓவர்லோட் பயன்முறை நடத்தை"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "திருத்தப் பயன்முறை மட்டும்"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "உள்ளமைக்கப்பட்ட விதிகளுக்குத் தொலைநிலைத் திருத்தங்களைப் பயன்படுத்தும். தொலைநிலை வழங்குநர் விதிகள் சேர்க்கப்படாது."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "திருத்தப் பயன்முறை + ஒன்றிணைப்பு"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை வழங்குநர் விதிகளை ஒன்றிணைத்து, பின்னர் தொலைநிலைத் திருத்தங்களைப் பயன்படுத்தும்."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "திருத்தப் பயன்முறை இல்லை + ஒன்றிணைப்பு"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "தொலைநிலைத் திருத்தங்களைப் பயன்படுத்தாமல் உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை வழங்குநர் விதிகளை ஒன்றிணைக்கும்."
   },
   "overload_mode_enabled": {
     "message": "ஓவர்லோட் பயன்முறையை இயக்கவும்"
@@ -1227,7 +1227,7 @@
     "message": "GNU GPL v3.0 உரிம உரையைத் திறக்கவும்"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU குறைந்தபட்சப் பொது உரிமம் v3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "GNU LGPL v3.0 உரிம உரையைத் திறக்கவும்"
@@ -1563,7 +1563,7 @@
     "message": "விதிவிலக்குகள்"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "விதி."
   },
   "providerImport_excludeNoPattern": {
     "message": "இந்த வழங்குநரிடம் URL/டொமைன் பேட்டர்ன் இல்லை மற்றும் கையொப்பம் மூலம் விலக்க முடியாது."
@@ -1836,7 +1836,7 @@
     "message": "முதன்மை ஹாஷ் URL கண்டிப்பாக HTTPS ஐப் பயன்படுத்த வேண்டும்"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "முதன்மை விதி URL மற்றும் முதன்மை ஹாஷ் URL ஆகியவை ஒன்றாக உள்ளமைக்கப்பட வேண்டும்."
   },
   "save_primary_rule_https_required": {
     "message": "முதன்மை விதி URL கண்டிப்பாக HTTPS ஐப் பயன்படுத்த வேண்டும்"
@@ -1872,13 +1872,13 @@
     "message": "நான் அபாயங்களைப் புரிந்துகொள்கிறேன் - தொடரவும்"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Linkumori விதித்தொகுப்பு மூலத்தை நீங்கள் முழுமையாகப் புரிந்துகொள்ளவில்லை அல்லது நம்பவில்லை என்றால், தொலைநிலை விதிகளைப் பயன்படுத்துவதை மறுபரிசீலனை செய்யுங்கள்."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "ஏற்றப்படும் Linkumori JSON ஐப் புரிந்துகொள்ளும் மேம்பட்ட பயனர்களுக்காக இந்தத் தொலைநிலை விதிகள் அம்சம் வடிவமைக்கப்பட்டுள்ளது. சரிபார்ப்புக்காகத் தொலைநிலை விதிகளில் பொருந்தும் ஹாஷ் URL இருக்க வேண்டும்."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "தொலைநிலை விதி URL ஐச் சேர்த்தால், உள்ளமைக்கும்போது Linkumori விதித்தொகுப்பையும் அதன் ஹாஷ் கோப்பையும் பெற நீங்கள் குறிப்பிட்ட சேவையகத்துடன் நீட்டிப்பு இணைக்கும். ஒவ்வொரு பெறுதலும் உங்கள் IP முகவரியையும், நீட்டிப்புப் பதிப்பு, உலாவி, உலாவிப் பதிப்பு போன்ற பொதுவான தகவலையும் ஹோஸ்டிங் சேவையகத்துக்கு வெளிப்படுத்தக்கூடும். இந்தத் தரவு அந்த இணையதளம் அல்லது வலைச் சேவையகத்தின் தனியுரிமைக் கொள்கைக்கு உட்பட்டது."
   },
   "security_modal_privacy_link_text": {
     "message": "தேவைப்பட்டால் தொடர்வதற்கு முன் %PRIVACY_POLICY_LINK% ஐ மீண்டும் படிக்கவும்."
@@ -1887,7 +1887,7 @@
     "message": "எச்சரிக்கை அறிவிப்பு:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "தொலைநிலை மூலத்தை நீங்கள் நம்பி கட்டுப்படுத்தினால் தவிர உள்ளமைக்கப்பட்ட விதிகளைப் பயன்படுத்துங்கள். தொலைநிலை Linkumori JSON விதிகளுக்குப் பொருந்தும் ஹாஷ் URL ஐ வழங்குங்கள்."
   },
   "security_modal_risk_1": {
     "message": "உங்கள் ஐபி முகவரி மற்றும் உலாவித் தகவல்கள் உள்ளமைக்கப்பட்ட சேவையகங்களுக்கு வெளிப்படுத்தப்படும்"
@@ -1899,7 +1899,7 @@
     "message": "ஹாஷ் சரிபார்ப்பு Linkumori CLN Format 1.0 JSON விதிகளுக்கு மட்டுமே பொருந்தும்; இது டிரான்ஸ்மிஷன் டேம்பரிங் எதிராக பாதுகாக்கிறது, தீங்கிழைக்கும் விதி ஆதாரங்கள் அல்ல."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "வெற்றிகரமான ஹாஷ் சரிபார்ப்பு இல்லாத தொலைநிலை விதிகள் முழுவதுமாக மூல URL மீதான நம்பிக்கையையே சார்ந்துள்ளன."
   },
   "security_modal_risks_title": {
     "message": "பாதுகாப்பு அபாயங்கள்:"
@@ -1914,7 +1914,7 @@
     "message": "Rules.hash கோப்புக்கான url (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "தொலைநிலை Linkumori JSON விதி சரிபார்ப்புக்குத் தேவை."
   },
   "setting_html_export_button": {
     "message": "ஏற்றுமதி"
@@ -1944,7 +1944,7 @@
     "message": "பதிவு வரம்பு (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "ஒன்றிணைக்கப்படும் கூடுதல் தொலைநிலை Linkumori JSON மூலங்கள். ஒரு வரிக்கு ஒரு இணையை <code>ruleURL | hashURL</code> என உள்ளிடவும்."
   },
   "setting_remote_rule_sets_label": {
     "message": "கூடுதல் தொலைநிலை விதிகள்"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON விதிகளுக்கான தனிப்பயன் தொலைநிலை URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "தொலைநிலை விதிகள் JSON கோப்புக்கான URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "ஒவ்வொரு தொலைநிலை விதித்தொகுப்புக்கும் ஹாஷ் URL தேவை."
   },
   "settings_html_page_title": {
     "message": "Linkumori (சுத்தமான URLS) அமைப்புகள்"
@@ -2139,7 +2139,7 @@
     "message": "தீம்"
   },
   "time_am": {
-    "message": "AM"
+    "message": "முற்பகல்"
   },
   "time_am_lower": {
     "message": "காலை"
@@ -2421,19 +2421,19 @@
     "message": "எச்சரிக்கை: மேம்பட்ட அம்சம் சுய-ஹோஸ்ட் செய்யப்பட்ட சேவையகங்களுக்கு மட்டுமே"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "தொலைநிலை விதி URL திருத்தத்துக்கான Gatekeeper பாதுகாப்புகளை முடக்குகிறீர்கள். இந்த அம்சம் தொலைநிலை Linkumori JSON விதிகளை ஒருங்கிணைந்த வழங்குநர் விதித்தொகுப்பில் ஏற்றக்கூடும். நீங்கள் உள்ளமைக்கும் மூலத்தைப் புரிந்துகொண்டு நம்பினால் மட்டுமே தொடரவும்."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "கேட்கீப்பர் என்பது உள்ளமைக்கப்பட்ட பாதுகாப்பு ஓட்டமாகும், இது பாதுகாப்பு எச்சரிக்கையை நீங்கள் ஒப்புக் கொள்ளும் வரை மற்றும் தட்டச்சு செய்யப்பட்ட உறுதிப்படுத்தலை முழுமையாக்கும் வரை நேரடி தொலைநிலை URL திருத்தங்களைத் தடுக்கும்."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "உங்கள் தொலைநிலை மூலங்களை நம்பி கட்டுப்படுத்தினால் தவிர Gatekeeper ஐ இயக்கத்திலேயே வைத்திருங்கள். தொலைநிலை JSON விதிகளில் பொருந்தும் ஹாஷ் URL இருக்க வேண்டும்."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "எச்சரிக்கை அறிவிப்பு:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "தொலைநிலை விதி URL ஐச் சேர்த்தால், உள்ளமைக்கும்போது Linkumori விதித்தொகுப்பையும் அதன் ஹாஷ் கோப்பையும் பெற நீங்கள் குறிப்பிட்ட சேவையகத்துடன் நீட்டிப்பு இணைக்கும். ஒவ்வொரு பெறுதலும் உங்கள் IP முகவரியையும், நீட்டிப்புப் பதிப்பு, உலாவி, உலாவிப் பதிப்பு போன்ற பொதுவான தகவலையும் ஹோஸ்டிங் சேவையகத்துக்கு வெளிப்படுத்தக்கூடும். இந்தத் தரவு அந்த இணையதளம் அல்லது வலைச் சேவையகத்தின் தனியுரிமைக் கொள்கைக்கு உட்பட்டது."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "தேவைப்பட்டால் தொடர்வதற்கு முன் %PRIVACY_POLICY_LINK% ஐ மீண்டும் படிக்கவும்."
@@ -2448,7 +2448,7 @@
     "message": "ஒவ்வொரு முறையும் நீட்டிப்பு இயக்கப்பட்டு உங்கள் உலாவியில் ஏற்றப்படும்போது, ​​நீட்டிப்பு உங்களின் நியமிக்கப்பட்ட URL உடன் இணைக்கப்படும்."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "தொலைநிலை JSON அல்லது ஹாஷ் கோப்புகளை ஹோஸ்ட் செய்யும் சேவையகம் உங்கள் IP முகவரியைப் பெறும்."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "சேவையகம் உங்கள் நீட்டிப்பு பதிப்பு, உலாவி மற்றும் உலாவி பதிப்பையும் பெறலாம்."
@@ -2457,7 +2457,7 @@
     "message": "அந்தத் தரவு அந்த கோப்புகளை வழங்கும் இணையதளம் அல்லது இணைய சேவையகத்தின் தனியுரிமைக் கொள்கைக்கு உட்பட்டது."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeper ஐ முடக்குவதன் மூலம், பாதுகாப்பற்ற அல்லது சமரசமான தொலைநிலை விதி மூலங்களால் ஏற்படும் அபாயத்தை அதிகரிக்கிறீர்கள். பொருந்தும் ஹாஷ் URL உள்ளமைக்கப்பட்டிருக்கும்போது மட்டுமே ஹாஷ் சரிபார்ப்பு தொலைநிலை Linkumori JSON பதிவிறக்கங்களைப் பாதுகாக்கும்."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "ரத்து செய்"
@@ -2517,7 +2517,7 @@
     "message": "சரியான உறுதிப்படுத்தல் சொற்றொடரை உள்ளிடவும்"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "இந்தச் செயல் தொலைநிலை விதிகளுக்கான பாதுகாப்புகளைக் குறைக்கிறது. உங்கள் தொலைநிலை JSON மூலத்தை நம்பினால் மட்டுமே தொடரவும்."
   },
   "remote_urls_template_note_1": {
     "message": "உங்கள் உண்மையான HTTPS URLகளுடன் ஒதுக்கிட மதிப்புகளை மாற்றவும், பின்னர் இந்தக் கோப்பை இறக்குமதி செய்யவும்."
@@ -2841,16 +2841,16 @@
     "message": "தற்போதைய ஹாஷ் நிலை:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "பொருந்தாது"
   },
   "settings_remote_health_none": {
     "message": "இல்லை"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "விதி மோதல்கள்:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ பிழைகள், $WARNINGS$ எச்சரிக்கைகள், $NOTICES$ அறிவிப்புகள்",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "தொலைநிலைக் கோப்புத் திறன்கள்:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "ஏற்கும் வரை செயலற்றது: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ ஐ ஏற்கவும்",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "விதித் திருத்தங்கள்:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ பயன்படுத்தப்பட்டன, $NOT_APPLIED$ பயன்படுத்தப்படவில்லை",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "விதி இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "உள்ளமைக்கப்பட்டது"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "தனிப்பயன்"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "எதுவுமில்லை — உள்ளமைக்கப்பட்ட நடத்தை"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "ஓவர்லோட் பயன்முறை உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை விதிகளை ஒன்றிணைக்கிறது; ஒவ்வொரு மூலத்தின் விதிகளும் அந்த மூலத்தின் சொந்த இயல்புநிலைகளைக் கொண்டிருக்கும்."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "இயல்புநிலைகளைச் சேமி"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "இயல்புநிலைகள் சேமிக்கப்பட்டன"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "இயக்கத்தில் இருக்கும்போது, தனிப்பயன் விதிகள் திருத்தியில் உங்கள் சொந்த இயல்புநிலைகளைத் தேர்ந்தெடுக்காவிட்டால், ஒவ்வொரு விதி மூலமும் தன் சொந்த இயல்புநிலைகளைக் கொண்டிருக்கும் (உள்ளமைக்கப்பட்ட விதிகளுக்கு உள்ளமைக்கப்பட்ட இயல்புநிலைகள், ஒவ்வொரு தொலைநிலைக் கோப்பின் விதிகளுக்கும் அந்தக் கோப்பின் இயல்புநிலைகள்)."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "தொலைநிலை: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "எந்த இயல்புநிலைகள் பொருந்தும்"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "ஒவ்வொரு மூலத்தின் சொந்தம்"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை விதிகளுக்கு உங்களுடையது"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "எல்லா விதிகளுக்கும் உங்களுடையது"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(உங்கள் இயல்புநிலைகளால் மாற்றப்பட்டது)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "உங்களுடையது"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ கோரிக்கை வகைகள்",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL விதிவிலக்குகள்",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL விதிவிலக்கு"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ முன்செயலிகள்",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "ஒவ்வொரு மூலத்தின் விதிகளும் அந்த மூலத்தின் சொந்த இயல்புநிலைகளைப் பெறும்."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "உள்ளமைக்கப்பட்ட மற்றும் தொலைநிலை விதிகள் தங்கள் கோப்புகளின் சொந்த இயல்புநிலைகளுக்குப் பதிலாக உங்களுடையவற்றைப் பெறும்; தனிப்பயன் விதிகள் தங்களுடையவற்றையே வைத்திருக்கும்."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "உள்ளமைக்கப்பட்ட, தொலைநிலை மற்றும் தனிப்பயன் விதிகள் அனைத்தும் தங்கள் சொந்தவற்றுக்குப் பதிலாக உங்கள் இயல்புநிலைகளைப் பெறும்."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "விதி இயல்புநிலைகளை நிர்வகி"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "ஒரு விதி தானாக அமைக்காத மதிப்புகளை இயல்புநிலைகள் நிரப்புகின்றன. விதியின் சொந்த மதிப்பே எப்போதும் முன்னுரிமை பெறும்; வழங்குநர் விதிவிலக்குகள் ஒருபோதும் மாற்றப்படாது."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "இயல்புநிலைகளைத் திருத்து"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "உங்கள் இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "தனிப்பயன் விதிகளின் இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "திருத்த வேண்டிய இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "உள்ளமைக்கப்பட்ட விதிகள்"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(திருத்தப்பட்டது)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "கோப்பின் இயல்புநிலைகளுக்கு மீட்டமை"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "மூலங்களிலிருந்து ஒன்றிணை…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "விதி இயல்புநிலைகளை ஒன்றிணை"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "முடிவு பட்டியலில் \"ஒன்றிணைக்கப்பட்ட இயல்புநிலைகள்\" என்று தோன்றும். அங்குள்ள ஒரு தொகுப்பில் அதை நகலெடுத்து, பயன்படுத்த இயல்புநிலைகளைச் சேமி என்பதை அழுத்தவும்."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "ஒன்றிணைக்க வேண்டிய மூலங்கள்"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "முரண்பாடுகள்"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "ஒன்றிணைக்கப்பட்ட இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "ஒன்றிணைக்கப்பட்ட இயல்புநிலைகளைப் பயன்படுத்து"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "ஒன்றிணைக்கப்பட்ட இயல்புநிலைகள்"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "இதனை மற்ற தொகுப்புகளில் ஒன்றிற்கு நகலெடுத்து சேமிக்கும் வரை பயன்படுத்தப்படாது."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "இதற்கு நகலெடு"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "நகலெடு"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "குறைந்தது இரண்டு மூலங்களைத் தேர்ந்தெடுக்கவும்."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "முரண்பாடுகள் இல்லை: தேர்ந்தெடுத்த எல்லா மூலங்களிலும் ஒவ்வொரு மதிப்பும் ஒன்றாக உள்ளது."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "எல்லா மூலங்களிலிருந்தும் விதிவிலக்குகள் சேர்க்கப்படுகின்றன: மொத்தம் $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "எல்லா மூலங்களிலிருந்தும் ஒன்றிணைக்கப்பட்டது"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "இதிலிருந்து: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "அமைக்கப்படவில்லை (உள்ளமைந்த நடத்தை)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "அமைக்கப்படவில்லை: எல்லா கோரிக்கை வகைகளும்"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "இப்போது பயன்படுத்தப்படவில்லை: உங்கள் இயல்புநிலைகள் உள்ளமைந்த மற்றும் தொலைநிலை விதிகளின் சொந்த இயல்புநிலைகளை மாற்றுகின்றன."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "நீங்கள் திருத்தியது: இவை கோப்பின் இயல்புநிலைகளை மாற்றுகின்றன. கோப்பு மாற்றப்படாது."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(நீங்கள் திருத்தியது)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "இப்போது பயன்படுத்தப்படவில்லை: மேலே “ஒவ்வொரு மூலத்திற்கும் அதன் சொந்த இயல்புநிலை” தேர்ந்தெடுக்கப்பட்டுள்ளது."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "இப்போது பயன்படுத்தப்படவில்லை: தனிப்பயன் விதிகளுக்கும் உங்கள் இயல்புநிலைகள் இவற்றை மாற்றுகின்றன."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "விதிகள் தொடக்கத்தில் முடக்கப்பட்டிருக்கும் (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "விளக்கம்"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "கோரிக்கை வகைகள்"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "அனைத்து வகைகளும்"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "இவை மட்டும்"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "குறைந்தது ஒரு கோரிக்கை வகையைத் தேர்ந்தெடுக்கவும் அல்லது “அனைத்து வகைகள்” என்பதைத் தேர்ந்தெடுக்கவும்."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "விதிகள் அல்லது இயல்புநிலைகள் சில வகைகளைக் குறிப்பிடாவிட்டால், அவை எல்லா கோரிக்கை வகைகளையும் சுத்தம் செய்யும். resourceTypes மூலம் வழங்குநர்களும் வகைகளைக் கட்டுப்படுத்தலாம்."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "விதிவிலக்குகள்"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "ஒவ்வொரு வரியிலும் ஒரு URL regex. பொருந்தும் URL-களில் விதிகள் தவிர்க்கப்படும்."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "முன்செயலிகள்"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "உள்ளீடுகள்: “all” அல்லது 1, 2 போன்ற பிடிப்பு குழு எண்கள்."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ முன்செயலியைச் சேர்"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "முன்செயலி வகை"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "முன்செயலி உள்ளீடுகள்"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "அகற்று"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "முன்செயலி உள்ளீடுகள் \"$INPUTS$\" என்பது \"all\" அல்லது 1, 2 போன்ற எண்களாக இருக்க வேண்டும்.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "வரலாறு வழிமாற்றுப் பாதுகாப்பை முடக்கு (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "JSON ஆகக் காட்டு"
   },
   "settings_remote_health_unknown": {
     "message": "தெரியவில்லை"
@@ -3255,7 +3255,7 @@
     "message": "மூன்றாம் தரப்பு கூறு தகவல்"
   },
   "popup_html_firefox_signature_title_title": {
-    "message": "Firefox add-on signature digest"
+    "message": "Firefox செருகுநிரல் கையொப்ப டைஜெஸ்ட்"
   },
   "invalid_date_label": {
     "message": "தவறான தேதி"
@@ -4005,10 +4005,10 @@
     "message": "வழங்குநர் JSON வழிகாட்டி"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori விதிகள் வழிகாட்டியைத் திறக்கவும்"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "எந்த விதி தொடரியலைப் பயன்படுத்த வேண்டும்?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "விதிகள் வழிகாட்டியைத் திறக்கவும்"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "வழங்குநர் மூலங்களை ஏற்ற முடியவில்லை: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "தொகுக்கப்பட்ட விதிகள் கிடைக்கவில்லை."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "தொகுக்கப்பட்ட விதிகளை ஏற்ற முடியவில்லை: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "$1 மொழிக்கு மாற முடியவில்லை."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "ஒளிர் தோற்றம்"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "இருண்ட தோற்றம்"
   },
   "posarCopied": {
     "message": "POSAR நகலெடுக்கப்பட்டது!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR ஏற்றுக்கொள்ளப்பட்டது."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "மீட்டமை"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "அணுகல்தன்மைக் கருவிகள்"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "அணுகல்தன்மைக் கருவிகளைத் திறக்கவும்"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "அணுகல்தன்மைக் கருவிகளை மூடவும்"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "அனைத்து அணுகல்தன்மை அமைப்புகளையும் மீட்டமைக்கவும்"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "பார்வை"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "வாசிப்பு"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "தொடர்பு"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "உயர் மாறுபாடு"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "நிற வடிகட்டி"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "நிறத் செறிவு"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "நிறங்களைத் தலைகீழாக்கு"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "இணைப்புகளைத் தனிப்படுத்து"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "படங்களை மறை"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "எழுத்து அளவை அதிகரிக்கவும்"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "எழுத்து அளவைக் குறைக்கவும்"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "இயல்புநிலை எழுத்து அளவு"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "எழுத்துருத் தேர்வு"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "டிஸ்லெக்ஸியாவுக்கு ஏற்றது"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "எழுத்து இடைவெளி"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "வரி உயரம்"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "உரை சீரமைப்பு"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "அசைவூட்டங்களை இடைநிறுத்து"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "பெரிய சுட்டி"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "இயல்புநிலை"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "நடுத்தரம்"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "உயர்"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "மிக உயர்வு"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "குறைவு"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "இல்லை"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "மென்மை"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "தீவிரம்"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "வடிகட்டி இல்லை"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "புரோட்டானோபியா"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "டியூட்டரானோபியா"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "டிரிட்டானோபியா"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "சாம்பல்நிறம்"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "இடது"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "மையம்"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "வலது"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "மிகச் சிறியது"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "சிறியது"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "பெரியது"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "மிகப் பெரியது"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "மிகப் பெரிய அளவு"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "இயக்கு"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "முடக்கு"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "இயக்கப்பட்டது"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "முடக்கப்பட்டது"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "இயல்புநிலை உரை அளவு தேர்ந்தெடுக்கப்பட்டது"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "அனைத்து அணுகல்தன்மை அமைப்புகளும் மீட்டமைக்கப்பட்டன"
+  },
+  "skip_to_main_content": {
+    "message": "முதன்மை உள்ளடக்கத்திற்குச் செல்"
+  },
+  "popupNavAriaLabel": {
+    "message": "பாப்அப் வழிசெலுத்தல்"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "தனிப்பயன் விதிகள் காட்சிகள்"
+  },
+  "logViewNavAriaLabel": {
+    "message": "பதிவு காட்சிகள்"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "வரலாற்றுத் தவிர்ப்புப் பாதுகாப்பு (பக்கத்திற்குள் வழிசெலுத்தும்போது தவிர்)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "புலம் வழிமாற்றங்கள்"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "விதியை நகலெடு"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "விதி நகலெடுக்கப்பட்டது"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "விதியை நகலெடுக்க முடியவில்லை"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection என்ன செய்கிறது?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "ஒரே-பக்கத் தளங்கள் புதிய பக்கத்தை ஏற்றாமல் history.pushState/replaceState மூலம் முகவரியை மாற்றுகின்றன. Linkumori அந்த முகவரிகளையும் சுத்தம் செய்கிறது. இந்தப் பக்கத்திற்குள் ஏற்படும் மாற்றங்களுக்கு மட்டும் ஒரு வடிகட்டியைத் தவிர்க்க, $removeparam வடிகட்டியில் history-bypass-protection=false என்பதைச் சேர்க்கவும்; இயல்பான கோரிக்கைகளில் அது தொடர்ந்து இயங்கும்."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "பக்கத்திற்குள் ஏற்படும் மாற்றங்களுக்கு முழு வழங்குநரையும் தவிர்க்க, வழங்குநரிடம் இதை அமைக்கவும்:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "குறிப்பிடாவிட்டால் இது true ஆகும், பக்கத்திற்குள் ஏற்படும் மாற்றங்கள் சுத்தம் செய்யப்படும். விதியின் சொந்த அமைப்பு வழங்குநரின் அமைப்பை மீறும்; எனவே விதி history-bypass-protection=true அல்லது விதிப் பொருளில் \"historyBypassProtection\": true என்பதன் மூலம் மீண்டும் சேர்ந்துகொள்ளலாம்."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "பக்கத்திற்குள் வழிசெலுத்தலைத் தவிர்க்கும்"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "ஐடியை மறுபெயரிடு"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "$OLD$ க்கான புதிய ஐடி (a-z, 0-9, - மற்றும் _). பழைய ஐடி மாற்றுப்பெயராக வைக்கப்படும், எனவே அதன் கீழ் அணைக்கப்பட்ட விதிகள் அணைந்தே இருக்கும்.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" சரியான ஐடி அல்ல. சிறிய எழுத்துகள், இலக்கங்கள், - மற்றும் _ ஆகியவற்றைப் பயன்படுத்தவும்; எழுத்து அல்லது இலக்கத்தில் தொடங்க வேண்டும்.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "இந்த வழங்குநரின் மற்றொரு விதி ஏற்கனவே \"$ID$\" ஐப் பயன்படுத்துகிறது.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "விதியை முடக்கு"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ ஐ முழு வழங்குநருக்கும் முடக்கவா, அல்லது இந்த URL/டொமைன் வடிவத்துக்கு மட்டுமா?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "என் வழங்குநர்"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/டொமைன் வடிவம்"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "விதி ஐடி $ID$ என மறுபெயரிடப்பட்டது",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "அனாதை மாற்றிகள்"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "மூலத்தில் பொருந்தும் விதி இல்லை"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "அகற்று"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "பக்கத்திற்குள் வழிசெலுத்தல் சுத்தம் செய்வதைத் தவிர்க்கும்"
+  },
+  "whitelist_added_general": {
+    "message": "%s பொது அனுமதிப்பட்டியலில் சேர்க்கப்பட்டது"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s History API விதிவிலக்காகச் சேர்க்கப்பட்டது"
+  },
+  "whitelist_exception_count": {
+    "message": "%d விதிவிலக்கு(கள்)"
+  },
+  "whitelist_exception_empty": {
+    "message": "அனுமதிப்பட்டியல் விதிவிலக்குகள் இல்லை"
+  },
+  "whitelist_mode_general": {
+    "message": "பொது அனுமதிப்பட்டியல்"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API மட்டும்"
+  },
+  "whitelist_mode_label": {
+    "message": "அனுமதிப்பட்டியல் நோக்கம்"
+  },
+  "whitelist_removed_general": {
+    "message": "%s பொது அனுமதிப்பட்டியலிலிருந்து அகற்றப்பட்டது"
+  },
+  "whitelist_removed_history_api": {
+    "message": "%s க்கான History API விதிவிலக்கு அகற்றப்பட்டது"
+  },
+  "whitelist_type_general": {
+    "message": "பொது"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API மட்டும்"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1-ஐ பொதுப் அனுமதிப் பட்டியலில் சேர்"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "பொது அனுமதிப் பட்டியல்: $1 - History API-க்கு மட்டும் பயன்படுத்த கிளிக் செய்யவும்"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API விதிவிலக்கு: $1 - இந்தத் தாவலுக்கு மட்டும் பயன்படுத்த கிளிக் செய்யவும்"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "இந்தத் தாவலுக்கு மட்டும்: $1 - அகற்ற கிளிக் செய்யவும்"
+  },
+  "logger_action_allowed": {
+    "message": "அனுமதிக்கப்பட்டது"
+  },
+  "logger_action_blocked": {
+    "message": "தடுக்கப்பட்டது"
+  },
+  "logger_action_filter_label": {
+    "message": "செயல்"
+  },
+  "logger_action_info": {
+    "message": "தகவல்"
+  },
+  "logger_action_modified": {
+    "message": "மாற்றப்பட்டது"
+  },
+  "logger_action_redirected": {
+    "message": "வழிமாற்றப்பட்டது"
+  },
+  "logger_btn_copy_summary": {
+    "message": "சுருக்கத்தை நகலெடு"
+  },
+  "logger_btn_export": {
+    "message": "ஏற்றுமதி செய்"
+  },
+  "logger_btn_group": {
+    "message": "விதிப்படி குழுவாக்கு"
+  },
+  "logger_col_hits": {
+    "message": "பொருத்தங்கள்"
+  },
+  "logger_col_last_seen": {
+    "message": "கடைசியாகக் காணப்பட்டது"
+  },
+  "logger_detail_group_title": {
+    "message": "விதி விவரம்"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-கள் ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "தாவல்கள்"
+  },
+  "logger_exported": {
+    "message": "$1 பதிவுகள் ஏற்றுமதி செய்யப்பட்டன."
+  },
+  "logger_filter_all": {
+    "message": "அனைத்தும்"
+  },
+  "logger_report_rule": {
+    "message": "அறிக்கை செய்"
+  },
+  "logger_rule_disable": {
+    "message": "விதியை முடக்கு"
+  },
+  "logger_rule_disabled_done": {
+    "message": "விதி $1 முடக்கப்பட்டது. சரிபார்க்கப் பக்கத்தை மீண்டும் ஏற்றவும்."
+  },
+  "logger_rule_enable": {
+    "message": "விதியை இயக்கு"
+  },
+  "logger_rule_enabled_done": {
+    "message": "விதி $1 மீண்டும் இயக்கப்பட்டது."
+  },
+  "logger_rule_failed": {
+    "message": "விதியை மாற்ற முடியவில்லை."
+  },
+  "logger_rule_off": {
+    "message": "விதி முடக்கப்பட்டுள்ளது"
+  },
+  "logger_rule_on": {
+    "message": "விதி இயக்கப்பட்டுள்ளது"
+  },
+  "logger_rule_unavailable": {
+    "message": "இந்த இடத்திலிருந்து இந்த விதியை மாற்ற முடியாது."
+  },
+  "logger_status_rules": {
+    "message": "$1 விதிகள்"
+  },
+  "logger_summary_copied": {
+    "message": "சுருக்கம் நகலெடுக்கப்பட்டது."
+  },
+  "logger_summary_copy_failed": {
+    "message": "சுருக்கத்தை நகலெடுக்க முடியவில்லை."
+  },
+  "logger_type_filter_label": {
+    "message": "வகை"
+  },
+  "logger_btn_logging_off": {
+    "message": "பதிவேடு முடக்கப்பட்டுள்ளது"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "பதிவேடு முடக்கப்பட்டுள்ளது. இயக்க கிளிக் செய்யவும்."
+  },
+  "logger_btn_logging_on": {
+    "message": "பதிவேடு இயக்கப்பட்டுள்ளது"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "பதிவேடு இயக்கப்பட்டுள்ளது. முடக்க கிளிக் செய்யவும்."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "பதிவேடு அமைப்பை மாற்ற முடியவில்லை."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "பரிந்துரை விதியைச் சேர்"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "மூல விதி விதிவிலக்கைச் சேர்"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "புல வழிமாற்றைச் சேர்"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "விதிவிலக்கைச் சேர்"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "ஒவ்வொரு வார்ப்புருவும் example.com-இல் placeholder matchPattern மற்றும் id கொண்ட விதிப் பொருளைச் சேர்க்கும். ஒரு பதிவு எளிய சரமாகவும் இருக்கலாம்: அளவுருப் பெயர், பெயர் regex, $removeparam வடிகட்டி அல்லது rawRules-இல் regex. விதிப் பொருள்கள் id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description மற்றும் targetId ஆகியவற்றைப் பயன்படுத்தும்."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "விதி சரிபார்ப்பி"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "சிக்கல்கள் எதுவும் இல்லை."
+  },
+  "customRulesEditor_lintError": {
+    "message": "பிழை"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "எச்சரிக்கை"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ பிழைகள், $WARNINGS$ எச்சரிக்கைகள்",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "இயங்கும் வரிசை"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "இயங்கும் வரிசைப்படி $COUNT$ படிகள்",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "rawRules, rules அல்லது referralMarketing பதிவுகள் இல்லை"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "மேலே உள்ள உரையிலிருந்து இயந்திரம் கணக்கிடும் வரிசை இது; சேமித்திருந்தாலும் இல்லாவிட்டாலும் மாறாது. படிகள் (stage, orderGroup, order, rank, arrayIndex) அடிப்படையில் வரிசைப்படுத்தப்படும்: மூல விதிகள் புல விதிகளுக்கு முன் இயங்கும்; ஒவ்வொரு கட்டத்திலும் order உள்ள பதிவுகள் முதலில், குறைந்த மதிப்பிலிருந்து, பின்னர் பட்டியல் மற்றும் நிலைப்படி மற்றவை இயங்கும்."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "பரிந்துரை சந்தைப்படுத்தல்"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "பரிந்துரைகள் நீக்கப்பட்டன"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "பரிந்துரைகள் அனுமதிக்கப்பட்டன"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "மூலம்"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "புலம்"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "பரிந்துரை"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(உருவாக்கப்பட்டது)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "மறுஎழுதுகிறது"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "முந்தைய $COUNT$ வரையறைகளை மாற்றுகிறது",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "completeProvider சேர்த்தது: எல்லா அளவுருக்களையும் நீக்குகிறது"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "முடக்கப்பட்டது"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "சில வடிவங்களுக்கு முடக்கப்பட்டது"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "வரிசை விசை: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "மேலுள்ள எல்லா படிகளுக்குப் பிறகு $FILTERS$ $removeparam வடிகட்டிகளும் $EXCEPTIONS$ @@ விதிவிலக்குகளும்",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "பொருந்தும் இடங்களில் மேலுள்ள மூல விதிகளை நிறுத்த $COUNT$ @@…$rawrule= விதிவிலக்குகள் உள்ளன",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "ஒரு படியை இழுக்கவும் அல்லது அதன் அம்புகளைப் பயன்படுத்தி அதே கட்டத்தில் நகர்த்தவும். நகர்த்தினால் அந்தக் கட்டத்தின் ஒவ்வொரு பதிவுக்கும் புதிய வரிசைப்படி 10, 20, 30, … என்ற order வழங்கப்படும்."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "மறுசீரமைக்க “பரிந்துரைகள் நீக்கப்பட்டன” என்பதற்கு மாறவும்: அந்தக் காட்சி எல்லாப் பதிவுகளையும் காட்டும்."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "நகர்த்த இழுக்கவும்"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$-ஐ முன்னதாக நகர்த்து",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$-ஐ பின்னதாக நகர்த்து",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$-ஐ $POSITION$ இடத்திற்கு நகர்த்தியது",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "நகர்வை ரத்துசெய்"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "நகர்வு ரத்துசெய்யப்பட்டது"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "உருவகப்படுத்து"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "நகலெடுக்கப்பட்ட இணைப்பைச் சுத்தம் செய்வது போல இந்த வழங்குநரின் URL-ஐச் செயலாக்கி, நீங்கள் முடக்கிய விதிகளையும் மேலுள்ள பரிந்துரைத் தேர்வையும் பயன்படுத்தி ஒவ்வொரு படிக்குப் பிறகும் URL-ஐக் காட்டும். மற்ற வழங்குநர்கள் இயங்கமாட்டார்கள். சோதனை URL உருவாக்கு இந்த வழங்குநரின் சொந்த விதிகளிலிருந்து ஒன்றை உருவாக்கும்."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "சோதனை URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "இயக்கு"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "உருவகப்படுத்தலில் படிப்படியாகச் செல்லவும்"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "தொடக்கம்"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "முந்தையது"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "அடுத்தது"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "முடிவு"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "இயக்கு"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "இடைநிறுத்து"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "எந்தப் படிக்கும் முன்பான URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "சுற்று $PASS$ · படி $STEP$ / $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "மாற்றமில்லை"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam வடிகட்டிகள்"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "சுற்று $PASS$ எதையும் மாற்றவில்லை; எனவே சுத்தம் செய்வது நிறுத்தப்படுகிறது",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "இந்த வழங்குநர் இங்கே நிற்கிறது: சுற்று வரம்பு எட்டப்பட்டது, URL முந்தைய நிலைக்குத் திரும்பியது அல்லது இனி வழங்குநருடன் பொருந்தவில்லை"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "சுற்று $PASS$ வழிமாற்றுகிறது; புதிய முகவரியில் எல்லா வழங்குநர்களுடனும் சுத்தம் தொடர்கிறது",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "வழங்குநர் இந்தக் கோரிக்கையைத் தடுக்கிறது (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "முடிவு"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "இந்த வழங்குநரின் வடிவங்கள் இந்த URL-உடன் பொருந்தவில்லை; அதன் விதிகள் எதுவும் இயங்காது."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "இந்த URL வழங்குநரின் விதிவிலக்குகளில் ஒன்றுடன் பொருந்துகிறது; எனவே அதன் விதிகள் எதுவும் இயங்காது."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "முழுமையான http:// அல்லது https:// URL-ஐ உள்ளிடவும்."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "உருவகப்படுத்தலை இயக்க முடியவில்லை. மேலுள்ள JSON-ஐச் சரிபார்க்கவும்."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "சோதனை URL உருவாக்கு"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "இந்த வழங்குநரின் விதிகளிலிருந்து உருவாக்கப்பட்டது: $RAW$ மூல விதி(களுக்கும்) $PARAMS$ அளவுரு(களுக்கும்) உரை உருவாக்கப்பட்டு, ஒவ்வொன்றும் அதன் விதிக்கு எதிராகச் சரிபார்க்கப்பட்டது. keep=1 எந்த விதிக்கும் பொருந்தாது; அது அப்படியே இருக்க வேண்டும். வழிமாற்றுகளும் தடுப்புகளும் சேர்க்கப்படவில்லை; அவை மற்ற விதிகளுக்கு முன்பே செயலாக்கத்தை நிறுத்தும்.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "இந்த வழங்குநரின் வடிவங்களுடன் பொருந்தும் host ஒன்றை உருவாக்க முடியவில்லை; எனவே URL வேறு host-ஐப் பயன்படுத்துகிறது, மேலும் வழங்குநர் அதில் இயங்காது."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "இந்த வழங்குநரின் வடிவங்களுடன் பொருந்தும் ஒவ்வொரு URL-மும் அதன் சொந்த விதிவிலக்குகளில் ஒன்றால் மூடப்பட்டுள்ளது; எனவே அதன் விதிகள் ஒருபோதும் இயங்காது."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "சோதனை URL-இலிருந்து $COUNT$ விதி(கள்) விடுபட்டன",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "பொருந்தும் உரையை உருவாக்க முடியவில்லை"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "அதன் உரை வழங்குநரின் விதிவிலக்குகளில் ஒன்றைப் பொருந்தச் செய்யும்"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "இது எல்லா அளவுருக்களையும் நீக்குகிறது; ஆகவே தனக்கென ஒரு அளவுரு தேவையில்லை"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "இந்த வழங்குநரிடம் பெயரில்லாத $removeparam வடிகட்டி உள்ளது; அது keep=1 உட்பட எல்லா அளவுருக்களையும் நீக்குகிறது."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "வரிசை இல்லை"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "வரிசை எண்களை மீட்டமை"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "இந்த வழங்குநரைத் திறந்தபோது இருந்தபடி எல்லா order-களையும் மீட்டமை"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "வரிசை எண்கள் மீட்டமைக்கப்பட்டன"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "மறை"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "காட்டு"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "எச்சரிக்கைகளை அழி"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "எச்சரிக்கைகளை மீட்டமை"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ எச்சரிக்கை(கள்) அழிக்கப்பட்டன",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: indexPattern இல்லாத urlPattern எல்லா URL-களுடனும் சரிபார்க்கப்படும்; \"||example.com^\" போன்ற indexPattern host குறிப்புகளைச் சேர்க்கவும்",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$-இல் \"$ENTRY$\" மீண்டும் உள்ளது; அந்த நகல் எதுவும் செய்யாது, இரண்டும் ஒரே id-ஐப் பகிரும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$-இல் இன்னும் வார்ப்புரு placeholder \"$PATTERN$\" உள்ளது; அதற்குப் பதிலாக உண்மையான வடிவத்தை இடவும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$-இல் உள்ள matchPattern \"(?!)\" எதனுடனும் ஒருபோதும் பொருந்தாது",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "சிக்கல் தீர்வு"
+  },
+  "troubleshooter_launch": {
+    "message": "இந்தத் தாவலில் உள்ள சிக்கல்களைத் தீர்க்கவும் (சோதனை நிலை)"
+  },
+  "troubleshooter_title": {
+    "message": "தாவல் சிக்கல் தீர்வி"
+  },
+  "troubleshooter_page": {
+    "message": "பக்கம்"
+  },
+  "troubleshooter_about_summary": {
+    "message": "பதிவு எவ்வாறு செயல்படுகிறது"
+  },
+  "troubleshooter_about_note": {
+    "message": "இந்தக் காட்சியைத் திறப்பது பக்க URL-ஐச் சரிபார்க்கலாம்; ஆனால் எதையும் பதிவு செய்யாது. “பதிவைத் தொடங்கு” என்பதைத் தேர்ந்தெடுக்கும் வரை பதிவு முடக்கப்பட்டிருக்கும். தொடங்கினால், வளக் கோரிக்கைகளைப் பிடிக்க இந்தத் தாவல் மீண்டும் ஏற்றப்படும். பிடிக்கப்பட்ட URL-கள் இந்த உலாவி அமர்வின் session storage-இல் இருக்கும்; இந்தத் தாவலை மூடும்போதோ உலாவி அமர்வு முடிவடையும்போதோ அழிக்கப்படும். நீங்களே முன்பாக நிறுத்தாவிட்டால் பதிவு 15 நிமிடங்களுக்குப் பிறகு நிற்கும். வள URL-களில் தனிப்பட்ட query தரவு இருக்கலாம்."
+  },
+  "troubleshooter_start": {
+    "message": "பதிவைத் தொடங்கு"
+  },
+  "troubleshooter_starting": {
+    "message": "தொடங்குகிறது…"
+  },
+  "troubleshooter_recording": {
+    "message": "பதிவு செய்கிறது…"
+  },
+  "troubleshooter_stop": {
+    "message": "பதிவை நிறுத்து"
+  },
+  "troubleshooter_refresh": {
+    "message": "புதுப்பி"
+  },
+  "troubleshooter_copy": {
+    "message": "சுருக்கத்தை நகலெடு"
+  },
+  "troubleshooter_export": {
+    "message": "ஏற்றுமதி செய்"
+  },
+  "troubleshooter_export_title": {
+    "message": "பதிவை JSON கோப்பாகச் சேமிக்கவும். வள URL-களில் தனிப்பட்ட query தரவு இருக்கலாம்."
+  },
+  "troubleshooter_category": {
+    "message": "வகை"
+  },
+  "troubleshooter_category_all": {
+    "message": "அனைத்து வகைகளும்"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL விதிகள்"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "வழிமாற்றுகள்"
+  },
+  "troubleshooter_category_protection": {
+    "message": "பாதுகாப்பும் தவிர்ப்புகளும்"
+  },
+  "troubleshooter_resource_type": {
+    "message": "வள வகை"
+  },
+  "troubleshooter_type_all": {
+    "message": "அனைத்து வள வகைகளும்"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "விதிகள், வழங்குநர்கள் மற்றும் URL-களைத் தேடு"
+  },
+  "troubleshooter_timer": {
+    "message": "பதிவு $1 · $2 மீதம்"
+  },
+  "troubleshooter_status_checking": {
+    "message": "இந்தத் தாவல் சரிபார்க்கப்படுகிறது…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "செயலில் உள்ள தாவல் எதுவும் இல்லை."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "இந்தப் பக்கத்தில் URL விதிகளைச் சோதிக்க முடியாது. வழக்கமான http அல்லது https வலைப்பக்கத்தைத் திறக்கவும்."
+  },
+  "troubleshooter_status_off": {
+    "message": "பதிவு முடக்கப்பட்டுள்ளது. இந்தப் பக்கம் ஏற்றிய வள URL-களை ஆய்வு செய்யப் பதிவைத் தொடங்கவும்."
+  },
+  "troubleshooter_status_active": {
+    "message": "இதுவரை $1 URL மாற்றங்கள் பிடிக்கப்பட்டன. புதியவை தானாக இங்கே தோன்றும்."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "பதிவு நிறுத்தப்பட்டது. $1 URL மாற்றங்கள் பிடிக்கப்பட்டன."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "பதிவுத் தரவை session storage-இல் சேமிக்க முடியவில்லை. நீட்டிப்பு மறுதொடங்கப்பட்டால் $1 URL மாற்றங்கள் இழக்கப்படலாம்."
+  },
+  "troubleshooter_status_started": {
+    "message": "பதிவு தொடங்கியது; தாவல் மீண்டும் ஏற்றப்படுகிறது. பக்கம் ஏற்றப்படும் போது பிடிக்கப்பட்ட URL-கள் இங்கே தோன்றும்."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "பதிவு நிறுத்தப்பட்டது. $1 URL மாற்றங்கள் பிடிக்கப்பட்டு இந்த உலாவி அமர்வுக்காகச் சேமிக்கப்பட்டன."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "பதிவு நிறுத்தப்பட்டது. $1 URL மாற்றங்கள் பிடிக்கப்பட்டன; ஆனால் session storage-ஆல் அவற்றைச் சேமிக்க முடியவில்லை."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "முதலில் வழக்கமான http அல்லது https வலைப்பக்கத்தைத் திறக்கவும்."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "இந்தத் தாவலுக்கான பதிவைத் தொடங்க முடியவில்லை."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "இந்தத் தாவலுக்கான பதிவை நிறுத்த முடியவில்லை."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "இந்தத் தாவலைப் படிக்க முடியவில்லை. popup-ஐ மூடி மீண்டும் திறக்கவும்."
+  },
+  "troubleshooter_status_copied": {
+    "message": "சுருக்கம் நகலெடுக்கப்பட்டது."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "சுருக்கத்தை நகலெடுக்க முடியவில்லை."
+  },
+  "troubleshooter_status_exported": {
+    "message": "பதிவு ஏற்றுமதி செய்யப்பட்டது."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "பதிவை ஏற்றுமதி செய்ய முடியவில்லை."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "அறிக்கைப் படிவத்தைத் திறக்க முடியவில்லை."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "விதி இயக்கப்பட்டது; ஒப்பிடத் தாவலை மீண்டும் ஏற்றவும்."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "விதி முடக்கப்பட்டது; ஒப்பிடத் தாவலை மீண்டும் ஏற்றவும்."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "இந்த விதியைப் புதுப்பிக்க முடியவில்லை."
+  },
+  "troubleshooter_empty_web": {
+    "message": "இதுவரை விதி மாற்றங்கள் எதுவும் இல்லை. இந்தப் பக்கத்தின் வள URL-களை ஆய்வு செய்யப் பதிவைத் தொடங்கவும்."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "இந்த உலாவிப் பக்கத்தைச் சோதிக்க முடியாது."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "இந்த வடிகட்டிகளுடன் எந்த முடிவும் பொருந்தவில்லை."
+  },
+  "troubleshooter_showing_first": {
+    "message": "முதல் $1 விதிகள் காட்டப்படுகின்றன."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 பொருத்தங்கள்"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 தோல்வி"
+  },
+  "troubleshooter_rule_id": {
+    "message": "விதி ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "உள்ளமைந்த பாதுகாப்புச் செயல் (விதி ID இல்லை)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "விதி ID: இந்த முடிவுக்கு கிடைக்கவில்லை"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "தற்போதைய விதித் தொகுப்பில் இந்த விதி ID-ஐக் கண்டறிய முடியவில்லை."
+  },
+  "troubleshooter_source_observed": {
+    "message": "கவனிக்கப்பட்ட கோரிக்கை"
+  },
+  "troubleshooter_source_page": {
+    "message": "பக்க URL சரிபார்ப்பு"
+  },
+  "troubleshooter_changes": {
+    "message": "என்ன மாறியது: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "பாதிக்கப்பட்ட URL-கள் ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "… மேலும் $1"
+  },
+  "troubleshooter_after": {
+    "message": "Linkumori-க்குப் பிறகு"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori மாற்றிய பிறகு தோல்வியடைந்தது: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "இந்த விதி இயக்கப்பட்டுள்ளது. பக்கத்தை ஒப்பிட இதை முடக்கி மீண்டும் ஏற்றவும்."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "இந்த விதி முடக்கப்பட்டுள்ளது. அதன் செயல்பாட்டை மீட்டெடுக்க இதை இயக்கி மீண்டும் ஏற்றவும்."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "இது உள்ளமைந்த பாதுகாப்புச் செயல்; தனிப்பட்ட விதி அல்ல."
+  },
+  "troubleshooter_advice_review": {
+    "message": "விதிகளை மாற்றுவதற்கு முன் பாதிக்கப்பட்ட URL-ஐ மதிப்பாய்வு செய்யவும்."
+  },
+  "troubleshooter_report": {
+    "message": "இந்த விதியைப் புகாரளி"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "விதியை முடக்கு"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "விதியை இயக்கு"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "விதி $1-ஐ முடக்கு"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "விதி $1-ஐ இயக்கு"
+  },
+  "troubleshooter_saving": {
+    "message": "சேமிக்கிறது…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 அகற்றப்பட்டது"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 சேர்க்கப்பட்டது"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 மாற்றப்பட்டது"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "$1-க்கு வழிமாற்றப்பட்டது"
+  },
+  "troubleshooter_change_path": {
+    "message": "பாதை மாற்றப்பட்டது"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment மாற்றப்பட்டது"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL மாற்றப்பட்டது"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "வேண்டுமென்றே தடுக்கப்பட்டது"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "இந்தப் பக்கத்தில் $1 கோரிக்கைகள் தோல்வியடைந்தன; Linkumori URL-ஐ மாற்றிய உடனேயே $2 தோல்வியடைந்தன"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "இந்தப் பக்கம் செயலிழந்துள்ளதா?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "பக்கத்தைச் செயலிழக்கச் செய்யும் விதியைக் கண்டறியவும்: இந்தப் பக்கத்தில் இயங்கிய விதிகள் ஒவ்வொன்றாக முடக்கப்படும்; ஒவ்வொன்றிற்குப் பிறகும் பக்கம் சரியானதா என்று நீங்கள் தெரிவிக்க வேண்டும். Linkumori தான் காரணம் என்று உறுதியாக இல்லையா? முதலில் சுத்தம் செய்வதை இடைநிறுத்தி சரிபார்க்கவும்."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "முதலில் சுத்தம் செய்வதை இடைநிறுத்திச் சரிபார்"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "இந்தத் தாவலில் $1-க்கு சுத்தம் செய்வது இடைநிறுத்தப்பட்டுள்ளது"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "சுத்தம் செய்யாமல் தாவல் மீண்டும் ஏற்றப்பட்டது. இப்போது பக்கம் செயல்படுகிறதா?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "ஆம், செயல்படுகிறது"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "இல்லை, இன்னும் செயலிழந்துள்ளது"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "ரத்துசெய்"
+  },
+  "troubleshooter_diag_done": {
+    "message": "முடிந்தது"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Linkumori காரணமாக இருக்க வாய்ப்பில்லை"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "சுத்தம் செய்வதை இடைநிறுத்தியபோதும் பக்கம் செயலிழந்திருந்தது. எனவே பிரச்சினை வேறெங்காவது இருக்கலாம்: தளத்திலேயே, மற்றொரு நீட்டிப்பில் அல்லது வலையமைப்பில். மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori காரணமாக இருக்கலாம்"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "சுத்தம் செய்வதை இடைநிறுத்தியபோது பக்கம் செயல்படுகிறது. விதியைக் கண்டறியவும்: விதிகள் ஒவ்வொன்றாக முடக்கப்படும், தாவல் மீண்டும் ஏற்றப்படும்; பக்கம் சரியானதா என்று நீங்கள் தெரிவிக்க வேண்டும். முடிவில் மற்ற எல்லா விதிகளும் மீண்டும் இயக்கப்படும்."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "இந்தப் பக்கத்தில் இயங்கும் விதிகளைப் பதிவு செய்ய, சுத்தம் செய்வதை மீண்டும் இயக்கி தாவல் ஏற்றப்படுகிறது. அவை விரைவில் இங்கே தோன்றும். எதுவும் இயங்காவிட்டால், பக்கம் செயலிழக்கும் வரை அதைப் பயன்படுத்தவும்."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "விதியைக் கண்டுபிடி ($1 விதிகள்)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "ஆம், சரியானது"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "இல்லை, இன்னும் செயலிழந்துள்ளது"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "கண்டுபிடிக்கப்பட்டது"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "விதி $1$2 காரணமாகப் பக்கம் செயலிழக்கிறது. அது மீண்டும் இயக்கப்பட்டது. மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "இந்த விதியை முடக்கு"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "அதைப் புகாரளி"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "விதி முடக்கப்பட்டது. சரிபார்க்கத் தாவலை மீண்டும் ஏற்றவும். மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "ஒற்றை விதி எதுவும் கண்டறியப்படவில்லை"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "விதிகளை ஒவ்வொன்றாக முடக்கியபோதும் பக்கம் சரியாகவில்லை. பல விதிகள் ஒன்றாகவோ அல்லது பாதுகாப்பு அமைப்போ காரணமாக இருக்கலாம். எல்லா விதிகளும் மீண்டும் இயக்கப்பட்டன. மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "சரிபார்ப்பை இயக்க முடியவில்லை: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "இந்தச் சரிபார்ப்பைப் பயன்படுத்த Linkumori-ஐ மீண்டும் ஏற்றவும்"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori புதுப்பிக்கப்பட்டது, ஆனால் அதன் பின்னணி பகுதி இன்னும் பழைய பதிப்பில் இயங்குகிறது. நீட்டிப்பை மீண்டும் ஏற்றவும் (தற்காலிகச் செருகுநிரலுக்கு: about:debugging → This Firefox → Reload) அல்லது Firefox-ஐ மறுதொடக்கம் செய்யவும்."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "கண்டறியப்பட்டது"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "விதி $1$2 காரணமாகப் பக்கம் செயலிழக்கிறது. பக்கம் செயல்பட அது முடக்கப்பட்டே இருக்கும்; மற்ற எல்லா விதிகளும் மீண்டும் இயக்கப்பட்டுள்ளன. சரிபார்க்கத் தாவலை மீண்டும் ஏற்றவும். மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "தாவலை மீண்டும் ஏற்று"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "மீண்டும் இயக்கு"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "விதி மீண்டும் இயக்கப்பட்டது. சரிபார்க்கத் தாவலை மீண்டும் ஏற்றவும். மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "பதிவு செய்து விதியைக் கண்டுபிடி"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "இந்தப் பக்கத்தில் இயங்கும் விதிகள் பதிவு செய்யப்படுகின்றன. பக்கம் செயலிழக்கும் வரை அதைப் பயன்படுத்தவும்; விதிகள் இங்கே தோன்றும்."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "விதி தேடல் இப்போது இதை முடக்கியுள்ளது. தேடல் முடிந்ததும் மீண்டும் இயக்கப்படும்."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "விதி தேடல் நடைபெறுகிறது. அது முடிந்த பிறகு விதிகளை மாற்றவும்."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "தவிர் — மீண்டும் இயக்கு"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "முடக்கப்பட்டே வை"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "விதி தேடல் தவிர்க்கப்பட்டது; எல்லா விதிகளும் மீண்டும் இயக்கப்பட்டன. மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "விதி $1 முடக்கப்பட்டே இருக்கும். மீண்டும் தொடங்க அழி என்பதை கிளிக் செய்யவும்."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "இந்தச் சோதனைக்காக முடக்கப்பட்டவை:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "… மேலும் $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "தேடலை நிறுத்து"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "தவிர்க்கப்பட்டது: அந்த விதி மீண்டும் இயக்கப்பட்டு விடப்பட்டது. அடுத்தது சோதிக்கப்படுகிறது."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "சோதிக்கப்பட்ட விதிகளில் சிக்கலை ஏற்படுத்தும் விதி எதுவும் கிடைக்கவில்லை. நீங்கள் தவிர்த்த $1 விதிகள் சோதிக்கப்படவில்லை. எல்லா விதிகளும் மீண்டும் இயக்கப்பட்டுள்ளன. புதிதாகத் தொடங்க, அழி என்பதைச் சொடுக்கவும்."
+  },
+  "troubleshooter_experimental": {
+    "message": "சோதனை அம்சம்"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "சோதனை அம்சம்: இந்தச் சரிசெய்தல் கருவி இன்னும் முழுமையாக நிலையானதல்ல. இதன் முடிவுகள் தவறாக இருக்கலாம்; சோதனையின்போது இது விதிகளை முடக்குகிறது. பின்னர் ஏதேனும் தவறாகத் தெரிந்தால், தனிப்பயன் விதிகள் திருத்தியில் உங்கள் விதிகளைச் சரிபார்க்கவும் அல்லது தேடலை நிறுத்து என்பதைப் பயன்படுத்தி அவற்றை மீண்டும் இயக்கவும்."
+  },
+  "troubleshooter_working": {
+    "message": "செயல்படுகிறது…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "மீண்டும் பதிவு செய்"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "பழைய பதிவு அழிக்கப்பட்டது. இந்தத் தாவலைப் புதிதாக ஏற்றி மீண்டும் பதிவு செய்கிறது."
+  },
+  "troubleshooter_clear": {
+    "message": "அழி"
+  },
+  "troubleshooter_clear_title": {
+    "message": "இந்தத் தாவலின் பதிவையும் கண்டறிதல்களையும் முடிந்த விதித் தேடலையும் அழிக்கவும். விதிகள் தற்போதைய நிலையிலேயே இருக்கும்."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "அழிக்கப்பட்டது. விதிகள் தற்போதைய நிலையிலேயே இருக்கும்."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "அழிக்கப்பட்டது. விதி $1 தொடர்ந்து முடக்கப்பட்டிருக்கும்."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "ஒவ்வொரு முறையும் ஒரு விதியைச் சோதிக்கிறது — $2 இல் விதி $1"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "இந்த விதி மட்டும் முடக்கப்பட்டு, தாவல் மீண்டும் ஏற்றப்பட்டது. இப்போது பக்கம் சரியாக உள்ளதா?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "இந்த விதியைத் தவிர்"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "தவிர் — அதை மீண்டும் இயக்கு; அடுத்ததைச் சோதி (இன்னும் $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "இந்தப் பக்கத்தில் செயல்பட்ட மற்ற $1 விதிகள் சோதிக்கப்படவில்லை. அவற்றையும் தொடர்ந்து சோதிக்க விரும்புகிறீர்களா?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "அதை முடக்கி வைத்துவிட்டு அடுத்ததைச் சோதி (இன்னும் $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "விதி $1 தொடர்ந்து முடக்கப்பட்டிருக்கும். அடுத்த விதியைச் சோதிக்கிறது."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "பக்கத்தைத் தனியாகச் சரிசெய்யும் வேறு விதி இல்லை. நீங்கள் முடக்கி வைத்த $1 விதிகள் தொடர்ந்து முடக்கப்பட்டிருக்கும்; மற்ற எல்லா விதிகளும் மீண்டும் இயக்கப்பட்டுள்ளன. புதிதாகத் தொடங்க, அழி என்பதைச் சொடுக்கவும்."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "அடுத்த விதியைச் சோதி (இன்னும் $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "விதி $1 மீண்டும் இயக்கப்பட்டு சோதனையிலிருந்து விலக்கப்பட்டது. அடுத்த விதியைச் சோதிக்கிறது."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "பக்கத்தைத் தனியாகச் சரிசெய்யும் வேறு விதி இல்லை. நீங்கள் தவிர்த்த $1 விதிகளும் மீண்டும் இயக்கப்பட்டன; இப்போது எல்லா விதிகளும் இயக்கத்தில் உள்ளன. புதிதாகத் தொடங்க, அழி என்பதைச் சொடுக்கவும்."
+  },
+  "guide_intro_p_1": {
+    "message": "<strong>CLN Format 1.0</strong> (Clean Link Notation) எனும் JSON வடிவில் எழுதப்பட்ட விதிகளைப் பயன்படுத்தி Linkumori URL-களைச் சுத்தம் செய்கிறது. முதல் விதியிலிருந்து ஒவ்வொரு விருப்பம் வரையிலான விளக்கத்தையும், நகலெடுத்துப் பயன்படுத்தக்கூடிய எடுத்துக்காட்டுகளையும் இந்த வழிகாட்டி வழங்குகிறது."
+  },
+  "guide_intro_p_2": {
+    "message": "உள்ளமைந்த விதிகள், தொலைநிலை விதிப் பட்டியல்கள், உங்கள் தனிப்பயன் விதிகள் ஆகிய அனைத்தும் ஒரே வடிவத்தைப் பயன்படுத்துகின்றன. தனிப்பயன் விதிகளைத் தனிப்பயன் விதிகள் திருத்தியில் எழுதலாம்; சேமிக்கும்போதோ இறக்குமதி செய்யும்போதோ அது அவற்றைச் சரிபார்க்கும். ClearURLs-இன் அதிகாரப்பூர்வ விதி பட்டியலான <code>data.min.json</code> ஏற்கெனவே செல்லுபடியாகும் CLN கோப்பு; அதை அப்படியே பயன்படுத்தலாம்."
+  },
+  "guide_rules_file_p_1": {
+    "message": "வழங்குநரின் பெயர் ஒரு அடையாளப் பெயர் மட்டுமே. அது கையாளும் URL-களை <code>domainPatterns</code> அல்லது <code>urlPattern</code> தீர்மானிக்கிறது."
+  },
+  "guide_rules_file_th_1": {
+    "message": "மேல்நிலை விசை"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "தேவை. பெயருடன் கூடிய வழங்குநர்கள்."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "விருப்பமான வடிவப் பதிப்பு. செல்லுபடியாகும் ஒரே மதிப்பு <code>\"1.0\"</code>. பதிப்பு குறிப்பிடாத கோப்பும் 1.0 எனப் படிக்கப்படும்; வேறு எந்த மதிப்பும் கோப்பை நிராகரிக்கும். ClearURLs-இன் புதிய விதி வடிவம் ஏற்கெனவே அந்த விசையைப் பயன்படுத்துவதால் இதற்கு <code>version</code> என்று பெயரிடப்படவில்லை."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "கோப்பைப் பற்றிய விருப்பத் தகவல்."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "தனிப்பட்ட மதிப்பை அமைக்காத இந்தக் கோப்பின் ஒவ்வொரு விதிக்கும் பொருந்தும் மதிப்புகள் (அத்தியாயம் 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "தொலைநிலை விதிப் பட்டியல்களுக்கு மட்டும்: ஏற்கெனவே ஏற்றப்பட்ட விதிகளுக்கான மாற்றீடுகள் (அத்தியாயம் 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "வழங்குநர் கையாளும் URL-கள்: ஒரு டொமைன் வடிவம் அல்லது அவற்றின் பட்டியல் (அத்தியாயம் 3). domainPatterns அல்லது <code>urlPattern</code> இவற்றில் ஒன்றைப் பயன்படுத்தவும்; இரண்டையும் ஒருபோதும் பயன்படுத்த வேண்டாம்."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "முழு URL-க்கும் பொருந்தும் ஒரே வழக்கமான கோவையாக, வழங்குநர் கையாளும் URL-களை வரையறுக்கிறது. பெரிய, சிறிய எழுத்து வேறுபாடு கணக்கில் கொள்ளப்படாது."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "<code>urlPattern</code> உடன் மட்டும்: <code>||example.com^</code> போன்ற ஹோஸ்ட் குறிப்புகள். எல்லா URL-களுடனும் ஒப்பிடுவதற்குப் பதிலாக, அந்த ஹோஸ்ட்களுக்கான URL-களையே வழங்குநர் சரிபார்க்கும். இது தேடலுக்கான குறிப்பு; பொருத்த நிபந்தனை அல்ல."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "நீக்க வேண்டிய பரிந்துரை மற்றும் இணை விற்பனை அளவுருக்கள். <em>பரிந்துரை விற்பனையை அனுமதி</em> இயக்கத்தில் இருக்கும்போது தவிர்க்கப்படும் (அத்தியாயம் 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "வழங்குநர் முற்றிலும் அப்படியே விடும் URL-கள் (அத்தியாயம் 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "கோரிக்கையைத் திருத்துவதற்குப் பதிலாக வேறு முகவரிக்கு அனுப்பு (அத்தியாயம் 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "கோரிக்கையை ஒரு அளவுருவின் மதிப்புக்குச் செலுத்து (அத்தியாயம் 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: பக்க ஏற்றம் (<code>main_frame</code>) திசைதிருப்பப்பட்டால், பிணையக் கோரிக்கை மட்டும் அல்லாமல் முழுத் தாவலும் புதிய முகவரிக்குச் செல்லும்."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "இந்த HTTP முறைகளை மட்டும் கையாளவும்; எடுத்துக்காட்டாக <code>[\"GET\"]</code>. விடுபட்டால் எல்லா முறைகளும் கையாளப்படும்."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "இந்தக் கோரிக்கை வகைகளை மட்டும் கையாளவும்; எடுத்துக்காட்டாக <code>[\"main_frame\", \"xmlhttprequest\"]</code>. விடுபட்டால் எல்லா கோரிக்கை வகைகளும் கையாளப்படும்."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "இயல்புநிலை <code>true</code>. ஒரு பக்கம் History API (<code>pushState</code>/<code>replaceState</code>) மூலம் அதன் முகவரியை மாற்றும்போது <code>false</code> முழு வழங்குநரையும் தவிர்க்கும். வழக்கமான பிணையக் கோரிக்கைகள் தொடர்ந்து சுத்தம் செய்யப்படும்."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> வழங்குநரை நீக்காமல் முடக்குகிறது."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> என்பது டொமைன் வடிவங்களின் பட்டியல். அவற்றில் ஏதேனும் ஒன்று பொருந்தினால் URL பொருந்தியதாகும். <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> வடிகட்டிகள் மற்றும் மூல விதிகளுக்கும் இதே வடிவங்கள் பயன்படுத்தப்படுகின்றன."
+  },
+  "guide_matching_cell_1": {
+    "message": "முழு URL-க்கும் பொருந்தும் வழக்கமான கோவை"
+  },
+  "guide_matching_cell_2": {
+    "message": "இந்த உரையை எங்காவது கொண்டுள்ள URL-கள் (தொடக்கத்தில் <code>|</code> இல்லாமல்)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> ஹோஸ்ட் பெயரின் முடிவையோ அல்லது <code>/</code>, <code>?</code>, <code>:</code> போன்ற பிரிப்பானையோ அல்லது URL-இன் முடிவையோ குறிக்கிறது. <code>*</code> என்பது எந்த உரைக்கும் பொருந்தும் குறியீடு."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> ஒரு டொமைனைக் குறிக்கும்: ஹோஸ்டும் அதன் எல்லா துணை டொமைன்களும். ஒற்றை <code>|</code> URL-இன் தொடக்கத்தைக் குறிக்கிறது; அதற்குப் பின் <code>https://</code> போன்ற நெறிமுறை வர வேண்டும். டொமைனுக்கு எப்போதும் <code>||</code> பயன்படுத்தவும்; <code>|example.com^</code> ஒருபோதும் பொருந்தாது என்பதால் திருத்தி அதை நிராகரிக்கும்."
+  },
+  "guide_matching_p_4": {
+    "message": "எடுத்துக்காட்டாக, <code>||smile.amazon.*^</code> என்பதன் பொருள்: <code>||</code> ஹோஸ்டும் அதன் துணை டொமைன்களும், <code>smile.amazon</code> தேவையான பெயர்ப் பகுதிகளும், <code>.*</code> எந்தப் பொதுப் பின்னொட்டும் (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), <code>^</code> ஹோஸ்டின் முடிவும் ஆகும்."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "அந்த அளவுரு மட்டும்"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "முழுப் பெயரும் பொருந்தும் எல்லா அளவுருக்களும்; பெரிய, சிறிய எழுத்து வேறுபாடு கணக்கில் கொள்ளப்படாது"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> மற்றும் <code>\"$removeparam=fbclid\"</code> இரண்டும் ஒரே அளவுருவை நீக்கும். அத்தியாயம் 5-இல் உள்ள சிறப்பு அம்சம் தேவைப்படாவிட்டால் எளிய பெயரைப் பயன்படுத்தவும். எந்தப் பதிவையும் விதிப் பொருளாகவும் எழுதலாம் (அத்தியாயம் 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "இங்கே <code>qid</code> எல்லா Amazon தளங்களிலும் நீக்கப்படும்; <code>tag</code> என்பது <code>amazon.de</code>-இல் மட்டும், <code>sr</code> என்பது <code>smile.amazon</code>-இல் மட்டும், <code>ref_</code> என்பது <code>/gp/</code> பாதைக்குள் மட்டும் நீக்கப்படும். இந்த வடிவம் வழங்குநரின் சொந்த வடிவங்களை மேலும் குறுக்குமே தவிர, அவற்றை விரிவாக்காது."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> வடிகட்டியை அளவுருவைப் பாதுகாக்கும் விதிவிலக்காக மாற்றுகிறது (கீழே பார்க்கவும்)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> வழங்குநரின் சில URL-களுக்கு மட்டும் வடிகட்டியை வரையறுக்கிறது (அத்தியாயம் 3). இதை விடுத்தால், வழங்குநருக்குப் பொருந்தும் எல்லா URL-களிலும் வடிகட்டி செயல்படும்."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> எந்த அளவுருக்கள் என்பதைத் தேர்ந்தெடுக்கிறது. இதை விடுத்தால் எல்லா அளவுருக்களும் நீக்கப்படும்."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "வடிகட்டி எப்போது செயல்பட வேண்டும் என்பதை மாற்றிகள் கூறுகின்றன. பட்டியலிட்ட ஒவ்வொரு மாற்றியும் பொருந்த வேண்டும்; அவற்றுக்கிடையே “அல்லது” நிபந்தனை இல்லை."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "<code>ref</code> தவிர மற்ற எல்லா அளவுருக்களும்"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "பெயர் மட்டும் அல்லது <code>name=value</code> ஆகிய இரண்டும் சேர்ந்து வழக்கமான கோவைக்குப் பொருந்தும் அளவுருக்கள்; எழுத்து வேறுபாட்டைப் புறக்கணிக்க <code>i</code> சேர்க்கவும்"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "<code>utm_</code> என்று தொடங்கும் பெயருள்ள அளவுருக்கள்"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "அளவுருப் பெயரில் சிறப்புக் குறியைத் தப்பித்தல்"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "பின்சாய்வுக்கோடு அடுத்த எழுத்தை அப்படியே எடுத்துக்கொள்ளச் செய்கிறது; இதனால் எந்த அளவுருப் பெயரையும் குறிவைக்கலாம்:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "மதிப்பு"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "நீக்கப்படும் அளவுருப் பெயர்"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (காற்புள்ளி மாற்றிகளைத் தொடங்காது)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "பெயர் மதிப்பில் பயன்படுத்தக்கூடிய தப்பித்தல் குறிகள் இந்த ஐந்து மட்டுமே; வேறு எழுத்துக்கு முன் பின்சாய்வுக்கோடு வந்தால் பிழையாகும். <code>/regex/</code> மதிப்புக்குள் பின்சாய்வுக்கோடு வழக்கமான கோவையின் பொருளையே கொண்டிருக்கும். இந்தத் தப்பித்தல் குறிகள் <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> மற்றும் <code>@@</code> பதிவுகளிலும் செயல்படும். JSON-இல் ஒவ்வொரு பின்சாய்வுக்கோட்டையும் இருமுறை எழுதவும்: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "மாற்றிகள்"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "மதிப்புக்குப் பிறகு காற்புள்ளியால் பிரித்து மாற்றிகளை எழுதவும். ஒரே மாற்றியின் பல மதிப்புகளை <code>|</code> கொண்டு பிரிக்கவும்; ஒரு மதிப்பை விலக்க அதன் முன் <code>~</code> இடவும்:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "மாற்றி"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "கோரிக்கையை உருவாக்கிய பக்கம் இவற்றில் ஒன்றாக இருக்கும்போது மட்டும் (அல்லது <code>~</code> இருந்தால் இவற்றில் ஒன்றாக இல்லாதபோது மட்டும்); வழக்கமான கோவை மதிப்புகளும் அனுமதிக்கப்படும்"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "கோரிக்கை செல்லும் இலக்கு இவற்றில் ஒன்றாக இருக்கும்போது மட்டும்; எந்தப் பக்கம் கோரிக்கையை உருவாக்கியது என்பது பொருட்டல்ல"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "இந்த HTTP முறைகளுக்கு மட்டும்: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "கோரிக்கை URL, பக்க URL-இன் அதே பதிவுசெய்யக்கூடிய டொமைனுக்குச் செல்லும்போது மட்டும் (<code>a.example.com</code> மற்றும் <code>b.example.com</code> ஒரே டொமைனாகக் கருதப்படும்); அல்லது வேறு டொமைனுக்குச் செல்லும்போது மட்டும்"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "அதே நிபந்தனை; ஆனால் முழு ஹோஸ்ட் பெயரை ஒப்பிடுவதால் துணை டொமைன் மூன்றாம் தரப்பாகக் கருதப்படும்"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "அளவுருப் பெயர்கள் பெரிய, சிறிய எழுத்து வேறுபாட்டுடன் ஒப்பிடப்படும்"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ஒரு பக்கம் History API மூலம் அதன் முகவரியை மாற்றும்போது இந்த வடிகட்டியைத் தவிர்க்கவும். <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code> என்பவையும் ஏற்கப்படும்"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "நான்கு <code>*-party</code> மாற்றிகளையும் ஒன்றாகப் பயன்படுத்த முடியாது; <code>first-party,third-party</code> நிராகரிக்கப்படும்."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "எடுத்துக்காட்டாக, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> என்பது வேறு தளத்தின் பக்கம் உருவாக்கிய GET கோரிக்கைகளுக்கு மட்டும் <code>example.com</code>-இல் உள்ள <code>sid</code> அளவுருவை நீக்கும்; அந்தப் பக்கம் <code>partner.com</code> ஆக இருக்கும்போது மட்டும் நீக்காது."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> பதிவு <code>$removeparam</code> வடிகட்டிகளிலிருந்து மட்டுமே பாதுகாக்கும். <code>\"ref\"</code> போன்ற எளிய பதிவு இன்னும் அந்த அளவுருவை நீக்கும்; அதற்கு விதிப் பொருளின் <code>exceptions</code> பயன்படுத்தவும். மூல விதிகளுக்கென தனியான <code>@@…$rawrule=</code> பதிவுகள் உள்ளன (அத்தியாயம் 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "பட்டியலில் அதன் இடம் முக்கியமல்ல; அதற்கு <code>order</code> அமைக்க முடியாது."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "மூல விதிகள் இயங்குவதற்கு முன், வழங்குநர் பெற்ற URL-க்கு எதிராகவே அதன் வடிவம் சரிபார்க்கப்படும். மூல விதி நீக்கும் பாதைக்கு வரையறுக்கப்பட்ட <code>@@</code> பதிவும் பொருந்தும்."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "இந்த வழங்குநருக்குப் பொருந்தும் பக்கம் உருவாக்கும் கோரிக்கைகளில் மற்ற வழங்குநர்களின் வடிகட்டிகளையும் இது உள்ளடக்கும். வேறொரு இடத்தில் வரையறுக்கப்பட்ட விதியிலிருந்து ஒரு தளத்தை விலக்க இது உதவும்."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "மூல விதிகள் <code>rules</code>-க்கு முன் இயங்கும்; எழுத்து வேறுபாட்டைப் புறக்கணித்து ஒவ்வொரு பொருத்தத்தையும் மாற்றும் (<code>gi</code> கொடிகள், அல்லது <code>match-case</code> உடன் <code>g</code>). JSON-இல் ஒவ்வொரு பின்சாய்வுக்கோட்டையும் இருமுறை எழுதவும்."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "மூல விதி, <code>$removeparam</code> வடிகட்டியின் வடிவத்தையும் மாற்றிகளையும் பயன்படுத்தலாம்; கடைசியில் <code>rawrule=</code> வர வேண்டும். <code>rawrule=</code>-க்குப் பிறகு உள்ளதெல்லாம் வழக்கமான கோவை:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "விதி எங்கு இயங்கும் என்பதை வடிவமும் மாற்றிகளும் தீர்மானிக்கின்றன; நீக்கப்படும் உரை வழக்கமான கோவையே."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "<code>@@</code> என்று தொடங்கி <code>rawrule=</code> என்று முடியும் பதிவு, அதன் வடிவம் பொருந்தும் URL-களில் மூல விதிகள் இயங்குவதைத் தடுக்கிறது:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "<code>rawrule=</code>-க்குப் பிறகு எதுவும் இல்லையெனில், அந்த URL-களில் வழங்குநரின் எல்லா மூல விதிகளும் நிறுத்தப்படும்."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "<code>rawrule=</code>-க்குப் பிறகு வழக்கமான கோவை இருந்தால், அந்தக் கோவையுள்ள மூல விதிகள் மட்டும் நிறுத்தப்படும்."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> கொண்ட விதிப் பொருளாக இருந்தால், அந்த அடையாளம் அல்லது மாற்றுப் பெயருள்ள மூல விதி மட்டும் நிறுத்தப்படும்."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "முழு வழங்குநரையும் தவிர்க்க, அதற்குப் பதிலாக <code>exceptions</code> பயன்படுத்தவும்."
+  },
+  "guide_exceptions_p_1": {
+    "message": "URL ஒன்று <code>exceptions</code> பதிவுடன் பொருந்தினால், அந்தக் கோரிக்கைக்காக வழங்குநரின் விதிகள் எதுவும் இயங்காது. பதிவு முழு URL-க்கும் பொருந்தும் வழக்கமான கோவையாகவோ, <code>|</code> என்று தொடங்கும் டொமைன் வடிவமாகவோ இருக்கலாம்:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "விதிவிலக்குகள் எழுத்து வேறுபாட்டைப் புறக்கணிக்கும். முழு வழங்குநரையும் தவிர்க்காமல் ஒரு விதியை மட்டும் தவிர்க்க, அந்த விதிக்கென தனி <code>exceptions</code> அமைக்கவும் (அத்தியாயம் 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "URL-இல் முதலில் வரும், பொருந்தக்கூடிய அளவுருவே பயன்படுத்தப்படும். <code>https://site.example/away?redirect=https://real.example/page</code> என்றால் கோரிக்கை <code>https://real.example/page</code> முகவரிக்குச் செல்லும்."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "செல்லுபடியாகும் திசைதிருப்பு இலக்குகள்"
+  },
+  "guide_redirects_p_2": {
+    "message": "ஹோஸ்ட் கொண்ட முழுமையான <code>http</code> அல்லது <code>https</code> முகவரிக்கே திசைதிருப்ப முடியும். முன்செயலிகளும் சதவீதக் குறியீடு நீக்கமும் முடிந்த பிறகு இது சரிபார்க்கப்படும். இலக்கு செல்லாததாக இருந்தால் பதிவு பொருந்தாததாகக் கருதப்படும்: திசைதிருப்பு நிகழாது; வழங்குநரின் அடுத்த படிகள் மாறாத URL-இல் இயங்கும்."
+  },
+  "guide_redirects_th_1": {
+    "message": "இலக்கு"
+  },
+  "guide_redirects_th_2": {
+    "message": "திசைதிருப்புமா?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ஆம்"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ஆம், <code>https://real.example/page</code> முகவரிக்கு"
+  },
+  "guide_redirects_cell_3": {
+    "message": "இல்லை: திட்டம் <code>http</code> அல்லது <code>https</code> அல்ல"
+  },
+  "guide_redirects_cell_4": {
+    "message": "இல்லை: முழுமையான முகவரி அல்ல"
+  },
+  "guide_redirects_p_3": {
+    "message": "மூல விதியின் வெளியீட்டுத் திட்டம், ஹோஸ்ட் அல்லது போர்ட் அதன் உள்ளீட்டிலிருந்து வேறுபட்டால் அதுவும் திசைதிருப்பலாகக் கருதப்படும்; உரையை மட்டும் நீக்கினாலும் இதே. <code>https://secure-bank.example/</code> இலிருந்து <code>secure-</code> நீக்குவது வேறு தளத்திற்குக் கொண்டுசெல்லும். இலக்கு செல்லுபடியாக இருக்க வேண்டும்; தொலைநிலை விதிப் பட்டியலில் <code>redirect</code> அனுமதியும் தேவை (அத்தியாயம் 15). இல்லையெனில் விதி URL-ஐ மாற்றாது."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "எந்தப் பட்டியலிலும் உள்ள பதிவைச் சரமாக எழுதுவதற்குப் பதிலாகப் பொருளாக எழுதலாம். விதிக்கு நிலையான அடையாளம் தேவைப்படும்போது, தொடக்கத்திலேயே முடக்கப்பட வேண்டும்போது, நீக்குவதற்குப் பதிலாக மாற்ற வேண்டும்போது அல்லது சில நிலைகளில் மட்டும் இயங்க வேண்டும்போது இதைப் பயன்படுத்தவும்:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "தேவை. அந்தப் பட்டியலில் எளிய பதிவாக எழுத வேண்டிய உரை."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "விதியை இயக்கவும் முடக்கவும் பயன்படும் நிலையான பெயர் (எழுத்துகள், எண்கள், <code>-</code>, <code>_</code>) (அத்தியாயம் 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "விதியின் முந்தைய அடையாளங்கள். இதனால் பழைய அடையாளத்தில் சேமித்த அமைப்பு பெயர் மாற்றத்திற்குப் பிறகும் செயல்படும்."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "நீக்குவதற்குப் பதிலாக மாற்றவும்; <code>§1§</code>, <code>§2§</code>, … ஆகியவை பிடிக்கப்பட்ட மதிப்புகள்."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "பிடிக்கப்பட்ட மதிப்புகளை முதலில் மாற்றவும்."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "இந்தக் கோரிக்கை வகைகளுக்கு மட்டும்; எடுத்துக்காட்டாக <code>[\"main_frame\"]</code>. கோரிக்கையில்லாத சுத்தம் (<em>சுத்தமான இணைப்பை நகலெடு</em>, சுத்தப்படுத்தும் கருவி, History API மாற்றங்கள்) <code>main_frame</code> எனக் கருதப்படும்."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "இந்த விதி இயங்காத URL-கள் (வழக்கமான கோவைகள்)."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "சரமாகக் குறிப்பிடப்படும் வழக்கமான கோவை கொடிகள். இயல்புநிலை <code>i</code>; <code>rawRules</code>-இல் <code>gi</code> (அல்லது <code>match-case</code> உடன் <code>g</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "அதன் செயல்பாட்டு நிலையினுள் விதியை முன்னதாகவோ பின்னதாகவோ இயக்கு (அத்தியாயம் 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: <code>rules</code>-இல் உள்ள விதியும் பரிந்துரை விற்பனை விதியாகக் கருதப்படும் (அத்தியாயம் 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "இந்த விதிக்கான அதே பெயருள்ள வழங்குநர் நிலைமாற்றி. இது வழங்குநரின் மதிப்பையும் கோப்பு இயல்புநிலையையும் மிஞ்சும்."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: விதி தொடக்கத்தில் முடக்கப்பட்டிருக்கும்."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "கோப்பைப் படிப்பவர்களுக்கான குறிப்பு; இது சரமாக இருக்க வேண்டும்."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "<code>@@…$rawrule=</code> பதிவுகளில் மட்டும்: அது நிறுத்தும் மூல விதியின் அடையாளம்."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "இங்கே <code>?token=abc123</code> என்பது <code>?token=clean-abc123</code> ஆகிறது. ஒவ்வொரு கோரிக்கையிலும் மாற்றம் ஒருமுறை மட்டுமே நடக்கும்; மதிப்பு மீண்டும் மீண்டும் சுற்றி மூடப்படாது."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "<code>replacePattern</code> அல்லது திசைதிருப்பு அவற்றைப் பயன்படுத்துவதற்கு முன், முன்செயலிகள் பிடிக்கப்பட்ட மதிப்புகளை வரிசையாக மாற்றுகின்றன. <code>inputs</code> என்பது <code>\"all\"</code> அல்லது குழு எண்களின் பட்டியல்:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> என்பதில் <code>rules</code> போலவே பதிவுகள் இடப்படும். <em>பரிந்துரை விற்பனையை அனுமதி</em> முடக்கப்பட்டிருக்கும்போது மட்டுமே இவை இயங்கும்; அதை இயக்கினால் இணை விற்பனை இணைப்புகள் செயல்படும்:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "ஒரு விதி <code>rules</code>-இல் இருந்தபடியே பரிந்துரை விற்பனை விதியாகவும் கருதப்படலாம்; அதற்கு <code>\"referralMarketing\": true</code> அமைக்கவும். ஒரே உரையை <code>rules</code> மற்றும் <code>referralMarketing</code> இரண்டிலும் இட வேண்டாம்; திருத்தி அதைப் பற்றி எச்சரிக்கும்."
+  },
+  "guide_request_types_cell_1": {
+    "message": "ஒரு விதிப் பொருள் கையாளும் கோரிக்கை வகைகள் (<code>defaults</code>-இலும் அமைக்கலாம்)"
+  },
+  "guide_request_types_p_1": {
+    "message": "கோரிக்கை வகைகள் உலாவியின் பெயர்களைப் பயன்படுத்துகின்றன: <code>main_frame</code> (பக்கம்), <code>sub_frame</code> (சட்டகம்), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> போன்றவை. வடிகட்டி மாற்றிகள் முதல் இரண்டையும் <code>document</code>, <code>subdocument</code> என்று குறிப்பிடுகின்றன."
+  },
+  "guide_request_types_p_2": {
+    "message": "கோரிக்கை வகைகள் விதிகளிலிருந்து மட்டுமே வருகின்றன; அமைப்புகளில் கோரிக்கை வகைப் பட்டியல் இல்லை. இவற்றில் எதையும் அமைக்காவிட்டால், விதி எல்லா கோரிக்கை வகைகளையும் சுத்தம் செய்யும்."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. இயல்புநிலைகள்"
+  },
+  "guide_defaults_p_1": {
+    "message": "மேல்நிலை <code>defaults</code> பகுதி, தனிப்பட்ட மதிப்பை அமைக்காத கோப்பின் ஒவ்வொரு விதிக்கும் மதிப்புகளை வழங்குகிறது:"
+  },
+  "guide_defaults_th_1": {
+    "message": "ஒவ்வொரு விதிக்கும் இயல்புநிலை…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>\"active\": true</code> என்று குறிப்பிடாவிட்டால் <code>false</code> எல்லா விதிகளையும் முடக்கும்"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> என அமைத்தாலோ விடுத்தாலோ எல்லா வகைகளும் பொருந்தும்"
+  },
+  "guide_defaults_item_1": {
+    "message": "விதியின் சொந்த மதிப்பே எப்போதும் முன்னுரிமை பெறும். விதியின் <code>exceptions</code> பட்டியல் இயல்புநிலைப் பட்டியலுடன் சேர்க்கப்படாமல் அதை மாற்றும்."
+  },
+  "guide_defaults_item_2": {
+    "message": "இயல்புநிலைகள் <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code>, <code>fieldRedirections</code> ஆகியவற்றுக்குப் பொருந்தும். வழங்குநரின் சொந்த <code>exceptions</code> பட்டியல் மாற்றப்படாது. <code>$redirect=</code> பதிவுகள் <code>active</code> மதிப்பை மட்டும் பயன்படுத்தும்."
+  },
+  "guide_defaults_item_3": {
+    "message": "ஒவ்வொரு கோப்பும் அதற்கான இயல்புநிலையை வைத்திருக்கும்: உள்ளமைந்த விதிகள், ஒவ்வொரு தொலைநிலைப் பட்டியல், உங்கள் தனிப்பயன் விதிகள் ஆகியவை ஒன்றிணைப்பு முறையிலும் இதேபோல் இருக்கும்."
+  },
+  "guide_defaults_item_4": {
+    "message": "<code>completeProvider</code> வழங்குநருக்கு, இயல்புநிலை <code>requestTypes</code> மற்றும் <code>exceptions</code> ஆகியவை தடுப்பையும் வரையறுக்கும்."
+  },
+  "guide_defaults_item_5": {
+    "message": "தெரியாத விசைகளும் தவறான வகைகளும் பிழைகளாகும்; தவறான <code>defaults</code> பகுதியுள்ள தொலைநிலைப் பட்டியல் நிராகரிக்கப்படும்."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "உங்கள் சொந்த இயல்புநிலைகள்"
+  },
+  "guide_defaults_p_2": {
+    "message": "தனிப்பயன் விதிகள் திருத்தியில், <em>விதி இயல்புநிலைகளை நிர்வகி</em> என்பதைத் தேர்ந்தெடுத்தால் உங்கள் <code>defaults</code> பகுதியை அமைக்கவும், அது எந்தக் கோப்புகளின் இயல்புநிலைகளை மாற்ற வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும் ஒரு படிவம் திறக்கும்:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>ஒவ்வொரு மூலத்திற்கும் அதனுடையது</em> (இயல்புநிலை): ஒவ்வொரு கோப்பும் அதன் சொந்த <code>defaults</code> மதிப்பைப் பயன்படுத்தும்."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>உள்ளமைந்த மற்றும் தொலைநிலை விதிகளுக்கு உங்களுடையது</em>: உள்ளமைந்த மற்றும் தொலைநிலை விதிகள் உங்கள் மதிப்பைப் பயன்படுத்தும்; தனிப்பயன் விதிகள் தங்களுடையதை வைத்திருக்கும்."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>எல்லா விதிகளுக்கும் உங்களுடையது</em>: ஒவ்வொரு விதியும் உங்கள் மதிப்பைப் பயன்படுத்தும்."
+  },
+  "guide_defaults_p_3": {
+    "message": "அதே படிவத்தில் உள்ளமைந்த விதிகளின் இயல்புநிலைகளையும், ஏற்றப்பட்ட ஒவ்வொரு தொலைநிலைப் பட்டியலின் இயல்புநிலைகளையும் திருத்தலாம். உங்கள் திருத்தம் கோப்பில் அல்ல, நீட்டிப்பில் சேமிக்கப்படும்; <em>கோப்பின் இயல்புநிலைகளுக்கு மீட்டமை</em> என்பதைத் தேர்ந்தெடுத்தால் அது நீக்கப்படும். <em>மூலங்களிலிருந்து ஒன்றிணை…</em> என்பது நீங்கள் தேர்ந்தெடுக்கும் மூலங்களின் இயல்புநிலைகளை ஒன்றிணைக்கும்; சேமிக்கும் வரை எதுவும் பதியப்படாது."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL எவ்வாறு செயலாக்கப்படுகிறது"
+  },
+  "guide_processing_order_item_1": {
+    "message": "முதலில் <code>redirections</code>, பின்னர் <code>fieldRedirections</code>: பொருந்தும் செல்லுபடியாகும் இலக்கு கோரிக்கையைத் திசைதிருப்பும்."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> மற்றும் <code>referralMarketing</code> அளவுருக்களை நீக்கும் அல்லது மாற்றும்."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>@@</code> பதிவு அளவுருவைப் பாதுகாக்கும் இடங்களைத் தவிர, <code>$removeparam</code> வடிகட்டிகள் இயங்கும்."
+  },
+  "guide_processing_order_p_1": {
+    "message": "URL-ஐ மாற்றும், திசைதிருப்பும் அல்லது தடுக்கும் முதல் வழங்குநரே செயல்படும். புதிய URL மீண்டும் அதே படிகளைச் சந்திக்கும் (<a href=\"#termination\">செயலாக்கம் எப்போது நிற்கும்</a> என்பதைப் பார்க்கவும்)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "இயக்க வரிசையும் <code>order</code> மதிப்பும்"
+  },
+  "guide_processing_order_p_2": {
+    "message": "4, 5 ஆகிய படிகள் கீழுள்ள விதிகளின்படி ஒன்றாக வரிசைப்படுத்தப்படும்:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>மூல விதிகள் எப்போதும் முதலில் இயங்கும்.</strong> <code>order</code> மதிப்பு எதுவும் <code>rules</code> பதிவை மூல விதிக்கு முன்னால் நகர்த்தாது. மூல விதிக்கு முன் சுத்தம் செய்ய வேண்டுமெனில், அதுவும் மூல விதியாக இருக்க வேண்டும்."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>ஒரு நிலையினுள், <code>order</code> உள்ள விதிகள் அது இல்லாத விதிகளுக்கு முன் இயங்கும்</strong>; குறைந்த மதிப்பு முதலில். எதிர்மறை எண்களும் பின்ன எண்களும் அனுமதிக்கப்படும். <code>order: 10</code> என்பது “பத்தாவது” என்று பொருளல்ல: அந்த நிலையிலுள்ள 10-க்குக் குறைவான ஒழுங்கமைக்கப்பட்ட விதிகளுக்குப் பின்னும், ஒழுங்கு குறிப்பிடாத விதிகளுக்கு முன்னும் இயங்கும்."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>அடுத்ததாகப் பட்டியல் வரிசை:</strong> முதலில் <code>rules</code>, பிறகு <code>\"referralMarketing\": true</code> எனக் குறிக்கப்பட்ட <code>rules</code> பொருள்கள், இறுதியாக <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>பிறகு பட்டியலிலுள்ள இடம்:</strong> <code>\"3\"</code> அல்லது <code>\"20\"</code> என எழுதப்பட்ட பதிவுகளும் தங்கள் இடத்தைத் தக்கவைக்கும்."
+  },
+  "guide_processing_order_p_3": {
+    "message": "இங்கே இரண்டாவதாக வந்தாலும், <code>utm_source</code> நீக்கப்படுவதற்கு முன் குறியீடு மாற்றப்படுகிறது:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "முடக்கப்பட்ட விதிகள் சேர்க்கப்படாது. <code>$removeparam</code> வடிகட்டிகளும் <code>@@</code> பதிவுகளும் இந்த வரிசைக்கு வெளியே உள்ளன; அவற்றுக்கு <code>null</code> உட்பட <code>order</code> அமைக்க முடியாது. வடிகட்டிகள் எப்போதும் கடைசியில் இயங்கும்."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "ஒரே உரை இருமுறை"
+  },
+  "guide_processing_order_p_5": {
+    "message": "ஒரே குழுவில் ஒரே <code>matchPattern</code> உரையுள்ள இரண்டு பதிவுகளும் ஒரு விதியாகக் கருதப்படும். குழுக்கள்: மூல (<code>rawRules</code>), புலம் (பரிந்துரை குறியீடு இல்லாத <code>rules</code>), பரிந்துரை (குறியிடப்பட்ட <code>rules</code> பொருள்கள், பின்னர் <code>referralMarketing</code>). விதிப் பட்டியல்கள் ஒன்றிணைக்கப்படும்போது இது பெரும்பாலும் நிகழும்."
+  },
+  "guide_processing_order_item_8": {
+    "message": "முடக்கப்படாத கடைசி வரையறையே அதன் எல்லா விசைகளுடன் வெல்லும்."
+  },
+  "guide_processing_order_item_9": {
+    "message": "வெற்றிபெறும் வரையறைக்கு அதன் சொந்த <code>order</code> இல்லையெனில், முதல் வரையறையின் இடத்தையும் அதற்கு முந்தைய மிக அருகிலுள்ள <code>order</code> மதிப்பையும் அது பெறும். <code>\"order\": null</code> என்பது ஒழுங்கு இல்லை என்றும், மரபாக வந்த ஒழுங்கை நீக்கவும் குறிக்கும்."
+  },
+  "guide_processing_order_item_10": {
+    "message": "மாற்றப்பட்ட வரையறைகளின் அடையாளங்களும் மாற்றுப் பெயர்களும் வெற்றிபெற்ற விதியை இயக்கவும் முடக்கவும் பயன்படும்."
+  },
+  "guide_processing_order_item_11": {
+    "message": "பரிந்துரை விற்பனை விதிகள் இயங்கும்போது, ஒரே உரையுள்ள புல விதிக்கு பதிலாக பரிந்துரை பதிவு பயன்படுத்தப்படும்."
+  },
+  "guide_processing_order_item_12": {
+    "message": "ஒரே உரையுள்ள மூல விதியும் புல விதியும் மோதாது; இரண்டும் இயங்கும்."
+  },
+  "guide_processing_order_p_6": {
+    "message": "ஒரே பட்டியலில் ஒரே உரையுள்ள இரண்டு வேறுபட்ட பதிவுகள் பிழையாகும்; அச்சு அசலாக நகலெடுத்த பதிவு எச்சரிக்கையாகும்."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "செயலாக்கம் எப்போது நிற்கும்"
+  },
+  "guide_processing_order_item_13": {
+    "message": "ஒவ்வொரு கோரிக்கைக்கும் அதிகபட்சம் 10 சுற்றுகள் இயங்கும்; வரம்பை அடைந்ததும் தற்போதைய URL பயன்படுத்தப்படும்."
+  },
+  "guide_processing_order_item_14": {
+    "message": "<code>replacePattern</code> உள்ள விதி ஒவ்வொரு கோரிக்கையிலும் ஒருமுறை மட்டுமே செயல்படும்."
+  },
+  "guide_processing_order_item_15": {
+    "message": "URL-ஐ மாற்றாத படி புதிய சுற்றைத் தொடங்காது."
+  },
+  "guide_processing_order_p_7": {
+    "message": "அமைப்புகளில் உள்ள <em>வரம்பற்ற சுத்தப்படுத்தும் சுற்றுகள்</em> (இயல்பாக முடக்கப்பட்டது), கூடுதல் சுற்றுகள் தேவைப்படும் விதித் தொடர்களுக்கான 10 சுற்று வரம்பை நீக்கும். அதன் பிறகு எதையும் மாற்றாத சுற்றில் செயலாக்கம் நிற்கும். ஆனால் ஒன்றையொன்று திசைதிருப்பும் இரண்டு விதிகள் உலாவி கைவிடும் வரை சுழன்று, பக்கத்தை ஏற்ற முடியாமல் செய்யலாம். நம்பகமான விதிகளுக்கு மட்டும் இதை இயக்கவும்."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. விதி அடையாளங்களும் இயக்க/முடக்கு நிலைகளும்"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "ஒவ்வொரு விதிக்கும் ஓர் அடையாளம் உண்டு. <code>id</code> இல்லாத விதி, அதன் பட்டியலும் உரையும் கொண்டு அடையாளத்தைப் பெறும்: <code>rules</code>-இல் உள்ள <code>\"utm_source\"</code> என்பது <code>field-utm-source</code> ஆகும். விதியின் உரை மாறினால் தானாக உருவாக்கப்பட்ட அடையாளமும் மாறும்; அதனால் முடக்கப்பட்ட விதி மீண்டும் இயக்கப்படலாம். திருத்தங்களுக்குப் பிறகும் அதன் இயக்க/முடக்கு நிலை மாறாமல் இருக்க, விதிக்கென <code>id</code> அமைக்கவும்; பெயரை மாற்றும்போது பழைய அடையாளங்களை <code>aliases</code>-இல் சேர்க்கவும்."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "வழங்குநரும் அடையாளமும் சேர்ந்தே ஒரு விதியை இயக்கவும் முடக்கவும் செய்கின்றன; எடுத்துக்காட்டாக <code>shop::session-token</code>. இதனால் இரண்டு வழங்குநர்கள் ஒரே அடையாளத்தைப் பயன்படுத்தலாம். தனிப்பயன் விதிகள் திருத்தி அதை வழங்குநரின் வடிவத்துடனும் சேமிக்கலாம்; எடுத்துக்காட்டாக <code>domainPattern:||shop.example^::session-token</code>. இரண்டு வடிவங்களும் செயல்படும்."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "ஒரே வழங்குநருக்குள் ஒவ்வொரு அடையாளமும் மாற்றுப் பெயரும் தனித்துவமாக இருக்க வேண்டும். தானாக உருவாக்கப்படும் அடையாளங்களும் இதில் அடங்கும்."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "அடையாளத்தில் முக்காற்புள்ளி இருக்கக்கூடாது."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "வழங்குநர் இல்லாத தனி அடையாளத்தில் சேமிக்கப்பட்ட அமைப்பு எந்த விதியையும் மாற்றாது; தனிப்பயன் விதிகள் திருத்தியில் அந்த விதியை மீண்டும் முடக்கவும்."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. தொலைநிலை விதிப் பட்டியல்கள்"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "தொலைநிலை விதிப் பட்டியல்கள் என்பது Linkumori பதிவிறக்கும் விதிக் கோப்புகள்; விருப்பமாக அவை ஹாஷ் கோப்புடன் சரிபார்க்கப்படலாம். தவறான <code>cln</code> மதிப்பு, <code>defaults</code> பகுதி அல்லது <code>patches</code> வரிசை கொண்ட பட்டியல் ஏற்றப்படாது; தொலைநிலை விதிகள் நிலை இதைப் புகாரளிக்கும்."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "திசைதிருப்பவும் தடுக்கவும் உங்கள் அனுமதி தேவை"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "ஏற்றப்படும்போது பட்டியலில் உள்ள உள்ளடக்கத்தைக் கொண்டு அது செய்யக்கூடியவை தீர்மானிக்கப்படும்:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "செயல்திறன்"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "இதைக் கொண்டிருந்தால் பட்டியலில் செயல்திறன் உண்டு"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "ஏற்றும்போதே செயல்படுமா"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>, <code>rawRules</code> அல்லது <code>referralMarketing</code> பதிவு, அல்லது <code>$removeparam</code> வடிகட்டி"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "<code>replacePattern</code> கொண்ட பதிவு"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "வழங்குநர் <code>exceptions</code> பதிவு அல்லது <code>@@</code> பதிவு"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> அல்லது <code>fieldRedirections</code> பதிவு, அல்லது <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "அனுமதிக்குப் பிறகு"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "<code>\"completeProvider\": true</code> கொண்ட வழங்குநர்"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "தொலைநிலை விதிகள் நிலையில் ஒவ்வொரு பட்டியலுக்கும் <code>redirect</code> மற்றும் <code>block</code> அனுமதிகளை வழங்கவும். அதுவரை அந்தப் பட்டியலின் திசைதிருப்பலும் தடுப்பும் முடக்கப்பட்டிருக்கும்; அதன் மூல விதிகள் URL-ஐ வேறொரு தளத்திற்கு அனுப்ப முடியாது. பட்டியலின் பிற விதிகள் உடனே செயல்படும். புதுப்பிப்பில் புதிய செயல்திறன் சேர்க்கப்பட்டாலும் அதற்கும் அனுமதி தேவை. உள்ளமைந்த மற்றும் தனிப்பயன் விதிகளுக்கு எல்லா செயல்திறன்களும் உண்டு."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "மேலீட்டு முறை"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "வழங்குநர்களைக் கொண்ட தொலைநிலைப் பட்டியல்கள் பொதுவாக உள்ளமைந்த விதிகளை மாற்றும்; <code>patches</code> மட்டும் கொண்ட பட்டியல்கள் உள்ளமைந்த விதிகளுக்குப் பயன்படுத்தப்படும். <em>மேலீட்டு முறையை இயக்கு</em> இயக்கத்தில் இருந்தால், மூன்று உத்திகளில் ஒன்றைப் பயன்படுத்தி அவை ஒன்றாக ஏற்றப்படும்:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>ஒட்டுகளை மட்டும் பயன்படுத்து</em>: தொலைநிலைப் பட்டியல்களின் ஒட்டுகளை உள்ளமைந்த விதிகளுக்குப் பயன்படுத்து; தொலைநிலை வழங்குநர்களைச் சேர்க்க வேண்டாம்."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>ஒட்டுகளைப் பயன்படுத்து + ஒன்றிணை</em>: உள்ளமைந்த மற்றும் தொலைநிலை வழங்குநர்களை ஒன்றிணைத்த பிறகு ஒட்டுகளைப் பயன்படுத்து."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>ஒட்டுகள் இல்லாமல் ஒன்றிணை</em>: வழங்குநர்களை ஒன்றிணைத்து, ஒட்டுகளைத் தவிர்."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "ஒன்றிணைக்கும்போது, தொலைநிலைப் பட்டியல்கள் நீங்கள் பட்டியலிட்ட வரிசையில் ஒன்றோடொன்று ஒன்றிணைக்கப்பட்டு, பின்னர் உள்ளமைந்த விதிகளுடன் சேர்க்கப்படும் (உள்ளமைந்தவை முதலில்). ஒரே <code>domainPatterns</code> (அல்லது <code>urlPattern</code>), மேலும் ஒரே <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code>, <code>forceRedirection</code> கொண்ட வழங்குநர்கள் மட்டுமே ஒன்றிணையும். அவற்றின் <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code> பட்டியல்கள் இணைக்கப்படும்; எந்தப் பதிவு இயங்கும் என்பதை <a href=\"#same-text-twice\">ஒரே உரை இருமுறை</a> தீர்மானிக்கும். மாற்றப்பட்ட ஒவ்வொரு விதியையும் தொலைநிலை விதிகள் நிலை அறிவிப்பாகக் காட்டும்."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "தனிப்பயன் விதிகள் கடைசியாகப் பயன்படுத்தப்படும். அதே வடிவுள்ள ஏற்றப்பட்ட ஒவ்வொரு வழங்குநரையும் தனிப்பயன் வழங்குநர் மாற்றும்; அவற்றின் விதிகள் ஒன்றிணைக்கப்படாது."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "விதி ஒட்டுகள்"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "முழு விதிக் கோப்பையும் வெளியிடாமல், ஏற்கெனவே ஏற்றப்பட்ட தனிப்பட்ட விதிகளை மேல்நிலை <code>patches</code> வரிசை மூலம் தொலைநிலைப் பட்டியல் மாற்றலாம்:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "தேவை. மாற்ற வேண்டிய விதி; அதன் இயக்க/முடக்கு விசை வடிவில் எழுதவும்: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> அல்லது <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "தேவை. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> அல்லது <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "தேவை. எளிய பதிவாகவோ விதிப் பொருளாகவோ எழுதப்படும் புதிய விதி."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "கோப்பைப் படிப்பவர்களுக்கான குறிப்பு."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "தொலைநிலைப் பட்டியல்கள் ஒன்றிணைக்கப்பட்ட பிறகும் தனிப்பயன் விதிகளுக்கு முன்பும் ஒட்டுகள் இயங்கும். <code>patches</code> மட்டும் கொண்ட கோப்புக்கு <code>providers</code> தேவையில்லை."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "ஒன்றிணைக்கும்போது வழங்குநரின் பெயர் மாறக்கூடும்; எனவே <code>domainPattern:</code> அல்லது <code>urlPattern:</code> வடிவமே எப்போதும் அதைக் கண்டறியும்."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "மாற்றீடு பழைய விதியின் அடையாளத்தைத் தக்கவைக்கும் அல்லது அதை மாற்றுப் பெயராகப் பெறும்; எனவே இயக்க/முடக்கு அமைப்புகள் தொடர்ந்து பொருந்தும்."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "திசைதிருப்பலுக்கான ஒட்டு, பட்டியலின் <code>redirect</code> அனுமதி கிடைக்கும் வரை காத்திருக்கும். இலக்குடன் பொருந்தும் எதுவுமில்லாத ஒட்டு மாற்றம் செய்யாது."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "தொலைநிலை விதிகள் நிலையில் ஒவ்வொரு ஒட்டும் பயன்படுத்தப்பட்டது, பொருந்தவில்லை அல்லது தவிர்க்கப்பட்டது எனப் பட்டியலிடப்படும்."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. விதிகளும் அனுமதிப் பட்டியலும்"
+  },
+  "guide_whitelist_p_1": {
+    "message": "அனுமதிப் பட்டியல் வழங்குநரின் <code>exceptions</code>-இலிருந்து வேறுபட்டது: விதிக் கோப்பு எதுவும் இல்லாமல், நீங்கள் தொடாதிருக்கச் சொன்ன தளங்களை இது பட்டியலிடும். பதிவுகள் <code>example.com</code>, <code>*.example.com</code> (அந்தத் தளமும் அதன் துணை டொமைன்களும்) அல்லது <code>example.*</code> (எந்தப் பின்னொட்டும்) போல இருக்கும். ஒரு பக்கத்தை அனுமதிப் பட்டியலில் சேர்த்தால், அது ஏற்றும் அனைத்தும் அதில் அடங்கும்."
+  },
+  "guide_examples_title_1": {
+    "message": "17. முழுமையான எடுத்துக்காட்டுகள்"
+  },
+  "guide_checking_title_1": {
+    "message": "18. உங்கள் விதிகளைச் சரிபார்த்தல்"
+  },
+  "guide_checking_p_1": {
+    "message": "தனிப்பயன் விதிகள் திருத்தி சேமிக்கும்போதோ இறக்குமதி செய்யும்போதோ விதிகளைச் சரிபார்க்கும். அதே சரிபார்ப்புகளை <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> இயக்கும். தவறான JSON மற்றும் வழக்கமான கோவைப் பிழைகள் தவிர, ஏற்றப்பட்டாலும் அமைதியாகத் தவறாகச் செயல்படும் விதிகளையும் இது நிராகரிக்கும்; எடுத்துக்காட்டாக:"
+  },
+  "guide_checking_item_1": {
+    "message": "தெரியாத புலங்கள், விசைகள் மற்றும் மாற்றிகள்"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> மதிப்பு <code>\"1.0\"</code> அல்லாதது"
+  },
+  "guide_check_8": {
+    "message": "ஒரே வழங்குநரில் ஓர் அடையாளமோ மாற்றுப் பெயரோ இருமுறை பயன்படுத்தப்படுவது"
+  },
+  "guide_checking_item_2": {
+    "message": "ஒரே பட்டியலில் ஒரே உரையுள்ள இரண்டு வேறுபட்ட பதிவுகள்"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> வடிகட்டி அல்லது <code>@@</code> பதிவில் <code>null</code> உட்பட <code>order</code> அமைத்திருப்பது"
+  },
+  "guide_check_9": {
+    "message": "<code>http</code> அல்லது <code>https</code> அல்லாத <code>$redirect=</code> முகவரி"
+  },
+  "guide_check_10": {
+    "message": "தப்பித்தல் வரையறுக்கப்படாத எழுத்துக்கு முன் <code>$removeparam</code> பெயரில் பின்சாய்வுக்கோடு வருவது"
+  },
+  "guide_checking_p_2": {
+    "message": "அச்சு அசலாக நகலெடுக்கப்பட்ட பதிவுகள் குறித்தும், ஒரே உரை <code>rules</code> மற்றும் <code>referralMarketing</code> இரண்டிலும் இருப்பது குறித்தும் எச்சரிக்கப்படும். சேமிப்பு தோல்வியடைந்தால், வழங்குநர், பட்டியல், பதிவு ஆகியவற்றின் பெயரைச் செய்தி குறிப்பிடும்."
+  },
+  "guide_toc_search": {
+    "message": "பிரிவுகளை வடிகட்டு"
+  },
+  "guide_toc_no_results": {
+    "message": "பொருந்தும் பிரிவுகள் எதுவும் இல்லை."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: \"|\" என்று தொடங்கும் திசைதிருப்பு இவ்வாறு இருக்க வேண்டும்: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= இலக்கு முழுமையான http அல்லது https URL ஆக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ ஒரு பொருளாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type காலியாக இல்லாத சரமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type இவற்றில் ஒன்றாக இருக்க வேண்டும்: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs என்பது \"all\" அல்லது நேர்ம முழு எண்களின் வரிசையாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ ஒரு சரமாகவோ விதிப் பொருளாகவோ இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern ஒரு சரமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern ஒரு சரமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId விதி அடையாளமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId என்பது rawRules-இல் உள்ள \"@@…$rawrule=\" விதிவிலக்குகளுக்கு மட்டும் பொருந்தும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags ஒரு சரமாக இருக்க வேண்டும் (\"i\" போன்ற regex கொடிகள்)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing என்பது true அல்லது false ஆக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing என்பது $FIELD$-இல் செயல்படாது; $LISTS$-இல் மட்டும் பொருந்தும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order எண் அல்லது null ஆக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order என்பது $FIELD$-இல் செயல்படாது; $LISTS$-இல் மட்டும் பொருந்தும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order என்பது $removeparam வடிகட்டி அல்லது \"@@\" பதிவில் செயல்படாது; இவை எப்போதும் மற்ற விதிகளுக்குப் பிறகு இயங்கும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active பூலியன் மதிப்பாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id ஒரு சரமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id என்பது $PATTERN$-உடன் பொருந்த வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases என்பது $PATTERN$-உடன் பொருந்தும் அடையாளங்களின் பட்டியலாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases-இல் விதியின் சொந்த அடையாளம் இருக்கக்கூடாது",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description ஒரு சரமாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection பூலியன் மதிப்பாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions என்பது சரங்களின் வரிசையாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes என்பது சரங்களின் வரிசையாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors ஒரு வரிசையாக இருக்க வேண்டும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: தெரியாத புலம் \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ \"@@\" என்று தொடங்குகிறது; இது rules மற்றும் referralMarketing-இல் உள்ள $removeparam வடிகட்டிகளுக்கு மட்டும் பொருந்தும். அதற்குப் பதிலாக விதிப் பொருளில் \"exceptions\" பயன்படுத்தவும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$-இல் தெரியாத $removeparam விருப்பம் \"$OPTION$\" உள்ளது",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" ஒற்றை \"|\" உடன் தொடங்குவதால், \"$REST$\" என்று அப்படியே தொடங்கும் URL-களுடன் மட்டுமே பொருந்தும்; அத்தகைய URL எதுவும் இல்லை (URL-கள் \"https://\" என்று தொடங்கும்). டொமைனுடன் பொருத்த \"||$REST$\" பயன்படுத்தவும்.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$-இல் \"targetId\" உள்ளது; இது விதிவிலக்கில் மட்டுமே செயல்படும். matchPattern-ஐ \"@@\" என்று தொடங்கவும் (எ.கா. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$-இல் \"targetId\" மற்றும் \"rawrule=\"-க்குப் பின் ஒரு regex இரண்டும் உள்ளன; இவற்றில் ஒன்றை மட்டும் பயன்படுத்தவும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$-இல் targetId \"$ID$\" உள்ளது; ஆனால் இந்த வழங்குநரில் அந்த அடையாளம் அல்லது மாற்றுப் பெயருள்ள மூல விதி இல்லை",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ என்பது \"$REGEX$\"-க்கான \"@@\" விதிவிலக்கு; ஆனால் இந்த வழங்குநரின் எந்த மூல விதியும் இந்த regex-ஐப் பயன்படுத்தவில்லை. விதிக்கு அடையாளம் கொடுத்து, அதைக் குறிக்க \"targetId\" பயன்படுத்தவும்",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ என்பது \"@@\" விதிவிலக்கு என்பதால், \"$KEY$\" எந்த விளைவையும் ஏற்படுத்தாது",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$-இல் \"rawrule=\"-க்குப் பின் எதுவும் இல்லை; நீக்க வேண்டிய regex தேவை",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$-இல் \"rawrule=\"-க்குப் பின் தவறான regex உள்ளது: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$-இல் $GROUPS$ பிடிப்பு குழுக்கள் உள்ளன; இலக்கு URL-ஐச் சுற்றி சரியாக ஒரு \"( … )\" தேவை (மற்ற குழுக்களை \"(?: … )\" என எழுதவும்)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ என்பது $WHERE$-இல் விதி அடையாளம் \"$ID$\"-ஐ மீண்டும் பயன்படுத்துகிறது; அது முதலில் $FIRST$-இல் பயன்படுத்தப்பட்டது",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ ஒரு JSON பொருளாக இருக்க வேண்டும்",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ ஒரு வரிசையாக இருக்க வேண்டும்",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$-இல் தெரியாத விசை \"$KEY$\" உள்ளது",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL-ஐச் செயலாக்கும்போது பிழை: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "பக்கத்தைத் தொடங்கும்போது பிழை: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "தவறான தாவல்"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "இந்தத் தாவலுக்கான விதித் தேடல் ஏற்கெனவே நடைபெறுகிறது"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "இந்தத் தாவலுக்கான இடைநிறுத்தச் சரிபார்ப்பு எதுவும் நடைபெறவில்லை"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "விதிகள் இன்னும் ஏற்றப்படுகின்றன. சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "இந்தப் பக்கத்தில் செயல்பட்ட விதிகளில் எதையும் முடக்க முடியாது."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "விதிகளை முடக்க முடியவில்லை"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "இந்தத் தாவலுக்கான விதித் தேடல் எதுவும் நடைபெறவில்லை"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "இந்தத் தாவலுக்கு தவிர்க்கக் கண்டறியப்பட்ட விதி எதுவும் இல்லை"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "பதிவிறக்கம் கிடைக்கவில்லை"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "அமர்வு சேமிப்பகத்தில் பதிவைச் சேமிக்க முடியவில்லை"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "தெரியாத விதி"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "தெரியாத பிழை"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "ஏற்றுமதி தோல்வியடைந்தது"
   }
 }

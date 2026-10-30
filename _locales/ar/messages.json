@@ -39,7 +39,7 @@
     "message": "استخدم قواعد Linkumori/ClearURLs المضمنة. قم بتعطيل هذا للتشغيل باستخدام القواعد البعيدة و/أو القواعد المخصصة فقط."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "يستخدم Linkumori مجموعة قواعد موحدة واحدة لمزودي ClearURLsData. يتم دمج JSON الأصلي للمزودين وكائنات القواعد القياسية ومرشحات $removeparam المحلية لكل مزود قبل تشغيل clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "معلومات القواعد"
@@ -1137,25 +1137,25 @@
     "message": "فتح إعدادات Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "سلوك وضع التحميل الزائد"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "وضع التصحيح فقط"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "طبّق التصحيحات البعيدة على القواعد المضمنة. لا يتم تضمين قواعد المزودين البعيدين."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "وضع التصحيح + الدمج"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "ادمج قواعد المزودين المضمنين والبعيدين، ثم طبّق التصحيحات البعيدة."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "بدون وضع التصحيح + الدمج"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "ادمج قواعد المزودين المضمنين والبعيدين دون تطبيق التصحيحات البعيدة."
   },
   "overload_mode_enabled": {
     "message": "تمكين وضع التحميل الزائد"
@@ -1836,7 +1836,7 @@
     "message": "يجب أن يستخدم رابط التجزئة الأساسي HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "يجب ضبط عنوان URL الأساسي للقواعد وعنوان URL الأساسي للتجزئة معًا."
   },
   "save_primary_rule_https_required": {
     "message": "يجب أن يستخدم رابط القاعدة الأساسي HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "أنا أفهم المخاطر - متابعة"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "يجب إعادة النظر في استخدام القواعد البعيدة إذا كنت لا تفهم مصدر مجموعة قواعد Linkumori أو لا تثق به تمامًا."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "صُممت ميزة القواعد البعيدة هذه للمستخدمين المتقدمين الذين يفهمون ملف Linkumori JSON الذي يحمّلونه. ينبغي أن تتضمن القواعد البعيدة عنوان URL للتجزئة مطابقًا للتحقق."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "إذا أضفت عنوان URL لقاعدة بعيدة، فسيتصل الامتداد بالخادم الذي حددته لجلب مجموعة قواعد Linkumori وملف التجزئة الخاص بها عند الضبط. قد يكشف كل جلب عن عنوان IP الخاص بك ومعلومات عامة مثل إصدار الامتداد والمتصفح وإصداره للخادم المستضيف. تخضع هذه البيانات لسياسة الخصوصية الخاصة بذلك الموقع أو خادم الويب."
   },
   "security_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر."
@@ -1887,7 +1887,7 @@
     "message": "إشعار تحذيري:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "استخدم القواعد المضمنة ما لم تكن تثق بالمصدر البعيد وتتحكم فيه. وفّر عنوان URL للتجزئة مطابقًا لقواعد Linkumori JSON البعيدة."
   },
   "security_modal_risk_1": {
     "message": "سيتعرض عنوان IP الخاص بك ومعلومات المتصفح للخوادم التي تم تكوينها"
@@ -1899,7 +1899,7 @@
     "message": "ينطبق التحقق من التجزئة على قواعد Linkumori CLN Format 1.0 JSON فقط؛ فهو يحمي من التلاعب بالإرسال، وليس من مصادر القواعد الضارة."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "القواعد البعيدة التي لا يتم التحقق من تجزئتها بنجاح تعتمد كليًا على الثقة في عنوان URL للمصدر."
   },
   "security_modal_risks_title": {
     "message": "المخاطر الأمنية:"
@@ -1914,7 +1914,7 @@
     "message": "الرابط إلى ملف rules.hash (التجزئة)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "مطلوب للتحقق من قواعد Linkumori JSON البعيدة."
   },
   "setting_html_export_button": {
     "message": "تصدير"
@@ -1944,7 +1944,7 @@
     "message": "حد السجل (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "مصادر Linkumori JSON بعيدة إضافية تُدمج معًا. أدخل زوجًا واحدًا في كل سطر بالصيغة <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "مجموعات القواعد البعيدة الإضافية"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "عنوان URL مخصص لقواعد Linkumori JSON البعيدة"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "عنوان URL لملف JSON للقواعد البعيدة"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "عنوان URL للتجزئة مطلوب لكل مجموعة قواعد بعيدة."
   },
   "settings_html_page_title": {
     "message": "إعدادات Linkumori (Clean URLS)"
@@ -2421,19 +2421,19 @@
     "message": "تحذير: ميزة متقدمة مخصصة فقط للخوادم المستضافة ذاتيًا"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "أنت تعطّل حمايات Gatekeeper الخاصة بتحرير عناوين URL للقواعد البعيدة. يمكن لهذه الميزة تحميل قواعد Linkumori JSON البعيدة إلى مجموعة قواعد المزودين الموحدة. تابع فقط إذا كنت تفهم المصدر الذي تضبطه وتثق به."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper هو تدفق الأمان المدمج الذي يمنع تحريرات URL البعيدة المباشرة حتى تقر بإشعار الأمان وتكمل التأكيد المكتوب."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "أبقِ Gatekeeper مفعّلاً ما لم تكن تثق بمصادرك البعيدة وتتحكم فيها. ينبغي أن تتضمن قواعد JSON البعيدة عنوان URL للتجزئة مطابقًا."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "إشعار تحذيري:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "إذا أضفت عنوان URL لقاعدة بعيدة، فسيتصل الامتداد بالخادم الذي حددته لجلب مجموعة قواعد Linkumori وملف التجزئة الخاص بها عند الضبط. قد يكشف كل جلب عن عنوان IP الخاص بك ومعلومات عامة مثل إصدار الامتداد والمتصفح وإصداره للخادم المستضيف. تخضع هذه البيانات لسياسة الخصوصية الخاصة بذلك الموقع أو خادم الويب."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر."
@@ -2448,7 +2448,7 @@
     "message": "سيتصل الامتداد بعنوان URL الذي حددته في كل مرة يتم فيها تمكين الامتداد وتحميله في متصفحك."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "سيتلقى الخادم الذي يستضيف ملفات JSON أو التجزئة البعيدة عنوان IP الخاص بك."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "قد يتلقى الخادم أيضًا إصدار الامتداد والمتصفح وإصدار المتصفح."
@@ -2457,7 +2457,7 @@
     "message": "تخضع تلك البيانات لسياسة الخصوصية لموقع الويب أو خادم الويب الذي يستضيف تلك الملفات."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "بتعطيل Gatekeeper، تزيد المخاطر الناتجة عن مصادر القواعد البعيدة غير الآمنة أو المخترقة. يحمي التحقق من التجزئة تنزيلات Linkumori JSON البعيدة فقط عند ضبط عنوان URL للتجزئة مطابق."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "إلغاء"
@@ -2517,7 +2517,7 @@
     "message": "اكتب عبارة التأكيد الدقيقة"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "يقلل هذا الإجراء من إجراءات الحماية الخاصة بالقواعد البعيدة. تابع فقط إذا كنت تثق بمصدر JSON البعيد."
   },
   "remote_urls_template_note_1": {
     "message": "استبدل قيم العناصر النائبة بعناوين URL HTTPS الحقيقية الخاصة بك، ثم قم باستيراد هذا الملف."
@@ -2847,10 +2847,10 @@
     "message": "لا شيء"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "تعارضات القواعد:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ أخطاء، $WARNINGS$ تحذيرات، $NOTICES$ إشعارات",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "إمكانات الملف البعيد:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "غير نشطة حتى القبول: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "قبول $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "تصحيحات القواعد:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ مطبّقة، $NOT_APPLIED$ غير مطبّقة",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "القيم الافتراضية للقواعد"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "مضمنة"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "مخصصة"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "لا شيء — السلوك المضمن"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "يدمج وضع التحميل الزائد القواعد المضمنة والبعيدة؛ وتحتفظ قواعد كل مصدر بالقيم الافتراضية الخاصة بذلك المصدر."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "حفظ القيم الافتراضية"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "تم حفظ القيم الافتراضية"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "عند التفعيل، يحتفظ كل مصدر قواعد بقيمه الافتراضية الخاصة (تنطبق القيم الافتراضية المضمنة على القواعد المضمنة، والقيم الافتراضية لكل ملف بعيد على قواعد ذلك الملف) ما لم تختر قيمك الافتراضية في محرر القواعد المخصصة."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "بعيد: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "القيم الافتراضية المطبّقة"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "القيم الافتراضية الخاصة بكل مصدر"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "قيمك للقواعد المضمنة والبعيدة"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "قيمك لجميع القواعد"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(استُبدلت بقيمك الافتراضية)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "قيمك"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ من أنواع الطلبات",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ من استثناءات URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "استثناء URL واحد"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ من المعالجات المسبقة",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "تحصل قواعد كل مصدر على القيم الافتراضية الخاصة بذلك المصدر."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "تحصل القواعد المضمنة والبعيدة على قيمك الافتراضية بدلاً من قيم ملفاتها؛ وتحتفظ القواعد المخصصة بقيمها الخاصة."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "تحصل القواعد المضمنة والبعيدة والمخصصة جميعها على قيمك الافتراضية بدلاً من قيمها الخاصة."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "إدارة القيم الافتراضية للقواعد"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "تملأ القيم الافتراضية القيم التي لا تحددها القاعدة بنفسها. تتغلب قيمة القاعدة الخاصة دائمًا، ولا تتغير استثناءات المزود أبدًا."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "تحرير القيم الافتراضية"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "قيمك الافتراضية"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "القيم الافتراضية للقواعد المخصصة"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "القيم الافتراضية المراد تحريرها"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "القواعد المضمنة"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(معدّلة)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "إعادة التعيين إلى القيم الافتراضية للملف"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "دمج من المصادر…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "دمج القيم الافتراضية للقواعد"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "تظهر النتيجة باسم \"القيم الافتراضية المدمجة\" في القائمة. انسخها إلى إحدى المجموعات هناك، ثم اضغط حفظ القيم الافتراضية لاستخدامها."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "المصادر المراد دمجها"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "التعارضات"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "القيم الافتراضية المدمجة"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "استخدام القيم الافتراضية المدمجة"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "القيم الافتراضية المدمجة"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "لا تُستخدم حتى تنسخها إلى إحدى المجموعات الأخرى وتحفظ."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "نسخ إلى"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "نسخ"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "اختر مصدرين على الأقل."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "لا توجد تعارضات: المصادر المختارة متفقة على كل قيمة."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "تُضاف الاستثناءات معًا من كل مصدر: $COUNT$ في المجموع.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "مجمّعة من كل مصدر"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "من: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "غير محدد (السلوك المضمن)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "غير محدد: كل أنواع الطلبات"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "غير مستخدمة حاليًا: قيمك الافتراضية تحل محل القيم الخاصة بالقواعد المضمنة والبعيدة."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "عدّلتها أنت: تحل هذه محل القيم الافتراضية الخاصة بالملف. لا يتغير الملف نفسه."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(عدّلتها أنت)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "غير مستخدمة حاليًا: تم اختيار \"القيم الافتراضية الخاصة بكل مصدر\" أعلاه."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "غير مستخدمة حاليًا: قيمك الافتراضية تحل محل هذه القيم للقواعد المخصصة أيضًا."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "تبدأ القواعد معطلة (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "الوصف"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "أنواع الطلبات"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "جميع الأنواع"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "هذه فقط"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "اختر نوع طلب واحدًا على الأقل، أو اختر \"جميع الأنواع\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "تنظّف القواعد كل أنواع الطلبات ما لم تحدد هي أو القيم الافتراضية بعضها. يمكن للمزودين أيضًا تقييد الأنواع عبر resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "الاستثناءات"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "تعبير نمطي (regex) واحد لعنوان URL في كل سطر. يتم تخطي القواعد على عناوين URL المطابقة."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "المعالجات المسبقة"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "المدخلات: \"all\"، أو أرقام مجموعات الالتقاط مثل 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ إضافة معالج مسبق"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "نوع المعالج المسبق"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "مدخلات المعالج المسبق"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "إزالة"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "يجب أن تكون مدخلات المعالج المسبق \"$INPUTS$\" هي \"all\" أو أرقامًا مثل 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "إيقاف حماية تجاوز السجل (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "عرض كـ JSON"
   },
   "settings_remote_health_unknown": {
     "message": "غير معروف"
@@ -4005,10 +4005,10 @@
     "message": "مزود JSON دليل"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "فتح دليل قواعد Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "أي صيغة للقواعد يجب أن أستخدم؟"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "فتح دليل القواعد"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "فشل تحميل مصادر المزودين: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "القواعد المضمنة غير متاحة."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "فشل تحميل القواعد المضمنة: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "تعذر تبديل اللغة إلى $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "مظهر فاتح"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "مظهر داكن"
   },
   "posarCopied": {
     "message": "تم نسخ بوسار!"
@@ -4059,100 +4059,100 @@
     "message": "تم قبول بوسار."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "إعادة تعيين"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "أدوات إمكانية الوصول"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "فتح أدوات إمكانية الوصول"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "إغلاق أدوات إمكانية الوصول"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "إعادة تعيين جميع إعدادات إمكانية الوصول"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "الرؤية"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "القراءة"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "التفاعل"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "تباين عالٍ"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "مرشح الألوان"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "التشبع"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "عكس الألوان"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "تمييز الروابط"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "إخفاء الصور"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "تكبير حجم النص"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "تصغير حجم النص"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "حجم النص الافتراضي"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "اختيار الخط"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ملائم لعسر القراءة"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "تباعد النص"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "ارتفاع السطر"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "محاذاة النص"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "إيقاف الرسوم المتحركة"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "مؤشر أكبر"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "الافتراضي"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "متوسط"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "عالٍ"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "فائق"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "منخفض"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "بلا"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "خفيف"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "ثقيل"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "بلا مرشح"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "عمى اللون الأحمر (Protanopia)"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "عمى اللون الأخضر (Deuteranopia)"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "عمى اللون الأزرق (Tritanopia)"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "تدرج الرمادي"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "يسار"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "وسط"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "يمين"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "صغير جدًا"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "صغير"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "كبير"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "كبير جدًا"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "الأكبر"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "تشغيل"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "إيقاف"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "مفعّل"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "معطّل"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "تم اختيار حجم النص الافتراضي"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "تمت إعادة تعيين جميع إعدادات إمكانية الوصول"
+  },
+  "skip_to_main_content": {
+    "message": "التخطي إلى المحتوى الرئيسي"
+  },
+  "popupNavAriaLabel": {
+    "message": "التنقل في النافذة المنبثقة"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "عروض القواعد المخصصة"
+  },
+  "logViewNavAriaLabel": {
+    "message": "عروض السجل"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "حماية تجاوز السجل (التخطي أثناء التنقل داخل الصفحة)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "إعادة توجيه الحقول"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "نسخ القاعدة"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "تم نسخ القاعدة"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "تعذر نسخ القاعدة"
+  },
+  "faq_history_bypass_protection": {
+    "message": "ماذا يفعل historyBypassProtection؟"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "غالبًا ما تغيّر المواقع ذات الصفحة الواحدة العنوان عبر history.pushState/replaceState بدلاً من تحميل صفحة جديدة. ينظّف Linkumori هذه العناوين أيضًا. أضف history-bypass-protection=false إلى مرشح $removeparam لتخطي ذلك المرشح فقط في هذه التغييرات داخل الصفحة؛ وسيظل يعمل على الطلبات العادية."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "لتخطي مزود كامل في التغييرات داخل الصفحة، عيّن ذلك على المزود:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "عند عدم تحديده تكون القيمة true ويتم تنظيف التغييرات داخل الصفحة. إعداد القاعدة نفسها له الأولوية على إعداد المزود، لذا يمكن للقاعدة العودة إلى التنظيف باستخدام history-bypass-protection=true، أو \"historyBypassProtection\": true في كائن القاعدة."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "يتخطى التنقل داخل الصفحة"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "إعادة تسمية المعرّف"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "معرّف جديد لـ $OLD$ (a-z وأرقام 0-9 و - و _). يُحتفظ بالمعرّف القديم كاسم مستعار، لذا تبقى القواعد المعطلة تحته معطلة.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" ليس معرّفًا صالحًا. استخدم أحرفًا إنجليزية صغيرة وأرقامًا و - و _، على أن يبدأ بحرف أو رقم.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "توجد قاعدة أخرى لهذا المزود تستخدم \"$ID$\" بالفعل.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "تعطيل القاعدة"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "هل تريد تعطيل $ID$ للمزود بأكمله، أم لهذا النمط من URL/النطاق فقط؟",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "مزودي الخاص"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "نمط URL/النطاق"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "تمت إعادة تسمية معرّف القاعدة إلى $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "تبديلات يتيمة"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "لم يتم العثور على قاعدة مطابقة في المصدر"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "إزالة"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "يتخطى تنظيف التنقل داخل الصفحة"
+  },
+  "whitelist_added_general": {
+    "message": "تمت إضافة %s إلى القائمة البيضاء العامة"
+  },
+  "whitelist_added_history_api": {
+    "message": "تمت إضافة %s كاستثناء لـ History API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d استثناء (استثناءات)"
+  },
+  "whitelist_exception_empty": {
+    "message": "لا توجد استثناءات في القائمة البيضاء"
+  },
+  "whitelist_mode_general": {
+    "message": "القائمة البيضاء العامة"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API فقط"
+  },
+  "whitelist_mode_label": {
+    "message": "نطاق القائمة البيضاء"
+  },
+  "whitelist_removed_general": {
+    "message": "تمت إزالة %s من القائمة البيضاء العامة"
+  },
+  "whitelist_removed_history_api": {
+    "message": "تمت إزالة استثناء History API لـ %s"
+  },
+  "whitelist_type_general": {
+    "message": "عام"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API فقط"
+  },
+  "popup_whitelist_add_general": {
+    "message": "إضافة $1 إلى القائمة البيضاء العامة"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "القائمة البيضاء العامة: $1 - انقر للتبديل إلى History API فقط"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "استثناء History API: $1 - انقر للتبديل إلى هذا التبويب فقط"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "لهذا التبويب فقط: $1 - انقر للإزالة"
+  },
+  "logger_action_allowed": {
+    "message": "مسموح"
+  },
+  "logger_action_blocked": {
+    "message": "محظور"
+  },
+  "logger_action_filter_label": {
+    "message": "الإجراء"
+  },
+  "logger_action_info": {
+    "message": "معلومات"
+  },
+  "logger_action_modified": {
+    "message": "معدَّل"
+  },
+  "logger_action_redirected": {
+    "message": "معاد توجيهه"
+  },
+  "logger_btn_copy_summary": {
+    "message": "نسخ الملخص"
+  },
+  "logger_btn_export": {
+    "message": "تصدير"
+  },
+  "logger_btn_group": {
+    "message": "تجميع حسب القاعدة"
+  },
+  "logger_col_hits": {
+    "message": "مرات الإصابة"
+  },
+  "logger_col_last_seen": {
+    "message": "آخر ظهور"
+  },
+  "logger_detail_group_title": {
+    "message": "تفاصيل القاعدة"
+  },
+  "logger_detail_all_urls": {
+    "message": "عناوين URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "التبويبات"
+  },
+  "logger_exported": {
+    "message": "تم تصدير $1 إدخال."
+  },
+  "logger_filter_all": {
+    "message": "الكل"
+  },
+  "logger_report_rule": {
+    "message": "الإبلاغ عنها"
+  },
+  "logger_rule_disable": {
+    "message": "إيقاف القاعدة"
+  },
+  "logger_rule_disabled_done": {
+    "message": "تم إيقاف القاعدة $1. أعد تحميل الصفحة للتحقق."
+  },
+  "logger_rule_enable": {
+    "message": "تشغيل القاعدة"
+  },
+  "logger_rule_enabled_done": {
+    "message": "تمت إعادة تشغيل القاعدة $1."
+  },
+  "logger_rule_failed": {
+    "message": "تعذر تغيير القاعدة."
+  },
+  "logger_rule_off": {
+    "message": "القاعدة متوقفة"
+  },
+  "logger_rule_on": {
+    "message": "القاعدة قيد التشغيل"
+  },
+  "logger_rule_unavailable": {
+    "message": "لا يمكن تبديل هذه القاعدة من هنا."
+  },
+  "logger_status_rules": {
+    "message": "$1 قاعدة (قواعد)"
+  },
+  "logger_summary_copied": {
+    "message": "تم نسخ الملخص."
+  },
+  "logger_summary_copy_failed": {
+    "message": "تعذر نسخ الملخص."
+  },
+  "logger_type_filter_label": {
+    "message": "النوع"
+  },
+  "logger_btn_logging_off": {
+    "message": "التسجيل متوقف"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "التسجيل متوقف. انقر لتشغيله."
+  },
+  "logger_btn_logging_on": {
+    "message": "التسجيل قيد التشغيل"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "التسجيل قيد التشغيل. انقر لإيقافه."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "تعذر تغيير إعداد التسجيل."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "إضافة قاعدة إحالة"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "إضافة استثناء قاعدة raw"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "إضافة إعادة توجيه حقل"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "إضافة استثناء"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "يضيف كل قالب كائن قاعدة بمعرّف وmatchPattern نائب على example.com. يمكن أن يكون الإدخال أيضًا سلسلة نصية بسيطة: اسم معلمة، أو تعبيرًا نمطيًا لاسم، أو مرشح $removeparam، أو تعبيرًا نمطيًا في rawRules. تقبل كائنات القواعد: id وaliases وmatchPattern وreplacePattern وpreprocessors وrequestTypes وexceptions وflags وorder وreferralMarketing وhistoryBypassProtection وactive وdescription وtargetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "المدقق"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "لم يتم العثور على مشكلات."
+  },
+  "customRulesEditor_lintError": {
+    "message": "خطأ"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "تحذير"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ خطأ (أخطاء)، $WARNINGS$ تحذير (تحذيرات)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "ترتيب التشغيل"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ خطوة (خطوات)، بحسب ترتيب تشغيلها",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "لا توجد إدخالات rawRules أو rules أو referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "يحسبه المحرك من النص أعلاه، سواء حُفظ أم لا. تُرتَّب الخطوات حسب (stage, orderGroup, order, rank, arrayIndex): تعمل القواعد الخام قبل قواعد الحقول؛ وضمن المرحلة الواحدة، تعمل أولاً الإدخالات التي لها order، من الأدنى إلى الأعلى، ثم الباقي بحسب القائمة والموضع."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "التسويق بالإحالة"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "تمت إزالة الإحالة"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "الإحالة مسموحة"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "خام"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "حقل"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "إحالة"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(مُنشأ)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "الترتيب $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "يعيد الكتابة"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "يستبدل $COUNT$ من التعريفات السابقة",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "أضافه completeProvider: يزيل كل المعلمات"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "متوقف"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "متوقف لبعض الأنماط"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "مفتاح الفرز: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "ثم $FILTERS$ من مرشحات $removeparam و$EXCEPTIONS$ من استثناءات @@، بعد كل خطوة أعلاه",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ من استثناءات @@…$rawrule= يمكنها إيقاف القواعد الخام أعلاه حيث تتطابق",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "اسحب خطوة، أو استخدم أسهمها، لنقلها ضمن مرحلتها. يمنح النقل كل إدخال في تلك المرحلة قيمة order هي 10 و20 و30 وهكذا بحسب التسلسل الجديد."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "انتقل إلى \"تمت إزالة الإحالة\" لإعادة الترتيب: يعرض ذلك العرض كل الإدخالات."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "اسحب للنقل"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "نقل $ENTRY$ إلى أبكر",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "نقل $ENTRY$ إلى أبعد",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "تم نقل $ENTRY$ إلى الموضع $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "تراجع عن النقل"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "تم التراجع عن النقل"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "محاكاة"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "يشغّل هذا المزود على عنوان URL بالطريقة نفسها التي يتم بها تنظيف رابط منسوخ، مع القواعد المتوقفة لديك وخيار الإحالة أعلاه، ويعرض عنوان URL بعد كل خطوة. لا يعمل المزودون الآخرون. ينشئ \"إنشاء عنوان URL للاختبار\" عنوانًا من قواعد هذا المزود نفسه."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "عنوان URL للاختبار"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "تشغيل"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "الانتقال خطوة بخطوة في المحاكاة"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "البداية"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "السابق"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "التالي"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "النهاية"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "تشغيل"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "إيقاف مؤقت"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "عنوان URL قبل أي خطوة"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "المرور $PASS$ · الخطوة $STEP$ من $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "لا تغيير"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "مرشحات $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "المرور $PASS$ لا يغيّر شيئًا، لذا يتوقف التنظيف",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "يتوقف هذا المزود هنا: تم بلوغ حد الدورات، أو عاد عنوان URL إلى عنوان سابق، أو لم يعد يطابق المزود"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "المرور $PASS$ يعيد التوجيه؛ ويستمر التنظيف عند العنوان الجديد مع كل المزودين",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "يحظر المزود هذا الطلب (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "النتيجة"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "لا تطابق أنماط هذا المزود عنوان URL هذا، لذا لا تعمل أي من قواعده."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "يطابق عنوان URL هذا أحد استثناءات المزود، لذا لا تعمل أي من قواعده."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "أدخل عنوان URL كاملاً يبدأ بـ http:// أو https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "تعذر تشغيل المحاكاة. تحقق من JSON أعلاه."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "إنشاء عنوان URL للاختبار"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "أُنشئ من قواعد هذا المزود: نص لـ $RAW$ من القواعد الخام و$PARAMS$ من المعلمات، تم فحص كل منها مقابل قاعدته. keep=1 لا يطابق أي قاعدة ويجب أن يبقى. لا تُضمَّن عمليات إعادة التوجيه والحظر لأنها ستنهي التشغيل قبل القواعد الأخرى.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "تعذر إنشاء مضيف تطابقه أنماط هذا المزود، لذا يستخدم عنوان URL مضيفًا آخر ولن يعمل المزود عليه."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "كل عنوان URL تطابقه أنماط هذا المزود مشمول بأحد استثناءاته الخاصة، لذا لا تعمل قواعده أبدًا."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "استُبعدت $COUNT$ من القواعد من عنوان URL للاختبار",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "تعذر إنشاء نص تطابقه"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "سيجعل نصها أحد استثناءات المزود يتطابق"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "تزيل كل المعلمات، لذا لا تحتاج إلى معلمة خاصة بها"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "لدى هذا المزود مرشح $removeparam بلا اسم، ما يزيل كل المعلمات، بما فيها keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "بلا ترتيب"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "الترتيب $FROM$ ← $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "استعادة أرقام الترتيب"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "أعد كل ترتيب كما كان عند فتح هذا المزود"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "تمت استعادة أرقام الترتيب"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "إخفاء"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "إظهار"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "مسح التحذيرات"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "استعادة التحذيرات"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "تم مسح $COUNT$ من التحذيرات",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: يتم فحص urlPattern بدون indexPattern مقابل كل عنوان URL؛ أضف تلميحات indexPattern مثل \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ يكرر \"$ENTRY$\"؛ النسخة لا تفعل شيئًا ويشتركان في معرّف واحد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "لا يزال $WHERE$ يحتوي على النص النائب للقالب \"$PATTERN$\"؛ استبدله بالنمط الفعلي",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ يحتوي على matchPattern \"(?!)\" الذي لا يطابق أي شيء أبدًا",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "استكشاف الأخطاء"
+  },
+  "troubleshooter_launch": {
+    "message": "استكشاف أخطاء هذا التبويب وإصلاحها (تجريبي)"
+  },
+  "troubleshooter_title": {
+    "message": "مستكشف أخطاء التبويب"
+  },
+  "troubleshooter_page": {
+    "message": "الصفحة"
+  },
+  "troubleshooter_about_summary": {
+    "message": "كيف يعمل التسجيل"
+  },
+  "troubleshooter_about_note": {
+    "message": "قد يؤدي فتح هذا العرض إلى فحص عنوان URL للصفحة، لكنه لا يسجّل شيئًا. يبقى التسجيل متوقفًا حتى تختار بدء التسجيل. يؤدي البدء إلى إعادة تحميل هذا التبويب لالتقاط طلبات الموارد الخاصة به. تبقى عناوين URL الملتقطة في تخزين الجلسة طوال جلسة المتصفح هذه، ويتم مسحها عند إغلاق هذا التبويب أو انتهاء جلسة المتصفح. يتوقف التسجيل بعد 15 دقيقة ما لم توقفه قبل ذلك. قد تحتوي عناوين URL للموارد على بيانات استعلام خاصة."
+  },
+  "troubleshooter_start": {
+    "message": "بدء التسجيل"
+  },
+  "troubleshooter_starting": {
+    "message": "جارٍ البدء…"
+  },
+  "troubleshooter_recording": {
+    "message": "جارٍ التسجيل…"
+  },
+  "troubleshooter_stop": {
+    "message": "إيقاف التسجيل"
+  },
+  "troubleshooter_refresh": {
+    "message": "تحديث"
+  },
+  "troubleshooter_copy": {
+    "message": "نسخ الملخص"
+  },
+  "troubleshooter_export": {
+    "message": "تصدير"
+  },
+  "troubleshooter_export_title": {
+    "message": "احفظ التسجيل كملف JSON. قد تحتوي عناوين URL للموارد على بيانات استعلام خاصة."
+  },
+  "troubleshooter_category": {
+    "message": "الفئة"
+  },
+  "troubleshooter_category_all": {
+    "message": "كل الفئات"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "قواعد URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "عمليات إعادة التوجيه"
+  },
+  "troubleshooter_category_protection": {
+    "message": "الحماية وعمليات التجاوز"
+  },
+  "troubleshooter_resource_type": {
+    "message": "نوع المورد"
+  },
+  "troubleshooter_type_all": {
+    "message": "كل أنواع الموارد"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "ابحث في القواعد والمزودين وعناوين URL"
+  },
+  "troubleshooter_timer": {
+    "message": "جارٍ التسجيل $1 · متبقٍ $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "جارٍ فحص هذا التبويب…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "لا يوجد تبويب نشط متاح."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "لا تسمح هذه الصفحة بفحص قواعد URL. افتح صفحة ويب عادية بـ http أو https."
+  },
+  "troubleshooter_status_off": {
+    "message": "التسجيل متوقف. ابدأ التسجيل لفحص عناوين URL للموارد التي تحمّلها هذه الصفحة."
+  },
+  "troubleshooter_status_active": {
+    "message": "تم التقاط $1 من تغييرات URL حتى الآن. تظهر الجديدة هنا تلقائيًا."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "توقف التسجيل. تم التقاط $1 من تغييرات URL."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "تعذر حفظ بيانات التسجيل في تخزين الجلسة. قد تُفقد $1 من تغييرات URL إذا أُعيد تشغيل الامتداد."
+  },
+  "troubleshooter_status_started": {
+    "message": "بدأ التسجيل وجارٍ إعادة تحميل التبويب. تظهر عناوين URL الملتقطة هنا أثناء تحميل الصفحة."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "توقف التسجيل. تم التقاط $1 من تغييرات URL وحفظها لجلسة المتصفح هذه."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "توقف التسجيل. تم التقاط $1 من تغييرات URL، لكن تعذر حفظها في تخزين الجلسة."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "افتح صفحة ويب عادية بـ http أو https أولاً."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "تعذر بدء التسجيل لهذا التبويب."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "تعذر إيقاف التسجيل لهذا التبويب."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "تعذرت قراءة هذا التبويب. جرّب إغلاق النافذة المنبثقة وإعادة فتحها."
+  },
+  "troubleshooter_status_copied": {
+    "message": "تم نسخ الملخص."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "تعذر نسخ الملخص."
+  },
+  "troubleshooter_status_exported": {
+    "message": "تم تصدير التسجيل."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "تعذر تصدير التسجيل."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "تعذر فتح نموذج الإبلاغ."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "تم تمكين القاعدة؛ أعد تحميل التبويب للمقارنة."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "تم تعطيل القاعدة؛ أعد تحميل التبويب للمقارنة."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "تعذر تحديث هذه القاعدة."
+  },
+  "troubleshooter_empty_web": {
+    "message": "لم يتم العثور على تغييرات في القواعد بعد. ابدأ التسجيل لفحص عناوين URL لموارد هذه الصفحة."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "لا يمكن فحص صفحة المتصفح هذه."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "لا توجد نتائج مطابقة لهذه المرشحات."
+  },
+  "troubleshooter_showing_first": {
+    "message": "عرض أول $1 من القواعد."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 إصابة (إصابات)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "فشل $1"
+  },
+  "troubleshooter_rule_id": {
+    "message": "معرّف القاعدة: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "إجراء حماية مضمن (بلا معرّف قاعدة)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "معرّف القاعدة: غير متاح لهذه النتيجة"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "تعذر تحديد معرّف هذه القاعدة في مجموعة القواعد الحالية."
+  },
+  "troubleshooter_source_observed": {
+    "message": "طلب مرصود"
+  },
+  "troubleshooter_source_page": {
+    "message": "فحص URL الصفحة"
+  },
+  "troubleshooter_changes": {
+    "message": "ما الذي تغيّر: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "عناوين URL المتأثرة ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…و$1 أخرى"
+  },
+  "troubleshooter_after": {
+    "message": "بعد Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "فشل بعد أن غيّره Linkumori: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "هذه القاعدة مفعّلة. أوقفها وأعد التحميل لمقارنة الصفحة."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "هذه القاعدة معطلة. شغّلها وأعد التحميل لاستعادة سلوكها."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "هذا إجراء حماية مضمن، وليس قاعدة فردية."
+  },
+  "troubleshooter_advice_review": {
+    "message": "راجع عنوان URL المتأثر قبل تغيير القواعد."
+  },
+  "troubleshooter_report": {
+    "message": "الإبلاغ عن هذه القاعدة"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "تعطيل القاعدة"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "تمكين القاعدة"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "تعطيل القاعدة $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "تمكين القاعدة $1"
+  },
+  "troubleshooter_saving": {
+    "message": "جارٍ الحفظ…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "أُزيل $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "أُضيف $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "تغيّر $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "أُعيد التوجيه إلى $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "تغيّر المسار"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "تغيّر الجزء (fragment)"
+  },
+  "troubleshooter_change_other": {
+    "message": "تغيّر عنوان URL"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "محظور عمدًا"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "فشل $1 من الطلبات في هذه الصفحة؛ و$2 منها مباشرة بعد أن غيّر Linkumori عنوان URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "هل هذه الصفحة معطلة؟"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "اعثر على القاعدة التي تعطلها: تُوقف القواعد التي عملت في هذه الصفحة واحدة تلو الأخرى، وبعد كل واحدة تخبرنا هل أصلحت الصفحة. لست متأكدًا أن Linkumori هو السبب؟ تحقق أولاً مع إيقاف التنظيف مؤقتًا."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "تحقق أولاً مع إيقاف التنظيف مؤقتًا"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "التنظيف متوقف مؤقتًا لـ $1 في هذا التبويب"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "أُعيد تحميل التبويب بدون تنظيف. هل تعمل الصفحة الآن؟"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "نعم، تعمل"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "لا، ما زالت معطلة"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "إلغاء"
+  },
+  "troubleshooter_diag_done": {
+    "message": "تم"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "على الأرجح ليس Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "بقيت الصفحة معطلة مع إيقاف التنظيف مؤقتًا، لذا فالمشكلة على الأرجح في مكان آخر: الموقع نفسه أو امتداد آخر أو الشبكة. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "على الأرجح Linkumori هو السبب"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "تعمل الصفحة مع إيقاف التنظيف مؤقتًا. اعثر على القاعدة: تُوقف القواعد واحدة تلو الأخرى، ويُعاد تحميل التبويب، وتخبرنا هل أصلحت الصفحة. تُعاد كل القواعد الأخرى إلى التشغيل في النهاية."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "يُعاد تحميل التبويب مع إعادة تشغيل التنظيف، لتسجيل القواعد التي تعمل في هذه الصفحة. ستظهر هنا بعد لحظة. إن لم تظهر أي قاعدة، فاستخدم الصفحة حتى تتعطل."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "العثور على القاعدة ($1 من القواعد)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "نعم، أُصلحت"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "لا، ما زالت معطلة"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "تم العثور عليها"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "تتعطل الصفحة بسبب القاعدة $1$2. وقد أُعيد تشغيلها. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "تعطيل هذه القاعدة"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "الإبلاغ عنها"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "تم إيقاف القاعدة. أعد تحميل التبويب للتحقق. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "لم يتم العثور على قاعدة واحدة"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "لم يؤدِّ إيقاف القواعد واحدة تلو الأخرى إلى إصلاح الصفحة، لذا فالسبب على الأرجح عدة قواعد معًا، أو إعداد حماية. أُعيد تشغيل كل القواعد. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "تعذر تشغيل الفحص: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "أعد تحميل Linkumori لاستخدام هذا الفحص"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "تم تحديث Linkumori، لكن جزءه الخلفي لا يزال يعمل بالإصدار القديم. أعد تحميل الامتداد (للإضافة المؤقتة: about:debugging ← This Firefox ← Reload)، أو أعد تشغيل Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "تم العثور عليها"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "تتعطل الصفحة بسبب القاعدة $1$2. تبقى متوقفة حتى تعمل الصفحة؛ وتعود كل القواعد الأخرى إلى التشغيل. أعد تحميل التبويب للتحقق. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "إعادة تحميل التبويب"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "إعادة تشغيلها"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "أُعيد تشغيل القاعدة. أعد تحميل التبويب للتحقق. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "التسجيل والعثور على القاعدة"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "جارٍ تسجيل القواعد التي تعمل في هذه الصفحة. استخدم الصفحة حتى تتعطل؛ وستظهر القواعد هنا."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "أُوقفت مؤقتًا بواسطة البحث عن القاعدة. تعود إلى التشغيل عند انتهاء البحث."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "البحث عن القاعدة قيد التشغيل. غيّر القواعد بعد انتهائه."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "تخطَّ — أعد تشغيلها"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "أبقِها متوقفة"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "تم تخطي البحث عن القاعدة؛ وعادت كل القواعد إلى التشغيل. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "تبقى القاعدة $1 متوقفة. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "أُوقفت لهذا الاختبار:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…و$1 أخرى"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "إيقاف البحث"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "تم التخطي: أُعيدت تلك القاعدة إلى التشغيل واستُبعدت. جارٍ اختبار القاعدة التالية."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "لم يتم العثور على قاعدة ضمن القواعد التي اختُبرت. لم تُختبر $1 من القواعد التي تخطيتها. عادت كل القواعد إلى التشغيل. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_experimental": {
+    "message": "تجريبي"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "تجريبي: مستكشف الأخطاء هذا غير مستقر تمامًا. قد تكون نتائجه خاطئة، وهو يوقف القواعد أثناء الاختبار. إذا بدا أن شيئًا ما خاطئ بعد ذلك، فتحقق من قواعدك في محرر القواعد المخصصة، أو استخدم إيقاف البحث لإعادة تشغيلها."
+  },
+  "troubleshooter_working": {
+    "message": "جارٍ العمل…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "سجّل مجددًا"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "تم مسح التسجيل القديم. يُسجَّل هذا التبويب مجددًا من تحميل جديد."
+  },
+  "troubleshooter_clear": {
+    "message": "مسح"
+  },
+  "troubleshooter_clear_title": {
+    "message": "امسح تسجيل هذا التبويب ونتائجه وبحث القواعد المنتهي. تبقى القواعد كما هي."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "تم المسح. تبقى القواعد كما هي."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "تم المسح. تبقى القاعدة $1 متوقفة."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "اختبار قاعدة واحدة في كل مرة — القاعدة $1 من $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "هذه القاعدة وحدها متوقفة، وأُعيد تحميل التبويب. هل أُصلحت الصفحة الآن؟"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "تخطَّ هذه القاعدة"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "تخطَّ — أعد تشغيلها، واختبر التالية (بقي $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "لم تُختبر $1 من القواعد الأخرى التي عملت في هذه الصفحة. هل تريد متابعة اختبارها؟"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "أبقِها متوقفة، واختبر التالية (بقي $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "تبقى القاعدة $1 متوقفة. جارٍ اختبار القاعدة التالية."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "لا توجد قاعدة أخرى تصلح الصفحة بمفردها. تبقى $1 من القواعد التي أبقيتها متوقفة؛ وتعود كل القواعد الأخرى إلى التشغيل. للبدء من جديد، انقر على مسح."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "اختبر القاعدة التالية (بقي $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "أُعيدت القاعدة $1 إلى التشغيل واستُبعدت. جارٍ اختبار القاعدة التالية."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "لا توجد قاعدة أخرى تصلح الصفحة بمفردها. وقد أُعيدت أيضًا $1 من القواعد التي تخطيتها، لذا عادت كل القواعد إلى التشغيل. للبدء من جديد، انقر على مسح."
+  },
+  "guide_intro_p_1": {
+    "message": "يُنظّف Linkumori عناوين URL بقواعد مكتوبة بصيغة <strong>CLN Format 1.0</strong> (Clean Link Notation)، وهي صيغة JSON. يبدأ هذا الدليل من القاعدة الأولى وصولاً إلى كل الخيارات، مع أمثلة يمكنك نسخها."
+  },
+  "guide_intro_p_2": {
+    "message": "تستخدم القواعد المضمنة وقوائم القواعد البعيدة وقواعدك المخصصة الصيغة نفسها. تكتب القواعد المخصصة في محرر القواعد المخصصة الذي يتحقق منها عند الحفظ أو الاستيراد. كتالوج قواعد ClearURLs الرسمي (<code>data.min.json</code>) هو بالفعل ملف CLN صالح ويمكن استخدامه كما هو."
+  },
+  "guide_rules_file_p_1": {
+    "message": "اسم المزود مجرد تسمية. أما عناوين URL التي يتعامل معها المزود فتحددها <code>domainPatterns</code> أو <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "المفتاح ذو المستوى الأعلى"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "مطلوب. المزودون بأسمائهم."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "اختياري. إصدار الصيغة. القيمة الوحيدة الصالحة هي <code>\"1.0\"</code>. يُقرأ الملف الخالي منها على أنه 1.0 أيضًا؛ وأي قيمة أخرى ترفض الملف. لا يسمى <code>version</code> لأن صيغة قواعد ClearURLs الجديدة تستخدم هذا المفتاح بالفعل."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "معلومات اختيارية عن الملف."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "قيم لكل قاعدة في الملف لا تحدد قيمتها الخاصة (الفصل 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "في قوائم القواعد البعيدة فقط: بدائل للقواعد المحمّلة بالفعل (الفصل 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "أي عناوين URL يتعامل معها المزود، كنمط نطاق واحد أو قائمة منها (الفصل 3). استخدم هذا أو <code>urlPattern</code>، وليس كليهما أبدًا."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "أي عناوين URL يتعامل معها المزود، كتعبير نمطي واحد يُطابَق مع عنوان URL الكامل. لا يُراعى حجم الأحرف."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "مع <code>urlPattern</code> فقط: تلميحات للمضيف مثل <code>||example.com^</code>، بحيث يُفحص المزود لتلك المضيفات فقط بدلاً من كل عنوان URL. إنه تلميح بحث وليس شرط مطابقة."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "معلمات الإحالة والتسويق بالعمولة المراد إزالتها. تُتخطى عند تفعيل <em>السماح بالتسويق بالإحالة</em> (الفصل 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "عناوين URL التي يتركها المزود دون مساس إطلاقًا (الفصل 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "أرسل الطلب إلى عنوان آخر بدلاً من تعديله (الفصل 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "أرسل الطلب إلى قيمة معلمة (الفصل 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: عند إعادة توجيه تحميل صفحة (<code>main_frame</code>)، ينتقل التبويب كله إلى العنوان الجديد، وليس طلب الشبكة فقط."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "عالج طرق HTTP هذه فقط، مثل <code>[\"GET\"]</code>. عند عدم تحديدها: كل الطرق."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "عالج أنواع الطلبات هذه فقط، مثل <code>[\"main_frame\", \"xmlhttprequest\"]</code>. عند عدم تحديدها: كل أنواع الطلبات."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "الافتراضي <code>true</code>. تجعل <code>false</code> المزود بأكمله يتخطى الحالة التي تغيّر فيها الصفحة عنوانها بنفسها عبر History API (<code>pushState</code>/<code>replaceState</code>). وتظل طلبات الشبكة العادية تُنظَّف."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "تعطّل <code>false</code> المزود دون حذفه."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> هي قائمة بأنماط النطاقات. يطابق عنوان URL إذا طابقه أي منها. وتُستخدم الأنماط نفسها في مقدمة <code>exceptions</code> و<code>redirections</code> ومرشحات <code>$removeparam</code> والقواعد الخام."
+  },
+  "guide_matching_cell_1": {
+    "message": "عنوان URL الكامل، كتعبير نمطي"
+  },
+  "guide_matching_cell_2": {
+    "message": "عناوين URL التي تحتوي على هذا النص في أي موضع (بدون <code>|</code> في البداية)"
+  },
+  "guide_matching_p_2": {
+    "message": "تشير <code>^</code> إلى نهاية اسم المضيف، أو إلى فاصل مثل <code>/</code> أو <code>?</code> أو <code>:</code> أو نهاية عنوان URL. و<code>*</code> رمز بدل."
+  },
+  "guide_matching_p_3": {
+    "message": "تمثّل <code>||</code> نطاقًا: المضيف وكل نطاقاته الفرعية. وتمثّل <code>|</code> المفردة بداية عنوان URL تمامًا ويجب أن يتبعها مخطط مثل <code>https://</code>. للنطاق تريد دائمًا <code>||</code>؛ أما <code>|example.com^</code> فلا يمكن أن يطابق أبدًا، لذا يرفضه المحرر."
+  },
+  "guide_matching_p_4": {
+    "message": "على سبيل المثال، يُقرأ <code>||smile.amazon.*^</code> هكذا: <code>||</code> المضيف ونطاقاته الفرعية، و<code>smile.amazon</code> التسميات المطلوبة، و<code>.*</code> أي لاحقة عامة (<code>.com</code> أو <code>.co.jp</code> أو <code>.de</code> أو …)، و<code>^</code> نهاية المضيف."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "تلك المعلمة بالضبط"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "كل معلمة يطابق اسمها بالكامل؛ لا يُراعى حجم الأحرف"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> و<code>\"$removeparam=fbclid\"</code> يزيلان الشيء نفسه. استخدم الاسم العادي ما لم تحتج إلى شيء من الفصل 5. ويمكن أيضًا كتابة أي إدخال ككائن قاعدة (الفصل 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "هنا تُزال <code>qid</code> في كل مواقع Amazon، و<code>tag</code> في <code>amazon.de</code> فقط، و<code>sr</code> في <code>smile.amazon</code> فقط، و<code>ref_</code> تحت <code>/gp/</code> فقط. يضيّق النمط أنماط المزود نفسها؛ ولا يمكنه توسيعها أبدًا."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "تحوّل <code>@@</code> المرشح إلى استثناء يُبقي المعلمة (انظر أدناه)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "يضيّق <code>pattern</code> المرشح إلى بعض عناوين URL الخاصة بالمزود (الفصل 3). وعند عدم تحديده يُطبَّق على كل عنوان URL يطابقه المزود."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "يحدد <code>=value</code> المعلمات. وعند عدم تحديده تُزال كل معلمة."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "تحدد المعدِّلات متى يعمل المرشح. يجب أن يتحقق كل معدِّل مذكور؛ ولا يوجد \"أو\" بينها."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "كل معلمة ما عدا <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "المعلمات التي يطابق اسمها، أو <code>name=value</code> معًا، التعبير النمطي؛ أضف <code>i</code> لتجاهل حجم الأحرف"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "المعلمات التي يبدأ اسمها بـ <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "تهريب اسم معلمة"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "تجعل الشرطة المائلة العكسية الحرف التالي حرفيًا، بحيث يمكن استهداف أي اسم معلمة:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "القيمة"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "تزيل المعلمة المسماة"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (الفاصلة لا تبدأ المعدِّلات)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "هذه الخمسة هي الهروبات الوحيدة في قيمة الاسم؛ والشرطة المائلة العكسية قبل أي حرف آخر خطأ. داخل قيمة <code>/regex/</code> تحتفظ الشرطة المائلة العكسية بمعناها في التعبيرات النمطية. تعمل الهروبات في إدخالات <code>rules</code> و<code>referralMarketing</code> و<code>fieldRedirections</code> و<code>@@</code>. في JSON اكتب كل شرطة مائلة عكسية مرتين: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "المعدِّلات"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "تأتي المعدِّلات بعد القيمة، مفصولة بفواصل. افصل بين عدة قيم لمعدِّل واحد بـ <code>|</code>، وضع <code>~</code> أمام القيمة لاستبعادها:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "المعدِّل"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "فقط عندما تكون الصفحة التي أرسلت الطلب (أو، مع <code>~</code>، لا تكون) إحدى هذه؛ والقيم النمطية (regex) مسموحة"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "فقط عندما يتجه الطلب نفسه إلى إحدى هذه، أيًّا كانت الصفحة التي أرسلته"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "فقط لطرق HTTP هذه: <code>get</code> و<code>head</code> و<code>options</code> و<code>post</code> و<code>put</code> و<code>patch</code> و<code>delete</code> و<code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "فقط عندما يتجه الطلب إلى النطاق القابل للتسجيل نفسه للصفحة (يُعدّ <code>a.example.com</code> و<code>b.example.com</code> نفسه)، أو إلى نطاق مختلف"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "الأمر نفسه، لكن مع مقارنة اسم المضيف بدقة، لذا يُعدّ النطاق الفرعي طرفًا ثالثًا"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "تُقارَن أسماء المعلمات مع مراعاة حجم الأحرف"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "تخطَّ هذا المرشح عندما تغيّر الصفحة عنوانها بنفسها عبر History API. ويقبل أيضًا <code>true</code>/<code>false</code> و<code>1</code>/<code>0</code> و<code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "لا يمكن الجمع بين معدِّلات <code>*-party</code> الأربعة؛ ويُرفض <code>first-party,third-party</code>."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "على سبيل المثال، يزيل <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> المعلمة <code>sid</code> في <code>example.com</code>، فقط لطلبات GET التي ترسلها صفحة على موقع آخر، وليس أبدًا عندما تكون تلك الصفحة <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "يحمي إدخال <code>@@</code> من مرشحات <code>$removeparam</code> فقط. أما الإدخال العادي مثل <code>\"ref\"</code> فما زال يزيل المعلمة؛ استخدم <code>exceptions</code> لكائن القاعدة لذلك. وللقواعد الخام إدخالات <code>@@…$rawrule=</code> الخاصة بها (الفصل 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "لا يهم أين تدرجه، ولا يمكن أن يكون له <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "يُفحص نمطه مقابل عنوان URL كما تلقاه المزود، قبل تشغيل القواعد الخام. ويظل إدخال <code>@@</code> المقيّد بمسار تحذفه قاعدة خام مطابقًا."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "يغطي أيضًا مرشحات المزودين الآخرين للطلبات التي ترسلها صفحة يطابقها هذا المزود، وهو مفيد لاستثناء موقع واحد من قاعدة معرّفة في مكان آخر."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "تعمل القواعد الخام قبل <code>rules</code>، ولا تراعي حجم الأحرف وتستبدل كل مطابقة (الأعلام <code>gi</code>، أو <code>g</code> مع <code>match-case</code>). في JSON اكتب كل شرطة مائلة عكسية مرتين."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "يمكن للقاعدة الخام أخذ نمط ومعدِّلات مرشح <code>$removeparam</code>، مع جعل <code>rawrule=</code> الأخير. كل ما بعد <code>rawrule=</code> هو التعبير النمطي:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "يحدد النمط والمعدِّلات مكان تشغيل القاعدة؛ ويظل التعبير النمطي هو ما يُحذف."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "الإدخال الذي يبدأ بـ <code>@@</code> وينتهي بـ <code>rawrule=</code> يمنع تشغيل القواعد الخام حيث يطابق نمطه:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "مع عدم وجود شيء بعد <code>rawrule=</code>، يوقف كل القواعد الخام للمزود على تلك العناوين."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "مع وجود تعبير نمطي بعد <code>rawrule=</code>، يوقف القواعد الخام ذات التعبير النمطي نفسه."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "كائن قاعدة مع <code>targetId</code>، يوقف القاعدة الخام ذات هذا المعرّف أو الاسم المستعار فقط."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "لتخطي المزود بأكمله، استخدم <code>exceptions</code> بدلاً من ذلك."
+  },
+  "guide_exceptions_p_1": {
+    "message": "إذا طابق عنوان URL إدخالاً في <code>exceptions</code>، فلن تعمل أي من قواعد المزود لهذا الطلب. الإدخال تعبير نمطي مقابل عنوان URL الكامل، أو نمط نطاق يبدأ بـ <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "لا تراعي الاستثناءات حجم الأحرف. لتخطي قاعدة واحدة بدلاً من المزود بأكمله، امنح تلك القاعدة <code>exceptions</code> خاصة بها (الفصل 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "تفوز أول معلمة مطابقة تظهر في عنوان URL. بالنسبة لـ <code>https://site.example/away?redirect=https://real.example/page</code>، يتجه الطلب إلى <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "أهداف إعادة التوجيه الصالحة"
+  },
+  "guide_redirects_p_2": {
+    "message": "لا تحدث إعادة التوجيه إلا إلى عنوان <code>http</code> أو <code>https</code> مطلق له مضيف. ويُفحص هذا بعد المعالجات المسبقة وفك الترميز النسبي. الهدف غير الصالح يجعل الإدخال يُعدّ غير مطابق: لا تتم إعادة توجيه أي شيء، وتعمل خطوات المزود اللاحقة على عنوان URL دون تغيير."
+  },
+  "guide_redirects_th_1": {
+    "message": "الهدف"
+  },
+  "guide_redirects_th_2": {
+    "message": "هل يُعاد التوجيه؟"
+  },
+  "guide_redirects_cell_1": {
+    "message": "نعم"
+  },
+  "guide_redirects_cell_2": {
+    "message": "نعم، إلى <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "لا: المخطط ليس <code>http</code> أو <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "لا: ليس عنوانًا مطلقًا"
+  },
+  "guide_redirects_p_3": {
+    "message": "القاعدة الخام التي تختلف نتيجتها في المخطط أو المضيف أو المنفذ عن مدخلها تُعدّ إعادة توجيه أيضًا، حتى عندما تحذف نصًا فقط: فحذف <code>secure-</code> من <code>https://secure-bank.example/</code> يصل إلى موقع آخر. وهي تحتاج إلى هدف صالح، وفي قائمة قواعد بعيدة إلى موافقة <code>redirect</code> (الفصل 15). وإلا تترك القاعدة عنوان URL كما كان."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "يمكن لأي إدخال، في أي قائمة، أن يكون كائنًا بدلاً من سلسلة نصية. استخدم كائنًا عندما تحتاج القاعدة إلى معرّف ثابت، أو ينبغي أن تبدأ متوقفة، أو أن تعيد الكتابة بدلاً من الإزالة، أو أن تعمل في بعض الحالات فقط:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "مطلوب. النص الذي كنت ستكتبه كإدخال عادي في تلك القائمة."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "اسم ثابت (أحرف وأرقام و<code>-</code> و<code>_</code>) يُستخدم لتشغيل القاعدة وإيقافها (الفصل 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "المعرّفات السابقة للقاعدة، بحيث يظل الإعداد المحفوظ تحت معرّف قديم مطبّقًا بعد إعادة التسمية."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "أعد الكتابة بدلاً من الإزالة؛ <code>§1§</code> و<code>§2§</code> و… هي القيم الملتقطة."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "حوّل القيم الملتقطة أولاً."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "لأنواع الطلبات هذه فقط، مثل <code>[\"main_frame\"]</code>. يُعدّ التنظيف بدون طلب (<em>نسخ الرابط النظيف</em>، أداة التنظيف، تغييرات History API) بمثابة <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "عناوين URL (تعبيرات نمطية) التي لا تعمل فيها هذه القاعدة وحدها."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "أعلام التعبير النمطي، كسلسلة نصية. الافتراضي <code>i</code>؛ وفي <code>rawRules</code> هو <code>gi</code> (أو <code>g</code> مع <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "شغّل القاعدة أبكر أو أبعد ضمن مرحلتها (الفصل 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: تُعدّ قاعدة في <code>rules</code> أيضًا قاعدة تسويق بالإحالة (الفصل 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "مفتاح المزود بالاسم نفسه، لهذه القاعدة وحدها. وهو يتغلب على قيمة المزود والقيمة الافتراضية للملف."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: تبدأ القاعدة متوقفة."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "ملاحظة للأشخاص الذين يقرؤون الملف؛ ويجب أن تكون سلسلة نصية."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "فقط في إدخالات <code>@@…$rawrule=</code>: معرّف القاعدة الخام التي توقفها."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "هنا يصبح <code>?token=abc123</code> هو <code>?token=clean-abc123</code>. تُطبَّق إعادة الكتابة مرة واحدة على الأكثر لكل طلب، فلا تستمر في تغليف القيمة."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "تغيّر المعالجات المسبقة القيم الملتقطة، بالترتيب، قبل أن يستخدمها <code>replacePattern</code> أو إعادة التوجيه. <code>inputs</code> هي <code>\"all\"</code> أو قائمة بأرقام المجموعات:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "يقبل <code>referralMarketing</code> الإدخالات نفسها التي يقبلها <code>rules</code>. ولا تعمل إلا عند إيقاف <em>السماح بالتسويق بالإحالة</em>، لذا تظل روابط العمولة تعمل إذا شغّلته:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "يمكن أن تبقى القاعدة في <code>rules</code> وتُعدّ مع ذلك تسويقًا بالإحالة، باستخدام <code>\"referralMarketing\": true</code>. لا تضع النص نفسه في <code>rules</code> و<code>referralMarketing</code> معًا؛ فالمحرر يحذّر من ذلك."
+  },
+  "guide_request_types_cell_1": {
+    "message": "أنواع الطلبات التي يعالجها كائن قاعدة واحد (يمكن ضبطها أيضًا في <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "تستخدم أنواع الطلبات أسماء المتصفح: <code>main_frame</code> (صفحة)، و<code>sub_frame</code> (إطار)، و<code>xmlhttprequest</code>، و<code>script</code>، و<code>image</code> وهكذا. تسمي معدِّلات المرشح الأولين <code>document</code> و<code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "تأتي أنواع الطلبات من القواعد فقط: لا توجد قائمة أنواع طلبات في الإعدادات. وعند عدم ضبط أي منها، تنظّف القاعدة كل أنواع الطلبات."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. القيم الافتراضية"
+  },
+  "guide_defaults_p_1": {
+    "message": "تمنح كتلة <code>defaults</code> ذات المستوى الأعلى كل قاعدة في الملف قيمًا لا تحددها هي بنفسها:"
+  },
+  "guide_defaults_th_1": {
+    "message": "الافتراضي لـ… كل قاعدة"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>؛ تعطّل <code>false</code> كل القواعد ما لم تنص القاعدة على <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>؛ <code>\"all\"</code> أو عدم تحديدها تعني كل الأنواع"
+  },
+  "guide_defaults_item_1": {
+    "message": "قيمة القاعدة الخاصة تتغلب دائمًا، وتحل <code>exceptions</code> الخاصة بالقاعدة محل القائمة الافتراضية بدلاً من الإضافة إليها."
+  },
+  "guide_defaults_item_2": {
+    "message": "تُطبَّق القيم الافتراضية على <code>rules</code> و<code>rawRules</code> و<code>referralMarketing</code> و<code>redirections</code> و<code>fieldRedirections</code>. وتُترك قائمة <code>exceptions</code> الخاصة بالمزود دون مساس. أما إدخالات <code>$redirect=</code> فتستخدم <code>active</code> فقط."
+  },
+  "guide_defaults_item_3": {
+    "message": "يحتفظ كل ملف بقيمه الافتراضية الخاصة: القواعد المضمنة وكل قائمة بعيدة وقواعدك المخصصة، حتى عندما يدمجها وضع التحميل الزائد."
+  },
+  "guide_defaults_item_4": {
+    "message": "بالنسبة لـ <code>completeProvider</code>، تقيّد القيمتان الافتراضيتان <code>requestTypes</code> و<code>exceptions</code> الحظر أيضًا."
+  },
+  "guide_defaults_item_5": {
+    "message": "المفاتيح غير المعروفة والأنواع الخاطئة أخطاء، وتُرفض القائمة البعيدة التي تحتوي على كتلة <code>defaults</code> غير صالحة."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "قيمك الافتراضية"
+  },
+  "guide_defaults_p_2": {
+    "message": "في محرر القواعد المخصصة، يفتح <em>إدارة القيم الافتراضية للقواعد</em> نموذجًا تضبط فيه كتلة <code>defaults</code> خاصة بك وتختار أين تحل محل القيم الخاصة بالملفات:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>القيم الخاصة بكل مصدر</em> (الافتراضي): يستخدم كل ملف <code>defaults</code> الخاصة به."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>قيمك للقواعد المضمنة والبعيدة</em>: تستخدم القواعد المضمنة والبعيدة قيمك؛ وتحتفظ القواعد المخصصة بقيمها."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>قيمك لجميع القواعد</em>: تستخدم كل قاعدة قيمك."
+  },
+  "guide_defaults_p_3": {
+    "message": "يمكن للنموذج نفسه تحرير القيم الافتراضية للقواعد المضمنة ولكل قائمة بعيدة محمّلة. يُخزَّن تعديلك في الامتداد، وليس في الملف، ويُسقطه <em>إعادة التعيين إلى القيم الافتراضية للملف</em>. يجمع <em>دمج من المصادر…</em> القيم الافتراضية للمصادر التي تحددها؛ ولا يُخزَّن شيء حتى تحفظ."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. كيف تتم معالجة عنوان URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>، ثم <code>fieldRedirections</code>: المطابقة ذات الهدف الصالح تعيد توجيه الطلب."
+  },
+  "guide_processing_order_item_2": {
+    "message": "تزيل <code>rules</code> و<code>referralMarketing</code> المعلمات أو تعيد كتابتها."
+  },
+  "guide_processing_order_item_3": {
+    "message": "تعمل مرشحات <code>$removeparam</code>، باستثناء حيث يُبقي إدخال <code>@@</code> المعلمة."
+  },
+  "guide_processing_order_p_1": {
+    "message": "يفوز أول مزود يغيّر عنوان URL أو يعيد توجيهه أو يحظره. ثم يمر عنوان URL الجديد بالخطوات نفسها مرة أخرى (انظر <a href=\"#termination\">متى تتوقف المعالجة</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "ترتيب التشغيل و<code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "تُرتَّب الخطوتان 4 و5 معًا، وفق هذه القواعد بالتتابع:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>القواعد الخام تعمل دائمًا أولاً.</strong> لا يقدّم أي <code>order</code> إدخال <code>rules</code> على قاعدة خام. التنظيف الذي يجب أن يحدث قبل قاعدة خام يجب أن يكون قاعدة خام بنفسه."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>داخل المرحلة، تعمل القواعد ذات <code>order</code> قبل القواعد التي بدونها</strong>، من الأدنى أولاً. الأرقام السالبة والكسور مسموحة. <code>order: 10</code> لا تعني \"العاشرة\": بل تعني بعد قواعد المرحلة المرتبة التي أقل من 10 وقبل كل قواعدها غير المرتبة."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>ثم حسب القائمة:</strong> <code>rules</code>، ثم كائنات <code>rules</code> المعلّمة بـ <code>\"referralMarketing\": true</code>، ثم <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>ثم حسب الموضع</strong> في القائمة. يحتفظ كل إدخال بمكانه، بما في ذلك الإدخالات المكتوبة مثل <code>\"3\"</code> أو <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "هنا تُعاد كتابة الرمز المميز قبل إزالة <code>utm_source</code>، مع أنه يأتي ثانيًا:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "القواعد المتوقفة تُستبعد. مرشحات <code>$removeparam</code> وإدخالات <code>@@</code> خارج هذا الترتيب ولا يمكن أن يكون لها <code>order</code>، ولا حتى <code>null</code>؛ وتعمل المرشحات دائمًا أخيرًا."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "النص نفسه مرتين"
+  },
+  "guide_processing_order_p_5": {
+    "message": "إدخالان لهما نص <code>matchPattern</code> نفسه في مجموعة واحدة يُعدّان قاعدة واحدة. والمجموعات هي: الخام (<code>rawRules</code>)، والحقل (<code>rules</code> بدون علامة الإحالة)، والإحالة (كائنات <code>rules</code> المعلّمة، ثم <code>referralMarketing</code>). يحدث هذا غالبًا عند دمج قوائم القواعد."
+  },
+  "guide_processing_order_item_8": {
+    "message": "يفوز آخر تعريف غير متوقف، بكل مفاتيحه."
+  },
+  "guide_processing_order_item_9": {
+    "message": "بدون <code>order</code> خاص به، يأخذ الفائز موضع أول تعريف وأقرب <code>order</code> سابق. و<code>\"order\": null</code> تعني بلا ترتيب، وتُسقط الترتيب الموروث."
+  },
+  "guide_processing_order_item_10": {
+    "message": "معرّفات التعريفات المستبدلة وأسماؤها المستعارة تشغّل الفائز وتوقفه أيضًا."
+  },
+  "guide_processing_order_item_11": {
+    "message": "أثناء تشغيل قواعد التسويق بالإحالة، يحل إدخال إحالة محل إدخال حقل له النص نفسه."
+  },
+  "guide_processing_order_item_12": {
+    "message": "القاعدة الخام وقاعدة الحقل ذات النص نفسه لا تتعارضان؛ وتعملان معًا."
+  },
+  "guide_processing_order_p_6": {
+    "message": "داخل قائمة واحدة، يُعدّ إدخالان مختلفان لهما النص نفسه خطأ، والنسخة المطابقة تمامًا تحذيرًا."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "متى تتوقف المعالجة"
+  },
+  "guide_processing_order_item_13": {
+    "message": "تعمل 10 دورات كحد أقصى لكل طلب؛ وعند بلوغ الحد يُستخدم عنوان URL كما هو."
+  },
+  "guide_processing_order_item_14": {
+    "message": "القاعدة ذات <code>replacePattern</code> تُطبَّق مرة واحدة على الأكثر لكل طلب."
+  },
+  "guide_processing_order_item_15": {
+    "message": "الخطوة التي لا تغيّر عنوان URL لا تبدأ دورة جديدة."
+  },
+  "guide_processing_order_p_7": {
+    "message": "الإعدادات ← <em>دورات التنظيف غير المحدودة</em> (متوقفة افتراضيًا) تزيل حد الدورات العشر لسلاسل القواعد التي تحتاج إلى أكثر. وتنتهي المعالجة حينها عندما لا تغيّر الدورة شيئًا، لكن قاعدتين تعيدان التوجيه إلى بعضهما تدخلان في حلقة حتى يستسلم المتصفح ولا تُحمَّل الصفحة. شغّلها فقط للقواعد التي تثق بها."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. معرّفات القواعد ومفاتيح التشغيل/الإيقاف"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "لكل قاعدة معرّف. القاعدة بدون <code>id</code> تحصل على واحد من قائمتها ونصها: <code>\"utm_source\"</code> في <code>rules</code> تصبح <code>field-utm-source</code>. يتغير المعرّف المُنشأ عندما يتغير نص القاعدة، وقد تعود القاعدة المتوقفة إلى التشغيل حينها. امنح القاعدة <code>id</code> خاصًا بها عندما يجب أن تحتفظ بإعداد التشغيل/الإيقاف عبر التعديلات، وسجّل المعرّفات القديمة في <code>aliases</code> عند إعادة تسميتها."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "تُشغَّل القاعدة وتُوقَف بمزودها ومعرّفها معًا، مثل <code>shop::session-token</code>، لذا يمكن لمزودين استخدام المعرّف نفسه. وقد يحفظها محرر القواعد المخصصة أيضًا تحت نمط المزود، مثل <code>domainPattern:||shop.example^::session-token</code>؛ وكلا الشكلين يعمل."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "داخل مزود واحد، يجب أن يكون كل معرّف واسم مستعار مختلفًا. وتُحتسب المعرّفات المُنشأة."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "لا يمكن أن يحتوي المعرّف على نقطتين رأسيتين."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "الإعداد المحفوظ تحت معرّف مجرد، بدون مزوده، لا يبدّل شيئًا؛ أوقف القاعدة مجددًا في محرر القواعد المخصصة."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. قوائم القواعد البعيدة"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "قوائم القواعد البعيدة هي ملفات قواعد ينزّلها Linkumori، ويمكن فحصها اختياريًا مقابل ملف تجزئة. القائمة التي تحتوي على قيمة <code>cln</code> أو كتلة <code>defaults</code> أو مصفوفة <code>patches</code> غير صالحة لا تُحمَّل، ويبلّغ عنها Remote Rules Health."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "إعادة التوجيه والحظر يحتاجان إلى موافقتك"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "ما يمكن لقائمة بعيدة فعله يُحدَّد من محتواها عند تحميلها:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "الإمكانية"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "تمتلكها القائمة عندما تحتوي على"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "نشطة عند التحميل"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "إدخال <code>rules</code> أو <code>rawRules</code> أو <code>referralMarketing</code>، أو مرشح <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "إدخال له <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "إدخال <code>exceptions</code> للمزود أو إدخال <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "إدخال <code>redirections</code> أو <code>fieldRedirections</code>، أو <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "بعد الموافقة"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "مزود له <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "وافق على <code>redirect</code> و<code>block</code> لكل قائمة في Remote Rules Health. وإلى ذلك الحين، تبقى عمليات إعادة التوجيه والحظر في تلك القائمة متوقفة، ولا يمكن لقواعدها الخام إرسال عنوان URL إلى موقع آخر؛ ويعمل بقية القائمة فورًا. وعندما يضيف تحديث إمكانية جديدة، فإنها تنتظر الموافقة أيضًا. القواعد المضمنة والمخصصة لها كل الإمكانيات."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "وضع التحميل الزائد"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "عادةً، تحل القوائم البعيدة التي تحتوي على مزودين محل القواعد المضمنة؛ أما القوائم التي تحتوي على <code>patches</code> فقط فتُطبَّق على القواعد المضمنة. عند تفعيل <em>تمكين وضع التحميل الزائد</em>، تُحمَّل معًا، باستخدام إحدى ثلاث استراتيجيات:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>وضع التصحيح فقط</em>: طبّق تصحيحات القوائم البعيدة على القواعد المضمنة؛ ويُستبعد المزودون البعيدون."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>وضع التصحيح + الدمج</em>: ادمج المزودين المضمنين والبعيدين، ثم طبّق التصحيحات."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>بدون وضع التصحيح + الدمج</em>: ادمج المزودين وتخطَّ التصحيحات."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "عند الدمج، تُدمج القوائم البعيدة بعضها مع بعض بالترتيب الذي تدرجها به، ثم مع القواعد المضمنة (المضمنة أولاً). لا يندمج إلا المزودون الذين لهم <code>domainPatterns</code> (أو <code>urlPattern</code>) نفسها و<code>methods</code> و<code>resourceTypes</code> و<code>completeProvider</code> و<code>forceRedirection</code> نفسها؛ وتُضم <code>rules</code> و<code>rawRules</code> و<code>referralMarketing</code> الخاصة بهم، ويحدد <a href=\"#same-text-twice\">النص نفسه مرتين</a> أي نسخة تعمل. ويسرد Remote Rules Health كل قاعدة مستبدلة كإشعار."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "تُطبَّق القواعد المخصصة أخيرًا. يحل المزود المخصص محل كل مزود محمّل له النمط نفسه؛ ولا تُدمج قواعدهما."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "تصحيحات القواعد"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "يمكن لقائمة بعيدة استبدال قواعد مفردة محمّلة بالفعل، دون نشر نسخة كاملة، في مصفوفة <code>patches</code> ذات المستوى الأعلى:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "مطلوب. القاعدة المراد استبدالها، مكتوبة مثل مفتاح التشغيل/الإيقاف الخاص بها: <code>providerKey::id</code> أو <code>domainPattern:&lt;pattern&gt;::id</code> أو <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "مطلوب. <code>rules</code> أو <code>referralMarketing</code> أو <code>rawRules</code> أو <code>exceptions</code> أو <code>redirections</code> أو <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "مطلوب. القاعدة الجديدة، كإدخال عادي أو كائن قاعدة."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "ملاحظة للأشخاص الذين يقرؤون الملف."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "تعمل التصحيحات بعد دمج القوائم البعيدة وقبل القواعد المخصصة. الملف الذي يحتوي على <code>patches</code> فقط لا يحتاج إلى <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "قد يعيد الدمج تسمية المزودين، لذا فصيغة <code>domainPattern:</code> أو <code>urlPattern:</code> هي التي تجدهم دائمًا."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "يحتفظ البديل بمعرّف القاعدة القديمة، أو يتخذ المعرّف القديم اسمًا مستعارًا، بحيث تظل إعدادات التشغيل/الإيقاف سارية."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "التصحيح الخاص بإعادة توجيه ينتظر موافقة <code>redirect</code> للقائمة. والتصحيح الذي لا يطابق هدفه شيئًا لا يغيّر شيئًا."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "يسرد Remote Rules Health كل تصحيح على أنه مطبّق أو غير مطابق أو متخطّى."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. القواعد والقائمة البيضاء"
+  },
+  "guide_whitelist_p_1": {
+    "message": "القائمة البيضاء منفصلة عن <code>exceptions</code> الخاصة بالمزود: فهي تسرد المواقع التي طلبت من Linkumori تركها، دون أي ملف قواعد. تبدو الإدخالات مثل <code>example.com</code> أو <code>*.example.com</code> (الموقع ونطاقاته الفرعية) أو <code>example.*</code> (أي لاحقة). إدراج صفحة في القائمة البيضاء يشمل أيضًا كل ما تحمّله."
+  },
+  "guide_examples_title_1": {
+    "message": "17. أمثلة كاملة"
+  },
+  "guide_checking_title_1": {
+    "message": "18. فحص قواعدك"
+  },
+  "guide_checking_p_1": {
+    "message": "يفحص محرر القواعد المخصصة القواعد عند حفظها أو استيرادها، ويجري الأمر <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> الفحوصات نفسها. وإلى جانب JSON المعطوب والتعبيرات النمطية غير الصالحة، فإنها ترفض القواعد التي تُحمَّل لكنها تفعل الشيء الخطأ بصمت، مثل:"
+  },
+  "guide_checking_item_1": {
+    "message": "حقول ومفاتيح ومعدِّلات غير معروفة"
+  },
+  "guide_check_7": {
+    "message": "قيمة <code>cln</code> غير <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "معرّف أو اسم مستعار مستخدم مرتين في مزود واحد"
+  },
+  "guide_checking_item_2": {
+    "message": "إدخالان مختلفان لهما النص نفسه في قائمة واحدة"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> على مرشح <code>$removeparam</code> أو إدخال <code>@@</code>، بما في ذلك <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "عنوان <code>$redirect=</code> ليس <code>http</code> أو <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "شرطة مائلة عكسية في اسم <code>$removeparam</code> قبل حرف ليس له هروب"
+  },
+  "guide_checking_p_2": {
+    "message": "وتحذّر أيضًا من النسخ المطابقة تمامًا، ومن النص نفسه في <code>rules</code> و<code>referralMarketing</code> معًا. وإذا فشل الحفظ، تذكر الرسالة المزود والقائمة والإدخال."
+  },
+  "guide_toc_search": {
+    "message": "تصفية الأقسام"
+  },
+  "guide_toc_no_results": {
+    "message": "لا توجد أقسام مطابقة."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: يجب أن يكون التوجيه الذي يبدأ بـ \"|\" بهذا الشكل: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: يجب أن يكون هدف $redirect= عنوان URL مطلقًا من نوع http أو https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "يجب أن يكون $WHERE$ كائنًا",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "يجب أن تكون $WHERE$.type سلسلة غير فارغة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "يجب أن تكون $WHERE$.type إحدى القيم التالية: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "يجب أن تكون $WHERE$.inputs هي \"all\" أو مصفوفة من أعداد صحيحة موجبة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "يجب أن يكون $WHERE$ سلسلة أو كائن قاعدة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "يجب أن تكون $WHERE$.matchPattern سلسلة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "يجب أن تكون $WHERE$.replacePattern سلسلة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "يجب أن يكون $WHERE$.targetId معرّف قاعدة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "ينطبق $WHERE$.targetId فقط على استثناءات \"@@…$rawrule=\" في rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "يجب أن تكون $WHERE$.flags سلسلة (علامات regex مثل \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "يجب أن تكون قيمة $WHERE$.referralMarketing true أو false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "ليس لـ $WHERE$.referralMarketing أي تأثير في $FIELD$؛ فهو ينطبق فقط في $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "يجب أن تكون قيمة $WHERE$.order رقمًا أو null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "ليس لـ $WHERE$.order أي تأثير في $FIELD$؛ فهو ينطبق فقط في $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "ليس لـ $WHERE$.order أي تأثير على عامل تصفية $removeparam أو إدخال \"@@\"؛ فهما يعملان دائمًا بعد القواعد الأخرى",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "يجب أن تكون قيمة $WHERE$.active منطقية",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "يجب أن يكون $WHERE$.id سلسلة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "يجب أن يطابق $WHERE$.id النمط $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "يجب أن تكون $WHERE$.aliases قائمة معرّفات تطابق $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "يجب ألا يتضمن $WHERE$.aliases معرّف القاعدة نفسها",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "يجب أن يكون $WHERE$.description سلسلة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "يجب أن تكون قيمة $WHERE$.historyBypassProtection منطقية",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "يجب أن تكون $WHERE$.exceptions مصفوفة من السلاسل",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "يجب أن تكون $WHERE$.requestTypes مصفوفة من السلاسل",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "يجب أن تكون $WHERE$.preprocessors مصفوفة",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: الحقل \"$FIELD$\" غير معروف",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "يبدأ $WHERE$ بـ \"@@\"، وهذا ينطبق فقط على عوامل تصفية $removeparam في rules وreferralMarketing؛ استخدم \"exceptions\" في كائن القاعدة بدلًا من ذلك",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "يتضمن $WHERE$ خيار $removeparam غير معروف \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: يبدأ \"$PATTERN$\" بعلامة \"|\" واحدة، لذا لا يطابق إلا عناوين URL التي تبدأ حرفيًا بـ \"$REST$\"، ولا يوجد أي منها (تبدأ عناوين URL بـ \"https://\"). استخدم \"||$REST$\" لمطابقة النطاق.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "يتضمن $WHERE$ \"targetId\"، وهو يعمل مع الاستثناءات فقط؛ ابدأ matchPattern بـ \"@@\" (مثلًا \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "يتضمن $WHERE$ كلاً من \"targetId\" وregex بعد \"rawrule=\"؛ استخدم أحدهما فقط",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "يتضمن $WHERE$ القيمة targetId \"$ID$\"، لكن لا توجد قاعدة raw في هذا المزوّد لها هذا المعرّف أو اسم مستعار له",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ استثناء \"@@\" لـ \"$REGEX$\"، لكن لا تستخدم أي قاعدة raw في هذا المزوّد هذا الـ regex. امنح القاعدة معرّفًا وأشر إليها باستخدام \"targetId\" بدلًا من ذلك",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ استثناء \"@@\"، لذا لن يفعل \"$KEY$\" شيئًا",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "لا يوجد شيء بعد \"rawrule=\" في $WHERE$؛ يلزم تحديد regex المراد حذفه",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "يتضمن $WHERE$ regex غير صالح بعد \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "يحتوي $WHERE$ على $GROUPS$ من مجموعات الالتقاط؛ يلزم وجود \"( … )\" واحدة بالضبط حول عنوان URL الوجهة (اكتب المجموعات الأخرى بالشكل \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "يعيد $PROVIDER$ استخدام معرّف القاعدة \"$ID$\" في $WHERE$؛ وقد استُخدم أولًا في $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "يجب أن يكون $PROVIDER$ كائن JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "يجب أن يكون $FIELD$ في $PROVIDER$ مصفوفة",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "يتضمن $WHERE$ المفتاح غير المعروف \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "حدث خطأ أثناء معالجة عنوان URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "حدث خطأ أثناء تهيئة الصفحة: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "علامة تبويب غير صالحة"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "يوجد بحث عن القواعد قيد التشغيل بالفعل لعلامة التبويب هذه"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "لا يوجد فحص إيقاف مؤقت قيد التشغيل لعلامة التبويب هذه"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "لا يزال تحميل القواعد جاريًا. حاول مرة أخرى بعد قليل."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "لا يمكن إيقاف أي من القواعد التي تنطبق على هذه الصفحة."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "تعذّر إيقاف القواعد"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "لا يوجد بحث عن القواعد قيد التشغيل لعلامة التبويب هذه"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "لا توجد قاعدة مكتشفة لتخطيها في علامة التبويب هذه"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "التنزيل غير متاح"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "تعذّر حفظ التسجيل في تخزين الجلسة"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "قاعدة غير معروفة"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "خطأ غير معروف"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "فشل التصدير"
   }
 }

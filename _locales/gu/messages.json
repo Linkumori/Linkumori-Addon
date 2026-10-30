@@ -39,7 +39,7 @@
     "message": "બંડલ કરેલ Linkumori/ClearURLs નિયમોનો ઉપયોગ કરો. ફક્ત રિમોટ નિયમો અને/અથવા કસ્ટમ નિયમો સાથે ચલાવવા માટે આને અક્ષમ કરો."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori એક એકીકૃત ClearURLsData પ્રદાતા નિયમસમૂહનો ઉપયોગ કરે છે. clearurls.js ચાલે તે પહેલાં નેટિવ પ્રદાતા JSON, કેનોનિકલ નિયમ ઑબ્જેક્ટ અને પ્રદાતા-સ્થાનિક $removeparam ફિલ્ટર્સ મર્જ કરવામાં આવે છે."
   },
   "bundled_rules_section_title": {
     "message": "નિયમોની માહિતી"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori સેટિંગ્સ ખોલો"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "ઓવરલોડ મોડની વર્તણૂક"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "ફક્ત પેચ મોડ"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "બિલ્ટ-ઇન નિયમો પર રિમોટ પેચ લાગુ કરો. રિમોટ પ્રદાતા નિયમોનો સમાવેશ થતો નથી."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "પેચ મોડ + મર્જ"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "બિલ્ટ-ઇન અને રિમોટ પ્રદાતા નિયમો મર્જ કરો, પછી રિમોટ પેચ લાગુ કરો."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "પેચ મોડ વિના + મર્જ"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "રિમોટ પેચ લાગુ કર્યા વિના બિલ્ટ-ઇન અને રિમોટ પ્રદાતા નિયમો મર્જ કરો."
   },
   "overload_mode_enabled": {
     "message": "ઓવરલોડ મોડને સક્ષમ કરો"
@@ -1563,7 +1563,7 @@
     "message": "અપવાદો"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "અપ."
   },
   "providerImport_excludeNoPattern": {
     "message": "આ પ્રદાતા પાસે કોઈ URL/ડોમેન પેટર્ન નથી અને તેને સહી દ્વારા બાકાત કરી શકાતું નથી."
@@ -1836,7 +1836,7 @@
     "message": "પ્રાથમિક હેશ URL એ HTTPS નો ઉપયોગ કરવો આવશ્યક છે"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "પ્રાથમિક નિયમ URL અને પ્રાથમિક હેશ URL સાથે જ ગોઠવવા આવશ્યક છે."
   },
   "save_primary_rule_https_required": {
     "message": "પ્રાથમિક નિયમ URL એ HTTPS નો ઉપયોગ કરવો આવશ્યક છે"
@@ -1872,13 +1872,13 @@
     "message": "હું જોખમોને સમજું છું - ચાલુ રાખો"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "જો તમે Linkumori નિયમસમૂહના સ્ત્રોતને સંપૂર્ણ રીતે સમજતા ન હો અથવા તેના પર વિશ્વાસ ન કરતા હો, તો રિમોટ નિયમોનો ઉપયોગ કરવા અંગે ફરી વિચારવું જોઈએ."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "આ રિમોટ નિયમોની સુવિધા એવા અદ્યતન વપરાશકર્તાઓ માટે બનાવવામાં આવી છે જેઓ પોતે લોડ કરી રહ્યા છે તે Linkumori JSON સમજે છે. રિમોટ નિયમોમાં ચકાસણી માટે મેળ ખાતો હેશ URL હોવો જોઈએ."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "જો તમે રિમોટ નિયમ URL ઉમેરો છો, તો ગોઠવણી થયા પછી એક્સ્ટેંશન Linkumori નિયમસમૂહ અને તેની હેશ ફાઇલ મેળવવા માટે તમારા નિર્ધારિત સર્વર સાથે જોડાશે. દરેક વખતે મેળવતી વખતે તમારું IP સરનામું અને એક્સ્ટેંશન સંસ્કરણ, બ્રાઉઝર અને બ્રાઉઝર સંસ્કરણ જેવી સામાન્ય માહિતી હોસ્ટિંગ સર્વરને દેખાઈ શકે છે. આ ડેટા તે વેબસાઇટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે."
   },
   "security_modal_privacy_link_text": {
     "message": "જો જરૂરી હોય તો ચાલુ રાખતા પહેલા %PRIVACY_POLICY_LINK% ફરીથી વાંચો."
@@ -1887,7 +1887,7 @@
     "message": "ચેતવણી સૂચના:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "જ્યાં સુધી તમે રિમોટ સ્ત્રોત પર વિશ્વાસ ન કરો અને તેને નિયંત્રિત ન કરો ત્યાં સુધી બિલ્ટ-ઇન નિયમો વાપરો. રિમોટ Linkumori JSON નિયમો માટે મેળ ખાતો હેશ URL આપો."
   },
   "security_modal_risk_1": {
     "message": "તમારું IP સરનામું અને બ્રાઉઝર માહિતી રૂપરેખાંકિત સર્વર્સ પર ખુલ્લી કરવામાં આવશે"
@@ -1899,7 +1899,7 @@
     "message": "હેશ વેરિફિકેશન ફક્ત Linkumori CLN Format 1.0 JSON નિયમો પર લાગુ થાય છે; તે ટ્રાન્સમિશન ટેમ્પરિંગ સામે રક્ષણ આપે છે, દૂષિત નિયમ સ્ત્રોતોથી નહીં."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "સફળ હેશ ચકાસણી વિનાના રિમોટ નિયમો સંપૂર્ણપણે સ્ત્રોત URL પરના વિશ્વાસ પર આધાર રાખે છે."
   },
   "security_modal_risks_title": {
     "message": "સુરક્ષા જોખમો:"
@@ -1914,7 +1914,7 @@
     "message": "Rules.hash ફાઇલ (hash) માટેનું url"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "રિમોટ Linkumori JSON નિયમની ચકાસણી માટે જરૂરી."
   },
   "setting_html_export_button": {
     "message": "નિકાસ કરો"
@@ -1944,7 +1944,7 @@
     "message": "લોગ મર્યાદા (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "એકસાથે મર્જ થતા વધારાના રિમોટ Linkumori JSON સ્ત્રોતો. દરેક લીટીમાં એક જોડી દાખલ કરો: <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "વધારાના રિમોટ નિયમ સેટ"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON નિયમો માટે કસ્ટમ રિમોટ URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "રિમોટ નિયમો JSON ફાઇલનો URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "દરેક રિમોટ નિયમસમૂહ માટે હેશ URL જરૂરી છે."
   },
   "settings_html_page_title": {
     "message": "લિંકુમોરી (ક્લીન URLS) સેટિંગ્સ"
@@ -2421,19 +2421,19 @@
     "message": "ચેતવણી: અદ્યતન સુવિધા ફક્ત સ્વ-હોસ્ટેડ સર્વર્સ માટે જ છે"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "તમે રિમોટ નિયમ URL સંપાદન માટેની Gatekeeper સુરક્ષા અક્ષમ કરી રહ્યા છો. આ સુવિધા રિમોટ Linkumori JSON નિયમોને એકીકૃત પ્રદાતા નિયમસમૂહમાં લોડ કરી શકે છે. તમે જે સ્ત્રોત ગોઠવી રહ્યા છો તેને સમજતા અને તેના પર વિશ્વાસ કરતા હો તો જ આગળ વધો."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "ગેટકીપર એ બિલ્ટ-ઇન સલામતી પ્રવાહ છે જે સીધા રિમોટ URL સંપાદનોને અવરોધે છે જ્યાં સુધી તમે સુરક્ષા ચેતવણી અને સંપૂર્ણ ટાઇપ કરેલ પુષ્ટિને સ્વીકારો નહીં."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "જ્યાં સુધી તમે તમારા રિમોટ સ્ત્રોતો પર વિશ્વાસ ન કરો અને તેમને નિયંત્રિત ન કરો ત્યાં સુધી Gatekeeper ચાલુ રાખો. રિમોટ JSON નિયમોમાં મેળ ખાતો હેશ URL હોવો જોઈએ."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "ચેતવણી સૂચના:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "જો તમે રિમોટ નિયમ URL ઉમેરો છો, તો ગોઠવણી થયા પછી એક્સ્ટેંશન Linkumori નિયમસમૂહ અને તેની હેશ ફાઇલ મેળવવા માટે તમારા નિર્ધારિત સર્વર સાથે જોડાશે. દરેક વખતે મેળવતી વખતે તમારું IP સરનામું અને એક્સ્ટેંશન સંસ્કરણ, બ્રાઉઝર અને બ્રાઉઝર સંસ્કરણ જેવી સામાન્ય માહિતી હોસ્ટિંગ સર્વરને દેખાઈ શકે છે. આ ડેટા તે વેબસાઇટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "જો જરૂરી હોય તો ચાલુ રાખતા પહેલા %PRIVACY_POLICY_LINK% ફરીથી વાંચો."
@@ -2448,7 +2448,7 @@
     "message": "જ્યારે પણ તમારા બ્રાઉઝરમાં એક્સ્ટેંશન સક્ષમ અને લોડ થશે ત્યારે એક્સ્ટેંશન તમારા નિયુક્ત URL સાથે કનેક્ટ થશે."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "રિમોટ JSON અથવા હેશ ફાઇલો હોસ્ટ કરતા સર્વરને તમારું IP સરનામું મળશે."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "સર્વર તમારું એક્સ્ટેંશન વર્ઝન, બ્રાઉઝર અને બ્રાઉઝર વર્ઝન પણ મેળવી શકે છે."
@@ -2457,7 +2457,7 @@
     "message": "તે ડેટા વેબસાઈટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે જે તે ફાઇલોને હોસ્ટ કરે છે."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeper અક્ષમ કરવાથી અસુરક્ષિત અથવા ચેડાં થયેલા રિમોટ નિયમ સ્ત્રોતોનું જોખમ વધે છે. હેશ ચકાસણી રિમોટ Linkumori JSON ડાઉનલોડનું રક્ષણ ત્યારે જ કરે છે જ્યારે મેળ ખાતો હેશ URL ગોઠવેલો હોય."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "રદ કરો"
@@ -2517,7 +2517,7 @@
     "message": "ચોક્કસ પુષ્ટિ વાક્ય લખો"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "આ ક્રિયા રિમોટ નિયમો માટેની સુરક્ષા ઘટાડે છે. તમારા રિમોટ JSON સ્ત્રોત પર વિશ્વાસ હોય તો જ આગળ વધો."
   },
   "remote_urls_template_note_1": {
     "message": "પ્લેસહોલ્ડર મૂલ્યોને તમારા વાસ્તવિક HTTPS URL સાથે બદલો, પછી આ ફાઇલને આયાત કરો."
@@ -2847,10 +2847,10 @@
     "message": "કોઈ નહિ"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "નિયમ અથડામણ:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ ભૂલો, $WARNINGS$ ચેતવણીઓ, $NOTICES$ સૂચનાઓ",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "રિમોટ ફાઇલની ક્ષમતાઓ:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "સ્વીકાર્યા ત્યાં સુધી નિષ્ક્રિય: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ સ્વીકારો",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "નિયમ પેચ:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ લાગુ, $NOT_APPLIED$ લાગુ નથી",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "નિયમ ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "બિલ્ટ-ઇન"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "કસ્ટમ"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "કોઈ નહીં — બિલ્ટ-ઇન વર્તણૂક"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "ઓવરલોડ મોડ બિલ્ટ-ઇન અને રિમોટ નિયમોને મર્જ કરે છે; દરેક સ્ત્રોતના નિયમો તે સ્ત્રોતના પોતાના ડિફૉલ્ટ્સ રાખે છે."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "ડિફૉલ્ટ્સ સાચવો"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "ડિફૉલ્ટ્સ સાચવ્યા"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "ચાલુ હોય ત્યારે, દરેક નિયમ સ્ત્રોત પોતાના ડિફૉલ્ટ્સ રાખે છે (બિલ્ટ-ઇન ડિફૉલ્ટ્સ બિલ્ટ-ઇન નિયમોને અને દરેક રિમોટ ફાઇલના ડિફૉલ્ટ્સ તે ફાઇલના નિયમોને લાગુ પડે છે), સિવાય કે તમે કસ્ટમ નિયમ સંપાદકમાં પોતાના ડિફૉલ્ટ્સ પસંદ કરો."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "રિમોટ: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "કયા ડિફૉલ્ટ્સ લાગુ પડે"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "દરેક સ્ત્રોતના પોતાના"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "બિલ્ટ-ઇન અને રિમોટ નિયમો માટે તમારા"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "બધા નિયમો માટે તમારા"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(તમારા ડિફૉલ્ટ્સ દ્વારા બદલાયેલ)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "તમારા"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ વિનંતી પ્રકારો",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL અપવાદો",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL અપવાદ"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ પ્રીપ્રોસેસર્સ",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "દરેક સ્ત્રોતના નિયમોને તે સ્ત્રોતના પોતાના ડિફૉલ્ટ્સ મળે છે."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "બિલ્ટ-ઇન અને રિમોટ નિયમોને તેમની ફાઇલોના પોતાના ડિફૉલ્ટ્સને બદલે તમારા ડિફૉલ્ટ્સ મળે છે; કસ્ટમ નિયમો પોતાના જ રાખે છે."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "બિલ્ટ-ઇન, રિમોટ અને કસ્ટમ નિયમોને પોતાના ડિફૉલ્ટ્સને બદલે તમારા ડિફૉલ્ટ્સ મળે છે."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "નિયમ ડિફૉલ્ટ્સ મેનેજ કરો"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "ડિફૉલ્ટ્સ નિયમે પોતે સેટ ન કરેલી કિંમતો ભરે છે. નિયમની પોતાની કિંમત હંમેશાં માન્ય રહે છે, અને પ્રદાતા અપવાદો ક્યારેય બદલાતા નથી."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "ડિફૉલ્ટ્સ સંપાદિત કરો"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "તમારા ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "કસ્ટમ નિયમોના ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "સંપાદિત કરવાના ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "બિલ્ટ-ઇન નિયમો"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(સંપાદિત)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "ફાઇલના ડિફૉલ્ટ્સ પર રીસેટ કરો"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "સ્ત્રોતોમાંથી મર્જ કરો…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "નિયમ ડિફૉલ્ટ્સ મર્જ કરો"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "પરિણામ સૂચિમાં \"મર્જ કરેલા ડિફૉલ્ટ્સ\" તરીકે દેખાય છે. તેને ત્યાં કોઈ સમૂહમાં કૉપિ કરો, પછી તેનો ઉપયોગ કરવા માટે ડિફૉલ્ટ્સ સાચવો દબાવો."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "મર્જ કરવાના સ્ત્રોતો"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "વિરોધાભાસ"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "મર્જ કરેલા ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "મર્જ કરેલા ડિફૉલ્ટ્સ વાપરો"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "મર્જ કરેલા ડિફૉલ્ટ્સ"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "જ્યાં સુધી તમે તેને અન્ય સમૂહમાં કૉપિ કરીને સાચવો નહીં ત્યાં સુધી વપરાતું નથી."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "આમાં કૉપિ કરો"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "કૉપિ કરો"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "ઓછામાં ઓછા બે સ્ત્રોતો પસંદ કરો."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "કોઈ વિરોધાભાસ નથી: પસંદ કરેલા સ્ત્રોતો દરેક કિંમત પર સહમત છે."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "અપવાદો દરેક સ્ત્રોતમાંથી ભેગા ઉમેરાય છે: કુલ $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "દરેક સ્ત્રોતમાંથી ભેગું કરેલ"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "આમાંથી: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "સેટ નથી (બિલ્ટ-ઇન વર્તણૂક)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "સેટ નથી: દરેક વિનંતી પ્રકાર"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "હાલમાં વપરાતું નથી: તમારા ડિફૉલ્ટ્સ બિલ્ટ-ઇન અને રિમોટ નિયમોના પોતાના ડિફૉલ્ટ્સને બદલે છે."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "તમે સંપાદિત કર્યું: આ ફાઇલના પોતાના ડિફૉલ્ટ્સને બદલે છે. ફાઇલ પોતે બદલાતી નથી."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(તમે સંપાદિત કર્યું)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "હાલમાં વપરાતું નથી: ઉપર \"દરેક સ્ત્રોતના પોતાના\" પસંદ કરેલ છે."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "હાલમાં વપરાતું નથી: તમારા ડિફૉલ્ટ્સ કસ્ટમ નિયમો માટે પણ આને બદલે છે."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "નિયમો બંધ સ્થિતિમાં શરૂ થાય છે (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "વર્ણન"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "વિનંતી પ્રકારો"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "બધા પ્રકારો"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "ફક્ત આ"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "ઓછામાં ઓછો એક વિનંતી પ્રકાર પસંદ કરો, અથવા \"બધા પ્રકારો\" પસંદ કરો."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "નિયમો અથવા ડિફૉલ્ટ્સ અમુક પ્રકારો ન દર્શાવે ત્યાં સુધી નિયમો દરેક વિનંતી પ્રકાર સાફ કરે છે. પ્રદાતાઓ resourceTypes વડે પણ પ્રકારો મર્યાદિત કરી શકે છે."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "અપવાદો"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "દરેક લીટીમાં એક URL રેજેક્સ. મેળ ખાતા URL પર નિયમો છોડી દેવામાં આવે છે."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "પ્રીપ્રોસેસર્સ"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "ઇનપુટ: \"all\", અથવા કેપ્ચર ગ્રુપ નંબર જેમ કે 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ પ્રીપ્રોસેસર ઉમેરો"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "પ્રીપ્રોસેસરનો પ્રકાર"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "પ્રીપ્રોસેસર ઇનપુટ"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "દૂર કરો"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "પ્રીપ્રોસેસર ઇનપુટ \"$INPUTS$\" \"all\" અથવા 1, 2 જેવા નંબર હોવા જોઈએ.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "હિસ્ટરી બાયપાસ સુરક્ષા બંધ કરો (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "JSON તરીકે બતાવો"
   },
   "settings_remote_health_unknown": {
     "message": "અજ્ઞાત"
@@ -3918,7 +3918,7 @@
     "message": "<code>replacePattern</code> સાથે, <code>rules</code> માંનો નિયમ પેરામીટરને રાખે છે અને તેની કિંમત બદલે છે, જે <code>§1§</code> છે. <code>rawRules</code> અને <code>redirections</code> માં, <code>§1§</code>, <code>§2§</code>, … કેપ્ચર ગ્રુપ્સ છે:"
   },
   "guide_obj_pre_title": {
-    "message": "Preprocessors"
+    "message": "પ્રીપ્રોસેસર્સ"
   },
   "guide_obj_p4": {
     "message": "પ્રકારો <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> અને <code>base64Decode</code> છે."
@@ -4005,10 +4005,10 @@
     "message": "પ્રદાતા JSON માર્ગદર્શિકા"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori નિયમ માર્ગદર્શિકા ખોલો"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "મારે કયા નિયમ સિન્ટેક્સનો ઉપયોગ કરવો જોઈએ?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "નિયમ માર્ગદર્શિકા ખોલો"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "પ્રદાતા સ્ત્રોતો લોડ કરવામાં નિષ્ફળ: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "બંડલ કરેલા નિયમો ઉપલબ્ધ નથી."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "બંડલ કરેલા નિયમો લોડ કરવામાં નિષ્ફળ: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "ભાષા $1 પર બદલી શકાઈ નથી."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "લાઇટ થીમ"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "ડાર્ક થીમ"
   },
   "posarCopied": {
     "message": "POSAR કૉપિ કર્યું!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR સ્વીકાર્યું."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "રીસેટ કરો"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "સુલભતા સાધનો"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "સુલભતા સાધનો ખોલો"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "સુલભતા સાધનો બંધ કરો"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "બધી સુલભતા સેટિંગ્સ રીસેટ કરો"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "દૃષ્ટિ"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "વાંચન"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "ક્રિયાપ્રતિક્રિયા"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "ઉચ્ચ કોન્ટ્રાસ્ટ"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "રંગ ફિલ્ટર"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "સંતૃપ્તિ"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "ઊલટાવો"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "લિંક્સ હાઇલાઇટ કરો"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "છબીઓ છુપાવો"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "લખાણનું કદ વધારો"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "લખાણનું કદ ઘટાડો"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "ડિફૉલ્ટ લખાણ કદ"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "ફૉન્ટ પસંદગી"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ડિસ્લેક્સિયા અનુકૂળ"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "લખાણ અંતર"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "લીટીની ઊંચાઈ"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "લખાણ સંરેખણ"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "એનિમેશન થોભાવો"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "મોટું કર્સર"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "ડિફૉલ્ટ"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "મધ્યમ"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "ઊંચું"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "અતિ"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "નીચું"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "કોઈ નહીં"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "હળવું"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "ભારે"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "ફિલ્ટર નહીં"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "પ્રોટેનોપિયા"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "ડ્યુટેરેનોપિયા"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "ટ્રિટેનોપિયા"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "ગ્રેસ્કેલ"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "ડાબે"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "મધ્યમાં"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "જમણે"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "અતિ નાનું"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "નાનું"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "મોટું"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "અતિ મોટું"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "સૌથી મોટું"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "ચાલુ"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "બંધ"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "સક્ષમ"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "અક્ષમ"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "ડિફૉલ્ટ લખાણ કદ પસંદ કર્યું"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "બધી સુલભતા સેટિંગ્સ રીસેટ થઈ"
+  },
+  "skip_to_main_content": {
+    "message": "મુખ્ય સામગ્રી પર જાઓ"
+  },
+  "popupNavAriaLabel": {
+    "message": "પૉપઅપ નેવિગેશન"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "કસ્ટમ નિયમોના દૃશ્યો"
+  },
+  "logViewNavAriaLabel": {
+    "message": "લોગના દૃશ્યો"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "હિસ્ટરી બાયપાસ સુરક્ષા (પેજ-અંદરના નેવિગેશન દરમિયાન છોડો)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "ફીલ્ડ રીડાયરેક્શન"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "નિયમની નકલ કરો"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "નિયમની નકલ થઈ ગઈ"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "નિયમની નકલ કરી શકાઈ નથી"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection શું કરે છે?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "સિંગલ-પેજ સાઇટ્સ ઘણી વાર નવું પેજ લોડ કરવાને બદલે history.pushState/replaceState વડે સરનામું બદલે છે. Linkumori તે સરનામાં પણ સાફ કરે છે. પેજ-અંદરના આવા ફેરફારો માટે ફક્ત તે ફિલ્ટર છોડવા માટે $removeparam ફિલ્ટરમાં history-bypass-protection=false ઉમેરો; તે સામાન્ય વિનંતીઓ પર હજી પણ ચાલશે."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "પેજ-અંદરના ફેરફારો માટે આખા પ્રદાતાને છોડવા માટે, તેને પ્રદાતા પર સેટ કરો:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "છોડી દો તો તે true હોય છે અને પેજ-અંદરના ફેરફારો સાફ થાય છે. નિયમની પોતાની સેટિંગ પ્રદાતાની સેટિંગ કરતાં અગ્રતા ધરાવે છે, તેથી નિયમ history-bypass-protection=true વડે અથવા નિયમ ઑબ્જેક્ટમાં \"historyBypassProtection\": true વડે ફરી ચાલુ કરી શકે છે."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "પેજ-અંદર નેવિગેશન છોડે છે"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "ID નું નામ બદલો"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "$OLD$ માટે નવો id (a-z, 0-9, - અને _). જૂનો id ઉપનામ તરીકે રાખવામાં આવે છે, તેથી તેના હેઠળ બંધ કરેલા નિયમો બંધ જ રહે છે.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" માન્ય id નથી. નાના અક્ષરો, અંકો, - અને _ વાપરો, અને શરૂઆત અક્ષર અથવા અંકથી કરો.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "આ પ્રદાતાનો બીજો નિયમ પહેલેથી \"$ID$\" વાપરે છે.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "નિયમ અક્ષમ કરો"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ ને આખા પ્રદાતા માટે અક્ષમ કરવું છે કે ફક્ત આ URL/ડોમેન પેટર્ન માટે?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "મારા પ્રદાતા"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/ડોમેન પેટર્ન"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "નિયમનો id બદલીને $ID$ કર્યો",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "અનાથ ટૉગલ"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "અપસ્ટ્રીમમાં કોઈ મેળ ખાતો નિયમ મળ્યો નથી"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "દૂર કરો"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "પેજ-અંદરના નેવિગેશનની સફાઈ છોડે છે"
+  },
+  "whitelist_added_general": {
+    "message": "%s ને સામાન્ય વ્હાઇટલિસ્ટમાં ઉમેર્યું"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s ને History API અપવાદ તરીકે ઉમેર્યું"
+  },
+  "whitelist_exception_count": {
+    "message": "%d અપવાદ"
+  },
+  "whitelist_exception_empty": {
+    "message": "કોઈ વ્હાઇટલિસ્ટ અપવાદ નથી"
+  },
+  "whitelist_mode_general": {
+    "message": "સામાન્ય વ્હાઇટલિસ્ટ"
+  },
+  "whitelist_mode_history_api": {
+    "message": "ફક્ત History API"
+  },
+  "whitelist_mode_label": {
+    "message": "વ્હાઇટલિસ્ટનો વ્યાપ"
+  },
+  "whitelist_removed_general": {
+    "message": "%s ને સામાન્ય વ્હાઇટલિસ્ટમાંથી દૂર કર્યું"
+  },
+  "whitelist_removed_history_api": {
+    "message": "%s માટેનો History API અપવાદ દૂર કર્યો"
+  },
+  "whitelist_type_general": {
+    "message": "સામાન્ય"
+  },
+  "whitelist_type_history_api": {
+    "message": "ફક્ત History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 ને સામાન્ય વ્હાઇટલિસ્ટમાં ઉમેરો"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "સામાન્ય વ્હાઇટલિસ્ટ: $1 - ફક્ત History API માટે ક્લિક કરો"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API અપવાદ: $1 - ફક્ત આ ટૅબ માટે ક્લિક કરો"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "ફક્ત ટૅબ: $1 - દૂર કરવા ક્લિક કરો"
+  },
+  "logger_action_allowed": {
+    "message": "મંજૂર"
+  },
+  "logger_action_blocked": {
+    "message": "અવરોધિત"
+  },
+  "logger_action_filter_label": {
+    "message": "ક્રિયા"
+  },
+  "logger_action_info": {
+    "message": "માહિતી"
+  },
+  "logger_action_modified": {
+    "message": "સુધારેલ"
+  },
+  "logger_action_redirected": {
+    "message": "રીડાયરેક્ટ કરેલ"
+  },
+  "logger_btn_copy_summary": {
+    "message": "સારાંશ કૉપિ કરો"
+  },
+  "logger_btn_export": {
+    "message": "નિકાસ કરો"
+  },
+  "logger_btn_group": {
+    "message": "નિયમ પ્રમાણે જૂથ કરો"
+  },
+  "logger_col_hits": {
+    "message": "હિટ્સ"
+  },
+  "logger_col_last_seen": {
+    "message": "છેલ્લે જોયું"
+  },
+  "logger_detail_group_title": {
+    "message": "નિયમની વિગત"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "ટૅબ્સ"
+  },
+  "logger_exported": {
+    "message": "$1 એન્ટ્રીઓ નિકાસ કરી."
+  },
+  "logger_filter_all": {
+    "message": "બધા"
+  },
+  "logger_report_rule": {
+    "message": "તેની જાણ કરો"
+  },
+  "logger_rule_disable": {
+    "message": "નિયમ બંધ કરો"
+  },
+  "logger_rule_disabled_done": {
+    "message": "નિયમ $1 બંધ કર્યો. તપાસવા માટે પેજ ફરી લોડ કરો."
+  },
+  "logger_rule_enable": {
+    "message": "નિયમ ચાલુ કરો"
+  },
+  "logger_rule_enabled_done": {
+    "message": "નિયમ $1 ફરી ચાલુ કર્યો."
+  },
+  "logger_rule_failed": {
+    "message": "નિયમ બદલી શકાયો નથી."
+  },
+  "logger_rule_off": {
+    "message": "નિયમ બંધ છે"
+  },
+  "logger_rule_on": {
+    "message": "નિયમ ચાલુ છે"
+  },
+  "logger_rule_unavailable": {
+    "message": "આ નિયમ અહીંથી બદલી શકાતો નથી."
+  },
+  "logger_status_rules": {
+    "message": "$1 નિયમ"
+  },
+  "logger_summary_copied": {
+    "message": "સારાંશ કૉપિ થયો."
+  },
+  "logger_summary_copy_failed": {
+    "message": "સારાંશ કૉપિ કરી શકાયો નથી."
+  },
+  "logger_type_filter_label": {
+    "message": "પ્રકાર"
+  },
+  "logger_btn_logging_off": {
+    "message": "લૉગિંગ બંધ"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "લૉગિંગ બંધ છે. ચાલુ કરવા ક્લિક કરો."
+  },
+  "logger_btn_logging_on": {
+    "message": "લૉગિંગ ચાલુ"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "લૉગિંગ ચાલુ છે. બંધ કરવા ક્લિક કરો."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "લૉગિંગ સેટિંગ બદલી શકાઈ નથી."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "રેફરલ નિયમ ઉમેરો"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "રૉ નિયમ અપવાદ ઉમેરો"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "ફીલ્ડ રીડાયરેક્ટ ઉમેરો"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "અપવાદ ઉમેરો"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "દરેક ટેમ્પ્લેટ id અને example.com પર પ્લેસહોલ્ડર matchPattern સાથે નિયમ ઑબ્જેક્ટ ઉમેરે છે. એન્ટ્રી સાદી સ્ટ્રિંગ પણ હોઈ શકે: પેરામીટરનું નામ, નામનો રેજેક્સ, $removeparam ફિલ્ટર અથવા rawRules માં રેજેક્સ. નિયમ ઑબ્જેક્ટ id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description અને targetId લે છે."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "લિન્ટર"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "કોઈ સમસ્યા મળી નથી."
+  },
+  "customRulesEditor_lintError": {
+    "message": "ભૂલ"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "ચેતવણી"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ ભૂલ, $WARNINGS$ ચેતવણી",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "ચલાવવાનો ક્રમ"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ પગલાં, તેઓ ચાલે તે ક્રમમાં",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "કોઈ rawRules, rules અથવા referralMarketing એન્ટ્રી નથી"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "ઉપરના લખાણમાંથી એન્જિન દ્વારા ગણાયેલ, સાચવેલ હોય કે ન હોય. પગલાં (stage, orderGroup, order, rank, arrayIndex) પ્રમાણે ગોઠવાય છે: રૉ નિયમો ફીલ્ડ નિયમો પહેલાં ચાલે છે; એક સ્ટેજમાં, order ધરાવતી એન્ટ્રીઓ પહેલાં ચાલે છે, સૌથી ઓછી પહેલી, પછી બાકીની સૂચિ અને સ્થાન પ્રમાણે."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "રેફરલ માર્કેટિંગ"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "રેફરલ દૂર કર્યું"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "રેફરલ મંજૂર"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "રૉ"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "ફીલ્ડ"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "રેફરલ"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(જનરેટ કરેલ)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "ફરી લખે છે"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "$COUNT$ અગાઉની વ્યાખ્યા બદલે છે",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "completeProvider દ્વારા ઉમેરાયેલ: દરેક પેરામીટર દૂર કરે છે"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "બંધ કરેલ"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "અમુક પેટર્ન માટે બંધ"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "સૉર્ટ કી: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "પછી $FILTERS$ $removeparam ફિલ્ટર અને $EXCEPTIONS$ @@ અપવાદ, ઉપરના દરેક પગલા પછી",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= અપવાદ જ્યાં મેળ ખાય ત્યાં ઉપરના રૉ નિયમોને રોકી શકે છે",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "પગલાને તેના સ્ટેજમાં ખસેડવા માટે તેને ખેંચો, અથવા તેના તીરોનો ઉપયોગ કરો. ખસેડવાથી તે સ્ટેજની દરેક એન્ટ્રીને નવા ક્રમમાં 10, 20, 30, … નો order મળે છે."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "ફરી ગોઠવવા માટે રેફરલ દૂર કર્યું પર જાઓ: તે દૃશ્ય દરેક એન્ટ્રી બતાવે છે."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "ખસેડવા ખેંચો"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ ને વહેલું ખસેડો",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ ને મોડું ખસેડો",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ ને સ્થાન $POSITION$ પર ખસેડ્યું",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "ખસેડવાનું પૂર્વવત્ કરો"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "ખસેડવાનું પૂર્વવત્ કર્યું"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "સિમ્યુલેટ કરો"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "કૉપિ કરેલી લિંક સાફ કરતી વખતે થાય છે તેમ, તમારા બંધ કરેલા નિયમો અને ઉપરની રેફરલ પસંદગી સાથે, આ પ્રદાતાને URL પર ચલાવે છે અને દરેક પગલા પછીનો URL બતાવે છે. અન્ય પ્રદાતાઓ ચાલતા નથી. ટેસ્ટ URL બનાવો આ પ્રદાતાના પોતાના નિયમોમાંથી એક બનાવે છે."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "ટેસ્ટ URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "ચલાવો"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "સિમ્યુલેશનમાં પગલું-દર-પગલું આગળ વધો"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "શરૂઆત"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "પાછળનું"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "આગળનું"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "અંત"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "ચલાવો"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "થોભાવો"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "કોઈ પગલા પહેલાંનો URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "પાસ $PASS$ · પગલું $STEP$ / $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "કોઈ ફેરફાર નથી"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam ફિલ્ટર્સ"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "પાસ $PASS$ કંઈ બદલતો નથી, તેથી સફાઈ અટકે છે",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "આ પ્રદાતા અહીં અટકે છે: ચક્ર મર્યાદા પહોંચી ગઈ, URL અગાઉના URL પર પાછો આવ્યો, અથવા તે હવે પ્રદાતા સાથે મેળ ખાતો નથી"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "પાસ $PASS$ રીડાયરેક્ટ કરે છે; સફાઈ દરેક પ્રદાતા સાથે નવા સરનામા પર ચાલુ રહે છે",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "પ્રદાતા આ વિનંતીને અવરોધિત કરે છે (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "પરિણામ"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "આ પ્રદાતાની પેટર્ન આ URL સાથે મેળ ખાતી નથી, તેથી તેના કોઈ નિયમ ચાલતા નથી."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "આ URL પ્રદાતાના એક અપવાદ સાથે મેળ ખાય છે, તેથી તેના કોઈ નિયમ ચાલતા નથી."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "પૂરો http:// અથવા https:// URL દાખલ કરો."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "સિમ્યુલેશન ચાલી શક્યું નથી. ઉપરનો JSON તપાસો."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "ટેસ્ટ URL બનાવો"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "આ પ્રદાતાના નિયમોમાંથી બનાવેલ: $RAW$ રૉ નિયમ અને $PARAMS$ પેરામીટર માટે લખાણ, દરેકને તેના નિયમ સામે તપાસ્યું. keep=1 કોઈ નિયમ સાથે મેળ ખાતું નથી અને રહેવું જોઈએ. રીડાયરેક્ટ અને બ્લૉક સામેલ નથી, કારણ કે તે બાકીના નિયમો પહેલાં રન પૂરો કરી દેત.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "આ પ્રદાતાની પેટર્ન સાથે મેળ ખાતો કોઈ હોસ્ટ બનાવી શકાયો નથી, તેથી URL બીજો હોસ્ટ વાપરે છે અને પ્રદાતા તેના પર ચાલશે નહીં."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "આ પ્રદાતાની પેટર્ન સાથે મેળ ખાતા દરેક URL તેના પોતાના એક અપવાદમાં આવી જાય છે, તેથી તેના નિયમો ક્યારેય ચાલતા નથી."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "ટેસ્ટ URL માંથી $COUNT$ નિયમ છોડી દીધા",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "તેની સાથે મેળ ખાતું કોઈ લખાણ બનાવી શકાયું નથી"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "તેનું લખાણ પ્રદાતાના એક અપવાદને મેળ ખવડાવશે"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "તે દરેક પેરામીટર દૂર કરે છે, તેથી તેને પોતાના કોઈ પેરામીટરની જરૂર નથી"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "આ પ્રદાતા પાસે નામ વિનાનું $removeparam ફિલ્ટર છે, જે keep=1 સહિત દરેક પેરામીટર દૂર કરે છે."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "order નથી"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "order નંબર પુનઃસ્થાપિત કરો"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "આ પ્રદાતા ખોલ્યો ત્યારે હતા તેમ દરેક order પાછો મૂકો"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "order નંબર પુનઃસ્થાપિત કર્યા"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "છુપાવો"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "બતાવો"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "ચેતવણીઓ સાફ કરો"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "ચેતવણીઓ પાછી લાવો"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ ચેતવણી સાફ કરી",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: indexPattern વિનાના urlPattern ને દરેક URL સામે તપાસવામાં આવે છે; \"||example.com^\" જેવા indexPattern સંકેતો ઉમેરો",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ \"$ENTRY$\" ને પુનરાવર્તિત કરે છે; નકલ કંઈ કરતી નથી અને બંને એક જ id વહેંચે છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ માં હજી ટેમ્પ્લેટ પ્લેસહોલ્ડર \"$PATTERN$\" છે; તેને વાસ્તવિક પેટર્ન વડે બદલો",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ માં matchPattern \"(?!)\" છે, જે ક્યારેય કશા સાથે મેળ ખાતી નથી",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "મુશ્કેલીનિવારણ"
+  },
+  "troubleshooter_launch": {
+    "message": "આ ટૅબનું મુશ્કેલીનિવારણ કરો (પ્રાયોગિક)"
+  },
+  "troubleshooter_title": {
+    "message": "ટૅબ મુશ્કેલીનિવારક"
+  },
+  "troubleshooter_page": {
+    "message": "પેજ"
+  },
+  "troubleshooter_about_summary": {
+    "message": "રેકોર્ડિંગ કેવી રીતે કામ કરે છે"
+  },
+  "troubleshooter_about_note": {
+    "message": "આ દૃશ્ય ખોલવાથી પેજનો URL તપાસાઈ શકે છે, પરંતુ કંઈ રેકોર્ડ થતું નથી. તમે રેકોર્ડિંગ શરૂ કરો પસંદ ન કરો ત્યાં સુધી રેકોર્ડિંગ બંધ રહે છે. શરૂ કરવાથી આ ટૅબ તેની સંસાધન વિનંતીઓ મેળવવા માટે ફરી લોડ થાય છે. મેળવેલા URL આ બ્રાઉઝર સત્ર માટે સેશન સ્ટોરેજમાં રહે છે અને આ ટૅબ બંધ થતાં અથવા બ્રાઉઝર સત્ર પૂરું થતાં સાફ થાય છે. તમે વહેલું બંધ ન કરો તો 15 મિનિટ પછી રેકોર્ડિંગ બંધ થઈ જાય છે. સંસાધન URL માં ખાનગી ક્વેરી ડેટા હોઈ શકે છે."
+  },
+  "troubleshooter_start": {
+    "message": "રેકોર્ડિંગ શરૂ કરો"
+  },
+  "troubleshooter_starting": {
+    "message": "શરૂ થઈ રહ્યું છે…"
+  },
+  "troubleshooter_recording": {
+    "message": "રેકોર્ડ થઈ રહ્યું છે…"
+  },
+  "troubleshooter_stop": {
+    "message": "રેકોર્ડિંગ બંધ કરો"
+  },
+  "troubleshooter_refresh": {
+    "message": "રિફ્રેશ કરો"
+  },
+  "troubleshooter_copy": {
+    "message": "સારાંશ કૉપિ કરો"
+  },
+  "troubleshooter_export": {
+    "message": "નિકાસ કરો"
+  },
+  "troubleshooter_export_title": {
+    "message": "રેકોર્ડિંગને JSON ફાઇલ તરીકે સાચવો. સંસાધન URL માં ખાનગી ક્વેરી ડેટા હોઈ શકે છે."
+  },
+  "troubleshooter_category": {
+    "message": "શ્રેણી"
+  },
+  "troubleshooter_category_all": {
+    "message": "બધી શ્રેણીઓ"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL નિયમો"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "રીડાયરેક્ટ"
+  },
+  "troubleshooter_category_protection": {
+    "message": "સુરક્ષા અને બાયપાસ"
+  },
+  "troubleshooter_resource_type": {
+    "message": "સંસાધન પ્રકાર"
+  },
+  "troubleshooter_type_all": {
+    "message": "બધા સંસાધન પ્રકારો"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "નિયમો, પ્રદાતાઓ અને URL શોધો"
+  },
+  "troubleshooter_timer": {
+    "message": "રેકોર્ડિંગ $1 · $2 બાકી"
+  },
+  "troubleshooter_status_checking": {
+    "message": "આ ટૅબ તપાસી રહ્યા છે…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "કોઈ સક્રિય ટૅબ ઉપલબ્ધ નથી."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "આ પેજ URL નિયમ સ્કેનિંગની મંજૂરી આપતું નથી. સામાન્ય http અથવા https વેબપેજ ખોલો."
+  },
+  "troubleshooter_status_off": {
+    "message": "રેકોર્ડિંગ બંધ છે. આ પેજ દ્વારા લોડ થતા સંસાધન URL તપાસવા માટે રેકોર્ડિંગ શરૂ કરો."
+  },
+  "troubleshooter_status_active": {
+    "message": "અત્યાર સુધીમાં $1 URL ફેરફાર મેળવ્યા. નવા અહીં આપમેળે દેખાશે."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "રેકોર્ડિંગ બંધ થયું. $1 URL ફેરફાર મેળવ્યા."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "રેકોર્ડિંગ ડેટા સેશન સ્ટોરેજમાં સાચવી શકાયો નથી. એક્સ્ટેંશન ફરી શરૂ થાય તો $1 URL ફેરફાર ગુમાવાઈ શકે છે."
+  },
+  "troubleshooter_status_started": {
+    "message": "રેકોર્ડિંગ શરૂ થયું અને ટૅબ ફરી લોડ થઈ રહ્યો છે. પેજ લોડ થતાં મેળવેલા URL અહીં દેખાય છે."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "રેકોર્ડિંગ બંધ થયું. $1 URL ફેરફાર મેળવ્યા અને આ બ્રાઉઝર સત્ર માટે સાચવ્યા."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "રેકોર્ડિંગ બંધ થયું. $1 URL ફેરફાર મેળવ્યા, પરંતુ સેશન સ્ટોરેજ તેમને સાચવી શક્યું નહીં."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "પહેલા સામાન્ય http અથવા https વેબપેજ ખોલો."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "આ ટૅબ માટે રેકોર્ડિંગ શરૂ કરી શકાયું નથી."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "આ ટૅબ માટે રેકોર્ડિંગ બંધ કરી શકાયું નથી."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "આ ટૅબ વાંચી શકાયો નથી. પૉપઅપ બંધ કરીને ફરી ખોલવાનો પ્રયાસ કરો."
+  },
+  "troubleshooter_status_copied": {
+    "message": "સારાંશ કૉપિ થયો."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "સારાંશ કૉપિ કરી શકાયો નથી."
+  },
+  "troubleshooter_status_exported": {
+    "message": "રેકોર્ડિંગ નિકાસ કર્યું."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "રેકોર્ડિંગ નિકાસ કરી શકાયું નથી."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "રિપોર્ટ ફોર્મ ખોલી શકાયું નથી."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "નિયમ સક્ષમ કર્યો; સરખામણી માટે ટૅબ ફરી લોડ કરો."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "નિયમ અક્ષમ કર્યો; સરખામણી માટે ટૅબ ફરી લોડ કરો."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "આ નિયમ અપડેટ કરી શકાયો નથી."
+  },
+  "troubleshooter_empty_web": {
+    "message": "હજી સુધી કોઈ નિયમ ફેરફાર મળ્યો નથી. આ પેજના સંસાધન URL તપાસવા માટે રેકોર્ડિંગ શરૂ કરો."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "આ બ્રાઉઝર પેજ સ્કેન કરી શકાતું નથી."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "આ ફિલ્ટર્સ સાથે કોઈ તારણ મેળ ખાતું નથી."
+  },
+  "troubleshooter_showing_first": {
+    "message": "પ્રથમ $1 નિયમો બતાવી રહ્યા છીએ."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 હિટ"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 નિષ્ફળ"
+  },
+  "troubleshooter_rule_id": {
+    "message": "નિયમ ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "બિલ્ટ-ઇન સુરક્ષા ક્રિયા (કોઈ નિયમ ID નથી)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "નિયમ ID: આ તારણ માટે ઉપલબ્ધ નથી"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "વર્તમાન નિયમસમૂહમાં આ નિયમ ID ઉકેલી શકાયો નથી."
+  },
+  "troubleshooter_source_observed": {
+    "message": "જોવાયેલી વિનંતી"
+  },
+  "troubleshooter_source_page": {
+    "message": "પેજ URL તપાસ"
+  },
+  "troubleshooter_changes": {
+    "message": "શું બદલાયું: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "અસરગ્રસ્ત URL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…અને $1 વધુ"
+  },
+  "troubleshooter_after": {
+    "message": "Linkumori પછી"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori એ બદલ્યા પછી નિષ્ફળ: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "આ નિયમ સક્ષમ છે. પેજની સરખામણી કરવા તેને બંધ કરીને ફરી લોડ કરો."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "આ નિયમ અક્ષમ છે. તેની વર્તણૂક પુનઃસ્થાપિત કરવા તેને ચાલુ કરીને ફરી લોડ કરો."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "આ બિલ્ટ-ઇન સુરક્ષા ક્રિયા છે, વ્યક્તિગત નિયમ નથી."
+  },
+  "troubleshooter_advice_review": {
+    "message": "નિયમો બદલતા પહેલા અસરગ્રસ્ત URL તપાસો."
+  },
+  "troubleshooter_report": {
+    "message": "આ નિયમની જાણ કરો"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "નિયમ અક્ષમ કરો"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "નિયમ સક્ષમ કરો"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "નિયમ $1 અક્ષમ કરો"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "નિયમ $1 સક્ષમ કરો"
+  },
+  "troubleshooter_saving": {
+    "message": "સાચવી રહ્યા છીએ…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 દૂર કર્યું"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 ઉમેર્યું"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 બદલ્યું"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "$1 પર રીડાયરેક્ટ કર્યું"
+  },
+  "troubleshooter_change_path": {
+    "message": "પાથ બદલાયો"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "ફ્રેગ્મેન્ટ બદલાયો"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL બદલાયો"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "ઇરાદાપૂર્વક અવરોધિત"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "આ પેજ પર $1 વિનંતી નિષ્ફળ; Linkumori એ URL બદલ્યા પછી તરત $2"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "શું આ પેજ બગડેલું છે?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "તેને બગાડતો નિયમ શોધો: આ પેજ પર ચાલેલા નિયમો એક પછી એક બંધ કરવામાં આવે છે, અને દરેક પછી તમે કહો છો કે પેજ ઠીક થયું કે નહીં. Linkumori જ કારણ છે તેની ખાતરી નથી? પહેલા સફાઈ થોભાવીને તપાસો."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "પહેલા સફાઈ થોભાવીને તપાસો"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "આ ટૅબમાં $1 માટે સફાઈ થોભાવી છે"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "ટૅબ સફાઈ વિના ફરી લોડ થયો. શું હવે પેજ કામ કરે છે?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "હા, કામ કરે છે"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "ના, હજી બગડેલું છે"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "રદ કરો"
+  },
+  "troubleshooter_diag_done": {
+    "message": "પૂર્ણ"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "કદાચ Linkumori નથી"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "સફાઈ થોભાવી હોવા છતાં પેજ બગડેલું હતું, તેથી સમસ્યા સંભવતઃ બીજે ક્યાંક છે: સાઇટમાં જ, બીજા એક્સ્ટેંશનમાં અથવા નેટવર્કમાં. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori સંભવતઃ કારણ છે"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "સફાઈ થોભાવતા પેજ કામ કરે છે. નિયમ શોધો: નિયમો એક પછી એક બંધ કરવામાં આવે છે, ટૅબ ફરી લોડ થાય છે, અને તમે કહો છો કે પેજ ઠીક થયું કે નહીં. અંતે બાકીના દરેક નિયમ ફરી ચાલુ કરવામાં આવે છે."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "આ પેજ પર કયા નિયમો ચાલે છે તે નોંધવા માટે ટૅબ સફાઈ ફરી ચાલુ કરીને ફરી લોડ થઈ રહ્યો છે. તેઓ થોડી વારમાં અહીં દેખાશે. જો કોઈ ન દેખાય, તો પેજ બગડે ત્યાં સુધી તેનો ઉપયોગ કરો."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "નિયમ શોધો ($1 નિયમો)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "હા, ઠીક થયું"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "ના, હજી બગડેલું છે"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "મળી ગયો"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "પેજ નિયમ $1$2 ને કારણે બગડે છે. તે ફરી ચાલુ કરેલ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "આ નિયમ અક્ષમ કરો"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "તેની જાણ કરો"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "નિયમ બંધ કર્યો. તપાસવા માટે ટૅબ ફરી લોડ કરો. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "કોઈ એક નિયમ મળ્યો નથી"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "નિયમો એક પછી એક બંધ કરવાથી પેજ ઠીક થયું નથી, તેથી તે કદાચ ઘણા નિયમો સાથે મળીને અથવા સુરક્ષા સેટિંગને કારણે થયું છે. દરેક નિયમ ફરી ચાલુ કરેલ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "તપાસ ચલાવી શકાઈ નથી: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "આ તપાસ વાપરવા માટે Linkumori ફરી લોડ કરો"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori અપડેટ થયું હતું, પરંતુ તેનો બૅકગ્રાઉન્ડ ભાગ હજી જૂનું સંસ્કરણ ચલાવી રહ્યો છે. એક્સ્ટેંશન ફરી લોડ કરો (અસ્થાયી ઍડ-ઑન માટે: about:debugging → This Firefox → Reload), અથવા Firefox ફરી શરૂ કરો."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "મળી ગયો"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "પેજ નિયમ $1$2 ને કારણે બગડે છે. પેજ કામ કરે તે માટે તે બંધ રહે છે; બીજા બધા નિયમો ફરી ચાલુ છે. તપાસવા માટે ટૅબ ફરી લોડ કરો. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "ટૅબ ફરી લોડ કરો"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "તેને ફરી ચાલુ કરો"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "નિયમ ફરી ચાલુ કર્યો. તપાસવા માટે ટૅબ ફરી લોડ કરો. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "રેકોર્ડ કરો અને નિયમ શોધો"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "આ પેજ પર કયા નિયમો ચાલે છે તે રેકોર્ડ કરી રહ્યા છીએ. પેજ બગડે ત્યાં સુધી તેનો ઉપયોગ કરો; નિયમો અહીં દેખાશે."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "નિયમ શોધ દ્વારા હાલ પૂરતો બંધ કર્યો છે. શોધ પૂરી થતાં તે ફરી ચાલુ થશે."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "નિયમ શોધ ચાલી રહી છે. તે પૂરી થયા પછી નિયમો બદલો."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "છોડો — તેને ફરી ચાલુ કરો"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "તેને બંધ રાખો"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "નિયમ શોધ છોડી દીધી; દરેક નિયમ ફરી ચાલુ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "નિયમ $1 બંધ રહે છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "આ પરીક્ષણ માટે બંધ કર્યા:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…અને $1 વધુ"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "શોધ બંધ કરો"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "છોડ્યો: તે નિયમ ફરી ચાલુ છે અને બાકાત રાખ્યો છે. આગળનો ચકાસી રહ્યા છીએ."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "ચકાસેલા નિયમોમાં કોઈ નિયમ મળ્યો નથી. તમે છોડેલા $1 નિયમ ચકાસાયા નથી. દરેક નિયમ ફરી ચાલુ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_experimental": {
+    "message": "પ્રાયોગિક"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "પ્રાયોગિક: આ મુશ્કેલીનિવારક સંપૂર્ણપણે સ્થિર નથી. તેના પરિણામો ખોટા હોઈ શકે છે, અને પરીક્ષણ દરમિયાન તે નિયમો બંધ કરે છે. પછી કંઈ ખોટું લાગે તો કસ્ટમ નિયમ સંપાદકમાં તમારા નિયમો તપાસો, અથવા તેમને ફરી ચાલુ કરવા શોધ બંધ કરો વાપરો."
+  },
+  "troubleshooter_working": {
+    "message": "કામ ચાલુ છે…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "ફરી રેકોર્ડ કરો"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "જૂનું રેકોર્ડિંગ સાફ કર્યું. નવા લોડથી આ ટૅબ ફરી રેકોર્ડ કરી રહ્યા છીએ."
+  },
+  "troubleshooter_clear": {
+    "message": "સાફ કરો"
+  },
+  "troubleshooter_clear_title": {
+    "message": "આ ટૅબનું રેકોર્ડિંગ, તારણો અને પૂર્ણ થયેલ નિયમ શોધ સાફ કરો. નિયમો જેમ છે તેમ રહે છે."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "સાફ કર્યું. નિયમો જેમ છે તેમ રહે છે."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "સાફ કર્યું. નિયમ $1 બંધ રહે છે."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "એક સમયે એક નિયમ ચકાસી રહ્યા છીએ — નિયમ $1 / $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "ફક્ત આ નિયમ બંધ છે, અને ટૅબ ફરી લોડ થયો. શું હવે પેજ ઠીક થયું?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "આ નિયમ છોડો"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "છોડો — તેને ફરી ચાલુ કરો, આગળનો ચકાસો ($1 બાકી)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "આ પેજ પર ચાલેલા બીજા $1 નિયમ ચકાસાયા નથી. શું તમે તેમને ચકાસવાનું ચાલુ રાખવા માંગો છો?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "બંધ રાખો, આગળનો ચકાસો ($1 બાકી)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "નિયમ $1 બંધ રહે છે. આગળનો નિયમ ચકાસી રહ્યા છીએ."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "બીજો કોઈ નિયમ પોતાના દમ પર પેજ ઠીક કરતો નથી. તમે બંધ રાખેલા $1 નિયમ બંધ રહે છે; બાકીના દરેક નિયમ ફરી ચાલુ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "આગળનો નિયમ ચકાસો ($1 બાકી)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "નિયમ $1 ફરી ચાલુ છે અને બાકાત રાખ્યો છે. આગળનો નિયમ ચકાસી રહ્યા છીએ."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "બીજો કોઈ નિયમ પોતાના દમ પર પેજ ઠીક કરતો નથી. તમે છોડેલા $1 નિયમ પણ ફરી ચાલુ છે, તેથી દરેક નિયમ ફરી ચાલુ છે. ફરી શરૂ કરવા સાફ કરો પર ક્લિક કરો."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori <strong>CLN Format 1.0</strong> (Clean Link Notation), એક JSON ફોર્મેટમાં લખેલા નિયમોથી URL સાફ કરે છે. આ માર્ગદર્શિકા પહેલા નિયમથી લઈને દરેક વિકલ્પ સુધી જાય છે, તમે કૉપિ કરી શકો તેવા ઉદાહરણો સાથે."
+  },
+  "guide_intro_p_2": {
+    "message": "બિલ્ટ-ઇન નિયમો, રિમોટ નિયમ સૂચિઓ અને તમારા કસ્ટમ નિયમો બધા એક જ ફોર્મેટનો ઉપયોગ કરે છે. તમે કસ્ટમ નિયમો કસ્ટમ નિયમ સંપાદકમાં લખો છો, જે સાચવતી અથવા આયાત કરતી વખતે તેમને તપાસે છે. અધિકૃત ClearURLs નિયમ સૂચિ (<code>data.min.json</code>) પહેલેથી માન્ય CLN ફાઇલ છે અને જેમ છે તેમ વાપરી શકાય છે."
+  },
+  "guide_rules_file_p_1": {
+    "message": "પ્રદાતાનું નામ ફક્ત લેબલ છે. પ્રદાતા કયા URL સંભાળે છે તે <code>domainPatterns</code> અથવા <code>urlPattern</code> નક્કી કરે છે."
+  },
+  "guide_rules_file_th_1": {
+    "message": "ટોપ-લેવલ કી"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "આવશ્યક. પ્રદાતાઓ, નામ પ્રમાણે."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "વૈકલ્પિક ફોર્મેટ સંસ્કરણ. એકમાત્ર માન્ય કિંમત <code>\"1.0\"</code> છે. તે વિનાની ફાઇલ પણ 1.0 તરીકે વંચાય છે; બીજી કોઈ કિંમત ફાઇલને નકારે છે. તેને <code>version</code> કહેવામાં આવતું નથી કારણ કે ClearURLs નું નવું નિયમ ફોર્મેટ પહેલેથી તે કી વાપરે છે."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "ફાઇલ વિશેની વૈકલ્પિક માહિતી."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "ફાઇલના દરેક નિયમ માટેની કિંમતો જે પોતાની સેટ કરતો નથી (પ્રકરણ 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "ફક્ત રિમોટ નિયમ સૂચિઓ: પહેલેથી લોડ થયેલા નિયમો માટેના ફેરબદલ (પ્રકરણ 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "પ્રદાતા કયા URL સંભાળે છે, એક ડોમેન પેટર્ન તરીકે અથવા તેમની સૂચિ તરીકે (પ્રકરણ 3). આ અથવા <code>urlPattern</code> વાપરો, ક્યારેય બંને નહીં."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "પ્રદાતા કયા URL સંભાળે છે, પૂરા URL સામે મેળવાતા એક રેગ્યુલર એક્સપ્રેશન તરીકે. અક્ષરોની કેસ અવગણવામાં આવે છે."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "ફક્ત <code>urlPattern</code> સાથે: <code>||example.com^</code> જેવા હોસ્ટ સંકેતો, જેથી પ્રદાતા દરેક URL સામે નહીં પણ ફક્ત તે હોસ્ટ માટે તપાસાય. તે શોધ સંકેત છે, મેળ ખાવાની શરત નથી."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "દૂર કરવાના રેફરલ અને એફિલિએટ પેરામીટર. <em>રેફરલ માર્કેટિંગની મંજૂરી આપો</em> ચાલુ હોય ત્યારે છોડી દેવામાં આવે છે (પ્રકરણ 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "પ્રદાતા સંપૂર્ણપણે અડકતો નથી તેવા URL (પ્રકરણ 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "વિનંતી બદલવાને બદલે બીજા સરનામે મોકલો (પ્રકરણ 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "વિનંતીને પેરામીટરની કિંમત પર મોકલો (પ્રકરણ 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: જ્યારે પેજ લોડ (<code>main_frame</code>) રીડાયરેક્ટ થાય, ત્યારે ફક્ત નેટવર્ક વિનંતી નહીં પણ આખો ટૅબ નવા સરનામે જાય છે."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "ફક્ત આ HTTP મેથડ સંભાળો, ઉદાહરણ તરીકે <code>[\"GET\"]</code>. છોડી દો તો: દરેક મેથડ."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "ફક્ત આ વિનંતી પ્રકારો સંભાળો, ઉદાહરણ તરીકે <code>[\"main_frame\", \"xmlhttprequest\"]</code>. છોડી દો તો: દરેક વિનંતી પ્રકાર."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "ડિફૉલ્ટ <code>true</code>. જ્યારે પેજ History API (<code>pushState</code>/<code>replaceState</code>) વડે પોતાનું સરનામું બદલે ત્યારે <code>false</code> આખા પ્રદાતાને છોડી દે છે. સામાન્ય નેટવર્ક વિનંતીઓ હજી પણ સાફ થાય છે."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> પ્રદાતાને કાઢી નાખ્યા વિના બંધ કરે છે."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> ડોમેન પેટર્નની સૂચિ છે. તેમાંથી કોઈ પણ મેળ ખાય તો URL મેળ ખાય છે. આ જ પેટર્ન <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> ફિલ્ટર્સ અને રૉ નિયમોની આગળ વપરાય છે."
+  },
+  "guide_matching_cell_1": {
+    "message": "પૂરો URL, રેગ્યુલર એક્સપ્રેશન તરીકે"
+  },
+  "guide_matching_cell_2": {
+    "message": "જેમાં આ લખાણ ગમે ત્યાં હોય તેવા URL (આગળ <code>|</code> નહીં)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> હોસ્ટ નામનો અંત અથવા <code>/</code>, <code>?</code>, <code>:</code> જેવો વિભાજક અથવા URL નો અંત દર્શાવે છે. <code>*</code> વાઇલ્ડકાર્ડ છે."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> ડોમેન દર્શાવે છે: હોસ્ટ અને દરેક સબડોમેન. એક <code>|</code> URL ની બિલકુલ શરૂઆત દર્શાવે છે અને તેની પાછળ <code>https://</code> જેવી સ્કીમ હોવી જોઈએ. ડોમેન માટે હંમેશાં <code>||</code> જોઈએ; <code>|example.com^</code> ક્યારેય મેળ ખાઈ શકતું નથી, તેથી સંપાદક તેને નકારે છે."
+  },
+  "guide_matching_p_4": {
+    "message": "ઉદાહરણ તરીકે, <code>||smile.amazon.*^</code> આમ વંચાય છે: <code>||</code> હોસ્ટ અને તેના સબડોમેન, <code>smile.amazon</code> જરૂરી લેબલ, <code>.*</code> કોઈ પણ પબ્લિક સફિક્સ (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), અને <code>^</code> હોસ્ટનો અંત."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "બરાબર તે જ પેરામીટર"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "જેનું આખું નામ મેળ ખાય તે દરેક પેરામીટર; કેસ અવગણવામાં આવે છે"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> અને <code>\"$removeparam=fbclid\"</code> એક જ વસ્તુ દૂર કરે છે. પ્રકરણ 5 માંથી કંઈ જોઈતું ન હોય તો સાદું નામ વાપરો. કોઈ પણ એન્ટ્રી નિયમ ઑબ્જેક્ટ તરીકે પણ લખી શકાય (પ્રકરણ 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "અહીં <code>qid</code> દરેક Amazon સાઇટ પર દૂર થાય છે, <code>tag</code> ફક્ત <code>amazon.de</code> પર, <code>sr</code> ફક્ત <code>smile.amazon</code> પર, અને <code>ref_</code> ફક્ત <code>/gp/</code> હેઠળ. પેટર્ન પ્રદાતાની પોતાની પેટર્નને સાંકડી કરે છે; તે ક્યારેય તેમને વિસ્તારી શકતી નથી."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> ફિલ્ટરને એવા અપવાદમાં ફેરવે છે જે પેરામીટર રાખે છે (નીચે જુઓ)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> ફિલ્ટરને પ્રદાતાના અમુક URL સુધી મર્યાદિત કરે છે (પ્રકરણ 3). છોડી દો તો, તે પ્રદાતા સાથે મેળ ખાતા દરેક URL પર લાગુ પડે છે."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> પેરામીટર પસંદ કરે છે. છોડી દો તો, દરેક પેરામીટર દૂર થાય છે."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "મોડિફાયર કહે છે કે ફિલ્ટર ક્યારે ચાલે. સૂચિબદ્ધ દરેક મોડિફાયર સાચું હોવું જોઈએ; તેમની વચ્ચે \"અથવા\" નથી."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "<code>ref</code> સિવાયના દરેક પેરામીટર"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "જેનું નામ, અથવા <code>name=value</code> સાથે મળીને, રેગ્યુલર એક્સપ્રેશન સાથે મેળ ખાય તે પેરામીટર; કેસ અવગણવા માટે <code>i</code> ઉમેરો"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "જેનું નામ <code>utm_</code> થી શરૂ થાય તે પેરામીટર"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "પેરામીટર નામને એસ્કેપ કરવું"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "બેકસ્લૅશ આગળના અક્ષરને શાબ્દિક બનાવે છે, તેથી કોઈ પણ પેરામીટર નામ નિશાન બનાવી શકાય:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "કિંમત"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "જે નામનું પેરામીટર દૂર કરે છે"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (અલ્પવિરામ મોડિફાયર શરૂ કરતું નથી)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "નામ કિંમતમાં આ પાંચ જ એસ્કેપ છે; બીજા કોઈ અક્ષર પહેલાંનો બેકસ્લૅશ ભૂલ છે. <code>/regex/</code> કિંમતની અંદર બેકસ્લૅશ તેનો રેજેક્સ અર્થ રાખે છે. એસ્કેપ <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> અને <code>@@</code> એન્ટ્રીઓમાં કામ કરે છે. JSON માં, દરેક બેકસ્લૅશ બે વાર લખો: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "મોડિફાયર"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "મોડિફાયર કિંમત પછી, અલ્પવિરામથી અલગ કરીને આવે છે. એક મોડિફાયરની ઘણી કિંમતો <code>|</code> થી અલગ કરો, અને કોઈ કિંમતને બાકાત રાખવા તેની આગળ <code>~</code> મૂકો:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "મોડિફાયર"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "ફક્ત જ્યારે વિનંતી કરનાર પેજ આમાંનું એક હોય (અથવા <code>~</code> સાથે, ન હોય); રેજેક્સ કિંમતો માન્ય છે"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "ફક્ત જ્યારે વિનંતી પોતે આમાંના એક પર જાય, વિનંતી ગમે તે પેજે કરી હોય"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "ફક્ત આ HTTP મેથડ માટે: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "ફક્ત જ્યારે વિનંતી પેજ જેવા જ રજિસ્ટર કરી શકાય તેવા ડોમેન પર જાય (<code>a.example.com</code> અને <code>b.example.com</code> એક જ ગણાય), અથવા અલગ ડોમેન પર"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "એવું જ, પરંતુ ચોક્કસ હોસ્ટ નામ સરખાવીને, તેથી સબડોમેન થર્ડ-પાર્ટી ગણાય"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "પેરામીટર નામો કેસ-સંવેદનશીલ રીતે સરખાવાય છે"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "જ્યારે પેજ History API વડે પોતાનું સરનામું બદલે ત્યારે આ ફિલ્ટર છોડો. <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code> પણ સ્વીકારે છે"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "ચાર <code>*-party</code> મોડિફાયર એકબીજા સાથે જોડી શકાતા નથી; <code>first-party,third-party</code> નકારવામાં આવે છે."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "ઉદાહરણ તરીકે, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> <code>example.com</code> પર <code>sid</code> દૂર કરે છે, ફક્ત બીજી સાઇટના પેજે કરેલી GET વિનંતીઓ માટે, અને જ્યારે તે પેજ <code>partner.com</code> હોય ત્યારે ક્યારેય નહીં."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> એન્ટ્રી ફક્ત <code>$removeparam</code> ફિલ્ટર્સ સામે રક્ષણ આપે છે. <code>\"ref\"</code> જેવી સાદી એન્ટ્રી હજી પેરામીટર દૂર કરે છે; તે માટે નિયમ ઑબ્જેક્ટના <code>exceptions</code> વાપરો. રૉ નિયમોની પોતાની <code>@@…$rawrule=</code> એન્ટ્રીઓ છે (પ્રકરણ 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "તમે તેને ક્યાં સૂચિબદ્ધ કરો છો તેનાથી ફરક પડતો નથી, અને તેમાં <code>order</code> હોઈ શકતો નથી."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "તેની પેટર્ન URL સામે તપાસાય છે જેવો પ્રદાતાને મળ્યો, રૉ નિયમો ચાલે તે પહેલાં. રૉ નિયમ જે પાથ કાઢી નાખે તેના સુધી મર્યાદિત <code>@@</code> એન્ટ્રી હજી પણ મેળ ખાય છે."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "તે આ પ્રદાતા સાથે મેળ ખાતા પેજે કરેલી વિનંતીઓ માટે બીજા પ્રદાતાઓના ફિલ્ટર્સને પણ આવરી લે છે, જે બીજે ક્યાંક વ્યાખ્યાયિત નિયમમાંથી એક સાઇટને બાકાત રાખવા માટે ઉપયોગી છે."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "રૉ નિયમો <code>rules</code> પહેલાં ચાલે છે, કેસ અવગણે છે અને દરેક મેળ બદલે છે (ફ્લેગ્સ <code>gi</code>, અથવા <code>match-case</code> સાથે <code>g</code>). JSON માં, દરેક બેકસ્લૅશ બે વાર લખો."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "રૉ નિયમ <code>$removeparam</code> ફિલ્ટરની પેટર્ન અને મોડિફાયર લઈ શકે છે, <code>rawrule=</code> છેલ્લે. <code>rawrule=</code> પછીનું બધું રેગ્યુલર એક્સપ્રેશન છે:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "પેટર્ન અને મોડિફાયર નક્કી કરે છે કે નિયમ ક્યાં ચાલે; કાઢી નખાતું તો હજી રેગ્યુલર એક્સપ્રેશન જ છે."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "<code>@@</code> થી શરૂ થતી અને <code>rawrule=</code> પર પૂરી થતી એન્ટ્રી જ્યાં તેની પેટર્ન મેળ ખાય ત્યાં રૉ નિયમોને ચાલતા અટકાવે છે:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "<code>rawrule=</code> પછી કંઈ ન હોય તો, તે URL પર પ્રદાતાના દરેક રૉ નિયમને અટકાવે છે."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "<code>rawrule=</code> પછી રેગ્યુલર એક્સપ્રેશન હોય તો, તે એ જ રેગ્યુલર એક્સપ્રેશન ધરાવતા રૉ નિયમોને અટકાવે છે."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> સાથેના નિયમ ઑબ્જેક્ટ તરીકે, તે ફક્ત તે id અથવા ઉપનામ ધરાવતા રૉ નિયમને અટકાવે છે."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "આખા પ્રદાતાને છોડવા માટે, તેના બદલે <code>exceptions</code> વાપરો."
+  },
+  "guide_exceptions_p_1": {
+    "message": "જો URL <code>exceptions</code> ની કોઈ એન્ટ્રી સાથે મેળ ખાય, તો તે વિનંતી માટે પ્રદાતાનો કોઈ નિયમ ચાલતો નથી. એન્ટ્રી પૂરા URL સામે રેગ્યુલર એક્સપ્રેશન છે, અથવા <code>|</code> થી શરૂ થતી ડોમેન પેટર્ન:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "અપવાદો કેસ અવગણે છે. આખા પ્રદાતાને બદલે એક જ નિયમ છોડવા માટે, તે નિયમને પોતાના <code>exceptions</code> આપો (પ્રકરણ 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "URL માં જે મેળ ખાતું પેરામીટર પહેલું આવે તે જીતે છે. <code>https://site.example/away?redirect=https://real.example/page</code> માટે, વિનંતી <code>https://real.example/page</code> પર જાય છે."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "માન્ય રીડાયરેક્ટ લક્ષ્યો"
+  },
+  "guide_redirects_p_2": {
+    "message": "રીડાયરેક્ટ ફક્ત હોસ્ટ સાથેના સંપૂર્ણ <code>http</code> અથવા <code>https</code> સરનામે થાય છે. આ પ્રીપ્રોસેસર અને પર્સન્ટ-ડીકોડિંગ પછી તપાસાય છે. અમાન્ય લક્ષ્ય એન્ટ્રીને મેળ ન ખાતી ગણે છે: કંઈ રીડાયરેક્ટ થતું નથી, અને પ્રદાતાના પછીના પગલાં બદલાયા વિનાના URL પર ચાલે છે."
+  },
+  "guide_redirects_th_1": {
+    "message": "લક્ષ્ય"
+  },
+  "guide_redirects_th_2": {
+    "message": "રીડાયરેક્ટ થાય?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "હા"
+  },
+  "guide_redirects_cell_2": {
+    "message": "હા, <code>https://real.example/page</code> પર"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ના: સ્કીમ <code>http</code> કે <code>https</code> નથી"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ના: સંપૂર્ણ સરનામું નથી"
+  },
+  "guide_redirects_p_3": {
+    "message": "જે રૉ નિયમના પરિણામમાં તેના ઇનપુટ કરતાં અલગ સ્કીમ, હોસ્ટ કે પોર્ટ હોય તે પણ રીડાયરેક્ટ ગણાય છે, ભલે તે ફક્ત લખાણ કાઢી નાખતો હોય: <code>https://secure-bank.example/</code> માંથી <code>secure-</code> કાઢી નાખવાથી બીજી સાઇટ પર પહોંચાય છે. તેને માન્ય લક્ષ્ય જોઈએ, અને રિમોટ નિયમ સૂચિમાં <code>redirect</code> મંજૂરી (પ્રકરણ 15). નહીંતર નિયમ URL જેમ હતો તેમ રહેવા દે છે."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "કોઈ પણ સૂચિમાંની કોઈ પણ એન્ટ્રી સ્ટ્રિંગને બદલે ઑબ્જેક્ટ હોઈ શકે. જ્યારે નિયમને સ્થિર id જોઈએ, બંધ સ્થિતિમાં શરૂ થવો જોઈએ, દૂર કરવાને બદલે ફરી લખવો જોઈએ, અથવા ફક્ત અમુક કિસ્સામાં ચાલવો જોઈએ ત્યારે તે વાપરો:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "આવશ્યક. તે સૂચિમાં સાદી એન્ટ્રી તરીકે તમે જે લખાણ લખો."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "નિયમ ચાલુ-બંધ કરવા વપરાતું સ્થિર નામ (અક્ષરો, અંકો, <code>-</code>, <code>_</code>) (પ્રકરણ 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "નિયમના અગાઉના id, જેથી જૂના id હેઠળ સાચવેલી સેટિંગ નામ બદલાયા પછી પણ લાગુ રહે."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "દૂર કરવાને બદલે ફરી લખો; <code>§1§</code>, <code>§2§</code>, … મેળવેલી કિંમતો છે."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "મેળવેલી કિંમતોને પહેલા રૂપાંતરિત કરો."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "ફક્ત આ વિનંતી પ્રકારો માટે, ઉદાહરણ તરીકે <code>[\"main_frame\"]</code>. વિનંતી વિનાની સફાઈ (<em>સ્વચ્છ લિંકની નકલ કરો</em>, સફાઈ સાધન, History API ફેરફારો) <code>main_frame</code> ગણાય છે."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (રેગ્યુલર એક્સપ્રેશન) જ્યાં આ એક નિયમ ચાલતો નથી."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "સ્ટ્રિંગ તરીકે રેગ્યુલર એક્સપ્રેશન ફ્લેગ્સ. ડિફૉલ્ટ <code>i</code>; <code>rawRules</code> માં, <code>gi</code> (અથવા <code>match-case</code> સાથે <code>g</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "નિયમને તેના સ્ટેજમાં વહેલો કે મોડો ચલાવો (પ્રકરણ 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: <code>rules</code> માંનો નિયમ રેફરલ-માર્કેટિંગ નિયમ તરીકે પણ ગણાય છે (પ્રકરણ 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "આ એક નિયમ માટે, એ જ નામનું પ્રદાતા સ્વિચ. તે પ્રદાતાની કિંમત અને ફાઇલના ડિફૉલ્ટ પર જીતે છે."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: નિયમ બંધ સ્થિતિમાં શરૂ થાય છે."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "ફાઇલ વાંચતા લોકો માટે નોંધ; તે સ્ટ્રિંગ હોવી જોઈએ."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "ફક્ત <code>@@…$rawrule=</code> એન્ટ્રીઓ પર: તે જે રૉ નિયમને અટકાવે છે તેનો id."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "અહીં <code>?token=abc123</code> બદલાઈને <code>?token=clean-abc123</code> થાય છે. ફરી લખવું દરેક વિનંતી દીઠ વધુમાં વધુ એક વાર લાગુ પડે છે, તેથી તે કિંમતને વારંવાર લપેટતું નથી."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "પ્રીપ્રોસેસર્સ <code>replacePattern</code> અથવા રીડાયરેક્ટ તેમનો ઉપયોગ કરે તે પહેલાં, ક્રમમાં, મેળવેલી કિંમતો બદલે છે. <code>inputs</code> <code>\"all\"</code> અથવા ગ્રુપ નંબરની સૂચિ છે:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> <code>rules</code> જેવી જ એન્ટ્રીઓ લે છે. તેઓ ફક્ત <em>રેફરલ માર્કેટિંગની મંજૂરી આપો</em> બંધ હોય ત્યારે જ ચાલે છે, તેથી તમે તેને ચાલુ કરો તો એફિલિએટ લિંક્સ કામ કરતી રહે:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "નિયમ <code>rules</code> માં રહીને પણ <code>\"referralMarketing\": true</code> સાથે રેફરલ માર્કેટિંગ ગણાઈ શકે. <code>rules</code> અને <code>referralMarketing</code> બંનેમાં એ જ લખાણ ન મૂકો; સંપાદક તેના વિશે ચેતવણી આપે છે."
+  },
+  "guide_request_types_cell_1": {
+    "message": "એક નિયમ ઑબ્જેક્ટ જે વિનંતી પ્રકારો સંભાળે છે (<code>defaults</code> માં પણ સેટ કરી શકાય)"
+  },
+  "guide_request_types_p_1": {
+    "message": "વિનંતી પ્રકારો બ્રાઉઝરના નામો વાપરે છે: <code>main_frame</code> (પેજ), <code>sub_frame</code> (ફ્રેમ), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> વગેરે. ફિલ્ટર મોડિફાયર પહેલા બેને <code>document</code> અને <code>subdocument</code> કહે છે."
+  },
+  "guide_request_types_p_2": {
+    "message": "વિનંતી પ્રકારો ફક્ત નિયમોમાંથી આવે છે: સેટિંગ્સમાં વિનંતી પ્રકારોની કોઈ સૂચિ નથી. આમાંથી કંઈ સેટ ન હોય તો, નિયમ દરેક વિનંતી પ્રકાર સાફ કરે છે."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. ડિફૉલ્ટ્સ"
+  },
+  "guide_defaults_p_1": {
+    "message": "ટોપ-લેવલ <code>defaults</code> બ્લૉક ફાઇલના દરેક નિયમને તે કિંમતો આપે છે જે તેણે પોતે સેટ કરી નથી:"
+  },
+  "guide_defaults_th_1": {
+    "message": "દરેક નિયમના આના માટે ડિફૉલ્ટ…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> દરેક નિયમ બંધ કરે છે સિવાય કે તે <code>\"active\": true</code> કહે"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> અથવા છોડી દેવું એટલે દરેક પ્રકાર"
+  },
+  "guide_defaults_item_1": {
+    "message": "નિયમની પોતાની કિંમત હંમેશાં જીતે છે, અને નિયમના <code>exceptions</code> ડિફૉલ્ટ સૂચિમાં ઉમેરાવાને બદલે તેને બદલે છે."
+  },
+  "guide_defaults_item_2": {
+    "message": "ડિફૉલ્ટ્સ <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> અને <code>fieldRedirections</code> પર લાગુ પડે છે. પ્રદાતાની પોતાની <code>exceptions</code> સૂચિ અડકાતી નથી. <code>$redirect=</code> એન્ટ્રીઓ ફક્ત <code>active</code> વાપરે છે."
+  },
+  "guide_defaults_item_3": {
+    "message": "દરેક ફાઇલ પોતાના ડિફૉલ્ટ્સ રાખે છે: બિલ્ટ-ઇન નિયમો, દરેક રિમોટ સૂચિ અને તમારા કસ્ટમ નિયમો, ઓવરલોડ મોડ તેમને મર્જ કરે ત્યારે પણ."
+  },
+  "guide_defaults_item_4": {
+    "message": "<code>completeProvider</code> માટે, ડિફૉલ્ટ <code>requestTypes</code> અને <code>exceptions</code> બ્લૉકને પણ મર્યાદિત કરે છે."
+  },
+  "guide_defaults_item_5": {
+    "message": "અજાણી કી અને ખોટા પ્રકારો ભૂલ છે, અને અમાન્ય <code>defaults</code> બ્લૉક ધરાવતી રિમોટ સૂચિ નકારવામાં આવે છે."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "તમારા પોતાના ડિફૉલ્ટ્સ"
+  },
+  "guide_defaults_p_2": {
+    "message": "કસ્ટમ નિયમ સંપાદકમાં, <em>નિયમ ડિફૉલ્ટ્સ મેનેજ કરો</em> એક ફોર્મ ખોલે છે જ્યાં તમે તમારો પોતાનો <code>defaults</code> બ્લૉક સેટ કરો છો અને પસંદ કરો છો કે તે ક્યાં ફાઇલોના પોતાનાને બદલે:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>દરેક સ્ત્રોતના પોતાના</em> (ડિફૉલ્ટ): દરેક ફાઇલ પોતાના <code>defaults</code> વાપરે છે."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>બિલ્ટ-ઇન અને રિમોટ નિયમો માટે તમારા</em>: બિલ્ટ-ઇન અને રિમોટ નિયમો તમારા વાપરે છે; કસ્ટમ નિયમો પોતાના રાખે છે."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>બધા નિયમો માટે તમારા</em>: દરેક નિયમ તમારા વાપરે છે."
+  },
+  "guide_defaults_p_3": {
+    "message": "આ જ ફોર્મ બિલ્ટ-ઇન નિયમોના અને દરેક લોડ થયેલી રિમોટ સૂચિના ડિફૉલ્ટ્સ સંપાદિત કરી શકે છે. તમારું સંપાદન એક્સ્ટેંશનમાં સંગ્રહાય છે, ફાઇલમાં નહીં, અને <em>ફાઇલના ડિફૉલ્ટ્સ પર રીસેટ કરો</em> તેને કાઢી નાખે છે. <em>સ્ત્રોતોમાંથી મર્જ કરો…</em> તમે ટિક કરેલા સ્ત્રોતોના ડિફૉલ્ટ્સ ભેગા કરે છે; તમે સાચવો નહીં ત્યાં સુધી કંઈ સંગ્રહાતું નથી."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL કેવી રીતે પ્રોસેસ થાય છે"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, પછી <code>fieldRedirections</code>: માન્ય લક્ષ્ય સાથેનો મેળ વિનંતીને રીડાયરેક્ટ કરે છે."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> અને <code>referralMarketing</code> પેરામીટર દૂર કરે છે અથવા ફરી લખે છે."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code> ફિલ્ટર્સ ચાલે છે, સિવાય કે જ્યાં <code>@@</code> એન્ટ્રી પેરામીટર રાખે."
+  },
+  "guide_processing_order_p_1": {
+    "message": "URL ને બદલતો, રીડાયરેક્ટ કરતો અથવા અવરોધિત કરતો પ્રથમ પ્રદાતા જીતે છે. નવો URL પછી ફરીથી તે જ પગલાંમાંથી પસાર થાય છે (જુઓ <a href=\"#termination\">પ્રોસેસિંગ ક્યારે અટકે છે</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "ચલાવવાનો ક્રમ અને <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "પગલાં 4 અને 5 આ નિયમો અનુક્રમે લાગુ કરીને સાથે ગોઠવાય છે:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>રૉ નિયમો હંમેશાં પહેલા ચાલે છે.</strong> કોઈ <code>order</code> <code>rules</code> એન્ટ્રીને રૉ નિયમની આગળ લાવતો નથી. રૉ નિયમ પહેલાં થવી જોઈતી સફાઈ પોતે રૉ નિયમ હોવી જોઈએ."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>સ્ટેજની અંદર, <code>order</code> ધરાવતા નિયમો તેના વિનાના નિયમો પહેલાં ચાલે છે</strong>, સૌથી ઓછો પહેલા. ઋણ સંખ્યાઓ અને અપૂર્ણાંકોની મંજૂરી છે. <code>order: 10</code> નો અર્થ \"દસમો\" નથી: તેનો અર્થ છે સ્ટેજના 10 થી નીચેના order ધરાવતા નિયમો પછી અને order વિનાના બધા નિયમો પહેલાં."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>પછી સૂચિ પ્રમાણે:</strong> <code>rules</code>, પછી <code>\"referralMarketing\": true</code> ચિહ્નિત <code>rules</code> ઑબ્જેક્ટ, પછી <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>પછી સૂચિમાંના સ્થાન પ્રમાણે.</strong> દરેક એન્ટ્રી પોતાનું સ્થાન રાખે છે, <code>\"3\"</code> અથવા <code>\"20\"</code> જેવી લખેલી એન્ટ્રીઓ સહિત."
+  },
+  "guide_processing_order_p_3": {
+    "message": "અહીં ટોકન <code>utm_source</code> દૂર થાય તે પહેલાં ફરી લખાય છે, ભલે તે બીજા નંબરે આવે છે:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "બંધ નિયમો બાકાત રખાય છે. <code>$removeparam</code> ફિલ્ટર્સ અને <code>@@</code> એન્ટ્રીઓ આ ગોઠવણીની બહાર છે અને તેમાં <code>order</code> ન હોઈ શકે, <code>null</code> પણ નહીં; ફિલ્ટર્સ હંમેશાં છેલ્લે ચાલે છે."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "એ જ લખાણ બે વાર"
+  },
+  "guide_processing_order_p_5": {
+    "message": "એક જૂથમાં સમાન <code>matchPattern</code> લખાણવાળી બે એન્ટ્રીઓ એક જ નિયમ ગણાય છે. જૂથો છે રૉ (<code>rawRules</code>), ફીલ્ડ (રેફરલ ચિહ્ન વિનાના <code>rules</code>) અને રેફરલ (ચિહ્નિત <code>rules</code> ઑબ્જેક્ટ, પછી <code>referralMarketing</code>). આ મોટે ભાગે નિયમ સૂચિઓ મર્જ થાય ત્યારે થાય છે."
+  },
+  "guide_processing_order_item_8": {
+    "message": "જે છેલ્લી વ્યાખ્યા બંધ નથી તે તેની બધી કી સાથે જીતે છે."
+  },
+  "guide_processing_order_item_9": {
+    "message": "પોતાના <code>order</code> વિના, વિજેતા પહેલી વ્યાખ્યાનું સ્થાન અને સૌથી નજીકનો અગાઉનો <code>order</code> લે છે. <code>\"order\": null</code> એટલે કોઈ order નહીં, અને વારસામાં મળેલો order છોડી દે છે."
+  },
+  "guide_processing_order_item_10": {
+    "message": "બદલાયેલી વ્યાખ્યાઓના id અને ઉપનામ પણ વિજેતાને ચાલુ-બંધ કરે છે."
+  },
+  "guide_processing_order_item_11": {
+    "message": "રેફરલ-માર્કેટિંગ નિયમો ચાલે ત્યારે, રેફરલ એન્ટ્રી સમાન લખાણવાળી ફીલ્ડ એન્ટ્રીને બદલે છે."
+  },
+  "guide_processing_order_item_12": {
+    "message": "સમાન લખાણવાળો રૉ નિયમ અને ફીલ્ડ નિયમ અથડાતા નથી; બંને ચાલે છે."
+  },
+  "guide_processing_order_p_6": {
+    "message": "એક સૂચિની અંદર, સમાન લખાણવાળી બે અલગ એન્ટ્રીઓ ભૂલ છે, અને તદ્દન નકલ ચેતવણી છે."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "પ્રોસેસિંગ ક્યારે અટકે છે"
+  },
+  "guide_processing_order_item_13": {
+    "message": "દરેક વિનંતી દીઠ વધુમાં વધુ 10 ચક્ર ચાલે છે; મર્યાદાએ URL જેમ છે તેમ વપરાય છે."
+  },
+  "guide_processing_order_item_14": {
+    "message": "<code>replacePattern</code> ધરાવતો નિયમ દરેક વિનંતી દીઠ વધુમાં વધુ એક વાર લાગુ પડે છે."
+  },
+  "guide_processing_order_item_15": {
+    "message": "URL ન બદલતું પગલું નવું ચક્ર શરૂ કરતું નથી."
+  },
+  "guide_processing_order_p_7": {
+    "message": "સેટિંગ્સ → <em>અમર્યાદિત સફાઈ ચક્રો</em> (ડિફૉલ્ટ રૂપે બંધ) વધુ જરૂર હોય તેવી નિયમ શૃંખલાઓ માટે 10-ચક્ર મર્યાદા દૂર કરે છે. પછી ચક્ર કંઈ ન બદલે ત્યારે પ્રોસેસિંગ પૂરું થાય છે, પરંતુ એકબીજા પર રીડાયરેક્ટ કરતા બે નિયમો બ્રાઉઝર હાર ન માને ત્યાં સુધી લૂપ ચાલે છે અને પેજ લોડ થતું નથી. ફક્ત તમે જેના પર વિશ્વાસ કરતા હો તેવા નિયમો માટે જ તેને ચાલુ કરો."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. નિયમ id અને ચાલુ/બંધ સ્વિચ"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "દરેક નિયમનો એક id હોય છે. <code>id</code> વિનાના નિયમને તેની સૂચિ અને તેના લખાણ પરથી id મળે છે: <code>rules</code> માં <code>\"utm_source\"</code> બને છે <code>field-utm-source</code>. નિયમનું લખાણ બદલાય ત્યારે જનરેટ થયેલો id બદલાય છે, અને બંધ કરેલો નિયમ પછી ફરી ચાલુ થઈ જાય. સંપાદનો દરમિયાન નિયમે પોતાની ચાલુ/બંધ સેટિંગ રાખવી હોય તો તેને પોતાનો <code>id</code> આપો, અને નામ બદલો ત્યારે જૂના id <code>aliases</code> માં લખો."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "નિયમ તેના પ્રદાતા અને id સાથે મળીને ચાલુ-બંધ થાય છે, જેમ કે <code>shop::session-token</code>, તેથી બે પ્રદાતાઓ એક જ id વાપરી શકે. કસ્ટમ નિયમ સંપાદક તેને પ્રદાતાની પેટર્ન હેઠળ પણ સાચવી શકે, જેમ કે <code>domainPattern:||shop.example^::session-token</code>; બંને સ્વરૂપ કામ કરે છે."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "એક પ્રદાતામાં, દરેક id અને ઉપનામ અલગ હોવા જોઈએ. જનરેટ થયેલા id પણ ગણાય છે."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "id માં કોલન હોઈ શકતો નથી."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "પ્રદાતા વિનાના ખાલી id હેઠળ સાચવેલી સેટિંગ કંઈ બદલતી નથી; કસ્ટમ નિયમ સંપાદકમાં નિયમ ફરીથી બંધ કરો."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. રિમોટ નિયમ સૂચિઓ"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "રિમોટ નિયમ સૂચિઓ એ નિયમ ફાઇલો છે જે Linkumori ડાઉનલોડ કરે છે, વૈકલ્પિક રીતે હેશ ફાઇલ સામે તપાસીને. અમાન્ય <code>cln</code> કિંમત, <code>defaults</code> બ્લૉક અથવા <code>patches</code> એરે ધરાવતી સૂચિ લોડ થતી નથી, અને Remote Rules Health તેની જાણ કરે છે."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "રીડાયરેક્ટ અને બ્લૉક માટે તમારી મંજૂરી જોઈએ"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "રિમોટ સૂચિ શું કરી શકે તે લોડ થતી વખતે તેની સામગ્રી પરથી નક્કી થાય છે:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "ક્ષમતા"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "સૂચિમાં આ હોય ત્યારે તે તેની પાસે હોય છે"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "લોડ પર સક્રિય"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>, <code>rawRules</code> અથવા <code>referralMarketing</code> એન્ટ્રી, અથવા <code>$removeparam</code> ફિલ્ટર"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "<code>replacePattern</code> ધરાવતી એન્ટ્રી"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "પ્રદાતાની <code>exceptions</code> એન્ટ્રી અથવા <code>@@</code> એન્ટ્રી"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> અથવા <code>fieldRedirections</code> એન્ટ્રી, અથવા <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "મંજૂરી પછી"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "<code>\"completeProvider\": true</code> ધરાવતો પ્રદાતા"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Remote Rules Health માં દરેક સૂચિ માટે <code>redirect</code> અને <code>block</code> મંજૂર કરો. ત્યાં સુધી, તે સૂચિના રીડાયરેક્ટ અને બ્લૉક બંધ રહે છે, અને તેના રૉ નિયમો URL ને બીજી સાઇટ પર મોકલી શકતા નથી; સૂચિનો બાકીનો ભાગ તરત કામ કરે છે. જ્યારે અપડેટ નવી ક્ષમતા ઉમેરે, ત્યારે તે પણ મંજૂરી માટે રાહ જુએ છે. બિલ્ટ-ઇન અને કસ્ટમ નિયમો પાસે દરેક ક્ષમતા હોય છે."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "ઓવરલોડ મોડ"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "સામાન્ય રીતે, પ્રદાતાઓ ધરાવતી રિમોટ સૂચિઓ બિલ્ટ-ઇન નિયમોને બદલે છે; ફક્ત <code>patches</code> ધરાવતી સૂચિઓ બિલ્ટ-ઇન નિયમો પર લાગુ થાય છે. <em>ઓવરલોડ મોડને સક્ષમ કરો</em> ચાલુ હોય ત્યારે, તેઓ ત્રણમાંથી એક વ્યૂહરચના વાપરીને સાથે લોડ થાય છે:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>ફક્ત પેચ મોડ</em>: રિમોટ સૂચિઓના પેચ બિલ્ટ-ઇન નિયમો પર લાગુ કરો; રિમોટ પ્રદાતાઓ બાકાત રખાય છે."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>પેચ મોડ + મર્જ</em>: બિલ્ટ-ઇન અને રિમોટ પ્રદાતાઓ મર્જ કરો, પછી પેચ લાગુ કરો."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>પેચ મોડ વિના + મર્જ</em>: પ્રદાતાઓ મર્જ કરો અને પેચ છોડી દો."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "મર્જ કરતી વખતે, રિમોટ સૂચિઓ તમે તેમને સૂચિબદ્ધ કરો તે ક્રમમાં એકબીજા સાથે મર્જ થાય છે, પછી બિલ્ટ-ઇન નિયમો સાથે (બિલ્ટ-ઇન પહેલા). ફક્ત સમાન <code>domainPatterns</code> (અથવા <code>urlPattern</code>) અને સમાન <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> અને <code>forceRedirection</code> ધરાવતા પ્રદાતાઓ મર્જ થાય છે; તેમના <code>rules</code>, <code>rawRules</code> અને <code>referralMarketing</code> જોડાય છે, અને કઈ નકલ ચાલે તે <a href=\"#same-text-twice\">એ જ લખાણ બે વાર</a> નક્કી કરે છે. Remote Rules Health દરેક બદલાયેલા નિયમને સૂચના તરીકે સૂચિબદ્ધ કરે છે."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "કસ્ટમ નિયમો છેલ્લે લાગુ થાય છે. કસ્ટમ પ્રદાતા સમાન પેટર્ન ધરાવતા દરેક લોડ થયેલા પ્રદાતાને બદલે છે; તેમના નિયમો ભેગા થતા નથી."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "નિયમ પેચ"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "રિમોટ સૂચિ પૂરી નકલ પ્રકાશિત કર્યા વિના, ટોપ-લેવલ <code>patches</code> એરેમાં પહેલેથી લોડ થયેલા એક-એક નિયમને બદલી શકે છે:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "આવશ્યક. બદલવાનો નિયમ, તેની ચાલુ/બંધ કીની જેમ લખેલો: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> અથવા <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "આવશ્યક. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> અથવા <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "આવશ્યક. નવો નિયમ, સાદી એન્ટ્રી અથવા નિયમ ઑબ્જેક્ટ તરીકે."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "ફાઇલ વાંચતા લોકો માટે નોંધ."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "પેચ રિમોટ સૂચિઓ મર્જ થયા પછી અને કસ્ટમ નિયમો પહેલાં ચાલે છે. ફક્ત <code>patches</code> ધરાવતી ફાઇલને <code>providers</code> ની જરૂર નથી."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "મર્જ કરવાથી પ્રદાતાઓના નામ બદલાઈ શકે, તેથી <code>domainPattern:</code> અથવા <code>urlPattern:</code> સ્વરૂપ તે છે જે હંમેશાં તેમને શોધે છે."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "બદલાયેલો નિયમ જૂનો id રાખે છે, અથવા જૂના id ને ઉપનામ તરીકે લે છે, જેથી ચાલુ/બંધ સેટિંગ્સ લાગુ રહે."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "રીડાયરેક્ટ માટેનો પેચ સૂચિની <code>redirect</code> મંજૂરીની રાહ જુએ છે. જેનું લક્ષ્ય કશા સાથે મેળ ન ખાય તેવો પેચ કંઈ બદલતો નથી."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health દરેક પેચને લાગુ, મેળ વિનાનો અથવા છોડેલો તરીકે સૂચિબદ્ધ કરે છે."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. નિયમો અને વ્હાઇટલિસ્ટ"
+  },
+  "guide_whitelist_p_1": {
+    "message": "વ્હાઇટલિસ્ટ પ્રદાતાના <code>exceptions</code> થી અલગ છે: તે એવી સાઇટ્સની યાદી છે જેને Linkumori ને અડકવાની ના પાડી છે, કોઈ નિયમ ફાઇલ વિના. એન્ટ્રીઓ <code>example.com</code>, <code>*.example.com</code> (સાઇટ અને તેના સબડોમેન) અથવા <code>example.*</code> (કોઈ પણ સફિક્સ) જેવી દેખાય છે. પેજને વ્હાઇટલિસ્ટ કરવાથી તે જે કંઈ લોડ કરે છે તે પણ આવરી લેવાય છે."
+  },
+  "guide_examples_title_1": {
+    "message": "17. સંપૂર્ણ ઉદાહરણો"
+  },
+  "guide_checking_title_1": {
+    "message": "18. તમારા નિયમો તપાસવા"
+  },
+  "guide_checking_p_1": {
+    "message": "કસ્ટમ નિયમ સંપાદક નિયમો સાચવતી અથવા આયાત કરતી વખતે તેમને તપાસે છે, અને <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> એ જ તપાસ ચલાવે છે. તૂટેલા JSON અને અમાન્ય રેગ્યુલર એક્સપ્રેશન ઉપરાંત, તેઓ એવા નિયમો નકારે છે જે લોડ થાય પણ ચૂપચાપ ખોટું કરે, જેમ કે:"
+  },
+  "guide_checking_item_1": {
+    "message": "અજાણ્યા ફીલ્ડ, કી અને મોડિફાયર"
+  },
+  "guide_check_7": {
+    "message": "<code>\"1.0\"</code> સિવાયની <code>cln</code> કિંમત"
+  },
+  "guide_check_8": {
+    "message": "એક પ્રદાતામાં બે વાર વપરાયેલ id અથવા ઉપનામ"
+  },
+  "guide_checking_item_2": {
+    "message": "એક સૂચિમાં સમાન લખાણવાળી બે અલગ એન્ટ્રીઓ"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> ફિલ્ટર અથવા <code>@@</code> એન્ટ્રી પર <code>order</code>, <code>null</code> સહિત"
+  },
+  "guide_check_9": {
+    "message": "<code>http</code> અથવા <code>https</code> ન હોય તેવું <code>$redirect=</code> સરનામું"
+  },
+  "guide_check_10": {
+    "message": "<code>$removeparam</code> નામમાં એવા અક્ષર પહેલાં બેકસ્લૅશ જેનો કોઈ એસ્કેપ નથી"
+  },
+  "guide_checking_p_2": {
+    "message": "તેઓ તદ્દન નકલો વિશે, અને <code>rules</code> તથા <code>referralMarketing</code> બંનેમાંના સમાન લખાણ વિશે પણ ચેતવણી આપે છે. સાચવવું નિષ્ફળ જાય તો, સંદેશ પ્રદાતા, સૂચિ અને એન્ટ્રીનું નામ આપે છે."
+  },
+  "guide_toc_search": {
+    "message": "વિભાગો ફિલ્ટર કરો"
+  },
+  "guide_toc_no_results": {
+    "message": "કોઈ મેળ ખાતા વિભાગો નથી."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: \"|\" થી શરૂ થતું રીડાયરેક્ટ આ રીતે હોવું જોઈએ: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= નું લક્ષ્ય સંપૂર્ણ http અથવા https URL હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ ઑબ્જેક્ટ હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type ખાલી ન હોય તેવી સ્ટ્રિંગ હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type નીચેમાંથી એક હોવું જોઈએ: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs \"all\" અથવા ધન પૂર્ણાંકોની એરે હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ સ્ટ્રિંગ અથવા નિયમનો ઑબ્જેક્ટ હોવો જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern સ્ટ્રિંગ હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern સ્ટ્રિંગ હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId નિયમનું ID હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId માત્ર rawRules માંના \"@@…$rawrule=\" અપવાદો પર લાગુ પડે છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags સ્ટ્રિંગ હોવું જોઈએ (જેમ કે \"i\" જેવા regex ફ્લેગ)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing true અથવા false હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing ની $FIELD$ માં કોઈ અસર નથી; તે માત્ર $LISTS$ માં લાગુ પડે છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order સંખ્યા અથવા null હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order ની $FIELD$ માં કોઈ અસર નથી; તે માત્ર $LISTS$ માં લાગુ પડે છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order ની $removeparam ફિલ્ટર અથવા \"@@\" એન્ટ્રી પર કોઈ અસર નથી; તે હંમેશાં બીજા નિયમો પછી ચાલે છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active બુલિયન હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id સ્ટ્રિંગ હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id એ $PATTERN$ પેટર્ન સાથે મેળ ખાવો જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases એ $PATTERN$ પેટર્ન સાથે મેળ ખાતા ID ની યાદી હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases માં નિયમનું પોતાનું ID ન હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description સ્ટ્રિંગ હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection બુલિયન હોવું જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions સ્ટ્રિંગની એરે હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes સ્ટ્રિંગની એરે હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors એરે હોવી જોઈએ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: અજ્ઞાત ફીલ્ડ \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ \"@@\" થી શરૂ થાય છે, જે માત્ર rules અને referralMarketing માંની $removeparam ફિલ્ટર પર લાગુ પડે છે; તેના બદલે નિયમના ઑબ્જેક્ટમાં \"exceptions\" વાપરો",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ માં અજ્ઞાત $removeparam વિકલ્પ \"$OPTION$\" છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" એક જ \"|\" થી શરૂ થાય છે, તેથી તે માત્ર \"$REST$\" થી અક્ષરશઃ શરૂ થતા URL સાથે મેળ ખાય છે, અને આવો કોઈ URL નથી (URL \"https://\" થી શરૂ થાય છે). ડોમેન સાથે મેળ કરવા માટે \"||$REST$\" વાપરો.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ માં \"targetId\" છે, જે માત્ર અપવાદમાં કામ કરે છે; matchPattern ની શરૂઆત \"@@\" થી કરો (જેમ કે \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ માં \"targetId\" અને \"rawrule=\" પછી regex બંને છે; તેમાંથી એક જ વાપરો",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ માં targetId \"$ID$\" છે, પરંતુ આ પ્રદાતાના કોઈ raw નિયમમાં એ ID અથવા alias નથી",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ એ \"$REGEX$\" માટેનો \"@@\" અપવાદ છે, પરંતુ આ પ્રદાતાનો કોઈ raw નિયમ એ regex વાપરતો નથી. નિયમને ID આપો અને \"targetId\" વડે તેનો ઉલ્લેખ કરો",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ એ \"@@\" અપવાદ છે, તેથી \"$KEY$\" ની કોઈ અસર થશે નહીં",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ માં \"rawrule=\" પછી કંઈ નથી; દૂર કરવા માટે regex જરૂરી છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ માં \"rawrule=\" પછી અમાન્ય regex છે: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ માં $GROUPS$ કેપ્ચર ગ્રૂપ છે; લક્ષ્ય URL ની આસપાસ બરાબર એક \"( … )\" જરૂરી છે (બીજા ગ્રૂપ \"(?: … )\" તરીકે લખો)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ એ $WHERE$ માં નિયમનું ID \"$ID$\" ફરી વાપર્યું છે; તેનો પ્રથમ ઉપયોગ $FIRST$ માં થયો હતો",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ JSON ઑબ્જેક્ટ હોવું જોઈએ",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ એરે હોવી જોઈએ",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ માં અજ્ઞાત કી \"$KEY$\" છે",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL પર પ્રક્રિયા કરતી વખતે ભૂલ: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "પેજ શરૂ કરતી વખતે ભૂલ: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "અમાન્ય ટૅબ"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "આ ટૅબ માટે નિયમ શોધ પહેલેથી ચાલી રહી છે"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "આ ટૅબ માટે કોઈ વિરામ તપાસ ચાલી રહી નથી"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "નિયમો હજી લોડ થઈ રહ્યા છે. થોડી વાર પછી ફરી પ્રયાસ કરો."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "આ પેજ પર લાગુ પડેલા કોઈ નિયમને બંધ કરી શકાય તેમ નથી."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "નિયમો બંધ કરી શકાયા નથી"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "આ ટૅબ માટે કોઈ નિયમ શોધ ચાલી રહી નથી"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "આ ટૅબ માટે છોડવા યોગ્ય કોઈ મળેલો નિયમ નથી"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "ડાઉનલોડ ઉપલબ્ધ નથી"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "સેશન સ્ટોરેજમાં રેકોર્ડિંગ સાચવી શકાયું નથી"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "અજ્ઞાત નિયમ"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "અજ્ઞાત ભૂલ"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "એક્સપોર્ટ નિષ્ફળ થયું"
   }
 }

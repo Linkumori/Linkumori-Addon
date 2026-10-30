@@ -39,7 +39,7 @@
     "message": "Kasutage komplekteeritud Linkumori/ClearURLs reegleid. Ainult kaugreeglite ja/või kohandatud reeglitega töötamiseks keelake see."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori kasutab ühte ühtset ClearURLsData pakkujate reeglistikku. Pakkujate algne JSON, kanoonilised reeglobjektid ja pakkujapõhised $removeparam filtrid ühendatakse enne clearurls.js käivitamist."
   },
   "bundled_rules_section_title": {
     "message": "Teave reeglitest"
@@ -1137,25 +1137,25 @@
     "message": "Avage Linkumori seaded"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Ülekoormusrežiimi käitumine"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Ainult paigarežiim"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Rakenda kaugpaigad sisseehitatud reeglitele. Kaugpakkujate reegleid ei kaasata."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Paigarežiim + ühendamine"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Ühenda sisseehitatud ja kaugpakkujate reeglid, seejärel rakenda kaugpaigad."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Ilma paigarežiimita + ühendamine"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Ühenda sisseehitatud ja kaugpakkujate reeglid ilma kaugpaikasid rakendamata."
   },
   "overload_mode_enabled": {
     "message": "Luba ülekoormusrežiim"
@@ -1557,7 +1557,7 @@
     "message": "Domeeni mustrid"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP"
+    "message": "DM"
   },
   "providerImport_exceptions": {
     "message": "Erandid"
@@ -1836,7 +1836,7 @@
     "message": "Peamine räsi-URL peab kasutama HTTPS-i"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Peamine reegli URL ja peamine räsi URL tuleb seadistada koos."
   },
   "save_primary_rule_https_required": {
     "message": "Peamise reegli URL peab kasutama HTTPS-i"
@@ -1872,13 +1872,13 @@
     "message": "Ma mõistan riske – jätka"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Kaaluge kaugreeglite kasutamist uuesti, kui te ei mõista täielikult Linkumori reeglistiku allikat või ei usalda seda."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "See kaugreeglite funktsioon on mõeldud kogenud kasutajatele, kes mõistavad laaditavat Linkumori JSON-i. Kaugreeglitel peaks kinnitamiseks olema vastav räsi URL."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Kui lisate kaugreegli URL-i, ühendub laiendus teie määratud serveriga, et tuua Linkumori reeglistik ja selle räsifail, kui see on seadistatud. Iga päring võib avaldada teie IP-aadressi ja üldist teavet, nagu laienduse versioon, brauser ja brauseri versioon, hostivale serverile. Neile andmetele kehtib selle veebisaidi või veebiserveri privaatsuspoliitika."
   },
   "security_modal_privacy_link_text": {
     "message": "Vajadusel lugege enne jätkamist uuesti %PRIVACY_POLICY_LINK%."
@@ -1887,7 +1887,7 @@
     "message": "hoiatus:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Kasutage sisseehitatud reegleid, kui te ei usalda ja ei kontrolli kaugallikat. Esitage kaug-Linkumori JSON-reeglite jaoks vastav räsi URL."
   },
   "security_modal_risk_1": {
     "message": "Teie IP-aadress ja brauseri teave avaldatakse konfigureeritud serveritele"
@@ -1899,7 +1899,7 @@
     "message": "Räsikinnitus kehtib ainult numbri Linkumori CLN Format 1.0 JSON reeglite puhul; see kaitseb edastuse rikkumiste, mitte pahatahtlike reegliallikate eest."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Edukalt räsiga kinnitamata kaugreeglid toetuvad täielikult allika URL-i usaldusele."
   },
   "security_modal_risks_title": {
     "message": "Turvariskid:"
@@ -1914,7 +1914,7 @@
     "message": "URL failile rules.hash (räsi)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Nõutav kaug-Linkumori JSON-reeglite kinnitamiseks."
   },
   "setting_html_export_button": {
     "message": "Ekspordi"
@@ -1944,7 +1944,7 @@
     "message": "Logi limiit (0–5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Täiendavad kaug-Linkumori JSON-allikad, mis ühendatakse. Sisestage üks paar rea kohta kujul <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Täiendavad kaugreeglikomplektid"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Kohandatud kaug-URL Linkumori JSON-reeglite jaoks"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Kaugreeglite JSON-faili URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Iga kaugreeglistiku jaoks on räsi URL nõutav."
   },
   "settings_html_page_title": {
     "message": "Linkumori (puhtad URL-id) seaded"
@@ -2421,19 +2421,19 @@
     "message": "HOIATUS: Täiustatud funktsioon on mõeldud ainult isehostitavatele serveritele"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Lülitate välja Gatekeeperi kaitsed kaugreegli URL-i muutmisel. See funktsioon võib laadida kaug-Linkumori JSON-reegleid ühtsesse pakkujate reeglistikku. Jätkake ainult siis, kui mõistate ja usaldate allikat, mida seadistate."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper on sisseehitatud turvavoog, mis blokeerib otsesed URL-i kaugmuudatused, kuni kinnitate turvahoiatuse ja lõpetate sisestatud kinnituse."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Hoidke Gatekeeper sisse lülitatuna, kui te ei usalda ja ei kontrolli oma kaugallikaid. Kaug-JSON-reeglitel peaks olema vastav räsi URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "hoiatus:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Kui lisate kaugreegli URL-i, ühendub laiendus teie määratud serveriga, et tuua Linkumori reeglistik ja selle räsifail, kui see on seadistatud. Iga päring võib avaldada teie IP-aadressi ja üldist teavet, nagu laienduse versioon, brauser ja brauseri versioon, hostivale serverile. Neile andmetele kehtib selle veebisaidi või veebiserveri privaatsuspoliitika."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Vajadusel lugege enne jätkamist uuesti %PRIVACY_POLICY_LINK%."
@@ -2448,7 +2448,7 @@
     "message": "Laiendus loob ühenduse teie määratud URL-iga iga kord, kui laiendus on lubatud ja teie brauserisse laaditud."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Kaug-JSON- või räsifaile hostiv server saab teie IP-aadressi."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Server võib saada ka teie laienduse versiooni, brauseri ja brauseri versiooni."
@@ -2457,7 +2457,7 @@
     "message": "Nende andmete suhtes kohaldatakse neid faile majutava veebisaidi või veebiserveri privaatsuspoliitikat."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeperi väljalülitamisega suurendate ohtu ebaturvaliste või kompromiteeritud kaugreeglite allikate tõttu. Räsiga kinnitamine kaitseb kaug-Linkumori JSON-allalaadimisi ainult siis, kui vastav räsi URL on seadistatud."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Tühista"
@@ -2517,7 +2517,7 @@
     "message": "Tippige täpne kinnitusfraas"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "See toiming vähendab kaugreeglite kaitsemeetmeid. Jätkake ainult siis, kui usaldate oma kaug-JSON-allikat."
   },
   "remote_urls_template_note_1": {
     "message": "Asendage kohatäite väärtused oma tegelike HTTPS-i URL-idega ja importige see fail."
@@ -2817,7 +2817,7 @@
     "message": "Min"
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "t"
   },
   "settings_remote_health_title": {
     "message": "Kaugreeglite tervis"
@@ -2847,10 +2847,10 @@
     "message": "Mitte ühtegi"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Reeglite konfliktid:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ viga, $WARNINGS$ hoiatust, $NOTICES$ teadet",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Kaugfaili võimalused:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "mitteaktiivne kuni nõustumiseni: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Nõustu: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Reeglipaigad:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ rakendatud, $NOT_APPLIED$ rakendamata",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Reegli vaikeväärtused"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Sisseehitatud"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Kohandatud"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Puudub – sisseehitatud käitumine"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Ülekoormusrežiim ühendab sisseehitatud ja kaugreeglid; iga allika reeglid säilitavad selle allika enda vaikeväärtused."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Salvesta vaikeväärtused"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Vaikeväärtused salvestatud"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Sisse lülitatuna säilitab iga reeglite allikas oma vaikeväärtused (sisseehitatud reeglitele kehtivad sisseehitatud vaikeväärtused ja iga kaugfaili vaikeväärtused selle faili reeglitele), kui te ei vali kohandatud reeglite redaktoris oma vaikeväärtusi."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Kaug: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Millised vaikeväärtused kehtivad"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Iga allika enda"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Teie omad sisseehitatud ja kaugreeglitele"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Teie omad kõigile reeglitele"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(asendatud teie vaikeväärtustega)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Teie omad"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ päringutüüpi",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-i erandit",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-i erand"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ eeltöötlejat",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Iga allika reeglid saavad selle allika enda vaikeväärtused."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Sisseehitatud ja kaugreeglid saavad oma failide vaikeväärtuste asemel teie vaikeväärtused; kohandatud reeglid säilitavad enda omad."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Sisseehitatud, kaug- ja kohandatud reeglid saavad kõik oma vaikeväärtuste asemel teie vaikeväärtused."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Halda reegli vaikeväärtusi"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Vaikeväärtused täidavad väärtused, mida reegel ise ei määra. Reegli enda väärtus võidab alati ning pakkuja erandeid ei muudeta kunagi."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Muuda vaikeväärtusi"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Teie vaikeväärtused"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Kohandatud reeglite vaikeväärtused"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Muudetavad vaikeväärtused"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Sisseehitatud reeglid"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(muudetud)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Lähtesta faili vaikeväärtustele"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Ühenda allikatest…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Ühenda reegli vaikeväärtused"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Tulemus ilmub loendis kui \"Ühendatud vaikeväärtused\". Kopeerige see seal ühte komplekti, seejärel kasutamiseks vajutage Salvesta vaikeväärtused."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Ühendatavad allikad"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konfliktid"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Ühendatud vaikeväärtused"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Kasuta ühendatud vaikeväärtusi"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Ühendatud vaikeväärtused"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Ei kasutata, kuni kopeerite selle ühte teise komplekti ja salvestate."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopeeri kohta"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopeeri"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Valige vähemalt kaks allikat."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Konflikte pole: valitud allikad nõustuvad kõigi väärtuste osas."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Erandid liidetakse kõigist allikatest kokku: kokku $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Ühendatud kõigist allikatest"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Allikad: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Määramata (sisseehitatud käitumine)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Määramata: kõik päringutüübid"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Praegu ei kasutata: teie vaikeväärtused asendavad sisseehitatud ja kaugreeglite enda omad."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Teie muudetud: need asendavad faili enda vaikeväärtused. Faili ennast ei muudeta."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(teie muudetud)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Praegu ei kasutata: ülal on valitud \"Iga allika enda\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Praegu ei kasutata: teie vaikeväärtused asendavad need ka kohandatud reeglite puhul."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Reeglid algavad väljalülitatuna (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Kirjeldus"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Päringutüübid"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Kõik tüübid"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Ainult need"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Valige vähemalt üks päringutüüp või valige \"Kõik tüübid\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Reeglid puhastavad kõiki päringutüüpe, kui nemad või vaikeväärtused mõnda ei nimeta. Pakkujad saavad tüüpe piirata ka valikuga resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Erandid"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Üks URL-i regex rea kohta. Reeglid jäetakse vastavatel URL-idel vahele."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Eeltöötlejad"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Sisendid: \"all\" või püüderühmade numbrid, nt 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Lisa eeltöötleja"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Eeltöötleja tüüp"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Eeltöötleja sisendid"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Eemalda"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Eeltöötleja sisendid \"$INPUTS$\" peavad olema \"all\" või numbrid, nt 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Lülita ajaloo möödaviimise kaitse välja (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Kuva JSON-ina"
   },
   "settings_remote_health_unknown": {
     "message": "teadmata"
@@ -3357,7 +3357,7 @@
     "message": "Filtreeri kirjeid…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Vaheleht"
   },
   "logger_tab_all": {
     "message": "Kõik vahelehed"
@@ -4005,10 +4005,10 @@
     "message": "Pakkuja JSON juhend"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Ava Linkumori reeglite juhend"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Millist reeglisüntaksit peaksin kasutama?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Ava reeglite juhend"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Pakkujate allikate laadimine ebaõnnestus: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Komplekteeritud reeglid pole saadaval."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Komplekteeritud reeglite laadimine ebaõnnestus: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Keelt ei õnnestunud vahetada: $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Hele teema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tume teema"
   },
   "posarCopied": {
     "message": "POSAR kopeeritud!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR aktsepteeritud."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Lähtesta"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Juurdepääsetavuse tööriistad"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Ava juurdepääsetavuse tööriistad"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Sulge juurdepääsetavuse tööriistad"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Lähtesta kõik juurdepääsetavuse sätted"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Nägemine"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lugemine"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Suhtlus"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Kõrge kontrastsus"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Värvifilter"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Küllastus"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Pööra värvid"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Tõsta lingid esile"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Peida pildid"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Suurenda teksti"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Vähenda teksti"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Vaiketeksti suurus"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Fondi valik"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Düsleksiasõbralik"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Tekstivahe"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Reakõrgus"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Teksti joondus"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Peata animatsioonid"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Suurem kursor"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Vaikimisi"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Keskmine"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Kõrge"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Ülikõrge"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Madal"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Puudub"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Kerge"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Tugev"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Filtrita"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanoopia"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranoopia"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanoopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Halltoonid"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Vasak"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Keskel"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Parem"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Väga väike"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Väike"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Suur"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Väga suur"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Suurim"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Sees"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Väljas"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "lubatud"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "keelatud"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Vaiketeksti suurus valitud"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Kõik juurdepääsetavuse sätted lähtestatud"
+  },
+  "skip_to_main_content": {
+    "message": "Liigu põhisisu juurde"
+  },
+  "popupNavAriaLabel": {
+    "message": "Hüpikakna navigeerimine"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Kohandatud reeglite vaated"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Logi vaated"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Ajaloo möödaviimise kaitse (jäta lehesisese navigeerimise ajal vahele)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Väljade ümbersuunamised"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopeeri reegel"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Reegel kopeeritud"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Reegli kopeerimine ebaõnnestus"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Mida historyBypassProtection teeb?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Ühelehelised saidid muudavad aadressi sageli meetoditega history.pushState/replaceState, mitte ei laadi uut lehte. Linkumori puhastab ka need aadressid. Lisage $removeparam filtrile history-bypass-protection=false, et jätta just see filter nende lehesiseste muudatuste puhul vahele; tavaliste päringute puhul see siiski töötab."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Terve pakkuja vahelejätmiseks lehesiseste muudatuste puhul määrake see pakkujal:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Väljajätmisel on väärtus true ja lehesisesed muudatused puhastatakse. Reegli enda säte on pakkuja omast tähtsam, nii et reegel saab uuesti sisse lülituda seadega history-bypass-protection=true või reeglobjektis \"historyBypassProtection\": true."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Jätab lehesisese nav. vahele"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Nimeta ID ümber"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Uus ID reeglile $OLD$ (a-z, 0-9, - ja _). Vana ID säilitatakse aliasena, nii et selle all välja lülitatud reeglid jäävad välja lülitatuks.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" ei ole kehtiv ID. Kasutage väiketähti, numbreid, - ja _, alustades tähe või numbriga.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Selle pakkuja teine reegel kasutab juba ID-d \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Lülita reegel välja"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Kas lülitada $ID$ välja kogu pakkuja jaoks või ainult selle URL-i/domeenimustri jaoks?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Minu pakkuja"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-i/domeenimuster"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Reegli ID nimetati ümber: $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Orvuks jäänud lülitid"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Vastavat reeglit allikast ei leitud"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Eemalda"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Jätab lehesisese navigeerimise puhastuse vahele"
+  },
+  "whitelist_added_general": {
+    "message": "%s lisati üldisesse valgesse nimekirja"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s lisati History API erandina"
+  },
+  "whitelist_exception_count": {
+    "message": "%d erandit"
+  },
+  "whitelist_exception_empty": {
+    "message": "Valge nimekirja erandeid pole"
+  },
+  "whitelist_mode_general": {
+    "message": "Üldine valge nimekiri"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Ainult History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Valge nimekirja ulatus"
+  },
+  "whitelist_removed_general": {
+    "message": "%s eemaldati üldisest valgest nimekirjast"
+  },
+  "whitelist_removed_history_api": {
+    "message": "History API erand eemaldati: %s"
+  },
+  "whitelist_type_general": {
+    "message": "Üldine"
+  },
+  "whitelist_type_history_api": {
+    "message": "Ainult History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Lisa $1 üldisesse valgesse nimekirja"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Üldine valge nimekiri: $1 – klõpsake, et valida ainult History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API erand: $1 – klõpsake, et valida ainult see vaheleht"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Ainult vaheleht: $1 – klõpsake eemaldamiseks"
+  },
+  "logger_action_allowed": {
+    "message": "Lubatud"
+  },
+  "logger_action_blocked": {
+    "message": "Blokeeritud"
+  },
+  "logger_action_filter_label": {
+    "message": "Toiming"
+  },
+  "logger_action_info": {
+    "message": "Teave"
+  },
+  "logger_action_modified": {
+    "message": "Muudetud"
+  },
+  "logger_action_redirected": {
+    "message": "Ümber suunatud"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopeeri kokkuvõte"
+  },
+  "logger_btn_export": {
+    "message": "Ekspordi"
+  },
+  "logger_btn_group": {
+    "message": "Rühmita reegli järgi"
+  },
+  "logger_col_hits": {
+    "message": "Vasteid"
+  },
+  "logger_col_last_seen": {
+    "message": "Viimati nähtud"
+  },
+  "logger_detail_group_title": {
+    "message": "Reegli üksikasjad"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-id ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Vahelehed"
+  },
+  "logger_exported": {
+    "message": "Eksporditi $1 kirjet."
+  },
+  "logger_filter_all": {
+    "message": "Kõik"
+  },
+  "logger_report_rule": {
+    "message": "Teata sellest"
+  },
+  "logger_rule_disable": {
+    "message": "Lülita reegel välja"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Reegel $1 lülitati välja. Kontrollimiseks laadige leht uuesti."
+  },
+  "logger_rule_enable": {
+    "message": "Lülita reegel sisse"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Reegel $1 lülitati tagasi sisse."
+  },
+  "logger_rule_failed": {
+    "message": "Reeglit ei õnnestunud muuta."
+  },
+  "logger_rule_off": {
+    "message": "Reegel on välja lülitatud"
+  },
+  "logger_rule_on": {
+    "message": "Reegel on sees"
+  },
+  "logger_rule_unavailable": {
+    "message": "Seda reeglit ei saa siit lülitada."
+  },
+  "logger_status_rules": {
+    "message": "$1 reeglit"
+  },
+  "logger_summary_copied": {
+    "message": "Kokkuvõte kopeeritud."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Kokkuvõtet ei õnnestunud kopeerida."
+  },
+  "logger_type_filter_label": {
+    "message": "Tüüp"
+  },
+  "logger_btn_logging_off": {
+    "message": "Logimine väljas"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Logimine on välja lülitatud. Klõpsake sisselülitamiseks."
+  },
+  "logger_btn_logging_on": {
+    "message": "Logimine sees"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Logimine on sisse lülitatud. Klõpsake väljalülitamiseks."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Logimissätet ei õnnestunud muuta."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Lisa referral-reegel"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Lisa toorreegli erand"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Lisa välja ümbersuunamine"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Lisa erand"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Iga mall lisab reeglobjekti, millel on id ja kohatäitega matchPattern domeenil example.com. Kirje võib olla ka tavaline sõne: parameetri nimi, nime regex, $removeparam filter või rawRules puhul regex. Reeglobjektid toetavad välju id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description ja targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Koodikontroll"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Probleeme ei leitud."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Viga"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Hoiatus"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ viga, $WARNINGS$ hoiatust",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Käivitusjärjekord"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ sammu käivitusjärjekorras",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "rawRules, rules ega referralMarketing kirjeid pole"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Mootor arvutab selle ülaltoodud tekstist, olenemata sellest, kas see on salvestatud. Sammud sorteeritakse (stage, orderGroup, order, rank, arrayIndex) järgi: toorreeglid töötavad enne väljareegleid; etapi sees töötavad esmalt order-iga kirjed, väikseim ees, seejärel ülejäänud loendi ja asukoha järgi."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Referral-turundus"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral eemaldatud"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral lubatud"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Toor"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Väli"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Soovitus"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(genereeritud)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "kirjutab ümber"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "asendab $COUNT$ varasemat määratlust",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "lisatud completeProvider poolt: eemaldab kõik parameetrid"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Välja lülitatud"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Mõne mustri puhul väljas"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Sorteerimisvõti: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Seejärel $FILTERS$ $removeparam filtrit ja $EXCEPTIONS$ @@ erandit pärast kõiki ülaltoodud samme",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= erandit võib peatada ülaltoodud toorreeglid, kui need sobivad",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Lohistage samm või kasutage selle nooli, et liigutada seda etapi sees. Liigutamine annab selle etapi igale kirjele uues järjekorras order-i väärtused 10, 20, 30, …"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Ümberjärjestamiseks lülituge vaatele Referral eemaldatud: see vaade näitab kõiki kirjeid."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Lohistage liigutamiseks"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Liiguta $ENTRY$ varasemaks",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Liiguta $ENTRY$ hilisemaks",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ liigutati positsioonile $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Võta liigutus tagasi"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Liigutus tagasi võetud"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simuleeri"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Käivitab selle pakkuja URL-il samamoodi nagu kopeeritud lingi puhastamine, arvestades teie väljalülitatud reegleid ja ülalolevat referral-valikut, ning näitab URL-i pärast iga sammu. Teised pakkujad ei tööta. Nupp Genereeri testi-URL loob selle pakkuja enda reeglitest ühe."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testi-URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Käivita"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Läbi simulatsiooni samm-sammult"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Algus"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Eelmine"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Järgmine"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Lõpp"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Esita"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Paus"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL enne ühtegi sammu"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Läbimine $PASS$ · samm $STEP$/$TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "muutusi pole"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam filtrid"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Läbimine $PASS$ ei muuda midagi, seega puhastamine peatub",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "See pakkuja peatub siin: tsüklite piir saavutati, URL naasis varasema juurde või see ei sobi enam pakkujaga"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Läbimine $PASS$ suunab ümber; puhastamine jätkub uuel aadressil kõigi pakkujatega",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Pakkuja blokeerib selle päringu (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Tulemus"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Selle pakkuja mustrid ei sobi sellele URL-ile, seega ükski selle reegel ei tööta."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "See URL sobib ühe pakkuja erandiga, seega ükski selle reegel ei tööta."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Sisestage täielik http:// või https:// URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulatsiooni ei õnnestunud käivitada. Kontrollige ülaltoodud JSON-i."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Genereeri testi-URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Loodud selle pakkuja reeglitest: tekst $RAW$ toorreegli ja $PARAMS$ parameetri jaoks, igaüks kontrollitud oma reegli vastu. keep=1 ei sobi ühegi reegliga ja peaks jääma. Ümbersuunamisi ja blokeerimisi ei kaasata, kuna need lõpetaksid käivituse enne teisi reegleid.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Ei õnnestunud luua hosti, millele selle pakkuja mustrid sobiksid, seega URL kasutab teist hosti ja pakkuja sellel ei tööta."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Iga URL, millele selle pakkuja mustrid sobivad, on kaetud ühe selle enda erandiga, seega selle reeglid ei tööta kunagi."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ reeglit jäeti testi-URL-ist välja",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "ei õnnestunud luua teksti, millele see sobiks"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "selle tekst paneks sobima ühe pakkuja erandi"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "see eemaldab kõik parameetrid, seega ei vaja see oma parameetrit"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Sellel pakkujal on nimeta $removeparam filter, mis eemaldab kõik parameetrid, sealhulgas keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "order puudub"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Taasta order-numbrid"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Taasta iga order sellisena, nagu see oli selle pakkuja avamisel"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Order-numbrid taastatud"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Peida"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Kuva"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Tühjenda hoiatused"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Taasta hoiatused"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ hoiatust tühjendatud",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern ilma indexPattern-ita kontrollitakse iga URL-i vastu; lisage indexPattern vihjed, nt \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ kordab kirjet \"$ENTRY$\"; koopia ei tee midagi ja mõlemal on sama id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ sisaldab endiselt malli kohatäidet \"$PATTERN$\"; asendage see tegeliku mustriga",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ matchPattern on \"(?!)\", mis ei sobi kunagi millegagi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Tõrkeotsing"
+  },
+  "troubleshooter_launch": {
+    "message": "Tee sellel vahelehel tõrkeotsing (katseline)"
+  },
+  "troubleshooter_title": {
+    "message": "Vahelehe tõrkeotsing"
+  },
+  "troubleshooter_page": {
+    "message": "Leht"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Kuidas salvestamine töötab"
+  },
+  "troubleshooter_about_note": {
+    "message": "Selle vaate avamine võib kontrollida lehe URL-i, kuid ei salvesta midagi. Salvestamine jääb välja, kuni valite Alusta salvestamist. Alustamine laadib selle vahelehe uuesti, et jäädvustada selle ressursipäringud. Jäädvustatud URL-id jäävad sessioonisalvestusse selleks brauserisessiooniks ja kustutatakse, kui see vaheleht suletakse või brauserisessioon lõpeb. Salvestamine peatub 15 minuti pärast, kui te seda varem ei peata. Ressursi URL-id võivad sisaldada privaatseid päringuandmeid."
+  },
+  "troubleshooter_start": {
+    "message": "Alusta salvestamist"
+  },
+  "troubleshooter_starting": {
+    "message": "Alustamine…"
+  },
+  "troubleshooter_recording": {
+    "message": "Salvestamine…"
+  },
+  "troubleshooter_stop": {
+    "message": "Peata salvestamine"
+  },
+  "troubleshooter_refresh": {
+    "message": "Värskenda"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopeeri kokkuvõte"
+  },
+  "troubleshooter_export": {
+    "message": "Ekspordi"
+  },
+  "troubleshooter_export_title": {
+    "message": "Salvesta salvestis JSON-failina. Ressursi URL-id võivad sisaldada privaatseid päringuandmeid."
+  },
+  "troubleshooter_category": {
+    "message": "Kategooria"
+  },
+  "troubleshooter_category_all": {
+    "message": "Kõik kategooriad"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-i reeglid"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Ümbersuunamised"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Kaitse ja möödaviimised"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Ressursi tüüp"
+  },
+  "troubleshooter_type_all": {
+    "message": "Kõik ressursitüübid"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Otsi reegleid, pakkujaid ja URL-e"
+  },
+  "troubleshooter_timer": {
+    "message": "Salvestamine $1 · jäänud $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Selle vahelehe kontrollimine…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Aktiivset vahelehte pole saadaval."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "See leht ei luba URL-i reeglite skannimist. Avage tavaline http või https veebileht."
+  },
+  "troubleshooter_status_off": {
+    "message": "Salvestamine on väljas. Selle lehe laaditud ressursside URL-ide kontrollimiseks alustage salvestamist."
+  },
+  "troubleshooter_status_active": {
+    "message": "Seni jäädvustati $1 URL-i muudatust. Uued ilmuvad siia automaatselt."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Salvestamine peatati. Jäädvustati $1 URL-i muudatust."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Salvestusandmeid ei õnnestunud sessioonisalvestusse salvestada. $1 URL-i muudatust võib laienduse taaskäivitamisel kaduda."
+  },
+  "troubleshooter_status_started": {
+    "message": "Salvestamine algas ja vaheleht laaditakse uuesti. Jäädvustatud URL-id ilmuvad siia lehe laadimise ajal."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Salvestamine peatati. $1 URL-i muudatust jäädvustati ja salvestati selleks brauserisessiooniks."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Salvestamine peatati. $1 URL-i muudatust jäädvustati, kuid sessioonisalvestus ei saanud neid salvestada."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Avage esmalt tavaline http või https veebileht."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Selle vahelehe salvestamist ei õnnestunud alustada."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Selle vahelehe salvestamist ei õnnestunud peatada."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Seda vahelehte ei õnnestunud lugeda. Proovige hüpikaken sulgeda ja uuesti avada."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Kokkuvõte kopeeritud."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Kokkuvõtet ei õnnestunud kopeerida."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Salvestis eksporditud."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Salvestist ei õnnestunud eksportida."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Aruandevormi ei õnnestunud avada."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Reegel lubatud; võrdlemiseks laadige vaheleht uuesti."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Reegel keelatud; võrdlemiseks laadige vaheleht uuesti."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Seda reeglit ei õnnestunud värskendada."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Reeglimuudatusi pole veel leitud. Selle lehe ressursside URL-ide kontrollimiseks alustage salvestamist."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Seda brauseri lehte ei saa skannida."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Ükski leid ei vasta nendele filtritele."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Kuvatakse esimesed $1 reeglit."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 vastet"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 ebaõnnestus"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Reegli ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Sisseehitatud kaitsetoiming (reegli ID puudub)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Reegli ID: selle leiu jaoks pole saadaval"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Seda reegli ID-d ei õnnestunud praeguses reeglistikus tuvastada."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Jälgitud päring"
+  },
+  "troubleshooter_source_page": {
+    "message": "Lehe URL-i kontroll"
+  },
+  "troubleshooter_changes": {
+    "message": "Mis muutus: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Mõjutatud URL-id ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…ja veel $1"
+  },
+  "troubleshooter_after": {
+    "message": "Pärast Linkumorit"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Ebaõnnestus pärast Linkumori muudatust: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "See reegel on lubatud. Lülitage see välja ja laadige uuesti, et lehte võrrelda."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "See reegel on keelatud. Lülitage see sisse ja laadige uuesti, et selle käitumine taastada."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "See on sisseehitatud kaitsetoiming, mitte üksik reegel."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Vaadake mõjutatud URL üle enne reeglite muutmist."
+  },
+  "troubleshooter_report": {
+    "message": "Teata sellest reeglist"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Keela reegel"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Luba reegel"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Keela reegel $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Luba reegel $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Salvestamine…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "eemaldatud $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "lisatud $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "muudetud $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "suunati ümber aadressile $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "tee muutus"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment muutus"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL muutus"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "blokeeritud tahtlikult"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Sellel lehel ebaõnnestus $1 päringut; $2 kohe pärast seda, kui Linkumori URL-i muutis"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Kas see leht on katki?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Leidke reegel, mis selle katki teeb: sellel lehel töötanud reeglid lülitatakse ükshaaval välja ja pärast iga lülitamist ütlete, kas leht on parandatud. Pole kindel, et põhjus on Linkumori? Kontrollige esmalt peatatud puhastamisega."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Kontrolli esmalt peatatud puhastamisega"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Puhastamine on selles vahelehes peatatud saidil $1"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Vaheleht laaditi uuesti ilma puhastamiseta. Kas leht töötab nüüd?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Jah, töötab"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ei, ikka katki"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Tühista"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Valmis"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Tõenäoliselt mitte Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Leht oli peatatud puhastamisega ikka katki, seega on probleem tõenäoliselt mujal: saidis endas, mõnes teises laiendis või võrgus. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Põhjus on tõenäoliselt Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Leht töötab peatatud puhastamisega. Leidke reegel: reeglid lülitatakse ükshaaval välja, vaheleht laaditakse uuesti ja te ütlete, kas leht on parandatud. Lõpus lülitatakse kõik muud reeglid tagasi sisse."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Vaheleht laaditakse uuesti puhastamine taas sees, et salvestada, millised reeglid sellel lehel töötavad. Need ilmuvad siia hetke pärast. Kui ühtegi pole, kasutage lehte, kuni see katki läheb."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Leia reegel ($1 reeglit)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Jah, parandatud"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ei, ikka katki"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Leitud"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Leht läheb katki reegli $1$2 tõttu. See on uuesti sisse lülitatud. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Keela see reegel"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Teata sellest"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Reegel välja lülitatud. Kontrollimiseks laadige vaheleht uuesti. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Ühtegi üksikut reeglit ei leitud"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Reeglite ükshaaval väljalülitamine ei parandanud lehte, seega on põhjuseks tõenäoliselt mitu reeglit koos või kaitsesäte. Kõik reeglid on uuesti sisse lülitatud. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Kontrolli ei õnnestunud käivitada: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Selle kontrolli kasutamiseks laadige Linkumori uuesti"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori uuendati, kuid selle taustaosa töötab endiselt vana versiooniga. Laadige laiendus uuesti (ajutise lisandmooduli puhul: about:debugging → This Firefox → Reload) või taaskäivitage Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Leitud"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Leht läheb katki reegli $1$2 tõttu. See jääb välja lülitatuks, et leht töötaks; kõik muud reeglid on tagasi sees. Kontrollimiseks laadige vaheleht uuesti. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Laadi vaheleht uuesti"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Lülita uuesti sisse"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Reegel lülitati tagasi sisse. Kontrollimiseks laadige vaheleht uuesti. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Salvesta ja leia reegel"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Salvestan, millised reeglid sellel lehel töötavad. Kasutage lehte, kuni see katki läheb; reeglid ilmuvad siia."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Reeglite otsing on selle praegu välja lülitanud. See lülitub tagasi sisse, kui otsing lõpeb."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Reeglite otsing käib. Muutke reegleid pärast selle lõppu."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Jäta vahele – lülita tagasi sisse"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Hoia väljas"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Reeglite otsing jäeti vahele; kõik reeglid on jälle sees. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Reegel $1 jääb välja. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Selle testi jaoks välja lülitatud:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…ja veel $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Peata otsing"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Vahele jäetud: see reegel on tagasi sees ja välja jäetud. Testin järgmist."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Testitud reeglite hulgast reeglit ei leitud. $1 vahele jäetud reeglit jäi testimata. Kõik reeglid on jälle sees. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_experimental": {
+    "message": "Katseline"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Katseline: see tõrkeotsing ei ole täielikult stabiilne. Selle tulemused võivad olla valed ja see lülitab testimise ajal reegleid välja. Kui hiljem tundub midagi valesti, kontrollige oma reegleid kohandatud reeglite redaktoris või kasutage nuppu Peata otsing, et need tagasi sisse lülitada."
+  },
+  "troubleshooter_working": {
+    "message": "Töötab…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Salvesta uuesti"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Vana salvestis tühjendati. Salvestan seda vahelehte uuesti värskelt laadimiselt."
+  },
+  "troubleshooter_clear": {
+    "message": "Tühjenda"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Tühjenda selle vahelehe salvestis, leiud ja lõpetatud reeglite otsing. Reeglid jäävad nagu on."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Tühjendatud. Reeglid jäävad nagu on."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Tühjendatud. Reegel $1 jääb välja."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testin ühe reegli korraga – reegel $1/$2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Ainult see reegel on välja lülitatud ja vaheleht laaditi uuesti. Kas leht on nüüd parandatud?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Jäta see reegel vahele"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Jäta vahele – lülita tagasi sisse, testi järgmist ($1 jäänud)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 muud sellel lehel töötanud reeglit jäi testimata. Kas soovite nende testimist jätkata?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Hoia väljas, testi järgmist ($1 jäänud)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Reegel $1 jääb välja. Testin järgmist reeglit."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Ükski teine reegel ei paranda lehte üksi. Väljas hoitud $1 reeglit jäävad välja; kõik muud reeglid on jälle sees. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testi järgmist reeglit ($1 jäänud)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Reegel $1 on tagasi sees ja välja jäetud. Testin järgmist reeglit."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Ükski teine reegel ei paranda lehte üksi. Vahele jäetud $1 reeglit on samuti tagasi sees, seega on kõik reeglid jälle sees. Uuesti alustamiseks klõpsake Tühjenda."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori puhastab URL-e reeglitega, mis on kirjutatud vormingus <strong>CLN Format 1.0</strong> (Clean Link Notation), mis on JSON-vorming. See juhend viib esimesest reeglist kõigi valikuteni, koos näidetega, mida saate kopeerida."
+  },
+  "guide_intro_p_2": {
+    "message": "Sisseehitatud reeglid, kaugreeglite loendid ja teie kohandatud reeglid kasutavad kõik sama vormingut. Kohandatud reegleid kirjutate kohandatud reeglite redaktoris, mis kontrollib neid salvestamisel või importimisel. Ametlik ClearURLs reeglikataloog (<code>data.min.json</code>) on juba kehtiv CLN-fail ja seda saab kasutada sellisena nagu see on."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Pakkuja nimi on ainult silt. Millised URL-id pakkuja töötleb, määravad <code>domainPatterns</code> või <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Ülataseme võti"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Nõutav. Pakkujad nime järgi."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Valikuline vormingu versioon. Ainus kehtiv väärtus on <code>\"1.0\"</code>. Ilma selleta fail loetakse samuti versioonina 1.0; mis tahes muu väärtus lükkab faili tagasi. Seda ei nimetata <code>version</code>, kuna ClearURLs uus reegliformaat kasutab juba seda võtit."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Valikuline teave faili kohta."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Väärtused iga faili reegli jaoks, mis ei määra enda oma (peatükk 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Ainult kaugreeglite loendid: asendused juba laaditud reeglitele (peatükk 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Millised URL-id pakkuja töötleb, ühe domeenimustri või nende loendina (peatükk 3). Kasutage seda või <code>urlPattern</code>, mitte kunagi mõlemat."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Millised URL-id pakkuja töötleb, ühe regulaaravaldisena, mida võrreldakse kogu URL-iga. Suur- ja väiketähte ei eristata."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Ainult koos <code>urlPattern</code>-iga: hostivihjed, nt <code>||example.com^</code>, et pakkujat kontrollitaks ainult nende hostide puhul, mitte iga URL-i vastu. See on otsinguvihje, mitte sobitustingimus."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Eemaldatavad referral- ja partnerparameetrid. Jäetakse vahele, kui <em>Luba referral-turundus</em> on sees (peatükk 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL-id, mida pakkuja täielikult puutumata jätab (peatükk 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Saada päring teisele aadressile selle muutmise asemel (peatükk 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Saada päring parameetri väärtusele (peatükk 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: kui lehe laadimine (<code>main_frame</code>) suunatakse ümber, liigub kogu vaheleht uuele aadressile, mitte ainult võrgupäring."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Töötle ainult neid HTTP-meetodeid, nt <code>[\"GET\"]</code>. Väljajätmisel: iga meetod."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Töötle ainult neid päringutüüpe, nt <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Väljajätmisel: iga päringutüüp."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Vaikimisi <code>true</code>. <code>false</code> jätab kogu pakkuja vahele, kui leht muudab oma aadressi History API-ga (<code>pushState</code>/<code>replaceState</code>). Tavalisi võrgupäringuid puhastatakse endiselt."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> lülitab pakkuja välja seda kustutamata."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> on domeenimustrite loend. URL sobib, kui sobib mõni neist. Samu mustreid kasutatakse ees <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> filtrite ja toorreeglite puhul."
+  },
+  "guide_matching_cell_1": {
+    "message": "kogu URL regulaaravaldisena"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL-id, mis sisaldavad seda teksti kuskil (ilma alguse <code>|</code>-ta)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> tähistab hostinime lõppu või eraldajat, nagu <code>/</code>, <code>?</code>, <code>:</code> või URL-i lõppu. <code>*</code> on metamärk."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> tähistab domeeni: hosti ja kõiki alamdomeene. Üksik <code>|</code> tähistab URL-i päris algust ja sellele peab järgnema skeem, nt <code>https://</code>. Domeeni jaoks soovite alati <code>||</code>; <code>|example.com^</code> ei saa kunagi sobida, mistõttu redaktor lükkab selle tagasi."
+  },
+  "guide_matching_p_4": {
+    "message": "Näiteks <code>||smile.amazon.*^</code> loetakse nii: <code>||</code> host ja selle alamdomeenid, <code>smile.amazon</code> nõutavad sildid, <code>.*</code> mis tahes avalik lõpp (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) ja <code>^</code> hosti lõpp."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "täpselt see parameeter"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "iga parameeter, mille kogu nimi sobib; suur- ja väiketähte ei eristata"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> ja <code>\"$removeparam=fbclid\"</code> eemaldavad sama. Kasutage tavalist nime, kui te ei vaja midagi 5. peatükist. Mis tahes kirje võib olla kirjutatud ka reeglobjektina (peatükk 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Siin eemaldatakse <code>qid</code> igal Amazoni saidil, <code>tag</code> ainult saidil <code>amazon.de</code>, <code>sr</code> ainult saidil <code>smile.amazon</code> ja <code>ref_</code> ainult asukohas <code>/gp/</code>. Muster kitsendab pakkuja enda mustreid; see ei saa neid kunagi laiendada."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> muudab filtri erandiks, mis parameetri alles jätab (vt allpool)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> kitsendab filtri mõnele pakkuja URL-ile (peatükk 3). Väljajätmisel kehtib see igale URL-ile, millele pakkuja sobib."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> valib parameetrid. Väljajätmisel eemaldatakse iga parameeter."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikaatorid ütlevad, millal filter rakendub. Iga loetletud modifikaator peab kehtima; nende vahel pole \"või\"."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "iga parameeter peale <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parameetrid, mille nimi või <code>name=value</code> koos sobib regulaaravaldisega; lisage <code>i</code>, et suur- ja väiketähte mitte eristada"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parameetrid, mille nimi algab tekstiga <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Parameetri nime paomärgistamine"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Kaldkriips muudab järgmise märgi sõnasõnaliseks, nii et sihtida saab mis tahes parameetri nime:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Väärtus"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Eemaldab parameetri nimega"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (koma ei alusta modifikaatoreid)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Need viis on ainsad paomärgid nimeväärtuses; kaldkriips enne mis tahes muud märki on viga. <code>/regex/</code> väärtuse sees säilitab kaldkriips oma regexi tähenduse. Paomärgid töötavad kirjetes <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> ja <code>@@</code>. JSON-is kirjutage iga kaldkriips kaks korda: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikaatorid"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikaatorid tulevad pärast väärtust, komadega eraldatult. Ühe modifikaatori mitu väärtust eraldage märgiga <code>|</code> ja väärtuse välistamiseks pange selle ette <code>~</code>:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikaator"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "ainult siis, kui päringu teinud leht on (või <code>~</code> puhul ei ole) üks neist; regex-väärtused on lubatud"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "ainult siis, kui päring ise läheb ühele neist, olenemata sellest, milline leht selle tegi"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "ainult nende HTTP-meetodite puhul: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "ainult siis, kui päring läheb samale registreeritavale domeenile kui leht (<code>a.example.com</code> ja <code>b.example.com</code> loetakse samaks) või teisele"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "sama, kuid võrreldakse täpset hostinime, seega alamdomeen loetakse kolmandaks osapooleks"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parameetrite nimesid võrreldakse suur- ja väiketähti eristades"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "jäta see filter vahele, kui leht muudab oma aadressi History API-ga. Aktsepteerib ka <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Neli <code>*-party</code> modifikaatorit ei saa omavahel kombineerida; <code>first-party,third-party</code> lükatakse tagasi."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Näiteks <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> eemaldab <code>sid</code> saidil <code>example.com</code>, ainult GET-päringute puhul, mille tegi teise saidi leht, ja mitte kunagi siis, kui see leht on <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Kirje <code>@@</code> kaitseb ainult <code>$removeparam</code> filtrite eest. Tavaline kirje, nt <code>\"ref\"</code>, eemaldab parameetri endiselt; selleks kasutage reeglobjekti <code>exceptions</code>. Toorreeglitel on oma <code>@@…$rawrule=</code> kirjed (peatükk 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Pole tähtis, kuhu selle loetlete, ja sellel ei saa olla <code>order</code>-it."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Selle mustrit kontrollitakse URL-i vastu sellisena, nagu pakkuja selle sai, enne toorreeglite käivitamist. Kirje <code>@@</code>, mis on piiratud teega, mille toorreegel kustutab, sobib endiselt."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "See katab ka teiste pakkujate filtreid päringute puhul, mille teeb leht, millele see pakkuja sobib, mis on käepärane, et välistada üks sait mujal määratletud reeglist."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Toorreeglid töötavad enne <code>rules</code>, ei erista suur- ja väiketähti ning asendavad iga vaste (lipud <code>gi</code> või <code>g</code> koos <code>match-case</code>-iga). JSON-is kirjutage iga kaldkriips kaks korda."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Toorreegel võib kasutada <code>$removeparam</code> filtri mustrit ja modifikaatoreid, <code>rawrule=</code> viimasena. Kõik pärast <code>rawrule=</code> on regulaaravaldis:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Muster ja modifikaatorid määravad, kus reegel töötab; kustutatakse ikkagi regulaaravaldisega leitud tekst."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Kirje, mis algab märgiga <code>@@</code> ja lõpeb <code>rawrule=</code>-ga, takistab toorreeglite käivitumist seal, kus selle muster sobib:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Kui pärast <code>rawrule=</code> pole midagi, peatab see pakkuja kõik toorreeglid nendel URL-idel."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Kui pärast <code>rawrule=</code> on regulaaravaldis, peatab see toorreeglid selle regulaaravaldisega."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Reeglobjektina koos <code>targetId</code>-ga peatab see ainult selle id või aliasega toorreegli."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Kogu pakkuja vahelejätmiseks kasutage hoopis <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Kui URL sobib mõne <code>exceptions</code> kirjega, ei käivitu selle päringu puhul ükski pakkuja reegel. Kirje on regulaaravaldis kogu URL-i vastu või domeenimuster, mis algab märgiga <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Erandid ei erista suur- ja väiketähti. Et jätta vahele üksik reegel kogu pakkuja asemel, andke sellele reeglile oma <code>exceptions</code> (peatükk 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Võidab see sobiv parameeter, mis URL-is esimesena tuleb. Aadressi <code>https://site.example/away?redirect=https://real.example/page</code> puhul läheb päring aadressile <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Kehtivad ümbersuunamise sihtmärgid"
+  },
+  "guide_redirects_p_2": {
+    "message": "Ümbersuunamine toimub ainult absoluutsele <code>http</code> või <code>https</code> aadressile, millel on host. Seda kontrollitakse pärast eeltöötlejaid ja protsentdekodeerimist. Kehtetu sihtmärk muudab kirje mittesobivaks: midagi ei suunata ümber ja pakkuja hilisemad sammud käivituvad muutmata URL-il."
+  },
+  "guide_redirects_th_1": {
+    "message": "Sihtmärk"
+  },
+  "guide_redirects_th_2": {
+    "message": "Suunatakse ümber?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "jah"
+  },
+  "guide_redirects_cell_2": {
+    "message": "jah, aadressile <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ei: skeem ei ole <code>http</code> ega <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ei: pole absoluutne aadress"
+  },
+  "guide_redirects_p_3": {
+    "message": "Toorreegel, mille tulemuse skeem, host või port erineb sisendist, loetakse samuti ümbersuunamiseks, isegi kui see kustutab ainult teksti: tekstist <code>https://secure-bank.example/</code> eesliite <code>secure-</code> kustutamine viib teisele saidile. See vajab kehtivat sihtmärki ja kaugreeglite loendis kinnitust <code>redirect</code> (peatükk 15). Muidu jätab reegel URL-i muutmata."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Mis tahes kirje mis tahes loendis võib olla stringi asemel objekt. Kasutage seda, kui reegel vajab stabiilset id-d, peaks algama väljalülitatuna, peaks eemaldamise asemel ümber kirjutama või peaks töötama ainult mõnel juhul:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Nõutav. Tekst, mille kirjutaksite selles loendis tavalise kirjena."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Stabiilne nimi (tähed, numbrid, <code>-</code>, <code>_</code>), mida kasutatakse reegli sisse- ja väljalülitamiseks (peatükk 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Reegli varasemad id-d, et vana id all salvestatud säte kehtiks ka pärast ümbernimetamist."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Kirjuta ümber eemaldamise asemel; <code>§1§</code>, <code>§2§</code>, … on jäädvustatud väärtused."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Teisenda jäädvustatud väärtused esmalt."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Ainult nende päringutüüpide puhul, nt <code>[\"main_frame\"]</code>. Puhastamine ilma päringuta (<em>Kopeeri puhas link</em>, puhastustööriist, History API muudatused) loetakse tüübiks <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL-id (regulaaravaldised), kus see üks reegel ei tööta."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Regulaaravaldise lipud stringina. Vaikimisi <code>i</code>; <code>rawRules</code> puhul <code>gi</code> (või <code>g</code> koos <code>match-case</code>-iga)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Käivita reegel oma etapi sees varem või hiljem (peatükk 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: reegel kirjes <code>rules</code> loetakse ka referral-turunduse reegliks (peatükk 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Sama nimega pakkuja lüliti selle ühe reegli jaoks. See on tähtsam kui pakkuja väärtus ja faili vaikeväärtus."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: reegel algab väljalülitatuna."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Märkus faili lugejatele; see peab olema string."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Ainult kirjetel <code>@@…$rawrule=</code>: peatatava toorreegli id."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Siin muutub <code>?token=abc123</code> väärtuseks <code>?token=clean-abc123</code>. Ümberkirjutus rakendub päringu kohta kuni üks kord, seega ei hakka see väärtust pidevalt ümbritsema."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Eeltöötlejad muudavad jäädvustatud väärtusi järjekorras enne, kui <code>replacePattern</code> või ümbersuunamine neid kasutab. <code>inputs</code> on <code>\"all\"</code> või rühmanumbrite loend:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> võtab samu kirjeid mis <code>rules</code>. Need töötavad ainult siis, kui <em>Luba referral-turundus</em> on väljas, nii et partnerlingid töötavad edasi, kui selle sisse lülitate:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Reegel võib jääda kirjesse <code>rules</code> ja siiski lugeda referral-turunduseks, kui on <code>\"referralMarketing\": true</code>. Ärge pange sama teksti nii <code>rules</code> kui ka <code>referralMarketing</code> alla; redaktor hoiatab selle eest."
+  },
+  "guide_request_types_cell_1": {
+    "message": "päringutüübid, mida üks reeglobjekt töötleb (seadistatav ka kirjes <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Päringutüübid kasutavad brauseri nimesid: <code>main_frame</code> (leht), <code>sub_frame</code> (raam), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ja nii edasi. Filtri modifikaatorid nimetavad kaks esimest <code>document</code> ja <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Päringutüübid tulevad ainult reeglitest: sätetes päringutüüpide loendit pole. Kui ühtegi neist pole määratud, puhastab reegel kõiki päringutüüpe."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Vaikeväärtused"
+  },
+  "guide_defaults_p_1": {
+    "message": "Ülataseme <code>defaults</code> plokk annab faili igale reeglile väärtused, mida see ise ei määra:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Iga reegli vaikeväärtus…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> lülitab iga reegli välja, kui see ei ütle <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> või väljajätmine tähendab iga tüüpi"
+  },
+  "guide_defaults_item_1": {
+    "message": "Reegli enda väärtus võidab alati ning reegli <code>exceptions</code> asendavad vaikeloendi, mitte ei lisandu sellele."
+  },
+  "guide_defaults_item_2": {
+    "message": "Vaikeväärtused kehtivad kirjetele <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> ja <code>fieldRedirections</code>. Pakkuja enda <code>exceptions</code> loendit ei muudeta. Kirjed <code>$redirect=</code> kasutavad ainult <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Iga fail säilitab oma vaikeväärtused: sisseehitatud reeglid, iga kaugloend ja teie kohandatud reeglid, ka siis, kui ülekoormusrežiim neid ühendab."
+  },
+  "guide_defaults_item_4": {
+    "message": "Pakkuja <code>completeProvider</code> puhul piiravad vaikimisi <code>requestTypes</code> ja <code>exceptions</code> ka blokeerimist."
+  },
+  "guide_defaults_item_5": {
+    "message": "Tundmatud võtmed ja valed tüübid on vead ning kaugloend kehtetu <code>defaults</code> plokiga lükatakse tagasi."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Teie enda vaikeväärtused"
+  },
+  "guide_defaults_p_2": {
+    "message": "Kohandatud reeglite redaktoris avab <em>Halda reegli vaikeväärtusi</em> vormi, kus määrate oma <code>defaults</code> ploki ja valite, kus see asendab failide enda omad:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Iga allika enda</em> (vaikimisi): iga fail kasutab oma <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Teie omad sisseehitatud ja kaugreeglitele</em>: sisseehitatud ja kaugreeglid kasutavad teie omi; kohandatud reeglid säilitavad enda omad."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Teie omad kõigile reeglitele</em>: iga reegel kasutab teie omi."
+  },
+  "guide_defaults_p_3": {
+    "message": "Sama vorm saab muuta sisseehitatud reeglite ja iga laaditud kaugloendi vaikeväärtusi. Teie muudatus salvestatakse laiendusse, mitte faili, ja <em>Lähtesta faili vaikeväärtustele</em> kõrvaldab selle. <em>Ühenda allikatest…</em> ühendab märgitud allikate vaikeväärtused; midagi ei salvestata enne, kui salvestate."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Kuidas URL-i töödeldakse"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, seejärel <code>fieldRedirections</code>: vaste kehtiva sihtmärgiga suunab päringu ümber."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> ja <code>referralMarketing</code> eemaldavad parameetreid või kirjutavad neid ümber."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code> filtrid töötavad, välja arvatud seal, kus kirje <code>@@</code> parameetri alles hoiab."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Võidab esimene pakkuja, mis URL-i muudab, ümber suunab või blokeerib. Uus URL läbib seejärel samad sammud uuesti (vt <a href=\"#termination\">Millal töötlemine peatub</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Käivitusjärjekord ja <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Sammud 4 ja 5 sorteeritakse koos, järgmiste reeglite järgi:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Toorreeglid töötavad alati esimesena.</strong> Ükski <code>order</code> ei liiguta <code>rules</code> kirjet toorreegli ette. Puhastus, mis peab toimuma enne toorreeglit, peab ise olema toorreegel."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Etapi sees töötavad <code>order</code>-iga reeglid enne neid, millel seda pole</strong>, väikseim esimesena. Negatiivsed arvud ja murdarvud on lubatud. <code>order: 10</code> ei tähenda \"kümnendat\": see tähendab pärast etapi järjestatud reegleid alla 10 ja enne kõiki selle järjestamata reegleid."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Seejärel loendi järgi:</strong> <code>rules</code>, seejärel märgitud <code>\"referralMarketing\": true</code> objektid kirjes <code>rules</code>, seejärel <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Seejärel asukoha järgi</strong> loendis. Iga kirje säilitab oma koha, sealhulgas kirjed, mis on kirjutatud kujul <code>\"3\"</code> või <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Siin kirjutatakse token ümber enne, kui <code>utm_source</code> eemaldatakse, kuigi see tuleb teisena:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Väljalülitatud reeglid jäetakse välja. <code>$removeparam</code> filtrid ja kirjed <code>@@</code> on sellest sortimisest väljas ega saa omada <code>order</code>-it, isegi mitte <code>null</code>; filtrid töötavad alati viimasena."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Sama tekst kaks korda"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Kaks sama <code>matchPattern</code> tekstiga kirjet ühes rühmas on üks reegel. Rühmad on toor (<code>rawRules</code>), väli (<code>rules</code> ilma referral-märketa) ja referral (märgitud <code>rules</code> objektid, seejärel <code>referralMarketing</code>). See juhtub peamiselt reegliloendite ühendamisel."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Võidab viimane määratlus, mis ei ole väljas, kõigi oma võtmetega."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Ilma enda <code>order</code>-ita võtab võitja esimese määratluse asukoha ja lähima varasema <code>order</code>-i. <code>\"order\": null</code> tähendab järjestuse puudumist ja eemaldab päritud järjestuse."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Asendatud määratluste id-d ja aliased lülitavad sisse ja välja ka võitja."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Kui referral-turunduse reeglid töötavad, asendab referral-kirje sama tekstiga väljakirje."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Toorreegel ja väljareegel sama tekstiga ei põrka kokku; mõlemad töötavad."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Ühe loendi sees on kaks erinevat sama tekstiga kirjet viga ja täpne koopia on hoiatus."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Millal töötlemine peatub"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Päringu kohta töötab kuni 10 tsüklit; piirini jõudes kasutatakse URL-i sellisena, nagu see on."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Reegel, millel on <code>replacePattern</code>, rakendub päringu kohta kuni üks kord."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Samm, mis URL-i ei muuda, ei alusta uut tsüklit."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Sätted → <em>Piiramatud puhastustsüklid</em> (vaikimisi väljas) eemaldab 10 tsükli piiri reeglireadele, mis vajavad rohkem. Töötlemine lõpeb siis, kui tsükkel ei muuda midagi, kuid kaks reeglit, mis suunavad teineteisele ümber, tsüklevad, kuni brauser loobub ja leht ei laadi. Lülitage see sisse ainult usaldatavate reeglite jaoks."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Reeglite id-d ja sisse/välja lülitid"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Igal reeglil on id. Reegel ilma <code>id</code>-ta saab selle oma loendist ja tekstist: <code>\"utm_source\"</code> kirjes <code>rules</code> muutub <code>field-utm-source</code>-iks. Genereeritud id muutub, kui reegli tekst muutub, ja väljalülitatud reegel lülituks siis tagasi sisse. Andke reeglile oma <code>id</code>, kui see peab muudatuste käigus säilitama oma sisse/välja sätte, ja loetlege vanad id-d kirjes <code>aliases</code>, kui selle ümber nimetate."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Reegli lülitavad sisse ja välja koos selle pakkuja ja id, nt <code>shop::session-token</code>, seega saavad kaks pakkujat kasutada sama id-d. Kohandatud reeglite redaktor võib selle salvestada ka pakkuja mustri all, nt <code>domainPattern:||shop.example^::session-token</code>; mõlemad vormid töötavad."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Ühe pakkuja sees peab iga id ja alias olema erinev. Genereeritud id-d loevad samuti."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Id ei tohi sisaldada koolonit."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Paljana, ilma pakkujata salvestatud säte ei lülita midagi; lülitage reegel kohandatud reeglite redaktoris uuesti välja."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Kaugreeglite loendid"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Kaugreeglite loendid on reeglifailid, mille Linkumori alla laadib, soovi korral räsifailiga kontrollituna. Loendit, millel on kehtetu <code>cln</code> väärtus, <code>defaults</code> plokk või <code>patches</code> massiiv, ei laadita ja Kaugreeglite tervis teatab sellest."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Ümbersuunamine ja blokeerimine vajavad teie kinnitust"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Mida kaugloend teha saab, arvutatakse selle sisust laadimisel:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Võimalus"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Loendil see on, kui see sisaldab"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktiivne laadimisel"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "kirje <code>rules</code>, <code>rawRules</code> või <code>referralMarketing</code> või <code>$removeparam</code> filter"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "kirje, millel on <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "pakkuja <code>exceptions</code> kirje või kirje <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "kirje <code>redirections</code> või <code>fieldRedirections</code> või <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "pärast kinnitust"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "pakkuja, millel on <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Kinnitage <code>redirect</code> ja <code>block</code> loendi kaupa Kaugreeglite tervises. Seni jäävad selle loendi ümbersuunamised ja blokeerimised välja ning selle toorreeglid ei saa URL-i teisele saidile saata; ülejäänud loend töötab kohe. Kui uuendus lisab uue võimaluse, ootab ka see kinnitust. Sisseehitatud ja kohandatud reeglitel on kõik võimalused."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Ülekoormusrežiim"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Tavaliselt asendavad pakkujatega kaugloendid sisseehitatud reeglid; loendid, mis sisaldavad ainult <code>patches</code>, rakendatakse sisseehitatud reeglitele. Kui <em>Luba ülekoormusrežiim</em> on sees, laaditakse need koos, kasutades ühte kolmest strateegiast:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Ainult paigarežiim</em>: rakenda kaugloendite paigad sisseehitatud reeglitele; kaugpakkujad jäetakse välja."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Paigarežiim + ühendamine</em>: ühenda sisseehitatud ja kaugpakkujad, seejärel rakenda paigad."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Ilma paigarežiimita + ühendamine</em>: ühenda pakkujad ja jäta paigad vahele."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Ühendamisel ühendatakse kaugloendid omavahel teie loetletud järjekorras, seejärel sisseehitatud reeglitega (sisseehitatud esimesena). Ühenduvad ainult pakkujad, millel on samad <code>domainPatterns</code> (või <code>urlPattern</code>) ja samad <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> ja <code>forceRedirection</code>; nende <code>rules</code>, <code>rawRules</code> ja <code>referralMarketing</code> liidetakse ning <a href=\"#same-text-twice\">Sama tekst kaks korda</a> otsustab, milline koopia töötab. Kaugreeglite tervis loetleb iga asendatud reegli teatena."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Kohandatud reeglid rakendatakse viimasena. Kohandatud pakkuja asendab iga laaditud sama mustriga pakkuja; nende reegleid ei kombineerita."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Reeglipaigad"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Kaugloend võib asendada üksikuid juba laaditud reegleid ilma täielikku koopiat avaldamata, ülataseme <code>patches</code> massiivis:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Nõutav. Asendatav reegel, kirjutatud nagu selle sisse/välja võti: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> või <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Nõutav. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> või <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Nõutav. Uus reegel tavalise kirje või reeglobjektina."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Märkus faili lugejatele."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Paigad rakendatakse pärast kaugloendite ühendamist ja enne kohandatud reegleid. Fail, millel on ainult <code>patches</code>, ei vaja <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Ühendamine võib pakkujaid ümber nimetada, seega vorm <code>domainPattern:</code> või <code>urlPattern:</code> leiab need alati üles."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Asendus säilitab vana reegli id või võtab vana id aliasena, nii et sisse/välja sätted kehtivad edasi."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Ümbersuunamise paik ootab loendi <code>redirect</code> kinnitust. Paik, mille sihtmärk ei vasta millelegi, ei muuda midagi."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Kaugreeglite tervis loetleb iga paiga kui rakendatud, sobitamata või vahele jäetud."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Reeglid ja valge nimekiri"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Valge nimekiri on pakkuja <code>exceptions</code> kirjetest eraldi: see loetleb saidid, mida käskisite Linkumoril rahule jätta, ilma reeglifailita. Kirjed on kujul <code>example.com</code>, <code>*.example.com</code> (sait ja selle alamdomeenid) või <code>example.*</code> (mis tahes lõpp). Lehe lisamine valgesse nimekirja katab ka kõik, mida see laadib."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Täielikud näited"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Reeglite kontrollimine"
+  },
+  "guide_checking_p_1": {
+    "message": "Kohandatud reeglite redaktor kontrollib reegleid salvestamisel või importimisel ning <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> käivitab samad kontrollid. Lisaks katkisele JSON-ile ja kehtetutele regulaaravaldistele lükkavad need tagasi reeglid, mis laadiksid, kuid teeksid vaikselt valesti, näiteks:"
+  },
+  "guide_checking_item_1": {
+    "message": "tundmatud väljad, võtmed ja modifikaatorid"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> väärtus, mis ei ole <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "ühes pakkujas kaks korda kasutatud id või alias"
+  },
+  "guide_checking_item_2": {
+    "message": "kaks erinevat sama tekstiga kirjet ühes loendis"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> kirjel <code>$removeparam</code> filter või <code>@@</code>, kaasa arvatud <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> aadress, mis ei ole <code>http</code> ega <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "kaldkriips nimes <code>$removeparam</code> enne märki, millel pole paomärki"
+  },
+  "guide_checking_p_2": {
+    "message": "Need hoiatavad ka täpsete koopiate ning sama teksti eest nii <code>rules</code> kui ka <code>referralMarketing</code> all. Kui salvestamine ebaõnnestub, nimetab teade pakkuja, loendi ja kirje."
+  },
+  "guide_toc_search": {
+    "message": "Filtreeri jaotisi"
+  },
+  "guide_toc_no_results": {
+    "message": "Sobivaid jaotisi pole."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: märgiga \"|\" algav ümbersuunamine peab välja nägema nii: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= siht peab olema täielik http- või https-URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ peab olema objekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type peab olema mittetühi string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type peab olema üks järgmistest: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs peab olema \"all\" või positiivsete täisarvude massiiv",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ peab olema string või reegliobjekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern peab olema string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern peab olema string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId peab olema reegli ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId kehtib ainult rawRules-i \"@@…$rawrule=\" erandite puhul",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags peab olema string (regexi lipud, näiteks \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing peab olema true või false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing ei mõjuta välja $FIELD$; see kehtib ainult loendis $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order peab olema arv või null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order ei mõjuta välja $FIELD$; see kehtib ainult loendis $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order ei mõjuta filtrit $removeparam ega kirjet \"@@\"; need käivitatakse alati pärast teisi reegleid",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active peab olema tõeväärtus",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id peab olema string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id peab vastama mustrile $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases peab olema ID-de loend, mis vastavad mustrile $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases ei tohi sisaldada reegli enda ID-d",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description peab olema string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection peab olema tõeväärtus",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions peab olema stringide massiiv",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes peab olema stringide massiiv",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors peab olema massiiv",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: tundmatu väli \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ algab märgiga \"@@\", mis kehtib ainult reeglite rules ja referralMarketing filtrite $removeparam puhul; kasuta selle asemel reegliobjektis välja \"exceptions\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ sisaldab tundmatut valikut $removeparam \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" algab ühe märgiga \"|\", seega vastab see ainult URL-idele, mis algavad täpselt tekstiga \"$REST$\"; selliseid pole (URL-id algavad tekstiga \"https://\"). Domeeniga sobitamiseks kasuta \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ sisaldab välja \"targetId\", mis toimib ainult erandi puhul; alusta matchPattern väärtusega \"@@\" (nt \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ sisaldab nii välja \"targetId\" kui ka regexi pärast väärtust \"rawrule=\"; kasuta ainult üht neist",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ sisaldab targetId väärtusega \"$ID$\", kuid sellel pakkujal pole selle ID ega aliasega raw-reeglit",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ on erand \"@@\" väärtusele \"$REGEX$\", kuid ükski selle pakkuja raw-reegel seda regexi ei kasuta. Määra reeglile ID ja viita sellele väljaga \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ on erand \"@@\", seega ei teeks \"$KEY$\" midagi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ väärtusele \"rawrule=\" ei järgne midagi; kustutatav regex on nõutav",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ sisaldab pärast väärtust \"rawrule=\" vigast regexi: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ sisaldab $GROUPS$ püüdmisrühma; siht-URL-i ümber peab olema täpselt üks \"( … )\" (kirjuta teised rühmad kujul \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ kasutab reegli ID-d \"$ID$\" asukohas $WHERE$ uuesti; seda kasutati esimest korda asukohas $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ peab olema JSON-objekt",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ peab olema massiiv",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ sisaldab tundmatut võtit \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Viga URL-i töötlemisel: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Viga lehe lähtestamisel: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Vigane vaheleht"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Selle vahelehe reeglite otsing juba käib"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Selle vahelehe jaoks ei käi ühtegi pausi kontrolli"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Reegleid alles laaditakse. Proovi mõne hetke pärast uuesti."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Ühtegi sellel lehel rakendunud reeglit ei saa välja lülitada."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Reegleid ei saanud välja lülitada"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Selle vahelehe jaoks ei käi reeglite otsingut"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Selle vahelehe jaoks pole leitud reeglit, mida vahele jätta"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Allalaadimine pole saadaval"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Salvestist ei saanud seansi salvestusruumi salvestada"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Tundmatu reegel"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "tundmatu viga"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "eksportimine nurjus"
   }
 }

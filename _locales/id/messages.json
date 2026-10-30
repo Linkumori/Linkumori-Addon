@@ -39,7 +39,7 @@
     "message": "Gunakan aturan bawaan Linkumori/ClearURLs. Nonaktifkan ini untuk menjalankan hanya dengan aturan jarak jauh dan/atau aturan khusus."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori menggunakan satu set aturan penyedia ClearURLsData terpadu. JSON penyedia asli, objek aturan kanonis, dan filter $removeparam lokal penyedia digabungkan sebelum clearurls.js dijalankan."
   },
   "bundled_rules_section_title": {
     "message": "Informasi Aturan"
@@ -1137,25 +1137,25 @@
     "message": "Buka Pengaturan Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Perilaku mode Overload"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Hanya mode patch"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Terapkan patch jarak jauh ke aturan bawaan. Aturan penyedia jarak jauh tidak disertakan."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Mode patch + gabung"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Gabungkan aturan penyedia bawaan dan jarak jauh, lalu terapkan patch jarak jauh."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Tanpa mode patch + gabung"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Gabungkan aturan penyedia bawaan dan jarak jauh tanpa menerapkan patch jarak jauh."
   },
   "overload_mode_enabled": {
     "message": "Aktifkan Mode Overload"
@@ -1836,7 +1836,7 @@
     "message": "URL hash utama harus menggunakan HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "URL aturan utama dan URL hash utama harus dikonfigurasi bersama."
   },
   "save_primary_rule_https_required": {
     "message": "URL aturan utama harus menggunakan HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Saya Memahami Risikonya - Lanjutkan"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Anda sebaiknya mempertimbangkan kembali penggunaan aturan jarak jauh jika Anda tidak sepenuhnya memahami atau memercayai sumber set aturan Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Fitur aturan jarak jauh ini dirancang untuk pengguna tingkat lanjut yang memahami JSON Linkumori yang mereka muat. Aturan jarak jauh sebaiknya menyertakan URL hash yang sesuai untuk verifikasi."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jika Anda menambahkan URL aturan jarak jauh, ekstensi akan terhubung ke server yang Anda tunjuk untuk mengambil set aturan Linkumori dan file hash-nya saat dikonfigurasi. Setiap pengambilan dapat mengungkap alamat IP Anda dan informasi umum seperti versi ekstensi, browser, dan versi browser kepada server hosting. Data ini tunduk pada kebijakan privasi situs web atau server web tersebut."
   },
   "security_modal_privacy_link_text": {
     "message": "Baca %PRIVACY_POLICY_LINK% lagi sebelum melanjutkan jika perlu."
@@ -1887,7 +1887,7 @@
     "message": "pemberitahuan privasi:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Gunakan aturan bawaan kecuali Anda memercayai dan mengendalikan sumber jarak jauh. Sediakan URL hash yang sesuai untuk aturan JSON Linkumori jarak jauh."
   },
   "security_modal_risk_1": {
     "message": "Alamat IP dan informasi browser Anda akan terekspos ke server yang dikonfigurasi"
@@ -1899,7 +1899,7 @@
     "message": "Verifikasi hash hanya berlaku untuk aturan Linkumori CLN Format 1.0 JSON; ini melindungi terhadap gangguan transmisi, bukan sumber aturan yang berbahaya."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Aturan jarak jauh tanpa verifikasi hash yang berhasil sepenuhnya bergantung pada kepercayaan terhadap URL sumber."
   },
   "security_modal_risks_title": {
     "message": "Risiko Keamanan:"
@@ -1914,7 +1914,7 @@
     "message": "URL ke file rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Diperlukan untuk verifikasi aturan JSON Linkumori jarak jauh."
   },
   "setting_html_export_button": {
     "message": "Ekspor"
@@ -1944,7 +1944,7 @@
     "message": "Batas Log (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Sumber JSON Linkumori jarak jauh tambahan yang digabungkan. Masukkan satu pasangan per baris sebagai <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Set Aturan Jarak Jauh Tambahan"
@@ -1953,13 +1953,13 @@
     "message": "https://contoh.com/aturan-2.json | https://contoh.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL jarak jauh kustom untuk aturan JSON Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL ke file JSON aturan jarak jauh"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "URL hash diperlukan untuk setiap set aturan jarak jauh."
   },
   "settings_html_page_title": {
     "message": "Pengaturan Linkumori (Clean URLS)"
@@ -2421,19 +2421,19 @@
     "message": "PERINGATAN: Fitur Lanjutan Hanya Ditujukan untuk Server yang Dihosting Sendiri"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Anda menonaktifkan perlindungan Gatekeeper untuk pengeditan URL aturan jarak jauh. Fitur ini dapat memuat aturan JSON Linkumori jarak jauh ke dalam set aturan penyedia terpadu. Lanjutkan hanya jika Anda memahami dan memercayai sumber yang Anda konfigurasikan."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper adalah alur keamanan bawaan yang memblokir pengeditan URL jarak jauh langsung hingga Anda mengakui peringatan keamanan dan menyelesaikan konfirmasi ketik."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Biarkan Gatekeeper tetap aktif kecuali Anda memercayai dan mengendalikan sumber jarak jauh Anda. Aturan JSON jarak jauh sebaiknya menyertakan URL hash yang sesuai."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "pemberitahuan privasi:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jika Anda menambahkan URL aturan jarak jauh, ekstensi akan terhubung ke server yang Anda tunjuk untuk mengambil set aturan Linkumori dan file hash-nya saat dikonfigurasi. Setiap pengambilan dapat mengungkap alamat IP Anda dan informasi umum seperti versi ekstensi, browser, dan versi browser kepada server hosting. Data ini tunduk pada kebijakan privasi situs web atau server web tersebut."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Baca %PRIVACY_POLICY_LINK% lagi sebelum melanjutkan jika perlu."
@@ -2448,7 +2448,7 @@
     "message": "Ekstensi akan terhubung ke URL yang Anda tentukan setiap kali ekstensi diaktifkan dan dimuat di browser Anda."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Server yang menghosting file JSON atau hash jarak jauh akan menerima alamat IP Anda."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Server juga dapat menerima versi ekstensi, browser, dan versi browser Anda."
@@ -2457,7 +2457,7 @@
     "message": "Data tersebut tunduk pada kebijakan privasi situs web atau server web yang menghosting file-file tersebut."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Dengan menonaktifkan Gatekeeper, Anda meningkatkan risiko dari sumber aturan jarak jauh yang tidak aman atau telah disusupi. Verifikasi hash melindungi unduhan JSON Linkumori jarak jauh hanya jika URL hash yang sesuai dikonfigurasi."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Batal"
@@ -2517,7 +2517,7 @@
     "message": "Ketik frasa konfirmasi yang tepat"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Tindakan ini mengurangi pengamanan untuk aturan jarak jauh. Lanjutkan hanya jika Anda memercayai sumber JSON jarak jauh Anda."
   },
   "remote_urls_template_note_1": {
     "message": "Ganti nilai placeholder dengan URL HTTPS asli Anda, lalu impor file ini."
@@ -2847,10 +2847,10 @@
     "message": "Tidak ada"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Tabrakan aturan:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ kesalahan, $WARNINGS$ peringatan, $NOTICES$ pemberitahuan",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Kemampuan file jarak jauh:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "tidak aktif hingga diterima: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Terima $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Patch aturan:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ diterapkan, $NOT_APPLIED$ tidak diterapkan",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Default aturan"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Bawaan"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Kustom"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Tidak ada — perilaku bawaan"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Mode Overload menggabungkan aturan bawaan dan jarak jauh; aturan setiap sumber mempertahankan default sumbernya sendiri."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Simpan default"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Default disimpan"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Saat aktif, setiap sumber aturan mempertahankan default-nya sendiri (default bawaan berlaku untuk aturan bawaan, dan default setiap file jarak jauh untuk aturan file tersebut) kecuali Anda memilih default sendiri di editor aturan kustom."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Jarak jauh: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Default mana yang berlaku"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Milik masing-masing sumber"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Milik Anda untuk aturan bawaan dan jarak jauh"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Milik Anda untuk semua aturan"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(diganti dengan default Anda)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Milik Anda"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ jenis permintaan",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ pengecualian URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 pengecualian URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ prapemroses",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Aturan setiap sumber mendapat default sumber itu sendiri."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Aturan bawaan dan jarak jauh mendapat default Anda, bukan default file mereka sendiri; aturan kustom mempertahankan miliknya sendiri."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Aturan bawaan, jarak jauh, dan kustom semuanya mendapat default Anda, bukan miliknya sendiri."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Kelola default aturan"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Default mengisi nilai yang tidak ditetapkan oleh aturan itu sendiri. Nilai milik aturan selalu menang, dan pengecualian penyedia tidak pernah diubah."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Edit default"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Default Anda"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Default aturan kustom"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Default yang diedit"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Aturan bawaan"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(diedit)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Setel ulang ke default file"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Gabungkan dari sumber…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Gabungkan default aturan"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Hasilnya muncul sebagai \"Default gabungan\" di daftar. Salin ke salah satu set di sana, lalu tekan Simpan default untuk menggunakannya."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Sumber yang digabungkan"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konflik"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Default gabungan"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Gunakan default gabungan"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Default gabungan"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Tidak digunakan sampai Anda menyalinnya ke salah satu set lain dan menyimpan."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Salin ke"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Salin"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Pilih setidaknya dua sumber."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Tidak ada konflik: sumber yang dipilih sepakat pada setiap nilai."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Pengecualian ditambahkan dari setiap sumber: total $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Digabungkan dari setiap sumber"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Dari: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Tidak diatur (perilaku bawaan)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Tidak diatur: semua jenis permintaan"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Tidak digunakan saat ini: default Anda menggantikan default aturan bawaan dan jarak jauh."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Diedit oleh Anda: ini menggantikan default file itu sendiri. File itu sendiri tidak diubah."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(diedit oleh Anda)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Tidak digunakan saat ini: \"Milik masing-masing sumber\" dipilih di atas."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Tidak digunakan saat ini: default Anda menggantikan ini untuk aturan kustom juga."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Aturan dimulai dalam keadaan mati (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Deskripsi"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Jenis permintaan"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Semua jenis"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Hanya ini"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Pilih setidaknya satu jenis permintaan, atau pilih \"Semua jenis\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Aturan membersihkan setiap jenis permintaan kecuali aturan itu, atau default, menyebutkan beberapa. Penyedia juga dapat membatasi jenis dengan resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Pengecualian"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Satu regex URL per baris. Aturan dilewati pada URL yang cocok."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Prapemroses"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Input: \"all\", atau nomor grup tangkapan seperti 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Tambah prapemroses"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Jenis prapemroses"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Input prapemroses"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Hapus"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Input prapemroses \"$INPUTS$\" harus \"all\" atau angka seperti 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Matikan perlindungan pintas riwayat (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Tampilkan sebagai JSON"
   },
   "settings_remote_health_unknown": {
     "message": "tidak diketahui"
@@ -4005,10 +4005,10 @@
     "message": "Penyedia JSON Panduan"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Buka panduan aturan Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Sintaks aturan mana yang harus saya gunakan?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Buka panduan aturan"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Gagal memuat sumber penyedia: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Aturan bawaan tidak tersedia."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Gagal memuat aturan bawaan: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Tidak dapat beralih bahasa ke $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Tema terang"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tema gelap"
   },
   "posarCopied": {
     "message": "POSAR disalin!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR diterima."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Atur ulang"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Alat Aksesibilitas"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Buka Alat Aksesibilitas"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Tutup Alat Aksesibilitas"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Atur Ulang Semua Pengaturan Aksesibilitas"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Penglihatan"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Membaca"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interaksi"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Kontras Tinggi"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Filter Warna"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Saturasi"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Balikkan"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Sorot Tautan"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Sembunyikan Gambar"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Perbesar Ukuran Teks"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Perkecil Ukuran Teks"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Ukuran Teks Default"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Pilihan Font"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Ramah Disleksia"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Spasi Teks"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Tinggi Baris"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Perataan Teks"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Jeda Animasi"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Kursor Lebih Besar"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Bawaan"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Sedang"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Tinggi"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Rendah"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Tidak ada"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Ringan"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Berat"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,7 +4173,7 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Tanpa Filter"
   },
   "accessibility_tools_value_protanopia": {
     "message": "Protanopia"
@@ -4185,37 +4185,37 @@
     "message": "Tritanopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Skala Abu-abu"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Kiri"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Tengah"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Kanan"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Sangat Kecil"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Kecil"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Besar"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Sangat Besar"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Terbesar"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Nyala"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Mati"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "diaktifkan"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "dinonaktifkan"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Ukuran Teks Default dipilih"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Semua pengaturan aksesibilitas diatur ulang"
+  },
+  "skip_to_main_content": {
+    "message": "Lompat ke konten utama"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigasi popup"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Tampilan aturan kustom"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Tampilan log"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Perlindungan Pintas Riwayat (lewati saat navigasi dalam halaman)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Pengalihan bidang"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Salin aturan"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Aturan disalin"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Tidak dapat menyalin aturan"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Apa fungsi historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Situs satu halaman sering mengubah alamat dengan history.pushState/replaceState alih-alih memuat halaman baru. Linkumori juga membersihkan alamat tersebut. Tambahkan history-bypass-protection=false ke filter $removeparam untuk melewati hanya filter itu pada perubahan dalam halaman ini; filter tetap berjalan pada permintaan biasa."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Untuk melewati seluruh penyedia pada perubahan dalam halaman, atur pada penyedia:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Jika dihilangkan, nilainya true dan perubahan dalam halaman dibersihkan. Pengaturan aturan itu sendiri mengalahkan pengaturan penyedia, sehingga aturan dapat memilih kembali dengan history-bypass-protection=true, atau \"historyBypassProtection\": true pada objek aturan."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Lewati nav dalam halaman"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Ganti nama ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "ID baru untuk $OLD$ (a-z, 0-9, - dan _). ID lama disimpan sebagai alias, sehingga aturan yang dimatikan dengannya tetap mati.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" bukan ID yang valid. Gunakan huruf kecil, angka, - dan _, diawali huruf atau angka.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Aturan lain dari penyedia ini sudah menggunakan \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Nonaktifkan aturan"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Nonaktifkan $ID$ untuk seluruh penyedia, atau hanya untuk pola URL/domain ini?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Penyedia saya"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Pola URL/domain"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "ID aturan diganti menjadi $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Sakelar yatim"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Tidak ada aturan yang cocok di sumber"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Hapus"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Melewati pembersihan navigasi dalam halaman"
+  },
+  "whitelist_added_general": {
+    "message": "%s ditambahkan ke daftar putih umum"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s ditambahkan sebagai pengecualian History API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d pengecualian"
+  },
+  "whitelist_exception_empty": {
+    "message": "Tidak ada pengecualian daftar putih"
+  },
+  "whitelist_mode_general": {
+    "message": "Daftar putih umum"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Hanya History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Cakupan daftar putih"
+  },
+  "whitelist_removed_general": {
+    "message": "%s dihapus dari daftar putih umum"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Pengecualian History API untuk %s dihapus"
+  },
+  "whitelist_type_general": {
+    "message": "Umum"
+  },
+  "whitelist_type_history_api": {
+    "message": "Hanya History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Tambahkan $1 ke daftar putih umum"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Daftar putih umum: $1 - klik untuk Hanya History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Pengecualian History API: $1 - klik untuk tab ini saja"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Khusus tab: $1 - klik untuk menghapus"
+  },
+  "logger_action_allowed": {
+    "message": "Diizinkan"
+  },
+  "logger_action_blocked": {
+    "message": "Diblokir"
+  },
+  "logger_action_filter_label": {
+    "message": "Tindakan"
+  },
+  "logger_action_info": {
+    "message": "Info"
+  },
+  "logger_action_modified": {
+    "message": "Diubah"
+  },
+  "logger_action_redirected": {
+    "message": "Dialihkan"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Salin ringkasan"
+  },
+  "logger_btn_export": {
+    "message": "Ekspor"
+  },
+  "logger_btn_group": {
+    "message": "Kelompokkan menurut aturan"
+  },
+  "logger_col_hits": {
+    "message": "Cocok"
+  },
+  "logger_col_last_seen": {
+    "message": "Terakhir dilihat"
+  },
+  "logger_detail_group_title": {
+    "message": "Detail aturan"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Tab"
+  },
+  "logger_exported": {
+    "message": "$1 entri diekspor."
+  },
+  "logger_filter_all": {
+    "message": "Semua"
+  },
+  "logger_report_rule": {
+    "message": "Laporkan"
+  },
+  "logger_rule_disable": {
+    "message": "Matikan aturan"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Aturan $1 dimatikan. Muat ulang halaman untuk memeriksa."
+  },
+  "logger_rule_enable": {
+    "message": "Nyalakan aturan"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Aturan $1 dinyalakan kembali."
+  },
+  "logger_rule_failed": {
+    "message": "Tidak dapat mengubah aturan."
+  },
+  "logger_rule_off": {
+    "message": "Aturan dimatikan"
+  },
+  "logger_rule_on": {
+    "message": "Aturan menyala"
+  },
+  "logger_rule_unavailable": {
+    "message": "Aturan ini tidak dapat diubah dari sini."
+  },
+  "logger_status_rules": {
+    "message": "$1 aturan"
+  },
+  "logger_summary_copied": {
+    "message": "Ringkasan disalin."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Tidak dapat menyalin ringkasan."
+  },
+  "logger_type_filter_label": {
+    "message": "Jenis"
+  },
+  "logger_btn_logging_off": {
+    "message": "Pencatatan mati"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Pencatatan mati. Klik untuk menyalakannya."
+  },
+  "logger_btn_logging_on": {
+    "message": "Pencatatan menyala"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Pencatatan menyala. Klik untuk mematikannya."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Tidak dapat mengubah pengaturan pencatatan."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Tambah aturan referral"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Tambah pengecualian aturan raw"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Tambah pengalihan bidang"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Tambah pengecualian"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Setiap templat menambahkan objek aturan dengan id dan matchPattern placeholder pada example.com. Entri juga dapat berupa string biasa: nama parameter, regex nama, filter $removeparam atau, di rawRules, sebuah regex. Objek aturan menerima id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description, dan targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Pemeriksa kode"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Tidak ada masalah ditemukan."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Kesalahan"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Peringatan"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ kesalahan, $WARNINGS$ peringatan",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Urutan eksekusi"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ langkah, sesuai urutan eksekusinya",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Tidak ada entri rawRules, rules, atau referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Dihitung oleh mesin dari teks di atas, tersimpan atau tidak. Langkah diurutkan menurut (stage, orderGroup, order, rank, arrayIndex): aturan raw berjalan sebelum aturan bidang; dalam satu tahap, entri dengan order berjalan lebih dulu, dari yang terendah, lalu sisanya menurut daftar dan posisi."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Pemasaran referral"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral dihapus"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral diizinkan"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Mentah"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Bidang"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Rujukan"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(dibuat otomatis)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "urutan $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "menulis ulang"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "menggantikan $COUNT$ definisi sebelumnya",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "ditambahkan oleh completeProvider: menghapus setiap parameter"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Dimatikan"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Mati untuk beberapa pola"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Kunci pengurutan: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Lalu $FILTERS$ filter $removeparam dan $EXCEPTIONS$ pengecualian @@, setelah setiap langkah di atas",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ pengecualian @@…$rawrule= dapat menghentikan aturan raw di atas di tempat yang cocok",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Seret langkah, atau gunakan panahnya, untuk memindahkannya dalam tahapnya. Pemindahan memberi setiap entri tahap itu order 10, 20, 30, … dalam urutan baru."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Beralih ke Referral dihapus untuk mengatur ulang: tampilan itu menampilkan setiap entri."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Seret untuk memindahkan"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Pindahkan $ENTRY$ lebih awal",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Pindahkan $ENTRY$ lebih akhir",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ dipindahkan ke posisi $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Urungkan pemindahan"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Pemindahan diurungkan"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulasi"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Menjalankan penyedia ini pada sebuah URL seperti saat membersihkan tautan yang disalin, dengan aturan Anda yang dimatikan dan pilihan referral di atas, lalu menampilkan URL setelah setiap langkah. Penyedia lain tidak berjalan. Buat URL uji membuatnya dari aturan penyedia ini sendiri."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL uji"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Jalankan"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Telusuri simulasi langkah demi langkah"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Awal"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Sebelumnya"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Berikutnya"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Akhir"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Putar"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Jeda"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL sebelum langkah apa pun"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Putaran $PASS$ · langkah $STEP$ dari $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "tidak ada perubahan"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "filter $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Putaran $PASS$ tidak mengubah apa pun, sehingga pembersihan berhenti",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Penyedia ini berhenti di sini: batas siklus tercapai, URL kembali ke URL sebelumnya, atau tidak lagi cocok dengan penyedia"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Putaran $PASS$ mengalihkan; pembersihan berlanjut di alamat baru dengan semua penyedia",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Penyedia memblokir permintaan ini (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Hasil"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Pola penyedia ini tidak cocok dengan URL ini, sehingga tidak ada aturannya yang berjalan."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "URL ini cocok dengan salah satu pengecualian penyedia, sehingga tidak ada aturannya yang berjalan."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Masukkan URL http:// atau https:// lengkap."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulasi tidak dapat dijalankan. Periksa JSON di atas."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Buat URL uji"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Dibuat dari aturan penyedia ini: teks untuk $RAW$ aturan raw dan $PARAMS$ parameter, masing-masing diperiksa terhadap aturannya. keep=1 tidak cocok dengan aturan mana pun dan seharusnya tetap ada. Pengalihan dan pemblokiran tidak disertakan, karena akan mengakhiri proses sebelum aturan lain.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Tidak ada host yang dapat dibuat yang cocok dengan pola penyedia ini, sehingga URL memakai host lain dan penyedia tidak akan berjalan padanya."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Setiap URL yang cocok dengan pola penyedia ini tercakup oleh salah satu pengecualiannya sendiri, sehingga aturannya tidak pernah berjalan."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ aturan tidak disertakan dalam URL uji",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "tidak ada teks yang dapat dibuat yang cocok dengannya"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "teksnya akan membuat salah satu pengecualian penyedia cocok"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "aturan ini menghapus setiap parameter, sehingga tidak memerlukan parameter sendiri"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Penyedia ini memiliki filter $removeparam tanpa nama, yang menghapus setiap parameter, termasuk keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "tanpa order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "urutan $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Pulihkan nomor order"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Kembalikan setiap order seperti saat Anda membuka penyedia ini"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Nomor order dipulihkan"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Sembunyikan"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Tampilkan"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Hapus peringatan"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Pulihkan peringatan"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ peringatan dihapus",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern tanpa indexPattern diperiksa terhadap setiap URL; tambahkan petunjuk indexPattern seperti \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ mengulang \"$ENTRY$\"; salinannya tidak berfungsi dan keduanya berbagi satu id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ masih memiliki placeholder templat \"$PATTERN$\"; ganti dengan pola yang sebenarnya",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ memiliki matchPattern \"(?!)\", yang tidak pernah cocok dengan apa pun",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Pemecahan masalah"
+  },
+  "troubleshooter_launch": {
+    "message": "Pecahkan masalah tab ini (eksperimental)"
+  },
+  "troubleshooter_title": {
+    "message": "Pemecah masalah tab"
+  },
+  "troubleshooter_page": {
+    "message": "Halaman"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Cara kerja perekaman"
+  },
+  "troubleshooter_about_note": {
+    "message": "Membuka tampilan ini dapat memeriksa URL halaman, tetapi tidak merekam apa pun. Perekaman tetap mati sampai Anda memilih Mulai merekam. Memulai akan memuat ulang tab ini untuk menangkap permintaan sumber dayanya. URL yang ditangkap disimpan di penyimpanan sesi selama sesi browser ini dan dihapus saat tab ini ditutup atau sesi browser berakhir. Perekaman berhenti setelah 15 menit kecuali Anda menghentikannya lebih awal. URL sumber daya dapat berisi data kueri pribadi."
+  },
+  "troubleshooter_start": {
+    "message": "Mulai merekam"
+  },
+  "troubleshooter_starting": {
+    "message": "Memulai…"
+  },
+  "troubleshooter_recording": {
+    "message": "Merekam…"
+  },
+  "troubleshooter_stop": {
+    "message": "Hentikan perekaman"
+  },
+  "troubleshooter_refresh": {
+    "message": "Segarkan"
+  },
+  "troubleshooter_copy": {
+    "message": "Salin ringkasan"
+  },
+  "troubleshooter_export": {
+    "message": "Ekspor"
+  },
+  "troubleshooter_export_title": {
+    "message": "Simpan rekaman sebagai file JSON. URL sumber daya dapat berisi data kueri pribadi."
+  },
+  "troubleshooter_category": {
+    "message": "Kategori"
+  },
+  "troubleshooter_category_all": {
+    "message": "Semua kategori"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Aturan URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Pengalihan"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Perlindungan dan pintasan"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Jenis sumber daya"
+  },
+  "troubleshooter_type_all": {
+    "message": "Semua jenis sumber daya"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Cari aturan, penyedia, dan URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Merekam $1 · sisa $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Memeriksa tab ini…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Tidak ada tab aktif yang tersedia."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Halaman ini tidak mengizinkan pemindaian aturan URL. Buka halaman web http atau https biasa."
+  },
+  "troubleshooter_status_off": {
+    "message": "Perekaman mati. Mulai merekam untuk memeriksa URL sumber daya yang dimuat oleh halaman ini."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 perubahan URL telah ditangkap sejauh ini. Yang baru muncul di sini secara otomatis."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Perekaman dihentikan. $1 perubahan URL ditangkap."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Data rekaman tidak dapat disimpan di penyimpanan sesi. $1 perubahan URL mungkin hilang jika ekstensi dimulai ulang."
+  },
+  "troubleshooter_status_started": {
+    "message": "Perekaman dimulai dan tab sedang dimuat ulang. URL yang ditangkap muncul di sini saat halaman dimuat."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Perekaman dihentikan. $1 perubahan URL ditangkap dan disimpan untuk sesi browser ini."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Perekaman dihentikan. $1 perubahan URL ditangkap, tetapi penyimpanan sesi tidak dapat menyimpannya."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Buka halaman web http atau https biasa terlebih dahulu."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Tidak dapat memulai perekaman untuk tab ini."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Tidak dapat menghentikan perekaman untuk tab ini."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Tidak dapat membaca tab ini. Coba tutup dan buka kembali popup."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Ringkasan disalin."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Tidak dapat menyalin ringkasan."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Rekaman diekspor."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Tidak dapat mengekspor rekaman."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Tidak dapat membuka formulir laporan."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Aturan diaktifkan; muat ulang tab untuk membandingkan."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Aturan dinonaktifkan; muat ulang tab untuk membandingkan."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Tidak dapat memperbarui aturan ini."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Belum ada perubahan aturan yang ditemukan. Mulai merekam untuk memeriksa URL sumber daya halaman ini."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Halaman browser ini tidak dapat dipindai."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Tidak ada temuan yang cocok dengan filter ini."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Menampilkan $1 aturan pertama."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 cocok"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 gagal"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID aturan: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Tindakan perlindungan bawaan (tanpa ID aturan)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID aturan: tidak tersedia untuk temuan ini"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Tidak dapat menemukan ID aturan ini di set aturan saat ini."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Permintaan yang diamati"
+  },
+  "troubleshooter_source_page": {
+    "message": "Pemeriksaan URL halaman"
+  },
+  "troubleshooter_changes": {
+    "message": "Yang berubah: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "URL terpengaruh ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…dan $1 lainnya"
+  },
+  "troubleshooter_after": {
+    "message": "Setelah Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Gagal setelah Linkumori mengubahnya: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Aturan ini aktif. Matikan dan muat ulang untuk membandingkan halaman."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Aturan ini nonaktif. Aktifkan dan muat ulang untuk memulihkan perilakunya."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Ini adalah tindakan perlindungan bawaan, bukan aturan individual."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Tinjau URL yang terpengaruh sebelum mengubah aturan."
+  },
+  "troubleshooter_report": {
+    "message": "Laporkan aturan ini"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Nonaktifkan aturan"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Aktifkan aturan"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Nonaktifkan aturan $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Aktifkan aturan $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Menyimpan…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "dihapus $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "ditambahkan $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "diubah $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "dialihkan ke $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "path diubah"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragmen diubah"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL diubah"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "sengaja diblokir"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 permintaan gagal di halaman ini; $2 tepat setelah Linkumori mengubah URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Apakah halaman ini rusak?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Temukan aturan yang merusaknya: aturan yang berjalan di halaman ini dimatikan satu per satu, dan setelah masing-masing Anda menyatakan apakah halaman sudah pulih. Tidak yakin Linkumori penyebabnya? Periksa dulu dengan pembersihan dijeda."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Periksa dulu dengan pembersihan dijeda"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Pembersihan dijeda untuk $1 di tab ini"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Tab dimuat ulang tanpa pembersihan. Apakah halaman berfungsi sekarang?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ya, berfungsi"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Tidak, masih rusak"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Batal"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Selesai"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Mungkin bukan Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Halaman tetap rusak dengan pembersihan dijeda, jadi masalahnya kemungkinan di tempat lain: situs itu sendiri, ekstensi lain, atau jaringan. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori kemungkinan penyebabnya"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Halaman berfungsi dengan pembersihan dijeda. Temukan aturannya: aturan dimatikan satu per satu, tab dimuat ulang, dan Anda menyatakan apakah halaman sudah pulih. Semua aturan lain dinyalakan kembali di akhir."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Tab sedang dimuat ulang dengan pembersihan kembali aktif, untuk merekam aturan mana yang berjalan di halaman ini. Aturan akan muncul di sini sebentar lagi. Jika tidak ada, gunakan halaman sampai rusak."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Temukan aturan ($1 aturan)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ya, sudah pulih"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Tidak, masih rusak"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Ditemukan"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Halaman rusak karena aturan $1$2. Aturan itu dinyalakan kembali. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Nonaktifkan aturan ini"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Laporkan"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Aturan dimatikan. Muat ulang tab untuk memeriksa. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Tidak ada satu aturan pun yang ditemukan"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Mematikan aturan satu per satu tidak memulihkan halaman, jadi kemungkinan disebabkan oleh beberapa aturan sekaligus, atau oleh pengaturan perlindungan. Semua aturan dinyalakan kembali. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Tidak dapat menjalankan pemeriksaan: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Muat ulang Linkumori untuk menggunakan pemeriksaan ini"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori telah diperbarui, tetapi bagian latar belakangnya masih menjalankan versi lama. Muat ulang ekstensi (untuk add-on sementara: about:debugging → This Firefox → Reload), atau mulai ulang Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Ditemukan"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Halaman rusak karena aturan $1$2. Aturan itu tetap dimatikan agar halaman berfungsi; semua aturan lain kembali aktif. Muat ulang tab untuk memeriksa. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Muat ulang tab"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Nyalakan kembali"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Aturan dinyalakan kembali. Muat ulang tab untuk memeriksa. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Rekam dan temukan aturan"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Merekam aturan mana yang berjalan di halaman ini. Gunakan halaman sampai rusak; aturan akan muncul di sini."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Dimatikan sementara oleh pencarian aturan. Aturan menyala kembali saat pencarian berakhir."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Pencarian aturan sedang berjalan. Ubah aturan setelah selesai."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Lewati — nyalakan kembali"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Biarkan mati"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Pencarian aturan dilewati; semua aturan aktif kembali. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Aturan $1 tetap mati. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Dimatikan untuk pengujian ini:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…dan $1 lainnya"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Hentikan pencarian"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Dilewati: aturan itu menyala kembali dan dikecualikan. Menguji aturan berikutnya."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Tidak ada aturan yang ditemukan di antara aturan yang diuji. $1 aturan yang Anda lewati tidak diuji. Semua aturan aktif kembali. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_experimental": {
+    "message": "Eksperimental"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Eksperimental: pemecah masalah ini belum sepenuhnya stabil. Hasilnya bisa salah, dan ia mematikan aturan saat menguji. Jika ada yang tampak salah setelahnya, periksa aturan Anda di editor aturan kustom, atau gunakan Hentikan pencarian untuk menyalakannya kembali."
+  },
+  "troubleshooter_working": {
+    "message": "Memproses…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Rekam lagi"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Rekaman lama dihapus. Merekam tab ini lagi dari pemuatan baru."
+  },
+  "troubleshooter_clear": {
+    "message": "Hapus"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Hapus rekaman tab ini, temuan, dan pencarian aturan yang selesai. Aturan tetap seperti adanya."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Dihapus. Aturan tetap seperti adanya."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Dihapus. Aturan $1 tetap mati."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Menguji satu aturan sekali waktu — aturan $1 dari $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Hanya aturan ini yang dimatikan, dan tab dimuat ulang. Apakah halaman sudah pulih sekarang?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Lewati aturan ini"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Lewati — nyalakan kembali, uji berikutnya (sisa $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 aturan lain yang berjalan di halaman ini belum diuji. Ingin melanjutkan menguji aturan tersebut?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Biarkan mati, uji berikutnya (sisa $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Aturan $1 tetap mati. Menguji aturan berikutnya."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Tidak ada aturan lain yang memulihkan halaman dengan sendirinya. $1 aturan yang Anda biarkan mati tetap mati; semua aturan lain aktif kembali. Untuk mengulang, klik Hapus."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Uji aturan berikutnya (sisa $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Aturan $1 menyala kembali dan dikecualikan. Menguji aturan berikutnya."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Tidak ada aturan lain yang memulihkan halaman dengan sendirinya. $1 aturan yang Anda lewati juga menyala kembali, sehingga semua aturan aktif lagi. Untuk mengulang, klik Hapus."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori membersihkan URL dengan aturan yang ditulis dalam <strong>CLN Format 1.0</strong> (Clean Link Notation), sebuah format JSON. Panduan ini berjalan dari aturan pertama hingga semua opsi, dengan contoh yang dapat Anda salin."
+  },
+  "guide_intro_p_2": {
+    "message": "Aturan bawaan, daftar aturan jarak jauh, dan aturan kustom Anda semuanya memakai format yang sama. Anda menulis aturan kustom di editor aturan kustom, yang memeriksanya saat Anda menyimpan atau mengimpor. Katalog aturan ClearURLs resmi (<code>data.min.json</code>) sudah merupakan file CLN yang valid dan dapat digunakan apa adanya."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Nama penyedia hanyalah label. URL mana yang ditangani penyedia ditentukan oleh <code>domainPatterns</code> atau <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Kunci tingkat atas"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Wajib. Para penyedia, menurut nama."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Versi format opsional. Satu-satunya nilai yang valid adalah <code>\"1.0\"</code>. File tanpanya juga dibaca sebagai 1.0; nilai lain menolak file. Kuncinya tidak bernama <code>version</code> karena format aturan baru ClearURLs sudah memakai kunci itu."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Informasi opsional tentang file."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Nilai untuk setiap aturan dalam file yang tidak menetapkan nilainya sendiri (bab 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Khusus daftar aturan jarak jauh: pengganti untuk aturan yang sudah dimuat (bab 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "URL mana yang ditangani penyedia, sebagai satu pola domain atau daftarnya (bab 3). Gunakan ini atau <code>urlPattern</code>, jangan keduanya."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "URL mana yang ditangani penyedia, sebagai satu ekspresi reguler yang dicocokkan dengan URL lengkap. Huruf besar/kecil diabaikan."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Hanya dengan <code>urlPattern</code>: petunjuk host seperti <code>||example.com^</code>, sehingga penyedia hanya diperiksa untuk host tersebut, bukan terhadap setiap URL. Ini petunjuk pencarian, bukan syarat kecocokan."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Parameter referral dan afiliasi yang dihapus. Dilewati saat <em>Izinkan pemasaran referral</em> aktif (bab 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL yang sama sekali tidak disentuh penyedia (bab 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Kirim permintaan ke alamat lain alih-alih mengeditnya (bab 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Kirim permintaan ke nilai sebuah parameter (bab 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: saat pemuatan halaman (<code>main_frame</code>) dialihkan, seluruh tab bernavigasi ke alamat baru, bukan hanya permintaan jaringan."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Hanya tangani metode HTTP ini, misalnya <code>[\"GET\"]</code>. Jika dihilangkan: setiap metode."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Hanya tangani jenis permintaan ini, misalnya <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Jika dihilangkan: setiap jenis permintaan."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Default <code>true</code>. <code>false</code> melewati seluruh penyedia saat halaman mengubah alamatnya sendiri dengan History API (<code>pushState</code>/<code>replaceState</code>). Permintaan jaringan normal tetap dibersihkan."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> mematikan penyedia tanpa menghapusnya."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> adalah daftar pola domain. URL cocok jika salah satunya cocok. Pola yang sama digunakan di depan <code>exceptions</code>, <code>redirections</code>, filter <code>$removeparam</code>, dan aturan raw."
+  },
+  "guide_matching_cell_1": {
+    "message": "URL lengkap, sebagai ekspresi reguler"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL yang mengandung teks ini di mana saja (tanpa <code>|</code> di awal)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> menandai akhir nama host, atau pemisah seperti <code>/</code>, <code>?</code>, <code>:</code> atau akhir URL. <code>*</code> adalah wildcard."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> mewakili domain: host dan setiap subdomain. Satu <code>|</code> mewakili awal URL dan harus diikuti skema seperti <code>https://</code>. Untuk domain, Anda selalu menginginkan <code>||</code>; <code>|example.com^</code> tidak akan pernah cocok, sehingga editor menolaknya."
+  },
+  "guide_matching_p_4": {
+    "message": "Misalnya, <code>||smile.amazon.*^</code> dibaca: <code>||</code> host dan subdomainnya, <code>smile.amazon</code> label yang diperlukan, <code>.*</code> sufiks publik apa pun (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), dan <code>^</code> akhir host."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "persis parameter itu"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "setiap parameter yang seluruh namanya cocok; huruf besar/kecil diabaikan"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> dan <code>\"$removeparam=fbclid\"</code> menghapus hal yang sama. Gunakan nama biasa kecuali Anda memerlukan sesuatu dari bab 5. Entri apa pun juga dapat ditulis sebagai objek aturan (bab 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Di sini <code>qid</code> dihapus di setiap situs Amazon, <code>tag</code> hanya di <code>amazon.de</code>, <code>sr</code> hanya di <code>smile.amazon</code>, dan <code>ref_</code> hanya di bawah <code>/gp/</code>. Pola mempersempit pola penyedia itu sendiri; tidak pernah dapat memperluasnya."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> mengubah filter menjadi pengecualian yang mempertahankan parameter (lihat di bawah)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> mempersempit filter ke sebagian URL penyedia (bab 3). Jika dihilangkan, berlaku untuk setiap URL yang cocok dengan penyedia."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> memilih parameter. Jika dihilangkan, setiap parameter dihapus."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Pengubah menentukan kapan filter berlaku. Setiap pengubah yang tercantum harus terpenuhi; tidak ada \"atau\" di antaranya."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "setiap parameter kecuali <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parameter yang namanya, atau <code>name=value</code> bersama, cocok dengan ekspresi reguler; tambahkan <code>i</code> untuk mengabaikan huruf besar/kecil"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parameter yang namanya diawali <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Meloloskan nama parameter"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Garis miring terbalik membuat karakter berikutnya literal, sehingga nama parameter apa pun dapat ditargetkan:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Nilai"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Menghapus parameter bernama"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (koma tidak memulai pengubah)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Kelima ini adalah satu-satunya escape dalam nilai nama; garis miring terbalik sebelum karakter lain adalah kesalahan. Di dalam nilai <code>/regex/</code>, garis miring terbalik tetap bermakna regex. Escape berfungsi di entri <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code>, dan <code>@@</code>. Dalam JSON, tulis setiap garis miring terbalik dua kali: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Pengubah"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Pengubah ditulis setelah nilai, dipisahkan koma. Pisahkan beberapa nilai satu pengubah dengan <code>|</code>, dan letakkan <code>~</code> di depan nilai untuk mengecualikannya:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Pengubah"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "hanya jika halaman yang membuat permintaan adalah (atau, dengan <code>~</code>, bukan) salah satu dari ini; nilai regex diizinkan"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "hanya jika permintaan itu sendiri menuju salah satu dari ini, apa pun halaman yang membuatnya"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "hanya untuk metode HTTP ini: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "hanya jika permintaan menuju domain terdaftar yang sama dengan halaman (<code>a.example.com</code> dan <code>b.example.com</code> dianggap sama), atau domain yang berbeda"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "sama, tetapi membandingkan nama host persis, sehingga subdomain dianggap pihak ketiga"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "nama parameter dibandingkan dengan membedakan huruf besar/kecil"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "lewati filter ini saat halaman mengubah alamatnya sendiri dengan History API. Juga menerima <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Keempat pengubah <code>*-party</code> tidak dapat digabungkan satu sama lain; <code>first-party,third-party</code> ditolak."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Misalnya, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> menghapus <code>sid</code> di <code>example.com</code>, hanya untuk permintaan GET yang dibuat oleh halaman di situs lain, dan tidak pernah saat halaman itu adalah <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Entri <code>@@</code> hanya melindungi dari filter <code>$removeparam</code>. Entri biasa seperti <code>\"ref\"</code> tetap menghapus parameter; gunakan <code>exceptions</code> milik objek aturan untuk itu. Aturan raw memiliki entri <code>@@…$rawrule=</code> sendiri (bab 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Tempat Anda mencantumkannya tidak masalah, dan tidak dapat memiliki <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Polanya diperiksa terhadap URL seperti yang diterima penyedia, sebelum aturan raw berjalan. Entri <code>@@</code> yang dibatasi ke path yang dihapus aturan raw tetap cocok."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Ini juga mencakup filter penyedia lain untuk permintaan yang dibuat oleh halaman yang cocok dengan penyedia ini, berguna untuk mengecualikan satu situs dari aturan yang didefinisikan di tempat lain."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Aturan raw berjalan sebelum <code>rules</code>, mengabaikan huruf besar/kecil, dan mengganti setiap kecocokan (flag <code>gi</code>, atau <code>g</code> dengan <code>match-case</code>). Dalam JSON, tulis setiap garis miring terbalik dua kali."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Aturan raw dapat memakai pola dan pengubah filter <code>$removeparam</code>, dengan <code>rawrule=</code> di akhir. Semua setelah <code>rawrule=</code> adalah ekspresi reguler:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Pola dan pengubah menentukan di mana aturan berjalan; ekspresi reguler tetap yang dihapus."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Entri yang diawali <code>@@</code> dan diakhiri <code>rawrule=</code> mencegah aturan raw berjalan di tempat polanya cocok:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Tanpa apa pun setelah <code>rawrule=</code>, entri ini menghentikan setiap aturan raw penyedia pada URL tersebut."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Dengan ekspresi reguler setelah <code>rawrule=</code>, entri ini menghentikan aturan raw dengan ekspresi reguler itu."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Sebagai objek aturan dengan <code>targetId</code>, entri ini hanya menghentikan aturan raw dengan id atau alias itu."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Untuk melewati seluruh penyedia, gunakan <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Jika sebuah URL cocok dengan entri di <code>exceptions</code>, tidak ada aturan penyedia yang berjalan untuk permintaan itu. Entri berupa ekspresi reguler terhadap URL lengkap, atau pola domain yang diawali <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Pengecualian mengabaikan huruf besar/kecil. Untuk melewati satu aturan saja, bukan seluruh penyedia, beri aturan itu <code>exceptions</code> sendiri (bab 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Parameter cocok mana pun yang muncul lebih dulu di URL yang menang. Untuk <code>https://site.example/away?redirect=https://real.example/page</code>, permintaan diarahkan ke <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Target pengalihan yang valid"
+  },
+  "guide_redirects_p_2": {
+    "message": "Pengalihan hanya terjadi ke alamat <code>http</code> atau <code>https</code> absolut yang memiliki host. Ini diperiksa setelah prapemroses dan decoding persen. Target tidak valid membuat entri dianggap tidak cocok: tidak ada yang dialihkan, dan langkah penyedia berikutnya berjalan pada URL yang tidak berubah."
+  },
+  "guide_redirects_th_1": {
+    "message": "Target"
+  },
+  "guide_redirects_th_2": {
+    "message": "Dialihkan?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ya"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ya, ke <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "tidak: skemanya bukan <code>http</code> atau <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "tidak: bukan alamat absolut"
+  },
+  "guide_redirects_p_3": {
+    "message": "Aturan raw yang hasilnya memiliki skema, host, atau port berbeda dari inputnya juga dianggap pengalihan, bahkan saat hanya menghapus teks: menghapus <code>secure-</code> dari <code>https://secure-bank.example/</code> mendarat di situs lain. Aturan ini memerlukan target yang valid, dan dalam daftar aturan jarak jauh memerlukan persetujuan <code>redirect</code> (bab 15). Jika tidak, aturan membiarkan URL seperti semula."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Entri apa pun, di daftar mana pun, dapat berupa objek alih-alih string. Gunakan objek saat aturan memerlukan id yang stabil, harus dimulai dalam keadaan mati, harus menulis ulang alih-alih menghapus, atau hanya boleh berjalan dalam kasus tertentu:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Wajib. Teks yang akan Anda tulis sebagai entri biasa di daftar itu."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Nama yang stabil (huruf, angka, <code>-</code>, <code>_</code>) yang dipakai untuk menyalakan dan mematikan aturan (bab 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Id aturan sebelumnya, sehingga pengaturan yang disimpan dengan id lama tetap berlaku setelah penggantian nama."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Menulis ulang alih-alih menghapus; <code>§1§</code>, <code>§2§</code>, … adalah nilai yang ditangkap."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Transformasikan nilai yang ditangkap terlebih dahulu."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Hanya untuk jenis permintaan ini, misalnya <code>[\"main_frame\"]</code>. Pembersihan tanpa permintaan (<em>Salin tautan bersih</em>, alat pembersih, perubahan History API) dihitung sebagai <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (ekspresi reguler) tempat aturan ini saja tidak berjalan."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Flag ekspresi reguler, sebagai string. Default <code>i</code>; di <code>rawRules</code>, <code>gi</code> (atau <code>g</code> dengan <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Jalankan aturan lebih awal atau lebih akhir dalam tahapnya (bab 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: aturan di <code>rules</code> juga dihitung sebagai aturan pemasaran referral (bab 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Sakelar penyedia dengan nama yang sama, untuk aturan ini saja. Mengalahkan nilai penyedia dan default file."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: aturan dimulai dalam keadaan mati."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Catatan untuk orang yang membaca file; harus berupa string."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Hanya pada entri <code>@@…$rawrule=</code>: id aturan raw yang dihentikannya."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Di sini <code>?token=abc123</code> menjadi <code>?token=clean-abc123</code>. Penulisan ulang berlaku paling banyak sekali per permintaan, sehingga tidak terus membungkus nilai."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Prapemroses mengubah nilai yang ditangkap, secara berurutan, sebelum <code>replacePattern</code> atau pengalihan memakainya. <code>inputs</code> adalah <code>\"all\"</code> atau daftar nomor grup:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> menerima entri yang sama dengan <code>rules</code>. Entri ini hanya berjalan saat <em>Izinkan pemasaran referral</em> mati, sehingga tautan afiliasi tetap berfungsi jika Anda menyalakannya:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Aturan dapat tetap di <code>rules</code> dan tetap dihitung sebagai pemasaran referral, dengan <code>\"referralMarketing\": true</code>. Jangan menaruh teks yang sama di <code>rules</code> dan <code>referralMarketing</code> sekaligus; editor memperingatkannya."
+  },
+  "guide_request_types_cell_1": {
+    "message": "jenis permintaan yang ditangani satu objek aturan (juga dapat diatur di <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Jenis permintaan memakai nama browser: <code>main_frame</code> (halaman), <code>sub_frame</code> (frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code>, dan seterusnya. Pengubah filter menyebut dua yang pertama <code>document</code> dan <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Jenis permintaan hanya berasal dari aturan: tidak ada daftar jenis permintaan di Pengaturan. Jika tidak satu pun diatur, aturan membersihkan setiap jenis permintaan."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Default"
+  },
+  "guide_defaults_p_1": {
+    "message": "Blok <code>defaults</code> tingkat atas memberi setiap aturan dalam file nilai yang tidak ditetapkannya sendiri:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Default untuk setiap…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code> aturan; <code>false</code> mematikan setiap aturan kecuali aturan itu menyatakan <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code> aturan; <code>\"all\"</code> atau dihilangkan berarti setiap jenis"
+  },
+  "guide_defaults_item_1": {
+    "message": "Nilai milik aturan selalu menang, dan <code>exceptions</code> milik aturan menggantikan daftar default alih-alih menambahinya."
+  },
+  "guide_defaults_item_2": {
+    "message": "Default berlaku untuk <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code>, dan <code>fieldRedirections</code>. Daftar <code>exceptions</code> milik penyedia tidak diubah. Entri <code>$redirect=</code> hanya memakai <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Setiap file mempertahankan default-nya sendiri: aturan bawaan, setiap daftar jarak jauh, dan aturan kustom Anda, juga saat mode overload menggabungkannya."
+  },
+  "guide_defaults_item_4": {
+    "message": "Untuk <code>completeProvider</code>, default <code>requestTypes</code> dan <code>exceptions</code> juga membatasi pemblokiran."
+  },
+  "guide_defaults_item_5": {
+    "message": "Kunci tak dikenal dan tipe yang salah adalah kesalahan, dan daftar jarak jauh dengan blok <code>defaults</code> yang tidak valid ditolak."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Default Anda sendiri"
+  },
+  "guide_defaults_p_2": {
+    "message": "Di editor aturan kustom, <em>Kelola default aturan</em> membuka formulir tempat Anda mengatur blok <code>defaults</code> sendiri dan memilih di mana blok itu menggantikan default file:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Milik masing-masing sumber</em> (default): setiap file memakai <code>defaults</code>-nya sendiri."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Milik Anda untuk aturan bawaan dan jarak jauh</em>: aturan bawaan dan jarak jauh memakai milik Anda; aturan kustom mempertahankan miliknya sendiri."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Milik Anda untuk semua aturan</em>: setiap aturan memakai milik Anda."
+  },
+  "guide_defaults_p_3": {
+    "message": "Formulir yang sama dapat mengedit default aturan bawaan dan setiap daftar jarak jauh yang dimuat. Hasil edit Anda disimpan di ekstensi, bukan di file, dan <em>Setel ulang ke default file</em> membuangnya. <em>Gabungkan dari sumber…</em> menggabungkan default sumber yang Anda centang; tidak ada yang disimpan sampai Anda menyimpan."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Bagaimana URL diproses"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, lalu <code>fieldRedirections</code>: kecocokan dengan target valid mengalihkan permintaan."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> dan <code>referralMarketing</code> menghapus atau menulis ulang parameter."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Filter <code>$removeparam</code> berjalan, kecuali di tempat entri <code>@@</code> mempertahankan parameter."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Penyedia pertama yang mengubah, mengalihkan, atau memblokir URL yang menang. URL baru kemudian melewati langkah yang sama lagi (lihat <a href=\"#termination\">Kapan pemrosesan berhenti</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Urutan eksekusi dan <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Langkah 4 dan 5 diurutkan bersama, menurut aturan berikut secara berurutan:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Aturan raw selalu berjalan lebih dulu.</strong> Tidak ada <code>order</code> yang memindahkan entri <code>rules</code> ke depan aturan raw. Pembersihan yang harus terjadi sebelum aturan raw harus berupa aturan raw itu sendiri."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Dalam satu tahap, aturan dengan <code>order</code> berjalan sebelum aturan tanpa order</strong>, dari yang terendah. Angka negatif dan pecahan diizinkan. <code>order: 10</code> tidak berarti \"kesepuluh\": artinya setelah aturan ber-order di tahap itu yang di bawah 10 dan sebelum semua aturannya yang tanpa order."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Lalu menurut daftar:</strong> <code>rules</code>, lalu objek <code>rules</code> yang ditandai <code>\"referralMarketing\": true</code>, lalu <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Lalu menurut posisi</strong> dalam daftar. Setiap entri mempertahankan tempatnya, termasuk entri yang ditulis seperti <code>\"3\"</code> atau <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Di sini token ditulis ulang sebelum <code>utm_source</code> dihapus, meskipun urutannya kedua:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Aturan yang mati tidak disertakan. Filter <code>$removeparam</code> dan entri <code>@@</code> berada di luar pengurutan ini dan tidak dapat memiliki <code>order</code>, bahkan <code>null</code>; filter selalu berjalan terakhir."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Teks sama dua kali"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Dua entri dengan teks <code>matchPattern</code> yang sama dalam satu grup adalah satu aturan. Grupnya adalah raw (<code>rawRules</code>), bidang (<code>rules</code> tanpa tanda referral), dan referral (objek <code>rules</code> yang ditandai, lalu <code>referralMarketing</code>). Ini paling sering terjadi saat daftar aturan digabungkan."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Definisi terakhir yang tidak mati menang, dengan semua kuncinya."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Tanpa <code>order</code> sendiri, pemenang mengambil posisi definisi pertama dan <code>order</code> terdekat sebelumnya. <code>\"order\": null</code> berarti tanpa order, dan membuang order yang diwarisi."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Id dan alias definisi yang digantikan juga menyalakan dan mematikan pemenang."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Saat aturan pemasaran referral berjalan, entri referral menggantikan entri bidang dengan teks yang sama."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Aturan raw dan aturan bidang dengan teks yang sama tidak bertabrakan; keduanya berjalan."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Dalam satu daftar, dua entri berbeda dengan teks yang sama adalah kesalahan, dan salinan persis adalah peringatan."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Kapan pemrosesan berhenti"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Paling banyak 10 siklus berjalan per permintaan; pada batas itu URL dipakai apa adanya."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Aturan dengan <code>replacePattern</code> berlaku paling banyak sekali per permintaan."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Langkah yang tidak mengubah URL tidak memulai siklus baru."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Pengaturan → <em>Siklus pembersihan tanpa batas</em> (mati secara default) menghapus batas 10 siklus untuk rantai aturan yang memerlukan lebih. Pemrosesan lalu berakhir saat siklus tidak mengubah apa pun, tetapi dua aturan yang saling mengalihkan akan berputar sampai browser menyerah dan halaman tidak dimuat. Nyalakan hanya untuk aturan yang Anda percayai."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Id aturan dan sakelar nyala/mati"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Setiap aturan memiliki id. Aturan tanpa <code>id</code> mendapat satu dari daftar dan teksnya: <code>\"utm_source\"</code> di <code>rules</code> menjadi <code>field-utm-source</code>. Id yang dibuat otomatis berubah saat teks aturan berubah, dan aturan yang dimatikan akan menyala kembali. Beri aturan <code>id</code> sendiri jika harus mempertahankan pengaturan nyala/matinya melalui pengeditan, dan cantumkan id lama di <code>aliases</code> saat Anda menggantinya."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Aturan dinyalakan dan dimatikan menurut penyedia dan id-nya bersama-sama, seperti <code>shop::session-token</code>, sehingga dua penyedia dapat memakai id yang sama. Editor aturan kustom juga dapat menyimpannya di bawah pola penyedia, seperti <code>domainPattern:||shop.example^::session-token</code>; kedua bentuk berfungsi."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Dalam satu penyedia, setiap id dan alias harus berbeda. Id yang dibuat otomatis dihitung."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Id tidak boleh mengandung titik dua."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Pengaturan yang disimpan dengan id saja, tanpa penyedianya, tidak mengubah apa pun; matikan aturan lagi di editor aturan kustom."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Daftar aturan jarak jauh"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Daftar aturan jarak jauh adalah file aturan yang diunduh Linkumori, opsional diperiksa terhadap file hash. Daftar dengan nilai <code>cln</code>, blok <code>defaults</code>, atau array <code>patches</code> yang tidak valid tidak dimuat, dan Remote Rules Health melaporkannya."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Pengalihan dan pemblokiran memerlukan persetujuan Anda"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Apa yang dapat dilakukan daftar jarak jauh ditentukan dari isinya saat dimuat:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Kemampuan"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Daftar memilikinya jika berisi"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktif saat dimuat"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "entri <code>rules</code>, <code>rawRules</code>, atau <code>referralMarketing</code>, atau filter <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "entri dengan <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "entri <code>exceptions</code> penyedia atau entri <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "entri <code>redirections</code> atau <code>fieldRedirections</code>, atau <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "setelah persetujuan"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "penyedia dengan <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Setujui <code>redirect</code> dan <code>block</code> per daftar di Remote Rules Health. Sampai saat itu, pengalihan dan pemblokiran daftar tersebut tetap mati, dan aturan rawnya tidak dapat mengirim URL ke situs lain; sisa daftar langsung berfungsi. Saat pembaruan menambahkan kemampuan baru, kemampuan itu juga menunggu persetujuan. Aturan bawaan dan kustom memiliki semua kemampuan."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Mode Overload"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Biasanya, daftar jarak jauh yang memiliki penyedia menggantikan aturan bawaan; daftar yang hanya berisi <code>patches</code> diterapkan ke aturan bawaan. Dengan <em>Aktifkan Mode Overload</em> menyala, keduanya dimuat bersama, memakai salah satu dari tiga strategi:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Hanya mode patch</em>: terapkan patch daftar jarak jauh ke aturan bawaan; penyedia jarak jauh dikecualikan."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Mode patch + gabung</em>: gabungkan penyedia bawaan dan jarak jauh, lalu terapkan patch."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Tanpa mode patch + gabung</em>: gabungkan penyedia dan lewati patch."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Saat menggabungkan, daftar jarak jauh digabungkan satu sama lain sesuai urutan yang Anda cantumkan, lalu dengan aturan bawaan (bawaan lebih dulu). Hanya penyedia dengan <code>domainPatterns</code> (atau <code>urlPattern</code>) yang sama serta <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code>, dan <code>forceRedirection</code> yang sama yang digabungkan; <code>rules</code>, <code>rawRules</code>, dan <code>referralMarketing</code> mereka disatukan, dan <a href=\"#same-text-twice\">Teks sama dua kali</a> menentukan salinan mana yang berjalan. Remote Rules Health mencantumkan setiap aturan yang digantikan sebagai pemberitahuan."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Aturan kustom diterapkan terakhir. Penyedia kustom menggantikan setiap penyedia yang dimuat dengan pola yang sama; aturannya tidak digabungkan."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Patch aturan"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Daftar jarak jauh dapat menggantikan aturan tunggal yang sudah dimuat, tanpa menerbitkan salinan lengkap, dalam array <code>patches</code> tingkat atas:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Wajib. Aturan yang diganti, ditulis seperti kunci nyala/matinya: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> atau <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Wajib. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> atau <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Wajib. Aturan baru, sebagai entri biasa atau objek aturan."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Catatan untuk orang yang membaca file."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Patch berjalan setelah daftar jarak jauh digabungkan dan sebelum aturan kustom. File yang hanya berisi <code>patches</code> tidak memerlukan <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Penggabungan dapat mengganti nama penyedia, sehingga bentuk <code>domainPattern:</code> atau <code>urlPattern:</code> adalah yang selalu menemukannya."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Pengganti mempertahankan id aturan lama, atau mengambil id lama sebagai alias, sehingga pengaturan nyala/mati tetap berlaku."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Patch untuk pengalihan menunggu persetujuan <code>redirect</code> daftar. Patch yang targetnya tidak cocok dengan apa pun tidak mengubah apa pun."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health mencantumkan setiap patch sebagai diterapkan, tidak cocok, atau dilewati."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Aturan dan daftar putih"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Daftar putih terpisah dari <code>exceptions</code> milik penyedia: berisi situs yang Anda minta Linkumori biarkan, tanpa file aturan. Entri berbentuk seperti <code>example.com</code>, <code>*.example.com</code> (situs dan subdomainnya) atau <code>example.*</code> (sufiks apa pun). Memasukkan halaman ke daftar putih juga mencakup semua yang dimuatnya."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Contoh lengkap"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Memeriksa aturan Anda"
+  },
+  "guide_checking_p_1": {
+    "message": "Editor aturan kustom memeriksa aturan saat Anda menyimpan atau mengimpornya, dan <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> menjalankan pemeriksaan yang sama. Selain JSON rusak dan ekspresi reguler tidak valid, pemeriksaan ini menolak aturan yang akan dimuat tetapi diam-diam bekerja salah, seperti:"
+  },
+  "guide_checking_item_1": {
+    "message": "kolom, kunci, dan pengubah yang tidak dikenal"
+  },
+  "guide_check_7": {
+    "message": "nilai <code>cln</code> selain <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "id atau alias yang dipakai dua kali dalam satu penyedia"
+  },
+  "guide_checking_item_2": {
+    "message": "dua entri berbeda dengan teks yang sama dalam satu daftar"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> pada filter <code>$removeparam</code> atau entri <code>@@</code>, termasuk <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "alamat <code>$redirect=</code> yang bukan <code>http</code> atau <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "garis miring terbalik dalam nama <code>$removeparam</code> sebelum karakter yang tidak memiliki escape"
+  },
+  "guide_checking_p_2": {
+    "message": "Pemeriksaan ini juga memperingatkan tentang salinan persis, dan teks yang sama di <code>rules</code> dan <code>referralMarketing</code> sekaligus. Jika penyimpanan gagal, pesan menyebutkan penyedia, daftar, dan entrinya."
+  },
+  "guide_toc_search": {
+    "message": "Filter bagian"
+  },
+  "guide_toc_no_results": {
+    "message": "Tidak ada bagian yang cocok."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: pengalihan yang diawali \"|\" harus berbentuk \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: target $redirect= harus berupa URL absolut http atau https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ harus berupa objek",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type harus berupa string yang tidak kosong",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type harus salah satu dari: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs harus berupa \"all\" atau array bilangan bulat positif",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ harus berupa string atau objek aturan",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern harus berupa string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern harus berupa string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId harus berupa ID aturan",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId hanya berlaku untuk pengecualian \"@@…$rawrule=\" di rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags harus berupa string (flag regex seperti \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing harus bernilai true atau false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing tidak berpengaruh di $FIELD$; hanya berlaku di $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order harus berupa angka atau null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order tidak berpengaruh di $FIELD$; hanya berlaku di $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order tidak berpengaruh pada filter $removeparam atau entri \"@@\"; keduanya selalu dijalankan setelah aturan lain",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active harus berupa nilai boolean",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id harus berupa string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id harus cocok dengan pola $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases harus berupa daftar ID yang cocok dengan pola $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases tidak boleh berisi ID aturan itu sendiri",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description harus berupa string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection harus berupa nilai boolean",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions harus berupa array string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes harus berupa array string",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors harus berupa array",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: field \"$FIELD$\" tidak dikenal",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ diawali \"@@\", yang hanya berlaku untuk filter $removeparam di rules dan referralMarketing; gunakan \"exceptions\" pada objek aturan",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ memiliki opsi $removeparam yang tidak dikenal \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" diawali satu \"|\", jadi hanya cocok dengan URL yang secara harfiah diawali \"$REST$\", dan tidak ada URL seperti itu (URL diawali \"https://\"). Gunakan \"||$REST$\" untuk mencocokkan domain.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ memiliki \"targetId\", yang hanya berfungsi pada pengecualian; awali matchPattern dengan \"@@\" (misalnya \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ memiliki \"targetId\" dan regex setelah \"rawrule=\"; gunakan salah satunya saja",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ memiliki targetId \"$ID$\", tetapi tidak ada aturan mentah di penyedia ini dengan ID atau alias tersebut",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ adalah pengecualian \"@@\" untuk \"$REGEX$\", tetapi tidak ada aturan mentah di penyedia ini yang menggunakan regex tersebut. Beri aturan itu ID dan rujuk dengan \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ adalah pengecualian \"@@\", jadi \"$KEY$\" tidak akan berpengaruh",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ tidak memiliki apa pun setelah \"rawrule=\"; regex yang akan dihapus harus dicantumkan",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ memiliki regex tidak valid setelah \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ memiliki $GROUPS$ grup tangkapan; diperlukan tepat satu \"( … )\" yang mengapit URL tujuan (tulis grup lain sebagai \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ menggunakan ulang ID aturan \"$ID$\" di $WHERE$; pertama kali digunakan di $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ harus berupa objek JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ harus berupa array",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ memiliki kunci \"$KEY$\" yang tidak dikenal",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Kesalahan saat memproses URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Kesalahan saat menginisialisasi halaman: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Tab tidak valid"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Pencarian aturan untuk tab ini sedang berjalan"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Tidak ada pemeriksaan jeda yang sedang berjalan untuk tab ini"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Aturan masih dimuat. Coba lagi sebentar lagi."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Tidak ada aturan yang aktif di halaman ini yang dapat dinonaktifkan."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Aturan tidak dapat dinonaktifkan"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Tidak ada pencarian aturan yang sedang berjalan untuk tab ini"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Tidak ada aturan yang ditemukan untuk dilewati di tab ini"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Unduhan tidak tersedia"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Rekaman tidak dapat disimpan di penyimpanan sesi"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Aturan tidak dikenal"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "kesalahan tidak dikenal"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "ekspor gagal"
   }
 }

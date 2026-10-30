@@ -39,7 +39,7 @@
     "message": "Brug de medfølgende Linkumori/ClearURLs-regler. Deaktiver dette for kun at køre med fjernregler og/eller brugerdefinerede regler."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori bruger ét samlet ClearURLsData-udbydersæt. Native udbyder-JSON, kanoniske regelobjekter og udbyderlokale $removeparam-filtre flettes, før clearurls.js kører."
   },
   "bundled_rules_section_title": {
     "message": "Information om regler"
@@ -420,7 +420,7 @@
     "message": "Kunne ikke downloades!"
   },
   "downloadText": {
-    "message": "Download"
+    "message": "Hent"
   },
   "eTag_filtering_enabled": {
     "message": "Filtrerer ETag-headere fra anmodninger"
@@ -801,7 +801,7 @@
     "message": "Tips:"
   },
   "faq_title": {
-    "message": "FAQ"
+    "message": "Ofte stillede spørgsmål"
   },
   "faq_url_pattern": {
     "message": "Hvad er urlPattern?"
@@ -1137,25 +1137,25 @@
     "message": "Åbn Linkumori-indstillinger"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Adfærd i overbelastningstilstand"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Kun patch-tilstand"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Anvend eksterne patches på indbyggede regler. Eksterne udbyderregler medtages ikke."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Patch-tilstand + fletning"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Flet indbyggede og eksterne udbyderregler, og anvend derefter eksterne patches."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Ingen patch-tilstand + fletning"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Flet indbyggede og eksterne udbyderregler uden at anvende eksterne patches."
   },
   "overload_mode_enabled": {
     "message": "Aktiver overbelastningstilstand"
@@ -1227,7 +1227,7 @@
     "message": "Åbn GNU GPL v3.0 licenstekst"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU Lesser General Public License v3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "Åbn GNU LGPL v3.0 licenstekst"
@@ -1251,7 +1251,7 @@
     "message": "Åbn problem tracker"
   },
   "popup_html_clearurls_migration_repository": {
-    "message": "ClearURLs MV3 Migration Repository"
+    "message": "ClearURLs MV3-migreringslager"
   },
   "popup_html_clearurls_migration_repository_title": {
     "message": "Åbn ClearURLs MV3-migreringslager"
@@ -1557,7 +1557,7 @@
     "message": "Domænemønstre"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP"
+    "message": "DM"
   },
   "providerImport_exceptions": {
     "message": "Undtagelser"
@@ -1836,7 +1836,7 @@
     "message": "Primær hash-URL skal bruge HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Primær regel-URL og primær hash-URL skal konfigureres sammen."
   },
   "save_primary_rule_https_required": {
     "message": "Primær regel-URL skal bruge HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Jeg forstår risiciene - fortsæt"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Du bør overveje at undlade eksterne regler, hvis du ikke fuldt ud forstår eller stoler på kilden til Linkumori-regelsættet."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Denne funktion til eksterne regler er beregnet til avancerede brugere, der forstår den Linkumori-JSON, de indlæser. Eksterne regler bør have en matchende hash-URL til verifikation."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Hvis du tilføjer en ekstern regel-URL, forbinder udvidelsen til din angivne server for at hente Linkumori-regelsættet og dets hash-fil, når det er konfigureret. Hver hentning kan afsløre din IP-adresse og generelle oplysninger som udvidelsesversion, browser og browserversion for værtsserveren. Disse data er underlagt privatlivspolitikken for det pågældende websted eller den pågældende webserver."
   },
   "security_modal_privacy_link_text": {
     "message": "Læs %PRIVACY_POLICY_LINK% igen, før du fortsætter, hvis det er nødvendigt."
@@ -1887,7 +1887,7 @@
     "message": "advarsel:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Brug indbyggede regler, medmindre du stoler på og kontrollerer den eksterne kilde. Angiv en matchende hash-URL til eksterne Linkumori JSON-regler."
   },
   "security_modal_risk_1": {
     "message": "Din IP-adresse og browseroplysninger vil blive eksponeret for de konfigurerede servere"
@@ -1899,7 +1899,7 @@
     "message": "Hash-bekræftelse gælder kun for Linkumori CLN Format 1.0 JSON regler; det beskytter mod transmissionsmanipulation, ikke ondsindede regelkilder."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Eksterne regler uden vellykket hash-verifikation er helt afhængige af tillid til kilde-URL'en."
   },
   "security_modal_risks_title": {
     "message": "Sikkerhedsrisici:"
@@ -1914,7 +1914,7 @@
     "message": "URL'en til rules.hash-filen (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Påkrævet til verifikation af eksterne Linkumori JSON-regler."
   },
   "setting_html_export_button": {
     "message": "Eksportere"
@@ -1944,7 +1944,7 @@
     "message": "Loggrænse (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Yderligere eksterne Linkumori JSON-kilder, der flettes sammen. Angiv ét par pr. linje som <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Yderligere fjernregelsæt"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Brugerdefineret ekstern URL til Linkumori JSON-regler"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL'en til den eksterne regel-JSON-fil"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Hash-URL er påkrævet for hvert eksternt regelsæt."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) indstillinger"
@@ -2421,19 +2421,19 @@
     "message": "ADVARSEL: Avanceret funktion kun beregnet til selv-hostede servere"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Du deaktiverer Gatekeeper-beskyttelsen for redigering af eksterne regel-URL'er. Denne funktion kan indlæse eksterne Linkumori JSON-regler i det samlede udbydersæt. Fortsæt kun, hvis du forstår og stoler på den kilde, du konfigurerer."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper er det indbyggede sikkerhedsflow, der blokerer direkte fjernredigering af URL-adresser, indtil du anerkender sikkerhedsadvarslen og fuldfører den indtastede bekræftelse."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Lad Gatekeeper være aktiveret, medmindre du stoler på og kontrollerer dine eksterne kilder. Eksterne JSON-regler bør have en matchende hash-URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "advarsel:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Hvis du tilføjer en ekstern regel-URL, forbinder udvidelsen til din angivne server for at hente Linkumori-regelsættet og dets hash-fil, når det er konfigureret. Hver hentning kan afsløre din IP-adresse og generelle oplysninger som udvidelsesversion, browser og browserversion for værtsserveren. Disse data er underlagt privatlivspolitikken for det pågældende websted eller den pågældende webserver."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Læs %PRIVACY_POLICY_LINK% igen, før du fortsætter, hvis det er nødvendigt."
@@ -2448,7 +2448,7 @@
     "message": "Udvidelsen vil oprette forbindelse til din angivne URL, hver gang udvidelsen aktiveres og indlæses i din browser."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Serveren, der hoster eksterne JSON- eller hash-filer, modtager din IP-adresse."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Serveren kan også modtage din udvidelsesversion, browser og browserversion."
@@ -2457,7 +2457,7 @@
     "message": "Disse data er underlagt fortrolighedspolitikken for webstedet eller webserveren, der hoster disse filer."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Når du deaktiverer Gatekeeper, øger du risikoen fra usikre eller kompromitterede eksterne regelkilder. Hash-verifikation beskytter kun eksterne Linkumori JSON-downloads, når der er konfigureret en matchende hash-URL."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Ophæve"
@@ -2517,7 +2517,7 @@
     "message": "Indtast den nøjagtige bekræftelsessætning"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Denne handling mindsker sikkerhedsforanstaltningerne for eksterne regler. Fortsæt kun, hvis du stoler på din eksterne JSON-kilde."
   },
   "remote_urls_template_note_1": {
     "message": "Erstat pladsholderværdier med dine rigtige HTTPS-URL'er, og importer derefter denne fil."
@@ -2784,7 +2784,7 @@
     "message": "Midlertidig pause"
   },
   "popup_pause_15m": {
-    "message": "Pause 15 min"
+    "message": "Pause i 15 min."
   },
   "popup_pause_1h": {
     "message": "Pause 1 time"
@@ -2814,7 +2814,7 @@
     "message": "mindre end et minut"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "min."
   },
   "popup_pause_unit_hour_short": {
     "message": "t"
@@ -2847,10 +2847,10 @@
     "message": "Ingen"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Regelkollisioner:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ fejl, $WARNINGS$ advarsler, $NOTICES$ bemærkninger",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Funktioner i ekstern fil:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inaktiv, indtil den accepteres: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Acceptér $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Regelpatches:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ anvendt, $NOT_APPLIED$ ikke anvendt",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Regelstandarder"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Indbygget"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Brugerdefineret"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Ingen – indbygget adfærd"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Overbelastningstilstand fletter indbyggede og eksterne regler; hver kildes regler beholder den pågældende kildes egne standarder."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Gem standarder"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Standarder gemt"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Når den er slået til, beholder hver regelkilde sine egne standarder (indbyggede standarder gælder for indbyggede regler, og hver ekstern fils standarder for den fils regler), medmindre du vælger dine egne standarder i editoren til brugerdefinerede regler."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Ekstern: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Hvilke standarder der gælder"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Hver kildes egne"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Dine til indbyggede og eksterne regler"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Dine til alle regler"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(erstattet af dine standarder)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Dine"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ forespørgselstyper",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-undtagelser",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-undtagelse"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ forbehandlere",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Hver kildes regler får den pågældende kildes egne standarder."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Indbyggede og eksterne regler får dine standarder i stedet for deres filers egne; brugerdefinerede regler beholder deres egne."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Indbyggede, eksterne og brugerdefinerede regler får alle dine standarder i stedet for deres egne."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Administrér regelstandarder"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Standarder udfylder værdier, som en regel ikke selv angiver. En regels egen værdi vinder altid, og udbyderundtagelser ændres aldrig."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Rediger standarder"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Dine standarder"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Standarder for brugerdefinerede regler"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Standarder, der skal redigeres"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Indbyggede regler"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(redigeret)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Nulstil til filens standarder"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Flet fra kilder…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Flet regelstandarder"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Resultatet vises som \"Flettede standarder\" på listen. Kopiér det til et sæt dér, og tryk derefter på Gem standarder for at bruge det."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Kilder, der skal flettes"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konflikter"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Flettede standarder"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Brug flettede standarder"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Flettede standarder"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Bruges ikke, før du kopierer den til et af de andre sæt og gemmer."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopiér til"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopiér"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Vælg mindst to kilder."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Ingen konflikter: de valgte kilder er enige om alle værdier."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Undtagelser lægges sammen fra alle kilder: $COUNT$ i alt.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Kombineret fra alle kilder"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Fra: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Ikke angivet (indbygget adfærd)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Ikke angivet: alle forespørgselstyper"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Bruges ikke lige nu: dine standarder erstatter de indbyggede og eksterne reglers egne."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Redigeret af dig: disse erstatter filens egne standarder. Selve filen ændres ikke."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(redigeret af dig)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Bruges ikke lige nu: \"Hver kildes egne\" er valgt ovenfor."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Bruges ikke lige nu: dine standarder erstatter også disse for brugerdefinerede regler."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Regler starter slået fra (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Beskrivelse"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Forespørgselstyper"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Alle typer"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Kun disse"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Vælg mindst én forespørgselstype, eller vælg \"Alle typer\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Regler renser alle forespørgselstyper, medmindre de eller standarderne angiver nogle. Udbydere kan også begrænse typer med resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Undtagelser"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Ét URL-regex pr. linje. Regler springes over ved matchende URL'er."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Forbehandlere"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Input: \"all\" eller indfangningsgruppenumre som 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Tilføj forbehandler"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Forbehandlertype"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Forbehandlerinput"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Fjern"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Forbehandlerinput \"$INPUTS$\" skal være \"all\" eller tal som 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Slå beskyttelse mod History-omgåelse fra (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Vis som JSON"
   },
   "settings_remote_health_unknown": {
     "message": "ukendt"
@@ -3348,7 +3348,7 @@
     "message": "🗑 Klar"
   },
   "logger_btn_autoscroll": {
-    "message": "↕ Auto-scroll"
+    "message": "↕ Autorulning"
   },
   "logger_filter_label": {
     "message": "Filter"
@@ -3357,7 +3357,7 @@
     "message": "Filtrer poster..."
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Fane"
   },
   "logger_tab_all": {
     "message": "Alle faner"
@@ -3924,7 +3924,7 @@
     "message": "Typerne er <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> og <code>base64Decode</code>."
   },
   "guide_ref_title": {
-    "message": "10. Referral marketing"
+    "message": "10. Henvisningsmarkedsføring"
   },
   "guide_req_title": {
     "message": "11. Metoder og anmodningstyper"
@@ -4005,10 +4005,10 @@
     "message": "Udbyder JSON Vejledning"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Åbn Linkumoris regelguide"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Hvilken regelsyntaks skal jeg bruge?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Åbn regelguide"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Udbyderkilderne kunne ikke indlæses: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Medfølgende regler er ikke tilgængelige."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "De medfølgende regler kunne ikke indlæses: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Sproget kunne ikke skiftes til $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Lyst tema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Mørkt tema"
   },
   "posarCopied": {
     "message": "POSAR kopieret!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR accepteret."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Nulstil"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Tilgængelighedsværktøjer"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Åbn tilgængelighedsværktøjer"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Luk tilgængelighedsværktøjer"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Nulstil alle tilgængelighedsindstillinger"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Syn"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Læsning"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interaktion"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Høj kontrast"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Farvefilter"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Mætning"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertér"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Fremhæv links"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Skjul billeder"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Øg tekststørrelse"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Reducér tekststørrelse"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Standardtekststørrelse"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Valg af skrifttype"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Ordblindevenlig"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Tekstafstand"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Linjehøjde"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Tekstjustering"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Sæt animationer på pause"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Større markør"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Standard"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Mellem"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Høj"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Lav"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Ingen"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Let"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Kraftig"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Intet filter"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopi"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopi"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopi"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Gråtoner"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Venstre"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centreret"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Højre"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Ekstra lille"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Lille"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Stor"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Ekstra stor"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Størst"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Til"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Fra"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "aktiveret"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "deaktiveret"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Standardtekststørrelse valgt"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Alle tilgængelighedsindstillinger nulstillet"
+  },
+  "skip_to_main_content": {
+    "message": "Gå til hovedindhold"
+  },
+  "popupNavAriaLabel": {
+    "message": "Popup-navigation"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Visninger af brugerdefinerede regler"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Logvisninger"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Beskyttelse mod History-omgåelse (spring over ved navigation på siden)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Feltomdirigeringer"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopiér regel"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regel kopieret"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Reglen kunne ikke kopieres"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Hvad gør historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Enkeltsidede websteder ændrer ofte adressen med history.pushState/replaceState i stedet for at indlæse en ny side. Linkumori renser også disse adresser. Tilføj history-bypass-protection=false til et $removeparam-filter for kun at springe det filter over ved disse ændringer på siden; det kører stadig ved almindelige forespørgsler."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Hvis du vil springe en hel udbyder over ved ændringer på siden, så angiv det på udbyderen:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Udelades den, er den true, og ændringer på siden renses. En regels egen indstilling går forud for udbyderens, så en regel kan vælge det til igen med history-bypass-protection=true eller \"historyBypassProtection\": true i et regelobjekt."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Springer navigation på siden over"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Omdøb ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nyt id til $OLD$ (a-z, 0-9, - og _). Det gamle id beholdes som alias, så regler, der er slået fra under det, forbliver slået fra.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" er ikke et gyldigt id. Brug små bogstaver, cifre, - og _, og start med et bogstav eller et ciffer.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "En anden regel hos denne udbyder bruger allerede \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Deaktivér regel"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Deaktivér $ID$ for hele udbyderen eller kun for dette URL-/domænemønster?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Min udbyder"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-/domænemønster"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Regel-id omdøbt til $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Forældreløse til/fra-indstillinger"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Ingen matchende regel fundet i kilden"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Fjern"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Springer rensning ved navigation på siden over"
+  },
+  "whitelist_added_general": {
+    "message": "Tilføjede %s til den generelle hvidliste"
+  },
+  "whitelist_added_history_api": {
+    "message": "Tilføjede %s som History API-undtagelse"
+  },
+  "whitelist_exception_count": {
+    "message": "%d undtagelse(r)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Ingen hvidlisteundtagelser"
+  },
+  "whitelist_mode_general": {
+    "message": "Generel hvidliste"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Kun History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Hvidlistens omfang"
+  },
+  "whitelist_removed_general": {
+    "message": "Fjernede %s fra den generelle hvidliste"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Fjernede History API-undtagelsen for %s"
+  },
+  "whitelist_type_general": {
+    "message": "Generel"
+  },
+  "whitelist_type_history_api": {
+    "message": "Kun History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Føj $1 til den generelle hvidliste"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Generel hvidliste: $1 – klik for kun History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API-undtagelse: $1 – klik for kun denne fane"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Kun fane: $1 – klik for at fjerne"
+  },
+  "logger_action_allowed": {
+    "message": "Tilladt"
+  },
+  "logger_action_blocked": {
+    "message": "Blokeret"
+  },
+  "logger_action_filter_label": {
+    "message": "Handling"
+  },
+  "logger_action_info": {
+    "message": "Info"
+  },
+  "logger_action_modified": {
+    "message": "Ændret"
+  },
+  "logger_action_redirected": {
+    "message": "Omdirigeret"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopiér oversigt"
+  },
+  "logger_btn_export": {
+    "message": "Eksportér"
+  },
+  "logger_btn_group": {
+    "message": "Gruppér efter regel"
+  },
+  "logger_col_hits": {
+    "message": "Forekomster"
+  },
+  "logger_col_last_seen": {
+    "message": "Sidst set"
+  },
+  "logger_detail_group_title": {
+    "message": "Regeldetaljer"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL'er ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Faner"
+  },
+  "logger_exported": {
+    "message": "$1 poster eksporteret."
+  },
+  "logger_filter_all": {
+    "message": "Alle"
+  },
+  "logger_report_rule": {
+    "message": "Rapportér den"
+  },
+  "logger_rule_disable": {
+    "message": "Slå reglen fra"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Reglen $1 er slået fra. Genindlæs siden for at kontrollere."
+  },
+  "logger_rule_enable": {
+    "message": "Slå reglen til"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Reglen $1 er slået til igen."
+  },
+  "logger_rule_failed": {
+    "message": "Reglen kunne ikke ændres."
+  },
+  "logger_rule_off": {
+    "message": "Reglen er slået fra"
+  },
+  "logger_rule_on": {
+    "message": "Reglen er slået til"
+  },
+  "logger_rule_unavailable": {
+    "message": "Denne regel kan ikke slås til eller fra herfra."
+  },
+  "logger_status_rules": {
+    "message": "$1 regel/regler"
+  },
+  "logger_summary_copied": {
+    "message": "Oversigt kopieret."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Oversigten kunne ikke kopieres."
+  },
+  "logger_type_filter_label": {
+    "message": "Type"
+  },
+  "logger_btn_logging_off": {
+    "message": "Logning slået fra"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Logning er slået fra. Klik for at slå den til."
+  },
+  "logger_btn_logging_on": {
+    "message": "Logning slået til"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Logning er slået til. Klik for at slå den fra."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Logningsindstillingen kunne ikke ændres."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Tilføj henvisningsregel"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Tilføj undtagelse for rå regel"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Tilføj feltomdirigering"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Tilføj undtagelse"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Hver skabelon tilføjer et regelobjekt med et id og et pladsholder-matchPattern på example.com. En post kan også være en almindelig streng: et parameternavn, et navne-regex, et $removeparam-filter eller, i rawRules, et regex. Regelobjekter accepterer id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description og targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Kodekontrol"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Ingen problemer fundet."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Fejl"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Advarsel"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ fejl, $WARNINGS$ advarsel/advarsler",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Kørselsrækkefølge"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ trin i den rækkefølge, de kører",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Ingen rawRules-, rules- eller referralMarketing-poster"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Beregnet af motoren ud fra teksten ovenfor, gemt eller ej. Trinene sorteres efter (stage, orderGroup, order, rank, arrayIndex): rå regler kører før feltregler; inden for et trin kører poster med en order først, laveste først, derefter resten efter liste og position."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Henvisningsmarkedsføring"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Henvisning fjernet"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Henvisning tilladt"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Rå"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Felt"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Henvisning"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(genereret)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "omskriver"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "erstatter $COUNT$ tidligere definition(er)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "tilføjet af completeProvider: fjerner alle parametre"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Slået fra"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Slået fra for nogle mønstre"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Sorteringsnøgle: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Derefter $FILTERS$ $removeparam-filter og $EXCEPTIONS$ @@-undtagelse(r), efter alle trin ovenfor",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule=-undtagelse(r) kan stoppe rå regler ovenfor, hvor de matcher",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Træk et trin, eller brug dets pile, for at flytte det inden for dets fase. Flytning giver hver post i den fase en order på 10, 20, 30, … i den nye rækkefølge."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Skift til Henvisning fjernet for at omarrangere: den visning viser alle poster."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Træk for at flytte"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Flyt $ENTRY$ tidligere",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Flyt $ENTRY$ senere",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Flyttede $ENTRY$ til position $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Fortryd flytning"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Flytning fortrudt"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulér"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Kører denne udbyder på en URL på samme måde som rensning af et kopieret link, med dine slåede-fra regler og valget om henvisning ovenfor, og viser URL'en efter hvert trin. Andre udbydere kører ikke. Generér test-URL laver en ud fra denne udbyders egne regler."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Test-URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Kør"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Gennemgå simuleringen trin for trin"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Start"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Forrige"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Næste"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Slut"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Afspil"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pause"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL'en før noget trin"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Gennemløb $PASS$ · trin $STEP$ af $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "ingen ændring"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam-filtre"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Gennemløb $PASS$ ændrer intet, så rensningen stopper",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Denne udbyder stopper her: cyklusgrænsen blev nået, URL'en vendte tilbage til en tidligere, eller den matcher ikke længere udbyderen"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Gennemløb $PASS$ omdirigerer; rensningen fortsætter på den nye adresse med alle udbydere",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Udbyderen blokerer denne forespørgsel (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Resultat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Denne udbyders mønstre matcher ikke denne URL, så ingen af dens regler kører."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Denne URL matcher en af udbyderens undtagelser, så ingen af dens regler kører."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Angiv en fuld http://- eller https://-URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simuleringen kunne ikke køre. Kontrollér JSON'en ovenfor."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generér test-URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Lavet ud fra denne udbyders regler: tekst til $RAW$ rå regel/regler og $PARAMS$ parameter/parametre, hver kontrolleret mod sin regel. keep=1 matcher ingen regel og bør blive stående. Omdirigeringer og blokeringer er ikke med, da de ville afslutte kørslen før de andre regler.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Der kunne ikke laves en vært, som denne udbyders mønstre matcher, så URL'en bruger en anden vært, og udbyderen kører ikke på den."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Alle URL'er, som denne udbyders mønstre matcher, er dækket af en af dens egne undtagelser, så dens regler kører aldrig."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ regel/regler udeladt fra test-URL'en",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "der kunne ikke laves tekst, som den matcher"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "dens tekst ville få en af udbyderens undtagelser til at matche"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "den fjerner alle parametre, så den behøver ingen egen parameter"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Denne udbyder har et $removeparam-filter uden navn, som fjerner alle parametre, også keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "ingen order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Gendan order-numre"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Sæt alle order tilbage, som de var, da du åbnede denne udbyder"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Order-numre gendannet"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Skjul"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Vis"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Ryd advarsler"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Gendan advarsler"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ advarsel/advarsler ryddet",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern uden indexPattern kontrolleres mod hver URL; tilføj indexPattern-hints som \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ gentager \"$ENTRY$\"; kopien gør intet, og begge deler ét id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ har stadig skabelonens pladsholder \"$PATTERN$\"; erstat den med det rigtige mønster",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ har matchPattern \"(?!)\", som aldrig matcher noget",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Fejlfinding"
+  },
+  "troubleshooter_launch": {
+    "message": "Fejlfind denne fane (eksperimentel)"
+  },
+  "troubleshooter_title": {
+    "message": "Fanefejlfinder"
+  },
+  "troubleshooter_page": {
+    "message": "Side"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Sådan fungerer optagelse"
+  },
+  "troubleshooter_about_note": {
+    "message": "Når du åbner denne visning, kan sidens URL blive kontrolleret, men der optages intet. Optagelsen forbliver slået fra, indtil du vælger Start optagelse. Når den starter, genindlæses fanen for at registrere dens ressourceforespørgsler. Registrerede URL'er forbliver i sessionslageret i denne browsersession og ryddes, når fanen lukkes, eller browsersessionen slutter. Optagelsen stopper efter 15 minutter, medmindre du stopper den tidligere. Ressource-URL'er kan indeholde private forespørgselsdata."
+  },
+  "troubleshooter_start": {
+    "message": "Start optagelse"
+  },
+  "troubleshooter_starting": {
+    "message": "Starter…"
+  },
+  "troubleshooter_recording": {
+    "message": "Optager…"
+  },
+  "troubleshooter_stop": {
+    "message": "Stop optagelse"
+  },
+  "troubleshooter_refresh": {
+    "message": "Opdatér"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopiér oversigt"
+  },
+  "troubleshooter_export": {
+    "message": "Eksportér"
+  },
+  "troubleshooter_export_title": {
+    "message": "Gem optagelsen som en JSON-fil. Ressource-URL'er kan indeholde private forespørgselsdata."
+  },
+  "troubleshooter_category": {
+    "message": "Kategori"
+  },
+  "troubleshooter_category_all": {
+    "message": "Alle kategorier"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-regler"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Omdirigeringer"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Beskyttelse og omgåelser"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Ressourcetype"
+  },
+  "troubleshooter_type_all": {
+    "message": "Alle ressourcetyper"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Søg i regler, udbydere og URL'er"
+  },
+  "troubleshooter_timer": {
+    "message": "Optager $1 · $2 tilbage"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Kontrollerer denne fane…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Ingen aktiv fane er tilgængelig."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Denne side tillader ikke scanning af URL-regler. Åbn en almindelig http- eller https-webside."
+  },
+  "troubleshooter_status_off": {
+    "message": "Optagelsen er slået fra. Start optagelse for at undersøge ressource-URL'er, der indlæses af denne side."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL-ændring(er) registreret indtil videre. Nye vises her automatisk."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Optagelsen er stoppet. $1 URL-ændring(er) registreret."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Optagelsesdata kunne ikke gemmes i sessionslageret. $1 URL-ændring(er) kan gå tabt, hvis udvidelsen genstarter."
+  },
+  "troubleshooter_status_started": {
+    "message": "Optagelsen er startet, og fanen genindlæses. Registrerede URL'er vises her, efterhånden som siden indlæses."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Optagelsen er stoppet. $1 URL-ændring(er) registreret og gemt for denne browsersession."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Optagelsen er stoppet. $1 URL-ændring(er) registreret, men sessionslageret kunne ikke gemme dem."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Åbn først en almindelig http- eller https-webside."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Optagelsen kunne ikke startes for denne fane."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Optagelsen kunne ikke stoppes for denne fane."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Denne fane kunne ikke læses. Prøv at lukke og åbne popup'en igen."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Oversigt kopieret."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Oversigten kunne ikke kopieres."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Optagelse eksporteret."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Optagelsen kunne ikke eksporteres."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Rapportformularen kunne ikke åbnes."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regel aktiveret; genindlæs fanen for at sammenligne."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regel deaktiveret; genindlæs fanen for at sammenligne."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Denne regel kunne ikke opdateres."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Ingen regelændringer fundet endnu. Start optagelse for at undersøge denne sides ressource-URL'er."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Denne browserside kan ikke scannes."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Ingen fund matcher disse filtre."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Viser de første $1 regler."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 forekomst(er)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 mislykkedes"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Regel-ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Indbygget beskyttelseshandling (intet regel-ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Regel-ID: ikke tilgængeligt for dette fund"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Dette regel-ID kunne ikke findes i det aktuelle regelsæt."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Observeret forespørgsel"
+  },
+  "troubleshooter_source_page": {
+    "message": "Kontrol af side-URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Hvad der ændrede sig: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Berørte URL'er ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…og $1 flere"
+  },
+  "troubleshooter_after": {
+    "message": "Efter Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Mislykkedes, efter at Linkumori ændrede den: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Denne regel er aktiveret. Slå den fra, og genindlæs for at sammenligne siden."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Denne regel er deaktiveret. Slå den til, og genindlæs for at gendanne dens adfærd."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Dette er en indbygget beskyttelseshandling, ikke en enkelt regel."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Gennemgå den berørte URL, før du ændrer regler."
+  },
+  "troubleshooter_report": {
+    "message": "Rapportér denne regel"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Deaktivér regel"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Aktivér regel"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Deaktivér regel $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Aktivér regel $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Gemmer…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "fjernede $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "tilføjede $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "ændrede $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "omdirigeret til $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "sti ændret"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment ændret"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL ændret"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "blokeret med vilje"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 forespørgsel/forespørgsler mislykkedes på denne side; $2 lige efter at Linkumori ændrede URL'en"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Er denne side i stykker?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Find reglen, der ødelægger den: de regler, der kørte på denne side, slås fra én ad gangen, og efter hver fortæller du, om siden er rettet. Er du ikke sikker på, at Linkumori er årsagen? Tjek først med rensning sat på pause."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Tjek først med rensning på pause"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Rensning er sat på pause for $1 i denne fane"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Fanen blev genindlæst uden rensning. Virker siden nu?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ja, den virker"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nej, stadig i stykker"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Annullér"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Færdig"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Sandsynligvis ikke Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Siden var stadig i stykker med rensning på pause, så problemet er sandsynligvis et andet sted: selve webstedet, en anden udvidelse eller netværket. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori er sandsynligvis årsagen"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Siden virker med rensning på pause. Find reglen: reglerne slås fra én ad gangen, fanen genindlæses, og du fortæller, om siden er rettet. Alle andre regler slås til igen til sidst."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Fanen genindlæses med rensning slået til igen for at registrere, hvilke regler der kører på denne side. De vises her om et øjeblik. Hvis ingen gør, så brug siden, indtil den går i stykker."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Find reglen ($1 regler)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ja, rettet"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Nej, stadig i stykker"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Fundet"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Siden går i stykker på grund af reglen $1$2. Den er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Deaktivér denne regel"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Rapportér den"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Reglen er slået fra. Genindlæs fanen for at kontrollere. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Ingen enkelt regel fundet"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "At slå reglerne fra én ad gangen rettede ikke siden, så årsagen er sandsynligvis flere regler sammen eller en beskyttelsesindstilling. Alle regler er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Kontrollen kunne ikke køres: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Genindlæs Linkumori for at bruge denne kontrol"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori blev opdateret, men dens baggrundsdel kører stadig den gamle version. Genindlæs udvidelsen (for et midlertidigt tilføjelsesprogram: about:debugging → This Firefox → Reload), eller genstart Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Fundet"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Siden går i stykker på grund af reglen $1$2. Den forbliver slået fra, så siden virker; alle andre regler er slået til igen. Genindlæs fanen for at kontrollere. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Genindlæs fane"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Slå den til igen"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Reglen er slået til igen. Genindlæs fanen for at kontrollere. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Optag og find reglen"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Optager, hvilke regler der kører på denne side. Brug siden, indtil den går i stykker; reglerne vises her."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Midlertidigt slået fra af regelsøgningen. Den slås til igen, når søgningen slutter."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Regelsøgningen kører. Ændr regler, når den er færdig."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Spring over – slå den til igen"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Behold den slået fra"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Regelsøgning sprunget over; alle regler er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Reglen $1 forbliver slået fra. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Slået fra under denne test:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…og $1 flere"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Stop søgning"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Sprunget over: reglen er slået til igen og udeladt. Tester den næste."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Ingen regel fundet blandt de testede regler. $1 regel/regler, du sprang over, blev ikke testet. Alle regler er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_experimental": {
+    "message": "Eksperimentel"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Eksperimentel: denne fejlfinder er ikke helt stabil. Dens resultater kan være forkerte, og den slår regler fra, mens den tester. Hvis noget ser forkert ud bagefter, så tjek dine regler i editoren til brugerdefinerede regler, eller brug Stop søgning for at slå dem til igen."
+  },
+  "troubleshooter_working": {
+    "message": "Arbejder…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Optag igen"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Gammel optagelse ryddet. Optager denne fane igen fra en ny indlæsning."
+  },
+  "troubleshooter_clear": {
+    "message": "Ryd"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Ryd denne fanes optagelse, fund og afsluttede regelsøgning. Reglerne forbliver, som de er."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Ryddet. Reglerne forbliver, som de er."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Ryddet. Reglen $1 forbliver slået fra."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Tester én regel ad gangen – regel $1 af $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Kun denne regel er slået fra, og fanen blev genindlæst. Er siden rettet nu?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Spring denne regel over"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Spring over – slå den til igen, test næste ($1 tilbage)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 andre regler, der kørte på denne side, blev ikke testet. Vil du fortsætte med at teste dem?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Behold den slået fra, test næste ($1 tilbage)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Reglen $1 forbliver slået fra. Tester den næste regel."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Ingen anden regel retter siden alene. De $1 regler, du beholdt slået fra, forbliver slået fra; alle andre regler er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Test den næste regel ($1 tilbage)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Reglen $1 er slået til igen og udeladt. Tester den næste regel."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Ingen anden regel retter siden alene. De $1 regler, du sprang over, er også slået til igen, så alle regler er slået til igen. Klik på Ryd for at starte forfra."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori renser URL'er med regler skrevet i <strong>CLN Format 1.0</strong> (Clean Link Notation), et JSON-format. Denne guide går fra en første regel til alle indstillinger med eksempler, du kan kopiere."
+  },
+  "guide_intro_p_2": {
+    "message": "De indbyggede regler, eksterne reglelister og dine brugerdefinerede regler bruger alle det samme format. Du skriver brugerdefinerede regler i editoren til brugerdefinerede regler, som kontrollerer dem, når du gemmer eller importerer. Et officielt ClearURLs-regelkatalog (<code>data.min.json</code>) er allerede en gyldig CLN-fil og kan bruges, som det er."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Udbyderens navn er blot en etiket. Hvilke URL'er en udbyder håndterer, afgøres af <code>domainPatterns</code> eller <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Nøgle på øverste niveau"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Påkrævet. Udbyderne, efter navn."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Valgfri formatversion. Den eneste gyldige værdi er <code>\"1.0\"</code>. En fil uden den læses også som 1.0; enhver anden værdi afviser filen. Den hedder ikke <code>version</code>, fordi det nye ClearURLs-regelformat allerede bruger den nøgle."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Valgfri oplysninger om filen."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Værdier til hver regel i filen, der ikke angiver sin egen (kapitel 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Kun eksterne reglelister: erstatninger for regler, der allerede er indlæst (kapitel 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Hvilke URL'er udbyderen håndterer, som ét domænemønster eller en liste af dem (kapitel 3). Brug denne eller <code>urlPattern</code>, aldrig begge."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Hvilke URL'er udbyderen håndterer, som ét regulært udtryk, der matches mod hele URL'en. Der skelnes ikke mellem store og små bogstaver."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Kun sammen med <code>urlPattern</code>: værtshints som <code>||example.com^</code>, så udbyderen kun kontrolleres for disse værter i stedet for mod alle URL'er. Det er et opslagshint, ikke en matchbetingelse."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Henvisnings- og affiliate-parametre, der skal fjernes. Springes over, mens <em>Tillad henvisningsmarkedsføring</em> er slået til (kapitel 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL'er, som udbyderen helt lader være i fred (kapitel 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Send forespørgslen til en anden adresse i stedet for at redigere den (kapitel 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Send forespørgslen til værdien af en parameter (kapitel 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: når en sideindlæsning (<code>main_frame</code>) omdirigeres, navigerer hele fanen til den nye adresse, ikke kun netværksforespørgslen."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Håndtér kun disse HTTP-metoder, for eksempel <code>[\"GET\"]</code>. Udeladt: alle metoder."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Håndtér kun disse forespørgselstyper, for eksempel <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Udeladt: alle forespørgselstyper."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Standard er <code>true</code>. <code>false</code> springer hele udbyderen over, når en side ændrer sin egen adresse med History API (<code>pushState</code>/<code>replaceState</code>). Almindelige netværksforespørgsler renses stadig."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> slår udbyderen fra uden at slette den."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> er en liste af domænemønstre. En URL matcher, hvis et af dem matcher. De samme mønstre bruges foran <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code>-filtre og rå regler."
+  },
+  "guide_matching_cell_1": {
+    "message": "hele URL'en som et regulært udtryk"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL'er, der indeholder denne tekst et vilkårligt sted (ingen indledende <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> markerer slutningen af værtsnavnet eller en separator som <code>/</code>, <code>?</code>, <code>:</code> eller slutningen af URL'en. <code>*</code> er et jokertegn."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> står for et domæne: værten og alle underdomæner. Et enkelt <code>|</code> står for selve starten af URL'en og skal efterfølges af et skema som <code>https://</code>. Til et domæne vil du altid have <code>||</code>; <code>|example.com^</code> kan aldrig matche, så editoren afviser det."
+  },
+  "guide_matching_p_4": {
+    "message": "For eksempel læses <code>||smile.amazon.*^</code> sådan: <code>||</code> værten og dens underdomæner, <code>smile.amazon</code> de påkrævede labels, <code>.*</code> et vilkårligt offentligt suffiks (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) og <code>^</code> slutningen af værten."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "præcis den parameter"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "hver parameter, hvis hele navn matcher; der skelnes ikke mellem store og små bogstaver"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> og <code>\"$removeparam=fbclid\"</code> fjerner det samme. Brug det almindelige navn, medmindre du har brug for noget fra kapitel 5. Enhver post kan også skrives som et regelobjekt (kapitel 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Her fjernes <code>qid</code> på alle Amazon-websteder, <code>tag</code> kun på <code>amazon.de</code>, <code>sr</code> kun på <code>smile.amazon</code> og <code>ref_</code> kun under <code>/gp/</code>. Mønsteret indsnævrer udbyderens egne mønstre; det kan aldrig udvide dem."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> gør filteret til en undtagelse, der beholder parameteren (se nedenfor)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> indsnævrer filteret til nogle af udbyderens URL'er (kapitel 3). Udeladt gælder det for alle URL'er, udbyderen matcher."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> vælger parametrene. Udeladt fjernes alle parametre."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikatorer angiver, hvornår filteret udløses. Alle angivne modifikatorer skal gælde; der er intet \"eller\" mellem dem."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "alle parametre undtagen <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametre, hvis navn, eller <code>name=value</code> sammen, matcher det regulære udtryk; tilføj <code>i</code> for at ignorere store og små bogstaver"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametre, hvis navn begynder med <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escape af et parameternavn"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Et omvendt skråstreg gør det næste tegn bogstaveligt, så ethvert parameternavn kan målrettes:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Værdi"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Fjerner parameteren med navnet"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (kommaet starter ikke modifikatorerne)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Disse fem er de eneste escapes i en navneværdi; et omvendt skråstreg før ethvert andet tegn er en fejl. Inde i en <code>/regex/</code>-værdi beholder det omvendte skråstreg sin regex-betydning. Escapes virker i <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> og <code>@@</code>-poster. I JSON skal hvert omvendt skråstreg skrives to gange: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikatorer"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikatorer kommer efter værdien, adskilt af kommaer. Adskil flere værdier af én modifikator med <code>|</code>, og sæt <code>~</code> foran en værdi for at udelukke den:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikator"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "kun når siden, der lavede forespørgslen, er (eller, med <code>~</code>, ikke er) en af disse; regex-værdier er tilladt"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "kun når selve forespørgslen går til en af disse, uanset hvilken side der lavede den"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "kun for disse HTTP-metoder: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "kun når forespørgslen går til det samme registrerbare domæne som siden (<code>a.example.com</code> og <code>b.example.com</code> tæller som det samme), eller til et andet"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "det samme, men sammenligner det præcise værtsnavn, så et underdomæne tæller som tredjepart"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parameternavne sammenlignes med skelnen mellem store og små bogstaver"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "spring dette filter over, når en side ændrer sin egen adresse med History API. Accepterer også <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "De fire <code>*-party</code>-modifikatorer kan ikke kombineres med hinanden; <code>first-party,third-party</code> afvises."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "For eksempel fjerner <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> <code>sid</code> på <code>example.com</code>, kun for GET-forespørgsler lavet af en side på et andet websted, og aldrig når den side er <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "En <code>@@</code>-post beskytter kun mod <code>$removeparam</code>-filtre. En almindelig post som <code>\"ref\"</code> fjerner stadig parameteren; brug et regelobjekts <code>exceptions</code> til det. Rå regler har deres egne <code>@@…$rawrule=</code>-poster (kapitel 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Det er ligegyldigt, hvor du angiver den, og den kan ikke have en <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Dens mønster kontrolleres mod URL'en, som udbyderen modtog den, før rå regler kører. En <code>@@</code>-post afgrænset til en sti, som en rå regel sletter, matcher stadig."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Den dækker også andre udbyderes filtre for forespørgsler lavet af en side, som denne udbyder matcher, hvilket er praktisk til at udtage ét websted fra en regel defineret andetsteds."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Rå regler kører før <code>rules</code>, ignorerer store og små bogstaver og erstatter hvert match (flag <code>gi</code>, eller <code>g</code> med <code>match-case</code>). I JSON skal hvert omvendt skråstreg skrives to gange."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "En rå regel kan tage mønsteret og modifikatorerne fra et <code>$removeparam</code>-filter, med <code>rawrule=</code> til sidst. Alt efter <code>rawrule=</code> er det regulære udtryk:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Mønsteret og modifikatorerne afgør, hvor reglen kører; det regulære udtryk er stadig det, der slettes."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "En post, der starter med <code>@@</code> og slutter på <code>rawrule=</code>, forhindrer rå regler i at køre, hvor dens mønster matcher:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Uden noget efter <code>rawrule=</code> stopper den alle udbyderens rå regler på de URL'er."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Med et regulært udtryk efter <code>rawrule=</code> stopper den de rå regler med det regulære udtryk."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Som et regelobjekt med <code>targetId</code> stopper den kun den rå regel med det id eller alias."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Brug <code>exceptions</code> i stedet for at springe hele udbyderen over."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Hvis en URL matcher en post i <code>exceptions</code>, kører ingen af udbyderens regler for den forespørgsel. En post er et regulært udtryk mod hele URL'en eller et domænemønster, der starter med <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Undtagelser ignorerer store og små bogstaver. Hvis du vil springe en enkelt regel over i stedet for hele udbyderen, så giv reglen sine egne <code>exceptions</code> (kapitel 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Den matchende parameter, der kommer først i URL'en, vinder. For <code>https://site.example/away?redirect=https://real.example/page</code> går forespørgslen til <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Gyldige omdirigeringsmål"
+  },
+  "guide_redirects_p_2": {
+    "message": "En omdirigering sker kun til en absolut <code>http</code>- eller <code>https</code>-adresse med en vært. Dette kontrolleres efter forbehandlere og procent-afkodning. Et ugyldigt mål får posten til at tælle som ikke matchende: intet omdirigeres, og udbyderens senere trin kører på den uændrede URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Mål"
+  },
+  "guide_redirects_th_2": {
+    "message": "Omdirigeres?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ja"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ja, til <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nej: skemaet er ikke <code>http</code> eller <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nej: ikke en absolut adresse"
+  },
+  "guide_redirects_p_3": {
+    "message": "En rå regel, hvis resultat har et andet skema, en anden vært eller en anden port end dens input, tæller også som en omdirigering, selv når den kun sletter tekst: sletning af <code>secure-</code> fra <code>https://secure-bank.example/</code> ender på et andet websted. Den kræver et gyldigt mål og, i en ekstern regelliste, <code>redirect</code>-godkendelsen (kapitel 15). Ellers lader reglen URL'en være, som den var."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Enhver post, på enhver liste, kan være et objekt i stedet for en streng. Brug et, når en regel skal have et stabilt id, skal starte slået fra, skal omskrive i stedet for at fjerne, eller kun skal køre i nogle tilfælde:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Påkrævet. Teksten, du ville skrive som en almindelig post på den liste."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Et stabilt navn (bogstaver, cifre, <code>-</code>, <code>_</code>), der bruges til at slå reglen til og fra (kapitel 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Reglens tidligere id'er, så en indstilling gemt under et gammelt id fortsat gælder efter en omdøbning."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Omskriv i stedet for at fjerne; <code>§1§</code>, <code>§2§</code>, … er de indfangede værdier."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Transformér først de indfangede værdier."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Kun for disse forespørgselstyper, for eksempel <code>[\"main_frame\"]</code>. Rensning uden en forespørgsel (<em>Kopiér rent link</em>, renseværktøjet, History API-ændringer) tæller som <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL'er (regulære udtryk), hvor netop denne regel ikke kører."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Flag for regulære udtryk som en streng. Standard er <code>i</code>; i <code>rawRules</code> <code>gi</code> (eller <code>g</code> med <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Kør reglen tidligere eller senere inden for dens fase (kapitel 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: en regel i <code>rules</code> tæller også som en henvisningsmarkedsføringsregel (kapitel 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Udbyderkontakten med samme navn, for netop denne regel. Den går forud for udbyderens værdi og filens standard."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: reglen starter slået fra."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "En note til folk, der læser filen; den skal være en streng."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Kun på <code>@@…$rawrule=</code>-poster: id'et på den rå regel, den stopper."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Her bliver <code>?token=abc123</code> til <code>?token=clean-abc123</code>. En omskrivning anvendes højst én gang pr. forespørgsel, så den ikke bliver ved med at pakke værdien ind."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Forbehandlere ændrer indfangede værdier i rækkefølge, før <code>replacePattern</code> eller en omdirigering bruger dem. <code>inputs</code> er <code>\"all\"</code> eller en liste af gruppenumre:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> tager de samme poster som <code>rules</code>. De kører kun, mens <em>Tillad henvisningsmarkedsføring</em> er slået fra, så affiliate-links fortsat virker, hvis du slår den til:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "En regel kan blive i <code>rules</code> og stadig tælle som henvisningsmarkedsføring med <code>\"referralMarketing\": true</code>. Sæt ikke den samme tekst i både <code>rules</code> og <code>referralMarketing</code>; editoren advarer om det."
+  },
+  "guide_request_types_cell_1": {
+    "message": "forespørgselstyper, som ét regelobjekt håndterer (kan også angives i <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Forespørgselstyper bruger browserens navne: <code>main_frame</code> (en side), <code>sub_frame</code> (en ramme), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> og så videre. Filtermodifikatorer kalder de to første <code>document</code> og <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Forespørgselstyper kommer kun fra reglerne: der er ingen liste over forespørgselstyper i Indstillinger. Hvis ingen af disse er angivet, renser en regel alle forespørgselstyper."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Standarder"
+  },
+  "guide_defaults_p_1": {
+    "message": "En <code>defaults</code>-blok på øverste niveau giver hver regel i filen værdier, som den ikke selv angiver:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Standard for hver regels…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> slår alle regler fra, medmindre de siger <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> eller udeladt betyder alle typer"
+  },
+  "guide_defaults_item_1": {
+    "message": "En regels egen værdi vinder altid, og en regels <code>exceptions</code> erstatter standardlisten i stedet for at blive lagt til den."
+  },
+  "guide_defaults_item_2": {
+    "message": "Standarder gælder for <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> og <code>fieldRedirections</code>. En udbyders egen <code>exceptions</code>-liste røres ikke. <code>$redirect=</code>-poster bruger kun <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Hver fil beholder sine egne standarder: de indbyggede regler, hver ekstern liste og dine brugerdefinerede regler, også når overbelastningstilstand fletter dem."
+  },
+  "guide_defaults_item_4": {
+    "message": "For en <code>completeProvider</code> begrænser standarderne for <code>requestTypes</code> og <code>exceptions</code> også blokeringen."
+  },
+  "guide_defaults_item_5": {
+    "message": "Ukendte nøgler og forkerte typer er fejl, og en ekstern liste med en ugyldig <code>defaults</code>-blok afvises."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Dine egne standarder"
+  },
+  "guide_defaults_p_2": {
+    "message": "I editoren til brugerdefinerede regler åbner <em>Administrér regelstandarder</em> en formular, hvor du angiver en egen <code>defaults</code>-blok og vælger, hvor den erstatter filernes egne:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Hver kildes egne</em> (standard): hver fil bruger sine egne <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Dine til indbyggede og eksterne regler</em>: indbyggede og eksterne regler bruger dine; brugerdefinerede regler beholder deres egne."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Dine til alle regler</em>: alle regler bruger dine."
+  },
+  "guide_defaults_p_3": {
+    "message": "Den samme formular kan redigere standarderne for de indbyggede regler og for hver indlæst ekstern liste. Din redigering gemmes i udvidelsen, ikke i filen, og <em>Nulstil til filens standarder</em> fjerner den. <em>Flet fra kilder…</em> kombinerer standarderne fra de kilder, du markerer; intet gemmes, før du gemmer."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Sådan behandles en URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, derefter <code>fieldRedirections</code>: et match med et gyldigt mål omdirigerer forespørgslen."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> og <code>referralMarketing</code> fjerner eller omskriver parametre."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code>-filtre kører, undtagen hvor en <code>@@</code>-post beholder parameteren."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Den første udbyder, der ændrer, omdirigerer eller blokerer URL'en, vinder. Den nye URL gennemgår derefter de samme trin igen (se <a href=\"#termination\">Hvornår behandlingen stopper</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Kørselsrækkefølge og <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Trin 4 og 5 sorteres sammen efter disse regler i rækkefølge:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Rå regler kører altid først.</strong> Ingen <code>order</code> flytter en <code>rules</code>-post foran en rå regel. En oprydning, der skal ske før en rå regel, skal selv være en rå regel."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Inden for en fase kører regler med <code>order</code> før regler uden</strong>, laveste først. Negative tal og brøker er tilladt. <code>order: 10</code> betyder ikke \"tiende\": det betyder efter fasens ordnede regler under 10 og før alle dens uordnede regler."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Derefter efter liste:</strong> <code>rules</code>, derefter <code>rules</code>-objekter markeret med <code>\"referralMarketing\": true</code>, derefter <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Derefter efter position</strong> på listen. Hver post beholder sin plads, også poster skrevet som <code>\"3\"</code> eller <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Her omskrives tokenet, før <code>utm_source</code> fjernes, selvom det kommer som nummer to:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Regler, der er slået fra, udelades. <code>$removeparam</code>-filtre og <code>@@</code>-poster ligger uden for denne sortering og kan ikke have en <code>order</code>, heller ikke <code>null</code>; filtre kører altid sidst."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Samme tekst to gange"
+  },
+  "guide_processing_order_p_5": {
+    "message": "To poster med samme <code>matchPattern</code>-tekst i én gruppe er én regel. Grupperne er rå (<code>rawRules</code>), felt (<code>rules</code> uden henvisningsmærket) og henvisning (markerede <code>rules</code>-objekter, derefter <code>referralMarketing</code>). Det sker mest, når reglelister flettes."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Den sidste definition, der ikke er slået fra, vinder med alle sine nøgler."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Uden egen <code>order</code> overtager vinderen den første definitions position og den nærmeste tidligere <code>order</code>. <code>\"order\": null</code> betyder ingen order og fjerner en nedarvet."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Id'er og aliasser fra erstattede definitioner slår også vinderen til og fra."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Mens henvisningsmarkedsføringsregler kører, erstatter en henvisningspost en feltpost med samme tekst."
+  },
+  "guide_processing_order_item_12": {
+    "message": "En rå regel og en feltregel med samme tekst kolliderer ikke; begge kører."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Inden for én liste er to forskellige poster med samme tekst en fejl, og en nøjagtig kopi er en advarsel."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Hvornår behandlingen stopper"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Der kører højst 10 cyklusser pr. forespørgsel; ved grænsen bruges URL'en, som den er."
+  },
+  "guide_processing_order_item_14": {
+    "message": "En regel med <code>replacePattern</code> anvendes højst én gang pr. forespørgsel."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Et trin, der ikke ændrer URL'en, starter ikke en ny cyklus."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Indstillinger → <em>Ubegrænsede rensecyklusser</em> (slået fra som standard) fjerner grænsen på 10 cyklusser for regelkæder, der har brug for flere. Behandlingen slutter så, når en cyklus intet ændrer, men to regler, der omdirigerer til hinanden, kører i løkke, indtil browseren giver op, og siden ikke indlæses. Slå den kun til for regler, du stoler på."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Regel-id'er og til/fra-kontakter"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Hver regel har et id. En regel uden <code>id</code> får et ud fra sin liste og sin tekst: <code>\"utm_source\"</code> i <code>rules</code> bliver til <code>field-utm-source</code>. Et genereret id ændres, når reglens tekst ændres, og en regel, der er slået fra, ville så blive slået til igen. Giv en regel sit eget <code>id</code>, når den skal beholde sin til/fra-indstilling gennem redigeringer, og angiv gamle id'er i <code>aliases</code>, når du omdøber den."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "En regel slås til og fra ved hjælp af udbyder og id sammen, som <code>shop::session-token</code>, så to udbydere kan bruge det samme id. Editoren til brugerdefinerede regler kan også gemme den under udbyderens mønster, som <code>domainPattern:||shop.example^::session-token</code>; begge former virker."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Inden for én udbyder skal hvert id og alias være forskelligt. Genererede id'er tæller med."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Et id kan ikke indeholde et kolon."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "En indstilling gemt under et bart id uden dens udbyder slår intet til eller fra; slå reglen fra igen i editoren til brugerdefinerede regler."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Eksterne reglelister"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Eksterne reglelister er regelfiler, som Linkumori downloader, eventuelt kontrolleret mod en hash-fil. En liste med en ugyldig <code>cln</code>-værdi, <code>defaults</code>-blok eller <code>patches</code>-array indlæses ikke, og Sundhed for eksterne regler rapporterer det."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Omdirigering og blokering kræver din godkendelse"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Hvad en ekstern liste kan gøre, afgøres ud fra dens indhold, når den indlæses:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Funktion"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Listen har den, når den indeholder"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktiv ved indlæsning"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "en <code>rules</code>-, <code>rawRules</code>- eller <code>referralMarketing</code>-post eller et <code>$removeparam</code>-filter"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "en post med en <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "en udbyder-<code>exceptions</code>-post eller en <code>@@</code>-post"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "en <code>redirections</code>- eller <code>fieldRedirections</code>-post eller <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "efter godkendelse"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "en udbyder med <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Godkend <code>redirect</code> og <code>block</code> pr. liste i Sundhed for eksterne regler. Indtil da forbliver listens omdirigeringer og blokeringer slået fra, og dens rå regler kan ikke sende en URL til et andet websted; resten af listen virker med det samme. Når en opdatering tilføjer en ny funktion, venter den også på godkendelse. Indbyggede og brugerdefinerede regler har alle funktioner."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Overbelastningstilstand"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normalt erstatter eksterne lister med udbydere de indbyggede regler; lister, der kun indeholder <code>patches</code>, anvendes på de indbyggede regler. Med <em>Aktivér overbelastningstilstand</em> slået til indlæses de sammen med en af tre strategier:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Kun patch-tilstand</em>: anvend de eksterne listers patches på de indbyggede regler; eksterne udbydere udelades."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Patch-tilstand + fletning</em>: flet indbyggede og eksterne udbydere, og anvend derefter patches."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Ingen patch-tilstand + fletning</em>: flet udbyderne, og spring patches over."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Ved fletning flettes eksterne lister med hinanden i den rækkefølge, du angiver dem, og derefter med de indbyggede regler (indbyggede først). Kun udbydere med samme <code>domainPatterns</code> (eller <code>urlPattern</code>) og samme <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> og <code>forceRedirection</code> flettes; deres <code>rules</code>, <code>rawRules</code> og <code>referralMarketing</code> sammenlægges, og <a href=\"#same-text-twice\">Samme tekst to gange</a> afgør, hvilken kopi der kører. Sundhed for eksterne regler viser hver erstattet regel som en bemærkning."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Brugerdefinerede regler anvendes til sidst. En brugerdefineret udbyder erstatter hver indlæst udbyder med samme mønster; deres regler kombineres ikke."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Regelpatches"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "En ekstern liste kan erstatte enkelte regler, der allerede er indlæst, uden at udgive en fuld kopi, i et <code>patches</code>-array på øverste niveau:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Påkrævet. Reglen, der skal erstattes, skrevet som dens til/fra-nøgle: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> eller <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Påkrævet. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> eller <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Påkrævet. Den nye regel, som en almindelig post eller et regelobjekt."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "En note til folk, der læser filen."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Patches kører, efter at eksterne lister er flettet, og før brugerdefinerede regler. En fil med kun <code>patches</code> behøver ingen <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Fletning kan omdøbe udbydere, så formen <code>domainPattern:</code> eller <code>urlPattern:</code> er den, der altid finder dem."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Erstatningen beholder den gamle regels id eller tager det gamle id som alias, så til/fra-indstillinger fortsat gælder."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "En patch til en omdirigering venter på listens <code>redirect</code>-godkendelse. En patch, hvis mål ikke matcher noget, ændrer intet."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Sundhed for eksterne regler viser hver patch som anvendt, umatchet eller sprunget over."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Regler og hvidlisten"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Hvidlisten er adskilt fra en udbyders <code>exceptions</code>: den indeholder websteder, du har bedt Linkumori lade være i fred, uden nogen regelfil. Poster ser ud som <code>example.com</code>, <code>*.example.com</code> (webstedet og dets underdomæner) eller <code>example.*</code> (et vilkårligt suffiks). Hvidlistning af en side dækker også alt, den indlæser."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Komplette eksempler"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Kontrol af dine regler"
+  },
+  "guide_checking_p_1": {
+    "message": "Editoren til brugerdefinerede regler kontrollerer regler, når du gemmer eller importerer dem, og <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> kører de samme kontroller. Ud over ødelagt JSON og ugyldige regulære udtryk afviser de regler, der ville blive indlæst, men i det stille gøre det forkerte, såsom:"
+  },
+  "guide_checking_item_1": {
+    "message": "ukendte felter, nøgler og modifikatorer"
+  },
+  "guide_check_7": {
+    "message": "en <code>cln</code>-værdi andet end <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "et id eller alias brugt to gange hos én udbyder"
+  },
+  "guide_checking_item_2": {
+    "message": "to forskellige poster med samme tekst på én liste"
+  },
+  "guide_checking_item_3": {
+    "message": "en <code>order</code> på et <code>$removeparam</code>-filter eller en <code>@@</code>-post, <code>null</code> inkluderet"
+  },
+  "guide_check_9": {
+    "message": "en <code>$redirect=</code>-adresse, der ikke er <code>http</code> eller <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "et omvendt skråstreg i et <code>$removeparam</code>-navn før et tegn, der ikke har noget escape"
+  },
+  "guide_checking_p_2": {
+    "message": "De advarer også om nøjagtige kopier og om den samme tekst i både <code>rules</code> og <code>referralMarketing</code>. Hvis gemning mislykkes, nævner meddelelsen udbyderen, listen og posten."
+  },
+  "guide_toc_search": {
+    "message": "Filtrér afsnit"
+  },
+  "guide_toc_no_results": {
+    "message": "Ingen matchende afsnit."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: en omdirigering, der begynder med \"|\", skal se sådan ud: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: målet for $redirect= skal være en absolut http- eller https-URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ skal være et objekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type skal være en ikke-tom streng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type skal være en af disse: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs skal være \"all\" eller en liste med positive heltal",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ skal være en streng eller et regelobjekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern skal være en streng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern skal være en streng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId skal være et regel-id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId gælder kun for \"@@…$rawrule=\"-undtagelser i rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags skal være en streng (regex-flag som \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing skal være true eller false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing har ingen virkning i $FIELD$; det gælder kun i $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order skal være et tal eller null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order har ingen virkning i $FIELD$; det gælder kun i $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order har ingen virkning på et $removeparam-filter eller en \"@@\"-post; de køres altid efter de andre regler",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active skal være en boolesk værdi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id skal være en streng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id skal matche $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases skal være en liste med id'er, der matcher $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases må ikke indeholde regelens eget id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description skal være en streng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection skal være en boolesk værdi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions skal være et array af strenge",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes skal være et array af strenge",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors skal være et array",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: ukendt felt \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ begynder med \"@@\", som kun gælder for $removeparam-filtre i rules og referralMarketing; brug i stedet \"exceptions\" i et regelobjekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ har den ukendte $removeparam-indstilling \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" begynder med et enkelt \"|\", så det matcher kun URL'er, der bogstaveligt begynder med \"$REST$\"; sådanne findes ikke (URL'er begynder med \"https://\"). Brug \"||$REST$\" til at matche domænet.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ har \"targetId\", som kun virker på en undtagelse; lad matchPattern begynde med \"@@\" (f.eks. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ har både \"targetId\" og en regex efter \"rawrule=\"; brug kun én af dem",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ har targetId \"$ID$\", men ingen raw-regel hos denne udbyder har dette id eller et alias af det",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ er en \"@@\"-undtagelse for \"$REGEX$\", men ingen raw-regel hos denne udbyder bruger regexen. Giv reglen et id, og henvis til den med \"targetId\" i stedet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ er en \"@@\"-undtagelse, så \"$KEY$\" ville ikke gøre noget",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Der står intet efter \"rawrule=\" i $WHERE$; regexen, der skal slettes, mangler",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ har en ugyldig regex efter \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ har $GROUPS$ fangstgrupper; der skal være præcis én \"( … )\" omkring mål-URL'en (skriv andre grupper som \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ genbruger regel-id'et \"$ID$\" i $WHERE$; det blev først brugt i $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ skal være et JSON-objekt",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ skal være et array",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ har den ukendte nøgle \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Fejl under behandling af URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Fejl under initialisering af siden: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Ugyldig fane"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Der kører allerede en regelsøgning for denne fane"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Der kører ingen pausekontrol for denne fane"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Reglerne indlæses stadig. Prøv igen om et øjeblik."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Ingen af reglerne, der blev udløst på denne side, kan slås fra."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Reglerne kunne ikke slås fra"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Der kører ingen regelsøgning for denne fane"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Ingen fundet regel at springe over for denne fane"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Download er ikke tilgængelig"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Optagelsen kunne ikke gemmes i sessionslageret"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Ukendt regel"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "ukendt fejl"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "eksport mislykkedes"
   }
 }

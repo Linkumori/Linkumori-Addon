@@ -39,7 +39,7 @@
     "message": "Utilizați regulile Linkumori/ClearURLs incluse. Dezactivați acest lucru pentru a rula numai cu reguli la distanță și/sau reguli personalizate."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori folosește un set de reguli unificat de furnizor ClearURLsData. Furnizorul nativ JSON, obiectele reguli canonice și filtrele locale de furnizor $removeparam sunt îmbinate înainte ca clearurls.js să fie rulat."
   },
   "bundled_rules_section_title": {
     "message": "Informații despre reguli"
@@ -984,7 +984,7 @@
     "message": "Acest domeniu este blocat"
   },
   "log_html_import_button": {
-    "message": "Import"
+    "message": "Importă"
   },
   "log_html_import_button_title": {
     "message": "Importați jurnalul global"
@@ -1137,25 +1137,25 @@
     "message": "Deschide Setări Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Comportamentul în modul de supraîncărcare"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Numai modul Patch"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Aplicați corecții de la distanță la regulile încorporate. Regulile furnizorului de la distanță nu sunt incluse."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Modul Patch + îmbinare"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Îmbinați regulile încorporate și ale furnizorului de la distanță, apoi aplicați corecții de la distanță."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Fără mod de corecție + îmbinare"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Îmbinați regulile de furnizor încorporate și de la distanță fără a aplica corecții de la distanță."
   },
   "overload_mode_enabled": {
     "message": "Activați modul de supraîncărcare"
@@ -1836,7 +1836,7 @@
     "message": "Adresa URL hash principală trebuie să utilizeze HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Regula principală URL și hash-ul principal URL trebuie configurate împreună."
   },
   "save_primary_rule_https_required": {
     "message": "Adresa URL a regulii primare trebuie să utilizeze HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Înțeleg riscurile - Continuați"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Ar trebui să vă reconsiderați utilizarea regulilor de la distanță dacă nu înțelegeți pe deplin sau nu aveți încredere în sursa setului de reguli Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Această funcție de reguli la distanță este concepută pentru utilizatorii avansați care înțeleg Linkumori JSON pe care le încarcă. Regulile de la distanță ar trebui să includă un hash potrivit URL pentru verificare."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Dacă adăugați o regulă la distanță URL, extensia se va conecta la serverul dvs. desemnat pentru a prelua setul de reguli Linkumori și fișierul hash atunci când este configurat. Fiecare preluare poate expune adresa dvs. IP și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului, către serverul de găzduire. Aceste date sunt supuse politicii de confidențialitate a site-ului sau serverului web respectiv."
   },
   "security_modal_privacy_link_text": {
     "message": "Citiți din nou %PRIVACY_POLICY_LINK% înainte de a continua, dacă este necesar."
@@ -1887,7 +1887,7 @@
     "message": "avertisment:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Utilizați regulile încorporate, cu excepția cazului în care aveți încredere și controlați sursa de la distanță. Furnizați un hash potrivit URL pentru regulile Linkumori JSON la distanță."
   },
   "security_modal_risk_1": {
     "message": "Adresa dvs. IP și informațiile despre browser vor fi expuse serverelor configurate"
@@ -1899,7 +1899,7 @@
     "message": "Verificarea hash se aplică numai regulilor Linkumori CLN Format 1.0 JSON; protejează împotriva falsificării transmisiei, nu a surselor de reguli rău intenționate."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Regulile de la distanță fără verificarea hash de succes se bazează în totalitate pe încrederea în sursa URL."
   },
   "security_modal_risks_title": {
     "message": "Riscuri de securitate:"
@@ -1914,7 +1914,7 @@
     "message": "Adresa URL a fișierului rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Necesar pentru verificarea regulilor de la distanță Linkumori JSON."
   },
   "setting_html_export_button": {
     "message": "Exportați"
@@ -1923,7 +1923,7 @@
     "message": "Exportă totul"
   },
   "setting_html_import_button": {
-    "message": "Import"
+    "message": "Importă"
   },
   "setting_html_import_button_title": {
     "message": "Importă totul"
@@ -1944,7 +1944,7 @@
     "message": "Limită jurnal (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Surse suplimentare de la distanță Linkumori JSON au fost îmbinate. Introduceți o pereche pe linie ca <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Seturi suplimentare de reguli de la distanță"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Telecomanda personalizată URL pentru regulile Linkumori JSON"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Fișierul URL la regulile de la distanță JSON"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Hash URL este necesar pentru fiecare set de reguli de la distanță."
   },
   "settings_html_page_title": {
     "message": "Setări Linkumori (URL-uri curățate)."
@@ -2319,7 +2319,7 @@
     "message": "Nu s-a putut exporta lista albă"
   },
   "whitelist_import_button": {
-    "message": "Import"
+    "message": "Importă"
   },
   "whitelist_import_done": {
     "message": "Au importat %s (domenii) în lista albă"
@@ -2421,19 +2421,19 @@
     "message": "AVERTISMENT: Caracteristica avansată este destinată numai serverelor găzduite automat"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Dezactivați protecția Gatekeeper pentru editarea regulilor de la distanță URL. Această funcție poate încărca reguli la distanță Linkumori JSON în setul de reguli unificat al furnizorului. Continuați numai dacă înțelegeți și aveți încredere în sursa pe care o configurați."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper este fluxul de siguranță încorporat care blochează editările directe ale adreselor URL de la distanță până când confirmați avertismentul de securitate și completați confirmarea tastată."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Păstrați Gatekeeper activat, cu excepția cazului în care aveți încredere și controlați sursele de la distanță. Regulile de la distanță JSON ar trebui să includă un hash URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "avertisment:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Dacă adăugați o regulă la distanță URL, extensia se va conecta la serverul dvs. desemnat pentru a prelua setul de reguli Linkumori și fișierul hash atunci când este configurat. Fiecare preluare poate expune adresa dvs. IP și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului, către serverul de găzduire. Aceste date sunt supuse politicii de confidențialitate a site-ului sau serverului web respectiv."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Citiți din nou %PRIVACY_POLICY_LINK% înainte de a continua, dacă este necesar."
@@ -2448,7 +2448,7 @@
     "message": "Extensia se va conecta la adresa URL desemnată de fiecare dată când extensia este activată și încărcată în browser."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Serverul care găzduiește la distanță JSON sau fișiere hash va primi adresa dvs. IP."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Serverul poate primi, de asemenea, versiunea extensiei, browserul și versiunea de browser."
@@ -2457,7 +2457,7 @@
     "message": "Datele respective sunt supuse politicii de confidențialitate a site-ului web sau a serverului web care găzduiește acele fișiere."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Prin dezactivarea Gatekeeper, creșteți riscul din surse nesigure sau compromise de reguli de la distanță. Verificarea hash protejează descărcările de la distanță Linkumori JSON numai atunci când este configurat un hash URL."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Anula"
@@ -2517,7 +2517,7 @@
     "message": "Introduceți expresia exactă de confirmare"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Această acțiune reduce garanțiile pentru regulile de la distanță. Continuați numai dacă aveți încredere în sursa telecomenzii JSON."
   },
   "remote_urls_template_note_1": {
     "message": "Înlocuiți valorile substituenților cu adresele URL HTTPS reale, apoi importați acest fișier."
@@ -2847,10 +2847,10 @@
     "message": "Nici unul"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Ciocniri de reguli:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "erori $ERRORS$, avertismente $WARNINGS$, notificări $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Capacitățile fișierelor de la distanță:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inactiv până la acceptare: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Acceptă $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Patch-uri cu reguli:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ aplicat, $NOT_APPLIED$ neaplicat",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Regulă implicită"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Încorporat"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Personalizat"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Nici unul - comportament încorporat"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Modul de supraîncărcare îmbină regulile încorporate și la distanță; regulile fiecărei surse păstrează valorile implicite ale acelei surse."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Salvați valorile implicite"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Valorile implicite au fost salvate"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Când este activată, fiecare sursă de reguli își păstrează propriile valori implicite (valorile implicite încorporate se aplică regulilor încorporate, iar valorile implicite ale fiecărui fișier la distanță la regulile acelui fișier), cu excepția cazului în care alegeți propriile valori implicite în editorul de reguli personalizate."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Telecomanda: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Care se aplică implicit"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Fiecare sursă este proprie"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Al tău pentru regulile încorporate și de la distanță"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Al tău pentru toate regulile"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(înlocuit cu valorile implicite)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "A ta"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ tipuri de solicitări",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL excepții",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL excepție"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ preprocesoare",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Regulile fiecărei surse primesc propriile valori implicite ale acelei surse."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Regulile încorporate și la distanță primesc valorile implicite în loc de propriile fișiere; regulile personalizate își păstrează propriile lor."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Regulile încorporate, de la distanță și personalizate primesc toate valorile implicite în loc de propriile lor."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Gestionați valorile implicite ale regulilor"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Implicit completează valorile pe care o regulă nu le stabilește singură. Valoarea proprie a unei reguli câștigă întotdeauna, iar excepțiile furnizorilor nu sunt modificate niciodată."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Editați valorile implicite"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Valorile dvs. implicite"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Valorile implicite ale regulilor personalizate"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Setarea implicită pentru editare"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Reguli încorporate"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(editat)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Resetați la valorile implicite ale fișierului"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Fuzionați din surse..."
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Regulile de îmbinare implicite"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Rezultatul apare ca „Valori implicite îmbinate” în listă. Copiați-l într-un set de acolo, apoi apăsați Salvare setări implicite pentru ao utiliza."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Surse de fuzionat"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Conflicte"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Valori implicite îmbinate"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Utilizați valorile implicite îmbinate"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Valori implicite îmbinate"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Nu este folosit până când îl copiați într-unul dintre celelalte seturi și îl salvați."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Copiați în"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Copie"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Alegeți cel puțin două surse."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Fără conflicte: sursele alese sunt de acord cu fiecare valoare."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Se adună excepțiile din fiecare sursă: $COUNT$ în total.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Combinat din orice sursă"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "De la: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nesetat (comportament încorporat)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nesetat: fiecare tip de cerere"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Nu este folosit acum: setările dvs. implicite înlocuiesc regulile încorporate și ale de la distanță."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Editat de dvs.: acestea înlocuiesc propriile valori implicite ale fișierului. Fișierul în sine nu este schimbat."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(editat de tine)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Nu este folosit acum: „Fiecărei surse proprii” este aleasă mai sus."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Nu este folosit acum: valorile implicite le înlocuiesc și pentru regulile personalizate."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Regulile încep dezactivate (activ: fals)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Descriere"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Tipuri de cereri"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Toate tipurile"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Doar acestea"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Alegeți cel puțin un tip de solicitare sau alegeți „Toate tipurile”."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Regulile curăță fiecare tip de solicitare, cu excepția cazului în care ele, sau valorile implicite, numesc unele. De asemenea, furnizorii pot limita tipurile cu resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Excepții"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "O expresie regex URL pe linie. Regulile sunt omise pentru adresele URL care se potrivesc."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Preprocesoare"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Intrări: „toate” sau captură numere de grup, cum ar fi 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Adăugați preprocesor"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Tip de preprocesor"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Intrări ale preprocesorului"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Elimina"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Intrările de preprocesor „$INPUTS$” trebuie să fie „toate” sau numere precum 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Dezactivați protecția de ocolire a istoricului (historyBypassProtection: fals)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Afișați ca JSON"
   },
   "settings_remote_health_unknown": {
     "message": "necunoscut"
@@ -3186,7 +3186,7 @@
     "message": "https://example.com/?utm_source=newsletter"
   },
   "customRulesEditor_ruleTestLab_run": {
-    "message": "Run Test"
+    "message": "Rulează testul"
   },
   "customRulesEditor_ruleTestLab_testing": {
     "message": "Testare..."
@@ -3357,7 +3357,7 @@
     "message": "Filtrați intrările..."
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Filă"
   },
   "logger_tab_all": {
     "message": "Toate filele"
@@ -4017,10 +4017,10 @@
     "message": "Ghidul furnizorului JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Deschideți ghidul de reguli Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Ce sintaxă a regulilor ar trebui să folosesc?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4029,25 +4029,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Ghid de reguli deschise"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Nu s-au încărcat sursele furnizorului: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Regulile grupate nu sunt disponibile."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Nu s-au încărcat regulile grupate: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Nu s-a putut schimba limba la $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Tema ușoară"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tema întunecată"
   },
   "posarCopied": {
     "message": "POSAR copiat!"
@@ -4071,100 +4071,100 @@
     "message": "POSAR acceptat."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Resetați"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Instrumente de accesibilitate"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Deschideți Instrumente de accesibilitate"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Închideți Instrumentele de accesibilitate"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Resetați toate setările de accesibilitate"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Viziune"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lectură"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interacţiune"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Contrast ridicat"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Filtru de culoare"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Saturaţie"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Inversa"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Evidențiați Linkuri"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Ascunde imagini"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Creștere dimensiunea textului"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Dimensiunea textului Scade"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Dimensiunea implicită a textului"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Selectarea fontului"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Prietenos pentru dislexie"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Spațierea textului"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Înălțimea liniei"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Aliniere text"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Întrerupeți animațiile"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Cursor mai mare"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Implicit"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Mediu"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Ridicat"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Scăzut"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Nici unul"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Aprinde"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Grele"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4185,49 +4185,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Fără filtru"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopie"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopie"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopie"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Tonuri de gri"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Stânga"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centru"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Corect"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Foarte Mici"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Mic"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Mare"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Foarte mare"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Cel mai mare"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Pe"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Oprit"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4236,15 +4236,2227 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "activat"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "dezactivat"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Dimensiunea implicită a textului selectată"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Toate setările de accesibilitate sunt resetate"
+  },
+  "skip_to_main_content": {
+    "message": "Treci la conținutul principal"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigare pop-up"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Vizualizări de reguli personalizate"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Vizualizări de jurnal"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Protecție de ignorare a istoricului (săriți în timpul navigării în pagină)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Redirecționări de câmp"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Regulă de copiere"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regula copiată"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Nu s-a putut copia regula"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Ce face historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Site-urile cu o singură pagină își schimbă adesea adresa cu history.pushState/replaceState în loc să încarce o pagină nouă. Linkumori curăță și acele adrese. Adăugați history-bypass-protection=false la un filtru $removeparam pentru a omite doar acel filtru pentru aceste modificări în pagină; încă rulează la solicitări normale."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Pentru a sări peste un întreg furnizor pentru modificări în pagină, setați-l pe furnizor:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Omis, este adevărat și modificările din pagină sunt curățate. Setarea proprie a unei reguli o depășește pe cea a furnizorului, așa că o regulă se poate reactiva cu history-bypass-protection=true sau „historyBypassProtection”: adevărat într-un obiect regulă."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Omite navigarea în pagină"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Redenumiți ID-ul"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "ID nou pentru $OLD$ (a-z, 0-9, - și _). Vechiul id este păstrat ca alias, așa că regulile dezactivate sub acesta rămân dezactivate.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "„$ID$” nu este un ID valid. Utilizați litere mici, cifre, - și _, începând cu o literă sau o cifră.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "O altă regulă a acestui furnizor folosește deja „$ID$”.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Dezactivați regula"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Dezactivați $ID$ pentru întregul furnizor sau numai pentru acest model URL/domeniu?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Furnizorul meu"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/model de domeniu"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Codul regulii a fost redenumit $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Comutări orfane"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Nu s-a găsit nicio regulă de potrivire în amonte"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Elimina"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Omite curățarea navigației în pagină"
+  },
+  "whitelist_added_general": {
+    "message": "S-a adăugat %s la lista albă generală"
+  },
+  "whitelist_added_history_api": {
+    "message": "S-a adăugat %s ca excepție API History"
+  },
+  "whitelist_exception_count": {
+    "message": "%d excepție(e)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Fără excepții din lista albă"
+  },
+  "whitelist_mode_general": {
+    "message": "Lista albă generală"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Doar API-ul Istoric"
+  },
+  "whitelist_mode_label": {
+    "message": "Domeniul de aplicare a listei albe"
+  },
+  "whitelist_removed_general": {
+    "message": "S-a eliminat %s din lista albă generală"
+  },
+  "whitelist_removed_history_api": {
+    "message": "S-a eliminat excepția API History pentru %s"
+  },
+  "whitelist_type_general": {
+    "message": "General"
+  },
+  "whitelist_type_history_api": {
+    "message": "Doar API-ul Istoric"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Adăugați $1 la lista albă generală"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Lista albă generală: $1 - faceți clic numai pentru History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Excepție API History: $1 - faceți clic numai pentru această filă"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Numai filă: $1 - faceți clic pentru a elimina"
+  },
+  "logger_action_allowed": {
+    "message": "Permis"
+  },
+  "logger_action_blocked": {
+    "message": "Blocat"
+  },
+  "logger_action_filter_label": {
+    "message": "Acţiune"
+  },
+  "logger_action_info": {
+    "message": "Informații"
+  },
+  "logger_action_modified": {
+    "message": "Modificat"
+  },
+  "logger_action_redirected": {
+    "message": "Redirecționat"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Copiați rezumatul"
+  },
+  "logger_btn_export": {
+    "message": "Exportă"
+  },
+  "logger_btn_group": {
+    "message": "Grupați după regulă"
+  },
+  "logger_col_hits": {
+    "message": "Hituri"
+  },
+  "logger_col_last_seen": {
+    "message": "Văzut ultima dată"
+  },
+  "logger_detail_group_title": {
+    "message": "Detaliu reguli"
+  },
+  "logger_detail_all_urls": {
+    "message": "Adrese URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Filele"
+  },
+  "logger_exported": {
+    "message": "Înregistrări $1 exportate."
+  },
+  "logger_filter_all": {
+    "message": "Toate"
+  },
+  "logger_report_rule": {
+    "message": "Raportați-o"
+  },
+  "logger_rule_disable": {
+    "message": "Dezactivați regula"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Regula $1 dezactivată. Reîncărcați pagina pentru a verifica."
+  },
+  "logger_rule_enable": {
+    "message": "Porniți regula"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Regula $1 a fost reactivată."
+  },
+  "logger_rule_failed": {
+    "message": "Nu s-a putut schimba regula."
+  },
+  "logger_rule_off": {
+    "message": "Regula este dezactivată"
+  },
+  "logger_rule_on": {
+    "message": "Regula este activată"
+  },
+  "logger_rule_unavailable": {
+    "message": "Această regulă nu poate fi schimbată de aici."
+  },
+  "logger_status_rules": {
+    "message": "$1 regulă(e)"
+  },
+  "logger_summary_copied": {
+    "message": "Rezumatul a fost copiat."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Nu s-a putut copia rezumatul."
+  },
+  "logger_type_filter_label": {
+    "message": "Tip"
+  },
+  "logger_btn_logging_off": {
+    "message": "Deconectare"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Conectarea este dezactivată. Faceți clic pentru a-l porni."
+  },
+  "logger_btn_logging_on": {
+    "message": "Conectare"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Conectarea este activată. Faceți clic pentru a-l opri."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Nu s-a putut modifica setarea de înregistrare."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Adăugați o regulă de recomandare"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Adăugați o excepție de regulă brută"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Adăugați redirecționarea câmpului"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Adăugați o excepție"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Fiecare șablon adaugă un obiect regulă cu un id și un substituent matchPattern pe example.com. O intrare poate fi, de asemenea, un șir simplu: un nume de parametru, un nume regex, un filtru $removeparam sau, în rawRules, un regex. Obiectele rule iau id, aliasuri, matchPattern, replacePattern, preprocesoare, requestTypes, excepții, steaguri, ordine, referralMarketing, historyBypassProtection, activ, descriere și descriere targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Verificator de reguli"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Nu s-au găsit probleme."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Eroare"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Avertizare"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ eroare(e), $WARNINGS$ avertisment(e)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Rulați comanda"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ pași, în ordinea în care rulează",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Fără intrări rawRules, reguli sau referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Elaborat de motor din textul de mai sus, salvat sau nu. Pașii sortați după (etapă, grup de ordine, ordine, rang, indice de matrice): regulile brute rulează înaintea regulilor de câmp; într-o etapă, intrările cu o comandă rulează mai întâi, mai întâi cele mai mici, apoi restul după listă și poziție."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Marketing de recomandare"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Recomandări eliminate"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Recomandări permise"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Brut"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Domeniu"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Sesizare"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generat)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "comanda $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "rescrie"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "înlocuiește $COUNT$ definiții anterioare",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "adăugat de completeProvider: elimină fiecare parametru"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Deconectat"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Off pentru unele modele"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Cheie de sortare: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Apoi $FILTERS$ $removeparam filtru(e) și $EXCEPTIONS$ @@ excepții, după fiecare pas de mai sus",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= excepțiile pot opri regulile brute de mai sus acolo unde se potrivesc",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Trageți un pas sau folosiți săgețile acestuia pentru a-l muta în cadrul etapei sale. Mutarea dă fiecărei intrări din acea etapă un ordin de 10, 20, 30, … în noua secvență."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Comutați la Recomandări eliminate pentru a rearanja: acea vizualizare arată fiecare intrare."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Trageți pentru a muta"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Mutați $ENTRY$ mai devreme",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Mutați $ENTRY$ mai târziu",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Mutat $ENTRY$ în poziția $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Anulați mișcarea"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Mutare anulată"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simula"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Rulează acest furnizor pe un URL așa cum o face curățarea unui link copiat, cu regulile dezactivate și opțiunea de recomandare de mai sus și afișează URL după fiecare pas. Alți furnizori nu funcționează. Generare test URL face unul din propriile reguli ale acestui furnizor."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testează adresa URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Fugi"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Treceți prin simulare"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Început"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Anterior"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Următorul"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Sfârşit"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Juca"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pauză"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL înainte de orice pas"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Treceți $PASS$ · pasul $STEP$ din $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "nicio schimbare"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam filtre"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Trecerea $PASS$ nu schimbă nimic, așa că curățarea se oprește",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Acest furnizor se oprește aici: limita ciclului a fost atinsă, URL a revenit la una anterioară sau nu se mai potrivește cu furnizorul"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Treceți redirecționări $PASS$; curățenia continuă la noua adresă cu fiecare furnizor",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Furnizorul blochează această solicitare (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Rezultat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Tiparele acestui furnizor nu se potrivesc cu acest URL, așa că nici una dintre regulile sale nu rulează."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Acest URL se potrivește cu una dintre excepțiile furnizorului, așa că nici una dintre regulile sale nu rulează."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Introduceți un http:// sau https:// complet URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simularea nu a putut rula. Verificați JSON de mai sus."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generați testul URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Realizat din regulile acestui furnizor: text pentru $RAW$ reguli brute și parametru(i) $PARAMS$, fiecare verificat în raport cu regula sa. keep=1 nu se potrivește cu nicio regulă și ar trebui să rămână. Redirecționările și blocurile nu sunt incluse, deoarece acestea ar încheia rularea înainte de celelalte reguli.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nicio gazdă nu a putut fi stabilită ca modelele acestui furnizor să se potrivească, așa că URL folosește o altă gazdă și furnizorul nu va rula pe ea."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Fiecare URL potrivire de modele ale acestui furnizor este acoperită de una dintre propriile excepții, astfel încât regulile sale nu rulează niciodată."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ reguli rămase în afara testului URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nu a putut fi făcut niciun text care să se potrivească"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "textul său ar face ca una dintre excepțiile furnizorului să se potrivească"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "elimină fiecare parametru, deci nu are nevoie de niciun parametru propriu"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Acest furnizor are un filtru $removeparam fără nume, care elimină fiecare parametru, păstrează=1 inclus."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "nici o ordine"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "comanda $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Restabiliți numerele de comandă"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Repuneți fiecare comandă așa cum era când ați deschis acest furnizor"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Numerele de comandă au fost restaurate"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Ascunde"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Spectacol"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Avertismente clare"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Restabiliți avertismentele"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ avertismente(e) șterse",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern fără indexPattern este verificat cu fiecare URL; adăugați indicii indexPattern, cum ar fi „||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ repetă „$ENTRY$”; copia nu face nimic și ambele au un singur id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ mai are substituentul șablonului „$PATTERN$”; înlocuiți-l cu modelul real",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ are matchPattern „(?!)”, care nu se potrivește niciodată cu nimic",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Depanați"
+  },
+  "troubleshooter_launch": {
+    "message": "Depanați această filă (experimental)"
+  },
+  "troubleshooter_title": {
+    "message": "Instrument de depanare a filei"
+  },
+  "troubleshooter_page": {
+    "message": "Pagină"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Cum funcționează înregistrarea"
+  },
+  "troubleshooter_about_note": {
+    "message": "Deschiderea acestei vizualizări poate verifica pagina URL, dar nu înregistrează nimic. Înregistrarea rămâne dezactivată până când alegeți Începe înregistrarea. Pornirea reîncarcă această filă pentru a captura solicitările sale de resurse. Adresele URL capturate rămân în stocarea sesiunii pentru această sesiune de browser și sunt șterse atunci când această filă se închide sau se termină sesiunea de browser. Înregistrarea se oprește după 15 minute, dacă nu o opriți mai devreme. Adresele URL de resurse pot conține date private de interogare."
+  },
+  "troubleshooter_start": {
+    "message": "Începeți înregistrarea"
+  },
+  "troubleshooter_starting": {
+    "message": "Pornire…"
+  },
+  "troubleshooter_recording": {
+    "message": "Înregistrare…"
+  },
+  "troubleshooter_stop": {
+    "message": "Opriți înregistrarea"
+  },
+  "troubleshooter_refresh": {
+    "message": "Reîmprospăta"
+  },
+  "troubleshooter_copy": {
+    "message": "Copiați rezumatul"
+  },
+  "troubleshooter_export": {
+    "message": "Exportă"
+  },
+  "troubleshooter_export_title": {
+    "message": "Salvați înregistrarea ca fișier JSON. Adresele URL de resurse pot conține date private de interogare."
+  },
+  "troubleshooter_category": {
+    "message": "Categorie"
+  },
+  "troubleshooter_category_all": {
+    "message": "Toate categoriile"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "regulile URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Redirecționări"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Protecție și ocolire"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Tipul de resursă"
+  },
+  "troubleshooter_type_all": {
+    "message": "Toate tipurile de resurse"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Reguli de căutare, furnizori și adrese URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Înregistrare $1 · $2 rămas"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Se verifică această filă..."
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Nu este disponibilă nicio filă activă."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Această pagină nu permite scanarea regulilor URL. Deschideți o pagină web obișnuită http sau https."
+  },
+  "troubleshooter_status_off": {
+    "message": "Înregistrarea este oprită. Începeți înregistrarea pentru a inspecta adresele URL ale resurselor încărcate de această pagină."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL modificări capturate până acum. Cele noi apar aici automat."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Înregistrarea sa oprit. $1 URL modificări capturate."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Datele de înregistrare nu au putut fi salvate în stocarea sesiunii. $1 URL modificările pot fi pierdute dacă extensia repornește."
+  },
+  "troubleshooter_status_started": {
+    "message": "Înregistrarea a început și fila se reîncarcă. Adresele URL capturate apar aici pe măsură ce pagina se încarcă."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Înregistrarea sa oprit. $1 URL modificări capturate și salvate pentru această sesiune de browser."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Înregistrarea sa oprit. $1 URL au fost capturate modificări, dar stocarea sesiunii nu le-a putut salva."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Deschideți mai întâi o pagină web obișnuită http sau https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Nu s-a putut începe înregistrarea pentru această filă."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Nu s-a putut opri înregistrarea pentru această filă."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Nu s-a putut citi această filă. Încercați să închideți și să redeschideți fereastra pop-up."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Rezumatul a fost copiat."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Nu s-a putut copia rezumatul."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Înregistrare exportată."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Nu s-a putut exporta înregistrarea."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Nu s-a putut deschide formularul de raportare."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regula activată; reîncărcați fila pentru a compara."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regula dezactivată; reîncărcați fila pentru a compara."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Nu s-a putut actualiza această regulă."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Nu s-au găsit modificări de regulă încă. Începeți înregistrarea pentru a inspecta adresele URL de resurse ale acestei pagini."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Această pagină de browser nu poate fi scanată."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Nicio constatare nu corespunde acestor filtre."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Afișează primele reguli $1."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 hit(uri)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 a eșuat"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Codul regulii: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Acțiune de protecție încorporată (fără ID de regulă)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Codul regulii: indisponibil pentru această constatare"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Nu s-a putut rezolva acest ID de regulă în setul de reguli actual."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Cerere respectată"
+  },
+  "troubleshooter_source_page": {
+    "message": "Verificați pagina URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Ce s-a schimbat: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Adrese URL afectate ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…și $1 mai mult"
+  },
+  "troubleshooter_after": {
+    "message": "După Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "A eșuat după ce Linkumori l-a schimbat: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Această regulă este activată. Opriți-l și reîncărcați pentru a compara pagina."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Această regulă este dezactivată. Porniți-l și reîncărcați pentru a-și restabili comportamentul."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Aceasta este o acțiune de protecție încorporată, nu o regulă individuală."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Examinați URL afectat înainte de a schimba regulile."
+  },
+  "troubleshooter_report": {
+    "message": "Raportați această regulă"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Dezactivați regula"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Activați regula"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Dezactivați regula $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Activați regula $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Economisire…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "eliminat $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "adăugat $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "schimbat $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "redirecționat către $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "calea schimbată"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment schimbat"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL schimbat"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "blocat intenționat"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 cererile nu au reușit(e) pe această pagină; $2 imediat după ce Linkumori a schimbat URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Aceasta pagina este sparta?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Găsiți regula care o încalcă: regulile care au rulat pe această pagină sunt dezactivate pe rând și după fiecare spuneți dacă pagina este fixă. Nu sunteți sigur că Linkumori este cauza? Verificați cu curățarea întreruptă mai întâi."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Verificați cu curățarea întreruptă mai întâi"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Curățarea este întreruptă pentru $1 în această filă"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Fila s-a reîncărcat fără curățare. Funcționează pagina acum?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Da, funcționează"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nu, încă rupt"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Anula"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Făcut"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Probabil că nu Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Pagina era încă ruptă cu curățarea întreruptă, așa că problema este probabil în altă parte: site-ul în sine, altă extensie sau rețea. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori este probabil cauza"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Pagina funcționează cu curățarea întreruptă. Găsiți regula: regulile sunt dezactivate pe rând, fila se reîncarcă și spuneți dacă pagina este fixă. Orice altă regulă este reactivată la sfârșit."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Fila se reîncarcă cu curățarea din nou activată, pentru a înregistra ce reguli rulează pe această pagină. Ele apar aici într-o clipă. Dacă niciunul nu o face, folosiți pagina până când se rupe."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Găsiți regula (reguli $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Da, fix"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Nu, încă rupt"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "L-am găsit"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Pagina se întrerupe din cauza regulii $1$2. Este pornit din nou. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Dezactivați această regulă"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Raportați-o"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Regula dezactivată. Reîncărcați fila pentru a verifica. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Nu s-a găsit o singură regulă"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Dezactivarea regulilor pe rând nu a remediat pagina, așa că probabil că este cauzată de mai multe reguli împreună sau de o setare de protecție. Fiecare regulă este reactivată. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Nu s-a putut executa verificarea: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Reîncărcați Linkumori pentru a utiliza această verificare"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori a fost actualizat, dar partea de fundal rulează încă versiunea veche. Reîncărcați extensia (pentru un add-on temporar: about:debugging → This Firefox → Reload), sau reporniți Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "L-am găsit"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Pagina se întrerupe din cauza regulii $1$2. Rămâne oprit, astfel încât pagina să funcționeze; toate celelalte reguli au revenit. Reîncărcați fila pentru a verifica. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Reîncărcați fila"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Porniți-l din nou"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Regula a fost reactivată. Reîncărcați fila pentru a verifica. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Înregistrați și găsiți regula"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Înregistrarea regulilor care rulează pe această pagină. Folosiți pagina până când se rupe; regulile apar aici."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Dezactivat pentru moment de căutarea regulilor. Se aprinde când se termină căutarea."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Căutarea regulilor rulează. Schimbați regulile după ce se termină."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Skip — porniți-l din nou"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Ține-l oprit"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Căutarea regulilor a fost omisă; fiecare regulă este aplicată din nou. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Regula $1 rămâne dezactivată. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Dezactivat pentru acest test:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…și $1 mai mult"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Opriți căutarea"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Sărit: acea regulă este reactivată și omisă. Testarea următoarei."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Nu s-a găsit nicio regulă printre regulile testate. $1 regulile pe care le-ați omis nu au fost testate. Fiecare regulă este aplicată din nou. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimental"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimental: acest instrument de depanare nu este complet stabil. Rezultatele sale pot fi greșite și dezactivează regulile în timp ce testează. Dacă ceva pare greșit după aceea, verificați regulile în editorul de reguli personalizate sau utilizați Opriți căutarea pentru a le reactiva."
+  },
+  "troubleshooter_working": {
+    "message": "Lucru…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Înregistrați din nou"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Înregistrarea veche a fost șters. Înregistrarea acestei file din nou dintr-o încărcare nouă."
+  },
+  "troubleshooter_clear": {
+    "message": "Clar"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Ștergeți înregistrarea acestei file, constatările și căutarea finală a regulilor. Regulile rămân așa cum sunt."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Eliberat. Regulile rămân așa cum sunt."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Eliberat. Regula $1 rămâne dezactivată."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testarea unei reguli la un moment dat — regula $1 din $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Doar această regulă este dezactivată și fila reîncărcată. Pagina este reparată acum?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Sari peste aceasta regula"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Sariți — porniți-l din nou, apoi testați ($1 stânga)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 alte reguli care au rulat pe această pagină nu au fost testate. Doriți să le testați în continuare?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Ține-l oprit, apoi testează ($1 stânga)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Regula $1 rămâne dezactivată. Testarea următoarei reguli."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Nicio altă regulă nu fixează pagina de la sine. Regulile $1 pe care le-ați ținut departe nu rămân; orice altă regulă este activată din nou. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testați următoarea regulă ($1 stânga)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Regula $1 este din nou activată și omisă. Testarea următoarei reguli."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Nicio altă regulă nu fixează pagina de la sine. Regulile $1 pe care le-ați omis au revenit și ele, așa că fiecare regulă este activată din nou. Pentru a începe de la capăt, faceți clic pe Șterge."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori curăță adresele URL cu reguli scrise în <strong>CLN Format 1.0</strong> (Clean Link Notation), un format JSON. Acest ghid trece de la o primă regulă la fiecare opțiune, cu exemple pe care le puteți copia."
+  },
+  "guide_intro_p_2": {
+    "message": "Regulile încorporate, listele de reguli de la distanță și regulile dvs. personalizate folosesc toate același format. Scrieți reguli personalizate în editorul de reguli personalizate, care le verifică atunci când salvați sau importați. Un catalog oficial de reguli ClearURLs (<code>data.min.json</code>) este deja un fișier CLN valid și poate fi utilizat așa cum este."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Numele furnizorului este doar o etichetă. Ce adrese URL gestionate de un furnizor sunt decise de <code>domainPatterns</code> sau <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Cheie de nivel superior"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obligatoriu. Furnizorii, enumerați după nume."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Versiunea formatului este opțională. Singura valoare validă este <code>\"1.0\"</code>. Un fișier fără această valoare este citit tot ca versiunea 1.0; orice altă valoare respinge fișierul. Nu se numește <code>version</code>, deoarece formatul nou de reguli ClearURLs folosește deja această cheie."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Informații opționale despre fișier."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Valori pentru fiecare regulă a fișierului care nu își setează propriile sale (capitolul 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Doar pentru listele de reguli la distanță: înlocuiri pentru reguli deja încărcate (capitolul 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Ce adrese URL gestionează furnizorul, ca un model de domeniu sau o listă a acestora (capitolul 3). Folosiți acest lucru sau <code>urlPattern</code>, niciodată pe ambele."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Ce adrese URL le gestionează furnizorul, ca o expresie regulată potrivită cu URL. Cazul este ignorat."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Numai cu <code>urlPattern</code>: sugestii de gazdă, cum ar fi <code>||example.com^</code>, astfel încât furnizorul este verificat numai pentru acele gazde în loc de fiecare ⟦Q⟦ZZX. Este un indiciu de căutare, nu o condiție de potrivire."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Parametri de recomandare și de afiliere care trebuie eliminați. Sunt ignorați când opțiunea <em>Permite marketingul de recomandare</em> este activată (capitolul 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL-uri pe care furnizorul le lasă complet singure (capitolul 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Trimite solicitarea la o altă adresă în loc să o modifice (capitolul 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Trimite solicitarea la valoarea unui parametru (capitolul 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: dacă încărcarea unei pagini (<code>main_frame</code>) este redirecționată, întregul tab navighează la noua adresă, nu doar solicitarea de rețea."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Gestionează numai aceste metode HTTP, de exemplu <code>[\"GET\"]</code>. Dacă lipsește: toate metodele."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Gestionează numai aceste tipuri de solicitări, de exemplu <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Dacă lipsește: toate tipurile de solicitări."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Implicit <code>true</code>. <code>false</code> omite întregul furnizor când o pagină își schimbă adresa folosind History API (<code>pushState</code>/<code>replaceState</code>). Solicitările normale de rețea sunt în continuare curățate."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> dezactivează furnizorul fără a-l șterge."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> este o listă de modele de domeniu. O adresă URL se potrivește dacă se potrivește cu oricare dintre ele. Aceleași modele sunt folosite înaintea elementelor <code>exceptions</code>, <code>redirections</code>, a filtrelor <code>$removeparam</code> și a regulilor brute."
+  },
+  "guide_matching_cell_1": {
+    "message": "adresa URL completă, ca expresie regulată"
+  },
+  "guide_matching_cell_2": {
+    "message": "adrese URL care conțin acest text oriunde (fără <code>|</code> la început)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> marchează sfârșitul numelui gazdei sau un separator precum <code>/</code>, <code>?</code>, <code>:</code> ori sfârșitul URL-ului. <code>*</code> este un wildcard."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> înseamnă un domeniu: gazda și toate subdomeniile sale. Un singur <code>|</code> indică începutul exact al URL-ului și trebuie urmat de o schemă precum <code>https://</code>. Pentru un domeniu folosește întotdeauna <code>||</code>; <code>|example.com^</code> nu se poate potrivi niciodată, așa că editorul îl respinge."
+  },
+  "guide_matching_p_4": {
+    "message": "De exemplu, <code>||smile.amazon.*^</code> se citește astfel: <code>||</code> gazda și subdomeniile sale, <code>smile.amazon</code> etichetele obligatorii, <code>.*</code> orice sufix public (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), iar <code>^</code> sfârșitul gazdei."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "exact parametrul respectiv"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "fiecare parametru al cărui nume complet se potrivește; diferența dintre litere mari și mici este ignorată"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> și <code>\"$removeparam=fbclid\"</code> elimină același lucru. Folosește numele simplu dacă nu ai nevoie de ceva din capitolul 5. Orice element poate fi scris și ca obiect regulă (capitolul 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Aici, <code>qid</code> este eliminat de pe toate site-urile Amazon, <code>tag</code> doar de pe <code>amazon.de</code>, <code>sr</code> doar de pe <code>smile.amazon</code>, iar <code>ref_</code> doar din <code>/gp/</code>. Modelul restrânge modelele proprii ale furnizorului; nu le poate extinde niciodată."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> transformă filtrul într-o excepție care păstrează parametrul (vezi mai jos)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> restrânge filtrul la unele dintre URL-urile furnizorului (capitolul 3). Dacă lipsește, se aplică fiecărui URL care se potrivește cu furnizorul."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> selectează parametrii. Dacă lipsește, sunt eliminați toți parametrii."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modificatorii stabilesc când se declanșează filtrul. Toți modificatorii enumerați trebuie să fie valabili; nu există un „sau” între ei."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "toți parametrii, cu excepția <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametri al căror nume sau valoare completă <code>name=value</code> se potrivește cu expresia regulată; adaugă <code>i</code> pentru a ignora literele mari și mici"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametri al căror nume începe cu <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escaparea numelui unui parametru"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "O bară oblică inversă face următorul caracter literal, astfel încât poți viza orice nume de parametru:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Valoare"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Elimină parametrul numit"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (virgula nu începe modificatorii)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Aceste cinci sunt singurele escape-uri permise într-o valoare de nume; o bară oblică inversă înaintea oricărui alt caracter este o eroare. Într-o valoare <code>/regex/</code>, bara oblică inversă își păstrează sensul din expresia regulată. Escape-urile funcționează în elementele <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> și <code>@@</code>. În JSON, scrie fiecare bară oblică inversă de două ori: <code>\"$removeparam=\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modificatori"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modificatorii apar după valoare, separați prin virgule. Separă mai multe valori ale aceluiași modificator cu <code>|</code> și pune <code>~</code> în fața unei valori pentru a o exclude:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modificator"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "numai când pagina care a inițiat solicitarea este (sau, cu <code>~</code>, nu este) una dintre acestea; sunt permise valori regex"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "numai când solicitarea însăși se îndreaptă către una dintre acestea, indiferent de pagina care a inițiat-o"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "numai pentru aceste metode HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "numai când solicitarea se îndreaptă către același domeniu înregistrabil ca pagina (<code>a.example.com</code> și <code>b.example.com</code> sunt considerate identice) sau către unul diferit"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "la fel, dar se compară numele exact al gazdei, astfel încât un subdomeniu este considerat terță parte"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "numele parametrilor țin cont de literele mari și mici"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "omite acest filtru când o pagină își schimbă adresa folosind History API. Acceptă și <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Cei patru modificatori <code>*-party</code> nu pot fi combinați între ei; <code>first-party,third-party</code> este respins."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "De exemplu, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> elimină <code>sid</code> de pe <code>example.com</code>, doar pentru solicitările GET inițiate de o pagină de pe alt site și niciodată când pagina respectivă este <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "O intrare <code>@@</code> oferă excepție doar de la filtrele <code>$removeparam</code>. O intrare simplă precum <code>\"ref\"</code> continuă să elimine parametrul; folosește în schimb <code>exceptions</code> dintr-un obiect regulă. Regulile brute au propriile intrări <code>@@…$rawrule=</code> (capitolul 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nu contează unde o enumeri și nu poate avea <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Modelul ei este verificat în raport cu URL-ul primit de furnizor, înainte de executarea regulilor brute. O intrare <code>@@</code> asociată unei căi șterse de o regulă brută continuă să se potrivească."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Acoperă și filtrele altor furnizori pentru solicitările inițiate de o pagină care se potrivește cu acest furnizor, lucru util pentru a exclude un site dintr-o regulă definită în altă parte."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Regulile brute se execută înainte de <code>rules</code>, ignoră diferența dintre majuscule și minuscule și înlocuiesc fiecare potrivire (cu flagurile <code>gi</code> sau <code>g</code> împreună cu <code>match-case</code>). În JSON, scrie fiecare bară oblică inversă de două ori."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "O regulă brută poate folosi modelul și modificatorii unui filtru <code>$removeparam</code>, cu <code>rawrule=</code> la final. Tot ce urmează după <code>rawrule=</code> este expresia regulată:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Modelul și modificatorii stabilesc unde se execută regula; expresia regulată este în continuare ceea ce se șterge."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "O intrare care începe cu <code>@@</code> și se termină cu <code>rawrule=</code> împiedică executarea regulilor brute acolo unde se potrivește modelul său:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Dacă după <code>rawrule=</code> nu urmează nimic, oprește toate regulile brute ale furnizorului pentru acele URL-uri."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Dacă după <code>rawrule=</code> urmează o expresie regulată, oprește regulile brute care folosesc acea expresie."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Ca obiect regulă cu <code>targetId</code>, oprește doar regula brută cu acel ID sau alias."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Pentru a omite întregul furnizor, folosește în schimb <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Dacă un URL se potrivește cu o intrare din <code>exceptions</code>, nicio regulă a furnizorului nu se execută pentru acea solicitare. O intrare poate fi o expresie regulată pentru URL-ul complet sau un model de domeniu care începe cu <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Excepțiile ignoră diferența dintre majuscule și minuscule. Pentru a omite o singură regulă, nu întregul furnizor, adaugă propriul <code>exceptions</code> acelei reguli (capitolul 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Dintre parametrii potriviți, câștigă primul din URL. Pentru <code>https://site.example/away?redirect=https://real.example/page</code>, solicitarea merge la <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Destinații de redirecționare valide"
+  },
+  "guide_redirects_p_2": {
+    "message": "Redirecționarea se face doar către o adresă absolută <code>http</code> sau <code>https</code> care are o gazdă. Verificarea are loc după preprocesoare și decodarea procentuală. O destinație nevalidă face ca intrarea să fie considerată nepotrivită: nu are loc nicio redirecționare, iar pașii următori ai furnizorului se aplică URL-ului nemodificat."
+  },
+  "guide_redirects_th_1": {
+    "message": "Destinație"
+  },
+  "guide_redirects_th_2": {
+    "message": "Redirecționează?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "da"
+  },
+  "guide_redirects_cell_2": {
+    "message": "da, la <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nu: schema nu este <code>http</code> sau <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nu: nu este o adresă absolută"
+  },
+  "guide_redirects_p_3": {
+    "message": "Și o regulă brută este considerată redirecționare dacă rezultatul ei are o schemă, o gazdă sau un port diferit de cele din intrare, chiar dacă doar șterge text: eliminarea lui <code>secure-</code> din <code>https://secure-bank.example/</code> duce la alt site. Este necesară o destinație validă, iar într-o listă de reguli la distanță este necesară aprobarea <code>redirect</code> (capitolul 15). În caz contrar, regula păstrează URL-ul neschimbat."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Orice intrare din orice listă poate fi un obiect în loc de un șir. Folosește un obiect când regula are nevoie de un ID stabil, trebuie să înceapă dezactivată, trebuie să rescrie în loc să elimine sau trebuie să se execute doar în anumite cazuri:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obligatoriu. Textul pe care l-ai scrie ca intrare simplă în acea listă."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Un nume stabil (litere, cifre, <code>-</code>, <code>_</code>) folosit pentru activarea și dezactivarea regulii (capitolul 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "ID-urile anterioare ale regulii, astfel încât o setare salvată cu un ID vechi să rămână aplicabilă după redenumire."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Rescrie în loc să elimine; <code>§1§</code>, <code>§2§</code>, … sunt valorile capturate."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Transformă mai întâi valorile capturate."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Doar pentru aceste tipuri de solicitări, de exemplu <code>[\"main_frame\"]</code>. Curățarea fără o solicitare (<em>Copiază linkul curățat</em>, instrumentul de curățare, modificările History API) este considerată <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL-uri (expresii regulate) pentru care această regulă nu se execută."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Flaguri ale expresiei regulate, ca șir. Implicit <code>i</code>; în <code>rawRules</code>, <code>gi</code> (sau <code>g</code> cu <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Execută regula mai devreme sau mai târziu în etapa sa (capitolul 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: o regulă din <code>rules</code> este considerată și regulă de marketing prin recomandare (capitolul 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Comutatorul furnizorului cu același nume, aplicat doar acestei reguli. Are prioritate față de valoarea furnizorului și valoarea implicită a fișierului."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: regula începe dezactivată."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "O notă pentru cei care citesc fișierul; trebuie să fie un șir."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Doar pentru intrările <code>@@…$rawrule=</code>: ID-ul regulii brute pe care o oprește."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Aici, <code>?token=abc123</code> devine <code>?token=clean-abc123</code>. O rescriere se aplică cel mult o dată pentru fiecare solicitare, deci valoarea nu este încadrată în mod repetat."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Preprocesoarele transformă valorile capturate, în ordine, înainte ca <code>replacePattern</code> sau o redirecționare să le folosească. <code>inputs</code> este <code>\"all\"</code> sau o listă de numere de grup:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> acceptă aceleași intrări ca <code>rules</code>. Acestea se execută doar când <em>Permite marketingul de recomandare</em> este dezactivat, astfel încât linkurile afiliate continuă să funcționeze dacă activezi opțiunea:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "O regulă poate rămâne în <code>rules</code> și totuși să fie considerată regulă de marketing prin recomandare, folosind <code>\"referralMarketing\": true</code>. Nu pune același text atât în <code>rules</code>, cât și în <code>referralMarketing</code>; editorul te avertizează."
+  },
+  "guide_request_types_cell_1": {
+    "message": "tipurile de solicitări pe care le gestionează un obiect regulă (se pot configura și în <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Tipurile de solicitări folosesc denumirile browserului: <code>main_frame</code> (o pagină), <code>sub_frame</code> (un cadru), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> și altele. Modificatorii filtrelor numesc primele două <code>document</code> și <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Tipurile de solicitări provin doar din reguli: în Setări nu există o listă de tipuri de solicitări. Dacă nu este setată niciuna, regula curăță toate tipurile de solicitări."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Valori implicite"
+  },
+  "guide_defaults_p_1": {
+    "message": "Un bloc <code>defaults</code> de nivel superior oferă fiecărei reguli din fișier valorile pe care nu le setează în mod explicit:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Valoare implicită pentru fiecare regulă…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> dezactivează fiecare regulă, cu excepția cazului în care aceasta specifică <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> sau omiterea acesteia înseamnă toate tipurile"
+  },
+  "guide_defaults_item_1": {
+    "message": "Valoarea proprie a unei reguli are întotdeauna prioritate, iar lista <code>exceptions</code> a regulii înlocuiește lista implicită, nu se adaugă la ea."
+  },
+  "guide_defaults_item_2": {
+    "message": "Valorile implicite se aplică pentru <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> și <code>fieldRedirections</code>. Lista <code>exceptions</code> proprie furnizorului rămâne neschimbată. Elementele <code>$redirect=</code> folosesc doar <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Fiecare fișier își păstrează valorile implicite proprii: regulile integrate, fiecare listă la distanță și regulile tale personalizate, inclusiv când modul de supraîncărcare le îmbină."
+  },
+  "guide_defaults_item_4": {
+    "message": "Pentru un <code>completeProvider</code>, valorile implicite <code>requestTypes</code> și <code>exceptions</code> limitează și ele blocarea."
+  },
+  "guide_defaults_item_5": {
+    "message": "Cheile necunoscute și tipurile incorecte sunt erori, iar o listă la distanță cu un bloc <code>defaults</code> nevalid este respinsă."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Valorile tale implicite"
+  },
+  "guide_defaults_p_2": {
+    "message": "În editorul de reguli personalizate, <em>Gestionează valorile implicite ale regulilor</em> deschide un formular în care configurezi propriul bloc <code>defaults</code> și alegi unde îl folosești în locul valorilor implicite ale fișierelor:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Valorile proprii ale fiecărei surse</em> (implicit): fiecare fișier își folosește propriul <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Valorile tale pentru regulile integrate și la distanță</em>: regulile integrate și cele la distanță le folosesc pe ale tale; regulile personalizate își păstrează propriile valori."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Valorile tale pentru toate regulile</em>: fiecare regulă le folosește pe ale tale."
+  },
+  "guide_defaults_p_3": {
+    "message": "Același formular poate modifica valorile implicite ale regulilor integrate și ale fiecărei liste la distanță încărcate. Modificarea ta este salvată în extensie, nu în fișier, iar <em>Resetează la valorile implicite ale fișierului</em> o elimină. <em>Îmbină din surse…</em> combină valorile implicite ale surselor selectate; nimic nu se salvează până nu apeși Salvează."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Cum este procesat un URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, apoi <code>fieldRedirections</code>: o potrivire cu o destinație validă redirecționează solicitarea."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> și <code>referralMarketing</code> elimină sau rescriu parametri."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Se aplică filtrele <code>$removeparam</code>, cu excepția cazului în care o intrare <code>@@</code> păstrează parametrul."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Primul furnizor care modifică, redirecționează sau blochează URL-ul are prioritate. Noul URL trece apoi din nou prin aceiași pași (vezi <a href=\"#termination\">Când se oprește procesarea</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Ordinea de execuție și <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Pașii 4 și 5 sunt ordonați împreună, după următoarele reguli:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Regulile brute se execută întotdeauna primele.</strong> Niciun <code>order</code> nu mută o intrare <code>rules</code> înaintea unei reguli brute. O curățare care trebuie să aibă loc înaintea unei reguli brute trebuie să fie ea însăși o regulă brută."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>În cadrul unei etape, regulile cu <code>order</code> se execută înaintea celor fără acesta</strong>, începând cu valoarea cea mai mică. Sunt permise numere negative și fracții. <code>order: 10</code> nu înseamnă „al zecelea”, ci că regula se execută după regulile ordonate ale etapei cu valori sub 10 și înaintea tuturor celor neordonate."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Apoi, după listă:</strong> <code>rules</code>, apoi obiectele <code>rules</code> marcate cu <code>\"referralMarketing\": true</code>, apoi <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Apoi, după poziția</strong> din listă. Fiecare intrare își păstrează locul, inclusiv cele scrise ca <code>\"3\"</code> sau <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Aici tokenul este rescris înainte de eliminarea <code>utm_source</code>, deși apare al doilea:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Regulile dezactivate sunt omise. Filtrele <code>$removeparam</code> și intrările <code>@@</code> nu fac parte din această sortare și nu pot avea <code>order</code>, nici măcar <code>null</code>; filtrele se execută întotdeauna ultimele."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Același text de două ori"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Două intrări din același grup cu același text <code>matchPattern</code> reprezintă o singură regulă. Grupurile sunt brute (<code>rawRules</code>), de câmp (<code>rules</code> fără marcajul de recomandare) și de recomandare (obiecte <code>rules</code> marcate, apoi <code>referralMarketing</code>). Acest lucru apare mai ales când listele de reguli sunt îmbinate."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Câștigă ultima definiție care nu este dezactivată, împreună cu toate cheile sale."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Dacă nu are propriul <code>order</code>, definiția câștigătoare preia poziția primei definiții și cel mai apropiat <code>order</code> anterior. <code>\"order\": null</code> înseamnă că nu există ordine și elimină ordinea moștenită."
+  },
+  "guide_processing_order_item_10": {
+    "message": "ID-urile și aliasurile definițiilor înlocuite pot activa și dezactiva definiția câștigătoare."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Cât timp rulează regulile de recomandare, o intrare de recomandare înlocuiește o intrare de câmp cu același text."
+  },
+  "guide_processing_order_item_12": {
+    "message": "O regulă brută și una de câmp cu același text nu se suprapun; se execută ambele."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Într-o singură listă, două intrări diferite cu același text sunt o eroare, iar o copie identică este un avertisment."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Când se oprește procesarea"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Se execută cel mult 10 cicluri pentru fiecare solicitare; la atingerea limitei, URL-ul este folosit așa cum este."
+  },
+  "guide_processing_order_item_14": {
+    "message": "O regulă cu <code>replacePattern</code> se aplică cel mult o dată pentru fiecare solicitare."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Un pas care nu modifică URL-ul nu începe un ciclu nou."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Setarea → <em>Cicluri de curățare nelimitate</em> (dezactivată implicit) elimină limita de 10 cicluri pentru lanțurile de reguli care au nevoie de mai multe. Procesarea se încheie apoi când un ciclu nu schimbă nimic, însă două reguli care se redirecționează una către cealaltă formează o buclă până când browserul renunță, iar pagina nu se încarcă. Activează această opțiune doar pentru reguli de încredere."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. ID-urile regulilor și comutatoarele de activare"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Fiecare regulă are un ID. O regulă fără <code>id</code> primește unul din lista și textul său: <code>\"utm_source\"</code> din <code>rules</code> devine <code>field-utm-source</code>. ID-ul generat se schimbă odată cu textul regulii, iar o regulă dezactivată ar putea fi reactivată. Atribuie regulii propriul <code>id</code> dacă trebuie să-și păstreze starea activată/dezactivată după editări și adaugă ID-urile vechi la <code>aliases</code> când îi schimbi numele."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "O regulă este activată sau dezactivată prin asocierea furnizorului cu ID-ul, de exemplu <code>shop::session-token</code>, astfel încât doi furnizori pot folosi același ID. Editorul de reguli personalizate o poate salva și folosind modelul furnizorului, de exemplu <code>domainPattern:||shop.example^::session-token</code>; funcționează ambele forme."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "În cadrul unui furnizor, fiecare ID și alias trebuie să fie diferit. Și ID-urile generate sunt luate în calcul."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Un ID nu poate conține două puncte."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "O setare salvată doar cu ID-ul, fără furnizorul său, nu dezactivează nimic; dezactivează din nou regula în editorul de reguli personalizate."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Liste de reguli la distanță"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Listele de reguli la distanță sunt fișiere de reguli descărcate de Linkumori, verificate opțional folosind un fișier hash. O listă cu o valoare <code>cln</code>, un bloc <code>defaults</code> sau o matrice <code>patches</code> nevalidă nu se încarcă, iar Remote Rules Health raportează problema."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Redirecționarea și blocarea necesită aprobarea ta"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Capacitățile unei liste la distanță sunt determinate din conținutul ei la încărcare:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Capacitate"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Lista are această capacitate dacă include"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Activă la încărcare"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "o intrare <code>rules</code>, <code>rawRules</code> sau <code>referralMarketing</code>, ori un filtru <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "o intrare cu <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "o intrare <code>exceptions</code> a furnizorului sau o intrare <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "o intrare <code>redirections</code> sau <code>fieldRedirections</code>, ori <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "după aprobare"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "un furnizor cu <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Aprobă <code>redirect</code> și <code>block</code> pentru fiecare listă în Remote Rules Health. Până atunci, redirecționările și blocările listei rămân dezactivate, iar regulile sale brute nu pot trimite un URL către alt site; restul listei funcționează imediat. Dacă o actualizare adaugă o capacitate nouă, și aceasta așteaptă aprobarea. Regulile integrate și cele personalizate au toate capacitățile."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Mod de supraîncărcare"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "În mod normal, listele la distanță cu furnizori înlocuiesc regulile integrate; listele care conțin doar <code>patches</code> sunt aplicate regulilor integrate. Cu <em>Activează modul de supraîncărcare</em> pornit, acestea se încarcă împreună, folosind una dintre cele trei strategii:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Doar modul de corecții</em>: aplică corecțiile listelor la distanță regulilor integrate; furnizorii la distanță sunt omiși."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Modul de corecții + îmbinare</em>: îmbină furnizorii integrați și cei la distanță, apoi aplică corecțiile."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Fără modul de corecții + îmbinare</em>: îmbină furnizorii și omite corecțiile."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "La îmbinare, listele la distanță sunt îmbinate între ele în ordinea în care le-ai enumerat, apoi cu regulile integrate (cele integrate primele). Se îmbină doar furnizorii cu aceleași <code>domainPatterns</code> (sau <code>urlPattern</code>) și aceleași <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> și <code>forceRedirection</code>; elementele <code>rules</code>, <code>rawRules</code> și <code>referralMarketing</code> sunt reunite, iar <a href=\"#same-text-twice\">Același text de două ori</a> decide care copie se execută. Remote Rules Health enumeră fiecare regulă înlocuită ca notificare."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Regulile personalizate se aplică ultimele. Un furnizor personalizat înlocuiește fiecare furnizor încărcat cu același model; regulile lor nu sunt combinate."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Corecții ale regulilor"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "O listă la distanță poate înlocui reguli individuale deja încărcate, fără să publice o copie completă, printr-o matrice <code>patches</code> de nivel superior:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obligatoriu. Regula care trebuie înlocuită, scrisă ca cheia sa de activare/dezactivare: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> sau <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obligatoriu. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> sau <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obligatoriu. Regula nouă, ca intrare simplă sau obiect regulă."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "O notă pentru cei care citesc fișierul."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Corecțiile se execută după îmbinarea listelor la distanță și înaintea regulilor personalizate. Un fișier care conține doar <code>patches</code> nu are nevoie de <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Îmbinarea poate redenumi furnizorii, deci forma <code>domainPattern:</code> sau <code>urlPattern:</code> îi găsește întotdeauna."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Înlocuirea păstrează ID-ul regulii vechi sau preia ID-ul vechi ca alias, astfel încât setările de activare/dezactivare rămân aplicabile."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "O corecție pentru o redirecționare așteaptă aprobarea <code>redirect</code> a listei. O corecție a cărei țintă nu corespunde cu nimic nu schimbă nimic."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health enumeră fiecare corecție ca aplicată, fără potrivire sau omisă."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Reguli și lista albă"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Lista albă este separată de <code>exceptions</code> ale unui furnizor: include site-urile pe care i-ai spus lui Linkumori să le lase neschimbate, fără să fie implicat vreun fișier de reguli. Intrările arată ca <code>example.com</code>, <code>*.example.com</code> (site-ul și subdomeniile sale) sau <code>example.*</code> (orice sufix). Adăugarea unei pagini în lista albă acoperă și tot ce încarcă aceasta."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Exemple complete"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Verificarea regulilor"
+  },
+  "guide_checking_p_1": {
+    "message": "Editorul de reguli personalizate verifică regulile când le salvezi sau le imporți, iar <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> execută aceleași verificări. Pe lângă JSON-ul defect și expresiile regulate nevalide, sunt respinse regulile care s-ar încărca, dar ar face în mod neobservat ceva greșit, precum:"
+  },
+  "guide_checking_item_1": {
+    "message": "câmpuri, chei și modificatori necunoscuți"
+  },
+  "guide_checking_item_2": {
+    "message": "două intrări diferite cu același text într-o listă"
+  },
+  "guide_checking_item_3": {
+    "message": "un <code>order</code> pe un filtru <code>$removeparam</code> sau pe o intrare <code>@@</code>, inclusiv <code>null</code>"
+  },
+  "guide_checking_p_2": {
+    "message": "Se emit și avertismente pentru copiile identice și pentru același text atât în <code>rules</code>, cât și în <code>referralMarketing</code>. Dacă salvarea eșuează, mesajul indică furnizorul, lista și intrarea."
+  },
+  "guide_toc_search": {
+    "message": "Filtrează secțiunile"
+  },
+  "guide_toc_no_results": {
+    "message": "Nicio secțiune potrivită."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: o redirecționare care începe cu \"|\" trebuie să arate astfel: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: ținta $redirect= trebuie să fie o adresă URL http sau https absolută",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ trebuie să fie un obiect",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type trebuie să fie un șir nevid",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type trebuie să fie una dintre valorile: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs trebuie să fie \"all\" sau o matrice de numere întregi pozitive",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ trebuie să fie un șir sau un obiect regulă",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern trebuie să fie un șir",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern trebuie să fie un șir",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId trebuie să fie un ID de regulă",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId se aplică doar excepțiilor \"@@…$rawrule=\" din rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags trebuie să fie un șir (flaguri regex precum \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing trebuie să fie true sau false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing nu are efect în $FIELD$; se aplică doar în $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order trebuie să fie un număr sau null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order nu are efect în $FIELD$; se aplică doar în $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order nu are efect asupra unui filtru $removeparam sau a unei intrări \"@@\"; acestea se execută întotdeauna după celelalte reguli",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active trebuie să fie o valoare booleană",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id trebuie să fie un șir",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id trebuie să corespundă cu $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases trebuie să fie o listă de ID-uri care corespund cu $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases nu trebuie să conțină propriul ID al regulii",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description trebuie să fie un șir",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection trebuie să fie o valoare booleană",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions trebuie să fie o matrice de șiruri",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes trebuie să fie o matrice de șiruri",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors trebuie să fie o matrice",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: câmp necunoscut \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ începe cu \"@@\", care se aplică doar filtrelor $removeparam din rules și referralMarketing; folosește în schimb \"exceptions\" dintr-un obiect regulă",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ are opțiunea $removeparam necunoscută \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" începe cu un singur \"|\", deci se potrivește doar cu URL-uri care încep literalmente cu \"$REST$\", iar acestea nu există (URL-urile încep cu \"https://\"). Folosește \"||$REST$\" pentru a potrivi domeniul.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ are \"targetId\", care funcționează doar într-o excepție; începe matchPattern cu \"@@\" (de ex. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ are atât \"targetId\", cât și un regex după \"rawrule=\"; folosește doar unul dintre ele",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ are targetId \"$ID$\", dar niciun raw rule din acest furnizor nu are acel ID sau alias",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ este o excepție \"@@\" pentru \"$REGEX$\", dar niciun raw rule din acest furnizor nu folosește acel regex. Atribuie regulii un ID și indică-l cu \"targetId\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ este o excepție \"@@\", deci \"$KEY$\" nu ar avea niciun efect",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ nu are nimic după \"rawrule=\"; este necesar regexul de șters",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ are un regex nevalid după \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ are $GROUPS$ grupuri de captură; este necesar exact unul \"( … )\" în jurul URL-ului destinație (scrie celelalte grupuri ca \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ reutilizează ID-ul regulii \"$ID$\" în $WHERE$; acesta a fost folosit prima dată în $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ trebuie să fie un obiect JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ trebuie să fie o matrice",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ are cheia necunoscută \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Eroare la procesarea URL-ului: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Eroare la inițializarea paginii: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Filă nevalidă"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Căutarea unei reguli este deja în curs pentru această filă"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Nu este în curs nicio verificare de pauză pentru această filă"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Regulile se încarcă încă. Încearcă din nou peste puțin timp."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Niciuna dintre regulile aplicate pe această pagină nu poate fi dezactivată."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Nu s-au putut dezactiva regulile"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Nu există nicio căutare de reguli în curs pentru această filă"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Nu există nicio regulă găsită pe care să o poți omite pentru această filă"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Descărcarea nu este disponibilă"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Înregistrarea nu a putut fi salvată în stocarea sesiunii"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Regulă necunoscută"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "Eroare necunoscută"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "Exportul a eșuat"
   }
 }

@@ -39,7 +39,7 @@
     "message": "Naudokite susietas Linkumori / ClearURL taisykles. Išjunkite tai, kad paleistumėte tik su nuotolinėmis taisyklėmis ir (arba) tinkintomis taisyklėmis."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori naudoja vieną vieningą ClearURLsData teikėjų taisyklių rinkinį. Gimtasis teikėjo JSON, kanoniniai taisyklių objektai ir teikėjo vietiniai $removeparam filtrai sujungiami prieš paleidžiant clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Taisyklės Informacija"
@@ -1137,25 +1137,25 @@
     "message": "Atidarykite Linkumori nustatymus"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Perkrovos režimo elgsena"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Tik pataisų režimas"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Taikyti nuotolines pataisas integruotoms taisyklėms. Nuotolinių teikėjų taisyklės neįtraukiamos."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Pataisų režimas + sujungimas"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Sujungti integruotas ir nuotolinių teikėjų taisykles, tada taikyti nuotolines pataisas."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Be pataisų režimo + sujungimas"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Sujungti integruotas ir nuotolinių teikėjų taisykles netaikant nuotolinių pataisų."
   },
   "overload_mode_enabled": {
     "message": "Įjungti perkrovos režimą"
@@ -1836,7 +1836,7 @@
     "message": "Pagrindinis maišos URL turi naudoti HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Pagrindinis taisyklių URL ir pagrindinis maišos URL turi būti sukonfigūruoti kartu."
   },
   "save_primary_rule_https_required": {
     "message": "Pirminės taisyklės URL turi naudoti HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Suprantu rizikas – tęskite"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Turėtumėte iš naujo apsvarstyti nuotolinių taisyklių naudojimą, jei visiškai nesuprantate ar nepasitikite Linkumori taisyklių rinkinio šaltiniu."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Ši nuotolinių taisyklių funkcija skirta pažengusiems naudotojams, kurie supranta įkeliamą Linkumori JSON. Nuotolinės taisyklės turėtų turėti atitinkamą maišos URL patikrinimui."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jei pridėsite nuotolinių taisyklių URL, plėtinys prisijungs prie jūsų nurodyto serverio, kad gautų Linkumori taisyklių rinkinį ir jo maišos failą, kai tai sukonfigūruota. Kiekvienas gavimas gali atskleisti jūsų IP adresą ir bendrą informaciją, pvz., plėtinio versiją, naršyklę ir naršyklės versiją, talpinančiam serveriui. Šiems duomenims taikoma to tinklalapio ar žiniatinklio serverio privatumo politika."
   },
   "security_modal_privacy_link_text": {
     "message": "Jei reikia, prieš tęsdami dar kartą perskaitykite %PRIVACY_POLICY_LINK%."
@@ -1887,7 +1887,7 @@
     "message": "įspėjimas:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Naudokite integruotas taisykles, nebent pasitikite nuotoliniu šaltiniu ir jį kontroliuojate. Nuotolinėms Linkumori JSON taisyklėms nurodykite atitinkamą maišos URL."
   },
   "security_modal_risk_1": {
     "message": "Jūsų IP adresas ir naršyklės informacija bus atskleista sukonfigūruotiems serveriams"
@@ -1899,7 +1899,7 @@
     "message": "Maišos tikrinimas taikomas tik Linkumori CLN Format 1.0 JSON taisyklėms; ji apsaugo nuo perdavimo klastojimo, o ne nuo kenkėjiškų taisyklių šaltinių."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Nuotolinės taisyklės be sėkmingo maišos patikrinimo visiškai remiasi pasitikėjimu šaltinio URL."
   },
   "security_modal_risks_title": {
     "message": "Saugumo pavojai:"
@@ -1914,7 +1914,7 @@
     "message": "Failo rules.hash URL (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Būtina nuotolinėms Linkumori JSON taisyklėms patikrinti."
   },
   "setting_html_export_button": {
     "message": "Eksportuoti"
@@ -1944,7 +1944,7 @@
     "message": "Žurnalo limitas (0–5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Papildomi nuotoliniai Linkumori JSON šaltiniai, sujungiami kartu. Įveskite po vieną porą eilutėje kaip <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Papildomi nuotolinių taisyklių rinkiniai"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Pasirinktinis nuotolinis Linkumori JSON taisyklių URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Nuotolinio taisyklių JSON failo URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Kiekvienam nuotoliniam taisyklių rinkiniui reikalingas maišos URL."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URL) nustatymai"
@@ -2421,19 +2421,19 @@
     "message": "ĮSPĖJIMAS: Išplėstinė funkcija, skirta tik savarankiškiems serveriams"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Išjungiate „Gatekeeper“ apsaugą nuotolinių taisyklių URL redagavimui. Ši funkcija gali įkelti nuotolines Linkumori JSON taisykles į vieningą teikėjų taisyklių rinkinį. Tęskite tik jei suprantate ir pasitikite konfigūruojamu šaltiniu."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "„Gatekeeper“ yra integruotas saugos srautas, kuris blokuoja tiesioginius nuotolinius URL redagavimus, kol patvirtinate saugos įspėjimą ir užpildysite įvestą patvirtinimą."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Palikite „Gatekeeper“ įjungtą, nebent pasitikite nuotoliniais šaltiniais ir juos kontroliuojate. Nuotolinės JSON taisyklės turėtų turėti atitinkamą maišos URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "įspėjimas:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jei pridėsite nuotolinių taisyklių URL, plėtinys prisijungs prie jūsų nurodyto serverio, kad gautų Linkumori taisyklių rinkinį ir jo maišos failą, kai tai sukonfigūruota. Kiekvienas gavimas gali atskleisti jūsų IP adresą ir bendrą informaciją, pvz., plėtinio versiją, naršyklę ir naršyklės versiją, talpinančiam serveriui. Šiems duomenims taikoma to tinklalapio ar žiniatinklio serverio privatumo politika."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Jei reikia, prieš tęsdami dar kartą perskaitykite %PRIVACY_POLICY_LINK%."
@@ -2448,7 +2448,7 @@
     "message": "Plėtinys prisijungs prie jūsų nurodyto URL kiekvieną kartą, kai plėtinys bus įgalintas ir įkeliamas į jūsų naršyklę."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Nuotolinį JSON ar maišos failus talpinantis serveris gaus jūsų IP adresą."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Serveris taip pat gali gauti jūsų plėtinio versiją, naršyklę ir naršyklės versiją."
@@ -2457,7 +2457,7 @@
     "message": "Šiems duomenims taikoma svetainės arba žiniatinklio serverio, kuriame saugomi tie failai, privatumo politika."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Išjungdami „Gatekeeper“ padidinate riziką dėl nesaugių ar pažeistų nuotolinių taisyklių šaltinių. Maišos patikrinimas apsaugo nuotolinių Linkumori JSON atsisiuntimus tik tada, kai sukonfigūruotas atitinkamas maišos URL."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Atšaukti"
@@ -2517,7 +2517,7 @@
     "message": "Įveskite tikslią patvirtinimo frazę"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Šis veiksmas sumažina nuotolinių taisyklių apsaugą. Tęskite tik jei pasitikite savo nuotoliniu JSON šaltiniu."
   },
   "remote_urls_template_note_1": {
     "message": "Pakeiskite rezervuotos vietos reikšmes tikrais HTTPS URL, tada importuokite šį failą."
@@ -2814,10 +2814,10 @@
     "message": "mažiau nei minutę"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "min."
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "val."
   },
   "settings_remote_health_title": {
     "message": "Nuotolinės taisyklės sveikata"
@@ -2841,16 +2841,16 @@
     "message": "Dabartinė maišos būsena:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "Nėra"
   },
   "settings_remote_health_none": {
     "message": "Nėra"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Taisyklių kolizijos:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ klaidos, $WARNINGS$ įspėjimai, $NOTICES$ pranešimai",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Nuotolinio failo galimybės:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "neaktyvu, kol nepriimta: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Priimti $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Taisyklių pataisos:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ pritaikyta, $NOT_APPLIED$ nepritaikyta",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Taisyklių numatytieji nustatymai"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Integruoti"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Pasirinktiniai"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Jokių — integruotas veikimas"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Perkrovos režimas sujungia integruotas ir nuotolines taisykles; kiekvieno šaltinio taisyklės išlaiko to šaltinio numatytuosius nustatymus."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Išsaugoti numatytuosius"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Numatytieji nustatymai išsaugoti"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Kai įjungta, kiekvienas taisyklių šaltinis išlaiko savo numatytuosius nustatymus (integruotoms taisyklėms taikomi integruoti numatytieji, o kiekvieno nuotolinio failo taisyklėms – to failo numatytieji), nebent pasirinktinių taisyklių rengyklėje pasirinksite savo numatytuosius."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Nuotolinis: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Kurie numatytieji taikomi"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Kiekvieno šaltinio savi"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Jūsų – integruotoms ir nuotolinėms taisyklėms"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Jūsų – visoms taisyklėms"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(pakeisti jūsų numatytaisiais)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Jūsų"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Užklausų tipų: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "URL išimčių: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL išimtis"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "Pirminio apdorojimo priemonių: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Kiekvieno šaltinio taisyklėms taikomi to šaltinio numatytieji nustatymai."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Integruotoms ir nuotolinėms taisyklėms taikomi jūsų numatytieji vietoj jų failų numatytųjų; pasirinktinės taisyklės išlaiko savo."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Integruotoms, nuotolinėms ir pasirinktinėms taisyklėms taikomi jūsų numatytieji vietoj jų pačių."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Tvarkyti taisyklių numatytuosius nustatymus"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Numatytieji nustatymai užpildo reikšmes, kurių taisyklė pati nenustato. Pačios taisyklės reikšmė visada turi pirmenybę, o teikėjo išimtys niekada nekeičiamos."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Redaguoti numatytuosius"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Jūsų numatytieji"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Pasirinktinių taisyklių numatytieji"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Redaguotini numatytieji"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Integruotos taisyklės"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(redaguota)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Atkurti failo numatytuosius"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Sujungti iš šaltinių…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Sujungti taisyklių numatytuosius"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Rezultatas sąraše rodomas kaip „Sujungti numatytieji“. Nukopijuokite jį į ten esantį rinkinį, tada paspauskite „Išsaugoti numatytuosius“, kad jį naudotumėte."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Jungtini šaltiniai"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konfliktai"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Sujungti numatytieji"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Naudoti sujungtus numatytuosius"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Sujungti numatytieji"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Nenaudojama, kol nenukopijuosite į vieną iš kitų rinkinių ir neišsaugosite."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopijuoti į"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopijuoti"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Pasirinkite bent du šaltinius."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Konfliktų nėra: pasirinkti šaltiniai sutaria dėl visų reikšmių."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Išimtys sudedamos iš visų šaltinių: iš viso $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Sujungta iš visų šaltinių"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Iš: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nenustatyta (integruotas veikimas)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nenustatyta: visi užklausų tipai"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Dabar nenaudojama: jūsų numatytieji pakeičia integruotų ir nuotolinių taisyklių savus."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Jūsų redaguota: tai pakeičia paties failo numatytuosius. Pats failas nekeičiamas."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(jūsų redaguota)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Dabar nenaudojama: aukščiau pasirinkta „Kiekvieno šaltinio savi“."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Dabar nenaudojama: jūsų numatytieji pakeičia šiuos ir pasirinktinėms taisyklėms."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Taisyklės pradeda išjungtos (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Aprašas"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Užklausų tipai"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Visi tipai"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Tik šie"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Pasirinkite bent vieną užklausos tipą arba pasirinkite „Visi tipai“."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Taisyklės valo visų tipų užklausas, nebent jos ar numatytieji nurodo kai kuriuos. Teikėjai taip pat gali riboti tipus naudodami resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Išimtys"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Po vieną URL regex eilutėje. Taisyklės praleidžiamos atitinkamuose URL."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Pirminio apdorojimo priemonės"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Įvestys: „all“ arba fiksavimo grupių numeriai, pvz., 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Pridėti pirminio apdorojimo priemonę"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Pirminio apdorojimo priemonės tipas"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Pirminio apdorojimo priemonės įvestys"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Pašalinti"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Pirminio apdorojimo priemonės įvestys „$INPUTS$“ turi būti „all“ arba skaičiai, pvz., 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Išjungti apsaugą nuo istorijos apėjimo (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Rodyti kaip JSON"
   },
   "settings_remote_health_unknown": {
     "message": "nežinomas"
@@ -4005,10 +4005,10 @@
     "message": "Teikėjo JSON vadovas"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Atidaryti Linkumori taisyklių vadovą"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Kokią taisyklių sintaksę turėčiau naudoti?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Atidaryti taisyklių vadovą"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Nepavyko įkelti teikėjų šaltinių: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Integruotų taisyklių nėra."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Nepavyko įkelti integruotų taisyklių: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Nepavyko perjungti kalbos į $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Šviesi tema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tamsi tema"
   },
   "posarCopied": {
     "message": "POSAR nukopijuotas!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR priimtas."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Atkurti"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Pritaikymo neįgaliesiems įrankiai"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Atidaryti pritaikymo neįgaliesiems įrankius"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Uždaryti pritaikymo neįgaliesiems įrankius"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Atkurti visus pritaikymo neįgaliesiems nustatymus"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Regėjimas"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Skaitymas"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Sąveika"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Didelis kontrastas"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Spalvų filtras"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Sodrumas"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertuoti"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Paryškinti nuorodas"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Slėpti paveikslėlius"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Padidinti teksto dydį"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Sumažinti teksto dydį"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Numatytasis teksto dydis"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Šrifto pasirinkimas"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Pritaikyta disleksijai"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Teksto tarpai"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Eilučių aukštis"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Teksto lygiavimas"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Pristabdyti animacijas"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Didesnis žymeklis"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Numatytasis"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Vidutinis"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Aukštas"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Itin aukštas"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Žemas"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Joks"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Lengvas"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Stiprus"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Be filtro"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopija"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopija"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopija"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Pilkų atspalvių"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Kairėje"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centre"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Dešinėje"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Labai mažas"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Mažas"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Didelis"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Labai didelis"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Didžiausias"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Įjungta"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Išjungta"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "įjungta"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "išjungta"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Pasirinktas numatytasis teksto dydis"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Visi pritaikymo neįgaliesiems nustatymai atkurti"
+  },
+  "skip_to_main_content": {
+    "message": "Pereiti prie pagrindinio turinio"
+  },
+  "popupNavAriaLabel": {
+    "message": "Iškylančiojo lango naršymas"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Pasirinktinių taisyklių rodiniai"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Žurnalo rodiniai"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Apsauga nuo istorijos apėjimo (praleisti naršant puslapio viduje)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Laukų peradresavimai"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopijuoti taisyklę"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Taisyklė nukopijuota"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Nepavyko nukopijuoti taisyklės"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Ką daro historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Vieno puslapio svetainės dažnai keičia adresą naudodamos history.pushState/replaceState, užuot įkėlusios naują puslapį. Linkumori išvalo ir tokius adresus. Pridėkite history-bypass-protection=false prie $removeparam filtro, kad šie puslapio vidiniai pakeitimai būtų praleisti tik tam filtrui; įprastoms užklausoms jis vis tiek veiks."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Norėdami praleisti visą teikėją puslapio vidiniams pakeitimams, nustatykite tai teikėjo lygiu:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Jei nenurodyta, reikšmė yra true ir puslapio vidiniai pakeitimai išvalomi. Paties taisyklės nustatymas viršija teikėjo nustatymą, todėl taisyklė gali vėl įjungti valymą naudodama history-bypass-protection=true arba \"historyBypassProtection\": true taisyklės objekte."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Praleidžia vidinę nar."
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Pervadinti ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Naujas $OLD$ ID (a-z, 0-9, - ir _). Senasis ID išsaugomas kaip pseudonimas, todėl pagal jį išjungtos taisyklės lieka išjungtos.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "„$ID$“ nėra tinkamas ID. Naudokite mažąsias raides, skaitmenis, - ir _, pradedant raide arba skaitmeniu.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Kita šio teikėjo taisyklė jau naudoja „$ID$“.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Išjungti taisyklę"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Išjungti $ID$ visam teikėjui ar tik šiam URL / domeno šablonui?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Mano teikėjas"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL / domeno šablonas"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Taisyklės ID pervadintas į $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Našlaitės jungiklių nuostatos"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Šaltinyje atitinkamos taisyklės nerasta"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Pašalinti"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Praleidžia puslapio vidinės navigacijos valymą"
+  },
+  "whitelist_added_general": {
+    "message": "Pridėta %s į bendrąjį baltąjį sąrašą"
+  },
+  "whitelist_added_history_api": {
+    "message": "Pridėta %s kaip History API išimtis"
+  },
+  "whitelist_exception_count": {
+    "message": "%d išimtis (-ys)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Baltojo sąrašo išimčių nėra"
+  },
+  "whitelist_mode_general": {
+    "message": "Bendrasis baltasis sąrašas"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Tik History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Baltojo sąrašo aprėptis"
+  },
+  "whitelist_removed_general": {
+    "message": "Pašalinta %s iš bendrojo baltojo sąrašo"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Pašalinta %s History API išimtis"
+  },
+  "whitelist_type_general": {
+    "message": "Bendrasis"
+  },
+  "whitelist_type_history_api": {
+    "message": "Tik History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Pridėti $1 į bendrąjį baltąjį sąrašą"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Bendrasis baltasis sąrašas: $1 – spustelėkite, kad būtų tik History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API išimtis: $1 – spustelėkite, kad būtų tik šiam skirtukui"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Tik skirtukui: $1 – spustelėkite, kad pašalintumėte"
+  },
+  "logger_action_allowed": {
+    "message": "Leista"
+  },
+  "logger_action_blocked": {
+    "message": "Užblokuota"
+  },
+  "logger_action_filter_label": {
+    "message": "Veiksmas"
+  },
+  "logger_action_info": {
+    "message": "Informacija"
+  },
+  "logger_action_modified": {
+    "message": "Pakeista"
+  },
+  "logger_action_redirected": {
+    "message": "Peradresuota"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopijuoti santrauką"
+  },
+  "logger_btn_export": {
+    "message": "Eksportuoti"
+  },
+  "logger_btn_group": {
+    "message": "Grupuoti pagal taisyklę"
+  },
+  "logger_col_hits": {
+    "message": "Atitikimai"
+  },
+  "logger_col_last_seen": {
+    "message": "Paskutinį kartą matyta"
+  },
+  "logger_detail_group_title": {
+    "message": "Taisyklės išsami informacija"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Skirtukai"
+  },
+  "logger_exported": {
+    "message": "Eksportuota įrašų: $1."
+  },
+  "logger_filter_all": {
+    "message": "Visi"
+  },
+  "logger_report_rule": {
+    "message": "Pranešti"
+  },
+  "logger_rule_disable": {
+    "message": "Išjungti taisyklę"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Taisyklė $1 išjungta. Perkraukite puslapį, kad patikrintumėte."
+  },
+  "logger_rule_enable": {
+    "message": "Įjungti taisyklę"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Taisyklė $1 vėl įjungta."
+  },
+  "logger_rule_failed": {
+    "message": "Nepavyko pakeisti taisyklės."
+  },
+  "logger_rule_off": {
+    "message": "Taisyklė išjungta"
+  },
+  "logger_rule_on": {
+    "message": "Taisyklė įjungta"
+  },
+  "logger_rule_unavailable": {
+    "message": "Šios taisyklės čia perjungti negalima."
+  },
+  "logger_status_rules": {
+    "message": "Taisyklių: $1"
+  },
+  "logger_summary_copied": {
+    "message": "Santrauka nukopijuota."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Nepavyko nukopijuoti santraukos."
+  },
+  "logger_type_filter_label": {
+    "message": "Tipas"
+  },
+  "logger_btn_logging_off": {
+    "message": "Žurnalas išjungtas"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Žurnalo vedimas išjungtas. Spustelėkite, kad įjungtumėte."
+  },
+  "logger_btn_logging_on": {
+    "message": "Žurnalas įjungtas"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Žurnalo vedimas įjungtas. Spustelėkite, kad išjungtumėte."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Nepavyko pakeisti žurnalo vedimo nustatymo."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Pridėti persiuntimo taisyklę"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Pridėti neapdorotos taisyklės išimtį"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Pridėti lauko peradresavimą"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Pridėti išimtį"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Kiekvienas šablonas prideda taisyklės objektą su id ir pakaitiniu matchPattern, skirtu example.com. Įrašas taip pat gali būti paprasta eilutė: parametro pavadinimas, pavadinimo regex, $removeparam filtras arba, rawRules atveju, regex. Taisyklių objektai priima id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description ir targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Tikrintuvas"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Problemų nerasta."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Klaida"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Įspėjimas"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "Klaidų: $ERRORS$, įspėjimų: $WARNINGS$",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Vykdymo tvarka"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "Žingsnių: $COUNT$, vykdymo tvarka",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Nėra rawRules, rules ar referralMarketing įrašų"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Variklis apskaičiuoja iš aukščiau esančio teksto, nesvarbu, ar išsaugota, ar ne. Žingsniai rūšiuojami pagal (stage, orderGroup, order, rank, arrayIndex): neapdorotos taisyklės vykdomos prieš lauko taisykles; etapo viduje pirmiausia vykdomi įrašai su order, pradedant mažiausiu, tada likusieji pagal sąrašą ir poziciją."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Persiuntimo žymėjimas"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Persiuntimas pašalintas"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Persiuntimas leidžiamas"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Neapdorota"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Laukas"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Persiuntimas"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(sugeneruotas)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "tvarka $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "perrašo"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "pakeičia ankstesnių apibrėžimų: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "pridėjo completeProvider: pašalina visus parametrus"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Išjungta"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Išjungta kai kuriems šablonams"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Rūšiavimo raktas: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Tada $removeparam filtrų: $FILTERS$ ir @@ išimčių: $EXCEPTIONS$ – po visų aukščiau nurodytų žingsnių",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "@@…$rawrule= išimčių: $COUNT$ gali sustabdyti aukščiau esančias neapdorotas taisykles ten, kur jos atitinka",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Vilkite žingsnį arba naudokite jo rodykles, kad perkeltumėte jį etapo viduje. Perkėlus kiekvieno to etapo įrašo order tampa 10, 20, 30, … nauja seka."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Norėdami pertvarkyti, perjunkite į „Persiuntimas pašalintas“: tame rodinyje rodomi visi įrašai."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Vilkite, kad perkeltumėte"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Perkelti $ENTRY$ anksčiau",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Perkelti $ENTRY$ vėliau",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ perkelta į poziciją $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Atšaukti perkėlimą"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Perkėlimas atšauktas"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simuliuoti"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Paleidžia šį teikėją pagal URL taip, kaip valant nukopijuotą nuorodą, su jūsų išjungtomis taisyklėmis ir aukščiau pasirinktu persiuntimo nustatymu, ir parodo URL po kiekvieno žingsnio. Kiti teikėjai nevykdomi. „Generuoti bandomąjį URL“ sukuria jį pagal šio teikėjo taisykles."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Bandomasis URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Vykdyti"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Simuliacijos žingsniai"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Pradžia"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Ankstesnis"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Kitas"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Pabaiga"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Leisti"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pristabdyti"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL prieš bet kokį žingsnį"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Ciklas $PASS$ · žingsnis $STEP$ iš $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "nepakito"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam filtrai"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Ciklas $PASS$ nieko nekeičia, todėl valymas sustoja",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Šis teikėjas čia sustoja: pasiektas ciklų limitas, URL grįžo į ankstesnį arba nebeatitinka teikėjo"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Ciklas $PASS$ peradresuoja; valymas tęsiamas naujame adrese su visais teikėjais",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Teikėjas blokuoja šią užklausą (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Rezultatas"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Šio teikėjo šablonai neatitinka šio URL, todėl nė viena jo taisyklė nevykdoma."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Šis URL atitinka vieną iš teikėjo išimčių, todėl nė viena jo taisyklė nevykdoma."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Įveskite pilną http:// arba https:// URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simuliacijos nepavyko paleisti. Patikrinkite aukščiau esantį JSON."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generuoti bandomąjį URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Sukurta pagal šio teikėjo taisykles: tekstas neapdorotoms taisyklėms ($RAW$) ir parametrams ($PARAMS$), kiekvienas patikrintas pagal savo taisyklę. keep=1 neatitinka jokios taisyklės ir turėtų išlikti. Peradresavimai ir blokavimai neįtraukiami, nes jie nutrauktų vykdymą prieš kitas taisykles.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nepavyko sukurti serverio, kurį atitiktų šio teikėjo šablonai, todėl URL naudoja kitą serverį ir teikėjas jam nebus vykdomas."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Kiekvieną URL, kurį atitinka šio teikėjo šablonai, apima viena iš jo paties išimčių, todėl jo taisyklės niekada nevykdomos."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "Taisyklių, praleistų bandomajame URL: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nepavyko sukurti jį atitinkančio teksto"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "jo tekstas sukeltų vienos iš teikėjo išimčių atitiktį"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "ji pašalina visus parametrus, todėl jai nereikia savo parametro"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Šis teikėjas turi $removeparam filtrą be pavadinimo, kuris pašalina visus parametrus, įskaitant keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "be order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "tvarka $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Atkurti order numerius"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Grąžinti kiekvieną order į būseną, kokia buvo atidarius šį teikėją"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Order numeriai atkurti"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Slėpti"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Rodyti"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Išvalyti įspėjimus"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Atkurti įspėjimus"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Išvalyta įspėjimų: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern be indexPattern tikrinamas pagal kiekvieną URL; pridėkite indexPattern užuominų, pvz., „||example.com^“",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ kartoja „$ENTRY$“; kopija nieko neveikia ir abi turi tą patį id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ vis dar turi šablono vietos žymą „$PATTERN$“; pakeiskite ją tikru šablonu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ turi matchPattern „(?!)“, kuris niekada nieko neatitinka",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Trikčių diagnostika"
+  },
+  "troubleshooter_launch": {
+    "message": "Diagnozuoti šį skirtuką (eksperimentinė)"
+  },
+  "troubleshooter_title": {
+    "message": "Skirtuko trikčių diagnostika"
+  },
+  "troubleshooter_page": {
+    "message": "Puslapis"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Kaip veikia įrašymas"
+  },
+  "troubleshooter_about_note": {
+    "message": "Atidarius šį rodinį gali būti patikrintas puslapio URL, bet nieko neįrašoma. Įrašymas lieka išjungtas, kol pasirinksite „Pradėti įrašymą“. Pradėjus šis skirtukas perkraunamas, kad būtų užfiksuotos išteklių užklausos. Užfiksuoti URL lieka sesijos saugykloje šios naršyklės sesijos metu ir išvalomi uždarius šį skirtuką arba pasibaigus naršyklės sesijai. Įrašymas sustoja po 15 minučių, nebent sustabdysite anksčiau. Išteklių URL gali turėti privačių užklausos duomenų."
+  },
+  "troubleshooter_start": {
+    "message": "Pradėti įrašymą"
+  },
+  "troubleshooter_starting": {
+    "message": "Paleidžiama…"
+  },
+  "troubleshooter_recording": {
+    "message": "Įrašoma…"
+  },
+  "troubleshooter_stop": {
+    "message": "Stabdyti įrašymą"
+  },
+  "troubleshooter_refresh": {
+    "message": "Atnaujinti"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopijuoti santrauką"
+  },
+  "troubleshooter_export": {
+    "message": "Eksportuoti"
+  },
+  "troubleshooter_export_title": {
+    "message": "Išsaugoti įrašą kaip JSON failą. Išteklių URL gali turėti privačių užklausos duomenų."
+  },
+  "troubleshooter_category": {
+    "message": "Kategorija"
+  },
+  "troubleshooter_category_all": {
+    "message": "Visos kategorijos"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL taisyklės"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Peradresavimai"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Apsauga ir apėjimai"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Išteklių tipas"
+  },
+  "troubleshooter_type_all": {
+    "message": "Visi išteklių tipai"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Ieškoti taisyklių, teikėjų ir URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Įrašoma $1 · liko $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Tikrinamas šis skirtukas…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Aktyvaus skirtuko nėra."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Šis puslapis neleidžia nuskaityti URL taisyklių. Atidarykite įprastą http arba https tinklalapį."
+  },
+  "troubleshooter_status_off": {
+    "message": "Įrašymas išjungtas. Pradėkite įrašymą, kad apžiūrėtumėte šio puslapio įkeliamų išteklių URL."
+  },
+  "troubleshooter_status_active": {
+    "message": "Iki šiol užfiksuota URL pakeitimų: $1. Nauji čia rodomi automatiškai."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Įrašymas sustabdytas. Užfiksuota URL pakeitimų: $1."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Įrašo duomenų nepavyko išsaugoti sesijos saugykloje. URL pakeitimai ($1) gali būti prarasti, jei plėtinys bus paleistas iš naujo."
+  },
+  "troubleshooter_status_started": {
+    "message": "Įrašymas pradėtas ir skirtukas perkraunamas. Užfiksuoti URL čia rodomi puslapiui kraunantis."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Įrašymas sustabdytas. Užfiksuota URL pakeitimų: $1, jie išsaugoti šiai naršyklės sesijai."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Įrašymas sustabdytas. Užfiksuota URL pakeitimų: $1, bet sesijos saugykloje jų išsaugoti nepavyko."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Pirmiausia atidarykite įprastą http arba https tinklalapį."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Nepavyko pradėti įrašymo šiam skirtukui."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Nepavyko sustabdyti įrašymo šiam skirtukui."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Nepavyko nuskaityti šio skirtuko. Pabandykite uždaryti ir iš naujo atidaryti iškylantįjį langą."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Santrauka nukopijuota."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Nepavyko nukopijuoti santraukos."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Įrašas eksportuotas."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Nepavyko eksportuoti įrašo."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Nepavyko atidaryti pranešimo formos."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Taisyklė įjungta; perkraukite skirtuką, kad palygintumėte."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Taisyklė išjungta; perkraukite skirtuką, kad palygintumėte."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Nepavyko atnaujinti šios taisyklės."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Taisyklių pakeitimų dar nerasta. Pradėkite įrašymą, kad apžiūrėtumėte šio puslapio išteklių URL."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Šio naršyklės puslapio nuskaityti negalima."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Pagal šiuos filtrus radinių nėra."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Rodomos pirmosios taisyklės: $1."
+  },
+  "troubleshooter_hits": {
+    "message": "Atitikimų: $1"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "Nepavyko: $1"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Taisyklės ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Integruotas apsaugos veiksmas (be taisyklės ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Taisyklės ID: šiam radiniui nepasiekiamas"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Šio taisyklės ID dabartiniame taisyklių rinkinyje nepavyko rasti."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Pastebėta užklausa"
+  },
+  "troubleshooter_source_page": {
+    "message": "Puslapio URL patikra"
+  },
+  "troubleshooter_changes": {
+    "message": "Kas pasikeitė: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Paveikti URL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…ir dar $1"
+  },
+  "troubleshooter_after": {
+    "message": "Po Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Nepavyko po to, kai Linkumori pakeitė: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Ši taisyklė įjungta. Išjunkite ją ir perkraukite, kad palygintumėte puslapį."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Ši taisyklė išjungta. Įjunkite ją ir perkraukite, kad atkurtumėte jos veikimą."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Tai integruotas apsaugos veiksmas, o ne atskira taisyklė."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Prieš keisdami taisykles peržiūrėkite paveiktą URL."
+  },
+  "troubleshooter_report": {
+    "message": "Pranešti apie šią taisyklę"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Išjungti taisyklę"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Įjungti taisyklę"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Išjungti taisyklę $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Įjungti taisyklę $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Saugoma…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "pašalinta $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "pridėta $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "pakeista $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "peradresuota į $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "pakeistas kelias"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "pakeistas fragmentas"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL pakeistas"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "tyčia užblokuota"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Šiame puslapyje nepavyko užklausų: $1; iškart po to, kai Linkumori pakeitė URL: $2"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Ar šis puslapis sugedęs?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Raskite jį gadinančią taisyklę: šiame puslapyje veikusios taisyklės išjungiamos po vieną, o po kiekvienos jūs pasakote, ar puslapis pataisytas. Nesate tikri, kad kaltas Linkumori? Pirmiausia patikrinkite pristabdę valymą."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Pirmiausia patikrinti pristabdžius valymą"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Valymas šiame skirtuke pristabdytas: $1"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Skirtukas perkrautas be valymo. Ar puslapis dabar veikia?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Taip, veikia"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ne, vis dar sugedęs"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Atšaukti"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Atlikta"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Greičiausiai ne Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Puslapis liko sugedęs ir pristabdžius valymą, todėl problema tikriausiai kitur: pačioje svetainėje, kitame plėtinyje ar tinkle. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Greičiausiai kaltas Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Pristabdžius valymą puslapis veikia. Raskite taisyklę: taisyklės išjungiamos po vieną, skirtukas perkraunamas, o jūs pasakote, ar puslapis pataisytas. Pabaigoje visos kitos taisyklės įjungiamos iš naujo."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Skirtukas perkraunamas su vėl įjungtu valymu, kad būtų įrašyta, kurios taisyklės veikia šiame puslapyje. Netrukus jos čia pasirodys. Jei nepasirodys, naudokitės puslapiu, kol jis sugus."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Rasti taisyklę (taisyklių: $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Taip, pataisyta"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ne, vis dar sugedęs"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Rasta"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Puslapis genda dėl taisyklės $1$2. Ji vėl įjungta. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Išjungti šią taisyklę"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Pranešti"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Taisyklė išjungta. Perkraukite skirtuką, kad patikrintumėte. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Atskira taisyklė nerasta"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Išjungus taisykles po vieną puslapio pataisyti nepavyko, todėl jį tikriausiai gadina kelios taisyklės kartu arba apsaugos nustatymas. Visos taisyklės vėl įjungtos. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Nepavyko atlikti patikros: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Perkraukite Linkumori, kad galėtumėte naudoti šią patikrą"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori buvo atnaujintas, bet jo foninė dalis vis dar veikia sena versija. Perkraukite plėtinį (laikinam priedui: about:debugging → This Firefox → Reload) arba paleiskite Firefox iš naujo."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Rasta"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Puslapis genda dėl taisyklės $1$2. Ji lieka išjungta, kad puslapis veiktų; visos kitos taisyklės vėl įjungtos. Perkraukite skirtuką, kad patikrintumėte. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Perkrauti skirtuką"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Įjungti vėl"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Taisyklė vėl įjungta. Perkraukite skirtuką, kad patikrintumėte. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Įrašyti ir rasti taisyklę"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Įrašoma, kurios taisyklės veikia šiame puslapyje. Naudokitės puslapiu, kol jis sugus; taisyklės pasirodys čia."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Kol kas išjungta taisyklių paieškos. Paieškai pasibaigus ji vėl įjungiama."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Vykdoma taisyklių paieška. Taisykles keiskite jai pasibaigus."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Praleisti – įjungti vėl"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Palikti išjungtą"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Taisyklių paieška praleista; visos taisyklės vėl įjungtos. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Taisyklė $1 lieka išjungta. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Išjungta šiam bandymui:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…ir dar $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Stabdyti paiešką"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Praleista: ta taisyklė vėl įjungta ir neįtraukta. Bandoma kita."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Tarp išbandytų taisyklių nieko nerasta. Praleistų taisyklių ($1) neišbandyta. Visos taisyklės vėl įjungtos. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_experimental": {
+    "message": "Eksperimentinė"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Eksperimentinė: ši trikčių diagnostika nėra visiškai stabili. Jos rezultatai gali būti klaidingi, o bandymo metu ji išjungia taisykles. Jei vėliau kas nors atrodo negerai, patikrinkite savo taisykles pasirinktinių taisyklių rengyklėje arba naudokite „Stabdyti paiešką“, kad jas vėl įjungtumėte."
+  },
+  "troubleshooter_working": {
+    "message": "Dirbama…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Įrašyti iš naujo"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Senas įrašas išvalytas. Šis skirtukas įrašomas iš naujo nuo švaraus įkėlimo."
+  },
+  "troubleshooter_clear": {
+    "message": "Išvalyti"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Išvalyti šio skirtuko įrašą, radinius ir baigtą taisyklių paiešką. Taisyklės lieka tokios, kokios yra."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Išvalyta. Taisyklės lieka tokios, kokios yra."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Išvalyta. Taisyklė $1 lieka išjungta."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Bandoma po vieną taisyklę – taisyklė $1 iš $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Išjungta tik ši taisyklė, o skirtukas perkrautas. Ar puslapis dabar pataisytas?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Praleisti šią taisyklę"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Praleisti – įjungti vėl, bandyti kitą (liko: $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "Kitų šiame puslapyje veikusių taisyklių ($1) neišbandyta. Ar norite jas toliau bandyti?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Palikti išjungtą, bandyti kitą (liko: $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Taisyklė $1 lieka išjungta. Bandoma kita taisyklė."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Jokia kita taisyklė pati puslapio nepataiso. Paliktos išjungtos taisyklės ($1) lieka išjungtos; visos kitos taisyklės vėl įjungtos. Norėdami pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Bandyti kitą taisyklę (liko: $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Taisyklė $1 vėl įjungta ir praleista. Bandoma kita taisyklė."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Nė viena kita taisyklė pati savaime nepataiso puslapio. Jūsų praleista (-os) $1 taisyklė (-ės) taip pat vėl įjungta (-os), todėl dabar įjungtos visos taisyklės. Jei norite pradėti iš naujo, spustelėkite „Išvalyti“."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori valo URL pagal taisykles, parašytas <strong>CLN 1.0 formatu</strong> („Clean Link Notation“), kuris yra JSON formatas. Šiame vadove nuo pirmosios taisyklės pereinama prie visų parinkčių ir pateikiami pavyzdžiai, kuriuos galite nukopijuoti."
+  },
+  "guide_intro_p_2": {
+    "message": "Integruotos taisyklės, nuotoliniai taisyklių sąrašai ir jūsų tinkintos taisyklės naudoja tą patį formatą. Tinkintas taisykles rašote tinkintų taisyklių rengyklėje, kuri jas patikrina išsaugant arba importuojant. Oficialus „ClearURLs“ taisyklių katalogas (<code>data.min.json</code>) jau yra galiojantis CLN failas, todėl jį galima naudoti tokį, koks yra."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Teikėjo pavadinimas yra tik žyma. Kurie URL adresai tvarkomi, nustatoma pagal <code>domainPatterns</code> arba <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Aukščiausio lygio raktas"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Privaloma. Teikėjai pagal pavadinimą."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Pasirenkama formato versija. Vienintelė galiojanti reikšmė yra <code>\"1.0\"</code>. Jei failas jos neturi, jis taip pat laikomas 1.0 versijos; bet kuri kita reikšmė atmeta failą. Ji nevadinama <code>version</code>, nes „ClearURLs“ naujame taisyklių formate šis raktas jau naudojamas."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Pasirenkama informacija apie failą."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Reikšmės kiekvienai failo taisyklei, kuri nenustato savos reikšmės (12 skyrius)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Tik nuotoliniams taisyklių sąrašams: jau įkeltų taisyklių pakeitimai (15 skyrius)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Kuriuos URL adresus teikėjas tvarko: vienas domeno šablonas arba jų sąrašas (3 skyrius). Naudokite tai arba <code>urlPattern</code>, bet niekada nenaudokite abiejų."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Kuriuos URL adresus teikėjas tvarko: viena reguliarioji išraiška, tikrinama pagal visą URL. Didžiosios ir mažosios raidės neskiriamos."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Tik kartu su <code>urlPattern</code>: prieglobos užuominos, pvz., <code>||example.com^</code>, kad teikėjas būtų tikrinamas tik šioms priegloboms, o ne kiekvienam URL. Tai paieškos užuomina, o ne atitikties sąlyga."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Pašalinami rekomendavimo ir partnerių parametrai. Praleidžiami, kai įjungta <em>Leisti rekomendavimo rinkodarą</em> (10 skyrius)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL adresai, kurių teikėjas visiškai neliečia (7 skyrius)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Siųsti užklausą kitu adresu, o ne ją redaguoti (8 skyrius)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Siųsti užklausą į parametro reikšmę (8 skyrius)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: kai peradresuojamas puslapio įkėlimas (<code>main_frame</code>), visas skirtukas pereina į naują adresą, o ne peradresuojama tik tinklo užklausa."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Tvarkyti tik šiuos HTTP metodus, pvz., <code>[\"GET\"]</code>. Jei nenurodyta, tvarkomi visi metodai."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Tvarkyti tik šiuos užklausų tipus, pvz., <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Jei nenurodyta, tvarkomi visi užklausų tipai."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Numatytoji reikšmė – <code>true</code>. <code>false</code> praleidžia visą teikėją, kai puslapis pakeičia savo adresą naudodamas History API (<code>pushState</code>/<code>replaceState</code>). Įprastos tinklo užklausos vis tiek išvalomos."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> išjungia teikėją jo nepašalinant."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> yra domenų šablonų sąrašas. URL atitinka, jei atitinka bet kurį iš jų. Tie patys šablonai naudojami prieš <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> filtrus ir neapdorotas taisykles."
+  },
+  "guide_matching_cell_1": {
+    "message": "visas URL kaip reguliarioji išraiška"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL adresai, kuriuose šis tekstas yra bet kurioje vietoje (be pradinio <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> žymi pagrindinio kompiuterio pavadinimo pabaigą arba skirtuką, pvz., <code>/</code>, <code>?</code>, <code>:</code>, ar URL pabaigą. <code>*</code> yra pakaitos simbolis."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> reiškia domeną: pagrindinį kompiuterį ir visus jo padomenius. Vienas <code>|</code> reiškia pačią URL pradžią ir po jo turi būti schema, pvz., <code>https://</code>. Domenui visada naudokite <code>||</code>; <code>|example.com^</code> niekada neatitiks, todėl rengyklė jį atmeta."
+  },
+  "guide_matching_p_4": {
+    "message": "Pavyzdžiui, <code>||smile.amazon.*^</code> reiškia: <code>||</code> pagrindinis kompiuteris ir jo padomeniai, <code>smile.amazon</code> būtinos žymos, <code>.*</code> bet kuris viešasis galūnės domenas (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), o <code>^</code> – pagrindinio kompiuterio pabaiga."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "tiksliai tas parametras"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "kiekvienas parametras, kurio visas pavadinimas atitinka; raidžių dydis nesvarbus"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> ir <code>\"$removeparam=fbclid\"</code> pašalina tą patį parametrą. Naudokite paprastą pavadinimą, nebent reikia 5 skyriuje aprašyto funkcionalumo. Bet kurį įrašą taip pat galima užrašyti kaip taisyklės objektą (9 skyrius)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Čia <code>qid</code> pašalinamas visose „Amazon“ svetainėse, <code>tag</code> – tik iš <code>amazon.de</code>, <code>sr</code> – tik iš <code>smile.amazon</code>, o <code>ref_</code> – tik po <code>/gp/</code>. Šablonas susiaurina paties teikėjo šablonus, bet niekada jų neišplečia."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> paverčia filtrą išimtimi, kuri išsaugo parametrą (žr. toliau)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> apriboja filtrą dalimi teikėjo URL adresų (3 skyrius). Jei nenurodyta, jis taikomas kiekvienam teikėjo atitinkamam URL."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> parenka parametrus. Jei nenurodyta, pašalinami visi parametrai."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikatoriai nurodo, kada filtras suveikia. Turi būti tenkinamas kiekvienas nurodytas modifikatorius; tarp jų nėra loginio „arba“."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "kiekvienas parametras, išskyrus <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametrai, kurių pavadinimas arba visa pora <code>name=value</code> atitinka reguliariąją išraišką; pridėkite <code>i</code>, kad raidžių dydis nebūtų svarbus"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametrai, kurių pavadinimas prasideda <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Parametro pavadinimo ekranavimas"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Atgalinis pasvirasis brūkšnys paverčia kitą simbolį paprastu tekstu, todėl galima pasirinkti bet kurį parametro pavadinimą:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Reikšmė"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Pašalinamas parametro pavadinimas"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (kablelis nepradeda modifikatorių)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Tai penki vieninteliai pabėgimo variantai pavadinimo reikšmėje; atgalinis pasvirasis brūkšnys prieš bet kurį kitą simbolį yra klaida. Reikšmėje <code>/regex/</code> atgalinis pasvirasis brūkšnys išlaiko reguliariosios išraiškos reikšmę. Šie pabėgimo variantai veikia įrašuose <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> ir <code>@@</code>. JSON formate kiekvieną atgalinį pasvirąjį brūkšnį rašykite du kartus: <code>\"$removeparam=\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikatoriai"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikatoriai pateikiami po reikšmės, atskirti kableliais. Vieno modifikatoriaus kelias reikšmes atskirkite <code>|</code>, o prieš reikšmę pridėkite <code>~</code>, kad ją atmestumėte:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikatorius"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "tik tada, kai puslapis, išsiuntęs užklausą, yra (arba, naudojant <code>~</code>, nėra) vienas iš šių; leidžiamos reguliariosios išraiškos"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "tik tada, kai pati užklausa siunčiama vienam iš šių adresų, nesvarbu, kuris puslapis ją išsiuntė"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "tik šiems HTTP metodams: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "tik tada, kai užklausa siunčiama į tą patį registruojamą domeną kaip ir puslapis (<code>a.example.com</code> ir <code>b.example.com</code> laikomi tuo pačiu), arba į kitą domeną"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "tas pats, bet lyginami tikslūs pagrindinių kompiuterių pavadinimai, todėl padomenis laikomas trečiosios šalies domenu"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parametrų pavadinimai lyginami skiriant didžiąsias ir mažąsias raides"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "praleisti šį filtrą, kai puslapis pakeičia savo adresą naudodamas History API. Taip pat priimamos reikšmės <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Keturių <code>*-party</code> modifikatorių negalima naudoti kartu; <code>first-party,third-party</code> atmetama."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Pavyzdžiui, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> pašalina <code>sid</code> iš <code>example.com</code> tik GET užklausose, kurias išsiunčia kitos svetainės puslapis, išskyrus <code>partner.com</code> puslapius."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> įrašas apsaugo tik nuo <code>$removeparam</code> filtrų. Paprastas įrašas, pvz., <code>\"ref\"</code>, vis tiek pašalina parametrą; tam naudokite taisyklės objekto <code>exceptions</code>. Neapdorotos taisyklės turi savo <code>@@…$rawrule=</code> įrašus (6 skyrius)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nesvarbu, kur jį pateikiate; jis negali turėti <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Jo šablonas tikrinamas pagal URL, kurį gavo teikėjas, prieš paleidžiant neapdorotas taisykles. <code>@@</code> įrašas, apribotas keliu, kurį pašalina neapdorota taisyklė, vis tiek atitinka."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Jis taip pat taikomas kitų teikėjų filtrams užklausose, kurias pateikia šio teikėjo atitinkamas puslapis. Taip patogu išskirti vieną svetainę iš kitur apibrėžtos taisyklės."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Neapdorotos taisyklės paleidžiamos prieš <code>rules</code>, neskiria raidžių dydžio ir pakeičia kiekvieną atitiktį (vėliavėlės <code>gi</code> arba <code>g</code> su <code>match-case</code>). JSON formate kiekvieną atgalinį pasvirąjį brūkšnį rašykite du kartus."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Neapdorotoje taisyklėje galima naudoti <code>$removeparam</code> filtro šabloną ir modifikatorius, o <code>rawrule=</code> nurodyti pabaigoje. Viskas po <code>rawrule=</code> yra reguliarioji išraiška:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Šablonas ir modifikatoriai nustato, kur taisyklė paleidžiama; pašalinama vis tiek tai, kas nurodyta reguliariojoje išraiškoje."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Įrašas, prasidedantis <code>@@</code> ir pasibaigiantis <code>rawrule=</code>, neleidžia paleisti neapdorotų taisyklių, kai atitinka jo šablonas:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Jei po <code>rawrule=</code> nieko nėra, šiuose URL adresuose sustabdomos visos teikėjo neapdorotos taisyklės."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Jei po <code>rawrule=</code> pateikiama reguliarioji išraiška, sustabdomos neapdorotos taisyklės su ta išraiška."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Taisyklių objektas su <code>targetId</code> sustabdo tik neapdorotą taisyklę su tuo ID arba jo alternatyviu ID."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Norėdami praleisti visą teikėją, vietoj to naudokite <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Jei URL atitinka <code>exceptions</code> įrašą, šiai užklausai nepaleidžiama nė viena teikėjo taisyklė. Įrašas yra viso URL reguliarioji išraiška arba domeno šablonas, prasidedantis <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Išimtys neskiria raidžių dydžio. Jei norite praleisti vieną taisyklę, o ne visą teikėją, priskirkite jai atskirą <code>exceptions</code> (9 skyrius)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Laimi tas atitinkantis parametras, kuris URL pateiktas pirmas. Kai naudojamas <code>https://site.example/away?redirect=https://real.example/page</code>, užklausa siunčiama į <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Galiojantys peradresavimo tikslai"
+  },
+  "guide_redirects_p_2": {
+    "message": "Peradresuojama tik į absoliutų <code>http</code> arba <code>https</code> adresą su pagrindiniu kompiuteriu. Tai patikrinama po išankstinio apdorojimo ir procentų dekodavimo. Negaliojantis tikslas reiškia, kad įrašas nelaikomas atitinkančiu: niekur neperadresuojama, o tolesni teikėjo veiksmai vykdomi nepakeistame URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Tikslas"
+  },
+  "guide_redirects_th_2": {
+    "message": "Peradresuoja?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "taip"
+  },
+  "guide_redirects_cell_2": {
+    "message": "taip, į <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ne: schema nėra <code>http</code> arba <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ne: tai nėra absoliutus adresas"
+  },
+  "guide_redirects_p_3": {
+    "message": "Neapdorota taisyklė taip pat laikoma peradresavimu, jei jos rezultato schema, pagrindinis kompiuteris arba prievadas skiriasi nuo įvesties, net jei ji tik pašalina tekstą: pašalinus <code>secure-</code> iš <code>https://secure-bank.example/</code>, pereinama į kitą svetainę. Reikalingas galiojantis tikslas, o nuotoliniame taisyklių sąraše – <code>redirect</code> patvirtinimas (15 skyrius). Kitu atveju taisyklė palieka URL nepakeistą."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Bet kuris bet kurio sąrašo įrašas gali būti objektas, o ne eilutė. Jį naudokite, kai taisyklei reikia pastovaus ID, ji turi prasidėti išjungta, perrašyti, o ne pašalinti, arba veikti tik tam tikrais atvejais:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Privaloma. Tekstas, kurį įprastai įrašytumėte tame sąraše."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Pastovus pavadinimas (raidės, skaitmenys, <code>-</code>, <code>_</code>), naudojamas taisyklei įjungti ir išjungti (14 skyrius)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Ankstesni taisyklės ID, kad pervadinus toliau galiotų su senu ID išsaugotas nustatymas."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Perrašyti, o ne pašalinti; <code>§1§</code>, <code>§2§</code>, … yra užfiksuotos reikšmės."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Pirmiausia transformuoti užfiksuotas reikšmes."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Tik šių tipų užklausoms, pvz., <code>[\"main_frame\"]</code>. Valymas be užklausos (<em>Kopijuoti švarią nuorodą</em>, valymo įrankis, History API pakeitimai) laikomas <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL adresai (reguliariosios išraiškos), kuriems ši taisyklė netaikoma."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Reguliariosios išraiškos vėliavėlės, pateikiamos kaip eilutė. Numatytoji – <code>i</code>; <code>rawRules</code> naudokite <code>gi</code> (arba <code>g</code> su <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Paleisti taisyklę anksčiau arba vėliau jos etape (13 skyrius)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: <code>rules</code> taisyklė taip pat laikoma rekomendavimo rinkodaros taisykle (10 skyrius)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "To paties pavadinimo teikėjo jungiklis, skirtas tik šiai taisyklei. Jis turi pirmenybę prieš teikėjo reikšmę ir failo numatytąją reikšmę."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: taisyklė pradedama išjungta."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Pastaba failą skaitantiems žmonėms; tai turi būti eilutė."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Tik <code>@@…$rawrule=</code> įrašams: neapdorotos taisyklės, kurią jis sustabdo, ID."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Čia <code>?token=abc123</code> tampa <code>?token=clean-abc123</code>. Perrašymas kiekvienai užklausai taikomas daugiausia vieną kartą, todėl reikšmė neapgaubiama pakartotinai."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Išankstinio apdorojimo priemonės paeiliui keičia užfiksuotas reikšmes prieš jas naudojant <code>replacePattern</code> arba peradresavime. <code>inputs</code> yra <code>\"all\"</code> arba grupių numerių sąrašas:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> priima tokius pačius įrašus kaip <code>rules</code>. Jie veikia tik išjungus <em>Leisti rekomendavimo rinkodarą</em>, todėl įjungus šią parinktį partnerių nuorodos veikia toliau:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Taisyklė gali likti <code>rules</code> ir vis tiek būti laikoma rekomendavimo rinkodara, jei nustatyta <code>\"referralMarketing\": true</code>. Nedėkite to paties teksto į <code>rules</code> ir <code>referralMarketing</code>; rengyklė apie tai įspės."
+  },
+  "guide_request_types_cell_1": {
+    "message": "užklausų tipai, kuriuos tvarko vienas taisyklės objektas (taip pat galima nustatyti <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Užklausų tipai naudoja naršyklėje vartojamus pavadinimus: <code>main_frame</code> (puslapis), <code>sub_frame</code> (rėmelis), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ir kt. Filtrų modifikatoriai pirmuosius du vadina <code>document</code> ir <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Užklausų tipai nustatomi tik taisyklėse; nustatymuose nėra užklausų tipų sąrašo. Jei nenustatytas nė vienas tipas, taisyklė valo visų tipų užklausas."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Numatytoji reikšmė"
+  },
+  "guide_defaults_p_1": {
+    "message": "Aukščiausio lygio <code>defaults</code> blokas pateikia kiekvienai failo taisyklei reikšmes, kurių ji nenustato pati:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Numatytoji reikšmė kiekvienos taisyklės…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> išjungia visas taisykles, nebent nurodyta <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; reikšmė <code>\"all\"</code> arba jos nenurodymas reiškia visus tipus"
+  },
+  "guide_defaults_item_1": {
+    "message": "Taisyklės nuosava reikšmė visada laimi, o taisyklės <code>exceptions</code> pakeičia numatytąjį sąrašą, užuot jį papildžiusios."
+  },
+  "guide_defaults_item_2": {
+    "message": "Numatytosios reikšmės taikomos <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> ir <code>fieldRedirections</code>. Teikėjo nuosavas <code>exceptions</code> sąrašas nekeičiamas. <code>$redirect=</code> įrašai naudoja tik <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Kiekvienas failas išlaiko savo numatytąsias reikšmes: integruotos taisyklės, kiekvienas nuotolinis sąrašas ir jūsų tinkintos taisyklės, net kai perkrovos režimu jie sujungiami."
+  },
+  "guide_defaults_item_4": {
+    "message": "Jei nustatyta <code>completeProvider</code>, numatytosios <code>requestTypes</code> ir <code>exceptions</code> reikšmės taip pat apriboja blokavimą."
+  },
+  "guide_defaults_item_5": {
+    "message": "Nežinomi raktai ir netinkami tipai laikomi klaidomis, o nuotolinis sąrašas su netinkamu <code>defaults</code> bloku atmetamas."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Jūsų numatytosios reikšmės"
+  },
+  "guide_defaults_p_2": {
+    "message": "Tinkintų taisyklių rengyklėje <em>Tvarkyti taisyklių numatytąsias reikšmes</em> atveria formą, kurioje nustatote savo <code>defaults</code> bloką ir pasirenkate, kurių failų reikšmes jis pakeis:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Kiekvieno šaltinio nuosavos</em> (numatytoji parinktis): kiekvienas failas naudoja savo <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Jūsų integruotoms ir nuotolinėms taisyklėms</em>: integruotos ir nuotolinės taisyklės naudoja jūsų reikšmes, o tinkintos taisyklės išlaiko savąsias."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Jūsų visoms taisyklėms</em>: visos taisyklės naudoja jūsų reikšmes."
+  },
+  "guide_defaults_p_3": {
+    "message": "Toje pačioje formoje galima redaguoti integruotų taisyklių ir kiekvieno įkelto nuotolinio sąrašo numatytąsias reikšmes. Jūsų pakeitimas išsaugomas plėtinyje, o ne faile; <em>Atkurti failo numatytąsias reikšmes</em> jį pašalina. <em>Sujungti iš šaltinių…</em> sujungia pažymėtų šaltinių numatytąsias reikšmes; kol neišsaugosite, niekas neišsaugoma."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Kaip apdorojamas URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, tada <code>fieldRedirections</code>: atitiktis su galiojančiu tikslu peradresuoja užklausą."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> ir <code>referralMarketing</code> pašalina arba perrašo parametrus."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Paleidžiami <code>$removeparam</code> filtrai, išskyrus atvejus, kai <code>@@</code> įrašas išsaugo parametrą."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Laimi pirmasis teikėjas, pakeitęs, peradresavęs arba užblokavęs URL. Tada naujas URL dar kartą apdorojamas tais pačiais veiksmais (žr. <a href=\"#termination\">Kada apdorojimas sustoja</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Vykdymo tvarka ir <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "4 ir 5 veiksmai surikiuojami kartu pagal šias taisykles tokia tvarka:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Neapdorotos taisyklės visada vykdomos pirmos.</strong> Jokia <code>order</code> reikšmė neperkelia <code>rules</code> įrašo prieš neapdorotą taisyklę. Jei valymas turi įvykti prieš neapdorotą taisyklę, jis pats turi būti neapdorota taisyklė."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Etape taisyklės su <code>order</code> vykdomos prieš taisykles be jo</strong>, pradedant nuo mažiausios reikšmės. Leidžiami neigiami ir trupmeniniai skaičiai. <code>order: 10</code> nereiškia „dešimtas“: taisyklė vykdoma po to etapo taisyklių, kurių tvarka mažesnė nei 10, ir prieš visas taisykles be nurodytos tvarkos."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Tada pagal sąrašą:</strong> <code>rules</code>, tada <code>rules</code> objektai su žyma <code>\"referralMarketing\": true</code>, galiausiai <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Tada pagal vietą</strong> sąraše. Kiekvienas įrašas išlaiko savo vietą, įskaitant įrašus, užrašytus kaip <code>\"3\"</code> arba <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Čia žetonas perrašomas prieš pašalinant <code>utm_source</code>, nors jis yra antras:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Išjungtos taisyklės praleidžiamos. <code>$removeparam</code> filtrai ir <code>@@</code> įrašai nepatenka į šį rikiavimą ir negali turėti <code>order</code>, net <code>null</code>; filtrai visada vykdomi paskutiniai."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Tas pats tekstas dukart"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Du įrašai su tokiu pačiu <code>matchPattern</code> tekstu vienoje grupėje laikomi viena taisykle. Grupės yra neapdorotos (<code>rawRules</code>), lauko (<code>rules</code> be rekomendavimo žymos) ir rekomendavimo (pažymėti <code>rules</code> objektai, tada <code>referralMarketing</code>). Taip dažniausiai nutinka sujungiant taisyklių sąrašus."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Laimi paskutinis įjungtas apibrėžimas su visais jo raktais."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Jei nėra atskiros <code>order</code> reikšmės, laimėtojas perima pirmojo apibrėžimo vietą ir artimiausią ankstesnę <code>order</code> reikšmę. <code>\"order\": null</code> reiškia, kad tvarka nenurodyta, ir panaikina paveldėtą tvarką."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Pakeistų apibrėžimų ID ir alternatyvūs ID taip pat įjungia bei išjungia laimėtoją."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Vykdant rekomendavimo rinkodaros taisykles, rekomendavimo įrašas pakeičia tokio paties teksto lauko įrašą."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Neapdorota taisyklė ir lauko taisyklė su tokiu pačiu tekstu nesikerta; vykdomos abi."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Viename sąraše du skirtingi įrašai su tokiu pačiu tekstu yra klaida, o tiksli kopija – įspėjimas."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Kada apdorojimas sustoja"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Vienai užklausai vykdoma daugiausia 10 ciklų; pasiekus ribą naudojamas esamas URL."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Taisyklė su <code>replacePattern</code> vienai užklausai taikoma daugiausia vieną kartą."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Veiksmas, kuris nepakeičia URL, nepradeda naujo ciklo."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Nustatymas → <em>Neriboti valymo ciklai</em> (pagal numatytuosius nustatymus išjungta) panaikina 10 ciklų ribą taisyklių grandinėms, kurioms reikia daugiau ciklų. Tada apdorojimas baigiamas, kai ciklas nieko nepakeičia, tačiau dvi viena kitą peradresuojančios taisyklės kartosis, kol naršyklė jas sustabdys ir puslapis nebus įkeltas. Įjunkite tik toms taisyklėms, kuriomis pasitikite."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Taisyklių ID ir įjungimo bei išjungimo jungikliai"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Kiekviena taisyklė turi ID. Jei taisyklė neturi <code>id</code>, jis sukuriamas iš sąrašo ir jos teksto: <code>\"utm_source\"</code> iš <code>rules</code> tampa <code>field-utm-source</code>. Pakeitus taisyklės tekstą, pasikeičia ir sukurtas ID, todėl išjungta taisyklė vėl įsijungtų. Priskirkite taisyklei atskirą <code>id</code>, jei jos įjungimo ar išjungimo būsena turi išlikti ją redaguojant, o pervadindami įtraukite senus ID į <code>aliases</code>."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Taisyklė įjungiama ir išjungiama pagal teikėjo bei ID porą, pvz., <code>shop::session-token</code>, todėl du teikėjai gali naudoti tą patį ID. Tinkintų taisyklių rengyklė gali jį išsaugoti ir pagal teikėjo šabloną, pvz., <code>domainPattern:||shop.example^::session-token</code>; tinka abu formatai."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Viename teikėjuje visi ID ir alternatyvūs ID turi skirtis. Tai taikoma ir sukurtiems ID."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "ID negali būti dvitaškio."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Nustatymas, išsaugotas tik pagal ID be teikėjo, nieko neįjungia ir neišjungia; išjunkite taisyklę dar kartą tinkintų taisyklių rengyklėje."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Nuotoliniai taisyklių sąrašai"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Nuotoliniai taisyklių sąrašai yra taisyklių failai, kuriuos atsisiunčia Linkumori; juos galima papildomai patikrinti pagal maišos failą. Sąrašas su netinkama <code>cln</code> reikšme, <code>defaults</code> bloku arba <code>patches</code> masyvu neįkeliamas, o Nuotolinių taisyklių būklės puslapyje apie tai pranešama."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Peradresavimui ir blokavimui reikia jūsų patvirtinimo"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Nuotolinio sąrašo galimybės nustatomos jį įkeliant pagal jo turinį:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Galimybė"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Sąraše yra, jei jis apima"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktyvi įkeliant"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>, <code>rawRules</code> arba <code>referralMarketing</code> įrašas ar <code>$removeparam</code> filtras"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "įrašas su <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "teikėjo <code>exceptions</code> įrašas arba <code>@@</code> įrašas"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> arba <code>fieldRedirections</code> įrašas, arba <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "patvirtinus"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "teikėjas su <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Nuotolinių taisyklių būklės puslapyje patvirtinkite <code>redirect</code> ir <code>block</code> kiekvienam sąrašui. Iki tol to sąrašo peradresavimai ir blokavimas lieka išjungti, o jo neapdorotos taisyklės negali siųsti URL į kitą svetainę; likusi sąrašo dalis veikia iš karto. Jei atnaujinant pridedama nauja galimybė, jai taip pat reikia patvirtinimo. Integruotos ir tinkintos taisyklės turi visas galimybes."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Perkrovos režimas"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Paprastai nuotoliniai sąrašai su teikėjais pakeičia integruotas taisykles, o sąrašai, kuriuose yra tik <code>patches</code>, pritaikomi integruotoms taisyklėms. Įjungus <em>Įjungti perkrovos režimą</em>, jie įkeliami kartu taikant vieną iš trijų strategijų:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Tik pataisų režimas</em>: nuotolinių sąrašų pataisos taikomos integruotoms taisyklėms; nuotoliniai teikėjai praleidžiami."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Pataisų režimas ir sujungimas</em>: sujungiami integruoti ir nuotoliniai teikėjai, tada pritaikomos pataisos."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Sujungimas be pataisų režimo</em>: teikėjai sujungiami, o pataisos praleidžiamos."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Sujungiant nuotoliniai sąrašai sujungiami tarpusavyje jūsų nurodyta tvarka, o tada – su integruotomis taisyklėmis (pirmiausia integruotomis). Sujungiami tik teikėjai, kurių <code>domainPatterns</code> (arba <code>urlPattern</code>), <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> ir <code>forceRedirection</code> sutampa; jų <code>rules</code>, <code>rawRules</code> ir <code>referralMarketing</code> sujungiami, o taisyklė <a href=\"#same-text-twice\">Tas pats tekstas dukart</a> nustato, kuri kopija vykdoma. Nuotolinių taisyklių būklės puslapyje kiekviena pakeista taisyklė rodoma kaip pranešimas."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Tinkintos taisyklės taikomos paskiausiai. Tinkintas teikėjas pakeičia kiekvieną įkeltą tokio paties šablono teikėją; jų taisyklės nesujungiamos."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Taisyklių pataisos"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Nuotolinis sąrašas gali pakeisti atskiras jau įkeltas taisykles, neskelbdamas visos kopijos, naudodamas aukščiausio lygio <code>patches</code> masyvą:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Privaloma. Pakeičiama taisyklė, užrašyta kaip jos įjungimo arba išjungimo raktas: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> arba <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Privaloma. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> arba <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Privaloma. Nauja taisyklė kaip paprastas įrašas arba taisyklės objektas."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Pastaba failą skaitantiems žmonėms."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Pataisos vykdomos sujungus nuotolinius sąrašus ir prieš tinkintas taisykles. Failui, kuriame yra tik <code>patches</code>, nereikia <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Sujungiant teikėjų pavadinimai gali pasikeisti, todėl juos visada rasite naudodami <code>domainPattern:</code> arba <code>urlPattern:</code> formą."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Pakeista taisyklė išlaiko seną ID arba senasis ID tampa alternatyviu ID, todėl įjungimo ir išjungimo nustatymai toliau galioja."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Peradresavimo pataisa laukia sąrašo <code>redirect</code> patvirtinimo. Pataisa, kurios tikslas nieko neatitinka, nieko nekeičia."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Nuotolinių taisyklių būklės puslapyje kiekviena pataisa nurodoma kaip pritaikyta, neatitinkanti arba praleista."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Taisyklės ir leidžiamų svetainių sąrašas"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Leidžiamų svetainių sąrašas skiriasi nuo teikėjo <code>exceptions</code>: jame pateikiamos svetainės, kurių Linkumori neturi liesti, ir tam nereikia taisyklių failo. Įrašai gali būti <code>example.com</code>, <code>*.example.com</code> (svetainė ir jos padomeniai) arba <code>example.*</code> (bet kuris galūnės domenas). Įtraukus puslapį į leidžiamų svetainių sąrašą, įtraukiama ir viskas, ką jis įkelia."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Išsamūs pavyzdžiai"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Taisyklių tikrinimas"
+  },
+  "guide_checking_p_1": {
+    "message": "Tinkintų taisyklių rengyklė patikrina taisykles jas išsaugant arba importuojant, o <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> atlieka tuos pačius patikrinimus. Be netaisyklingo JSON ir netinkamų reguliariųjų išraiškų, atmetamos ir tokios taisyklės, kurios įkeliamos, bet tyliai veikia neteisingai, pavyzdžiui:"
+  },
+  "guide_checking_item_1": {
+    "message": "nežinomi laukai, raktai ir modifikatoriai"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> reikšmė, kuri nėra <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "ID arba alternatyvus ID, du kartus panaudotas viename teikėjuje"
+  },
+  "guide_checking_item_2": {
+    "message": "du skirtingi įrašai su tuo pačiu tekstu viename sąraše"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> reikšmė <code>$removeparam</code> filtrui arba <code>@@</code> įrašui, įskaitant <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> adresas, kuris nėra <code>http</code> arba <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "atgalinis pasvirasis brūkšnys <code>$removeparam</code> pavadinime prieš simbolį, kuriam nėra pabėgimo sekos"
+  },
+  "guide_checking_p_2": {
+    "message": "Taip pat įspėjama apie tikslias kopijas ir tokį patį tekstą <code>rules</code> bei <code>referralMarketing</code>. Jei išsaugoti nepavyksta, pranešime nurodomas teikėjas, sąrašas ir įrašas."
+  },
+  "guide_toc_search": {
+    "message": "Filtruoti skyrius"
+  },
+  "guide_toc_no_results": {
+    "message": "Nėra atitinkančių skyrių."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: peradresavimas, prasidedantis simboliu \"|\", turi atrodyti taip: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= paskirties adresas turi būti absoliutus http arba https URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ turi būti objektas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type turi būti netuščia eilutė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type turi būti viena iš reikšmių: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs turi būti \"all\" arba teigiamų sveikųjų skaičių masyvas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ turi būti eilutė arba taisyklės objektas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern turi būti eilutė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern turi būti eilutė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId turi būti taisyklės ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId taikomas tik rawRules esančioms \"@@…$rawrule=\" išimtims",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags turi būti eilutė (reguliariojo reiškinio vėliavėlės, pvz., \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing turi būti true arba false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing neturi poveikio lauke $FIELD$; jis taikomas tik $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order turi būti skaičius arba null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order neturi poveikio lauke $FIELD$; jis taikomas tik $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order neturi poveikio $removeparam filtrui ar \"@@\" įrašui; jie visada vykdomi po kitų taisyklių",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active turi būti loginė reikšmė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id turi būti eilutė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id turi atitikti $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases turi būti ID sąrašas, atitinkantis $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases negali būti pačios taisyklės ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description turi būti eilutė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection turi būti loginė reikšmė",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions turi būti eilučių masyvas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes turi būti eilučių masyvas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors turi būti masyvas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: nežinomas laukas \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ prasideda \"@@\", o tai taikoma tik $removeparam filtrams rules ir referralMarketing; vietoj to naudokite taisyklės objekto \"exceptions\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ yra nežinoma $removeparam parinktis \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" prasideda vienu \"|\", todėl atitinka tik URL, kurie tiesiogiai prasideda \"$REST$\"; tokių URL nėra (URL prasideda \"https://\"). Domenui atitikti naudokite \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ turi \"targetId\", kuris veikia tik išimčiai; pradėkite matchPattern reikšmę \"@@\" (pvz., \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ turi ir \"targetId\", ir reguliarųjį reiškinį po \"rawrule=\"; naudokite vieną iš jų",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ targetId \"$ID$\" neatitinka jokios šio teikėjo raw rule ID ar pseudonimo",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ yra \"@@\" išimtis, skirta \"$REGEX$\", tačiau jokia šio teikėjo raw rule nenaudoja šio reguliariojo reiškinio. Priskirkite taisyklei ID ir nurodykite ją naudodami \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ yra \"@@\" išimtis, todėl \"$KEY$\" nieko nepakeistų",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ reikšmėje po \"rawrule=\" nieko nėra; reikia ištrinti skirto reguliariojo reiškinio",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ reikšmėje po \"rawrule=\" yra netinkamas reguliarusis reiškinys: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ turi $GROUPS$ fiksavimo grupių; aplink paskirties URL turi būti tiksliai viena \"( … )\" grupė (kitas grupes rašykite kaip \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ pakartotinai naudoja taisyklės ID \"$ID$\" vietoje $WHERE$; pirmą kartą naudotas vietoje $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ turi būti JSON objektas",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ turi būti masyvas",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ yra nežinomas raktas \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Klaida apdorojant URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Klaida inicijuojant puslapį: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Neteisingas skirtukas"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Šiame skirtuke jau vykdoma taisyklių paieška"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Šiame skirtuke nevykdoma pristabdymo patikra"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Taisyklės vis dar įkeliamos. Pabandykite dar kartą po akimirkos."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Nė vienos šiame puslapyje suveikusios taisyklės negalima išjungti."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Nepavyko išjungti taisyklių"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Šiame skirtuke nevykdoma taisyklių paieška"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Šiame skirtuke nėra rastos taisyklės, kurią būtų galima praleisti"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Atsisiuntimas nepasiekiamas"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Nepavyko išsaugoti įrašo sesijos saugykloje"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Nežinoma taisyklė"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "Nežinoma klaida"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "Nepavyko eksportuoti"
   }
 }

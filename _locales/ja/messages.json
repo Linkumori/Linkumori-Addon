@@ -39,7 +39,7 @@
     "message": "バンドルされたLinkumori/ClearURLsルールを使用します。これを無効にすると、リモートルールやカスタムルールのみで実行されます。"
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori は統合された 1 つの ClearURLsData プロバイダールールセットを使用します。ネイティブのプロバイダー JSON、正規のルールオブジェクト、プロバイダー固有の $removeparam フィルターは、clearurls.js の実行前にマージされます。"
   },
   "bundled_rules_section_title": {
     "message": "ルール情報"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori設定を開く"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "オーバーロードモードの動作"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "パッチモードのみ"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "リモートパッチを組み込みルールに適用します。リモートプロバイダーのルールは含まれません。"
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "パッチモード + マージ"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "組み込みルールとリモートプロバイダーのルールをマージしてから、リモートパッチを適用します。"
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "パッチモードなし + マージ"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "リモートパッチを適用せずに、組み込みルールとリモートプロバイダーのルールをマージします。"
   },
   "overload_mode_enabled": {
     "message": "オーバーロードモードを有効にする"
@@ -1836,7 +1836,7 @@
     "message": "プライマリハッシュURLはHTTPSを使用する必要があります"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "プライマリルールURLとプライマリハッシュURLは、あわせて設定する必要があります。"
   },
   "save_primary_rule_https_required": {
     "message": "プライマリルールURLはHTTPSを使用する必要があります"
@@ -1872,13 +1872,13 @@
     "message": "リスクを理解しています - 続行"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Linkumori ルールセットの提供元を十分に理解していない、または信頼できない場合は、リモートルールの使用を再検討してください。"
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "このリモートルール機能は、読み込む Linkumori JSON を理解している上級ユーザー向けに設計されています。リモートルールには、検証用に対応するハッシュURLを含める必要があります。"
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "リモートルールURLを追加すると、拡張機能は指定したサーバーに接続し、設定されている場合は Linkumori ルールセットとそのハッシュファイルを取得します。取得のたびに、IPアドレスや、拡張機能のバージョン、ブラウザー、ブラウザーのバージョンなどの一般的な情報がホスティングサーバーに公開される可能性があります。このデータは、そのウェブサイトまたはウェブサーバーのプライバシーポリシーの対象となります。"
   },
   "security_modal_privacy_link_text": {
     "message": "必要に応じて、続行する前に%PRIVACY_POLICY_LINK%をもう一度お読みください。"
@@ -1887,7 +1887,7 @@
     "message": "プライバシー通知:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "リモートの提供元を信頼し、管理している場合を除き、組み込みルールを使用してください。リモートの Linkumori JSON ルールには、対応するハッシュURLを指定してください。"
   },
   "security_modal_risk_1": {
     "message": "お客様のIPアドレスとブラウザ情報が設定されたサーバーに公開されます"
@@ -1899,7 +1899,7 @@
     "message": "ハッシュ検証は Linkumori CLN Format 1.0 JSON ルールにのみ適用されます。悪意のあるルールソースではなく、送信改ざんから保護します。"
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "ハッシュ検証に成功していないリモートルールは、完全に提供元URLへの信頼に依存します。"
   },
   "security_modal_risks_title": {
     "message": "セキュリティリスク:"
@@ -1914,7 +1914,7 @@
     "message": "rules.hashファイルのURL（ハッシュ）"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "リモートの Linkumori JSON ルールの検証に必須です。"
   },
   "setting_html_export_button": {
     "message": "エクスポート"
@@ -1944,7 +1944,7 @@
     "message": "ログ制限（0-5000）"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "マージされる追加のリモート Linkumori JSON ソース。1行に1組ずつ <code>ruleURL | hashURL</code> の形式で入力してください。"
   },
   "setting_remote_rule_sets_label": {
     "message": "追加のリモートルールセット"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON ルールのカスタムリモートURL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "リモートルール JSON ファイルのURL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "すべてのリモートルールセットにハッシュURLが必要です。"
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) 設定"
@@ -2421,19 +2421,19 @@
     "message": "警告: 自己ホスト型サーバーのみを対象とした高度な機能"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "リモートルールURL編集に対する Gatekeeper の保護を無効にしようとしています。この機能により、リモートの Linkumori JSON ルールを統合プロバイダールールセットに読み込めるようになります。設定する提供元を理解し、信頼している場合にのみ続行してください。"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "ゲートキーパーは、セキュリティ警告を確認し、タイプによる確認を完了するまで、直接のリモートURL編集をブロックする組み込みのセキュリティフローです。"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "リモートの提供元を信頼し、管理している場合を除き、Gatekeeper を有効のままにしてください。リモート JSON ルールには、対応するハッシュURLを含めてください。"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "プライバシー通知:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "リモートルールURLを追加すると、拡張機能は指定したサーバーに接続し、設定されている場合は Linkumori ルールセットとそのハッシュファイルを取得します。取得のたびに、IPアドレスや、拡張機能のバージョン、ブラウザー、ブラウザーのバージョンなどの一般的な情報がホスティングサーバーに公開される可能性があります。このデータは、そのウェブサイトまたはウェブサーバーのプライバシーポリシーの対象となります。"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "必要に応じて、続行する前に%PRIVACY_POLICY_LINK%をもう一度お読みください。"
@@ -2448,7 +2448,7 @@
     "message": "拡張機能は、拡張機能が有効化されてブラウザにロードされるたびに、指定されたURLに接続します。"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "リモート JSON またはハッシュファイルをホストするサーバーは、あなたのIPアドレスを受け取ります。"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "サーバーは、お客様の拡張機能のバージョン、ブラウザ、ブラウザバージョンも受け取る可能性があります。"
@@ -2457,7 +2457,7 @@
     "message": "そのデータは、それらのファイルをホストしているウェブサイトまたはウェブサーバーのプライバシーポリシーの対象となります。"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeper を無効にすると、安全でない、または侵害されたリモートルールの提供元によるリスクが高まります。ハッシュ検証が保護するのは、対応するハッシュURLが設定されている場合のリモート Linkumori JSON のダウンロードのみです。"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "キャンセル"
@@ -2517,7 +2517,7 @@
     "message": "正確な確認フレーズを入力してください"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "この操作により、リモートルールに対する保護が弱まります。リモート JSON の提供元を信頼している場合にのみ続行してください。"
   },
   "remote_urls_template_note_1": {
     "message": "プレースホルダーの値を実際のHTTPS URLに置き換えてから、このファイルをインポートしてください。"
@@ -2847,10 +2847,10 @@
     "message": "なし"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "ルールの競合:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "エラー $ERRORS$ 件、警告 $WARNINGS$ 件、通知 $NOTICES$ 件",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "リモートファイルの機能:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "承認されるまで無効: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ を承認",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "ルールパッチ:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "適用済み $APPLIED$ 件、未適用 $NOT_APPLIED$ 件",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "ルールのデフォルト"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "組み込み"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "カスタム"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "なし — 組み込みの動作"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "オーバーロードモードでは組み込みルールとリモートルールがマージされます。各ソースのルールは、そのソース自身のデフォルトを保持します。"
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "デフォルトを保存"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "デフォルトを保存しました"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "オンにすると、カスタムルールエディターで独自のデフォルトを選択しない限り、各ルールソースは自身のデフォルトを保持します（組み込みのデフォルトは組み込みルールに、各リモートファイルのデフォルトはそのファイルのルールに適用されます）。"
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "リモート: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "適用するデフォルト"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "各ソース自身のもの"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "組み込みルールとリモートルールに自分のもの"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "すべてのルールに自分のもの"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "（自分のデフォルトで置き換え済み）"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "自分のもの"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "リクエストタイプ $COUNT$ 件",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "URL例外 $COUNT$ 件",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "URL例外 1 件"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "プリプロセッサー $COUNT$ 件",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "各ソースのルールには、そのソース自身のデフォルトが適用されます。"
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "組み込みルールとリモートルールには、各ファイル自身のデフォルトではなく自分のデフォルトが適用されます。カスタムルールは自身のデフォルトを保持します。"
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "組み込みルール、リモートルール、カスタムルールのすべてに、各自のデフォルトではなく自分のデフォルトが適用されます。"
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "ルールのデフォルトを管理"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "デフォルトは、ルール自身が設定していない値を補います。ルール自身の値が常に優先され、プロバイダーの例外が変更されることはありません。"
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "デフォルトを編集"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "自分のデフォルト"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "カスタムルールのデフォルト"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "編集するデフォルト"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "組み込みルール"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "（編集済み）"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "ファイルのデフォルトにリセット"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "ソースからマージ…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "ルールのデフォルトをマージ"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "結果は一覧に「マージ済みデフォルト」として表示されます。そこからいずれかのセットにコピーし、「デフォルトを保存」を押して使用します。"
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "マージするソース"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "競合"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "マージ済みデフォルト"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "マージ済みデフォルトを使用"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "マージ済みデフォルト"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "他のいずれかのセットにコピーして保存するまで使用されません。"
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "コピー先"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "コピー"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "2 つ以上のソースを選択してください。"
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "競合なし: 選択したソースのすべての値が一致しています。"
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "例外はすべてのソースから合算されます（合計 $COUNT$ 件）。",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "すべてのソースから統合"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "元: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "未設定（組み込みの動作）"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "未設定: すべてのリクエストタイプ"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "現在は使用されていません: 自分のデフォルトが、組み込みルールとリモートルール自身のデフォルトを置き換えています。"
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "自分で編集済み: これらがファイル自身のデフォルトを置き換えます。ファイル自体は変更されません。"
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "（自分で編集済み）"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "現在は使用されていません: 上で「各ソース自身のもの」が選択されています。"
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "現在は使用されていません: カスタムルールにも自分のデフォルトが適用されています。"
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "ルールを無効の状態で開始 (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "説明"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "リクエストタイプ"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "すべてのタイプ"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "これらのみ"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "リクエストタイプを 1 つ以上選択するか、「すべてのタイプ」を選んでください。"
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "ルール自身またはデフォルトで指定しない限り、ルールはすべてのリクエストタイプをクリーンアップします。プロバイダーは resourceTypes でタイプを制限することもできます。"
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "例外"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "1行に1つのURL正規表現。一致するURLではルールがスキップされます。"
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "プリプロセッサー"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "入力: \"all\"、または 1, 2 のようなキャプチャグループ番号。"
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ プリプロセッサーを追加"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "プリプロセッサーのタイプ"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "プリプロセッサーの入力"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "削除"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "プリプロセッサーの入力「$INPUTS$」は \"all\" または 1, 2 のような数字でなければなりません。",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "履歴バイパス保護をオフにする (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "JSONとして表示"
   },
   "settings_remote_health_unknown": {
     "message": "不明"
@@ -4005,10 +4005,10 @@
     "message": "プロバイダー JSON ガイド"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori ルールガイドを開く"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "どのルール構文を使えばよいですか？"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "ルールガイドを開く"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "プロバイダーソースの読み込みに失敗しました: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "バンドルされたルールは利用できません。"
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "バンドルされたルールの読み込みに失敗しました: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "言語を $1 に切り替えられませんでした。"
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "ライトテーマ"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "ダークテーマ"
   },
   "posarCopied": {
     "message": "POSARがコピーされました！"
@@ -4059,100 +4059,100 @@
     "message": "POSARを受け入れました。"
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "リセット"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "アクセシビリティツール"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "アクセシビリティツールを開く"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "アクセシビリティツールを閉じる"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "すべてのアクセシビリティ設定をリセット"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "視覚"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "読みやすさ"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "操作"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "ハイコントラスト"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "カラーフィルター"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "彩度"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "色を反転"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "リンクを強調表示"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "画像を非表示"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "文字サイズを大きく"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "文字サイズを小さく"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "標準の文字サイズ"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "フォントの選択"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ディスレクシア対応"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "文字間隔"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "行の高さ"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "文字揃え"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "アニメーションを停止"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "大きなカーソル"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "デフォルト"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "中"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "高"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "最大"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "低"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "なし"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "弱"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "強"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "フィルターなし"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "1型色覚（P型）"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "2型色覚（D型）"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "3型色覚（T型）"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "グレースケール"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "左"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "中央"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "右"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "極小"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "小"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "大"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "特大"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "最大"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "オン"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "オフ"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "有効"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "無効"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "標準の文字サイズを選択しました"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "すべてのアクセシビリティ設定をリセットしました"
+  },
+  "skip_to_main_content": {
+    "message": "メインコンテンツへスキップ"
+  },
+  "popupNavAriaLabel": {
+    "message": "ポップアップのナビゲーション"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "カスタムルールのビュー"
+  },
+  "logViewNavAriaLabel": {
+    "message": "ログのビュー"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "履歴バイパス保護（ページ内ナビゲーション中はスキップ）"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "フィールドリダイレクト"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "ルールをコピー"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "ルールをコピーしました"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "ルールをコピーできませんでした"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection とは何ですか？"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "シングルページのサイトでは、新しいページを読み込む代わりに history.pushState/replaceState でアドレスを変更することがよくあります。Linkumori はそのようなアドレスもクリーンアップします。$removeparam フィルターに history-bypass-protection=false を追加すると、ページ内の変更に対してそのフィルターだけをスキップできます。通常のリクエストでは引き続き実行されます。"
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "ページ内の変更に対してプロバイダー全体をスキップするには、プロバイダーに次のように設定します:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "指定しない場合は true となり、ページ内の変更もクリーンアップされます。ルール自身の設定はプロバイダーの設定より優先されるため、ルール側で history-bypass-protection=true、またはルールオブジェクトで \"historyBypassProtection\": true を指定すれば再び有効にできます。"
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "ページ内ナビをスキップ"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "IDの名前を変更"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "$OLD$ の新しいID（a-z、0-9、- および _）。古いIDはエイリアスとして保持されるため、そのIDで無効にしたルールは無効のままになります。",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "「$ID$」は有効なIDではありません。英小文字、数字、- および _ を使用し、先頭は英字または数字にしてください。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "このプロバイダーの別のルールがすでに「$ID$」を使用しています。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "ルールを無効にする"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ をプロバイダー全体で無効にしますか？それともこのURL/ドメインパターンのみですか？",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "自分のプロバイダー"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/ドメインパターン"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "ルールIDを $ID$ に変更しました",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "孤立したトグル"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "上流で一致するルールが見つかりません"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "削除"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "ページ内ナビゲーションのクリーンアップをスキップ"
+  },
+  "whitelist_added_general": {
+    "message": "%s を一般ホワイトリストに追加しました"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s を History API の例外として追加しました"
+  },
+  "whitelist_exception_count": {
+    "message": "%d 件の例外"
+  },
+  "whitelist_exception_empty": {
+    "message": "ホワイトリストの例外はありません"
+  },
+  "whitelist_mode_general": {
+    "message": "一般ホワイトリスト"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API のみ"
+  },
+  "whitelist_mode_label": {
+    "message": "ホワイトリストの適用範囲"
+  },
+  "whitelist_removed_general": {
+    "message": "%s を一般ホワイトリストから削除しました"
+  },
+  "whitelist_removed_history_api": {
+    "message": "%s の History API の例外を削除しました"
+  },
+  "whitelist_type_general": {
+    "message": "一般"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API のみ"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 を一般ホワイトリストに追加"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "一般ホワイトリスト: $1 - クリックで History API のみに切り替え"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API の例外: $1 - クリックでこのタブのみに切り替え"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "このタブのみ: $1 - クリックで削除"
+  },
+  "logger_action_allowed": {
+    "message": "許可"
+  },
+  "logger_action_blocked": {
+    "message": "ブロック"
+  },
+  "logger_action_filter_label": {
+    "message": "アクション"
+  },
+  "logger_action_info": {
+    "message": "情報"
+  },
+  "logger_action_modified": {
+    "message": "変更"
+  },
+  "logger_action_redirected": {
+    "message": "リダイレクト"
+  },
+  "logger_btn_copy_summary": {
+    "message": "サマリーをコピー"
+  },
+  "logger_btn_export": {
+    "message": "エクスポート"
+  },
+  "logger_btn_group": {
+    "message": "ルールでグループ化"
+  },
+  "logger_col_hits": {
+    "message": "ヒット数"
+  },
+  "logger_col_last_seen": {
+    "message": "最終確認"
+  },
+  "logger_detail_group_title": {
+    "message": "ルールの詳細"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "タブ"
+  },
+  "logger_exported": {
+    "message": "$1 件のエントリをエクスポートしました。"
+  },
+  "logger_filter_all": {
+    "message": "すべて"
+  },
+  "logger_report_rule": {
+    "message": "報告する"
+  },
+  "logger_rule_disable": {
+    "message": "ルールを無効にする"
+  },
+  "logger_rule_disabled_done": {
+    "message": "ルール $1 を無効にしました。ページを再読み込みして確認してください。"
+  },
+  "logger_rule_enable": {
+    "message": "ルールを有効にする"
+  },
+  "logger_rule_enabled_done": {
+    "message": "ルール $1 を再び有効にしました。"
+  },
+  "logger_rule_failed": {
+    "message": "ルールを変更できませんでした。"
+  },
+  "logger_rule_off": {
+    "message": "ルールは無効です"
+  },
+  "logger_rule_on": {
+    "message": "ルールは有効です"
+  },
+  "logger_rule_unavailable": {
+    "message": "このルールはここから切り替えられません。"
+  },
+  "logger_status_rules": {
+    "message": "$1 件のルール"
+  },
+  "logger_summary_copied": {
+    "message": "サマリーをコピーしました。"
+  },
+  "logger_summary_copy_failed": {
+    "message": "サマリーをコピーできませんでした。"
+  },
+  "logger_type_filter_label": {
+    "message": "タイプ"
+  },
+  "logger_btn_logging_off": {
+    "message": "ログ記録オフ"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "ログ記録はオフです。クリックでオンにします。"
+  },
+  "logger_btn_logging_on": {
+    "message": "ログ記録オン"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "ログ記録はオンです。クリックでオフにします。"
+  },
+  "logger_logging_toggle_failed": {
+    "message": "ログ記録の設定を変更できませんでした。"
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "リファラルルールを追加"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "rawルールの例外を追加"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "フィールドリダイレクトを追加"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "例外を追加"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "各テンプレートは、ID と example.com 上のプレースホルダー matchPattern を持つルールオブジェクトを追加します。エントリーは単なる文字列でもかまいません: パラメーター名、名前の正規表現、$removeparam フィルター、または rawRules では正規表現です。ルールオブジェクトでは id、aliases、matchPattern、replacePattern、preprocessors、requestTypes、exceptions、flags、order、referralMarketing、historyBypassProtection、active、description、targetId を指定できます。"
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "リンター"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "問題は見つかりませんでした。"
+  },
+  "customRulesEditor_lintError": {
+    "message": "エラー"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "警告"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "エラー $ERRORS$ 件、警告 $WARNINGS$ 件",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "実行順序"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "実行順に $COUNT$ ステップ",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "rawRules、rules、referralMarketing のエントリーがありません"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "保存済みかどうかにかかわらず、上のテキストからエンジンが算出します。ステップは (stage, orderGroup, order, rank, arrayIndex) の順で並べ替えられます。rawルールはフィールドルールより先に実行され、同じステージ内では order を持つエントリーが小さい順に先に実行され、その後に残りがリストと位置の順で実行されます。"
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "リファラルマーケティング"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "リファラル削除"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "リファラル許可"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "未加工"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "フィールド"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "リファラル"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "（自動生成）"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "書き換え"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "以前の定義 $COUNT$ 件を置き換え",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "completeProvider により追加: すべてのパラメーターを削除"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "無効"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "一部のパターンで無効"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "ソートキー: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "その後、上記のすべてのステップの後に $FILTERS$ 件の $removeparam フィルターと $EXCEPTIONS$ 件の @@ 例外",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ 件の @@…$rawrule= 例外が、一致する箇所で上記のrawルールを停止させる場合があります",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "ステップをドラッグするか矢印を使って、ステージ内で移動します。移動すると、そのステージのすべてのエントリーに新しい順序で 10、20、30、… の order が付与されます。"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "並べ替えるには「リファラル削除」に切り替えてください。そのビューにはすべてのエントリーが表示されます。"
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "ドラッグして移動"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ を前へ移動",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ を後ろへ移動",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ を位置 $POSITION$ に移動しました",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "移動を元に戻す"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "移動を元に戻しました"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "シミュレート"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "コピーしたリンクをクリーンアップするときと同じ方法で、このプロバイダーをURLに対して実行します。無効にしたルールと上のリファラルの選択が反映され、各ステップ後のURLが表示されます。他のプロバイダーは実行されません。「テストURLを生成」は、このプロバイダー自身のルールからテストURLを作成します。"
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "テストURL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "実行"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "シミュレーションをステップ実行"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "先頭"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "前へ"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "次へ"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "末尾"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "再生"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "一時停止"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "最初のステップより前のURL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "パス $PASS$ · ステップ $STEP$ / $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "変更なし"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam フィルター"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "パス $PASS$ では何も変わらないため、クリーンアップを終了します",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "このプロバイダーはここで停止します: サイクル上限に達した、URLが以前のものに戻った、またはプロバイダーに一致しなくなったためです"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "パス $PASS$ でリダイレクトされます。クリーンアップは新しいアドレスで、すべてのプロバイダーを使って続行されます",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "プロバイダーがこのリクエストをブロックします (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "結果"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "このプロバイダーのパターンはこのURLに一致しないため、ルールは実行されません。"
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "このURLはプロバイダーの例外のいずれかに一致するため、ルールは実行されません。"
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "http:// または https:// から始まる完全なURLを入力してください。"
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "シミュレーションを実行できませんでした。上の JSON を確認してください。"
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "テストURLを生成"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "このプロバイダーのルールから作成: rawルール $RAW$ 件とパラメーター $PARAMS$ 件のテキストで、それぞれ対応するルールに照らして確認済みです。keep=1 はどのルールにも一致せず、残るはずです。リダイレクトとブロックは、他のルールより先に実行が終了してしまうため含まれません。",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "このプロバイダーのパターンに一致するホストを作成できなかったため、URLは別のホストを使用し、プロバイダーは実行されません。"
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "このプロバイダーのパターンに一致するすべてのURLが、プロバイダー自身の例外のいずれかの対象となるため、ルールは実行されません。"
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "テストURLから除外されたルール: $COUNT$ 件",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "一致するテキストを作成できませんでした"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "そのテキストがプロバイダーの例外のいずれかに一致してしまいます"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "すべてのパラメーターを削除するため、専用のパラメーターは不要です"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "このプロバイダーには名前のない $removeparam フィルターがあり、keep=1 を含むすべてのパラメーターを削除します。"
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "order なし"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "order 番号を元に戻す"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "このプロバイダーを開いたときの状態に、すべての order を戻します"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "order 番号を元に戻しました"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "非表示"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "表示"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "警告をクリア"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "警告を復元"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "警告 $COUNT$ 件をクリアしました",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: indexPattern のない urlPattern はすべてのURLに対して照合されます。\"||example.com^\" のような indexPattern のヒントを追加してください",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ に \"$ENTRY$\" が重複しています。コピーは何も行わず、両方が 1 つのIDを共有します",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ にテンプレートのプレースホルダー \"$PATTERN$\" が残っています。実際のパターンに置き換えてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ の matchPattern は \"(?!)\" で、何にも一致しません",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "トラブルシューティング"
+  },
+  "troubleshooter_launch": {
+    "message": "このタブのトラブルシューティング（試験的）"
+  },
+  "troubleshooter_title": {
+    "message": "タブのトラブルシューター"
+  },
+  "troubleshooter_page": {
+    "message": "ページ"
+  },
+  "troubleshooter_about_summary": {
+    "message": "記録のしくみ"
+  },
+  "troubleshooter_about_note": {
+    "message": "このビューを開くとページのURLを確認することがありますが、何も記録しません。「記録を開始」を選ぶまで記録はオフのままです。開始すると、リソースリクエストを取得するためにこのタブが再読み込みされます。取得したURLはこのブラウザーセッションの間セッションストレージに保存され、このタブを閉じるかブラウザーセッションが終了するとクリアされます。記録は、それより前に停止しない限り 15 分後に停止します。リソースURLには非公開のクエリデータが含まれている場合があります。"
+  },
+  "troubleshooter_start": {
+    "message": "記録を開始"
+  },
+  "troubleshooter_starting": {
+    "message": "開始中…"
+  },
+  "troubleshooter_recording": {
+    "message": "記録中…"
+  },
+  "troubleshooter_stop": {
+    "message": "記録を停止"
+  },
+  "troubleshooter_refresh": {
+    "message": "更新"
+  },
+  "troubleshooter_copy": {
+    "message": "サマリーをコピー"
+  },
+  "troubleshooter_export": {
+    "message": "エクスポート"
+  },
+  "troubleshooter_export_title": {
+    "message": "記録を JSON ファイルとして保存します。リソースURLには非公開のクエリデータが含まれている場合があります。"
+  },
+  "troubleshooter_category": {
+    "message": "カテゴリ"
+  },
+  "troubleshooter_category_all": {
+    "message": "すべてのカテゴリ"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URLルール"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "リダイレクト"
+  },
+  "troubleshooter_category_protection": {
+    "message": "保護とバイパス"
+  },
+  "troubleshooter_resource_type": {
+    "message": "リソースタイプ"
+  },
+  "troubleshooter_type_all": {
+    "message": "すべてのリソースタイプ"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "ルール、プロバイダー、URLを検索"
+  },
+  "troubleshooter_timer": {
+    "message": "記録中 $1 · 残り $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "このタブを確認中…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "使用できるアクティブなタブがありません。"
+  },
+  "troubleshooter_status_not_web": {
+    "message": "このページではURLルールのスキャンを利用できません。通常の http または https のウェブページを開いてください。"
+  },
+  "troubleshooter_status_off": {
+    "message": "記録はオフです。「記録を開始」を押すと、このページが読み込むリソースURLを調べられます。"
+  },
+  "troubleshooter_status_active": {
+    "message": "これまでに $1 件のURL変更を取得しました。新しいものは自動的にここに表示されます。"
+  },
+  "troubleshooter_status_stopped": {
+    "message": "記録を停止しました。$1 件のURL変更を取得しました。"
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "記録データをセッションストレージに保存できませんでした。拡張機能が再起動すると、$1 件のURL変更が失われる可能性があります。"
+  },
+  "troubleshooter_status_started": {
+    "message": "記録を開始し、タブを再読み込みしています。取得したURLはページの読み込みに合わせてここに表示されます。"
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "記録を停止しました。$1 件のURL変更を取得し、このブラウザーセッション用に保存しました。"
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "記録を停止しました。$1 件のURL変更を取得しましたが、セッションストレージに保存できませんでした。"
+  },
+  "troubleshooter_status_need_web": {
+    "message": "先に通常の http または https のウェブページを開いてください。"
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "このタブの記録を開始できませんでした。"
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "このタブの記録を停止できませんでした。"
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "このタブを読み取れませんでした。ポップアップを閉じて開き直してください。"
+  },
+  "troubleshooter_status_copied": {
+    "message": "サマリーをコピーしました。"
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "サマリーをコピーできませんでした。"
+  },
+  "troubleshooter_status_exported": {
+    "message": "記録をエクスポートしました。"
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "記録をエクスポートできませんでした。"
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "報告フォームを開けませんでした。"
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "ルールを有効にしました。比較するにはタブを再読み込みしてください。"
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "ルールを無効にしました。比較するにはタブを再読み込みしてください。"
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "このルールを更新できませんでした。"
+  },
+  "troubleshooter_empty_web": {
+    "message": "ルールの変更はまだ見つかっていません。「記録を開始」を押すと、このページのリソースURLを調べられます。"
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "このブラウザーページはスキャンできません。"
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "これらのフィルターに一致する結果はありません。"
+  },
+  "troubleshooter_showing_first": {
+    "message": "最初の $1 件のルールを表示しています。"
+  },
+  "troubleshooter_hits": {
+    "message": "$1 ヒット"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 件失敗"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ルールID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "組み込みの保護アクション（ルールIDなし）"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ルールID: この結果では利用できません"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "現在のルールセットでこのルールIDを解決できませんでした。"
+  },
+  "troubleshooter_source_observed": {
+    "message": "観測されたリクエスト"
+  },
+  "troubleshooter_source_page": {
+    "message": "ページURLの確認"
+  },
+  "troubleshooter_changes": {
+    "message": "変更内容: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "影響を受けたURL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…ほか $1 件"
+  },
+  "troubleshooter_after": {
+    "message": "Linkumori 適用後"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori による変更後に失敗しました: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "このルールは有効です。オフにして再読み込みすると、ページを比較できます。"
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "このルールは無効です。オンにして再読み込みすると、元の動作に戻ります。"
+  },
+  "troubleshooter_advice_protection": {
+    "message": "これは個別のルールではなく、組み込みの保護アクションです。"
+  },
+  "troubleshooter_advice_review": {
+    "message": "ルールを変更する前に、影響を受けたURLを確認してください。"
+  },
+  "troubleshooter_report": {
+    "message": "このルールを報告"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "ルールを無効にする"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "ルールを有効にする"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "ルール $1 を無効にする"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "ルール $1 を有効にする"
+  },
+  "troubleshooter_saving": {
+    "message": "保存中…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 を削除"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 を追加"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 を変更"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "$1 へリダイレクト"
+  },
+  "troubleshooter_change_path": {
+    "message": "パスを変更"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "フラグメントを変更"
+  },
+  "troubleshooter_change_other": {
+    "message": "URLを変更"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "意図的にブロック"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "このページで $1 件のリクエストが失敗しました。うち $2 件は Linkumori がURLを変更した直後です"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "このページは正常に動作しませんか？"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "原因のルールを探します。このページで実行されたルールを 1 つずつオフにし、そのたびにページが直ったかどうかを答えます。Linkumori が原因か分からない場合は、まずクリーンアップを一時停止して確認してください。"
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "まずクリーンアップを一時停止して確認"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "このタブで $1 のクリーンアップを一時停止中"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "クリーンアップなしでタブを再読み込みしました。ページは今は正常に動作しますか？"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "はい、動作します"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "いいえ、まだ動作しません"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "キャンセル"
+  },
+  "troubleshooter_diag_done": {
+    "message": "完了"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Linkumori が原因ではない可能性が高いです"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "クリーンアップを一時停止してもページが動作しなかったため、問題はサイト自体、他の拡張機能、またはネットワークなど、別の場所にある可能性が高いです。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori が原因の可能性が高いです"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "クリーンアップを一時停止するとページは動作します。ルールを探します。ルールを 1 つずつオフにしてタブを再読み込みし、ページが直ったかどうかを答えます。最後に、他のすべてのルールはオンに戻されます。"
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "このページで実行されるルールを記録するため、クリーンアップをオンに戻してタブを再読み込みしています。しばらくするとここに表示されます。何も表示されない場合は、問題が起きるまでページを使ってみてください。"
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "ルールを探す（$1 件のルール）"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "はい、直りました"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "いいえ、まだ動作しません"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "見つかりました"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "ページが動作しない原因はルール $1$2 です。このルールは再びオンになっています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "このルールを無効にする"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "報告する"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "ルールを無効にしました。確認するにはタブを再読み込みしてください。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "単独のルールは見つかりませんでした"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "ルールを 1 つずつオフにしてもページは直らなかったため、複数のルールの組み合わせ、または保護設定が原因と考えられます。すべてのルールはオンに戻されています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_failed": {
+    "message": "チェックを実行できませんでした: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "このチェックを使うには Linkumori を再読み込みしてください"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori は更新されましたが、バックグラウンド部分はまだ古いバージョンで動作しています。拡張機能を再読み込みするか（一時的なアドオンの場合: about:debugging → This Firefox → Reload）、Firefox を再起動してください。"
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "見つかりました"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "ページが動作しない原因はルール $1$2 です。ページが動作するよう、このルールはオフのままになります。他のすべてのルールはオンに戻っています。確認するにはタブを再読み込みしてください。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "タブを再読み込み"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "再びオンにする"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "ルールを再びオンにしました。確認するにはタブを再読み込みしてください。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "記録してルールを探す"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "このページで実行されるルールを記録しています。問題が起きるまでページを使ってください。ルールがここに表示されます。"
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "ルール検索のため一時的にオフになっています。検索が終わるとオンに戻ります。"
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "ルール検索を実行中です。検索が終わってからルールを変更してください。"
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "スキップ — 再びオンにする"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "オフのままにする"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "ルール検索をスキップしました。すべてのルールが再びオンになっています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "ルール $1 はオフのままです。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "このテストでオフにしているもの:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…ほか $1 件"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "検索を停止"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "スキップしました: そのルールはオンに戻り、対象から除外されます。次のルールをテストします。"
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "テストしたルールの中に原因は見つかりませんでした。スキップした $1 件のルールはテストされていません。すべてのルールが再びオンになっています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_experimental": {
+    "message": "試験的"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "試験的機能: このトラブルシューターは完全には安定していません。結果が正しくない場合があり、テスト中はルールをオフにします。後で問題がある場合は、カスタムルールエディターでルールを確認するか、「検索を停止」を使ってルールをオンに戻してください。"
+  },
+  "troubleshooter_working": {
+    "message": "処理中…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "もう一度記録"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "以前の記録をクリアしました。新たに読み込んだ状態で、このタブをもう一度記録します。"
+  },
+  "troubleshooter_clear": {
+    "message": "クリア"
+  },
+  "troubleshooter_clear_title": {
+    "message": "このタブの記録、検出結果、完了したルール検索をクリアします。ルールはそのまま維持されます。"
+  },
+  "troubleshooter_status_cleared": {
+    "message": "クリアしました。ルールはそのまま維持されます。"
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "クリアしました。ルール $1 はオフのままです。"
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "ルールを 1 つずつテスト中 — $2 件中 $1 件目のルール"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "このルールだけをオフにし、タブを再読み込みしました。ページは直りましたか？"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "このルールをスキップ"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "スキップ — 再びオンにして次をテスト（残り $1 件）"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "このページで実行された他の $1 件のルールはテストされていません。テストを続けますか？"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "オフのままにして次をテスト（残り $1 件）"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "ルール $1 はオフのままです。次のルールをテストします。"
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "他に単独でページを直すルールはありません。オフのままにした $1 件のルールはオフのままで、それ以外のすべてのルールはオンに戻っています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "次のルールをテスト（残り $1 件）"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "ルール $1 はオンに戻り、対象から除外されました。次のルールをテストします。"
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "他に単独でページを直すルールはありません。スキップした $1 件のルールもオンに戻ったため、すべてのルールが再びオンになっています。最初からやり直すには「クリア」をクリックしてください。"
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori は、JSON 形式の <strong>CLN Format 1.0</strong>（Clean Link Notation）で記述されたルールでURLをクリーンアップします。このガイドでは、最初のルールからすべてのオプションまでを、コピーして使える例とともに説明します。"
+  },
+  "guide_intro_p_2": {
+    "message": "組み込みルール、リモートルールリスト、カスタムルールはすべて同じ形式を使用します。カスタムルールはカスタムルールエディターで記述し、保存またはインポートの際にチェックされます。公式の ClearURLs ルールカタログ (<code>data.min.json</code>) はすでに有効な CLN ファイルであり、そのまま使用できます。"
+  },
+  "guide_rules_file_p_1": {
+    "message": "プロバイダー名は単なるラベルです。プロバイダーが処理するURLは <code>domainPatterns</code> または <code>urlPattern</code> で決まります。"
+  },
+  "guide_rules_file_th_1": {
+    "message": "トップレベルのキー"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "必須。名前ごとのプロバイダー。"
+  },
+  "guide_rules_file_cell_2": {
+    "message": "任意のフォーマットバージョン。有効な値は <code>\"1.0\"</code> のみです。指定のないファイルも 1.0 として読み込まれ、それ以外の値ではファイルが拒否されます。ClearURLs の新しいルール形式がすでにそのキーを使っているため、<code>version</code> とは呼びません。"
+  },
+  "guide_rules_file_cell_3": {
+    "message": "ファイルに関する任意の情報。"
+  },
+  "guide_rules_file_cell_4": {
+    "message": "独自の値を設定していないファイル内のすべてのルールに適用される値（第12章）。"
+  },
+  "guide_rules_file_cell_5": {
+    "message": "リモートルールリストのみ: すでに読み込まれているルールの置き換え（第15章）。"
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "プロバイダーが処理するURLを、1 つのドメインパターンまたはそのリストで指定します（第3章）。これか <code>urlPattern</code> のどちらか一方を使い、両方は使いません。"
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "プロバイダーが処理するURLを、完全なURLに対して照合される 1 つの正規表現で指定します。大文字と小文字は区別されません。"
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "<code>urlPattern</code> と併用する場合のみ: <code>||example.com^</code> のようなホストのヒント。これにより、すべてのURLではなく該当するホストに対してのみプロバイダーが確認されます。これは検索用のヒントであり、一致条件ではありません。"
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "削除するリファラルおよびアフィリエイトのパラメーター。<em>リファラルマーケティングを許可</em>がオンの間はスキップされます（第10章）。"
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "プロバイダーがまったく手を加えないURL（第7章）。"
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "リクエストを編集せず、別のアドレスに送ります（第8章）。"
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "パラメーターの値の宛先にリクエストを送ります（第8章）。"
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: ページの読み込み (<code>main_frame</code>) がリダイレクトされるとき、ネットワークリクエストだけでなくタブ全体が新しいアドレスに移動します。"
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "これらのHTTPメソッドのみを処理します（例: <code>[\"GET\"]</code>）。指定しない場合はすべてのメソッドが対象です。"
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "これらのリクエストタイプのみを処理します（例: <code>[\"main_frame\", \"xmlhttprequest\"]</code>）。指定しない場合はすべてのリクエストタイプが対象です。"
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "デフォルトは <code>true</code>。<code>false</code> にすると、ページが History API (<code>pushState</code>/<code>replaceState</code>) で自身のアドレスを変更するときに、プロバイダー全体をスキップします。通常のネットワークリクエストは引き続きクリーンアップされます。"
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> にすると、プロバイダーを削除せずにオフにします。"
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> はドメインパターンのリストです。いずれかに一致すればURLは一致とみなされます。同じパターンは <code>exceptions</code>、<code>redirections</code>、<code>$removeparam</code> フィルター、rawルールの前でも使われます。"
+  },
+  "guide_matching_cell_1": {
+    "message": "完全なURL（正規表現）"
+  },
+  "guide_matching_cell_2": {
+    "message": "このテキストを含むURL（先頭に <code>|</code> なし）"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> はホスト名の終わり、または <code>/</code>、<code>?</code>、<code>:</code> などの区切り文字、あるいはURLの終端を表します。<code>*</code> はワイルドカードです。"
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> はドメイン、つまりホストとそのすべてのサブドメインを表します。単独の <code>|</code> はURLの先頭を表し、その後に <code>https://</code> などのスキームが必要です。ドメインには常に <code>||</code> を使ってください。<code>|example.com^</code> は決して一致しないため、エディターは拒否します。"
+  },
+  "guide_matching_p_4": {
+    "message": "たとえば <code>||smile.amazon.*^</code> は次のように読みます: <code>||</code> はホストとそのサブドメイン、<code>smile.amazon</code> は必須のラベル、<code>.*</code> は任意のパブリックサフィックス (<code>.com</code>、<code>.co.jp</code>、<code>.de</code> など)、<code>^</code> はホストの終わりです。"
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "そのパラメーターのみ"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "名前全体が一致するすべてのパラメーター。大文字と小文字は区別されません"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> と <code>\"$removeparam=fbclid\"</code> は同じものを削除します。第5章の機能が必要でない限り、単純な名前を使ってください。どのエントリーもルールオブジェクトとして記述できます（第9章）。"
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "ここでは <code>qid</code> はすべての Amazon サイトで、<code>tag</code> は <code>amazon.de</code> のみ、<code>sr</code> は <code>smile.amazon</code> のみ、<code>ref_</code> は <code>/gp/</code> 配下のみで削除されます。パターンはプロバイダー自身のパターンを絞り込みますが、広げることはできません。"
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> はフィルターを、パラメーターを残す例外に変えます（後述）。"
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> はフィルターをプロバイダーの一部のURLに絞り込みます（第3章）。指定しない場合は、プロバイダーが一致するすべてのURLに適用されます。"
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> でパラメーターを選びます。指定しない場合は、すべてのパラメーターが削除されます。"
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "修飾子は、フィルターが作動する条件を指定します。列挙したすべての修飾子が成り立つ必要があり、それらの間に「または」はありません。"
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "<code>ref</code> 以外のすべてのパラメーター"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "名前、または <code>name=value</code> 全体が正規表現に一致するパラメーター。大文字と小文字を区別しない場合は <code>i</code> を追加します"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "名前が <code>utm_</code> で始まるパラメーター"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "パラメーター名のエスケープ"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "バックスラッシュは次の文字をそのまま文字として扱うため、どんなパラメーター名でも対象にできます:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "値"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "削除されるパラメーター名"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code>（カンマは修飾子の開始にならない）"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "名前の値で使えるエスケープはこの 5 つだけで、他の文字の前のバックスラッシュはエラーになります。<code>/regex/</code> の値の中では、バックスラッシュは正規表現としての意味を保ちます。エスケープは <code>rules</code>、<code>referralMarketing</code>、<code>fieldRedirections</code>、<code>@@</code> エントリーで使えます。JSON ではバックスラッシュを 2 つ重ねて書きます: <code>\"$removeparam=\\\\~foo\"</code>。"
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "修飾子"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "修飾子は値の後にカンマ区切りで記述します。1 つの修飾子の複数の値は <code>|</code> で区切り、除外する値の前には <code>~</code> を付けます:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "修飾子"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "リクエストを発生させたページがこれらのいずれか（<code>~</code> を付けた場合はいずれでもない）の場合のみ。正規表現の値も使えます"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "リクエスト自体がこれらのいずれかに送られる場合のみ（どのページが発生させたかは問いません）"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "これらのHTTPメソッドの場合のみ: <code>get</code>、<code>head</code>、<code>options</code>、<code>post</code>、<code>put</code>、<code>patch</code>、<code>delete</code>、<code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "リクエストがページと同じ登録可能ドメイン（<code>a.example.com</code> と <code>b.example.com</code> は同じとみなされます）に送られる場合、または異なるドメインに送られる場合のみ"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "同様ですが、正確なホスト名を比較するため、サブドメインはサードパーティとみなされます"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "パラメーター名は大文字と小文字を区別して比較されます"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ページが History API で自身のアドレスを変更するときに、このフィルターをスキップします。<code>true</code>/<code>false</code>、<code>1</code>/<code>0</code>、<code>yes</code>/<code>no</code> も使えます"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "4 つの <code>*-party</code> 修飾子は互いに組み合わせられません。<code>first-party,third-party</code> は拒否されます。"
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "たとえば <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> は、<code>example.com</code> 上で、別のサイトのページが発生させた GET リクエストに限り <code>sid</code> を削除し、そのページが <code>partner.com</code> の場合は削除しません。"
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> エントリーは <code>$removeparam</code> フィルターに対してのみ保護します。<code>\"ref\"</code> のような単純なエントリーは引き続きパラメーターを削除します。その場合はルールオブジェクトの <code>exceptions</code> を使ってください。rawルールには独自の <code>@@…$rawrule=</code> エントリーがあります（第6章）。"
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "記述する場所は問わず、<code>order</code> を持つこともできません。"
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "そのパターンは、rawルールが実行される前の、プロバイダーが受け取った状態のURLに対して確認されます。rawルールが削除するパスに限定した <code>@@</code> エントリーも、引き続き一致します。"
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "また、このプロバイダーが一致するページが発生させたリクエストについて、他のプロバイダーのフィルターも対象になります。他の場所で定義されたルールから特定のサイトを除外するのに便利です。"
+  },
+  "guide_raw_rules_p_1": {
+    "message": "rawルールは <code>rules</code> より先に実行され、大文字と小文字を区別せず、すべての一致を置き換えます（フラグは <code>gi</code>、または <code>match-case</code> 使用時は <code>g</code>）。JSON ではバックスラッシュを 2 つ重ねて書きます。"
+  },
+  "guide_raw_rules_p_2": {
+    "message": "rawルールは <code>$removeparam</code> フィルターのパターンと修飾子を取ることができ、<code>rawrule=</code> は最後に置きます。<code>rawrule=</code> の後ろはすべて正規表現です:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "パターンと修飾子はルールが実行される場所を決め、削除されるのは引き続き正規表現に一致する部分です。"
+  },
+  "guide_raw_rules_p_4": {
+    "message": "<code>@@</code> で始まり <code>rawrule=</code> で終わるエントリーは、そのパターンが一致する場所でrawルールが実行されないようにします:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "<code>rawrule=</code> の後ろに何も指定しない場合、それらのURLでプロバイダーのすべてのrawルールを停止します。"
+  },
+  "guide_raw_rules_item_2": {
+    "message": "<code>rawrule=</code> の後ろに正規表現を指定した場合、その正規表現を持つrawルールを停止します。"
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> を持つルールオブジェクトとして記述した場合、そのIDまたはエイリアスを持つrawルールだけを停止します。"
+  },
+  "guide_raw_rules_p_5": {
+    "message": "プロバイダー全体をスキップするには、代わりに <code>exceptions</code> を使ってください。"
+  },
+  "guide_exceptions_p_1": {
+    "message": "URLが <code>exceptions</code> のエントリーに一致する場合、そのリクエストに対してプロバイダーのルールは一切実行されません。エントリーは、完全なURLに対する正規表現、または <code>|</code> で始まるドメインパターンです:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "例外では大文字と小文字は区別されません。プロバイダー全体ではなく単一のルールだけをスキップするには、そのルールに独自の <code>exceptions</code> を指定します（第9章）。"
+  },
+  "guide_redirects_p_1": {
+    "message": "URL内で最初に現れる一致するパラメーターが優先されます。<code>https://site.example/away?redirect=https://real.example/page</code> の場合、リクエストは <code>https://real.example/page</code> に送られます。"
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "有効なリダイレクト先"
+  },
+  "guide_redirects_p_2": {
+    "message": "リダイレクトが行われるのは、ホストを持つ絶対 <code>http</code> または <code>https</code> アドレスの場合のみです。この確認は、プリプロセッサーとパーセントデコードの後に行われます。無効なリダイレクト先の場合、そのエントリーは一致しないものとして扱われ、リダイレクトは行われず、プロバイダーの後続のステップは変更されていないURLに対して実行されます。"
+  },
+  "guide_redirects_th_1": {
+    "message": "リダイレクト先"
+  },
+  "guide_redirects_th_2": {
+    "message": "リダイレクトされる？"
+  },
+  "guide_redirects_cell_1": {
+    "message": "はい"
+  },
+  "guide_redirects_cell_2": {
+    "message": "はい、<code>https://real.example/page</code> へ"
+  },
+  "guide_redirects_cell_3": {
+    "message": "いいえ: スキームが <code>http</code> でも <code>https</code> でもありません"
+  },
+  "guide_redirects_cell_4": {
+    "message": "いいえ: 絶対アドレスではありません"
+  },
+  "guide_redirects_p_3": {
+    "message": "結果のスキーム、ホスト、ポートが入力と異なるrawルールも、テキストを削除するだけの場合であってもリダイレクトとみなされます。<code>https://secure-bank.example/</code> から <code>secure-</code> を削除すると、別のサイトに移動してしまうためです。これには有効なリダイレクト先が必要で、リモートルールリストでは <code>redirect</code> の承認が必要です（第15章）。それ以外の場合、ルールはURLを元のままにします。"
+  },
+  "guide_rule_objects_p_1": {
+    "message": "どのリストのどのエントリーも、文字列の代わりにオブジェクトにできます。ルールに固定のID、最初からオフにする設定、削除ではなく書き換え、または特定の場合のみの実行が必要なときに使います:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "必須。そのリストで単純なエントリーとして記述するテキスト。"
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "ルールのオン/オフの切り替えに使う固定の名前（英字、数字、<code>-</code>、<code>_</code>）（第14章）。"
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "ルールの以前のID。名前変更後も、古いIDで保存された設定が引き続き適用されます。"
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "削除ではなく書き換えます。<code>§1§</code>、<code>§2§</code>、… はキャプチャされた値です。"
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "キャプチャされた値を先に変換します。"
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "これらのリクエストタイプのみ（例: <code>[\"main_frame\"]</code>）。リクエストを伴わないクリーンアップ（<em>クリーンなリンクをコピー</em>、クリーンアップツール、History API の変更）は <code>main_frame</code> として扱われます。"
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "この 1 つのルールが実行されないURL（正規表現）。"
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "文字列で指定する正規表現フラグ。デフォルトは <code>i</code>。<code>rawRules</code> では <code>gi</code>（<code>match-case</code> 使用時は <code>g</code>）。"
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "ステージ内でルールを早く、または遅く実行します（第13章）。"
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: <code>rules</code> 内のルールも、リファラルマーケティングルールとして扱われます（第10章）。"
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "同名のプロバイダー設定を、この 1 つのルールに対して指定します。プロバイダーの値およびファイルのデフォルトより優先されます。"
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: ルールは最初からオフになります。"
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "ファイルを読む人向けのメモ。文字列である必要があります。"
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "<code>@@…$rawrule=</code> エントリーのみ: 停止するrawルールのID。"
+  },
+  "guide_rule_objects_p_2": {
+    "message": "ここでは <code>?token=abc123</code> が <code>?token=clean-abc123</code> になります。書き換えはリクエストごとに最大 1 回だけ適用されるため、値が何度も包まれ続けることはありません。"
+  },
+  "guide_rule_objects_p_3": {
+    "message": "プリプロセッサーは、<code>replacePattern</code> やリダイレクトが使用する前に、キャプチャされた値を順番に変更します。<code>inputs</code> は <code>\"all\"</code> またはグループ番号のリストです:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> は <code>rules</code> と同じエントリーを取ります。これらは<em>リファラルマーケティングを許可</em>がオフの間のみ実行されるため、オンにするとアフィリエイトリンクが引き続き機能します:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "ルールは <code>rules</code> に残したまま、<code>\"referralMarketing\": true</code> でリファラルマーケティングとして扱うこともできます。同じテキストを <code>rules</code> と <code>referralMarketing</code> の両方に入れないでください。エディターが警告します。"
+  },
+  "guide_request_types_cell_1": {
+    "message": "1 つのルールオブジェクトが処理するリクエストタイプ（<code>defaults</code> でも設定可能）"
+  },
+  "guide_request_types_p_1": {
+    "message": "リクエストタイプにはブラウザーの名称を使います: <code>main_frame</code>（ページ）、<code>sub_frame</code>（フレーム）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> など。フィルター修飾子では、最初の 2 つを <code>document</code> と <code>subdocument</code> と呼びます。"
+  },
+  "guide_request_types_p_2": {
+    "message": "リクエストタイプはルールからのみ指定されます。設定にリクエストタイプの一覧はありません。これらがどれも設定されていない場合、ルールはすべてのリクエストタイプをクリーンアップします。"
+  },
+  "guide_defaults_title_1": {
+    "message": "12. デフォルト"
+  },
+  "guide_defaults_p_1": {
+    "message": "トップレベルの <code>defaults</code> ブロックは、ファイル内の各ルールに、そのルールが設定していない値を与えます:"
+  },
+  "guide_defaults_th_1": {
+    "message": "各ルールのデフォルト…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>。<code>false</code> にすると、<code>\"active\": true</code> を指定したルール以外のすべてがオフになります"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>。<code>\"all\"</code> または省略した場合はすべてのタイプが対象です"
+  },
+  "guide_defaults_item_1": {
+    "message": "ルール自身の値が常に優先され、ルールの <code>exceptions</code> はデフォルトのリストに追加されるのではなく、置き換えます。"
+  },
+  "guide_defaults_item_2": {
+    "message": "デフォルトは <code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code>、<code>redirections</code>、<code>fieldRedirections</code> に適用されます。プロバイダー自身の <code>exceptions</code> リストは変更されません。<code>$redirect=</code> エントリーでは <code>active</code> のみが使われます。"
+  },
+  "guide_defaults_item_3": {
+    "message": "各ファイルは自身のデフォルトを保持します。組み込みルール、各リモートリスト、カスタムルールは、オーバーロードモードでマージされる場合も同様です。"
+  },
+  "guide_defaults_item_4": {
+    "message": "<code>completeProvider</code> では、デフォルトの <code>requestTypes</code> と <code>exceptions</code> もブロックの対象を制限します。"
+  },
+  "guide_defaults_item_5": {
+    "message": "不明なキーや誤った型はエラーとなり、無効な <code>defaults</code> ブロックを持つリモートリストは拒否されます。"
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "自分のデフォルト"
+  },
+  "guide_defaults_p_2": {
+    "message": "カスタムルールエディターの<em>ルールのデフォルトを管理</em>では、独自の <code>defaults</code> ブロックを設定し、各ファイル自身のデフォルトを置き換える範囲を選べるフォームが開きます:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>各ソース自身のもの</em>（デフォルト）: 各ファイルが自身の <code>defaults</code> を使用します。"
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>組み込みルールとリモートルールに自分のもの</em>: 組み込みルールとリモートルールが自分のデフォルトを使用し、カスタムルールは自身のものを保持します。"
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>すべてのルールに自分のもの</em>: すべてのルールが自分のデフォルトを使用します。"
+  },
+  "guide_defaults_p_3": {
+    "message": "同じフォームで、組み込みルールと読み込まれた各リモートリストのデフォルトも編集できます。編集内容はファイルではなく拡張機能内に保存され、<em>ファイルのデフォルトにリセット</em>で破棄されます。<em>ソースからマージ…</em>は、チェックを入れたソースのデフォルトを結合します。保存するまで何も記憶されません。"
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URLが処理される順序"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>、次に <code>fieldRedirections</code>: 有効なリダイレクト先を持つ一致があれば、リクエストがリダイレクトされます。"
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> と <code>referralMarketing</code> がパラメーターを削除または書き換えます。"
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code> フィルターが実行されます。ただし、<code>@@</code> エントリーがパラメーターを残す場合を除きます。"
+  },
+  "guide_processing_order_p_1": {
+    "message": "URLを変更、リダイレクト、またはブロックした最初のプロバイダーが優先されます。その後、新しいURLが同じステップを再び通ります（<a href=\"#termination\">処理が停止するとき</a>を参照）。"
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "実行順序と <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "ステップ 4 と 5 は、次の規則に順に従って一緒に並べ替えられます:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>rawルールは常に最初に実行されます。</strong>どんな <code>order</code> でも、<code>rules</code> のエントリーをrawルールより前に移動することはできません。rawルールより前に行う必要のあるクリーンアップは、それ自体がrawルールでなければなりません。"
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>ステージ内では、<code>order</code> を持つルールが持たないルールより先に実行され</strong>、小さい順になります。負の数や小数も使えます。<code>order: 10</code> は「10 番目」ではなく、10 未満の order を持つそのステージのルールの後、order を持たないすべてのルールの前を意味します。"
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>次にリスト順:</strong> <code>rules</code>、次に <code>\"referralMarketing\": true</code> が付いた <code>rules</code> オブジェクト、次に <code>referralMarketing</code>。"
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>次にリスト内の位置順。</strong><code>\"3\"</code> や <code>\"20\"</code> のように書かれたエントリーを含め、すべてのエントリーが位置を保ちます。"
+  },
+  "guide_processing_order_p_3": {
+    "message": "ここでは、トークンの書き換えは 2 番目に書かれているにもかかわらず、<code>utm_source</code> の削除より先に行われます:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "オフのルールは除外されます。<code>$removeparam</code> フィルターと <code>@@</code> エントリーはこの並べ替えの対象外で、<code>null</code> も含め <code>order</code> を持てません。フィルターは常に最後に実行されます。"
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "同じテキストが 2 回"
+  },
+  "guide_processing_order_p_5": {
+    "message": "1 つのグループ内で同じ <code>matchPattern</code> テキストを持つ 2 つのエントリーは、1 つのルールとみなされます。グループは、raw (<code>rawRules</code>)、field（リファラルマークなしの <code>rules</code>）、referral（マーク付きの <code>rules</code> オブジェクト、次に <code>referralMarketing</code>）です。これは主にルールリストがマージされるときに起こります。"
+  },
+  "guide_processing_order_item_8": {
+    "message": "オフでない最後の定義が、そのすべてのキーとともに優先されます。"
+  },
+  "guide_processing_order_item_9": {
+    "message": "独自の <code>order</code> がない場合、優先された定義は最初の定義の位置と、最も近い前の <code>order</code> を引き継ぎます。<code>\"order\": null</code> は order なしを意味し、引き継いだ order を破棄します。"
+  },
+  "guide_processing_order_item_10": {
+    "message": "置き換えられた定義のIDとエイリアスは、優先された定義のオン/オフも切り替えます。"
+  },
+  "guide_processing_order_item_11": {
+    "message": "リファラルマーケティングルールの実行中は、referral エントリーが同じテキストの field エントリーを置き換えます。"
+  },
+  "guide_processing_order_item_12": {
+    "message": "同じテキストのrawルールとfieldルールは衝突せず、両方が実行されます。"
+  },
+  "guide_processing_order_p_6": {
+    "message": "1 つのリスト内では、同じテキストを持つ 2 つの異なるエントリーはエラーとなり、完全なコピーは警告となります。"
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "処理が停止するとき"
+  },
+  "guide_processing_order_item_13": {
+    "message": "1 リクエストあたり最大 10 サイクルまで実行されます。上限に達すると、その時点のURLが使用されます。"
+  },
+  "guide_processing_order_item_14": {
+    "message": "<code>replacePattern</code> を持つルールは、1 リクエストにつき最大 1 回だけ適用されます。"
+  },
+  "guide_processing_order_item_15": {
+    "message": "URLを変更しないステップは、新しいサイクルを開始しません。"
+  },
+  "guide_processing_order_p_7": {
+    "message": "設定 → <em>サイクル数無制限のクリーンアップ</em>（デフォルトはオフ）は、より多くを必要とするルールチェーンのための 10 サイクルの上限を解除します。その場合、サイクルで何も変わらなくなった時点で処理が終了しますが、互いにリダイレクトし合う 2 つのルールは、ブラウザーが諦めてページが読み込まれなくなるまでループします。信頼できるルールに対してのみオンにしてください。"
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. ルールIDとオン/オフの切り替え"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "すべてのルールにはIDがあります。<code>id</code> のないルールには、そのリストとテキストからIDが生成されます。たとえば <code>rules</code> の <code>\"utm_source\"</code> は <code>field-utm-source</code> になります。生成されたIDはルールのテキストが変わると変わり、オフにしていたルールが再びオンになってしまいます。編集してもオン/オフの設定を保持したいルールには独自の <code>id</code> を指定し、名前を変更するときは古いIDを <code>aliases</code> に列挙してください。"
+  },
+  "guide_rule_ids_p_2": {
+    "message": "ルールのオン/オフは、プロバイダーとIDの組み合わせ（例: <code>shop::session-token</code>）で切り替えられるため、2 つのプロバイダーが同じIDを使えます。カスタムルールエディターは、<code>domainPattern:||shop.example^::session-token</code> のようにプロバイダーのパターンで保存することもあり、どちらの形式も機能します。"
+  },
+  "guide_rule_ids_item_1": {
+    "message": "1 つのプロバイダー内では、すべてのIDとエイリアスが異なっている必要があります。生成されたIDも含まれます。"
+  },
+  "guide_rule_ids_item_2": {
+    "message": "IDにコロンを含めることはできません。"
+  },
+  "guide_rule_ids_item_3": {
+    "message": "プロバイダーなしの単独のIDで保存された設定は何も切り替えません。カスタムルールエディターでルールをもう一度オフにしてください。"
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. リモートルールリスト"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "リモートルールリストは、Linkumori がダウンロードするルールファイルで、必要に応じてハッシュファイルと照合されます。無効な <code>cln</code> 値、<code>defaults</code> ブロック、または <code>patches</code> 配列を持つリストは読み込まれず、リモートルールの健全性で報告されます。"
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "リダイレクトとブロックには承認が必要です"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "リモートリストにできることは、読み込み時にその内容から判断されます:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "機能"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "リストが次を含む場合に有効"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "読み込み時の状態"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code> のエントリー、または <code>$removeparam</code> フィルター"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "<code>replacePattern</code> を持つエントリー"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "プロバイダーの <code>exceptions</code> エントリー、または <code>@@</code> エントリー"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> または <code>fieldRedirections</code> のエントリー、または <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "承認後"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "<code>\"completeProvider\": true</code> を持つプロバイダー"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "<code>redirect</code> と <code>block</code> は、リモートルールの健全性でリストごとに承認します。それまでは、そのリストのリダイレクトとブロックはオフのままで、rawルールもURLを別のサイトに送ることはできません。リストの残りの部分はすぐに機能します。更新で新しい機能が追加された場合も、承認が必要になります。組み込みルールとカスタムルールにはすべての機能があります。"
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "オーバーロードモード"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "通常、プロバイダーを含むリモートリストは組み込みルールを置き換え、<code>patches</code> のみを含むリストは組み込みルールに適用されます。<em>オーバーロードモードを有効にする</em>をオンにすると、次の 3 つの方式のいずれかで、これらが一緒に読み込まれます:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>パッチモードのみ</em>: リモートリストのパッチを組み込みルールに適用し、リモートプロバイダーは除外します。"
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>パッチモード + マージ</em>: 組み込みプロバイダーとリモートプロバイダーをマージしてから、パッチを適用します。"
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>パッチモードなし + マージ</em>: プロバイダーをマージし、パッチはスキップします。"
+  },
+  "guide_remote_rules_p_5": {
+    "message": "マージの際は、リモートリスト同士が一覧にした順序でマージされ、その後に組み込みルールとマージされます（組み込みが先）。マージされるのは、<code>domainPatterns</code>（または <code>urlPattern</code>）、<code>methods</code>、<code>resourceTypes</code>、<code>completeProvider</code>、<code>forceRedirection</code> がすべて同じプロバイダーのみで、それらの <code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code> が結合され、どのコピーが実行されるかは<a href=\"#same-text-twice\">同じテキストが 2 回</a>によって決まります。リモートルールの健全性では、置き換えられたすべてのルールが通知として一覧表示されます。"
+  },
+  "guide_remote_rules_p_6": {
+    "message": "カスタムルールは最後に適用されます。カスタムプロバイダーは、同じパターンを持つ読み込み済みのすべてのプロバイダーを置き換えます。それらのルールは結合されません。"
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "ルールパッチ"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "リモートリストは、完全なコピーを公開せずに、読み込み済みの個々のルールを、トップレベルの <code>patches</code> 配列で置き換えることができます:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "必須。置き換えるルールを、オン/オフのキーと同じ形式で指定します: <code>providerKey::id</code>、<code>domainPattern:&lt;pattern&gt;::id</code>、または <code>urlPattern:&lt;regex&gt;::id</code>。"
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "必須。<code>rules</code>、<code>referralMarketing</code>、<code>rawRules</code>、<code>exceptions</code>、<code>redirections</code>、または <code>fieldRedirections</code>。"
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "必須。新しいルール。単純なエントリーまたはルールオブジェクト。"
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "ファイルを読む人向けのメモ。"
+  },
+  "guide_remote_rules_item_4": {
+    "message": "パッチはリモートリストのマージ後、カスタムルールの前に実行されます。<code>patches</code> のみのファイルには <code>providers</code> は不要です。"
+  },
+  "guide_remote_rules_item_5": {
+    "message": "マージによってプロバイダー名が変わることがあるため、常に見つけられるのは <code>domainPattern:</code> または <code>urlPattern:</code> 形式です。"
+  },
+  "guide_remote_rules_item_6": {
+    "message": "置き換え後のルールは古いルールのIDを引き継ぐか、古いIDをエイリアスとして持つため、オン/オフの設定は引き続き適用されます。"
+  },
+  "guide_remote_rules_item_7": {
+    "message": "リダイレクトに対するパッチは、リストの <code>redirect</code> の承認を待ちます。対象が何にも一致しないパッチは、何も変更しません。"
+  },
+  "guide_remote_rules_item_8": {
+    "message": "リモートルールの健全性では、各パッチが適用済み、不一致、またはスキップとして一覧表示されます。"
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. ルールとホワイトリスト"
+  },
+  "guide_whitelist_p_1": {
+    "message": "ホワイトリストはプロバイダーの <code>exceptions</code> とは別のもので、ルールファイルを介さずに Linkumori に手を加えないよう指示したサイトの一覧です。エントリーは <code>example.com</code>、<code>*.example.com</code>（そのサイトとサブドメイン）、<code>example.*</code>（任意のサフィックス）のような形式です。ページをホワイトリストに登録すると、そのページが読み込むすべても対象になります。"
+  },
+  "guide_examples_title_1": {
+    "message": "17. 完全な例"
+  },
+  "guide_checking_title_1": {
+    "message": "18. ルールのチェック"
+  },
+  "guide_checking_p_1": {
+    "message": "カスタムルールエディターは、ルールの保存またはインポート時にチェックを行い、<code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> でも同じチェックを実行できます。壊れた JSON や無効な正規表現のほか、読み込まれても静かに誤動作するような、次のようなルールも拒否します:"
+  },
+  "guide_checking_item_1": {
+    "message": "不明なフィールド、キー、修飾子"
+  },
+  "guide_check_7": {
+    "message": "<code>\"1.0\"</code> 以外の <code>cln</code> 値"
+  },
+  "guide_check_8": {
+    "message": "1 つのプロバイダー内で 2 回使われているIDまたはエイリアス"
+  },
+  "guide_checking_item_2": {
+    "message": "1 つのリスト内の、同じテキストを持つ 2 つの異なるエントリー"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> フィルターまたは <code>@@</code> エントリーの <code>order</code>（<code>null</code> を含む）"
+  },
+  "guide_check_9": {
+    "message": "<code>http</code> でも <code>https</code> でもない <code>$redirect=</code> アドレス"
+  },
+  "guide_check_10": {
+    "message": "エスケープのない文字の前にバックスラッシュがある <code>$removeparam</code> の名前"
+  },
+  "guide_checking_p_2": {
+    "message": "完全なコピーや、同じテキストが <code>rules</code> と <code>referralMarketing</code> の両方にある場合にも警告します。保存に失敗した場合、メッセージにはプロバイダー、リスト、エントリーが示されます。"
+  },
+  "guide_toc_search": {
+    "message": "セクションを絞り込む"
+  },
+  "guide_toc_no_results": {
+    "message": "一致するセクションはありません。"
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: \"|\" で始まるリダイレクトは \"||example.com^$redirect=https://target/\" の形式にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= の転送先は絶対 http または https URL にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ はオブジェクトにしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type は空でない文字列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type は次のいずれかにしてください: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs は \"all\" または正の整数の配列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ は文字列またはルールオブジェクトにしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern は文字列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern は文字列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId はルール ID にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId は rawRules 内の \"@@…$rawrule=\" 例外にのみ適用されます",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags は文字列にしてください (\"i\" などの正規表現フラグ)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing は true または false にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing は $FIELD$ では効果がありません。$LISTS$ でのみ適用されます",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order は数値または null にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order は $FIELD$ では効果がありません。$LISTS$ でのみ適用されます",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order は $removeparam フィルターまたは \"@@\" エントリには効果がありません。これらは常に他のルールの後に実行されます",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active は真偽値にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id は文字列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id はパターン $PATTERN$ に一致させてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases はパターン $PATTERN$ に一致する ID のリストにしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases にルール自身の ID を含めないでください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description は文字列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection は真偽値にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions は文字列の配列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes は文字列の配列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors は配列にしてください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: 不明なフィールド \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ は \"@@\" で始まっています。これは rules と referralMarketing の $removeparam フィルターにのみ適用されます。代わりにルールオブジェクトの \"exceptions\" を使用してください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ に不明な $removeparam オプション \"$OPTION$\" があります",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" は \"|\" 1つで始まるため、文字通り \"$REST$\" で始まる URL のみに一致します。そのような URL はありません (URL は \"https://\" で始まります)。ドメインに一致させるには \"||$REST$\" を使用してください。",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ に \"targetId\" がありますが、これは例外でのみ使用できます。matchPattern を \"@@\" で始めてください (例: \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ に \"targetId\" と \"rawrule=\" の後の正規表現の両方があります。どちらか一方を使用してください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ の targetId \"$ID$\" に一致する ID またはエイリアスを持つ raw rule がこのプロバイダーにありません",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ は \"$REGEX$\" に対する \"@@\" 例外ですが、このプロバイダーにはその正規表現を使う raw rule がありません。ルールに ID を付けて \"targetId\" で指定してください",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ は \"@@\" 例外のため、\"$KEY$\" は効果がありません",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ の \"rawrule=\" の後に削除する正規表現がありません",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ の \"rawrule=\" の後の正規表現が無効です: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ にはキャプチャグループが $GROUPS$ 個あります。転送先 URL を囲む \"( … )\" がちょうど1組必要です (他のグループは \"(?: … )\" と記述してください)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ は $WHERE$ でルール ID \"$ID$\" を再利用しています。最初に使用された場所: $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ は JSON オブジェクトにしてください",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ は配列にしてください",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ に不明なキー \"$KEY$\" があります",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL の処理中にエラーが発生しました: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "ページの初期化中にエラーが発生しました: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "無効なタブです"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "このタブではルール検索がすでに実行中です"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "このタブでは一時停止の確認が実行されていません"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "ルールを読み込み中です。少し待ってからもう一度お試しください。"
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "このページで実行されたルールのうち、無効にできるものはありません。"
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "ルールを無効にできませんでした"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "このタブではルール検索が実行されていません"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "このタブにはスキップできる検出済みルールがありません"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "ダウンロードを利用できません"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "記録をセッションストレージに保存できませんでした"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "不明なルール"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "不明なエラー"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "エクスポートに失敗しました"
   }
 }

@@ -39,7 +39,7 @@
     "message": "Použijte přibalená pravidla Linkumori/ClearURLs. Tuto možnost zakažte, chcete-li spouštět pouze vzdálená pravidla a/nebo vlastní pravidla."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori používá jednu sjednocenou sadu pravidel poskytovatelů ClearURLsData. Nativní JSON poskytovatelů, kanonické objekty pravidel a filtry $removeparam jednotlivých poskytovatelů se sloučí před spuštěním clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Informace o pravidlech"
@@ -1137,25 +1137,25 @@
     "message": "Otevřete Nastavení Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Chování režimu přetížení"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Pouze režim záplat"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Použije vzdálené záplaty na vestavěná pravidla. Vzdálená pravidla poskytovatelů nejsou zahrnuta."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Režim záplat + sloučení"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Sloučí vestavěná a vzdálená pravidla poskytovatelů a poté použije vzdálené záplaty."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Bez režimu záplat + sloučení"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Sloučí vestavěná a vzdálená pravidla poskytovatelů bez použití vzdálených záplat."
   },
   "overload_mode_enabled": {
     "message": "Povolit režim přetížení"
@@ -1227,7 +1227,7 @@
     "message": "Otevřete text licence GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "Menší obecná veřejná licence GNU v3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "Otevřete text licence GNU LGPL v3.0"
@@ -1836,7 +1836,7 @@
     "message": "Primární hash URL musí používat HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Primární URL pravidel a primární URL hashe musí být nakonfigurovány společně."
   },
   "save_primary_rule_https_required": {
     "message": "Adresa URL primárního pravidla musí používat protokol HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Rozumím rizikům – pokračujte"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Měli byste znovu zvážit používání vzdálených pravidel, pokud plně nerozumíte zdroji sady pravidel Linkumori nebo mu nedůvěřujete."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Tato funkce vzdálených pravidel je určena pokročilým uživatelům, kteří rozumí JSON Linkumori, který načítají. Vzdálená pravidla by měla obsahovat odpovídající URL hashe pro ověření."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Pokud přidáte URL vzdáleného pravidla, rozšíření se po nakonfigurování připojí k vámi určenému serveru a stáhne sadu pravidel Linkumori a její soubor hashe. Každé stažení může hostitelskému serveru prozradit vaši IP adresu a obecné informace, jako je verze rozšíření, prohlížeč a verze prohlížeče. Tato data podléhají zásadám ochrany osobních údajů daného webu nebo webového serveru."
   },
   "security_modal_privacy_link_text": {
     "message": "Než budete v případě potřeby pokračovat, přečtěte si znovu %PRIVACY_POLICY_LINK%."
@@ -1887,7 +1887,7 @@
     "message": "upozornění:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Používejte vestavěná pravidla, pokud nedůvěřujete vzdálenému zdroji a nemáte jej pod kontrolou. U vzdálených pravidel Linkumori JSON uveďte odpovídající URL hashe."
   },
   "security_modal_risk_1": {
     "message": "Vaše IP adresa a informace o prohlížeči budou vystaveny nakonfigurovaným serverům"
@@ -1899,7 +1899,7 @@
     "message": "Ověření hash se vztahuje pouze na pravidla Linkumori CLN Format 1.0 JSON; chrání před manipulací s přenosem, nikoli před škodlivými zdroji pravidel."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Vzdálená pravidla bez úspěšného ověření hashe se zcela spoléhají na důvěru ve zdrojovou URL."
   },
   "security_modal_risks_title": {
     "message": "Bezpečnostní rizika:"
@@ -1914,7 +1914,7 @@
     "message": "Adresa URL souboru rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Vyžadováno pro ověření vzdálených pravidel Linkumori JSON."
   },
   "setting_html_export_button": {
     "message": "Vývozní"
@@ -1944,7 +1944,7 @@
     "message": "Limit protokolu (0–5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Další vzdálené zdroje Linkumori JSON sloučené dohromady. Zadejte jeden pár na řádek jako <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Další vzdálené sady pravidel"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Vlastní vzdálená URL pro pravidla Linkumori JSON"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL vzdáleného souboru JSON s pravidly"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "URL hashe je vyžadována pro každou vzdálenou sadu pravidel."
   },
   "settings_html_page_title": {
     "message": "Nastavení Linkumori (čisté adresy URL)."
@@ -2421,19 +2421,19 @@
     "message": "VAROVÁNÍ: Pokročilá funkce určená pouze pro servery s vlastním hostitelem"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Vypínáte ochrany Gatekeeper pro úpravu URL vzdálených pravidel. Tato funkce může načítat vzdálená pravidla Linkumori JSON do sjednocené sady pravidel poskytovatelů. Pokračujte, jen pokud rozumíte zdroji, který nastavujete, a důvěřujete mu."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper je vestavěný bezpečnostní tok, který blokuje přímé vzdálené úpravy URL, dokud nepotvrdíte bezpečnostní varování a nedokončíte zadané potvrzení."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Ponechte Gatekeeper zapnutý, pokud nedůvěřujete svým vzdáleným zdrojům a nemáte je pod kontrolou. Vzdálená pravidla JSON by měla obsahovat odpovídající URL hashe."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "upozornění:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Pokud přidáte URL vzdáleného pravidla, rozšíření se po nakonfigurování připojí k vámi určenému serveru a stáhne sadu pravidel Linkumori a její soubor hashe. Každé stažení může hostitelskému serveru prozradit vaši IP adresu a obecné informace, jako je verze rozšíření, prohlížeč a verze prohlížeče. Tato data podléhají zásadám ochrany osobních údajů daného webu nebo webového serveru."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Než budete v případě potřeby pokračovat, přečtěte si znovu %PRIVACY_POLICY_LINK%."
@@ -2448,7 +2448,7 @@
     "message": "Rozšíření se připojí k vaší určené adrese URL pokaždé, když je rozšíření povoleno a načteno ve vašem prohlížeči."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Server hostující vzdálené soubory JSON nebo hashe obdrží vaši IP adresu."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Server může také obdržet vaši verzi rozšíření, prohlížeč a verzi prohlížeče."
@@ -2457,7 +2457,7 @@
     "message": "Tato data podléhají zásadám ochrany osobních údajů webové stránky nebo webového serveru, který tyto soubory hostí."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Vypnutím Gatekeeperu zvyšujete riziko z nebezpečných nebo napadených zdrojů vzdálených pravidel. Ověření hashe chrání stahování vzdáleného Linkumori JSON pouze tehdy, je-li nakonfigurována odpovídající URL hashe."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Zrušit"
@@ -2517,7 +2517,7 @@
     "message": "Zadejte přesnou potvrzovací frázi"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Tato akce snižuje ochranu u vzdálených pravidel. Pokračujte, jen pokud důvěřujete svému vzdálenému zdroji JSON."
   },
   "remote_urls_template_note_1": {
     "message": "Nahraďte zástupné hodnoty svými skutečnými adresami URL HTTPS a poté tento soubor importujte."
@@ -2847,10 +2847,10 @@
     "message": "Žádný"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Kolize pravidel:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "Chyby: $ERRORS$, varování: $WARNINGS$, upozornění: $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Schopnosti vzdáleného souboru:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "neaktivní do přijetí: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Přijmout $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Záplaty pravidel:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "Použito: $APPLIED$, nepoužito: $NOT_APPLIED$",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Výchozí hodnoty pravidel"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Vestavěné"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Vlastní"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Žádné – vestavěné chování"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Režim přetížení sloučí vestavěná a vzdálená pravidla; pravidla každého zdroje si ponechají výchozí hodnoty tohoto zdroje."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Uložit výchozí hodnoty"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Výchozí hodnoty uloženy"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Když je zapnuto, každý zdroj pravidel si ponechá vlastní výchozí hodnoty (na vestavěná pravidla se použijí vestavěné výchozí hodnoty a na pravidla každého vzdáleného souboru výchozí hodnoty tohoto souboru), pokud si v editoru vlastních pravidel nezvolíte vlastní výchozí hodnoty."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Vzdálené: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Které výchozí hodnoty se použijí"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Vlastní u každého zdroje"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Vaše pro vestavěná a vzdálená pravidla"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Vaše pro všechna pravidla"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(nahrazeno vašimi výchozími hodnotami)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Vaše"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Typů požadavků: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "Výjimek URL: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 výjimka URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "Preprocesorů: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Pravidla každého zdroje získají vlastní výchozí hodnoty tohoto zdroje."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Vestavěná a vzdálená pravidla získají vaše výchozí hodnoty namísto výchozích hodnot svých souborů; vlastní pravidla si ponechají své."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Vestavěná, vzdálená i vlastní pravidla získají vaše výchozí hodnoty namísto svých vlastních."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Spravovat výchozí hodnoty pravidel"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Výchozí hodnoty doplňují hodnoty, které pravidlo samo nenastavuje. Vlastní hodnota pravidla má vždy přednost a výjimky poskytovatelů se nikdy nemění."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Upravit výchozí hodnoty"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Vaše výchozí hodnoty"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Výchozí hodnoty vlastních pravidel"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Výchozí hodnoty k úpravě"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Vestavěná pravidla"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(upraveno)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Obnovit výchozí hodnoty souboru"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Sloučit ze zdrojů…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Sloučit výchozí hodnoty pravidel"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Výsledek se v seznamu zobrazí jako „Sloučené výchozí hodnoty“. Zkopírujte jej tam do některé sady a poté jej použijte stisknutím Uložit výchozí hodnoty."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Zdroje ke sloučení"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konflikty"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Sloučené výchozí hodnoty"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Použít sloučené výchozí hodnoty"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Sloučené výchozí hodnoty"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Nepoužívá se, dokud je nezkopírujete do jiné sady a neuložíte."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopírovat do"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopírovat"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Vyberte alespoň dva zdroje."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Žádné konflikty: vybrané zdroje se shodují ve všech hodnotách."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Výjimky se sčítají ze všech zdrojů: celkem $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Kombinováno ze všech zdrojů"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Z: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nenastaveno (vestavěné chování)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nenastaveno: všechny typy požadavků"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Momentálně se nepoužívá: vaše výchozí hodnoty nahrazují výchozí hodnoty vestavěných a vzdálených pravidel."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Upraveno vámi: tyto hodnoty nahrazují výchozí hodnoty samotného souboru. Samotný soubor se nemění."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(upraveno vámi)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Momentálně se nepoužívá: nahoře je zvoleno „Vlastní u každého zdroje“."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Momentálně se nepoužívá: vaše výchozí hodnoty je nahrazují i u vlastních pravidel."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Pravidla začínají vypnutá (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Popis"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Typy požadavků"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Všechny typy"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Pouze tyto"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Vyberte alespoň jeden typ požadavku, nebo zvolte „Všechny typy“."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Pravidla čistí všechny typy požadavků, pokud některé nezadají ony samy nebo výchozí hodnoty. Poskytovatelé mohou typy omezit také pomocí resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Výjimky"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Jeden regulární výraz URL na řádek. U odpovídajících URL se pravidla přeskočí."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Preprocesory"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Vstupy: „all“ nebo čísla zachycujících skupin, například 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Přidat preprocesor"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Typ preprocesoru"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Vstupy preprocesoru"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Odebrat"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Vstupy preprocesoru „$INPUTS$“ musí být „all“ nebo čísla, například 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Vypnout ochranu proti obejití historie (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Zobrazit jako JSON"
   },
   "settings_remote_health_unknown": {
     "message": "neznámý"
@@ -3357,7 +3357,7 @@
     "message": "Filtrovat záznamy…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Karta"
   },
   "logger_tab_all": {
     "message": "Všechny karty"
@@ -4005,10 +4005,10 @@
     "message": "Průvodce poskytovatele JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Otevřít průvodce pravidly Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Jakou syntaxi pravidel mám použít?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Otevřít průvodce pravidly"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Nepodařilo se načíst zdroje poskytovatelů: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Přibalená pravidla nejsou k dispozici."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Nepodařilo se načíst přibalená pravidla: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Jazyk se nepodařilo přepnout na $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Světlý motiv"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tmavý motiv"
   },
   "posarCopied": {
     "message": "POSAR zkopírován!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR přijat."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Obnovit"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Nástroje přístupnosti"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Otevřít nástroje přístupnosti"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Zavřít nástroje přístupnosti"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Obnovit všechna nastavení přístupnosti"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Zrak"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Čtení"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interakce"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Vysoký kontrast"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Barevný filtr"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Sytost"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertovat"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Zvýraznit odkazy"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Skrýt obrázky"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Zvětšit text"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Zmenšit text"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Výchozí velikost textu"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Výběr písma"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Vhodné pro dyslexii"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Mezery v textu"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Výška řádku"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Zarovnání textu"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Pozastavit animace"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Větší kurzor"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Výchozí"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Střední"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Vysoká"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Velmi vysoká"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Nízká"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Žádná"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Lehká"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Silná"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Bez filtru"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopie"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopie"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopie"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Odstíny šedi"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Vlevo"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Na střed"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Vpravo"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Extra malé"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Malé"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Velké"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Extra velké"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Největší"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Zapnuto"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Vypnuto"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "zapnuto"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "vypnuto"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Vybrána výchozí velikost textu"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Všechna nastavení přístupnosti byla obnovena"
+  },
+  "skip_to_main_content": {
+    "message": "Přeskočit na hlavní obsah"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigace ve vyskakovacím okně"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Zobrazení vlastních pravidel"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Zobrazení protokolu"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Ochrana proti obejití historie (přeskočit při navigaci na stránce)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Přesměrování polí"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopírovat pravidlo"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Pravidlo zkopírováno"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Pravidlo se nepodařilo zkopírovat"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Co dělá historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Jednostránkové weby často mění adresu pomocí history.pushState/replaceState místo načtení nové stránky. Linkumori čistí i tyto adresy. Přidejte history-bypass-protection=false k filtru $removeparam, abyste tento filtr přeskočili jen u těchto změn na stránce; u běžných požadavků se nadále uplatní."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Chcete-li přeskočit celého poskytovatele u změn na stránce, nastavte to u poskytovatele:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Pokud se neuvede, platí true a změny na stránce se čistí. Nastavení samotného pravidla má přednost před nastavením poskytovatele, takže pravidlo se může znovu přihlásit pomocí history-bypass-protection=true, nebo \"historyBypassProtection\": true v objektu pravidla."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Přeskakuje navigaci na stránce"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Přejmenovat ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nové ID pro $OLD$ (a-z, 0-9, - a _). Staré ID zůstane jako alias, takže pravidla vypnutá pod ním zůstanou vypnutá.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "„$ID$“ není platné ID. Použijte malá písmena, číslice, - a _, počínaje písmenem nebo číslicí.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Jiné pravidlo tohoto poskytovatele již používá „$ID$“.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Zakázat pravidlo"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Zakázat $ID$ pro celého poskytovatele, nebo jen pro tento vzor URL/domény?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Můj poskytovatel"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Vzor URL/domény"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "ID pravidla přejmenováno na $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Osiřelé přepínače"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "V původním zdroji nebylo nalezeno žádné odpovídající pravidlo"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Odebrat"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Přeskakuje čištění při navigaci na stránce"
+  },
+  "whitelist_added_general": {
+    "message": "Přidáno %s do obecného whitelistu"
+  },
+  "whitelist_added_history_api": {
+    "message": "Přidáno %s jako výjimka pro History API"
+  },
+  "whitelist_exception_count": {
+    "message": "Výjimek: %d"
+  },
+  "whitelist_exception_empty": {
+    "message": "Žádné výjimky whitelistu"
+  },
+  "whitelist_mode_general": {
+    "message": "Obecný whitelist"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Pouze History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Rozsah whitelistu"
+  },
+  "whitelist_removed_general": {
+    "message": "Odebráno %s z obecného whitelistu"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Odebrána výjimka pro History API u %s"
+  },
+  "whitelist_type_general": {
+    "message": "Obecný"
+  },
+  "whitelist_type_history_api": {
+    "message": "Pouze History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Přidat $1 do obecného whitelistu"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Obecný whitelist: $1 – kliknutím přepnete na pouze History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Výjimka pro History API: $1 – kliknutím přepnete na pouze tuto kartu"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Pouze karta: $1 – kliknutím odeberete"
+  },
+  "logger_action_allowed": {
+    "message": "Povoleno"
+  },
+  "logger_action_blocked": {
+    "message": "Zablokováno"
+  },
+  "logger_action_filter_label": {
+    "message": "Akce"
+  },
+  "logger_action_info": {
+    "message": "Informace"
+  },
+  "logger_action_modified": {
+    "message": "Upraveno"
+  },
+  "logger_action_redirected": {
+    "message": "Přesměrováno"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopírovat souhrn"
+  },
+  "logger_btn_export": {
+    "message": "Exportovat"
+  },
+  "logger_btn_group": {
+    "message": "Seskupit podle pravidla"
+  },
+  "logger_col_hits": {
+    "message": "Zásahy"
+  },
+  "logger_col_last_seen": {
+    "message": "Naposledy viděno"
+  },
+  "logger_detail_group_title": {
+    "message": "Detail pravidla"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Karty"
+  },
+  "logger_exported": {
+    "message": "Exportováno záznamů: $1."
+  },
+  "logger_filter_all": {
+    "message": "Vše"
+  },
+  "logger_report_rule": {
+    "message": "Nahlásit"
+  },
+  "logger_rule_disable": {
+    "message": "Vypnout pravidlo"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Pravidlo $1 vypnuto. Pro kontrolu stránku znovu načtěte."
+  },
+  "logger_rule_enable": {
+    "message": "Zapnout pravidlo"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Pravidlo $1 znovu zapnuto."
+  },
+  "logger_rule_failed": {
+    "message": "Pravidlo se nepodařilo změnit."
+  },
+  "logger_rule_off": {
+    "message": "Pravidlo je vypnuto"
+  },
+  "logger_rule_on": {
+    "message": "Pravidlo je zapnuto"
+  },
+  "logger_rule_unavailable": {
+    "message": "Toto pravidlo odsud nelze přepnout."
+  },
+  "logger_status_rules": {
+    "message": "Pravidel: $1"
+  },
+  "logger_summary_copied": {
+    "message": "Souhrn zkopírován."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Souhrn se nepodařilo zkopírovat."
+  },
+  "logger_type_filter_label": {
+    "message": "Typ"
+  },
+  "logger_btn_logging_off": {
+    "message": "Protokolování vypnuto"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Protokolování je vypnuto. Kliknutím ho zapnete."
+  },
+  "logger_btn_logging_on": {
+    "message": "Protokolování zapnuto"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Protokolování je zapnuto. Kliknutím ho vypnete."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Nastavení protokolování se nepodařilo změnit."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Přidat referral pravidlo"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Přidat výjimku raw pravidla"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Přidat přesměrování pole"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Přidat výjimku"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Každá šablona přidá objekt pravidla s id a zástupným matchPattern na example.com. Položkou může být také prostý řetězec: název parametru, regulární výraz názvu, filtr $removeparam nebo v rawRules regulární výraz. Objekty pravidel přijímají id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description a targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Kontrola pravidel"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Nenalezeny žádné problémy."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Chyba"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Varování"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "Chyb: $ERRORS$, varování: $WARNINGS$",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Pořadí spouštění"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "Kroků: $COUNT$, v pořadí, v jakém se spouštějí",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Žádné položky rawRules, rules ani referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Vypočítáno enginem z textu výše, uloženého či neuloženého. Kroky se řadí podle (stage, orderGroup, order, rank, arrayIndex): raw pravidla se spouštějí před pravidly polí; v rámci jedné fáze se nejprve spouštějí položky s order, od nejnižšího, poté ostatní podle seznamu a pozice."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Doporučovací marketing"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral odebrán"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral povolen"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Nezpracované"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Pole"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Doporučení"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(vygenerováno)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "přepisuje"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "nahrazuje dřívější definice: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "přidáno pomocí completeProvider: odstraňuje všechny parametry"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Vypnuto"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Vypnuto pro některé vzory"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Klíč řazení: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Poté filtrů $removeparam: $FILTERS$ a výjimek @@: $EXCEPTIONS$, po všech výše uvedených krocích",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "Výjimek @@…$rawrule=: $COUNT$ – mohou zastavit výše uvedená raw pravidla tam, kde odpovídají",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Přetáhněte krok nebo použijte jeho šipky a přesuňte ho v rámci jeho fáze. Přesunem získá každá položka této fáze order 10, 20, 30, … v nové posloupnosti."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Pro změnu pořadí přepněte na Referral odebrán: toto zobrazení ukazuje všechny položky."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Přetažením přesunete"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Přesunout $ENTRY$ dříve",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Přesunout $ENTRY$ později",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ přesunuto na pozici $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Vrátit přesun"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Přesun vrácen"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulovat"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Spustí tohoto poskytovatele na URL stejně jako při čištění zkopírovaného odkazu, s vašimi vypnutými pravidly a výše zvolenou volbou referralu, a zobrazí URL po každém kroku. Ostatní poskytovatelé se nespouštějí. Generovat testovací URL vytvoří adresu z vlastních pravidel tohoto poskytovatele."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testovací URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Spustit"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Procházet simulaci po krocích"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Začátek"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Předchozí"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Další"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Konec"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Přehrát"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pozastavit"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL před jakýmkoli krokem"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Průchod $PASS$ · krok $STEP$ z $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "beze změny"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "filtry $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Průchod $PASS$ nic nemění, takže čištění končí",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Tento poskytovatel zde končí: byl dosažen limit cyklů, URL se vrátila k dřívější nebo už poskytovateli neodpovídá"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Průchod $PASS$ přesměrovává; čištění pokračuje na nové adrese se všemi poskytovateli",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Poskytovatel tento požadavek blokuje (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Výsledek"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Vzory tohoto poskytovatele této URL neodpovídají, takže se žádné jeho pravidlo nespustí."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Tato URL odpovídá jedné z výjimek poskytovatele, takže se žádné jeho pravidlo nespustí."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Zadejte úplnou URL začínající http:// nebo https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulaci se nepodařilo spustit. Zkontrolujte JSON výše."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generovat testovací URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Vytvořeno z pravidel tohoto poskytovatele: text pro raw pravidla ($RAW$) a parametry ($PARAMS$), každý ověřen proti svému pravidlu. keep=1 neodpovídá žádnému pravidlu a mělo by zůstat. Přesměrování a blokace nejsou zahrnuty, protože by ukončily běh před ostatními pravidly.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nešlo vytvořit žádného hostitele, kterému by vzory tohoto poskytovatele odpovídaly, takže URL používá jiného hostitele a poskytovatel se na ní nespustí."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Každá URL, které vzory tohoto poskytovatele odpovídají, je pokryta některou z jeho vlastních výjimek, takže se jeho pravidla nikdy nespustí."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "Pravidel vynechaných z testovací URL: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nešlo vytvořit text, kterému by odpovídalo"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "jeho text by způsobil shodu s některou z výjimek poskytovatele"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "odstraňuje všechny parametry, takže nepotřebuje žádný vlastní parametr"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Tento poskytovatel má filtr $removeparam bez názvu, který odstraňuje všechny parametry, včetně keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "bez order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Obnovit čísla pořadí"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Vrátit všechna pořadí do stavu při otevření tohoto poskytovatele"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Čísla pořadí obnovena"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Skrýt"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Zobrazit"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Vymazat varování"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Obnovit varování"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Vymazaných varování: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern bez indexPattern se kontroluje proti každé URL; přidejte nápovědy indexPattern, například \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ opakuje „$ENTRY$“; kopie nic nedělá a obě sdílejí jedno id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ stále obsahuje zástupný vzor šablony „$PATTERN$“; nahraďte ho skutečným vzorem",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ má matchPattern „(?!)“, který nikdy nic neodpovídá",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Řešení potíží"
+  },
+  "troubleshooter_launch": {
+    "message": "Řešit potíže s touto kartou (experimentální)"
+  },
+  "troubleshooter_title": {
+    "message": "Řešení potíží s kartou"
+  },
+  "troubleshooter_page": {
+    "message": "Stránka"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Jak funguje nahrávání"
+  },
+  "troubleshooter_about_note": {
+    "message": "Otevření tohoto zobrazení může zkontrolovat URL stránky, ale nic nezaznamenává. Nahrávání zůstává vypnuté, dokud nezvolíte Spustit nahrávání. Spuštěním se tato karta znovu načte, aby se zachytily její požadavky na zdroje. Zachycené URL zůstávají v úložišti relace po dobu této relace prohlížeče a vymažou se po zavření této karty nebo ukončení relace prohlížeče. Nahrávání se po 15 minutách zastaví, pokud ho nezastavíte dříve. URL zdrojů mohou obsahovat soukromá data dotazu."
+  },
+  "troubleshooter_start": {
+    "message": "Spustit nahrávání"
+  },
+  "troubleshooter_starting": {
+    "message": "Spouštění…"
+  },
+  "troubleshooter_recording": {
+    "message": "Nahrávání…"
+  },
+  "troubleshooter_stop": {
+    "message": "Zastavit nahrávání"
+  },
+  "troubleshooter_refresh": {
+    "message": "Obnovit"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopírovat souhrn"
+  },
+  "troubleshooter_export": {
+    "message": "Exportovat"
+  },
+  "troubleshooter_export_title": {
+    "message": "Uložit nahrávku jako soubor JSON. URL zdrojů mohou obsahovat soukromá data dotazu."
+  },
+  "troubleshooter_category": {
+    "message": "Kategorie"
+  },
+  "troubleshooter_category_all": {
+    "message": "Všechny kategorie"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Pravidla URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Přesměrování"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Ochrana a obejití"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Typ zdroje"
+  },
+  "troubleshooter_type_all": {
+    "message": "Všechny typy zdrojů"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Hledat pravidla, poskytovatele a URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Nahrávání $1 · zbývá $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Kontrola této karty…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Není k dispozici žádná aktivní karta."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Tato stránka neumožňuje skenování pravidel URL. Otevřete běžnou webovou stránku http nebo https."
+  },
+  "troubleshooter_status_off": {
+    "message": "Nahrávání je vypnuto. Spusťte nahrávání, abyste mohli zkoumat URL zdrojů načtených touto stránkou."
+  },
+  "troubleshooter_status_active": {
+    "message": "Dosud zachyceno změn URL: $1. Nové se zde zobrazí automaticky."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Nahrávání zastaveno. Zachyceno změn URL: $1."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Data nahrávání se nepodařilo uložit do úložiště relace. Změny URL ($1) se mohou při restartu rozšíření ztratit."
+  },
+  "troubleshooter_status_started": {
+    "message": "Nahrávání bylo spuštěno a karta se znovu načítá. Zachycené URL se zde zobrazují během načítání stránky."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Nahrávání zastaveno. Zachyceno a uloženo pro tuto relaci prohlížeče změn URL: $1."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Nahrávání zastaveno. Zachyceno změn URL: $1, ale úložiště relace je nemohlo uložit."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Nejprve otevřete běžnou webovou stránku http nebo https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Nahrávání pro tuto kartu se nepodařilo spustit."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Nahrávání pro tuto kartu se nepodařilo zastavit."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Tuto kartu se nepodařilo přečíst. Zkuste vyskakovací okno zavřít a znovu otevřít."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Souhrn zkopírován."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Souhrn se nepodařilo zkopírovat."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Nahrávka exportována."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Nahrávku se nepodařilo exportovat."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Formulář pro nahlášení se nepodařilo otevřít."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Pravidlo zapnuto; pro porovnání kartu znovu načtěte."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Pravidlo vypnuto; pro porovnání kartu znovu načtěte."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Toto pravidlo se nepodařilo aktualizovat."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Zatím nebyly nalezeny žádné změny pravidel. Spusťte nahrávání a zkoumejte URL zdrojů této stránky."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Tuto stránku prohlížeče nelze skenovat."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Těmto filtrům neodpovídá žádný nález."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Zobrazeno prvních pravidel: $1."
+  },
+  "troubleshooter_hits": {
+    "message": "Zásahů: $1"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "Selhalo: $1"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID pravidla: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Vestavěná ochranná akce (bez ID pravidla)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID pravidla: pro tento nález není k dispozici"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Toto ID pravidla se v aktuální sadě pravidel nepodařilo určit."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Pozorovaný požadavek"
+  },
+  "troubleshooter_source_page": {
+    "message": "Kontrola URL stránky"
+  },
+  "troubleshooter_changes": {
+    "message": "Co se změnilo: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Dotčené URL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…a dalších: $1"
+  },
+  "troubleshooter_after": {
+    "message": "Po zásahu Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Selhalo po úpravě Linkumori: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Toto pravidlo je zapnuto. Vypněte ho a znovu načtěte stránku, abyste ji mohli porovnat."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Toto pravidlo je vypnuto. Zapněte ho a znovu načtěte stránku, aby se obnovilo jeho chování."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Toto je vestavěná ochranná akce, nikoli jednotlivé pravidlo."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Před změnou pravidel zkontrolujte dotčenou URL."
+  },
+  "troubleshooter_report": {
+    "message": "Nahlásit toto pravidlo"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Zakázat pravidlo"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Povolit pravidlo"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Zakázat pravidlo $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Povolit pravidlo $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Ukládání…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "odebráno $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "přidáno $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "změněno $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "přesměrováno na $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "změněna cesta"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "změněn fragment"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL změněna"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "zablokováno záměrně"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Na této stránce selhalo požadavků: $1; z toho $2 hned po úpravě URL pomocí Linkumori"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Je tato stránka rozbitá?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Najděte pravidlo, které ji rozbíjí: pravidla, která se na této stránce uplatnila, se vypínají jedno po druhém a po každém řeknete, zda je stránka opravená. Nejste si jisti, že příčinou je Linkumori? Nejprve zkontrolujte s pozastaveným čištěním."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Nejprve zkontrolovat s pozastaveným čištěním"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Čištění je na této kartě pozastaveno pro $1"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Karta se znovu načetla bez čištění. Funguje stránka nyní?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ano, funguje"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ne, stále je rozbitá"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Zrušit"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Hotovo"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Pravděpodobně to není Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Stránka byla rozbitá i s pozastaveným čištěním, takže problém je pravděpodobně jinde: v samotném webu, jiném rozšíření nebo v síti. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Příčinou je pravděpodobně Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Stránka s pozastaveným čištěním funguje. Najděte pravidlo: pravidla se vypínají jedno po druhém, karta se znovu načte a vy řeknete, zda je stránka opravená. Na konci se všechna ostatní pravidla znovu zapnou."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Karta se znovu načítá se zapnutým čištěním, aby se zaznamenalo, která pravidla se na této stránce uplatňují. Za chvíli se zde zobrazí. Pokud žádná nejsou, používejte stránku, dokud se nerozbije."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Najít pravidlo (pravidel: $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ano, opraveno"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ne, stále je rozbitá"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Nalezeno"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Stránku rozbíjí pravidlo $1$2. Je opět zapnuto. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Vypnout toto pravidlo"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Nahlásit"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Pravidlo vypnuto. Zkontrolujte po opětovném načtení karty. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Nenalezeno žádné jediné pravidlo"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Vypínání pravidel jedno po druhém stránku neopravilo, takže ji pravděpodobně způsobuje více pravidel dohromady nebo nastavení ochrany. Všechna pravidla jsou opět zapnuta. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Kontrolu se nepodařilo spustit: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Pro tuto kontrolu znovu načtěte Linkumori"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori byl aktualizován, ale jeho část na pozadí stále běží ve staré verzi. Znovu načtěte rozšíření (u dočasného doplňku: about:debugging → This Firefox → Reload) nebo restartujte Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Nalezeno"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Stránku rozbíjí pravidlo $1$2. Zůstává vypnuté, aby stránka fungovala; všechna ostatní pravidla jsou opět zapnuta. Zkontrolujte po opětovném načtení karty. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Znovu načíst kartu"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Znovu zapnout"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Pravidlo opět zapnuto. Zkontrolujte po opětovném načtení karty. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Nahrát a najít pravidlo"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Zaznamenává se, která pravidla se na této stránce uplatňují. Používejte stránku, dokud se nerozbije; pravidla se zobrazí zde."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Prozatím vypnuto vyhledáváním pravidla. Po skončení vyhledávání se opět zapne."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Probíhá vyhledávání pravidla. Pravidla měňte až po jeho skončení."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Přeskočit – znovu zapnout"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Ponechat vypnuté"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Vyhledávání pravidla přeskočeno; všechna pravidla jsou opět zapnuta. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Pravidlo $1 zůstává vypnuté. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Pro tento test vypnuto:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…a dalších: $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Zastavit vyhledávání"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Přeskočeno: toto pravidlo je opět zapnuto a vynecháno. Testuje se další."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Mezi otestovanými pravidly nebylo žádné nalezeno. Přeskočená a netestovaná pravidla: $1. Všechna pravidla jsou opět zapnuta. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimentální"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimentální: tento nástroj pro řešení potíží není plně stabilní. Jeho výsledky mohou být chybné a při testování vypíná pravidla. Pokud potom něco vypadá špatně, zkontrolujte svá pravidla v editoru vlastních pravidel, nebo je pomocí Zastavit vyhledávání znovu zapněte."
+  },
+  "troubleshooter_working": {
+    "message": "Pracuje se…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Nahrát znovu"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Stará nahrávka vymazána. Tato karta se nahrává znovu od čerstvého načtení."
+  },
+  "troubleshooter_clear": {
+    "message": "Vymazat"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Vymaže nahrávku této karty, nálezy a dokončené vyhledávání pravidla. Pravidla zůstanou beze změny."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Vymazáno. Pravidla zůstávají beze změny."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Vymazáno. Pravidlo $1 zůstává vypnuté."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testování po jednom pravidlu — pravidlo $1 z $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Vypnuto je pouze toto pravidlo a karta se znovu načetla. Je stránka nyní opravená?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Přeskočit toto pravidlo"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Přeskočit – znovu zapnout, testovat další (zbývá: $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "Dalších pravidel, která se na této stránce uplatnila a nebyla otestována: $1. Chcete v jejich testování pokračovat?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Ponechat vypnuté, testovat další (zbývá: $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Pravidlo $1 zůstává vypnuté. Testuje se další pravidlo."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Žádné další pravidlo stránku samo neopraví. Pravidla, která jste ponechali vypnutá ($1), zůstávají vypnutá; všechna ostatní jsou opět zapnuta. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testovat další pravidlo (zbývá: $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Pravidlo $1 je opět zapnuto a vynecháno. Testuje se další pravidlo."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Žádné další pravidlo stránku samo neopraví. Pravidla, která jste přeskočili ($1), jsou také opět zapnuta, takže jsou zapnuta všechna pravidla. Chcete-li začít znovu, klikněte na Vymazat."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori čistí URL pomocí pravidel zapsaných ve formátu <strong>CLN Format 1.0</strong> (Clean Link Notation), což je formát JSON. Tento průvodce vás provede od prvního pravidla po všechny možnosti, s příklady, které můžete zkopírovat."
+  },
+  "guide_intro_p_2": {
+    "message": "Vestavěná pravidla, vzdálené seznamy pravidel i vaše vlastní pravidla používají stejný formát. Vlastní pravidla píšete v editoru vlastních pravidel, který je při uložení nebo importu zkontroluje. Oficiální katalog pravidel ClearURLs (<code>data.min.json</code>) je již platný soubor CLN a lze jej použít tak, jak je."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Název poskytovatele je jen štítek. O tom, jaké URL poskytovatel zpracovává, rozhoduje <code>domainPatterns</code> nebo <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Klíč nejvyšší úrovně"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Povinné. Poskytovatelé podle názvu."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Volitelná verze formátu. Jedinou platnou hodnotou je <code>\"1.0\"</code>. Soubor bez ní se také čte jako 1.0; jakákoli jiná hodnota soubor odmítne. Nenazývá se <code>version</code>, protože nový formát pravidel ClearURLs tento klíč již používá."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Volitelné informace o souboru."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Hodnoty pro každé pravidlo souboru, které nemá vlastní (kapitola 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Pouze u vzdálených seznamů pravidel: náhrady za již načtená pravidla (kapitola 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Jaké URL poskytovatel zpracovává, jako jeden doménový vzor nebo jejich seznam (kapitola 3). Použijte toto nebo <code>urlPattern</code>, nikdy obojí."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Jaké URL poskytovatel zpracovává, jako jeden regulární výraz porovnávaný s celou URL. Velikost písmen se ignoruje."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Pouze s <code>urlPattern</code>: nápovědy hostitelů, například <code>||example.com^</code>, aby se poskytovatel kontroloval jen pro tyto hostitele místo pro každou URL. Jde o nápovědu pro vyhledávání, nikoli o podmínku shody."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Referral a affiliate parametry k odstranění. Přeskočí se, když je zapnuto <em>Povolit referral marketing</em> (kapitola 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL, kterých si poskytovatel vůbec nevšímá (kapitola 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Odeslat požadavek na jinou adresu místo jeho úpravy (kapitola 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Odeslat požadavek na hodnotu parametru (kapitola 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: když je načtení stránky (<code>main_frame</code>) přesměrováno, přejde na novou adresu celá karta, nejen síťový požadavek."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Zpracovávat pouze tyto metody HTTP, například <code>[\"GET\"]</code>. Pokud se neuvede: všechny metody."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Zpracovávat pouze tyto typy požadavků, například <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Pokud se neuvede: všechny typy požadavků."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Výchozí <code>true</code>. <code>false</code> přeskočí celého poskytovatele, když stránka sama změní svou adresu pomocí History API (<code>pushState</code>/<code>replaceState</code>). Běžné síťové požadavky se nadále čistí."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> vypne poskytovatele bez jeho smazání."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> je seznam doménových vzorů. URL odpovídá, pokud jí odpovídá kterýkoli z nich. Stejné vzory se používají u <code>exceptions</code>, <code>redirections</code>, filtrů <code>$removeparam</code> a raw pravidel."
+  },
+  "guide_matching_cell_1": {
+    "message": "celá URL, jako regulární výraz"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL, které obsahují tento text kdekoli (bez úvodního <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> označuje konec názvu hostitele nebo oddělovač, například <code>/</code>, <code>?</code>, <code>:</code> nebo konec URL. <code>*</code> je zástupný znak."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> znamená doménu: hostitele a všechny jeho subdomény. Jediný znak <code>|</code> znamená úplný začátek URL a musí po něm následovat schéma, například <code>https://</code>. Pro doménu vždy chcete <code>||</code>; <code>|example.com^</code> nikdy neodpovídá, takže ho editor odmítne."
+  },
+  "guide_matching_p_4": {
+    "message": "Například <code>||smile.amazon.*^</code> se čte takto: <code>||</code> hostitel a jeho subdomény, <code>smile.amazon</code> požadované popisky, <code>.*</code> libovolná veřejná přípona (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) a <code>^</code> konec hostitele."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "přesně tento parametr"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "každý parametr, jehož celý název odpovídá; velikost písmen se ignoruje"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> a <code>\"$removeparam=fbclid\"</code> odstraní totéž. Používejte prostý název, pokud nepotřebujete něco z kapitoly 5. Každou položku lze také zapsat jako objekt pravidla (kapitola 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Zde se <code>qid</code> odstraňuje na každém webu Amazon, <code>tag</code> jen na <code>amazon.de</code>, <code>sr</code> jen na <code>smile.amazon</code> a <code>ref_</code> jen pod <code>/gp/</code>. Vzor zužuje vlastní vzory poskytovatele; nikdy je nemůže rozšířit."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> změní filtr na výjimku, která parametr zachová (viz níže)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> zúží filtr na některé URL poskytovatele (kapitola 3). Pokud se neuvede, platí pro každou URL, které poskytovatel odpovídá."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> vybírá parametry. Pokud se neuvede, odstraní se každý parametr."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikátory říkají, kdy se filtr uplatní. Musí platit každý uvedený modifikátor; mezi nimi není „nebo“."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "každý parametr kromě <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametry, jejichž název nebo společně <code>name=value</code> odpovídá regulárnímu výrazu; přidáním <code>i</code> se ignoruje velikost písmen"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametry, jejichž název začíná na <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escapování názvu parametru"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Zpětné lomítko činí další znak doslovným, takže lze zacílit jakýkoli název parametru:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Hodnota"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Odstraní parametr s názvem"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (čárka nezačíná modifikátory)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Těchto pět je jediných escape sekvencí v hodnotě názvu; zpětné lomítko před jakýmkoli jiným znakem je chyba. Uvnitř hodnoty <code>/regex/</code> si zpětné lomítko zachovává svůj význam v regulárních výrazech. Escape sekvence fungují v položkách <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> a <code>@@</code>. V JSON napište každé zpětné lomítko dvakrát: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikátory"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikátory následují za hodnotou a oddělují se čárkami. Více hodnot jednoho modifikátoru oddělte znakem <code>|</code> a před hodnotu dejte <code>~</code>, chcete-li ji vyloučit:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikátor"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "pouze když stránka, která požadavek vyvolala, je (nebo s <code>~</code> není) jednou z těchto; hodnoty lze zadat regulárním výrazem"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "pouze když sám požadavek směřuje na jednu z těchto, ať ho vyvolala jakákoli stránka"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "pouze pro tyto metody HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "pouze když požadavek směřuje na stejnou registrovatelnou doménu jako stránka (<code>a.example.com</code> a <code>b.example.com</code> se počítají jako stejné), nebo na jinou"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "totéž, ale porovnává se přesný název hostitele, takže subdoména se počítá jako třetí strana"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "názvy parametrů se porovnávají s rozlišením velikosti písmen"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "přeskočí tento filtr, když stránka sama změní svou adresu pomocí History API. Přijímá také <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Čtyři modifikátory <code>*-party</code> nelze navzájem kombinovat; <code>first-party,third-party</code> se odmítne."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Například <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> odstraní <code>sid</code> na <code>example.com</code>, pouze u požadavků GET vyvolaných stránkou na jiném webu a nikdy, když je touto stránkou <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Položka <code>@@</code> chrání pouze před filtry <code>$removeparam</code>. Prostá položka, například <code>\"ref\"</code>, parametr stále odstraní; k tomu použijte <code>exceptions</code> objektu pravidla. Raw pravidla mají vlastní položky <code>@@…$rawrule=</code> (kapitola 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nezáleží na tom, kam ji zapíšete, a nemůže mít <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Její vzor se kontroluje proti URL v podobě, v jaké ji poskytovatel obdržel, před spuštěním raw pravidel. Položka <code>@@</code> omezená na cestu, kterou raw pravidlo smaže, stále odpovídá."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Zahrnuje také filtry jiných poskytovatelů pro požadavky vyvolané stránkou, které tento poskytovatel odpovídá, což se hodí k vyjmutí jednoho webu z pravidla definovaného jinde."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Raw pravidla se spouštějí před <code>rules</code>, ignorují velikost písmen a nahrazují každou shodu (příznaky <code>gi</code>, nebo <code>g</code> s <code>match-case</code>). V JSON napište každé zpětné lomítko dvakrát."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Raw pravidlo může převzít vzor a modifikátory filtru <code>$removeparam</code>, přičemž <code>rawrule=</code> je poslední. Vše za <code>rawrule=</code> je regulární výraz:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Vzor a modifikátory rozhodují, kde se pravidlo spustí; smaže se však stále to, co odpovídá regulárnímu výrazu."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Položka, která začíná na <code>@@</code> a končí na <code>rawrule=</code>, brání spuštění raw pravidel tam, kde odpovídá její vzor:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Pokud za <code>rawrule=</code> nic není, zastaví na těchto URL všechna raw pravidla poskytovatele."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Pokud za <code>rawrule=</code> následuje regulární výraz, zastaví raw pravidla s tímto regulárním výrazem."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Jako objekt pravidla s <code>targetId</code> zastaví pouze raw pravidlo s tímto id nebo aliasem."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Chcete-li přeskočit celého poskytovatele, použijte místo toho <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Pokud URL odpovídá položce v <code>exceptions</code>, nespustí se pro tento požadavek žádné pravidlo poskytovatele. Položkou je regulární výraz proti celé URL, nebo doménový vzor začínající na <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Výjimky ignorují velikost písmen. Chcete-li přeskočit jedno pravidlo místo celého poskytovatele, dejte tomuto pravidlu vlastní <code>exceptions</code> (kapitola 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Vyhrává ten odpovídající parametr, který je v URL první. Pro <code>https://site.example/away?redirect=https://real.example/page</code> požadavek směřuje na <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Platné cíle přesměrování"
+  },
+  "guide_redirects_p_2": {
+    "message": "Přesměrování proběhne pouze na absolutní adresu <code>http</code> nebo <code>https</code> s hostitelem. Kontroluje se to po preprocesorech a dekódování procent. Neplatný cíl způsobí, že se položka počítá jako neodpovídající: nic se nepřesměruje a pozdější kroky poskytovatele se spustí na nezměněné URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Cíl"
+  },
+  "guide_redirects_th_2": {
+    "message": "Přesměruje?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ano"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ano, na <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ne: schéma není <code>http</code> ani <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ne: není to absolutní adresa"
+  },
+  "guide_redirects_p_3": {
+    "message": "Raw pravidlo, jehož výsledek má jiné schéma, hostitele nebo port než jeho vstup, se počítá také jako přesměrování, i když pouze maže text: smazáním <code>secure-</code> z <code>https://secure-bank.example/</code> skončíte na jiném webu. Vyžaduje platný cíl a ve vzdáleném seznamu pravidel schválení <code>redirect</code> (kapitola 15). Jinak pravidlo ponechá URL beze změny."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Jakákoli položka v libovolném seznamu může být místo řetězce objektem. Použijte ho, když pravidlo potřebuje stabilní id, mělo by začínat vypnuté, mělo by přepisovat místo odstraňovat, nebo by se mělo spouštět jen v některých případech:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Povinné. Text, který byste zapsali jako prostou položku v tomto seznamu."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Stabilní název (písmena, číslice, <code>-</code>, <code>_</code>) sloužící k zapínání a vypínání pravidla (kapitola 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Předchozí id pravidla, aby se nastavení uložené pod starým id nadále uplatňovalo i po přejmenování."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Přepsat místo odstranění; <code>§1§</code>, <code>§2§</code>, … jsou zachycené hodnoty."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Nejprve transformovat zachycené hodnoty."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Pouze pro tyto typy požadavků, například <code>[\"main_frame\"]</code>. Čištění bez požadavku (<em>Kopírovat čistý odkaz</em>, nástroj pro čištění, změny History API) se počítá jako <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (regulární výrazy), na kterých se toto jedno pravidlo nespustí."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Příznaky regulárního výrazu jako řetězec. Výchozí <code>i</code>; v <code>rawRules</code> <code>gi</code> (nebo <code>g</code> s <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Spustit pravidlo dříve nebo později v rámci jeho fáze (kapitola 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: pravidlo v <code>rules</code> se počítá také jako pravidlo referral marketingu (kapitola 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Stejnojmenný přepínač poskytovatele pro toto jedno pravidlo. Má přednost před hodnotou poskytovatele a výchozí hodnotou souboru."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: pravidlo začíná vypnuté."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Poznámka pro lidi čtoucí soubor; musí to být řetězec."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Pouze u položek <code>@@…$rawrule=</code>: id raw pravidla, které zastavuje."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Zde se z <code>?token=abc123</code> stane <code>?token=clean-abc123</code>. Přepis se uplatní nejvýše jednou na požadavek, takže hodnotu nezabaluje stále dokola."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Preprocesory mění zachycené hodnoty, v daném pořadí, dříve než je použije <code>replacePattern</code> nebo přesměrování. <code>inputs</code> je <code>\"all\"</code> nebo seznam čísel skupin:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> přijímá stejné položky jako <code>rules</code>. Spouštějí se pouze tehdy, když je <em>Povolit referral marketing</em> vypnuto, takže affiliate odkazy po jeho zapnutí dále fungují:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Pravidlo může zůstat v <code>rules</code> a přesto se počítat jako referral marketing, pomocí <code>\"referralMarketing\": true</code>. Nedávejte stejný text do <code>rules</code> i <code>referralMarketing</code>; editor na to upozorní."
+  },
+  "guide_request_types_cell_1": {
+    "message": "typy požadavků, které zpracovává jeden objekt pravidla (lze nastavit i v <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Typy požadavků používají názvy prohlížeče: <code>main_frame</code> (stránka), <code>sub_frame</code> (rámec), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> a tak dále. Modifikátory filtrů nazývají první dva <code>document</code> a <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Typy požadavků pocházejí pouze z pravidel: v Nastavení žádný seznam typů požadavků není. Pokud není nic z toho nastaveno, pravidlo čistí každý typ požadavku."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Výchozí hodnoty"
+  },
+  "guide_defaults_p_1": {
+    "message": "Blok <code>defaults</code> nejvyšší úrovně dává každému pravidlu souboru hodnoty, které samo nenastavuje:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Výchozí hodnota pro každé pravidlo…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> vypne každé pravidlo, pokud neuvádí <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> nebo vynechání znamená každý typ"
+  },
+  "guide_defaults_item_1": {
+    "message": "Vlastní hodnota pravidla má vždy přednost a <code>exceptions</code> pravidla nahrazují výchozí seznam, místo aby se k němu přidávaly."
+  },
+  "guide_defaults_item_2": {
+    "message": "Výchozí hodnoty platí pro <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> a <code>fieldRedirections</code>. Vlastní seznam <code>exceptions</code> poskytovatele zůstává nedotčen. Položky <code>$redirect=</code> používají pouze <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Každý soubor si ponechává vlastní výchozí hodnoty: vestavěná pravidla, každý vzdálený seznam i vaše vlastní pravidla, i když je režim přetížení sloučí."
+  },
+  "guide_defaults_item_4": {
+    "message": "U <code>completeProvider</code> výchozí <code>requestTypes</code> a <code>exceptions</code> omezují také blokování."
+  },
+  "guide_defaults_item_5": {
+    "message": "Neznámé klíče a špatné typy jsou chyby a vzdálený seznam s neplatným blokem <code>defaults</code> se odmítne."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Vaše vlastní výchozí hodnoty"
+  },
+  "guide_defaults_p_2": {
+    "message": "V editoru vlastních pravidel <em>Spravovat výchozí hodnoty pravidel</em> otevře formulář, kde nastavíte vlastní blok <code>defaults</code> a zvolíte, kde nahrazuje výchozí hodnoty samotných souborů:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Vlastní u každého zdroje</em> (výchozí): každý soubor používá své vlastní <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Vaše pro vestavěná a vzdálená pravidla</em>: vestavěná a vzdálená pravidla používají vaše; vlastní pravidla si ponechají své."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Vaše pro všechna pravidla</em>: každé pravidlo používá vaše."
+  },
+  "guide_defaults_p_3": {
+    "message": "Stejný formulář může upravovat výchozí hodnoty vestavěných pravidel i každého načteného vzdáleného seznamu. Vaše úprava se ukládá v rozšíření, nikoli v souboru, a <em>Obnovit výchozí hodnoty souboru</em> ji zahodí. <em>Sloučit ze zdrojů…</em> kombinuje výchozí hodnoty zdrojů, které zaškrtnete; nic se neuloží, dokud neuložíte."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Jak se URL zpracovává"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, poté <code>fieldRedirections</code>: shoda s platným cílem požadavek přesměruje."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> a <code>referralMarketing</code> odstraňují nebo přepisují parametry."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Spustí se filtry <code>$removeparam</code>, kromě míst, kde položka <code>@@</code> parametr zachovává."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Vyhrává první poskytovatel, který URL změní, přesměruje nebo zablokuje. Nová URL pak projde stejnými kroky znovu (viz <a href=\"#termination\">Kdy zpracování končí</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Pořadí spouštění a <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Kroky 4 a 5 se řadí společně, postupně podle těchto pravidel:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Raw pravidla se vždy spouštějí první.</strong> Žádné <code>order</code> nepřesune položku <code>rules</code> před raw pravidlo. Úklid, který se musí provést před raw pravidlem, musí být sám raw pravidlem."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>V rámci jedné fáze se pravidla s <code>order</code> spouštějí před pravidly bez něj</strong>, od nejnižšího. Záporná čísla a zlomky jsou povoleny. <code>order: 10</code> neznamená „desátý“: znamená po seřazených pravidlech fáze s hodnotou pod 10 a před všemi jejími neseřazenými pravidly."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Poté podle seznamu:</strong> <code>rules</code>, poté objekty <code>rules</code> označené <code>\"referralMarketing\": true</code>, poté <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Poté podle pozice</strong> v seznamu. Každá položka si ponechává své místo, včetně položek zapsaných jako <code>\"3\"</code> nebo <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Zde se token přepíše dříve, než se odstraní <code>utm_source</code>, i když je druhý:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Vypnutá pravidla se vynechají. Filtry <code>$removeparam</code> a položky <code>@@</code> jsou mimo toto řazení a nemohou mít <code>order</code>, ani <code>null</code>; filtry se vždy spouštějí poslední."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Stejný text dvakrát"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Dvě položky se stejným textem <code>matchPattern</code> v jedné skupině jsou jedno pravidlo. Skupiny jsou raw (<code>rawRules</code>), pole (<code>rules</code> bez značky referral) a referral (označené objekty <code>rules</code>, poté <code>referralMarketing</code>). Nejčastěji se to stává při slučování seznamů pravidel."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Vyhrává poslední definice, která není vypnutá, se všemi svými klíči."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Bez vlastního <code>order</code> vítěz přebírá pozici první definice a nejbližší dřívější <code>order</code>. <code>\"order\": null</code> znamená bez order a zahodí zděděný."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Id a aliasy nahrazených definic také zapínají a vypínají vítěze."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Zatímco se spouštějí pravidla referral marketingu, referral položka nahradí položku pole se stejným textem."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Raw pravidlo a pravidlo pole se stejným textem nekolidují; spustí se obě."
+  },
+  "guide_processing_order_p_6": {
+    "message": "V rámci jednoho seznamu jsou dvě různé položky se stejným textem chyba a přesná kopie je varování."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Kdy zpracování končí"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Na jeden požadavek proběhne nejvýše 10 cyklů; při dosažení limitu se URL použije tak, jak je."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Pravidlo s <code>replacePattern</code> se uplatní nejvýše jednou na požadavek."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Krok, který URL nezmění, nezačíná nový cyklus."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Nastavení → <em>Neomezené cykly čištění</em> (ve výchozím stavu vypnuto) odstraní limit 10 cyklů pro řetězce pravidel, které jich potřebují více. Zpracování pak skončí, když cyklus nic nezmění, ale dvě pravidla, která se přesměrovávají navzájem, se zacyklí, dokud to prohlížeč nevzdá a stránka se nenačte. Zapněte to jen pro pravidla, kterým důvěřujete."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. ID pravidel a přepínače zapnuto/vypnuto"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Každé pravidlo má id. Pravidlo bez <code>id</code> ho dostane podle svého seznamu a textu: <code>\"utm_source\"</code> v <code>rules</code> se stane <code>field-utm-source</code>. Vygenerované id se změní, když se změní text pravidla, a vypnuté pravidlo by se pak znovu zapnulo. Dejte pravidlu vlastní <code>id</code>, pokud si má zachovat nastavení zapnuto/vypnuto i po úpravách, a při přejmenování uveďte stará id v <code>aliases</code>."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Pravidlo se zapíná a vypíná společně podle poskytovatele a id, například <code>shop::session-token</code>, takže dva poskytovatelé mohou používat stejné id. Editor vlastních pravidel ho může uložit také pod vzorem poskytovatele, například <code>domainPattern:||shop.example^::session-token</code>; fungují obě podoby."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "V rámci jednoho poskytovatele musí být každé id a alias jiné. Vygenerovaná id se počítají."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Id nemůže obsahovat dvojtečku."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Nastavení uložené pod holým id, bez poskytovatele, nic nepřepíná; vypněte pravidlo znovu v editoru vlastních pravidel."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Vzdálené seznamy pravidel"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Vzdálené seznamy pravidel jsou soubory pravidel, které Linkumori stahuje a volitelně ověřuje podle souboru hashe. Seznam s neplatnou hodnotou <code>cln</code>, blokem <code>defaults</code> nebo polem <code>patches</code> se nenačte a Stav vzdálených pravidel to ohlásí."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Přesměrování a blokování vyžadují váš souhlas"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Co vzdálený seznam může dělat, se určuje z jeho obsahu při načtení:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Schopnost"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Seznam ji má, pokud obsahuje"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktivní při načtení"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "položku <code>rules</code>, <code>rawRules</code> nebo <code>referralMarketing</code>, nebo filtr <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "položku s <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "položku <code>exceptions</code> poskytovatele nebo položku <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "položku <code>redirections</code> nebo <code>fieldRedirections</code>, nebo <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "po schválení"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "poskytovatele s <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Schvalte <code>redirect</code> a <code>block</code> pro každý seznam ve Stavu vzdálených pravidel. Do té doby zůstávají přesměrování a blokování tohoto seznamu vypnutá a jeho raw pravidla nemohou poslat URL na jiný web; zbytek seznamu funguje ihned. Když aktualizace přidá novou schopnost, čeká také na schválení. Vestavěná a vlastní pravidla mají všechny schopnosti."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Režim přetížení"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Běžně vzdálené seznamy s poskytovateli nahrazují vestavěná pravidla; seznamy obsahující pouze <code>patches</code> se použijí na vestavěná pravidla. Se zapnutým <em>Povolit režim přetížení</em> se načtou společně, a to jednou ze tří strategií:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Pouze režim záplat</em>: použije záplaty vzdálených seznamů na vestavěná pravidla; vzdálení poskytovatelé se vynechají."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Režim záplat + sloučení</em>: sloučí vestavěné a vzdálené poskytovatele a poté použije záplaty."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Bez režimu záplat + sloučení</em>: sloučí poskytovatele a záplaty přeskočí."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Při slučování se vzdálené seznamy slučují navzájem v pořadí, v jakém je uvedete, a poté s vestavěnými pravidly (nejprve vestavěná). Sloučí se pouze poskytovatelé se stejnými <code>domainPatterns</code> (nebo <code>urlPattern</code>) a stejnými <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> a <code>forceRedirection</code>; jejich <code>rules</code>, <code>rawRules</code> a <code>referralMarketing</code> se spojí a o tom, která kopie se spustí, rozhoduje <a href=\"#same-text-twice\">Stejný text dvakrát</a>. Stav vzdálených pravidel uvádí každé nahrazené pravidlo jako upozornění."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Vlastní pravidla se použijí jako poslední. Vlastní poskytovatel nahradí každého načteného poskytovatele se stejným vzorem; jejich pravidla se nekombinují."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Záplaty pravidel"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Vzdálený seznam může nahradit jednotlivá již načtená pravidla, aniž by zveřejnil úplnou kopii, v poli <code>patches</code> nejvyšší úrovně:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Povinné. Pravidlo k nahrazení, zapsané jako jeho klíč zapnuto/vypnuto: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> nebo <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Povinné. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> nebo <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Povinné. Nové pravidlo, jako prostá položka nebo objekt pravidla."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Poznámka pro lidi čtoucí soubor."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Záplaty se spouštějí po sloučení vzdálených seznamů a před vlastními pravidly. Soubor pouze s <code>patches</code> nepotřebuje <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Slučování může poskytovatele přejmenovat, takže podoba <code>domainPattern:</code> nebo <code>urlPattern:</code> je ta, která je vždy najde."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Náhrada si ponechá id starého pravidla, nebo převezme staré id jako alias, takže nastavení zapnuto/vypnuto se nadále uplatňují."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Záplata pro přesměrování čeká na schválení <code>redirect</code> daného seznamu. Záplata, jejíž cíl nic neodpovídá, nic nezmění."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Stav vzdálených pravidel uvádí každou záplatu jako použitou, nespárovanou nebo přeskočenou."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Pravidla a whitelist"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Whitelist je oddělený od <code>exceptions</code> poskytovatele: uvádí weby, které jste Linkumori řekli, aby je nechal na pokoji, bez účasti souboru pravidel. Položky vypadají například <code>example.com</code>, <code>*.example.com</code> (web a jeho subdomény) nebo <code>example.*</code> (libovolná přípona). Zařazení stránky na whitelist se týká i všeho, co načítá."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Kompletní příklady"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Kontrola vašich pravidel"
+  },
+  "guide_checking_p_1": {
+    "message": "Editor vlastních pravidel kontroluje pravidla při uložení nebo importu a <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> provádí stejné kontroly. Kromě rozbitého JSON a neplatných regulárních výrazů odmítají pravidla, která by se načetla, ale tiše by dělala něco špatně, například:"
+  },
+  "guide_checking_item_1": {
+    "message": "neznámá pole, klíče a modifikátory"
+  },
+  "guide_check_7": {
+    "message": "hodnota <code>cln</code> jiná než <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "id nebo alias použité dvakrát u jednoho poskytovatele"
+  },
+  "guide_checking_item_2": {
+    "message": "dvě různé položky se stejným textem v jednom seznamu"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> u filtru <code>$removeparam</code> nebo položky <code>@@</code>, včetně <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "adresa <code>$redirect=</code>, která není <code>http</code> ani <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "zpětné lomítko v názvu <code>$removeparam</code> před znakem, který nemá escape sekvenci"
+  },
+  "guide_checking_p_2": {
+    "message": "Varují také před přesnými kopiemi a před stejným textem v <code>rules</code> i <code>referralMarketing</code>. Pokud uložení selže, zpráva uvede poskytovatele, seznam a položku."
+  },
+  "guide_toc_search": {
+    "message": "Filtrovat sekce"
+  },
+  "guide_toc_no_results": {
+    "message": "Žádné odpovídající sekce."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: přesměrování začínající znakem \"|\" musí vypadat takto: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: cíl $redirect= musí být absolutní adresa URL s http nebo https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ musí být objekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type musí být neprázdný řetězec",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type musí být jedna z těchto hodnot: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs musí být \"all\" nebo pole kladných celých čísel",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ musí být řetězec nebo objekt pravidla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern musí být řetězec",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern musí být řetězec",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId musí být ID pravidla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId se vztahuje pouze na výjimky \"@@…$rawrule=\" v rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags musí být řetězec (příznaky regexu, například \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing musí být true nebo false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing nemá v $FIELD$ žádný účinek; platí jen v $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order musí být číslo nebo null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order nemá v $FIELD$ žádný účinek; platí jen v $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order nemá žádný účinek u filtru $removeparam ani položky \"@@\"; vždy se spouštějí až po ostatních pravidlech",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active musí být logická hodnota",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id musí být řetězec",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id musí odpovídat vzoru $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases musí být seznam ID odpovídajících vzoru $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases nesmí obsahovat vlastní ID pravidla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description musí být řetězec",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection musí být logická hodnota",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions musí být pole řetězců",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes musí být pole řetězců",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors musí být pole",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: neznámé pole \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ začíná na \"@@\", které se vztahuje jen na filtry $removeparam v rules a referralMarketing; místo toho použijte \"exceptions\" v objektu pravidla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ obsahuje neznámou možnost $removeparam \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" začíná jediným znakem \"|\", takže odpovídá jen adresám URL, které doslova začínají na \"$REST$\"; žádné takové neexistují (URL začínají na \"https://\"). Pro shodu s doménou použijte \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ obsahuje \"targetId\", který funguje jen u výjimky; začněte matchPattern znakem \"@@\" (například \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ obsahuje \"targetId\" i regex za \"rawrule=\"; použijte jen jedno z toho",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ obsahuje targetId \"$ID$\", ale žádné pravidlo raw tohoto poskytovatele nemá toto ID ani jeho alias",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ je výjimka \"@@\" pro \"$REGEX$\", ale žádné pravidlo raw tohoto poskytovatele tento regex nepoužívá. Přiřaďte pravidlu ID a odkažte na něj pomocí \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ je výjimka \"@@\", takže \"$KEY$\" by nemělo žádný účinek",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Za \"rawrule=\" v $WHERE$ nic není; je nutné uvést regex, který se má odstranit",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ obsahuje neplatný regex za \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ obsahuje $GROUPS$ zachytávacích skupin; kolem cílové adresy URL musí být přesně jedna \"( … )\" (ostatní skupiny zapište jako \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ znovu používá ID pravidla \"$ID$\" v $WHERE$; poprvé bylo použito v $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ musí být objekt JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ musí být pole",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ obsahuje neznámý klíč \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Chyba při zpracování adresy URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Chyba při inicializaci stránky: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Neplatná karta"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Pro tuto kartu už běží hledání pravidla"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Pro tuto kartu neběží žádná kontrola pozastavení"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Pravidla se stále načítají. Zkuste to za chvíli znovu."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Žádné z pravidel použitých na této stránce nelze vypnout."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Pravidla se nepodařilo vypnout"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Pro tuto kartu neběží žádné hledání pravidel"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Pro tuto kartu není nalezené pravidlo, které by bylo možné přeskočit"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Stahování není dostupné"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Záznam se nepodařilo uložit do úložiště relace"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Neznámé pravidlo"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "neznámá chyba"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "export se nezdařil"
   }
 }

@@ -39,7 +39,7 @@
     "message": "השתמש בכללים המוכללים של Linkumori/ClearURLs. השבת את האפשרות הזו כדי להשתמש רק בכללים מרוחקים ו/או כלל מותאמים אישית."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori משתמש בערכת כללי ספקים מאוחדת אחת, ClearURLsData. קובצי JSON מקוריים של ספקים, אובייקטי כללים קנוניים ומסנני $removeparam מקומיים לספק ממוזגים לפני הפעלת clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "מידע על כללים"
@@ -1137,25 +1137,25 @@
     "message": "פתח הגדרות Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "התנהגות מצב עומס יתר"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "מצב תיקונים בלבד"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "החל תיקונים מרוחקים על הכללים המובנים. כללי ספקים מרוחקים אינם נכללים."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "מצב תיקונים + מיזוג"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "מזג כללי ספקים מובנים ומרוחקים, ואז החל תיקונים מרוחקים."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "ללא מצב תיקונים + מיזוג"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "מזג כללי ספקים מובנים ומרוחקים ללא החלת תיקונים מרוחקים."
   },
   "overload_mode_enabled": {
     "message": "הפעל מצב עומס יתר"
@@ -1221,13 +1221,13 @@
     "message": "מידע על רישיון ופרטיות"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "רישיון הציבורי הכללי של GNU גרסה 3.0"
   },
   "popup_html_gpl_link_title": {
     "message": "פתח את טקסט הרישיון של GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "רישיון הציבורי הכללי המצומצם של GNU גרסה 3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "פתח את טקסט הרישיון של GNU LGPL v3.0"
@@ -1836,7 +1836,7 @@
     "message": "כתובת ה-hash URL הראשית חייבת להשתמש ב-HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "יש להגדיר יחד את כתובת הכללים הראשית ואת כתובת הגיבוב הראשית."
   },
   "save_primary_rule_https_required": {
     "message": "כתובת ה-rule URL הראשית חייבת להשתמש ב-HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "אני מבין את הסיכונים - המשך"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "כדאי לשקול מחדש את השימוש בכללים מרוחקים אם אינך מבין או סומך לחלוטין על מקור ערכת הכללים של Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "תכונת הכללים המרוחקים מיועדת למשתמשים מתקדמים שמבינים את קובץ ה-JSON של Linkumori שהם טוענים. כללים מרוחקים צריכים לכלול כתובת גיבוב תואמת לצורך אימות."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "אם תוסיף כתובת כללים מרוחקת, התוסף יתחבר לשרת שהגדרת כדי להוריד את ערכת הכללים של Linkumori ואת קובץ הגיבוב שלה, בהתאם להגדרות. כל הורדה עלולה לחשוף לשרת המארח את כתובת ה-IP שלך ומידע כללי כגון גרסת התוסף, הדפדפן וגרסת הדפדפן. נתונים אלה כפופים למדיניות הפרטיות של אתר האינטרנט או שרת האינטרנט הזה."
   },
   "security_modal_privacy_link_text": {
     "message": "קרא את %PRIVACY_POLICY_LINK% שוב לפני שתמשיך במידת הצורך."
@@ -1887,7 +1887,7 @@
     "message": "הודעת אזהרה:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "השתמש בכללים מובנים אלא אם אתה סומך על המקור המרוחק ושולט בו. ספק כתובת גיבוב תואמת עבור כללי JSON מרוחקים של Linkumori."
   },
   "security_modal_risk_1": {
     "message": "כתובת ה-IP שלך ומידע הדפדפן שלך ייחשפו לשרתים המוגדרים"
@@ -1899,7 +1899,7 @@
     "message": "אימות Hash חל על Linkumori CLN Format 1.0 JSON כללים בלבד; הוא מגן מפני שיבוש שידור, לא מפני מקורות כלל זדוניים."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "כללים מרוחקים ללא אימות גיבוב מוצלח נשענים כולה על האמון בכתובת המקור."
   },
   "security_modal_risks_title": {
     "message": "סיכוני אבטחה:"
@@ -1914,7 +1914,7 @@
     "message": "כתובת ה-URL לקובץ rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "נדרש לאימות כללי JSON מרוחקים של Linkumori."
   },
   "setting_html_export_button": {
     "message": "ייצא"
@@ -1944,7 +1944,7 @@
     "message": "מגבלת יומן (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "מקורות JSON מרוחקים נוספים של Linkumori הממוזגים יחד. הזן זוג אחד בכל שורה בפורמט <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "קבוצות כללים מרוחקים נוספות"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "כתובת מרוחקת מותאמת אישית עבור כללי JSON של Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "הכתובת לקובץ JSON של הכללים המרוחקים"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "כתובת גיבוב נדרשת עבור כל ערכת כללים מרוחקת."
   },
   "settings_html_page_title": {
     "message": "הגדרות Linkumori (Clean URLS)"
@@ -2139,7 +2139,7 @@
     "message": "ערכת נושא"
   },
   "time_am": {
-    "message": "AM"
+    "message": "לפנה\"צ"
   },
   "time_am_lower": {
     "message": "בבוקר"
@@ -2421,19 +2421,19 @@
     "message": "אזהרה: תכונה מתקדמת המיועדת רק לשרתים באירוח עצמי"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "אתה משבית את הגנות Gatekeeper על עריכת כתובות כללים מרוחקות. תכונה זו יכולה לטעון כללי JSON מרוחקים של Linkumori אל ערכת כללי הספקים המאוחדת. המשך רק אם אתה מבין וסומך על המקור שאתה מגדיר."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper הוא זרימת האבטחה המובנית שחוסמת עריכות ישירות של URL מרוחק עד שתאשר את אזהרת האבטחה ותסיים הקלדת אישור."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "השאר את Gatekeeper מופעל אלא אם אתה סומך על המקורות המרוחקים שלך ושולט בהם. כללי JSON מרוחקים צריכים לכלול כתובת גיבוב תואמת."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "הודעת אזהרה:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "אם תוסיף כתובת כללים מרוחקת, התוסף יתחבר לשרת שהגדרת כדי להוריד את ערכת הכללים של Linkumori ואת קובץ הגיבוב שלה, בהתאם להגדרות. כל הורדה עלולה לחשוף לשרת המארח את כתובת ה-IP שלך ומידע כללי כגון גרסת התוסף, הדפדפן וגרסת הדפדפן. נתונים אלה כפופים למדיניות הפרטיות של אתר האינטרנט או שרת האינטרנט הזה."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "קרא את %PRIVACY_POLICY_LINK% שוב לפני שתמשיך במידת הצורך."
@@ -2448,7 +2448,7 @@
     "message": "התוסף יתחבר לכתובת ה-URL שייעדת בכל פעם שהתוסף מופעל ונטען בדפדפן שלך."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "השרת המארח קובצי JSON או גיבוב מרוחקים יקבל את כתובת ה-IP שלך."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "השרת עשוי לקבל גם את גרסת התוסף שלך, הדפדפן וגרסת הדפדפן."
@@ -2457,7 +2457,7 @@
     "message": "נתונים אלה כפופים למדיניות הפרטיות של האתר או שרת האינטרנט המארחים קבצים אלה."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "בהשבתת Gatekeeper אתה מגדיל את הסיכון ממקורות כללים מרוחקים לא בטוחים או שנפרצו. אימות גיבוב מגן על הורדות JSON מרוחקות של Linkumori רק כאשר מוגדרת כתובת גיבוב תואמת."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "ביטול"
@@ -2517,7 +2517,7 @@
     "message": "הקלד ביטוי אישור מדויק"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "פעולה זו מפחיתה אמצעי הגנה עבור כללים מרוחקים. המשך רק אם אתה סומך על מקור ה-JSON המרוחק שלך."
   },
   "remote_urls_template_note_1": {
     "message": "החלף ערכי פלסהולדר בכתובות ה-HTTPS האמיתיות שלך, ולאחר מכן ייבא קובץ זה."
@@ -2847,10 +2847,10 @@
     "message": "אין"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "התנגשויות כללים:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ שגיאות, $WARNINGS$ אזהרות, $NOTICES$ הודעות",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "יכולות הקובץ המרוחק:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "לא פעיל עד לאישור: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "אשר $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "תיקוני כללים:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ הוחלו, $NOT_APPLIED$ לא הוחלו",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "ברירות מחדל של כללים"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "מובנה"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "מותאם אישית"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "אין — התנהגות מובנית"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "מצב עומס יתר ממזג כללים מובנים ומרוחקים; הכללים של כל מקור שומרים על ברירות המחדל של אותו מקור."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "שמור ברירות מחדל"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "ברירות המחדל נשמרו"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "כשהאפשרות פועלת, כל מקור כללים שומר על ברירות המחדל שלו (ברירות המחדל המובנות חלות על הכללים המובנים, וברירות המחדל של כל קובץ מרוחק חלות על הכללים של אותו קובץ), אלא אם בחרת ברירות מחדל משלך בעורך הכללים המותאמים אישית."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "מרוחק: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "אילו ברירות מחדל חלות"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "של כל מקור בנפרד"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "שלך עבור כללים מובנים ומרוחקים"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "שלך עבור כל הכללים"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(הוחלפו בברירות המחדל שלך)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "שלך"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ סוגי בקשות",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ חריגי URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "חריג URL אחד"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ מעבדים מקדימים",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "הכללים של כל מקור מקבלים את ברירות המחדל של אותו מקור."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "כללים מובנים ומרוחקים מקבלים את ברירות המחדל שלך במקום אלה של הקבצים שלהם; כללים מותאמים אישית שומרים על שלהם."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "כללים מובנים, מרוחקים ומותאמים אישית מקבלים כולם את ברירות המחדל שלך במקום את שלהם."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "נהל ברירות מחדל של כללים"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "ברירות מחדל ממלאות ערכים שהכלל אינו מגדיר בעצמו. הערך של הכלל עצמו תמיד גובר, וחריגי ספק לעולם אינם משתנים."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "ערוך ברירות מחדל"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "ברירות המחדל שלך"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "ברירות מחדל של כללים מותאמים אישית"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "ברירות מחדל לעריכה"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "כללים מובנים"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(נערך)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "אפס לברירות המחדל של הקובץ"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "מזג ממקורות…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "מזג ברירות מחדל של כללים"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "התוצאה מופיעה ברשימה בשם \"ברירות מחדל ממוזגות\". העתק אותה לערכה שם, ואז לחץ על שמור ברירות מחדל כדי להשתמש בה."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "מקורות למיזוג"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "התנגשויות"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "ברירות מחדל ממוזגות"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "השתמש בברירות מחדל ממוזגות"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "ברירות מחדל ממוזגות"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "לא בשימוש עד שתעתיק אותן לאחת הערכות האחרות ותשמור."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "העתק אל"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "העתק"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "בחר לפחות שני מקורות."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "אין התנגשויות: המקורות שנבחרו מסכימים בכל ערך."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "החריגים מצטברים מכל המקורות: $COUNT$ בסך הכול.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "משולב מכל המקורות"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "מתוך: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "לא הוגדר (התנהגות מובנית)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "לא הוגדר: כל סוגי הבקשות"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "לא בשימוש כרגע: ברירות המחדל שלך מחליפות את אלה של הכללים המובנים והמרוחקים."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "נערך על ידך: אלה מחליפות את ברירות המחדל של הקובץ. הקובץ עצמו אינו משתנה."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(נערך על ידך)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "לא בשימוש כרגע: למעלה נבחרה האפשרות \"של כל מקור בנפרד\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "לא בשימוש כרגע: ברירות המחדל שלך מחליפות אלה גם עבור כללים מותאמים אישית."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "הכללים מתחילים במצב כבוי (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "תיאור"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "סוגי בקשות"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "כל הסוגים"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "רק אלה"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "בחר לפחות סוג בקשה אחד, או בחר \"כל הסוגים\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "כללים מנקים כל סוג בקשה אלא אם הם, או ברירות המחדל, מציינים סוגים. ספקים יכולים גם להגביל סוגים באמצעות resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "חריגים"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "ביטוי רגולרי אחד של URL בכל שורה. כללים מדולגים בכתובות תואמות."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "מעבדים מקדימים"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "קלטים: \"all\", או מספרי קבוצות לכידה כגון 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ הוסף מעבד מקדים"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "סוג מעבד מקדים"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "קלטי מעבד מקדים"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "הסר"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "קלטי המעבד המקדים \"$INPUTS$\" חייבים להיות \"all\" או מספרים כגון 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "כבה הגנת עקיפת היסטוריה (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "הצג כ-JSON"
   },
   "settings_remote_health_unknown": {
     "message": "לא ידוע"
@@ -4005,10 +4005,10 @@
     "message": "מדריך לספק JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "פתח את מדריך הכללים של Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "באיזה תחביר כללים עליי להשתמש?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "פתח את מדריך הכללים"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "טעינת מקורות הספקים נכשלה: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "הכללים המוכללים אינם זמינים."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "טעינת הכללים המוכללים נכשלה: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "לא ניתן היה להחליף את השפה ל-$1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "ערכת נושא בהירה"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "ערכת נושא כהה"
   },
   "posarCopied": {
     "message": "POSAR הועתק!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR התקבל."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "אפס"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "כלי נגישות"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "פתח את כלי הנגישות"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "סגור את כלי הנגישות"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "אפס את כל הגדרות הנגישות"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "ראייה"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "קריאה"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "אינטראקציה"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "ניגודיות גבוהה"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "מסנן צבעים"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "רוויה"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "היפוך"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "הדגש קישורים"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "הסתר תמונות"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "הגדלת גודל הטקסט"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "הקטנת גודל הטקסט"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "גודל טקסט ברירת מחדל"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "בחירת גופן"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ידידותי לדיסלקסיה"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "מרווח טקסט"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "גובה שורה"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "יישור טקסט"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "השהה הנפשות"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "סמן גדול יותר"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "ברירת מחדל"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "בינוני"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "גבוה"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "גבוה במיוחד"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "נמוך"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "ללא"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "קל"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "כבד"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "ללא מסנן"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "פרוטנופיה"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "דאוטרנופיה"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "טריטנופיה"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "גווני אפור"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "שמאל"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "מרכז"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "ימין"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "קטן במיוחד"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "קטן"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "גדול"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "גדול במיוחד"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "הגדול ביותר"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "פועל"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "כבוי"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "מופעל"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "מושבת"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "נבחר גודל טקסט ברירת מחדל"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "כל הגדרות הנגישות אופסו"
+  },
+  "skip_to_main_content": {
+    "message": "דלג לתוכן הראשי"
+  },
+  "popupNavAriaLabel": {
+    "message": "ניווט בחלון הקופץ"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "תצוגות כללים מותאמים אישית"
+  },
+  "logViewNavAriaLabel": {
+    "message": "תצוגות יומן"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "הגנת עקיפת היסטוריה (דלג בזמן ניווט בתוך הדף)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "הפניות שדה"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "העתק כלל"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "הכלל הועתק"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "לא ניתן היה להעתיק את הכלל"
+  },
+  "faq_history_bypass_protection": {
+    "message": "מה עושה historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "אתרי עמוד יחיד משנים לעיתים קרובות את הכתובת באמצעות history.pushState/replaceState במקום לטעון עמוד חדש. Linkumori מנקה גם כתובות אלה. הוסף history-bypass-protection=false למסנן $removeparam כדי לדלג על אותו מסנן בלבד בשינויים בתוך הדף; הוא ימשיך לפעול בבקשות רגילות."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "כדי לדלג על ספק שלם בשינויים בתוך הדף, הגדר זאת בספק:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "אם לא צוין, הערך הוא true והשינויים בתוך הדף מנוקים. הגדרה של כלל גוברת על זו של הספק, ולכן כלל יכול לחזור להפעלה באמצעות history-bypass-protection=true, או \"historyBypassProtection\": true באובייקט כלל."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "מדלג על ניווט בדף"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "שנה שם מזהה"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "מזהה חדש עבור $OLD$ (a-z, 0-9, - ו-_). המזהה הישן נשמר ככינוי, כך שכללים שכובו תחתיו יישארו כבויים.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" אינו מזהה תקין. השתמש באותיות לטיניות קטנות, ספרות, - ו-_, כשהתו הראשון הוא אות או ספרה.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "כלל אחר של ספק זה כבר משתמש ב-\"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "השבת כלל"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "להשבית את $ID$ עבור הספק כולו, או רק עבור תבנית URL/דומיין זו?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "הספק שלי"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "תבנית URL/דומיין"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "מזהה הכלל שונה ל-$ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "מתגים יתומים"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "לא נמצא כלל תואם במקור"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "הסר"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "מדלג על ניקוי בניווט בתוך הדף"
+  },
+  "whitelist_added_general": {
+    "message": "%s נוסף לרשימה הלבנה הכללית"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s נוסף כחריג של History API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d חריגים"
+  },
+  "whitelist_exception_empty": {
+    "message": "אין חריגים ברשימה הלבנה"
+  },
+  "whitelist_mode_general": {
+    "message": "רשימה לבנה כללית"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API בלבד"
+  },
+  "whitelist_mode_label": {
+    "message": "היקף הרשימה הלבנה"
+  },
+  "whitelist_removed_general": {
+    "message": "%s הוסר מהרשימה הלבנה הכללית"
+  },
+  "whitelist_removed_history_api": {
+    "message": "חריג History API עבור %s הוסר"
+  },
+  "whitelist_type_general": {
+    "message": "כללי"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API בלבד"
+  },
+  "popup_whitelist_add_general": {
+    "message": "הוסף את $1 לרשימה הלבנה הכללית"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "רשימה לבנה כללית: $1 - לחץ למעבר ל-History API בלבד"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "חריג History API: $1 - לחץ למעבר ללשונית זו בלבד"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "ללשונית בלבד: $1 - לחץ להסרה"
+  },
+  "logger_action_allowed": {
+    "message": "מותר"
+  },
+  "logger_action_blocked": {
+    "message": "נחסם"
+  },
+  "logger_action_filter_label": {
+    "message": "פעולה"
+  },
+  "logger_action_info": {
+    "message": "מידע"
+  },
+  "logger_action_modified": {
+    "message": "שונה"
+  },
+  "logger_action_redirected": {
+    "message": "הופנה"
+  },
+  "logger_btn_copy_summary": {
+    "message": "העתק סיכום"
+  },
+  "logger_btn_export": {
+    "message": "ייצא"
+  },
+  "logger_btn_group": {
+    "message": "קבץ לפי כלל"
+  },
+  "logger_col_hits": {
+    "message": "פגיעות"
+  },
+  "logger_col_last_seen": {
+    "message": "נצפה לאחרונה"
+  },
+  "logger_detail_group_title": {
+    "message": "פרטי הכלל"
+  },
+  "logger_detail_all_urls": {
+    "message": "כתובות URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "לשוניות"
+  },
+  "logger_exported": {
+    "message": "יוצאו $1 רשומות."
+  },
+  "logger_filter_all": {
+    "message": "הכול"
+  },
+  "logger_report_rule": {
+    "message": "דווח"
+  },
+  "logger_rule_disable": {
+    "message": "כבה כלל"
+  },
+  "logger_rule_disabled_done": {
+    "message": "הכלל $1 כובה. טען מחדש את הדף כדי לבדוק."
+  },
+  "logger_rule_enable": {
+    "message": "הפעל כלל"
+  },
+  "logger_rule_enabled_done": {
+    "message": "הכלל $1 הופעל מחדש."
+  },
+  "logger_rule_failed": {
+    "message": "לא ניתן היה לשנות את הכלל."
+  },
+  "logger_rule_off": {
+    "message": "הכלל כבוי"
+  },
+  "logger_rule_on": {
+    "message": "הכלל פועל"
+  },
+  "logger_rule_unavailable": {
+    "message": "לא ניתן להחליף את מצב הכלל מכאן."
+  },
+  "logger_status_rules": {
+    "message": "$1 כללים"
+  },
+  "logger_summary_copied": {
+    "message": "הסיכום הועתק."
+  },
+  "logger_summary_copy_failed": {
+    "message": "לא ניתן היה להעתיק את הסיכום."
+  },
+  "logger_type_filter_label": {
+    "message": "סוג"
+  },
+  "logger_btn_logging_off": {
+    "message": "הרישום כבוי"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "הרישום כבוי. לחץ כדי להפעיל."
+  },
+  "logger_btn_logging_on": {
+    "message": "הרישום פועל"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "הרישום פועל. לחץ כדי לכבות."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "לא ניתן היה לשנות את הגדרת הרישום."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "הוסף כלל הפניה שיווקית"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "הוסף חריג לכלל גולמי"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "הוסף הפניית שדה"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "הוסף חריג"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "כל תבנית מוסיפה אובייקט כלל עם id ועם matchPattern לדוגמה על example.com. רשומה יכולה להיות גם מחרוזת פשוטה: שם פרמטר, ביטוי רגולרי של שם, מסנן $removeparam או, ב-rawRules, ביטוי רגולרי. אובייקטי כלל מקבלים id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description ו-targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "בודק תקינות"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "לא נמצאו בעיות."
+  },
+  "customRulesEditor_lintError": {
+    "message": "שגיאה"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "אזהרה"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ שגיאות, $WARNINGS$ אזהרות",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "סדר הרצה"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ שלבים, לפי סדר ההרצה",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "אין רשומות rawRules, rules או referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "מחושב על ידי המנוע מתוך הטקסט שלמעלה, נשמר או לא. השלבים ממוינים לפי (stage, orderGroup, order, rank, arrayIndex): כללים גולמיים רצים לפני כללי שדה; בתוך שלב, רשומות עם order רצות ראשונות, מהנמוך לגבוה, ואחריהן השאר לפי רשימה ומיקום."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "הפניות שיווקיות"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "הפניה הוסרה"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "הפניה מותרת"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "גולמי"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "שדה"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "הפניה"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(נוצר אוטומטית)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "משכתב"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "מחליף $COUNT$ הגדרות קודמות",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "נוסף על ידי completeProvider: מסיר כל פרמטר"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "כבוי"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "כבוי עבור חלק מהתבניות"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "מפתח מיון: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "לאחר מכן $FILTERS$ מסנני $removeparam ו-$EXCEPTIONS$ חריגי @@, אחרי כל השלבים שלמעלה",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ חריגי @@…$rawrule= יכולים לעצור כללים גולמיים שלמעלה במקום שבו הם תואמים",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "גרור שלב, או השתמש בחצים שלו, כדי להזיז אותו בתוך השלב שלו. ההזזה מעניקה לכל רשומה בשלב זה order של 10, 20, 30, … לפי הסדר החדש."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "עבור אל \"הפניה הוסרה\" כדי לסדר מחדש: תצוגה זו מציגה כל רשומה."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "גרור להזזה"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "הקדם את $ENTRY$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "אחר את $ENTRY$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ הוזז למיקום $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "בטל הזזה"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "ההזזה בוטלה"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "הדמיה"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "מריץ ספק זה על URL בדיוק כפי שנעשה בניקוי קישור שהועתק, עם הכללים שכיבית ובחירת ההפניה שלמעלה, ומציג את ה-URL אחרי כל שלב. ספקים אחרים אינם רצים. \"צור URL לבדיקה\" יוצר כתובת מהכללים של ספק זה עצמו."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL לבדיקה"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "הרץ"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "התקדם שלב אחר שלב בהדמיה"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "התחלה"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "הקודם"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "הבא"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "סוף"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "נגן"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "השהה"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "ה-URL לפני כל שלב"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "מעבר $PASS$ · שלב $STEP$ מתוך $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "ללא שינוי"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "מסנני $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "מעבר $PASS$ אינו משנה דבר, ולכן הניקוי נעצר",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "ספק זה נעצר כאן: הגעת למגבלת המחזורים, ה-URL חזר לכתובת קודמת, או שהוא כבר אינו תואם לספק"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "מעבר $PASS$ מפנה; הניקוי נמשך בכתובת החדשה עם כל הספקים",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "הספק חוסם בקשה זו (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "תוצאה"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "התבניות של ספק זה אינן תואמות ל-URL הזה, ולכן אף אחד מהכללים שלו לא רץ."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "ה-URL הזה תואם לאחד מחריגי הספק, ולכן אף אחד מהכללים שלו לא רץ."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "הזן URL מלא של http:// או https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "לא ניתן היה להריץ את ההדמיה. בדוק את ה-JSON שלמעלה."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "צור URL לבדיקה"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "נוצר מהכללים של ספק זה: טקסט עבור $RAW$ כללים גולמיים ו-$PARAMS$ פרמטרים, שכל אחד מהם נבדק מול הכלל שלו. keep=1 אינו תואם לאף כלל וצריך להישאר. הפניות וחסימות אינן נכללות, כי הן היו מסיימות את ההרצה לפני שאר הכללים.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "לא ניתן היה ליצור מארח שהתבניות של ספק זה תואמות לו, ולכן ה-URL משתמש במארח אחר והספק לא ירוץ עליו."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "כל URL שהתבניות של ספק זה תואמות לו מכוסה באחד מהחריגים של הספק עצמו, ולכן הכללים שלו לעולם אינם רצים."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ כללים הושמטו מ-URL הבדיקה",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "לא ניתן היה ליצור טקסט שהוא תואם לו"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "הטקסט שלו היה גורם לאחד מחריגי הספק להתאים"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "הוא מסיר כל פרמטר, ולכן אינו זקוק לפרמטר משלו"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "לספק זה יש מסנן $removeparam ללא שם, שמסיר כל פרמטר, כולל keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "ללא order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ ← $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "שחזר מספרי order"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "החזר כל order למצבו בעת פתיחת ספק זה"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "מספרי order שוחזרו"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "הסתר"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "הצג"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "נקה אזהרות"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "שחזר אזהרות"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ אזהרות נוקו",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern ללא indexPattern נבדק מול כל URL; הוסף רמזי indexPattern כגון \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ חוזר על \"$ENTRY$\"; העותק אינו עושה דבר ושניהם חולקים מזהה אחד",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "ב-$WHERE$ עדיין יש את מציין המיקום של התבנית \"$PATTERN$\"; החלף אותו בתבנית האמיתית",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "ל-$WHERE$ יש matchPattern בצורה \"(?!)\", שאינו תואם לשום דבר",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "פתרון בעיות"
+  },
+  "troubleshooter_launch": {
+    "message": "פתרון בעיות בלשונית זו (ניסיוני)"
+  },
+  "troubleshooter_title": {
+    "message": "פותר בעיות בלשונית"
+  },
+  "troubleshooter_page": {
+    "message": "דף"
+  },
+  "troubleshooter_about_summary": {
+    "message": "כיצד פועלת ההקלטה"
+  },
+  "troubleshooter_about_note": {
+    "message": "פתיחת תצוגה זו עשויה לבדוק את כתובת הדף, אך אינה מקליטה דבר. ההקלטה נשארת כבויה עד שתבחר \"התחל הקלטה\". ההתחלה טוענת מחדש את הלשונית כדי ללכוד את בקשות המשאבים שלה. כתובות URL שנלכדו נשמרות באחסון הסשן למשך סשן הדפדפן הזה ונמחקות עם סגירת הלשונית או סיום סשן הדפדפן. ההקלטה נעצרת לאחר 15 דקות אלא אם תעצור אותה קודם. כתובות URL של משאבים עשויות להכיל נתוני שאילתה פרטיים."
+  },
+  "troubleshooter_start": {
+    "message": "התחל הקלטה"
+  },
+  "troubleshooter_starting": {
+    "message": "מתחיל…"
+  },
+  "troubleshooter_recording": {
+    "message": "מקליט…"
+  },
+  "troubleshooter_stop": {
+    "message": "עצור הקלטה"
+  },
+  "troubleshooter_refresh": {
+    "message": "רענן"
+  },
+  "troubleshooter_copy": {
+    "message": "העתק סיכום"
+  },
+  "troubleshooter_export": {
+    "message": "ייצא"
+  },
+  "troubleshooter_export_title": {
+    "message": "שמור את ההקלטה כקובץ JSON. כתובות URL של משאבים עשויות להכיל נתוני שאילתה פרטיים."
+  },
+  "troubleshooter_category": {
+    "message": "קטגוריה"
+  },
+  "troubleshooter_category_all": {
+    "message": "כל הקטגוריות"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "כללי URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "הפניות"
+  },
+  "troubleshooter_category_protection": {
+    "message": "הגנה ועקיפות"
+  },
+  "troubleshooter_resource_type": {
+    "message": "סוג משאב"
+  },
+  "troubleshooter_type_all": {
+    "message": "כל סוגי המשאבים"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "חפש כללים, ספקים וכתובות URL"
+  },
+  "troubleshooter_timer": {
+    "message": "מקליט $1 · נותרו $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "בודק את הלשונית…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "אין לשונית פעילה זמינה."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "דף זה אינו מאפשר סריקת כללי URL. פתח דף אינטרנט רגיל בפרוטוקול http או https."
+  },
+  "troubleshooter_status_off": {
+    "message": "ההקלטה כבויה. התחל הקלטה כדי לבדוק את כתובות המשאבים שהדף הזה טוען."
+  },
+  "troubleshooter_status_active": {
+    "message": "עד כה נלכדו $1 שינויי URL. חדשים יופיעו כאן אוטומטית."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "ההקלטה נעצרה. נלכדו $1 שינויי URL."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "לא ניתן היה לשמור את נתוני ההקלטה באחסון הסשן. $1 שינויי URL עלולים ללכת לאיבוד אם התוסף יופעל מחדש."
+  },
+  "troubleshooter_status_started": {
+    "message": "ההקלטה התחילה והלשונית נטענת מחדש. כתובות URL שנלכדו מופיעות כאן בזמן טעינת הדף."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "ההקלטה נעצרה. נלכדו $1 שינויי URL ונשמרו לסשן הדפדפן הזה."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "ההקלטה נעצרה. נלכדו $1 שינויי URL, אך אחסון הסשן לא הצליח לשמור אותם."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "פתח תחילה דף אינטרנט רגיל בפרוטוקול http או https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "לא ניתן היה להתחיל הקלטה עבור לשונית זו."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "לא ניתן היה לעצור את ההקלטה עבור לשונית זו."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "לא ניתן היה לקרוא את הלשונית הזו. נסה לסגור ולפתוח מחדש את החלון הקופץ."
+  },
+  "troubleshooter_status_copied": {
+    "message": "הסיכום הועתק."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "לא ניתן היה להעתיק את הסיכום."
+  },
+  "troubleshooter_status_exported": {
+    "message": "ההקלטה יוצאה."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "לא ניתן היה לייצא את ההקלטה."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "לא ניתן היה לפתוח את טופס הדיווח."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "הכלל הופעל; טען מחדש את הלשונית כדי להשוות."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "הכלל הושבת; טען מחדש את הלשונית כדי להשוות."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "לא ניתן היה לעדכן את הכלל הזה."
+  },
+  "troubleshooter_empty_web": {
+    "message": "עדיין לא נמצאו שינויים בכללים. התחל הקלטה כדי לבדוק את כתובות המשאבים של הדף הזה."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "לא ניתן לסרוק את דף הדפדפן הזה."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "אין ממצאים התואמים למסננים אלה."
+  },
+  "troubleshooter_showing_first": {
+    "message": "מוצגים $1 הכללים הראשונים."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 פגיעות"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 נכשלו"
+  },
+  "troubleshooter_rule_id": {
+    "message": "מזהה כלל: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "פעולת הגנה מובנית (ללא מזהה כלל)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "מזהה כלל: אינו זמין עבור ממצא זה"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "לא ניתן היה לפענח את מזהה הכלל הזה בערכת הכללים הנוכחית."
+  },
+  "troubleshooter_source_observed": {
+    "message": "בקשה שנצפתה"
+  },
+  "troubleshooter_source_page": {
+    "message": "בדיקת כתובת הדף"
+  },
+  "troubleshooter_changes": {
+    "message": "מה השתנה: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "כתובות URL מושפעות ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…ועוד $1"
+  },
+  "troubleshooter_after": {
+    "message": "אחרי Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "נכשל לאחר ש-Linkumori שינה אותו: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "כלל זה מופעל. כבה אותו וטען מחדש כדי להשוות את הדף."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "כלל זה מושבת. הפעל אותו וטען מחדש כדי לשחזר את התנהגותו."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "זוהי פעולת הגנה מובנית, לא כלל בודד."
+  },
+  "troubleshooter_advice_review": {
+    "message": "בדוק את ה-URL המושפע לפני שינוי כללים."
+  },
+  "troubleshooter_report": {
+    "message": "דווח על כלל זה"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "השבת כלל"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "הפעל כלל"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "השבת את הכלל $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "הפעל את הכלל $1"
+  },
+  "troubleshooter_saving": {
+    "message": "שומר…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "הוסר $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "נוסף $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "שונה $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "הופנה אל $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "הנתיב השתנה"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "הקטע (fragment) השתנה"
+  },
+  "troubleshooter_change_other": {
+    "message": "ה-URL השתנה"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "נחסם בכוונה"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 בקשות נכשלו בדף זה; $2 מהן מיד לאחר ש-Linkumori שינה את ה-URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "האם הדף הזה מקולקל?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "מצא את הכלל שמקלקל אותו: הכללים שרצו בדף זה מושבתים בזה אחר זה, ולאחר כל אחד אתה מציין אם הדף תוקן. לא בטוח ש-Linkumori הוא הגורם? בדוק קודם כשהניקוי מושהה."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "בדוק קודם כשהניקוי מושהה"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "הניקוי מושהה עבור $1 בלשונית זו"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "הלשונית נטענה מחדש ללא ניקוי. האם הדף עובד כעת?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "כן, הוא עובד"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "לא, עדיין מקולקל"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "ביטול"
+  },
+  "troubleshooter_diag_done": {
+    "message": "סיום"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "כנראה לא Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "הדף נשאר מקולקל גם כשהניקוי הושהה, ולכן הבעיה כנראה במקום אחר: באתר עצמו, בתוסף אחר או ברשת. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori הוא כנראה הגורם"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "הדף עובד כשהניקוי מושהה. מצא את הכלל: הכללים מושבתים בזה אחר זה, הלשונית נטענת מחדש, ואתה מציין אם הדף תוקן. כל שאר הכללים מופעלים מחדש בסוף."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "הלשונית נטענת מחדש כשהניקוי פועל שוב, כדי להקליט אילו כללים רצים בדף זה. הם יופיעו כאן בעוד רגע. אם אין כאלה, השתמש בדף עד שייתקלקל."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "מצא את הכלל ($1 כללים)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "כן, תוקן"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "לא, עדיין מקולקל"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "נמצא"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "הדף מתקלקל בגלל הכלל $1$2. הוא הופעל שוב. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "השבת כלל זה"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "דווח"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "הכלל כובה. טען מחדש את הלשונית כדי לבדוק. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "לא נמצא כלל בודד"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "השבתת הכללים בזה אחר זה לא תיקנה את הדף, ולכן הבעיה נגרמת כנראה על ידי כמה כללים יחד, או על ידי הגדרת הגנה. כל הכללים הופעלו מחדש. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "לא ניתן היה להריץ את הבדיקה: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "טען מחדש את Linkumori כדי להשתמש בבדיקה זו"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori עודכן, אך החלק שלו ברקע עדיין מריץ את הגרסה הישנה. טען מחדש את התוסף (עבור תוסף זמני: about:debugging → This Firefox → Reload), או הפעל מחדש את Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "נמצא"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "הדף מתקלקל בגלל הכלל $1$2. הוא נשאר כבוי כדי שהדף יעבוד; כל שאר הכללים הופעלו מחדש. טען מחדש את הלשונית כדי לבדוק. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "טען לשונית מחדש"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "הפעל אותו שוב"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "הכלל הופעל שוב. טען מחדש את הלשונית כדי לבדוק. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "הקלט ומצא את הכלל"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "מקליט אילו כללים רצים בדף זה. השתמש בדף עד שייתקלקל; הכללים יופיעו כאן."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "כבוי זמנית על ידי חיפוש הכללים. יופעל מחדש בסיום החיפוש."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "חיפוש הכללים פועל. שנה כללים לאחר שיסתיים."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "דלג — הפעל אותו שוב"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "השאר אותו כבוי"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "חיפוש הכללים דולג; כל הכללים פועלים שוב. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "הכלל $1 נשאר כבוי. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "כבויים לצורך בדיקה זו:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…ועוד $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "עצור חיפוש"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "דולג: הכלל הופעל שוב ונשמט. בודק את הבא."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "לא נמצא כלל בין הכללים שנבדקו. $1 כללים שדילגת עליהם לא נבדקו. כל הכללים פועלים שוב. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_experimental": {
+    "message": "ניסיוני"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "ניסיוני: פותר הבעיות הזה אינו יציב לגמרי. התוצאות שלו עלולות להיות שגויות, והוא משבית כללים בזמן הבדיקה. אם משהו נראה שגוי לאחר מכן, בדוק את הכללים שלך בעורך הכללים המותאמים אישית, או השתמש ב\"עצור חיפוש\" כדי להפעיל אותם מחדש."
+  },
+  "troubleshooter_working": {
+    "message": "עובד…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "הקלט שוב"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "ההקלטה הישנה נוקתה. מקליט את הלשונית הזו שוב מטעינה חדשה."
+  },
+  "troubleshooter_clear": {
+    "message": "נקה"
+  },
+  "troubleshooter_clear_title": {
+    "message": "נקה את ההקלטה, הממצאים וחיפוש הכללים שהסתיים של לשונית זו. הכללים נשארים כפי שהם."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "נוקה. הכללים נשארים כפי שהם."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "נוקה. הכלל $1 נשאר כבוי."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "בודק כלל אחד בכל פעם — כלל $1 מתוך $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "רק הכלל הזה כבוי, והלשונית נטענה מחדש. האם הדף תוקן כעת?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "דלג על כלל זה"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "דלג — הפעל אותו שוב, בדוק את הבא ($1 נותרו)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 כללים נוספים שרצו בדף זה לא נבדקו. האם להמשיך לבדוק אותם?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "השאר אותו כבוי, בדוק את הבא ($1 נותרו)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "הכלל $1 נשאר כבוי. בודק את הכלל הבא."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "אף כלל אחר אינו מתקן את הדף בכוחות עצמו. $1 הכללים ששמרת כבויים נשארים כבויים; כל שאר הכללים פועלים שוב. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "בדוק את הכלל הבא ($1 נותרו)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "הכלל $1 הופעל שוב ונשמט. בודק את הכלל הבא."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "אף כלל אחר אינו מתקן את הדף בכוחות עצמו. $1 הכללים שדילגת עליהם הופעלו אף הם מחדש, ולכן כל הכללים פועלים שוב. כדי להתחיל מחדש, לחץ על \"נקה\"."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori מנקה כתובות URL באמצעות כללים הכתובים ב-<strong>CLN Format 1.0</strong> (Clean Link Notation), פורמט JSON. מדריך זה מתקדם מכלל ראשון ועד כל האפשרויות, עם דוגמאות שאפשר להעתיק."
+  },
+  "guide_intro_p_2": {
+    "message": "הכללים המובנים, רשימות כללים מרוחקות והכללים המותאמים אישית שלך משתמשים כולם באותו פורמט. כללים מותאמים אישית כותבים בעורך הכללים המותאמים אישית, שבודק אותם בעת שמירה או ייבוא. קטלוג כללים רשמי של ClearURLs (<code>data.min.json</code>) הוא כבר קובץ CLN תקין וניתן להשתמש בו כמות שהוא."
+  },
+  "guide_rules_file_p_1": {
+    "message": "שם הספק הוא רק תווית. אילו כתובות URL הספק מטפל בהן נקבע על ידי <code>domainPatterns</code> או <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "מפתח ברמה העליונה"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "חובה. הספקים, לפי שם."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "גרסת פורמט אופציונלית. הערך התקף היחיד הוא <code>\"1.0\"</code>. קובץ בלעדיו נקרא גם הוא כ-1.0; כל ערך אחר דוחה את הקובץ. היא אינה נקראת <code>version</code> כי הפורמט החדש של כללי ClearURLs כבר משתמש במפתח הזה."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "מידע אופציונלי על הקובץ."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "ערכים לכל כלל בקובץ שאינו מגדיר ערך משלו (פרק 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "ברשימות כללים מרוחקות בלבד: תחליפים לכללים שכבר נטענו (פרק 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "אילו כתובות URL הספק מטפל בהן, כתבנית דומיין אחת או כרשימה שלהן (פרק 3). השתמש בזה או ב-<code>urlPattern</code>, לעולם לא בשניהם."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "אילו כתובות URL הספק מטפל בהן, כביטוי רגולרי אחד המותאם ל-URL המלא. אותיות גדולות וקטנות אינן משנות."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "רק עם <code>urlPattern</code>: רמזי מארח כגון <code>||example.com^</code>, כך שהספק נבדק רק עבור מארחים אלה ולא מול כל URL. זהו רמז חיפוש, לא תנאי התאמה."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "פרמטרי הפניה ושותפים להסרה. מדולגים כאשר <em>אפשר שיווק בהפניה</em> מופעל (פרק 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "כתובות URL שהספק משאיר לגמרי בשקט (פרק 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "שלח את הבקשה לכתובת אחרת במקום לערוך אותה (פרק 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "שלח את הבקשה לערך של פרמטר (פרק 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: כאשר טעינת דף (<code>main_frame</code>) מופנית, הלשונית כולה מנווטת לכתובת החדשה, ולא רק בקשת הרשת."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "טפל רק בשיטות HTTP אלה, למשל <code>[\"GET\"]</code>. אם לא צוין: כל שיטה."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "טפל רק בסוגי בקשות אלה, למשל <code>[\"main_frame\", \"xmlhttprequest\"]</code>. אם לא צוין: כל סוג בקשה."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "ברירת מחדל <code>true</code>. <code>false</code> מדלג על הספק כולו כאשר דף משנה את הכתובת שלו בעצמו באמצעות History API (<code>pushState</code>/<code>replaceState</code>). בקשות רשת רגילות עדיין מנוקות."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> מכבה את הספק מבלי למחוק אותו."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> היא רשימה של תבניות דומיין. כתובת URL תואמת אם אחת מהן תואמת. אותן תבניות משמשות לפני <code>exceptions</code>, <code>redirections</code>, מסנני <code>$removeparam</code> וכללים גולמיים."
+  },
+  "guide_matching_cell_1": {
+    "message": "ה-URL המלא, כביטוי רגולרי"
+  },
+  "guide_matching_cell_2": {
+    "message": "כתובות URL שמכילות טקסט זה בכל מקום (ללא <code>|</code> בהתחלה)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> מסמן את סוף שם המארח, או מפריד כגון <code>/</code>, <code>?</code>, <code>:</code> או סוף ה-URL. <code>*</code> הוא תו כללי (wildcard)."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> מייצג דומיין: המארח וכל תת-דומיין. <code>|</code> יחיד מייצג את תחילת ה-URL ממש וחייב להיות מלווה בסכמה כגון <code>https://</code>. עבור דומיין תמיד תרצה <code>||</code>; <code>|example.com^</code> לעולם לא יתאים, ולכן העורך דוחה אותו."
+  },
+  "guide_matching_p_4": {
+    "message": "לדוגמה, <code>||smile.amazon.*^</code> נקרא כך: <code>||</code> המארח ותתי-הדומיינים שלו, <code>smile.amazon</code> התוויות הנדרשות, <code>.*</code> כל סיומת ציבורית (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), ו-<code>^</code> סוף המארח."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "בדיוק הפרמטר הזה"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "כל פרמטר ששמו כולו תואם; אותיות גדולות וקטנות אינן משנות"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> ו-<code>\"$removeparam=fbclid\"</code> מסירים את אותו הדבר. השתמש בשם הפשוט אלא אם אתה זקוק למשהו מפרק 5. כל רשומה יכולה להיכתב גם כאובייקט כלל (פרק 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "כאן <code>qid</code> מוסר בכל אתרי Amazon, <code>tag</code> רק ב-<code>amazon.de</code>, <code>sr</code> רק ב-<code>smile.amazon</code>, ו-<code>ref_</code> רק תחת <code>/gp/</code>. התבנית מצמצמת את התבניות של הספק עצמו; היא אינה יכולה להרחיב אותן לעולם."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> הופך את המסנן לחריג ששומר על הפרמטר (ראה בהמשך)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> מצמצם את המסנן לחלק מכתובות ה-URL של הספק (פרק 3). אם לא צוין, הוא חל על כל URL שהספק תואם."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> בוחר את הפרמטרים. אם לא צוין, כל פרמטר מוסר."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "מתאמים (modifiers) קובעים מתי המסנן פועל. כל מתאם שצוין חייב להתקיים; אין \"או\" ביניהם."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "כל פרמטר מלבד <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "פרמטרים ששמם, או <code>name=value</code> יחד, תואם לביטוי הרגולרי; הוסף <code>i</code> כדי להתעלם מאותיות גדולות וקטנות"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "פרמטרים ששמם מתחיל ב-<code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "מילוט (escape) של שם פרמטר"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "קו נטוי הפוך הופך את התו הבא לתו מילולי, כך שאפשר לכוון לכל שם פרמטר:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "ערך"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "מסיר את הפרמטר בשם"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (הפסיק אינו מתחיל את המתאמים)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "חמשת אלה הם המילוטים היחידים בערך שם; קו נטוי הפוך לפני כל תו אחר הוא שגיאה. בתוך ערך <code>/regex/</code> הקו הנטוי ההפוך שומר על משמעותו בביטוי רגולרי. המילוטים פועלים ברשומות <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> ו-<code>@@</code>. ב-JSON, כתוב כל קו נטוי הפוך פעמיים: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "מתאמים"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "מתאמים באים אחרי הערך, מופרדים בפסיקים. הפרד כמה ערכים של מתאם אחד באמצעות <code>|</code>, והצב <code>~</code> לפני ערך כדי להוציא אותו:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "מתאם"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "רק כאשר הדף שיצר את הבקשה הוא (או, עם <code>~</code>, אינו) אחד מאלה; ערכי ביטוי רגולרי מותרים"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "רק כאשר הבקשה עצמה מגיעה לאחד מאלה, בלי קשר לדף שיצר אותה"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "רק עבור שיטות HTTP אלה: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "רק כאשר הבקשה מגיעה לאותו דומיין רשום כמו הדף (<code>a.example.com</code> ו-<code>b.example.com</code> נחשבים זהים), או לדומיין אחר"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "אותו דבר, אך תוך השוואת שם המארח המדויק, כך שתת-דומיין נחשב לצד שלישי"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "שמות פרמטרים מושווים תוך הבחנה בין אותיות גדולות לקטנות"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "דלג על מסנן זה כאשר דף משנה את הכתובת שלו בעצמו באמצעות History API. מקבל גם <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "ארבעת המתאמים <code>*-party</code> אינם ניתנים לשילוב זה עם זה; <code>first-party,third-party</code> נדחה."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "לדוגמה, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> מסיר את <code>sid</code> ב-<code>example.com</code>, רק עבור בקשות GET שנוצרו על ידי דף באתר אחר, ולעולם לא כאשר הדף הוא <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "רשומת <code>@@</code> מגנה רק מפני מסנני <code>$removeparam</code>. רשומה פשוטה כגון <code>\"ref\"</code> עדיין מסירה את הפרמטר; השתמש לשם כך ב-<code>exceptions</code> של אובייקט כלל. לכללים גולמיים יש רשומות משלהם בצורת <code>@@…$rawrule=</code> (פרק 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "לא משנה היכן תרשום אותה, והיא אינה יכולה לכלול <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "התבנית שלה נבדקת מול ה-URL כפי שהספק קיבל אותו, לפני שהכללים הגולמיים רצים. רשומת <code>@@</code> המוגבלת לנתיב שכלל גולמי מוחק עדיין תואמת."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "היא מכסה גם מסננים של ספקים אחרים עבור בקשות שנוצרו על ידי דף שהספק הזה תואם לו, דבר שימושי להוצאת אתר אחד מכלל שהוגדר במקום אחר."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "כללים גולמיים רצים לפני <code>rules</code>, מתעלמים מהבחנה בין אותיות גדולות לקטנות ומחליפים כל התאמה (דגלים <code>gi</code>, או <code>g</code> עם <code>match-case</code>). ב-JSON, כתוב כל קו נטוי הפוך פעמיים."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "כלל גולמי יכול לקבל את התבנית והמתאמים של מסנן <code>$removeparam</code>, כאשר <code>rawrule=</code> בא אחרון. כל מה שאחרי <code>rawrule=</code> הוא הביטוי הרגולרי:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "התבנית והמתאמים קובעים היכן הכלל רץ; הביטוי הרגולרי הוא עדיין מה שנמחק."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "רשומה שמתחילה ב-<code>@@</code> ומסתיימת ב-<code>rawrule=</code> מונעת מכללים גולמיים לרוץ במקום שהתבנית שלה תואמת:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "בלי דבר אחרי <code>rawrule=</code>, היא עוצרת כל כלל גולמי של הספק בכתובות אלה."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "עם ביטוי רגולרי אחרי <code>rawrule=</code>, היא עוצרת את הכללים הגולמיים בעלי אותו ביטוי רגולרי."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "כאובייקט כלל עם <code>targetId</code>, היא עוצרת רק את הכלל הגולמי בעל המזהה או הכינוי הזה."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "כדי לדלג על הספק כולו, השתמש במקום זאת ב-<code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "אם כתובת URL תואמת רשומה ב-<code>exceptions</code>, אף אחד מכללי הספק אינו רץ עבור אותה בקשה. רשומה היא ביטוי רגולרי מול ה-URL המלא, או תבנית דומיין שמתחילה ב-<code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "חריגים מתעלמים מהבחנה בין אותיות גדולות לקטנות. כדי לדלג על כלל בודד ולא על הספק כולו, תן לכלל זה <code>exceptions</code> משלו (פרק 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "הפרמטר התואם הראשון ב-URL הוא הקובע. עבור <code>https://site.example/away?redirect=https://real.example/page</code>, הבקשה מופנית אל <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "יעדי הפניה תקפים"
+  },
+  "guide_redirects_p_2": {
+    "message": "הפניה מתבצעת רק לכתובת <code>http</code> או <code>https</code> מוחלטת עם מארח. הדבר נבדק לאחר המעבדים המקדימים ופענוח אחוזים (percent-decoding). יעד לא תקף גורם לרשומה להיחשב כלא תואמת: דבר אינו מופנה, והשלבים המאוחרים של הספק רצים על ה-URL ללא שינוי."
+  },
+  "guide_redirects_th_1": {
+    "message": "יעד"
+  },
+  "guide_redirects_th_2": {
+    "message": "מופנה?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "כן"
+  },
+  "guide_redirects_cell_2": {
+    "message": "כן, אל <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "לא: הסכמה אינה <code>http</code> או <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "לא: אינה כתובת מוחלטת"
+  },
+  "guide_redirects_p_3": {
+    "message": "כלל גולמי שתוצאתו כוללת סכמה, מארח או יציאה שונים מהקלט שלו נחשב אף הוא להפניה, גם כאשר הוא רק מוחק טקסט: מחיקת <code>secure-</code> מ-<code>https://secure-bank.example/</code> מנחיתה באתר אחר. הוא זקוק ליעד תקף, וברשימת כללים מרוחקת גם לאישור <code>redirect</code> (פרק 15). אחרת הכלל משאיר את ה-URL כפי שהיה."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "כל רשומה, בכל רשימה, יכולה להיות אובייקט במקום מחרוזת. השתמש באחד כאשר כלל זקוק למזהה יציב, צריך להתחיל כבוי, צריך לשכתב במקום להסיר, או צריך לרוץ רק במקרים מסוימים:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "חובה. הטקסט שהיית כותב כרשומה פשוטה ברשימה זו."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "שם יציב (אותיות, ספרות, <code>-</code>, <code>_</code>) המשמש להפעלה וכיבוי של הכלל (פרק 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "המזהים הקודמים של הכלל, כך שהגדרה ששמורה תחת מזהה ישן תמשיך לחול לאחר שינוי שם."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "שכתב במקום להסיר; <code>§1§</code>, <code>§2§</code>, … הם הערכים שנלכדו."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "המר תחילה את הערכים שנלכדו."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "רק עבור סוגי בקשות אלה, למשל <code>[\"main_frame\"]</code>. ניקוי ללא בקשה (<em>העתק קישור נקי</em>, כלי הניקוי, שינויי History API) נחשב כ-<code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "כתובות URL (ביטויים רגולריים) שבהן כלל זה בלבד אינו רץ."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "דגלי ביטוי רגולרי, כמחרוזת. ברירת מחדל <code>i</code>; ב-<code>rawRules</code>, <code>gi</code> (או <code>g</code> עם <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "הרץ את הכלל מוקדם או מאוחר יותר בתוך השלב שלו (פרק 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: כלל ב-<code>rules</code> נחשב גם ככלל שיווק בהפניה (פרק 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "מתג הספק באותו שם, עבור כלל זה בלבד. הוא גובר על ערך הספק ועל ברירת המחדל של הקובץ."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: הכלל מתחיל כבוי."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "הערה לאנשים שקוראים את הקובץ; חייבת להיות מחרוזת."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "ברשומות <code>@@…$rawrule=</code> בלבד: מזהה הכלל הגולמי שהיא עוצרת."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "כאן <code>?token=abc123</code> הופך ל-<code>?token=clean-abc123</code>. שכתוב חל לכל היותר פעם אחת בכל בקשה, ולכן אינו ממשיך לעטוף את הערך."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "מעבדים מקדימים משנים ערכים שנלכדו, לפי הסדר, לפני ש-<code>replacePattern</code> או הפניה משתמשים בהם. <code>inputs</code> הוא <code>\"all\"</code> או רשימה של מספרי קבוצות:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> מקבל אותן רשומות כמו <code>rules</code>. הן רצות רק כאשר <em>אפשר שיווק בהפניה</em> כבוי, כך שקישורי שותפים ממשיכים לעבוד אם תפעיל אותו:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "כלל יכול להישאר ב-<code>rules</code> ועדיין להיחשב שיווק בהפניה, עם <code>\"referralMarketing\": true</code>. אל תכניס את אותו טקסט גם ל-<code>rules</code> וגם ל-<code>referralMarketing</code>; העורך מזהיר על כך."
+  },
+  "guide_request_types_cell_1": {
+    "message": "סוגי הבקשות שאובייקט כלל אחד מטפל בהם (ניתן להגדיר גם ב-<code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "סוגי בקשות משתמשים בשמות של הדפדפן: <code>main_frame</code> (דף), <code>sub_frame</code> (מסגרת), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> וכן הלאה. מתאמי מסננים קוראים לשני הראשונים <code>document</code> ו-<code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "סוגי בקשות מגיעים רק מהכללים: אין רשימת סוגי בקשות בהגדרות. אם אף אחד מאלה לא הוגדר, כלל מנקה כל סוג בקשה."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. ברירות מחדל"
+  },
+  "guide_defaults_p_1": {
+    "message": "בלוק <code>defaults</code> ברמה העליונה נותן לכל כלל בקובץ ערכים שהוא אינו מגדיר בעצמו:"
+  },
+  "guide_defaults_th_1": {
+    "message": "ברירת מחדל עבור…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> מכבה כל כלל אלא אם הוא מציין <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> או השמטה פירושם כל סוג"
+  },
+  "guide_defaults_item_1": {
+    "message": "הערך של הכלל עצמו תמיד גובר, ו-<code>exceptions</code> של כלל מחליפים את הרשימה המוגדרת כברירת מחדל ולא מתווספים אליה."
+  },
+  "guide_defaults_item_2": {
+    "message": "ברירות מחדל חלות על <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> ו-<code>fieldRedirections</code>. רשימת <code>exceptions</code> של הספק עצמו נשארת ללא שינוי. רשומות <code>$redirect=</code> משתמשות רק ב-<code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "כל קובץ שומר על ברירות המחדל שלו: הכללים המובנים, כל רשימה מרוחקת והכללים המותאמים אישית שלך, גם כאשר מצב עומס יתר ממזג אותם."
+  },
+  "guide_defaults_item_4": {
+    "message": "עבור <code>completeProvider</code>, ברירות המחדל <code>requestTypes</code> ו-<code>exceptions</code> מגבילות גם את החסימה."
+  },
+  "guide_defaults_item_5": {
+    "message": "מפתחות לא מוכרים וסוגים שגויים הם שגיאות, ורשימה מרוחקת עם בלוק <code>defaults</code> לא תקף נדחית."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "ברירות המחדל שלך"
+  },
+  "guide_defaults_p_2": {
+    "message": "בעורך הכללים המותאמים אישית, <em>נהל ברירות מחדל של כללים</em> פותח טופס שבו אתה מגדיר בלוק <code>defaults</code> משלך ובוחר היכן הוא מחליף את אלה של הקבצים עצמם:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>של כל מקור בנפרד</em> (ברירת המחדל): כל קובץ משתמש ב-<code>defaults</code> שלו."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>שלך עבור כללים מובנים ומרוחקים</em>: כללים מובנים ומרוחקים משתמשים בשלך; כללים מותאמים אישית שומרים על שלהם."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>שלך עבור כל הכללים</em>: כל כלל משתמש בשלך."
+  },
+  "guide_defaults_p_3": {
+    "message": "אותו טופס יכול לערוך את ברירות המחדל של הכללים המובנים ושל כל רשימה מרוחקת שנטענה. העריכה שלך נשמרת בתוסף, לא בקובץ, ו-<em>אפס לברירות המחדל של הקובץ</em> מסירה אותה. <em>מזג ממקורות…</em> משלב את ברירות המחדל של המקורות שסימנת; דבר אינו נשמר עד שתשמור."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. כיצד מעובד URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, ואחריהן <code>fieldRedirections</code>: התאמה עם יעד תקף מפנה את הבקשה."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> ו-<code>referralMarketing</code> מסירים או משכתבים פרמטרים."
+  },
+  "guide_processing_order_item_3": {
+    "message": "מסנני <code>$removeparam</code> רצים, למעט במקום שבו רשומת <code>@@</code> שומרת על הפרמטר."
+  },
+  "guide_processing_order_p_1": {
+    "message": "הספק הראשון ששינה, הפנה או חסם את ה-URL הוא הקובע. ה-URL החדש עובר שוב באותם שלבים (ראה <a href=\"#termination\">מתי העיבוד נעצר</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "סדר ההרצה ו-<code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "שלבים 4 ו-5 ממוינים יחד, לפי הכללים הבאים לפי הסדר:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>כללים גולמיים תמיד רצים ראשונים.</strong> שום <code>order</code> אינו מקדים רשומת <code>rules</code> לכלל גולמי. ניקוי שחייב להתרחש לפני כלל גולמי חייב להיות בעצמו כלל גולמי."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>בתוך שלב, כללים עם <code>order</code> רצים לפני כללים בלעדיו</strong>, מהנמוך ביותר. מספרים שליליים ושברים מותרים. <code>order: 10</code> אינו אומר \"עשירי\": הוא אומר אחרי הכללים הממוינים של השלב מתחת ל-10 ולפני כל הכללים הלא ממוינים שלו."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>לאחר מכן לפי רשימה:</strong> <code>rules</code>, אחר כך אובייקטי <code>rules</code> המסומנים <code>\"referralMarketing\": true</code>, ואז <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>לאחר מכן לפי מיקום</strong> ברשימה. כל רשומה שומרת על מקומה, כולל רשומות הכתובות כמו <code>\"3\"</code> או <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "כאן האסימון (token) משוכתב לפני הסרת <code>utm_source</code>, אף שהוא מופיע שני:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "כללים כבויים מושמטים. מסנני <code>$removeparam</code> ורשומות <code>@@</code> נמצאים מחוץ למיון זה ואינם יכולים לכלול <code>order</code>, אפילו לא <code>null</code>; מסננים תמיד רצים אחרונים."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "אותו טקסט פעמיים"
+  },
+  "guide_processing_order_p_5": {
+    "message": "שתי רשומות עם אותו טקסט <code>matchPattern</code> בקבוצה אחת הן כלל אחד. הקבוצות הן גולמי (<code>rawRules</code>), שדה (<code>rules</code> ללא סימון הפניה) והפניה (אובייקטי <code>rules</code> מסומנים, ואחריהם <code>referralMarketing</code>). זה קורה בעיקר כאשר רשימות כללים ממוזגות."
+  },
+  "guide_processing_order_item_8": {
+    "message": "ההגדרה האחרונה שאינה כבויה גוברת, עם כל המפתחות שלה."
+  },
+  "guide_processing_order_item_9": {
+    "message": "ללא <code>order</code> משלו, המנצח לוקח את מיקום ההגדרה הראשונה ואת ה-<code>order</code> הקודם הקרוב ביותר. <code>\"order\": null</code> פירושו ללא order, ומסיר order שהורש."
+  },
+  "guide_processing_order_item_10": {
+    "message": "המזהים והכינויים של הגדרות שהוחלפו מפעילים ומכבים גם את המנצח."
+  },
+  "guide_processing_order_item_11": {
+    "message": "בזמן שכללי שיווק בהפניה רצים, רשומת הפניה מחליפה רשומת שדה עם אותו טקסט."
+  },
+  "guide_processing_order_item_12": {
+    "message": "כלל גולמי וכלל שדה עם אותו טקסט אינם מתנגשים; שניהם רצים."
+  },
+  "guide_processing_order_p_6": {
+    "message": "בתוך רשימה אחת, שתי רשומות שונות עם אותו טקסט הן שגיאה, ועותק מדויק הוא אזהרה."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "מתי העיבוד נעצר"
+  },
+  "guide_processing_order_item_13": {
+    "message": "לכל היותר 10 מחזורים רצים בכל בקשה; בהגעה למגבלה ה-URL משמש כפי שהוא."
+  },
+  "guide_processing_order_item_14": {
+    "message": "כלל עם <code>replacePattern</code> חל לכל היותר פעם אחת בכל בקשה."
+  },
+  "guide_processing_order_item_15": {
+    "message": "שלב שאינו משנה את ה-URL אינו מתחיל מחזור חדש."
+  },
+  "guide_processing_order_p_7": {
+    "message": "הגדרות ← <em>מחזורי ניקוי ללא הגבלה</em> (כבוי כברירת מחדל) מסירה את מגבלת 10 המחזורים עבור שרשראות כללים הזקוקות ליותר. העיבוד מסתיים אז כאשר מחזור אינו משנה דבר, אך שני כללים שמפנים זה לזה יתנו לולאה עד שהדפדפן יוותר והדף לא ייטען. הפעל זאת רק עבור כללים שאתה סומך עליהם."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. מזהי כללים ומתגי הפעלה/כיבוי"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "לכל כלל יש מזהה. כלל ללא <code>id</code> מקבל אחד מהרשימה שלו ומהטקסט שלו: <code>\"utm_source\"</code> ב-<code>rules</code> הופך ל-<code>field-utm-source</code>. מזהה שנוצר אוטומטית משתנה כאשר הטקסט של הכלל משתנה, וכלל שכובה יופעל אז מחדש. תן לכלל <code>id</code> משלו כאשר הוא חייב לשמור על הגדרת ההפעלה/כיבוי שלו לאורך עריכות, ורשום מזהים ישנים ב-<code>aliases</code> כאשר אתה משנה את שמו."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "כלל מופעל ומכובה לפי הספק והמזהה שלו יחד, כגון <code>shop::session-token</code>, כך ששני ספקים יכולים להשתמש באותו מזהה. עורך הכללים המותאמים אישית עשוי גם לשמור אותו תחת התבנית של הספק, כגון <code>domainPattern:||shop.example^::session-token</code>; שתי הצורות פועלות."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "בתוך ספק אחד, כל מזהה וכינוי חייבים להיות שונים. מזהים שנוצרו אוטומטית נספרים."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "מזהה אינו יכול להכיל נקודתיים."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "הגדרה ששמורה תחת מזהה חשוף, ללא הספק שלו, אינה מחליפה דבר; כבה את הכלל שוב בעורך הכללים המותאמים אישית."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. רשימות כללים מרוחקות"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "רשימות כללים מרוחקות הן קובצי כללים ש-Linkumori מוריד, ואופציונלית בודק מול קובץ גיבוב. רשימה עם ערך <code>cln</code>, בלוק <code>defaults</code> או מערך <code>patches</code> לא תקפים אינה נטענת, ובריאות כללים מרוחקים מדווחת על כך."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "הפניה וחסימה דורשות את אישורך"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "מה שרשימה מרוחקת יכולה לעשות נקבע מתוכנה בעת הטעינה:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "יכולת"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "לרשימה יש אותה כאשר היא מכילה"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "פעילה בעת הטעינה"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "רשומת <code>rules</code>, <code>rawRules</code> או <code>referralMarketing</code>, או מסנן <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "רשומה עם <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "רשומת <code>exceptions</code> של ספק או רשומת <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "רשומת <code>redirections</code> או <code>fieldRedirections</code>, או <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "לאחר אישור"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "ספק עם <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "אשר את <code>redirect</code> ואת <code>block</code> לכל רשימה בבריאות כללים מרוחקים. עד אז, ההפניות והחסימות של הרשימה נשארות כבויות, והכללים הגולמיים שלה אינם יכולים לשלוח URL לאתר אחר; שאר הרשימה פועל מיד. כאשר עדכון מוסיף יכולת חדשה, גם היא ממתינה לאישור. לכללים מובנים ולכללים מותאמים אישית יש את כל היכולות."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "מצב עומס יתר"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "בדרך כלל, רשימות מרוחקות שיש בהן ספקים מחליפות את הכללים המובנים; רשימות שמכילות רק <code>patches</code> מוחלות על הכללים המובנים. כאשר <em>הפעל מצב עומס יתר</em> פועל, הן נטענות יחד, באחת משלוש אסטרטגיות:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>מצב תיקונים בלבד</em>: החל את התיקונים של הרשימות המרוחקות על הכללים המובנים; ספקים מרוחקים אינם נכללים."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>מצב תיקונים + מיזוג</em>: מזג ספקים מובנים ומרוחקים, ואז החל תיקונים."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>ללא מצב תיקונים + מיזוג</em>: מזג את הספקים ודלג על תיקונים."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "בעת מיזוג, רשימות מרוחקות ממוזגות זו עם זו לפי הסדר שבו רשמת אותן, ואז עם הכללים המובנים (המובנים תחילה). רק ספקים עם אותם <code>domainPatterns</code> (או <code>urlPattern</code>) ואותם <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> ו-<code>forceRedirection</code> ממוזגים; ה-<code>rules</code>, <code>rawRules</code> ו-<code>referralMarketing</code> שלהם מחוברים, ו-<a href=\"#same-text-twice\">אותו טקסט פעמיים</a> קובע איזה עותק רץ. בריאות כללים מרוחקים מציגה כל כלל שהוחלף כהודעה."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "כללים מותאמים אישית מוחלים אחרונים. ספק מותאם אישית מחליף כל ספק שנטען עם אותה תבנית; הכללים שלהם אינם משולבים."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "תיקוני כללים"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "רשימה מרוחקת יכולה להחליף כללים בודדים שכבר נטענו, בלי לפרסם עותק מלא, במערך <code>patches</code> ברמה העליונה:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "חובה. הכלל להחלפה, הכתוב כמו מפתח ההפעלה/כיבוי שלו: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> או <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "חובה. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> או <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "חובה. הכלל החדש, כרשומה פשוטה או כאובייקט כלל."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "הערה לאנשים שקוראים את הקובץ."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "תיקונים רצים לאחר מיזוג הרשימות המרוחקות ולפני הכללים המותאמים אישית. קובץ עם <code>patches</code> בלבד אינו זקוק ל-<code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "מיזוג יכול לשנות שמות של ספקים, ולכן הצורה <code>domainPattern:</code> או <code>urlPattern:</code> היא זו שתמיד מוצאת אותם."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "התחליף שומר על המזהה של הכלל הישן, או לוקח את המזהה הישן ככינוי, כך שהגדרות הפעלה/כיבוי ממשיכות לחול."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "תיקון להפניה ממתין לאישור <code>redirect</code> של הרשימה. תיקון שהיעד שלו אינו תואם דבר אינו משנה דבר."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "בריאות כללים מרוחקים מציגה כל תיקון כמוחל, לא תואם או מדולג."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. כללים והרשימה הלבנה"
+  },
+  "guide_whitelist_p_1": {
+    "message": "הרשימה הלבנה נפרדת מ-<code>exceptions</code> של ספק: היא מפרטת אתרים שהורית ל-Linkumori להשאיר בשקט, בלי מעורבות של קובץ כללים. הרשומות נראות כמו <code>example.com</code>, <code>*.example.com</code> (האתר ותתי-הדומיינים שלו) או <code>example.*</code> (כל סיומת). הוספת דף לרשימה הלבנה מכסה גם את כל מה שהוא טוען."
+  },
+  "guide_examples_title_1": {
+    "message": "17. דוגמאות מלאות"
+  },
+  "guide_checking_title_1": {
+    "message": "18. בדיקת הכללים שלך"
+  },
+  "guide_checking_p_1": {
+    "message": "עורך הכללים המותאמים אישית בודק כללים בעת שמירה או ייבוא, ו-<code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> מריץ את אותן בדיקות. מלבד JSON שבור וביטויים רגולריים לא תקפים, הן דוחות כללים שייטענו אך יעשו בשקט את הדבר הלא נכון, כגון:"
+  },
+  "guide_checking_item_1": {
+    "message": "שדות, מפתחות ומתאמים לא מוכרים"
+  },
+  "guide_check_7": {
+    "message": "ערך <code>cln</code> שאינו <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "מזהה או כינוי שנעשה בהם שימוש פעמיים בספק אחד"
+  },
+  "guide_checking_item_2": {
+    "message": "שתי רשומות שונות עם אותו טקסט ברשימה אחת"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> במסנן <code>$removeparam</code> או ברשומת <code>@@</code>, כולל <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "כתובת <code>$redirect=</code> שאינה <code>http</code> או <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "קו נטוי הפוך בשם <code>$removeparam</code> לפני תו שאין לו מילוט"
+  },
+  "guide_checking_p_2": {
+    "message": "הן גם מזהירות על עותקים מדויקים, ועל אותו טקסט גם ב-<code>rules</code> וגם ב-<code>referralMarketing</code>. אם השמירה נכשלת, ההודעה מציינת את הספק, הרשימה והרשומה."
+  },
+  "guide_toc_search": {
+    "message": "סנן סעיפים"
+  },
+  "guide_toc_no_results": {
+    "message": "אין סעיפים תואמים."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: הפניה שמתחילה ב-\"|\" צריכה להיראות כך: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: היעד של $redirect= חייב להיות כתובת URL מוחלטת מסוג http או https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ חייב להיות אובייקט",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type חייב להיות מחרוזת לא ריקה",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type חייב להיות אחד מהערכים הבאים: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs חייב להיות \"all\" או מערך של מספרים שלמים חיוביים",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ חייב להיות מחרוזת או אובייקט כלל",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern חייב להיות מחרוזת",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern חייב להיות מחרוזת",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId חייב להיות מזהה כלל",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId חל רק על חריגים מסוג \"@@…$rawrule=\" בתוך rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags חייב להיות מחרוזת (דגלי regex כמו \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing חייב להיות true או false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "ל-$WHERE$.referralMarketing אין השפעה ב-$FIELD$; הוא חל רק ב-$LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order חייב להיות מספר או null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "ל-$WHERE$.order אין השפעה ב-$FIELD$; הוא חל רק ב-$LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "ל-$WHERE$.order אין השפעה על מסנן $removeparam או על רשומת \"@@\"; הם תמיד פועלים אחרי הכללים האחרים",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active חייב להיות ערך בוליאני",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id חייב להיות מחרוזת",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id חייב להתאים לתבנית $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases חייב להיות רשימה של מזהים שמתאימים לתבנית $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "אסור ש-$WHERE$.aliases יכלול את מזהה הכלל עצמו",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description חייב להיות מחרוזת",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection חייב להיות ערך בוליאני",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions חייב להיות מערך של מחרוזות",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes חייב להיות מערך של מחרוזות",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors חייב להיות מערך",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: שדה לא מוכר \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ מתחיל ב-\"@@\", שחל רק על מסנני $removeparam בתוך rules ו-referralMarketing; במקום זאת יש להשתמש ב-\"exceptions\" של אובייקט כלל",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "ב-$WHERE$ מופיעה אפשרות $removeparam לא מוכרת: \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" מתחיל ב-\"|\" יחיד, ולכן הוא מתאים רק לכתובות URL שמתחילות ממש ב-\"$REST$\", ואין כאלה (כתובות URL מתחילות ב-\"https://\"). כדי להתאים לדומיין, יש להשתמש ב-\"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "ב-$WHERE$ מופיע \"targetId\", שפועל רק בחריג; יש להתחיל את matchPattern ב-\"@@\" (לדוגמה: \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "ב-$WHERE$ מופיעים גם \"targetId\" וגם regex אחרי \"rawrule=\"; יש להשתמש רק באחד מהם",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "ב-$WHERE$ מופיע targetId \"$ID$\", אבל אין לכלל raw בספק הזה מזהה או כינוי כזה",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ הוא חריג \"@@\" עבור \"$REGEX$\", אבל אף כלל raw בספק הזה לא משתמש ב-regex הזה. יש לתת לכלל מזהה ולהפנות אליו באמצעות \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ הוא חריג \"@@\", ולכן ל-\"$KEY$\" לא תהיה השפעה",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "אחרי \"rawrule=\" ב-$WHERE$ לא מופיע דבר; צריך לציין את ה-regex להסרה",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "אחרי \"rawrule=\" ב-$WHERE$ מופיע regex לא תקין: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "ב-$WHERE$ יש $GROUPS$ קבוצות לכידה; נדרשת בדיוק קבוצה אחת \"( … )\" סביב כתובת ה-URL של היעד (קבוצות אחרות יש לכתוב כך: \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ משתמש שוב במזהה הכלל \"$ID$\" ב-$WHERE$; השימוש הראשון היה ב-$FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ חייב להיות אובייקט JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ חייב להיות מערך",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "ב-$WHERE$ מופיע מפתח לא מוכר \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "שגיאה בעיבוד כתובת URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "שגיאה באתחול הדף: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "כרטיסייה לא תקינה"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "חיפוש כללים כבר מתבצע בכרטיסייה הזו"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "לא מתבצעת בדיקת השהיה בכרטיסייה הזו"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "הכללים עדיין נטענים. כדאי לנסות שוב בעוד רגע."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "אי אפשר להשבית אף אחד מהכללים שהופעלו בדף הזה."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "לא ניתן להשבית את הכללים"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "לא מתבצע חיפוש כללים בכרטיסייה הזו"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "לא נמצא כלל שאפשר לדלג עליו בכרטיסייה הזו"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "ההורדה אינה זמינה"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "לא ניתן לשמור את ההקלטה באחסון של ההפעלה"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "כלל לא מוכר"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "שגיאה לא מוכרת"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "הייצוא נכשל"
   }
 }

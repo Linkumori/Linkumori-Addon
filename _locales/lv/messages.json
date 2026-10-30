@@ -39,7 +39,7 @@
     "message": "Izmantojiet komplektā iekļautos Linkumori/ClearURLs noteikumus. Atspējojiet šo opciju, lai darbotos tikai ar attāliem noteikumiem un/vai pielāgotiem noteikumiem."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori izmanto vienotu ClearURLsData pakalpojumu sniedzēju kārtulu kopu. Dabiskais pakalpojumu sniedzēja JSON, kanoniskie kārtulu objekti un pakalpojumu sniedzēja lokālie $removeparam filtri tiek sapludināti pirms clearurls.js darbības."
   },
   "bundled_rules_section_title": {
     "message": "Informācija par noteikumiem"
@@ -801,7 +801,7 @@
     "message": "Padoms:"
   },
   "faq_title": {
-    "message": "FAQ"
+    "message": "BUJ"
   },
   "faq_url_pattern": {
     "message": "Kas ir urlPattern?"
@@ -1137,25 +1137,25 @@
     "message": "Atveriet Linkumori iestatījumus"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Pārslodzes režīma darbība"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Tikai ielāpu režīms"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Piemērot attālos ielāpus iebūvētajām kārtulām. Attālo pakalpojumu sniedzēju kārtulas netiek iekļautas."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Ielāpu režīms + sapludināšana"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Sapludināt iebūvētās un attālo pakalpojumu sniedzēju kārtulas, pēc tam piemērot attālos ielāpus."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Bez ielāpu režīma + sapludināšana"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Sapludināt iebūvētās un attālo pakalpojumu sniedzēju kārtulas, nepiemērojot attālos ielāpus."
   },
   "overload_mode_enabled": {
     "message": "Iespējot pārslodzes režīmu"
@@ -1557,7 +1557,7 @@
     "message": "Domēna modeļi"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP"
+    "message": "DM"
   },
   "providerImport_exceptions": {
     "message": "Izņēmumi"
@@ -1836,7 +1836,7 @@
     "message": "Primārajam jaukšanas URL ir jāizmanto HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Primārajam kārtulu URL un primārajam jaucējkoda URL jābūt konfigurētiem kopā."
   },
   "save_primary_rule_https_required": {
     "message": "Primārās kārtulas URL ir jāizmanto HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Es saprotu riskus - turpināt"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Jums vajadzētu pārdomāt attālo kārtulu izmantošanu, ja pilnībā nesaprotat vai neuzticaties Linkumori kārtulu kopas avotam."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Šī attālo kārtulu funkcija ir paredzēta pieredzējušiem lietotājiem, kuri saprot ielādējamo Linkumori JSON. Attālajām kārtulām jāietver atbilstošs jaucējkoda URL pārbaudei."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ja pievienosiet attālo kārtulu URL, paplašinājums konfigurētajā gadījumā savienosies ar jūsu norādīto serveri, lai iegūtu Linkumori kārtulu kopu un tās jaucējkoda failu. Katra iegūšana var atklāt jūsu IP adresi un vispārīgu informāciju, piemēram, paplašinājuma versiju, pārlūkprogrammu un tās versiju, resursdatora serverim. Uz šiem datiem attiecas attiecīgās vietnes vai tīmekļa servera privātuma politika."
   },
   "security_modal_privacy_link_text": {
     "message": "Ja nepieciešams, vēlreiz izlasiet %PRIVACY_POLICY_LINK%, pirms turpināt."
@@ -1887,7 +1887,7 @@
     "message": "brīdinājuma paziņojums:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Izmantojiet iebūvētās kārtulas, ja vien neuzticaties attālajam avotam un to nekontrolējat. Attālajām Linkumori JSON kārtulām norādiet atbilstošu jaucējkoda URL."
   },
   "security_modal_risk_1": {
     "message": "Jūsu IP adrese un pārlūkprogrammas informācija tiks atklāta konfigurētajiem serveriem"
@@ -1899,7 +1899,7 @@
     "message": "Jaukšanas pārbaude attiecas tikai uz Linkumori CLN Format 1.0 JSON noteikumiem; tas aizsargā pret pārraides iejaukšanos, nevis ļaunprātīgiem noteikumu avotiem."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Attālās kārtulas bez sekmīgas jaucējkoda pārbaudes pilnībā balstās uz uzticēšanos avota URL."
   },
   "security_modal_risks_title": {
     "message": "Drošības riski:"
@@ -1914,7 +1914,7 @@
     "message": "URL failam rules.hash (jaucējs)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Nepieciešams attālo Linkumori JSON kārtulu pārbaudei."
   },
   "setting_html_export_button": {
     "message": "Eksportēt"
@@ -1944,7 +1944,7 @@
     "message": "Žurnāla ierobežojums (0–5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Papildu attālie Linkumori JSON avoti, kas tiek sapludināti kopā. Ievadiet pa vienam pārim katrā rindā kā <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Papildu attālās kārtulu kopas"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Pielāgots attālais URL Linkumori JSON kārtulām"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Attālo kārtulu JSON faila URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Jaucējkoda URL ir nepieciešams katrai attālajai kārtulu kopai."
   },
   "settings_html_page_title": {
     "message": "Linkumori (tīri URL) iestatījumi"
@@ -2421,19 +2421,19 @@
     "message": "BRĪDINĀJUMS: uzlabotā funkcija, kas paredzēta tikai pašmitinātiem serveriem"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Jūs atspējojat Gatekeeper aizsardzību attālo kārtulu URL rediģēšanai. Šī funkcija var ielādēt attālās Linkumori JSON kārtulas vienotajā pakalpojumu sniedzēju kārtulu kopā. Turpiniet tikai tad, ja saprotat un uzticaties avotam, ko konfigurējat."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper ir iebūvēta drošības plūsma, kas bloķē tiešu attālo URL rediģēšanu, līdz jūs apstiprināt drošības brīdinājumu un pabeidzat drukāto apstiprinājumu."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Atstājiet Gatekeeper iespējotu, ja vien neuzticaties attālajiem avotiem un tos nekontrolējat. Attālajām JSON kārtulām jāietver atbilstošs jaucējkoda URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "brīdinājuma paziņojums:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ja pievienosiet attālo kārtulu URL, paplašinājums konfigurētajā gadījumā savienosies ar jūsu norādīto serveri, lai iegūtu Linkumori kārtulu kopu un tās jaucējkoda failu. Katra iegūšana var atklāt jūsu IP adresi un vispārīgu informāciju, piemēram, paplašinājuma versiju, pārlūkprogrammu un tās versiju, resursdatora serverim. Uz šiem datiem attiecas attiecīgās vietnes vai tīmekļa servera privātuma politika."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Ja nepieciešams, vēlreiz izlasiet %PRIVACY_POLICY_LINK%, pirms turpināt."
@@ -2448,7 +2448,7 @@
     "message": "Paplašinājums izveidos savienojumu ar jūsu norādīto URL katru reizi, kad paplašinājums tiks iespējots un ielādēts jūsu pārlūkprogrammā."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Serveris, kas resursdatorē attālo JSON vai jaucējkoda failus, saņems jūsu IP adresi."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Serveris var arī saņemt jūsu paplašinājuma versiju, pārlūkprogrammu un pārlūkprogrammas versiju."
@@ -2457,7 +2457,7 @@
     "message": "Uz šiem datiem attiecas tās vietnes vai tīmekļa servera konfidencialitātes politika, kas mitina šos failus."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Atspējojot Gatekeeper, jūs palielināt risku, ko rada nedroši vai apdraudēti attālo kārtulu avoti. Jaucējkoda pārbaude aizsargā attālo Linkumori JSON lejupielādes tikai tad, ja ir konfigurēts atbilstošs jaucējkoda URL."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Atcelt"
@@ -2517,7 +2517,7 @@
     "message": "Ierakstiet precīzu apstiprinājuma frāzi"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Šī darbība samazina attālo kārtulu drošības pasākumus. Turpiniet tikai tad, ja uzticaties savam attālajam JSON avotam."
   },
   "remote_urls_template_note_1": {
     "message": "Aizstājiet vietturu vērtības ar reālajiem HTTPS URL, pēc tam importējiet šo failu."
@@ -2616,7 +2616,7 @@
     "message": "Atsvaidzināt avotus"
   },
   "audit_faq_button": {
-    "message": "FAQ"
+    "message": "BUJ"
   },
   "audit_theme_toggle_aria": {
     "message": "Pārslēgt motīvu"
@@ -2817,7 +2817,7 @@
     "message": "min"
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "st."
   },
   "settings_remote_health_title": {
     "message": "Tālvadības noteikumi Veselība"
@@ -2847,10 +2847,10 @@
     "message": "Nav"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Kārtulu konflikti:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ kļūdas, $WARNINGS$ brīdinājumi, $NOTICES$ paziņojumi",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Attālā faila iespējas:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "neaktīvs, kamēr nav pieņemts: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Pieņemt $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Kārtulu ielāpi:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ piemēroti, $NOT_APPLIED$ nepiemēroti",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Kārtulu noklusējumi"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Iebūvēti"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Pielāgoti"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Nav — iebūvētā darbība"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Pārslodzes režīms sapludina iebūvētās un attālās kārtulas; katra avota kārtulas saglabā sava avota noklusējumus."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Saglabāt noklusējumus"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Noklusējumi saglabāti"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Kad ieslēgts, katrs kārtulu avots saglabā savus noklusējumus (iebūvētās kārtulas izmanto iebūvētos noklusējumus, bet katra attālā faila kārtulas — šī faila noklusējumus), ja vien pielāgoto kārtulu redaktorā neizvēlaties savus noklusējumus."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Attālais: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Kuri noklusējumi tiek piemēroti"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Katra avota savi"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Jūsu iebūvētajām un attālajām kārtulām"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Jūsu visām kārtulām"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(aizstāts ar jūsu noklusējumiem)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Jūsu"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ pieprasījumu veidi",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL izņēmumi",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL izņēmums"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ priekšapstrādātāji",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Katra avota kārtulas saņem šī avota noklusējumus."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Iebūvētās un attālās kārtulas saņem jūsu noklusējumus, nevis savu failu noklusējumus; pielāgotās kārtulas saglabā savus."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Iebūvētās, attālās un pielāgotās kārtulas visas saņem jūsu noklusējumus, nevis savus."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Pārvaldīt kārtulu noklusējumus"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Noklusējumi aizpilda vērtības, ko kārtula pati nenorāda. Kārtulas pašas vērtība vienmēr ir svarīgāka, un pakalpojumu sniedzēja izņēmumi netiek mainīti."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Rediģēt noklusējumus"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Jūsu noklusējumi"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Pielāgoto kārtulu noklusējumi"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Rediģējamie noklusējumi"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Iebūvētās kārtulas"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(rediģēts)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Atiestatīt uz faila noklusējumiem"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Sapludināt no avotiem…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Sapludināt kārtulu noklusējumus"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Rezultāts sarakstā tiek parādīts kā “Sapludinātie noklusējumi”. Nokopējiet to kādā kopā tur, pēc tam nospiediet Saglabāt noklusējumus, lai to izmantotu."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Sapludināmie avoti"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konflikti"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Sapludinātie noklusējumi"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Izmantot sapludinātos noklusējumus"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Sapludinātie noklusējumi"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Netiek izmantoti, kamēr nenokopējat tos kādā citā kopā un nesaglabājat."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopēt uz"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopēt"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Izvēlieties vismaz divus avotus."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Nav konfliktu: izvēlētie avoti saskan par katru vērtību."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Izņēmumi tiek apvienoti no visiem avotiem: kopā $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Apvienots no visiem avotiem"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "No: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nav iestatīts (iebūvētā darbība)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nav iestatīts: visi pieprasījumu veidi"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Šobrīd netiek izmantots: jūsu noklusējumi aizstāj iebūvēto un attālo kārtulu savus noklusējumus."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Jūsu rediģēts: tie aizstāj paša faila noklusējumus. Pats fails netiek mainīts."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(jūsu rediģēts)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Šobrīd netiek izmantots: augstāk ir izvēlēts “Katra avota savi”."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Šobrīd netiek izmantots: jūsu noklusējumi aizstāj šos arī pielāgotajām kārtulām."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Kārtulas sākas izslēgtas (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Apraksts"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Pieprasījumu veidi"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Visi veidi"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Tikai šie"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Izvēlieties vismaz vienu pieprasījuma veidu vai izvēlieties “Visi veidi”."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Kārtulas tīra visus pieprasījumu veidus, ja vien tās vai noklusējumi nenorāda kādus. Pakalpojumu sniedzēji var ierobežot veidus arī ar resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Izņēmumi"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Viena URL regulārā izteiksme katrā rindā. Kārtulas tiek izlaistas atbilstošiem URL."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Priekšapstrādātāji"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Ievaddati: “all” vai tveršanas grupu numuri, piemēram, 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Pievienot priekšapstrādātāju"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Priekšapstrādātāja veids"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Priekšapstrādātāja ievaddati"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Noņemt"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Priekšapstrādātāja ievaddatiem “$INPUTS$” jābūt “all” vai skaitļiem, piemēram, 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Izslēgt vēstures apiešanas aizsardzību (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Rādīt kā JSON"
   },
   "settings_remote_health_unknown": {
     "message": "nezināms"
@@ -3357,7 +3357,7 @@
     "message": "Filtrēt ierakstus…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Cilne"
   },
   "logger_tab_all": {
     "message": "Visas cilnes"
@@ -4005,10 +4005,10 @@
     "message": "Pakalpojumu sniedzēja JSON ceļvedis"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Atvērt Linkumori kārtulu ceļvedi"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Kādu kārtulu sintaksi man izmantot?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Atvērt kārtulu ceļvedi"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Neizdevās ielādēt pakalpojumu sniedzēju avotus: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Komplektētās kārtulas nav pieejamas."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Neizdevās ielādēt komplektētās kārtulas: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Neizdevās pārslēgt valodu uz $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Gaišā tēma"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tumšā tēma"
   },
   "posarCopied": {
     "message": "POSAR nokopēts!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR pieņemts."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Atiestatīt"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Pieejamības rīki"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Atvērt pieejamības rīkus"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Aizvērt pieejamības rīkus"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Atiestatīt visus pieejamības iestatījumus"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Redze"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lasīšana"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Mijiedarbība"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Augsts kontrasts"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Krāsu filtrs"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Piesātinājums"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertēt"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Izcelt saites"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Paslēpt attēlus"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Palielināt teksta izmēru"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Samazināt teksta izmēru"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Noklusējuma teksta izmērs"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Fonta izvēle"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Draudzīgs disleksijai"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Teksta atstarpes"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Rindas augstums"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Teksta līdzinājums"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Aizturēt animācijas"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Lielāks kursors"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Noklusējums"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Vidējs"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Augsts"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Ļoti augsts"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Zems"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Nav"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Viegls"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Spēcīgs"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Bez filtra"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopija"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deiteranopija"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopija"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Pelēktoņi"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Pa kreisi"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centrēts"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Pa labi"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Ļoti mazs"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Mazs"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Liels"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Ļoti liels"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Vislielākais"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Ieslēgts"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Izslēgts"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "iespējots"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "atspējots"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Izvēlēts noklusējuma teksta izmērs"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Visi pieejamības iestatījumi atiestatīti"
+  },
+  "skip_to_main_content": {
+    "message": "Pāriet uz galveno saturu"
+  },
+  "popupNavAriaLabel": {
+    "message": "Uznirstošā loga navigācija"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Pielāgoto kārtulu skati"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Žurnāla skati"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Vēstures apiešanas aizsardzība (izlaist lapas iekšējās navigācijas laikā)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Lauku novirzīšanas"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopēt kārtulu"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Kārtula nokopēta"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Neizdevās nokopēt kārtulu"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Ko dara historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Vienas lapas vietnes bieži maina adresi ar history.pushState/replaceState, nevis ielādē jaunu lapu. Linkumori tīra arī šīs adreses. Pievienojiet history-bypass-protection=false $removeparam filtram, lai izlaistu tikai šo filtru lapas iekšējām izmaiņām; parastiem pieprasījumiem tas joprojām darbosies."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Lai lapas iekšējām izmaiņām izlaistu visu pakalpojumu sniedzēju, iestatiet to pie pakalpojumu sniedzēja:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Ja nav norādīts, vērtība ir true un lapas iekšējās izmaiņas tiek tīrītas. Kārtulas pašas iestatījums ir svarīgāks par pakalpojumu sniedzēja iestatījumu, tāpēc kārtula var atkal ieslēgt tīrīšanu ar history-bypass-protection=true vai \"historyBypassProtection\": true kārtulas objektā."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Izlaiž lapas nav."
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Pārdēvēt ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Jauns ID priekš $OLD$ (a-z, 0-9, - un _). Vecais ID tiek saglabāts kā alias, tāpēc ar to izslēgtās kārtulas paliek izslēgtas.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" nav derīgs ID. Izmantojiet mazos burtus, ciparus, - un _, sākot ar burtu vai ciparu.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Cita šī pakalpojumu sniedzēja kārtula jau izmanto \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Atspējot kārtulu"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Vai atspējot $ID$ visam pakalpojumu sniedzējam vai tikai šim URL/domēna modelim?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Mans pakalpojumu sniedzējs"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/domēna modelis"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Kārtulas ID pārdēvēts par $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Bāreņu slēdži"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Avotā nav atrasta atbilstoša kārtula"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Noņemt"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Izlaiž lapas iekšējās navigācijas tīrīšanu"
+  },
+  "whitelist_added_general": {
+    "message": "%s pievienots vispārējam baltajam sarakstam"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s pievienots kā History API izņēmums"
+  },
+  "whitelist_exception_count": {
+    "message": "%d izņēmums(-i)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Nav baltā saraksta izņēmumu"
+  },
+  "whitelist_mode_general": {
+    "message": "Vispārējs baltais saraksts"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Tikai History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Baltā saraksta tvērums"
+  },
+  "whitelist_removed_general": {
+    "message": "%s noņemts no vispārējā baltā saraksta"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Noņemts History API izņēmums priekš %s"
+  },
+  "whitelist_type_general": {
+    "message": "Vispārējs"
+  },
+  "whitelist_type_history_api": {
+    "message": "Tikai History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Pievienot $1 vispārējam baltajam sarakstam"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Vispārējs baltais saraksts: $1 — noklikšķiniet, lai izvēlētos tikai History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API izņēmums: $1 — noklikšķiniet, lai izvēlētos tikai šo cilni"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Tikai cilnei: $1 — noklikšķiniet, lai noņemtu"
+  },
+  "logger_action_allowed": {
+    "message": "Atļauts"
+  },
+  "logger_action_blocked": {
+    "message": "Bloķēts"
+  },
+  "logger_action_filter_label": {
+    "message": "Darbība"
+  },
+  "logger_action_info": {
+    "message": "Informācija"
+  },
+  "logger_action_modified": {
+    "message": "Mainīts"
+  },
+  "logger_action_redirected": {
+    "message": "Novirzīts"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopēt kopsavilkumu"
+  },
+  "logger_btn_export": {
+    "message": "Eksportēt"
+  },
+  "logger_btn_group": {
+    "message": "Grupēt pēc kārtulas"
+  },
+  "logger_col_hits": {
+    "message": "Trāpījumi"
+  },
+  "logger_col_last_seen": {
+    "message": "Pēdējoreiz redzēts"
+  },
+  "logger_detail_group_title": {
+    "message": "Kārtulas informācija"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Cilnes"
+  },
+  "logger_exported": {
+    "message": "Eksportēti $1 ieraksti."
+  },
+  "logger_filter_all": {
+    "message": "Visi"
+  },
+  "logger_report_rule": {
+    "message": "Ziņot par to"
+  },
+  "logger_rule_disable": {
+    "message": "Izslēgt kārtulu"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Kārtula $1 izslēgta. Pārlādējiet lapu, lai pārbaudītu."
+  },
+  "logger_rule_enable": {
+    "message": "Ieslēgt kārtulu"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Kārtula $1 atkal ieslēgta."
+  },
+  "logger_rule_failed": {
+    "message": "Neizdevās mainīt kārtulu."
+  },
+  "logger_rule_off": {
+    "message": "Kārtula ir izslēgta"
+  },
+  "logger_rule_on": {
+    "message": "Kārtula ir ieslēgta"
+  },
+  "logger_rule_unavailable": {
+    "message": "Šo kārtulu no šejienes nevar pārslēgt."
+  },
+  "logger_status_rules": {
+    "message": "$1 kārtula(-as)"
+  },
+  "logger_summary_copied": {
+    "message": "Kopsavilkums nokopēts."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Neizdevās nokopēt kopsavilkumu."
+  },
+  "logger_type_filter_label": {
+    "message": "Veids"
+  },
+  "logger_btn_logging_off": {
+    "message": "Žurnālēšana izslēgta"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Žurnālēšana ir izslēgta. Noklikšķiniet, lai to ieslēgtu."
+  },
+  "logger_btn_logging_on": {
+    "message": "Žurnālēšana ieslēgta"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Žurnālēšana ir ieslēgta. Noklikšķiniet, lai to izslēgtu."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Neizdevās mainīt žurnālēšanas iestatījumu."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Pievienot ieteikumu kārtulu"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Pievienot neapstrādātas kārtulas izņēmumu"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Pievienot lauka novirzīšanu"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Pievienot izņēmumu"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Katra veidne pievieno kārtulas objektu ar id un vietturi matchPattern domēnam example.com. Ieraksts var būt arī vienkārša virkne: parametra nosaukums, nosaukuma regulārā izteiksme, $removeparam filtrs vai rawRules gadījumā regulārā izteiksme. Kārtulu objekti pieņem id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description un targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Pārbaudītājs"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Problēmas netika atrastas."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Kļūda"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Brīdinājums"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ kļūda(-as), $WARNINGS$ brīdinājums(-i)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Izpildes secība"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ solis(-ļi) to izpildes secībā",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Nav rawRules, rules vai referralMarketing ierakstu"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Dzinējs to aprēķina no augstāk esošā teksta neatkarīgi no tā, vai tas ir saglabāts. Soļi tiek kārtoti pēc (stage, orderGroup, order, rank, arrayIndex): neapstrādātās kārtulas darbojas pirms lauku kārtulām; posma ietvaros vispirms darbojas ieraksti ar order, sākot ar mazāko, pēc tam pārējie pēc saraksta un pozīcijas."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Ieteikumu mārketings"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Ieteikums noņemts"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Ieteikums atļauts"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Neapstrādātas"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Lauks"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Ieteikums"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(ģenerēts)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "pārraksta"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "aizstāj $COUNT$ iepriekšējo definīciju(-as)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "pievienojis completeProvider: noņem katru parametru"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Izslēgts"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Izslēgts dažiem modeļiem"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Kārtošanas atslēga: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Pēc tam $FILTERS$ $removeparam filtri un $EXCEPTIONS$ @@ izņēmumi pēc visiem iepriekšminētajiem soļiem",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= izņēmumi var apturēt neapstrādātās kārtulas iepriekš, kur tie atbilst",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Velciet soli vai izmantojiet tā bultiņas, lai pārvietotu to savā posmā. Pārvietošana piešķir katram šī posma ierakstam order vērtību 10, 20, 30, … jaunajā secībā."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Pārslēdzieties uz “Ieteikums noņemts”, lai pārkārtotu: šajā skatā ir redzams katrs ieraksts."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Velciet, lai pārvietotu"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Pārvietot $ENTRY$ agrāk",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Pārvietot $ENTRY$ vēlāk",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ pārvietots uz pozīciju $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Atsaukt pārvietošanu"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Pārvietošana atsaukta"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulēt"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Palaiž šo pakalpojumu sniedzēju URL tā, kā tiek tīrīta nokopēta saite, ar jūsu izslēgtajām kārtulām un augstāk izvēlēto ieteikumu iestatījumu, un rāda URL pēc katra soļa. Citi pakalpojumu sniedzēji netiek palaisti. “Ģenerēt testa URL” izveido to no šī pakalpojumu sniedzēja pašu kārtulām."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testa URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Palaist"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Simulācijas soļošana"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Sākums"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Iepriekšējais"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Nākamais"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Beigas"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Atskaņot"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pauze"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL pirms jebkura soļa"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Gājiens $PASS$ · $STEP$. solis no $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "bez izmaiņām"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam filtri"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Gājiens $PASS$ neko nemaina, tāpēc tīrīšana apstājas",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Šis pakalpojumu sniedzējs šeit apstājas: sasniegts ciklu ierobežojums, URL atgriezies pie iepriekšēja vai vairs neatbilst pakalpojumu sniedzējam"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Gājiens $PASS$ novirza; tīrīšana turpinās jaunajā adresē ar visiem pakalpojumu sniedzējiem",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Pakalpojumu sniedzējs bloķē šo pieprasījumu (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Rezultāts"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Šī pakalpojumu sniedzēja modeļi neatbilst šim URL, tāpēc neviena tā kārtula netiek palaista."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Šis URL atbilst vienam no pakalpojumu sniedzēja izņēmumiem, tāpēc neviena tā kārtula netiek palaista."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Ievadiet pilnu http:// vai https:// URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulāciju nevarēja palaist. Pārbaudiet augstāk esošo JSON."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Ģenerēt testa URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Izveidots no šī pakalpojumu sniedzēja kārtulām: teksts $RAW$ neapstrādātai(-ām) kārtulai(-ām) un $PARAMS$ parametram(-iem), katrs pārbaudīts pret savu kārtulu. keep=1 neatbilst nevienai kārtulai un tam jāpaliek. Novirzīšanas un bloķēšanas nav iekļautas, jo tās pārtrauktu darbību pirms citām kārtulām.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nevarēja izveidot resursdatoru, kuram atbilstu šī pakalpojumu sniedzēja modeļi, tāpēc URL izmanto citu resursdatoru un pakalpojumu sniedzējs tam netiks palaists."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Katrs URL, kuram atbilst šī pakalpojumu sniedzēja modeļi, ir aptverts ar kādu no tā paša izņēmumiem, tāpēc tā kārtulas nekad netiek palaistas."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ kārtula(-as) izlaista(-as) no testa URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nevarēja izveidot tekstu, kuram tā atbilstu"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "tās teksts izraisītu atbilstību kādam no pakalpojumu sniedzēja izņēmumiem"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "tā noņem katru parametru, tāpēc tai nav vajadzīgs savs parametrs"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Šim pakalpojumu sniedzējam ir $removeparam filtrs bez nosaukuma, kas noņem katru parametru, ieskaitot keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "bez order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Atjaunot order skaitļus"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Atjaunot katru order tādu, kāds tas bija, kad atvērāt šo pakalpojumu sniedzēju"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Order skaitļi atjaunoti"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Paslēpt"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Rādīt"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Notīrīt brīdinājumus"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Atjaunot brīdinājumus"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Notīrīts $COUNT$ brīdinājums(-i)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern bez indexPattern tiek pārbaudīts pret katru URL; pievienojiet indexPattern norādes, piemēram, \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ atkārto \"$ENTRY$\"; kopija neko nedara, un abām ir viens id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ joprojām satur veidnes vietturi \"$PATTERN$\"; aizstājiet to ar īsto modeli",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ ir matchPattern \"(?!)\", kas nekad nekam neatbilst",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Problēmu novēršana"
+  },
+  "troubleshooter_launch": {
+    "message": "Novērst problēmas šajā cilnē (eksperimentāli)"
+  },
+  "troubleshooter_title": {
+    "message": "Cilnes problēmu novēršana"
+  },
+  "troubleshooter_page": {
+    "message": "Lapa"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Kā darbojas ierakstīšana"
+  },
+  "troubleshooter_about_note": {
+    "message": "Šī skata atvēršana var pārbaudīt lapas URL, bet neko neieraksta. Ierakstīšana paliek izslēgta, līdz izvēlaties Sākt ierakstīšanu. Sākot ierakstīšanu, šī cilne tiek pārlādēta, lai tvertu tās resursu pieprasījumus. Tvertie URL tiek glabāti sesijas krātuvē šai pārlūkprogrammas sesijai un tiek notīrīti, kad šī cilne tiek aizvērta vai beidzas pārlūkprogrammas sesija. Ierakstīšana apstājas pēc 15 minūtēm, ja to neapturat agrāk. Resursu URL var saturēt privātus vaicājuma datus."
+  },
+  "troubleshooter_start": {
+    "message": "Sākt ierakstīšanu"
+  },
+  "troubleshooter_starting": {
+    "message": "Sāk…"
+  },
+  "troubleshooter_recording": {
+    "message": "Ieraksta…"
+  },
+  "troubleshooter_stop": {
+    "message": "Apturēt ierakstīšanu"
+  },
+  "troubleshooter_refresh": {
+    "message": "Atsvaidzināt"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopēt kopsavilkumu"
+  },
+  "troubleshooter_export": {
+    "message": "Eksportēt"
+  },
+  "troubleshooter_export_title": {
+    "message": "Saglabāt ierakstu kā JSON failu. Resursu URL var saturēt privātus vaicājuma datus."
+  },
+  "troubleshooter_category": {
+    "message": "Kategorija"
+  },
+  "troubleshooter_category_all": {
+    "message": "Visas kategorijas"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL kārtulas"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Novirzīšanas"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Aizsardzība un apiešanas"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Resursa veids"
+  },
+  "troubleshooter_type_all": {
+    "message": "Visi resursu veidi"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Meklēt kārtulas, pakalpojumu sniedzējus un URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Ieraksta $1 · atlikušas $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Pārbauda šo cilni…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Nav pieejamas aktīvās cilnes."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Šī lapa neatļauj URL kārtulu skenēšanu. Atveriet parastu http vai https tīmekļa lapu."
+  },
+  "troubleshooter_status_off": {
+    "message": "Ierakstīšana ir izslēgta. Sāciet ierakstīšanu, lai pārbaudītu šīs lapas ielādētos resursu URL."
+  },
+  "troubleshooter_status_active": {
+    "message": "Līdz šim tverts $1 URL izmaiņu. Jaunās šeit parādās automātiski."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Ierakstīšana apturēta. Tverts $1 URL izmaiņu."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Ierakstīšanas datus nevarēja saglabāt sesijas krātuvē. Ja paplašinājums tiks restartēts, $1 URL izmaiņu var tikt zaudētas."
+  },
+  "troubleshooter_status_started": {
+    "message": "Ierakstīšana sākta, un cilne tiek pārlādēta. Tvertie URL parādās šeit, lapai ielādējoties."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Ierakstīšana apturēta. Tverts $1 URL izmaiņu un saglabāts šai pārlūkprogrammas sesijai."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Ierakstīšana apturēta. Tverts $1 URL izmaiņu, bet sesijas krātuve tās nevarēja saglabāt."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Vispirms atveriet parastu http vai https tīmekļa lapu."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Neizdevās sākt ierakstīšanu šajā cilnē."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Neizdevās apturēt ierakstīšanu šajā cilnē."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Neizdevās nolasīt šo cilni. Mēģiniet aizvērt un atkal atvērt uznirstošo logu."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Kopsavilkums nokopēts."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Neizdevās nokopēt kopsavilkumu."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Ieraksts eksportēts."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Neizdevās eksportēt ierakstu."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Neizdevās atvērt ziņošanas veidlapu."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Kārtula iespējota; pārlādējiet cilni, lai salīdzinātu."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Kārtula atspējota; pārlādējiet cilni, lai salīdzinātu."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Neizdevās atjaunināt šo kārtulu."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Kārtulu izmaiņas vēl nav atrastas. Sāciet ierakstīšanu, lai pārbaudītu šīs lapas resursu URL."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Šo pārlūkprogrammas lapu nevar skenēt."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Neviens rezultāts neatbilst šiem filtriem."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Rāda pirmās $1 kārtulas."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 trāpījums(-i)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 neizdevās"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Kārtulas ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Iebūvēta aizsardzības darbība (nav kārtulas ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Kārtulas ID: šim rezultātam nav pieejams"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Šo kārtulas ID nevarēja atrast pašreizējā kārtulu kopā."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Novērots pieprasījums"
+  },
+  "troubleshooter_source_page": {
+    "message": "Lapas URL pārbaude"
+  },
+  "troubleshooter_changes": {
+    "message": "Kas mainījās: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Skartie URL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…un vēl $1"
+  },
+  "troubleshooter_after": {
+    "message": "Pēc Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Neizdevās pēc tam, kad Linkumori to mainīja: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Šī kārtula ir iespējota. Izslēdziet to un pārlādējiet, lai salīdzinātu lapu."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Šī kārtula ir atspējota. Ieslēdziet to un pārlādējiet, lai atjaunotu tās darbību."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Šī ir iebūvēta aizsardzības darbība, nevis atsevišķa kārtula."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Pirms kārtulu maiņas pārskatiet skarto URL."
+  },
+  "troubleshooter_report": {
+    "message": "Ziņot par šo kārtulu"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Atspējot kārtulu"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Iespējot kārtulu"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Atspējot kārtulu $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Iespējot kārtulu $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Saglabā…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "noņemts $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "pievienots $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "mainīts $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "novirzīts uz $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "ceļš mainīts"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragments mainīts"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL mainīts"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "bloķēts apzināti"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Šajā lapā neizdevās $1 pieprasījums(-i); $2 uzreiz pēc tam, kad Linkumori mainīja URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Vai šī lapa nedarbojas pareizi?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Atrodiet kārtulu, kas to bojā: kārtulas, kas darbojās šajā lapā, tiek izslēgtas pa vienai, un pēc katras jūs norādāt, vai lapa ir salabota. Neesat pārliecināts, ka cēlonis ir Linkumori? Vispirms pārbaudiet ar apturētu tīrīšanu."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Vispirms pārbaudīt ar apturētu tīrīšanu"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Tīrīšana šajā cilnē ir apturēta priekš $1"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Cilne tika pārlādēta bez tīrīšanas. Vai lapa tagad darbojas?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Jā, darbojas"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nē, joprojām nedarbojas"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Atcelt"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Gatavs"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Visticamāk, nav Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Lapa joprojām nedarbojās ar apturētu tīrīšanu, tāpēc problēma, visticamāk, ir citur: pašā vietnē, citā paplašinājumā vai tīklā. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Cēlonis, visticamāk, ir Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Lapa darbojas ar apturētu tīrīšanu. Atrodiet kārtulu: kārtulas tiek izslēgtas pa vienai, cilne tiek pārlādēta, un jūs norādāt, vai lapa ir salabota. Beigās visas pārējās kārtulas tiek atkal ieslēgtas."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Cilne tiek pārlādēta ar atkal ieslēgtu tīrīšanu, lai ierakstītu, kuras kārtulas darbojas šajā lapā. Tās šeit parādīsies pēc brīža. Ja neviena neparādās, izmantojiet lapu, līdz tā sabojājas."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Atrast kārtulu ($1 kārtulas)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Jā, salabots"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Nē, joprojām nedarbojas"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Atrasts"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Lapa sabojājas kārtulas $1$2 dēļ. Tā ir atkal ieslēgta. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Atspējot šo kārtulu"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Ziņot par to"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Kārtula izslēgta. Pārlādējiet cilni, lai pārbaudītu. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Neviena atsevišķa kārtula nav atrasta"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Kārtulu izslēgšana pa vienai lapu nesalaboja, tāpēc cēlonis, visticamāk, ir vairākas kārtulas kopā vai aizsardzības iestatījums. Visas kārtulas ir atkal ieslēgtas. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Neizdevās veikt pārbaudi: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Pārlādējiet Linkumori, lai izmantotu šo pārbaudi"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori tika atjaunināts, bet tā fona daļa joprojām darbojas ar veco versiju. Pārlādējiet paplašinājumu (pagaidu papildinājumam: about:debugging → This Firefox → Reload) vai restartējiet Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Atrasts"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Lapa sabojājas kārtulas $1$2 dēļ. Tā paliek izslēgta, lai lapa darbotos; visas pārējās kārtulas ir atkal ieslēgtas. Pārlādējiet cilni, lai pārbaudītu. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Pārlādēt cilni"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Ieslēgt atkal"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Kārtula atkal ieslēgta. Pārlādējiet cilni, lai pārbaudītu. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Ierakstīt un atrast kārtulu"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Ieraksta, kuras kārtulas darbojas šajā lapā. Izmantojiet lapu, līdz tā sabojājas; kārtulas parādīsies šeit."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Pagaidām izslēgta kārtulu meklēšanas dēļ. Tā ieslēgsies atkal, kad meklēšana beigsies."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Notiek kārtulu meklēšana. Mainiet kārtulas pēc tās beigām."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Izlaist — ieslēgt atkal"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Paturēt izslēgtu"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Kārtulu meklēšana izlaista; visas kārtulas atkal ir ieslēgtas. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Kārtula $1 paliek izslēgta. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Izslēgtas šim testam:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…un vēl $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Apturēt meklēšanu"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Izlaists: šī kārtula ir atkal ieslēgta un izlaista. Pārbauda nākamo."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Pārbaudīto kārtulu vidū neviena nav atrasta. $1 jūsu izlaistās kārtulas netika pārbaudītas. Visas kārtulas ir atkal ieslēgtas. Lai sāktu no jauna, noklikšķiniet uz Notīrīt."
+  },
+  "troubleshooter_experimental": {
+    "message": "Eksperimentāls"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Eksperimentāls: šis problēmu novēršanas rīks nav pilnībā stabils. Tā rezultāti var būt nepareizi, un testēšanas laikā tas izslēdz kārtulas. Ja pēc tam kaut kas šķiet nepareizi, pārbaudiet savas kārtulas pielāgoto kārtulu redaktorā vai izmantojiet Apturēt meklēšanu, lai tās ieslēgtu atpakaļ."
+  },
+  "troubleshooter_working": {
+    "message": "Strādā…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Ierakstīt vēlreiz"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Vecais ieraksts notīrīts. Šī cilne tiek ierakstīta vēlreiz no jaunas ielādes."
+  },
+  "troubleshooter_clear": {
+    "message": "Notīrīt"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Notīrīt šīs cilnes ierakstu, rezultātus un pabeigto kārtulu meklēšanu. Kārtulas paliek tādas, kādas ir."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Notīrīts. Kārtulas paliek tādas, kādas ir."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Notīrīts. Kārtula $1 paliek izslēgta."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Tiek pārbaudīts viens noteikums vienlaikus — noteikums $1 no $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Izslēgts tikai šis noteikums, un cilne tika atkārtoti ielādēta. Vai lapa tagad darbojas?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Izlaist šo noteikumu"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Izlaist — atkal ieslēgt un pārbaudīt nākamo ($1 atlikuši)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 cits noteikums, kas darbojās šajā lapā, netika pārbaudīts. Vai turpināt to pārbaudi?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Atstāt izslēgtu un pārbaudīt nākamo ($1 atlikuši)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Noteikums $1 paliek izslēgts. Tiek pārbaudīts nākamais noteikums."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Neviens cits noteikums pats par sevi neizlabo lapu. $1 noteikums(-i), ko atstājāt izslēgtu, paliek izslēgts(-i); visi pārējie ir atkal ieslēgti. Lai sāktu no jauna, noklikšķiniet uz “Notīrīt”."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Pārbaudīt nākamo noteikumu ($1 atlikuši)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Noteikums $1 ir atkal ieslēgts un izlaists. Tiek pārbaudīts nākamais noteikums."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Neviens cits noteikums pats par sevi neizlabo lapu. $1 noteikums(-i), ko izlaidāt, ir atkal ieslēgts(-i), tāpēc visi noteikumi ir ieslēgti. Lai sāktu no jauna, noklikšķiniet uz “Notīrīt”."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori attīra URL, izmantojot noteikumus, kas rakstīti <strong>CLN 1.0 formātā</strong> (“Clean Link Notation”), kas ir JSON formāts. Šajā ceļvedī soli pa solim aplūkots viss — no pirmā noteikuma līdz katrai opcijai, pievienojot kopējamus piemērus."
+  },
+  "guide_intro_p_2": {
+    "message": "Iebūvētie noteikumi, attālo noteikumu saraksti un jūsu pielāgotie noteikumi izmanto vienu formātu. Pielāgotos noteikumus rakstāt pielāgoto noteikumu redaktorā, kas tos pārbauda saglabāšanas vai importēšanas laikā. Oficiālais ClearURLs noteikumu katalogs (<code>data.min.json</code>) jau ir derīgs CLN fails, un to var izmantot tādu, kāds tas ir."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Pakalpojumu sniedzēja nosaukums ir tikai etiķete. To, kurus URL tas apstrādā, nosaka <code>domainPatterns</code> vai <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Augšējā līmeņa atslēga"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obligāti. Pakalpojumu sniedzēji pēc nosaukuma."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Neobligāta formāta versija. Vienīgā derīgā vērtība ir <code>\"1.0\"</code>. Fails bez tās arī tiek nolasīts kā 1.0; jebkura cita vērtība liek failu noraidīt. To nesauc par <code>version</code>, jo ClearURLs jaunajā noteikumu formātā šī atslēga jau tiek izmantota."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Neobligāta informācija par failu."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Vērtības katram faila noteikumam, kuram nav savas vērtības (12. nodaļa)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Tikai attālo noteikumu sarakstiem: aizstājēji jau ielādētiem noteikumiem (15. nodaļa)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Kurus URL apstrādā pakalpojumu sniedzējs: viens domēna paraugs vai to saraksts (3. nodaļa). Izmantojiet šo vai <code>urlPattern</code>, bet nekad abus."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Kurus URL apstrādā pakalpojumu sniedzējs: viena regulārā izteiksme, ko salīdzina ar visu URL. Lielo un mazo burtu reģistrs netiek ņemts vērā."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Tikai kopā ar <code>urlPattern</code>: resursdatora norādes, piemēram, <code>||example.com^</code>, lai pakalpojumu sniedzējs tiktu pārbaudīts tikai šiem resursdatoriem, nevis katram URL. Tā ir uzmeklēšanas norāde, nevis atbilstības nosacījums."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Noņemamie ieteikumu un partneru parametri. Netiek apstrādāti, ja ir ieslēgta opcija <em>Atļaut ieteikumu mārketingu</em> (10. nodaļa)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL, kurus pakalpojumu sniedzējs neaizskar vispār (7. nodaļa)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Nosūtīt pieprasījumu uz citu adresi, nevis rediģēt to (8. nodaļa)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Nosūtīt pieprasījumu uz parametra vērtību (8. nodaļa)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: ja tiek novirzīta lapas ielāde (<code>main_frame</code>), uz jauno adresi pāriet visa cilne, nevis tiek novirzīts tikai tīkla pieprasījums."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Apstrādāt tikai šīs HTTP metodes, piemēram, <code>[\"GET\"]</code>. Ja nav norādīts, tiek apstrādātas visas metodes."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Apstrādāt tikai šos pieprasījumu veidus, piemēram, <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Ja nav norādīts, tiek apstrādāti visi pieprasījumu veidi."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Noklusējums ir <code>true</code>. <code>false</code> izlaiž visu pakalpojumu sniedzēju, ja lapa maina savu adresi, izmantojot History API (<code>pushState</code>/<code>replaceState</code>). Parastie tīkla pieprasījumi joprojām tiek attīrīti."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> izslēdz pakalpojumu sniedzēju, to nedzēšot."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> ir domēnu paraugu saraksts. URL atbilst, ja atbilst kaut vienam no tiem. Tie paši paraugi tiek izmantoti pirms <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> filtriem un neapstrādātiem noteikumiem."
+  },
+  "guide_matching_cell_1": {
+    "message": "viss URL kā regulārā izteiksme"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL, kuros šis teksts ir jebkurā vietā (bez sākuma <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> apzīmē resursdatora nosaukuma beigas vai atdalītāju, piemēram, <code>/</code>, <code>?</code>, <code>:</code>, vai URL beigas. <code>*</code> ir aizstājējzīme."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> apzīmē domēnu: resursdatoru un visus tā apakšdomēnus. Viena <code>|</code> apzīmē pašu URL sākumu, un tai seko tāda shēma kā <code>https://</code>. Domēnam vienmēr izmantojiet <code>||</code>; <code>|example.com^</code> nekad nevar atbilst, tāpēc redaktors to noraida."
+  },
+  "guide_matching_p_4": {
+    "message": "Piemēram, <code>||smile.amazon.*^</code> nozīmē: <code>||</code> resursdators un tā apakšdomēni, <code>smile.amazon</code> obligātās etiķetes, <code>.*</code> jebkurš publiskais sufikss (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), un <code>^</code> resursdatora beigas."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "tieši šis parametrs"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "katrs parametrs, kura pilnais nosaukums atbilst; reģistrs netiek ņemts vērā"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> un <code>\"$removeparam=fbclid\"</code> noņem vienu un to pašu. Izmantojiet vienkāršo nosaukumu, ja vien nav vajadzīga 5. nodaļas funkcija. Jebkuru ierakstu var rakstīt arī kā noteikuma objektu (9. nodaļa)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Šeit <code>qid</code> tiek noņemts visās Amazon vietnēs, <code>tag</code> — tikai <code>amazon.de</code>, <code>sr</code> — tikai <code>smile.amazon</code>, bet <code>ref_</code> — tikai zem <code>/gp/</code>. Paraugs sašaurina paša pakalpojumu sniedzēja paraugus, bet nekad tos nepaplašina."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> pārvērš filtru par izņēmumu, kas saglabā parametru (skatiet tālāk)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> sašaurina filtru līdz dažiem pakalpojumu sniedzēja URL (3. nodaļa). Ja nav norādīts, tas attiecas uz katru URL, kuram atbilst pakalpojumu sniedzējs."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> atlasa parametrus. Ja nav norādīts, tiek noņemti visi parametri."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikatori nosaka, kad filtrs darbojas. Jāatbilst katram norādītajam modifikatoram; starp tiem nav loģiskā “vai”."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "katrs parametrs, izņemot <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametri, kuru nosaukums vai visa <code>name=value</code> vērtība atbilst regulārajai izteiksmei; pievienojiet <code>i</code>, lai ignorētu reģistru"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametri, kuru nosaukums sākas ar <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Parametra nosaukuma ekranēšana"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Slīpsvītra atpakaļ padara nākamo rakstzīmi burtisku, tādēļ var atlasīt jebkuru parametra nosaukumu:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Vērtība"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Noņem parametru ar nosaukumu"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (komats nesāk modifikatorus)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Šīs piecas ir vienīgās atsoļa rakstzīmes nosaukuma vērtībā; slīpsvītra atpakaļ pirms jebkuras citas rakstzīmes ir kļūda. Vērtībā <code>/regex/</code> slīpsvītra atpakaļ saglabā savu regulārās izteiksmes nozīmi. Atsoļa rakstzīmes darbojas ierakstos <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> un <code>@@</code>. JSON katru slīpsvītru atpakaļ rakstiet divreiz: <code>\"$removeparam=\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikatori"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikatorus norāda pēc vērtības, atdalot ar komatiem. Vairākas viena modifikatora vērtības atdaliet ar <code>|</code>, bet pirms izslēdzamās vērtības lieciet <code>~</code>:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikators"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "tikai tad, ja lapa, kas nosūtīja pieprasījumu, ir viena no šīm (vai ar <code>~</code> nav viena no tām); ir atļautas regulārās izteiksmes"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "tikai tad, ja pats pieprasījums tiek nosūtīts uz kādu no šiem, neatkarīgi no lapas, kas to nosūtīja"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "tikai šīm HTTP metodēm: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "tikai tad, ja pieprasījums tiek nosūtīts uz to pašu reģistrējamo domēnu, kurā atrodas lapa (<code>a.example.com</code> un <code>b.example.com</code> tiek uzskatīti par vienu), vai uz citu domēnu"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "tas pats, bet tiek salīdzināts precīzs resursdatora nosaukums, tāpēc apakšdomēns tiek uzskatīts par trešo pusi"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parametru nosaukumi tiek salīdzināti, ņemot vērā burtu reģistru"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "izlaist šo filtru, ja lapa maina savu adresi, izmantojot History API. Tiek pieņemtas arī vērtības <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Četrus <code>*-party</code> modifikatorus nevar kombinēt; <code>first-party,third-party</code> tiek noraidīts."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Piemēram, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> noņem <code>sid</code> no <code>example.com</code> tikai GET pieprasījumos, ko nosūtījusi citas vietnes lapa, un nekad tad, ja šī lapa ir <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> ieraksts aizsargā tikai pret <code>$removeparam</code> filtriem. Parasts ieraksts, piemēram, <code>\"ref\"</code>, joprojām noņem parametru; tā vietā izmantojiet noteikuma objekta <code>exceptions</code>. Neapstrādātiem noteikumiem ir savi <code>@@…$rawrule=</code> ieraksti (6. nodaļa)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nav svarīgi, kur to norādāt, un tam nevar būt <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Tā paraugs tiek salīdzināts ar URL, ko saņēmis pakalpojumu sniedzējs, pirms tiek palaisti neapstrādātie noteikumi. <code>@@</code> ieraksts ar ierobežotu ceļu joprojām atbilst, pat ja neapstrādāts noteikums šo ceļu izdzēš."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Tas attiecas arī uz citu pakalpojumu sniedzēju filtriem pieprasījumos, ko nosūtījusi šim pakalpojumu sniedzējam atbilstoša lapa. Tas ir noderīgi, lai izslēgtu vienu vietni no citur definēta noteikuma."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Neapstrādātie noteikumi tiek izpildīti pirms <code>rules</code>, ignorē burtu reģistru un aizstāj katru atbilstību (karodziņi <code>gi</code> vai <code>g</code> kopā ar <code>match-case</code>). JSON katru slīpsvītru atpakaļ rakstiet divreiz."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Neapstrādātā noteikumā var izmantot <code>$removeparam</code> filtra paraugu un modifikatorus, bet <code>rawrule=</code> jāraksta beigās. Viss pēc <code>rawrule=</code> ir regulārā izteiksme:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Paraugs un modifikatori nosaka, kur noteikums darbojas; dzēšamais joprojām ir regulārā izteiksme."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Ieraksts, kas sākas ar <code>@@</code> un beidzas ar <code>rawrule=</code>, neļauj darboties neapstrādātiem noteikumiem, ja atbilst tā paraugam:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Ja pēc <code>rawrule=</code> nekas nav norādīts, šiem URL tiek apturēti visi pakalpojumu sniedzēja neapstrādātie noteikumi."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Ja pēc <code>rawrule=</code> norādīta regulārā izteiksme, tiek apturēti neapstrādātie noteikumi ar šo izteiksmi."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Kā noteikuma objekts ar <code>targetId</code> tas aptur tikai neapstrādāto noteikumu ar šo ID vai aizstājvārdu."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Lai izlaistu visu pakalpojumu sniedzēju, tā vietā izmantojiet <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Ja URL atbilst <code>exceptions</code> ierakstam, šim pieprasījumam netiek izpildīts neviens pakalpojumu sniedzēja noteikums. Ieraksts ir regulārā izteiksme visam URL vai domēna paraugs, kas sākas ar <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Izņēmumi ignorē burtu reģistru. Lai izlaistu vienu noteikumu, nevis visu pakalpojumu sniedzēju, piešķiriet šim noteikumam savu <code>exceptions</code> (9. nodaļa)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Uzvar tas atbilstošais parametrs, kas URL norādīts pirmais. Ja ir <code>https://site.example/away?redirect=https://real.example/page</code>, pieprasījums tiek nosūtīts uz <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Derīgi novirzīšanas mērķi"
+  },
+  "guide_redirects_p_2": {
+    "message": "Novirzīšana notiek tikai uz absolūtu <code>http</code> vai <code>https</code> adresi ar resursdatoru. To pārbauda pēc priekšapstrādes un procentu dekodēšanas. Nederīgs mērķis nozīmē, ka ieraksts netiek uzskatīts par atbilstošu: novirzīšana nenotiek, un pakalpojumu sniedzēja nākamās darbības tiek veiktas ar nemainītu URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Mērķis"
+  },
+  "guide_redirects_th_2": {
+    "message": "Novirza?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "jā"
+  },
+  "guide_redirects_cell_2": {
+    "message": "jā, uz <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nē: shēma nav <code>http</code> vai <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nē: tā nav absolūta adrese"
+  },
+  "guide_redirects_p_3": {
+    "message": "Arī neapstrādāts noteikums tiek uzskatīts par novirzīšanu, ja tā rezultāta shēma, resursdators vai ports atšķiras no ievades, pat ja tas tikai dzēš tekstu: noņemot <code>secure-</code> no <code>https://secure-bank.example/</code>, tiek atvērta cita vietne. Nepieciešams derīgs mērķis un attālo noteikumu sarakstā arī <code>redirect</code> apstiprinājums (15. nodaļa). Pretējā gadījumā noteikums atstāj URL nemainītu."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Jebkurš ieraksts jebkurā sarakstā var būt objekts, nevis virkne. Izmantojiet objektu, ja noteikumam vajadzīgs stabils ID, tas jāsāk izslēgtā stāvoklī, jāpārraksta, nevis jānoņem, vai tas jāpalaiž tikai noteiktos gadījumos:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obligāti. Teksts, ko šajā sarakstā rakstītu kā parastu ierakstu."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Stabils nosaukums (burti, cipari, <code>-</code>, <code>_</code>), ar ko ieslēgt un izslēgt noteikumu (14. nodaļa)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Iepriekšējie noteikuma ID, lai ar veco ID saglabāts iestatījums joprojām darbotos pēc pārdēvēšanas."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Pārrakstīt, nevis noņemt; <code>§1§</code>, <code>§2§</code>, … ir iegūtās vērtības."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Vispirms pārveidot iegūtās vērtības."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Tikai šiem pieprasījumu veidiem, piemēram, <code>[\"main_frame\"]</code>. Attīrīšana bez pieprasījuma (<em>Kopēt tīru saiti</em>, attīrīšanas rīks, History API izmaiņas) tiek uzskatīta par <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (regulārās izteiksmes), kuros šis noteikums nedarbojas."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Regulārās izteiksmes karodziņi kā virkne. Noklusējums ir <code>i</code>; <code>rawRules</code> izmantojiet <code>gi</code> (vai <code>g</code> ar <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Izpildīt noteikumu agrāk vai vēlāk tā posmā (13. nodaļa)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: noteikums <code>rules</code> sarakstā tiek uzskatīts arī par ieteikumu mārketinga noteikumu (10. nodaļa)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Tā paša nosaukuma pakalpojumu sniedzēja slēdzis šim noteikumam. Tas ir svarīgāks par pakalpojumu sniedzēja vērtību un faila noklusējumu."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: noteikums sākotnēji ir izslēgts."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Piezīme faila lasītājiem; tai jābūt virknei."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Tikai <code>@@…$rawrule=</code> ierakstos: tā neapstrādātā noteikuma ID, kuru tas aptur."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Šeit <code>?token=abc123</code> kļūst par <code>?token=clean-abc123</code>. Pārrakstīšana katram pieprasījumam tiek veikta ne vairāk kā vienu reizi, tāpēc vērtība netiek ietīta atkārtoti."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Priekšapstrādes rīki secīgi maina iegūtās vērtības, pirms tās izmanto <code>replacePattern</code> vai novirzīšana. <code>inputs</code> ir <code>\"all\"</code> vai grupu numuru saraksts:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> izmanto tos pašus ierakstus kā <code>rules</code>. Tie darbojas tikai tad, ja opcija <em>Atļaut ieteikumu mārketingu</em> ir izslēgta, tāpēc, to ieslēdzot, partneru saites turpina darboties:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Noteikums var palikt <code>rules</code> sarakstā un joprojām tikt uzskatīts par ieteikumu mārketinga noteikumu, ja tam ir <code>\"referralMarketing\": true</code>. Neievietojiet vienu un to pašu tekstu gan <code>rules</code>, gan <code>referralMarketing</code>; redaktors par to brīdinās."
+  },
+  "guide_request_types_cell_1": {
+    "message": "pieprasījumu veidi, kurus apstrādā viens noteikuma objekts (var iestatīt arī <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Pieprasījumu veidiem izmanto pārlūkprogrammas nosaukumus: <code>main_frame</code> (lapa), <code>sub_frame</code> (rāmis), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> un citus. Filtru modifikatori pirmos divus sauc par <code>document</code> un <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Pieprasījumu veidi tiek norādīti tikai noteikumos; iestatījumos to saraksta nav. Ja neviens no tiem nav iestatīts, noteikums attīra visus pieprasījumu veidus."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Noklusējumi"
+  },
+  "guide_defaults_p_1": {
+    "message": "Augšējā līmeņa <code>defaults</code> bloks piešķir katram faila noteikumam vērtības, ko tas nenosaka pats:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Noklusējums katras kārtulas…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> izslēdz visus noteikumus, ja vien nav norādīts <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> vai nenorādīta vērtība nozīmē visus veidus"
+  },
+  "guide_defaults_item_1": {
+    "message": "Noteikuma paša vērtībai vienmēr ir priekšroka, un noteikuma <code>exceptions</code> aizstāj noklusējuma sarakstu, nevis to papildina."
+  },
+  "guide_defaults_item_2": {
+    "message": "Noklusējumi attiecas uz <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> un <code>fieldRedirections</code>. Pakalpojumu sniedzēja paša <code>exceptions</code> saraksts netiek mainīts. <code>$redirect=</code> ieraksti izmanto tikai <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Katrs fails saglabā savus noklusējumus: iebūvētie noteikumi, katrs attālais saraksts un jūsu pielāgotie noteikumi arī tad, ja pārslodzes režīmā tie tiek apvienoti."
+  },
+  "guide_defaults_item_4": {
+    "message": "<code>completeProvider</code> gadījumā noklusējuma <code>requestTypes</code> un <code>exceptions</code> arī ierobežo bloķēšanu."
+  },
+  "guide_defaults_item_5": {
+    "message": "Nezināmas atslēgas un nepareizi veidi ir kļūdas, un attālais saraksts ar nederīgu <code>defaults</code> bloku tiek noraidīts."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Jūsu noklusējumi"
+  },
+  "guide_defaults_p_2": {
+    "message": "Pielāgoto noteikumu redaktorā <em>Pārvaldīt noteikumu noklusējumus</em> atver veidlapu, kurā var iestatīt savu <code>defaults</code> bloku un izvēlēties, kur tas aizstās failu noklusējumus:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Katra avota noklusējumi</em> (noklusējuma izvēle): katrs fails izmanto savu <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Jūsu iebūvētajiem un attālajiem noteikumiem</em>: iebūvētie un attālie noteikumi izmanto jūsu vērtības, pielāgotie noteikumi patur savējās."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Jūsu visiem noteikumiem</em>: visi noteikumi izmanto jūsu vērtības."
+  },
+  "guide_defaults_p_3": {
+    "message": "Tajā pašā veidlapā var rediģēt iebūvēto noteikumu un katra ielādētā attālā saraksta noklusējumus. Jūsu izmaiņas tiek saglabātas paplašinājumā, nevis failā; <em>Atiestatīt uz faila noklusējumiem</em> tās dzēš. <em>Apvienot no avotiem…</em> apvieno atzīmēto avotu noklusējumus; nekas netiek saglabāts, kamēr nenospiežat Saglabāt."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Kā tiek apstrādāts URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, pēc tam <code>fieldRedirections</code>: atbilstība ar derīgu mērķi novirza pieprasījumu."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> un <code>referralMarketing</code> noņem vai pārraksta parametrus."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Tiek izpildīti <code>$removeparam</code> filtri, izņemot gadījumus, kad <code>@@</code> ieraksts saglabā parametru."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Uzvar pirmais pakalpojumu sniedzējs, kas maina, novirza vai bloķē URL. Pēc tam jaunais URL atkal iziet tās pašas darbības (skatiet <a href=\"#termination\">Kad apstrāde apstājas</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Izpildes secība un <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "4. un 5. darbība tiek kārtota kopā pēc šiem noteikumiem šādā secībā:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Neapstrādātie noteikumi vienmēr tiek izpildīti pirmie.</strong> Neviens <code>order</code> nevar pārvietot <code>rules</code> ierakstu pirms neapstrādāta noteikuma. Ja tīrīšanai jānotiek pirms neapstrādāta noteikuma, arī tai jābūt neapstrādātam noteikumam."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Posmā noteikumi ar <code>order</code> tiek izpildīti pirms noteikumiem bez tā</strong>, vispirms mazākā vērtība. Atļauti negatīvi un daļskaitļi. <code>order: 10</code> nenozīmē “desmitais”: tas nozīmē pēc šī posma sakārtotajiem noteikumiem, kuru vērtība ir mazāka par 10, un pirms visiem nesakārtotajiem noteikumiem."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Pēc tam pēc saraksta:</strong> vispirms <code>rules</code>, tad <code>rules</code> objekti ar atzīmi <code>\"referralMarketing\": true</code>, pēc tam <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Pēc tam pēc pozīcijas</strong> sarakstā. Katrs ieraksts saglabā savu vietu, arī tādi, kas rakstīti kā <code>\"3\"</code> vai <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Šeit marķieris tiek pārrakstīts pirms <code>utm_source</code> noņemšanas, lai gan tas ir otrajā vietā:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Izslēgtie noteikumi tiek izlaisti. <code>$removeparam</code> filtri un <code>@@</code> ieraksti neietilpst šajā kārtošanā un tiem nevar būt <code>order</code>, pat ne <code>null</code>; filtri vienmēr tiek izpildīti pēdējie."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Tas pats teksts divreiz"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Divi ieraksti ar vienādu <code>matchPattern</code> tekstu vienā grupā ir viens noteikums. Grupas ir neapstrādātie (<code>rawRules</code>), lauka (<code>rules</code> bez ieteikuma atzīmes) un ieteikuma (atzīmētie <code>rules</code> objekti, pēc tam <code>referralMarketing</code>). Tas galvenokārt notiek, apvienojot noteikumu sarakstus."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Uzvar pēdējā definīcija, kas nav izslēgta, un tiek izmantotas visas tās atslēgas."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Ja tai nav sava <code>order</code>, uzvarētājs pārņem pirmās definīcijas vietu un tuvāko iepriekšējo <code>order</code>. <code>\"order\": null</code> nozīmē, ka secības nav, un noņem mantoto secību."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Aizstāto definīciju ID un aizstājvārdi arī ieslēdz un izslēdz uzvarētāju."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Kamēr darbojas ieteikumu mārketinga noteikumi, ieteikuma ieraksts aizstāj lauka ierakstu ar tādu pašu tekstu."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Neapstrādāts noteikums un lauka noteikums ar vienādu tekstu nekonfliktē; darbojas abi."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Vienā sarakstā divi dažādi ieraksti ar vienādu tekstu ir kļūda, bet precīza kopija ir brīdinājums."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Kad apstrāde apstājas"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Katram pieprasījumam tiek izpildīti ne vairāk kā 10 cikli; sasniedzot ierobežojumu, URL tiek izmantots tāds, kāds tas ir."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Noteikums ar <code>replacePattern</code> katram pieprasījumam tiek piemērots ne vairāk kā vienu reizi."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Darbība, kas nemaina URL, nesāk jaunu ciklu."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Iestatījums → <em>Neierobežoti tīrīšanas cikli</em> (pēc noklusējuma izslēgts) noņem 10 ciklu ierobežojumu noteikumu ķēdēm, kurām vajag vairāk ciklu. Apstrāde beidzas, kad cikls neko nemaina; tomēr divi noteikumi, kas cits citu novirza, darbosies ciklā, līdz pārlūkprogramma tos apturēs un lapa netiks ielādēta. Ieslēdziet to tikai uzticamiem noteikumiem."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Noteikumu ID un ieslēgšanas/izslēgšanas slēdži"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Katram noteikumam ir ID. Noteikums bez <code>id</code> to saņem no saraksta un sava teksta: <code>\"utm_source\"</code> sarakstā <code>rules</code> kļūst par <code>field-utm-source</code>. Ja mainās noteikuma teksts, mainās arī ģenerētais ID, un izslēgtais noteikums atkal ieslēgtos. Piešķiriet noteikumam savu <code>id</code>, ja tā ieslēgšanas vai izslēgšanas stāvoklim jāsaglabājas pēc rediģēšanas; pārdēvējot vecos ID pievienojiet <code>aliases</code>."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Noteikumu ieslēdz un izslēdz, apvienojot tā pakalpojumu sniedzēju un ID, piemēram, <code>shop::session-token</code>, tāpēc divi pakalpojumu sniedzēji var izmantot vienu ID. Pielāgoto noteikumu redaktors to var saglabāt arī pie pakalpojumu sniedzēja parauga, piemēram, <code>domainPattern:||shop.example^::session-token</code>; der abas formas."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Vienā pakalpojumu sniedzējā visiem ID un aizstājvārdiem jābūt atšķirīgiem. Tas attiecas arī uz ģenerētiem ID."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "ID nedrīkst saturēt kolu."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Iestatījums, kas saglabāts tikai ar ID bez pakalpojumu sniedzēja, neko neieslēdz un neizslēdz; izslēdziet noteikumu vēlreiz pielāgoto noteikumu redaktorā."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Attālo noteikumu saraksti"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Attālo noteikumu saraksti ir noteikumu faili, ko lejupielādē Linkumori un pēc izvēles pārbauda ar jaucējvērtības failu. Saraksts ar nederīgu <code>cln</code> vērtību, <code>defaults</code> bloku vai <code>patches</code> masīvu netiek ielādēts, un par to tiek ziņots sadaļā “Attālo noteikumu stāvoklis”."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Novirzīšanai un bloķēšanai nepieciešams jūsu apstiprinājums"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Attālā saraksta iespējas nosaka tā saturs ielādes brīdī:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Iespēja"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Sarakstam tā ir, ja tas satur"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktīva ielādes brīdī"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>, <code>rawRules</code> vai <code>referralMarketing</code> ierakstu vai <code>$removeparam</code> filtru"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "ierakstu ar <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "pakalpojumu sniedzēja <code>exceptions</code> vai <code>@@</code> ierakstu"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> vai <code>fieldRedirections</code> ierakstu vai <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "pēc apstiprināšanas"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "pakalpojumu sniedzēju ar <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Sadaļā “Attālo noteikumu stāvoklis” apstipriniet <code>redirect</code> un <code>block</code> katram sarakstam. Līdz tam šī saraksta novirzīšana un bloķēšana ir izslēgta, un tā neapstrādātie noteikumi nevar nosūtīt URL uz citu vietni; pārējais saraksts darbojas uzreiz. Ja atjauninājumā tiek pievienota jauna iespēja, arī tai nepieciešams apstiprinājums. Iebūvētajiem un pielāgotajiem noteikumiem pieejamas visas iespējas."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Pārslodzes režīms"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Parasti attālie saraksti ar pakalpojumu sniedzējiem aizstāj iebūvētos noteikumus; saraksti, kuros ir tikai <code>patches</code>, tiek lietoti iebūvētajiem noteikumiem. Ieslēdzot <em>Iespējot pārslodzes režīmu</em>, tie tiek ielādēti kopā, izmantojot vienu no trim stratēģijām:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Tikai ielāpu režīms</em>: attālo sarakstu ielāpi tiek lietoti iebūvētajiem noteikumiem; attālie pakalpojumu sniedzēji netiek iekļauti."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Ielāpu režīms un apvienošana</em>: apvienot iebūvētos un attālos pakalpojumu sniedzējus, pēc tam lietot ielāpus."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Apvienošana bez ielāpu režīma</em>: apvienot pakalpojumu sniedzējus un izlaist ielāpus."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Apvienojot attālie saraksti vispirms tiek apvienoti cits ar citu jūsu norādītajā secībā, pēc tam ar iebūvētajiem noteikumiem (iebūvētie ir pirmie). Tiek apvienoti tikai pakalpojumu sniedzēji ar vienādiem <code>domainPatterns</code> (vai <code>urlPattern</code>), <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> un <code>forceRedirection</code>; to <code>rules</code>, <code>rawRules</code> un <code>referralMarketing</code> tiek apvienoti. Noteikums <a href=\"#same-text-twice\">Tas pats teksts divreiz</a> nosaka, kura kopija darbojas. “Attālo noteikumu stāvoklis” uzskaita katru aizstāto noteikumu kā paziņojumu."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Pielāgotie noteikumi tiek lietoti pēdējie. Pielāgots pakalpojumu sniedzējs aizstāj katru ielādēto pakalpojumu sniedzēju ar tādu pašu paraugu; to noteikumi netiek apvienoti."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Noteikumu ielāpi"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Attālais saraksts var aizstāt atsevišķus jau ielādētus noteikumus, nepublicējot pilnu kopiju, izmantojot augšējā līmeņa <code>patches</code> masīvu:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obligāti. Aizstājamais noteikums, kas rakstīts kā tā ieslēgšanas/izslēgšanas atslēga: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> vai <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obligāti. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> vai <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obligāti. Jaunais noteikums kā parasts ieraksts vai noteikuma objekts."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Piezīme faila lasītājiem."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Ielāpi tiek izpildīti pēc attālo sarakstu apvienošanas un pirms pielāgotajiem noteikumiem. Failam, kurā ir tikai <code>patches</code>, nav vajadzīgs <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Apvienojot var mainīties pakalpojumu sniedzēju nosaukumi, tāpēc tos vienmēr atradīsiet ar <code>domainPattern:</code> vai <code>urlPattern:</code> formu."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Aizstātais noteikums saglabā savu veco ID vai izmanto to kā aizstājvārdu, tāpēc ieslēgšanas un izslēgšanas iestatījumi turpina darboties."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Novirzīšanas ielāps gaida saraksta <code>redirect</code> apstiprinājumu. Ielāps, kura mērķis neatbilst nevienam noteikumam, neko nemaina."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "“Attālo noteikumu stāvoklis” katru ielāpu norāda kā lietotu, neatbilstošu vai izlaistu."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Noteikumi un atļauto vietņu saraksts"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Atļauto vietņu saraksts atšķiras no pakalpojumu sniedzēja <code>exceptions</code>: tajā norādītas vietnes, kuras Linkumori atstāj mierā, un tam nav vajadzīgs noteikumu fails. Ieraksti izskatās šādi: <code>example.com</code>, <code>*.example.com</code> (vietne un tās apakšdomēni) vai <code>example.*</code> (jebkurš sufikss). Atļaujot lapu, tiek iekļauts arī viss, ko tā ielādē."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Pilni piemēri"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Noteikumu pārbaude"
+  },
+  "guide_checking_p_1": {
+    "message": "Pielāgoto noteikumu redaktors pārbauda noteikumus to saglabāšanas vai importēšanas laikā, un <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> veic tās pašas pārbaudes. Papildus nederīgam JSON un regulārajām izteiksmēm tiek noraidīti noteikumi, kas tiek ielādēti, bet nemanāmi darbojas nepareizi, piemēram:"
+  },
+  "guide_checking_item_1": {
+    "message": "nezināmi lauki, atslēgas un modifikatori"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> vērtība, kas nav <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "vienā pakalpojumu sniedzējā divreiz izmantots ID vai aizstājvārds"
+  },
+  "guide_checking_item_2": {
+    "message": "divi dažādi ieraksti ar vienādu tekstu vienā sarakstā"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> <code>$removeparam</code> filtram vai <code>@@</code> ierakstam, tostarp <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> adrese, kas nav <code>http</code> vai <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "atpakaļvērstā slīpsvītra <code>$removeparam</code> nosaukumā pirms rakstzīmes, kurai nav atsoļa"
+  },
+  "guide_checking_p_2": {
+    "message": "Tiek brīdināts arī par precīzām kopijām un vienādu tekstu gan <code>rules</code>, gan <code>referralMarketing</code>. Ja saglabāšana neizdodas, ziņojumā ir norādīts pakalpojumu sniedzējs, saraksts un ieraksts."
+  },
+  "guide_toc_search": {
+    "message": "Filtrēt sadaļas"
+  },
+  "guide_toc_no_results": {
+    "message": "Nav atbilstošu sadaļu."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: novirzīšanai, kas sākas ar \"|\", jāizskatās šādi: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= mērķim jābūt absolūtam http vai https URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ jābūt objektam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type jābūt netukšai virknei",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type jābūt vienai no šīm vērtībām: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs jābūt \"all\" vai pozitīvu veselu skaitļu masīvam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ jābūt virknei vai kārtulas objektam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern jābūt virknei",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern jābūt virknei",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId jābūt kārtulas ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId attiecas tikai uz \"@@…$rawrule=\" izņēmumiem sadaļā rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags jābūt virknei (regulārās izteiksmes karogi, piemēram, \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing jābūt true vai false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing nedarbojas laukā $FIELD$; tas attiecas tikai uz $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order jābūt skaitlim vai null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order nedarbojas laukā $FIELD$; tas attiecas tikai uz $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order nedarbojas uz $removeparam filtru vai \"@@\" ierakstu; tie vienmēr tiek izpildīti pēc pārējiem noteikumiem",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active jābūt loģiskai vērtībai",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id jābūt virknei",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id jāatbilst $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases jābūt ID sarakstam, kas atbilst $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases nedrīkst ietvert pašas kārtulas ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description jābūt virknei",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection jābūt loģiskai vērtībai",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions jābūt virkņu masīvam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes jābūt virkņu masīvam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors jābūt masīvam",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: nezināms lauks \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ sākas ar \"@@\", kas attiecas tikai uz $removeparam filtriem sadaļā rules un referralMarketing; tā vietā izmantojiet kārtulas objekta \"exceptions\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ satur nezināmu $removeparam opciju \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" sākas ar vienu \"|\", tāpēc tas atbilst tikai URL, kas burtiski sākas ar \"$REST$\"; šādu URL nav (URL sākas ar \"https://\"). Lai atlasītu domēnu, izmantojiet \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ ir \"targetId\", kas darbojas tikai izņēmumā; sāciet matchPattern ar \"@@\" (piemēram, \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ ir gan \"targetId\", gan regulārā izteiksme pēc \"rawrule=\"; izmantojiet tikai vienu no tiem",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ targetId \"$ID$\" nav ID vai aizstājvārda nevienam šī nodrošinātāja raw rule",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ ir \"@@\" izņēmums izteiksmei \"$REGEX$\", taču neviena šī nodrošinātāja raw rule neizmanto šo izteiksmi. Piešķiriet kārtulai ID un norādiet uz to ar \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ ir \"@@\" izņēmums, tāpēc \"$KEY$\" neko nemainīs",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ pēc \"rawrule=\" nav norādīta vērtība; nepieciešama dzēšamā regulārā izteiksme",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ pēc \"rawrule=\" ir nederīga regulārā izteiksme: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ ir $GROUPS$ tvēruma grupas; ap mērķa URL jābūt tieši vienai \"( … )\" grupai (pārējās rakstiet kā \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ atkārtoti izmanto kārtulas ID \"$ID$\" vietā $WHERE$; pirmoreiz izmantots vietā $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ jābūt JSON objektam",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ jābūt masīvam",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ satur nezināmu atslēgu \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL apstrādes kļūda: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Lapas inicializācijas kļūda: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Nederīga cilne"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Šai cilnei jau darbojas kārtulu meklēšana"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Šai cilnei nedarbojas pauzes pārbaude"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Noteikumi joprojām tiek ielādēti. Mēģiniet vēlreiz pēc brīža."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Nevienu no šajā lapā aktivizētajiem noteikumiem nevar izslēgt."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Nevar izslēgt noteikumus"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Šai cilnei nedarbojas kārtulu meklēšana"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Šai cilnei nav atrastas izlaižamas kārtulas"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Lejupielāde nav pieejama"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Nevar saglabāt ierakstu sesijas krātuvē"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Nezināma kārtula"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "Nezināma kļūda"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "Neizdevās eksportēt"
   }
 }

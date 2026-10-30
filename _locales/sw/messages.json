@@ -39,7 +39,7 @@
     "message": "Tumia sheria zilizounganishwa za Linkumori/ClearURLs. Zima hii ili kukimbia na sheria za mbali na/au sheria maalum pekee."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori hutumia seti moja iliyounganishwa ya sheria za watoa huduma ya ClearURLsData. JSON asilia ya watoa huduma, vitu vya sheria vya kanuni, na vichujio vya $removeparam vya mtoa huduma huunganishwa kabla clearurls.js haijaendeshwa."
   },
   "bundled_rules_section_title": {
     "message": "Taarifa za Kanuni"
@@ -1137,25 +1137,25 @@
     "message": "Fungua Mipangilio ya Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Tabia ya hali ya mzigo mkubwa"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Hali ya viraka pekee"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Tumia viraka vya mbali kwenye sheria zilizojengwa ndani. Sheria za watoa huduma wa mbali hazijumuishwi."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Hali ya viraka + kuunganisha"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Unganisha sheria zilizojengwa ndani na za watoa huduma wa mbali, kisha tumia viraka vya mbali."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Bila hali ya viraka + kuunganisha"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Unganisha sheria zilizojengwa ndani na za watoa huduma wa mbali bila kutumia viraka vya mbali."
   },
   "overload_mode_enabled": {
     "message": "Washa Hali ya Kupakia Zaidi"
@@ -1836,7 +1836,7 @@
     "message": "URL ya msingi ya heshi lazima itumie HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "URL ya sheria msingi na URL ya heshi msingi lazima ziwekwe pamoja."
   },
   "save_primary_rule_https_required": {
     "message": "URL ya kanuni ya msingi lazima itumie HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Ninaelewa Hatari - Endelea"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Unapaswa kufikiria upya kutumia sheria za mbali ikiwa huelewi kikamilifu au huamini chanzo cha seti ya sheria za Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Kipengele hiki cha sheria za mbali kimeundwa kwa watumiaji wa hali ya juu wanaoelewa JSON ya Linkumori wanayoipakia. Sheria za mbali zinapaswa kujumuisha URL ya heshi inayolingana kwa uthibitishaji."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ukiongeza URL ya sheria za mbali, kiendelezi kitaunganishwa na seva uliyoichagua ili kuleta seti ya sheria za Linkumori na faili yake ya heshi inapowekwa. Kila uletaji unaweza kufichua anwani yako ya IP na taarifa za jumla kama toleo la kiendelezi, kivinjari, na toleo la kivinjari kwa seva mwenyeji. Data hii iko chini ya sera ya faragha ya tovuti au seva hiyo ya wavuti."
   },
   "security_modal_privacy_link_text": {
     "message": "Soma %PRIVACY_POLICY_LINK% tena kabla ya kuendelea ikihitajika."
@@ -1887,7 +1887,7 @@
     "message": "ilani ya onyo:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Tumia sheria zilizojengwa ndani isipokuwa unaamini na kudhibiti chanzo cha mbali. Toa URL ya heshi inayolingana kwa sheria za JSON za Linkumori za mbali."
   },
   "security_modal_risk_1": {
     "message": "Anwani yako ya IP na maelezo ya kivinjari yatafichuliwa kwa seva zilizosanidiwa"
@@ -1899,7 +1899,7 @@
     "message": "Uthibitishaji wa Hash unatumika kwa Linkumori CLN Format 1.0 JSON sheria pekee; inalinda dhidi ya upotoshaji wa maambukizi, sio vyanzo vya sheria hasidi."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Sheria za mbali zisizo na uthibitishaji wa heshi uliofaulu zinategemea kabisa uaminifu wa URL ya chanzo."
   },
   "security_modal_risks_title": {
     "message": "Hatari za Usalama:"
@@ -1914,7 +1914,7 @@
     "message": "Url ya sheria.hash faili (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Inahitajika kwa uthibitishaji wa sheria za JSON za Linkumori za mbali."
   },
   "setting_html_export_button": {
     "message": "Hamisha"
@@ -1944,7 +1944,7 @@
     "message": "Upeo wa Kumbukumbu (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Vyanzo vya ziada vya JSON ya Linkumori vya mbali vinavyounganishwa pamoja. Weka jozi moja kwa kila mstari kama <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Seti Ziada za Kanuni za Mbali"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL maalum ya mbali ya sheria za JSON za Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL ya faili ya JSON ya sheria za mbali"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "URL ya heshi inahitajika kwa kila seti ya sheria za mbali."
   },
   "settings_html_page_title": {
     "message": "Mipangilio ya Linkumori (Safi URLs)."
@@ -2421,19 +2421,19 @@
     "message": "ONYO: Kipengele cha Kina Kinachokusudiwa Pekee Seva Zinazojipangisha"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Unazima ulinzi wa Gatekeeper kwa uhariri wa URL za sheria za mbali. Kipengele hiki kinaweza kupakia sheria za JSON za Linkumori za mbali kwenye seti iliyounganishwa ya sheria za watoa huduma. Endelea tu ikiwa unaelewa na kuamini chanzo unachokiweka."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Mlinda lango ni mtiririko wa usalama uliojumuishwa ambao huzuia uhariri wa URL wa mbali wa moja kwa moja hadi utakapokubali onyo la usalama na ukamilishe uthibitishaji ulioandikwa."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Weka Gatekeeper ikiwa imewashwa isipokuwa unaamini na kudhibiti vyanzo vyako vya mbali. Sheria za JSON za mbali zinapaswa kujumuisha URL ya heshi inayolingana."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "ilani ya onyo:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ukiongeza URL ya sheria za mbali, kiendelezi kitaunganishwa na seva uliyoichagua ili kuleta seti ya sheria za Linkumori na faili yake ya heshi inapowekwa. Kila uletaji unaweza kufichua anwani yako ya IP na taarifa za jumla kama toleo la kiendelezi, kivinjari, na toleo la kivinjari kwa seva mwenyeji. Data hii iko chini ya sera ya faragha ya tovuti au seva hiyo ya wavuti."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Soma %PRIVACY_POLICY_LINK% tena kabla ya kuendelea ikihitajika."
@@ -2448,7 +2448,7 @@
     "message": "Kiendelezi kitaunganishwa kwa URL uliyochagua kila wakati kiendelezi kinapowashwa na kupakiwa kwenye kivinjari chako."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Seva inayohifadhi faili za JSON au heshi za mbali itapokea anwani yako ya IP."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Seva inaweza pia kupokea toleo lako la kiendelezi, kivinjari na toleo la kivinjari."
@@ -2457,7 +2457,7 @@
     "message": "Data hiyo inategemea sera ya faragha ya tovuti au seva ya wavuti inayopangisha faili hizo."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Kwa kuzima Gatekeeper, unaongeza hatari kutoka kwa vyanzo vya sheria za mbali visivyo salama au vilivyoathiriwa. Uthibitishaji wa heshi hulinda upakuaji wa JSON ya Linkumori ya mbali tu pale URL ya heshi inayolingana inapowekwa."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Ghairi"
@@ -2517,7 +2517,7 @@
     "message": "Andika maneno halisi ya uthibitishaji"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Kitendo hiki hupunguza kinga za sheria za mbali. Endelea tu ikiwa unaamini chanzo chako cha JSON cha mbali."
   },
   "remote_urls_template_note_1": {
     "message": "Badilisha thamani za kishika nafasi na URL zako halisi za HTTPS, kisha uingize faili hii."
@@ -2814,10 +2814,10 @@
     "message": "chini ya dakika moja"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "dak"
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "saa"
   },
   "settings_remote_health_title": {
     "message": "Sheria za Mbali za Afya"
@@ -2841,16 +2841,16 @@
     "message": "Hali ya sasa ya heshi:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "Haipo"
   },
   "settings_remote_health_none": {
     "message": "Hakuna"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Migongano ya sheria:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "Hitilafu $ERRORS$, maonyo $WARNINGS$, arifa $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Uwezo wa faili ya mbali:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "haitumiki hadi ikubaliwe: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Kubali $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Viraka vya sheria:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ vimetumika, $NOT_APPLIED$ havijatumika",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Chaguomsingi za sheria"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Zilizojengwa ndani"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Maalum"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Hakuna — tabia iliyojengwa ndani"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Hali ya mzigo mkubwa huunganisha sheria zilizojengwa ndani na za mbali; sheria za kila chanzo huhifadhi chaguomsingi za chanzo hicho."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Hifadhi chaguomsingi"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Chaguomsingi zimehifadhiwa"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Ikiwashwa, kila chanzo cha sheria huhifadhi chaguomsingi zake (chaguomsingi zilizojengwa ndani hutumika kwa sheria zilizojengwa ndani, na chaguomsingi za kila faili ya mbali kwa sheria za faili hiyo) isipokuwa uchague chaguomsingi zako mwenyewe kwenye kihariri cha sheria maalum."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Ya mbali: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Chaguomsingi zipi zitumike"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Za kila chanzo chenyewe"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Zako kwa sheria zilizojengwa ndani na za mbali"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Zako kwa sheria zote"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(zimebadilishwa na chaguomsingi zako)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Zako"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Aina $COUNT$ za maombi",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "Vighairi $COUNT$ vya URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "Kighairi 1 cha URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "Vichakataji awali $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Sheria za kila chanzo hupata chaguomsingi za chanzo hicho."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Sheria zilizojengwa ndani na za mbali hupata chaguomsingi zako badala ya zile za faili zao; sheria maalum huhifadhi zake."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Sheria zilizojengwa ndani, za mbali na maalum zote hupata chaguomsingi zako badala ya zake."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Dhibiti chaguomsingi za sheria"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Chaguomsingi hujaza thamani ambazo sheria haijaziweka yenyewe. Thamani ya sheria yenyewe hushinda kila wakati, na vighairi vya mtoa huduma havibadilishwi kamwe."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Hariri chaguomsingi"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Chaguomsingi zako"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Chaguomsingi za sheria maalum"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Chaguomsingi za kuhariri"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Sheria zilizojengwa ndani"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(zimehaririwa)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Weka upya kuwa chaguomsingi za faili"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Unganisha kutoka vyanzo…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Unganisha chaguomsingi za sheria"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Matokeo yanaonekana kama \"Chaguomsingi zilizounganishwa\" kwenye orodha. Yanakili kwenye seti huko, kisha bonyeza Hifadhi chaguomsingi ili kuyatumia."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Vyanzo vya kuunganisha"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Migongano"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Chaguomsingi zilizounganishwa"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Tumia chaguomsingi zilizounganishwa"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Chaguomsingi zilizounganishwa"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Hazitumiki hadi uzinakili kwenye mojawapo ya seti nyingine na kuhifadhi."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Nakili kwenda"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Nakili"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Chagua angalau vyanzo viwili."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Hakuna migongano: vyanzo vilivyochaguliwa vinakubaliana kwenye kila thamani."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Vighairi huongezwa pamoja kutoka kila chanzo: jumla $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Imeunganishwa kutoka kila chanzo"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Kutoka: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Haijawekwa (tabia iliyojengwa ndani)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Haijawekwa: kila aina ya ombi"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Haitumiki kwa sasa: chaguomsingi zako hubadilisha zile za sheria zilizojengwa ndani na za mbali."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Imehaririwa na wewe: hizi hubadilisha chaguomsingi za faili yenyewe. Faili yenyewe haibadilishwi."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(imehaririwa na wewe)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Haitumiki kwa sasa: \"Za kila chanzo chenyewe\" imechaguliwa hapo juu."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Haitumiki kwa sasa: chaguomsingi zako huzibadilisha hizi kwa sheria maalum pia."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Sheria huanza zikiwa zimezimwa (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Maelezo"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Aina za maombi"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Aina zote"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Hizi tu"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Chagua angalau aina moja ya ombi, au chagua \"Aina zote\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Sheria husafisha kila aina ya ombi isipokuwa zenyewe, au chaguomsingi, zitaje baadhi. Watoa huduma pia wanaweza kupunguza aina kwa resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Vighairi"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Regex moja ya URL kwa kila mstari. Sheria huruka URL zinazolingana."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Vichakataji awali"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Ingizo: \"all\", au nambari za vikundi vya kunasa kama 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Ongeza kichakataji awali"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Aina ya kichakataji awali"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Ingizo za kichakataji awali"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Ondoa"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Ingizo za kichakataji awali \"$INPUTS$\" lazima ziwe \"all\" au nambari kama 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Zima ulinzi wa kukwepa historia (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Onyesha kama JSON"
   },
   "settings_remote_health_unknown": {
     "message": "haijulikani"
@@ -3918,7 +3918,7 @@
     "message": "Kwa <code>replacePattern</code>, sheria katika <code>rules</code> hubaki na parameter na kubadilisha thamani yake, ambayo ni <code>§1§</code>. Katika <code>rawRules</code> na <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … ni vikundi vya kunasa (capture groups):"
   },
   "guide_obj_pre_title": {
-    "message": "Preprocessors"
+    "message": "Vichakataji awali"
   },
   "guide_obj_p4": {
     "message": "Aina ni <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> na <code>base64Decode</code>."
@@ -4005,10 +4005,10 @@
     "message": "Mwongozo wa Mtoa huduma JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Fungua mwongozo wa kanuni za Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Nitumie sintaksia gani ya kanuni?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Fungua mwongozo wa kanuni"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Imeshindwa kupakia vyanzo vya mtoa huduma: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Kanuni zilizounganishwa hazipatikani."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Imeshindwa kupakia kanuni zilizounganishwa: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Imeshindwa kubadilisha lugha kuwa $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Mandhari nyepesi"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Mandhari nyeusi"
   },
   "posarCopied": {
     "message": "POSAR imenakiliwa!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR imekubaliwa."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Weka upya"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Zana za ufikivu"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Fungua zana za ufikivu"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Funga zana za ufikivu"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Weka upya mipangilio yote ya ufikivu"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Mwonekano"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Usomaji"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Mwingiliano"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Utofauti wa juu"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Kichujio cha rangi"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Ukolezi wa rangi"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Geuza rangi"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Angazia viungo"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Ficha picha"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Ongeza ukubwa wa maandishi"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Punguza ukubwa wa maandishi"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Ukubwa chaguomsingi wa maandishi"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Uteuzi wa fonti"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Rahisi kwa wenye dyslexia"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Nafasi kati ya maandishi"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Urefu wa mstari"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Mpangilio wa maandishi"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Sitisha uhuishaji"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Kishale kikubwa zaidi"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Chaguomsingi"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Wastani"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Juu"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Juu sana"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Chini"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Hakuna"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Nyepesi"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Nzito"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Hakuna kichujio"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Upungufu wa kuona rangi nyekundu"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Upungufu wa kuona rangi ya kijani"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Upungufu wa kuona rangi ya bluu"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Vivuli vya kijivu"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Kushoto"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Katikati"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Kulia"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Ndogo zaidi"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Ndogo"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Kubwa"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Kubwa zaidi"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Kubwa kabisa"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Imewashwa"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Imezimwa"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "imewashwa"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "imezimwa"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Ukubwa chaguomsingi wa maandishi umechaguliwa"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Mipangilio yote ya ufikivu imewekwa upya"
+  },
+  "skip_to_main_content": {
+    "message": "Ruka hadi maudhui makuu"
+  },
+  "popupNavAriaLabel": {
+    "message": "Urambazaji wa dirisha ibukizi"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Mionekano ya sheria maalum"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Mionekano ya kumbukumbu"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Ulinzi wa Kukwepa Historia (ruka wakati wa urambazaji ndani ya ukurasa)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Uelekezaji upya wa sehemu"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Nakili sheria"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Sheria imenakiliwa"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Imeshindwa kunakili sheria"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection hufanya nini?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Tovuti za ukurasa mmoja mara nyingi hubadilisha anwani kwa history.pushState/replaceState badala ya kupakia ukurasa mpya. Linkumori husafisha anwani hizo pia. Ongeza history-bypass-protection=false kwenye kichujio cha $removeparam ili kuruka kichujio hicho tu kwa mabadiliko haya ya ndani ya ukurasa; bado hufanya kazi kwenye maombi ya kawaida."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Ili kuruka mtoa huduma mzima kwa mabadiliko ya ndani ya ukurasa, iweke kwenye mtoa huduma:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Ikiachwa, ni true na mabadiliko ya ndani ya ukurasa husafishwa. Mpangilio wa sheria yenyewe hushinda ule wa mtoa huduma, kwa hivyo sheria inaweza kujiunga tena kwa history-bypass-protection=true, au \"historyBypassProtection\": true kwenye kitu cha sheria."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Huruka urambazaji wa ndani"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Badilisha jina la ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Kitambulisho kipya cha $OLD$ (a-z, 0-9, - na _). Kitambulisho cha zamani huhifadhiwa kama jina mbadala, kwa hivyo sheria zilizozimwa chini yake hubaki zimezimwa.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" si kitambulisho halali. Tumia herufi ndogo, tarakimu, - na _, kuanzia na herufi au tarakimu.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Sheria nyingine ya mtoa huduma huyu tayari inatumia \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Zima sheria"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Zima $ID$ kwa mtoa huduma mzima, au kwa ruwaza hii ya URL/kikoa pekee?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Mtoa huduma wangu"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Ruwaza ya URL/kikoa"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Kitambulisho cha sheria kimebadilishwa kuwa $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Swichi zisizo na mmiliki"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Hakuna sheria inayolingana iliyopatikana chanzoni"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Ondoa"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Huruka usafishaji wa urambazaji wa ndani ya ukurasa"
+  },
+  "whitelist_added_general": {
+    "message": "Imeongeza %s kwenye orodha iliyoidhinishwa ya jumla"
+  },
+  "whitelist_added_history_api": {
+    "message": "Imeongeza %s kama kighairi cha History API"
+  },
+  "whitelist_exception_count": {
+    "message": "Vighairi %d"
+  },
+  "whitelist_exception_empty": {
+    "message": "Hakuna vighairi vya orodha iliyoidhinishwa"
+  },
+  "whitelist_mode_general": {
+    "message": "Orodha iliyoidhinishwa ya jumla"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API pekee"
+  },
+  "whitelist_mode_label": {
+    "message": "Wigo wa orodha iliyoidhinishwa"
+  },
+  "whitelist_removed_general": {
+    "message": "Imeondoa %s kwenye orodha iliyoidhinishwa ya jumla"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Imeondoa kighairi cha History API cha %s"
+  },
+  "whitelist_type_general": {
+    "message": "Jumla"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API pekee"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Ongeza $1 kwenye orodha iliyoidhinishwa ya jumla"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Orodha iliyoidhinishwa ya jumla: $1 - bofya kwa History API pekee"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Kighairi cha History API: $1 - bofya kwa kichupo hiki pekee"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Kichupo pekee: $1 - bofya kuondoa"
+  },
+  "logger_action_allowed": {
+    "message": "Imekubaliwa"
+  },
+  "logger_action_blocked": {
+    "message": "Imezuiwa"
+  },
+  "logger_action_filter_label": {
+    "message": "Kitendo"
+  },
+  "logger_action_info": {
+    "message": "Taarifa"
+  },
+  "logger_action_modified": {
+    "message": "Imerekebishwa"
+  },
+  "logger_action_redirected": {
+    "message": "Imeelekezwa kwingine"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Nakili muhtasari"
+  },
+  "logger_btn_export": {
+    "message": "Hamisha"
+  },
+  "logger_btn_group": {
+    "message": "Panga kwa kanuni"
+  },
+  "logger_col_hits": {
+    "message": "Mara za kulingana"
+  },
+  "logger_col_last_seen": {
+    "message": "Ilionekana mara ya mwisho"
+  },
+  "logger_detail_group_title": {
+    "message": "Maelezo ya kanuni"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Vichupo"
+  },
+  "logger_exported": {
+    "message": "Maingizo $1 yamehamishwa."
+  },
+  "logger_filter_all": {
+    "message": "Zote"
+  },
+  "logger_report_rule": {
+    "message": "Ripoti kanuni hii"
+  },
+  "logger_rule_disable": {
+    "message": "Zima kanuni"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Kanuni $1 imezimwa. Pakia upya ukurasa ili uikague."
+  },
+  "logger_rule_enable": {
+    "message": "Washa kanuni"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Kanuni $1 imewashwa tena."
+  },
+  "logger_rule_failed": {
+    "message": "Imeshindwa kubadilisha kanuni."
+  },
+  "logger_rule_off": {
+    "message": "Kanuni imezimwa"
+  },
+  "logger_rule_on": {
+    "message": "Kanuni imewashwa"
+  },
+  "logger_rule_unavailable": {
+    "message": "Kanuni hii haiwezi kubadilishwa kutoka hapa."
+  },
+  "logger_status_rules": {
+    "message": "kanuni $1"
+  },
+  "logger_summary_copied": {
+    "message": "Muhtasari umenakiliwa."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Imeshindwa kunakili muhtasari."
+  },
+  "logger_type_filter_label": {
+    "message": "Aina"
+  },
+  "logger_btn_logging_off": {
+    "message": "Uwekaji kumbukumbu umezimwa"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Uwekaji kumbukumbu umezimwa. Bofya ili uwashe."
+  },
+  "logger_btn_logging_on": {
+    "message": "Uwekaji kumbukumbu umewashwa"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Uwekaji kumbukumbu umewashwa. Bofya ili uzime."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Imeshindwa kubadilisha mpangilio wa uwekaji kumbukumbu."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Ongeza kanuni ya uuzaji wa rufaa"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Ongeza ubaguzi wa kanuni ghafi"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Ongeza uelekezaji upya wa sehemu"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Ongeza ubaguzi"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Kila kiolezo huongeza kipengee cha kanuni chenye id na matchPattern ya kishikilia nafasi kwenye example.com. Ingizo linaweza pia kuwa maandishi ya kawaida: jina la kigezo, regex ya jina, kichujio cha $removeparam au, katika rawRules, regex. Vipengee vya kanuni hutumia id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description na targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Kikagua kanuni"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Hakuna tatizo lililopatikana."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Hitilafu"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Onyo"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "Hitilafu $ERRORS$, maonyo $WARNINGS$",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Mpangilio wa utekelezaji"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "hatua $COUNT$, kwa mpangilio wa utekelezaji",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Hakuna maingizo ya rawRules, rules au referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Hukokotolewa na injini kutokana na maandishi hapo juu, yawe yamehifadhiwa au la. Hatua hupangwa kwa (stage, orderGroup, order, rank, arrayIndex): raw rules huendeshwa kabla ya field rules; ndani ya hatua, maingizo yenye order huendeshwa kwanza, kuanzia ndogo, kisha mengine kwa orodha na nafasi."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Uuzaji wa rufaa"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Rufaa zimeondolewa"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Rufaa zimeruhusiwa"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Ghafi"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Sehemu"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Rufaa"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(imetengenezwa)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "mpangilio $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "huandika upya"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "huchukua nafasi ya ufafanuzi $COUNT$ wa awali",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "imeongezwa na completeProvider: huondoa kila kigezo"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Imezimwa"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Imezimwa kwa baadhi ya mifumo"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Ufunguo wa kupanga: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Kisha vichujio $FILTERS$ vya $removeparam na vighairi $EXCEPTIONS$ vya @@, baada ya kila hatua iliyo hapo juu",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "Vighairi $COUNT$ vya @@…$rawrule= vinaweza kusimamisha kanuni ghafi zilizo hapo juu pale vinapolingana",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Buruta hatua au tumia mishale yake ili kuisogeza ndani ya hatua yake. Kusogeza huweka order ya kila ingizo la hatua hiyo kuwa 10, 20, 30, … kulingana na mfuatano mpya."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Badili hadi Rufaa zimeondolewa ili kupanga upya: mwonekano huo huonyesha kila ingizo."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Buruta ili usogeze"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Sogeza $ENTRY$ mbele",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Sogeza $ENTRY$ nyuma",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ imehamishwa hadi nafasi ya $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Tendua kusogeza"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Kusogeza kumetenduliwa"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Iga utekelezaji"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Huendesha mtoa huduma huyu kwenye URL kama vile kusafisha kiungo kilichonakiliwa, kwa kutumia kanuni ulizozima na chaguo la rufaa lililo juu, kisha huonyesha URL baada ya kila hatua. Watoa huduma wengine hawaendeshwi. Tengeneza URL ya jaribio huunda URL kwa kutumia kanuni za mtoa huduma huyu."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL ya jaribio"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Endesha"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Pitia uigaji hatua kwa hatua"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Mwanzo"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Iliyotangulia"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Ifuatayo"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Mwisho"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Cheza"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Sitisha"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL kabla ya hatua yoyote"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Pasi $PASS$ · hatua $STEP$ kati ya $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "hakuna mabadiliko"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "vichujio vya $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Pasi $PASS$ haibadilishi chochote, kwa hiyo usafishaji unasimama",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Mtoa huduma huyu anasimama hapa: kikomo cha mizunguko kimefikiwa, URL imerudi kwenye ya awali, au URL hailingani tena na mtoa huduma"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Pasi $PASS$ inaelekeza kwingine; usafishaji unaendelea kwenye anwani mpya kwa kila mtoa huduma",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Mtoa huduma anazuia ombi hili (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Matokeo"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Mifumo ya mtoa huduma huyu hailingani na URL hii, kwa hiyo hakuna kanuni yake inayotekelezwa."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "URL hii inalingana na mojawapo ya vighairi vya mtoa huduma, kwa hiyo hakuna kanuni yake inayotekelezwa."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Weka URL kamili inayoanza na http:// au https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Uigaji haukuweza kuendeshwa. Kagua JSON iliyo juu."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Tengeneza URL ya jaribio"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Imetengenezwa kwa kanuni za mtoa huduma huyu: maandishi ya kanuni ghafi $RAW$ na vigezo $PARAMS$, kila kimoja kikikaguliwa kulingana na kanuni yake. keep=1 hakilingani na kanuni yoyote na kinapaswa kubaki. Uelekezaji upya na vizuizi havijajumuishwa, kwa sababu vingemaliza uendeshaji kabla ya kanuni nyingine.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Hakuna hosti inayoweza kutengenezwa ili ilingane na mifumo ya mtoa huduma huyu, kwa hiyo URL hutumia hosti nyingine na mtoa huduma hataendeshwa humo."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Kila URL inayolingana na mifumo ya mtoa huduma huyu imefunikwa na mojawapo ya vighairi vyake, kwa hiyo kanuni zake hazitekelezwi kamwe."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "Kanuni $COUNT$ zimeachwa nje ya URL ya jaribio",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "Hakuna maandishi yaliyoweza kutengenezwa ili ilingane"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "maandishi yake yangefanya mojawapo ya vighairi vya mtoa huduma ilingane"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "huondoa kila kigezo, kwa hiyo hakihitaji kigezo chake"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Mtoa huduma huyu ana kichujio cha $removeparam kisicho na jina, ambacho huondoa kila kigezo, hata keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "hakuna mpangilio"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "mpangilio $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Rejesha namba za mpangilio"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Rejesha kila order kama ilivyokuwa ulipofungua mtoa huduma huyu"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Namba za mpangilio zimerejeshwa"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Ficha"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Onyesha"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Futa maonyo"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Rejesha maonyo"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Maonyo $COUNT$ yamefutwa",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern bila indexPattern hukaguliwa dhidi ya kila URL; ongeza vidokezo vya indexPattern kama \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ hurudia \"$ENTRY$\"; nakala hiyo haifanyi chochote na zote zinashiriki id moja",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ bado ina kishikilia nafasi cha kiolezo \"$PATTERN$\"; kibadilishe kwa muundo halisi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ ina matchPattern \"(?!)\", ambayo hailingani na chochote kamwe",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Tatua matatizo"
+  },
+  "troubleshooter_launch": {
+    "message": "Tatua matatizo ya kichupo hiki (jaribio)"
+  },
+  "troubleshooter_title": {
+    "message": "Kitatuzi cha kichupo"
+  },
+  "troubleshooter_page": {
+    "message": "Ukurasa"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Jinsi kurekodi kunavyofanya kazi"
+  },
+  "troubleshooter_about_note": {
+    "message": "Kufungua mwonekano huu kunaweza kukagua URL ya ukurasa, lakini hakurekodi chochote. Kurekodi hubaki kumezimwa hadi uchague Anza kurekodi. Kuanza hupakia upya kichupo hiki ili kunasa maombi ya rasilimali zake. URL zilizonaswa huhifadhiwa kwenye hifadhi ya kipindi hiki cha kivinjari na kufutwa kichupo hiki kinapofungwa au kipindi cha kivinjari kinapoisha. Kurekodi husimama baada ya dakika 15 isipokuwa ukisimamishe mapema. URL za rasilimali zinaweza kuwa na data ya faragha kwenye query."
+  },
+  "troubleshooter_start": {
+    "message": "Anza kurekodi"
+  },
+  "troubleshooter_starting": {
+    "message": "Inaanza…"
+  },
+  "troubleshooter_recording": {
+    "message": "Inarekodi…"
+  },
+  "troubleshooter_stop": {
+    "message": "Simamisha kurekodi"
+  },
+  "troubleshooter_refresh": {
+    "message": "Onyesha upya"
+  },
+  "troubleshooter_copy": {
+    "message": "Nakili muhtasari"
+  },
+  "troubleshooter_export": {
+    "message": "Hamisha"
+  },
+  "troubleshooter_export_title": {
+    "message": "Hifadhi rekodi kama faili la JSON. URL za rasilimali zinaweza kuwa na data ya faragha kwenye query."
+  },
+  "troubleshooter_category": {
+    "message": "Aina"
+  },
+  "troubleshooter_category_all": {
+    "message": "Aina zote"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Kanuni za URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Uelekezaji upya"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Ulinzi na njia za kuruka"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Aina ya rasilimali"
+  },
+  "troubleshooter_type_all": {
+    "message": "Aina zote za rasilimali"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Tafuta kanuni, watoa huduma na URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Inarekodi kwa $1 · zimesalia $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Inakagua kichupo hiki…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Hakuna kichupo kinachotumika."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Ukurasa huu hauruhusu kuchanganua kanuni za URL. Fungua ukurasa wa kawaida wa http au https."
+  },
+  "troubleshooter_status_off": {
+    "message": "Kurekodi kumezimwa. Anza kurekodi ili kukagua URL za rasilimali zinazopakiwa na ukurasa huu."
+  },
+  "troubleshooter_status_active": {
+    "message": "Mabadiliko ya URL $1 yamenaswa hadi sasa. Mapya yataonekana hapa kiotomatiki."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Kurekodi kumesimamishwa. Mabadiliko ya URL $1 yamenaswa."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Data ya kurekodi haikuweza kuhifadhiwa kwenye hifadhi ya kipindi. Mabadiliko ya URL $1 yanaweza kupotea kiendelezi kikianzishwa upya."
+  },
+  "troubleshooter_status_started": {
+    "message": "Kurekodi kumeanza na kichupo kinapakia upya. URL zilizonaswa zitaonekana ukurasa unapopakia."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Kurekodi kumesimamishwa. Mabadiliko ya URL $1 yamenaswa na kuhifadhiwa kwa kipindi hiki cha kivinjari."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Kurekodi kumesimamishwa. Mabadiliko ya URL $1 yamenaswa, lakini hifadhi ya kipindi haikuweza kuyahifadhi."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Fungua kwanza ukurasa wa kawaida wa http au https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Haikuwezekana kuanza kurekodi kwa kichupo hiki."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Haikuwezekana kusimamisha kurekodi kwa kichupo hiki."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Haikuwezekana kusoma kichupo hiki. Jaribu kufunga na kufungua tena dirisha ibukizi."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Muhtasari umenakiliwa."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Haikuwezekana kunakili muhtasari."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Rekodi imetolewa."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Haikuwezekana kutoa rekodi."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Haikuwezekana kufungua fomu ya kuripoti."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Kanuni imewashwa; pakia upya kichupo ili kulinganisha."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Kanuni imezimwa; pakia upya kichupo ili kulinganisha."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Haikuwezekana kusasisha kanuni hii."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Bado hakuna mabadiliko ya kanuni yaliyopatikana. Anza kurekodi ili kukagua URL za rasilimali kwenye ukurasa huu."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Ukurasa huu wa kivinjari hauwezi kuchanganuliwa."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Hakuna matokeo yanayolingana na vichujio hivi."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Inaonyesha kanuni $1 za kwanza."
+  },
+  "troubleshooter_hits": {
+    "message": "Mivunjiko $1"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 imeshindwa"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Kitambulisho cha kanuni: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Kitendo cha ulinzi kilichojengewa ndani (hakina kitambulisho cha kanuni)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Kitambulisho cha kanuni: hakipatikani kwa matokeo haya"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Haikuwezekana kupata kanuni hii katika seti ya kanuni za sasa."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Ombi lililoonekana"
+  },
+  "troubleshooter_source_page": {
+    "message": "Ukaguzi wa URL ya ukurasa"
+  },
+  "troubleshooter_changes": {
+    "message": "Kilichobadilika: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "URL zilizoathiriwa ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…na nyingine $1"
+  },
+  "troubleshooter_after": {
+    "message": "Baada ya Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Imeshindwa baada ya Linkumori kuibadilisha: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Kanuni hii imewashwa. Izime na upakie upya ili kulinganisha ukurasa."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Kanuni hii imezimwa. Iwashe na upakie upya ili kurejesha tabia yake."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Hiki ni kitendo cha ulinzi kilichojengewa ndani, si kanuni mahususi."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Kagua URL iliyoathiriwa kabla ya kubadilisha kanuni."
+  },
+  "troubleshooter_report": {
+    "message": "Ripoti kanuni hii"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Zima kanuni"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Washa kanuni"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Zima kanuni $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Washa kanuni $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Inahifadhi…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "imeondoa $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "imeongeza $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "imebadilisha $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "imeelekeza upya kwenda $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "njia imebadilika"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "sehemu ya URL imebadilika"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL imebadilika"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "imezuiwa kimakusudi"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Ombi $1 limeshindwa kwenye ukurasa huu; $2 mara tu baada ya Linkumori kubadilisha URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Je, ukurasa huu umeharibika?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Tafuta kanuni inayousababisha kuvunjika: kanuni zilizotumika kwenye ukurasa huu huzimwa moja baada ya nyingine, kisha unasema kama ukurasa umerekebika. Huna uhakika kama Linkumori ndiyo chanzo? Kwanza jaribu kusitisha usafishaji."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Angalia kwanza usafishaji ukiwa umesitishwa"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Usafishaji umesitishwa kwa $1 kwenye kichupo hiki"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Kichupo kimepakiwa upya bila kusafishwa. Je, ukurasa unafanya kazi sasa?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ndiyo, unafanya kazi"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Hapana, bado umeharibika"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Ghairi"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Imekamilika"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Huenda si Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Ukurasa uliendelea kuharibika usafishaji uliposimamishwa, kwa hiyo huenda tatizo liko kwingine: kwenye tovuti yenyewe, kiendelezi kingine au mtandao. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Huenda Linkumori ndiyo chanzo"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Ukurasa unafanya kazi usafishaji ukiwa umesitishwa. Tafuta kanuni: kanuni huzimwa moja baada ya nyingine, kichupo hupakiwa upya, kisha unasema kama ukurasa umerekebika. Kanuni nyingine zote huwashwa tena mwishoni."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Kichupo kinapakiwa upya huku usafishaji ukiwashwa tena, ili kurekodi kanuni zinazotumika kwenye ukurasa huu. Zitaonekana hapa baada ya muda mfupi. Ikiwa hakuna, tumia ukurasa hadi uvunjike."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Tafuta kanuni (kanuni $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ndiyo, imerekebika"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Hapana, bado imeharibika"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Imepatikana"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Kanuni $1$2 ndiyo inayovunja ukurasa. Imewashwa tena. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Zima kanuni hii"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Iripoti"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Kanuni imezimwa. Pakia upya kichupo ili kuangalia. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Hakuna kanuni moja iliyopatikana"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Kuzima kanuni moja baada ya nyingine hakukurekebisha ukurasa, kwa hiyo huenda vimesababisha kanuni kadhaa kwa pamoja au mpangilio wa ulinzi. Kanuni zote zimewashwa tena. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Haikuwezekana kufanya ukaguzi: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Pakia upya Linkumori ili utumie ukaguzi huu"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori imesasishwa, lakini sehemu yake ya usuli bado inaendesha toleo la zamani. Pakia upya kiendelezi (kwa programu jalizi ya muda: about:debugging → This Firefox → Reload), au anzisha Firefox upya."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Imepatikana"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Kanuni $1$2 ndiyo inayovunja ukurasa. Itaendelea kuzimwa ili ukurasa ufanye kazi; kanuni nyingine zote zimewashwa tena. Pakia upya kichupo ili kuangalia. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Pakia upya kichupo"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Iwashe tena"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Kanuni imewashwa tena. Pakia upya kichupo ili kuangalia. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Rekodi na utafute kanuni"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Inarekodi kanuni zinazotumika kwenye ukurasa huu. Tumia ukurasa hadi uvunjike; kanuni zitaonekana hapa."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Kwa sasa imezimwa na utafutaji wa kanuni. Itawashwa tena utafutaji utakapokamilika."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Utafutaji wa kanuni unaendelea. Badilisha kanuni ukikamilika."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Ruka — iwashe tena"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Iache ikiwa imezimwa"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Utafutaji wa kanuni umerukwa; kanuni zote zimewashwa tena. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Kanuni $1 itaendelea kuzimwa. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Zilizimwa kwa jaribio hili:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…na nyingine $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Simamisha utafutaji"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Umeruka: kanuni hiyo imewashwa tena na kuondolewa kwenye jaribio. Inajaribu inayofuata."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Hakuna kanuni iliyopatikana kati ya zilizojaribiwa. Kanuni $1 ulizoruka hazikujaribiwa. Kanuni zote zimewashwa tena. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_experimental": {
+    "message": "Ya majaribio"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Ya majaribio: zana hii ya kutatua matatizo bado haijaimarika kikamilifu. Matokeo yake yanaweza kuwa si sahihi, na huzima kanuni inapojaribu. Ikiwa kitu kinaonekana kuwa kibaya baadaye, kagua kanuni zako kwenye kihariri cha kanuni maalum, au tumia Simamisha utafutaji ili kuziwasha tena."
+  },
+  "troubleshooter_working": {
+    "message": "Inafanya kazi…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Rekodi tena"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Rekodi ya zamani imefutwa. Inarekodi kichupo hiki tena baada ya kukipakia upya upya."
+  },
+  "troubleshooter_clear": {
+    "message": "Futa"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Futa rekodi ya kichupo hiki, matokeo na utafutaji wa kanuni uliokamilika. Hali ya kanuni haitabadilika."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Imefutwa. Hali ya kanuni haitabadilika."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Imefutwa. Kanuni $1 itaendelea kuzimwa."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Inajaribu kanuni moja baada ya nyingine — kanuni $1 kati ya $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Kanuni hii pekee imezimwa na kichupo kimepakiwa upya. Je, ukurasa umerekebika sasa?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Ruka kanuni hii"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Ruka — iwashe tena, jaribu inayofuata ($1 imesalia)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "Kanuni nyingine $1 zilizotumika kwenye ukurasa huu hazikujaribiwa. Ungependa kuendelea kuzijaribu?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Iache ikiwa imezimwa, jaribu inayofuata ($1 imesalia)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Kanuni $1 itaendelea kuzimwa. Inajaribu kanuni inayofuata."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Hakuna kanuni nyingine inayorekebisha ukurasa peke yake. Kanuni $1 ulizoacha zimezimwa zitaendelea hivyo; nyingine zote zimewashwa tena. Ili kuanza upya, bofya Futa."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Jaribu kanuni inayofuata ($1 imesalia)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Kanuni $1 imewashwa tena na kuondolewa kwenye jaribio. Inajaribu kanuni inayofuata."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Hakuna kanuni nyingine inayorekebisha ukurasa peke yake. Kanuni $1 ulizoruka zimewashwa tena pia, kwa hiyo sasa kanuni zote zimewashwa. Ili kuanza upya, bofya Futa."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori husafisha URL kwa kanuni zilizoandikwa katika <strong>CLN Format 1.0</strong> (Clean Link Notation), umbizo la JSON. Mwongozo huu unaanzia kanuni ya kwanza hadi chaguo zote, ukiwa na mifano unayoweza kunakili."
+  },
+  "guide_intro_p_2": {
+    "message": "Kanuni zilizojengewa ndani, orodha za kanuni za mbali na kanuni zako maalum zote hutumia umbizo lilelile. Unaandika kanuni maalum kwenye kihariri cha kanuni maalum, ambacho huzikagua unapohifadhi au kuleta. Katalogi rasmi ya kanuni za ClearURLs (<code>data.min.json</code>) tayari ni faili halali ya CLN na inaweza kutumiwa jinsi ilivyo."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Jina la mtoa huduma ni lebo tu. URL ambazo mtoa huduma hushughulikia huamuliwa na <code>domainPatterns</code> au <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Ufunguo wa kiwango cha juu"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Lazima. Watoa huduma, waliopangwa kwa majina."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Toleo la umbizo si la lazima. Thamani pekee halali ni <code>\"1.0\"</code>. Faili isiyo na thamani hii husomwa pia kuwa 1.0; thamani nyingine yoyote husababisha faili kukataliwa. Haitwi <code>version</code> kwa sababu umbizo jipya la kanuni za ClearURLs tayari hutumia ufunguo huo."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Taarifa za faili, si za lazima."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Thamani za kila kanuni ya faili ambazo hazijaweka thamani zake (sura ya 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Orodha za kanuni za mbali pekee: mbadala wa kanuni ambazo tayari zimepakiwa (sura ya 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "URL ambazo mtoa huduma hushughulikia, kama muundo mmoja wa kikoa au orodha yake (sura ya 3). Tumia hii au <code>urlPattern</code>, kamwe zote mbili."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "URL ambazo mtoa huduma hushughulikia, kwa kutumia usemi wa kawaida mmoja unaolinganishwa na URL nzima. Herufi kubwa na ndogo hazitofautishwi."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Kwa <code>urlPattern</code> pekee: vidokezo vya seva pangishi kama <code>||example.com^</code>, ili mtoa huduma akaguliwe kwa seva pangishi hizo tu badala ya kila URL. Hiki ni kidokezo cha kutafuta, si sharti la kulinganisha."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Vigezo vya rufaa na ushirika vya kuondoa. Hurukwa wakati <em>Ruhusu uuzaji wa rufaa</em> imewashwa (sura ya 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL ambazo mtoa huduma huyu hazibadilishi kabisa (sura ya 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Tuma ombi kwenye anwani nyingine badala ya kulihariri (sura ya 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Tuma ombi kwenye thamani ya kigezo (sura ya 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: upakiaji wa ukurasa (<code>main_frame</code>) unapoelekezwa upya, kichupo kizima huenda kwenye anwani mpya, si ombi la mtandao pekee."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Shughulikia mbinu hizi za HTTP pekee, kwa mfano <code>[\"GET\"]</code>. Zikiachwa wazi: mbinu zote."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Shughulikia aina hizi za ombi pekee, kwa mfano <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Zikiachwa wazi: aina zote za ombi."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Chaguo-msingi ni <code>true</code>. <code>false</code> huruka mtoa huduma mzima ukurasa unapobadilisha anwani yake yenyewe kwa History API (<code>pushState</code>/<code>replaceState</code>). Maombi ya kawaida ya mtandao bado husafishwa."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> humzima mtoa huduma bila kumfuta."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> ni orodha ya miundo ya vikoa. URL inalingana ikiwa muundo wowote unalingana. Miundo hiyo hiyo hutumika kabla ya <code>exceptions</code>, <code>redirections</code>, vichujio vya <code>$removeparam</code> na kanuni ghafi."
+  },
+  "guide_matching_cell_1": {
+    "message": "URL nzima, kama usemi wa kawaida"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL zenye maandishi haya popote (bila <code>|</code> ya mwanzo)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> huashiria mwisho wa jina la seva pangishi, au kitenganishi kama <code>/</code>, <code>?</code>, <code>:</code> au mwisho wa URL. <code>*</code> ni kinyota cha kulinganisha chochote."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> humaanisha kikoa: seva pangishi na vikoa vyake vyote vidogo. <code>|</code> moja humaanisha mwanzo halisi wa URL na lazima ifuatwe na skimu kama <code>https://</code>. Kwa kikoa, tumia <code>||</code> kila mara; <code>|example.com^</code> haiwezi kulingana kamwe, kwa hiyo kihariri hukataa."
+  },
+  "guide_matching_p_4": {
+    "message": "Kwa mfano, <code>||smile.amazon.*^</code> humaanisha: <code>||</code> seva pangishi na vikoa vyake vidogo, <code>smile.amazon</code> lebo zinazohitajika, <code>.*</code> kiambishi tamati chochote cha umma (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), na <code>^</code> mwisho wa seva pangishi."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "kigezo hicho pekee"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "kila kigezo ambacho jina lake lote linalingana; herufi kubwa na ndogo hazitofautishwi"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> na <code>\"$removeparam=fbclid\"</code> huondoa kitu kilekile. Tumia jina pekee isipokuwa uhitaji kitu kutoka sura ya 5. Kila ingizo linaweza pia kuandikwa kama kitu cha kanuni (sura ya 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Hapa <code>qid</code> huondolewa kwenye kila tovuti ya Amazon, <code>tag</code> kwenye <code>amazon.de</code> pekee, <code>sr</code> kwenye <code>smile.amazon</code> pekee, na <code>ref_</code> chini ya <code>/gp/</code> pekee. Muundo huu hubana miundo ya mtoa huduma yenyewe; hauwezi kuipanua kamwe."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> hugeuza kichujio kuwa kighairi kinachohifadhi kigezo (tazama hapa chini)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> hubana kichujio kwa baadhi ya URL za mtoa huduma (sura ya 3). Ikiachwa wazi, hutumika kwa kila URL inayolingana na mtoa huduma."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> huchagua vigezo. Ikiachwa wazi, vigezo vyote huondolewa."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Virekebishaji huamua kichujio kitumike lini. Kila kirekebishaji kilichoorodheshwa lazima kitimizwe; hakuna chaguo la \"au\" kati yavyo."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "kila kigezo isipokuwa <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "vigezo ambavyo jina lake, au <code>name=value</code> kwa pamoja, linalingana na usemi wa kawaida; ongeza <code>i</code> ili kupuuza herufi kubwa na ndogo"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "vigezo ambavyo jina lake huanza na <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Kukwepa alama maalum katika jina la kigezo"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Mkwaju wa nyuma hufanya herufi inayofuata ichukuliwe kama ilivyo, ili jina lolote la kigezo liweze kulengwa:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Thamani"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Huondoa kigezo kinachoitwa"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (koma haianzi virekebishaji)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Hizi ndizo njia tano pekee za kukwepa alama katika thamani ya jina; mkwaju wa nyuma kabla ya herufi nyingine yoyote ni kosa. Ndani ya thamani ya <code>/regex/</code>, mkwaju wa nyuma huhifadhi maana yake ya regex. Njia hizi hutumika kwenye maingizo ya <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> na <code>@@</code>. Kwenye JSON, andika kila mkwaju wa nyuma mara mbili: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Virekebishaji"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Virekebishaji hufuata thamani, vikitenganishwa kwa koma. Tenganisha thamani kadhaa za kirekebishaji kimoja kwa <code>|</code>, na weka <code>~</code> kabla ya thamani ili kuitenga:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Kirekebishaji"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "hutumika tu ukurasa uliotuma ombi ukiwa mojawapo ya hii (au, kwa <code>~</code>, usipokuwa mojawapo); thamani za regex zinaruhusiwa"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "hutumika tu ombi lenyewe likienda mojawapo ya hizi, bila kujali ukurasa uliolituma"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "hutumika kwa mbinu hizi za HTTP pekee: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "hutumika tu ombi linapoenda kwenye kikoa kilekile kinachoweza kusajiliwa kama ukurasa (<code>a.example.com</code> na <code>b.example.com</code> huhesabiwa kuwa kikoa kimoja), au kikoa tofauti"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "sawa na hapo juu, lakini ikilinganishwa kwa jina kamili la seva pangishi, kwa hiyo kikoa kidogo huhesabiwa kuwa cha mtu mwingine"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "majina ya vigezo hulinganishwa kwa kutofautisha herufi kubwa na ndogo"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ruka kichujio hiki ukurasa unapobadilisha anwani yake yenyewe kwa History API. Pia hukubali <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Virekebishaji vinne vya <code>*-party</code> haviwezi kuunganishwa; <code>first-party,third-party</code> hukataliwa."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Kwa mfano, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> huondoa <code>sid</code> kwenye <code>example.com</code>, kwa maombi ya GET yanayotumwa na ukurasa wa tovuti nyingine pekee, na kamwe ukurasa huo ukiwa <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Ingizo la <code>@@</code> hulinda tu dhidi ya vichujio vya <code>$removeparam</code>. Ingizo la kawaida kama <code>\"ref\"</code> bado huondoa kigezo; tumia <code>exceptions</code> ya kitu cha kanuni kwa hilo. Kanuni ghafi zina maingizo yao ya <code>@@…$rawrule=</code> (sura ya 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Mahali unapoliweka kwenye orodha si muhimu, na haliwezi kuwa na <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Muundo wake hulinganishwa na URL kama mtoa huduma alivyoipokea, kabla ya kanuni ghafi kuendeshwa. Ingizo la <code>@@</code> linalohusu njia ambayo kanuni ghafi hufuta bado linalingana."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Pia huhusu vichujio vya watoa huduma wengine kwa maombi yaliyotumwa na ukurasa unaolingana na mtoa huduma huyu. Hii ni muhimu kwa kuondoa tovuti moja kwenye kanuni iliyobainishwa kwingine."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Kanuni ghafi huendeshwa kabla ya <code>rules</code>, hupuuza herufi kubwa na ndogo na hubadilisha kila kinacholingana (bendera <code>gi</code>, au <code>g</code> pamoja na <code>match-case</code>). Kwenye JSON, andika kila mkwaju wa nyuma mara mbili."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Kanuni ghafi inaweza kutumia muundo na virekebishaji vya kichujio cha <code>$removeparam</code>, huku <code>rawrule=</code> ikiwa mwisho. Kila kitu baada ya <code>rawrule=</code> ni usemi wa kawaida:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Muundo na virekebishaji huamua kanuni itaendeshwa wapi; kinachofutwa bado ni kile kinacholingana na usemi wa kawaida."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Ingizo linaloanza kwa <code>@@</code> na kuishia kwa <code>rawrule=</code> huzuia kanuni ghafi kuendeshwa pale muundo wake unapolingana:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Ikiwa hakuna kitu baada ya <code>rawrule=</code>, huzuia kila kanuni ghafi ya mtoa huduma kwenye URL hizo."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Ikiwa kuna usemi wa kawaida baada ya <code>rawrule=</code>, huzuia kanuni ghafi zenye usemi huo wa kawaida."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Ikiwa ni kitu cha kanuni chenye <code>targetId</code>, huzuia kanuni ghafi yenye kitambulisho au jina mbadala hilo pekee."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Ili kuruka mtoa huduma mzima, tumia <code>exceptions</code> badala yake."
+  },
+  "guide_exceptions_p_1": {
+    "message": "URL ikilingana na ingizo katika <code>exceptions</code>, hakuna kanuni za mtoa huduma zinazoendeshwa kwa ombi hilo. Ingizo ni usemi wa kawaida unaolinganishwa na URL nzima, au muundo wa kikoa unaoanza kwa <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Vighairi hupuuza herufi kubwa na ndogo. Ili kuruka kanuni moja badala ya mtoa huduma mzima, weka <code>exceptions</code> yake kwenye kanuni hiyo (sura ya 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Kigezo cha kwanza kinacholingana kwenye URL ndicho hutumika. Kwa <code>https://site.example/away?redirect=https://real.example/page</code>, ombi huenda kwa <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Anwani lengwa halali za uelekezaji upya"
+  },
+  "guide_redirects_p_2": {
+    "message": "Uelekezaji upya hutokea tu kwenda kwenye anwani kamili ya <code>http</code> au <code>https</code> yenye seva pangishi. Hili hukaguliwa baada ya vichakataji awali na kuondoa usimbaji wa asilimia. Lengo lisilo halali hufanya ingizo lihesabiwe kuwa halilingani: hakuna kinachoelekezwa upya, na hatua zinazofuata za mtoa huduma huendelea kwenye URL isiyobadilishwa."
+  },
+  "guide_redirects_th_1": {
+    "message": "Lengo"
+  },
+  "guide_redirects_th_2": {
+    "message": "Inaelekeza upya?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ndiyo"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ndiyo, kwenda <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "hapana: skimu si <code>http</code> wala <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "hapana: si anwani kamili"
+  },
+  "guide_redirects_p_3": {
+    "message": "Matokeo ya kanuni ghafi yenye skimu, seva pangishi au mlango tofauti na ingizo lake pia huhesabiwa kuwa uelekezaji upya, hata ikiwa hufuta maandishi tu: kufuta <code>secure-</code> kutoka <code>https://secure-bank.example/</code> hupeleka kwenye tovuti nyingine. Inahitaji lengo halali, na kwenye orodha ya kanuni za mbali idhini ya <code>redirect</code> (sura ya 15). Vinginevyo kanuni huacha URL kama ilivyokuwa."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Ingizo lolote, kwenye orodha yoyote, linaweza kuwa kitu badala ya mfuatano wa maandishi. Tumia kitu kanuni inapohitaji kitambulisho kisichobadilika, inapaswa kuanza ikiwa imezimwa, ibadilishe badala ya kuondoa, au iendeshwe katika hali fulani pekee:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Lazima. Maandishi ambayo ungeandika kama ingizo la kawaida kwenye orodha hiyo."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Jina lisilobadilika (herufi, tarakimu, <code>-</code>, <code>_</code>) linalotumiwa kuwasha na kuzima kanuni (sura ya 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Vitambulisho vya awali vya kanuni hii, ili mipangilio iliyohifadhiwa kwa kitambulisho cha zamani iendelee kutumika baada ya kubadili jina."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Andika upya badala ya kuondoa; <code>§1§</code>, <code>§2§</code>, … ni thamani zilizonaswa."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Badilisha thamani zilizonaswa kwanza."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Kwa aina hizi za ombi pekee, kwa mfano <code>[\"main_frame\"]</code>. Usafishaji bila ombi ( <em>Nakili kiungo safi</em>, zana ya usafishaji, mabadiliko ya History API) huhesabiwa kuwa <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (semi za kawaida) ambazo kanuni hii haiendeshwi."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Bendera za usemi wa kawaida, kama mfuatano. Chaguo-msingi ni <code>i</code>; kwenye <code>rawRules</code>, ni <code>gi</code> (au <code>g</code> pamoja na <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Endesha kanuni mapema au baadaye ndani ya hatua yake (sura ya 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: kanuni iliyo kwenye <code>rules</code> pia huhesabiwa kuwa kanuni ya uuzaji wa rufaa (sura ya 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Swichi ya mtoa huduma yenye jina hilohilo, kwa kanuni hii pekee. Huchukua nafasi ya thamani ya mtoa huduma na chaguo-msingi la faili."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: kanuni huanza ikiwa imezimwa."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Dokezo kwa wanaosoma faili; lazima liwe mfuatano wa maandishi."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Kwa maingizo ya <code>@@…$rawrule=</code> pekee: kitambulisho cha kanuni ghafi inayozuiwa."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Hapa <code>?token=abc123</code> huwa <code>?token=clean-abc123</code>. Kuandika upya hutumika mara moja tu kwa kila ombi, kwa hiyo thamani haifunikwi tena na tena."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Vichakataji awali hubadilisha thamani zilizonaswa, kwa mpangilio, kabla ya <code>replacePattern</code> au uelekezaji upya kuzitumia. <code>inputs</code> ni <code>\"all\"</code> au orodha ya nambari za vikundi:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> hutumia maingizo yale yale kama <code>rules</code>. Hufanya kazi tu wakati <em>Ruhusu uuzaji wa rufaa</em> imezimwa, kwa hiyo viungo vya ushirika huendelea kufanya kazi ukiiwasha:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Kanuni inaweza kubaki kwenye <code>rules</code> na bado ihesabiwe kuwa ya uuzaji wa rufaa, kwa kuweka <code>\"referralMarketing\": true</code>. Usiweke maandishi yale yale kwenye <code>rules</code> na <code>referralMarketing</code>; kihariri kitatoa onyo."
+  },
+  "guide_request_types_cell_1": {
+    "message": "aina za ombi ambazo kitu kimoja cha kanuni hushughulikia (zinaweza pia kuwekwa kwenye <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Aina za ombi hutumia majina ya kivinjari: <code>main_frame</code> (ukurasa), <code>sub_frame</code> (fremu), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> na mengineyo. Virekebishaji vya vichujio huita mbili za kwanza <code>document</code> na <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Aina za ombi hutoka kwenye kanuni pekee: hakuna orodha ya aina za ombi kwenye Mipangilio. Isipowekwa mojawapo ya thamani hizi, kanuni husafisha kila aina ya ombi."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Chaguo-msingi"
+  },
+  "guide_defaults_p_1": {
+    "message": "Kizuizi cha kiwango cha juu cha <code>defaults</code> hutoa thamani ambazo kila kanuni ya faili haijajiwekea yenyewe:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Chaguo-msingi kwa kila kanuni ya…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> huzima kila kanuni isipokuwa ikiweka <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> au kuiacha wazi humaanisha aina zote"
+  },
+  "guide_defaults_item_1": {
+    "message": "Thamani ya kanuni yenyewe hushinda kila mara, na <code>exceptions</code> za kanuni huchukua nafasi ya orodha ya chaguo-msingi badala ya kuiongezea."
+  },
+  "guide_defaults_item_2": {
+    "message": "Chaguo-msingi hutumika kwa <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> na <code>fieldRedirections</code>. Orodha ya <code>exceptions</code> ya mtoa huduma yenyewe haibadilishwi. Maingizo ya <code>$redirect=</code> hutumia <code>active</code> pekee."
+  },
+  "guide_defaults_item_3": {
+    "message": "Kila faili huhifadhi chaguo-msingi zake: kanuni zilizojengewa ndani, kila orodha ya mbali na kanuni zako maalum, hata hali ya overload mode inapovikusanya pamoja."
+  },
+  "guide_defaults_item_4": {
+    "message": "Kwa <code>completeProvider</code>, chaguo-msingi za <code>requestTypes</code> na <code>exceptions</code> pia huzuia kizuizi."
+  },
+  "guide_defaults_item_5": {
+    "message": "Funguo zisizojulikana na aina zisizo sahihi ni makosa, na orodha ya mbali yenye kizuizi cha <code>defaults</code> kisicho halali hukataliwa."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Chaguo-msingi zako"
+  },
+  "guide_defaults_p_2": {
+    "message": "Kwenye kihariri cha kanuni maalum, <em>Dhibiti chaguo-msingi za kanuni</em> hufungua fomu ya kuweka kizuizi chako cha <code>defaults</code> na kuchagua kinachochukua nafasi ya chaguo-msingi za faili:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Chaguo-msingi za kila chanzo</em> (chaguo-msingi): kila faili hutumia <code>defaults</code> zake."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Zako kwa kanuni zilizojengewa ndani na za mbali</em>: kanuni zilizojengewa ndani na za mbali hutumia zako; kanuni maalum huhifadhi zao."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Zako kwa kanuni zote</em>: kila kanuni hutumia zako."
+  },
+  "guide_defaults_p_3": {
+    "message": "Fomu hiyo hiyo inaweza kuhariri chaguo-msingi za kanuni zilizojengewa ndani na za kila orodha ya mbali iliyopakiwa. Mabadiliko yako huhifadhiwa kwenye kiendelezi, si kwenye faili, na <em>Rejesha chaguo-msingi za faili</em> huyafuta. <em>Unganisha kutoka vyanzo…</em> huunganisha chaguo-msingi za vyanzo unavyochagua; hakuna kinachohifadhiwa hadi uhifadhi."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Jinsi URL inavyochakatwa"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, kisha <code>fieldRedirections</code>: ombi huelekezwa upya yanapolingana na lengo halali."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> na <code>referralMarketing</code> huondoa au kuandika upya vigezo."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Vichujio vya <code>$removeparam</code> huendeshwa, isipokuwa ingizo la <code>@@</code> linapohifadhi kigezo."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Mtoa huduma wa kwanza unaobadilisha, kuelekeza upya au kuzuia URL ndiye hushinda. URL mpya hupitia hatua zilezile tena (tazama <a href=\"#termination\">Wakati uchakataji unasimama</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Mpangilio wa utekelezaji na <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Hatua ya 4 na 5 hupangwa pamoja kwa kutumia kanuni hizi kwa mfuatano:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Kanuni ghafi huendeshwa kwanza kila mara.</strong> Hakuna <code>order</code> inayoweza kufanya ingizo la <code>rules</code> litangulie kanuni ghafi. Usafishaji unaopaswa kufanyika kabla ya kanuni ghafi lazima uwe kanuni ghafi wenyewe."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Ndani ya hatua moja, kanuni zenye <code>order</code> huendeshwa kabla ya zisizo nayo</strong>, kuanzia nambari ndogo. Nambari hasi na sehemu zinaruhusiwa. <code>order: 10</code> haimaanishi \"ya kumi\"; humaanisha huendeshwa baada ya kanuni za hatua hiyo zenye mpangilio ulio chini ya 10, na kabla ya zisizo na mpangilio."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Kisha kwa orodha:</strong> <code>rules</code>, kisha vitu vya <code>rules</code> vilivyowekwa <code>\"referralMarketing\": true</code>, kisha <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Kisha kwa nafasi</strong> kwenye orodha. Kila ingizo huhifadhi nafasi yake, yakiwemo maingizo yaliyoandikwa kama <code>\"3\"</code> au <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Hapa tokeni huandikwa upya kabla ya <code>utm_source</code> kuondolewa, ingawa iko ya pili:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Kanuni zilizozimwa hurukwa. Vichujio vya <code>$removeparam</code> na maingizo ya <code>@@</code> havimo kwenye upangaji huu na haviwezi kuwa na <code>order</code>, hata <code>null</code>; vichujio huendeshwa mwisho kila mara."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Maandishi yale yale mara mbili"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Maingizo mawili yenye maandishi yale yale ya <code>matchPattern</code> ndani ya kundi moja ni kanuni moja. Makundi ni ghafi (<code>rawRules</code>), sehemu (<code>rules</code> zisizo na alama ya rufaa) na rufaa (vitu vya <code>rules</code> vilivyo na alama, kisha <code>referralMarketing</code>). Hili hutokea hasa orodha za kanuni zinapounganishwa."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Ufafanuzi wa mwisho ambao haujazimwa hushinda, pamoja na funguo zake zote."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Ikiwa hauna <code>order</code> yake yenyewe, mshindi huchukua nafasi ya ufafanuzi wa kwanza na <code>order</code> ya karibu zaidi iliyotangulia. <code>\"order\": null</code> humaanisha hakuna mpangilio, na huondoa uliorithiwa."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Vitambulisho na majina mbadala ya ufafanuzi uliobadilishwa pia huwasha na kuzima mshindi."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Kanuni za uuzaji wa rufaa zinapoendeshwa, ingizo la rufaa huchukua nafasi ya ingizo la sehemu lenye maandishi yale yale."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Kanuni ghafi na kanuni ya sehemu zenye maandishi yale yale hazikinzani; zote huendeshwa."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Ndani ya orodha moja, maingizo mawili tofauti yenye maandishi yale yale ni kosa, na nakala halisi ni onyo."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Uchakataji unasimama lini"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Hadi mizunguko 10 huendeshwa kwa kila ombi; kikomo kikifikiwa, URL hutumika kama ilivyo."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Kanuni yenye <code>replacePattern</code> hutumika mara moja tu kwa kila ombi."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Hatua isiyobadilisha URL haianzi mzunguko mpya."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Mipangilio → <em>Mizunguko ya usafishaji isiyo na kikomo</em> (imezimwa kwa chaguo-msingi) huondoa kikomo cha mizunguko 10 kwa minyororo ya kanuni inayohitaji zaidi. Uchakataji huishia mzunguko usipobadilisha chochote, lakini kanuni mbili zinazoelekeza kwenye URL za nyingine huzunguka hadi kivinjari kikate na ukurasa usipakie. Iwashe tu kwa kanuni unazoamini."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Vitambulisho vya kanuni na swichi za kuwasha/kuzima"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Kila kanuni ina kitambulisho. Kanuni isiyo na <code>id</code> hupata kitambulisho kutoka kwenye orodha na maandishi yake: <code>\"utm_source\"</code> katika <code>rules</code> huwa <code>field-utm-source</code>. Kitambulisho kilichozalishwa hubadilika maandishi ya kanuni yanapobadilika, na kanuni iliyozimwa ingewashwa tena. Ipe kanuni <code>id</code> yake inapohitaji kuhifadhi hali yake ya kuwashwa/kuzimwa baada ya kuhaririwa, na orodhesha vitambulisho vya zamani kwenye <code>aliases</code> unapobadilisha jina."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Kanuni huwashwa na kuzimwa kwa kutumia mtoa huduma na kitambulisho pamoja, kama <code>shop::session-token</code>, kwa hiyo watoa huduma wawili wanaweza kutumia kitambulisho kimoja. Kihariri cha kanuni maalum kinaweza pia kuihifadhi chini ya muundo wa mtoa huduma, kama <code>domainPattern:||shop.example^::session-token</code>; miundo yote miwili hufanya kazi."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Ndani ya mtoa huduma mmoja, kila kitambulisho na jina mbadala lazima liwe tofauti. Vitambulisho vilivyozalishwa pia huhesabiwa."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Kitambulisho hakiwezi kuwa na koloni."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Mpangilio uliohifadhiwa chini ya kitambulisho pekee, bila mtoa huduma wake, hauzimi chochote; zima kanuni tena kwenye kihariri cha kanuni maalum."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Orodha za kanuni za mbali"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Orodha za kanuni za mbali ni faili za kanuni ambazo Linkumori hupakua, na zinaweza kukaguliwa kwa kutumia faili ya heshi. Orodha yenye thamani batili ya <code>cln</code>, kizuizi cha <code>defaults</code> au safu ya <code>patches</code> haipakuliwi, na Afya ya Kanuni za Mbali huripoti hali hiyo."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Uelekezaji upya na uzuiaji vinahitaji idhini yako"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Kinachoweza kufanywa na orodha ya mbali hutambuliwa kutokana na maudhui yake inapopakiwa:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Uwezo"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Orodha inakuwa na uwezo huu ikiwa ina"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Hali inapopakiwa"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "ingizo la <code>rules</code>, <code>rawRules</code> au <code>referralMarketing</code>, au kichujio cha <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "ingizo lenye <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "ingizo la mtoa huduma la <code>exceptions</code> au ingizo la <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "ingizo la <code>redirections</code> au <code>fieldRedirections</code>, au <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "baada ya kuidhinishwa"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "mtoa huduma mwenye <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Idhinisha <code>redirect</code> na <code>block</code> kwa kila orodha kwenye Afya ya Kanuni za Mbali. Hadi hapo, uelekezaji upya na vizuizi vya orodha hiyo hubaki vimezimwa, na kanuni zake ghafi haziwezi kupeleka URL kwenye tovuti nyingine; sehemu iliyobaki ya orodha hufanya kazi mara moja. Sasisho linapoongeza uwezo mpya, uwezo huo pia husubiri idhini. Kanuni zilizojengewa ndani na maalum zina uwezo wote."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Hali ya overload"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Kwa kawaida, orodha za mbali zenye watoa huduma huchukua nafasi ya kanuni zilizojengewa ndani; orodha zenye <code>patches</code> pekee hutumika kwenye kanuni zilizojengewa ndani. <em>Washa hali ya overload</em> ikiwa imewashwa, orodha hizo hupakiwa pamoja kwa kutumia mojawapo ya mikakati mitatu:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Hali ya viraka pekee</em>: tumia viraka vya orodha za mbali kwenye kanuni zilizojengewa ndani; watoa huduma wa mbali hurukwa."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Hali ya viraka + kuunganisha</em>: unganisha watoa huduma wa ndani na wa mbali, kisha utumie viraka."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Bila hali ya viraka + kuunganisha</em>: unganisha watoa huduma na uruke viraka."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Wakati wa kuunganisha, orodha za mbali huunganishwa zenyewe kwa zenyewe kwa mpangilio ulioziweka, kisha na kanuni zilizojengewa ndani (za ndani kwanza). Watoa huduma huunganishwa tu wakiwa na <code>domainPatterns</code> (au <code>urlPattern</code>) zilezile na <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> na <code>forceRedirection</code> zilezile; <code>rules</code>, <code>rawRules</code> na <code>referralMarketing</code> zao huunganishwa, na sehemu ya <a href=\"#same-text-twice\">Maandishi yale yale mara mbili</a> huamua ni nakala ipi itaendeshwa. Afya ya Kanuni za Mbali huorodhesha kila kanuni iliyobadilishwa kama taarifa."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Kanuni maalum hutumika mwisho. Mtoa huduma maalum huchukua nafasi ya kila mtoa huduma aliyepakiwa mwenye muundo uleule; kanuni zao haziunganishwi."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Viraka vya kanuni"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Orodha ya mbali inaweza kuchukua nafasi ya kanuni moja iliyopakiwa tayari bila kuchapisha nakala kamili, kwa kutumia safu ya kiwango cha juu ya <code>patches</code>:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Lazima. Kanuni ya kubadilisha, iliyoandikwa kama ufunguo wake wa kuwasha/kuzima: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> au <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Lazima. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> au <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Lazima. Kanuni mpya, kama ingizo la kawaida au kitu cha kanuni."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Dokezo kwa wanaosoma faili."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Viraka huendeshwa baada ya orodha za mbali kuunganishwa na kabla ya kanuni maalum. Faili yenye <code>patches</code> pekee haihitaji <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Kuunganisha kunaweza kubadilisha majina ya watoa huduma, kwa hiyo muundo wa <code>domainPattern:</code> au <code>urlPattern:</code> ndio unaowapata kila mara."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Mbadala huhifadhi kitambulisho cha kanuni ya zamani au huchukua kitambulisho hicho kama jina mbadala, ili mipangilio ya kuwasha/kuzima iendelee kutumika."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Kiraka cha uelekezaji upya husubiri idhini ya <code>redirect</code> ya orodha. Kiraka ambacho lengo lake halilingani na chochote hakibadilishi chochote."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Afya ya Kanuni za Mbali huorodhesha kila kiraka kuwa kimetumika, hakikulingana au kimerukwa."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Kanuni na orodha iliyoidhinishwa"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Orodha iliyoidhinishwa ni tofauti na <code>exceptions</code> za mtoa huduma: huorodhesha tovuti ulizoiambia Linkumori iziachie, bila kutumia faili ya kanuni. Maingizo yanafanana na <code>example.com</code>, <code>*.example.com</code> (tovuti na vikoa vyake vidogo) au <code>example.*</code> (kiambishi tamati chochote). Kuweka ukurasa kwenye orodha iliyoidhinishwa pia huhusu kila kitu unachopakia."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Mifano kamili"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Kukagua kanuni zako"
+  },
+  "guide_checking_p_1": {
+    "message": "Kihariri cha kanuni maalum hukagua kanuni unapozihifadhi au kuleta, na <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> huendesha ukaguzi huohuo. Mbali na JSON iliyovunjika na semi za kawaida zisizo halali, hukataa kanuni ambazo zingepakiwa lakini kufanya jambo lisilofaa kimyakimya, kama vile:"
+  },
+  "guide_checking_item_1": {
+    "message": "sehemu, funguo na virekebishaji visivyojulikana"
+  },
+  "guide_check_7": {
+    "message": "thamani ya <code>cln</code> isiyo <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "kitambulisho au jina mbadala lililotumika mara mbili ndani ya mtoa huduma mmoja"
+  },
+  "guide_checking_item_2": {
+    "message": "maingizo mawili tofauti yenye maandishi yale yale katika orodha moja"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> kwenye kichujio cha <code>$removeparam</code> au ingizo la <code>@@</code>, hata ikiwa <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "anwani ya <code>$redirect=</code> isiyo <code>http</code> au <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "mkwaju wa nyuma katika jina la <code>$removeparam</code> kabla ya herufi isiyo na njia ya kukwepa alama"
+  },
+  "guide_checking_p_2": {
+    "message": "Pia huonya kuhusu nakala halisi na maandishi yaleyale katika <code>rules</code> na <code>referralMarketing</code>. Uhifadhi ukishindwa, ujumbe hutaja mtoa huduma, orodha na ingizo."
+  },
+  "guide_toc_search": {
+    "message": "Chuja sehemu"
+  },
+  "guide_toc_no_results": {
+    "message": "Hakuna sehemu zinazolingana."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: uelekezaji unaoanza na \"|\" lazima uwe katika muundo huu: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: lengo la $redirect= lazima liwe URL kamili ya http au https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ lazima kiwe kitu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type lazima iwe mfuatano usio tupu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type lazima iwe mojawapo ya: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs lazima iwe \"all\" au safu ya nambari kamili chanya",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ lazima iwe mfuatano au kitu cha kanuni",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern lazima iwe mfuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern lazima iwe mfuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId lazima kiwe kitambulisho cha kanuni",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId hutumika tu kwenye vighairi vya \"@@…$rawrule=\" katika rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags lazima iwe mfuatano (bendera za regex kama \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing lazima iwe true au false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing haina athari katika $FIELD$; hutumika tu katika $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order lazima iwe nambari au null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order haina athari katika $FIELD$; hutumika tu katika $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order haina athari kwenye kichujio cha $removeparam au ingizo la \"@@\"; huendeshwa baada ya kanuni nyingine kila mara",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active lazima iwe thamani ya boolean",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id lazima iwe mfuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id lazima ilingane na muundo $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases lazima iwe orodha ya vitambulisho vinavyolingana na muundo $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases haipaswi kuwa na kitambulisho cha kanuni yenyewe",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description lazima iwe mfuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection lazima iwe thamani ya boolean",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions lazima iwe safu ya mifuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes lazima iwe safu ya mifuatano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors lazima iwe safu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: sehemu \"$FIELD$\" haijulikani",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ inaanza na \"@@\", ambayo hutumika tu kwa vichujio vya $removeparam katika rules na referralMarketing; tumia \"exceptions\" ya kitu cha kanuni badala yake",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ ina chaguo lisilojulikana la $removeparam \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" inaanza na \"|\" moja, kwa hiyo inalingana tu na URL zinazoanza kihalisi na \"$REST$\", na hakuna inayofanya hivyo (URL huanza na \"https://\"). Tumia \"||$REST$\" ili kulinganisha kikoa.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ ina \"targetId\", ambayo hutumika tu kwenye kighairi; anza matchPattern kwa \"@@\" (kwa mfano \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ ina \"targetId\" na regex baada ya \"rawrule=\"; tumia kimoja tu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ ina targetId \"$ID$\", lakini hakuna kanuni ghafi katika mtoa huduma huyu yenye kitambulisho au jina mbadala hilo",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ ni kighairi cha \"@@\" cha \"$REGEX$\", lakini hakuna kanuni ghafi katika mtoa huduma huyu inayotumia regex hiyo. Ipe kanuni kitambulisho na uielekeze kwa \"targetId\" badala yake",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ ni kighairi cha \"@@\", kwa hiyo \"$KEY$\" haitakuwa na athari",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ haina chochote baada ya \"rawrule=\"; inahitaji regex ya kufuta",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ ina regex batili baada ya \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ ina vikundi vya kunasa $GROUPS$; inahitaji hasa jozi moja ya mabano \"( … )\" kuzunguka URL ya lengwa (andika vikundi vingine kama \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ inatumia tena kitambulisho cha kanuni \"$ID$\" katika $WHERE$; kilitumika kwanza katika $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ lazima iwe kitu cha JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ lazima iwe safu",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ ina ufunguo usiojulikana \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Hitilafu katika kuchakata URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Hitilafu katika kuanzisha ukurasa: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Kichupo si halali"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Utafutaji wa kanuni tayari unaendelea kwa kichupo hiki"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Hakuna ukaguzi wa kusitisha unaoendelea kwa kichupo hiki"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Kanuni bado zinapakiwa. Jaribu tena baada ya muda mfupi."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Hakuna kanuni iliyotumika kwenye ukurasa huu inayoweza kuzimwa."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Haikuwezekana kuzima kanuni"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Hakuna utafutaji wa kanuni unaoendelea kwa kichupo hiki"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Hakuna kanuni iliyopatikana ya kuruka kwa kichupo hiki"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Upakuaji haupatikani"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Haikuwezekana kuhifadhi rekodi kwenye hifadhi ya kipindi"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Kanuni isiyojulikana"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "hitilafu isiyojulikana"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "uhamishaji umeshindwa"
   }
 }

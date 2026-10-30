@@ -39,7 +39,7 @@
     "message": "Koristite pravila Linkumori/ClearURLs u paketu. Onemogućite ovo za pokretanje samo s udaljenim pravilima i/ili prilagođenim pravilima."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori koristi jedan objedinjeni skup pravila pružatelja ClearURLsData. Izvorni JSON pružatelja, kanonski objekti pravila i lokalni filtri $removeparam pružatelja spajaju se prije pokretanja clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Informacije o pravilima"
@@ -801,7 +801,7 @@
     "message": "Savjet:"
   },
   "faq_title": {
-    "message": "FAQ"
+    "message": "Česta pitanja"
   },
   "faq_url_pattern": {
     "message": "Što je urlPattern?"
@@ -1137,25 +1137,25 @@
     "message": "Otvorite Linkumori postavke"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Ponašanje načina preopterećenja"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Samo način zakrpa"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Primijeni udaljene zakrpe na ugrađena pravila. Pravila udaljenih pružatelja nisu uključena."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Način zakrpa + spajanje"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Spoji ugrađena pravila i pravila udaljenih pružatelja, zatim primijeni udaljene zakrpe."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Bez načina zakrpa + spajanje"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Spoji ugrađena pravila i pravila udaljenih pružatelja bez primjene udaljenih zakrpa."
   },
   "overload_mode_enabled": {
     "message": "Omogući način preopterećenja"
@@ -1443,7 +1443,7 @@
     "message": "Značke"
   },
   "popup_html_configs_switch_filter": {
-    "message": "Filter"
+    "message": "Filtar"
   },
   "popup_html_configs_switch_log": {
     "message": "Sječa drva"
@@ -1563,7 +1563,7 @@
     "message": "Iznimke"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "izn."
   },
   "providerImport_excludeNoPattern": {
     "message": "Ovaj pružatelj usluga nema uzorak URL-a/domene i ne može se isključiti potpisom."
@@ -1836,7 +1836,7 @@
     "message": "Primarni hash URL mora koristiti HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "URL primarnog pravila i URL primarnog hasha moraju se konfigurirati zajedno."
   },
   "save_primary_rule_https_required": {
     "message": "URL primarnog pravila mora koristiti HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Razumijem rizike - nastavi"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Trebali biste preispitati korištenje udaljenih pravila ako ne razumijete u potpunosti ili ne vjerujete izvoru skupa pravila Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Ova značajka udaljenih pravila namijenjena je naprednim korisnicima koji razumiju Linkumori JSON koji učitavaju. Udaljena pravila trebaju uključivati odgovarajući URL hasha za provjeru."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ako dodate URL udaljenog pravila, proširenje će se povezati s vašim određenim poslužiteljem radi dohvaćanja skupa pravila Linkumori i njegove datoteke hasha kada je to konfigurirano. Svako dohvaćanje može izložiti vašu IP adresu i opće informacije, kao što su verzija proširenja, preglednik i verzija preglednika, poslužitelju koji ih hostira. Ti podaci podliježu pravilima o privatnosti te web-stranice ili web-poslužitelja."
   },
   "security_modal_privacy_link_text": {
     "message": "Prije nastavka ponovno pročitajte %PRIVACY_POLICY_LINK% ako je potrebno."
@@ -1887,7 +1887,7 @@
     "message": "upozorenje:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Koristite ugrađena pravila osim ako vjerujete udaljenom izvoru i kontrolirate ga. Navedite odgovarajući URL hasha za udaljena Linkumori JSON pravila."
   },
   "security_modal_risk_1": {
     "message": "Vaša IP adresa i podaci o pregledniku bit će izloženi konfiguriranim poslužiteljima"
@@ -1899,7 +1899,7 @@
     "message": "Provjera raspršivanja primjenjuje se samo na Linkumori CLN Format 1.0 JSON pravila; štiti od petljanja u prijenosu, a ne od zlonamjernih izvora pravila."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Udaljena pravila bez uspješne provjere hasha u potpunosti se oslanjaju na povjerenje u URL izvora."
   },
   "security_modal_risks_title": {
     "message": "Sigurnosni rizici:"
@@ -1914,7 +1914,7 @@
     "message": "URL datoteke rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Obavezno za provjeru udaljenih Linkumori JSON pravila."
   },
   "setting_html_export_button": {
     "message": "Izvoz"
@@ -1944,7 +1944,7 @@
     "message": "Ograničenje zapisnika (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Dodatni udaljeni Linkumori JSON izvori koji se spajaju. Unesite jedan par po retku kao <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Dodatni skupovi daljinskih pravila"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Prilagođeni udaljeni URL za Linkumori JSON pravila"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL udaljene JSON datoteke pravila"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "URL hasha obavezan je za svaki udaljeni skup pravila."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) postavke"
@@ -2421,19 +2421,19 @@
     "message": "UPOZORENJE: Napredna značajka namijenjena samo poslužiteljima koji se sami hostiraju"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Onemogućujete zaštitu Gatekeepera za uređivanje URL-a udaljenih pravila. Ova značajka može učitati udaljena Linkumori JSON pravila u objedinjeni skup pravila pružatelja. Nastavite samo ako razumijete izvor koji konfigurirate i vjerujete mu."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper je ugrađeni sigurnosni tijek koji blokira izravna udaljena uređivanja URL-a dok ne potvrdite sigurnosno upozorenje i dovršite utipkanu potvrdu."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Ostavite Gatekeeper omogućenim osim ako vjerujete svojim udaljenim izvorima i kontrolirate ih. Udaljena JSON pravila trebaju uključivati odgovarajući URL hasha."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "upozorenje:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ako dodate URL udaljenog pravila, proširenje će se povezati s vašim određenim poslužiteljem radi dohvaćanja skupa pravila Linkumori i njegove datoteke hasha kada je to konfigurirano. Svako dohvaćanje može izložiti vašu IP adresu i opće informacije, kao što su verzija proširenja, preglednik i verzija preglednika, poslužitelju koji ih hostira. Ti podaci podliježu pravilima o privatnosti te web-stranice ili web-poslužitelja."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Prije nastavka ponovno pročitajte %PRIVACY_POLICY_LINK% ako je potrebno."
@@ -2448,7 +2448,7 @@
     "message": "Proširenje će se povezati s vašim određenim URL-om svaki put kada se proširenje omogući i učita u vaš preglednik."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Poslužitelj koji hostira udaljene JSON datoteke ili datoteke hasha primit će vašu IP adresu."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Poslužitelj također može primiti vašu verziju proširenja, preglednik i verziju preglednika."
@@ -2457,7 +2457,7 @@
     "message": "Ti podaci podliježu politici privatnosti web stranice ili web poslužitelja koji hostira te datoteke."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Onemogućivanjem Gatekeepera povećavate rizik od nesigurnih ili kompromitiranih izvora udaljenih pravila. Provjera hasha štiti preuzimanja udaljenih Linkumori JSON datoteka samo kada je konfiguriran odgovarajući URL hasha."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Otkazati"
@@ -2517,7 +2517,7 @@
     "message": "Upišite točan izraz za potvrdu"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Ova radnja smanjuje zaštitu za udaljena pravila. Nastavite samo ako vjerujete svom udaljenom JSON izvoru."
   },
   "remote_urls_template_note_1": {
     "message": "Zamijenite vrijednosti rezerviranih mjesta svojim stvarnim HTTPS URL-ovima, a zatim uvezite ovu datoteku."
@@ -2616,7 +2616,7 @@
     "message": "Osvježi izvore"
   },
   "audit_faq_button": {
-    "message": "FAQ"
+    "message": "Česta pitanja"
   },
   "audit_theme_toggle_aria": {
     "message": "Uključi/isključi temu"
@@ -2820,7 +2820,7 @@
     "message": "h"
   },
   "settings_remote_health_title": {
-    "message": "Remote Rules Health"
+    "message": "Stanje udaljenih pravila"
   },
   "settings_remote_health_refresh": {
     "message": "Osvježi sada"
@@ -2841,16 +2841,16 @@
     "message": "Trenutačni hash status:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "N/D"
   },
   "settings_remote_health_none": {
     "message": "Nijedan"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Sukobi pravila:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "Pogrešaka: $ERRORS$, upozorenja: $WARNINGS$, obavijesti: $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Mogućnosti udaljene datoteke:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "neaktivno do prihvaćanja: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Prihvati $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Zakrpe pravila:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "Primijenjeno: $APPLIED$, neprimijenjeno: $NOT_APPLIED$",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Zadane vrijednosti pravila"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Ugrađeno"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Prilagođeno"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Nema — ugrađeno ponašanje"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Način preopterećenja spaja ugrađena i udaljena pravila; pravila svakog izvora zadržavaju zadane vrijednosti tog izvora."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Spremi zadane vrijednosti"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Zadane vrijednosti spremljene"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Kada je uključeno, svaki izvor pravila zadržava vlastite zadane vrijednosti (ugrađene zadane vrijednosti primjenjuju se na ugrađena pravila, a zadane vrijednosti svake udaljene datoteke na pravila te datoteke) osim ako u uređivaču prilagođenih pravila odaberete vlastite zadane vrijednosti."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Udaljeno: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Koje se zadane vrijednosti primjenjuju"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Vlastite za svaki izvor"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Vaše za ugrađena i udaljena pravila"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Vaše za sva pravila"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(zamijenjeno vašim zadanim vrijednostima)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Vaše"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Vrsta zahtjeva: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "Iznimki URL-a: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 iznimka URL-a"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "Predprocesora: $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Pravila svakog izvora dobivaju zadane vrijednosti tog izvora."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Ugrađena i udaljena pravila dobivaju vaše zadane vrijednosti umjesto onih iz svojih datoteka; prilagođena pravila zadržavaju vlastite."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Ugrađena, udaljena i prilagođena pravila sva dobivaju vaše zadane vrijednosti umjesto vlastitih."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Upravljanje zadanim vrijednostima pravila"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Zadane vrijednosti popunjavaju vrijednosti koje pravilo samo ne postavlja. Vrijednost samog pravila uvijek pobjeđuje, a iznimke pružatelja nikad se ne mijenjaju."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Uredi zadane vrijednosti"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Vaše zadane vrijednosti"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Zadane vrijednosti prilagođenih pravila"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Zadane vrijednosti za uređivanje"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Ugrađena pravila"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(uređeno)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Vrati na zadane vrijednosti datoteke"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Spoji iz izvora…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Spajanje zadanih vrijednosti pravila"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Rezultat se prikazuje kao \"Spojene zadane vrijednosti\" na popisu. Kopirajte ga tamo u neki skup, a zatim pritisnite Spremi zadane vrijednosti da ga koristite."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Izvori za spajanje"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Sukobi"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Spojene zadane vrijednosti"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Koristi spojene zadane vrijednosti"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Spojene zadane vrijednosti"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Ne koristi se dok ga ne kopirate u jedan od drugih skupova i spremite."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopiraj u"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopiraj"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Odaberite barem dva izvora."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Nema sukoba: odabrani izvori slažu se oko svake vrijednosti."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Iznimke se zbrajaju iz svih izvora: ukupno $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Kombinirano iz svih izvora"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Iz: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nije postavljeno (ugrađeno ponašanje)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nije postavljeno: sve vrste zahtjeva"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Trenutačno se ne koristi: vaše zadane vrijednosti zamjenjuju vlastite vrijednosti ugrađenih i udaljenih pravila."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Uredili ste: ovo zamjenjuje zadane vrijednosti same datoteke. Sama datoteka se ne mijenja."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(uredili ste)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Trenutačno se ne koristi: gore je odabrano \"Vlastite za svaki izvor\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Trenutačno se ne koristi: vaše zadane vrijednosti zamjenjuju i ove za prilagođena pravila."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Pravila počinju isključena (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Opis"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Vrste zahtjeva"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Sve vrste"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Samo ove"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Odaberite barem jednu vrstu zahtjeva ili odaberite \"Sve vrste\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Pravila čiste svaku vrstu zahtjeva osim ako one ili zadane vrijednosti navedu neke. Pružatelji također mogu ograničiti vrste pomoću resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Iznimke"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Jedan regularni izraz URL-a po retku. Pravila se preskaču na URL-ovima koji se podudaraju."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Predprocesori"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Ulazi: \"all\" ili brojevi grupa hvatanja, na primjer 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Dodaj predprocesor"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Vrsta predprocesora"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Ulazi predprocesora"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Ukloni"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Ulazi predprocesora \"$INPUTS$\" moraju biti \"all\" ili brojevi poput 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Isključi zaštitu od zaobilaženja povijesti (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Prikaži kao JSON"
   },
   "settings_remote_health_unknown": {
     "message": "nepoznato"
@@ -3174,10 +3174,10 @@
     "message": "Daljinsko osvježavanje pravila nije uspjelo."
   },
   "customRulesEditor_ruleTestLab_button": {
-    "message": "Rule Test Lab"
+    "message": "Laboratorij za testiranje pravila"
   },
   "customRulesEditor_ruleTestLab_title": {
-    "message": "Rule Test Lab"
+    "message": "Laboratorij za testiranje pravila"
   },
   "customRulesEditor_ruleTestLab_description": {
     "message": "Zalijepite URL da vidite prije/poslije čišćenja i prvog podudarnog pružatelja/pravila."
@@ -3351,7 +3351,7 @@
     "message": "↕ Automatsko pomicanje"
   },
   "logger_filter_label": {
-    "message": "Filter"
+    "message": "Filtar"
   },
   "logger_filter_placeholder": {
     "message": "Filtriraj unose..."
@@ -3849,7 +3849,7 @@
     "message": "Prvi znak vrijednosti određuje što ona znači:"
   },
   "guide_th_filter": {
-    "message": "Filter"
+    "message": "Filtar"
   },
   "guide_rp_v_all": {
     "message": "svaki parametar"
@@ -4005,10 +4005,10 @@
     "message": "Pružatelj JSON Vodič"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Otvori vodič kroz pravila Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Koju sintaksu pravila trebam koristiti?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Otvori vodič kroz pravila"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Učitavanje izvora pružatelja nije uspjelo: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Pravila iz paketa nisu dostupna."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Učitavanje pravila iz paketa nije uspjelo: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Nije moguće promijeniti jezik na $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Svijetla tema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tamna tema"
   },
   "posarCopied": {
     "message": "POSAR kopiran!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR prihvaćen."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Poništi"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Alati za pristupačnost"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Otvori alate za pristupačnost"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Zatvori alate za pristupačnost"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Poništi sve postavke pristupačnosti"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Vid"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Čitanje"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interakcija"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Visoki kontrast"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Filtar boja"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Zasićenost"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertiraj"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Istakni poveznice"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Sakrij slike"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Povećanje veličine teksta"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Smanjenje veličine teksta"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Zadana veličina teksta"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Odabir fonta"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Prilagođeno disleksiji"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Razmak teksta"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Visina retka"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Poravnanje teksta"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Pauziraj animacije"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Veći kursor"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Zadano"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Srednje"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Visoko"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Nisko"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Nema"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Lagano"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Jako"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Bez filtra"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopija"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopija"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopija"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Sivi tonovi"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Lijevo"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Sredina"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Desno"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Vrlo malo"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Malo"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Veliko"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Vrlo veliko"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Najveće"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Uključeno"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Isključeno"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "omogućeno"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "onemogućeno"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Odabrana zadana veličina teksta"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Sve postavke pristupačnosti poništene"
+  },
+  "skip_to_main_content": {
+    "message": "Preskoči na glavni sadržaj"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigacija skočnog prozora"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Prikazi prilagođenih pravila"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Prikazi zapisnika"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Zaštita od zaobilaženja povijesti (preskoči tijekom navigacije unutar stranice)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Preusmjeravanja polja"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopiraj pravilo"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Pravilo je kopirano"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Pravilo nije moguće kopirati"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Što radi historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Jednostranične web-stranice često mijenjaju adresu pomoću history.pushState/replaceState umjesto učitavanja nove stranice. Linkumori čisti i te adrese. Dodajte history-bypass-protection=false filtru $removeparam da biste samo taj filtar preskočili za ove promjene unutar stranice; i dalje se izvodi na uobičajenim zahtjevima."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Da biste preskočili cijelog pružatelja za promjene unutar stranice, postavite to na pružatelju:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Ako se izostavi, vrijednost je true i promjene unutar stranice se čiste. Postavka samog pravila nadjačava postavku pružatelja, pa se pravilo može ponovno uključiti s history-bypass-protection=true ili \"historyBypassProtection\": true u objektu pravila."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Preskače navigaciju unutar stranice"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Preimenuj ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Novi ID za $OLD$ (a-z, 0-9, - i _). Stari ID zadržava se kao alias, pa pravila isključena pod njim ostaju isključena.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" nije valjan ID. Koristite mala slova, znamenke, - i _, a počnite slovom ili znamenkom.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Drugo pravilo ovog pružatelja već koristi \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Onemogući pravilo"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Onemogućiti $ID$ za cijelog pružatelja ili samo za ovaj obrazac URL-a/domene?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Moj pružatelj"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Obrazac URL-a/domene"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "ID pravila preimenovan u $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Osiročeni prekidači"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Nije pronađeno odgovarajuće pravilo u izvoru"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Ukloni"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Preskače čišćenje pri navigaciji unutar stranice"
+  },
+  "whitelist_added_general": {
+    "message": "%s dodan na opći popis dopuštenih"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s dodan kao iznimka za History API"
+  },
+  "whitelist_exception_count": {
+    "message": "Iznimki: %d"
+  },
+  "whitelist_exception_empty": {
+    "message": "Nema iznimki popisa dopuštenih"
+  },
+  "whitelist_mode_general": {
+    "message": "Opći popis dopuštenih"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Samo History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Opseg popisa dopuštenih"
+  },
+  "whitelist_removed_general": {
+    "message": "%s uklonjen s općeg popisa dopuštenih"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Uklonjena iznimka za History API za %s"
+  },
+  "whitelist_type_general": {
+    "message": "Opći"
+  },
+  "whitelist_type_history_api": {
+    "message": "Samo History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Dodaj $1 na opći popis dopuštenih"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Opći popis dopuštenih: $1 - kliknite za samo History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Iznimka za History API: $1 - kliknite za samo ovu karticu"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Samo kartica: $1 - kliknite za uklanjanje"
+  },
+  "logger_action_allowed": {
+    "message": "Dopušteno"
+  },
+  "logger_action_blocked": {
+    "message": "Blokirano"
+  },
+  "logger_action_filter_label": {
+    "message": "Radnja"
+  },
+  "logger_action_info": {
+    "message": "Informacija"
+  },
+  "logger_action_modified": {
+    "message": "Izmijenjeno"
+  },
+  "logger_action_redirected": {
+    "message": "Preusmjereno"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopiraj sažetak"
+  },
+  "logger_btn_export": {
+    "message": "Izvezi"
+  },
+  "logger_btn_group": {
+    "message": "Grupiraj po pravilu"
+  },
+  "logger_col_hits": {
+    "message": "Pogodaka"
+  },
+  "logger_col_last_seen": {
+    "message": "Zadnje viđeno"
+  },
+  "logger_detail_group_title": {
+    "message": "Pojedinosti pravila"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-ovi ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Kartice"
+  },
+  "logger_exported": {
+    "message": "Izvezeno unosa: $1."
+  },
+  "logger_filter_all": {
+    "message": "Sve"
+  },
+  "logger_report_rule": {
+    "message": "Prijavi"
+  },
+  "logger_rule_disable": {
+    "message": "Isključi pravilo"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Pravilo $1 isključeno. Ponovno učitajte stranicu radi provjere."
+  },
+  "logger_rule_enable": {
+    "message": "Uključi pravilo"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Pravilo $1 ponovno je uključeno."
+  },
+  "logger_rule_failed": {
+    "message": "Pravilo nije moguće promijeniti."
+  },
+  "logger_rule_off": {
+    "message": "Pravilo je isključeno"
+  },
+  "logger_rule_on": {
+    "message": "Pravilo je uključeno"
+  },
+  "logger_rule_unavailable": {
+    "message": "Ovo se pravilo ne može prebaciti odavde."
+  },
+  "logger_status_rules": {
+    "message": "Pravila: $1"
+  },
+  "logger_summary_copied": {
+    "message": "Sažetak kopiran."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Sažetak nije moguće kopirati."
+  },
+  "logger_type_filter_label": {
+    "message": "Vrsta"
+  },
+  "logger_btn_logging_off": {
+    "message": "Zapisivanje isključeno"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Zapisivanje je isključeno. Kliknite da ga uključite."
+  },
+  "logger_btn_logging_on": {
+    "message": "Zapisivanje uključeno"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Zapisivanje je uključeno. Kliknite da ga isključite."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Postavku zapisivanja nije moguće promijeniti."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Dodaj referalno pravilo"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Dodaj iznimku neobrađenog pravila"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Dodaj preusmjeravanje polja"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Dodaj iznimku"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Svaki predložak dodaje objekt pravila s ID-om i zamjenskim matchPattern na example.com. Unos može biti i običan niz: naziv parametra, regularni izraz naziva, filtar $removeparam ili, u rawRules, regularni izraz. Objekti pravila prihvaćaju id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description i targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Provjera koda"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Nema pronađenih problema."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Pogreška"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Upozorenje"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "Pogrešaka: $ERRORS$, upozorenja: $WARNINGS$",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Redoslijed izvođenja"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "Koraka: $COUNT$, redoslijedom izvođenja",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Nema unosa rawRules, rules ili referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Mehanizam ga izračunava iz gornjeg teksta, spremljenog ili ne. Koraci se sortiraju po (stage, orderGroup, order, rank, arrayIndex): neobrađena pravila izvode se prije pravila polja; unutar faze prvo se izvode unosi s order, od najnižeg, zatim ostali po popisu i položaju."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Referalni marketing"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referal uklonjen"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referal dopušten"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Neobrađeno"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Polje"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Referal"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generirano)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "prepisuje"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "zamjenjuje ranijih definicija: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "dodao completeProvider: uklanja svaki parametar"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Isključeno"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Isključeno za neke obrasce"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Ključ sortiranja: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Zatim $FILTERS$ filtara $removeparam i $EXCEPTIONS$ iznimki @@, nakon svakog gornjeg koraka",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "Iznimki @@…$rawrule=: $COUNT$; mogu zaustaviti neobrađena pravila gore tamo gdje se podudaraju",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Povucite korak ili koristite njegove strelice da ga premjestite unutar faze. Premještanje svakom unosu te faze dodjeljuje order 10, 20, 30, … u novom redoslijedu."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Prebacite se na Referal uklonjen za preraspoređivanje: taj prikaz prikazuje svaki unos."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Povuci za premještanje"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Premjesti $ENTRY$ ranije",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Premjesti $ENTRY$ kasnije",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ premješten na položaj $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Poništi premještanje"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Premještanje poništeno"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simuliraj"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Pokreće ovog pružatelja na URL-u kao pri čišćenju kopirane poveznice, s vašim isključenim pravilima i gore odabranim referalom, te prikazuje URL nakon svakog koraka. Ostali pružatelji se ne pokreću. Generiraj testni URL izrađuje ga iz pravila ovog pružatelja."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testni URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Pokreni"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Prolazak kroz simulaciju korak po korak"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Početak"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Prethodno"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Sljedeće"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Kraj"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Reproduciraj"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pauziraj"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL prije bilo kojeg koraka"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Prolaz $PASS$ · korak $STEP$ od $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "nema promjene"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "filtri $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Prolaz $PASS$ ništa ne mijenja, pa se čišćenje zaustavlja",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Ovaj pružatelj staje ovdje: dosegnuto je ograničenje ciklusa, URL se vratio na raniji ili se više ne podudara s pružateljem"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Prolaz $PASS$ preusmjerava; čišćenje se nastavlja na novoj adresi sa svim pružateljima",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Pružatelj blokira ovaj zahtjev (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Rezultat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Obrasci ovog pružatelja ne podudaraju se s ovim URL-om, pa se nijedno njegovo pravilo ne pokreće."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Ovaj URL podudara se s jednom od iznimki pružatelja, pa se nijedno njegovo pravilo ne pokreće."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Unesite puni http:// ili https:// URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulaciju nije bilo moguće pokrenuti. Provjerite gornji JSON."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generiraj testni URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Izrađeno iz pravila ovog pružatelja: tekst za neobrađena pravila ($RAW$) i parametre ($PARAMS$), svaki provjeren prema svom pravilu. keep=1 ne odgovara nijednom pravilu i treba ostati. Preusmjeravanja i blokade nisu uključeni jer bi prekinuli izvođenje prije ostalih pravila.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nije se mogao izraditi host koji odgovara obrascima ovog pružatelja, pa URL koristi drugi host i pružatelj se na njemu neće pokrenuti."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Svaki URL koji odgovara obrascima ovog pružatelja pokriven je jednom od njegovih vlastitih iznimki, pa se njegova pravila nikad ne pokreću."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "Pravila izostavljena iz testnog URL-a: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nije se mogao izraditi tekst koji mu odgovara"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "njegov bi tekst uzrokovao podudaranje s jednom od iznimki pružatelja"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "uklanja svaki parametar, pa mu ne treba vlastiti parametar"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Ovaj pružatelj ima filtar $removeparam bez naziva, koji uklanja svaki parametar, uključujući keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "bez order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Vrati brojeve redoslijeda"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Vrati svaki order kakav je bio kad ste otvorili ovog pružatelja"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Brojevi redoslijeda vraćeni"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Sakrij"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Prikaži"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Očisti upozorenja"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Vrati upozorenja"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Očišćeno upozorenja: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern bez indexPattern provjerava se prema svakom URL-u; dodajte indexPattern naznake poput \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ ponavlja \"$ENTRY$\"; kopija ne radi ništa i oboje dijele isti ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ još ima zamjenski obrazac predloška \"$PATTERN$\"; zamijenite ga pravim obrascem",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ ima matchPattern \"(?!)\", koji se nikada ni s čim ne podudara",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Rješavanje problema"
+  },
+  "troubleshooter_launch": {
+    "message": "Riješi probleme ove kartice (eksperimentalno)"
+  },
+  "troubleshooter_title": {
+    "message": "Rješavanje problema kartice"
+  },
+  "troubleshooter_page": {
+    "message": "Stranica"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Kako funkcionira snimanje"
+  },
+  "troubleshooter_about_note": {
+    "message": "Otvaranje ovog prikaza može provjeriti URL stranice, ali ništa ne snima. Snimanje ostaje isključeno dok ne odaberete Pokreni snimanje. Pokretanje ponovno učitava ovu karticu radi bilježenja zahtjeva za resurse. Zabilježeni URL-ovi ostaju u pohrani sesije tijekom ove sesije preglednika i brišu se kad se ova kartica zatvori ili sesija preglednika završi. Snimanje se zaustavlja nakon 15 minuta osim ako ga ranije zaustavite. URL-ovi resursa mogu sadržavati privatne podatke upita."
+  },
+  "troubleshooter_start": {
+    "message": "Pokreni snimanje"
+  },
+  "troubleshooter_starting": {
+    "message": "Pokretanje…"
+  },
+  "troubleshooter_recording": {
+    "message": "Snimanje…"
+  },
+  "troubleshooter_stop": {
+    "message": "Zaustavi snimanje"
+  },
+  "troubleshooter_refresh": {
+    "message": "Osvježi"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopiraj sažetak"
+  },
+  "troubleshooter_export": {
+    "message": "Izvezi"
+  },
+  "troubleshooter_export_title": {
+    "message": "Spremite snimku kao JSON datoteku. URL-ovi resursa mogu sadržavati privatne podatke upita."
+  },
+  "troubleshooter_category": {
+    "message": "Kategorija"
+  },
+  "troubleshooter_category_all": {
+    "message": "Sve kategorije"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Pravila URL-a"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Preusmjeravanja"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Zaštita i zaobilaženja"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Vrsta resursa"
+  },
+  "troubleshooter_type_all": {
+    "message": "Sve vrste resursa"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Pretraži pravila, pružatelje i URL-ove"
+  },
+  "troubleshooter_timer": {
+    "message": "Snimanje $1 · preostalo $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Provjera ove kartice…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Nijedna aktivna kartica nije dostupna."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Ova stranica ne dopušta skeniranje pravila URL-a. Otvorite običnu http ili https web-stranicu."
+  },
+  "troubleshooter_status_off": {
+    "message": "Snimanje je isključeno. Pokrenite snimanje za pregled URL-ova resursa koje učitava ova stranica."
+  },
+  "troubleshooter_status_active": {
+    "message": "Dosad zabilježenih promjena URL-a: $1. Nove se ovdje pojavljuju automatski."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Snimanje zaustavljeno. Zabilježenih promjena URL-a: $1."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Podatke snimanja nije bilo moguće spremiti u pohranu sesije. Promjene URL-a ($1) mogu se izgubiti ako se proširenje ponovno pokrene."
+  },
+  "troubleshooter_status_started": {
+    "message": "Snimanje je pokrenuto i kartica se ponovno učitava. Zabilježeni URL-ovi pojavljuju se ovdje dok se stranica učitava."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Snimanje zaustavljeno. Zabilježenih promjena URL-a: $1, spremljeno za ovu sesiju preglednika."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Snimanje zaustavljeno. Zabilježenih promjena URL-a: $1, ali ih pohrana sesije nije mogla spremiti."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Prvo otvorite običnu http ili https web-stranicu."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Snimanje za ovu karticu nije bilo moguće pokrenuti."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Snimanje za ovu karticu nije bilo moguće zaustaviti."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Ovu karticu nije bilo moguće pročitati. Pokušajte zatvoriti i ponovno otvoriti skočni prozor."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Sažetak kopiran."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Sažetak nije moguće kopirati."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Snimka izvezena."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Snimku nije moguće izvesti."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Obrazac za prijavu nije moguće otvoriti."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Pravilo omogućeno; ponovno učitajte karticu radi usporedbe."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Pravilo onemogućeno; ponovno učitajte karticu radi usporedbe."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Ovo pravilo nije moguće ažurirati."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Još nema pronađenih promjena pravila. Pokrenite snimanje za pregled URL-ova resursa ove stranice."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Ova stranica preglednika ne može se skenirati."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Nijedan nalaz ne odgovara ovim filtrima."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Prikazano je prvih pravila: $1."
+  },
+  "troubleshooter_hits": {
+    "message": "Pogodaka: $1"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "Neuspjelo: $1"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID pravila: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Ugrađena radnja zaštite (bez ID-a pravila)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID pravila: nije dostupan za ovaj nalaz"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "ID ovog pravila nije moguće razriješiti u trenutnom skupu pravila."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Promatrani zahtjev"
+  },
+  "troubleshooter_source_page": {
+    "message": "Provjera URL-a stranice"
+  },
+  "troubleshooter_changes": {
+    "message": "Što se promijenilo: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Zahvaćeni URL-ovi ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…i još $1"
+  },
+  "troubleshooter_after": {
+    "message": "Nakon Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Nije uspjelo nakon što ga je Linkumori promijenio: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Ovo je pravilo omogućeno. Isključite ga i ponovno učitajte radi usporedbe stranice."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Ovo je pravilo onemogućeno. Uključite ga i ponovno učitajte da biste vratili njegovo ponašanje."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Ovo je ugrađena radnja zaštite, a ne pojedinačno pravilo."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Pregledajte zahvaćeni URL prije mijenjanja pravila."
+  },
+  "troubleshooter_report": {
+    "message": "Prijavi ovo pravilo"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Onemogući pravilo"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Omogući pravilo"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Onemogući pravilo $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Omogući pravilo $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Spremanje…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "uklonjeno $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "dodano $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "promijenjeno $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "preusmjereno na $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "putanja promijenjena"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment promijenjen"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL promijenjen"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "namjerno blokirano"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Zahtjeva neuspjelih na ovoj stranici: $1; od toga odmah nakon što je Linkumori promijenio URL: $2"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Je li ova stranica pokvarena?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Pronađite pravilo koje je kvari: pravila pokrenuta na ovoj stranici isključuju se jedno po jedno, a nakon svakog kažete je li stranica popravljena. Niste sigurni da je uzrok Linkumori? Prvo provjerite s pauziranim čišćenjem."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Prvo provjeri s pauziranim čišćenjem"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Čišćenje je pauzirano za $1 u ovoj kartici"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Kartica je ponovno učitana bez čišćenja. Radi li stranica sada?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Da, radi"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ne, i dalje ne radi"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Odustani"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Gotovo"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Vjerojatno nije Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Stranica je i dalje bila pokvarena s pauziranim čišćenjem, pa je problem vjerojatno drugdje: u samoj web-stranici, drugom proširenju ili mreži. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Uzrok je vjerojatno Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Stranica radi s pauziranim čišćenjem. Pronađite pravilo: pravila se isključuju jedno po jedno, kartica se ponovno učitava, a vi kažete je li stranica popravljena. Na kraju se sva ostala pravila ponovno uključuju."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Kartica se ponovno učitava s ponovno uključenim čišćenjem kako bi se zabilježilo koja se pravila pokreću na ovoj stranici. Uskoro će se pojaviti ovdje. Ako nijedno ne bude, koristite stranicu dok ne prestane raditi."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Pronađi pravilo (pravila: $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Da, popravljeno"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ne, i dalje ne radi"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Pronađeno"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Stranica ne radi zbog pravila $1$2. Ponovno je uključeno. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Onemogući ovo pravilo"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Prijavi"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Pravilo isključeno. Ponovno učitajte karticu radi provjere. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Nije pronađeno nijedno pojedinačno pravilo"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Isključivanje pravila jedno po jedno nije popravilo stranicu, pa je uzrok vjerojatno više pravila zajedno ili postavka zaštite. Sva su pravila ponovno uključena. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Provjeru nije bilo moguće pokrenuti: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Ponovno učitajte Linkumori za korištenje ove provjere"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori je ažuriran, ali njegov pozadinski dio i dalje pokreće staru verziju. Ponovno učitajte proširenje (za privremeni dodatak: about:debugging → This Firefox → Reload) ili ponovno pokrenite Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Pronađeno"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Stranica ne radi zbog pravila $1$2. Ostaje isključeno kako bi stranica radila; sva ostala pravila ponovno su uključena. Ponovno učitajte karticu radi provjere. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Ponovno učitaj karticu"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Ponovno uključi"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Pravilo ponovno uključeno. Ponovno učitajte karticu radi provjere. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Snimi i pronađi pravilo"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Snimanje pravila pokrenutih na ovoj stranici. Koristite stranicu dok ne prestane raditi; pravila se pojavljuju ovdje."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Trenutačno isključeno pretraživanjem pravila. Ponovno se uključuje kad pretraživanje završi."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Pretraživanje pravila je u tijeku. Mijenjajte pravila nakon što završi."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Preskoči — ponovno uključi"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Ostavi isključeno"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Pretraživanje pravila preskočeno; sva su pravila ponovno uključena. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Pravilo $1 ostaje isključeno. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Isključeno za ovaj test:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…i još $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Zaustavi pretraživanje"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Preskočeno: to je pravilo ponovno uključeno i izostavljeno. Testira se sljedeće."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Nije pronađeno pravilo među testiranim pravilima. Preskočenih pravila koja nisu testirana: $1. Sva su pravila ponovno uključena. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_experimental": {
+    "message": "Eksperimentalno"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Eksperimentalno: ovaj alat za rješavanje problema nije potpuno stabilan. Njegovi rezultati mogu biti pogrešni, a tijekom testiranja isključuje pravila. Ako nakon toga nešto izgleda pogrešno, provjerite svoja pravila u uređivaču prilagođenih pravila ili koristite Zaustavi pretraživanje da ih ponovno uključite."
+  },
+  "troubleshooter_working": {
+    "message": "Rad u tijeku…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Snimi ponovno"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Stara snimka očišćena. Ova se kartica ponovno snima od novog učitavanja."
+  },
+  "troubleshooter_clear": {
+    "message": "Očisti"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Očistite snimku ove kartice, nalaze i završeno pretraživanje pravila. Pravila ostaju kakva jesu."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Očišćeno. Pravila ostaju kakva jesu."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Očišćeno. Pravilo $1 ostaje isključeno."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testiranje jednog pravila odjednom — pravilo $1 od $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Isključeno je samo ovo pravilo i kartica je ponovno učitana. Je li stranica sada popravljena?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Preskoči ovo pravilo"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Preskoči — ponovno uključi, testiraj sljedeće (preostalo: $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "Ostalih pravila pokrenutih na ovoj stranici koja nisu testirana: $1. Želite li nastaviti s njihovim testiranjem?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Ostavi isključeno, testiraj sljedeće (preostalo: $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Pravilo $1 ostaje isključeno. Testira se sljedeće pravilo."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Nijedno drugo pravilo samo po sebi ne popravlja stranicu. Pravila koja ste ostavili isključena ($1) ostaju isključena; sva ostala pravila ponovno su uključena. Za ponovni početak kliknite Očisti."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testiraj sljedeće pravilo (preostalo: $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Pravilo $1 ponovno je uključeno i izostavljeno. Testira se sljedeće pravilo."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Nijedno drugo pravilo samo po sebi ne popravlja stranicu. Pravila koja ste preskočili ($1) također su ponovno uključena, pa su sva pravila ponovno uključena. Za ponovni početak kliknite Očisti."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori čisti URL-ove pravilima zapisanima u formatu <strong>CLN Format 1.0</strong> (Clean Link Notation), JSON formatu. Ovaj vodič ide od prvog pravila do svake mogućnosti, s primjerima koje možete kopirati."
+  },
+  "guide_intro_p_2": {
+    "message": "Ugrađena pravila, popisi udaljenih pravila i vaša prilagođena pravila koriste isti format. Prilagođena pravila pišete u uređivaču prilagođenih pravila, koji ih provjerava pri spremanju ili uvozu. Službeni katalog pravila ClearURLs (<code>data.min.json</code>) već je valjana CLN datoteka i može se koristiti kakav jest."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Naziv pružatelja samo je oznaka. Koje URL-ove pružatelj obrađuje određuju <code>domainPatterns</code> ili <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Ključ najviše razine"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obavezno. Pružatelji, po nazivu."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Neobavezna verzija formata. Jedina valjana vrijednost je <code>\"1.0\"</code>. Datoteka bez nje također se čita kao 1.0; svaka druga vrijednost odbacuje datoteku. Ne zove se <code>version</code> jer novi format pravila ClearURLs već koristi taj ključ."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Neobavezne informacije o datoteci."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Vrijednosti za svako pravilo datoteke koje ne postavlja vlastite (poglavlje 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Samo za popise udaljenih pravila: zamjene za pravila koja su već učitana (poglavlje 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Koje URL-ove pružatelj obrađuje, kao jedan obrazac domene ili popis obrazaca (poglavlje 3). Koristite ovo ili <code>urlPattern</code>, nikad oboje."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Koje URL-ove pružatelj obrađuje, kao jedan regularni izraz koji se podudara s cijelim URL-om. Veličina slova se ignorira."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Samo uz <code>urlPattern</code>: naznake hosta poput <code>||example.com^</code>, tako da se pružatelj provjerava samo za te hostove umjesto prema svakom URL-u. To je naznaka za pretraživanje, a ne uvjet podudaranja."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Referalni i partnerski parametri koje treba ukloniti. Preskače se dok je uključeno <em>Dopusti referalni marketing</em> (poglavlje 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL-ovi koje pružatelj potpuno ostavlja na miru (poglavlje 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Pošalji zahtjev na drugu adresu umjesto da ga uređuješ (poglavlje 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Pošalji zahtjev na vrijednost parametra (poglavlje 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: kad se preusmjeri učitavanje stranice (<code>main_frame</code>), cijela kartica navigira na novu adresu, a ne samo mrežni zahtjev."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Obrađuj samo ove HTTP metode, na primjer <code>[\"GET\"]</code>. Ako se izostavi: svaka metoda."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Obrađuj samo ove vrste zahtjeva, na primjer <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Ako se izostavi: svaka vrsta zahtjeva."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Zadano <code>true</code>. <code>false</code> preskače cijelog pružatelja kad stranica sama mijenja svoju adresu pomoću History API-ja (<code>pushState</code>/<code>replaceState</code>). Uobičajeni mrežni zahtjevi i dalje se čiste."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> isključuje pružatelja bez brisanja."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> je popis obrazaca domena. URL se podudara ako mu odgovara bilo koji od njih. Isti se obrasci koriste ispred <code>exceptions</code>, <code>redirections</code>, filtara <code>$removeparam</code> i neobrađenih pravila."
+  },
+  "guide_matching_cell_1": {
+    "message": "cijeli URL, kao regularni izraz"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL-ovi koji bilo gdje sadrže ovaj tekst (bez početnog <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> označava kraj naziva hosta ili separator poput <code>/</code>, <code>?</code>, <code>:</code> ili kraj URL-a. <code>*</code> je zamjenski znak."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> označava domenu: host i svaku poddomenu. Jedan <code>|</code> označava sam početak URL-a i iza njega mora slijediti shema poput <code>https://</code>. Za domenu uvijek želite <code>||</code>; <code>|example.com^</code> se nikad ne može podudarati, pa ga uređivač odbija."
+  },
+  "guide_matching_p_4": {
+    "message": "Na primjer, <code>||smile.amazon.*^</code> čita se kao: <code>||</code> host i njegove poddomene, <code>smile.amazon</code> obavezne oznake, <code>.*</code> bilo koji javni sufiks (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), a <code>^</code> kraj hosta."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "točno taj parametar"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "svaki parametar čiji se cijeli naziv podudara; veličina slova se ignorira"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> i <code>\"$removeparam=fbclid\"</code> uklanjaju isto. Koristite običan naziv osim ako vam treba nešto iz poglavlja 5. Svaki se unos može napisati i kao objekt pravila (poglavlje 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Ovdje se <code>qid</code> uklanja na svakoj Amazonovoj web-stranici, <code>tag</code> samo na <code>amazon.de</code>, <code>sr</code> samo na <code>smile.amazon</code>, a <code>ref_</code> samo pod <code>/gp/</code>. Obrazac sužava vlastite obrasce pružatelja; nikad ih ne može proširiti."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> pretvara filtar u iznimku koja zadržava parametar (vidi dolje)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> sužava filtar na neke URL-ove pružatelja (poglavlje 3). Ako se izostavi, primjenjuje se na svaki URL koji pružatelj obuhvaća."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> bira parametre. Ako se izostavi, uklanja se svaki parametar."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifikatori kažu kada se filtar aktivira. Svaki navedeni modifikator mora vrijediti; među njima nema \"ili\"."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "svaki parametar osim <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametri čiji se naziv, ili <code>name=value</code> zajedno, podudara s regularnim izrazom; dodajte <code>i</code> za ignoriranje veličine slova"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametri čiji naziv počinje s <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escapiranje naziva parametra"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Obrnuta kosa crta čini sljedeći znak doslovnim, pa se može ciljati bilo koji naziv parametra:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Vrijednost"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Uklanja parametar naziva"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (zarez ne pokreće modifikatore)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Ovih pet jedini su escape nizovi u vrijednosti naziva; obrnuta kosa crta ispred bilo kojeg drugog znaka je pogreška. Unutar vrijednosti <code>/regex/</code> obrnuta kosa crta zadržava svoje značenje u regularnom izrazu. Escape nizovi rade u unosima <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> i <code>@@</code>. U JSON-u svaku obrnutu kosu crtu napišite dvaput: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifikatori"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifikatori dolaze iza vrijednosti, odvojeni zarezima. Više vrijednosti jednog modifikatora odvojite s <code>|</code>, a ispred vrijednosti stavite <code>~</code> da je isključite:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifikator"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "samo kad je stranica koja je uputila zahtjev (ili, s <code>~</code>, nije) jedna od ovih; dopuštene su vrijednosti regularnih izraza"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "samo kad sam zahtjev ide na jedno od ovoga, bez obzira na stranicu koja ga je uputila"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "samo za ove HTTP metode: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "samo kad zahtjev ide na istu registriranu domenu kao stranica (<code>a.example.com</code> i <code>b.example.com</code> računaju se kao ista) ili na drugu"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "isto, ali uspoređuje točan naziv hosta, pa se poddomena računa kao treća strana"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "nazivi parametara uspoređuju se uz razlikovanje velikih i malih slova"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "preskoči ovaj filtar kad stranica sama mijenja svoju adresu pomoću History API-ja. Prihvaća i <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Četiri modifikatora <code>*-party</code> ne mogu se međusobno kombinirati; <code>first-party,third-party</code> se odbija."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Na primjer, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> uklanja <code>sid</code> na <code>example.com</code>, samo za GET zahtjeve koje je uputila stranica na drugoj web-stranici, i nikad kad je ta stranica <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Unos <code>@@</code> štiti samo od filtara <code>$removeparam</code>. Običan unos poput <code>\"ref\"</code> i dalje uklanja parametar; za to koristite <code>exceptions</code> objekta pravila. Neobrađena pravila imaju vlastite unose <code>@@…$rawrule=</code> (poglavlje 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nije važno gdje ga navedete i ne može imati <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Njegov se obrazac provjerava prema URL-u kako ga je pružatelj primio, prije izvođenja neobrađenih pravila. Unos <code>@@</code> ograničen na putanju koju neobrađeno pravilo briše i dalje se podudara."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Pokriva i filtre drugih pružatelja za zahtjeve koje je uputila stranica koju ovaj pružatelj obuhvaća, što je korisno za izuzimanje jedne web-stranice iz pravila definiranog negdje drugdje."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Neobrađena pravila izvode se prije <code>rules</code>, ignoriraju veličinu slova i zamjenjuju svako podudaranje (zastavice <code>gi</code>, ili <code>g</code> uz <code>match-case</code>). U JSON-u svaku obrnutu kosu crtu napišite dvaput."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Neobrađeno pravilo može preuzeti obrazac i modifikatore filtra <code>$removeparam</code>, s <code>rawrule=</code> na kraju. Sve nakon <code>rawrule=</code> je regularni izraz:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Obrazac i modifikatori određuju gdje se pravilo izvodi; regularni izraz i dalje je ono što se briše."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Unos koji počinje s <code>@@</code> i završava s <code>rawrule=</code> sprječava izvođenje neobrađenih pravila tamo gdje se njegov obrazac podudara:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Ako iza <code>rawrule=</code> nema ničega, zaustavlja svako neobrađeno pravilo pružatelja na tim URL-ovima."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Ako iza <code>rawrule=</code> stoji regularni izraz, zaustavlja neobrađena pravila s tim regularnim izrazom."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Kao objekt pravila s <code>targetId</code>, zaustavlja samo neobrađeno pravilo s tim ID-om ili aliasom."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Za preskakanje cijelog pružatelja umjesto toga koristite <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Ako se URL podudara s unosom u <code>exceptions</code>, nijedno pravilo pružatelja ne izvodi se za taj zahtjev. Unos je regularni izraz prema cijelom URL-u ili obrazac domene koji počinje s <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Iznimke ignoriraju veličinu slova. Za preskakanje jednog pravila umjesto cijelog pružatelja, dajte tom pravilu vlastiti <code>exceptions</code> (poglavlje 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Pobjeđuje koji god podudarni parametar dolazi prvi u URL-u. Za <code>https://site.example/away?redirect=https://real.example/page</code> zahtjev ide na <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Valjana odredišta preusmjeravanja"
+  },
+  "guide_redirects_p_2": {
+    "message": "Preusmjeravanje se događa samo na apsolutnu <code>http</code> ili <code>https</code> adresu s hostom. To se provjerava nakon predprocesora i dekodiranja postotaka. Nevaljano odredište čini da se unos ne podudara: ništa se ne preusmjerava, a kasniji koraci pružatelja izvode se na nepromijenjenom URL-u."
+  },
+  "guide_redirects_th_1": {
+    "message": "Odredište"
+  },
+  "guide_redirects_th_2": {
+    "message": "Preusmjerava?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "da"
+  },
+  "guide_redirects_cell_2": {
+    "message": "da, na <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ne: shema nije <code>http</code> ni <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ne: nije apsolutna adresa"
+  },
+  "guide_redirects_p_3": {
+    "message": "Neobrađeno pravilo čiji rezultat ima drugu shemu, host ili port od ulaza također se računa kao preusmjeravanje, čak i kad samo briše tekst: brisanje <code>secure-</code> iz <code>https://secure-bank.example/</code> završava na drugoj web-stranici. Treba valjano odredište, a na popisu udaljenih pravila i odobrenje <code>redirect</code> (poglavlje 15). Inače pravilo ostavlja URL kakav je bio."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Svaki unos, na bilo kojem popisu, može biti objekt umjesto niza. Koristite ga kad pravilo treba stabilan ID, treba početi isključeno, treba prepisivati umjesto uklanjati ili se treba izvoditi samo u nekim slučajevima:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obavezno. Tekst koji biste napisali kao običan unos na tom popisu."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Stabilan naziv (slova, znamenke, <code>-</code>, <code>_</code>) koji se koristi za uključivanje i isključivanje pravila (poglavlje 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Prethodni ID-ovi pravila, pa se postavka spremljena pod starim ID-om i dalje primjenjuje nakon preimenovanja."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Prepiši umjesto ukloni; <code>§1§</code>, <code>§2§</code>, … su uhvaćene vrijednosti."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Prvo preoblikuj uhvaćene vrijednosti."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Samo za ove vrste zahtjeva, na primjer <code>[\"main_frame\"]</code>. Čišćenje bez zahtjeva (<em>Kopiraj čistu poveznicu</em>, alat za čišćenje, promjene History API-ja) računa se kao <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL-ovi (regularni izrazi) na kojima se ovo jedno pravilo ne izvodi."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Zastavice regularnog izraza, kao niz. Zadano <code>i</code>; u <code>rawRules</code> <code>gi</code> (ili <code>g</code> uz <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Izvedi pravilo ranije ili kasnije unutar njegove faze (poglavlje 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: pravilo u <code>rules</code> računa se i kao pravilo referalnog marketinga (poglavlje 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Istoimeni prekidač pružatelja, za ovo jedno pravilo. Nadjačava vrijednost pružatelja i zadanu vrijednost datoteke."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: pravilo počinje isključeno."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Bilješka za ljude koji čitaju datoteku; mora biti niz."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Samo na unosima <code>@@…$rawrule=</code>: ID neobrađenog pravila koje zaustavlja."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Ovdje <code>?token=abc123</code> postaje <code>?token=clean-abc123</code>. Prepisivanje se primjenjuje najviše jednom po zahtjevu, pa ne nastavlja omatati vrijednost."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Predprocesori mijenjaju uhvaćene vrijednosti, redom, prije nego ih koristi <code>replacePattern</code> ili preusmjeravanje. <code>inputs</code> je <code>\"all\"</code> ili popis brojeva grupa:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> prihvaća iste unose kao <code>rules</code>. Izvode se samo dok je <em>Dopusti referalni marketing</em> isključeno, pa partnerske poveznice nastavljaju raditi ako ga uključite:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Pravilo može ostati u <code>rules</code> i ipak se računati kao referalni marketing, uz <code>\"referralMarketing\": true</code>. Ne stavljajte isti tekst i u <code>rules</code> i u <code>referralMarketing</code>; uređivač vas na to upozorava."
+  },
+  "guide_request_types_cell_1": {
+    "message": "vrste zahtjeva koje obrađuje jedan objekt pravila (može se postaviti i u <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Vrste zahtjeva koriste nazive preglednika: <code>main_frame</code> (stranica), <code>sub_frame</code> (okvir), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> i tako dalje. Modifikatori filtra prva dva zovu <code>document</code> i <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Vrste zahtjeva dolaze samo iz pravila: u Postavkama nema popisa vrsta zahtjeva. Ako ništa od toga nije postavljeno, pravilo čisti svaku vrstu zahtjeva."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Zadane vrijednosti"
+  },
+  "guide_defaults_p_1": {
+    "message": "Blok <code>defaults</code> najviše razine daje svakom pravilu datoteke vrijednosti koje samo ne postavlja:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Zadana vrijednost za svako pravilo…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> isključuje svako pravilo osim ako ne kaže <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> ili izostavljanje znači svaku vrstu"
+  },
+  "guide_defaults_item_1": {
+    "message": "Vrijednost samog pravila uvijek pobjeđuje, a <code>exceptions</code> pravila zamjenjuju zadani popis umjesto da mu se dodaju."
+  },
+  "guide_defaults_item_2": {
+    "message": "Zadane vrijednosti primjenjuju se na <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> i <code>fieldRedirections</code>. Vlastiti popis <code>exceptions</code> pružatelja ostaje netaknut. Unosi <code>$redirect=</code> koriste samo <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Svaka datoteka zadržava vlastite zadane vrijednosti: ugrađena pravila, svaki udaljeni popis i vaša prilagođena pravila, i kad ih način preopterećenja spaja."
+  },
+  "guide_defaults_item_4": {
+    "message": "Za <code>completeProvider</code> zadani <code>requestTypes</code> i <code>exceptions</code> također ograničavaju blokadu."
+  },
+  "guide_defaults_item_5": {
+    "message": "Nepoznati ključevi i pogrešne vrste su pogreške, a udaljeni popis s nevaljanim blokom <code>defaults</code> se odbija."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Vaše vlastite zadane vrijednosti"
+  },
+  "guide_defaults_p_2": {
+    "message": "U uređivaču prilagođenih pravila <em>Upravljanje zadanim vrijednostima pravila</em> otvara obrazac u kojem postavljate vlastiti blok <code>defaults</code> i birate gdje zamjenjuje zadane vrijednosti samih datoteka:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Vlastite za svaki izvor</em> (zadano): svaka datoteka koristi vlastiti <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Vaše za ugrađena i udaljena pravila</em>: ugrađena i udaljena pravila koriste vaše; prilagođena pravila zadržavaju vlastite."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Vaše za sva pravila</em>: svako pravilo koristi vaše."
+  },
+  "guide_defaults_p_3": {
+    "message": "Isti obrazac može uređivati zadane vrijednosti ugrađenih pravila i svakog učitanog udaljenog popisa. Vaša izmjena sprema se u proširenju, a ne u datoteci, a <em>Vrati na zadane vrijednosti datoteke</em> je odbacuje. <em>Spoji iz izvora…</em> kombinira zadane vrijednosti izvora koje označite; ništa se ne sprema dok ne spremite."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Kako se URL obrađuje"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, zatim <code>fieldRedirections</code>: podudaranje s valjanim odredištem preusmjerava zahtjev."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> i <code>referralMarketing</code> uklanjaju ili prepisuju parametre."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Filtri <code>$removeparam</code> izvode se, osim gdje unos <code>@@</code> zadržava parametar."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Pobjeđuje prvi pružatelj koji promijeni, preusmjeri ili blokira URL. Novi URL zatim ponovno prolazi kroz iste korake (vidi <a href=\"#termination\">Kada obrada staje</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Redoslijed izvođenja i <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Koraci 4 i 5 sortiraju se zajedno, prema ovim pravilima redom:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Neobrađena pravila uvijek se izvode prva.</strong> Nijedan <code>order</code> ne pomiče unos <code>rules</code> ispred neobrađenog pravila. Čišćenje koje se mora dogoditi prije neobrađenog pravila i samo mora biti neobrađeno pravilo."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Unutar faze, pravila s <code>order</code> izvode se prije pravila bez njega</strong>, od najnižeg. Dopušteni su negativni brojevi i razlomci. <code>order: 10</code> ne znači \"deseti\": znači nakon pravila faze s order ispod 10 i prije svih njezinih pravila bez order."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Zatim po popisu:</strong> <code>rules</code>, zatim objekti <code>rules</code> označeni s <code>\"referralMarketing\": true</code>, zatim <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Zatim po položaju</strong> na popisu. Svaki unos zadržava svoje mjesto, uključujući unose napisane poput <code>\"3\"</code> ili <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Ovdje se token prepisuje prije uklanjanja <code>utm_source</code>, iako dolazi drugi:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Isključena pravila se izostavljaju. Filtri <code>$removeparam</code> i unosi <code>@@</code> izvan su ovog sortiranja i ne mogu imati <code>order</code>, čak ni <code>null</code>; filtri se uvijek izvode zadnji."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Isti tekst dvaput"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Dva unosa s istim tekstom <code>matchPattern</code> u jednoj skupini jedno su pravilo. Skupine su neobrađena (<code>rawRules</code>), polje (<code>rules</code> bez referalne oznake) i referalna (označeni objekti <code>rules</code>, zatim <code>referralMarketing</code>). To se uglavnom događa kad se popisi pravila spajaju."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Pobjeđuje zadnja definicija koja nije isključena, sa svim svojim ključevima."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Bez vlastitog <code>order</code>, pobjednik preuzima položaj prve definicije i najbliži raniji <code>order</code>. <code>\"order\": null</code> znači bez order i odbacuje naslijeđeni."
+  },
+  "guide_processing_order_item_10": {
+    "message": "ID-ovi i aliasi zamijenjenih definicija uključuju i isključuju i pobjednika."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Dok se izvode pravila referalnog marketinga, referalni unos zamjenjuje unos polja s istim tekstom."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Neobrađeno pravilo i pravilo polja s istim tekstom ne sukobljavaju se; oba se izvode."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Unutar jednog popisa, dva različita unosa s istim tekstom su pogreška, a točna kopija je upozorenje."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Kada obrada staje"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Po zahtjevu se izvodi najviše 10 ciklusa; na ograničenju se URL koristi kakav jest."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Pravilo s <code>replacePattern</code> primjenjuje se najviše jednom po zahtjevu."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Korak koji ne mijenja URL ne pokreće novi ciklus."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Postavke → <em>Neograničeni ciklusi čišćenja</em> (zadano isključeno) uklanja ograničenje od 10 ciklusa za lance pravila kojima treba više. Obrada tada završava kad ciklus ništa ne promijeni, ali dva pravila koja se međusobno preusmjeravaju vrte se u petlji dok preglednik ne odustane i stranica se ne učita. Uključite to samo za pravila kojima vjerujete."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. ID-ovi pravila i prekidači uključeno/isključeno"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Svako pravilo ima ID. Pravilo bez <code>id</code> dobiva ga iz svog popisa i teksta: <code>\"utm_source\"</code> u <code>rules</code> postaje <code>field-utm-source</code>. Generirani ID mijenja se kad se promijeni tekst pravila, a isključeno pravilo bi se tada ponovno uključilo. Dajte pravilu vlastiti <code>id</code> kad mora zadržati postavku uključeno/isključeno kroz izmjene, a stare ID-ove navedite u <code>aliases</code> kad ga preimenujete."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Pravilo se uključuje i isključuje zajedno po svom pružatelju i ID-u, kao što je <code>shop::session-token</code>, pa dva pružatelja mogu koristiti isti ID. Uređivač prilagođenih pravila može ga spremiti i pod obrascem pružatelja, kao <code>domainPattern:||shop.example^::session-token</code>; oba oblika rade."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Unutar jednog pružatelja svaki ID i alias moraju biti različiti. Generirani ID-ovi se računaju."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "ID ne može sadržavati dvotočku."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Postavka spremljena pod golim ID-om, bez pružatelja, ništa ne prebacuje; ponovno isključite pravilo u uređivaču prilagođenih pravila."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Popisi udaljenih pravila"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Popisi udaljenih pravila su datoteke pravila koje Linkumori preuzima, po želji provjerene prema datoteci hasha. Popis s nevaljanom vrijednošću <code>cln</code>, blokom <code>defaults</code> ili poljem <code>patches</code> ne učitava se, a Stanje udaljenih pravila to prijavljuje."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Preusmjeravanje i blokiranje trebaju vaše odobrenje"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Što udaljeni popis može činiti utvrđuje se iz njegova sadržaja pri učitavanju:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Mogućnost"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Popis je ima kad sadrži"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktivno pri učitavanju"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "unos <code>rules</code>, <code>rawRules</code> ili <code>referralMarketing</code> ili filtar <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "unos s <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "unos <code>exceptions</code> pružatelja ili unos <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "unos <code>redirections</code> ili <code>fieldRedirections</code> ili <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "nakon odobrenja"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "pružatelj s <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Odobrite <code>redirect</code> i <code>block</code> za svaki popis u Stanju udaljenih pravila. Do tada preusmjeravanja i blokade tog popisa ostaju isključeni, a njegova neobrađena pravila ne mogu poslati URL na drugu web-stranicu; ostatak popisa radi odmah. Kad ažuriranje doda novu mogućnost, i ona čeka odobrenje. Ugrađena i prilagođena pravila imaju svaku mogućnost."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Način preopterećenja"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Uobičajeno, udaljeni popisi koji imaju pružatelje zamjenjuju ugrađena pravila; popisi koji sadrže samo <code>patches</code> primjenjuju se na ugrađena pravila. S uključenim <em>Omogući način preopterećenja</em> učitavaju se zajedno, pomoću jedne od tri strategije:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Samo način zakrpa</em>: primijeni zakrpe udaljenih popisa na ugrađena pravila; udaljeni pružatelji se izostavljaju."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Način zakrpa + spajanje</em>: spoji ugrađene i udaljene pružatelje, zatim primijeni zakrpe."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Bez načina zakrpa + spajanje</em>: spoji pružatelje i preskoči zakrpe."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Pri spajanju, udaljeni popisi spajaju se međusobno redoslijedom kojim ih navedete, a zatim s ugrađenim pravilima (ugrađena prva). Spajaju se samo pružatelji s istim <code>domainPatterns</code> (ili <code>urlPattern</code>) i istim <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> i <code>forceRedirection</code>; njihovi <code>rules</code>, <code>rawRules</code> i <code>referralMarketing</code> se spajaju, a <a href=\"#same-text-twice\">Isti tekst dvaput</a> određuje koja se kopija izvodi. Stanje udaljenih pravila navodi svako zamijenjeno pravilo kao obavijest."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Prilagođena pravila primjenjuju se zadnja. Prilagođeni pružatelj zamjenjuje svakog učitanog pružatelja s istim obrascem; njihova se pravila ne kombiniraju."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Zakrpe pravila"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Udaljeni popis može zamijeniti pojedinačna pravila koja su već učitana, bez objavljivanja pune kopije, u polju <code>patches</code> najviše razine:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obavezno. Pravilo koje treba zamijeniti, napisano kao njegov ključ uključeno/isključeno: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> ili <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obavezno. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> ili <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obavezno. Novo pravilo, kao običan unos ili objekt pravila."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Bilješka za ljude koji čitaju datoteku."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Zakrpe se izvode nakon spajanja udaljenih popisa i prije prilagođenih pravila. Datoteci samo sa <code>patches</code> ne trebaju <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Spajanje može preimenovati pružatelje, pa je oblik <code>domainPattern:</code> ili <code>urlPattern:</code> onaj koji ih uvijek pronalazi."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Zamjena zadržava ID starog pravila ili uzima stari ID kao alias, pa se postavke uključeno/isključeno i dalje primjenjuju."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Zakrpa za preusmjeravanje čeka odobrenje <code>redirect</code> popisa. Zakrpa čije se odredište ni s čim ne podudara ništa ne mijenja."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Stanje udaljenih pravila navodi svaku zakrpu kao primijenjenu, nepodudarnu ili preskočenu."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Pravila i popis dopuštenih"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Popis dopuštenih odvojen je od <code>exceptions</code> pružatelja: navodi web-stranice koje ste rekli Linkumori da ostavi na miru, bez ikakve datoteke pravila. Unosi izgledaju kao <code>example.com</code>, <code>*.example.com</code> (web-stranica i njezine poddomene) ili <code>example.*</code> (bilo koji sufiks). Stavljanje stranice na popis dopuštenih pokriva i sve što ona učitava."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Potpuni primjeri"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Provjera vaših pravila"
+  },
+  "guide_checking_p_1": {
+    "message": "Uređivač prilagođenih pravila provjerava pravila pri spremanju ili uvozu, a <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> izvodi iste provjere. Osim neispravnog JSON-a i nevaljanih regularnih izraza, odbacuju pravila koja bi se učitala, ali tiho radila pogrešno, kao što su:"
+  },
+  "guide_checking_item_1": {
+    "message": "nepoznata polja, ključevi i modifikatori"
+  },
+  "guide_check_7": {
+    "message": "vrijednost <code>cln</code> različita od <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "ID ili alias korišten dvaput kod jednog pružatelja"
+  },
+  "guide_checking_item_2": {
+    "message": "dva različita unosa s istim tekstom na jednom popisu"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> na filtru <code>$removeparam</code> ili unosu <code>@@</code>, uključujući <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "adresa <code>$redirect=</code> koja nije <code>http</code> ni <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "obrnuta kosa crta u nazivu <code>$removeparam</code> ispred znaka koji nema escape"
+  },
+  "guide_checking_p_2": {
+    "message": "Upozoravaju i na točne kopije te na isti tekst i u <code>rules</code> i u <code>referralMarketing</code>. Ako spremanje ne uspije, poruka navodi pružatelja, popis i unos."
+  },
+  "guide_toc_search": {
+    "message": "Filtriraj odjeljke"
+  },
+  "guide_toc_no_results": {
+    "message": "Nema odgovarajućih odjeljaka."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: preusmjeravanje koje počinje znakom \"|\" mora izgledati ovako: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: cilj $redirect= mora biti apsolutni http ili https URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ mora biti objekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type mora biti neprazan niz znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type mora biti jedna od ovih vrijednosti: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs mora biti \"all\" ili polje pozitivnih cijelih brojeva",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ mora biti niz znakova ili objekt pravila",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern mora biti niz znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern mora biti niz znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId mora biti ID pravila",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId primjenjuje se samo na iznimke \"@@…$rawrule=\" u rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags mora biti niz znakova (regex oznake kao što je \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing mora biti true ili false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing nema učinka u $FIELD$; primjenjuje se samo u $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order mora biti broj ili null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order nema učinka u $FIELD$; primjenjuje se samo u $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order nema učinka na $removeparam filtar ni na unos \"@@\"; oni se uvijek izvršavaju nakon ostalih pravila",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active mora biti logička vrijednost",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id mora biti niz znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id mora odgovarati uzorku $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases mora biti popis ID-jeva koji odgovaraju uzorku $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases ne smije sadržavati ID samog pravila",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description mora biti niz znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection mora biti logička vrijednost",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions mora biti polje nizova znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes mora biti polje nizova znakova",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors mora biti polje",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: nepoznato polje \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ počinje s \"@@\", što se primjenjuje samo na $removeparam filtre u rules i referralMarketing; umjesto toga upotrijebite \"exceptions\" objekta pravila",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ sadrži nepoznatu $removeparam opciju \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" počinje jednim znakom \"|\", pa odgovara samo URL-ovima koji doslovno počinju s \"$REST$\", a takvih URL-ova nema (URL-ovi počinju s \"https://\"). Za podudaranje domene upotrijebite \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ sadrži \"targetId\", koji funkcionira samo u iznimci; započnite matchPattern s \"@@\" (npr. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ sadrži i \"targetId\" i regex nakon \"rawrule=\"; upotrijebite samo jedno od toga",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ sadrži targetId \"$ID$\", ali nijedno neobrađeno pravilo ovog davatelja nema taj ID ili alias",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ je iznimka \"@@\" za \"$REGEX$\", ali nijedno neobrađeno pravilo ovog davatelja ne upotrebljava taj regex. Dodijelite ID pravilu i navedite ga pomoću \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ je iznimka \"@@\", pa \"$KEY$\" ne bi imao učinka",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ nema sadržaj nakon \"rawrule=\"; potreban je regex za brisanje",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ sadrži nevaljani regex nakon \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ sadrži $GROUPS$ grupa za hvatanje; potrebna je točno jedna grupa \"( … )\" oko ciljnog URL-a (ostale grupe napišite kao \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ ponovno upotrebljava ID pravila \"$ID$\" u $WHERE$; prvi je put upotrijebljen u $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ mora biti JSON objekt",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ mora biti polje",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ sadrži nepoznati ključ \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Pogreška pri obradi URL-a: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Pogreška pri pokretanju stranice: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Nevažeća kartica"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Pretraživanje pravila za ovu karticu već je pokrenuto"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Za ovu karticu nije pokrenuta provjera pauziranja"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Pravila se još učitavaju. Pokušajte ponovno za koji trenutak."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Nijedno pravilo pokrenuto na ovoj stranici ne može se isključiti."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Pravila nije moguće isključiti"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Za ovu karticu nije pokrenuto pretraživanje pravila"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Za ovu karticu nije pronađeno pravilo koje možete preskočiti"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Preuzimanje nije dostupno"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Snimku nije moguće spremiti u pohranu sesije"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Nepoznato pravilo"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "nepoznata pogreška"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "izvoz nije uspio"
   }
 }

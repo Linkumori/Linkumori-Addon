@@ -39,7 +39,7 @@
     "message": "Käytä niputettuja Linkumori/ClearURLs-sääntöjä. Poista tämä käytöstä, jos haluat suorittaa vain etäsäännöt ja/tai mukautetut säännöt."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori käyttää yhtä yhtenäistä ClearURLsData-palveluntarjoajien sääntöjoukkoa. Natiivit palveluntarjoajien JSON-tiedostot, kanoniset sääntöobjektit ja palveluntarjoajakohtaiset $removeparam-suodattimet yhdistetään ennen clearurls.js:n suoritusta."
   },
   "bundled_rules_section_title": {
     "message": "Sääntötiedot"
@@ -1137,25 +1137,25 @@
     "message": "Avaa Linkumorin asetukset"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Ylikuormitustilan toiminta"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Vain korjaustila"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Käytä etäkorjauksia sisäänrakennettuihin sääntöihin. Etäpalveluntarjoajien sääntöjä ei sisällytetä."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Korjaustila + yhdistäminen"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Yhdistä sisäänrakennetut ja etäpalveluntarjoajien säännöt ja käytä sitten etäkorjauksia."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Ei korjaustilaa + yhdistäminen"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Yhdistä sisäänrakennetut ja etäpalveluntarjoajien säännöt käyttämättä etäkorjauksia."
   },
   "overload_mode_enabled": {
     "message": "Ota ylikuormitustila käyttöön"
@@ -1227,7 +1227,7 @@
     "message": "Avaa GNU GPL v3.0 -lisenssiteksti"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU Lesser General Public License v3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "Avaa GNU LGPL v3.0 -lisenssiteksti"
@@ -1563,7 +1563,7 @@
     "message": "Poikkeukset"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "poik."
   },
   "providerImport_excludeNoPattern": {
     "message": "Tällä palveluntarjoajalla ei ole URL-/verkkotunnusmallia, eikä sitä voida sulkea pois allekirjoituksella."
@@ -1836,7 +1836,7 @@
     "message": "Ensisijaisen hash-URL-osoitteen on käytettävä HTTPS:ää"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Ensisijainen sääntö-URL ja ensisijainen tiivisteen URL on määritettävä yhdessä."
   },
   "save_primary_rule_https_required": {
     "message": "Ensisijaisen säännön URL-osoitteen on käytettävä HTTPS:ää"
@@ -1872,13 +1872,13 @@
     "message": "Ymmärrän riskit - Jatka"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Harkitse etäsääntöjen käyttöä uudelleen, jos et täysin ymmärrä tai luota Linkumori-sääntöjoukon lähteeseen."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Tämä etäsääntöominaisuus on tarkoitettu kokeneille käyttäjille, jotka ymmärtävät lataamansa Linkumori-JSONin. Etäsääntöjen mukana tulisi olla vastaava tiivisteen URL vahvistusta varten."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jos lisäät etäsäännön URL-osoitteen, laajennus ottaa yhteyden määrittämääsi palvelimeen noutaakseen Linkumori-sääntöjoukon ja sen tiivistetiedoston, kun se on määritetty. Jokainen nouto voi paljastaa IP-osoitteesi ja yleisiä tietoja, kuten laajennuksen version, selaimen ja selaimen version, isännöivälle palvelimelle. Näihin tietoihin sovelletaan kyseisen verkkosivuston tai verkkopalvelimen tietosuojakäytäntöä."
   },
   "security_modal_privacy_link_text": {
     "message": "Lue %PRIVACY_POLICY_LINK% uudelleen ennen kuin jatkat tarvittaessa."
@@ -1887,7 +1887,7 @@
     "message": "varoitusilmoitus:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Käytä sisäänrakennettuja sääntöjä, ellet luota etälähteeseen ja hallitse sitä. Anna etäisille Linkumori JSON -säännöille vastaava tiivisteen URL."
   },
   "security_modal_risk_1": {
     "message": "IP-osoitteesi ja selaimesi tiedot paljastetaan määritetyille palvelimille"
@@ -1899,7 +1899,7 @@
     "message": "Hash-vahvistus koskee vain numeron Linkumori CLN Format 1.0 JSON sääntöjä; se suojaa lähetyksen peukaloitumiselta, ei haitallisilta sääntölähteiltä."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Etäsäännöt ilman onnistunutta tiivisteen vahvistusta perustuvat täysin luottamukseen lähteen URL-osoitteeseen."
   },
   "security_modal_risks_title": {
     "message": "Turvallisuusriskit:"
@@ -1914,7 +1914,7 @@
     "message": "URL-osoite rules.hash-tiedostoon (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Pakollinen etäisten Linkumori JSON -sääntöjen vahvistuksessa."
   },
   "setting_html_export_button": {
     "message": "Viedä"
@@ -1944,7 +1944,7 @@
     "message": "Lokin raja (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Muita etäisiä Linkumori JSON -lähteitä, jotka yhdistetään. Syötä yksi pari riville muodossa <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Muita etäsääntöjoukkoja"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/säännöt-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON -sääntöjen mukautettu etä-URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Etäsääntöjen JSON-tiedoston URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Tiivisteen URL vaaditaan jokaiselle etäsääntöjoukolle."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) -asetukset"
@@ -2421,19 +2421,19 @@
     "message": "VAROITUS: Kehittynyt ominaisuus on tarkoitettu vain itseisännöidyille palvelimille"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Poistat käytöstä Gatekeeper-suojaukset etäsääntöjen URL-osoitteiden muokkaukselta. Tämä ominaisuus voi ladata etäisiä Linkumori JSON -sääntöjä yhtenäiseen palveluntarjoajien sääntöjoukkoon. Jatka vain, jos ymmärrät ja luotat määrittämääsi lähteeseen."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper on sisäänrakennettu turvavirta, joka estää suorat URL-osoitteen etämuokkaukset, kunnes kuitat suojausvaroituksen ja suoritat kirjoitetun vahvistuksen."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Pidä Gatekeeper käytössä, ellet luota etälähteisiisi ja hallitse niitä. Etäisten JSON-sääntöjen mukana tulisi olla vastaava tiivisteen URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "varoitusilmoitus:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Jos lisäät etäsäännön URL-osoitteen, laajennus ottaa yhteyden määrittämääsi palvelimeen noutaakseen Linkumori-sääntöjoukon ja sen tiivistetiedoston, kun se on määritetty. Jokainen nouto voi paljastaa IP-osoitteesi ja yleisiä tietoja, kuten laajennuksen version, selaimen ja selaimen version, isännöivälle palvelimelle. Näihin tietoihin sovelletaan kyseisen verkkosivuston tai verkkopalvelimen tietosuojakäytäntöä."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Lue %PRIVACY_POLICY_LINK% uudelleen ennen kuin jatkat tarvittaessa."
@@ -2448,7 +2448,7 @@
     "message": "Laajennus muodostaa yhteyden määrittämääsi URL-osoitteeseen aina, kun laajennus otetaan käyttöön ja ladataan selaimeesi."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Etäistä JSONia tai tiivistetiedostoja isännöivä palvelin saa IP-osoitteesi."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Palvelin voi myös vastaanottaa laajennusversiosi, selaimesi ja selainversiosi."
@@ -2457,7 +2457,7 @@
     "message": "Nämä tiedot ovat niitä tiedostoja isännöivän verkkosivuston tai verkkopalvelimen tietosuojakäytännön alaisia."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Poistamalla Gatekeeperin käytöstä lisäät riskiä vaarallisista tai vaarantuneista etäsääntölähteistä. Tiivisteen vahvistus suojaa etäisten Linkumori JSON -latausten kohdalla vain, jos vastaava tiivisteen URL on määritetty."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Peruuttaa"
@@ -2517,7 +2517,7 @@
     "message": "Kirjoita tarkka vahvistuslause"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Tämä toiminto heikentää etäsääntöjen suojauksia. Jatka vain, jos luotat etä-JSON-lähteeseesi."
   },
   "remote_urls_template_note_1": {
     "message": "Korvaa paikkamerkkiarvot oikeilla HTTPS-URL-osoitteillasi ja tuo sitten tämä tiedosto."
@@ -2817,7 +2817,7 @@
     "message": "min."
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "t"
   },
   "settings_remote_health_title": {
     "message": "Etäsääntöjen terveys"
@@ -2847,10 +2847,10 @@
     "message": "Ei mitään"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Sääntöjen törmäykset:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ virhettä, $WARNINGS$ varoitusta, $NOTICES$ huomautusta",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Etätiedoston ominaisuudet:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "ei aktiivinen ennen hyväksyntää: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Hyväksy $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Sääntökorjaukset:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ otettu käyttöön, $NOT_APPLIED$ ei käytetty",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Sääntöjen oletukset"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Sisäänrakennettu"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Mukautettu"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Ei mitään – sisäänrakennettu toiminta"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Ylikuormitustila yhdistää sisäänrakennetut ja etäsäännöt; kunkin lähteen säännöt säilyttävät kyseisen lähteen omat oletukset."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Tallenna oletukset"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Oletukset tallennettu"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Kun päällä, jokainen sääntölähde säilyttää omat oletuksensa (sisäänrakennetut oletukset koskevat sisäänrakennettuja sääntöjä ja kunkin etätiedoston oletukset kyseisen tiedoston sääntöjä), ellet valitse omia oletuksia mukautettujen sääntöjen muokkaimessa."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Etä: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Mitkä oletukset ovat voimassa"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Kunkin lähteen omat"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Omasi sisäänrakennetuille ja etäsäännöille"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Omasi kaikille säännöille"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(korvattu omilla oletuksillasi)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Omasi"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ pyyntötyyppiä",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-poikkeusta",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-poikkeus"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ esiprosessoria",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Kunkin lähteen säännöt saavat kyseisen lähteen omat oletukset."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Sisäänrakennetut ja etäsäännöt saavat omat oletuksesi tiedostojensa omien sijaan; mukautetut säännöt säilyttävät omansa."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Sisäänrakennetut, etä- ja mukautetut säännöt saavat kaikki omat oletuksesi omiensa sijaan."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Hallitse sääntöjen oletuksia"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Oletukset täyttävät arvot, joita sääntö ei itse määritä. Säännön oma arvo voittaa aina, eikä palveluntarjoajan poikkeuksia muuteta koskaan."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Muokkaa oletuksia"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Omat oletuksesi"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Mukautettujen sääntöjen oletukset"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Muokattavat oletukset"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Sisäänrakennetut säännöt"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(muokattu)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Palauta tiedoston oletukset"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Yhdistä lähteistä…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Yhdistä sääntöjen oletukset"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Tulos näkyy luettelossa nimellä \"Yhdistetyt oletukset\". Kopioi se siellä johonkin joukkoon ja käytä sitä painamalla Tallenna oletukset."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Yhdistettävät lähteet"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Ristiriidat"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Yhdistetyt oletukset"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Käytä yhdistettyjä oletuksia"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Yhdistetyt oletukset"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Ei käytössä, ennen kuin kopioit sen johonkin toiseen joukkoon ja tallennat."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopioi kohteeseen"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopioi"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Valitse vähintään kaksi lähdettä."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Ei ristiriitoja: valitut lähteet ovat samaa mieltä kaikista arvoista."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Poikkeukset lasketaan yhteen kaikista lähteistä: yhteensä $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Yhdistetty kaikista lähteistä"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Lähteestä: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Ei asetettu (sisäänrakennettu toiminta)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Ei asetettu: kaikki pyyntötyypit"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Ei käytössä juuri nyt: omat oletuksesi korvaavat sisäänrakennettujen ja etäsääntöjen omat oletukset."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Muokkaamasi: nämä korvaavat tiedoston omat oletukset. Itse tiedostoa ei muuteta."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(muokkaamasi)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Ei käytössä juuri nyt: yllä on valittu \"Kunkin lähteen omat\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Ei käytössä juuri nyt: omat oletuksesi korvaavat nämä myös mukautetuille säännöille."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Säännöt alkavat pois päältä (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Kuvaus"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Pyyntötyypit"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Kaikki tyypit"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Vain nämä"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Valitse vähintään yksi pyyntötyyppi tai valitse \"Kaikki tyypit\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Säännöt puhdistavat kaikki pyyntötyypit, ellei niissä tai oletuksissa nimetä joitakin. Palveluntarjoajat voivat myös rajoittaa tyyppejä resourceTypes-asetuksella."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Poikkeukset"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Yksi URL-regex per rivi. Säännöt ohitetaan vastaavissa URL-osoitteissa."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Esiprosessorit"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Syötteet: \"all\" tai sieppausryhmien numerot, kuten 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Lisää esiprosessori"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Esiprosessorin tyyppi"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Esiprosessorin syötteet"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Poista"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Esiprosessorin syötteiden \"$INPUTS$\" on oltava \"all\" tai numeroita, kuten 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Poista historian ohitussuoja käytöstä (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Näytä JSON-muodossa"
   },
   "settings_remote_health_unknown": {
     "message": "tuntematon"
@@ -3357,7 +3357,7 @@
     "message": "Suodata merkinnät…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Välilehti"
   },
   "logger_tab_all": {
     "message": "Kaikki välilehdet"
@@ -4005,10 +4005,10 @@
     "message": "Palveluntarjoajan opas JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Avaa Linkumori-sääntöopas"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Mitä sääntösyntaksia minun pitäisi käyttää?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Avaa sääntöopas"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Palveluntarjoajalähteiden lataus epäonnistui: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Paketoidut säännöt eivät ole saatavilla."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Paketoitujen sääntöjen lataus epäonnistui: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Kieltä ei voitu vaihtaa kieleen $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Vaalea teema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tumma teema"
   },
   "posarCopied": {
     "message": "POSAR kopioitu!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR hyväksytty."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Palauta"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Saavutettavuustyökalut"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Avaa saavutettavuustyökalut"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Sulje saavutettavuustyökalut"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Palauta kaikki saavutettavuusasetukset"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Näkö"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lukeminen"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Käyttö"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Korkea kontrasti"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Värisuodatin"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Kyllästys"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Käänteinen"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Korosta linkit"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Piilota kuvat"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Suurenna tekstiä"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Pienennä tekstiä"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Oletustekstikoko"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Fontin valinta"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Lukihäiriöystävällinen"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Tekstin välistys"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Riviväli"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Tekstin tasaus"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Keskeytä animaatiot"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Isompi kohdistin"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Oletus"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Keskitaso"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Korkea"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Erittäin korkea"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Matala"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Ei mitään"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Kevyt"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Raskas"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,7 +4173,7 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Ei suodatinta"
   },
   "accessibility_tools_value_protanopia": {
     "message": "Protanopia"
@@ -4185,37 +4185,37 @@
     "message": "Tritanopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Harmaasävy"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Vasen"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Keskellä"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Oikea"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Erittäin pieni"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Pieni"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Suuri"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Erittäin suuri"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Suurin"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Päällä"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Pois"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "käytössä"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "pois käytöstä"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Oletustekstikoko valittu"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Kaikki saavutettavuusasetukset palautettu"
+  },
+  "skip_to_main_content": {
+    "message": "Siirry pääsisältöön"
+  },
+  "popupNavAriaLabel": {
+    "message": "Ponnahdusikkunan navigointi"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Mukautettujen sääntöjen näkymät"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Lokinäkymät"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Historian ohitussuoja (ohita sivun sisäisessä navigoinnissa)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Kenttien uudelleenohjaukset"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopioi sääntö"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Sääntö kopioitu"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Sääntöä ei voitu kopioida"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Mitä historyBypassProtection tekee?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Yhden sivun sivustot muuttavat osoitetta usein history.pushState/replaceState-kutsuilla sen sijaan, että lataisivat uuden sivun. Linkumori puhdistaa myös nämä osoitteet. Lisää history-bypass-protection=false $removeparam-suodattimeen ohittaaksesi vain kyseisen suodattimen sivun sisäisissä muutoksissa; se toimii silti normaaleissa pyynnöissä."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Ohittaaksesi kokonaisen palveluntarjoajan sivun sisäisissä muutoksissa, määritä asetus palveluntarjoajalle:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Jos asetusta ei ole annettu, arvo on true ja sivun sisäiset muutokset puhdistetaan. Säännön oma asetus ohittaa palveluntarjoajan asetuksen, joten sääntö voi palata käyttöön asetuksella history-bypass-protection=true tai sääntöobjektissa \"historyBypassProtection\": true."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Ohittaa sivun sisäisen navigoinnin"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Nimeä tunnus uudelleen"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Uusi tunnus kohteelle $OLD$ (a-z, 0-9, - ja _). Vanha tunnus säilytetään aliaksena, joten sen alla pois päältä kytketyt säännöt pysyvät pois päältä.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" ei ole kelvollinen tunnus. Käytä pieniä kirjaimia, numeroita sekä merkkejä - ja _, ja aloita kirjaimella tai numerolla.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Toinen tämän palveluntarjoajan sääntö käyttää jo tunnusta \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Poista sääntö käytöstä"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Poistetaanko $ID$ käytöstä koko palveluntarjoajalta vai vain tältä URL-/verkkotunnusmallilta?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Oma palveluntarjoajani"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-/verkkotunnusmalli"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Säännön tunnus nimettiin uudelleen: $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Orvot kytkimet"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Vastaavaa sääntöä ei löytynyt lähteestä"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Poista"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Ohittaa sivun sisäisen navigoinnin puhdistuksen"
+  },
+  "whitelist_added_general": {
+    "message": "Lisättiin %s yleiseen sallittujen luetteloon"
+  },
+  "whitelist_added_history_api": {
+    "message": "Lisättiin %s History API -poikkeukseksi"
+  },
+  "whitelist_exception_count": {
+    "message": "%d poikkeusta"
+  },
+  "whitelist_exception_empty": {
+    "message": "Ei sallittujen luettelon poikkeuksia"
+  },
+  "whitelist_mode_general": {
+    "message": "Yleinen sallittujen luettelo"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Vain History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Sallittujen luettelon laajuus"
+  },
+  "whitelist_removed_general": {
+    "message": "Poistettiin %s yleisestä sallittujen luettelosta"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Poistettiin kohteen %s History API -poikkeus"
+  },
+  "whitelist_type_general": {
+    "message": "Yleinen"
+  },
+  "whitelist_type_history_api": {
+    "message": "Vain History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Lisää $1 yleiseen sallittujen luetteloon"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Yleinen sallittujen luettelo: $1 – napsauta valitaksesi vain History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API -poikkeus: $1 – napsauta valitaksesi vain tämä välilehti"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Vain välilehti: $1 – napsauta poistaaksesi"
+  },
+  "logger_action_allowed": {
+    "message": "Sallittu"
+  },
+  "logger_action_blocked": {
+    "message": "Estetty"
+  },
+  "logger_action_filter_label": {
+    "message": "Toiminto"
+  },
+  "logger_action_info": {
+    "message": "Tiedot"
+  },
+  "logger_action_modified": {
+    "message": "Muokattu"
+  },
+  "logger_action_redirected": {
+    "message": "Uudelleenohjattu"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopioi yhteenveto"
+  },
+  "logger_btn_export": {
+    "message": "Vie"
+  },
+  "logger_btn_group": {
+    "message": "Ryhmittele säännön mukaan"
+  },
+  "logger_col_hits": {
+    "message": "Osumat"
+  },
+  "logger_col_last_seen": {
+    "message": "Nähty viimeksi"
+  },
+  "logger_detail_group_title": {
+    "message": "Säännön tiedot"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-osoitteet ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Välilehdet"
+  },
+  "logger_exported": {
+    "message": "Viety $1 merkintää."
+  },
+  "logger_filter_all": {
+    "message": "Kaikki"
+  },
+  "logger_report_rule": {
+    "message": "Ilmoita siitä"
+  },
+  "logger_rule_disable": {
+    "message": "Kytke sääntö pois päältä"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Sääntö $1 kytketty pois päältä. Tarkista lataamalla sivu uudelleen."
+  },
+  "logger_rule_enable": {
+    "message": "Kytke sääntö päälle"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Sääntö $1 kytketty takaisin päälle."
+  },
+  "logger_rule_failed": {
+    "message": "Sääntöä ei voitu muuttaa."
+  },
+  "logger_rule_off": {
+    "message": "Sääntö on kytketty pois päältä"
+  },
+  "logger_rule_on": {
+    "message": "Sääntö on päällä"
+  },
+  "logger_rule_unavailable": {
+    "message": "Tätä sääntöä ei voi kytkeä täältä."
+  },
+  "logger_status_rules": {
+    "message": "$1 sääntöä"
+  },
+  "logger_summary_copied": {
+    "message": "Yhteenveto kopioitu."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Yhteenvetoa ei voitu kopioida."
+  },
+  "logger_type_filter_label": {
+    "message": "Tyyppi"
+  },
+  "logger_btn_logging_off": {
+    "message": "Lokitus pois päältä"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Lokitus on pois päältä. Napsauta kytkeäksesi sen päälle."
+  },
+  "logger_btn_logging_on": {
+    "message": "Lokitus päällä"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Lokitus on päällä. Napsauta kytkeäksesi sen pois päältä."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Lokitusasetusta ei voitu muuttaa."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Lisää viittaussääntö"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Lisää raakasäännön poikkeus"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Lisää kentän uudelleenohjaus"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Lisää poikkeus"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Jokainen malli lisää sääntöobjektin, jossa on id ja paikkamerkkinä toimiva matchPattern kohteessa example.com. Merkintä voi olla myös pelkkä merkkijono: parametrin nimi, nimen regex, $removeparam-suodatin tai rawRules-osiossa regex. Sääntöobjektit käyttävät kenttiä id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description ja targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Koodin tarkistus"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Ongelmia ei löytynyt."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Virhe"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Varoitus"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ virhettä, $WARNINGS$ varoitusta",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Suoritusjärjestys"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ vaihetta suoritusjärjestyksessä",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Ei rawRules-, rules- tai referralMarketing-merkintöjä"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Moottorin yllä olevasta tekstistä laskema, tallennettuna tai ei. Vaiheet lajitellaan avaimella (stage, orderGroup, order, rank, arrayIndex): raakasäännöt suoritetaan ennen kenttäsääntöjä; vaiheen sisällä merkinnät, joilla on order, suoritetaan ensin pienimmästä alkaen, ja loput luettelon ja sijainnin mukaan."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Viittausmarkkinointi"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Viittaus poistettu"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Viittaus sallittu"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Raaka"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Kenttä"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Viittaus"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(luotu)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "kirjoittaa uudelleen"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "korvaa $COUNT$ aiempaa määritystä",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "completeProviderin lisäämä: poistaa kaikki parametrit"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Kytketty pois päältä"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Pois päältä joissakin malleissa"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Lajitteluavain: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Sitten $FILTERS$ $removeparam-suodatinta ja $EXCEPTIONS$ @@-poikkeusta kaikkien yllä olevien vaiheiden jälkeen",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule=-poikkeusta voi pysäyttää yllä olevat raakasäännöt niiden osuessa",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Vedä vaihetta tai käytä sen nuolia siirtääksesi sitä vaiheen sisällä. Siirto antaa kaikille kyseisen vaiheen merkinnöille order-arvot 10, 20, 30, … uudessa järjestyksessä."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Vaihda tilaan Viittaus poistettu järjestelläksesi: kyseinen näkymä näyttää kaikki merkinnät."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Siirrä vetämällä"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Siirrä $ENTRY$ aiemmaksi",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Siirrä $ENTRY$ myöhemmäksi",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Siirrettiin $ENTRY$ paikkaan $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Kumoa siirto"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Siirto kumottu"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simuloi"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Suorittaa tämän palveluntarjoajan URL-osoitteelle samalla tavalla kuin kopioidun linkin puhdistus, käyttäen pois päältä kytkemiäsi sääntöjä ja yllä olevaa viittausvalintaa, ja näyttää URL-osoitteen jokaisen vaiheen jälkeen. Muut palveluntarjoajat eivät suorita. Luo testi-URL tekee sellaisen tämän palveluntarjoajan omista säännöistä."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Testi-URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Suorita"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Käy simulaatio läpi vaihe vaiheelta"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Aloita"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Edellinen"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Seuraava"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Loppu"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Toista"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Tauko"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL-osoite ennen yhtään vaihetta"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Kierros $PASS$ · vaihe $STEP$/$TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "ei muutosta"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam-suodattimet"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Kierros $PASS$ ei muuta mitään, joten puhdistus päättyy",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Tämä palveluntarjoaja pysähtyy tähän: kiertorajoitus saavutettiin, URL palasi aiempaan osoitteeseen tai se ei enää vastaa palveluntarjoajaa"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Kierros $PASS$ uudelleenohjaa; puhdistus jatkuu uudessa osoitteessa kaikilla palveluntarjoajilla",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Palveluntarjoaja estää tämän pyynnön (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Tulos"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Tämän palveluntarjoajan mallit eivät vastaa tätä URL-osoitetta, joten sen sääntöjä ei suoriteta."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Tämä URL vastaa yhtä palveluntarjoajan poikkeuksista, joten sen sääntöjä ei suoriteta."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Anna täydellinen http://- tai https://-URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simulaatiota ei voitu suorittaa. Tarkista yllä oleva JSON."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Luo testi-URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Luotu tämän palveluntarjoajan säännöistä: teksti $RAW$ raakasäännölle ja $PARAMS$ parametrille, kukin tarkistettuna omaa sääntöään vasten. keep=1 ei vastaa mitään sääntöä ja sen pitäisi säilyä. Uudelleenohjauksia ja estoja ei oteta mukaan, koska ne päättäisivät suorituksen ennen muita sääntöjä.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Isäntää, jota tämän palveluntarjoajan mallit vastaavat, ei voitu luoda, joten URL käyttää toista isäntää eikä palveluntarjoaja suoritu sillä."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Jokainen URL, jota tämän palveluntarjoajan mallit vastaavat, kuuluu sen omiin poikkeuksiin, joten sen sääntöjä ei koskaan suoriteta."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ sääntöä jätetty pois testi-URL:stä",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "tekstiä, jota se vastaisi, ei voitu luoda"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "sen teksti saisi jonkin palveluntarjoajan poikkeuksen vastaamaan"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "se poistaa kaikki parametrit, joten se ei tarvitse omaa parametria"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Tällä palveluntarjoajalla on nimetön $removeparam-suodatin, joka poistaa kaikki parametrit, myös keep=1:n."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "ei järjestystä"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Palauta järjestysnumerot"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Palauta jokainen järjestys sellaiseksi kuin se oli, kun avasit tämän palveluntarjoajan"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Järjestysnumerot palautettu"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Piilota"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Näytä"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Tyhjennä varoitukset"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Palauta varoitukset"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ varoitusta tyhjennetty",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern ilman indexPatternia tarkistetaan jokaista URL-osoitetta vasten; lisää indexPattern-vihjeitä, kuten \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ toistaa kohdan \"$ENTRY$\"; kopio ei tee mitään ja molemmat jakavat saman tunnuksen",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ sisältää yhä mallin paikkamerkin \"$PATTERN$\"; korvaa se oikealla mallilla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ sisältää matchPatternin \"(?!)\", joka ei koskaan vastaa mitään",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Vianmääritys"
+  },
+  "troubleshooter_launch": {
+    "message": "Vianmääritä tämä välilehti (kokeellinen)"
+  },
+  "troubleshooter_title": {
+    "message": "Välilehden vianmääritys"
+  },
+  "troubleshooter_page": {
+    "message": "Sivu"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Miten tallennus toimii"
+  },
+  "troubleshooter_about_note": {
+    "message": "Tämän näkymän avaaminen voi tarkistaa sivun URL-osoitteen, mutta ei tallenna mitään. Tallennus pysyy pois päältä, kunnes valitset Aloita tallennus. Aloittaminen lataa tämän välilehden uudelleen resurssipyyntöjen tallentamiseksi. Tallennetut URL-osoitteet pysyvät istuntotallennustilassa tämän selainistunnon ajan ja poistetaan, kun tämä välilehti suljetaan tai selainistunto päättyy. Tallennus päättyy 15 minuutin kuluttua, ellet lopeta sitä aiemmin. Resurssien URL-osoitteet voivat sisältää yksityisiä kyselytietoja."
+  },
+  "troubleshooter_start": {
+    "message": "Aloita tallennus"
+  },
+  "troubleshooter_starting": {
+    "message": "Aloitetaan…"
+  },
+  "troubleshooter_recording": {
+    "message": "Tallennetaan…"
+  },
+  "troubleshooter_stop": {
+    "message": "Lopeta tallennus"
+  },
+  "troubleshooter_refresh": {
+    "message": "Päivitä"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopioi yhteenveto"
+  },
+  "troubleshooter_export": {
+    "message": "Vie"
+  },
+  "troubleshooter_export_title": {
+    "message": "Tallenna tallenne JSON-tiedostona. Resurssien URL-osoitteet voivat sisältää yksityisiä kyselytietoja."
+  },
+  "troubleshooter_category": {
+    "message": "Luokka"
+  },
+  "troubleshooter_category_all": {
+    "message": "Kaikki luokat"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-säännöt"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Uudelleenohjaukset"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Suojaus ja ohitukset"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Resurssityyppi"
+  },
+  "troubleshooter_type_all": {
+    "message": "Kaikki resurssityypit"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Hae sääntöjä, palveluntarjoajia ja URL-osoitteita"
+  },
+  "troubleshooter_timer": {
+    "message": "Tallennetaan $1 · $2 jäljellä"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Tarkistetaan tätä välilehteä…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Aktiivista välilehteä ei ole saatavilla."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Tämä sivu ei salli URL-sääntöjen skannausta. Avaa tavallinen http- tai https-verkkosivu."
+  },
+  "troubleshooter_status_off": {
+    "message": "Tallennus on pois päältä. Aloita tallennus tarkastellaksesi tämän sivun lataamia resurssien URL-osoitteita."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL-muutosta tallennettu tähän mennessä. Uudet näkyvät tässä automaattisesti."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Tallennus pysäytetty. $1 URL-muutosta tallennettu."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Tallennustietoja ei voitu tallentaa istuntotallennustilaan. $1 URL-muutosta voi kadota, jos laajennus käynnistyy uudelleen."
+  },
+  "troubleshooter_status_started": {
+    "message": "Tallennus aloitettu ja välilehti latautuu uudelleen. Tallennetut URL-osoitteet näkyvät tässä sivun latautuessa."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Tallennus pysäytetty. $1 URL-muutosta tallennettu ja tallennettu tälle selainistunnolle."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Tallennus pysäytetty. $1 URL-muutosta tallennettu, mutta istuntotallennustila ei voinut tallentaa niitä."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Avaa ensin tavallinen http- tai https-verkkosivu."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Tämän välilehden tallennusta ei voitu aloittaa."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Tämän välilehden tallennusta ei voitu lopettaa."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Tätä välilehteä ei voitu lukea. Yritä sulkea ja avata ponnahdusikkuna uudelleen."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Yhteenveto kopioitu."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Yhteenvetoa ei voitu kopioida."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Tallenne viety."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Tallennetta ei voitu viedä."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Ilmoituslomaketta ei voitu avata."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Sääntö käytössä; vertaa lataamalla välilehti uudelleen."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Sääntö pois käytöstä; vertaa lataamalla välilehti uudelleen."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Tätä sääntöä ei voitu päivittää."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Sääntömuutoksia ei ole vielä löytynyt. Aloita tallennus tarkastellaksesi tämän sivun resurssien URL-osoitteita."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Tätä selainsivua ei voi skannata."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Mikään löydös ei vastaa näitä suodattimia."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Näytetään ensimmäiset $1 sääntöä."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 osumaa"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 epäonnistui"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Säännön tunnus: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Sisäänrakennettu suojaustoiminto (ei säännön tunnusta)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Säännön tunnus: ei saatavilla tälle löydökselle"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Tätä säännön tunnusta ei voitu ratkaista nykyisessä sääntöjoukossa."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Havaittu pyyntö"
+  },
+  "troubleshooter_source_page": {
+    "message": "Sivun URL-tarkistus"
+  },
+  "troubleshooter_changes": {
+    "message": "Mikä muuttui: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Kohteena olevat URL-osoitteet ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…ja $1 lisää"
+  },
+  "troubleshooter_after": {
+    "message": "Linkumorin jälkeen"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Epäonnistui Linkumorin muutettua sitä: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Tämä sääntö on käytössä. Kytke se pois päältä ja lataa uudelleen verrataksesi sivua."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Tämä sääntö on pois käytöstä. Kytke se päälle ja lataa uudelleen palauttaaksesi sen toiminnan."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Tämä on sisäänrakennettu suojaustoiminto, ei yksittäinen sääntö."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Tarkista kohteena oleva URL ennen sääntöjen muuttamista."
+  },
+  "troubleshooter_report": {
+    "message": "Ilmoita tästä säännöstä"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Poista sääntö käytöstä"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Ota sääntö käyttöön"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Poista sääntö $1 käytöstä"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Ota sääntö $1 käyttöön"
+  },
+  "troubleshooter_saving": {
+    "message": "Tallennetaan…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "poistettu $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "lisätty $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "muutettu $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "uudelleenohjattu kohteeseen $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "polku muuttui"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragmentti muuttui"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL muuttui"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "estetty tarkoituksella"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 pyyntöä epäonnistui tällä sivulla; $2 heti Linkumorin muutettua URL-osoitetta"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Onko tämä sivu rikki?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Etsi sääntö, joka rikkoo sen: tällä sivulla suoritetut säännöt kytketään pois päältä yksi kerrallaan, ja jokaisen jälkeen kerrot, korjaantuiko sivu. Etkö ole varma, että syy on Linkumori? Tarkista ensin puhdistus keskeytettynä."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Tarkista ensin puhdistus keskeytettynä"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Puhdistus on keskeytetty kohteelle $1 tässä välilehdessä"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Välilehti latautui uudelleen ilman puhdistusta. Toimiiko sivu nyt?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Kyllä, se toimii"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ei, yhä rikki"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Peruuta"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Valmis"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Todennäköisesti ei Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Sivu oli yhä rikki puhdistus keskeytettynä, joten ongelma on todennäköisesti muualla: itse sivustossa, toisessa laajennuksessa tai verkossa. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori on todennäköisesti syy"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Sivu toimii puhdistus keskeytettynä. Etsi sääntö: säännöt kytketään pois päältä yksi kerrallaan, välilehti latautuu uudelleen ja kerrot, korjaantuiko sivu. Kaikki muut säännöt kytketään lopuksi takaisin päälle."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Välilehti latautuu uudelleen puhdistus takaisin päällä tallentaakseen, mitkä säännöt suoritetaan tällä sivulla. Ne näkyvät tässä hetken kuluttua. Jos mikään ei näy, käytä sivua, kunnes se menee rikki."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Etsi sääntö ($1 sääntöä)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Kyllä, korjaantui"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ei, yhä rikki"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Löytyi"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Sivu menee rikki säännön $1$2 vuoksi. Se on kytketty takaisin päälle. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Poista tämä sääntö käytöstä"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Ilmoita siitä"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Sääntö kytketty pois päältä. Tarkista lataamalla välilehti uudelleen. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Yksittäistä sääntöä ei löytynyt"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Sääntöjen kytkeminen pois päältä yksi kerrallaan ei korjannut sivua, joten syynä on todennäköisesti useampi sääntö yhdessä tai suojausasetus. Kaikki säännöt on kytketty takaisin päälle. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Tarkistusta ei voitu suorittaa: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Lataa Linkumori uudelleen käyttääksesi tätä tarkistusta"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori päivitettiin, mutta sen taustaosa käyttää yhä vanhaa versiota. Lataa laajennus uudelleen (väliaikaiselle lisäosalle: about:debugging → This Firefox → Reload) tai käynnistä Firefox uudelleen."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Löytyi"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Sivu menee rikki säännön $1$2 vuoksi. Se pysyy pois päältä, jotta sivu toimii; kaikki muut säännöt ovat takaisin päällä. Tarkista lataamalla välilehti uudelleen. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Lataa välilehti uudelleen"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Kytke takaisin päälle"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Sääntö kytketty takaisin päälle. Tarkista lataamalla välilehti uudelleen. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Tallenna ja etsi sääntö"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Tallennetaan, mitkä säännöt suoritetaan tällä sivulla. Käytä sivua, kunnes se menee rikki; säännöt näkyvät tässä."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Kytketty toistaiseksi pois päältä sääntöhaulla. Se kytkeytyy takaisin päälle haun päättyessä."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Sääntöhaku on käynnissä. Muuta sääntöjä haun päätyttyä."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Ohita – kytke takaisin päälle"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Pidä pois päältä"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Sääntöhaku ohitettu; kaikki säännöt ovat taas päällä. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Sääntö $1 pysyy pois päältä. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Kytketty pois päältä tätä testiä varten:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…ja $1 lisää"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Lopeta haku"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Ohitettu: kyseinen sääntö on takaisin päällä ja jätetty pois. Testataan seuraavaa."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Testatuista säännöistä ei löytynyt yhtään. $1 ohittamaasi sääntöä ei testattu. Kaikki säännöt ovat taas päällä. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_experimental": {
+    "message": "Kokeellinen"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Kokeellinen: tämä vianmääritys ei ole täysin vakaa. Sen tulokset voivat olla virheellisiä, ja se kytkee sääntöjä pois päältä testauksen aikana. Jos jokin näyttää jälkeenpäin väärältä, tarkista säännöt mukautettujen sääntöjen muokkaimessa tai kytke ne takaisin päälle valitsemalla Lopeta haku."
+  },
+  "troubleshooter_working": {
+    "message": "Työstetään…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Tallenna uudelleen"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Vanha tallenne tyhjennetty. Tallennetaan tätä välilehteä uudelleen tuoreesta latauksesta."
+  },
+  "troubleshooter_clear": {
+    "message": "Tyhjennä"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Tyhjennä tämän välilehden tallenne, löydökset ja päättynyt sääntöhaku. Säännöt pysyvät ennallaan."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Tyhjennetty. Säännöt pysyvät ennallaan."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Tyhjennetty. Sääntö $1 pysyy pois päältä."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testataan yksi sääntö kerrallaan – sääntö $1/$2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Vain tämä sääntö on kytketty pois päältä ja välilehti on ladattu uudelleen. Onko sivu nyt korjaantunut?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Ohita tämä sääntö"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Ohita – kytke takaisin päälle, testaa seuraava ($1 jäljellä)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 muuta tällä sivulla suoritettua sääntöä ei testattu. Haluatko jatkaa niiden testaamista?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Pidä pois päältä, testaa seuraava ($1 jäljellä)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Sääntö $1 pysyy pois päältä. Testataan seuraavaa sääntöä."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Mikään muu sääntö ei yksin korjaa sivua. Pois päältä pitämäsi $1 sääntöä pysyy pois päältä; kaikki muut säännöt ovat taas päällä. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testaa seuraava sääntö ($1 jäljellä)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Sääntö $1 on takaisin päällä ja jätetty pois. Testataan seuraavaa sääntöä."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Mikään muu sääntö ei yksin korjaa sivua. Myös ohittamasi $1 sääntöä on takaisin päällä, joten kaikki säännöt ovat taas päällä. Aloita alusta napsauttamalla Tyhjennä."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori puhdistaa URL-osoitteita säännöillä, jotka on kirjoitettu <strong>CLN Format 1.0</strong> -muodossa (Clean Link Notation), joka on JSON-muoto. Tämä opas etenee ensimmäisestä säännöstä kaikkiin asetuksiin, ja mukana on kopioitavia esimerkkejä."
+  },
+  "guide_intro_p_2": {
+    "message": "Sisäänrakennetut säännöt, etäsääntöluettelot ja omat sääntösi käyttävät kaikki samaa muotoa. Kirjoitat omat säännöt mukautettujen sääntöjen muokkaimessa, joka tarkistaa ne tallennettaessa tai tuotaessa. Virallinen ClearURLs-sääntökatalogi (<code>data.min.json</code>) on jo kelvollinen CLN-tiedosto, ja sitä voi käyttää sellaisenaan."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Palveluntarjoajan nimi on vain nimike. Se, mitä URL-osoitteita palveluntarjoaja käsittelee, määräytyy kentän <code>domainPatterns</code> tai <code>urlPattern</code> perusteella."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Ylätason avain"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Pakollinen. Palveluntarjoajat nimen mukaan."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Valinnainen muotoversio. Ainoa kelvollinen arvo on <code>\"1.0\"</code>. Tiedosto ilman sitä luetaan myös versiona 1.0; mikä tahansa muu arvo hylkää tiedoston. Sitä ei kutsuta nimellä <code>version</code>, koska ClearURLsin uusi sääntömuoto käyttää jo kyseistä avainta."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Valinnaisia tietoja tiedostosta."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Arvot jokaiselle tiedoston säännölle, joka ei aseta omiaan (luku 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Vain etäsääntöluetteloille: korvaukset jo ladatuille säännöille (luku 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Mitä URL-osoitteita palveluntarjoaja käsittelee, yhtenä verkkotunnusmallina tai niiden luettelona (luku 3). Käytä tätä tai <code>urlPattern</code>-kenttää, älä koskaan molempia."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Mitä URL-osoitteita palveluntarjoaja käsittelee, yhtenä säännöllisenä lausekkeena, jota verrataan koko URL-osoitteeseen. Kirjainkoolla ei ole merkitystä."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Vain kentän <code>urlPattern</code> kanssa: isäntävihjeet, kuten <code>||example.com^</code>, jotta palveluntarjoaja tarkistetaan vain näille isänhille eikä kaikkia URL-osoitteita vasten. Se on hakuvihje, ei vastaavuusehto."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Poistettavat viittaus- ja kumppaniparametrit. Ohitetaan, kun <em>Salli viittausmarkkinointi</em> on päällä (luku 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL-osoitteet, joihin palveluntarjoaja ei koske lainkaan (luku 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Lähetä pyyntö toiseen osoitteeseen sen muokkaamisen sijaan (luku 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Lähetä pyyntö parametrin arvon osoitteeseen (luku 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: kun sivulataus (<code>main_frame</code>) uudelleenohjataan, koko välilehti siirtyy uuteen osoitteeseen, ei vain verkkopyyntö."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Käsittele vain nämä HTTP-metodit, esimerkiksi <code>[\"GET\"]</code>. Jos jätetty pois: kaikki metodit."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Käsittele vain nämä pyyntötyypit, esimerkiksi <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Jos jätetty pois: kaikki pyyntötyypit."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Oletus <code>true</code>. <code>false</code> ohittaa koko palveluntarjoajan, kun sivu muuttaa omaa osoitettaan History API:lla (<code>pushState</code>/<code>replaceState</code>). Normaalit verkkopyynnöt puhdistetaan silti."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> kytkee palveluntarjoajan pois päältä poistamatta sitä."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> on luettelo verkkotunnusmalleista. URL vastaa, jos jokin niistä vastaa. Samoja malleja käytetään kenttien <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code>-suodattimien ja raakasääntöjen edessä."
+  },
+  "guide_matching_cell_1": {
+    "message": "koko URL säännöllisenä lausekkeena"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL-osoitteet, jotka sisältävät tämän tekstin missä tahansa (ei alussa olevaa <code>|</code>-merkkiä)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> merkitsee isäntänimen loppua tai erotinta, kuten <code>/</code>, <code>?</code>, <code>:</code>, tai URL-osoitteen loppua. <code>*</code> on jokerimerkki."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> tarkoittaa verkkotunnusta: isäntää ja kaikkia aliverkkotunnuksia. Yksittäinen <code>|</code> tarkoittaa URL-osoitteen aivan alkua, ja sen jälkeen on oltava skeema, kuten <code>https://</code>. Verkkotunnukselle haluat aina merkin <code>||</code>; <code>|example.com^</code> ei voi koskaan vastata, joten muokkain hylkää sen."
+  },
+  "guide_matching_p_4": {
+    "message": "Esimerkiksi <code>||smile.amazon.*^</code> luetaan: <code>||</code> isäntä ja sen aliverkkotunnukset, <code>smile.amazon</code> vaaditut osat, <code>.*</code> mikä tahansa julkinen päätteen osa (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) ja <code>^</code> isännän loppu."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "täsmälleen kyseinen parametri"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "jokainen parametri, jonka koko nimi vastaa; kirjainkoolla ei ole merkitystä"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> ja <code>\"$removeparam=fbclid\"</code> poistavat saman asian. Käytä pelkkää nimeä, ellet tarvitse jotain luvusta 5. Mikä tahansa merkintä voidaan kirjoittaa myös sääntöobjektina (luku 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Tässä <code>qid</code> poistetaan kaikilla Amazon-sivustoilla, <code>tag</code> vain sivustolla <code>amazon.de</code>, <code>sr</code> vain sivustolla <code>smile.amazon</code> ja <code>ref_</code> vain polun <code>/gp/</code> alla. Malli rajaa palveluntarjoajan omia malleja; se ei voi koskaan laajentaa niitä."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> muuttaa suodattimen poikkeukseksi, joka säilyttää parametrin (katso alla)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> rajaa suodattimen osaan palveluntarjoajan URL-osoitteista (luku 3). Jos jätetty pois, se koskee kaikkia URL-osoitteita, joita palveluntarjoaja vastaa."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> valitsee parametrit. Jos jätetty pois, kaikki parametrit poistetaan."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Muokkaimet kertovat, milloin suodatin laukeaa. Jokaisen lueteltun muokkaimen on täytyttävä; niiden välillä ei ole \"tai\"-ehtoa."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "jokainen parametri paitsi <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametrit, joiden nimi tai <code>name=value</code> yhdessä vastaa säännöllistä lauseketta; lisää <code>i</code> kirjainkoon ohittamiseksi"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametrit, joiden nimi alkaa merkkijonolla <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Parametrin nimen escape-merkinnät"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Kenoviiva tekee seuraavasta merkistä kirjaimellisen, joten mikä tahansa parametrin nimi voidaan kohdistaa:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Arvo"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Poistaa parametrin nimeltä"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (pilkku ei aloita muokkaimia)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Nämä viisi ovat ainoat escape-merkinnät nimiarvossa; kenoviiva minkä tahansa muun merkin edessä on virhe. <code>/regex/</code>-arvon sisällä kenoviiva säilyttää regex-merkityksensä. Escape-merkinnät toimivat kohteissa <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> ja <code>@@</code>-merkinnöissä. Kirjoita JSONissa jokainen kenoviiva kahdesti: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Muokkaimet"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Muokkaimet tulevat arvon jälkeen pilkuilla erotettuina. Erota saman muokkaimen useat arvot merkillä <code>|</code> ja aseta arvon eteen <code>~</code> sen poissulkemiseksi:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Muokkain"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "vain kun pyynnön tehnyt sivu on (tai merkillä <code>~</code> ei ole) jokin näistä; regex-arvot ovat sallittuja"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "vain kun itse pyyntö menee johonkin näistä, riippumatta siitä, mikä sivu sen teki"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "vain näille HTTP-metodeille: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "vain kun pyyntö menee samaan rekisteröitävään verkkotunnukseen kuin sivu (<code>a.example.com</code> ja <code>b.example.com</code> lasketaan samaksi) tai eri verkkotunnukseen"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "sama, mutta tarkka isäntänimi vertailtavana, joten aliverkkotunnus lasketaan kolmanneksi osapuoleksi"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parametrien nimiä verrataan kirjainkoko huomioiden"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ohita tämä suodatin, kun sivu muuttaa omaa osoitettaan History API:lla. Hyväksyy myös arvot <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Neljää <code>*-party</code>-muokkainta ei voi yhdistää keskenään; <code>first-party,third-party</code> hylätään."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Esimerkiksi <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> poistaa parametrin <code>sid</code> sivustolla <code>example.com</code>, vain toisella sivustolla olevan sivun tekemille GET-pyynnöille, eikä koskaan kun kyseinen sivu on <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code>-merkintä suojaa vain <code>$removeparam</code>-suodattimilta. Pelkkä merkintä, kuten <code>\"ref\"</code>, poistaa parametrin silti; käytä siihen sääntöobjektin kenttää <code>exceptions</code>. Raakasäännöillä on omat <code>@@…$rawrule=</code>-merkintänsä (luku 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Sillä, mihin sen luettelet, ei ole väliä, eikä sillä voi olla kenttää <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Sen mallia verrataan URL-osoitteeseen sellaisena kuin palveluntarjoaja sen vastaanotti, ennen raakasääntöjen suoritusta. Polkuun rajattu <code>@@</code>-merkintä, jonka raakasääntö poistaa, vastaa silti."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Se kattaa myös muiden palveluntarjoajien suodattimet pyynnöille, jotka tekee sivu, jota tämä palveluntarjoaja vastaa, mikä on kätevää yhden sivuston rajaamiseksi pois muualla määritellystä säännöstä."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Raakasäännöt suoritetaan ennen kenttää <code>rules</code>, ne ohittavat kirjainkoon ja korvaavat jokaisen osuman (liput <code>gi</code> tai <code>g</code> yhdessä <code>match-case</code>-asetuksen kanssa). Kirjoita JSONissa jokainen kenoviiva kahdesti."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Raakasääntö voi käyttää <code>$removeparam</code>-suodattimen mallia ja muokkaimia, <code>rawrule=</code> viimeisenä. Kaikki <code>rawrule=</code>-merkinnän jälkeen on säännöllinen lauseke:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Malli ja muokkaimet päättävät, missä sääntö suoritetaan; poistettava on silti säännöllinen lauseke."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Merkintä, joka alkaa merkinnällä <code>@@</code> ja päättyy merkintään <code>rawrule=</code>, estää raakasääntöjä suorittamasta paikoissa, joissa sen malli vastaa:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Jos <code>rawrule=</code>-merkinnän jälkeen ei ole mitään, se pysäyttää kaikki palveluntarjoajan raakasäännöt kyseisissä URL-osoitteissa."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Jos <code>rawrule=</code>-merkinnän jälkeen on säännöllinen lauseke, se pysäyttää raakasäännöt, joilla on kyseinen säännöllinen lauseke."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Sääntöobjektina, jolla on <code>targetId</code>, se pysäyttää vain raakasäännön, jolla on kyseinen tunnus tai alias."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Ohittaaksesi koko palveluntarjoajan käytä sen sijaan kenttää <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Jos URL vastaa kentän <code>exceptions</code> merkintää, mitään palveluntarjoajan sääntöä ei suoriteta kyseiselle pyynnölle. Merkintä on säännöllinen lauseke koko URL-osoitetta vasten tai merkillä <code>|</code> alkava verkkotunnusmalli:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Poikkeukset ohittavat kirjainkoon. Ohittaaksesi yksittäisen säännön koko palveluntarjoajan sijaan anna kyseiselle säännölle oma kenttä <code>exceptions</code> (luku 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Voittaa se vastaava parametri, joka on URL-osoitteessa ensimmäisenä. Osoitteelle <code>https://site.example/away?redirect=https://real.example/page</code> pyyntö menee osoitteeseen <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Kelvolliset uudelleenohjauskohteet"
+  },
+  "guide_redirects_p_2": {
+    "message": "Uudelleenohjaus tapahtuu vain absoluuttiseen <code>http</code>- tai <code>https</code>-osoitteeseen, jossa on isäntä. Tämä tarkistetaan esiprosessorien ja prosenttidekoodauksen jälkeen. Virheellinen kohde saa merkinnän lasketuksi ei-vastaavaksi: mitään ei uudelleenohjata, ja palveluntarjoajan myöhemmät vaiheet suoritetaan muuttumattomalle URL-osoitteelle."
+  },
+  "guide_redirects_th_1": {
+    "message": "Kohde"
+  },
+  "guide_redirects_th_2": {
+    "message": "Uudelleenohjaus?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "kyllä"
+  },
+  "guide_redirects_cell_2": {
+    "message": "kyllä, osoitteeseen <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ei: skeema ei ole <code>http</code> tai <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ei: ei absoluuttinen osoite"
+  },
+  "guide_redirects_p_3": {
+    "message": "Raakasääntö, jonka tuloksen skeema, isäntä tai portti poikkeaa syötteestä, lasketaan myös uudelleenohjaukseksi, vaikka se vain poistaisi tekstiä: <code>secure-</code>-osan poistaminen osoitteesta <code>https://secure-bank.example/</code> päätyy toiselle sivustolle. Se tarvitsee kelvollisen kohteen ja etäsääntöluettelossa <code>redirect</code>-hyväksynnän (luku 15). Muuten sääntö jättää URL-osoitteen ennalleen."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Mikä tahansa merkintä missä tahansa luettelossa voi olla merkkijonon sijaan objekti. Käytä sitä, kun sääntö tarvitsee vakaan tunnuksen, sen pitäisi alkaa pois päältä, sen pitäisi kirjoittaa uudelleen poistamisen sijaan tai sen pitäisi toimia vain joissakin tapauksissa:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Pakollinen. Teksti, jonka kirjoittaisit tavallisena merkintänä kyseiseen luetteloon."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Vakaa nimi (kirjaimet, numerot, <code>-</code>, <code>_</code>), jolla sääntö kytketään päälle ja pois (luku 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Säännön aiemmat tunnukset, jotta vanhan tunnuksen alle tallennettu asetus pysyy voimassa uudelleennimeämisen jälkeen."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Kirjoita uudelleen poistamisen sijaan; <code>§1§</code>, <code>§2§</code>, … ovat sieppatut arvot."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Muunna sieppatut arvot ensin."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Vain näille pyyntötyypeille, esimerkiksi <code>[\"main_frame\"]</code>. Puhdistus ilman pyyntöä (<em>Kopioi puhdas linkki</em>, puhdistustyökalu, History API -muutokset) lasketaan tyypiksi <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL-osoitteet (säännölliset lausekkeet), joissa tätä yhtä sääntöä ei suoriteta."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Säännöllisen lausekkeen liput merkkijonona. Oletus <code>i</code>; kentässä <code>rawRules</code> <code>gi</code> (tai <code>g</code> yhdessä <code>match-case</code>-asetuksen kanssa)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Suorita sääntö aiemmin tai myöhemmin omassa vaiheessaan (luku 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: kentän <code>rules</code> sääntö lasketaan myös viittausmarkkinointisäännöksi (luku 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Samanniminen palveluntarjoajan kytkin tälle yhdelle säännölle. Se voittaa palveluntarjoajan arvon ja tiedoston oletuksen."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: sääntö alkaa pois päältä."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Huomautus tiedostoa lukeville ihmisille; sen on oltava merkkijono."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Vain <code>@@…$rawrule=</code>-merkinnöissä: sen pysäyttämän raakasäännön tunnus."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Tässä <code>?token=abc123</code> muuttuu muotoon <code>?token=clean-abc123</code>. Uudelleenkirjoitus tehdään enintään kerran pyyntöä kohden, joten se ei jatka arvon kietomista."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Esiprosessorit muuttavat sieppattuja arvoja järjestyksessä ennen kuin <code>replacePattern</code> tai uudelleenohjaus käyttää niitä. <code>inputs</code> on <code>\"all\"</code> tai ryhmänumeroiden luettelo:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> ottaa samat merkinnät kuin <code>rules</code>. Ne suoritetaan vain, kun <em>Salli viittausmarkkinointi</em> on pois päältä, joten kumppanilinkit toimivat, jos otat sen käyttöön:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Sääntö voi pysyä kentässä <code>rules</code> ja silti lasketaan viittausmarkkinoinniksi asetuksella <code>\"referralMarketing\": true</code>. Älä laita samaa tekstiä sekä kenttään <code>rules</code> että kenttään <code>referralMarketing</code>; muokkain varoittaa siitä."
+  },
+  "guide_request_types_cell_1": {
+    "message": "pyyntötyypit, joita yksi sääntöobjekti käsittelee (asetettavissa myös kentässä <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Pyyntötyypit käyttävät selaimen nimiä: <code>main_frame</code> (sivu), <code>sub_frame</code> (kehys), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> ja niin edelleen. Suodattimen muokkaimet kutsuvat kahta ensimmäistä nimillä <code>document</code> ja <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Pyyntötyypit tulevat vain säännöistä: Asetuksissa ei ole pyyntötyyppiluetteloa. Jos mitään näistä ei ole asetettu, sääntö puhdistaa kaikki pyyntötyypit."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Oletukset"
+  },
+  "guide_defaults_p_1": {
+    "message": "Ylätason <code>defaults</code>-lohko antaa jokaiselle tiedoston säännölle arvot, joita se ei itse aseta:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Oletus jokaisen säännön…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> kytkee kaikki säännöt pois päältä, ellei sääntö sano <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> tai pois jättäminen tarkoittaa kaikkia tyyppejä"
+  },
+  "guide_defaults_item_1": {
+    "message": "Säännön oma arvo voittaa aina, ja säännön <code>exceptions</code> korvaa oletusluettelon sen täydentämisen sijaan."
+  },
+  "guide_defaults_item_2": {
+    "message": "Oletukset koskevat kenttiä <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> ja <code>fieldRedirections</code>. Palveluntarjoajan oma <code>exceptions</code>-luettelo jätetään koskematta. <code>$redirect=</code>-merkinnät käyttävät vain kenttää <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Jokainen tiedosto säilyttää omat oletuksensa: sisäänrakennetut säännöt, jokainen etäluettelo ja omat sääntösi, myös silloin kun ylikuormitustila yhdistää ne."
+  },
+  "guide_defaults_item_4": {
+    "message": "Kentän <code>completeProvider</code> kohdalla oletukset <code>requestTypes</code> ja <code>exceptions</code> rajaavat myös eston."
+  },
+  "guide_defaults_item_5": {
+    "message": "Tuntemattomat avaimet ja väärät tyypit ovat virheitä, ja etäluettelo, jossa on virheellinen <code>defaults</code>-lohko, hylätään."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Omat oletuksesi"
+  },
+  "guide_defaults_p_2": {
+    "message": "Mukautettujen sääntöjen muokkaimessa <em>Hallitse sääntöjen oletuksia</em> avaa lomakkeen, jossa asetat oman <code>defaults</code>-lohkon ja valitset, missä se korvaa tiedostojen omat:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Kunkin lähteen omat</em> (oletus): jokainen tiedosto käyttää omaa <code>defaults</code>-lohkoaan."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Omasi sisäänrakennetuille ja etäsäännöille</em>: sisäänrakennetut ja etäsäännöt käyttävät omiasi; omat säännöt säilyttävät omansa."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Omasi kaikille säännöille</em>: jokainen sääntö käyttää omiasi."
+  },
+  "guide_defaults_p_3": {
+    "message": "Samalla lomakkeella voi muokata sisäänrakennettujen sääntöjen ja jokaisen ladatun etäluettelon oletuksia. Muokkauksesi tallennetaan laajennukseen, ei tiedostoon, ja <em>Palauta tiedoston oletukset</em> poistaa sen. <em>Yhdistä lähteistä…</em> yhdistää valitsemiesi lähteiden oletukset; mitään ei tallenneta, ennen kuin tallennat."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Miten URL käsitellään"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, sitten <code>fieldRedirections</code>: kelvollisella kohteella varustettu osuma uudelleenohjaa pyynnön."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> ja <code>referralMarketing</code> poistavat tai kirjoittavat uudelleen parametreja."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code>-suodattimet suoritetaan, paitsi missä <code>@@</code>-merkintä säilyttää parametrin."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Ensimmäinen palveluntarjoaja, joka muuttaa, uudelleenohjaa tai estää URL-osoitteen, voittaa. Uusi URL käy sitten läpi samat vaiheet uudelleen (katso <a href=\"#termination\">Milloin käsittely päättyy</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Suoritusjärjestys ja <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Vaiheet 4 ja 5 lajitellaan yhdessä näiden sääntöjen mukaan peräkkäin:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Raakasäännöt suoritetaan aina ensin.</strong> Mikään <code>order</code> ei siirrä <code>rules</code>-merkintää raakasäännön edelle. Siivous, jonka on tapahduttava ennen raakasääntöä, on itse oltava raakasääntö."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Vaiheen sisällä säännöt, joilla on <code>order</code>, suoritetaan ennen sääntöjä ilman sitä</strong>, pienin ensin. Negatiiviset luvut ja murtoluvut ovat sallittuja. <code>order: 10</code> ei tarkoita \"kymmenettä\": se tarkoittaa vaiheen alle 10 olevien järjestettyjen sääntöjen jälkeen ja ennen kaikkia sen järjestämättömiä sääntöjä."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Sitten luettelon mukaan:</strong> <code>rules</code>, sitten <code>rules</code>-objektit, jotka on merkitty <code>\"referralMarketing\": true</code>, sitten <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Sitten sijainnin mukaan</strong> luettelossa. Jokainen merkintä säilyttää paikkansa, myös merkinnät, jotka on kirjoitettu muodossa <code>\"3\"</code> tai <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Tässä token kirjoitetaan uudelleen ennen kuin <code>utm_source</code> poistetaan, vaikka se on toisena:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Pois päältä olevat säännöt jätetään pois. <code>$removeparam</code>-suodattimet ja <code>@@</code>-merkinnät ovat tämän lajittelun ulkopuolella eikä niillä voi olla kenttää <code>order</code>, ei edes arvoa <code>null</code>; suodattimet suoritetaan aina viimeisinä."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Sama teksti kahdesti"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Kaksi merkintää, joilla on sama <code>matchPattern</code>-teksti samassa ryhmässä, ovat yksi sääntö. Ryhmät ovat raaka (<code>rawRules</code>), kenttä (<code>rules</code> ilman viittausmerkintää) ja viittaus (merkityt <code>rules</code>-objektit, sitten <code>referralMarketing</code>). Tämä tapahtuu enimmäkseen sääntöluetteloita yhdistettäessä."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Viimeinen määritys, joka ei ole pois päältä, voittaa kaikkine avaimineen."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Ilman omaa kenttää <code>order</code> voittaja ottaa ensimmäisen määrityksen sijainnin ja lähimmän aiemman <code>order</code>-arvon. <code>\"order\": null</code> tarkoittaa ei järjestystä ja poistaa peritun arvon."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Korvattujen määritysten tunnukset ja aliakset kytkevät myös voittajan päälle ja pois."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Kun viittausmarkkinointisäännöt suoritetaan, viittausmerkintä korvaa kenttämerkinnän, jolla on sama teksti."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Raakasääntö ja kenttäsääntö, joilla on sama teksti, eivät ole ristiriidassa; molemmat suoritetaan."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Yhden luettelon sisällä kaksi eri merkintää, joilla on sama teksti, on virhe, ja täsmällinen kopio on varoitus."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Milloin käsittely päättyy"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Pyyntöä kohden suoritetaan enintään 10 kierrosta; rajalla URL käytetään sellaisenaan."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Sääntö, jolla on <code>replacePattern</code>, otetaan käyttöön enintään kerran pyyntöä kohden."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Vaihe, joka ei muuta URL-osoitetta, ei aloita uutta kierrosta."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Asetukset → <em>Rajoittamattomat puhdistuskierrokset</em> (oletuksena pois päältä) poistaa 10 kierroksen rajan sääntöketjuilta, jotka tarvitsevat enemmän. Käsittely päättyy silloin, kun kierros ei muuta mitään, mutta kaksi sääntöä, jotka uudelleenohjaavat toisiinsa, kiertävät kunnes selain luovuttaa eikä sivu lataudu. Ota tämä käyttöön vain sääntöihin, joihin luotat."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Säännön tunnukset ja päälle/pois-kytkimet"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Jokaisella säännöllä on tunnus. Säännölle ilman kenttää <code>id</code> muodostetaan tunnus sen luettelon ja tekstin perusteella: <code>\"utm_source\"</code> kentässä <code>rules</code> muuttuu muotoon <code>field-utm-source</code>. Luotu tunnus muuttuu, kun säännön teksti muuttuu, ja pois päältä kytketty sääntö kytkeytyisi silloin takaisin päälle. Anna säännölle oma <code>id</code>, kun sen päälle/pois-asetuksen on säilyttävä muokkausten läpi, ja luettele vanhat tunnukset kentässä <code>aliases</code> nimetessäsi sen uudelleen."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Sääntö kytketään päälle ja pois palveluntarjoajan ja tunnuksen yhdessä perusteella, kuten <code>shop::session-token</code>, joten kaksi palveluntarjoajaa voi käyttää samaa tunnusta. Mukautettujen sääntöjen muokkain voi tallentaa sen myös palveluntarjoajan mallin alle, kuten <code>domainPattern:||shop.example^::session-token</code>; molemmat muodot toimivat."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Yhden palveluntarjoajan sisällä jokaisen tunnuksen ja aliaksen on oltava erilainen. Luodut tunnukset lasketaan mukaan."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Tunnus ei voi sisältää kaksoispistettä."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Pelkän tunnuksen alle ilman palveluntarjoajaa tallennettu asetus ei kytke mitään; kytke sääntö pois päältä uudelleen mukautettujen sääntöjen muokkaimessa."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Etäsääntöluettelot"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Etäsääntöluettelot ovat sääntötiedostoja, jotka Linkumori lataa ja tarvittaessa tarkistaa tiivistetiedostoa vasten. Luetteloa, jossa on virheellinen <code>cln</code>-arvo, <code>defaults</code>-lohko tai <code>patches</code>-taulukko, ei ladata, ja Etäsääntöjen kunto ilmoittaa siitä."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Uudelleenohjaus ja esto tarvitsevat hyväksyntäsi"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Mitä etäluettelo voi tehdä, selvitetään sen sisällöstä latauksen yhteydessä:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Ominaisuus"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Luettelolla on se, kun se sisältää"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktiivinen latauksen yhteydessä"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>-, <code>rawRules</code>- tai <code>referralMarketing</code>-merkinnän tai <code>$removeparam</code>-suodattimen"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "merkinnän, jossa on <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "palveluntarjoajan <code>exceptions</code>-merkinnän tai <code>@@</code>-merkinnän"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code>- tai <code>fieldRedirections</code>-merkinnän tai <code>forceRedirection</code>-asetuksen"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "hyväksynnän jälkeen"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "palveluntarjoajan, jolla on <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Hyväksy <code>redirect</code> ja <code>block</code> luettelokohtaisesti Etäsääntöjen kunnossa. Siihen asti kyseisen luettelon uudelleenohjaukset ja estot pysyvät pois päältä, eivätkä sen raakasäännöt voi lähettää URL-osoitetta toiselle sivustolle; luettelon muut osat toimivat heti. Kun päivitys lisää uuden ominaisuuden, myös se odottaa hyväksyntää. Sisäänrakennetuilla ja omilla säännöillä on kaikki ominaisuudet."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Ylikuormitustila"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normaalisti etäluettelot, joissa on palveluntarjoajia, korvaavat sisäänrakennetut säännöt; luettelot, joissa on vain <code>patches</code>, otetaan käyttöön sisäänrakennetuille säännöille. Kun <em>Ota ylikuormitustila käyttöön</em> on päällä, ne ladataan yhdessä jollakin kolmesta strategiasta:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Vain korjaustila</em>: käytä etäluetteloiden korjaukset sisäänrakennettuihin sääntöihin; etäpalveluntarjoajat jätetään pois."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Korjaustila + yhdistäminen</em>: yhdistä sisäänrakennetut ja etäpalveluntarjoajat, käytä sitten korjaukset."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Ei korjaustilaa + yhdistäminen</em>: yhdistä palveluntarjoajat ja ohita korjaukset."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Yhdistettäessä etäluettelot yhdistetään keskenään siinä järjestyksessä, jossa ne luettelet, ja sitten sisäänrakennettujen sääntöjen kanssa (sisäänrakennetut ensin). Vain palveluntarjoajat, joilla on samat <code>domainPatterns</code> (tai <code>urlPattern</code>) sekä samat <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> ja <code>forceRedirection</code>, yhdistyvät; niiden <code>rules</code>, <code>rawRules</code> ja <code>referralMarketing</code> liitetään yhteen, ja <a href=\"#same-text-twice\">Sama teksti kahdesti</a> ratkaisee, mikä kopio suoritetaan. Etäsääntöjen kunto luettelee jokaisen korvatun säännön huomautuksena."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Omat säännöt otetaan käyttöön viimeisinä. Oma palveluntarjoaja korvaa jokaisen ladatun palveluntarjoajan, jolla on sama malli; niiden sääntöjä ei yhdistetä."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Sääntökorjaukset"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Etäluettelo voi korvata yksittäisiä jo ladattuja sääntöjä julkaisematta täyttä kopiota ylätason <code>patches</code>-taulukossa:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Pakollinen. Korvattava sääntö, kirjoitettuna kuten sen päälle/pois-avain: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> tai <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Pakollinen. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> tai <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Pakollinen. Uusi sääntö, tavallisena merkintänä tai sääntöobjektina."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Huomautus tiedostoa lukeville ihmisille."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Korjaukset suoritetaan etäluetteloiden yhdistämisen jälkeen ja ennen omia sääntöjä. Tiedosto, jossa on vain <code>patches</code>, ei tarvitse kenttää <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Yhdistäminen voi nimetä palveluntarjoajia uudelleen, joten muoto <code>domainPattern:</code> tai <code>urlPattern:</code> on se, joka löytää ne aina."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Korvaava sääntö säilyttää vanhan säännön tunnuksen tai ottaa vanhan tunnuksen aliakseksi, joten päälle/pois-asetukset pysyvät voimassa."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Uudelleenohjauksen korjaus odottaa luettelon <code>redirect</code>-hyväksyntää. Korjaus, jonka kohde ei vastaa mitään, ei muuta mitään."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Etäsääntöjen kunto listaa jokaisen korjauksen käytettynä, täsmäämättömänä tai ohitettuna."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Säännöt ja sallittujen luettelo"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Sallittujen luettelo on erillinen palveluntarjoajan kentästä <code>exceptions</code>: se listaa sivustot, joihin pyysit Linkumoria olemaan koskematta, ilman sääntötiedostoa. Merkinnät näyttävät tältä: <code>example.com</code>, <code>*.example.com</code> (sivusto ja sen aliverkkotunnukset) tai <code>example.*</code> (mikä tahansa pääte). Sivun lisääminen sallittujen luetteloon kattaa myös kaiken, mitä se lataa."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Täydelliset esimerkit"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Sääntöjen tarkistus"
+  },
+  "guide_checking_p_1": {
+    "message": "Mukautettujen sääntöjen muokkain tarkistaa säännöt tallennettaessa tai tuotaessa, ja <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> suorittaa samat tarkistukset. Rikkinäisen JSONin ja virheellisten säännöllisten lausekkeiden lisäksi ne hylkäävät säännöt, jotka latautuisivat mutta tekisivät hiljaa väärin, kuten:"
+  },
+  "guide_checking_item_1": {
+    "message": "tuntemattomat kentät, avaimet ja muokkaimet"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code>-arvo, joka ei ole <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "tunnus tai alias, jota käytetään kahdesti yhdessä palveluntarjoajassa"
+  },
+  "guide_checking_item_2": {
+    "message": "kaksi eri merkintää, joilla on sama teksti yhdessä luettelossa"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> <code>$removeparam</code>-suodattimessa tai <code>@@</code>-merkinnässä, <code>null</code> mukaan lukien"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code>-osoite, joka ei ole <code>http</code> tai <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "kenoviiva <code>$removeparam</code>-nimessä merkin edessä, jolla ei ole escape-merkintää"
+  },
+  "guide_checking_p_2": {
+    "message": "Ne varoittavat myös täsmällisistä kopioista ja samasta tekstistä sekä kentässä <code>rules</code> että kentässä <code>referralMarketing</code>. Jos tallennus epäonnistuu, viesti nimeää palveluntarjoajan, luettelon ja merkinnän."
+  },
+  "guide_toc_search": {
+    "message": "Suodata osioita"
+  },
+  "guide_toc_no_results": {
+    "message": "Ei vastaavia osioita."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: merkillä \"|\" alkavan uudelleenohjauksen on oltava tämän muotoinen: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect=-kohteen on oltava täydellinen http- tai https-URL-osoite",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ on oltava objekti",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type on oltava ei-tyhjä merkkijono",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type on oltava jokin seuraavista: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs on oltava \"all\" tai positiivisten kokonaislukujen taulukko",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ on oltava merkkijono tai sääntöobjekti",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern on oltava merkkijono",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern on oltava merkkijono",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId on oltava säännön tunnus",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId koskee vain rawRules-kohdan \"@@…$rawrule=\"-poikkeuksia",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags on oltava merkkijono (regex-liput, kuten \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing on oltava true tai false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing ei vaikuta kohdassa $FIELD$; se koskee vain kohtaa $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order on oltava numero tai null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order ei vaikuta kohdassa $FIELD$; se koskee vain kohtaa $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order ei vaikuta $removeparam-suodattimeen eikä \"@@\"-merkintään; ne suoritetaan aina muiden sääntöjen jälkeen",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active on oltava totuusarvo",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id on oltava merkkijono",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id on vastattava mallia $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases on oltava tunnusten luettelo, joka vastaa mallia $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases ei saa sisältää säännön omaa tunnusta",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description on oltava merkkijono",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection on oltava totuusarvo",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions on oltava merkkijonotaulukko",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes on oltava merkkijonotaulukko",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors on oltava taulukko",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: tuntematon kenttä \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ alkaa merkillä \"@@\", joka koskee vain rules- ja referralMarketing-kohtien $removeparam-suodattimia; käytä sen sijaan sääntöobjektin \"exceptions\"-kenttää",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ sisältää tuntemattoman $removeparam-vaihtoehdon \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" alkaa yksittäisellä \"|\"-merkillä, joten se vastaa vain URL-osoitteita, jotka alkavat täsmälleen merkkijonolla \"$REST$\"; tällaisia ei ole (URL-osoitteet alkavat merkkijonolla \"https://\"). Käytä \"||$REST$\"-merkintää, kun haluat vastata verkkotunnusta.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ sisältää \"targetId\"-kentän, joka toimii vain poikkeuksessa; aloita matchPattern merkkijonolla \"@@\" (esimerkiksi \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ sisältää sekä \"targetId\"-kentän että regexin \"rawrule=\"-merkinnän jälkeen; käytä vain toista niistä",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ sisältää targetId-arvon \"$ID$\", mutta tällä tarjoajalla ei ole raw-sääntöä, jolla olisi tämä tunnus tai sen alias",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ on \"$REGEX$\"-regexin \"@@\"-poikkeus, mutta mikään tämän tarjoajan raw-sääntö ei käytä kyseistä regexiä. Anna säännölle tunnus ja viittaa siihen \"targetId\"-kentällä",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ on \"@@\"-poikkeus, joten \"$KEY$\" ei vaikuttaisi mihinkään",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$-kohdan \"rawrule=\"-merkinnän jälkeen ei ole mitään; poistettava regex on annettava",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ sisältää virheellisen regexin \"rawrule=\"-merkinnän jälkeen: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ sisältää $GROUPS$ kaappausryhmää; kohde-URL-osoitteen ympärillä on oltava täsmälleen yksi \"( … )\" (kirjoita muut ryhmät muodossa \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ käyttää sääntötunnusta \"$ID$\" uudelleen kohdassa $WHERE$; sitä käytettiin ensin kohdassa $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ on oltava JSON-objekti",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ on oltava taulukko",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ sisältää tuntemattoman avaimen \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Virhe URL-osoitteen käsittelyssä: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Virhe sivun alustuksessa: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Virheellinen välilehti"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Tälle välilehdelle on jo käynnissä sääntöjen haku"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Tälle välilehdelle ei ole käynnissä taukotarkistusta"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Sääntöjä ladataan yhä. Yritä hetken kuluttua uudelleen."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Yhtäkään tällä sivulla käynnistynyttä sääntöä ei voi poistaa käytöstä."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Sääntöjen poistaminen käytöstä epäonnistui"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Tälle välilehdelle ei ole käynnissä sääntöjen hakua"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Tältä välilehdeltä ei löytynyt ohitettavaa sääntöä"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Lataus ei ole käytettävissä"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Tallennetta ei voitu tallentaa istunnon tallennustilaan"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Tuntematon sääntö"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "tuntematon virhe"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "vienti epäonnistui"
   }
 }

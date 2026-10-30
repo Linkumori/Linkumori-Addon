@@ -39,7 +39,7 @@
     "message": "Utilitzeu les regles de Linkumori/ClearURLs agrupades. Desactiveu-ho per executar-lo només amb regles remotes i/o personalitzades."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori utilitza un únic conjunt de regles de proveïdors ClearURLsData unificat. El JSON de proveïdors natiu, els objectes de regla canònics i els filtres $removeparam locals del proveïdor es fusionen abans que s'executi clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Informació de normes"
@@ -1137,25 +1137,25 @@
     "message": "Obre la configuració d'Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Comportament del mode de sobrecàrrega"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Només mode de pedaç"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Aplica pedaços remots a les regles integrades. Les regles de proveïdors remots no s'inclouen."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Mode de pedaç + fusió"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Fusiona les regles integrades i les de proveïdors remots, i després aplica els pedaços remots."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Sense mode de pedaç + fusió"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Fusiona les regles integrades i les de proveïdors remots sense aplicar pedaços remots."
   },
   "overload_mode_enabled": {
     "message": "Habilita el mode de sobrecàrrega"
@@ -1557,7 +1557,7 @@
     "message": "Patrons de domini"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP"
+    "message": "PD"
   },
   "providerImport_exceptions": {
     "message": "Excepcions"
@@ -1836,7 +1836,7 @@
     "message": "L'URL hash principal ha d'utilitzar HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "L'URL de la regla principal i l'URL del hash principal s'han de configurar conjuntament."
   },
   "save_primary_rule_https_required": {
     "message": "L'URL de la regla principal ha d'utilitzar HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Entenc els riscos - Continua"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Hauríeu de reconsiderar l'ús de regles remotes si no enteneu del tot o no confieu en l'origen del conjunt de regles de Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Aquesta funció de regles remotes està pensada per a usuaris avançats que entenen el JSON de Linkumori que carreguen. Les regles remotes haurien d'incloure un URL de hash corresponent per a la verificació."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Si afegiu l'URL d'una regla remota, l'extensió es connectarà al servidor que hàgiu designat per obtenir el conjunt de regles de Linkumori i el seu fitxer de hash quan estigui configurat. Cada obtenció pot exposar la vostra adreça IP i informació general, com la versió de l'extensió, el navegador i la versió del navegador, al servidor d'allotjament. Aquestes dades estan subjectes a la política de privadesa d'aquest lloc web o servidor web."
   },
   "security_modal_privacy_link_text": {
     "message": "Torna a llegir %PRIVACY_POLICY_LINK% abans de continuar si cal."
@@ -1887,7 +1887,7 @@
     "message": "avís d'advertència:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Utilitzeu les regles integrades tret que confieu en l'origen remot i el controleu. Proporcioneu un URL de hash corresponent per a les regles JSON de Linkumori remotes."
   },
   "security_modal_risk_1": {
     "message": "La vostra adreça IP i la informació del navegador s'exposaran als servidors configurats"
@@ -1899,7 +1899,7 @@
     "message": "La verificació hash només s'aplica a les regles Linkumori CLN Format 1.0 JSON; protegeix contra la manipulació de la transmissió, no fonts de regles malicioses."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Les regles remotes sense una verificació de hash correcta depenen completament de la confiança en l'URL d'origen."
   },
   "security_modal_risks_title": {
     "message": "Riscos de seguretat:"
@@ -1914,7 +1914,7 @@
     "message": "L'url del fitxer rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Obligatori per a la verificació de regles JSON de Linkumori remotes."
   },
   "setting_html_export_button": {
     "message": "Exporta"
@@ -1944,7 +1944,7 @@
     "message": "Límite de registre (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Fonts JSON de Linkumori remotes addicionals que es fusionen. Introduïu un parell per línia com a <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Conjunts de regles remotes addicionals"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL remot personalitzat per a les regles JSON de Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "L'URL del fitxer JSON de regles remotes"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "L'URL del hash és obligatori per a cada conjunt de regles remot."
   },
   "settings_html_page_title": {
     "message": "Configuració de Linkumori (netejar URL)"
@@ -2421,19 +2421,19 @@
     "message": "AVÍS: la funció avançada només està pensada per a servidors autoallotjats"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Esteu desactivant les proteccions de Gatekeeper per a l'edició d'URL de regles remotes. Aquesta funció pot carregar regles JSON de Linkumori remotes al conjunt de regles de proveïdors unificat. Continueu només si enteneu i confieu en l'origen que esteu configurant."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper és el flux de seguretat integrat que bloqueja les edicions directes d'URL remotes fins que acceptes l'avís de seguretat i completes la confirmació escrita."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Mantingueu Gatekeeper activat tret que confieu en els vostres orígens remots i els controleu. Les regles JSON remotes haurien d'incloure un URL de hash corresponent."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "avís d'advertència:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Si afegiu l'URL d'una regla remota, l'extensió es connectarà al servidor que hàgiu designat per obtenir el conjunt de regles de Linkumori i el seu fitxer de hash quan estigui configurat. Cada obtenció pot exposar la vostra adreça IP i informació general, com la versió de l'extensió, el navegador i la versió del navegador, al servidor d'allotjament. Aquestes dades estan subjectes a la política de privadesa d'aquest lloc web o servidor web."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Torna a llegir %PRIVACY_POLICY_LINK% abans de continuar si cal."
@@ -2448,7 +2448,7 @@
     "message": "L'extensió es connectarà a l'URL designat cada vegada que l'extensió estigui habilitada i s'hagi carregat al navegador."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "El servidor que allotja els fitxers JSON o de hash remots rebrà la vostra adreça IP."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "El servidor també pot rebre la versió de l'extensió, el navegador i la versió del navegador."
@@ -2457,7 +2457,7 @@
     "message": "Aquestes dades estan subjectes a la política de privacitat del lloc web o del servidor web que allotja aquests fitxers."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "En desactivar Gatekeeper, augmenteu el risc d'orígens de regles remotes insegurs o compromesos. La verificació de hash només protegeix les baixades de JSON de Linkumori remotes quan hi ha configurat un URL de hash corresponent."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Cancel·lar"
@@ -2517,7 +2517,7 @@
     "message": "Escriu una frase de confirmació exacta"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Aquesta acció redueix les proteccions per a les regles remotes. Continueu només si confieu en el vostre origen JSON remot."
   },
   "remote_urls_template_note_1": {
     "message": "Substitueix els valors del marcador de posició amb els URL HTTPS reals i, a continuació, importa aquest fitxer."
@@ -2841,16 +2841,16 @@
     "message": "Estat actual del hash:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "N/D"
   },
   "settings_remote_health_none": {
     "message": "Cap"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Col·lisions de regles:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ errors, $WARNINGS$ advertències, $NOTICES$ avisos",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Capacitats del fitxer remot:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inactives fins que s'acceptin: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Accepta $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Pedaços de regles:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ aplicats, $NOT_APPLIED$ no aplicats",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Valors per defecte de les regles"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Integrades"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Personalitzades"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Cap: comportament integrat"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "El mode de sobrecàrrega fusiona les regles integrades i les remotes; les regles de cada origen conserven els valors per defecte d'aquest origen."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Desa els valors per defecte"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Valors per defecte desats"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Quan està activat, cada origen de regles conserva els seus valors per defecte (els valors per defecte integrats s'apliquen a les regles integrades, i els de cada fitxer remot a les regles d'aquest fitxer), tret que trieu els vostres propis valors per defecte a l'editor de regles personalitzades."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Remot: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Quins valors per defecte s'apliquen"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Els propis de cada origen"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Els vostres, per a les regles integrades i remotes"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Els vostres, per a totes les regles"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(substituït pels vostres valors per defecte)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Els vostres"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ tipus de sol·licitud",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ excepcions d'URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 excepció d'URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ preprocessadors",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Les regles de cada origen reben els valors per defecte propis d'aquest origen."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Les regles integrades i remotes reben els vostres valors per defecte en lloc dels dels seus fitxers; les regles personalitzades conserven els seus."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Les regles integrades, remotes i personalitzades reben tots els vostres valors per defecte en lloc dels propis."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Gestiona els valors per defecte de les regles"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Els valors per defecte omplen els valors que una regla no defineix per ella mateixa. El valor propi d'una regla sempre preval, i les excepcions dels proveïdors no es modifiquen mai."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Edita els valors per defecte"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Els vostres valors per defecte"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Valors per defecte de les regles personalitzades"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Valors per defecte a editar"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Regles integrades"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(editat)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Restableix als valors per defecte del fitxer"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Fusiona des d'orígens…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Fusiona els valors per defecte de les regles"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "El resultat apareix com a \"Valors per defecte fusionats\" a la llista. Copieu-lo en un conjunt d'allà i premeu Desa els valors per defecte per utilitzar-lo."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Orígens a fusionar"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Conflictes"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Valors per defecte fusionats"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Utilitza els valors per defecte fusionats"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Valors per defecte fusionats"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "No s'utilitza fins que el copieu en un dels altres conjunts i el deseu."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Copia a"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Copia"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Trieu almenys dos orígens."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Sense conflictes: els orígens triats coincideixen en tots els valors."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Les excepcions se sumen de tots els orígens: $COUNT$ en total.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Combinat de tots els orígens"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "De: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "No definit (comportament integrat)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "No definit: tots els tipus de sol·licitud"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "No s'utilitza ara: els vostres valors per defecte substitueixen els propis de les regles integrades i remotes."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Editat per vosaltres: aquests substitueixen els valors per defecte propis del fitxer. El fitxer en si no es modifica."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(editat per vosaltres)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "No s'utilitza ara: s'ha triat \"Els propis de cada origen\" a dalt."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "No s'utilitza ara: els vostres valors per defecte les substitueixen també per a les regles personalitzades."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Les regles comencen desactivades (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Descripció"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Tipus de sol·licitud"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Tots els tipus"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Només aquests"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Trieu almenys un tipus de sol·licitud o seleccioneu \"Tots els tipus\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Les regles netegen tots els tipus de sol·licitud tret que elles, o els valors per defecte, en nomenin alguns. Els proveïdors també poden limitar els tipus amb resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Excepcions"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Una expressió regular d'URL per línia. Les regles s'ometen en els URL coincidents."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Preprocessadors"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Entrades: \"all\", o números de grup de captura com 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Afegeix un preprocessador"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Tipus de preprocessador"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Entrades del preprocessador"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Elimina"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Les entrades del preprocessador \"$INPUTS$\" han de ser \"all\" o números com 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Desactiva la protecció contra l'elusió de l'historial (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Mostra com a JSON"
   },
   "settings_remote_health_unknown": {
     "message": "desconegut"
@@ -3357,7 +3357,7 @@
     "message": "Filtra les entrades..."
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Pestanya"
   },
   "logger_tab_all": {
     "message": "Totes les pestanyes"
@@ -4017,10 +4017,10 @@
     "message": "Guia del proveïdor JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Obre la guia de regles de Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Quina sintaxi de regles he d'utilitzar?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4029,25 +4029,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Obre la guia de regles"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "No s'han pogut carregar els orígens dels proveïdors: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Les regles agrupades no estan disponibles."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "No s'han pogut carregar les regles agrupades: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "No s'ha pogut canviar l'idioma a $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Tema clar"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tema fosc"
   },
   "posarCopied": {
     "message": "POSAR copiat!"
@@ -4071,100 +4071,100 @@
     "message": "POSAR acceptat."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Restableix"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Eines d'accessibilitat"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Obre les eines d'accessibilitat"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Tanca les eines d'accessibilitat"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Restableix tota la configuració d'accessibilitat"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Visió"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lectura"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interacció"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Contrast alt"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Filtre de color"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Saturació"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Inverteix"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Ressalta els enllaços"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Amaga les imatges"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Augmenta la mida del text"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Redueix la mida del text"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Mida del text per defecte"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Selecció del tipus de lletra"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Adaptat a la dislèxia"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Espaiat del text"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Alçada de línia"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Alineació del text"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Posa en pausa les animacions"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Cursor més gran"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Per defecte"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Mitjà"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Alt"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Baix"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Cap"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Lleuger"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Intens"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4185,7 +4185,7 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Sense filtre"
   },
   "accessibility_tools_value_protanopia": {
     "message": "Protanopia"
@@ -4197,37 +4197,37 @@
     "message": "Tritanopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Escala de grisos"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Esquerra"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centre"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Dreta"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Molt petit"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Petit"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Gran"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Molt gran"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "El més gran"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Activat"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Desactivat"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4236,15 +4236,2227 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "activat"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "desactivat"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Mida del text per defecte seleccionada"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Tota la configuració d'accessibilitat s'ha restablert"
+  },
+  "skip_to_main_content": {
+    "message": "Salta al contingut principal"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navegació de la finestra emergent"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Vistes de regles personalitzades"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Vistes del registre"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Protecció contra l'elusió de l'historial (omet-la durant la navegació dins de la pàgina)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Redireccions de camp"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Copia la regla"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regla copiada"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "No s'ha pogut copiar la regla"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Què fa historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Els llocs d'una sola pàgina sovint canvien l'adreça amb history.pushState/replaceState en lloc de carregar una pàgina nova. Linkumori també neteja aquestes adreces. Afegiu history-bypass-protection=false a un filtre $removeparam per ometre només aquest filtre en aquests canvis dins de la pàgina; continua executant-se en les sol·licituds normals."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Per ometre un proveïdor sencer en els canvis dins de la pàgina, definiu-ho al proveïdor:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Si s'omet, val true i els canvis dins de la pàgina es netegen. La configuració pròpia d'una regla preval sobre la del proveïdor, de manera que una regla pot tornar a activar-ho amb history-bypass-protection=true, o amb \"historyBypassProtection\": true en un objecte de regla."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Omet la navegació interna"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Canvia el nom de l'ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nou id per a $OLD$ (a-z, 0-9, - i _). L'id antic es conserva com a àlies, de manera que les regles desactivades amb ell continuen desactivades.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" no és un id vàlid. Utilitzeu lletres minúscules, dígits, - i _, començant per una lletra o un dígit.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Una altra regla d'aquest proveïdor ja utilitza \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Desactiva la regla"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Voleu desactivar $ID$ per a tot el proveïdor o només per a aquest patró d'URL/domini?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "El meu proveïdor"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Patró d'URL/domini"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "S'ha canviat el nom de l'id de la regla a $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Interruptors orfes"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "No s'ha trobat cap regla coincident a l'origen"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Elimina"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Omet la neteja en la navegació dins de la pàgina"
+  },
+  "whitelist_added_general": {
+    "message": "S'ha afegit %s a la llista blanca general"
+  },
+  "whitelist_added_history_api": {
+    "message": "S'ha afegit %s com a excepció de l'API d'historial"
+  },
+  "whitelist_exception_count": {
+    "message": "%d excepció(ns)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Cap excepció a la llista blanca"
+  },
+  "whitelist_mode_general": {
+    "message": "Llista blanca general"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Només API d'historial"
+  },
+  "whitelist_mode_label": {
+    "message": "Àmbit de la llista blanca"
+  },
+  "whitelist_removed_general": {
+    "message": "S'ha eliminat %s de la llista blanca general"
+  },
+  "whitelist_removed_history_api": {
+    "message": "S'ha eliminat l'excepció de l'API d'historial per a %s"
+  },
+  "whitelist_type_general": {
+    "message": "General"
+  },
+  "whitelist_type_history_api": {
+    "message": "Només API d'historial"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Afegeix $1 a la llista blanca general"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Llista blanca general: $1 - feu clic per a només l'API d'historial"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Excepció de l'API d'historial: $1 - feu clic per a només aquesta pestanya"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Només pestanya: $1 - feu clic per eliminar"
+  },
+  "logger_action_allowed": {
+    "message": "Permès"
+  },
+  "logger_action_blocked": {
+    "message": "Bloquejat"
+  },
+  "logger_action_filter_label": {
+    "message": "Acció"
+  },
+  "logger_action_info": {
+    "message": "Informació"
+  },
+  "logger_action_modified": {
+    "message": "Modificat"
+  },
+  "logger_action_redirected": {
+    "message": "Redirigit"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Copia el resum"
+  },
+  "logger_btn_export": {
+    "message": "Exporta"
+  },
+  "logger_btn_group": {
+    "message": "Agrupa per regla"
+  },
+  "logger_col_hits": {
+    "message": "Coincidències"
+  },
+  "logger_col_last_seen": {
+    "message": "Vist per última vegada"
+  },
+  "logger_detail_group_title": {
+    "message": "Detall de la regla"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Pestanyes"
+  },
+  "logger_exported": {
+    "message": "S'han exportat $1 entrades."
+  },
+  "logger_filter_all": {
+    "message": "Tot"
+  },
+  "logger_report_rule": {
+    "message": "Informa'n"
+  },
+  "logger_rule_disable": {
+    "message": "Desactiva la regla"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Regla $1 desactivada. Torneu a carregar la pàgina per comprovar-ho."
+  },
+  "logger_rule_enable": {
+    "message": "Activa la regla"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Regla $1 activada de nou."
+  },
+  "logger_rule_failed": {
+    "message": "No s'ha pogut canviar la regla."
+  },
+  "logger_rule_off": {
+    "message": "La regla està desactivada"
+  },
+  "logger_rule_on": {
+    "message": "La regla està activada"
+  },
+  "logger_rule_unavailable": {
+    "message": "Aquesta regla no es pot canviar des d'aquí."
+  },
+  "logger_status_rules": {
+    "message": "$1 regla(es)"
+  },
+  "logger_summary_copied": {
+    "message": "Resum copiat."
+  },
+  "logger_summary_copy_failed": {
+    "message": "No s'ha pogut copiar el resum."
+  },
+  "logger_type_filter_label": {
+    "message": "Tipus"
+  },
+  "logger_btn_logging_off": {
+    "message": "Registre desactivat"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "El registre està desactivat. Feu clic per activar-lo."
+  },
+  "logger_btn_logging_on": {
+    "message": "Registre activat"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "El registre està activat. Feu clic per desactivar-lo."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "No s'ha pogut canviar la configuració del registre."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Afegeix una regla de referència"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Afegeix una excepció de regla en brut"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Afegeix una redirecció de camp"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Afegeix una excepció"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Cada plantilla afegeix un objecte de regla amb un id i un matchPattern de marcador de posició a example.com. Una entrada també pot ser una cadena simple: un nom de paràmetre, una expressió regular de nom, un filtre $removeparam o, a rawRules, una expressió regular. Els objectes de regla admeten id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description i targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Analitzador"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "No s'ha trobat cap problema."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Error"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Advertència"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ error(s), $WARNINGS$ advertència(es)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Ordre d'execució"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ pas(os), en l'ordre en què s'executen",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Cap entrada de rawRules, rules ni referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Calculat pel motor a partir del text de dalt, desat o no. Els passos s'ordenen per (stage, orderGroup, order, rank, arrayIndex): les regles en brut s'executen abans que les regles de camp; dins d'una etapa, primer s'executen les entrades amb order, de menor a major, i després la resta per llista i posició."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Màrqueting de referència"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referència eliminada"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referència permesa"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "En brut"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Camp"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Referència"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generat)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "ordre $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "reescriu"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "substitueix $COUNT$ definició(ns) anterior(s)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "afegit per completeProvider: elimina tots els paràmetres"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Desactivada"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Desactivada per a alguns patrons"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Clau d'ordenació: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Després $FILTERS$ filtre(s) $removeparam i $EXCEPTIONS$ excepció(ns) @@, després de tots els passos anteriors",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ excepció(ns) @@…$rawrule= poden aturar les regles en brut de dalt allà on coincideixen",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Arrossegueu un pas, o useu les seves fletxes, per moure'l dins de la seva etapa. En moure'l, cada entrada d'aquesta etapa rep un ordre de 10, 20, 30, … en la nova seqüència."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Canvieu a Referència eliminada per reorganitzar: aquesta vista mostra totes les entrades."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Arrossegueu per moure"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Mou $ENTRY$ abans",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Mou $ENTRY$ després",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "S'ha mogut $ENTRY$ a la posició $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Desfés el moviment"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Moviment desfet"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simula"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Executa aquest proveïdor en un URL tal com ho fa la neteja d'un enllaç copiat, amb les vostres regles desactivades i l'opció de referència de dalt, i mostra l'URL després de cada pas. Els altres proveïdors no s'executen. Genera un URL de prova en crea un a partir de les regles d'aquest proveïdor."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL de prova"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Executa"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Recorre la simulació pas a pas"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Inici"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Anterior"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Següent"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Final"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Reprodueix"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pausa"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "L'URL abans de qualsevol pas"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Passada $PASS$ · pas $STEP$ de $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "sense canvis"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "filtres $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "La passada $PASS$ no canvia res, de manera que la neteja s'atura",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Aquest proveïdor s'atura aquí: s'ha arribat al límit de cicles, l'URL ha tornat a un d'anterior o ja no coincideix amb el proveïdor"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "La passada $PASS$ redirigeix; la neteja continua a la nova adreça amb tots els proveïdors",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "El proveïdor bloqueja aquesta sol·licitud (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Resultat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Els patrons d'aquest proveïdor no coincideixen amb aquest URL, de manera que no s'executa cap de les seves regles."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Aquest URL coincideix amb una de les excepcions del proveïdor, de manera que no s'executa cap de les seves regles."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Introduïu un URL complet http:// o https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "No s'ha pogut executar la simulació. Comproveu el JSON de dalt."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Genera un URL de prova"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Creat a partir de les regles d'aquest proveïdor: text per a $RAW$ regla(es) en brut i $PARAMS$ paràmetre(s), cadascun comprovat amb la seva regla. keep=1 no coincideix amb cap regla i s'hauria de conservar. Les redireccions i els bloquejos no s'inclouen, ja que finalitzarien l'execució abans de les altres regles.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "No s'ha pogut crear cap amfitrió que coincideixi amb els patrons d'aquest proveïdor, de manera que l'URL utilitza un altre amfitrió i el proveïdor no s'hi executarà."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Tots els URL que coincideixen amb els patrons d'aquest proveïdor estan coberts per una de les seves pròpies excepcions, de manera que les seves regles no s'executen mai."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ regla(es) deixada(es) fora de l'URL de prova",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "no s'ha pogut crear cap text que hi coincideixi"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "el seu text faria coincidir una de les excepcions del proveïdor"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "elimina tots els paràmetres, de manera que no necessita cap paràmetre propi"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Aquest proveïdor té un filtre $removeparam sense nom, que elimina tots els paràmetres, inclòs keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "sense ordre"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "ordre $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Restaura els números d'ordre"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Torna cada ordre a com era quan vau obrir aquest proveïdor"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Números d'ordre restaurats"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Amaga"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Mostra"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Esborra les advertències"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Restaura les advertències"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ advertència(es) esborrada(es)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern sense indexPattern es comprova amb cada URL; afegiu indicacions d'indexPattern com \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ repeteix \"$ENTRY$\"; la còpia no fa res i totes dues comparteixen un mateix id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ encara té el marcador de posició de la plantilla \"$PATTERN$\"; substituïu-lo pel patró real",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ té matchPattern \"(?!)\", que no coincideix mai amb res",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Resolució de problemes"
+  },
+  "troubleshooter_launch": {
+    "message": "Resol els problemes d'aquesta pestanya (experimental)"
+  },
+  "troubleshooter_title": {
+    "message": "Solucionador de problemes de la pestanya"
+  },
+  "troubleshooter_page": {
+    "message": "Pàgina"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Com funciona l'enregistrament"
+  },
+  "troubleshooter_about_note": {
+    "message": "Obrir aquesta vista pot comprovar l'URL de la pàgina, però no enregistra res. L'enregistrament continua desactivat fins que trieu Inicia l'enregistrament. En iniciar-lo es torna a carregar aquesta pestanya per capturar les sol·licituds de recursos. Els URL capturats es mantenen a l'emmagatzematge de sessió durant aquesta sessió del navegador i s'esborren quan es tanca aquesta pestanya o acaba la sessió del navegador. L'enregistrament s'atura després de 15 minuts tret que l'atureu abans. Els URL de recursos poden contenir dades privades de consulta."
+  },
+  "troubleshooter_start": {
+    "message": "Inicia l'enregistrament"
+  },
+  "troubleshooter_starting": {
+    "message": "Iniciant…"
+  },
+  "troubleshooter_recording": {
+    "message": "Enregistrant…"
+  },
+  "troubleshooter_stop": {
+    "message": "Atura l'enregistrament"
+  },
+  "troubleshooter_refresh": {
+    "message": "Actualitza"
+  },
+  "troubleshooter_copy": {
+    "message": "Copia el resum"
+  },
+  "troubleshooter_export": {
+    "message": "Exporta"
+  },
+  "troubleshooter_export_title": {
+    "message": "Desa l'enregistrament com a fitxer JSON. Els URL de recursos poden contenir dades privades de consulta."
+  },
+  "troubleshooter_category": {
+    "message": "Categoria"
+  },
+  "troubleshooter_category_all": {
+    "message": "Totes les categories"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Regles d'URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Redireccions"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Proteccions i elusions"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Tipus de recurs"
+  },
+  "troubleshooter_type_all": {
+    "message": "Tots els tipus de recurs"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Cerca regles, proveïdors i URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Enregistrant $1 · queden $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Comprovant aquesta pestanya…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "No hi ha cap pestanya activa disponible."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Aquesta pàgina no permet l'anàlisi de regles d'URL. Obriu una pàgina web http o https normal."
+  },
+  "troubleshooter_status_off": {
+    "message": "L'enregistrament està desactivat. Inicieu l'enregistrament per inspeccionar els URL de recursos que carrega aquesta pàgina."
+  },
+  "troubleshooter_status_active": {
+    "message": "S'han capturat $1 canvi(s) d'URL fins ara. Els nous apareixen aquí automàticament."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Enregistrament aturat. S'han capturat $1 canvi(s) d'URL."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Les dades de l'enregistrament no s'han pogut desar a l'emmagatzematge de sessió. $1 canvi(s) d'URL es podrien perdre si l'extensió es reinicia."
+  },
+  "troubleshooter_status_started": {
+    "message": "Enregistrament iniciat i la pestanya s'està tornant a carregar. Els URL capturats apareixen aquí a mesura que es carrega la pàgina."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Enregistrament aturat. S'han capturat $1 canvi(s) d'URL i desat(s) per a aquesta sessió del navegador."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Enregistrament aturat. S'han capturat $1 canvi(s) d'URL, però l'emmagatzematge de sessió no els ha pogut desar."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Obriu primer una pàgina web http o https normal."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "No s'ha pogut iniciar l'enregistrament d'aquesta pestanya."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "No s'ha pogut aturar l'enregistrament d'aquesta pestanya."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "No s'ha pogut llegir aquesta pestanya. Proveu de tancar i tornar a obrir la finestra emergent."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Resum copiat."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "No s'ha pogut copiar el resum."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Enregistrament exportat."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "No s'ha pogut exportar l'enregistrament."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "No s'ha pogut obrir el formulari d'informe."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regla activada; torneu a carregar la pestanya per comparar."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regla desactivada; torneu a carregar la pestanya per comparar."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "No s'ha pogut actualitzar aquesta regla."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Encara no s'ha trobat cap canvi de regla. Inicieu l'enregistrament per inspeccionar els URL de recursos d'aquesta pàgina."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Aquesta pàgina del navegador no es pot analitzar."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Cap resultat coincideix amb aquests filtres."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Es mostren les primeres $1 regles."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 coincidència(es)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 fallida(es)"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID de regla: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Acció de protecció integrada (sense ID de regla)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID de regla: no disponible per a aquest resultat"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "No s'ha pogut resoldre aquest ID de regla al conjunt de regles actual."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Sol·licitud observada"
+  },
+  "troubleshooter_source_page": {
+    "message": "Comprovació de l'URL de la pàgina"
+  },
+  "troubleshooter_changes": {
+    "message": "Què ha canviat: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "URL afectats ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…i $1 més"
+  },
+  "troubleshooter_after": {
+    "message": "Després de Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Ha fallat després que Linkumori el canviés: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Aquesta regla està activada. Desactiveu-la i torneu a carregar per comparar la pàgina."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Aquesta regla està desactivada. Activeu-la i torneu a carregar per restaurar-ne el comportament."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Aquesta és una acció de protecció integrada, no una regla individual."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Reviseu l'URL afectat abans de canviar les regles."
+  },
+  "troubleshooter_report": {
+    "message": "Informa d'aquesta regla"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Desactiva la regla"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Activa la regla"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Desactiva la regla $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Activa la regla $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Desant…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "eliminat $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "afegit $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "canviat $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "redirigit a $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "camí canviat"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragment canviat"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL canviat"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "bloquejat a propòsit"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 sol·licitud(s) han fallat en aquesta pàgina; $2 just després que Linkumori canviés l'URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Aquesta pàgina està trencada?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Trobeu la regla que ho trenca: les regles que s'han executat en aquesta pàgina es desactiven una per una i, després de cadascuna, indiqueu si la pàgina ha quedat arreglada. No esteu segur que la causa sigui Linkumori? Comproveu-ho primer amb la neteja en pausa."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Comprova-ho primer amb la neteja en pausa"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "La neteja està en pausa per a $1 en aquesta pestanya"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "La pestanya s'ha tornat a carregar sense neteja. La pàgina funciona ara?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Sí, funciona"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "No, continua trencada"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Cancel·la"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Fet"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Probablement no és Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "La pàgina continuava trencada amb la neteja en pausa, de manera que el problema probablement és en un altre lloc: el mateix lloc web, una altra extensió o la xarxa. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Probablement la causa és Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "La pàgina funciona amb la neteja en pausa. Trobeu la regla: les regles es desactiven una per una, la pestanya es torna a carregar i indiqueu si la pàgina queda arreglada. Totes les altres regles es tornen a activar al final."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "La pestanya es torna a carregar amb la neteja activada de nou, per enregistrar quines regles s'executen en aquesta pàgina. Apareixeran aquí d'aquí a un moment. Si no n'apareix cap, feu servir la pàgina fins que es trenqui."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Troba la regla ($1 regles)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Sí, arreglat"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "No, continua trencada"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Trobada"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "La pàgina es trenca a causa de la regla $1$2. S'ha tornat a activar. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Desactiva aquesta regla"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Informa'n"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Regla desactivada. Torneu a carregar la pestanya per comprovar-ho. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "No s'ha trobat cap regla única"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Desactivar les regles una per una no ha arreglat la pàgina, de manera que probablement la causen diverses regles juntes o una opció de protecció. Totes les regles s'han tornat a activar. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "No s'ha pogut executar la comprovació: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Torneu a carregar Linkumori per utilitzar aquesta comprovació"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori s'ha actualitzat, però la seva part en segon pla encara executa la versió antiga. Torneu a carregar l'extensió (per a un complement temporal: about:debugging → This Firefox → Reload) o reinicieu Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Trobada"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "La pàgina es trenca a causa de la regla $1$2. Continua desactivada perquè la pàgina funcioni; totes les altres regles tornen a estar activades. Torneu a carregar la pestanya per comprovar-ho. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Torna a carregar la pestanya"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Torna-la a activar"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Regla activada de nou. Torneu a carregar la pestanya per comprovar-ho. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Enregistra i troba la regla"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Enregistrant quines regles s'executen en aquesta pàgina. Feu servir la pàgina fins que es trenqui; les regles apareixen aquí."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Desactivada temporalment per la cerca de regles. Es torna a activar quan acaba la cerca."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "La cerca de regles s'està executant. Canvieu les regles quan acabi."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Omet: torna-la a activar"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Deixa-la desactivada"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Cerca de regles omesa; totes les regles estan activades de nou. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "La regla $1 continua desactivada. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Desactivades per a aquesta prova:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…i $1 més"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Atura la cerca"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Omesa: aquesta regla s'ha tornat a activar i es deixa fora. Es prova la següent."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "No s'ha trobat cap regla entre les regles provades. $1 regla(es) que heu omès no s'han provat. Totes les regles estan activades de nou. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimental"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimental: aquest solucionador de problemes no és del tot estable. Els resultats poden ser incorrectes i desactiva regles mentre fa proves. Si després alguna cosa sembla incorrecta, reviseu les regles a l'editor de regles personalitzades o feu servir Atura la cerca per tornar-les a activar."
+  },
+  "troubleshooter_working": {
+    "message": "Treballant…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Torna a enregistrar"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "S'ha esborrat l'enregistrament anterior. Es torna a enregistrar aquesta pestanya des d'una càrrega nova."
+  },
+  "troubleshooter_clear": {
+    "message": "Esborra"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Esborra l'enregistrament d'aquesta pestanya, els resultats i la cerca de regles acabada. Les regles es mantenen tal com estan."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Esborrat. Les regles es mantenen tal com estan."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Esborrat. La regla $1 continua desactivada."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Es prova una regla cada vegada: regla $1 de $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Només aquesta regla està desactivada i la pestanya s'ha tornat a carregar. La pàgina ha quedat arreglada?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Omet aquesta regla"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Omet: torna-la a activar, prova la següent ($1 pendents)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 regla(es) més que s'han executat en aquesta pàgina no s'han provat. Voleu continuar provant-les?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Deixa-la desactivada, prova la següent ($1 pendents)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "La regla $1 continua desactivada. Es prova la regla següent."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Cap altra regla arregla la pàgina per si sola. Les $1 regla(es) que heu deixat desactivades continuen desactivades; totes les altres estan activades de nou. Per començar de nou, feu clic a Esborra."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Prova la regla següent ($1 pendents)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "La regla $1 s'ha tornat a activar i es deixa fora. Es prova la regla següent."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Cap altra regla arregla la pàgina per si sola. Les $1 regla(es) que heu omès també s'han tornat a activar, de manera que totes les regles estan activades. Per començar de nou, feu clic a Esborra."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori neteja els URL amb regles escrites en <strong>CLN Format 1.0</strong> (Clean Link Notation), un format JSON. Aquesta guia va des d'una primera regla fins a totes les opcions, amb exemples que podeu copiar."
+  },
+  "guide_intro_p_2": {
+    "message": "Les regles integrades, les llistes de regles remotes i les vostres regles personalitzades utilitzen el mateix format. Escriviu les regles personalitzades a l'editor de regles personalitzades, que les comprova en desar-les o importar-les. Un catàleg de regles oficial de ClearURLs (<code>data.min.json</code>) ja és un fitxer CLN vàlid i es pot utilitzar tal qual."
+  },
+  "guide_rules_file_p_1": {
+    "message": "El nom del proveïdor és només una etiqueta. Quins URL gestiona un proveïdor ho decideixen <code>domainPatterns</code> o <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Clau de primer nivell"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obligatori. Els proveïdors, per nom."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Versió del format, opcional. L'únic valor vàlid és <code>\"1.0\"</code>. Un fitxer sense aquesta clau també es llegeix com a 1.0; qualsevol altre valor fa que el fitxer sigui rebutjat. No es diu <code>version</code> perquè el nou format de regles de ClearURLs ja utilitza aquesta clau."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Informació opcional sobre el fitxer."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Valors per a cada regla del fitxer que no defineix els seus propis (capítol 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Només en llistes de regles remotes: substitucions per a regles que ja estan carregades (capítol 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Quins URL gestiona el proveïdor, com un patró de domini o una llista (capítol 3). Utilitzeu aquest o <code>urlPattern</code>, mai tots dos."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Quins URL gestiona el proveïdor, com una única expressió regular que es compara amb l'URL complet. No distingeix majúscules i minúscules."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Només amb <code>urlPattern</code>: indicacions d'amfitrió com <code>||example.com^</code>, de manera que el proveïdor només es comprova per a aquests amfitrions en lloc de per a tots els URL. És una indicació de cerca, no una condició de coincidència."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Paràmetres de referència i d'afiliació a eliminar. S'ometen mentre <em>Permet el màrqueting de referència</em> està activat (capítol 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL que el proveïdor deixa completament intactes (capítol 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Envia la sol·licitud a una altra adreça en lloc d'editar-la (capítol 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Envia la sol·licitud al valor d'un paràmetre (capítol 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: quan es redirigeix una càrrega de pàgina (<code>main_frame</code>), tota la pestanya navega a la nova adreça, no només la sol·licitud de xarxa."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Gestiona només aquests mètodes HTTP, per exemple <code>[\"GET\"]</code>. Si s'omet: tots els mètodes."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Gestiona només aquests tipus de sol·licitud, per exemple <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Si s'omet: tots els tipus de sol·licitud."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Per defecte <code>true</code>. <code>false</code> omet tot el proveïdor quan una pàgina canvia la seva pròpia adreça amb l'API d'historial (<code>pushState</code>/<code>replaceState</code>). Les sol·licituds de xarxa normals continuen netejant-se."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> desactiva el proveïdor sense suprimir-lo."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> és una llista de patrons de domini. Un URL coincideix si qualsevol d'ells hi coincideix. Els mateixos patrons s'utilitzen davant de <code>exceptions</code>, <code>redirections</code>, els filtres <code>$removeparam</code> i les regles en brut."
+  },
+  "guide_matching_cell_1": {
+    "message": "l'URL complet, com a expressió regular"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL que contenen aquest text en qualsevol lloc (sense <code>|</code> inicial)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> marca el final del nom de l'amfitrió, o un separador com <code>/</code>, <code>?</code>, <code>:</code> o el final de l'URL. <code>*</code> és un comodí."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> representa un domini: l'amfitrió i tots els seus subdominis. Un sol <code>|</code> representa l'inici mateix de l'URL i ha d'anar seguit d'un esquema com <code>https://</code>. Per a un domini sempre voleu <code>||</code>; <code>|example.com^</code> no pot coincidir mai, de manera que l'editor el rebutja."
+  },
+  "guide_matching_p_4": {
+    "message": "Per exemple, <code>||smile.amazon.*^</code> es llegeix així: <code>||</code> l'amfitrió i els seus subdominis, <code>smile.amazon</code> les etiquetes requerides, <code>.*</code> qualsevol sufix públic (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) i <code>^</code> el final de l'amfitrió."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "exactament aquest paràmetre"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "tots els paràmetres el nom complet dels quals coincideix; no distingeix majúscules i minúscules"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> i <code>\"$removeparam=fbclid\"</code> eliminen el mateix. Utilitzeu el nom simple tret que necessiteu alguna cosa del capítol 5. Qualsevol entrada també es pot escriure com a objecte de regla (capítol 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Aquí <code>qid</code> s'elimina a tots els llocs d'Amazon, <code>tag</code> només a <code>amazon.de</code>, <code>sr</code> només a <code>smile.amazon</code> i <code>ref_</code> només sota <code>/gp/</code>. El patró redueix els patrons propis del proveïdor; mai els pot ampliar."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> converteix el filtre en una excepció que conserva el paràmetre (vegeu més avall)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> limita el filtre a alguns dels URL del proveïdor (capítol 3). Si s'omet, s'aplica a tots els URL que coincideixen amb el proveïdor."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> tria els paràmetres. Si s'omet, s'eliminen tots els paràmetres."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Els modificadors diuen quan s'activa el filtre. Tots els modificadors indicats s'han de complir; no hi ha cap \"o\" entre ells."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "tots els paràmetres excepte <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "paràmetres el nom dels quals, o <code>name=value</code> conjuntament, coincideix amb l'expressió regular; afegiu <code>i</code> per ignorar majúscules i minúscules"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "paràmetres el nom dels quals comença per <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escapar un nom de paràmetre"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Una barra invertida fa que el caràcter següent sigui literal, de manera que es pot apuntar a qualsevol nom de paràmetre:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Valor"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Elimina el paràmetre anomenat"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (la coma no inicia els modificadors)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Aquests cinc són els únics escapaments en un valor de nom; una barra invertida abans de qualsevol altre caràcter és un error. Dins d'un valor <code>/regex/</code> la barra invertida conserva el seu significat d'expressió regular. Els escapaments funcionen a <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> i les entrades <code>@@</code>. En JSON, escriviu cada barra invertida dues vegades: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modificadors"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Els modificadors van després del valor, separats per comes. Separeu diversos valors d'un mateix modificador amb <code>|</code> i poseu <code>~</code> davant d'un valor per excloure'l:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modificador"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "només quan la pàgina que ha fet la sol·licitud és (o, amb <code>~</code>, no és) una d'aquestes; es permeten valors d'expressió regular"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "només quan la sol·licitud mateixa va a un d'aquests, sigui quina sigui la pàgina que l'ha feta"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "només per a aquests mètodes HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "només quan la sol·licitud va al mateix domini registrable que la pàgina (<code>a.example.com</code> i <code>b.example.com</code> compten com el mateix), o a un de diferent"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "el mateix, però comparant el nom exacte de l'amfitrió, de manera que un subdomini compta com a tercer"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "els noms dels paràmetres es comparen distingint majúscules i minúscules"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "omet aquest filtre quan una pàgina canvia la seva pròpia adreça amb l'API d'historial. També accepta <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Els quatre modificadors <code>*-party</code> no es poden combinar entre ells; <code>first-party,third-party</code> és rebutjat."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Per exemple, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> elimina <code>sid</code> a <code>example.com</code>, només per a sol·licituds GET fetes per una pàgina d'un altre lloc, i mai quan aquesta pàgina és <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Una entrada <code>@@</code> només protegeix contra els filtres <code>$removeparam</code>. Una entrada simple com <code>\"ref\"</code> continua eliminant el paràmetre; per a això useu <code>exceptions</code> d'un objecte de regla. Les regles en brut tenen les seves pròpies entrades <code>@@…$rawrule=</code> (capítol 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Tant se val on l'indiqueu, i no pot tenir <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "El seu patró es comprova amb l'URL tal com el va rebre el proveïdor, abans que s'executin les regles en brut. Una entrada <code>@@</code> limitada a un camí que una regla en brut elimina continua coincidint."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "També cobreix els filtres d'altres proveïdors per a sol·licituds fetes per una pàgina que coincideix amb aquest proveïdor, cosa útil per excloure un lloc d'una regla definida en un altre lloc."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Les regles en brut s'executen abans de <code>rules</code>, ignoren majúscules i minúscules i substitueixen totes les coincidències (indicadors <code>gi</code>, o <code>g</code> amb <code>match-case</code>). En JSON, escriviu cada barra invertida dues vegades."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Una regla en brut pot prendre el patró i els modificadors d'un filtre <code>$removeparam</code>, amb <code>rawrule=</code> al final. Tot el que ve després de <code>rawrule=</code> és l'expressió regular:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "El patró i els modificadors decideixen on s'executa la regla; l'expressió regular continua sent el que se suprimeix."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Una entrada que comença per <code>@@</code> i acaba en <code>rawrule=</code> impedeix que les regles en brut s'executin allà on el seu patró coincideix:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Sense res després de <code>rawrule=</code>, atura totes les regles en brut del proveïdor en aquests URL."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Amb una expressió regular després de <code>rawrule=</code>, atura les regles en brut amb aquesta expressió regular."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Com a objecte de regla amb <code>targetId</code>, atura només la regla en brut amb aquest id o àlies."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Per ometre tot el proveïdor, useu <code>exceptions</code> en el seu lloc."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Si un URL coincideix amb una entrada de <code>exceptions</code>, no s'executa cap regla del proveïdor per a aquesta sol·licitud. Una entrada és una expressió regular amb l'URL complet, o un patró de domini que comença per <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Les excepcions ignoren majúscules i minúscules. Per ometre una sola regla en lloc de tot el proveïdor, doneu a aquesta regla les seves pròpies <code>exceptions</code> (capítol 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Guanya el primer paràmetre coincident que apareix a l'URL. Per a <code>https://site.example/away?redirect=https://real.example/page</code>, la sol·licitud va a <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Destinacions de redirecció vàlides"
+  },
+  "guide_redirects_p_2": {
+    "message": "Una redirecció només es produeix cap a una adreça absoluta <code>http</code> o <code>https</code> amb amfitrió. Es comprova després dels preprocessadors i de la descodificació percentual. Una destinació no vàlida fa que l'entrada compti com a no coincident: no es redirigeix res i els passos posteriors del proveïdor s'executen amb l'URL sense canvis."
+  },
+  "guide_redirects_th_1": {
+    "message": "Destinació"
+  },
+  "guide_redirects_th_2": {
+    "message": "Redirigeix?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "sí"
+  },
+  "guide_redirects_cell_2": {
+    "message": "sí, a <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "no: l'esquema no és <code>http</code> ni <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "no: no és una adreça absoluta"
+  },
+  "guide_redirects_p_3": {
+    "message": "Una regla en brut el resultat de la qual té un esquema, un amfitrió o un port diferent de l'entrada també compta com a redirecció, fins i tot quan només suprimeix text: suprimir <code>secure-</code> de <code>https://secure-bank.example/</code> porta a un altre lloc. Necessita una destinació vàlida i, en una llista de regles remota, l'aprovació de <code>redirect</code> (capítol 15). Altrament, la regla deixa l'URL tal com era."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Qualsevol entrada, de qualsevol llista, pot ser un objecte en lloc d'una cadena. Useu-ne un quan una regla necessiti un id estable, hagi de començar desactivada, hagi de reescriure en lloc d'eliminar o només s'hagi d'executar en alguns casos:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obligatori. El text que escriuríeu com a entrada simple en aquesta llista."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Un nom estable (lletres, dígits, <code>-</code>, <code>_</code>) que s'utilitza per activar i desactivar la regla (capítol 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Els ids anteriors de la regla, de manera que una configuració desada amb un id antic continuï aplicant-se després d'un canvi de nom."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Reescriu en lloc d'eliminar; <code>§1§</code>, <code>§2§</code>, … són els valors capturats."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Transforma primer els valors capturats."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Només per a aquests tipus de sol·licitud, per exemple <code>[\"main_frame\"]</code>. La neteja sense sol·licitud (<em>Copia l'enllaç net</em>, l'eina de neteja, els canvis de l'API d'historial) compta com a <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (expressions regulars) on aquesta regla concreta no s'executa."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Indicadors d'expressió regular, com a cadena. Per defecte <code>i</code>; a <code>rawRules</code>, <code>gi</code> (o <code>g</code> amb <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Executa la regla abans o després dins de la seva etapa (capítol 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: una regla de <code>rules</code> també compta com a regla de màrqueting de referència (capítol 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "L'interruptor del proveïdor del mateix nom, per a aquesta regla en concret. Preval sobre el valor del proveïdor i el valor per defecte del fitxer."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: la regla comença desactivada."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Una nota per a les persones que llegeixen el fitxer; ha de ser una cadena."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Només en entrades <code>@@…$rawrule=</code>: l'id de la regla en brut que atura."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Aquí <code>?token=abc123</code> es converteix en <code>?token=clean-abc123</code>. Una reescriptura s'aplica com a màxim una vegada per sol·licitud, de manera que no continua embolcallant el valor."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Els preprocessadors canvien els valors capturats, en ordre, abans que <code>replacePattern</code> o una redirecció els utilitzin. <code>inputs</code> és <code>\"all\"</code> o una llista de números de grup:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> accepta les mateixes entrades que <code>rules</code>. Només s'executen mentre <em>Permet el màrqueting de referència</em> està desactivat, de manera que els enllaços d'afiliació continuen funcionant si l'activeu:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Una regla pot continuar a <code>rules</code> i comptar igualment com a màrqueting de referència, amb <code>\"referralMarketing\": true</code>. No poseu el mateix text a <code>rules</code> i a <code>referralMarketing</code>; l'editor n'avisa."
+  },
+  "guide_request_types_cell_1": {
+    "message": "tipus de sol·licitud que gestiona un objecte de regla (també es pot definir a <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Els tipus de sol·licitud utilitzen els noms del navegador: <code>main_frame</code> (una pàgina), <code>sub_frame</code> (un marc), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> i així successivament. Els modificadors de filtre anomenen els dos primers <code>document</code> i <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Els tipus de sol·licitud només provenen de les regles: no hi ha cap llista de tipus de sol·licitud a Configuració. Si no se'n defineix cap, una regla neteja tots els tipus de sol·licitud."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Valors per defecte"
+  },
+  "guide_defaults_p_1": {
+    "message": "Un bloc <code>defaults</code> de primer nivell dona a cada regla del fitxer valors que no defineix ella mateixa:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Valor per defecte per a cada regla…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> desactiva totes les regles tret que diguin <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> o ometre'l vol dir tots els tipus"
+  },
+  "guide_defaults_item_1": {
+    "message": "El valor propi d'una regla sempre preval, i les <code>exceptions</code> d'una regla substitueixen la llista per defecte en lloc d'afegir-s'hi."
+  },
+  "guide_defaults_item_2": {
+    "message": "Els valors per defecte s'apliquen a <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> i <code>fieldRedirections</code>. La llista <code>exceptions</code> pròpia d'un proveïdor no es toca. Les entrades <code>$redirect=</code> només utilitzen <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Cada fitxer conserva els seus propis valors per defecte: les regles integrades, cada llista remota i les vostres regles personalitzades, també quan el mode de sobrecàrrega les fusiona."
+  },
+  "guide_defaults_item_4": {
+    "message": "Per a un <code>completeProvider</code>, els valors per defecte de <code>requestTypes</code> i <code>exceptions</code> també limiten el bloqueig."
+  },
+  "guide_defaults_item_5": {
+    "message": "Les claus desconegudes i els tipus incorrectes són errors, i una llista remota amb un bloc <code>defaults</code> no vàlid és rebutjada."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Els vostres propis valors per defecte"
+  },
+  "guide_defaults_p_2": {
+    "message": "A l'editor de regles personalitzades, <em>Gestiona els valors per defecte de les regles</em> obre un formulari on definiu un bloc <code>defaults</code> propi i trieu on substitueix els propis dels fitxers:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Els propis de cada origen</em> (per defecte): cada fitxer utilitza els seus propis <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Els vostres, per a les regles integrades i remotes</em>: les regles integrades i remotes utilitzen els vostres; les regles personalitzades conserven els seus."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Els vostres, per a totes les regles</em>: totes les regles utilitzen els vostres."
+  },
+  "guide_defaults_p_3": {
+    "message": "El mateix formulari pot editar els valors per defecte de les regles integrades i de cada llista remota carregada. La vostra edició es desa a l'extensió, no al fitxer, i <em>Restableix als valors per defecte del fitxer</em> l'elimina. <em>Fusiona des d'orígens…</em> combina els valors per defecte dels orígens que marqueu; no es desa res fins que deseu."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Com es processa un URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, després <code>fieldRedirections</code>: una coincidència amb una destinació vàlida redirigeix la sol·licitud."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> i <code>referralMarketing</code> eliminen o reescriuen paràmetres."
+  },
+  "guide_processing_order_item_3": {
+    "message": "S'executen els filtres <code>$removeparam</code>, excepte allà on una entrada <code>@@</code> conserva el paràmetre."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Guanya el primer proveïdor que canvia, redirigeix o bloqueja l'URL. El nou URL passa llavors pels mateixos passos de nou (vegeu <a href=\"#termination\">Quan s'atura el processament</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Ordre d'execució i <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Els passos 4 i 5 s'ordenen junts, amb aquestes regles successives:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Les regles en brut sempre s'executen primer.</strong> Cap <code>order</code> mou una entrada de <code>rules</code> per davant d'una regla en brut. Una neteja que ha de fer-se abans d'una regla en brut ha de ser ella mateixa una regla en brut."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Dins d'una etapa, les regles amb <code>order</code> s'executen abans que les que no en tenen</strong>, de menor a major. Es permeten nombres negatius i fraccions. <code>order: 10</code> no vol dir \"desè\": vol dir després de les regles amb ordre de l'etapa per sota de 10 i abans de totes les seves regles sense ordre."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Després per llista:</strong> <code>rules</code>, després els objectes de <code>rules</code> marcats amb <code>\"referralMarketing\": true</code>, després <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Després per posició</strong> a la llista. Cada entrada conserva el seu lloc, incloses les entrades escrites com <code>\"3\"</code> o <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Aquí el token es reescriu abans que s'elimini <code>utm_source</code>, tot i que ve en segon lloc:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Les regles desactivades es deixen fora. Els filtres <code>$removeparam</code> i les entrades <code>@@</code> són fora d'aquesta ordenació i no poden tenir <code>order</code>, ni tan sols <code>null</code>; els filtres sempre s'executen en últim lloc."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "El mateix text dues vegades"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Dues entrades amb el mateix text de <code>matchPattern</code> en un mateix grup són una sola regla. Els grups són en brut (<code>rawRules</code>), de camp (<code>rules</code> sense la marca de referència) i de referència (objectes de <code>rules</code> marcats, després <code>referralMarketing</code>). Això passa sobretot quan es fusionen llistes de regles."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Guanya l'última definició que no estigui desactivada, amb totes les seves claus."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Sense <code>order</code> propi, la guanyadora pren la posició de la primera definició i l'<code>order</code> anterior més proper. <code>\"order\": null</code> vol dir sense ordre i descarta un d'heretat."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Els ids i àlies de les definicions substituïdes també activen i desactiven la guanyadora."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Mentre s'executen les regles de màrqueting de referència, una entrada de referència substitueix una entrada de camp amb el mateix text."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Una regla en brut i una regla de camp amb el mateix text no col·lideixen; s'executen totes dues."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Dins d'una mateixa llista, dues entrades diferents amb el mateix text són un error, i una còpia exacta és una advertència."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Quan s'atura el processament"
+  },
+  "guide_processing_order_item_13": {
+    "message": "S'executen com a màxim 10 cicles per sol·licitud; en arribar al límit s'utilitza l'URL tal com està."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Una regla amb <code>replacePattern</code> s'aplica com a màxim una vegada per sol·licitud."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Un pas que no canvia l'URL no inicia un cicle nou."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Configuració → <em>Cicles de neteja il·limitats</em> (desactivat per defecte) elimina el límit de 10 cicles per a cadenes de regles que en necessiten més. El processament acaba llavors quan un cicle no canvia res, però dues regles que es redirigeixen mútuament entren en bucle fins que el navegador es rendeix i la pàgina no es carrega. Activeu-ho només per a regles en què confieu."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Ids de regla i interruptors d'activació"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Totes les regles tenen un id. Una regla sense <code>id</code> n'obté un a partir de la seva llista i el seu text: <code>\"utm_source\"</code> a <code>rules</code> es converteix en <code>field-utm-source</code>. Un id generat canvia quan canvia el text de la regla, i una regla desactivada es tornaria a activar. Doneu a una regla el seu propi <code>id</code> quan hagi de conservar la seva configuració d'activació en editar-la, i llisteu els ids antics a <code>aliases</code> quan en canvieu el nom."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Una regla s'activa i es desactiva pel seu proveïdor i id junts, com <code>shop::session-token</code>, de manera que dos proveïdors poden utilitzar el mateix id. L'editor de regles personalitzades també pot desar-la sota el patró del proveïdor, com <code>domainPattern:||shop.example^::session-token</code>; les dues formes funcionen."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Dins d'un mateix proveïdor, cada id i àlies ha de ser diferent. Els ids generats també compten."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Un id no pot contenir dos punts."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Una configuració desada sota un id sol, sense el seu proveïdor, no activa ni desactiva res; torneu a desactivar la regla a l'editor de regles personalitzades."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Llistes de regles remotes"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Les llistes de regles remotes són fitxers de regles que Linkumori baixa, opcionalment verificats amb un fitxer de hash. Una llista amb un valor <code>cln</code>, un bloc <code>defaults</code> o una matriu <code>patches</code> no vàlids no es carrega, i Remote Rules Health ho informa."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Redirigir i bloquejar necessiten la vostra aprovació"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "El que pot fer una llista remota es determina a partir del seu contingut quan es carrega:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Capacitat"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "La llista la té quan conté"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Activa en carregar"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "una entrada de <code>rules</code>, <code>rawRules</code> o <code>referralMarketing</code>, o un filtre <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "una entrada amb un <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "una entrada <code>exceptions</code> del proveïdor o una entrada <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "una entrada de <code>redirections</code> o <code>fieldRedirections</code>, o <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "després de l'aprovació"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "un proveïdor amb <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Aproveu <code>redirect</code> i <code>block</code> per llista a Remote Rules Health. Fins llavors, les redireccions i els bloquejos d'aquesta llista continuen desactivats, i les seves regles en brut no poden enviar un URL a un altre lloc; la resta de la llista funciona de seguida. Quan una actualització afegeix una capacitat nova, també espera l'aprovació. Les regles integrades i personalitzades tenen totes les capacitats."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Mode de sobrecàrrega"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normalment, les llistes remotes que tenen proveïdors substitueixen les regles integrades; les llistes que només contenen <code>patches</code> s'apliquen a les regles integrades. Amb <em>Activa el mode de sobrecàrrega</em> activat, es carreguen juntes, amb una de tres estratègies:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Només mode de pedaç</em>: aplica els pedaços de les llistes remotes a les regles integrades; els proveïdors remots es deixen fora."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Mode de pedaç + fusió</em>: fusiona els proveïdors integrats i remots, i després aplica els pedaços."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Sense mode de pedaç + fusió</em>: fusiona els proveïdors i omet els pedaços."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "En fusionar, les llistes remotes es fusionen entre elles en l'ordre en què les llisteu, i després amb les regles integrades (primer les integrades). Només es fusionen els proveïdors amb els mateixos <code>domainPatterns</code> (o <code>urlPattern</code>) i els mateixos <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> i <code>forceRedirection</code>; els seus <code>rules</code>, <code>rawRules</code> i <code>referralMarketing</code> s'uneixen, i <a href=\"#same-text-twice\">El mateix text dues vegades</a> decideix quina còpia s'executa. Remote Rules Health llista cada regla substituïda com a avís."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Les regles personalitzades s'apliquen en últim lloc. Un proveïdor personalitzat substitueix tots els proveïdors carregats amb el mateix patró; les seves regles no es combinen."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Pedaços de regles"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Una llista remota pot substituir regles individuals que ja estan carregades, sense publicar-ne una còpia completa, en una matriu <code>patches</code> de primer nivell:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obligatori. La regla a substituir, escrita com la seva clau d'activació: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> o <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obligatori. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> o <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obligatori. La nova regla, com a entrada simple o objecte de regla."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Una nota per a les persones que llegeixen el fitxer."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Els pedaços s'executen després que es fusionin les llistes remotes i abans de les regles personalitzades. Un fitxer només amb <code>patches</code> no necessita <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "La fusió pot canviar el nom dels proveïdors, de manera que la forma <code>domainPattern:</code> o <code>urlPattern:</code> és la que sempre els troba."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "La substitució conserva l'id de la regla antiga, o pren l'id antic com a àlies, de manera que les configuracions d'activació continuen aplicant-se."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Un pedaç per a una redirecció espera l'aprovació de <code>redirect</code> de la llista. Un pedaç l'objectiu del qual no coincideix amb res no canvia res."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health llista cada pedaç com a aplicat, sense coincidència o omès."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Regles i llista blanca"
+  },
+  "guide_whitelist_p_1": {
+    "message": "La llista blanca és independent de les <code>exceptions</code> d'un proveïdor: llista els llocs que heu dit a Linkumori que deixi intactes, sense cap fitxer de regles. Les entrades tenen aquest aspecte: <code>example.com</code>, <code>*.example.com</code> (el lloc i els seus subdominis) o <code>example.*</code> (qualsevol sufix). Posar una pàgina a la llista blanca també cobreix tot el que carrega."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Exemples complets"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Comprovació de les regles"
+  },
+  "guide_checking_p_1": {
+    "message": "L'editor de regles personalitzades comprova les regles en desar-les o importar-les, i <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> executa les mateixes comprovacions. A més del JSON trencat i les expressions regulars no vàlides, rebutgen regles que es carregarien però farien silenciosament el contrari del que cal, com ara:"
+  },
+  "guide_checking_item_1": {
+    "message": "camps, claus i modificadors desconeguts"
+  },
+  "guide_checking_item_2": {
+    "message": "dues entrades diferents amb el mateix text en una llista"
+  },
+  "guide_checking_item_3": {
+    "message": "un <code>order</code> en un filtre <code>$removeparam</code> o una entrada <code>@@</code>, inclòs <code>null</code>"
+  },
+  "guide_checking_p_2": {
+    "message": "També avisen de còpies exactes i del mateix text a <code>rules</code> i <code>referralMarketing</code>. Si el desament falla, el missatge indica el proveïdor, la llista i l'entrada."
+  },
+  "guide_toc_search": {
+    "message": "Filtra les seccions"
+  },
+  "guide_toc_no_results": {
+    "message": "Cap secció coincident."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: una redirecció que comença amb \"|\" ha de tenir aquest format: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: el destí de $redirect= ha de ser un URL absolut http o https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ ha de ser un objecte",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type ha de ser una cadena no buida",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type ha de ser un d’aquests valors: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs ha de ser \"all\" o una matriu d’enters positius",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ ha de ser una cadena o un objecte de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern ha de ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern ha de ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId ha de ser un identificador de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId només s’aplica a les excepcions \"@@…$rawrule=\" de rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags ha de ser una cadena (indicadors de regex com ara \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing ha de ser true o false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing no té cap efecte a $FIELD$; només s’aplica a $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order ha de ser un número o null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order no té cap efecte a $FIELD$; només s’aplica a $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order no té cap efecte en un filtre $removeparam ni en una entrada \"@@\"; sempre s’executen després de les altres regles",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active ha de ser un valor booleà",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id ha de ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id ha de coincidir amb $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases ha de ser una llista d’identificadors que coincideixin amb $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases no pot contenir l’identificador propi de la regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description ha de ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection ha de ser un valor booleà",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions ha de ser una matriu de cadenes",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes ha de ser una matriu de cadenes",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors ha de ser una matriu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: camp desconegut \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ comença amb \"@@\", que només s’aplica als filtres $removeparam de rules i referralMarketing; feu servir \"exceptions\" en un objecte de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ té una opció de $removeparam desconeguda: \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" comença amb una sola barra vertical \"|\", de manera que només coincideix amb URL que comencen literalment per \"$REST$\"; no n’hi ha cap (els URL comencen per \"https://\"). Feu servir \"||$REST$\" per coincidir amb el domini.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ té \"targetId\", que només funciona en una excepció; feu que matchPattern comenci amb \"@@\" (per exemple, \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ té tant \"targetId\" com una regex després de \"rawrule=\"; feu servir-ne només un",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ té targetId \"$ID$\", però cap regla raw d’aquest proveïdor no té aquest identificador ni cap àlies seu",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ és una excepció \"@@\" per a \"$REGEX$\", però cap regla raw d’aquest proveïdor no fa servir aquesta regex. Assigneu un identificador a la regla i indiqueu-la amb \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ és una excepció \"@@\", així que \"$KEY$\" no faria res",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Després de \"rawrule=\" a $WHERE$ no hi ha res; cal indicar la regex que s’ha de suprimir",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ té una regex no vàlida després de \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ té $GROUPS$ grups de captura; cal exactament un \"( … )\" al voltant de l’URL de destinació (escriviu la resta de grups com a \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ reutilitza l’identificador de regla \"$ID$\" a $WHERE$; ja s’havia fet servir a $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ ha de ser un objecte JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ ha de ser una matriu",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ té una clau desconeguda: \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Error en processar l’URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Error en inicialitzar la pàgina: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Pestanya no vàlida"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Ja hi ha una cerca de regles en curs per a aquesta pestanya"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "No hi ha cap comprovació de pausa en curs per a aquesta pestanya"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Les regles encara s’estan carregant. Torneu-ho a provar d’aquí a una estona."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "No es pot desactivar cap de les regles activades en aquesta pàgina."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "No s’han pogut desactivar les regles"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "No hi ha cap cerca de regles en curs per a aquesta pestanya"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "No s’ha trobat cap regla per ometre en aquesta pestanya"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Descàrrega no disponible"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "No s’ha pogut desar la gravació a l’emmagatzematge de la sessió"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Regla desconeguda"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "error desconegut"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "ha fallat l’exportació"
   }
 }

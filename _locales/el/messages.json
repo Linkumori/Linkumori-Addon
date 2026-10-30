@@ -39,7 +39,7 @@
     "message": "Χρησιμοποιήστε τους συνδυασμένους κανόνες Linkumori/ClearURLs. Απενεργοποιήστε το για να εκτελεστεί μόνο με απομακρυσμένους κανόνες ή/και προσαρμοσμένους κανόνες."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Το Linkumori χρησιμοποιεί ένα ενιαίο σύνολο κανόνων παρόχων ClearURLsData. Το εγγενές JSON των παρόχων, τα κανονικά αντικείμενα κανόνων και τα φίλτρα $removeparam ανά πάροχο συγχωνεύονται πριν εκτελεστεί το clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Πληροφορίες κανόνων"
@@ -1137,25 +1137,25 @@
     "message": "Ανοίξτε τις Ρυθμίσεις Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Συμπεριφορά λειτουργίας υπερφόρτωσης"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Μόνο λειτουργία επιδιορθώσεων"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Εφαρμογή απομακρυσμένων επιδιορθώσεων στους ενσωματωμένους κανόνες. Οι κανόνες απομακρυσμένων παρόχων δεν περιλαμβάνονται."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Λειτουργία επιδιορθώσεων + συγχώνευση"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Συγχώνευση ενσωματωμένων και απομακρυσμένων κανόνων παρόχων και εφαρμογή των απομακρυσμένων επιδιορθώσεων."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Χωρίς λειτουργία επιδιορθώσεων + συγχώνευση"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Συγχώνευση ενσωματωμένων και απομακρυσμένων κανόνων παρόχων χωρίς εφαρμογή απομακρυσμένων επιδιορθώσεων."
   },
   "overload_mode_enabled": {
     "message": "Ενεργοποιήστε τη λειτουργία υπερφόρτωσης"
@@ -1227,7 +1227,7 @@
     "message": "Ανοίξτε το κείμενο άδειας χρήσης GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU Lesser General Public License v3.0"
   },
   "popup_html_lgpl_link_title": {
     "message": "Ανοίξτε το κείμενο άδειας χρήσης GNU LGPL v3.0"
@@ -1836,7 +1836,7 @@
     "message": "Η κύρια διεύθυνση URL κατακερματισμού πρέπει να χρησιμοποιεί HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Το κύριο URL κανόνων και το κύριο URL κατακερματισμού πρέπει να ρυθμίζονται μαζί."
   },
   "save_primary_rule_https_required": {
     "message": "Η διεύθυνση URL του κύριου κανόνα πρέπει να χρησιμοποιεί HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Κατανοώ τους κινδύνους - Συνέχεια"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Θα πρέπει να επανεξετάσετε τη χρήση απομακρυσμένων κανόνων αν δεν κατανοείτε ή δεν εμπιστεύεστε πλήρως την πηγή του συνόλου κανόνων Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Αυτή η λειτουργία απομακρυσμένων κανόνων προορίζεται για προχωρημένους χρήστες που κατανοούν το JSON του Linkumori που φορτώνουν. Οι απομακρυσμένοι κανόνες πρέπει να περιλαμβάνουν αντίστοιχο URL κατακερματισμού για επαλήθευση."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Αν προσθέσετε URL απομακρυσμένων κανόνων, η επέκταση θα συνδεθεί με τον διακομιστή που ορίσατε για να λάβει το σύνολο κανόνων Linkumori και το αρχείο κατακερματισμού του, όταν έχει ρυθμιστεί. Κάθε λήψη μπορεί να αποκαλύψει τη διεύθυνση IP σας και γενικές πληροφορίες, όπως την έκδοση της επέκτασης, το πρόγραμμα περιήγησης και την έκδοσή του, στον διακομιστή φιλοξενίας. Τα δεδομένα αυτά υπόκεινται στην πολιτική απορρήτου του συγκεκριμένου ιστότοπου ή διακομιστή."
   },
   "security_modal_privacy_link_text": {
     "message": "Διαβάστε ξανά το %PRIVACY_POLICY_LINK% πριν συνεχίσετε εάν χρειάζεται."
@@ -1887,7 +1887,7 @@
     "message": "προειδοποιητική ειδοποίηση:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Χρησιμοποιείτε τους ενσωματωμένους κανόνες, εκτός αν εμπιστεύεστε και ελέγχετε την απομακρυσμένη πηγή. Δώστε αντίστοιχο URL κατακερματισμού για απομακρυσμένους κανόνες JSON του Linkumori."
   },
   "security_modal_risk_1": {
     "message": "Η διεύθυνση IP και οι πληροφορίες του προγράμματος περιήγησης θα εκτεθούν στους διαμορφωμένους διακομιστές"
@@ -1899,7 +1899,7 @@
     "message": "Η επαλήθευση κατακερματισμού ισχύει μόνο για τους κανόνες Linkumori CLN Format 1.0 JSON. προστατεύει από παραβίαση μετάδοσης και όχι από κακόβουλες πηγές κανόνων."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Οι απομακρυσμένοι κανόνες χωρίς επιτυχή επαλήθευση κατακερματισμού βασίζονται εξ ολοκλήρου στην εμπιστοσύνη προς το URL της πηγής."
   },
   "security_modal_risks_title": {
     "message": "Κίνδυνοι για την ασφάλεια:"
@@ -1914,7 +1914,7 @@
     "message": "Το url στο αρχείο rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Απαιτείται για την επαλήθευση απομακρυσμένων κανόνων JSON του Linkumori."
   },
   "setting_html_export_button": {
     "message": "Εξαγωγή"
@@ -1944,7 +1944,7 @@
     "message": "Όριο καταγραφής (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Πρόσθετες απομακρυσμένες πηγές JSON του Linkumori που συγχωνεύονται μεταξύ τους. Εισαγάγετε ένα ζεύγος ανά γραμμή ως <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Πρόσθετα σετ κανόνων απομακρυσμένου"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Προσαρμοσμένο απομακρυσμένο URL για κανόνες JSON του Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "Το URL του απομακρυσμένου αρχείου JSON κανόνων"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Το URL κατακερματισμού είναι υποχρεωτικό για κάθε απομακρυσμένο σύνολο κανόνων."
   },
   "settings_html_page_title": {
     "message": "Ρυθμίσεις Linkumori (Καθαρισμός URL)."
@@ -2421,19 +2421,19 @@
     "message": "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Προηγμένη λειτουργία που προορίζεται μόνο για διακομιστές που φιλοξενούνται από μόνοι τους"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Απενεργοποιείτε τις προστασίες του Gatekeeper για την επεξεργασία URL απομακρυσμένων κανόνων. Αυτή η λειτουργία μπορεί να φορτώσει απομακρυσμένους κανόνες JSON του Linkumori στο ενιαίο σύνολο κανόνων παρόχων. Συνεχίστε μόνο αν κατανοείτε και εμπιστεύεστε την πηγή που ρυθμίζετε."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Το Gatekeeper είναι η ενσωματωμένη ροή ασφαλείας που αποκλείει τις άμεσες απομακρυσμένες επεξεργασίες διευθύνσεων URL μέχρι να αναγνωρίσετε την προειδοποίηση ασφαλείας και να ολοκληρώσετε την επιβεβαίωση πληκτρολόγησης."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Διατηρήστε το Gatekeeper ενεργό, εκτός αν εμπιστεύεστε και ελέγχετε τις απομακρυσμένες πηγές σας. Οι απομακρυσμένοι κανόνες JSON πρέπει να περιλαμβάνουν αντίστοιχο URL κατακερματισμού."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "προειδοποιητική ειδοποίηση:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Αν προσθέσετε URL απομακρυσμένων κανόνων, η επέκταση θα συνδεθεί με τον διακομιστή που ορίσατε για να λάβει το σύνολο κανόνων Linkumori και το αρχείο κατακερματισμού του, όταν έχει ρυθμιστεί. Κάθε λήψη μπορεί να αποκαλύψει τη διεύθυνση IP σας και γενικές πληροφορίες, όπως την έκδοση της επέκτασης, το πρόγραμμα περιήγησης και την έκδοσή του, στον διακομιστή φιλοξενίας. Τα δεδομένα αυτά υπόκεινται στην πολιτική απορρήτου του συγκεκριμένου ιστότοπου ή διακομιστή."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Διαβάστε ξανά το %PRIVACY_POLICY_LINK% πριν συνεχίσετε εάν χρειάζεται."
@@ -2448,7 +2448,7 @@
     "message": "Η επέκταση θα συνδέεται με την καθορισμένη διεύθυνση URL κάθε φορά που η επέκταση ενεργοποιείται και φορτώνεται στο πρόγραμμα περιήγησής σας."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Ο διακομιστής που φιλοξενεί τα απομακρυσμένα αρχεία JSON ή κατακερματισμού θα λαμβάνει τη διεύθυνση IP σας."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Ο διακομιστής μπορεί επίσης να λάβει την έκδοση επέκτασης, το πρόγραμμα περιήγησης και την έκδοση του προγράμματος περιήγησης."
@@ -2457,7 +2457,7 @@
     "message": "Αυτά τα δεδομένα υπόκεινται στην πολιτική απορρήτου του ιστότοπου ή του διακομιστή ιστού που φιλοξενεί αυτά τα αρχεία."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Απενεργοποιώντας το Gatekeeper, αυξάνετε τον κίνδυνο από μη ασφαλείς ή παραβιασμένες πηγές απομακρυσμένων κανόνων. Η επαλήθευση κατακερματισμού προστατεύει τις λήψεις απομακρυσμένου JSON του Linkumori μόνο όταν έχει ρυθμιστεί αντίστοιχο URL κατακερματισμού."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Ματαίωση"
@@ -2517,7 +2517,7 @@
     "message": "Πληκτρολογήστε την ακριβή φράση επιβεβαίωσης"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Αυτή η ενέργεια μειώνει τις διασφαλίσεις για τους απομακρυσμένους κανόνες. Συνεχίστε μόνο αν εμπιστεύεστε την απομακρυσμένη πηγή JSON."
   },
   "remote_urls_template_note_1": {
     "message": "Αντικαταστήστε τις τιμές κράτησης θέσης με τις πραγματικές διευθύνσεις URL HTTPS και, στη συνέχεια, εισαγάγετε αυτό το αρχείο."
@@ -2847,10 +2847,10 @@
     "message": "Κανένας"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Συγκρούσεις κανόνων:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ σφάλματα, $WARNINGS$ προειδοποιήσεις, $NOTICES$ ειδοποιήσεις",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Δυνατότητες απομακρυσμένου αρχείου:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "ανενεργές μέχρι την αποδοχή: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Αποδοχή: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Επιδιορθώσεις κανόνων:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ εφαρμόστηκαν, $NOT_APPLIED$ δεν εφαρμόστηκαν",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Προεπιλογές κανόνων"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Ενσωματωμένο"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Προσαρμοσμένο"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Κανένα — ενσωματωμένη συμπεριφορά"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Η λειτουργία υπερφόρτωσης συγχωνεύει ενσωματωμένους και απομακρυσμένους κανόνες· οι κανόνες κάθε πηγής διατηρούν τις προεπιλογές της συγκεκριμένης πηγής."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Αποθήκευση προεπιλογών"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Οι προεπιλογές αποθηκεύτηκαν"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Όταν είναι ενεργό, κάθε πηγή κανόνων διατηρεί τις δικές της προεπιλογές (οι ενσωματωμένες προεπιλογές ισχύουν για τους ενσωματωμένους κανόνες και οι προεπιλογές κάθε απομακρυσμένου αρχείου για τους κανόνες του αρχείου), εκτός αν επιλέξετε δικές σας προεπιλογές στον επεξεργαστή προσαρμοσμένων κανόνων."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Απομακρυσμένο: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Ποιες προεπιλογές ισχύουν"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Οι δικές της κάθε πηγής"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Οι δικές σας για ενσωματωμένους και απομακρυσμένους κανόνες"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Οι δικές σας για όλους τους κανόνες"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(αντικαταστάθηκαν από τις δικές σας προεπιλογές)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Δικές σας"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ τύποι αιτημάτων",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ εξαιρέσεις URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 εξαίρεση URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ προεπεξεργαστές",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Οι κανόνες κάθε πηγής λαμβάνουν τις δικές της προεπιλογές."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Οι ενσωματωμένοι και οι απομακρυσμένοι κανόνες λαμβάνουν τις δικές σας προεπιλογές αντί για αυτές των αρχείων τους· οι προσαρμοσμένοι κανόνες διατηρούν τις δικές τους."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Οι ενσωματωμένοι, οι απομακρυσμένοι και οι προσαρμοσμένοι κανόνες λαμβάνουν όλοι τις δικές σας προεπιλογές αντί για τις δικές τους."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Διαχείριση προεπιλογών κανόνων"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Οι προεπιλογές συμπληρώνουν τιμές που ένας κανόνας δεν ορίζει ο ίδιος. Η δική του τιμή ενός κανόνα υπερισχύει πάντα και οι εξαιρέσεις των παρόχων δεν αλλάζουν ποτέ."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Επεξεργασία προεπιλογών"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Οι προεπιλογές σας"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Προεπιλογές προσαρμοσμένων κανόνων"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Προεπιλογές προς επεξεργασία"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Ενσωματωμένοι κανόνες"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(επεξεργασμένο)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Επαναφορά στις προεπιλογές του αρχείου"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Συγχώνευση από πηγές…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Συγχώνευση προεπιλογών κανόνων"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Το αποτέλεσμα εμφανίζεται ως «Συγχωνευμένες προεπιλογές» στη λίστα. Αντιγράψτε το εκεί σε ένα σύνολο και πατήστε Αποθήκευση προεπιλογών για να το χρησιμοποιήσετε."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Πηγές προς συγχώνευση"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Συγκρούσεις"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Συγχωνευμένες προεπιλογές"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Χρήση συγχωνευμένων προεπιλογών"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Συγχωνευμένες προεπιλογές"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Δεν χρησιμοποιείται μέχρι να το αντιγράψετε σε ένα από τα άλλα σύνολα και να αποθηκεύσετε."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Αντιγραφή σε"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Αντιγραφή"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Επιλέξτε τουλάχιστον δύο πηγές."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Καμία σύγκρουση: οι επιλεγμένες πηγές συμφωνούν σε κάθε τιμή."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Οι εξαιρέσεις προστίθενται μαζί από κάθε πηγή: $COUNT$ συνολικά.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Συνδυασμός από κάθε πηγή"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Από: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Δεν ορίστηκε (ενσωματωμένη συμπεριφορά)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Δεν ορίστηκε: κάθε τύπος αιτήματος"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Δεν χρησιμοποιείται αυτήν τη στιγμή: οι προεπιλογές σας αντικαθιστούν εκείνες των ενσωματωμένων και απομακρυσμένων κανόνων."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Επεξεργασμένο από εσάς: αυτές αντικαθιστούν τις προεπιλογές του ίδιου του αρχείου. Το ίδιο το αρχείο δεν αλλάζει."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(επεξεργασμένο από εσάς)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Δεν χρησιμοποιείται αυτήν τη στιγμή: έχει επιλεγεί παραπάνω το «Οι δικές της κάθε πηγής»."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Δεν χρησιμοποιείται αυτήν τη στιγμή: οι προεπιλογές σας αντικαθιστούν αυτές και για τους προσαρμοσμένους κανόνες."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Οι κανόνες ξεκινούν απενεργοποιημένοι (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Περιγραφή"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Τύποι αιτημάτων"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Όλοι οι τύποι"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Μόνο αυτοί"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Επιλέξτε τουλάχιστον έναν τύπο αιτήματος ή «Όλοι οι τύποι»."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Οι κανόνες καθαρίζουν κάθε τύπο αιτήματος, εκτός αν οι ίδιοι ή οι προεπιλογές ονομάζουν κάποιους. Οι πάροχοι μπορούν επίσης να περιορίσουν τους τύπους με resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Εξαιρέσεις"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Μία κανονική έκφραση URL ανά γραμμή. Οι κανόνες παραλείπονται σε URL που ταιριάζουν."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Προεπεξεργαστές"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Είσοδοι: «all» ή αριθμοί ομάδων καταγραφής, όπως 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Προσθήκη προεπεξεργαστή"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Τύπος προεπεξεργαστή"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Είσοδοι προεπεξεργαστή"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Αφαίρεση"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Οι είσοδοι προεπεξεργαστή «$INPUTS$» πρέπει να είναι «all» ή αριθμοί όπως 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Απενεργοποίηση προστασίας από παράκαμψη ιστορικού (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Εμφάνιση ως JSON"
   },
   "settings_remote_health_unknown": {
     "message": "άγνωστος"
@@ -3924,7 +3924,7 @@
     "message": "Οι τύποι είναι <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> και <code>base64Decode</code>."
   },
   "guide_ref_title": {
-    "message": "10. Referral marketing"
+    "message": "10. Μάρκετινγκ παραπομπής"
   },
   "guide_req_title": {
     "message": "11. Μέθοδοι και τύποι αιτημάτων"
@@ -4005,10 +4005,10 @@
     "message": "Πάροχος JSON Οδηγός"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Άνοιγμα οδηγού κανόνων Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Ποια σύνταξη κανόνων πρέπει να χρησιμοποιήσω;"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Άνοιγμα οδηγού κανόνων"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Αποτυχία φόρτωσης πηγών παρόχων: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Οι ενσωματωμένοι κανόνες δεν είναι διαθέσιμοι."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Αποτυχία φόρτωσης ενσωματωμένων κανόνων: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Δεν ήταν δυνατή η αλλαγή γλώσσας σε $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Φωτεινό θέμα"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Σκούρο θέμα"
   },
   "posarCopied": {
     "message": "Το POSAR αντιγράφηκε!"
@@ -4059,100 +4059,100 @@
     "message": "Το POSAR έγινε αποδεκτό."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Επαναφορά"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Εργαλεία προσβασιμότητας"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Άνοιγμα εργαλείων προσβασιμότητας"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Κλείσιμο εργαλείων προσβασιμότητας"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Επαναφορά όλων των ρυθμίσεων προσβασιμότητας"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Όραση"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Ανάγνωση"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Αλληλεπίδραση"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Υψηλή αντίθεση"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Φίλτρο χρωμάτων"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Κορεσμός"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Αναστροφή"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Επισήμανση συνδέσμων"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Απόκρυψη εικόνων"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Αύξηση μεγέθους κειμένου"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Μείωση μεγέθους κειμένου"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Προεπιλεγμένο μέγεθος κειμένου"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Επιλογή γραμματοσειράς"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Φιλικό προς τη δυσλεξία"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Διάστιχο κειμένου"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Ύψος γραμμής"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Στοίχιση κειμένου"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Παύση κινούμενων εικόνων"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Μεγαλύτερος δρομέας"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Προεπιλογή"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Μεσαίο"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Υψηλό"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Πολύ υψηλό"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Χαμηλό"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Κανένα"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Ελαφρύ"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Έντονο"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Χωρίς φίλτρο"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Πρωτανοπία"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Δευτερανοπία"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Τριτανοπία"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Κλίμακα του γκρι"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Αριστερά"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Κέντρο"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Δεξιά"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Πολύ μικρό"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Μικρό"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Μεγάλο"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Πολύ μεγάλο"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Μέγιστο"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Ενεργό"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Ανενεργό"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "ενεργοποιήθηκε"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "απενεργοποιήθηκε"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Επιλέχθηκε το προεπιλεγμένο μέγεθος κειμένου"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Όλες οι ρυθμίσεις προσβασιμότητας επαναφέρθηκαν"
+  },
+  "skip_to_main_content": {
+    "message": "Μετάβαση στο κύριο περιεχόμενο"
+  },
+  "popupNavAriaLabel": {
+    "message": "Πλοήγηση αναδυόμενου παραθύρου"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Προβολές προσαρμοσμένων κανόνων"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Προβολές αρχείου καταγραφής"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Προστασία από παράκαμψη ιστορικού (παράλειψη κατά την πλοήγηση εντός σελίδας)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Ανακατευθύνσεις πεδίων"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Αντιγραφή κανόνα"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Ο κανόνας αντιγράφηκε"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Δεν ήταν δυνατή η αντιγραφή του κανόνα"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Τι κάνει το historyBypassProtection;"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Οι ιστότοποι μίας σελίδας συχνά αλλάζουν τη διεύθυνση με history.pushState/replaceState αντί να φορτώνουν νέα σελίδα. Το Linkumori καθαρίζει και αυτές τις διευθύνσεις. Προσθέστε history-bypass-protection=false σε ένα φίλτρο $removeparam για να παραλείπεται μόνο αυτό το φίλτρο σε αυτές τις αλλαγές εντός σελίδας· εξακολουθεί να εκτελείται στα κανονικά αιτήματα."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Για να παραλείψετε έναν ολόκληρο πάροχο στις αλλαγές εντός σελίδας, ορίστε το στον πάροχο:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Αν παραλειφθεί, η τιμή είναι true και οι αλλαγές εντός σελίδας καθαρίζονται. Η ρύθμιση ενός κανόνα υπερισχύει εκείνης του παρόχου, οπότε ένας κανόνας μπορεί να επανενεργοποιηθεί με history-bypass-protection=true ή με \"historyBypassProtection\": true σε ένα αντικείμενο κανόνα."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Παραλείπει πλοήγηση εντός σελίδας"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Μετονομασία ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Νέο id για το $OLD$ (a-z, 0-9, - και _). Το παλιό id διατηρείται ως ψευδώνυμο, ώστε οι κανόνες που έχουν απενεργοποιηθεί με αυτό να παραμένουν απενεργοποιημένοι.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "Το \"$ID$\" δεν είναι έγκυρο id. Χρησιμοποιήστε πεζά γράμματα, ψηφία, - και _, ξεκινώντας με γράμμα ή ψηφίο.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Άλλος κανόνας αυτού του παρόχου χρησιμοποιεί ήδη το \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Απενεργοποίηση κανόνα"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Να απενεργοποιηθεί το $ID$ για ολόκληρο τον πάροχο ή μόνο για αυτό το μοτίβο URL/τομέα;",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Ο πάροχός μου"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Μοτίβο URL/τομέα"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Το id του κανόνα μετονομάστηκε σε $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Ορφανοί διακόπτες"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Δεν βρέθηκε αντίστοιχος κανόνας στην πηγή"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Αφαίρεση"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Παραλείπει τον καθαρισμό πλοήγησης εντός σελίδας"
+  },
+  "whitelist_added_general": {
+    "message": "Το %s προστέθηκε στη γενική λίστα επιτρεπόμενων"
+  },
+  "whitelist_added_history_api": {
+    "message": "Το %s προστέθηκε ως εξαίρεση History API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d εξαίρεση(-εις)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Δεν υπάρχουν εξαιρέσεις στη λίστα επιτρεπόμενων"
+  },
+  "whitelist_mode_general": {
+    "message": "Γενική λίστα επιτρεπόμενων"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Μόνο History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Εύρος λίστας επιτρεπόμενων"
+  },
+  "whitelist_removed_general": {
+    "message": "Το %s αφαιρέθηκε από τη γενική λίστα επιτρεπόμενων"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Η εξαίρεση History API για το %s αφαιρέθηκε"
+  },
+  "whitelist_type_general": {
+    "message": "Γενική"
+  },
+  "whitelist_type_history_api": {
+    "message": "Μόνο History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Προσθήκη του $1 στη γενική λίστα επιτρεπόμενων"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Γενική λίστα επιτρεπόμενων: $1 - κάντε κλικ για μόνο History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Εξαίρεση History API: $1 - κάντε κλικ για μόνο αυτήν την καρτέλα"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Μόνο καρτέλα: $1 - κάντε κλικ για αφαίρεση"
+  },
+  "logger_action_allowed": {
+    "message": "Επιτράπηκε"
+  },
+  "logger_action_blocked": {
+    "message": "Αποκλείστηκε"
+  },
+  "logger_action_filter_label": {
+    "message": "Ενέργεια"
+  },
+  "logger_action_info": {
+    "message": "Πληροφορίες"
+  },
+  "logger_action_modified": {
+    "message": "Τροποποιήθηκε"
+  },
+  "logger_action_redirected": {
+    "message": "Ανακατευθύνθηκε"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Αντιγραφή σύνοψης"
+  },
+  "logger_btn_export": {
+    "message": "Εξαγωγή"
+  },
+  "logger_btn_group": {
+    "message": "Ομαδοποίηση ανά κανόνα"
+  },
+  "logger_col_hits": {
+    "message": "Εμφανίσεις"
+  },
+  "logger_col_last_seen": {
+    "message": "Τελευταία εμφάνιση"
+  },
+  "logger_detail_group_title": {
+    "message": "Λεπτομέρειες κανόνα"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Καρτέλες"
+  },
+  "logger_exported": {
+    "message": "Εξήχθησαν $1 εγγραφές."
+  },
+  "logger_filter_all": {
+    "message": "Όλα"
+  },
+  "logger_report_rule": {
+    "message": "Αναφορά"
+  },
+  "logger_rule_disable": {
+    "message": "Απενεργοποίηση κανόνα"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Ο κανόνας $1 απενεργοποιήθηκε. Φορτώστε ξανά τη σελίδα για έλεγχο."
+  },
+  "logger_rule_enable": {
+    "message": "Ενεργοποίηση κανόνα"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Ο κανόνας $1 ενεργοποιήθηκε ξανά."
+  },
+  "logger_rule_failed": {
+    "message": "Δεν ήταν δυνατή η αλλαγή του κανόνα."
+  },
+  "logger_rule_off": {
+    "message": "Ο κανόνας είναι απενεργοποιημένος"
+  },
+  "logger_rule_on": {
+    "message": "Ο κανόνας είναι ενεργός"
+  },
+  "logger_rule_unavailable": {
+    "message": "Αυτός ο κανόνας δεν μπορεί να αλλάξει από εδώ."
+  },
+  "logger_status_rules": {
+    "message": "$1 κανόνας(-ες)"
+  },
+  "logger_summary_copied": {
+    "message": "Η σύνοψη αντιγράφηκε."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Δεν ήταν δυνατή η αντιγραφή της σύνοψης."
+  },
+  "logger_type_filter_label": {
+    "message": "Τύπος"
+  },
+  "logger_btn_logging_off": {
+    "message": "Καταγραφή ανενεργή"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Η καταγραφή είναι ανενεργή. Κάντε κλικ για ενεργοποίηση."
+  },
+  "logger_btn_logging_on": {
+    "message": "Καταγραφή ενεργή"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Η καταγραφή είναι ενεργή. Κάντε κλικ για απενεργοποίηση."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Δεν ήταν δυνατή η αλλαγή της ρύθμισης καταγραφής."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Προσθήκη κανόνα παραπομπής"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Προσθήκη εξαίρεσης ακατέργαστου κανόνα"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Προσθήκη ανακατεύθυνσης πεδίου"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Προσθήκη εξαίρεσης"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Κάθε πρότυπο προσθέτει ένα αντικείμενο κανόνα με id και ένα προσωρινό matchPattern στο example.com. Μια εγγραφή μπορεί επίσης να είναι απλή συμβολοσειρά: όνομα παραμέτρου, κανονική έκφραση ονόματος, φίλτρο $removeparam ή, στο rawRules, κανονική έκφραση. Τα αντικείμενα κανόνων δέχονται id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description και targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Έλεγχος κανόνων (Linter)"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Δεν βρέθηκαν προβλήματα."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Σφάλμα"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Προειδοποίηση"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ σφάλμα(-τα), $WARNINGS$ προειδοποίηση(-εις)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Σειρά εκτέλεσης"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ βήμα(-τα), με τη σειρά που εκτελούνται",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Δεν υπάρχουν εγγραφές rawRules, rules ή referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Υπολογίζεται από τη μηχανή με βάση το παραπάνω κείμενο, αποθηκευμένο ή όχι. Τα βήματα ταξινομούνται κατά (stage, orderGroup, order, rank, arrayIndex): οι ακατέργαστοι κανόνες εκτελούνται πριν από τους κανόνες πεδίων· μέσα σε ένα στάδιο, πρώτα εκτελούνται οι εγγραφές με order, από τη χαμηλότερη, και μετά οι υπόλοιπες κατά λίστα και θέση."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Μάρκετινγκ παραπομπής"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Παραπομπή αφαιρέθηκε"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Παραπομπή επιτρέπεται"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Ακατέργαστο"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Πεδίο"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Παραπομπή"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(δημιουργήθηκε αυτόματα)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "αναδιατυπώνει"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "αντικαθιστά $COUNT$ προηγούμενο(-ους) ορισμό(-ούς)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "προστέθηκε από το completeProvider: αφαιρεί κάθε παράμετρο"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Απενεργοποιημένο"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Απενεργοποιημένο για ορισμένα μοτίβα"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Κλειδί ταξινόμησης: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Έπειτα $FILTERS$ φίλτρο(-α) $removeparam και $EXCEPTIONS$ εξαίρεση(-εις) @@, μετά από κάθε παραπάνω βήμα",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ εξαίρεση(-εις) @@…$rawrule= μπορούν να σταματήσουν τους παραπάνω ακατέργαστους κανόνες όπου ταιριάζουν",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Σύρετε ένα βήμα ή χρησιμοποιήστε τα βέλη του για να το μετακινήσετε μέσα στο στάδιό του. Η μετακίνηση δίνει σε κάθε εγγραφή αυτού του σταδίου order 10, 20, 30, … με τη νέα σειρά."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Μεταβείτε στο «Παραπομπή αφαιρέθηκε» για αναδιάταξη: αυτή η προβολή εμφανίζει όλες τις εγγραφές."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Σύρετε για μετακίνηση"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Μετακίνηση του $ENTRY$ νωρίτερα",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Μετακίνηση του $ENTRY$ αργότερα",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Το $ENTRY$ μετακινήθηκε στη θέση $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Αναίρεση μετακίνησης"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Η μετακίνηση αναιρέθηκε"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Προσομοίωση"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Εκτελεί αυτόν τον πάροχο σε ένα URL όπως ο καθαρισμός ενός αντιγραμμένου συνδέσμου, με τους κανόνες που έχετε απενεργοποιήσει και την επιλογή παραπομπής παραπάνω, και εμφανίζει το URL μετά από κάθε βήμα. Οι άλλοι πάροχοι δεν εκτελούνται. Η «Δημιουργία URL δοκιμής» φτιάχνει ένα από τους κανόνες του ίδιου του παρόχου."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL δοκιμής"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Εκτέλεση"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Βήμα προς βήμα στην προσομοίωση"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Αρχή"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Προηγούμενο"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Επόμενο"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Τέλος"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Αναπαραγωγή"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Παύση"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "Το URL πριν από οποιοδήποτε βήμα"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Πέρασμα $PASS$ · βήμα $STEP$ από $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "καμία αλλαγή"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "φίλτρα $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Το πέρασμα $PASS$ δεν αλλάζει τίποτα, οπότε ο καθαρισμός σταματά",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Ο πάροχος σταματά εδώ: επιτεύχθηκε το όριο κύκλων, το URL επέστρεψε σε προηγούμενο ή δεν ταιριάζει πλέον με τον πάροχο"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Το πέρασμα $PASS$ ανακατευθύνει· ο καθαρισμός συνεχίζεται στη νέα διεύθυνση με κάθε πάροχο",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Ο πάροχος αποκλείει αυτό το αίτημα (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Αποτέλεσμα"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Τα μοτίβα αυτού του παρόχου δεν ταιριάζουν με αυτό το URL, οπότε κανένας από τους κανόνες του δεν εκτελείται."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Αυτό το URL ταιριάζει με μία από τις εξαιρέσεις του παρόχου, οπότε κανένας από τους κανόνες του δεν εκτελείται."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Εισαγάγετε πλήρες URL http:// ή https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Η προσομοίωση δεν μπόρεσε να εκτελεστεί. Ελέγξτε το JSON παραπάνω."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Δημιουργία URL δοκιμής"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Δημιουργήθηκε από τους κανόνες αυτού του παρόχου: κείμενο για $RAW$ ακατέργαστο(-ους) κανόνα(-ες) και $PARAMS$ παράμετρο(-ους), καθένα ελεγμένο με τον κανόνα του. Το keep=1 δεν ταιριάζει με κανέναν κανόνα και πρέπει να παραμείνει. Οι ανακατευθύνσεις και οι αποκλεισμοί δεν περιλαμβάνονται, επειδή θα τερμάτιζαν την εκτέλεση πριν από τους υπόλοιπους κανόνες.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Δεν ήταν δυνατή η δημιουργία κεντρικού υπολογιστή που να ταιριάζει με τα μοτίβα αυτού του παρόχου, οπότε το URL χρησιμοποιεί άλλον κεντρικό υπολογιστή και ο πάροχος δεν θα εκτελεστεί σε αυτό."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Κάθε URL που ταιριάζει με τα μοτίβα αυτού του παρόχου καλύπτεται από μία από τις δικές του εξαιρέσεις, οπότε οι κανόνες του δεν εκτελούνται ποτέ."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ κανόνας(-ες) παραλείφθηκαν από το URL δοκιμής",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "δεν ήταν δυνατή η δημιουργία κειμένου που να ταιριάζει"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "το κείμενό του θα έκανε μία από τις εξαιρέσεις του παρόχου να ταιριάξει"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "αφαιρεί κάθε παράμετρο, οπότε δεν χρειάζεται δική του παράμετρο"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Αυτός ο πάροχος έχει ένα φίλτρο $removeparam χωρίς όνομα, το οποίο αφαιρεί κάθε παράμετρο, συμπεριλαμβανομένου του keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "χωρίς order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Επαναφορά αριθμών order"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Επαναφέρει κάθε order όπως ήταν όταν ανοίξατε αυτόν τον πάροχο"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Οι αριθμοί order επαναφέρθηκαν"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Απόκρυψη"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Εμφάνιση"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Εκκαθάριση προειδοποιήσεων"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Επαναφορά προειδοποιήσεων"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ προειδοποίηση(-εις) εκκαθαρίστηκε(-αν)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: το urlPattern χωρίς indexPattern ελέγχεται με κάθε URL· προσθέστε υποδείξεις indexPattern, όπως \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "Το $WHERE$ επαναλαμβάνει το \"$ENTRY$\"· το αντίγραφο δεν κάνει τίποτα και τα δύο μοιράζονται ένα id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "Το $WHERE$ έχει ακόμη το προσωρινό μοτίβο προτύπου \"$PATTERN$\"· αντικαταστήστε το με το πραγματικό μοτίβο",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "Το $WHERE$ έχει matchPattern \"(?!)\", που δεν ταιριάζει ποτέ με τίποτα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Αντιμετώπιση προβλημάτων"
+  },
+  "troubleshooter_launch": {
+    "message": "Αντιμετώπιση προβλημάτων αυτής της καρτέλας (πειραματικό)"
+  },
+  "troubleshooter_title": {
+    "message": "Εργαλείο αντιμετώπισης προβλημάτων καρτέλας"
+  },
+  "troubleshooter_page": {
+    "message": "Σελίδα"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Πώς λειτουργεί η εγγραφή"
+  },
+  "troubleshooter_about_note": {
+    "message": "Το άνοιγμα αυτής της προβολής μπορεί να ελέγξει το URL της σελίδας, αλλά δεν καταγράφει τίποτα. Η εγγραφή παραμένει απενεργοποιημένη μέχρι να επιλέξετε Έναρξη εγγραφής. Η έναρξη φορτώνει ξανά αυτήν την καρτέλα για να καταγράψει τα αιτήματα πόρων της. Τα καταγεγραμμένα URL παραμένουν στον αποθηκευτικό χώρο συνεδρίας για αυτήν τη συνεδρία του προγράμματος περιήγησης και διαγράφονται όταν κλείσει η καρτέλα ή λήξει η συνεδρία. Η εγγραφή σταματά μετά από 15 λεπτά, εκτός αν τη σταματήσετε νωρίτερα. Τα URL πόρων μπορεί να περιέχουν ιδιωτικά δεδομένα ερωτήματος."
+  },
+  "troubleshooter_start": {
+    "message": "Έναρξη εγγραφής"
+  },
+  "troubleshooter_starting": {
+    "message": "Έναρξη…"
+  },
+  "troubleshooter_recording": {
+    "message": "Εγγραφή…"
+  },
+  "troubleshooter_stop": {
+    "message": "Διακοπή εγγραφής"
+  },
+  "troubleshooter_refresh": {
+    "message": "Ανανέωση"
+  },
+  "troubleshooter_copy": {
+    "message": "Αντιγραφή σύνοψης"
+  },
+  "troubleshooter_export": {
+    "message": "Εξαγωγή"
+  },
+  "troubleshooter_export_title": {
+    "message": "Αποθήκευση της εγγραφής ως αρχείο JSON. Τα URL πόρων μπορεί να περιέχουν ιδιωτικά δεδομένα ερωτήματος."
+  },
+  "troubleshooter_category": {
+    "message": "Κατηγορία"
+  },
+  "troubleshooter_category_all": {
+    "message": "Όλες οι κατηγορίες"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Κανόνες URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Ανακατευθύνσεις"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Προστασία και παρακάμψεις"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Τύπος πόρου"
+  },
+  "troubleshooter_type_all": {
+    "message": "Όλοι οι τύποι πόρων"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Αναζήτηση κανόνων, παρόχων και URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Εγγραφή $1 · απομένουν $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Έλεγχος αυτής της καρτέλας…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Δεν υπάρχει διαθέσιμη ενεργή καρτέλα."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Αυτή η σελίδα δεν επιτρέπει σάρωση κανόνων URL. Ανοίξτε μια κανονική ιστοσελίδα http ή https."
+  },
+  "troubleshooter_status_off": {
+    "message": "Η εγγραφή είναι απενεργοποιημένη. Ξεκινήστε την εγγραφή για να ελέγξετε τα URL πόρων που φορτώνει αυτή η σελίδα."
+  },
+  "troubleshooter_status_active": {
+    "message": "Έχουν καταγραφεί $1 αλλαγή(-ές) URL μέχρι στιγμής. Οι νέες εμφανίζονται εδώ αυτόματα."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Η εγγραφή σταμάτησε. Καταγράφηκαν $1 αλλαγή(-ές) URL."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Τα δεδομένα εγγραφής δεν ήταν δυνατό να αποθηκευτούν στον αποθηκευτικό χώρο συνεδρίας. $1 αλλαγή(-ές) URL μπορεί να χαθούν αν γίνει επανεκκίνηση της επέκτασης."
+  },
+  "troubleshooter_status_started": {
+    "message": "Η εγγραφή ξεκίνησε και η καρτέλα φορτώνει ξανά. Τα καταγεγραμμένα URL εμφανίζονται εδώ καθώς φορτώνει η σελίδα."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Η εγγραφή σταμάτησε. Καταγράφηκαν και αποθηκεύτηκαν για αυτήν τη συνεδρία του προγράμματος περιήγησης $1 αλλαγή(-ές) URL."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Η εγγραφή σταμάτησε. Καταγράφηκαν $1 αλλαγή(-ές) URL, αλλά ο αποθηκευτικός χώρος συνεδρίας δεν μπόρεσε να τις αποθηκεύσει."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Ανοίξτε πρώτα μια κανονική ιστοσελίδα http ή https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Δεν ήταν δυνατή η έναρξη της εγγραφής για αυτήν την καρτέλα."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Δεν ήταν δυνατή η διακοπή της εγγραφής για αυτήν την καρτέλα."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Δεν ήταν δυνατή η ανάγνωση αυτής της καρτέλας. Δοκιμάστε να κλείσετε και να ανοίξετε ξανά το αναδυόμενο παράθυρο."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Η σύνοψη αντιγράφηκε."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Δεν ήταν δυνατή η αντιγραφή της σύνοψης."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Η εγγραφή εξήχθη."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Δεν ήταν δυνατή η εξαγωγή της εγγραφής."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Δεν ήταν δυνατό το άνοιγμα της φόρμας αναφοράς."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Ο κανόνας ενεργοποιήθηκε· φορτώστε ξανά την καρτέλα για σύγκριση."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Ο κανόνας απενεργοποιήθηκε· φορτώστε ξανά την καρτέλα για σύγκριση."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Δεν ήταν δυνατή η ενημέρωση αυτού του κανόνα."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Δεν βρέθηκαν ακόμη αλλαγές κανόνων. Ξεκινήστε την εγγραφή για να ελέγξετε τα URL πόρων αυτής της σελίδας."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Αυτή η σελίδα του προγράμματος περιήγησης δεν μπορεί να σαρωθεί."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Κανένα εύρημα δεν ταιριάζει με αυτά τα φίλτρα."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Εμφάνιση των πρώτων $1 κανόνων."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 εμφάνιση(-εις)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 απέτυχε"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID κανόνα: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Ενσωματωμένη ενέργεια προστασίας (χωρίς ID κανόνα)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID κανόνα: μη διαθέσιμο για αυτό το εύρημα"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Δεν ήταν δυνατή η αντιστοίχιση αυτού του ID κανόνα στο τρέχον σύνολο κανόνων."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Παρατηρηθέν αίτημα"
+  },
+  "troubleshooter_source_page": {
+    "message": "Έλεγχος URL σελίδας"
+  },
+  "troubleshooter_changes": {
+    "message": "Τι άλλαξε: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Επηρεαζόμενα URL ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…και άλλα $1"
+  },
+  "troubleshooter_after": {
+    "message": "Μετά το Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Απέτυχε αφού το Linkumori άλλαξε το URL: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Αυτός ο κανόνας είναι ενεργός. Απενεργοποιήστε τον και φορτώστε ξανά για να συγκρίνετε τη σελίδα."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Αυτός ο κανόνας είναι απενεργοποιημένος. Ενεργοποιήστε τον και φορτώστε ξανά για να επαναφέρετε τη συμπεριφορά του."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Αυτή είναι μια ενσωματωμένη ενέργεια προστασίας, όχι ένας μεμονωμένος κανόνας."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Ελέγξτε το επηρεαζόμενο URL πριν αλλάξετε κανόνες."
+  },
+  "troubleshooter_report": {
+    "message": "Αναφορά αυτού του κανόνα"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Απενεργοποίηση κανόνα"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Ενεργοποίηση κανόνα"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Απενεργοποίηση κανόνα $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Ενεργοποίηση κανόνα $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Αποθήκευση…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "αφαιρέθηκε το $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "προστέθηκε το $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "άλλαξε το $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "ανακατεύθυνση σε $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "άλλαξε η διαδρομή"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "άλλαξε το τμήμα (fragment)"
+  },
+  "troubleshooter_change_other": {
+    "message": "Το URL άλλαξε"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "αποκλείστηκε σκόπιμα"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 αίτημα(-τα) απέτυχαν σε αυτήν τη σελίδα· $2 αμέσως αφού το Linkumori άλλαξε το URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Η σελίδα δεν λειτουργεί σωστά;"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Βρείτε τον κανόνα που τη χαλάει: οι κανόνες που εκτελέστηκαν σε αυτή τη σελίδα απενεργοποιούνται έναν έναν και μετά από καθέναν λέτε αν η σελίδα διορθώθηκε. Δεν είστε σίγουροι ότι φταίει το Linkumori; Ελέγξτε πρώτα με τον καθαρισμό σε παύση."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Έλεγχος πρώτα με τον καθαρισμό σε παύση"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Ο καθαρισμός είναι σε παύση για το $1 σε αυτή την καρτέλα"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Η καρτέλα φορτώθηκε ξανά χωρίς καθαρισμό. Λειτουργεί τώρα η σελίδα;"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ναι, λειτουργεί"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Όχι, εξακολουθεί να μη λειτουργεί"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Ακύρωση"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Τέλος"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Μάλλον δεν φταίει το Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Η σελίδα εξακολουθούσε να μη λειτουργεί με τον καθαρισμό σε παύση, οπότε το πρόβλημα βρίσκεται μάλλον αλλού: στον ίδιο τον ιστότοπο, σε άλλη επέκταση ή στο δίκτυο. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Πιθανότατα φταίει το Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Η σελίδα λειτουργεί με τον καθαρισμό σε παύση. Βρείτε τον κανόνα: οι κανόνες απενεργοποιούνται έναν έναν, η καρτέλα φορτώνει ξανά και εσείς λέτε αν η σελίδα διορθώθηκε. Στο τέλος κάθε άλλος κανόνας ενεργοποιείται ξανά."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Η καρτέλα φορτώνει ξανά με τον καθαρισμό ενεργό, για να καταγραφεί ποιοι κανόνες εκτελούνται σε αυτή τη σελίδα. Θα εμφανιστούν εδώ σε λίγο. Αν δεν εμφανιστεί κανένας, χρησιμοποιήστε τη σελίδα μέχρι να χαλάσει."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Εύρεση κανόνα ($1 κανόνες)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ναι, διορθώθηκε"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Όχι, εξακολουθεί να μη λειτουργεί"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Βρέθηκε"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Η σελίδα χαλάει εξαιτίας του κανόνα $1$2. Έχει ενεργοποιηθεί ξανά. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Απενεργοποίηση αυτού του κανόνα"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Αναφορά"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Ο κανόνας απενεργοποιήθηκε. Φορτώστε ξανά την καρτέλα για έλεγχο. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Δεν βρέθηκε μεμονωμένος κανόνας"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Η απενεργοποίηση των κανόνων έναν έναν δεν διόρθωσε τη σελίδα, οπότε μάλλον οφείλεται σε περισσότερους κανόνες μαζί ή σε κάποια ρύθμιση προστασίας. Όλοι οι κανόνες έχουν ενεργοποιηθεί ξανά. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Δεν ήταν δυνατή η εκτέλεση του ελέγχου: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Φορτώστε ξανά το Linkumori για να χρησιμοποιήσετε αυτόν τον έλεγχο"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Το Linkumori ενημερώθηκε, αλλά το τμήμα του στο παρασκήνιο εκτελεί ακόμη την παλιά έκδοση. Φορτώστε ξανά την επέκταση (για προσωρινό πρόσθετο: about:debugging → This Firefox → Reload) ή επανεκκινήστε το Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Βρέθηκε"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Η σελίδα χαλάει εξαιτίας του κανόνα $1$2. Παραμένει απενεργοποιημένος, ώστε η σελίδα να λειτουργεί· όλοι οι άλλοι κανόνες είναι ξανά ενεργοί. Φορτώστε ξανά την καρτέλα για έλεγχο. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Επαναφόρτωση καρτέλας"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Επανενεργοποίηση"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Ο κανόνας ενεργοποιήθηκε ξανά. Φορτώστε ξανά την καρτέλα για έλεγχο. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Εγγραφή και εύρεση κανόνα"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Καταγράφονται οι κανόνες που εκτελούνται σε αυτή τη σελίδα. Χρησιμοποιήστε τη σελίδα μέχρι να χαλάσει· οι κανόνες εμφανίζονται εδώ."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Προσωρινά απενεργοποιημένος από την αναζήτηση κανόνα. Ενεργοποιείται ξανά όταν τελειώσει η αναζήτηση."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Η αναζήτηση κανόνα εκτελείται. Αλλάξτε κανόνες αφού τελειώσει."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Παράλειψη — επανενεργοποίηση"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Διατήρηση απενεργοποιημένου"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Η αναζήτηση κανόνα παραλείφθηκε· κάθε κανόνας είναι ξανά ενεργός. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Ο κανόνας $1 παραμένει απενεργοποιημένος. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Απενεργοποιημένοι για αυτή τη δοκιμή:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…και άλλοι $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Διακοπή αναζήτησης"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Παραλείφθηκε: ο κανόνας ενεργοποιήθηκε ξανά και αφέθηκε εκτός. Δοκιμάζεται ο επόμενος."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Δεν βρέθηκε κανόνας μεταξύ των κανόνων που δοκιμάστηκαν. $1 κανόνας(-ες) που παραλείψατε δεν δοκιμάστηκαν. Κάθε κανόνας είναι ξανά ενεργός. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_experimental": {
+    "message": "Πειραματικό"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Πειραματικό: αυτό το εργαλείο αντιμετώπισης προβλημάτων δεν είναι πλήρως σταθερό. Τα αποτελέσματά του μπορεί να είναι λανθασμένα και απενεργοποιεί κανόνες όσο δοκιμάζει. Αν κάτι φαίνεται λάθος μετά, ελέγξτε τους κανόνες σας στον επεξεργαστή προσαρμοσμένων κανόνων ή χρησιμοποιήστε τη Διακοπή αναζήτησης για να τους ενεργοποιήσετε ξανά."
+  },
+  "troubleshooter_working": {
+    "message": "Σε εξέλιξη…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Νέα εγγραφή"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Η παλιά εγγραφή διαγράφηκε. Γίνεται νέα εγγραφή αυτής της καρτέλας από καθαρή φόρτωση."
+  },
+  "troubleshooter_clear": {
+    "message": "Εκκαθάριση"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Εκκαθάριση της εγγραφής, των ευρημάτων και της ολοκληρωμένης αναζήτησης κανόνα αυτής της καρτέλας. Οι κανόνες παραμένουν όπως είναι."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Έγινε εκκαθάριση. Οι κανόνες παραμένουν όπως είναι."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Έγινε εκκαθάριση. Ο κανόνας $1 παραμένει απενεργοποιημένος."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Δοκιμή ενός κανόνα τη φορά — κανόνας $1 από $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Μόνο αυτός ο κανόνας είναι απενεργοποιημένος και η καρτέλα φόρτωσε ξανά. Διορθώθηκε τώρα η σελίδα;"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Παράλειψη αυτού του κανόνα"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Παράλειψη — επανενεργοποίηση, δοκιμή επόμενου (απομένουν $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 άλλος(-οι) κανόνας(-ες) που εκτελέστηκαν σε αυτή τη σελίδα δεν δοκιμάστηκαν. Θέλετε να συνεχίσετε τη δοκιμή τους;"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Διατήρηση απενεργοποιημένου, δοκιμή επόμενου (απομένουν $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Ο κανόνας $1 παραμένει απενεργοποιημένος. Δοκιμάζεται ο επόμενος κανόνας."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Κανένας άλλος κανόνας δεν διορθώνει από μόνος του τη σελίδα. Οι $1 κανόνας(-ες) που διατηρήσατε απενεργοποιημένους παραμένουν απενεργοποιημένοι· κάθε άλλος κανόνας είναι ξανά ενεργός. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Δοκιμή του επόμενου κανόνα (απομένουν $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Ο κανόνας $1 ενεργοποιήθηκε ξανά και αφέθηκε εκτός. Δοκιμάζεται ο επόμενος κανόνας."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Κανένας άλλος κανόνας δεν διορθώνει από μόνος του τη σελίδα. Οι $1 κανόνας(-ες) που παραλείψατε είναι επίσης ξανά ενεργοί, οπότε κάθε κανόνας είναι ενεργός. Για να ξεκινήσετε από την αρχή, κάντε κλικ στο Εκκαθάριση."
+  },
+  "guide_intro_p_1": {
+    "message": "Το Linkumori καθαρίζει τα URL με κανόνες γραμμένους σε <strong>CLN Format 1.0</strong> (Clean Link Notation), μια μορφή JSON. Αυτός ο οδηγός ξεκινά από έναν πρώτο κανόνα και φτάνει σε κάθε επιλογή, με παραδείγματα που μπορείτε να αντιγράψετε."
+  },
+  "guide_intro_p_2": {
+    "message": "Οι ενσωματωμένοι κανόνες, οι απομακρυσμένες λίστες κανόνων και οι προσαρμοσμένοι κανόνες σας χρησιμοποιούν την ίδια μορφή. Γράφετε τους προσαρμοσμένους κανόνες στον επεξεργαστή προσαρμοσμένων κανόνων, ο οποίος τους ελέγχει όταν αποθηκεύετε ή εισάγετε. Ένας επίσημος κατάλογος κανόνων ClearURLs (<code>data.min.json</code>) είναι ήδη έγκυρο αρχείο CLN και μπορεί να χρησιμοποιηθεί ως έχει."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Το όνομα του παρόχου είναι απλώς μια ετικέτα. Το ποια URL χειρίζεται ένας πάροχος καθορίζεται από τα <code>domainPatterns</code> ή το <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Κλειδί ανωτάτου επιπέδου"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Υποχρεωτικό. Οι πάροχοι, με το όνομά τους."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Προαιρετική έκδοση της μορφής. Η μόνη έγκυρη τιμή είναι <code>\"1.0\"</code>. Ένα αρχείο χωρίς αυτήν διαβάζεται επίσης ως 1.0· οποιαδήποτε άλλη τιμή απορρίπτει το αρχείο. Δεν ονομάζεται <code>version</code>, επειδή η νέα μορφή κανόνων του ClearURLs χρησιμοποιεί ήδη αυτό το κλειδί."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Προαιρετικές πληροφορίες για το αρχείο."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Τιμές για κάθε κανόνα του αρχείου που δεν ορίζει τη δική του (κεφάλαιο 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Μόνο για απομακρυσμένες λίστες κανόνων: αντικαταστάσεις για κανόνες που έχουν ήδη φορτωθεί (κεφάλαιο 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Ποια URL χειρίζεται ο πάροχος, ως ένα μοτίβο τομέα ή λίστα μοτίβων (κεφάλαιο 3). Χρησιμοποιήστε αυτό ή το <code>urlPattern</code>, ποτέ και τα δύο."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Ποια URL χειρίζεται ο πάροχος, ως μία κανονική έκφραση που ελέγχεται με ολόκληρο το URL. Η διάκριση πεζών-κεφαλαίων αγνοείται."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Μόνο με το <code>urlPattern</code>: υποδείξεις κεντρικού υπολογιστή όπως <code>||example.com^</code>, ώστε ο πάροχος να ελέγχεται μόνο για αυτούς τους κεντρικούς υπολογιστές και όχι για κάθε URL. Είναι υπόδειξη αναζήτησης, όχι συνθήκη αντιστοίχισης."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Παράμετροι παραπομπής και συνεργατών προς αφαίρεση. Παραλείπονται όσο είναι ενεργή η επιλογή <em>Να επιτρέπεται το μάρκετινγκ παραπομπής</em> (κεφάλαιο 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL που ο πάροχος αφήνει εντελώς ανέγγιχτα (κεφάλαιο 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Αποστολή του αιτήματος σε άλλη διεύθυνση αντί για επεξεργασία του (κεφάλαιο 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Αποστολή του αιτήματος στην τιμή μιας παραμέτρου (κεφάλαιο 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: όταν ανακατευθύνεται μια φόρτωση σελίδας (<code>main_frame</code>), ολόκληρη η καρτέλα μεταβαίνει στη νέα διεύθυνση, όχι μόνο το αίτημα δικτύου."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Χειρισμός μόνο αυτών των μεθόδων HTTP, για παράδειγμα <code>[\"GET\"]</code>. Αν παραλειφθεί: κάθε μέθοδος."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Χειρισμός μόνο αυτών των τύπων αιτημάτων, για παράδειγμα <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Αν παραλειφθεί: κάθε τύπος αιτήματος."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Προεπιλογή <code>true</code>. Το <code>false</code> παραλείπει ολόκληρο τον πάροχο όταν μια σελίδα αλλάζει τη δική της διεύθυνση με το History API (<code>pushState</code>/<code>replaceState</code>). Τα κανονικά αιτήματα δικτύου εξακολουθούν να καθαρίζονται."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "Το <code>false</code> απενεργοποιεί τον πάροχο χωρίς να τον διαγράφει."
+  },
+  "guide_matching_p_1": {
+    "message": "Το <code>domainPatterns</code> είναι μια λίστα μοτίβων τομέα. Ένα URL ταιριάζει αν ταιριάζει οποιοδήποτε από αυτά. Τα ίδια μοτίβα χρησιμοποιούνται στα <code>exceptions</code>, <code>redirections</code>, στα φίλτρα <code>$removeparam</code> και στους ακατέργαστους κανόνες."
+  },
+  "guide_matching_cell_1": {
+    "message": "ολόκληρο το URL, ως κανονική έκφραση"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL που περιέχουν αυτό το κείμενο οπουδήποτε (χωρίς αρχικό <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "Το <code>^</code> δηλώνει το τέλος του ονόματος κεντρικού υπολογιστή ή έναν διαχωριστή όπως <code>/</code>, <code>?</code>, <code>:</code> ή το τέλος του URL. Το <code>*</code> είναι μπαλαντέρ."
+  },
+  "guide_matching_p_3": {
+    "message": "Το <code>||</code> δηλώνει έναν τομέα: τον κεντρικό υπολογιστή και κάθε υποτομέα. Ένα μόνο <code>|</code> δηλώνει την ακριβή αρχή του URL και πρέπει να ακολουθείται από σχήμα όπως <code>https://</code>. Για έναν τομέα θέλετε πάντα <code>||</code>· το <code>|example.com^</code> δεν μπορεί ποτέ να ταιριάξει, γι' αυτό ο επεξεργαστής το απορρίπτει."
+  },
+  "guide_matching_p_4": {
+    "message": "Για παράδειγμα, το <code>||smile.amazon.*^</code> διαβάζεται ως: <code>||</code> ο κεντρικός υπολογιστής και οι υποτομείς του, <code>smile.amazon</code> οι απαιτούμενες ετικέτες, <code>.*</code> οποιοδήποτε δημόσιο επίθημα (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) και <code>^</code> το τέλος του κεντρικού υπολογιστή."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "ακριβώς αυτή η παράμετρος"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "κάθε παράμετρος της οποίας ολόκληρο το όνομα ταιριάζει· η διάκριση πεζών-κεφαλαίων αγνοείται"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "Τα <code>\"fbclid\"</code> και <code>\"$removeparam=fbclid\"</code> αφαιρούν το ίδιο πράγμα. Χρησιμοποιήστε το απλό όνομα, εκτός αν χρειάζεστε κάτι από το κεφάλαιο 5. Κάθε εγγραφή μπορεί επίσης να γραφτεί ως αντικείμενο κανόνα (κεφάλαιο 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Εδώ το <code>qid</code> αφαιρείται σε κάθε ιστότοπο Amazon, το <code>tag</code> μόνο στο <code>amazon.de</code>, το <code>sr</code> μόνο στο <code>smile.amazon</code> και το <code>ref_</code> μόνο κάτω από το <code>/gp/</code>. Το μοτίβο περιορίζει τα δικά μοτίβα του παρόχου· δεν μπορεί ποτέ να τα διευρύνει."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "Το <code>@@</code> μετατρέπει το φίλτρο σε εξαίρεση που διατηρεί την παράμετρο (δείτε παρακάτω)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "Το <code>pattern</code> περιορίζει το φίλτρο σε ορισμένα URL του παρόχου (κεφάλαιο 3). Αν παραλειφθεί, εφαρμόζεται σε κάθε URL που ταιριάζει με τον πάροχο."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "Το <code>=value</code> επιλέγει τις παραμέτρους. Αν παραλειφθεί, αφαιρείται κάθε παράμετρος."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Οι τροποποιητές λένε πότε ενεργοποιείται το φίλτρο. Πρέπει να ισχύουν όλοι οι τροποποιητές που αναφέρονται· δεν υπάρχει «ή» μεταξύ τους."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "κάθε παράμετρος εκτός από το <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "παράμετροι της οποίας το όνομα, ή το <code>name=value</code> μαζί, ταιριάζει με την κανονική έκφραση· προσθέστε <code>i</code> για να αγνοείται η διάκριση πεζών-κεφαλαίων"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "παράμετροι της οποίας το όνομα αρχίζει με <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Διαφυγή ονόματος παραμέτρου"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Μια ανάστροφη κάθετος κάνει τον επόμενο χαρακτήρα κυριολεκτικό, ώστε να μπορεί να στοχευτεί οποιοδήποτε όνομα παραμέτρου:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Τιμή"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Αφαιρεί την παράμετρο με όνομα"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (το κόμμα δεν ξεκινά τους τροποποιητές)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Αυτές οι πέντε είναι οι μόνες διαφυγές σε τιμή ονόματος· μια ανάστροφη κάθετος πριν από οποιονδήποτε άλλο χαρακτήρα είναι σφάλμα. Μέσα σε τιμή <code>/regex/</code> η ανάστροφη κάθετος διατηρεί τη σημασία της στις κανονικές εκφράσεις. Οι διαφυγές λειτουργούν στις εγγραφές <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> και <code>@@</code>. Στο JSON, γράψτε κάθε ανάστροφη κάθετο δύο φορές: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Τροποποιητές"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Οι τροποποιητές έρχονται μετά την τιμή, χωρισμένοι με κόμματα. Διαχωρίστε πολλές τιμές ενός τροποποιητή με <code>|</code> και τοποθετήστε <code>~</code> μπροστά από μια τιμή για να την εξαιρέσετε:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Τροποποιητής"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "μόνο όταν η σελίδα που έκανε το αίτημα είναι (ή, με <code>~</code>, δεν είναι) μία από αυτές· επιτρέπονται τιμές regex"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "μόνο όταν το ίδιο το αίτημα πηγαίνει σε έναν από αυτούς, όποια σελίδα κι αν το έκανε"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "μόνο για αυτές τις μεθόδους HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "μόνο όταν το αίτημα πηγαίνει στον ίδιο καταχωρίσιμο τομέα με τη σελίδα (τα <code>a.example.com</code> και <code>b.example.com</code> θεωρούνται ίδια) ή σε διαφορετικό"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "το ίδιο, αλλά με σύγκριση του ακριβούς ονόματος κεντρικού υπολογιστή, οπότε ένας υποτομέας θεωρείται τρίτο μέρος"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "τα ονόματα παραμέτρων συγκρίνονται με διάκριση πεζών-κεφαλαίων"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "παράλειψη αυτού του φίλτρου όταν μια σελίδα αλλάζει τη δική της διεύθυνση με το History API. Δέχεται επίσης <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Οι τέσσερις τροποποιητές <code>*-party</code> δεν μπορούν να συνδυαστούν μεταξύ τους· το <code>first-party,third-party</code> απορρίπτεται."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Για παράδειγμα, το <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> αφαιρεί το <code>sid</code> στο <code>example.com</code>, μόνο για αιτήματα GET που γίνονται από σελίδα σε άλλον ιστότοπο και ποτέ όταν αυτή η σελίδα είναι το <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Μια εγγραφή <code>@@</code> προστατεύει μόνο από φίλτρα <code>$removeparam</code>. Μια απλή εγγραφή όπως <code>\"ref\"</code> αφαιρεί και πάλι την παράμετρο· για αυτό χρησιμοποιήστε τα <code>exceptions</code> ενός αντικειμένου κανόνα. Οι ακατέργαστοι κανόνες έχουν τις δικές τους εγγραφές <code>@@…$rawrule=</code> (κεφάλαιο 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Δεν έχει σημασία πού την καταχωρίζετε και δεν μπορεί να έχει <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Το μοτίβο της ελέγχεται με το URL όπως το έλαβε ο πάροχος, πριν εκτελεστούν οι ακατέργαστοι κανόνες. Μια εγγραφή <code>@@</code> που αφορά μια διαδρομή την οποία διαγράφει ένας ακατέργαστος κανόνας εξακολουθεί να ταιριάζει."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Καλύπτει επίσης φίλτρα άλλων παρόχων για αιτήματα που γίνονται από σελίδα που ταιριάζει με αυτόν τον πάροχο, κάτι χρήσιμο για να εξαιρέσετε έναν ιστότοπο από κανόνα που ορίζεται αλλού."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Οι ακατέργαστοι κανόνες εκτελούνται πριν από τα <code>rules</code>, αγνοούν τη διάκριση πεζών-κεφαλαίων και αντικαθιστούν κάθε αντιστοιχία (σημαίες <code>gi</code> ή <code>g</code> με <code>match-case</code>). Στο JSON, γράψτε κάθε ανάστροφη κάθετο δύο φορές."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Ένας ακατέργαστος κανόνας μπορεί να πάρει το μοτίβο και τους τροποποιητές ενός φίλτρου <code>$removeparam</code>, με το <code>rawrule=</code> τελευταίο. Ό,τι ακολουθεί το <code>rawrule=</code> είναι η κανονική έκφραση:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Το μοτίβο και οι τροποποιητές καθορίζουν πού εκτελείται ο κανόνας· η κανονική έκφραση είναι αυτό που διαγράφεται."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Μια εγγραφή που αρχίζει με <code>@@</code> και τελειώνει σε <code>rawrule=</code> εμποδίζει την εκτέλεση ακατέργαστων κανόνων όπου ταιριάζει το μοτίβο της:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Αν δεν υπάρχει τίποτα μετά το <code>rawrule=</code>, σταματά κάθε ακατέργαστο κανόνα του παρόχου σε αυτά τα URL."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Με κανονική έκφραση μετά το <code>rawrule=</code>, σταματά τους ακατέργαστους κανόνες με αυτήν την κανονική έκφραση."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Ως αντικείμενο κανόνα με <code>targetId</code>, σταματά μόνο τον ακατέργαστο κανόνα με αυτό το id ή ψευδώνυμο."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Για να παραλείψετε ολόκληρο τον πάροχο, χρησιμοποιήστε αντί γι' αυτό τα <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Αν ένα URL ταιριάζει με μια εγγραφή στα <code>exceptions</code>, κανένας κανόνας του παρόχου δεν εκτελείται για αυτό το αίτημα. Μια εγγραφή είναι κανονική έκφραση για ολόκληρο το URL ή μοτίβο τομέα που αρχίζει με <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Οι εξαιρέσεις αγνοούν τη διάκριση πεζών-κεφαλαίων. Για να παραλείψετε έναν μεμονωμένο κανόνα αντί για ολόκληρο τον πάροχο, δώστε στον κανόνα τα δικά του <code>exceptions</code> (κεφάλαιο 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Κερδίζει όποια παράμετρος που ταιριάζει εμφανίζεται πρώτη στο URL. Για το <code>https://site.example/away?redirect=https://real.example/page</code>, το αίτημα πηγαίνει στο <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Έγκυροι στόχοι ανακατεύθυνσης"
+  },
+  "guide_redirects_p_2": {
+    "message": "Ανακατεύθυνση γίνεται μόνο σε απόλυτη διεύθυνση <code>http</code> ή <code>https</code> με κεντρικό υπολογιστή. Αυτό ελέγχεται μετά τους προεπεξεργαστές και την αποκωδικοποίηση ποσοστού (percent-decoding). Ένας μη έγκυρος στόχος κάνει την εγγραφή να θεωρείται ότι δεν ταιριάζει: δεν γίνεται ανακατεύθυνση και τα επόμενα βήματα του παρόχου εκτελούνται στο αμετάβλητο URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Στόχος"
+  },
+  "guide_redirects_th_2": {
+    "message": "Ανακατεύθυνση;"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ναι"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ναι, στο <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "όχι: το σχήμα δεν είναι <code>http</code> ή <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "όχι: δεν είναι απόλυτη διεύθυνση"
+  },
+  "guide_redirects_p_3": {
+    "message": "Ένας ακατέργαστος κανόνας του οποίου το αποτέλεσμα έχει διαφορετικό σχήμα, κεντρικό υπολογιστή ή θύρα από την είσοδό του θεωρείται επίσης ανακατεύθυνση, ακόμη και όταν απλώς διαγράφει κείμενο: η διαγραφή του <code>secure-</code> από το <code>https://secure-bank.example/</code> καταλήγει σε άλλον ιστότοπο. Χρειάζεται έγκυρο στόχο και, σε απομακρυσμένη λίστα κανόνων, την έγκριση <code>redirect</code> (κεφάλαιο 15). Διαφορετικά ο κανόνας αφήνει το URL όπως ήταν."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Οποιαδήποτε εγγραφή, σε οποιαδήποτε λίστα, μπορεί να είναι αντικείμενο αντί για συμβολοσειρά. Χρησιμοποιήστε αντικείμενο όταν ένας κανόνας χρειάζεται σταθερό id, πρέπει να ξεκινά απενεργοποιημένος, πρέπει να αναδιατυπώνει αντί να αφαιρεί ή πρέπει να εκτελείται μόνο σε ορισμένες περιπτώσεις:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Υποχρεωτικό. Το κείμενο που θα γράφατε ως απλή εγγραφή σε αυτή τη λίστα."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Ένα σταθερό όνομα (γράμματα, ψηφία, <code>-</code>, <code>_</code>) που χρησιμοποιείται για την ενεργοποίηση και απενεργοποίηση του κανόνα (κεφάλαιο 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Τα προηγούμενα id του κανόνα, ώστε μια ρύθμιση που αποθηκεύτηκε με παλιό id να εξακολουθεί να ισχύει μετά από μετονομασία."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Αναδιατύπωση αντί για αφαίρεση· τα <code>§1§</code>, <code>§2§</code>, … είναι οι καταγεγραμμένες τιμές."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Μετασχηματισμός πρώτα των καταγεγραμμένων τιμών."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Μόνο για αυτούς τους τύπους αιτημάτων, για παράδειγμα <code>[\"main_frame\"]</code>. Ο καθαρισμός χωρίς αίτημα (<em>Αντιγραφή καθαρού συνδέσμου</em>, το εργαλείο καθαρισμού, αλλαγές History API) θεωρείται <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (κανονικές εκφράσεις) όπου δεν εκτελείται αυτός ο συγκεκριμένος κανόνας."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Σημαίες κανονικής έκφρασης, ως συμβολοσειρά. Προεπιλογή <code>i</code>· στο <code>rawRules</code>, <code>gi</code> (ή <code>g</code> με <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Εκτέλεση του κανόνα νωρίτερα ή αργότερα μέσα στο στάδιό του (κεφάλαιο 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: ένας κανόνας στο <code>rules</code> θεωρείται επίσης κανόνας μάρκετινγκ παραπομπής (κεφάλαιο 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Ο διακόπτης του παρόχου με το ίδιο όνομα, για αυτόν τον έναν κανόνα. Υπερισχύει της τιμής του παρόχου και της προεπιλογής του αρχείου."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: ο κανόνας ξεκινά απενεργοποιημένος."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Σημείωση για όσους διαβάζουν το αρχείο· πρέπει να είναι συμβολοσειρά."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Μόνο στις εγγραφές <code>@@…$rawrule=</code>: το id του ακατέργαστου κανόνα που σταματά."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Εδώ το <code>?token=abc123</code> γίνεται <code>?token=clean-abc123</code>. Μια αναδιατύπωση εφαρμόζεται το πολύ μία φορά ανά αίτημα, ώστε να μη συνεχίζει να τυλίγει την τιμή."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Οι προεπεξεργαστές αλλάζουν τις καταγεγραμμένες τιμές, με τη σειρά, πριν τις χρησιμοποιήσει το <code>replacePattern</code> ή μια ανακατεύθυνση. Το <code>inputs</code> είναι <code>\"all\"</code> ή λίστα αριθμών ομάδων:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "Το <code>referralMarketing</code> δέχεται τις ίδιες εγγραφές με το <code>rules</code>. Εκτελούνται μόνο όσο η επιλογή <em>Να επιτρέπεται το μάρκετινγκ παραπομπής</em> είναι απενεργοποιημένη, ώστε οι σύνδεσμοι συνεργατών να εξακολουθούν να λειτουργούν αν την ενεργοποιήσετε:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Ένας κανόνας μπορεί να παραμείνει στο <code>rules</code> και να θεωρείται μάρκετινγκ παραπομπής, με <code>\"referralMarketing\": true</code>. Μην βάζετε το ίδιο κείμενο και στο <code>rules</code> και στο <code>referralMarketing</code>· ο επεξεργαστής σας προειδοποιεί σχετικά."
+  },
+  "guide_request_types_cell_1": {
+    "message": "τύποι αιτημάτων που χειρίζεται ένα αντικείμενο κανόνα (μπορούν να οριστούν και στο <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Οι τύποι αιτημάτων χρησιμοποιούν τα ονόματα του προγράμματος περιήγησης: <code>main_frame</code> (σελίδα), <code>sub_frame</code> (πλαίσιο), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> κ.ο.κ. Οι τροποποιητές φίλτρων ονομάζουν τους δύο πρώτους <code>document</code> και <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Οι τύποι αιτημάτων προέρχονται μόνο από τους κανόνες: δεν υπάρχει λίστα τύπων αιτημάτων στις Ρυθμίσεις. Αν δεν οριστεί κανένας από αυτούς, ένας κανόνας καθαρίζει κάθε τύπο αιτήματος."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Προεπιλογές"
+  },
+  "guide_defaults_p_1": {
+    "message": "Ένα μπλοκ <code>defaults</code> ανωτάτου επιπέδου δίνει σε κάθε κανόνα του αρχείου τιμές που δεν ορίζει ο ίδιος:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Προεπιλογή για…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>· το <code>false</code> απενεργοποιεί κάθε κανόνα, εκτός αν λέει <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>· το <code>\"all\"</code> ή η παράλειψή του σημαίνει κάθε τύπο"
+  },
+  "guide_defaults_item_1": {
+    "message": "Η δική του τιμή ενός κανόνα υπερισχύει πάντα και τα <code>exceptions</code> ενός κανόνα αντικαθιστούν την προεπιλεγμένη λίστα αντί να προστίθενται σε αυτή."
+  },
+  "guide_defaults_item_2": {
+    "message": "Οι προεπιλογές εφαρμόζονται στα <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> και <code>fieldRedirections</code>. Η λίστα <code>exceptions</code> του ίδιου του παρόχου μένει ανέγγιχτη. Οι εγγραφές <code>$redirect=</code> χρησιμοποιούν μόνο το <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Κάθε αρχείο διατηρεί τις δικές του προεπιλογές: οι ενσωματωμένοι κανόνες, κάθε απομακρυσμένη λίστα και οι προσαρμοσμένοι κανόνες σας, ακόμη και όταν η λειτουργία υπερφόρτωσης τα συγχωνεύει."
+  },
+  "guide_defaults_item_4": {
+    "message": "Για ένα <code>completeProvider</code>, τα προεπιλεγμένα <code>requestTypes</code> και <code>exceptions</code> περιορίζουν επίσης τον αποκλεισμό."
+  },
+  "guide_defaults_item_5": {
+    "message": "Τα άγνωστα κλειδιά και οι λανθασμένοι τύποι είναι σφάλματα και μια απομακρυσμένη λίστα με μη έγκυρο μπλοκ <code>defaults</code> απορρίπτεται."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Οι δικές σας προεπιλογές"
+  },
+  "guide_defaults_p_2": {
+    "message": "Στον επεξεργαστή προσαρμοσμένων κανόνων, το <em>Διαχείριση προεπιλογών κανόνων</em> ανοίγει μια φόρμα όπου ορίζετε δικό σας μπλοκ <code>defaults</code> και επιλέγετε πού αντικαθιστά τις προεπιλογές των ίδιων των αρχείων:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Οι δικές της κάθε πηγής</em> (προεπιλογή): κάθε αρχείο χρησιμοποιεί τα δικά του <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Οι δικές σας για ενσωματωμένους και απομακρυσμένους κανόνες</em>: οι ενσωματωμένοι και οι απομακρυσμένοι κανόνες χρησιμοποιούν τις δικές σας· οι προσαρμοσμένοι κανόνες διατηρούν τις δικές τους."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Οι δικές σας για όλους τους κανόνες</em>: κάθε κανόνας χρησιμοποιεί τις δικές σας."
+  },
+  "guide_defaults_p_3": {
+    "message": "Η ίδια φόρμα μπορεί να επεξεργαστεί τις προεπιλογές των ενσωματωμένων κανόνων και κάθε φορτωμένης απομακρυσμένης λίστας. Η επεξεργασία σας αποθηκεύεται στην επέκταση, όχι στο αρχείο, και το <em>Επαναφορά στις προεπιλογές του αρχείου</em> την αφαιρεί. Το <em>Συγχώνευση από πηγές…</em> συνδυάζει τις προεπιλογές των πηγών που επιλέγετε· τίποτα δεν αποθηκεύεται μέχρι να πατήσετε αποθήκευση."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Πώς επεξεργάζεται ένα URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code> και μετά <code>fieldRedirections</code>: μια αντιστοιχία με έγκυρο στόχο ανακατευθύνει το αίτημα."
+  },
+  "guide_processing_order_item_2": {
+    "message": "Τα <code>rules</code> και <code>referralMarketing</code> αφαιρούν ή αναδιατυπώνουν παραμέτρους."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Εκτελούνται τα φίλτρα <code>$removeparam</code>, εκτός όπου μια εγγραφή <code>@@</code> διατηρεί την παράμετρο."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Κερδίζει ο πρώτος πάροχος που αλλάζει, ανακατευθύνει ή αποκλείει το URL. Το νέο URL περνά έπειτα από τα ίδια βήματα ξανά (δείτε <a href=\"#termination\">Πότε σταματά η επεξεργασία</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Σειρά εκτέλεσης και <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Τα βήματα 4 και 5 ταξινομούνται μαζί, με αυτούς τους κανόνες διαδοχικά:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Οι ακατέργαστοι κανόνες εκτελούνται πάντα πρώτοι.</strong> Κανένα <code>order</code> δεν μετακινεί μια εγγραφή <code>rules</code> πριν από έναν ακατέργαστο κανόνα. Ένας καθαρισμός που πρέπει να γίνει πριν από έναν ακατέργαστο κανόνα πρέπει να είναι ο ίδιος ακατέργαστος κανόνας."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Μέσα σε ένα στάδιο, οι κανόνες με <code>order</code> εκτελούνται πριν από εκείνους χωρίς</strong>, ξεκινώντας από τον χαμηλότερο. Επιτρέπονται αρνητικοί αριθμοί και κλάσματα. Το <code>order: 10</code> δεν σημαίνει «δέκατος»: σημαίνει μετά τους κανόνες του σταδίου με order κάτω από 10 και πριν από όλους τους κανόνες χωρίς order."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Έπειτα κατά λίστα:</strong> <code>rules</code>, μετά αντικείμενα <code>rules</code> με σήμανση <code>\"referralMarketing\": true</code>, μετά <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Έπειτα κατά θέση</strong> στη λίστα. Κάθε εγγραφή διατηρεί τη θέση της, συμπεριλαμβανομένων των εγγραφών που γράφονται όπως <code>\"3\"</code> ή <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Εδώ το token αναδιατυπώνεται πριν αφαιρεθεί το <code>utm_source</code>, αν και έρχεται δεύτερο:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Οι κανόνες που είναι απενεργοποιημένοι παραλείπονται. Τα φίλτρα <code>$removeparam</code> και οι εγγραφές <code>@@</code> βρίσκονται εκτός αυτής της ταξινόμησης και δεν μπορούν να έχουν <code>order</code>, ούτε καν <code>null</code>· τα φίλτρα εκτελούνται πάντα τελευταία."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Ίδιο κείμενο δύο φορές"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Δύο εγγραφές με το ίδιο κείμενο <code>matchPattern</code> στην ίδια ομάδα αποτελούν έναν κανόνα. Οι ομάδες είναι ακατέργαστες (<code>rawRules</code>), πεδίου (<code>rules</code> χωρίς σήμανση παραπομπής) και παραπομπής (αντικείμενα <code>rules</code> με σήμανση, μετά <code>referralMarketing</code>). Αυτό συμβαίνει κυρίως όταν συγχωνεύονται λίστες κανόνων."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Κερδίζει ο τελευταίος ορισμός που δεν είναι απενεργοποιημένος, με όλα τα κλειδιά του."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Χωρίς δικό του <code>order</code>, ο νικητής παίρνει τη θέση του πρώτου ορισμού και το πλησιέστερο προηγούμενο <code>order</code>. Το <code>\"order\": null</code> σημαίνει κανένα order και απορρίπτει ένα κληρονομημένο."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Τα id και τα ψευδώνυμα των αντικατεστημένων ορισμών ενεργοποιούν και απενεργοποιούν επίσης τον νικητή."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Όσο εκτελούνται οι κανόνες μάρκετινγκ παραπομπής, μια εγγραφή παραπομπής αντικαθιστά μια εγγραφή πεδίου με το ίδιο κείμενο."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Ένας ακατέργαστος κανόνας και ένας κανόνας πεδίου με το ίδιο κείμενο δεν συγκρούονται· εκτελούνται και οι δύο."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Μέσα σε μία λίστα, δύο διαφορετικές εγγραφές με το ίδιο κείμενο αποτελούν σφάλμα και ένα ακριβές αντίγραφο αποτελεί προειδοποίηση."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Πότε σταματά η επεξεργασία"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Εκτελούνται το πολύ 10 κύκλοι ανά αίτημα· στο όριο, το URL χρησιμοποιείται όπως έχει."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Ένας κανόνας με <code>replacePattern</code> εφαρμόζεται το πολύ μία φορά ανά αίτημα."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Ένα βήμα που δεν αλλάζει το URL δεν ξεκινά νέο κύκλο."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Η επιλογή Ρυθμίσεις → <em>Απεριόριστοι κύκλοι καθαρισμού</em> (απενεργοποιημένη από προεπιλογή) αφαιρεί το όριο των 10 κύκλων για αλυσίδες κανόνων που χρειάζονται περισσότερους. Η επεξεργασία τότε τελειώνει όταν ένας κύκλος δεν αλλάζει τίποτα, αλλά δύο κανόνες που ανακατευθύνουν ο ένας στον άλλον επαναλαμβάνονται μέχρι να τα παρατήσει το πρόγραμμα περιήγησης και η σελίδα να μη φορτώσει. Ενεργοποιήστε την μόνο για κανόνες που εμπιστεύεστε."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Id κανόνων και διακόπτες ενεργοποίησης/απενεργοποίησης"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Κάθε κανόνας έχει id. Ένας κανόνας χωρίς <code>id</code> παίρνει ένα από τη λίστα και το κείμενό του: το <code>\"utm_source\"</code> στο <code>rules</code> γίνεται <code>field-utm-source</code>. Ένα αυτόματο id αλλάζει όταν αλλάζει το κείμενο του κανόνα και ένας απενεργοποιημένος κανόνας τότε θα ενεργοποιηθεί ξανά. Δώστε στον κανόνα δικό του <code>id</code> όταν πρέπει να διατηρεί τη ρύθμιση ενεργοποίησης/απενεργοποίησης μέσα από επεξεργασίες και καταχωρίστε τα παλιά id στα <code>aliases</code> όταν τον μετονομάζετε."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Ένας κανόνας ενεργοποιείται και απενεργοποιείται από τον πάροχο και το id του μαζί, όπως <code>shop::session-token</code>, ώστε δύο πάροχοι να μπορούν να χρησιμοποιούν το ίδιο id. Ο επεξεργαστής προσαρμοσμένων κανόνων μπορεί επίσης να τον αποθηκεύσει με το μοτίβο του παρόχου, όπως <code>domainPattern:||shop.example^::session-token</code>· και οι δύο μορφές λειτουργούν."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Μέσα σε έναν πάροχο, κάθε id και ψευδώνυμο πρέπει να είναι διαφορετικό. Τα αυτόματα id υπολογίζονται."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Ένα id δεν μπορεί να περιέχει άνω και κάτω τελεία."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Μια ρύθμιση που αποθηκεύτηκε με γυμνό id, χωρίς τον πάροχό της, δεν ενεργοποιεί ή απενεργοποιεί τίποτα· απενεργοποιήστε ξανά τον κανόνα στον επεξεργαστή προσαρμοσμένων κανόνων."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Απομακρυσμένες λίστες κανόνων"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Οι απομακρυσμένες λίστες κανόνων είναι αρχεία κανόνων που κατεβάζει το Linkumori, με προαιρετικό έλεγχο έναντι αρχείου κατακερματισμού. Μια λίστα με μη έγκυρη τιμή <code>cln</code>, μπλοκ <code>defaults</code> ή πίνακα <code>patches</code> δεν φορτώνεται και το Remote Rules Health την αναφέρει."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Η ανακατεύθυνση και ο αποκλεισμός χρειάζονται την έγκρισή σας"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Το τι μπορεί να κάνει μια απομακρυσμένη λίστα υπολογίζεται από το περιεχόμενό της όταν φορτώνεται:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Δυνατότητα"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Η λίστα την έχει όταν περιέχει"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Ενεργή κατά τη φόρτωση"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "εγγραφή <code>rules</code>, <code>rawRules</code> ή <code>referralMarketing</code> ή φίλτρο <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "μια εγγραφή με <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "εγγραφή <code>exceptions</code> παρόχου ή εγγραφή <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "εγγραφή <code>redirections</code> ή <code>fieldRedirections</code> ή <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "μετά την έγκριση"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "πάροχος με <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Εγκρίνετε τα <code>redirect</code> και <code>block</code> ανά λίστα στο Remote Rules Health. Μέχρι τότε, οι ανακατευθύνσεις και οι αποκλεισμοί αυτής της λίστας παραμένουν απενεργοποιημένοι και οι ακατέργαστοι κανόνες της δεν μπορούν να στείλουν ένα URL σε άλλον ιστότοπο· τα υπόλοιπα της λίστας λειτουργούν αμέσως. Όταν μια ενημέρωση προσθέτει νέα δυνατότητα, περιμένει κι αυτή έγκριση. Οι ενσωματωμένοι και οι προσαρμοσμένοι κανόνες έχουν κάθε δυνατότητα."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Λειτουργία υπερφόρτωσης"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Κανονικά, οι απομακρυσμένες λίστες που έχουν παρόχους αντικαθιστούν τους ενσωματωμένους κανόνες· οι λίστες που περιέχουν μόνο <code>patches</code> εφαρμόζονται στους ενσωματωμένους κανόνες. Με ενεργή την επιλογή <em>Ενεργοποίηση λειτουργίας υπερφόρτωσης</em>, φορτώνονται μαζί, με μία από τρεις στρατηγικές:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Μόνο λειτουργία επιδιορθώσεων</em>: εφαρμογή των επιδιορθώσεων των απομακρυσμένων λιστών στους ενσωματωμένους κανόνες· οι απομακρυσμένοι πάροχοι παραλείπονται."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Λειτουργία επιδιορθώσεων + συγχώνευση</em>: συγχώνευση ενσωματωμένων και απομακρυσμένων παρόχων και μετά εφαρμογή επιδιορθώσεων."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Χωρίς λειτουργία επιδιορθώσεων + συγχώνευση</em>: συγχώνευση των παρόχων και παράλειψη επιδιορθώσεων."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Κατά τη συγχώνευση, οι απομακρυσμένες λίστες συγχωνεύονται μεταξύ τους με τη σειρά που τις καταχωρίζετε και έπειτα με τους ενσωματωμένους κανόνες (πρώτα οι ενσωματωμένοι). Συγχωνεύονται μόνο πάροχοι με τα ίδια <code>domainPatterns</code> (ή <code>urlPattern</code>) και τα ίδια <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> και <code>forceRedirection</code>· τα <code>rules</code>, <code>rawRules</code> και <code>referralMarketing</code> τους ενώνονται και το <a href=\"#same-text-twice\">Ίδιο κείμενο δύο φορές</a> αποφασίζει ποιο αντίγραφο εκτελείται. Το Remote Rules Health εμφανίζει κάθε αντικατεστημένο κανόνα ως ειδοποίηση."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Οι προσαρμοσμένοι κανόνες εφαρμόζονται τελευταίοι. Ένας προσαρμοσμένος πάροχος αντικαθιστά κάθε φορτωμένο πάροχο με το ίδιο μοτίβο· οι κανόνες τους δεν συνδυάζονται."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Επιδιορθώσεις κανόνων"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Μια απομακρυσμένη λίστα μπορεί να αντικαταστήσει μεμονωμένους κανόνες που έχουν ήδη φορτωθεί, χωρίς να δημοσιεύσει πλήρες αντίγραφο, σε έναν πίνακα <code>patches</code> ανωτάτου επιπέδου:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Υποχρεωτικό. Ο κανόνας προς αντικατάσταση, γραμμένος όπως το κλειδί ενεργοποίησης/απενεργοποίησής του: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> ή <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Υποχρεωτικό. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> ή <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Υποχρεωτικό. Ο νέος κανόνας, ως απλή εγγραφή ή αντικείμενο κανόνα."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Σημείωση για όσους διαβάζουν το αρχείο."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Οι επιδιορθώσεις εκτελούνται αφού συγχωνευθούν οι απομακρυσμένες λίστες και πριν από τους προσαρμοσμένους κανόνες. Ένα αρχείο μόνο με <code>patches</code> δεν χρειάζεται <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Η συγχώνευση μπορεί να μετονομάσει παρόχους, οπότε η μορφή <code>domainPattern:</code> ή <code>urlPattern:</code> είναι αυτή που τους βρίσκει πάντα."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Η αντικατάσταση διατηρεί το id του παλιού κανόνα ή παίρνει το παλιό id ως ψευδώνυμο, ώστε οι ρυθμίσεις ενεργοποίησης/απενεργοποίησης να εξακολουθούν να ισχύουν."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Μια επιδιόρθωση για ανακατεύθυνση περιμένει την έγκριση <code>redirect</code> της λίστας. Μια επιδιόρθωση της οποίας ο στόχος δεν ταιριάζει με τίποτα δεν αλλάζει τίποτα."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Το Remote Rules Health εμφανίζει κάθε επιδιόρθωση ως εφαρμοσμένη, χωρίς αντιστοίχιση ή παραλειφθείσα."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Κανόνες και λίστα επιτρεπόμενων"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Η λίστα επιτρεπόμενων είναι ξεχωριστή από τα <code>exceptions</code> ενός παρόχου: περιέχει ιστότοπους που ζητήσατε από το Linkumori να αφήνει ανέγγιχτους, χωρίς αρχείο κανόνων. Οι εγγραφές μοιάζουν με <code>example.com</code>, <code>*.example.com</code> (ο ιστότοπος και οι υποτομείς του) ή <code>example.*</code> (οποιοδήποτε επίθημα). Η προσθήκη μιας σελίδας στη λίστα επιτρεπόμενων καλύπτει και ό,τι φορτώνει."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Πλήρη παραδείγματα"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Έλεγχος των κανόνων σας"
+  },
+  "guide_checking_p_1": {
+    "message": "Ο επεξεργαστής προσαρμοσμένων κανόνων ελέγχει τους κανόνες όταν τους αποθηκεύετε ή τους εισάγετε και η εντολή <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> εκτελεί τους ίδιους ελέγχους. Εκτός από κατεστραμμένο JSON και μη έγκυρες κανονικές εκφράσεις, απορρίπτουν κανόνες που θα φορτώνονταν αλλά θα έκαναν αθόρυβα το λάθος, όπως:"
+  },
+  "guide_checking_item_1": {
+    "message": "άγνωστα πεδία, κλειδιά και τροποποιητές"
+  },
+  "guide_check_7": {
+    "message": "τιμή <code>cln</code> διαφορετική από <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "id ή ψευδώνυμο που χρησιμοποιείται δύο φορές στον ίδιο πάροχο"
+  },
+  "guide_checking_item_2": {
+    "message": "δύο διαφορετικές εγγραφές με το ίδιο κείμενο στην ίδια λίστα"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> σε φίλτρο <code>$removeparam</code> ή εγγραφή <code>@@</code>, συμπεριλαμβανομένου του <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "διεύθυνση <code>$redirect=</code> που δεν είναι <code>http</code> ή <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "ανάστροφη κάθετος σε όνομα <code>$removeparam</code> πριν από χαρακτήρα που δεν έχει διαφυγή"
+  },
+  "guide_checking_p_2": {
+    "message": "Προειδοποιούν επίσης για ακριβή αντίγραφα και για το ίδιο κείμενο και στο <code>rules</code> και στο <code>referralMarketing</code>. Αν η αποθήκευση αποτύχει, το μήνυμα κατονομάζει τον πάροχο, τη λίστα και την εγγραφή."
+  },
+  "guide_toc_search": {
+    "message": "Φιλτράρισμα ενοτήτων"
+  },
+  "guide_toc_no_results": {
+    "message": "Δεν υπάρχουν ενότητες που να ταιριάζουν."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: μια ανακατεύθυνση που αρχίζει με \"|\" πρέπει να έχει αυτή τη μορφή: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: ο στόχος του $redirect= πρέπει να είναι μια απόλυτη διεύθυνση URL http ή https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "Το $WHERE$ πρέπει να είναι αντικείμενο",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "Το $WHERE$.type πρέπει να είναι μη κενή συμβολοσειρά",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "Το $WHERE$.type πρέπει να είναι μία από τις εξής τιμές: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "Το $WHERE$.inputs πρέπει να είναι \"all\" ή πίνακας θετικών ακεραίων",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "Το $WHERE$ πρέπει να είναι συμβολοσειρά ή αντικείμενο κανόνα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "Το $WHERE$.matchPattern πρέπει να είναι συμβολοσειρά",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "Το $WHERE$.replacePattern πρέπει να είναι συμβολοσειρά",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "Το $WHERE$.targetId πρέπει να είναι αναγνωριστικό κανόνα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "Το $WHERE$.targetId ισχύει μόνο για εξαιρέσεις \"@@…$rawrule=\" στο rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "Το $WHERE$.flags πρέπει να είναι συμβολοσειρά (σημαίες regex, όπως \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "Το $WHERE$.referralMarketing πρέπει να είναι true ή false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "Το $WHERE$.referralMarketing δεν έχει αποτέλεσμα στο $FIELD$· ισχύει μόνο στο $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "Το $WHERE$.order πρέπει να είναι αριθμός ή null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "Το $WHERE$.order δεν έχει αποτέλεσμα στο $FIELD$· ισχύει μόνο στο $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "Το $WHERE$.order δεν έχει αποτέλεσμα σε φίλτρο $removeparam ή καταχώριση \"@@\"· εκτελούνται πάντα μετά τους άλλους κανόνες",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "Το $WHERE$.active πρέπει να είναι λογική τιμή",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "Το $WHERE$.id πρέπει να είναι συμβολοσειρά",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "Το $WHERE$.id πρέπει να ταιριάζει με το $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "Το $WHERE$.aliases πρέπει να είναι λίστα αναγνωριστικών που ταιριάζουν με το $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "Το $WHERE$.aliases δεν πρέπει να περιέχει το αναγνωριστικό του ίδιου του κανόνα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "Το $WHERE$.description πρέπει να είναι συμβολοσειρά",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "Το $WHERE$.historyBypassProtection πρέπει να είναι λογική τιμή",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "Το $WHERE$.exceptions πρέπει να είναι πίνακας συμβολοσειρών",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "Το $WHERE$.requestTypes πρέπει να είναι πίνακας συμβολοσειρών",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "Το $WHERE$.preprocessors πρέπει να είναι πίνακας",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: άγνωστο πεδίο \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "Το $WHERE$ αρχίζει με \"@@\", που ισχύει μόνο για φίλτρα $removeparam στα rules και referralMarketing· χρησιμοποιήστε \"exceptions\" σε αντικείμενο κανόνα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "Το $WHERE$ περιέχει άγνωστη επιλογή $removeparam \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: το \"$PATTERN$\" αρχίζει με ένα μόνο \"|\", επομένως ταιριάζει μόνο με διευθύνσεις URL που αρχίζουν κυριολεκτικά με \"$REST$\"· δεν υπάρχει καμία τέτοια (οι διευθύνσεις URL αρχίζουν με \"https://\"). Χρησιμοποιήστε \"||$REST$\" για να ταιριάξετε τον τομέα.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "Το $WHERE$ έχει \"targetId\", που λειτουργεί μόνο σε εξαίρεση· αρχίστε το matchPattern με \"@@\" (π.χ. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "Το $WHERE$ έχει και \"targetId\" και regex μετά το \"rawrule=\"· χρησιμοποιήστε μόνο ένα από τα δύο",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "Το $WHERE$ έχει targetId \"$ID$\", αλλά κανένας raw κανόνας σε αυτόν τον πάροχο δεν έχει αυτό το αναγνωριστικό ή ψευδώνυμο",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "Το $WHERE$ είναι εξαίρεση \"@@\" για το \"$REGEX$\", αλλά κανένας raw κανόνας σε αυτόν τον πάροχο δεν χρησιμοποιεί αυτό το regex. Ορίστε αναγνωριστικό στον κανόνα και αναφερθείτε σε αυτόν με \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "Το $WHERE$ είναι εξαίρεση \"@@\", επομένως το \"$KEY$\" δεν θα έκανε τίποτα",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Δεν υπάρχει τίποτα μετά το \"rawrule=\" στο $WHERE$· απαιτείται το regex που θα διαγραφεί",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "Το $WHERE$ έχει μη έγκυρο regex μετά το \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "Το $WHERE$ έχει $GROUPS$ ομάδες σύλληψης· απαιτείται ακριβώς ένα \"( … )\" γύρω από τη διεύθυνση URL προορισμού (γράψτε τις άλλες ομάδες ως \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "Το $PROVIDER$ χρησιμοποιεί ξανά το αναγνωριστικό κανόνα \"$ID$\" στο $WHERE$· χρησιμοποιήθηκε πρώτα στο $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "Το $PROVIDER$ πρέπει να είναι αντικείμενο JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "Το $FIELD$ του $PROVIDER$ πρέπει να είναι πίνακας",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "Το $WHERE$ περιέχει άγνωστο κλειδί \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Σφάλμα κατά την επεξεργασία της διεύθυνσης URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Σφάλμα κατά την αρχικοποίηση της σελίδας: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Μη έγκυρη καρτέλα"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Εκτελείται ήδη αναζήτηση κανόνων για αυτήν την καρτέλα"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Δεν εκτελείται έλεγχος παύσης για αυτήν την καρτέλα"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Οι κανόνες εξακολουθούν να φορτώνονται. Δοκιμάστε ξανά σε λίγο."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Δεν μπορεί να απενεργοποιηθεί κανένας κανόνας που ενεργοποιήθηκε σε αυτήν τη σελίδα."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Δεν ήταν δυνατή η απενεργοποίηση των κανόνων"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Δεν εκτελείται αναζήτηση κανόνων για αυτήν την καρτέλα"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Δεν βρέθηκε κανόνας για παράλειψη σε αυτήν την καρτέλα"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Η λήψη δεν είναι διαθέσιμη"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Δεν ήταν δυνατή η αποθήκευση της καταγραφής στον χώρο αποθήκευσης συνεδρίας"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Άγνωστος κανόνας"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "άγνωστο σφάλμα"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "η εξαγωγή απέτυχε"
   }
 }

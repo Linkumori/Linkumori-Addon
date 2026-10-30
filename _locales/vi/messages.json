@@ -39,7 +39,7 @@
     "message": "Sử dụng các quy tắc Linkumori/ClearURLs đi kèm. Tắt tính năng này để chỉ chạy với các quy tắc từ xa và/hoặc quy tắc tùy chỉnh."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori sử dụng một bộ quy tắc nhà cung cấp ClearURLsData thống nhất. Nhà cung cấp gốc JSON, đối tượng quy tắc chuẩn và bộ lọc $removeparam của nhà cung cấp cục bộ được hợp nhất trước khi Clearurls.js chạy."
   },
   "bundled_rules_section_title": {
     "message": "Thông tin quy tắc"
@@ -1137,25 +1137,25 @@
     "message": "Mở cài đặt Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Hành vi chế độ quá tải"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Chỉ chế độ vá lỗi"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Áp dụng các bản vá từ xa cho các quy tắc tích hợp. Quy tắc nhà cung cấp từ xa không được bao gồm."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Chế độ vá lỗi + hợp nhất"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Hợp nhất các quy tắc nhà cung cấp từ xa và tích hợp sẵn, sau đó áp dụng các bản vá từ xa."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Không có chế độ vá + hợp nhất"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Hợp nhất các quy tắc nhà cung cấp từ xa và tích hợp mà không cần áp dụng các bản vá từ xa."
   },
   "overload_mode_enabled": {
     "message": "Kích hoạt chế độ quá tải"
@@ -1836,7 +1836,7 @@
     "message": "URL băm chính phải sử dụng HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Quy tắc chính URL và hàm băm chính URL phải được cấu hình cùng nhau."
   },
   "save_primary_rule_https_required": {
     "message": "URL quy tắc chính phải sử dụng HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Tôi hiểu những rủi ro - Tiếp tục"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Bạn nên xem xét lại việc sử dụng các quy tắc từ xa nếu bạn không hoàn toàn hiểu hoặc tin tưởng vào nguồn bộ quy tắc Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Tính năng quy tắc từ xa này được thiết kế dành cho người dùng nâng cao hiểu rõ Linkumori JSON mà họ đang tải. Các quy tắc từ xa phải bao gồm hàm băm URL phù hợp để xác minh."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Nếu bạn thêm quy tắc từ xa URL, tiện ích mở rộng sẽ kết nối với máy chủ được chỉ định của bạn để tìm nạp bộ quy tắc Linkumori và tệp băm của nó khi được định cấu hình. Mỗi lần tìm nạp có thể hiển thị địa chỉ IP của bạn và thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt tới máy chủ lưu trữ. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web đó."
   },
   "security_modal_privacy_link_text": {
     "message": "Đọc lại %PRIVACY_POLICY_LINK% trước khi tiếp tục nếu cần."
@@ -1887,7 +1887,7 @@
     "message": "thông báo cảnh báo:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Sử dụng các quy tắc tích hợp trừ khi bạn tin tưởng và kiểm soát nguồn từ xa. Cung cấp hàm băm URL phù hợp cho các quy tắc Linkumori JSON từ xa."
   },
   "security_modal_risk_1": {
     "message": "Địa chỉ IP và thông tin trình duyệt của bạn sẽ được hiển thị trên các máy chủ được định cấu hình"
@@ -1899,7 +1899,7 @@
     "message": "Xác minh băm chỉ áp dụng cho các quy tắc Linkumori CLN Format 1.0 JSON; nó bảo vệ chống giả mạo đường truyền chứ không phải các nguồn quy tắc độc hại."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Các quy tắc từ xa không có xác minh băm thành công hoàn toàn dựa vào sự tin cậy vào nguồn URL."
   },
   "security_modal_risks_title": {
     "message": "Rủi ro bảo mật:"
@@ -1914,7 +1914,7 @@
     "message": "Url tới tệp Rules.hash (băm)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Cần thiết để xác minh quy tắc Linkumori JSON từ xa."
   },
   "setting_html_export_button": {
     "message": "Xuất khẩu"
@@ -1944,7 +1944,7 @@
     "message": "Giới hạn nhật ký (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Các nguồn Linkumori JSON từ xa bổ sung được hợp nhất với nhau. Nhập một cặp trên mỗi dòng là <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Bộ quy tắc từ xa bổ sung"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL từ xa tùy chỉnh cho các quy tắc Linkumori JSON"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL sang tệp JSON quy tắc từ xa"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Hash URL là bắt buộc cho mọi bộ quy tắc từ xa."
   },
   "settings_html_page_title": {
     "message": "Cài đặt Linkumori (URL sạch)"
@@ -2421,19 +2421,19 @@
     "message": "CẢNH BÁO: Tính năng nâng cao chỉ dành cho máy chủ tự lưu trữ"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Bạn đang tắt tính năng bảo vệ của Gatekeeper để chỉnh sửa quy tắc URL từ xa. Tính năng này có thể tải các quy tắc Linkumori JSON từ xa vào bộ quy tắc nhà cung cấp hợp nhất. Chỉ tiếp tục nếu bạn hiểu và tin tưởng vào nguồn bạn đang định cấu hình."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper là luồng an toàn tích hợp có chức năng chặn các chỉnh sửa URL trực tiếp từ xa cho đến khi bạn xác nhận cảnh báo bảo mật và hoàn tất xác nhận đã nhập."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Luôn bật Gatekeeper trừ khi bạn tin tưởng và kiểm soát các nguồn từ xa của mình. Các quy tắc JSON từ xa phải bao gồm hàm băm URL phù hợp."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "thông báo cảnh báo:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Nếu bạn thêm quy tắc từ xa URL, tiện ích mở rộng sẽ kết nối với máy chủ được chỉ định của bạn để tìm nạp bộ quy tắc Linkumori và tệp băm của nó khi được định cấu hình. Mỗi lần tìm nạp có thể hiển thị địa chỉ IP của bạn và thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt tới máy chủ lưu trữ. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web đó."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Đọc lại %PRIVACY_POLICY_LINK% trước khi tiếp tục nếu cần."
@@ -2448,7 +2448,7 @@
     "message": "Tiện ích mở rộng sẽ kết nối với URL được chỉ định của bạn mỗi khi tiện ích mở rộng được bật và tải trong trình duyệt của bạn."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Máy chủ lưu trữ JSON hoặc tệp băm từ xa sẽ nhận được địa chỉ IP của bạn."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Máy chủ cũng có thể nhận được phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt của bạn."
@@ -2457,7 +2457,7 @@
     "message": "Dữ liệu đó tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web lưu trữ các tệp đó."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Bằng cách vô hiệu hóa Gatekeeper, bạn sẽ tăng rủi ro từ các nguồn quy tắc từ xa không an toàn hoặc bị xâm phạm. Xác minh hàm băm chỉ bảo vệ các lượt tải xuống Linkumori JSON từ xa khi hàm băm phù hợp URL được định cấu hình."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Hủy bỏ"
@@ -2517,7 +2517,7 @@
     "message": "Nhập cụm từ xác nhận chính xác"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Hành động này làm giảm các biện pháp bảo vệ cho các quy tắc từ xa. Chỉ tiếp tục nếu bạn tin cậy nguồn JSON từ xa của mình."
   },
   "remote_urls_template_note_1": {
     "message": "Thay thế các giá trị giữ chỗ bằng URL HTTPS thực của bạn, sau đó nhập tệp này."
@@ -2847,10 +2847,10 @@
     "message": "Không có"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Xung đột quy tắc:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "Lỗi $ERRORS$, cảnh báo $WARNINGS$, thông báo $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Khả năng tập tin từ xa:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "không hoạt động cho đến khi được chấp nhận: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Chấp nhận $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Các bản vá quy tắc:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ được áp dụng, $NOT_APPLIED$ không được áp dụng",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Mặc định quy tắc"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Tích hợp sẵn"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "tùy chỉnh"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Không có - hành vi tích hợp"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Chế độ quá tải kết hợp các quy tắc tích hợp và từ xa; quy tắc của mỗi nguồn giữ nguyên giá trị mặc định của riêng nguồn đó."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Lưu mặc định"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Đã lưu mặc định"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Khi được bật, mỗi nguồn quy tắc sẽ giữ các giá trị mặc định riêng (các giá trị mặc định tích hợp áp dụng cho các quy tắc tích hợp và mỗi tệp từ xa sẽ mặc định cho các quy tắc của tệp đó) trừ khi bạn chọn các giá trị mặc định của riêng mình trong trình chỉnh sửa quy tắc tùy chỉnh."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Điều khiển từ xa: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Những mặc định nào được áp dụng"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Mỗi nguồn riêng"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Của bạn cho các quy tắc tích hợp và từ xa"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Của bạn cho tất cả các quy tắc"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(được thay thế bằng mặc định của bạn)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "của bạn"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Các loại yêu cầu $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL ngoại lệ",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 ngoại lệ URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ bộ tiền xử lý",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Quy tắc của mỗi nguồn có giá trị mặc định riêng của nguồn đó."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Các quy tắc tích hợp và từ xa nhận các giá trị mặc định của bạn thay vì các tệp của riêng chúng; quy tắc tùy chỉnh giữ riêng của họ."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Tất cả các quy tắc tích hợp, từ xa và tùy chỉnh đều có giá trị mặc định của bạn thay vì của riêng chúng."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Quản lý mặc định của quy tắc"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Mặc định điền vào các giá trị mà quy tắc không tự đặt. Giá trị riêng của quy tắc luôn thắng và các ngoại lệ của nhà cung cấp không bao giờ thay đổi."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Chỉnh sửa mặc định"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Mặc định của bạn"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Mặc định của quy tắc tùy chỉnh"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Mặc định để chỉnh sửa"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Quy tắc tích hợp"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(đã chỉnh sửa)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Đặt lại về mặc định của tập tin"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Hợp nhất từ các nguồn…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Hợp nhất các giá trị mặc định của quy tắc"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Kết quả xuất hiện dưới dạng \"Mặc định đã hợp nhất\" trong danh sách. Sao chép nó vào một bộ ở đó, sau đó nhấn Lưu mặc định để sử dụng."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Các nguồn để hợp nhất"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Xung đột"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Mặc định được hợp nhất"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Sử dụng các giá trị mặc định đã hợp nhất"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Mặc định được hợp nhất"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Không được sử dụng cho đến khi bạn sao chép nó vào một trong các bộ khác và lưu lại."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Sao chép vào"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Sao chép"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Chọn ít nhất hai nguồn."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Không có xung đột: các nguồn được chọn đồng ý về mọi giá trị."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Các ngoại lệ được thêm vào từ mọi nguồn: tổng cộng là $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Tổng hợp từ mọi nguồn"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Từ: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Chưa được đặt (hành vi tích hợp)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Chưa được đặt: mọi loại yêu cầu"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Hiện không được sử dụng: các giá trị mặc định của bạn sẽ thay thế các quy tắc từ xa và tích hợp sẵn."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Do bạn chỉnh sửa: những giá trị này thay thế giá trị mặc định của chính tệp. Bản thân tập tin không bị thay đổi."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(do bạn chỉnh sửa)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Hiện chưa sử dụng: \"Mỗi nguồn riêng\" đã được chọn ở trên."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Hiện chưa được sử dụng: các giá trị mặc định của bạn cũng thay thế những giá trị này cho các quy tắc tùy chỉnh."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Đã tắt quy tắc bắt đầu (hoạt động: sai)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Mô tả"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Các loại yêu cầu"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Tất cả các loại"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Chỉ những thứ này"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Chọn ít nhất một loại yêu cầu hoặc chọn \"Tất cả các loại\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Các quy tắc làm sạch mọi loại yêu cầu trừ khi chúng hoặc mặc định nêu tên một số loại. Nhà cung cấp cũng có thể giới hạn các loại bằng resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Ngoại lệ"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Một biểu thức chính quy URL trên mỗi dòng. Các quy tắc được bỏ qua khi khớp URLs."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Bộ tiền xử lý"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Đầu vào: \"tất cả\" hoặc ghi lại các số nhóm như 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Thêm bộ tiền xử lý"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Loại tiền xử lý"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Đầu vào tiền xử lý"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Xóa"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Đầu vào tiền xử lý \"$INPUTS$\" phải là \"tất cả\" hoặc các số như 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Tắt tính năng bảo vệ bỏ qua lịch sử (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Hiển thị dưới dạng JSON"
   },
   "settings_remote_health_unknown": {
     "message": "không rõ"
@@ -4005,10 +4005,10 @@
     "message": "Nhà cung cấp JSON Hướng dẫn"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Mở hướng dẫn quy tắc Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Tôi nên sử dụng cú pháp quy tắc nào?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Hướng dẫn quy tắc mở"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Không thể tải nguồn nhà cung cấp: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Quy tắc đi kèm không có sẵn."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Không thể tải các quy tắc đi kèm: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Không thể chuyển ngôn ngữ sang $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Chủ đề nhẹ nhàng"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Chủ đề tối"
   },
   "posarCopied": {
     "message": "POSAR đã sao chép!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR được chấp nhận."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Đặt lại"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Công cụ trợ năng"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Mở công cụ trợ năng"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Đóng công cụ trợ năng"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Đặt lại tất cả cài đặt trợ năng"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Tầm nhìn"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Đọc"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Tương tác"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Độ tương phản cao"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Bộ lọc màu"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Độ bão hòa"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Đảo ngược"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Làm nổi bật các liên kết"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Ẩn hình ảnh"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Tăng kích thước văn bản"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Giảm kích thước văn bản"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Kích thước văn bản mặc định"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Lựa chọn phông chữ"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Chứng khó đọc thân thiện"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Khoảng cách văn bản"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Chiều cao dòng"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Căn chỉnh văn bản"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Tạm dừng hoạt ảnh"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Con trỏ lớn hơn"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Mặc định"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Trung bình"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Cao"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "siêu"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Thấp"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "không có"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Ánh sáng"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Nặng"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,7 +4173,7 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Không có bộ lọc"
   },
   "accessibility_tools_value_protanopia": {
     "message": "Protanopia"
@@ -4185,37 +4185,37 @@
     "message": "Tritanopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Thang độ xám"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "trái"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "trung tâm"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Đúng"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "cực nhỏ"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "nhỏ"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "lớn"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Cực lớn"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "lớn nhất"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Bật"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Tắt"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "đã bật"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "bị vô hiệu hóa"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Kích thước văn bản mặc định được chọn"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Đã đặt lại tất cả cài đặt trợ năng"
+  },
+  "skip_to_main_content": {
+    "message": "Chuyển đến nội dung chính"
+  },
+  "popupNavAriaLabel": {
+    "message": "Điều hướng bật lên"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Chế độ xem quy tắc tùy chỉnh"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Lượt xem nhật ký"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Bảo vệ bỏ qua lịch sử (bỏ qua khi điều hướng trong trang)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Chuyển hướng trường"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Sao chép quy tắc"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Đã sao chép quy tắc"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Không thể sao chép quy tắc"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection làm gì?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Các trang web đơn thường thay đổi địa chỉ bằng history.pushState/replaceState thay vì tải một trang mới. Linkumori cũng xóa sạch các địa chỉ đó. Thêm history-bypass-protection=false vào bộ lọc $removeparam để bỏ qua bộ lọc đó đối với những thay đổi trong trang này; nó vẫn chạy theo yêu cầu bình thường."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Để bỏ qua toàn bộ nhà cung cấp cho các thay đổi trong trang, hãy đặt nó trên nhà cung cấp:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Nếu bỏ đi, đó là giá trị đúng và những thay đổi trong trang sẽ được xóa. Cài đặt riêng của quy tắc sẽ tốt hơn cài đặt của nhà cung cấp, do đó, quy tắc có thể chọn tham gia lại bằng history-bypass-protection=true hoặc \"historyBypassProtection\": true trong đối tượng quy tắc."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Bỏ qua điều hướng trong trang"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Đổi tên ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Id mới cho $OLD$ (a-z, 0-9, - và _). Id cũ được giữ dưới dạng bí danh, do đó, các quy tắc bị tắt theo id đó vẫn ở trạng thái tắt.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" không phải là id hợp lệ. Sử dụng chữ cái viết thường, chữ số, - và _, bắt đầu bằng một chữ cái hoặc chữ số.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Một quy tắc khác của nhà cung cấp này đã sử dụng \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Tắt quy tắc"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Vô hiệu hóa $ID$ cho toàn bộ nhà cung cấp hay chỉ cho mẫu URL/miền này?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "nhà cung cấp của tôi"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/mẫu tên miền"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Id quy tắc được đổi tên thành $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Chuyển đổi mồ côi"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Không tìm thấy quy tắc phù hợp ở thượng nguồn"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Xóa"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Bỏ qua việc dọn dẹp điều hướng trong trang"
+  },
+  "whitelist_added_general": {
+    "message": "Đã thêm %s vào danh sách trắng chung"
+  },
+  "whitelist_added_history_api": {
+    "message": "Đã thêm %s làm ngoại lệ Lịch sử API"
+  },
+  "whitelist_exception_count": {
+    "message": "(Các) ngoại lệ %d"
+  },
+  "whitelist_exception_empty": {
+    "message": "Không có ngoại lệ trong danh sách trắng"
+  },
+  "whitelist_mode_general": {
+    "message": "danh sách trắng chung"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Lịch sử chỉ API"
+  },
+  "whitelist_mode_label": {
+    "message": "phạm vi danh sách trắng"
+  },
+  "whitelist_removed_general": {
+    "message": "Đã xóa %s khỏi danh sách trắng chung"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Đã xóa ngoại lệ Lịch sử API cho %s"
+  },
+  "whitelist_type_general": {
+    "message": "chung"
+  },
+  "whitelist_type_history_api": {
+    "message": "Lịch sử chỉ API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Thêm $1 vào danh sách trắng chung"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Danh sách trắng chung: $1 - chỉ nhấp vào Lịch sử API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Lịch sử API ngoại lệ: $1 - chỉ nhấp vào tab này"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Chỉ dành cho tab: $1 - nhấp để xóa"
+  },
+  "logger_action_allowed": {
+    "message": "Được phép"
+  },
+  "logger_action_blocked": {
+    "message": "Bị chặn"
+  },
+  "logger_action_filter_label": {
+    "message": "hành động"
+  },
+  "logger_action_info": {
+    "message": "Thông tin"
+  },
+  "logger_action_modified": {
+    "message": "Đã sửa đổi"
+  },
+  "logger_action_redirected": {
+    "message": "Đã chuyển hướng"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Sao chép tóm tắt"
+  },
+  "logger_btn_export": {
+    "message": "Xuất khẩu"
+  },
+  "logger_btn_group": {
+    "message": "Nhóm theo quy tắc"
+  },
+  "logger_col_hits": {
+    "message": "Lượt truy cập"
+  },
+  "logger_col_last_seen": {
+    "message": "Nhìn thấy lần cuối"
+  },
+  "logger_detail_group_title": {
+    "message": "Chi tiết quy tắc"
+  },
+  "logger_detail_all_urls": {
+    "message": "URLs ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Tab"
+  },
+  "logger_exported": {
+    "message": "Đã xuất các mục $1."
+  },
+  "logger_filter_all": {
+    "message": "Tất cả"
+  },
+  "logger_report_rule": {
+    "message": "Báo cáo nó"
+  },
+  "logger_rule_disable": {
+    "message": "Tắt quy tắc"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Quy tắc $1 đã tắt. Tải lại trang để kiểm tra."
+  },
+  "logger_rule_enable": {
+    "message": "Bật quy tắc"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Quy tắc $1 được bật lại."
+  },
+  "logger_rule_failed": {
+    "message": "Không thể thay đổi quy tắc."
+  },
+  "logger_rule_off": {
+    "message": "Quy tắc đã bị tắt"
+  },
+  "logger_rule_on": {
+    "message": "Quy tắc đang bật"
+  },
+  "logger_rule_unavailable": {
+    "message": "Quy tắc này không thể được chuyển đổi từ đây."
+  },
+  "logger_status_rules": {
+    "message": "(Các) quy tắc $1"
+  },
+  "logger_summary_copied": {
+    "message": "Đã sao chép tóm tắt."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Không thể sao chép bản tóm tắt."
+  },
+  "logger_type_filter_label": {
+    "message": "loại"
+  },
+  "logger_btn_logging_off": {
+    "message": "Đăng xuất"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Ghi nhật ký đã tắt. Nhấn vào đây để bật nó lên."
+  },
+  "logger_btn_logging_on": {
+    "message": "Đăng nhập"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Tính năng ghi nhật ký đang được bật. Nhấn vào đây để tắt nó đi."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Không thể thay đổi cài đặt ghi nhật ký."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Thêm quy tắc giới thiệu"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Thêm ngoại lệ quy tắc thô"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Thêm chuyển hướng trường"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Thêm ngoại lệ"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Mỗi mẫu thêm một đối tượng quy tắc có id và phần giữ chỗ matchPattern trên example.com. Một mục nhập cũng có thể là một chuỗi đơn giản: tên tham số, tên biểu thức chính quy, bộ lọc $removeparam hoặc, trong rawRules, một biểu thức chính quy. Đối tượng quy tắc lấy id, bí danh, matchPattern, replacePattern, preprocessors, requestTypes, ngoại lệ, cờ, thứ tự, referralMarketing, historyBypassProtection, hoạt động, mô tả và targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "kẻ nói dối"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Không có vấn đề được tìm thấy."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Lỗi"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Cảnh báo"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "(Các) lỗi $ERRORS$, (các) cảnh báo $WARNINGS$",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Lệnh chạy"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "(Các) bước $COUNT$, theo thứ tự chúng chạy",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Không có rawRules, quy tắc hoặc mục nhập referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Động cơ đã xử lý từ văn bản trên, có lưu hay không. Các bước sắp xếp theo (giai đoạn, orderGroup, thứ tự, cấp bậc, arrayIndex): quy tắc thô chạy trước quy tắc trường; trong một giai đoạn, các mục có thứ tự chạy trước, thấp nhất trước, sau đó là các mục còn lại theo danh sách và vị trí."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Tiếp thị giới thiệu"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Đã xóa giới thiệu"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Được phép giới thiệu"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "thô"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "trường"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Giới thiệu"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(được tạo)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "đặt hàng $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "viết lại"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "thay thế (các) định nghĩa trước đó của $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "được thêm bởi completeProvider: xóa mọi tham số"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Đã tắt"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Tắt đối với một số mẫu"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Khóa sắp xếp: (giai đoạn, orderGroup, thứ tự, cấp bậc, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Sau đó, (các) bộ lọc $FILTERS$ $removeparam và (các) ngoại lệ $EXCEPTIONS$ @@, sau mỗi bước trên",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= ngoại lệ có thể dừng các quy tắc thô ở trên nơi chúng khớp",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Kéo một bước hoặc sử dụng các mũi tên của bước đó để di chuyển bước đó trong giai đoạn của nó. Việc di chuyển sẽ mang lại cho mỗi mục của giai đoạn đó thứ tự 10, 20, 30,… theo trình tự mới."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Chuyển sang Đã xóa giới thiệu để sắp xếp lại: chế độ xem đó hiển thị mọi mục nhập."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Kéo để di chuyển"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Di chuyển $ENTRY$ sớm hơn",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Di chuyển $ENTRY$ sau",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Đã chuyển $ENTRY$ sang vị trí $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Hoàn tác di chuyển"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Di chuyển hoàn tác"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "mô phỏng"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Chạy nhà cung cấp này trên URL giống như cách làm sạch liên kết đã sao chép, áp dụng các quy tắc bạn đã tắt và lựa chọn tiếp thị giới thiệu ở trên, rồi hiển thị URL sau từng bước. Các nhà cung cấp khác không chạy. Nút “Tạo URL kiểm tra” tạo một URL từ các quy tắc riêng của nhà cung cấp này."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Kiểm tra URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Chạy"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Bước qua mô phỏng"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Bắt đầu"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "trước đó"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Tiếp theo"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Kết thúc"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Chơi"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Tạm dừng"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL trước bất kỳ bước nào"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Vượt qua $PASS$ · bước $STEP$ của $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "không thay đổi"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "Bộ lọc $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Vượt qua $PASS$ không có gì thay đổi nên việc dọn dẹp sẽ dừng lại",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Nhà cung cấp này dừng ở đây: đã đạt đến giới hạn chu kỳ, URL quay lại giới hạn trước đó hoặc không còn phù hợp với nhà cung cấp"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Vượt qua chuyển hướng $PASS$; việc dọn dẹp diễn ra tại địa chỉ mới với mọi nhà cung cấp",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Nhà cung cấp chặn yêu cầu này (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "kết quả"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Mẫu của nhà cung cấp này không khớp với URL này, vì vậy không có quy tắc nào của nó chạy."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "URL này phù hợp với một trong các ngoại lệ của nhà cung cấp, do đó không có quy tắc nào của nó chạy."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Nhập http:// hoặc https:// URL đầy đủ."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Mô phỏng không thể chạy. Kiểm tra JSON ở trên."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Tạo thử nghiệm URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Được tạo từ các quy tắc của nhà cung cấp này: văn bản cho (các) quy tắc thô $RAW$ và (các) tham số $PARAMS$, mỗi quy tắc đều được kiểm tra theo quy tắc của nó. keep=1 không phù hợp với quy tắc nào và nên giữ nguyên. Chuyển hướng và chặn không được bao gồm vì chúng sẽ kết thúc quá trình chạy trước các quy tắc khác.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Không có máy chủ nào có thể được tạo ra phù hợp với mẫu của nhà cung cấp này, vì vậy URL sử dụng máy chủ khác và nhà cung cấp sẽ không chạy trên máy chủ đó."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Mỗi URL phù hợp với mẫu của nhà cung cấp này đều được bao phủ bởi một trong những ngoại lệ của chính nó, vì vậy các quy tắc của nó không bao giờ chạy."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "(Các) quy tắc $COUNT$ bị loại khỏi thử nghiệm URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "không có văn bản nào có thể được tạo ra phù hợp"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "văn bản của nó sẽ làm cho một trong những trường hợp ngoại lệ của nhà cung cấp phù hợp"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "nó loại bỏ mọi tham số, vì vậy nó không cần tham số riêng"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Nhà cung cấp này có bộ lọc $removeparam không có tên, bộ lọc này sẽ loại bỏ mọi tham số, bao gồm cả keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "không có thứ tự"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "đặt hàng $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Khôi phục số thứ tự"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Đặt mọi đơn hàng trở lại như lúc bạn mở nhà cung cấp này"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Đã khôi phục số đơn đặt hàng"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Ẩn"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Hiển thị"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Xóa cảnh báo"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Khôi phục cảnh báo"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Đã xóa (các) cảnh báo $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern không có indexPattern được kiểm tra đối với mọi URL; thêm gợi ý indexPattern chẳng hạn như \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ lặp lại \"$ENTRY$\"; bản sao không làm gì cả và cả hai đều có chung một id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ vẫn có phần giữ chỗ mẫu \"$PATTERN$\"; thay thế nó bằng mẫu thật",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ có matchPattern \"(?!)\", không bao giờ khớp với bất cứ thứ gì",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Khắc phục sự cố"
+  },
+  "troubleshooter_launch": {
+    "message": "Khắc phục sự cố tab này (thử nghiệm)"
+  },
+  "troubleshooter_title": {
+    "message": "Trình khắc phục sự cố tab"
+  },
+  "troubleshooter_page": {
+    "message": "Trang"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Cách ghi âm hoạt động"
+  },
+  "troubleshooter_about_note": {
+    "message": "Mở chế độ xem này có thể kiểm tra trang URL nhưng không ghi lại gì. Quá trình ghi sẽ tắt cho đến khi bạn chọn Bắt đầu ghi. Bắt đầu tải lại tab này để nắm bắt các yêu cầu tài nguyên của nó. URLs đã chụp vẫn được lưu trong bộ lưu trữ phiên cho phiên trình duyệt này và bị xóa khi tab này đóng hoặc phiên trình duyệt kết thúc. Việc ghi sẽ dừng sau 15 phút trừ khi bạn dừng sớm hơn. Tài nguyên URLs có thể chứa dữ liệu truy vấn riêng tư."
+  },
+  "troubleshooter_start": {
+    "message": "Bắt đầu ghi"
+  },
+  "troubleshooter_starting": {
+    "message": "Bắt đầu…"
+  },
+  "troubleshooter_recording": {
+    "message": "Đang ghi…"
+  },
+  "troubleshooter_stop": {
+    "message": "Dừng ghi"
+  },
+  "troubleshooter_refresh": {
+    "message": "Làm mới"
+  },
+  "troubleshooter_copy": {
+    "message": "Sao chép tóm tắt"
+  },
+  "troubleshooter_export": {
+    "message": "Xuất khẩu"
+  },
+  "troubleshooter_export_title": {
+    "message": "Lưu bản ghi dưới dạng tệp JSON. Tài nguyên URLs có thể chứa dữ liệu truy vấn riêng tư."
+  },
+  "troubleshooter_category": {
+    "message": "Danh mục"
+  },
+  "troubleshooter_category_all": {
+    "message": "Tất cả danh mục"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Quy tắc URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Chuyển hướng"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Bảo vệ và bỏ qua"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Loại tài nguyên"
+  },
+  "troubleshooter_type_all": {
+    "message": "Tất cả các loại tài nguyên"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Tìm kiếm quy tắc, nhà cung cấp và URLs"
+  },
+  "troubleshooter_timer": {
+    "message": "Đang ghi $1 · Còn lại $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Đang kiểm tra tab này…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Không có tab hoạt động có sẵn."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Trang này không cho phép quét quy tắc URL. Mở một trang web http hoặc https thông thường."
+  },
+  "troubleshooter_status_off": {
+    "message": "Tính năng ghi âm đã tắt. Bắt đầu ghi để kiểm tra tài nguyên URLs được tải bởi trang này."
+  },
+  "troubleshooter_status_active": {
+    "message": "Cho đến nay, (các) thay đổi $1 URL đã được ghi lại. Những cái mới tự động xuất hiện ở đây."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Đã dừng ghi. $1 URL đã ghi lại (các) thay đổi."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Không thể lưu dữ liệu ghi vào bộ lưu trữ phiên. (Các) thay đổi $1 URL có thể bị mất nếu tiện ích mở rộng khởi động lại."
+  },
+  "troubleshooter_status_started": {
+    "message": "Quá trình ghi đã bắt đầu và tab đang tải lại. URLs đã chụp sẽ xuất hiện ở đây khi tải trang."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Đã dừng ghi. $1 URL thay đổi được ghi lại và lưu cho phiên trình duyệt này."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Đã dừng ghi. $1 URL đã ghi lại (các) thay đổi nhưng bộ lưu trữ phiên không thể lưu chúng."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Trước tiên, hãy mở trang web http hoặc https thông thường."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Không thể bắt đầu ghi cho tab này."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Không thể dừng ghi cho tab này."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Không thể đọc tab này. Hãy thử đóng và mở lại cửa sổ bật lên."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Đã sao chép tóm tắt."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Không thể sao chép bản tóm tắt."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Đã xuất bản ghi."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Không thể xuất bản ghi âm."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Không thể mở biểu mẫu báo cáo."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Đã bật quy tắc; tải lại tab để so sánh."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Quy tắc bị vô hiệu hóa; tải lại tab để so sánh."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Không thể cập nhật quy tắc này."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Chưa tìm thấy thay đổi quy tắc nào. Bắt đầu ghi để kiểm tra tài nguyên URLs của trang này."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Trang trình duyệt này không thể được quét."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Không có kết quả nào phù hợp với các bộ lọc này."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Hiển thị các quy tắc $1 đầu tiên."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 lần truy cập"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 không thành công"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Quy tắc ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Hành động bảo vệ tích hợp (không có quy tắc ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Quy tắc ID: không có sẵn cho phát hiện này"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Không thể giải quyết quy tắc này ID trong bộ quy tắc hiện tại."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Yêu cầu được quan sát"
+  },
+  "troubleshooter_source_page": {
+    "message": "Trang kiểm tra URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Điều gì đã thay đổi: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Bị ảnh hưởng URLs ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…và $1 hơn thế nữa"
+  },
+  "troubleshooter_after": {
+    "message": "Sau Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Không thành công sau khi Linkumori thay đổi nó: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Quy tắc này được kích hoạt. Tắt nó đi và tải lại để so sánh trang."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Quy tắc này bị vô hiệu hóa. Bật nó lên và tải lại để khôi phục hoạt động của nó."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Đây là một hành động bảo vệ tích hợp, không phải là một quy tắc riêng lẻ."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Xem lại URL bị ảnh hưởng trước khi thay đổi quy tắc."
+  },
+  "troubleshooter_report": {
+    "message": "Báo cáo quy tắc này"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Tắt quy tắc"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Bật quy tắc"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Vô hiệu hóa quy tắc $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Kích hoạt quy tắc $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Đang lưu…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "đã xóa $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "đã thêm $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "đã thay đổi $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "được chuyển hướng đến $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "đường dẫn đã thay đổi"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "mảnh đã thay đổi"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL đã thay đổi"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "bị chặn có mục đích"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "(Các) yêu cầu $1 không thành công trên trang này; $2 ngay sau khi Linkumori thay đổi URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Trang này có bị hỏng không?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Tìm quy tắc phá vỡ nó: các quy tắc chạy trên trang này lần lượt bị tắt và sau mỗi quy tắc bạn sẽ nói liệu trang đó có được sửa hay không. Không chắc chắn Linkumori là nguyên nhân? Kiểm tra việc dọn dẹp bị tạm dừng trước tiên."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Kiểm tra việc dọn dẹp bị tạm dừng trước"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Quá trình dọn dẹp bị tạm dừng đối với $1 trong tab này"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Tab được tải lại mà không cần làm sạch. Hiện tại trang này có hoạt động không?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Vâng, nó hoạt động"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Không, vẫn hỏng"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Hủy bỏ"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Xong"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Có lẽ không phải Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Trang vẫn bị hỏng do quá trình dọn dẹp bị tạm dừng, do đó, sự cố có thể xảy ra ở nơi khác: chính trang web đó, một tiện ích mở rộng khác hoặc mạng. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori có thể là nguyên nhân"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Trang hoạt động với quá trình dọn dẹp bị tạm dừng. Tìm quy tắc: các quy tắc được tắt lần lượt, tab tải lại và bạn cho biết trang đó có được sửa hay không. Mọi quy tắc khác sẽ được bật lại vào cuối."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Tab đang tải lại và bật lại tính năng dọn dẹp để ghi lại những quy tắc nào chạy trên trang này. Họ xuất hiện ở đây trong giây lát. Nếu không có, hãy sử dụng trang này cho đến khi nó bị hỏng."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Tìm quy tắc (quy tắc $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Có, đã sửa"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Không, vẫn hỏng"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Tìm thấy nó"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Trang bị ngắt do quy tắc $1$2. Nó được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Vô hiệu hóa quy tắc này"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Báo cáo nó"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Quy tắc đã tắt. Tải lại tab để kiểm tra. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Không tìm thấy quy tắc nào"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Việc tắt từng quy tắc một không khắc phục được trang, do đó có thể do nhiều quy tắc kết hợp với nhau hoặc do cài đặt bảo vệ gây ra. Mọi quy tắc đều được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Không thể chạy kiểm tra: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Tải lại Linkumori để sử dụng kiểm tra này"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori đã được cập nhật nhưng phần nền của nó vẫn chạy phiên bản cũ. Tải lại tiện ích mở rộng (đối với tiện ích bổ sung tạm thời: about:debugging → Firefox này → Tải lại) hoặc khởi động lại Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Tìm thấy nó"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Trang bị ngắt do quy tắc $1$2. Nó luôn tắt để trang hoạt động; tất cả các quy tắc khác đã hoạt động trở lại. Tải lại tab để kiểm tra. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "tab tải lại"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Bật lại"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Quy tắc được bật lại. Tải lại tab để kiểm tra. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Ghi lại và tìm quy tắc"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Ghi lại những quy tắc chạy trên trang này. Sử dụng trang này cho đến khi nó bị hỏng; các quy tắc xuất hiện ở đây."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Hiện đã tắt bằng tính năng tìm kiếm quy tắc. Nó sẽ hoạt động trở lại khi quá trình tìm kiếm kết thúc."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Tìm kiếm quy tắc đang chạy. Thay đổi quy tắc sau khi nó kết thúc."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Bỏ qua - bật lại"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Giữ nó đi"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Tìm kiếm quy tắc bị bỏ qua; mọi quy tắc đều được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Quy tắc $1 không hoạt động. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Đã tắt cho bài kiểm tra này:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…và $1 hơn thế nữa"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Dừng tìm kiếm"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Đã bỏ qua: quy tắc đó được bật lại và bị loại bỏ. Đang kiểm tra cái tiếp theo."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Không tìm thấy quy tắc nào trong số các quy tắc được thử nghiệm. (Các) quy tắc $1 bạn bỏ qua chưa được kiểm tra. Mọi quy tắc đều được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_experimental": {
+    "message": "thực nghiệm"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Thử nghiệm: trình khắc phục sự cố này không hoàn toàn ổn định. Kết quả của nó có thể sai và nó tắt các quy tắc trong khi kiểm tra. Nếu sau đó có điều gì đó không ổn, hãy kiểm tra quy tắc của bạn trong trình chỉnh sửa quy tắc tùy chỉnh hoặc sử dụng Dừng tìm kiếm để bật lại."
+  },
+  "troubleshooter_working": {
+    "message": "Đang làm việc…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Ghi lại"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Đã xóa bản ghi cũ. Ghi lại tab này từ lần tải mới."
+  },
+  "troubleshooter_clear": {
+    "message": "Xóa"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Xóa bản ghi, phát hiện và tìm kiếm quy tắc đã hoàn tất của tab này. Các quy tắc vẫn như cũ."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Đã xóa. Các quy tắc vẫn như cũ."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Đã xóa. Quy tắc $1 không hoạt động."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Kiểm tra từng quy tắc một - quy tắc $1 của $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Chỉ quy tắc này bị tắt và tab được tải lại. Hiện tại trang đã được sửa chưa?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Bỏ qua quy tắc này"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Bỏ qua - bật lại, kiểm tra tiếp theo ($1 bên trái)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 (các) quy tắc khác chạy trên trang này chưa được thử nghiệm. Bạn có muốn tiếp tục thử nghiệm chúng không?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Tắt nó đi, kiểm tra tiếp theo ($1 còn lại)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Quy tắc $1 không hoạt động. Kiểm tra quy tắc tiếp theo."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Không có quy tắc nào khác tự sửa trang. (Các) quy tắc $1 mà bạn đã không tuân theo; mọi quy tắc khác đều được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Kiểm tra quy tắc tiếp theo ($1 còn lại)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Quy tắc $1 được bật lại và bị loại bỏ. Kiểm tra quy tắc tiếp theo."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Không có quy tắc nào khác tự sửa trang. (Các) quy tắc $1 bạn bỏ qua cũng được bật lại nên mọi quy tắc đều được bật lại. Để bắt đầu lại, hãy nhấp vào Xóa."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori xóa URLs bằng các quy tắc được viết bằng <strong>CLN Định dạng 1.0</strong> (Ký hiệu liên kết sạch), định dạng JSON. Hướng dẫn này đi từ quy tắc đầu tiên đến mọi tùy chọn, cùng với các ví dụ bạn có thể sao chép."
+  },
+  "guide_intro_p_2": {
+    "message": "Các quy tắc tích hợp, danh sách quy tắc từ xa và quy tắc tùy chỉnh của bạn đều sử dụng cùng một định dạng. Bạn viết các quy tắc tùy chỉnh trong trình chỉnh sửa quy tắc tùy chỉnh để kiểm tra chúng khi bạn lưu hoặc nhập. Danh mục quy tắc ClearURLs chính thức (<code>data.min.json</code>) đã là tệp CLN hợp lệ và có thể được sử dụng như hiện tại."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Tên nhà cung cấp chỉ là một nhãn. URLs nào mà nhà cung cấp xử lý sẽ do <code>domainPatterns</code> hoặc <code>urlPattern</code> quyết định."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Chìa khóa cấp cao nhất"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Bắt buộc. Các nhà cung cấp, theo tên."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Phiên bản định dạng tùy chọn. Giá trị hợp lệ duy nhất là <code>\"1.0\"</code>. Một tập tin không có nó cũng được đọc là 1.0; bất kỳ giá trị nào khác đều từ chối tệp. Nó không được gọi là <code>version</code> vì định dạng quy tắc mới ClearURLs đã sử dụng khóa đó."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Thông tin tùy chọn về tập tin."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Giá trị cho mọi quy tắc của tệp không được đặt riêng (chương 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Chỉ danh sách quy tắc từ xa: thay thế cho các quy tắc đã được tải (chương 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "URLs nào mà nhà cung cấp xử lý, dưới dạng một mẫu miền hoặc danh sách chúng (chương 3). Sử dụng cái này hoặc <code>urlPattern</code>, không bao giờ sử dụng cả hai."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "URLs nào mà nhà cung cấp xử lý, vì một biểu thức chính quy khớp với URL đầy đủ. Trường hợp được bỏ qua."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Chỉ với <code>urlPattern</code>: các gợi ý về máy chủ như <code>||example.com^</code>, do đó nhà cung cấp chỉ được kiểm tra các máy chủ đó thay vì đối với mọi URL. Đó là một gợi ý tra cứu, không phải là một điều kiện phù hợp."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Các tham số giới thiệu và liên kết cần loại bỏ. Đã bỏ qua khi <em>Cho phép tiếp thị giới thiệu</em> đang bật (chương 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URLs nhà cung cấp hoàn toàn yên tâm (chương 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Gửi yêu cầu đến địa chỉ khác thay vì chỉnh sửa nó (chương 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Gửi yêu cầu tới giá trị của tham số (chương 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: khi tải trang (<code>main_frame</code>) được chuyển hướng, toàn bộ tab sẽ điều hướng đến địa chỉ mới, không chỉ yêu cầu mạng."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Chỉ xử lý các phương thức HTTP này, ví dụ <code>[\"GET\"]</code>. Bị bỏ lại: mọi phương pháp."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Chỉ xử lý các loại yêu cầu này, ví dụ: <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Bị bỏ lại: mọi loại yêu cầu."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Mặc định là <code>true</code>. <code>false</code> bỏ qua toàn bộ nhà cung cấp khi trang tự thay đổi địa chỉ bằng History API (<code>pushState</code>/<code>replaceState</code>). Các yêu cầu mạng thông thường vẫn được làm sạch."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> tắt nhà cung cấp mà không xóa nó."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> — це список шаблонів доменів. URL-адреса відповідає правилу, якщо збігається з будь-яким із них. Ті самі шаблони використовуються перед <code>exceptions</code>, <code>redirections</code>, фільтрами <code>$removeparam</code> і необробленими правилами."
+  },
+  "guide_matching_cell_1": {
+    "message": "URL đầy đủ, dưới dạng biểu thức chính quy"
+  },
+  "guide_matching_cell_2": {
+    "message": "URLs có chứa văn bản này ở bất cứ đâu (không có <code>|</code> ở đầu)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> đánh dấu phần cuối của tên máy chủ hoặc dấu phân cách như <code>/</code>, <code>?</code>, <code>:</code> hoặc phần cuối của URL. <code>*</code> là ký tự đại diện."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> là viết tắt của một miền: máy chủ lưu trữ và mọi miền phụ. Một <code>|</code> duy nhất tượng trưng cho sự khởi đầu của URL và phải được tuân theo một sơ đồ như <code>https://</code>. Đối với một miền bạn luôn muốn <code>||</code>; <code>|example.com^</code> không bao giờ có thể khớp, vì vậy người chỉnh sửa sẽ từ chối nó."
+  },
+  "guide_matching_p_4": {
+    "message": "Ví dụ: <code>||smile.amazon.*^</code> đọc là: <code>||</code> máy chủ và tên miền phụ của nó, <code>smile.amazon</code> các nhãn được yêu cầu, <code>.*</code> bất kỳ hậu tố công khai nào (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), và <code>^</code> ở cuối máy chủ."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "chính xác thông số đó"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "mọi tham số có toàn bộ tên trùng khớp; trường hợp bị bỏ qua"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> và <code>\"$removeparam=fbclid\"</code> loại bỏ điều tương tự. Sử dụng tên đơn giản trừ khi bạn cần nội dung nào đó từ chương 5. Bất kỳ mục nhập nào cũng có thể được viết dưới dạng đối tượng quy tắc (chương 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Tại đây, <code>qid</code> bị xóa trên mọi trang Amazon, <code>tag</code> chỉ trên <code>amazon.de</code>, <code>sr</code> trên <code>smile.amazon</code> và <code>ref_</code> chỉ với <code>/gp/</code>. Mẫu này thu hẹp các mẫu riêng của nhà cung cấp; nó không bao giờ có thể mở rộng chúng."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> biến bộ lọc thành một ngoại lệ giữ tham số (xem bên dưới)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> thu hẹp bộ lọc cho một số URLs của nhà cung cấp (chương 3). Nếu bỏ qua, nó sẽ áp dụng cho mọi URL mà nhà cung cấp phù hợp."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> chọn tham số. Bị bỏ lại, mọi tham số đều bị xóa."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Công cụ sửa đổi cho biết thời điểm bộ lọc kích hoạt. Mọi công cụ sửa đổi được liệt kê đều phải được giữ; không có \"hoặc\" giữa chúng."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "mọi tham số ngoại trừ <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "các tham số có tên hoặc <code>name=value</code> cùng nhau, khớp với biểu thức chính quy; thêm <code>i</code> để bỏ qua trường hợp"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "tham số có tên bắt đầu bằng <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Thoát tên tham số"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Dấu gạch chéo ngược làm cho ký tự tiếp theo ở dạng chữ, do đó, bất kỳ tên tham số nào cũng có thể được nhắm mục tiêu:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Giá trị"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Loại bỏ tham số có tên"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (dấu phẩy không bắt đầu từ bổ nghĩa)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Năm điều này là lối thoát duy nhất trong một giá trị tên; dấu gạch chéo ngược trước bất kỳ ký tự nào khác là lỗi. Bên trong giá trị <code>/regex/</code>, dấu gạch chéo ngược giữ nguyên ý nghĩa biểu thức chính quy của nó. Các lối thoát hoạt động trong <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> và Mục nhập <code>@@</code>. Trong JSON, viết mỗi dấu gạch chéo ngược hai lần: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "sửa đổi"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Công cụ sửa đổi đứng sau giá trị, được phân tách bằng dấu phẩy. Tách một số giá trị của một bộ sửa đổi bằng <code>|</code> và đặt <code>~</code> trước một giá trị để loại trừ nó:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Công cụ sửa đổi"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "chỉ khi trang đưa ra yêu cầu là (hoặc, với <code>~</code>, không phải) một trong những trang này; giá trị biểu thức chính quy được phép"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "chỉ khi chính yêu cầu đó chuyển đến một trong những trang này, bất kể trang nào thực hiện yêu cầu đó"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "лише для цих методів HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "chỉ khi yêu cầu chuyển đến cùng một miền có thể đăng ký với trang (<code>a.example.com</code> và <code>b.example.com</code> được tính là giống nhau) hoặc đến một miền khác"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "giống nhau, nhưng so sánh tên máy chủ chính xác, do đó tên miền phụ được tính là của bên thứ ba"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "tên tham số được so sánh phân biệt chữ hoa chữ thường"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "bỏ qua bộ lọc này khi một trang thay đổi địa chỉ của chính nó bằng Lịch sử API. Cũng chấp nhận <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Чотири модифікатори <code>*-party</code> не можна комбінувати між собою; значення <code>first-party,third-party</code> відхиляється."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Ví dụ: <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> loại bỏ <code>sid</code> trên <code>example.com</code>, chỉ dành cho các yêu cầu GET do một trang trên trang web khác thực hiện, và không bao giờ khi trang đó là <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Запис <code>@@</code> захищає лише від фільтрів <code>$removeparam</code>. Звичайний запис, наприклад <code>\"ref\"</code>, усе одно видаляє параметр; для цього використовуйте поле <code>exceptions</code> об’єкта правила. Необроблені правила мають власні записи <code>@@…$rawrule=</code> (розділ 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Bạn liệt kê ở đâu không quan trọng và nó không được có <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Mẫu của nó được kiểm tra dựa trên URL khi nhà cung cấp nhận được nó, trước khi chạy quy tắc thô. Mục nhập <code>@@</code> nằm trong phạm vi đường dẫn mà quy tắc thô xóa vẫn khớp."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Nó cũng bao gồm các bộ lọc của nhà cung cấp khác đối với các yêu cầu được thực hiện bởi một trang mà nhà cung cấp này phù hợp, rất hữu ích để khắc một trang web ra khỏi quy tắc được xác định ở nơi khác."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Необроблені правила запускаються перед <code>rules</code>, не враховують регістр і замінюють кожен збіг (прапорці <code>gi</code> або <code>g</code> із <code>match-case</code>). У JSON кожну зворотну скісну риску записуйте двічі."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Quy tắc thô có thể lấy mẫu và công cụ sửa đổi của bộ lọc <code>$removeparam</code>, với <code>rawrule=</code> cuối cùng. Mọi thứ sau <code>rawrule=</code> là biểu thức chính quy:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Mẫu và công cụ sửa đổi quyết định nơi quy tắc chạy; biểu thức chính quy vẫn là thứ bị xóa."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Một mục bắt đầu bằng <code>@@</code> và kết thúc bằng <code>rawrule=</code> giữ cho các quy tắc thô không chạy khi mẫu của nó khớp:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Không có gì sau <code>rawrule=</code>, nó sẽ dừng mọi quy tắc thô của nhà cung cấp trên URLs đó."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Với biểu thức chính quy sau <code>rawrule=</code>, nó sẽ dừng các quy tắc thô có biểu thức chính quy đó."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Là một đối tượng quy tắc với <code>targetId</code>, nó chỉ dừng quy tắc thô có id hoặc bí danh đó."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Để bỏ qua toàn bộ nhà cung cấp, hãy dùng <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Якщо URL-адреса відповідає запису в <code>exceptions</code>, для цього запиту не запускається жодне правило постачальника. Запис — це регулярний вираз для повної URL-адреси або шаблон домену, що починається з <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Винятки не враховують регістр. Щоб пропустити одне правило, а не весь постачальник, задайте цьому правилу власне <code>exceptions</code> (розділ 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Tham số nào phù hợp trước trong URL sẽ thắng. Đối với <code>https://site.example/away?redirect=https://real.example/page</code>, yêu cầu sẽ được chuyển đến <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Mục tiêu chuyển hướng hợp lệ"
+  },
+  "guide_redirects_p_2": {
+    "message": "Chuyển hướng chỉ xảy ra với địa chỉ <code>http</code> hoặc <code>https</code> tuyệt đối với máy chủ. Điều này được kiểm tra sau preprocessors và giải mã phần trăm. Mục tiêu không hợp lệ khiến số mục nhập được tính là không khớp: không có gì được chuyển hướng và các bước sau của nhà cung cấp chạy trên URL không thay đổi."
+  },
+  "guide_redirects_th_1": {
+    "message": "Mục tiêu"
+  },
+  "guide_redirects_th_2": {
+    "message": "Chuyển hướng?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "vâng"
+  },
+  "guide_redirects_cell_2": {
+    "message": "có, tới <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "không: chương trình này không phải là <code>http</code> hoặc <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "không: không phải là địa chỉ tuyệt đối"
+  },
+  "guide_redirects_p_3": {
+    "message": "Một quy tắc thô có kết quả có sơ đồ, máy chủ hoặc cổng khác với đầu vào của nó cũng được tính là chuyển hướng, ngay cả khi nó chỉ xóa văn bản: việc xóa <code>secure-</code> khỏi <code>https://secure-bank.example/</code> sẽ xuất hiện trên một trang web khác. Nó cần một mục tiêu hợp lệ và trong danh sách quy tắc từ xa có phê duyệt <code>redirect</code> (chương 15). Nếu không, quy tắc sẽ giữ nguyên URL."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Bất kỳ mục nào, trong bất kỳ danh sách nào, đều có thể là một đối tượng thay vì một chuỗi. Sử dụng một quy tắc khi một quy tắc cần id ổn định, nên bắt đầu tắt, nên viết lại thay vì xóa hoặc chỉ nên chạy trong một số trường hợp:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Yêu cầu. Văn bản bạn sẽ viết dưới dạng mục đơn giản trong danh sách đó."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Tên ổn định (chữ cái, chữ số, <code>-</code>, <code>_</code>) được sử dụng để bật và tắt quy tắc (chương 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Các id trước đó của quy tắc, do đó, cài đặt được lưu theo id cũ sẽ tiếp tục được áp dụng sau khi đổi tên."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Viết lại thay vì loại bỏ; <code>§1§</code>, <code>§2§</code>, … là các giá trị được ghi lại."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Trước tiên, hãy chuyển đổi các giá trị đã ghi."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Chỉ áp dụng cho các loại yêu cầu này, ví dụ <code>[\"main_frame\"]</code>. Thao tác làm sạch không có yêu cầu đi kèm (<em>Sao chép liên kết sạch</em>, công cụ dọn dẹp, thay đổi qua History API) được tính là <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URLs (biểu thức chính quy) trong đó quy tắc này không chạy."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Прапорці регулярного виразу задаються рядком. За замовчуванням <code>i</code>; для <code>rawRules</code> — <code>gi</code> або <code>g</code> із <code>match-case</code>."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Chạy quy tắc sớm hơn hoặc muộn hơn trong giai đoạn của nó (chương 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: một quy tắc trong <code>rules</code> cũng được tính là quy tắc tiếp thị giới thiệu (chương 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Nhà cung cấp chuyển đổi cùng tên cho quy tắc này. Nó đánh bại giá trị của nhà cung cấp và mặc định của tệp."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: quy tắc bắt đầu tắt."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Một lưu ý dành cho người đọc tệp; nó phải là một chuỗi."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Chỉ trên các mục nhập <code>@@…$rawrule=</code>: id của quy tắc thô mà nó dừng lại."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Ở đây <code>?token=abc123</code> trở thành <code>?token=clean-abc123</code>. Việc viết lại được áp dụng nhiều nhất một lần cho mỗi yêu cầu, vì vậy nó không tiếp tục bao bọc giá trị."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Bộ tiền xử lý thay đổi các giá trị đã ghi theo thứ tự trước khi <code>replacePattern</code> hoặc chuyển hướng sử dụng chúng. <code>inputs</code> là <code>\"all\"</code> hoặc danh sách số nhóm:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> có các mục tương tự như <code>rules</code>. Chúng chỉ chạy khi <em>Cho phép tiếp thị giới thiệu</em> bị tắt, vì vậy các liên kết liên kết sẽ tiếp tục hoạt động nếu bạn bật tính năng này:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Một quy tắc có thể nằm trong <code>rules</code> và vẫn được tính là tiếp thị giới thiệu, với <code>\"referralMarketing\": true</code>. Không đặt cùng một văn bản trong cả <code>rules</code> và <code>referralMarketing</code>; người biên tập cảnh báo về điều đó."
+  },
+  "guide_request_types_cell_1": {
+    "message": "loại yêu cầu mà một đối tượng quy tắc xử lý (cũng có thể cài đặt trong <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Các loại yêu cầu sử dụng tên của trình duyệt: <code>main_frame</code> (một trang), <code>sub_frame</code> (một khung), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code>, v.v. Công cụ sửa đổi bộ lọc gọi hai <code>document</code> và <code>subdocument</code> đầu tiên."
+  },
+  "guide_request_types_p_2": {
+    "message": "Các loại yêu cầu chỉ đến từ các quy tắc: không có danh sách loại yêu cầu trong Cài đặt. Nếu không đặt quy tắc nào trong số này, quy tắc sẽ xóa mọi loại yêu cầu."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Mặc định"
+  },
+  "guide_defaults_p_1": {
+    "message": "Khối <code>defaults</code> cấp cao nhất đưa ra mọi quy tắc về các giá trị tệp mà nó không tự đặt:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Mặc định cho từng quy tắc…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> tắt mọi quy tắc trừ khi nó thông báo <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> hoặc bỏ nó đi nghĩa là mọi loại"
+  },
+  "guide_defaults_item_1": {
+    "message": "Власний список <code>exceptions</code> постачальника не змінюється."
+  },
+  "guide_defaults_item_2": {
+    "message": "Значення за замовчуванням застосовуються до <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> і <code>fieldRedirections</code>. Власний список <code>exceptions</code> постачальника не змінюється. Записи <code>$redirect=</code> використовують лише <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Mỗi tệp giữ các giá trị mặc định riêng: các quy tắc tích hợp, từng danh sách từ xa và các quy tắc tùy chỉnh của bạn, kể cả khi chế độ quá tải hợp nhất chúng."
+  },
+  "guide_defaults_item_4": {
+    "message": "Для <code>completeProvider</code> значення <code>requestTypes</code> і <code>exceptions</code> за замовчуванням також обмежують блок."
+  },
+  "guide_defaults_item_5": {
+    "message": "Khóa không xác định và loại sai là lỗi và danh sách từ xa có khối <code>defaults</code> không hợp lệ sẽ bị từ chối."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Mặc định của riêng bạn"
+  },
+  "guide_defaults_p_2": {
+    "message": "Trong trình chỉnh sửa quy tắc tùy chỉnh, <em>Quản lý quy tắc mặc định</em> sẽ mở một biểu mẫu trong đó bạn đặt khối <code>defaults</code> của riêng bạn và chọn nơi nó thay thế các tệp của riêng bạn:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em></em> của riêng mỗi nguồn (mặc định): mỗi tệp sử dụng <code>defaults</code> của riêng nó."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Quy tắc tích hợp và từ xa</em>: quy tắc tích hợp và từ xa sử dụng quy tắc của bạn; quy tắc tùy chỉnh giữ riêng của họ."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Quy tắc của bạn dành cho tất cả các quy tắc</em>: mọi quy tắc đều sử dụng quy tắc của bạn."
+  },
+  "guide_defaults_p_3": {
+    "message": "Biểu mẫu tương tự có thể chỉnh sửa các giá trị mặc định của các quy tắc tích hợp và của từng danh sách từ xa được tải. Chỉnh sửa của bạn được lưu trữ trong tiện ích mở rộng chứ không phải trong tệp và <em>Đặt lại về mặc định của tệp</em> sẽ loại bỏ nó. <em>Hợp nhất từ ​​các nguồn…</em> kết hợp các giá trị mặc định của các nguồn bạn đánh dấu; không có gì được lưu trữ cho đến khi bạn lưu."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL được xử lý như thế nào"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, sau đó là <code>fieldRedirections</code>: kết quả trùng khớp với mục tiêu hợp lệ sẽ chuyển hướng yêu cầu."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> và <code>referralMarketing</code> loại bỏ hoặc ghi lại các tham số."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Bộ lọc <code>$removeparam</code> chạy, ngoại trừ khi mục nhập <code>@@</code> giữ tham số."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Nhà cung cấp đầu tiên thay đổi, chuyển hướng hoặc chặn URL sẽ thắng. URL mới sau đó sẽ thực hiện lại các bước tương tự (xem <a href=\"#termination\">Khi quá trình xử lý dừng</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Chạy lệnh và <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Bước 4 và 5 được sắp xếp cùng nhau theo các quy tắc sau:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Quy tắc thô luôn chạy trước.</strong> Không có <code>order</code> di chuyển mục nhập <code>rules</code> trước quy tắc thô. Việc dọn dẹp phải diễn ra trước quy tắc thô phải là quy tắc thô."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Bên trong một giai đoạn, các quy tắc có <code>order</code> chạy trước các quy tắc không có một</strong>, thấp nhất trước. Cho phép số âm và phân số. <code>order: 10</code> không có nghĩa là \"thứ mười\": nó có nghĩa là sau các quy tắc được sắp xếp của màn chơi dưới 10 và trước tất cả các quy tắc không có thứ tự của màn chơi."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Sau đó, theo danh sách:</strong> <code>rules</code>, sau đó là <code>rules</code> đối tượng được đánh dấu <code>\"referralMarketing\": true</code>, sau đó là <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Sau đó theo vị trí</strong> trong danh sách. Mọi mục đều giữ nguyên vị trí của nó, bao gồm các mục được viết như <code>\"3\"</code> hoặc <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Ở đây, mã thông báo được viết lại trước khi <code>utm_source</code> bị xóa, mặc dù nó đứng thứ hai:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Các quy tắc bị tắt sẽ bị bỏ lại. Các bộ lọc <code>$removeparam</code> và <code>@@</code> nằm ngoài loại này và không thể có <code>order</code>, thậm chí không được <code>null</code>; bộ lọc luôn chạy cuối cùng."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Cùng một văn bản hai lần"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Hai mục nhập có cùng văn bản <code>matchPattern</code> trong một nhóm là một quy tắc. Các nhóm là thô (<code>rawRules</code>), trường (<code>rules</code> không có dấu giới thiệu) và giới thiệu (được đánh dấu là đối tượng <code>rules</code>). <code>referralMarketing</code>). Điều này chủ yếu xảy ra khi danh sách quy tắc được hợp nhất."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Định nghĩa cuối cùng không sai sẽ chiến thắng, với tất cả các chìa khóa của nó."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Nếu không có <code>order</code> của riêng mình, người chiến thắng sẽ chiếm vị trí của định nghĩa đầu tiên và <code>order</code> gần nhất trước đó. <code>\"order\": null</code> có nghĩa là không có đơn hàng nào và bỏ đi một đơn hàng được kế thừa."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Id và bí danh của các định nghĩa được thay thế cũng bật và tắt định nghĩa chiến thắng."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Trong khi các quy tắc tiếp thị giới thiệu chạy, mục nhập giới thiệu sẽ thay thế mục nhập trường bằng cùng một văn bản."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Quy tắc thô và quy tắc trường có cùng văn bản không xung đột; cả hai đều chạy."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Trong một danh sách, hai mục nhập khác nhau có cùng văn bản là lỗi và bản sao chính xác là cảnh báo."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Khi quá trình xử lý dừng lại"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Tối đa 10 chu kỳ chạy theo yêu cầu; ở mức tối đa, URL được sử dụng như hiện tại."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Quy tắc có <code>replacePattern</code> áp dụng tối đa một lần cho mỗi yêu cầu."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Một bước không thay đổi URL sẽ không bắt đầu một chu kỳ mới."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Cài đặt → <em>Chu kỳ làm sạch không giới hạn</em> (tắt theo mặc định) loại bỏ giới hạn 10 chu kỳ đối với các chuỗi quy tắc cần nhiều hơn. Quá trình xử lý sau đó kết thúc khi một chu trình không thay đổi gì ngoài hai quy tắc chuyển hướng đến nhau, lặp lại cho đến khi trình duyệt ngừng hoạt động và trang không tải. Chỉ bật nó cho những quy tắc mà bạn tin tưởng."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Id quy tắc và công tắc bật/tắt"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Mọi quy tắc đều có một id. Một quy tắc không có <code>id</code> sẽ nhận được một quy tắc từ danh sách và văn bản của nó: <code>\"utm_source\"</code> trong <code>rules</code> sẽ trở thành <code>field-utm-source</code>. Id được tạo sẽ thay đổi khi văn bản của quy tắc thay đổi và sau đó quy tắc đã tắt sẽ được bật lại. Đưa ra một quy tắc <code>id</code> của riêng nó khi nó phải giữ cài đặt bật/tắt thông qua các chỉnh sửa và liệt kê các id cũ trong <code>aliases</code> khi bạn đổi tên nó."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Một quy tắc được bật và tắt bởi nhà cung cấp và id cùng nhau, chẳng hạn như <code>shop::session-token</code>, vì vậy hai nhà cung cấp có thể sử dụng cùng một id. Trình chỉnh sửa quy tắc tùy chỉnh cũng có thể lưu nó theo mẫu của nhà cung cấp, chẳng hạn như <code>domainPattern:||shop.example^::session-token</code>; cả hai hình thức đều hoạt động."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Trong một nhà cung cấp, mọi id và bí danh phải khác nhau. Số lượng id được tạo."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Một id không thể chứa dấu hai chấm."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Cài đặt được lưu dưới id trần, không có nhà cung cấp của nó, sẽ không chuyển đổi gì; tắt lại quy tắc trong trình chỉnh sửa quy tắc tùy chỉnh."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Danh sách quy tắc từ xa"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Danh sách quy tắc từ xa là các tệp quy tắc Linkumori tải xuống và có thể kiểm tra bằng tệp băm. Danh sách có giá trị <code>cln</code>, khối <code>defaults</code> hoặc mảng <code>patches</code> không hợp lệ sẽ không được tải; trang Quy tắc từ xa sẽ báo lỗi này."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Chuyển hướng và chặn cần sự chấp thuận của bạn"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Những gì một danh sách từ xa có thể làm được tính toán từ nội dung của nó khi tải:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Khả năng"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Danh sách có nó khi nó chứa"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Hoạt động khi tải"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "một mục nhập <code>rules</code>, <code>rawRules</code> hoặc <code>referralMarketing</code>, hoặc một Bộ lọc <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "một mục có <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "запис <code>exceptions</code> постачальника або запис <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "một mục nhập <code>redirections</code> hoặc <code>fieldRedirections</code> hoặc <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "sau khi được phê duyệt"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "nhà cung cấp có <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Trong mục Quy tắc từ xa, hãy phê duyệt <code>redirect</code> và <code>block</code> cho từng danh sách. Trước khi được phê duyệt, chuyển hướng và chặn của danh sách đó vẫn tắt, còn quy tắc thô không thể gửi URL sang trang web khác; phần còn lại của danh sách vẫn hoạt động ngay. Nếu bản cập nhật thêm khả năng mới, khả năng đó cũng phải chờ phê duyệt. Quy tắc tích hợp sẵn và quy tắc tùy chỉnh có mọi khả năng."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Chế độ quá tải"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Thông thường, danh sách từ xa có nhà cung cấp sẽ thay thế quy tắc tích hợp sẵn; danh sách chỉ có <code>patches</code> sẽ được áp dụng vào quy tắc tích hợp sẵn. Khi bật <em>Bật chế độ quá tải</em>, chúng được tải cùng nhau theo một trong ba chiến lược:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Chỉ chế độ vá</em>: áp dụng các bản vá của danh sách từ xa cho các quy tắc tích hợp sẵn; các nhà cung cấp từ xa bị bỏ lại."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "Chế độ <em>Patch + merge</em>: hợp nhất các nhà cung cấp tích hợp và từ xa, sau đó áp dụng các bản vá."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Không có chế độ vá lỗi + hợp nhất</em>: hợp nhất các nhà cung cấp và bỏ qua các bản vá."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Khi hợp nhất, các danh sách từ xa được hợp nhất với nhau theo thứ tự bạn liệt kê, sau đó với các quy tắc tích hợp sẵn (quy tắc tích hợp được ưu tiên). Chỉ hợp nhất các nhà cung cấp có cùng <code>domainPatterns</code> (hoặc <code>urlPattern</code>), <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> và <code>forceRedirection</code>. Các danh sách <code>rules</code>, <code>rawRules</code> và <code>referralMarketing</code> của chúng được gộp lại; <a href=\"#same-text-twice\">Cùng một văn bản hai lần</a> quyết định bản sao nào chạy. Mục Quy tắc từ xa liệt kê mọi quy tắc bị thay thế dưới dạng thông báo."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Quy tắc tùy chỉnh được áp dụng cuối cùng. Nhà cung cấp tùy chỉnh thay thế mọi nhà cung cấp đã tải bằng cùng một mẫu; quy tắc của họ không được kết hợp."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Bản vá quy tắc"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Một danh sách từ xa có thể thay thế các quy tắc đơn lẻ đã được tải mà không cần xuất bản bản sao đầy đủ trong mảng <code>patches</code> cấp cao nhất:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Bắt buộc. Quy tắc thay thế, được viết giống như phím bật/tắt: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> hoặc <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Обов’язково. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> або <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Bắt buộc. Quy tắc mới, dưới dạng mục nhập đơn giản hoặc đối tượng quy tắc."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Một lưu ý cho những người đọc tập tin."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Các bản vá chạy sau khi hợp nhất danh sách từ xa và trước các quy tắc tùy chỉnh. Một tệp chỉ có <code>patches</code> không cần <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Việc hợp nhất có thể đổi tên các nhà cung cấp, do đó, biểu mẫu <code>domainPattern:</code> hoặc <code>urlPattern:</code> là biểu mẫu luôn tìm thấy chúng."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Việc thay thế sẽ giữ lại id của quy tắc cũ hoặc lấy id cũ làm bí danh, do đó, cài đặt bật/tắt sẽ tiếp tục được áp dụng."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Một bản vá cho chuyển hướng đang chờ phê duyệt <code>redirect</code> của danh sách. Một bản vá không có mục tiêu phù hợp sẽ không thay đổi gì cả."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Mục Quy tắc từ xa liệt kê từng bản vá là đã áp dụng, không khớp hoặc bị bỏ qua."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Quy tắc và danh sách trắng"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Білий список окремий від поля <code>exceptions</code> постачальника: у ньому перелічено сайти, які ви попросили Linkumori не змінювати, без використання файлу правил. Записи мають вигляд <code>example.com</code>, <code>*.example.com</code> (сайт і його піддомени) або <code>example.*</code> (будь-який суфікс). Додавання сторінки до білого списку також поширюється на все, що вона завантажує."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Ví dụ đầy đủ"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Kiểm tra quy tắc của bạn"
+  },
+  "guide_checking_p_1": {
+    "message": "Trình chỉnh sửa quy tắc tùy chỉnh sẽ kiểm tra các quy tắc khi bạn lưu hoặc nhập chúng và <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> thực hiện các bước kiểm tra tương tự. Ngoài JSON bị hỏng và các biểu thức chính quy không hợp lệ, chúng còn từ chối các quy tắc sẽ tải nhưng lặng lẽ làm điều sai, chẳng hạn như:"
+  },
+  "guide_checking_item_1": {
+    "message": "các trường, khóa và công cụ sửa đổi không xác định"
+  },
+  "guide_check_7": {
+    "message": "một giá trị <code>cln</code> khác với <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "id hoặc bí danh được sử dụng hai lần trong một nhà cung cấp"
+  },
+  "guide_checking_item_2": {
+    "message": "hai mục khác nhau có cùng văn bản trong một danh sách"
+  },
+  "guide_checking_item_3": {
+    "message": "một <code>order</code> trên một mục nhập <code>$removeparam</code> hoặc bộ lọc <code>@@</code>, Bao gồm <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "một địa chỉ <code>$redirect=</code> không phải là <code>http</code> hoặc <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "dấu gạch chéo ngược trong tên <code>$removeparam</code> trước một ký tự không có lối thoát"
+  },
+  "guide_checking_p_2": {
+    "message": "Họ cũng cảnh báo về các bản sao chính xác và về cùng một văn bản trong cả <code>rules</code> và <code>referralMarketing</code>. Nếu lưu không thành công, thông báo sẽ nêu tên nhà cung cấp, danh sách và mục nhập."
+  },
+  "guide_toc_search": {
+    "message": "Lọc phần"
+  },
+  "guide_toc_no_results": {
+    "message": "Không có phần phù hợp."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: chuyển hướng bắt đầu bằng \"|\" phải có dạng \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: đích $redirect= phải là URL http hoặc https tuyệt đối",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ phải là một đối tượng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type phải là chuỗi không rỗng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type phải là một trong các giá trị sau: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs phải là \"all\" hoặc mảng số nguyên dương",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ phải là chuỗi hoặc đối tượng quy tắc",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern phải là chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern phải là chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId phải là mã quy tắc",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId chỉ áp dụng cho ngoại lệ \"@@…$rawrule=\" trong rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags phải là chuỗi (cờ biểu thức chính quy như \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing phải là true hoặc false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing không có tác dụng trong $FIELD$; chỉ áp dụng trong $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order phải là số hoặc null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order không có tác dụng trong $FIELD$; chỉ áp dụng trong $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order không có tác dụng với bộ lọc $removeparam hoặc mục \"@@\"; chúng luôn chạy sau các quy tắc khác",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active phải là giá trị boolean (true hoặc false)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id phải là chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id phải khớp với mẫu $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases phải là danh sách mã khớp với mẫu $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases không được chứa mã riêng của quy tắc",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description phải là chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection phải là giá trị boolean (true hoặc false)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions phải là mảng chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes phải là mảng chuỗi",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors phải là mảng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: trường không xác định \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ bắt đầu bằng \"@@\", chỉ áp dụng cho bộ lọc $removeparam trong rules và referralMarketing; hãy dùng trường \"exceptions\" của đối tượng quy tắc",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ có tùy chọn $removeparam không xác định \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" bắt đầu bằng một dấu \"|\", nên chỉ khớp với URL bắt đầu chính xác bằng \"$REST$\", nhưng không có URL nào như vậy (URL bắt đầu bằng \"https://\"). Dùng \"||$REST$\" để khớp tên miền.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ có \"targetId\", chỉ hoạt động với ngoại lệ; hãy bắt đầu matchPattern bằng \"@@\" (ví dụ: \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ có cả \"targetId\" và biểu thức chính quy sau \"rawrule=\"; chỉ dùng một trong hai",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ có targetId \"$ID$\", nhưng nhà cung cấp này không có quy tắc thô nào mang mã hoặc bí danh đó",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ là ngoại lệ \"@@\" cho \"$REGEX$\", nhưng nhà cung cấp này không có quy tắc thô nào dùng biểu thức chính quy đó. Hãy gán mã cho quy tắc và trỏ đến mã đó bằng \"targetId\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ là ngoại lệ \"@@\", nên \"$KEY$\" sẽ không có tác dụng",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ không có nội dung sau \"rawrule=\"; cần có biểu thức chính quy cần xóa",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ có biểu thức chính quy không hợp lệ sau \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ có $GROUPS$ nhóm bắt; cần đúng một cặp \"( … )\" quanh URL đích (viết các nhóm khác dưới dạng \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ dùng lại mã quy tắc \"$ID$\" trong $WHERE$; lần đầu được dùng tại $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ phải là đối tượng JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ phải là mảng",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ có khóa không xác định \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Lỗi khi xử lý URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Lỗi khi khởi tạo trang: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Tab không hợp lệ"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Đang có lượt tìm quy tắc chạy cho tab này"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Không có lượt kiểm tra tạm dừng nào đang chạy cho tab này"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Quy tắc vẫn đang tải. Hãy thử lại sau ít phút."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Không thể tắt quy tắc nào đã chạy trên trang này."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Không thể tắt các quy tắc"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Không có lượt tìm quy tắc nào đang chạy cho tab này"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Không có quy tắc nào tìm được để bỏ qua cho tab này"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Không thể tải xuống"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Không thể lưu bản ghi trong bộ nhớ phiên"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Quy tắc không xác định"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "lỗi không xác định"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "xuất không thành công"
   }
 }

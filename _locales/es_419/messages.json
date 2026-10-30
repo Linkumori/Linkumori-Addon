@@ -39,7 +39,7 @@
     "message": "Utilice las reglas Linkumori/ClearURLs incluidas. Deshabilítelo para ejecutarlo solo con reglas remotas y/o reglas personalizadas."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori usa un único conjunto unificado de reglas de proveedores ClearURLsData. El JSON nativo de proveedores, los objetos de regla canónicos y los filtros $removeparam locales de cada proveedor se combinan antes de que se ejecute clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Información de reglas"
@@ -1137,25 +1137,25 @@
     "message": "Abrir configuración de Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Comportamiento del modo de sobrecarga"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Solo modo de parches"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Aplica parches remotos a las reglas integradas. No se incluyen las reglas de proveedores remotos."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Modo de parches + combinación"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Combina las reglas de proveedores integradas y remotas y, después, aplica los parches remotos."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Sin modo de parches + combinación"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Combina las reglas de proveedores integradas y remotas sin aplicar parches remotos."
   },
   "overload_mode_enabled": {
     "message": "Habilitar el modo de sobrecarga"
@@ -1836,7 +1836,7 @@
     "message": "La URL hash principal debe utilizar HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "La URL de reglas principal y la URL hash principal deben configurarse juntas."
   },
   "save_primary_rule_https_required": {
     "message": "La URL de la regla principal debe utilizar HTTPS"
@@ -1872,13 +1872,13 @@
     "message": "Entiendo los riesgos - Continuar"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Deberías replantearte el uso de reglas remotas si no entiendes del todo o no confías en el origen del conjunto de reglas de Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Esta función de reglas remotas está pensada para usuarios avanzados que entienden el JSON de Linkumori que están cargando. Las reglas remotas deben incluir una URL hash coincidente para su verificación."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Si añades una URL de reglas remotas, la extensión se conectará al servidor que indiques para obtener el conjunto de reglas de Linkumori y, si está configurado, su archivo hash. Cada descarga puede exponer tu dirección IP e información general, como la versión de la extensión, el navegador y la versión del navegador, al servidor que los aloja. Estos datos están sujetos a la política de privacidad de ese sitio web o servidor web."
   },
   "security_modal_privacy_link_text": {
     "message": "Lea %PRIVACY_POLICY_LINK% nuevamente antes de continuar si es necesario."
@@ -1887,7 +1887,7 @@
     "message": "aviso de advertencia:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Usa las reglas integradas a menos que confíes en el origen remoto y lo controles. Proporciona una URL hash coincidente para las reglas JSON remotas de Linkumori."
   },
   "security_modal_risk_1": {
     "message": "Su dirección IP y la información del navegador estarán expuestas a los servidores configurados."
@@ -1899,7 +1899,7 @@
     "message": "La verificación de hash se aplica únicamente a las reglas Linkumori CLN Format 1.0 JSON; protege contra la manipulación de la transmisión, no contra fuentes de reglas maliciosas."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Las reglas remotas sin una verificación hash correcta dependen por completo de la confianza en la URL de origen."
   },
   "security_modal_risks_title": {
     "message": "Riesgos de seguridad:"
@@ -1914,7 +1914,7 @@
     "message": "La URL del archivo reglas.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Obligatoria para verificar las reglas JSON remotas de Linkumori."
   },
   "setting_html_export_button": {
     "message": "Exportar"
@@ -1944,7 +1944,7 @@
     "message": "Límite de registro (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Fuentes JSON remotas adicionales de Linkumori que se combinan entre sí. Introduce un par por línea como <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Conjuntos de reglas remotas adicionales"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://ejemplo.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL remota personalizada para las reglas JSON de Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "La URL del archivo JSON de reglas remotas"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "La URL hash es obligatoria para cada conjunto de reglas remoto."
   },
   "settings_html_page_title": {
     "message": "Configuración de Linkumori (URL limpias)"
@@ -2421,19 +2421,19 @@
     "message": "ADVERTENCIA: Función avanzada destinada únicamente a servidores autohospedados"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Estás deshabilitando las protecciones de Gatekeeper para la edición de URL de reglas remotas. Esta función puede cargar reglas JSON remotas de Linkumori en el conjunto unificado de reglas de proveedores. Continúa solo si entiendes el origen que estás configurando y confías en él."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper es el flujo de seguridad integrado que bloquea las ediciones remotas directas de URL hasta que usted reconoce la advertencia de seguridad y completa la confirmación escrita."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Mantén Gatekeeper habilitado a menos que confíes en tus fuentes remotas y las controles. Las reglas JSON remotas deben incluir una URL hash coincidente."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "aviso de advertencia:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Si añades una URL de reglas remotas, la extensión se conectará al servidor que indiques para obtener el conjunto de reglas de Linkumori y, si está configurado, su archivo hash. Cada descarga puede exponer tu dirección IP e información general, como la versión de la extensión, el navegador y la versión del navegador, al servidor que los aloja. Estos datos están sujetos a la política de privacidad de ese sitio web o servidor web."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Lea %PRIVACY_POLICY_LINK% nuevamente antes de continuar si es necesario."
@@ -2448,7 +2448,7 @@
     "message": "La extensión se conectará a su URL designada cada vez que la extensión esté habilitada y cargada en su navegador."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "El servidor que aloja los archivos JSON o hash remotos recibirá tu dirección IP."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "El servidor también puede recibir su versión de extensión, navegador y versión del navegador."
@@ -2457,7 +2457,7 @@
     "message": "Esos datos están sujetos a la política de privacidad del sitio web o del servidor web que aloja esos archivos."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Al deshabilitar Gatekeeper, aumentas el riesgo procedente de fuentes de reglas remotas inseguras o comprometidas. La verificación hash solo protege las descargas JSON remotas de Linkumori cuando hay configurada una URL hash coincidente."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Cancelar"
@@ -2517,7 +2517,7 @@
     "message": "Escriba la frase de confirmación exacta"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Esta acción reduce las salvaguardas de las reglas remotas. Continúa solo si confías en tu fuente JSON remota."
   },
   "remote_urls_template_note_1": {
     "message": "Reemplace los valores de los marcadores de posición con sus URL HTTPS reales y luego importe este archivo."
@@ -2847,10 +2847,10 @@
     "message": "Ninguno"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Colisiones de reglas:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ errores, $WARNINGS$ advertencias, $NOTICES$ avisos",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Capacidades del archivo remoto:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inactivas hasta que se acepten: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Aceptar $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Parches de reglas:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ aplicados, $NOT_APPLIED$ sin aplicar",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Valores predeterminados de reglas"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Integrados"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Personalizados"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Ninguno: comportamiento integrado"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "El modo de sobrecarga combina las reglas integradas y remotas; las reglas de cada fuente conservan los valores predeterminados de esa fuente."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Guardar valores predeterminados"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Valores predeterminados guardados"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Cuando está activado, cada fuente de reglas conserva sus propios valores predeterminados (los integrados se aplican a las reglas integradas y los de cada archivo remoto a las reglas de ese archivo), a menos que elijas tus propios valores predeterminados en el editor de reglas personalizadas."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Remoto: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Qué valores predeterminados se aplican"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Los de cada fuente"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Los tuyos para reglas integradas y remotas"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Los tuyos para todas las reglas"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(sustituidos por tus valores predeterminados)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Tuyos"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ tipos de solicitud",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ excepciones de URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 excepción de URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ preprocesadores",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Las reglas de cada fuente reciben los valores predeterminados de esa fuente."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Las reglas integradas y remotas reciben tus valores predeterminados en lugar de los de sus archivos; las reglas personalizadas conservan los suyos."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Las reglas integradas, remotas y personalizadas reciben todas tus valores predeterminados en lugar de los suyos."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Gestionar valores predeterminados de reglas"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Los valores predeterminados rellenan los valores que una regla no establece por sí misma. El valor propio de una regla siempre prevalece, y las excepciones de proveedor nunca se modifican."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Editar valores predeterminados"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Tus valores predeterminados"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Valores predeterminados de reglas personalizadas"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Valores predeterminados que editar"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Reglas integradas"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(editado)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Restablecer a los valores predeterminados del archivo"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Combinar desde fuentes…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Combinar valores predeterminados de reglas"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "El resultado aparece como \"Valores predeterminados combinados\" en la lista. Cópialo en un conjunto de allí y presiona Guardar valores predeterminados para usarlo."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Fuentes que combinar"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Conflictos"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Valores predeterminados combinados"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Usar valores predeterminados combinados"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Valores predeterminados combinados"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "No se usa hasta que lo copies en uno de los otros conjuntos y guardes."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Copiar en"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Copiar"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Elige al menos dos fuentes."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Sin conflictos: las fuentes elegidas coinciden en todos los valores."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Las excepciones de todas las fuentes se suman: $COUNT$ en total.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Combinado de todas las fuentes"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "De: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Sin establecer (comportamiento integrado)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Sin establecer: todos los tipos de solicitud"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "No se usa ahora mismo: tus valores predeterminados sustituyen a los propios de las reglas integradas y remotas."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Editado por ti: estos sustituyen a los valores predeterminados propios del archivo. El archivo en sí no se modifica."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(editado por ti)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "No se usa ahora mismo: arriba está elegido \"Los de cada fuente\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "No se usa ahora mismo: tus valores predeterminados también sustituyen a estos en las reglas personalizadas."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Las reglas empiezan desactivadas (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Descripción"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Tipos de solicitud"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Todos los tipos"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Solo estos"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Elige al menos un tipo de solicitud o selecciona \"Todos los tipos\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Las reglas limpian todos los tipos de solicitud a menos que ellas, o los valores predeterminados, indiquen algunos. Los proveedores también pueden limitar los tipos con resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Excepciones"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Una regex de URL por línea. Las reglas se omiten en las URL coincidentes."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Preprocesadores"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Entradas: \"all\" o números de grupo de captura, como 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Añadir preprocesador"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Tipo de preprocesador"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Entradas del preprocesador"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Quitar"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Las entradas del preprocesador \"$INPUTS$\" deben ser \"all\" o números como 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Desactivar la protección contra omisión del historial (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Mostrar como JSON"
   },
   "settings_remote_health_unknown": {
     "message": "desconocido"
@@ -4017,10 +4017,10 @@
     "message": "Proveedor JSON Guía"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Abrir la guía de reglas de Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "¿Qué sintaxis de reglas debo usar?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4029,25 +4029,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Abrir la guía de reglas"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "No se pudieron cargar las fuentes de proveedores: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Las reglas integradas no están disponibles."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "No se pudieron cargar las reglas integradas: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "No se pudo cambiar el idioma a $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Tema claro"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Tema oscuro"
   },
   "posarCopied": {
     "message": "POSAR copiado!"
@@ -4071,100 +4071,100 @@
     "message": "POSAR aceptó."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Restablecer"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Herramientas de accesibilidad"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Abrir herramientas de accesibilidad"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Cerrar herramientas de accesibilidad"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Restablecer toda la configuración de accesibilidad"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Visión"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lectura"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interacción"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Alto contraste"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Filtro de color"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Saturación"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertir"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Resaltar enlaces"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Ocultar imágenes"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Aumentar tamaño del texto"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Reducir tamaño del texto"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Tamaño de texto predeterminado"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Selección de fuente"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Apto para dislexia"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Espaciado del texto"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Altura de línea"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Alineación del texto"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Pausar animaciones"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Cursor más grande"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Predeterminado"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Medio"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Alto"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Bajo"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Ninguno"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Ligero"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Intenso"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4185,7 +4185,7 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Sin filtro"
   },
   "accessibility_tools_value_protanopia": {
     "message": "Protanopia"
@@ -4197,37 +4197,37 @@
     "message": "Tritanopia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Escala de grises"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Izquierda"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Centro"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Derecha"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Muy pequeño"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Pequeño"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Grande"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Muy grande"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "El más grande"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Activado"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Desactivado"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4236,15 +4236,2227 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "activado"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "desactivado"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Tamaño de texto predeterminado seleccionado"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Se ha restablecido toda la configuración de accesibilidad"
+  },
+  "skip_to_main_content": {
+    "message": "Saltar al contenido principal"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navegación de la ventana emergente"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Vistas de reglas personalizadas"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Vistas del registro"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Protección contra omisión del historial (omitir durante la navegación dentro de la página)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Redirecciones de campos"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Copiar regla"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regla copiada"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "No se pudo copiar la regla"
+  },
+  "faq_history_bypass_protection": {
+    "message": "¿Qué hace historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Los sitios de una sola página suelen cambiar la dirección con history.pushState/replaceState en lugar de cargar una página nueva. Linkumori también limpia esas direcciones. Añade history-bypass-protection=false a un filtro $removeparam para omitir solo ese filtro en estos cambios dentro de la página; seguirá ejecutándose en las solicitudes normales."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Para omitir un proveedor entero en los cambios dentro de la página, establécelo en el proveedor:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Si se omite, vale true y los cambios dentro de la página se limpian. La configuración propia de una regla prevalece sobre la del proveedor, así que una regla puede volver a activarlo con history-bypass-protection=true, o \"historyBypassProtection\": true en un objeto de regla."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Omite nav. en página"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Renombrar ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nuevo id para $OLD$ (a-z, 0-9, - y _). El id antiguo se conserva como alias, de modo que las reglas desactivadas con él siguen desactivadas.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" no es un id válido. Usa letras minúsculas, dígitos, - y _, empezando por una letra o un dígito.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Otra regla de este proveedor ya usa \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Deshabilitar regla"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "¿Deshabilitar $ID$ para todo el proveedor o solo para este patrón de URL/dominio?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Mi proveedor"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Patrón de URL/dominio"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Id de regla renombrado a $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Interruptores huérfanos"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "No se encontró ninguna regla coincidente en el origen"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Quitar"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Omite la limpieza en la navegación dentro de la página"
+  },
+  "whitelist_added_general": {
+    "message": "Se añadió %s a la lista blanca general"
+  },
+  "whitelist_added_history_api": {
+    "message": "Se añadió %s como excepción de la History API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d excepción(es)"
+  },
+  "whitelist_exception_empty": {
+    "message": "No hay excepciones en la lista blanca"
+  },
+  "whitelist_mode_general": {
+    "message": "Lista blanca general"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Solo History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Alcance de la lista blanca"
+  },
+  "whitelist_removed_general": {
+    "message": "Se quitó %s de la lista blanca general"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Se quitó la excepción de la History API para %s"
+  },
+  "whitelist_type_general": {
+    "message": "General"
+  },
+  "whitelist_type_history_api": {
+    "message": "Solo History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Añadir $1 a la lista blanca general"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Lista blanca general: $1 - haz clic para solo History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Excepción de History API: $1 - haz clic para solo esta pestaña"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Solo pestaña: $1 - haz clic para quitar"
+  },
+  "logger_action_allowed": {
+    "message": "Permitido"
+  },
+  "logger_action_blocked": {
+    "message": "Bloqueado"
+  },
+  "logger_action_filter_label": {
+    "message": "Acción"
+  },
+  "logger_action_info": {
+    "message": "Info"
+  },
+  "logger_action_modified": {
+    "message": "Modificado"
+  },
+  "logger_action_redirected": {
+    "message": "Redirigido"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Copiar resumen"
+  },
+  "logger_btn_export": {
+    "message": "Exportar"
+  },
+  "logger_btn_group": {
+    "message": "Agrupar por regla"
+  },
+  "logger_col_hits": {
+    "message": "Coincidencias"
+  },
+  "logger_col_last_seen": {
+    "message": "Última vez"
+  },
+  "logger_detail_group_title": {
+    "message": "Detalle de la regla"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Pestañas"
+  },
+  "logger_exported": {
+    "message": "Se exportaron $1 entradas."
+  },
+  "logger_filter_all": {
+    "message": "Todo"
+  },
+  "logger_report_rule": {
+    "message": "Informar"
+  },
+  "logger_rule_disable": {
+    "message": "Desactivar regla"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Regla $1 desactivada. Recarga la página para comprobarlo."
+  },
+  "logger_rule_enable": {
+    "message": "Activar regla"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Regla $1 activada de nuevo."
+  },
+  "logger_rule_failed": {
+    "message": "No se pudo cambiar la regla."
+  },
+  "logger_rule_off": {
+    "message": "La regla está desactivada"
+  },
+  "logger_rule_on": {
+    "message": "La regla está activada"
+  },
+  "logger_rule_unavailable": {
+    "message": "Esta regla no se puede activar ni desactivar desde aquí."
+  },
+  "logger_status_rules": {
+    "message": "$1 regla(s)"
+  },
+  "logger_summary_copied": {
+    "message": "Resumen copiado."
+  },
+  "logger_summary_copy_failed": {
+    "message": "No se pudo copiar el resumen."
+  },
+  "logger_type_filter_label": {
+    "message": "Tipo"
+  },
+  "logger_btn_logging_off": {
+    "message": "Registro desactivado"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "El registro está desactivado. Haz clic para activarlo."
+  },
+  "logger_btn_logging_on": {
+    "message": "Registro activado"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "El registro está activado. Haz clic para desactivarlo."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "No se pudo cambiar la configuración del registro."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Añadir regla de referidos"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Añadir excepción de regla sin procesar"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Añadir redirección de campo"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Añadir excepción"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Cada plantilla añade un objeto de regla con un id y un matchPattern de ejemplo sobre example.com. Una entrada también puede ser una cadena simple: un nombre de parámetro, una regex de nombre, un filtro $removeparam o, en rawRules, una regex. Los objetos de regla admiten id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description y targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Analizador estático"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "No se encontraron problemas."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Error"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Advertencia"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ error(es), $WARNINGS$ advertencia(s)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Orden de ejecución"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ paso(s), en el orden en que se ejecutan",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "No hay entradas de rawRules, rules ni referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Calculado por el motor a partir del texto de arriba, esté guardado o no. Los pasos se ordenan por (stage, orderGroup, order, rank, arrayIndex): las reglas sin procesar se ejecutan antes que las reglas de campo; dentro de una etapa, primero se ejecutan las entradas con order, de menor a mayor, y después el resto por lista y posición."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Marketing de referidos"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referidos eliminados"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referidos permitidos"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Sin procesar"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Campo"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Referidos"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generado)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "orden $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "reescribe"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "sustituye $COUNT$ definición(es) anterior(es)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "añadido por completeProvider: elimina todos los parámetros"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Desactivada"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Desactivada para algunos patrones"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Clave de ordenación: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Después, $FILTERS$ filtro(s) $removeparam y $EXCEPTIONS$ excepción(es) @@, tras todos los pasos anteriores",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ excepción(es) @@…$rawrule= pueden detener las reglas sin procesar de arriba donde coincidan",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Arrastra un paso, o usa sus flechas, para moverlo dentro de su etapa. Al moverlo, cada entrada de esa etapa recibe un order de 10, 20, 30, … en la nueva secuencia."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Cambia a Referidos eliminados para reorganizar: esa vista muestra todas las entradas."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Arrastra para mover"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Mover $ENTRY$ antes",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Mover $ENTRY$ después",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ movido a la posición $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Deshacer movimiento"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Movimiento deshecho"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simular"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Ejecuta este proveedor sobre una URL igual que al limpiar un enlace copiado, con tus reglas desactivadas y la opción de referidos de arriba, y muestra la URL tras cada paso. Los demás proveedores no se ejecutan. Generar URL de prueba crea una a partir de las propias reglas de este proveedor."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL de prueba"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Ejecutar"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Avanzar paso a paso por la simulación"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Inicio"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Anterior"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Siguiente"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Fin"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Reproducir"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pausa"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "La URL antes de cualquier paso"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Pasada $PASS$ · paso $STEP$ de $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "sin cambios"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "filtros $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "La pasada $PASS$ no cambia nada, así que la limpieza se detiene",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Este proveedor se detiene aquí: se alcanzó el límite de ciclos, la URL volvió a ser una anterior o ya no coincide con el proveedor"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "La pasada $PASS$ redirige; la limpieza continúa en la nueva dirección con todos los proveedores",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "El proveedor bloquea esta solicitud (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Resultado"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Los patrones de este proveedor no coinciden con esta URL, así que no se ejecuta ninguna de sus reglas."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Esta URL coincide con una de las excepciones del proveedor, así que no se ejecuta ninguna de sus reglas."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Introduce una URL completa con http:// o https://."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "No se pudo ejecutar la simulación. Revisa el JSON de arriba."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generar URL de prueba"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Creada a partir de las reglas de este proveedor: texto para $RAW$ regla(s) sin procesar y $PARAMS$ parámetro(s), cada uno comprobado con su regla. keep=1 no coincide con ninguna regla y debería mantenerse. No se incluyen redirecciones ni bloqueos, ya que terminarían la ejecución antes que las demás reglas.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "No se pudo crear ningún host que coincida con los patrones de este proveedor, así que la URL usa otro host y el proveedor no se ejecutará sobre ella."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Todas las URL que coinciden con los patrones de este proveedor están cubiertas por alguna de sus propias excepciones, así que sus reglas nunca se ejecutan."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ regla(s) excluida(s) de la URL de prueba",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "no se pudo crear ningún texto que coincida con ella"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "su texto haría coincidir una de las excepciones del proveedor"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "elimina todos los parámetros, así que no necesita ningún parámetro propio"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Este proveedor tiene un filtro $removeparam sin nombre, que elimina todos los parámetros, incluido keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "sin order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "orden $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Restaurar números de orden"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Devolver cada order al valor que tenía cuando abriste este proveedor"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Números de orden restaurados"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Ocultar"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Mostrar"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Borrar advertencias"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Restaurar advertencias"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ advertencia(s) borrada(s)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: un urlPattern sin indexPattern se comprueba contra todas las URL; añade pistas de indexPattern como \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ repite \"$ENTRY$\"; la copia no hace nada y ambas comparten un mismo id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ todavía tiene el marcador de la plantilla \"$PATTERN$\"; sustitúyelo por el patrón real",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ tiene el matchPattern \"(?!)\", que nunca coincide con nada",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Solucionar problemas"
+  },
+  "troubleshooter_launch": {
+    "message": "Solucionar problemas de esta pestaña (experimental)"
+  },
+  "troubleshooter_title": {
+    "message": "Solucionador de problemas de pestañas"
+  },
+  "troubleshooter_page": {
+    "message": "Página"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Cómo funciona la grabación"
+  },
+  "troubleshooter_about_note": {
+    "message": "Abrir esta vista puede comprobar la URL de la página, pero no graba nada. La grabación permanece desactivada hasta que eliges Iniciar grabación. Al iniciarla, esta pestaña se recarga para capturar sus solicitudes de recursos. Las URL capturadas se guardan en el almacenamiento de sesión durante esta sesión del navegador y se borran al cerrar esta pestaña o al terminar la sesión del navegador. La grabación se detiene tras 15 minutos a menos que la detengas antes. Las URL de recursos pueden contener datos privados en la consulta."
+  },
+  "troubleshooter_start": {
+    "message": "Iniciar grabación"
+  },
+  "troubleshooter_starting": {
+    "message": "Iniciando…"
+  },
+  "troubleshooter_recording": {
+    "message": "Grabando…"
+  },
+  "troubleshooter_stop": {
+    "message": "Detener grabación"
+  },
+  "troubleshooter_refresh": {
+    "message": "Actualizar"
+  },
+  "troubleshooter_copy": {
+    "message": "Copiar resumen"
+  },
+  "troubleshooter_export": {
+    "message": "Exportar"
+  },
+  "troubleshooter_export_title": {
+    "message": "Guarda la grabación como archivo JSON. Las URL de recursos pueden contener datos privados en la consulta."
+  },
+  "troubleshooter_category": {
+    "message": "Categoría"
+  },
+  "troubleshooter_category_all": {
+    "message": "Todas las categorías"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Reglas de URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Redirecciones"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Protección y bypass"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Tipo de recurso"
+  },
+  "troubleshooter_type_all": {
+    "message": "Todos los tipos de recurso"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Buscar reglas, proveedores y URL"
+  },
+  "troubleshooter_timer": {
+    "message": "Grabando $1 · quedan $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Comprobando esta pestaña…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "No hay ninguna pestaña activa disponible."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Esta página no permite analizar reglas de URL. Abre una página web normal http o https."
+  },
+  "troubleshooter_status_off": {
+    "message": "La grabación está desactivada. Inicia la grabación para inspeccionar las URL de recursos que carga esta página."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 cambio(s) de URL capturado(s) hasta ahora. Los nuevos aparecen aquí automáticamente."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Grabación detenida. $1 cambio(s) de URL capturado(s)."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "No se pudieron guardar los datos de grabación en el almacenamiento de sesión. $1 cambio(s) de URL podrían perderse si la extensión se reinicia."
+  },
+  "troubleshooter_status_started": {
+    "message": "Grabación iniciada; la pestaña se está recargando. Las URL capturadas aparecen aquí a medida que se carga la página."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Grabación detenida. $1 cambio(s) de URL capturado(s) y guardado(s) para esta sesión del navegador."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Grabación detenida. $1 cambio(s) de URL capturado(s), pero el almacenamiento de sesión no pudo guardarlos."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Abre primero una página web normal http o https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "No se pudo iniciar la grabación en esta pestaña."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "No se pudo detener la grabación en esta pestaña."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "No se pudo leer esta pestaña. Prueba a cerrar y volver a abrir la ventana emergente."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Resumen copiado."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "No se pudo copiar el resumen."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Grabación exportada."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "No se pudo exportar la grabación."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "No se pudo abrir el formulario de informe."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regla habilitada; recarga la pestaña para comparar."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regla deshabilitada; recarga la pestaña para comparar."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "No se pudo actualizar esta regla."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Aún no se han encontrado cambios de reglas. Inicia la grabación para inspeccionar las URL de recursos de esta página."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Esta página del navegador no se puede analizar."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Ningún resultado coincide con estos filtros."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Mostrando las primeras $1 reglas."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 coincidencia(s)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 con error"
+  },
+  "troubleshooter_rule_id": {
+    "message": "ID de regla: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Acción de protección integrada (sin ID de regla)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "ID de regla: no disponible para este resultado"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "No se pudo resolver este ID de regla en el conjunto de reglas actual."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Solicitud observada"
+  },
+  "troubleshooter_source_page": {
+    "message": "Comprobación de la URL de la página"
+  },
+  "troubleshooter_changes": {
+    "message": "Qué cambió: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "URL afectadas ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…y $1 más"
+  },
+  "troubleshooter_after": {
+    "message": "Después de Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Falló después de que Linkumori la cambiara: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Esta regla está habilitada. Desactívala y recarga para comparar la página."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Esta regla está deshabilitada. Actívala y recarga para restaurar su comportamiento."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Esta es una acción de protección integrada, no una regla individual."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Revisa la URL afectada antes de cambiar las reglas."
+  },
+  "troubleshooter_report": {
+    "message": "Informar de esta regla"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Deshabilitar regla"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Habilitar regla"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Deshabilitar la regla $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Habilitar la regla $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Guardando…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "se eliminó $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "se añadió $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "se cambió $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "redirigida a $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "ruta cambiada"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragmento cambiado"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL cambiada"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "bloqueada a propósito"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 solicitud(es) fallaron en esta página; $2 justo después de que Linkumori cambiara la URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "¿Esta página no funciona bien?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Encuentra la regla que la rompe: las reglas que se ejecutaron en esta página se desactivan de una en una y, tras cada una, indicas si la página se ha arreglado. ¿No estás seguro de que Linkumori sea la causa? Compruébalo primero con la limpieza en pausa."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Comprobar primero con la limpieza en pausa"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "La limpieza está en pausa durante $1 en esta pestaña"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "La pestaña se recargó sin limpieza. ¿Funciona ahora la página?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Sí, funciona"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "No, sigue sin funcionar"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Cancelar"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Hecho"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Probablemente no es Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "La página seguía sin funcionar con la limpieza en pausa, así que el problema probablemente está en otro sitio: el propio sitio web, otra extensión o la red. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Probablemente la causa es Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "La página funciona con la limpieza en pausa. Encuentra la regla: las reglas se desactivan de una en una, la pestaña se recarga e indicas si la página se ha arreglado. Al final, todas las demás reglas se vuelven a activar."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "La pestaña se está recargando con la limpieza activada de nuevo para registrar qué reglas se ejecutan en esta página. Aparecerán aquí en un momento. Si no aparece ninguna, usa la página hasta que falle."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Encontrar la regla ($1 reglas)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Sí, arreglada"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "No, sigue sin funcionar"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Encontrada"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "La página falla por la regla $1$2. Se ha vuelto a activar. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Deshabilitar esta regla"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Informar"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Regla desactivada. Recarga la pestaña para comprobarlo. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "No se encontró una única regla"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Desactivar las reglas de una en una no arregló la página, así que probablemente la causa son varias reglas juntas o una opción de protección. Todas las reglas se han vuelto a activar. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "No se pudo realizar la comprobación: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Recarga Linkumori para usar esta comprobación"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori se ha actualizado, pero su parte en segundo plano sigue ejecutando la versión anterior. Recarga la extensión (para un complemento temporal: about:debugging → Este Firefox → Recargar) o reinicia Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Encontrada"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "La página falla por la regla $1$2. Se queda desactivada para que la página funcione; todas las demás reglas vuelven a estar activadas. Recarga la pestaña para comprobarlo. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Recargar pestaña"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Volver a activarla"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Regla activada de nuevo. Recarga la pestaña para comprobarlo. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Grabar y encontrar la regla"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Registrando qué reglas se ejecutan en esta página. Usa la página hasta que falle; las reglas aparecerán aquí."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Desactivada temporalmente por la búsqueda de reglas. Se volverá a activar cuando termine la búsqueda."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "La búsqueda de reglas está en curso. Cambia las reglas cuando termine."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Omitir: volver a activarla"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Mantenerla desactivada"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Búsqueda de reglas omitida; todas las reglas vuelven a estar activadas. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "La regla $1 se queda desactivada. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Desactivadas para esta prueba:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…y $1 más"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Detener búsqueda"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Omitida: esa regla vuelve a estar activada y queda excluida. Probando la siguiente."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "No se encontró ninguna regla entre las probadas. $1 regla(s) que omitiste no se probaron. Todas las reglas vuelven a estar activadas. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimental"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimental: este solucionador de problemas no es del todo estable. Sus resultados pueden ser erróneos y desactiva reglas mientras hace pruebas. Si después algo parece incorrecto, revisa tus reglas en el editor de reglas personalizadas o usa Detener búsqueda para volver a activarlas."
+  },
+  "troubleshooter_working": {
+    "message": "Procesando…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Grabar de nuevo"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Grabación anterior borrada. Grabando de nuevo esta pestaña desde una carga nueva."
+  },
+  "troubleshooter_clear": {
+    "message": "Borrar"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Borra la grabación, los resultados y la búsqueda de reglas terminada de esta pestaña. Las reglas se quedan como están."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Borrado. Las reglas se quedan como están."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Borrado. La regla $1 se queda desactivada."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Probando las reglas de una en una: regla $1 de $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Solo esta regla está desactivada y la pestaña se ha recargado. ¿Se ha arreglado la página?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Omitir esta regla"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Omitir: volver a activarla y probar la siguiente (quedan $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 regla(s) más que se ejecutaron en esta página no se probaron. ¿Quieres seguir probándolas?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Mantenerla desactivada y probar la siguiente (quedan $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "La regla $1 se queda desactivada. Probando la siguiente regla."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Ninguna otra regla arregla la página por sí sola. Las $1 regla(s) que mantuviste desactivadas siguen desactivadas; todas las demás reglas vuelven a estar activadas. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Probar la siguiente regla (quedan $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "La regla $1 vuelve a estar activada y queda excluida. Probando la siguiente regla."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Ninguna otra regla arregla la página por sí sola. Las $1 regla(s) que omitiste también vuelven a estar activadas, así que todas las reglas están activadas de nuevo. Para empezar de nuevo, haz clic en Borrar."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori limpia las URL con reglas escritas en <strong>CLN Format 1.0</strong> (Clean Link Notation), un formato JSON. Esta guía va desde una primera regla hasta todas las opciones, con ejemplos que puedes copiar."
+  },
+  "guide_intro_p_2": {
+    "message": "Las reglas integradas, las listas de reglas remotas y tus reglas personalizadas usan todas el mismo formato. Las reglas personalizadas se escriben en el editor de reglas personalizadas, que las comprueba al guardar o importar. Un catálogo oficial de reglas de ClearURLs (<code>data.min.json</code>) ya es un archivo CLN válido y se puede usar tal cual."
+  },
+  "guide_rules_file_p_1": {
+    "message": "El nombre del proveedor es solo una etiqueta. Qué URL gestiona un proveedor lo deciden <code>domainPatterns</code> o <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Clave de nivel superior"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obligatoria. Los proveedores, por nombre."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Versión del formato opcional. El único valor válido es <code>\"1.0\"</code>. Un archivo sin ella también se lee como 1.0; cualquier otro valor hace que se rechace el archivo. No se llama <code>version</code> porque el nuevo formato de reglas de ClearURLs ya usa esa clave."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Información opcional sobre el archivo."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Valores para todas las reglas del archivo que no establecen los suyos propios (capítulo 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Solo listas de reglas remotas: sustituciones de reglas que ya están cargadas (capítulo 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Qué URL gestiona el proveedor, como un patrón de dominio o una lista de ellos (capítulo 3). Usa esto o <code>urlPattern</code>, nunca ambos."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Qué URL gestiona el proveedor, como una única expresión regular comparada con la URL completa. No distingue mayúsculas y minúsculas."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Solo con <code>urlPattern</code>: pistas de host como <code>||example.com^</code>, para que el proveedor solo se compruebe en esos hosts en lugar de contra todas las URL. Es una pista de búsqueda, no una condición de coincidencia."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Parámetros de referidos y afiliados que eliminar. Se omiten mientras <em>Permitir marketing de referidos</em> está activado (capítulo 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL que el proveedor deja completamente intactas (capítulo 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Envía la solicitud a otra dirección en lugar de editarla (capítulo 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Envía la solicitud al valor de un parámetro (capítulo 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: cuando se redirige una carga de página (<code>main_frame</code>), toda la pestaña navega a la nueva dirección, no solo la solicitud de red."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Gestiona solo estos métodos HTTP, por ejemplo <code>[\"GET\"]</code>. Si se omite: todos los métodos."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Gestiona solo estos tipos de solicitud, por ejemplo <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Si se omite: todos los tipos de solicitud."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Predeterminado <code>true</code>. <code>false</code> omite el proveedor entero cuando una página cambia su propia dirección con la History API (<code>pushState</code>/<code>replaceState</code>). Las solicitudes de red normales se siguen limpiando."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> desactiva el proveedor sin eliminarlo."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> es una lista de patrones de dominio. Una URL coincide si coincide con cualquiera de ellos. Los mismos patrones se usan delante de <code>exceptions</code>, <code>redirections</code>, los filtros <code>$removeparam</code> y las reglas sin procesar."
+  },
+  "guide_matching_cell_1": {
+    "message": "la URL completa, como expresión regular"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL que contienen este texto en cualquier lugar (sin <code>|</code> inicial)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> marca el final del nombre de host, o un separador como <code>/</code>, <code>?</code>, <code>:</code> o el final de la URL. <code>*</code> es un comodín."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> representa un dominio: el host y todos sus subdominios. Un solo <code>|</code> representa el principio exacto de la URL y debe ir seguido de un esquema como <code>https://</code>. Para un dominio siempre necesitas <code>||</code>; <code>|example.com^</code> nunca puede coincidir, así que el editor lo rechaza."
+  },
+  "guide_matching_p_4": {
+    "message": "Por ejemplo, <code>||smile.amazon.*^</code> se lee así: <code>||</code> el host y sus subdominios, <code>smile.amazon</code> las etiquetas obligatorias, <code>.*</code> cualquier sufijo público (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) y <code>^</code> el final del host."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "exactamente ese parámetro"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "todos los parámetros cuyo nombre completo coincide; no distingue mayúsculas y minúsculas"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> y <code>\"$removeparam=fbclid\"</code> eliminan lo mismo. Usa el nombre simple a menos que necesites algo del capítulo 5. Cualquier entrada también puede escribirse como objeto de regla (capítulo 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Aquí <code>qid</code> se elimina en todos los sitios de Amazon, <code>tag</code> solo en <code>amazon.de</code>, <code>sr</code> solo en <code>smile.amazon</code> y <code>ref_</code> solo bajo <code>/gp/</code>. El patrón restringe los patrones propios del proveedor; nunca puede ampliarlos."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> convierte el filtro en una excepción que conserva el parámetro (ver más abajo)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> restringe el filtro a algunas de las URL del proveedor (capítulo 3). Si se omite, se aplica a todas las URL con las que coincide el proveedor."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> elige los parámetros. Si se omite, se eliminan todos los parámetros."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Los modificadores indican cuándo se activa el filtro. Todos los modificadores indicados deben cumplirse; no hay un \"o\" entre ellos."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "todos los parámetros excepto <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parámetros cuyo nombre, o <code>name=value</code> en conjunto, coincide con la expresión regular; añade <code>i</code> para no distinguir mayúsculas y minúsculas"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parámetros cuyo nombre empieza por <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escapar un nombre de parámetro"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Una barra invertida hace que el siguiente carácter sea literal, así que se puede apuntar a cualquier nombre de parámetro:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Valor"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Elimina el parámetro llamado"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (la coma no inicia los modificadores)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Estos cinco son los únicos escapes en un valor de nombre; una barra invertida delante de cualquier otro carácter es un error. Dentro de un valor <code>/regex/</code>, la barra invertida conserva su significado de regex. Los escapes funcionan en las entradas de <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> y <code>@@</code>. En JSON, escribe cada barra invertida dos veces: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modificadores"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Los modificadores van después del valor, separados por comas. Separa varios valores de un mismo modificador con <code>|</code> y pon <code>~</code> delante de un valor para excluirlo:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modificador"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "solo cuando la página que hizo la solicitud es (o, con <code>~</code>, no es) una de estas; se permiten valores regex"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "solo cuando la propia solicitud va a uno de estos, sea cual sea la página que la hizo"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "solo para estos métodos HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "solo cuando la solicitud va al mismo dominio registrable que la página (<code>a.example.com</code> y <code>b.example.com</code> cuentan como el mismo), o a uno distinto"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "lo mismo, pero comparando el nombre de host exacto, de modo que un subdominio cuenta como tercero"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "los nombres de parámetros se comparan distinguiendo mayúsculas y minúsculas"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "omite este filtro cuando una página cambia su propia dirección con la History API. También acepta <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Los cuatro modificadores <code>*-party</code> no se pueden combinar entre sí; <code>first-party,third-party</code> se rechaza."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Por ejemplo, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> elimina <code>sid</code> en <code>example.com</code>, solo en solicitudes GET hechas por una página de otro sitio, y nunca cuando esa página es <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Una entrada <code>@@</code> solo protege frente a los filtros <code>$removeparam</code>. Una entrada simple como <code>\"ref\"</code> sigue eliminando el parámetro; para eso, usa las <code>exceptions</code> de un objeto de regla. Las reglas sin procesar tienen sus propias entradas <code>@@…$rawrule=</code> (capítulo 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "No importa dónde la incluyas, y no puede tener <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Su patrón se comprueba con la URL tal como la recibió el proveedor, antes de que se ejecuten las reglas sin procesar. Una entrada <code>@@</code> limitada a una ruta que elimina una regla sin procesar sigue coincidiendo."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "También abarca los filtros de otros proveedores en las solicitudes hechas por una página con la que coincide este proveedor, lo que resulta útil para excluir un sitio de una regla definida en otro lugar."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Las reglas sin procesar se ejecutan antes que <code>rules</code>, no distinguen mayúsculas y minúsculas y sustituyen todas las coincidencias (flags <code>gi</code>, o <code>g</code> con <code>match-case</code>). En JSON, escribe cada barra invertida dos veces."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Una regla sin procesar puede llevar el patrón y los modificadores de un filtro <code>$removeparam</code>, con <code>rawrule=</code> al final. Todo lo que va después de <code>rawrule=</code> es la expresión regular:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "El patrón y los modificadores deciden dónde se ejecuta la regla; lo que se elimina sigue siendo lo que coincide con la expresión regular."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Una entrada que empieza por <code>@@</code> y termina en <code>rawrule=</code> impide que las reglas sin procesar se ejecuten donde coincide su patrón:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Sin nada después de <code>rawrule=</code>, detiene todas las reglas sin procesar del proveedor en esas URL."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Con una expresión regular después de <code>rawrule=</code>, detiene las reglas sin procesar con esa expresión regular."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Como objeto de regla con <code>targetId</code>, detiene solo la regla sin procesar con ese id o alias."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Para omitir el proveedor entero, usa <code>exceptions</code> en su lugar."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Si una URL coincide con una entrada de <code>exceptions</code>, no se ejecuta ninguna de las reglas del proveedor para esa solicitud. Una entrada es una expresión regular aplicada a la URL completa, o un patrón de dominio que empieza por <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Las excepciones no distinguen mayúsculas y minúsculas. Para omitir una sola regla en lugar del proveedor entero, dale a esa regla sus propias <code>exceptions</code> (capítulo 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Gana el parámetro coincidente que aparezca primero en la URL. Para <code>https://site.example/away?redirect=https://real.example/page</code>, la solicitud va a <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Destinos de redirección válidos"
+  },
+  "guide_redirects_p_2": {
+    "message": "Una redirección solo se produce hacia una dirección <code>http</code> o <code>https</code> absoluta con host. Esto se comprueba después de los preprocesadores y de la decodificación de porcentajes. Un destino no válido hace que la entrada cuente como no coincidente: no se redirige nada y los pasos posteriores del proveedor se ejecutan sobre la URL sin cambios."
+  },
+  "guide_redirects_th_1": {
+    "message": "Destino"
+  },
+  "guide_redirects_th_2": {
+    "message": "¿Redirige?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "sí"
+  },
+  "guide_redirects_cell_2": {
+    "message": "sí, a <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "no: el esquema no es <code>http</code> ni <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "no: no es una dirección absoluta"
+  },
+  "guide_redirects_p_3": {
+    "message": "Una regla sin procesar cuyo resultado tiene un esquema, host o puerto distinto del de su entrada también cuenta como redirección, aunque solo elimine texto: eliminar <code>secure-</code> de <code>https://secure-bank.example/</code> lleva a otro sitio. Necesita un destino válido y, en una lista de reglas remota, la aprobación <code>redirect</code> (capítulo 15). Si no, la regla deja la URL como estaba."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Cualquier entrada, en cualquier lista, puede ser un objeto en lugar de una cadena. Úsalo cuando una regla necesite un id estable, deba empezar desactivada, deba reescribir en lugar de eliminar o solo deba ejecutarse en algunos casos:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obligatorio. El texto que escribirías como entrada simple en esa lista."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Un nombre estable (letras, dígitos, <code>-</code>, <code>_</code>) que se usa para activar y desactivar la regla (capítulo 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Los ids anteriores de la regla, para que una configuración guardada con un id antiguo siga aplicándose tras un cambio de nombre."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Reescribe en lugar de eliminar; <code>§1§</code>, <code>§2§</code>, … son los valores capturados."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Transforma primero los valores capturados."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Solo para estos tipos de solicitud, por ejemplo <code>[\"main_frame\"]</code>. La limpieza sin solicitud (<em>Copiar enlace limpio</em>, la herramienta de limpieza, los cambios de la History API) cuenta como <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL (expresiones regulares) donde esta regla concreta no se ejecuta."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Flags de la expresión regular, como cadena. Predeterminado <code>i</code>; en <code>rawRules</code>, <code>gi</code> (o <code>g</code> con <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Ejecuta la regla antes o después dentro de su etapa (capítulo 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: una regla de <code>rules</code> también cuenta como regla de marketing de referidos (capítulo 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "El interruptor del proveedor con el mismo nombre, para esta regla concreta. Prevalece sobre el valor del proveedor y el predeterminado del archivo."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: la regla empieza desactivada."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Una nota para quien lea el archivo; debe ser una cadena."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Solo en entradas <code>@@…$rawrule=</code>: el id de la regla sin procesar que detiene."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Aquí <code>?token=abc123</code> se convierte en <code>?token=clean-abc123</code>. Una reescritura se aplica como máximo una vez por solicitud, así que no sigue envolviendo el valor."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Los preprocesadores modifican los valores capturados, en orden, antes de que <code>replacePattern</code> o una redirección los usen. <code>inputs</code> es <code>\"all\"</code> o una lista de números de grupo:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> admite las mismas entradas que <code>rules</code>. Solo se ejecutan mientras <em>Permitir marketing de referidos</em> está desactivado, así que los enlaces de afiliados siguen funcionando si lo activas:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Una regla puede quedarse en <code>rules</code> y aun así contar como marketing de referidos, con <code>\"referralMarketing\": true</code>. No pongas el mismo texto en <code>rules</code> y en <code>referralMarketing</code> a la vez; el editor avisa de ello."
+  },
+  "guide_request_types_cell_1": {
+    "message": "tipos de solicitud que gestiona un objeto de regla (también configurable en <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Los tipos de solicitud usan los nombres del navegador: <code>main_frame</code> (una página), <code>sub_frame</code> (un marco), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code>, etc. Los modificadores de filtro llaman a los dos primeros <code>document</code> y <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Los tipos de solicitud solo provienen de las reglas: no hay ninguna lista de tipos de solicitud en Configuración. Si no se establece ninguno de estos, una regla limpia todos los tipos de solicitud."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Valores predeterminados"
+  },
+  "guide_defaults_p_1": {
+    "message": "Un bloque <code>defaults</code> de nivel superior da a todas las reglas del archivo los valores que no establecen por sí mismas:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Predeterminado para el campo de cada regla…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> desactiva todas las reglas salvo las que indiquen <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> u omitirlo significa todos los tipos"
+  },
+  "guide_defaults_item_1": {
+    "message": "El valor propio de una regla siempre prevalece, y las <code>exceptions</code> de una regla sustituyen a la lista predeterminada en lugar de sumarse a ella."
+  },
+  "guide_defaults_item_2": {
+    "message": "Los valores predeterminados se aplican a <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> y <code>fieldRedirections</code>. La lista de <code>exceptions</code> propia de un proveedor no se toca. Las entradas <code>$redirect=</code> solo usan <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Cada archivo conserva sus propios valores predeterminados: las reglas integradas, cada lista remota y tus reglas personalizadas, también cuando el modo de sobrecarga los combina."
+  },
+  "guide_defaults_item_4": {
+    "message": "Para un <code>completeProvider</code>, los <code>requestTypes</code> y <code>exceptions</code> predeterminados también limitan el bloqueo."
+  },
+  "guide_defaults_item_5": {
+    "message": "Las claves desconocidas y los tipos incorrectos son errores, y una lista remota con un bloque <code>defaults</code> no válido se rechaza."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Tus propios valores predeterminados"
+  },
+  "guide_defaults_p_2": {
+    "message": "En el editor de reglas personalizadas, <em>Gestionar valores predeterminados de reglas</em> abre un formulario donde puedes establecer tu propio bloque <code>defaults</code> y elegir dónde sustituye a los de los archivos:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Los de cada fuente</em> (la opción predeterminada): cada archivo usa sus propios <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Los tuyos para reglas integradas y remotas</em>: las reglas integradas y remotas usan los tuyos; las reglas personalizadas conservan los suyos."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Los tuyos para todas las reglas</em>: todas las reglas usan los tuyos."
+  },
+  "guide_defaults_p_3": {
+    "message": "El mismo formulario permite editar los valores predeterminados de las reglas integradas y de cada lista remota cargada. Tu edición se guarda en la extensión, no en el archivo, y <em>Restablecer a los valores predeterminados del archivo</em> la descarta. <em>Combinar desde fuentes…</em> combina los valores predeterminados de las fuentes que marques; no se guarda nada hasta que guardes."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Cómo se procesa una URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code> y después <code>fieldRedirections</code>: una coincidencia con un destino válido redirige la solicitud."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> y <code>referralMarketing</code> eliminan o reescriben parámetros."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Se ejecutan los filtros <code>$removeparam</code>, salvo donde una entrada <code>@@</code> conserva el parámetro."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Gana el primer proveedor que cambia, redirige o bloquea la URL. Después, la nueva URL vuelve a pasar por los mismos pasos (consulta <a href=\"#termination\">Cuándo se detiene el procesamiento</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Orden de ejecución y <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Los pasos 4 y 5 se ordenan juntos, aplicando estas reglas por turnos:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Las reglas sin procesar siempre se ejecutan primero.</strong> Ningún <code>order</code> adelanta una entrada de <code>rules</code> a una regla sin procesar. Una limpieza que deba hacerse antes de una regla sin procesar tiene que ser ella misma una regla sin procesar."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Dentro de una etapa, las reglas con <code>order</code> se ejecutan antes que las que no lo tienen</strong>, de menor a mayor. Se permiten números negativos y fracciones. <code>order: 10</code> no significa \"décima\": significa después de las reglas ordenadas de la etapa por debajo de 10 y antes de todas sus reglas sin orden."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Después, por lista:</strong> <code>rules</code>, luego los objetos de <code>rules</code> marcados con <code>\"referralMarketing\": true</code> y luego <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Después, por posición</strong> en la lista. Cada entrada conserva su lugar, incluidas las entradas escritas como <code>\"3\"</code> o <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Aquí el token se reescribe antes de que se elimine <code>utm_source</code>, aunque aparezca en segundo lugar:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Las reglas desactivadas se excluyen. Los filtros <code>$removeparam</code> y las entradas <code>@@</code> quedan fuera de esta ordenación y no pueden tener <code>order</code>, ni siquiera <code>null</code>; los filtros siempre se ejecutan al final."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "El mismo texto dos veces"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Dos entradas con el mismo texto de <code>matchPattern</code> en un mismo grupo son una sola regla. Los grupos son sin procesar (<code>rawRules</code>), de campo (<code>rules</code> sin la marca de referidos) y de referidos (objetos de <code>rules</code> marcados y, después, <code>referralMarketing</code>). Esto suele ocurrir al combinar listas de reglas."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Gana la última definición que no esté desactivada, con todas sus claves."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Sin <code>order</code> propio, la ganadora toma la posición de la primera definición y el <code>order</code> anterior más cercano. <code>\"order\": null</code> significa sin orden, y descarta uno heredado."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Los ids y aliases de las definiciones sustituidas también activan y desactivan la ganadora."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Mientras se ejecutan las reglas de marketing de referidos, una entrada de referidos sustituye a una entrada de campo con el mismo texto."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Una regla sin procesar y una regla de campo con el mismo texto no entran en conflicto; se ejecutan ambas."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Dentro de una lista, dos entradas distintas con el mismo texto son un error, y una copia exacta es una advertencia."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Cuándo se detiene el procesamiento"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Se ejecutan como máximo 10 ciclos por solicitud; al alcanzar el límite, se usa la URL tal como está."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Una regla con <code>replacePattern</code> se aplica como máximo una vez por solicitud."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Un paso que no cambia la URL no inicia un nuevo ciclo."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Configuración → <em>Ciclos de limpieza ilimitados</em> (desactivado de forma predeterminada) elimina el límite de 10 ciclos para cadenas de reglas que necesitan más. El procesamiento termina entonces cuando un ciclo no cambia nada, pero dos reglas que se redirigen entre sí entran en bucle hasta que el navegador se rinde y la página no carga. Actívalo solo para reglas de confianza."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Ids de reglas e interruptores de activación"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Cada regla tiene un id. Una regla sin <code>id</code> recibe uno a partir de su lista y su texto: <code>\"utm_source\"</code> en <code>rules</code> pasa a ser <code>field-utm-source</code>. Un id generado cambia cuando cambia el texto de la regla, y una regla desactivada volvería entonces a activarse. Dale a una regla su propio <code>id</code> cuando deba conservar su estado de activación tras las ediciones, e indica los ids antiguos en <code>aliases</code> cuando le cambies el nombre."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Una regla se activa y desactiva por su proveedor y su id juntos, como <code>shop::session-token</code>, de modo que dos proveedores pueden usar el mismo id. El editor de reglas personalizadas también puede guardarla con el patrón del proveedor, como <code>domainPattern:||shop.example^::session-token</code>; ambas formas funcionan."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Dentro de un proveedor, cada id y alias debe ser distinto. Los ids generados cuentan."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Un id no puede contener dos puntos."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Una configuración guardada con un id sin su proveedor no activa ni desactiva nada; vuelve a desactivar la regla en el editor de reglas personalizadas."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Listas de reglas remotas"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Las listas de reglas remotas son archivos de reglas que Linkumori descarga y, opcionalmente, comprueba con un archivo hash. Una lista con un valor <code>cln</code>, un bloque <code>defaults</code> o un array <code>patches</code> no válidos no se carga, y Estado de reglas remotas lo indica."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "La redirección y el bloqueo necesitan tu aprobación"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Lo que puede hacer una lista remota se determina a partir de su contenido al cargarla:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Capacidad"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "La lista la tiene cuando contiene"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Activa al cargar"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "una entrada de <code>rules</code>, <code>rawRules</code> o <code>referralMarketing</code>, o un filtro <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "una entrada con <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "una entrada de <code>exceptions</code> de proveedor o una entrada <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "una entrada de <code>redirections</code> o <code>fieldRedirections</code>, o <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "tras la aprobación"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "un proveedor con <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Aprueba <code>redirect</code> y <code>block</code> para cada lista en Estado de reglas remotas. Hasta entonces, las redirecciones y bloqueos de esa lista permanecen desactivados y sus reglas sin procesar no pueden enviar una URL a otro sitio; el resto de la lista funciona de inmediato. Cuando una actualización añade una nueva capacidad, esta también espera aprobación. Las reglas integradas y personalizadas tienen todas las capacidades."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Modo de sobrecarga"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normalmente, las listas remotas que tienen proveedores sustituyen a las reglas integradas; las listas que solo contienen <code>patches</code> se aplican a las reglas integradas. Con <em>Habilitar modo de sobrecarga</em> activado, se cargan juntas, usando una de tres estrategias:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Solo modo de parches</em>: aplica los parches de las listas remotas a las reglas integradas; los proveedores remotos quedan fuera."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Modo de parches + combinación</em>: combina los proveedores integrados y remotos y, después, aplica los parches."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Sin modo de parches + combinación</em>: combina los proveedores y omite los parches."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Al combinar, las listas remotas se combinan entre sí en el orden en que las indicas y, después, con las reglas integradas (las integradas primero). Solo se combinan los proveedores con los mismos <code>domainPatterns</code> (o <code>urlPattern</code>) y los mismos <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> y <code>forceRedirection</code>; sus <code>rules</code>, <code>rawRules</code> y <code>referralMarketing</code> se unen, y <a href=\"#same-text-twice\">El mismo texto dos veces</a> decide qué copia se ejecuta. Estado de reglas remotas muestra cada regla sustituida como un aviso."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Las reglas personalizadas se aplican al final. Un proveedor personalizado sustituye a todos los proveedores cargados con el mismo patrón; sus reglas no se combinan."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Parches de reglas"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Una lista remota puede sustituir reglas sueltas que ya están cargadas, sin publicar una copia completa, en un array <code>patches</code> de nivel superior:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obligatorio. La regla que sustituir, escrita como su clave de activación: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> o <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obligatorio. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> o <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obligatorio. La nueva regla, como entrada simple o como objeto de regla."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Una nota para quien lea el archivo."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Los parches se ejecutan después de combinar las listas remotas y antes de las reglas personalizadas. Un archivo que solo tiene <code>patches</code> no necesita <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Al combinar se pueden renombrar proveedores, así que la forma <code>domainPattern:</code> o <code>urlPattern:</code> es la que siempre los encuentra."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "La sustitución conserva el id de la regla antigua, o toma el id antiguo como alias, para que la configuración de activación siga aplicándose."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Un parche para una redirección espera la aprobación <code>redirect</code> de la lista. Un parche cuyo destino no coincide con nada no cambia nada."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Estado de reglas remotas muestra cada parche como aplicado, sin coincidencia u omitido."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Las reglas y la lista blanca"
+  },
+  "guide_whitelist_p_1": {
+    "message": "La lista blanca es independiente de las <code>exceptions</code> de un proveedor: enumera los sitios que le has indicado a Linkumori que deje intactos, sin intervención de ningún archivo de reglas. Las entradas tienen la forma <code>example.com</code>, <code>*.example.com</code> (el sitio y sus subdominios) o <code>example.*</code> (cualquier sufijo). Añadir una página a la lista blanca también abarca todo lo que carga."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Ejemplos completos"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Comprobar tus reglas"
+  },
+  "guide_checking_p_1": {
+    "message": "El editor de reglas personalizadas comprueba las reglas al guardarlas o importarlas, y <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> ejecuta las mismas comprobaciones. Además del JSON roto y las expresiones regulares no válidas, rechazan reglas que se cargarían pero harían algo incorrecto sin avisar, como:"
+  },
+  "guide_checking_item_1": {
+    "message": "campos, claves y modificadores desconocidos"
+  },
+  "guide_checking_item_2": {
+    "message": "dos entradas distintas con el mismo texto en una misma lista"
+  },
+  "guide_checking_item_3": {
+    "message": "un <code>order</code> en un filtro <code>$removeparam</code> o en una entrada <code>@@</code>, incluido <code>null</code>"
+  },
+  "guide_checking_p_2": {
+    "message": "También avisan de las copias exactas y del mismo texto en <code>rules</code> y en <code>referralMarketing</code>. Si falla el guardado, el mensaje indica el proveedor, la lista y la entrada."
+  },
+  "guide_toc_search": {
+    "message": "Filtrar secciones"
+  },
+  "guide_toc_no_results": {
+    "message": "No hay secciones coincidentes."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: una redirección que empieza con \"|\" debe tener este formato: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: el destino de $redirect= debe ser una URL absoluta http o https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ debe ser un objeto",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type debe ser una cadena no vacía",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type debe ser uno de estos valores: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs debe ser \"all\" o un arreglo de enteros positivos",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ debe ser una cadena o un objeto de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern debe ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern debe ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId debe ser un ID de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId solo se aplica a las excepciones \"@@…$rawrule=\" de rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags debe ser una cadena (indicadores de regex, como \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing debe ser true o false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing no tiene efecto en $FIELD$; solo se aplica en $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order debe ser un número o null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order no tiene efecto en $FIELD$; solo se aplica en $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order no tiene efecto en un filtro $removeparam ni en una entrada \"@@\"; siempre se ejecutan después de las demás reglas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active debe ser un valor booleano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id debe ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id debe coincidir con el patrón $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases debe ser una lista de ID que coincidan con el patrón $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases no debe incluir el ID de la propia regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description debe ser una cadena",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection debe ser un valor booleano",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions debe ser un arreglo de cadenas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes debe ser un arreglo de cadenas",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors debe ser un arreglo",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: el campo \"$FIELD$\" no existe",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ empieza con \"@@\", que solo se aplica a filtros $removeparam en rules y referralMarketing; usa \"exceptions\" en un objeto de regla",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ tiene una opción $removeparam desconocida: \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" empieza con un solo \"|\", así que solo coincide con URL que literalmente comienzan con \"$REST$\", y no hay ninguna (las URL empiezan con \"https://\"). Usa \"||$REST$\" para coincidir con el dominio.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ tiene \"targetId\", que solo funciona en una excepción; inicia matchPattern con \"@@\" (por ejemplo, \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ tiene \"targetId\" y una regex después de \"rawrule=\"; usa solo uno de los dos",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ tiene targetId \"$ID$\", pero ninguna regla raw de este proveedor tiene ese ID o alias",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ es una excepción \"@@\" para \"$REGEX$\", pero ninguna regla raw de este proveedor usa esa regex. Asigna un ID a la regla y haz referencia a ella con \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ es una excepción \"@@\", así que \"$KEY$\" no tendría efecto",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ no tiene nada después de \"rawrule=\"; hace falta la regex que se va a quitar",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ tiene una regex no válida después de \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ tiene $GROUPS$ grupos de captura; necesita exactamente un grupo \"( … )\" alrededor de la URL de destino (escribe los demás grupos como \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ reutiliza el ID de regla \"$ID$\" en $WHERE$; se usó por primera vez en $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ debe ser un objeto JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ debe ser un arreglo",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ tiene una clave desconocida: \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Error al procesar la URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Error al inicializar la página: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Pestaña no válida"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Ya hay una búsqueda de reglas en curso para esta pestaña"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "No hay una comprobación de pausa en curso para esta pestaña"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Las reglas todavía se están cargando. Inténtalo de nuevo en un momento."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Ninguna de las reglas activadas en esta página se puede desactivar."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "No se pudieron desactivar las reglas"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "No hay ninguna búsqueda de reglas en curso para esta pestaña"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "No hay ninguna regla encontrada que se pueda omitir en esta pestaña"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Descarga no disponible"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "No se pudo guardar la grabación en el almacenamiento de sesión"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Regla desconocida"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "error desconocido"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "error al exportar"
   }
 }

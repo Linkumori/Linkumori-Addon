@@ -4035,7 +4035,7 @@
     "message": "Jede Vorlage fügt ein Regelobjekt mit einer id und einem Platzhalter-matchPattern für example.com hinzu. Ein Eintrag kann auch eine einfache Zeichenfolge sein: ein Parametername, ein Namens-Regex, ein $removeparam-Filter oder, in rawRules, ein Regex. Regelobjekte akzeptieren id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description und targetId."
   },
   "customRulesEditor_lintTitle": {
-    "message": "Linter"
+    "message": "Code-Prüfung"
   },
   "customRulesEditor_lintClean": {
     "message": "Keine Probleme gefunden."
@@ -4102,7 +4102,7 @@
     "message": "(generiert)"
   },
   "customRulesEditor_runOrderOrder": {
-    "message": "order $ORDER$",
+    "message": "Reihenfolge $ORDER$",
     "placeholders": {
       "order": {
         "content": "$1",
@@ -4351,7 +4351,7 @@
     "message": "keine order"
   },
   "customRulesEditor_runOrderOrderChange": {
-    "message": "order $FROM$ → $TO$",
+    "message": "Reihenfolge $FROM$ → $TO$",
     "placeholders": {
       "from": {
         "content": "$1",
@@ -5942,5 +5942,521 @@
   },
   "guide_toc_no_results": {
     "message": "Keine passenden Abschnitte."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: Eine Weiterleitung, die mit \"|\" beginnt, muss so aussehen: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: Das Ziel von $redirect= muss eine absolute http- oder https-URL sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ muss ein Objekt sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type muss eine nicht leere Zeichenfolge sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type muss einer dieser Werte sein: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs muss \"all\" oder ein Array positiver Ganzzahlen sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ muss eine Zeichenfolge oder ein Regelobjekt sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern muss eine Zeichenfolge sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern muss eine Zeichenfolge sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId muss eine Regel-ID sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId gilt nur für \"@@…$rawrule=\"-Ausnahmen in rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags muss eine Zeichenfolge sein (Regex-Flags wie \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing muss true oder false sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing hat in $FIELD$ keine Wirkung; es gilt nur in $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order muss eine Zahl oder null sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order hat in $FIELD$ keine Wirkung; es gilt nur in $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order hat bei einem $removeparam-Filter oder einem \"@@\"-Eintrag keine Wirkung; beide werden immer nach den anderen Regeln ausgeführt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active muss ein boolescher Wert sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id muss eine Zeichenfolge sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id muss dem Muster $PATTERN$ entsprechen",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases muss eine Liste von IDs sein, die dem Muster $PATTERN$ entsprechen",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases darf nicht die eigene ID der Regel enthalten",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description muss eine Zeichenfolge sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection muss ein boolescher Wert sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions muss ein Array von Zeichenfolgen sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes muss ein Array von Zeichenfolgen sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors muss ein Array sein",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: unbekanntes Feld \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ beginnt mit \"@@\"; das gilt nur für $removeparam-Filter in rules und referralMarketing. Verwende stattdessen \"exceptions\" in einem Regelobjekt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ enthält die unbekannte $removeparam-Option \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" beginnt mit einem einzelnen \"|\" und stimmt daher nur mit URLs überein, die wörtlich mit \"$REST$\" beginnen. Solche URLs gibt es nicht (URLs beginnen mit \"https://\"). Verwende \"||$REST$\", um die Domain abzugleichen.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ enthält \"targetId\", das nur bei einer Ausnahme funktioniert. Beginne matchPattern mit \"@@\" (z. B. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ enthält sowohl \"targetId\" als auch eine Regex nach \"rawrule=\"; verwende nur eines davon",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ enthält targetId \"$ID$\", aber keine raw-Regel dieses Anbieters hat diese ID oder einen Alias davon",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ ist eine \"@@\"-Ausnahme für \"$REGEX$\", aber keine raw-Regel dieses Anbieters verwendet diese Regex. Weise der Regel eine ID zu und verweise stattdessen mit \"targetId\" auf sie",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ ist eine \"@@\"-Ausnahme, daher hätte \"$KEY$\" keine Wirkung",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Nach \"rawrule=\" steht in $WHERE$ nichts; die zu löschende Regex fehlt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ enthält nach \"rawrule=\" eine ungültige Regex: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ enthält $GROUPS$ Erfassungsgruppen; die Ziel-URL muss genau von einem \"( … )\" umgeben sein (andere Gruppen als \"(?: … )\" schreiben)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ verwendet die Regel-ID \"$ID$\" in $WHERE$ erneut; sie wurde zuerst in $FIRST$ verwendet",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ muss ein JSON-Objekt sein",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ muss ein Array sein",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ enthält den unbekannten Schlüssel \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Fehler bei der Verarbeitung der URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Fehler beim Initialisieren der Seite: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Ungültiger Tab"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Für diesen Tab läuft bereits eine Regelsuche"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Für diesen Tab läuft keine Pausenprüfung"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Die Regeln werden noch geladen. Versuche es gleich noch einmal."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Keine der auf dieser Seite ausgelösten Regeln kann ausgeschaltet werden."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Die Regeln konnten nicht ausgeschaltet werden"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Für diesen Tab läuft keine Regelsuche"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Für diesen Tab wurde keine Regel zum Überspringen gefunden"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Download nicht verfügbar"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Die Aufzeichnung konnte nicht im Sitzungsspeicher gespeichert werden"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Unbekannte Regel"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "unbekannter Fehler"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "Export fehlgeschlagen"
   }
 }

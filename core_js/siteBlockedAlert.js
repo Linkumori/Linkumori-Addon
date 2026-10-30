@@ -118,6 +118,10 @@ function setText() {
             pageElement.textContent = translate('blocked_html_button');
         }
 
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            element.textContent = translate(element.getAttribute('data-i18n'));
+        });
+
         const footerPrefix = document.getElementById('siteBlockedFooterPrefix');
         if (footerPrefix) {
             const prefixText = translate('siteblocked_footer_prefix');

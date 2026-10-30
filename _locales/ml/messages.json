@@ -39,7 +39,7 @@
     "message": "ബണ്ടിൽ ചെയ്ത Linkumori/ClearURLs നിയമങ്ങൾ ഉപയോഗിക്കുക. വിദൂര നിയമങ്ങൾ കൂടാതെ/അല്ലെങ്കിൽ ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ ഉപയോഗിച്ച് മാത്രം പ്രവർത്തിപ്പിക്കാൻ ഇത് പ്രവർത്തനരഹിതമാക്കുക."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori ഒരൊറ്റ ഏകീകൃത ClearURLsData ദാതാവ് റൂൾസെറ്റ് ഉപയോഗിക്കുന്നു. നേറ്റീവ് ദാതാവ് JSON, കാനോനിക്കൽ റൂൾ ഒബ്‌ജക്റ്റുകൾ, ദാതാവ്-ലോക്കൽ $removeparam ഫിൽട്ടറുകൾ എന്നിവ clearurls.js പ്രവർത്തിക്കുന്നതിന് മുമ്പ് ലയിപ്പിക്കുന്നു."
   },
   "bundled_rules_section_title": {
     "message": "നിയമങ്ങൾ വിവരങ്ങൾ"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori ക്രമീകരണങ്ങൾ തുറക്കുക"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "ഓവർലോഡ് മോഡ് പെരുമാറ്റം"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "പാച്ച് മോഡ് മാത്രം"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "ബിൽറ്റ്-ഇൻ നിയമങ്ങളിൽ വിദൂര പാച്ചുകൾ പ്രയോഗിക്കുക. വിദൂര ദാതാവ് നിയമങ്ങൾ ഉൾപ്പെടുത്തില്ല."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "പാച്ച് മോഡ് + ലയിപ്പിക്കൽ"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "ബിൽറ്റ്-ഇൻ, വിദൂര ദാതാവ് നിയമങ്ങൾ ലയിപ്പിച്ച ശേഷം വിദൂര പാച്ചുകൾ പ്രയോഗിക്കുക."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "പാച്ച് മോഡ് ഇല്ല + ലയിപ്പിക്കൽ"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "വിദൂര പാച്ചുകൾ പ്രയോഗിക്കാതെ ബിൽറ്റ്-ഇൻ, വിദൂര ദാതാവ് നിയമങ്ങൾ ലയിപ്പിക്കുക."
   },
   "overload_mode_enabled": {
     "message": "ഓവർലോഡ് മോഡ് പ്രവർത്തനക്ഷമമാക്കുക"
@@ -1836,7 +1836,7 @@
     "message": "പ്രാഥമിക ഹാഷ് URL നിർബന്ധമായും HTTPS ഉപയോഗിക്കണം"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "പ്രാഥമിക നിയമ URL-ഉം പ്രാഥമിക ഹാഷ് URL-ഉം ഒരുമിച്ച് ക്രമീകരിക്കണം."
   },
   "save_primary_rule_https_required": {
     "message": "പ്രാഥമിക നിയമ URL നിർബന്ധമായും HTTPS ഉപയോഗിക്കണം"
@@ -1872,13 +1872,13 @@
     "message": "ഞാൻ അപകടസാധ്യതകൾ മനസ്സിലാക്കുന്നു - തുടരുക"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "നിങ്ങൾ ലോഡ് ചെയ്യുന്ന Linkumori റൂൾസെറ്റിന്റെ ഉറവിടം പൂർണ്ണമായി മനസ്സിലാക്കുകയോ വിശ്വസിക്കുകയോ ചെയ്യുന്നില്ലെങ്കിൽ വിദൂര നിയമങ്ങൾ ഉപയോഗിക്കുന്നത് പുനഃപരിശോധിക്കണം."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "ഈ വിദൂര നിയമങ്ങൾ സവിശേഷത, ലോഡ് ചെയ്യുന്ന Linkumori JSON മനസ്സിലാക്കുന്ന വിദഗ്ധ ഉപയോക്താക്കൾക്കായി രൂപകൽപ്പന ചെയ്തതാണ്. സ്ഥിരീകരണത്തിനായി വിദൂര നിയമങ്ങളിൽ പൊരുത്തപ്പെടുന്ന ഹാഷ് URL ഉൾപ്പെടുത്തണം."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "നിങ്ങൾ ഒരു വിദൂര നിയമ URL ചേർത്താൽ, കോൺഫിഗർ ചെയ്യുമ്പോൾ Linkumori റൂൾസെറ്റും അതിന്റെ ഹാഷ് ഫയലും ലഭ്യമാക്കാൻ എക്സ്റ്റൻഷൻ നിങ്ങൾ നിശ്ചയിച്ച സെർവറുമായി ബന്ധപ്പെടും. ഓരോ ലഭ്യമാക്കലും നിങ്ങളുടെ IP വിലാസവും എക്സ്റ്റൻഷൻ പതിപ്പ്, ബ്രൗസർ, ബ്രൗസർ പതിപ്പ് പോലുള്ള പൊതുവിവരങ്ങളും ഹോസ്റ്റിംഗ് സെർവറിന് വെളിപ്പെടുത്തിയേക്കാം. ഈ ഡാറ്റ ആ വെബ്‌സൈറ്റിന്റെയോ വെബ് സെർവറിന്റെയോ സ്വകാര്യതാ നയത്തിന് വിധേയമാണ്."
   },
   "security_modal_privacy_link_text": {
     "message": "ആവശ്യമെങ്കിൽ തുടരുന്നതിന് മുമ്പ് %PRIVACY_POLICY_LINK% വീണ്ടും വായിക്കുക."
@@ -1887,7 +1887,7 @@
     "message": "മുന്നറിയിപ്പ് അറിയിപ്പ്:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "വിദൂര ഉറവിടം നിങ്ങൾ വിശ്വസിക്കുകയും നിയന്ത്രിക്കുകയും ചെയ്യുന്നില്ലെങ്കിൽ ബിൽറ്റ്-ഇൻ നിയമങ്ങൾ ഉപയോഗിക്കുക. വിദൂര Linkumori JSON നിയമങ്ങൾക്ക് പൊരുത്തപ്പെടുന്ന ഹാഷ് URL നൽകുക."
   },
   "security_modal_risk_1": {
     "message": "നിങ്ങളുടെ IP വിലാസവും ബ്രൗസർ വിവരങ്ങളും കോൺഫിഗർ ചെയ്‌ത സെർവറുകളിലേക്ക് തുറന്നുകാട്ടപ്പെടും"
@@ -1899,7 +1899,7 @@
     "message": "ഹാഷ് പരിശോധന Linkumori CLN Format 1.0 JSON നിയമങ്ങൾക്ക് മാത്രം ബാധകമാണ്; ഇത് സംപ്രേഷണം തടസ്സപ്പെടുത്തുന്നതിൽ നിന്ന് സംരക്ഷിക്കുന്നു, ക്ഷുദ്രകരമായ നിയമ സ്രോതസ്സുകളല്ല."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "ഹാഷ് സ്ഥിരീകരണം വിജയിക്കാത്ത വിദൂര നിയമങ്ങൾ പൂർണ്ണമായും ഉറവിട URL-ലെ വിശ്വാസത്തെ ആശ്രയിക്കുന്നു."
   },
   "security_modal_risks_title": {
     "message": "സുരക്ഷാ അപകടങ്ങൾ:"
@@ -1914,7 +1914,7 @@
     "message": "Rules.hash ഫയലിലേക്കുള്ള url (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "വിദൂര Linkumori JSON നിയമ സ്ഥിരീകരണത്തിന് ആവശ്യമാണ്."
   },
   "setting_html_export_button": {
     "message": "കയറ്റുമതി"
@@ -1944,7 +1944,7 @@
     "message": "ലോഗ് പരിധി (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "ഒരുമിച്ച് ലയിപ്പിച്ച അധിക വിദൂര Linkumori JSON ഉറവിടങ്ങൾ. ഓരോ വരിയിലും ഒരു ജോഡി നൽകുക: <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "അധിക റിമോട്ട് റൂൾ സെറ്റുകൾ"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON നിയമങ്ങൾക്കുള്ള ഇഷ്‌ടാനുസൃത വിദൂര URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "വിദൂര നിയമങ്ങളുടെ JSON ഫയലിലേക്കുള്ള URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "ഓരോ വിദൂര റൂൾസെറ്റിനും ഹാഷ് URL ആവശ്യമാണ്."
   },
   "settings_html_page_title": {
     "message": "Linkumori (ക്ലീൻ URLS) ക്രമീകരണം"
@@ -2421,19 +2421,19 @@
     "message": "മുന്നറിയിപ്പ്: സ്വയം-ഹോസ്‌റ്റ് ചെയ്‌ത സെർവറുകൾക്കായി മാത്രം ഉദ്ദേശിച്ചിട്ടുള്ള വിപുലമായ ഫീച്ചർ"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "വിദൂര നിയമ URL എഡിറ്റിംഗിനുള്ള Gatekeeper സംരക്ഷണങ്ങൾ നിങ്ങൾ പ്രവർത്തനരഹിതമാക്കുകയാണ്. ഈ സവിശേഷതയ്ക്ക് വിദൂര Linkumori JSON നിയമങ്ങളെ ഏകീകൃത ദാതാവ് റൂൾസെറ്റിലേക്ക് ലോഡ് ചെയ്യാൻ കഴിയും. നിങ്ങൾ ക്രമീകരിക്കുന്ന ഉറവിടം മനസ്സിലാക്കുകയും വിശ്വസിക്കുകയും ചെയ്യുന്നുവെങ്കിൽ മാത്രം തുടരുക."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "നിങ്ങൾ സുരക്ഷാ മുന്നറിയിപ്പ് അംഗീകരിക്കുകയും ടൈപ്പ് ചെയ്‌ത സ്ഥിരീകരണം പൂർത്തിയാക്കുകയും ചെയ്യുന്നതുവരെ നേരിട്ടുള്ള വിദൂര URL എഡിറ്റുകളെ തടയുന്ന അന്തർനിർമ്മിത സുരക്ഷാ ഫ്ലോയാണ് ഗേറ്റ്കീപ്പർ."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "നിങ്ങളുടെ വിദൂര ഉറവിടങ്ങൾ വിശ്വസിക്കുകയും നിയന്ത്രിക്കുകയും ചെയ്യുന്നില്ലെങ്കിൽ Gatekeeper പ്രവർത്തനക്ഷമമായി നിലനിർത്തുക. വിദൂര JSON നിയമങ്ങളിൽ പൊരുത്തപ്പെടുന്ന ഹാഷ് URL ഉൾപ്പെടുത്തണം."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "മുന്നറിയിപ്പ് അറിയിപ്പ്:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "നിങ്ങൾ ഒരു വിദൂര നിയമ URL ചേർത്താൽ, കോൺഫിഗർ ചെയ്യുമ്പോൾ Linkumori റൂൾസെറ്റും അതിന്റെ ഹാഷ് ഫയലും ലഭ്യമാക്കാൻ എക്സ്റ്റൻഷൻ നിങ്ങൾ നിശ്ചയിച്ച സെർവറുമായി ബന്ധപ്പെടും. ഓരോ ലഭ്യമാക്കലും നിങ്ങളുടെ IP വിലാസവും എക്സ്റ്റൻഷൻ പതിപ്പ്, ബ്രൗസർ, ബ്രൗസർ പതിപ്പ് പോലുള്ള പൊതുവിവരങ്ങളും ഹോസ്റ്റിംഗ് സെർവറിന് വെളിപ്പെടുത്തിയേക്കാം. ഈ ഡാറ്റ ആ വെബ്‌സൈറ്റിന്റെയോ വെബ് സെർവറിന്റെയോ സ്വകാര്യതാ നയത്തിന് വിധേയമാണ്."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "ആവശ്യമെങ്കിൽ തുടരുന്നതിന് മുമ്പ് %PRIVACY_POLICY_LINK% വീണ്ടും വായിക്കുക."
@@ -2448,7 +2448,7 @@
     "message": "നിങ്ങളുടെ ബ്രൗസറിൽ എക്‌സ്‌റ്റൻഷൻ പ്രവർത്തനക്ഷമമാക്കുകയും ലോഡ് ചെയ്യുകയും ചെയ്യുമ്പോഴെല്ലാം വിപുലീകരണം നിങ്ങളുടെ നിയുക്ത URL-ലേക്ക് കണക്‌റ്റ് ചെയ്യും."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "വിദൂര JSON അല്ലെങ്കിൽ ഹാഷ് ഫയലുകൾ ഹോസ്റ്റ് ചെയ്യുന്ന സെർവറിന് നിങ്ങളുടെ IP വിലാസം ലഭിക്കും."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "സെർവറിന് നിങ്ങളുടെ വിപുലീകരണ പതിപ്പ്, ബ്രൗസർ, ബ്രൗസർ പതിപ്പ് എന്നിവയും ലഭിച്ചേക്കാം."
@@ -2457,7 +2457,7 @@
     "message": "ആ ഡാറ്റ ആ ഫയലുകൾ ഹോസ്റ്റുചെയ്യുന്ന വെബ്‌സൈറ്റിൻ്റെയോ വെബ് സെർവറിൻ്റെയോ സ്വകാര്യതാ നയത്തിന് വിധേയമാണ്."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeper പ്രവർത്തനരഹിതമാക്കുന്നതിലൂടെ, സുരക്ഷിതമല്ലാത്തതോ അപഹരിക്കപ്പെട്ടതോ ആയ വിദൂര നിയമ ഉറവിടങ്ങളിൽ നിന്നുള്ള അപകടസാധ്യത നിങ്ങൾ വർദ്ധിപ്പിക്കുന്നു. പൊരുത്തപ്പെടുന്ന ഹാഷ് URL ക്രമീകരിച്ചിട്ടുണ്ടെങ്കിൽ മാത്രമേ ഹാഷ് സ്ഥിരീകരണം വിദൂര Linkumori JSON ഡൗൺലോഡുകളെ സംരക്ഷിക്കൂ."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "റദ്ദാക്കുക"
@@ -2517,7 +2517,7 @@
     "message": "കൃത്യമായ സ്ഥിരീകരണ വാക്യം ടൈപ്പ് ചെയ്യുക"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "ഈ പ്രവൃത്തി വിദൂര നിയമങ്ങൾക്കുള്ള സുരക്ഷാ മുൻകരുതലുകൾ കുറയ്ക്കുന്നു. നിങ്ങളുടെ വിദൂര JSON ഉറവിടം വിശ്വസിക്കുന്നുവെങ്കിൽ മാത്രം തുടരുക."
   },
   "remote_urls_template_note_1": {
     "message": "നിങ്ങളുടെ യഥാർത്ഥ HTTPS URL-കൾ ഉപയോഗിച്ച് പ്ലെയ്‌സ്‌ഹോൾഡർ മൂല്യങ്ങൾ മാറ്റിസ്ഥാപിക്കുക, തുടർന്ന് ഈ ഫയൽ ഇറക്കുമതി ചെയ്യുക."
@@ -2538,22 +2538,22 @@
     "message": "REPLACE_WITH_PRIMARY_HASH_URL"
   },
   "remote_urls_template_additional_rule_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1"
+    "message": "അധിക_നിയമ_URL_1_നൽകുക"
   },
   "remote_urls_template_additional_hash_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1"
+    "message": "അധിക_ഹാഷ്_URL_1_നൽകുക"
   },
   "remote_urls_template_additional_rule_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2"
+    "message": "അധിക_നിയമ_URL_2_നൽകുക"
   },
   "remote_urls_template_additional_hash_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2"
+    "message": "അധിക_హാഷ్_URL_2_നൽകുക"
   },
   "remote_urls_template_additional_rule_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3"
+    "message": "അധിക_നിയമ_URL_3_നൽകുക"
   },
   "remote_urls_template_additional_hash_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3"
+    "message": "അധിക_ഹാഷ്_URL_3_നൽകുക"
   },
   "remote_urls_export_success": {
     "message": "വിദൂര URL കോൺഫിഗറേഷൻ കയറ്റുമതി ചെയ്തു."
@@ -2841,16 +2841,16 @@
     "message": "നിലവിലെ ഹാഷ് നില:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "ബാധകമല്ല"
   },
   "settings_remote_health_none": {
     "message": "ഒന്നുമില്ല"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "നിയമ കൂട്ടിമുട്ടലുകൾ:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ പിശകുകൾ, $WARNINGS$ മുന്നറിയിപ്പുകൾ, $NOTICES$ അറിയിപ്പുകൾ",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "വിദൂര ഫയൽ കഴിവുകൾ:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "അംഗീകരിക്കുന്നതുവരെ നിഷ്‌ക്രിയം: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ അംഗീകരിക്കുക",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "നിയമ പാച്ചുകൾ:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ പ്രയോഗിച്ചു, $NOT_APPLIED$ പ്രയോഗിച്ചില്ല",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "നിയമ ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "ബിൽറ്റ്-ഇൻ"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "ഇഷ്‌ടാനുസൃതം"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "ഒന്നുമില്ല — ബിൽറ്റ്-ഇൻ പെരുമാറ്റം"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "ഓവർലോഡ് മോഡ് ബിൽറ്റ്-ഇൻ, വിദൂര നിയമങ്ങൾ ലയിപ്പിക്കുന്നു; ഓരോ ഉറവിടത്തിലെയും നിയമങ്ങൾ ആ ഉറവിടത്തിന്റെ സ്വന്തം ഡിഫോൾട്ടുകൾ നിലനിർത്തുന്നു."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "ഡിഫോൾട്ടുകൾ സംരക്ഷിക്കുക"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "ഡിഫോൾട്ടുകൾ സംരക്ഷിച്ചു"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "ഓൺ ആയിരിക്കുമ്പോൾ, ഇഷ്‌ടാനുസൃത നിയമ എഡിറ്ററിൽ നിങ്ങൾ സ്വന്തം ഡിഫോൾട്ടുകൾ തിരഞ്ഞെടുക്കുന്നില്ലെങ്കിൽ ഓരോ നിയമ ഉറവിടവും അതിന്റെ സ്വന്തം ഡിഫോൾട്ടുകൾ നിലനിർത്തുന്നു (ബിൽറ്റ്-ഇൻ ഡിഫോൾട്ടുകൾ ബിൽറ്റ്-ഇൻ നിയമങ്ങൾക്കും, ഓരോ വിദൂര ഫയലിന്റെയും ഡിഫോൾട്ടുകൾ ആ ഫയലിലെ നിയമങ്ങൾക്കും ബാധകം)."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "വിദൂരം: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "ഏതൊക്കെ ഡിഫോൾട്ടുകൾ ബാധകം"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "ഓരോ ഉറവിടത്തിന്റെയും സ്വന്തം"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "ബിൽറ്റ്-ഇൻ, വിദൂര നിയമങ്ങൾക്ക് നിങ്ങളുടേത്"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "എല്ലാ നിയമങ്ങൾക്കും നിങ്ങളുടേത്"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ മാറ്റിസ്ഥാപിച്ചു)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "നിങ്ങളുടേത്"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ അഭ്യർത്ഥന തരങ്ങൾ",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL ഒഴിവാക്കലുകൾ",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL ഒഴിവാക്കൽ"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ പ്രീപ്രൊസസ്സറുകൾ",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "ഓരോ ഉറവിടത്തിലെയും നിയമങ്ങൾക്ക് ആ ഉറവിടത്തിന്റെ സ്വന്തം ഡിഫോൾട്ടുകൾ ലഭിക്കുന്നു."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "ബിൽറ്റ്-ഇൻ, വിദൂര നിയമങ്ങൾക്ക് അവയുടെ ഫയലുകളുടെ സ്വന്തം ഡിഫോൾട്ടുകൾക്ക് പകരം നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ ലഭിക്കുന്നു; ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ സ്വന്തം ഡിഫോൾട്ടുകൾ നിലനിർത്തുന്നു."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "ബിൽറ്റ്-ഇൻ, വിദൂര, ഇഷ്‌ടാനുസൃത നിയമങ്ങൾക്കെല്ലാം സ്വന്തം ഡിഫോൾട്ടുകൾക്ക് പകരം നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ ലഭിക്കുന്നു."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "നിയമ ഡിഫോൾട്ടുകൾ നിയന്ത്രിക്കുക"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "ഒരു നിയമം സ്വയം സജ്ജമാക്കാത്ത മൂല്യങ്ങൾ ഡിഫോൾട്ടുകൾ നിറയ്ക്കുന്നു. ഒരു നിയമത്തിന്റെ സ്വന്തം മൂല്യത്തിനാണ് എപ്പോഴും മുൻഗണന, ദാതാവിന്റെ ഒഴിവാക്കലുകൾ ഒരിക്കലും മാറ്റില്ല."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "ഡിഫോൾട്ടുകൾ എഡിറ്റ് ചെയ്യുക"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "ഇഷ്‌ടാനുസൃത നിയമങ്ങളുടെ ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "എഡിറ്റ് ചെയ്യേണ്ട ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "ബിൽറ്റ്-ഇൻ നിയമങ്ങൾ"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(എഡിറ്റ് ചെയ്തു)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "ഫയലിന്റെ ഡിഫോൾട്ടുകളിലേക്ക് പുനഃസജ്ജമാക്കുക"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "ഉറവിടങ്ങളിൽ നിന്ന് ലയിപ്പിക്കുക…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "നിയമ ഡിഫോൾട്ടുകൾ ലയിപ്പിക്കുക"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "ഫലം പട്ടികയിൽ \"ലയിപ്പിച്ച ഡിഫോൾട്ടുകൾ\" ആയി ദൃശ്യമാകും. അവിടെ ഒരു സെറ്റിലേക്ക് പകർത്തി, ഉപയോഗിക്കാൻ ഡിഫോൾട്ടുകൾ സംരക്ഷിക്കുക അമർത്തുക."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "ലയിപ്പിക്കേണ്ട ഉറവിടങ്ങൾ"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "വൈരുദ്ധ്യങ്ങൾ"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "ലയിപ്പിച്ച ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "ലയിപ്പിച്ച ഡിഫോൾട്ടുകൾ ഉപയോഗിക്കുക"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "ലയിപ്പിച്ച ഡിഫോൾട്ടുകൾ"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "മറ്റൊരു സെറ്റിലേക്ക് പകർത്തി സംരക്ഷിക്കുന്നതുവരെ ഉപയോഗിക്കില്ല."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "ഇതിലേക്ക് പകർത്തുക"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "പകർത്തുക"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "കുറഞ്ഞത് രണ്ട് ഉറവിടങ്ങൾ തിരഞ്ഞെടുക്കുക."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "വൈരുദ്ധ്യങ്ങളില്ല: തിരഞ്ഞെടുത്ത ഉറവിടങ്ങൾ എല്ലാ മൂല്യങ്ങളിലും യോജിക്കുന്നു."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "എല്ലാ ഉറവിടങ്ങളിൽ നിന്നുമുള്ള ഒഴിവാക്കലുകൾ ഒരുമിച്ച് ചേർത്തിരിക്കുന്നു: ആകെ $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "എല്ലാ ഉറവിടങ്ങളിൽ നിന്നും സംയോജിപ്പിച്ചത്"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "ഇവിടെ നിന്ന്: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "സജ്ജമാക്കിയിട്ടില്ല (ബിൽറ്റ്-ഇൻ പെരുമാറ്റം)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "സജ്ജമാക്കിയിട്ടില്ല: എല്ലാ അഭ്യർത്ഥന തരങ്ങളും"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "ഇപ്പോൾ ഉപയോഗത്തിലില്ല: നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ ബിൽറ്റ്-ഇൻ, വിദൂര നിയമങ്ങളുടെ സ്വന്തം ഡിഫോൾട്ടുകളെ മാറ്റിസ്ഥാപിക്കുന്നു."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "നിങ്ങൾ എഡിറ്റ് ചെയ്തത്: ഇവ ഫയലിന്റെ സ്വന്തം ഡിഫോൾട്ടുകളെ മാറ്റിസ്ഥാപിക്കുന്നു. ഫയൽ തന്നെ മാറ്റപ്പെടുന്നില്ല."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(നിങ്ങൾ എഡിറ്റ് ചെയ്തത്)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "ഇപ്പോൾ ഉപയോഗത്തിലില്ല: മുകളിൽ \"ഓരോ ഉറവിടത്തിന്റെയും സ്വന്തം\" തിരഞ്ഞെടുത്തിരിക്കുന്നു."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "ഇപ്പോൾ ഉപയോഗത്തിലില്ല: നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ ഇഷ്‌ടാനുസൃത നിയമങ്ങൾക്കുള്ളവയെയും മാറ്റിസ്ഥാപിക്കുന്നു."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "നിയമങ്ങൾ ഓഫായി തുടങ്ങുന്നു (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "വിവരണം"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "അഭ്യർത്ഥന തരങ്ങൾ"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "എല്ലാ തരങ്ങളും"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "ഇവ മാത്രം"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "കുറഞ്ഞത് ഒരു അഭ്യർത്ഥന തരം തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ \"എല്ലാ തരങ്ങളും\" തിരഞ്ഞെടുക്കുക."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "നിയമങ്ങളോ ഡിഫോൾട്ടുകളോ ചിലത് പ്രത്യേകം നൽകുന്നില്ലെങ്കിൽ നിയമങ്ങൾ എല്ലാ അഭ്യർത്ഥന തരങ്ങളും വൃത്തിയാക്കുന്നു. ദാതാക്കൾക്ക് resourceTypes ഉപയോഗിച്ചും തരങ്ങൾ പരിമിതപ്പെടുത്താം."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "ഒഴിവാക്കലുകൾ"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "ഓരോ വരിയിലും ഒരു URL റെജെക്സ്. പൊരുത്തപ്പെടുന്ന URL-കളിൽ നിയമങ്ങൾ ഒഴിവാക്കപ്പെടും."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "പ്രീപ്രൊസസ്സറുകൾ"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "ഇൻപുട്ടുകൾ: \"all\", അല്ലെങ്കിൽ 1, 2 പോലുള്ള ക്യാപ്ചർ ഗ്രൂപ്പ് നമ്പറുകൾ."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ പ്രീപ്രൊസസ്സർ ചേർക്കുക"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "പ്രീപ്രൊസസ്സർ തരം"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "പ്രീപ്രൊസസ്സർ ഇൻപുട്ടുകൾ"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "നീക്കം ചെയ്യുക"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "പ്രീപ്രൊസസ്സർ ഇൻപുട്ടുകൾ \"$INPUTS$\" \"all\" ആയിരിക്കണം അല്ലെങ്കിൽ 1, 2 പോലുള്ള സംഖ്യകളായിരിക്കണം.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "ഹിസ്റ്ററി ബൈപാസ് സംരക്ഷണം ഓഫാക്കുക (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "JSON ആയി കാണിക്കുക"
   },
   "settings_remote_health_unknown": {
     "message": "അജ്ഞാതം"
@@ -4005,10 +4005,10 @@
     "message": "ദാതാവ് JSON ഗൈഡ്"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori നിയമ ഗൈഡ് തുറക്കുക"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "ഞാൻ ഏത് നിയമ വാക്യഘടനയാണ് ഉപയോഗിക്കേണ്ടത്?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "നിയമ ഗൈഡ് തുറക്കുക"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "ദാതാവ് ഉറവിടങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "ബണ്ടിൽ ചെയ്ത നിയമങ്ങൾ ലഭ്യമല്ല."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "ബണ്ടിൽ ചെയ്ത നിയമങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "ഭാഷ $1 ലേക്ക് മാറ്റാനായില്ല."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "ലൈറ്റ് തീം"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "ഡാർക്ക് തീം"
   },
   "posarCopied": {
     "message": "POSAR പകർത്തി!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR സ്വീകരിച്ചു."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "പുനഃസജ്ജമാക്കുക"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "ആക്‌സസിബിലിറ്റി ടൂളുകൾ"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "ആക്‌സസിബിലിറ്റി ടൂളുകൾ തുറക്കുക"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "ആക്‌സസിബിലിറ്റി ടൂളുകൾ അടയ്ക്കുക"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "എല്ലാ ആക്‌സസിബിലിറ്റി ക്രമീകരണങ്ങളും പുനഃസജ്ജമാക്കുക"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "കാഴ്ച"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "വായന"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "ഇടപെടൽ"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "ഉയർന്ന കോൺട്രാസ്റ്റ്"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "വർണ്ണ ഫിൽട്ടർ"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "സാച്ചുറേഷൻ"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "വിപരീതമാക്കുക"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "ലിങ്കുകൾ ഹൈലൈറ്റ് ചെയ്യുക"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "ചിത്രങ്ങൾ മറയ്ക്കുക"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "ടെക്സ്റ്റ് വലുപ്പം കൂട്ടുക"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "ടെക്സ്റ്റ് വലുപ്പം കുറയ്ക്കുക"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "സ്ഥിര ടെക്സ്റ്റ് വലുപ്പം"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "ഫോണ്ട് തിരഞ്ഞെടുക്കൽ"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ഡിസ്‌ലെക്സിയ സൗഹൃദം"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "ടെക്സ്റ്റ് അകലം"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "വരി ഉയരം"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "ടെക്സ്റ്റ് വിന്യാസം"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "ആനിമേഷനുകൾ താൽക്കാലികമായി നിർത്തുക"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "വലിയ കഴ്‌സർ"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "ഡിഫോൾട്ട്"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "ഇടത്തരം"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "ഉയർന്നത്"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "അൾട്ര"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "കുറഞ്ഞത്"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "ഒന്നുമില്ല"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "ലഘു"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "കനത്തത്"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "ഫിൽട്ടർ ഇല്ല"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "പ്രോട്ടനോപ്പിയ"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "ഡ്യൂട്ടറനോപ്പിയ"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "ട്രൈറ്റനോപ്പിയ"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "ഗ്രേസ്‌കെയിൽ"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "ഇടത്"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "മധ്യം"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "വലത്"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "വളരെ ചെറുത്"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "ചെറുത്"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "വലുത്"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "വളരെ വലുത്"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "ഏറ്റവും വലുത്"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "ഓൺ"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "ഓഫ്"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "പ്രവർത്തനക്ഷമമാക്കി"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "പ്രവർത്തനരഹിതമാക്കി"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "സ്ഥിര ടെക്സ്റ്റ് വലുപ്പം തിരഞ്ഞെടുത്തു"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "എല്ലാ ആക്‌സസിബിലിറ്റി ക്രമീകരണങ്ങളും പുനഃസജ്ജമാക്കി"
+  },
+  "skip_to_main_content": {
+    "message": "പ്രധാന ഉള്ളടക്കത്തിലേക്ക് പോകുക"
+  },
+  "popupNavAriaLabel": {
+    "message": "പോപ്പ്അപ്പ് നാവിഗേഷൻ"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "ഇഷ്‌ടാനുസൃത നിയമങ്ങളുടെ കാഴ്‌ചകൾ"
+  },
+  "logViewNavAriaLabel": {
+    "message": "ലോഗ് കാഴ്‌ചകൾ"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "ഹിസ്റ്ററി ബൈപാസ് സംരക്ഷണം (പേജിനുള്ളിലെ നാവിഗേഷനിൽ ഒഴിവാക്കുക)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "ഫീൽഡ് റീഡയറക്ഷനുകൾ"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "നിയമം പകർത്തുക"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "നിയമം പകർത്തി"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "നിയമം പകർത്താനായില്ല"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection എന്താണ് ചെയ്യുന്നത്?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "സിംഗിൾ-പേജ് സൈറ്റുകൾ പുതിയ പേജ് ലോഡ് ചെയ്യുന്നതിന് പകരം history.pushState/replaceState ഉപയോഗിച്ച് വിലാസം മാറ്റാറുണ്ട്. Linkumori ആ വിലാസങ്ങളും വൃത്തിയാക്കുന്നു. പേജിനുള്ളിലെ ഇത്തരം മാറ്റങ്ങൾക്ക് ആ ഒരു ഫിൽട്ടർ മാത്രം ഒഴിവാക്കാൻ ഒരു $removeparam ഫിൽട്ടറിൽ history-bypass-protection=false ചേർക്കുക; സാധാരണ അഭ്യർത്ഥനകളിൽ അത് തുടർന്നും പ്രവർത്തിക്കും."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "പേജിനുള്ളിലെ മാറ്റങ്ങൾക്ക് ഒരു ദാതാവിനെ മുഴുവനായി ഒഴിവാക്കാൻ, ദാതാവിൽ ഇത് സജ്ജമാക്കുക:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "ഒഴിവാക്കിയാൽ, ഇത് true ആയിരിക്കും, പേജിനുള്ളിലെ മാറ്റങ്ങൾ വൃത്തിയാക്കപ്പെടും. ഒരു നിയമത്തിന്റെ സ്വന്തം ക്രമീകരണം ദാതാവിന്റേതിനെ മറികടക്കും, അതിനാൽ ഒരു നിയമത്തിന് history-bypass-protection=true ഉപയോഗിച്ച് അല്ലെങ്കിൽ റൂൾ ഒബ്‌ജക്റ്റിൽ \"historyBypassProtection\": true ഉപയോഗിച്ച് വീണ്ടും ഉൾപ്പെടാം."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "പേജിനുള്ളിലെ നാവിഗേഷൻ ഒഴിവാക്കുന്നു"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "ഐഡി പുനർനാമകരണം ചെയ്യുക"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "$OLD$ എന്നതിനുള്ള പുതിയ ഐഡി (a-z, 0-9, - ഉം _ ഉം). പഴയ ഐഡി അപരനാമമായി സൂക്ഷിക്കും, അതിനാൽ അതിന് കീഴിൽ ഓഫാക്കിയ നിയമങ്ങൾ ഓഫായിത്തന്നെ തുടരും.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" സാധുവായ ഐഡി അല്ല. ചെറിയ അക്ഷരങ്ങൾ, അക്കങ്ങൾ, - , _ എന്നിവ ഉപയോഗിക്കുക, ഒരു അക്ഷരത്തിലോ അക്കത്തിലോ തുടങ്ങണം.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "ഈ ദാതാവിലെ മറ്റൊരു നിയമം ഇതിനകം \"$ID$\" ഉപയോഗിക്കുന്നു.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "നിയമം പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ ദാതാവിന് മുഴുവനായി പ്രവർത്തനരഹിതമാക്കണോ, അതോ ഈ URL/ഡൊമെയ്ൻ പാറ്റേണിന് മാത്രമോ?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "എന്റെ ദാതാവ്"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/ഡൊമെയ്ൻ പാറ്റേൺ"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "നിയമത്തിന്റെ ഐഡി $ID$ എന്നതിലേക്ക് പുനർനാമകരണം ചെയ്തു",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "അനാഥമായ ടോഗിളുകൾ"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "അപ്‌സ്ട്രീമിൽ പൊരുത്തപ്പെടുന്ന നിയമം കണ്ടെത്തിയില്ല"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "നീക്കം ചെയ്യുക"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "പേജിനുള്ളിലെ നാവിഗേഷൻ ക്ലീനപ്പ് ഒഴിവാക്കുന്നു"
+  },
+  "whitelist_added_general": {
+    "message": "പൊതുവായ വൈറ്റ്‌ലിസ്റ്റിലേക്ക് %s ചേർത്തു"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s ഒരു History API ഒഴിവാക്കലായി ചേർത്തു"
+  },
+  "whitelist_exception_count": {
+    "message": "%d ഒഴിവാക്കൽ(കൾ)"
+  },
+  "whitelist_exception_empty": {
+    "message": "വൈറ്റ്‌ലിസ്റ്റ് ഒഴിവാക്കലുകളൊന്നുമില്ല"
+  },
+  "whitelist_mode_general": {
+    "message": "പൊതുവായ വൈറ്റ്‌ലിസ്റ്റ്"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API മാത്രം"
+  },
+  "whitelist_mode_label": {
+    "message": "വൈറ്റ്‌ലിസ്റ്റ് വ്യാപ്തി"
+  },
+  "whitelist_removed_general": {
+    "message": "പൊതുവായ വൈറ്റ്‌ലിസ്റ്റിൽ നിന്ന് %s നീക്കം ചെയ്തു"
+  },
+  "whitelist_removed_history_api": {
+    "message": "%s എന്നതിനുള്ള History API ഒഴിവാക്കൽ നീക്കം ചെയ്തു"
+  },
+  "whitelist_type_general": {
+    "message": "പൊതുവായത്"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API മാത്രം"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 പൊതുവായ വൈറ്റ്‌ലിസ്റ്റിലേക്ക് ചേർക്കുക"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "പൊതുവായ വൈറ്റ്‌ലിസ്റ്റ്: $1 - History API മാത്രമാക്കാൻ ക്ലിക്ക് ചെയ്യുക"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API ഒഴിവാക്കൽ: $1 - ഈ ടാബിന് മാത്രമാക്കാൻ ക്ലിക്ക് ചെയ്യുക"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "ടാബിന് മാത്രം: $1 - നീക്കം ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക"
+  },
+  "logger_action_allowed": {
+    "message": "അനുവദിച്ചു"
+  },
+  "logger_action_blocked": {
+    "message": "തടഞ്ഞു"
+  },
+  "logger_action_filter_label": {
+    "message": "പ്രവർത്തനം"
+  },
+  "logger_action_info": {
+    "message": "വിവരം"
+  },
+  "logger_action_modified": {
+    "message": "പരിഷ്‌ക്കരിച്ചു"
+  },
+  "logger_action_redirected": {
+    "message": "റീഡയറക്‌ട് ചെയ്തു"
+  },
+  "logger_btn_copy_summary": {
+    "message": "സംഗ്രഹം പകർത്തുക"
+  },
+  "logger_btn_export": {
+    "message": "എക്‌സ്‌പോർട്ട്"
+  },
+  "logger_btn_group": {
+    "message": "നിയമം അനുസരിച്ച് ഗ്രൂപ്പ് ചെയ്യുക"
+  },
+  "logger_col_hits": {
+    "message": "ഹിറ്റുകൾ"
+  },
+  "logger_col_last_seen": {
+    "message": "അവസാനം കണ്ടത്"
+  },
+  "logger_detail_group_title": {
+    "message": "നിയമ വിശദാംശങ്ങൾ"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-കൾ ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "ടാബുകൾ"
+  },
+  "logger_exported": {
+    "message": "$1 എൻട്രികൾ എക്‌സ്‌പോർട്ട് ചെയ്തു."
+  },
+  "logger_filter_all": {
+    "message": "എല്ലാം"
+  },
+  "logger_report_rule": {
+    "message": "റിപ്പോർട്ട് ചെയ്യുക"
+  },
+  "logger_rule_disable": {
+    "message": "നിയമം ഓഫാക്കുക"
+  },
+  "logger_rule_disabled_done": {
+    "message": "നിയമം $1 ഓഫാക്കി. പരിശോധിക്കാൻ പേജ് റീലോഡ് ചെയ്യുക."
+  },
+  "logger_rule_enable": {
+    "message": "നിയമം ഓണാക്കുക"
+  },
+  "logger_rule_enabled_done": {
+    "message": "നിയമം $1 വീണ്ടും ഓണാക്കി."
+  },
+  "logger_rule_failed": {
+    "message": "നിയമം മാറ്റാനായില്ല."
+  },
+  "logger_rule_off": {
+    "message": "നിയമം ഓഫാണ്"
+  },
+  "logger_rule_on": {
+    "message": "നിയമം ഓണാണ്"
+  },
+  "logger_rule_unavailable": {
+    "message": "ഈ നിയമം ഇവിടെ നിന്ന് മാറ്റാൻ കഴിയില്ല."
+  },
+  "logger_status_rules": {
+    "message": "$1 നിയമം(ങ്ങൾ)"
+  },
+  "logger_summary_copied": {
+    "message": "സംഗ്രഹം പകർത്തി."
+  },
+  "logger_summary_copy_failed": {
+    "message": "സംഗ്രഹം പകർത്താനായില്ല."
+  },
+  "logger_type_filter_label": {
+    "message": "തരം"
+  },
+  "logger_btn_logging_off": {
+    "message": "ലോഗിംഗ് ഓഫ്"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "ലോഗിംഗ് ഓഫാണ്. ഓണാക്കാൻ ക്ലിക്ക് ചെയ്യുക."
+  },
+  "logger_btn_logging_on": {
+    "message": "ലോഗിംഗ് ഓൺ"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "ലോഗിംഗ് ഓണാണ്. ഓഫാക്കാൻ ക്ലിക്ക് ചെയ്യുക."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "ലോഗിംഗ് ക്രമീകരണം മാറ്റാനായില്ല."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "റഫറൽ നിയമം ചേർക്കുക"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "റോ നിയമ ഒഴിവാക്കൽ ചേർക്കുക"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "ഫീൽഡ് റീഡയറക്ട് ചേർക്കുക"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "ഒഴിവാക്കൽ ചേർക്കുക"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "ഓരോ ടെംപ്ലേറ്റും ഒരു ഐഡിയും example.com-ലെ ഒരു പ്ലേസ്‌ഹോൾഡർ matchPattern-ഉം ഉള്ള ഒരു റൂൾ ഒബ്‌ജക്റ്റ് ചേർക്കുന്നു. ഒരു എൻട്രി ലളിതമായ സ്ട്രിംഗും ആകാം: ഒരു പാരാമീറ്റർ പേര്, ഒരു പേര് റെജെക്സ്, ഒരു $removeparam ഫിൽട്ടർ, അല്ലെങ്കിൽ rawRules-ൽ ഒരു റെജെക്സ്. റൂൾ ഒബ്‌ജക്റ്റുകൾ id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description, targetId എന്നിവ സ്വീകരിക്കുന്നു."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "ലിന്റർ"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "പ്രശ്നങ്ങളൊന്നും കണ്ടെത്തിയില്ല."
+  },
+  "customRulesEditor_lintError": {
+    "message": "പിശക്"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "മുന്നറിയിപ്പ്"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ പിശക്(കൾ), $WARNINGS$ മുന്നറിയിപ്പ്(കൾ)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "പ്രവർത്തന ക്രമം"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ ഘട്ടം(ങ്ങൾ), പ്രവർത്തിക്കുന്ന ക്രമത്തിൽ",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "rawRules, rules അല്ലെങ്കിൽ referralMarketing എൻട്രികളില്ല"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "സംരക്ഷിച്ചാലും ഇല്ലെങ്കിലും, മുകളിലെ ടെക്സ്റ്റിൽ നിന്ന് എഞ്ചിൻ കണക്കാക്കിയത്. ഘട്ടങ്ങൾ (stage, orderGroup, order, rank, arrayIndex) പ്രകാരം ക്രമീകരിക്കുന്നു: റോ നിയമങ്ങൾ ഫീൽഡ് നിയമങ്ങൾക്ക് മുമ്പ് പ്രവർത്തിക്കുന്നു; ഒരു ഘട്ടത്തിനുള്ളിൽ, order ഉള്ള എൻട്രികൾ ആദ്യം, ഏറ്റവും കുറഞ്ഞത് മുതൽ, ബാക്കിയുള്ളവ ലിസ്റ്റും സ്ഥാനവും അനുസരിച്ച്."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "റഫറൽ മാർക്കറ്റിംഗ്"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "റഫറൽ നീക്കം ചെയ്തു"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "റഫറൽ അനുവദിച്ചു"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "റോ"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "ഫീൽഡ്"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "റഫറൽ"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(സൃഷ്ടിച്ചത്)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "തിരുത്തിയെഴുതുന്നു"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "മുമ്പത്തെ $COUNT$ നിർവചനം(ങ്ങൾ) മാറ്റിസ്ഥാപിക്കുന്നു",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "completeProvider ചേർത്തത്: എല്ലാ പാരാമീറ്ററുകളും നീക്കം ചെയ്യുന്നു"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "ഓഫാക്കി"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "ചില പാറ്റേണുകൾക്ക് ഓഫ്"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "ക്രമീകരണ കീ: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "തുടർന്ന് $FILTERS$ $removeparam ഫിൽട്ടർ(കൾ), $EXCEPTIONS$ @@ ഒഴിവാക്കൽ(കൾ), മുകളിലെ എല്ലാ ഘട്ടങ്ങൾക്കും ശേഷം",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= ഒഴിവാക്കൽ(കൾ) പൊരുത്തപ്പെടുന്നിടത്ത് മുകളിലെ റോ നിയമങ്ങളെ തടയാൻ കഴിയും",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "ഒരു ഘട്ടം വലിച്ചിടുക, അല്ലെങ്കിൽ അതിന്റെ ആരോകൾ ഉപയോഗിച്ച് അതിന്റെ ഘട്ടത്തിനുള്ളിൽ നീക്കുക. നീക്കുന്നത് ആ ഘട്ടത്തിലെ ഓരോ എൻട്രിക്കും പുതിയ ക്രമത്തിൽ 10, 20, 30, … എന്ന order നൽകുന്നു."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "പുനഃക്രമീകരിക്കാൻ \"റഫറൽ നീക്കം ചെയ്തു\" എന്നതിലേക്ക് മാറുക: ആ കാഴ്ച എല്ലാ എൻട്രികളും കാണിക്കുന്നു."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "നീക്കാൻ വലിച്ചിടുക"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ നേരത്തെയാക്കുക",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ വൈകിപ്പിക്കുക",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ സ്ഥാനം $POSITION$ ലേക്ക് നീക്കി",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "നീക്കം പഴയപടിയാക്കുക"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "നീക്കം പഴയപടിയാക്കി"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "അനുകരിക്കുക"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "പകർത്തിയ ലിങ്ക് വൃത്തിയാക്കുന്ന അതേ രീതിയിൽ, നിങ്ങൾ ഓഫാക്കിയ നിയമങ്ങളും മുകളിലെ റഫറൽ തിരഞ്ഞെടുപ്പും ഉപയോഗിച്ച് ഈ ദാതാവിനെ ഒരു URL-ൽ പ്രവർത്തിപ്പിക്കുകയും ഓരോ ഘട്ടത്തിനും ശേഷമുള്ള URL കാണിക്കുകയും ചെയ്യുന്നു. മറ്റ് ദാതാക്കൾ പ്രവർത്തിക്കില്ല. ടെസ്റ്റ് URL സൃഷ്ടിക്കുക എന്നത് ഈ ദാതാവിന്റെ സ്വന്തം നിയമങ്ങളിൽ നിന്ന് ഒന്ന് ഉണ്ടാക്കുന്നു."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "ടെസ്റ്റ് URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "പ്രവർത്തിപ്പിക്കുക"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "അനുകരണത്തിലൂടെ ഘട്ടം ഘട്ടമായി പോകുക"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "തുടക്കം"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "മുമ്പത്തേത്"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "അടുത്തത്"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "അവസാനം"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "പ്ലേ"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "താൽക്കാലികമായി നിർത്തുക"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "ഏതെങ്കിലും ഘട്ടത്തിന് മുമ്പുള്ള URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "പാസ് $PASS$ · ഘട്ടം $STEP$ / $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "മാറ്റമില്ല"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam ഫിൽട്ടറുകൾ"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "പാസ് $PASS$ ഒന്നും മാറ്റുന്നില്ല, അതിനാൽ വൃത്തിയാക്കൽ നിർത്തുന്നു",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "ഈ ദാതാവ് ഇവിടെ നിർത്തുന്നു: സൈക്കിൾ പരിധി എത്തി, URL മുമ്പത്തെ ഒന്നിലേക്ക് തിരിച്ചെത്തി, അല്ലെങ്കിൽ അത് ഇനി ദാതാവുമായി പൊരുത്തപ്പെടുന്നില്ല"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "പാസ് $PASS$ റീഡയറക്‌ട് ചെയ്യുന്നു; എല്ലാ ദാതാക്കളുമായി പുതിയ വിലാസത്തിൽ വൃത്തിയാക്കൽ തുടരുന്നു",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "ദാതാവ് ഈ അഭ്യർത്ഥന തടയുന്നു (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "ഫലം"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "ഈ ദാതാവിന്റെ പാറ്റേണുകൾ ഈ URL-മായി പൊരുത്തപ്പെടുന്നില്ല, അതിനാൽ അതിന്റെ ഒരു നിയമവും പ്രവർത്തിക്കില്ല."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "ഈ URL ദാതാവിന്റെ ഒരു ഒഴിവാക്കലുമായി പൊരുത്തപ്പെടുന്നു, അതിനാൽ അതിന്റെ ഒരു നിയമവും പ്രവർത്തിക്കില്ല."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "പൂർണ്ണമായ http:// അല്ലെങ്കിൽ https:// URL നൽകുക."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "അനുകരണം പ്രവർത്തിപ്പിക്കാനായില്ല. മുകളിലെ JSON പരിശോധിക്കുക."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "ടെസ്റ്റ് URL സൃഷ്ടിക്കുക"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "ഈ ദാതാവിന്റെ നിയമങ്ങളിൽ നിന്ന് നിർമ്മിച്ചത്: $RAW$ റോ നിയമം(ങ്ങൾ)ക്കും $PARAMS$ പാരാമീറ്റർ(കൾ)ക്കുമുള്ള ടെക്സ്റ്റ്, ഓരോന്നും അതിന്റെ നിയമവുമായി പരിശോധിച്ചത്. keep=1 ഒരു നിയമവുമായും പൊരുത്തപ്പെടുന്നില്ല, അത് നിലനിൽക്കണം. റീഡയറക്ടുകളും തടയലുകളും ഉൾപ്പെടുത്തിയിട്ടില്ല, കാരണം അവ മറ്റ് നിയമങ്ങൾക്ക് മുമ്പ് റൺ അവസാനിപ്പിക്കും.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "ഈ ദാതാവിന്റെ പാറ്റേണുകൾ പൊരുത്തപ്പെടുന്ന ഒരു ഹോസ്റ്റും സൃഷ്ടിക്കാനായില്ല, അതിനാൽ URL മറ്റൊരു ഹോസ്റ്റ് ഉപയോഗിക്കുന്നു, ദാതാവ് അതിൽ പ്രവർത്തിക്കില്ല."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "ഈ ദാതാവിന്റെ പാറ്റേണുകൾ പൊരുത്തപ്പെടുന്ന എല്ലാ URL-ഉം അതിന്റെ സ്വന്തം ഒഴിവാക്കലുകളിൽ ഒന്നിന്റെ പരിധിയിലാണ്, അതിനാൽ അതിന്റെ നിയമങ്ങൾ ഒരിക്കലും പ്രവർത്തിക്കില്ല."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "ടെസ്റ്റ് URL-ൽ നിന്ന് $COUNT$ നിയമം(ങ്ങൾ) ഒഴിവാക്കി",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "അത് പൊരുത്തപ്പെടുന്ന ടെക്സ്റ്റ് സൃഷ്ടിക്കാനായില്ല"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "അതിന്റെ ടെക്സ്റ്റ് ദാതാവിന്റെ ഒരു ഒഴിവാക്കലുമായി പൊരുത്തപ്പെടാൻ ഇടയാക്കും"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "അത് എല്ലാ പാരാമീറ്ററുകളും നീക്കം ചെയ്യുന്നു, അതിനാൽ സ്വന്തമായി ഒരു പാരാമീറ്റർ ആവശ്യമില്ല"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "ഈ ദാതാവിന് പേരില്ലാത്ത ഒരു $removeparam ഫിൽട്ടർ ഉണ്ട്, അത് keep=1 ഉൾപ്പെടെ എല്ലാ പാരാമീറ്ററുകളും നീക്കം ചെയ്യുന്നു."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "order ഇല്ല"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "ക്രമം (order) $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "order നമ്പറുകൾ പുനഃസ്ഥാപിക്കുക"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "ഈ ദാതാവിനെ തുറന്നപ്പോഴുണ്ടായിരുന്നതുപോലെ എല്ലാ order-ഉം തിരികെ വയ്ക്കുക"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "order നമ്പറുകൾ പുനഃസ്ഥാപിച്ചു"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "മറയ്ക്കുക"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "കാണിക്കുക"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "മുന്നറിയിപ്പുകൾ മായ്ക്കുക"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "മുന്നറിയിപ്പുകൾ പുനഃസ്ഥാപിക്കുക"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ മുന്നറിയിപ്പ്(കൾ) മായ്ച്ചു",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: indexPattern ഇല്ലാത്ത urlPattern എല്ലാ URL-ഉം എതിരെ പരിശോധിക്കപ്പെടുന്നു; \"||example.com^\" പോലുള്ള indexPattern സൂചനകൾ ചേർക്കുക",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ \"$ENTRY$\" ആവർത്തിക്കുന്നു; പകർപ്പ് ഒന്നും ചെയ്യുന്നില്ല, രണ്ടും ഒരു ഐഡി പങ്കിടുന്നു",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ ഇപ്പോഴും ടെംപ്ലേറ്റ് പ്ലേസ്‌ഹോൾഡർ \"$PATTERN$\" ഉപയോഗിക്കുന്നു; യഥാർത്ഥ പാറ്റേൺ ഉപയോഗിച്ച് മാറ്റിസ്ഥാപിക്കുക",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ ന് matchPattern \"(?!)\" ഉണ്ട്, അത് ഒന്നുമായും പൊരുത്തപ്പെടില്ല",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "ട്രബിൾഷൂട്ട്"
+  },
+  "troubleshooter_launch": {
+    "message": "ഈ ടാബ് ട്രബിൾഷൂട്ട് ചെയ്യുക (പരീക്ഷണാത്മകം)"
+  },
+  "troubleshooter_title": {
+    "message": "ടാബ് ട്രബിൾഷൂട്ടർ"
+  },
+  "troubleshooter_page": {
+    "message": "പേജ്"
+  },
+  "troubleshooter_about_summary": {
+    "message": "റെക്കോർഡിംഗ് എങ്ങനെ പ്രവർത്തിക്കുന്നു"
+  },
+  "troubleshooter_about_note": {
+    "message": "ഈ കാഴ്ച തുറക്കുന്നത് പേജ് URL പരിശോധിച്ചേക്കാം, പക്ഷേ ഒന്നും റെക്കോർഡ് ചെയ്യുന്നില്ല. നിങ്ങൾ റെക്കോർഡിംഗ് ആരംഭിക്കുക തിരഞ്ഞെടുക്കുന്നതുവരെ റെക്കോർഡിംഗ് ഓഫായിരിക്കും. ആരംഭിക്കുമ്പോൾ ഈ ടാബിന്റെ റിസോഴ്സ് അഭ്യർത്ഥനകൾ പിടിച്ചെടുക്കാൻ ടാബ് റീലോഡ് ചെയ്യുന്നു. പിടിച്ചെടുത്ത URL-കൾ ഈ ബ്രൗസർ സെഷനിൽ സെഷൻ സ്റ്റോറേജിൽ നിലനിൽക്കുകയും ഈ ടാബ് അടയ്ക്കുമ്പോഴോ ബ്രൗസർ സെഷൻ അവസാനിക്കുമ്പോഴോ മായ്ക്കപ്പെടുകയും ചെയ്യും. നിങ്ങൾ നേരത്തെ നിർത്തിയില്ലെങ്കിൽ 15 മിനിറ്റിന് ശേഷം റെക്കോർഡിംഗ് നിലയ്ക്കും. റിസോഴ്സ് URL-കളിൽ സ്വകാര്യ ക്വറി ഡാറ്റ ഉണ്ടായിരിക്കാം."
+  },
+  "troubleshooter_start": {
+    "message": "റെക്കോർഡിംഗ് ആരംഭിക്കുക"
+  },
+  "troubleshooter_starting": {
+    "message": "ആരംഭിക്കുന്നു…"
+  },
+  "troubleshooter_recording": {
+    "message": "റെക്കോർഡ് ചെയ്യുന്നു…"
+  },
+  "troubleshooter_stop": {
+    "message": "റെക്കോർഡിംഗ് നിർത്തുക"
+  },
+  "troubleshooter_refresh": {
+    "message": "പുതുക്കുക"
+  },
+  "troubleshooter_copy": {
+    "message": "സംഗ്രഹം പകർത്തുക"
+  },
+  "troubleshooter_export": {
+    "message": "എക്‌സ്‌പോർട്ട്"
+  },
+  "troubleshooter_export_title": {
+    "message": "റെക്കോർഡിംഗ് JSON ഫയലായി സംരക്ഷിക്കുക. റിസോഴ്സ് URL-കളിൽ സ്വകാര്യ ക്വറി ഡാറ്റ ഉണ്ടായിരിക്കാം."
+  },
+  "troubleshooter_category": {
+    "message": "വിഭാഗം"
+  },
+  "troubleshooter_category_all": {
+    "message": "എല്ലാ വിഭാഗങ്ങളും"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL നിയമങ്ങൾ"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "റീഡയറക്ടുകൾ"
+  },
+  "troubleshooter_category_protection": {
+    "message": "സംരക്ഷണവും ബൈപാസുകളും"
+  },
+  "troubleshooter_resource_type": {
+    "message": "റിസോഴ്സ് തരം"
+  },
+  "troubleshooter_type_all": {
+    "message": "എല്ലാ റിസോഴ്സ് തരങ്ങളും"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "നിയമങ്ങൾ, ദാതാക്കൾ, URL-കൾ എന്നിവ തിരയുക"
+  },
+  "troubleshooter_timer": {
+    "message": "റെക്കോർഡിംഗ് $1 · $2 ശേഷിക്കുന്നു"
+  },
+  "troubleshooter_status_checking": {
+    "message": "ഈ ടാബ് പരിശോധിക്കുന്നു…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "സജീവമായ ടാബ് ലഭ്യമല്ല."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "ഈ പേജ് URL നിയമ സ്കാനിംഗ് അനുവദിക്കുന്നില്ല. ഒരു സാധാരണ http അല്ലെങ്കിൽ https വെബ്‌പേജ് തുറക്കുക."
+  },
+  "troubleshooter_status_off": {
+    "message": "റെക്കോർഡിംഗ് ഓഫാണ്. ഈ പേജ് ലോഡ് ചെയ്ത റിസോഴ്‌സ് URLകൾ പരിശോധിക്കാൻ റെക്കോർഡിംഗ് ആരംഭിക്കുക."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL മാറ്റങ്ങൾ ഇതുവരെ ക്യാപ്‌ചർ ചെയ്തു. പുതിയവ ഇവിടെ താനേ കാണിക്കും."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "റെക്കോർഡിംഗ് നിർത്തി. $1 URL മാറ്റങ്ങൾ ക്യാപ്‌ചർ ചെയ്തു."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "റെക്കോർഡിംഗ് ഡാറ്റ സെഷൻ സ്റ്റോറേജിൽ സേവ് ചെയ്യാനായില്ല. വിപുലീകരണം വീണ്ടും ആരംഭിച്ചാൽ $1 URL മാറ്റങ്ങൾ നഷ്ടപ്പെടാം."
+  },
+  "troubleshooter_status_started": {
+    "message": "റെക്കോർഡിംഗ് തുടങ്ങി, ടാബ് വീണ്ടും ലോഡ് ചെയ്യുന്നു. പേജ് ലോഡ് ആകുമ്പോൾ ക്യാപ്‌ചർ ചെയ്ത URLകൾ ഇവിടെ കാണിക്കും."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "റെക്കോർഡിംഗ് നിർത്തി. $1 URL മാറ്റങ്ങൾ ക്യാപ്‌ചർ ചെയ്ത് ഈ ബ്രൗസർ സെഷനായി സേവ് ചെയ്തു."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "റെക്കോർഡിംഗ് നിർത്തി. $1 URL മാറ്റങ്ങൾ ക്യാപ്‌ചർ ചെയ്തു, എന്നാൽ സെഷൻ സ്റ്റോറേജിന് അവ സേവ് ചെയ്യാനായില്ല."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "ആദ്യം സാധാരണ http അല്ലെങ്കിൽ https വെബ്‌പേജ് തുറക്കുക."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "ഈ ടാബിൽ റെക്കോർഡിംഗ് ആരംഭിക്കാനായില്ല."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "ഈ ടാബിൽ റെക്കോർഡിംഗ് നിർത്താനായില്ല."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "ഈ ടാബ് വായിക്കാനായില്ല. പോപ്പ്അപ്പ് അടച്ച് വീണ്ടും തുറക്കുക."
+  },
+  "troubleshooter_status_copied": {
+    "message": "സംഗ്രഹം പകർത്തി."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "സംഗ്രഹം പകർത്താനായില്ല."
+  },
+  "troubleshooter_status_exported": {
+    "message": "റെക്കോർഡിംഗ് എക്സ്പോർട്ട് ചെയ്തു."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "റെക്കോർഡിംഗ് എക്സ്പോർട്ട് ചെയ്യാനായില്ല."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "റിപ്പോർട്ട് ഫോം തുറക്കാനായില്ല."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "നിയമം പ്രവർത്തനക്ഷമമാക്കി; താരതമ്യം ചെയ്യാൻ ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "നിയമം പ്രവർത്തനരഹിതമാക്കി; താരതമ്യം ചെയ്യാൻ ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "ഈ നിയമം അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല."
+  },
+  "troubleshooter_empty_web": {
+    "message": "ഇതുവരെ നിയമമാറ്റങ്ങളൊന്നും കണ്ടെത്തിയില്ല. ഈ പേജിലെ റിസോഴ്‌സ് URLകൾ പരിശോധിക്കാൻ റെക്കോർഡിംഗ് ആരംഭിക്കുക."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "ഈ ബ്രൗസർ പേജ് സ്കാൻ ചെയ്യാനാവില്ല."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "ഈ ഫിൽട്ടറുകൾക്ക് ചേരുന്ന കണ്ടെത്തലുകളില്ല."
+  },
+  "troubleshooter_showing_first": {
+    "message": "ആദ്യത്തെ $1 നിയമങ്ങൾ കാണിക്കുന്നു."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 ഹിറ്റുകൾ"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 പരാജയപ്പെട്ടു"
+  },
+  "troubleshooter_rule_id": {
+    "message": "നിയമ ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "ബിൽറ്റ്-ഇൻ സംരക്ഷണ പ്രവർത്തനം (നിയമ ID ഇല്ല)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "നിയമ ID: ഈ കണ്ടെത്തലിന് ലഭ്യമല്ല"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "നിലവിലെ റൂൾസെറ്റിൽ ഈ നിയമ ID കണ്ടെത്താനായില്ല."
+  },
+  "troubleshooter_source_observed": {
+    "message": "നിരീക്ഷിച്ച അഭ്യർത്ഥന"
+  },
+  "troubleshooter_source_page": {
+    "message": "പേജ് URL പരിശോധന"
+  },
+  "troubleshooter_changes": {
+    "message": "എന്താണ് മാറിയത്: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "ബാധിച്ച URLകൾ ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…കൂടാതെ $1 എണ്ണം"
+  },
+  "troubleshooter_after": {
+    "message": "Linkumoriയ്ക്ക് ശേഷം"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori മാറ്റിയതിന് ശേഷം പരാജയപ്പെട്ടു: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "ഈ നിയമം പ്രവർത്തനക്ഷമമാണ്. താരതമ്യം ചെയ്യാൻ ഇത് ഓഫ് ചെയ്ത് പേജ് വീണ്ടും ലോഡ് ചെയ്യുക."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "ഈ നിയമം പ്രവർത്തനരഹിതമാണ്. അതിന്റെ പെരുമാറ്റം തിരിച്ചുപിടിക്കാൻ ഇത് ഓണാക്കി പേജ് വീണ്ടും ലോഡ് ചെയ്യുക."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "ഇത് ബിൽറ്റ്-ഇൻ സംരക്ഷണ പ്രവർത്തനമാണ്; വ്യക്തിഗത നിയമമല്ല."
+  },
+  "troubleshooter_advice_review": {
+    "message": "നിയമങ്ങൾ മാറ്റുന്നതിന് മുമ്പ് ബാധിച്ച URL പരിശോധിക്കുക."
+  },
+  "troubleshooter_report": {
+    "message": "ഈ നിയമം റിപ്പോർട്ട് ചെയ്യുക"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "നിയമം പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "നിയമം പ്രവർത്തനക്ഷമമാക്കുക"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "നിയമം $1 പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "നിയമം $1 പ്രവർത്തനക്ഷമമാക്കുക"
+  },
+  "troubleshooter_saving": {
+    "message": "സേവ് ചെയ്യുന്നു…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 നീക്കം ചെയ്തു"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 ചേർത്തു"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 മാറ്റി"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "$1-ലേക്ക് റീഡയറക്ട് ചെയ്തു"
+  },
+  "troubleshooter_change_path": {
+    "message": "പാത്ത് മാറി"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "ഫ്രാഗ്മെന്റ് മാറി"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL മാറി"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "ഉദ്ദേശ്യപൂർവം തടഞ്ഞു"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "ഈ പേജിൽ $1 അഭ്യർത്ഥനകൾ പരാജയപ്പെട്ടു; അവയിൽ $2 Linkumori URL മാറ്റിയ ഉടൻ പരാജയപ്പെട്ടു"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "ഈ പേജ് തകരാറിലാണോ?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "തകരാറുണ്ടാക്കുന്ന നിയമം കണ്ടെത്തുക: ഈ പേജിൽ പ്രവർത്തിച്ച നിയമങ്ങൾ ഓരോന്നായി ഓഫ് ചെയ്യും; ഓരോന്നിനുശേഷവും പേജ് ശരിയായോ എന്ന് നിങ്ങൾ അറിയിക്കും. Linkumori ആണോ കാരണം എന്ന് ഉറപ്പില്ലേ? ആദ്യം ക്ലീനിംഗ് നിർത്തി പരിശോധിക്കുക."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "ആദ്യം ക്ലീനിംഗ് നിർത്തി പരിശോധിക്കുക"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "ഈ ടാബിൽ $1-നുള്ള ക്ലീനിംഗ് നിർത്തിയിരിക്കുന്നു"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "ക്ലീനിംഗ് ഇല്ലാതെ ടാബ് വീണ്ടും ലോഡ് ചെയ്തു. ഇപ്പോൾ പേജ് പ്രവർത്തിക്കുന്നുണ്ടോ?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "അതെ, പ്രവർത്തിക്കുന്നു"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "ഇല്ല, ഇപ്പോഴും തകരാറിലാണ്"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "റദ്ദാക്കുക"
+  },
+  "troubleshooter_diag_done": {
+    "message": "പൂർത്തിയായി"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "മിക്കവാറും Linkumori അല്ല"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "ക്ലീനിംഗ് നിർത്തിയിട്ടും പേജ് തകരാറിലായിരുന്നു. അതിനാൽ സൈറ്റ്, മറ്റൊരു വിപുലീകരണം, അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക് എന്നിവയിലായിരിക്കാം പ്രശ്നം. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori ആയിരിക്കാം കാരണം"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "ക്ലീനിംഗ് നിർത്തിയപ്പോൾ പേജ് പ്രവർത്തിക്കുന്നു. നിയമം കണ്ടെത്തുക: നിയമങ്ങൾ ഓരോന്നായി ഓഫ് ചെയ്യും, ടാബ് വീണ്ടും ലോഡ് ചെയ്യും, പേജ് ശരിയായോ എന്ന് നിങ്ങൾ പറയും. അവസാനം മറ്റെല്ലാ നിയമങ്ങളും വീണ്ടും ഓണാക്കും."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "ഈ പേജിൽ പ്രവർത്തിക്കുന്ന നിയമങ്ങൾ രേഖപ്പെടുത്താൻ ക്ലീനിംഗ് വീണ്ടും ഓണാക്കി ടാബ് ലോഡ് ചെയ്യുന്നു. അവ ഉടൻ ഇവിടെ കാണും. ഒന്നും കാണുന്നില്ലെങ്കിൽ തകരാറുണ്ടാകുന്നതുവരെ പേജ് ഉപയോഗിക്കുക."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "നിയമം കണ്ടെത്തുക ($1 നിയമങ്ങൾ)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "അതെ, ശരിയായി"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "ഇല്ല, ഇപ്പോഴും തകരാറിലാണ്"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "കണ്ടെത്തി"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "നിയമം $1$2 കാരണം പേജ് തകരാറിലാകുന്നു. അത് വീണ്ടും ഓണാക്കി. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "ഈ നിയമം പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "റിപ്പോർട്ട് ചെയ്യുക"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "നിയമം ഓഫ് ചെയ്തു. പരിശോധിക്കാൻ ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "ഒറ്റ നിയമം കണ്ടെത്തിയില്ല"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "നിയമങ്ങൾ ഓരോന്നായി ഓഫ് ചെയ്തിട്ടും പേജ് ശരിയായില്ല. അതിനാൽ നിരവധി നിയമങ്ങൾ ഒരുമിച്ചോ സംരക്ഷണ ക്രമീകരണമോ കാരണമാകാം. എല്ലാ നിയമങ്ങളും വീണ്ടും ഓണാക്കി. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "പരിശോധന നടത്താനായില്ല: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "ഈ പരിശോധന ഉപയോഗിക്കാൻ Linkumori വീണ്ടും ലോഡ് ചെയ്യുക"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori അപ്‌ഡേറ്റ് ചെയ്തെങ്കിലും അതിന്റെ പശ്ചാത്തല ഭാഗം ഇപ്പോഴും പഴയ പതിപ്പിലാണ്. വിപുലീകരണം വീണ്ടും ലോഡ് ചെയ്യുക (താൽക്കാലിക ആഡ്-ഓണിന്: about:debugging → This Firefox → Reload), അല്ലെങ്കിൽ Firefox പുനരാരംഭിക്കുക."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "കണ്ടെത്തി"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "നിയമം $1$2 കാരണം പേജ് തകരാറിലാകുന്നു. പേജ് പ്രവർത്തിക്കാൻ അത് ഓഫ് ആയിരിക്കും; മറ്റെല്ലാ നിയമങ്ങളും വീണ്ടും ഓണാണ്. പരിശോധിക്കാൻ ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "വീണ്ടും ഓണാക്കുക"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "നിയമം വീണ്ടും ഓണാക്കി. പരിശോധിക്കാൻ ടാബ് വീണ്ടും ലോഡ് ചെയ്യുക. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "നിയമം രേഖപ്പെടുത്തി കണ്ടെത്തുക"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "ഈ പേജിൽ പ്രവർത്തിക്കുന്ന നിയമങ്ങൾ രേഖപ്പെടുത്തുന്നു. തകരാറുണ്ടാകുന്നതുവരെ പേജ് ഉപയോഗിക്കുക; നിയമങ്ങൾ ഇവിടെ കാണിക്കും."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "നിയമ തിരച്ചിൽ ഇപ്പോൾ ഓഫാക്കിയിരിക്കുന്നു. തിരച്ചിൽ കഴിഞ്ഞാൽ അത് തിരികെ ഓണാകും."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "നിയമ തിരച്ചിൽ നടക്കുന്നു. അത് കഴിഞ്ഞശേഷം നിയമങ്ങൾ മാറ്റുക."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "ഒഴിവാക്കുക — വീണ്ടും ഓണാക്കുക"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "ഓഫ് ആയി നിലനിർത്തുക"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "നിയമ തിരച്ചിൽ ഒഴിവാക്കി; എല്ലാ നിയമങ്ങളും വീണ്ടും ഓണാണ്. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "നിയമം $1 ഓഫ് ആയി തുടരും. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "ഈ പരിശോധനയ്ക്കായി ഓഫ് ചെയ്തവ:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…കൂടാതെ $1 എണ്ണം"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "തിരച്ചിൽ നിർത്തുക"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "ഒഴിവാക്കി: ആ നിയമം വീണ്ടും ഓണാക്കി പരിശോധനയിൽ നിന്ന് മാറ്റി. അടുത്തത് പരിശോധിക്കുന്നു."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "പരിശോധിച്ച നിയമങ്ങളിൽ തകരാറുള്ളത് കണ്ടെത്തിയില്ല. നിങ്ങൾ ഒഴിവാക്കിയ $1 നിയമങ്ങൾ പരിശോധിച്ചില്ല. എല്ലാ നിയമങ്ങളും വീണ്ടും ഓണാണ്. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_experimental": {
+    "message": "പരീക്ഷണാടിസ്ഥാനത്തിൽ"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "പരീക്ഷണാടിസ്ഥാനത്തിൽ: ഈ ട്രബിൾഷൂട്ടർ പൂർണ്ണമായി സ്ഥിരതയുള്ളതല്ല. ഫലങ്ങൾ തെറ്റാകാം; പരിശോധിക്കുമ്പോൾ ഇത് നിയമങ്ങൾ ഓഫ് ചെയ്യും. പിന്നീട് എന്തെങ്കിലും തെറ്റായി തോന്നിയാൽ കസ്റ്റം റൂൾസ് എഡിറ്ററിൽ നിയമങ്ങൾ പരിശോധിക്കുക, അല്ലെങ്കിൽ വീണ്ടും ഓണാക്കാൻ Stop search ഉപയോഗിക്കുക."
+  },
+  "troubleshooter_working": {
+    "message": "പ്രവർത്തിക്കുന്നു…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "വീണ്ടും രേഖപ്പെടുത്തുക"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "പഴയ റെക്കോർഡിംഗ് മായ്ച്ചു. പുതിയ ലോഡിൽ നിന്ന് ഈ ടാബ് വീണ്ടും രേഖപ്പെടുത്തുന്നു."
+  },
+  "troubleshooter_clear": {
+    "message": "മായ്ക്കുക"
+  },
+  "troubleshooter_clear_title": {
+    "message": "ഈ ടാബിലെ റെക്കോർഡിംഗ്, കണ്ടെത്തലുകൾ, പൂർത്തിയായ നിയമ തിരച്ചിൽ എന്നിവ മായ്ക്കുക. നിയമങ്ങൾ മാറ്റമില്ലാതെ തുടരും."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "മായ്ച്ചു. നിയമങ്ങൾ മാറ്റമില്ലാതെ തുടരും."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "മായ്ച്ചു. നിയമം $1 ഓഫ് ആയി തുടരും."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "ഒരേസമയം ഒരു നിയമം വീതം പരിശോധിക്കുന്നു — $2ൽ $1-ാമത്തെ നിയമം"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "ഈ നിയമം മാത്രം ഓഫ് ചെയ്തു, ടാബ് വീണ്ടും ലോഡ് ചെയ്തു. ഇപ്പോൾ പേജ് ശരിയായോ?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "ഈ നിയമം ഒഴിവാക്കുക"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "ഒഴിവാക്കുക — വീണ്ടും ഓണാക്കി അടുത്തത് പരിശോധിക്കുക (ഇനി $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "ഈ പേജിൽ പ്രവർത്തിച്ച മറ്റൊരു $1 നിയമങ്ങൾ പരിശോധിച്ചിട്ടില്ല. അവ പരിശോധിക്കുന്നത് തുടരണമോ?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "ഓഫ് ആയി നിലനിർത്തി അടുത്തത് പരിശോധിക്കുക (ഇനി $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "നിയമം $1 ഓഫ് ആയി തുടരും. അടുത്ത നിയമം പരിശോധിക്കുന്നു."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "മറ്റൊരു നിയമം മാത്രം പേജ് ശരിയാക്കുന്നില്ല. നിങ്ങൾ ഓഫ് ആയി നിലനിർത്തിയ $1 നിയമങ്ങൾ ഓഫ് ആയി തുടരും; മറ്റെല്ലാം വീണ്ടും ഓണാണ്. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "അടുത്ത നിയമം പരിശോധിക്കുക (ഇനി $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "നിയമം $1 വീണ്ടും ഓണാക്കി പരിശോധനയിൽ നിന്ന് മാറ്റി. അടുത്തത് പരിശോധിക്കുന്നു."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "മറ്റൊരു നിയമം മാത്രം പേജ് ശരിയാക്കുന്നില്ല. നിങ്ങൾ ഒഴിവാക്കിയ $1 നിയമങ്ങളും വീണ്ടും ഓണാക്കി, അതിനാൽ ഇപ്പോൾ എല്ലാ നിയമങ്ങളും ഓണാണ്. വീണ്ടും തുടങ്ങാൻ Clear അമർത്തുക."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori <strong>CLN Format 1.0</strong> (Clean Link Notation) എന്ന JSON ഫോർമാറ്റിൽ എഴുതിയ നിയമങ്ങൾ ഉപയോഗിച്ച് URLകൾ വൃത്തിയാക്കുന്നു. ആദ്യ നിയമം മുതൽ എല്ലാ ഓപ്ഷനുകളും വരെ ഈ ഗൈഡ് വിശദീകരിക്കുന്നു; പകർത്താവുന്ന ഉദാഹരണങ്ങളുമുണ്ട്."
+  },
+  "guide_intro_p_2": {
+    "message": "ബിൽറ്റ്-ഇൻ നിയമങ്ങൾ, റിമോട്ട് നിയമ പട്ടികകൾ, നിങ്ങളുടെ ഇഷ്ടാനുസൃത നിയമങ്ങൾ എന്നിവയെല്ലാം ഒരേ ഫോർമാറ്റാണ് ഉപയോഗിക്കുന്നത്. ഇഷ്ടാനുസൃത നിയമ എഡിറ്ററിൽ നിയമങ്ങൾ എഴുതാം; സേവ് ചെയ്യുമ്പോഴോ ഇറക്കുമതി ചെയ്യുമ്പോഴോ അത് അവ പരിശോധിക്കും. ഔദ്യോഗിക ClearURLs നിയമ കാറ്റലോഗ് (<code>data.min.json</code>) ഇതിനകം സാധുവായ CLN ഫയലാണ്, അതേപടി ഉപയോഗിക്കാം."
+  },
+  "guide_rules_file_p_1": {
+    "message": "ദാതാവിന്റെ പേര് ഒരു ലേബൽ മാത്രമാണ്. ഒരു ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URLകൾ <code>domainPatterns</code> അല്ലെങ്കിൽ <code>urlPattern</code> ആണ് തീരുമാനിക്കുന്നത്."
+  },
+  "guide_rules_file_th_1": {
+    "message": "മുകളിലെ കീ"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "ആവശ്യമാണ്. പേരനുസരിച്ചുള്ള ദാതാക്കൾ."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "ഓപ്ഷണൽ ഫോർമാറ്റ് പതിപ്പ്. സാധുവായ ഏക മൂല്യം <code>\"1.0\"</code> ആണ്. ഇത് ഇല്ലെങ്കിലും ഫയൽ 1.0 ആയി വായിക്കും; മറ്റേതെങ്കിലും മൂല്യം ഫയൽ നിരസിക്കപ്പെടാൻ കാരണമാകും. ClearURLs-ന്റെ പുതിയ നിയമ ഫോർമാറ്റ് ആ കീ ഇതിനകം ഉപയോഗിക്കുന്നതിനാൽ ഇതിന് <code>version</code> എന്ന് പേരിട്ടില്ല."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "ഫയലിനെക്കുറിച്ചുള്ള ഓപ്ഷണൽ വിവരങ്ങൾ."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "ഫയലിലെ ഓരോ നിയമവും സ്വയം സജ്ജമാക്കാത്ത മൂല്യങ്ങൾ (അധ്യായം 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "റിമോട്ട് നിയമ പട്ടികകൾക്ക് മാത്രം: ഇതിനകം ലോഡ് ചെയ്ത നിയമങ്ങൾക്ക് പകരമുള്ളവ (അധ്യായം 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "ഒരു ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URLകൾ—ഒരു ഡൊമെയ്ൻ പാറ്റേണോ അവയുടെ പട്ടികയോ (അധ്യായം 3). ഇത് അല്ലെങ്കിൽ <code>urlPattern</code> ഉപയോഗിക്കുക; രണ്ടും ഒരിക്കലും ഉപയോഗിക്കരുത്."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "ഒരു പൂർണ്ണ URLയുമായി പൊരുത്തപ്പെടുത്തുന്ന ഒറ്റ regex—ദാതാവ് കൈകാര്യം ചെയ്യുന്ന URLകൾ. വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം അവഗണിക്കുന്നു."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "<code>urlPattern</code> ഉള്ളപ്പോൾ മാത്രം: <code>||example.com^</code> പോലുള്ള ഹോസ്റ്റ് സൂചനകൾ. എല്ലാ URLകളും പരിശോധിക്കുന്നതിനുപകരം ആ ഹോസ്റ്റുകൾക്കായി മാത്രം ദാതാവിനെ പരിശോധിക്കും. ഇത് തിരയൽ സൂചനയാണ്, പൊരുത്തപ്പെടാനുള്ള നിബന്ധനയല്ല."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "നീക്കം ചെയ്യേണ്ട റഫറൽ, അഫിലിയേറ്റ് പരാമീറ്ററുകൾ. <em>റഫറൽ മാർക്കറ്റിംഗ് അനുവദിക്കുക</em> ഓണായിരിക്കുമ്പോൾ ഒഴിവാക്കും (അധ്യായം 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "ദാതാവ് പൂർണ്ണമായി അവഗണിക്കുന്ന URLകൾ (അധ്യായം 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "അഭ്യർത്ഥന തിരുത്തുന്നതിന് പകരം മറ്റൊരു വിലാസത്തിലേക്ക് അയയ്ക്കുക (അധ്യായം 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "ഒരു പരാമീറ്ററിന്റെ മൂല്യത്തിലേക്ക് അഭ്യർത്ഥന അയയ്ക്കുക (അധ്യായം 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: പേജ് ലോഡ് (<code>main_frame</code>) റീഡയറക്ട് ചെയ്യുമ്പോൾ, നെറ്റ്‌വർക്ക് അഭ്യർത്ഥന മാത്രം അല്ല, മുഴുവൻ ടാബും പുതിയ വിലാസത്തിലേക്ക് നീങ്ങും."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "ഉദാഹരണത്തിന് <code>[\"GET\"]</code> പോലുള്ള ഈ HTTP രീതികൾ മാത്രം കൈകാര്യം ചെയ്യുക. ഒഴിവാക്കിയാൽ എല്ലാ രീതികളും."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "ഉദാഹരണത്തിന് <code>[\"main_frame\", \"xmlhttprequest\"]</code> പോലുള്ള ഈ അഭ്യർത്ഥന തരങ്ങൾ മാത്രം കൈകാര്യം ചെയ്യുക. ഒഴിവാക്കിയാൽ എല്ലാ അഭ്യർത്ഥന തരങ്ങളും."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "ഡിഫോൾട്ട് <code>true</code>. <code>false</code> ആണെങ്കിൽ, ഒരു പേജ് History API (<code>pushState</code>/<code>replaceState</code>) ഉപയോഗിച്ച് സ്വന്തം വിലാസം മാറ്റുമ്പോൾ മുഴുവൻ ദാതാവും ഒഴിവാക്കും. സാധാരണ നെറ്റ്‌വർക്ക് അഭ്യർത്ഥനകൾ തുടർന്നും വൃത്തിയാക്കും."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> ദാതാവിനെ ഇല്ലാതാക്കാതെ പ്രവർത്തനരഹിതമാക്കുന്നു."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> എന്നത് ഡൊമെയ്ൻ പാറ്റേണുകളുടെ പട്ടികയാണ്. അവയിൽ ഏതെങ്കിലും ഒന്ന് പൊരുത്തപ്പെട്ടാൽ URL പൊരുത്തപ്പെട്ടു. <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> ഫിൽട്ടറുകൾ, മുറിക്കാത്ത നിയമങ്ങൾ എന്നിവയിലും ഇതേ പാറ്റേണുകൾ ഉപയോഗിക്കുന്നു."
+  },
+  "guide_matching_cell_1": {
+    "message": "പൂർണ്ണ URL, regex ആയി"
+  },
+  "guide_matching_cell_2": {
+    "message": "ഈ ടെക്സ്റ്റ് എവിടെയെങ്കിലും അടങ്ങിയ URLകൾ (തുടക്കത്തിൽ <code>|</code> ഇല്ല)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> ഹോസ്റ്റ് പേരിന്റെ അവസാനം, അല്ലെങ്കിൽ <code>/</code>, <code>?</code>, <code>:</code> പോലുള്ള വേർതിരിവ്, അല്ലെങ്കിൽ URLയുടെ അവസാനം സൂചിപ്പിക്കുന്നു. <code>*</code> വൈൽഡ്കാർഡാണ്."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> ഒരു ഡൊമെയ്ൻ സൂചിപ്പിക്കുന്നു: ഹോസ്റ്റും അതിന്റെ എല്ലാ സബ്‌ഡൊമെയ്‌നുകളും. ഒറ്റ <code>|</code> URLയുടെ കൃത്യമായ തുടക്കം സൂചിപ്പിക്കുന്നു; അതിന് ശേഷം <code>https://</code> പോലുള്ള സ്കീം വേണം. ഡൊമെയ്‌നായി എപ്പോഴും <code>||</code> ഉപയോഗിക്കുക; <code>|example.com^</code> ഒരിക്കലും പൊരുത്തപ്പെടില്ല, അതിനാൽ എഡിറ്റർ അത് നിരസിക്കുന്നു."
+  },
+  "guide_matching_p_4": {
+    "message": "ഉദാഹരണത്തിന്, <code>||smile.amazon.*^</code> ഇങ്ങനെ വായിക്കാം: <code>||</code> ഹോസ്റ്റും അതിന്റെ സബ്‌ഡൊമെയ്‌നുകളും, <code>smile.amazon</code> ആവശ്യമായ ലേബലുകൾ, <code>.*</code> ഏതെങ്കിലും പബ്ലിക് സഫിക്സ് (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), <code>^</code> ഹോസ്റ്റിന്റെ അവസാനം."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "ആ പരാമീറ്റർ മാത്രം"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "മുഴുവൻ പേരും പൊരുത്തപ്പെടുന്ന എല്ലാ പരാമീറ്ററുകളും; വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം അവഗണിക്കുന്നു"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code>ഉം <code>\"$removeparam=fbclid\"</code>ഉം ഒരേ കാര്യം നീക്കംചെയ്യുന്നു. അധ്യായം 5ലെ പ്രത്യേകത ആവശ്യമില്ലെങ്കിൽ സാധാരണ പേര് ഉപയോഗിക്കുക. ഏതൊരു എൻട്രിയും നിയമ ഒബ്‌ജക്റ്റായി എഴുതാം (അധ്യായം 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "ഇവിടെ <code>qid</code> എല്ലാ Amazon സൈറ്റുകളിലും, <code>tag</code> <code>amazon.de</code>യിൽ മാത്രം, <code>sr</code> <code>smile.amazon</code>യിൽ മാത്രം, <code>ref_</code> <code>/gp/</code>യ്ക്ക് കീഴിൽ മാത്രം നീക്കംചെയ്യുന്നു. പാറ്റേൺ ദാതാവിന്റെ സ്വന്തം പാറ്റേണുകൾ കൂടുതൽ ചുരുക്കുന്നു; വിപുലമാക്കുന്നില്ല."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> ഫിൽട്ടറിനെ പരാമീറ്റർ നിലനിർത്തുന്ന ഒഴിവാക്കലാക്കി മാറ്റുന്നു (താഴെ കാണുക)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> ദാതാവിന്റെ ചില URLകൾക്ക് മാത്രമായി ഫിൽട്ടർ ചുരുക്കുന്നു (അധ്യായം 3). ഒഴിവാക്കിയാൽ, ദാതാവ് പൊരുത്തപ്പെടുത്തുന്ന എല്ലാ URLകൾക്കും ബാധകമാണ്."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> പരാമീറ്ററുകൾ തിരഞ്ഞെടുക്കുന്നു. ഒഴിവാക്കിയാൽ എല്ലാ പരാമീറ്ററുകളും നീക്കംചെയ്യും."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "ഫിൽട്ടർ എപ്പോൾ പ്രവർത്തിക്കണമെന്ന് മോഡിഫയറുകൾ പറയുന്നു. പട്ടികയിലെ എല്ലാ മോഡിഫയറുകളും ശരിയായിരിക്കണം; അവയ്ക്കിടയിൽ “അല്ലെങ്കിൽ” ഇല്ല."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "<code>ref</code> ഒഴികെയുള്ള എല്ലാ പരാമീറ്ററുകളും"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "പേരോ <code>name=value</code> മുഴുവനായോ regexയുമായി പൊരുത്തപ്പെടുന്ന പരാമീറ്ററുകൾ; വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം അവഗണിക്കാൻ <code>i</code> ചേർക്കുക"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "പേര് <code>utm_</code>ൽ തുടങ്ങുന്ന പരാമീറ്ററുകൾ"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "ഒരു പരാമീറ്റർ പേര് എസ്കേപ്പ് ചെയ്യൽ"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "ബാക്ക്‌സ്ലാഷ് അടുത്ത അക്ഷരത്തെ അക്ഷരാർത്ഥത്തിൽ കാണിക്കുന്നു; അതിനാൽ ഏതൊരു പരാമീറ്റർ പേരും ലക്ഷ്യമാക്കാം:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "മൂല്യം"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "നീക്കം ചെയ്യുന്ന പരാമീറ്ററിന്റെ പേര്"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (കോമ മോഡിഫയറുകൾ ആരംഭിക്കുന്നില്ല)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "പേര് മൂല്യത്തിൽ ഈ അഞ്ച് എസ്കേപ്പുകൾ മാത്രമാണ് ഉള്ളത്; മറ്റേതെങ്കിലും അക്ഷരത്തിന് മുമ്പുള്ള ബാക്ക്‌സ്ലാഷ് പിശകാണ്. <code>/regex/</code> മൂല്യത്തിൽ ബാക്ക്‌സ്ലാഷിന് regex അർത്ഥം തന്നെയായിരിക്കും. ഈ എസ്കേപ്പുകൾ <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code>, <code>@@</code> എൻട്രികൾ എന്നിവയിൽ പ്രവർത്തിക്കും. JSONയിൽ ഓരോ ബാക്ക്‌സ്ലാഷും രണ്ടുതവണ എഴുതുക: <code>\"$removeparam=\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "മോഡിഫയറുകൾ"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "മൂല്യത്തിന് ശേഷം കോമകൾ ഉപയോഗിച്ച് മോഡിഫയറുകൾ എഴുതുക. ഒരു മോഡിഫയറിന്റെ പല മൂല്യങ്ങൾ <code>|</code> ഉപയോഗിച്ച് വേർതിരിക്കുക; ഒഴിവാക്കേണ്ട മൂല്യത്തിന് മുമ്പിൽ <code>~</code> ചേർക്കുക:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "മോഡിഫയർ"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "അഭ്യർത്ഥന നടത്തിയ പേജ് ഇവയിൽ ഒന്നായിരിക്കുമ്പോൾ മാത്രം (അല്ലെങ്കിൽ <code>~</code> ഉണ്ടെങ്കിൽ ഒന്നല്ലാത്തപ്പോൾ മാത്രം) ബാധകം; regex മൂല്യങ്ങളും അനുവദനീയമാണ്"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "അഭ്യർത്ഥന തന്നെ ഇവയിൽ ഒന്നിലേക്കു പോകുമ്പോൾ മാത്രം ബാധകം; ഏത് പേജാണ് അഭ്യർത്ഥന നടത്തിയതെന്നത് പ്രസക്തമല്ല"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "ഈ HTTP രീതികൾക്ക് മാത്രം: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "അഭ്യർത്ഥന പേജിന്റെ അതേ രജിസ്റ്റർ ചെയ്യാവുന്ന ഡൊമെയ്‌നിലേക്കു പോകുമ്പോൾ മാത്രം (<code>a.example.com</code>, <code>b.example.com</code> എന്നിവ ഒരേതായി കണക്കാക്കും), അല്ലെങ്കിൽ വേറൊരു ഡൊമെയ്‌നിലേക്കു പോകുമ്പോൾ"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "അതേപോലെ, എന്നാൽ കൃത്യമായ ഹോസ്റ്റ് പേര് താരതമ്യം ചെയ്യുന്നു; അതിനാൽ സബ്‌ഡൊമെയ്ൻ മൂന്നാം കക്ഷിയായി കണക്കാക്കും"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "പരാമീറ്റർ പേരുകളിൽ വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം കണക്കിലെടുക്കും"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ഒരു പേജ് History API ഉപയോഗിച്ച് സ്വന്തം വിലാസം മാറ്റുമ്പോൾ ഈ ഫിൽട്ടർ ഒഴിവാക്കുക. <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code> എന്നിവയും അംഗീകരിക്കുന്നു"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "നാല് <code>*-party</code> മോഡിഫയറുകൾ പരസ്പരം കൂട്ടിക്കലർത്താൻ കഴിയില്ല; <code>first-party,third-party</code> നിരസിക്കപ്പെടും."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "ഉദാഹരണത്തിന്, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> <code>example.com</code>ൽ <code>sid</code> നീക്കംചെയ്യും; മറ്റൊരു സൈറ്റിലെ പേജ് നടത്തിയ GET അഭ്യർത്ഥനകൾക്ക് മാത്രം. ആ പേജ് <code>partner.com</code> ആണെങ്കിൽ ഒരിക്കലും നീക്കംചെയ്യില്ല."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> എൻട്രി <code>$removeparam</code> ഫിൽട്ടറുകളിൽ നിന്ന് മാത്രമാണ് സംരക്ഷിക്കുന്നത്. <code>\"ref\"</code> പോലുള്ള സാധാരണ എൻട്രി പരാമീറ്റർ നീക്കംചെയ്യും; അതിന് നിയമ ഒബ്‌ജക്റ്റിലെ <code>exceptions</code> ഉപയോഗിക്കുക. മുറിക്കാത്ത നിയമങ്ങൾക്ക് സ്വന്തം <code>@@…$rawrule=</code> എൻട്രികളുണ്ട് (അധ്യായം 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "എവിടെ ലിസ്റ്റ് ചെയ്താലും പ്രശ്നമില്ല; ഇതിന് <code>order</code> ഉണ്ടാകരുത്."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "മുറിക്കാത്ത നിയമങ്ങൾ പ്രവർത്തിക്കുന്നതിന് മുമ്പ്, ദാതാവിന് ലഭിച്ച URLയുമായി ഇതിന്റെ പാറ്റേൺ പരിശോധിക്കുന്നു. മുറിക്കാത്ത നിയമം ഇല്ലാതാക്കുന്ന പാത്തിന് പരിധി നിശ്ചയിച്ച <code>@@</code> എൻട്രിയും പൊരുത്തപ്പെടും."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "ഈ ദാതാവ് പൊരുത്തപ്പെടുത്തുന്ന പേജുകൾ നടത്തിയ അഭ്യർത്ഥനകളിലെ മറ്റ് ദാതാക്കളുടെ ഫിൽട്ടറുകളും ഇത് ഉൾക്കൊള്ളുന്നു; വേറെവിടെയോ നിർവചിച്ച നിയമത്തിൽ നിന്ന് ഒരു സൈറ്റ് ഒഴിവാക്കാൻ ഇത് സഹായിക്കും."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "മുറിക്കാത്ത നിയമങ്ങൾ <code>rules</code>ന് മുമ്പ് പ്രവർത്തിക്കുന്നു, വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം അവഗണിക്കുന്നു, ഓരോ പൊരുത്തവും മാറ്റിസ്ഥാപിക്കുന്നു (ഫ്ലാഗുകൾ <code>gi</code>, അല്ലെങ്കിൽ <code>match-case</code>ഉം <code>g</code>യും). JSONയിൽ ഓരോ ബാക്ക്‌സ്ലാഷും രണ്ടുതവണ എഴുതുക."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "മുറിക്കാത്ത നിയമത്തിന് <code>$removeparam</code> ഫിൽട്ടറിന്റെ പാറ്റേണും മോഡിഫയറുകളും ഉപയോഗിക്കാം; <code>rawrule=</code> അവസാനം വരണം. <code>rawrule=</code>ന് ശേഷമുള്ളതെല്ലാം regex ആണ്:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "നിയമം എവിടെ പ്രവർത്തിക്കണമെന്ന് പാറ്റേണും മോഡിഫയറുകളും തീരുമാനിക്കുന്നു; നീക്കം ചെയ്യുന്നത് regex തന്നെയാണ്."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "<code>@@</code>ൽ തുടങ്ങി <code>rawrule=</code>ൽ അവസാനിക്കുന്ന എൻട്രി, അതിന്റെ പാറ്റേൺ പൊരുത്തപ്പെടുന്നിടത്ത് മുറിക്കാത്ത നിയമങ്ങൾ പ്രവർത്തിക്കുന്നത് തടയുന്നു:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "<code>rawrule=</code>ന് ശേഷം ഒന്നുമില്ലെങ്കിൽ, ആ URLകളിൽ ദാതാവിന്റെ എല്ലാ മുറിക്കാത്ത നിയമങ്ങളും നിർത്തും."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "<code>rawrule=</code>ന് ശേഷം regex ഉണ്ടെങ്കിൽ, ആ regex ഉള്ള മുറിക്കാത്ത നിയമങ്ങൾ നിർത്തും."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> ഉള്ള നിയമ ഒബ്‌ജക്റ്റായി നൽകിയാൽ, ആ idയോ aliasയോ ഉള്ള മുറിക്കാത്ത നിയമം മാത്രം നിർത്തും."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "മുഴുവൻ ദാതാവിനെയും ഒഴിവാക്കാൻ പകരം <code>exceptions</code> ഉപയോഗിക്കുക."
+  },
+  "guide_exceptions_p_1": {
+    "message": "<code>exceptions</code>യിലെ എൻട്രിയുമായി URL പൊരുത്തപ്പെട്ടാൽ ആ അഭ്യർത്ഥനയ്ക്ക് ദാതാവിന്റെ നിയമങ്ങളൊന്നും പ്രവർത്തിക്കില്ല. എൻട്രി പൂർണ്ണ URLയുമായി പൊരുത്തപ്പെടുന്ന regex ആകാം, അല്ലെങ്കിൽ <code>|</code>ൽ തുടങ്ങുന്ന ഡൊമെയ്ൻ പാറ്റേൺ ആകാം:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "ഒഴിവാക്കലുകൾ വലിയക്ഷര-ചെറുക്ഷര വ്യത്യാസം അവഗണിക്കുന്നു. മുഴുവൻ ദാതാവിനുപകരം ഒരു നിയമം മാത്രം ഒഴിവാക്കാൻ അതിന് സ്വന്തമായ <code>exceptions</code> നൽകുക (അധ്യായം 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "URLൽ ആദ്യം വരുന്ന പൊരുത്തപ്പെടുന്ന പരാമീറ്ററാണ് വിജയിക്കുന്നത്. <code>https://site.example/away?redirect=https://real.example/page</code>ൽ അഭ്യർത്ഥന <code>https://real.example/page</code>ലേക്കു പോകും."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "സാധുവായ റീഡയറക്ട് ലക്ഷ്യങ്ങൾ"
+  },
+  "guide_redirects_p_2": {
+    "message": "ഹോസ്റ്റ് ഉള്ള പൂർണ്ണ <code>http</code> അല്ലെങ്കിൽ <code>https</code> വിലാസത്തിലേക്കു മാത്രമേ റീഡയറക്ട് ചെയ്യൂ. പ്രിപ്രോസസറുകൾക്കും percent-decodingനും ശേഷമാണ് ഇത് പരിശോധിക്കുന്നത്. ലക്ഷ്യം അസാധുവെങ്കിൽ എൻട്രി പൊരുത്തപ്പെടാത്തതായി കണക്കാക്കും: ഒന്നും റീഡയറക്ട് ചെയ്യില്ല; ദാതാവിന്റെ പിന്നീടുള്ള ഘട്ടങ്ങൾ മാറാത്ത URLയിൽ പ്രവർത്തിക്കും."
+  },
+  "guide_redirects_th_1": {
+    "message": "ലക്ഷ്യം"
+  },
+  "guide_redirects_th_2": {
+    "message": "റീഡയറക്ട് ചെയ്യുമോ?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "അതെ"
+  },
+  "guide_redirects_cell_2": {
+    "message": "അതെ, <code>https://real.example/page</code>ലേക്ക്"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ഇല്ല: സ്കീം <code>http</code> അല്ലെങ്കിൽ <code>https</code> അല്ല"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ഇല്ല: പൂർണ്ണ വിലാസമല്ല"
+  },
+  "guide_redirects_p_3": {
+    "message": "മുറിക്കാത്ത നിയമത്തിന്റെ ഫലം ഇൻപുട്ടിൽ നിന്ന് സ്കീം, ഹോസ്റ്റ്, അല്ലെങ്കിൽ പോർട്ട് വ്യത്യസ്തമാണെങ്കിൽ അത് റീഡയറക്ടായി കണക്കാക്കും; അത് ടെക്സ്റ്റ് മാത്രം നീക്കിയാലും. <code>https://secure-bank.example/</code>ൽ നിന്ന് <code>secure-</code> നീക്കുന്നത് മറ്റൊരു സൈറ്റിലെത്തിക്കും. ഇതിന് സാധുവായ ലക്ഷ്യം വേണം; റിമോട്ട് നിയമ പട്ടികയ്ക്ക് <code>redirect</code> അംഗീകാരവും വേണം (അധ്യായം 15). അല്ലെങ്കിൽ URL മാറ്റമില്ലാതെ തുടരും."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "ഏത് പട്ടികയിലെയും ഏത് എൻട്രിയും സ്ട്രിംഗിന് പകരം ഒബ്‌ജക്റ്റാകാം. നിയമത്തിന് സ്ഥിരമായ id വേണമെങ്കിൽ, തുടക്കത്തിൽ പ്രവർത്തനരഹിതമായിരിക്കണമെങ്കിൽ, നീക്കം ചെയ്യാതെ മാറ്റിയെഴുതണമെങ്കിൽ, അല്ലെങ്കിൽ ചില സാഹചര്യങ്ങളിൽ മാത്രം പ്രവർത്തിക്കണമെങ്കിൽ ഇത് ഉപയോഗിക്കുക:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "ആവശ്യമാണ്. ആ പട്ടികയിലെ സാധാരണ എൻട്രിയായി എഴുതേണ്ട ടെക്സ്റ്റ്."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "നിയമം ഓണാക്കാനും ഓഫാക്കാനും ഉപയോഗിക്കുന്ന സ്ഥിരമായ പേര് (അക്ഷരങ്ങൾ, അക്കങ്ങൾ, <code>-</code>, <code>_</code>) (അധ്യായം 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "നിയമത്തിന്റെ പഴയ idകൾ; പേര് മാറ്റിയാലും പഴയ idയിൽ സേവ് ചെയ്ത ക്രമീകരണം തുടർന്നും ബാധകമാകും."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "നീക്കം ചെയ്യുന്നതിനു പകരം മാറ്റിയെഴുതുക; <code>§1§</code>, <code>§2§</code>, … എന്നിവ ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങളാണ്."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "ആദ്യം ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങൾ മാറ്റുക."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "ഉദാഹരണത്തിന് <code>[\"main_frame\"]</code> പോലുള്ള ഈ അഭ്യർത്ഥന തരങ്ങൾക്ക് മാത്രം. അഭ്യർത്ഥനയില്ലാത്ത ക്ലീനിംഗ് (<em>ക്ലീൻ ലിങ്ക് പകർത്തുക</em>, ക്ലീനിംഗ് ഉപകരണം, History API മാറ്റങ്ങൾ) <code>main_frame</code> ആയി കണക്കാക്കും."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "ഈ നിയമം പ്രവർത്തിക്കാത്ത URLകൾ (regexകൾ)."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "സ്ട്രിംഗായി നൽകിയ regex ഫ്ലാഗുകൾ. ഡിഫോൾട്ട് <code>i</code>; <code>rawRules</code>ൽ <code>gi</code> (അല്ലെങ്കിൽ <code>match-case</code> ഉപയോഗിച്ച് <code>g</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "സ്വന്തം ഘട്ടത്തിനുള്ളിൽ നിയമം മുമ്പെയോ ശേഷമോ പ്രവർത്തിപ്പിക്കുക (അധ്യായം 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: <code>rules</code>ലുള്ള നിയമവും റഫറൽ മാർക്കറ്റിംഗ് നിയമമായി കണക്കാക്കും (അധ്യായം 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "ഈ ഒരു നിയമത്തിനുള്ള അതേ പേരിലുള്ള ദാതാവിന്റെ സ്വിച്ച്. ഇത് ദാതാവിന്റെ മൂല്യത്തെയും ഫയൽ ഡിഫോൾട്ടിനെയും മറികടക്കും."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: നിയമം തുടക്കത്തിൽ പ്രവർത്തനരഹിതമായിരിക്കും."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "ഫയൽ വായിക്കുന്നവർക്കുള്ള കുറിപ്പ്; ഇത് ഒരു സ്ട്രിംഗ് ആയിരിക്കണം."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "<code>@@…$rawrule=</code> എൻട്രികളിൽ മാത്രം: നിർത്തുന്ന മുറിക്കാത്ത നിയമത്തിന്റെ id."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "ഇവിടെ <code>?token=abc123</code> എന്നത് <code>?token=clean-abc123</code> ആകുന്നു. ഓരോ അഭ്യർത്ഥനയിലും ഒരിക്കൽ മാത്രമേ മാറ്റിയെഴുതൂ; അതിനാൽ മൂല്യത്തെ വീണ്ടും വീണ്ടും പൊതിയില്ല."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "<code>replacePattern</code> അല്ലെങ്കിൽ റീഡയറക്ഷൻ ഉപയോഗിക്കുന്നതിന് മുമ്പ്, പ്രിപ്രോസസറുകൾ ക്യാപ്‌ചർ ചെയ്ത മൂല്യങ്ങൾ ക്രമമായി മാറ്റുന്നു. <code>inputs</code> <code>\"all\"</code> അല്ലെങ്കിൽ ഗ്രൂപ്പ് നമ്പറുകളുടെ പട്ടികയാണ്:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code>ന് <code>rules</code>ലേതുപോലുള്ള എൻട്രികൾ സ്വീകരിക്കാം. <em>റഫറൽ മാർക്കറ്റിംഗ് അനുവദിക്കുക</em> ഓഫായിരിക്കുമ്പോൾ മാത്രമാണ് അവ പ്രവർത്തിക്കുന്നത്; അതിനാൽ ഇത് ഓണാക്കിയാൽ അഫിലിയേറ്റ് ലിങ്കുകൾ പ്രവർത്തിക്കും:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "<code>\"referralMarketing\": true</code> നൽകി ഒരു നിയമം <code>rules</code>ൽ തന്നെ തുടരുകയും റഫറൽ മാർക്കറ്റിംഗായി കണക്കാക്കപ്പെടുകയും ചെയ്യാം. ഒരേ ടെക്സ്റ്റ് <code>rules</code>ലും <code>referralMarketing</code>ലും ചേർക്കരുത്; എഡിറ്റർ മുന്നറിയിപ്പ് നൽകും."
+  },
+  "guide_request_types_cell_1": {
+    "message": "ഒരു നിയമ ഒബ്‌ജക്റ്റ് കൈകാര്യം ചെയ്യുന്ന അഭ്യർത്ഥന തരങ്ങൾ (<code>defaults</code>ലും സജ്ജമാക്കാം)"
+  },
+  "guide_request_types_p_1": {
+    "message": "അഭ്യർത്ഥന തരങ്ങൾക്ക് ബ്രൗസറിന്റെ പേരുകളാണ് ഉപയോഗിക്കുന്നത്: <code>main_frame</code> (പേജ്), <code>sub_frame</code> (ഫ്രെയിം), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> തുടങ്ങിയവ. ഫിൽട്ടർ മോഡിഫയറുകൾ ആദ്യ രണ്ടിനെ <code>document</code>, <code>subdocument</code> എന്നു വിളിക്കുന്നു."
+  },
+  "guide_request_types_p_2": {
+    "message": "അഭ്യർത്ഥന തരങ്ങൾ നിയമങ്ങളിൽ നിന്നുമാത്രമാണ് വരുന്നത്; ക്രമീകരണങ്ങളിൽ അതിനുള്ള പട്ടികയില്ല. ഇവയൊന്നും സജ്ജമാക്കിയില്ലെങ്കിൽ എല്ലാ അഭ്യർത്ഥന തരങ്ങളും നിയമം വൃത്തിയാക്കും."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. ഡിഫോൾട്ടുകൾ"
+  },
+  "guide_defaults_p_1": {
+    "message": "ടോപ്പ്-ലെവൽ <code>defaults</code> ബ്ലോക്ക്, ഫയലിലെ ഓരോ നിയമവും സ്വയം സജ്ജമാക്കാത്ത മൂല്യങ്ങൾ നൽകുന്നു:"
+  },
+  "guide_defaults_th_1": {
+    "message": "ഓരോ നിയമത്തിന്റെയും ഡിഫോൾട്ട്…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> എല്ലാ നിയമങ്ങളും ഓഫാക്കും, നിയമം <code>\"active\": true</code> എന്ന് വ്യക്തമാക്കിയാൽ ഒഴികെ"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> അല്ലെങ്കിൽ ഒഴിവാക്കിയത് എല്ലാ തരങ്ങളെയും സൂചിപ്പിക്കുന്നു"
+  },
+  "guide_defaults_item_1": {
+    "message": "നിയമത്തിന്റെ സ്വന്തം മൂല്യത്തിനാണ് എപ്പോഴും മുൻഗണന. നിയമത്തിന്റെ <code>exceptions</code> ഡിഫോൾട്ട് പട്ടികയിൽ ചേർക്കുന്നതിന് പകരം അതിനെ മാറ്റിസ്ഥാപിക്കുന്നു."
+  },
+  "guide_defaults_item_2": {
+    "message": "ഡിഫോൾട്ടുകൾ <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code>, <code>fieldRedirections</code> എന്നിവയ്ക്ക് ബാധകമാണ്. ദാതാവിന്റെ സ്വന്തം <code>exceptions</code> പട്ടിക മാറ്റില്ല. <code>$redirect=</code> എൻട്രികൾ <code>active</code> മാത്രം ഉപയോഗിക്കുന്നു."
+  },
+  "guide_defaults_item_3": {
+    "message": "ഓരോ ഫയലും സ്വന്തം ഡിഫോൾട്ടുകൾ നിലനിർത്തുന്നു: ബിൽറ്റ്-ഇൻ നിയമങ്ങൾ, ഓരോ റിമോട്ട് പട്ടിക, നിങ്ങളുടെ ഇഷ്ടാനുസൃത നിയമങ്ങൾ എന്നിവയും—ഓവർലോഡ് മോഡ് അവയെ ലയിപ്പിച്ചാലും."
+  },
+  "guide_defaults_item_4": {
+    "message": "<code>completeProvider</code>ന് ഡിഫോൾട്ട് <code>requestTypes</code>, <code>exceptions</code> എന്നിവ ബ്ലോക്കിനെയും പരിമിതപ്പെടുത്തും."
+  },
+  "guide_defaults_item_5": {
+    "message": "അറിയാത്ത കീകളും തെറ്റായ തരങ്ങളും പിശകുകളാണ്; അസാധുവായ <code>defaults</code> ബ്ലോക്കുള്ള റിമോട്ട് പട്ടിക നിരസിക്കപ്പെടും."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "നിങ്ങളുടെ സ്വന്തം ഡിഫോൾട്ടുകൾ"
+  },
+  "guide_defaults_p_2": {
+    "message": "ഇഷ്ടാനുസൃത നിയമ എഡിറ്ററിൽ <em>നിയമ ഡിഫോൾട്ടുകൾ കൈകാര്യം ചെയ്യുക</em> തുറക്കുമ്പോൾ, സ്വന്തം <code>defaults</code> ബ്ലോക്ക് സജ്ജമാക്കാനും ഫയലുകളുടെ സ്വന്തം ഡിഫോൾട്ടുകൾ എവിടെ മാറ്റിസ്ഥാപിക്കണമെന്ന് തിരഞ്ഞെടുക്കാനും ഫോം ലഭിക്കും:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>ഓരോ ഉറവിടത്തിന്റെയും സ്വന്തം</em> (ഡിഫോൾട്ട്): ഓരോ ഫയലും സ്വന്തം <code>defaults</code> ഉപയോഗിക്കുന്നു."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>ബിൽറ്റ്-ഇൻ, റിമോട്ട് നിയമങ്ങൾക്ക് നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ</em>: ബിൽറ്റ്-ഇൻ, റിമോട്ട് നിയമങ്ങൾ നിങ്ങളുടേത് ഉപയോഗിക്കും; ഇഷ്ടാനുസൃത നിയമങ്ങൾ അവയുടേത് നിലനിർത്തും."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>എല്ലാ നിയമങ്ങൾക്കും നിങ്ങളുടെ ഡിഫോൾട്ടുകൾ</em>: എല്ലാ നിയമങ്ങളും നിങ്ങളുടേത് ഉപയോഗിക്കും."
+  },
+  "guide_defaults_p_3": {
+    "message": "അതേ ഫോം ഉപയോഗിച്ച് ബിൽറ്റ്-ഇൻ നിയമങ്ങളുടെയും ലോഡ് ചെയ്ത ഓരോ റിമോട്ട് പട്ടികയുടെയും ഡിഫോൾട്ടുകൾ തിരുത്താം. മാറ്റം ഫയലിലല്ല, വിപുലീകരണത്തിലാണ് സേവ് ചെയ്യുന്നത്; <em>ഫയലിന്റെ ഡിഫോൾട്ടിലേക്ക് റീസെറ്റ് ചെയ്യുക</em> അത് നീക്കും. <em>ഉറവിടങ്ങളിൽ നിന്ന് ലയിപ്പിക്കുക…</em> നിങ്ങൾ തിരഞ്ഞെടുത്ത ഉറവിടങ്ങളുടെ ഡിഫോൾട്ടുകൾ ചേർക്കുന്നു; സേവ് ചെയ്യുന്നതുവരെ ഒന്നും സൂക്ഷിക്കില്ല."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL എങ്ങനെ പ്രോസസ്സ് ചെയ്യപ്പെടുന്നു"
+  },
+  "guide_processing_order_item_1": {
+    "message": "ആദ്യം <code>redirections</code>, തുടർന്ന് <code>fieldRedirections</code>: സാധുവായ ലക്ഷ്യവുമായി പൊരുത്തപ്പെട്ടാൽ അഭ്യർത്ഥന റീഡയറക്ട് ചെയ്യും."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code>, <code>referralMarketing</code> എന്നിവ പരാമീറ്ററുകൾ നീക്കംചെയ്യുകയോ മാറ്റിയെഴുതുകയോ ചെയ്യും."
+  },
+  "guide_processing_order_item_3": {
+    "message": "ഒരു <code>@@</code> എൻട്രി പരാമീറ്റർ നിലനിർത്തുന്നിടം ഒഴികെ <code>$removeparam</code> ഫിൽട്ടറുകൾ പ്രവർത്തിക്കും."
+  },
+  "guide_processing_order_p_1": {
+    "message": "URL മാറ്റുകയോ റീഡയറക്ട് ചെയ്യുകയോ തടയുകയോ ചെയ്യുന്ന ആദ്യ ദാതാവാണ് വിജയിക്കുന്നത്. പുതിയ URL അതേ ഘട്ടങ്ങളിലൂടെ വീണ്ടും കടന്നുപോകും (<a href=\"#termination\">പ്രോസസ്സിംഗ് എപ്പോൾ നിർത്തുന്നു</a> കാണുക)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "പ്രവർത്തന ക്രമവും <code>order</code>ഉം"
+  },
+  "guide_processing_order_p_2": {
+    "message": "4, 5 ഘട്ടങ്ങൾ ഈ നിയമങ്ങൾ അനുസരിച്ച് ഒരുമിച്ച് ക്രമീകരിക്കുന്നു:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>മുറിക്കാത്ത നിയമങ്ങൾ എപ്പോഴും ആദ്യം പ്രവർത്തിക്കും.</strong> <code>order</code> ഉപയോഗിച്ച് <code>rules</code> എൻട്രിയെ മുറിക്കാത്ത നിയമത്തിന് മുമ്പാക്കാനാവില്ല. അതിന് മുമ്പ് നടക്കേണ്ട ക്ലീനിംഗ് മുറിക്കാത്ത നിയമമായിരിക്കണം."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>ഒരു ഘട്ടത്തിൽ, <code>order</code> ഉള്ള നിയമങ്ങൾ അതില്ലാത്തവയ്ക്ക് മുമ്പ് പ്രവർത്തിക്കും</strong>; ഏറ്റവും ചെറിയത് ആദ്യം. നെഗറ്റീവ് സംഖ്യകളും ഭിന്നസംഖ്യകളും അനുവദനീയമാണ്. <code>order: 10</code> എന്നത് “പത്താമത്” എന്നല്ല; 10ൽ താഴെയുള്ള ക്രമപ്പെടുത്തിയ നിയമങ്ങൾക്കുശേഷവും ക്രമമില്ലാത്തവയ്ക്ക് മുമ്പുമാണ്."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>തുടർന്ന് പട്ടിക അനുസരിച്ച്:</strong> <code>rules</code>, <code>\"referralMarketing\": true</code> ആയി അടയാളപ്പെടുത്തിയ <code>rules</code> ഒബ്‌ജക്റ്റുകൾ, പിന്നെ <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>പിന്നീട് പട്ടികയിലെ സ്ഥാനം അനുസരിച്ച്.</strong> <code>\"3\"</code>, <code>\"20\"</code> എന്നിങ്ങനെ എഴുതിയവ ഉൾപ്പെടെ എല്ലാ എൻട്രികളും സ്ഥാനം നിലനിർത്തും."
+  },
+  "guide_processing_order_p_3": {
+    "message": "ഇവിടെ ടോക്കൺ ആദ്യം മാറ്റിയെഴുതി, അതിന് ശേഷം മാത്രമാണ് <code>utm_source</code> നീക്കം ചെയ്യുന്നത്; അത് രണ്ടാമതായി വന്നാലും:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "ഓഫാക്കിയ നിയമങ്ങൾ ഒഴിവാക്കും. <code>$removeparam</code> ഫിൽട്ടറുകളും <code>@@</code> എൻട്രികളും ഈ ക്രമീകരണത്തിന് പുറത്താണ്; <code>null</code> ഉൾപ്പെടെ അവയ്ക്ക് <code>order</code> ഉണ്ടാകരുത്. ഫിൽട്ടറുകൾ എപ്പോഴും അവസാനം പ്രവർത്തിക്കും."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "ഒരേ ടെക്സ്റ്റ് രണ്ടുതവണ"
+  },
+  "guide_processing_order_p_5": {
+    "message": "ഒരു ഗ്രൂപ്പിൽ ഒരേ <code>matchPattern</code> ടെക്സ്റ്റുള്ള രണ്ട് എൻട്രികൾ ഒരു നിയമമാണ്. ഗ്രൂപ്പുകൾ: മുറിക്കാത്തത് (<code>rawRules</code>), ഫീൽഡ് (റഫറൽ അടയാളമില്ലാത്ത <code>rules</code>), റഫറൽ (അടയാളമുള്ള <code>rules</code> ഒബ്‌ജക്റ്റുകൾ, തുടർന്ന് <code>referralMarketing</code>). നിയമ പട്ടികകൾ ലയിപ്പിക്കുമ്പോഴാണ് ഇത് കൂടുതലായി സംഭവിക്കുന്നത്."
+  },
+  "guide_processing_order_item_8": {
+    "message": "ഓഫല്ലാത്ത അവസാന നിർവചനം അതിന്റെ എല്ലാ കീകളോടെയും വിജയിക്കും."
+  },
+  "guide_processing_order_item_9": {
+    "message": "സ്വന്തമായി <code>order</code> ഇല്ലെങ്കിൽ, വിജയിച്ച നിർവചനം ആദ്യ നിർവചനത്തിന്റെ സ്ഥാനം, അതിന് തൊട്ടുമുമ്പുള്ള ഏറ്റവും അടുത്ത <code>order</code> എന്നിവ സ്വീകരിക്കും. <code>\"order\": null</code> എന്നാൽ ക്രമമില്ല; പാരമ്പര്യമായി കിട്ടിയ order നീക്കം ചെയ്യും."
+  },
+  "guide_processing_order_item_10": {
+    "message": "മാറ്റിസ്ഥാപിച്ച നിർവചനങ്ങളുടെ idകളും aliasesകളും വിജയിച്ച നിയമം ഓണാക്കാനും ഓഫാക്കാനും ഉപയോഗിക്കാം."
+  },
+  "guide_processing_order_item_11": {
+    "message": "റഫറൽ മാർക്കറ്റിംഗ് നിയമങ്ങൾ പ്രവർത്തിക്കുമ്പോൾ, അതേ ടെക്സ്റ്റുള്ള ഫീൽഡ് എൻട്രിക്ക് പകരം റഫറൽ എൻട്രി വരും."
+  },
+  "guide_processing_order_item_12": {
+    "message": "ഒരേ ടെക്സ്റ്റുള്ള മുറിക്കാത്ത നിയമവും ഫീൽഡ് നിയമവും കൂട്ടിയിടിക്കില്ല; രണ്ടും പ്രവർത്തിക്കും."
+  },
+  "guide_processing_order_p_6": {
+    "message": "ഒരു പട്ടികയിൽ ഒരേ ടെക്സ്റ്റുള്ള രണ്ട് വ്യത്യസ്ത എൻട്രികൾ പിശകാണ്; കൃത്യമായ പകർപ്പ് മുന്നറിയിപ്പാണ്."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "പ്രോസസ്സിംഗ് എപ്പോൾ നിർത്തുന്നു"
+  },
+  "guide_processing_order_item_13": {
+    "message": "ഓരോ അഭ്യർത്ഥനയിലും പരമാവധി 10 ചക്രങ്ങൾ പ്രവർത്തിക്കും; അതിരിലെത്തിയാൽ നിലവിലുള്ള URL ഉപയോഗിക്കും."
+  },
+  "guide_processing_order_item_14": {
+    "message": "<code>replacePattern</code> ഉള്ള നിയമം ഓരോ അഭ്യർത്ഥനയിലും പരമാവധി ഒരിക്കൽ ബാധകമാകും."
+  },
+  "guide_processing_order_item_15": {
+    "message": "URL മാറ്റാത്ത ഘട്ടം പുതിയ ചക്രം തുടങ്ങില്ല."
+  },
+  "guide_processing_order_p_7": {
+    "message": "ക്രമീകരണങ്ങൾ → <em>പരിധിയില്ലാത്ത ക്ലീനിംഗ് ചക്രങ്ങൾ</em> (ഡിഫോൾട്ടായി ഓഫ്) കൂടുതൽ ചക്രങ്ങൾ ആവശ്യമുള്ള നിയമ ശൃംഖലകളിൽ 10 ചക്ര പരിധി നീക്കുന്നു. ഒരു ചക്രവും മാറ്റമുണ്ടാക്കാതിരിക്കുമ്പോൾ പ്രോസസ്സിംഗ് അവസാനിക്കും; എന്നാൽ പരസ്പരം റീഡയറക്ട് ചെയ്യുന്ന രണ്ട് നിയമങ്ങൾ ബ്രൗസർ ഉപേക്ഷിക്കുന്നതുവരെ ചുറ്റിക്കൊണ്ടിരിക്കും, പേജ് ലോഡ് ആകില്ല. നിങ്ങൾ വിശ്വസിക്കുന്ന നിയമങ്ങൾക്ക് മാത്രം ഇത് ഓണാക്കുക."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. നിയമ IDകളും ഓൺ/ഓഫ് സ്വിച്ചുകളും"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "ഓരോ നിയമത്തിനും id ഉണ്ട്. <code>id</code> ഇല്ലാത്ത നിയമത്തിന് അതിന്റെ പട്ടികയും ടെക്സ്റ്റും ചേർത്ത് ഒന്ന് സൃഷ്ടിക്കും: <code>rules</code>ലുള്ള <code>\"utm_source\"</code> <code>field-utm-source</code> ആകും. നിയമ ടെക്സ്റ്റ് മാറിയാൽ സൃഷ്ടിച്ച idയും മാറും; അപ്പോൾ ഓഫാക്കിയ നിയമം വീണ്ടും ഓണാകും. എഡിറ്റുകൾക്കിടയിലും ഓൺ/ഓഫ് ക്രമീകരണം നിലനിർത്താൻ നിയമത്തിന് സ്വന്തം <code>id</code> നൽകുക; പേര് മാറ്റുമ്പോൾ പഴയ idകൾ <code>aliases</code>ൽ ചേർക്കുക."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "പ്രൊവൈഡറും idയും ചേർന്നാണ് നിയമം ഓണാക്കുന്നതും ഓഫാക്കുന്നതും; ഉദാഹരണത്തിന് <code>shop::session-token</code>. അതിനാൽ രണ്ട് പ്രൊവൈഡറുകൾക്ക് ഒരേ id ഉപയോഗിക്കാം. ഇഷ്ടാനുസൃത നിയമ എഡിറ്റർ അത് ദാതാവിന്റെ പാറ്റേണിലും സേവ് ചെയ്യാം; ഉദാഹരണത്തിന് <code>domainPattern:||shop.example^::session-token</code>. രണ്ടും പ്രവർത്തിക്കും."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "ഒരു ദാതാവിൽ ഓരോ idയും aliasയും വ്യത്യസ്തമായിരിക്കണം. സൃഷ്ടിച്ച idകളും ഇതിൽപ്പെടും."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "idയിൽ കോളൺ പാടില്ല."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "ദാതാവില്ലാതെ id മാത്രം ഉപയോഗിച്ച് സേവ് ചെയ്ത ക്രമീകരണം ഒന്നും ഓഫാക്കില്ല; ഇഷ്ടാനുസൃത നിയമ എഡിറ്ററിൽ നിയമം വീണ്ടും ഓഫാക്കുക."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. റിമോട്ട് നിയമ പട്ടികകൾ"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Linkumori ഡൗൺലോഡ് ചെയ്യുന്ന നിയമ ഫയലുകളാണ് റിമോട്ട് നിയമ പട്ടികകൾ; ആവശ്യമെങ്കിൽ ഹാഷ് ഫയലുമായി പരിശോധിക്കാം. അസാധുവായ <code>cln</code> മൂല്യമോ <code>defaults</code> ബ്ലോക്കോ <code>patches</code> അറേയോ ഉള്ള പട്ടിക ലോഡ് ചെയ്യില്ല; Remote Rules Health അത് റിപ്പോർട്ട് ചെയ്യും."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "റീഡയറക്ടും ബ്ലോക്കും നിങ്ങളുടെ അംഗീകാരം ആവശ്യപ്പെടുന്നു"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "ലോഡ് ചെയ്യുമ്പോൾ പട്ടികയിലെ ഉള്ളടക്കത്തിന്റെ അടിസ്ഥാനത്തിൽ റിമോട്ട് പട്ടികയുടെ കഴിവുകൾ കണക്കാക്കുന്നു:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "കഴിവ്"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "ഇത് അടങ്ങിയാൽ പട്ടികയ്ക്ക് ആ കഴിവുണ്ട്"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "ലോഡ് ചെയ്യുമ്പോൾ സജീവം"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code> എൻട്രി അല്ലെങ്കിൽ <code>$removeparam</code> ഫിൽട്ടർ"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "<code>replacePattern</code> ഉള്ള എൻട്രി"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "ദാതാവിന്റെ <code>exceptions</code> എൻട്രി അല്ലെങ്കിൽ <code>@@</code> എൻട്രി"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> അല്ലെങ്കിൽ <code>fieldRedirections</code> എൻട്രി, അല്ലെങ്കിൽ <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "അംഗീകാരത്തിന് ശേഷം"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "<code>\"completeProvider\": true</code> ഉള്ള ദാതാവ്"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Remote Rules Healthൽ ഓരോ പട്ടികയ്ക്കും <code>redirect</code>, <code>block</code> അംഗീകരിക്കുക. അതുവരെ ആ പട്ടികയിലെ റീഡയറക്ടുകളും ബ്ലോക്കുകളും ഓഫായിരിക്കും; അതിന്റെ മുറിക്കാത്ത നിയമങ്ങൾക്ക് URL മറ്റൊരു സൈറ്റിലേക്ക് അയയ്ക്കാനാവില്ല. പട്ടികയിലെ ബാക്കി ഭാഗങ്ങൾ ഉടൻ പ്രവർത്തിക്കും. അപ്‌ഡേറ്റ് പുതിയ കഴിവ് ചേർത്താലും അതിന് അംഗീകാരം ആവശ്യമാണ്. ബിൽറ്റ്-ഇൻ, ഇഷ്ടാനുസൃത നിയമങ്ങൾക്ക് എല്ലാ കഴിവുകളും ഉണ്ട്."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "ഓവർലോഡ് മോഡ്"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "സാധാരണയായി, ദാതാക്കളുള്ള റിമോട്ട് പട്ടികകൾ ബിൽറ്റ്-ഇൻ നിയമങ്ങൾക്ക് പകരമാകും; <code>patches</code> മാത്രം സൂക്ഷിക്കുന്ന പട്ടികകൾ ബിൽറ്റ്-ഇൻ നിയമങ്ങളിൽ പ്രയോഗിക്കും. <em>ഓവർലോഡ് മോഡ് പ്രവർത്തനക്ഷമമാക്കുക</em> ഓണാക്കിയാൽ, മൂന്ന് തന്ത്രങ്ങളിൽ ഒന്ന് ഉപയോഗിച്ച് അവ ഒരുമിച്ച് ലോഡ് ചെയ്യും:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>പാച്ച് മോഡ് മാത്രം</em>: റിമോട്ട് പട്ടികകളിലെ പാച്ചുകൾ ബിൽറ്റ്-ഇൻ നിയമങ്ങളിൽ പ്രയോഗിക്കുക; റിമോട്ട് ദാതാക്കളെ ഒഴിവാക്കുക."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>പാച്ച് മോഡ് + ലയിപ്പിക്കൽ</em>: ബിൽറ്റ്-ഇൻ, റിമോട്ട് ദാതാക്കളെ ലയിപ്പിച്ച് പാച്ചുകൾ പ്രയോഗിക്കുക."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>പാച്ച് മോഡ് ഇല്ല + ലയിപ്പിക്കൽ</em>: ദാതാക്കളെ ലയിപ്പിച്ച് പാച്ചുകൾ ഒഴിവാക്കുക."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "ലയിപ്പിക്കുമ്പോൾ റിമോട്ട് പട്ടികകൾ നിങ്ങൾ നൽകിയ ക്രമത്തിൽ പരസ്പരം ലയിക്കും; തുടർന്ന് ബിൽറ്റ്-ഇൻ നിയമങ്ങളുമായി (ബിൽറ്റ്-ഇൻ ആദ്യം) ലയിക്കും. ഒരേ <code>domainPatterns</code> (അല്ലെങ്കിൽ <code>urlPattern</code>), <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code>, <code>forceRedirection</code> ഉള്ള ദാതാക്കളാണ് ലയിക്കുന്നത്. അവയുടെ <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code> ഒന്നിക്കുന്നു; ഏത് പകർപ്പാണ് പ്രവർത്തിക്കുകയെന്ന് <a href=\"#same-text-twice\">ഒരേ ടെക്സ്റ്റ് രണ്ടുതവണ</a> തീരുമാനിക്കുന്നു. മാറ്റിസ്ഥാപിച്ച ഓരോ നിയമവും Remote Rules Health അറിയിപ്പായി കാണിക്കും."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "ഇഷ്ടാനുസൃത നിയമങ്ങൾ അവസാനം പ്രയോഗിക്കും. ഒരേ പാറ്റേണുള്ള ലോഡ് ചെയ്ത ഓരോ ദാതാവിനും പകരം ഇഷ്ടാനുസൃത ദാതാവ് വരും; അവയുടെ നിയമങ്ങൾ ഒന്നിപ്പിക്കില്ല."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "നിയമ പാച്ചുകൾ"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "മുഴുവൻ പകർപ്പ് പ്രസിദ്ധീകരിക്കാതെ, ഇതിനകം ലോഡ് ചെയ്ത ഒറ്റ നിയമങ്ങളെ ടോപ്പ്-ലെവൽ <code>patches</code> അറേയിൽ റിമോട്ട് പട്ടികയ്ക്ക് മാറ്റിസ്ഥാപിക്കാം:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "ആവശ്യമാണ്. മാറ്റേണ്ട നിയമം, അതിന്റെ ഓൺ/ഓഫ് കീ പോലെ എഴുതുക: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> അല്ലെങ്കിൽ <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "ആവശ്യമാണ്. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code>, അല്ലെങ്കിൽ <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "ആവശ്യമാണ്. പുതിയ നിയമം സാധാരണ എൻട്രിയായോ നിയമ ഒബ്‌ജക്റ്റായോ നൽകാം."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "ഫയൽ വായിക്കുന്നവർക്കുള്ള കുറിപ്പ്."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "റിമോട്ട് പട്ടികകൾ ലയിച്ചതിന് ശേഷം, ഇഷ്ടാനുസൃത നിയമങ്ങൾക്ക് മുമ്പാണ് പാച്ചുകൾ പ്രവർത്തിക്കുന്നത്. <code>patches</code> മാത്രം ഉള്ള ഫയലിന് <code>providers</code> വേണ്ട."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "ലയിപ്പിക്കൽ ദാതാക്കളുടെ പേരുകൾ മാറ്റാം; അതിനാൽ അവയെ എപ്പോഴും കണ്ടെത്തുന്ന രൂപം <code>domainPattern:</code> അല്ലെങ്കിൽ <code>urlPattern:</code> ആണ്."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "മാറ്റിസ്ഥാപിച്ച നിയമം പഴയ id നിലനിർത്തുകയോ അതിനെ alias ആക്കുകയോ ചെയ്യും; അതിനാൽ ഓൺ/ഓഫ് ക്രമീകരണങ്ങൾ തുടർന്നും ബാധകമാകും."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "റീഡയറക്ടിനുള്ള പാച്ച് പട്ടികയ്ക്ക് <code>redirect</code> അംഗീകാരം ലഭിക്കുന്നതുവരെ കാത്തിരിക്കും. ലക്ഷ്യം ഒന്നുമായും പൊരുത്തപ്പെടാത്ത പാച്ച് മാറ്റമുണ്ടാക്കില്ല."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health ഓരോ പാച്ചും പ്രയോഗിച്ചു, പൊരുത്തമില്ല, അല്ലെങ്കിൽ ഒഴിവാക്കി എന്ന് കാണിക്കുന്നു."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. നിയമങ്ങളും അനുവദനീയ പട്ടികയും"
+  },
+  "guide_whitelist_p_1": {
+    "message": "അനുവദനീയ പട്ടിക ദാതാവിന്റെ <code>exceptions</code>യിൽ നിന്ന് വേറെയാണ്: നിയമ ഫയലൊന്നുമില്ലാതെ Linkumori അവഗണിക്കണമെന്ന് നിങ്ങൾ പറഞ്ഞ സൈറ്റുകളെ ഇത് പട്ടികപ്പെടുത്തുന്നു. എൻട്രികൾ <code>example.com</code>, <code>*.example.com</code> (സൈറ്റും സബ്‌ഡൊമെയ്‌നുകളും), അല്ലെങ്കിൽ <code>example.*</code> (ഏതെങ്കിലും സഫിക്സ്) പോലെയിരിക്കും. ഒരു പേജ് അനുവദനീയ പട്ടികയിൽ ചേർത്താൽ അത് ലോഡ് ചെയ്യുന്ന എല്ലാം ഉൾപ്പെടും."
+  },
+  "guide_examples_title_1": {
+    "message": "17. പൂർണ്ണ ഉദാഹരണങ്ങൾ"
+  },
+  "guide_checking_title_1": {
+    "message": "18. നിയമങ്ങൾ പരിശോധിക്കൽ"
+  },
+  "guide_checking_p_1": {
+    "message": "സേവ് ചെയ്യുമ്പോഴോ ഇറക്കുമതി ചെയ്യുമ്പോഴോ ഇഷ്ടാനുസൃത നിയമ എഡിറ്റർ നിയമങ്ങൾ പരിശോധിക്കുന്നു; <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code>യും അതേ പരിശോധന നടത്തുന്നു. തകരാറുള്ള JSON, അസാധുവായ regex എന്നിവയ്ക്കൊപ്പം, ലോഡ് ആയാലും തെറ്റായി പ്രവർത്തിക്കുന്ന നിയമങ്ങളും ഇവ നിരസിക്കുന്നു, ഉദാഹരണത്തിന്:"
+  },
+  "guide_checking_item_1": {
+    "message": "അറിയാത്ത ഫീൽഡുകൾ, കീകൾ, മോഡിഫയറുകൾ"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> മൂല്യം <code>\"1.0\"</code> അല്ലാതിരിക്കുക"
+  },
+  "guide_check_8": {
+    "message": "ഒരു ദാതാവിൽ id അല്ലെങ്കിൽ alias രണ്ടുതവണ ഉപയോഗിക്കുക"
+  },
+  "guide_checking_item_2": {
+    "message": "ഒരു പട്ടികയിലെ രണ്ട് വ്യത്യസ്ത എൻട്രികൾക്ക് ഒരേ ടെക്സ്റ്റ്"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> ഫിൽട്ടറിലോ <code>@@</code> എൻട്രിയിലോ <code>null</code> ഉൾപ്പെടെ <code>order</code> ഉണ്ടായിരിക്കുക"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> വിലാസം <code>http</code>, <code>https</code> അല്ലാതിരിക്കുക"
+  },
+  "guide_check_10": {
+    "message": "എസ്കേപ്പ് ഇല്ലാത്ത അക്ഷരത്തിന് മുമ്പ് <code>$removeparam</code> പേരിൽ ബാക്ക്‌സ്ലാഷ് വരിക"
+  },
+  "guide_checking_p_2": {
+    "message": "കൃത്യമായ പകർപ്പുകളെക്കുറിച്ചും <code>rules</code>, <code>referralMarketing</code> എന്നിവയിൽ ഒരേ ടെക്സ്റ്റ് ഉള്ളതിനെക്കുറിച്ചും മുന്നറിയിപ്പ് നൽകും. സേവ് പരാജയപ്പെട്ടാൽ സന്ദേശം ദാതാവ്, പട്ടിക, എൻട്രി എന്നിവയുടെ പേര് പറയും."
+  },
+  "guide_toc_search": {
+    "message": "വിഭാഗങ്ങൾ ഫിൽട്ടർ ചെയ്യുക"
+  },
+  "guide_toc_no_results": {
+    "message": "പൊരുത്തപ്പെടുന്ന വിഭാഗങ്ങളില്ല."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: \"|\" കൊണ്ട് തുടങ്ങുന്ന റീഡയറക്ട് ഇങ്ങനെ ആയിരിക്കണം: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= ലക്ഷ്യം ഒരു പൂർണ്ണ http അല്ലെങ്കിൽ https URL ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ ഒരു ഒബ്ജക്റ്റ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type ശൂന്യമല്ലാത്ത സ്ട്രിംഗ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type ഇവയിൽ ഒന്നായിരിക്കണം: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs \"all\" അല്ലെങ്കിൽ പോസിറ്റീവ് പൂർണ്ണസംഖ്യകളുടെ അറേ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ ഒരു സ്ട്രിംഗ് അല്ലെങ്കിൽ റൂൾ ഒബ്ജക്റ്റ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern ഒരു സ്ട്രിംഗ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern ഒരു സ്ട്രിംഗ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId ഒരു റൂൾ ID ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId rawRules-ലെ \"@@…$rawrule=\" ഒഴിവാക്കലുകൾക്ക് മാത്രമേ ബാധകമാകൂ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags ഒരു സ്ട്രിംഗ് ആയിരിക്കണം (\"i\" പോലുള്ള regex ഫ്ലാഗുകൾ)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing true അല്ലെങ്കിൽ false ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing $FIELD$-ൽ ബാധകമല്ല; $LISTS$-ൽ മാത്രമേ ബാധകമാകൂ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order ഒരു സംഖ്യയോ null-ഓ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order $FIELD$-ൽ ബാധകമല്ല; $LISTS$-ൽ മാത്രമേ ബാധകമാകൂ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order $removeparam ഫിൽട്ടറിനോ \"@@\" എൻട്രിക്കോ ബാധകമല്ല; അവ എല്ലായ്പ്പോഴും മറ്റ് റൂളുകൾക്ക് ശേഷം പ്രവർത്തിക്കും",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active ഒരു ബൂളിയൻ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id ഒരു സ്ട്രിംഗ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id $PATTERN$-നോട് പൊരുത്തപ്പെടണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases $PATTERN$-നോട് പൊരുത്തപ്പെടുന്ന ID-കളുടെ ലിസ്റ്റ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases-ൽ റൂളിന്റെ സ്വന്തം ID ഉണ്ടാകരുത്",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description ഒരു സ്ട്രിംഗ് ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection ഒരു ബൂളിയൻ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions സ്ട്രിംഗുകളുടെ അറേ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes സ്ട്രിംഗുകളുടെ അറേ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors ഒരു അറേ ആയിരിക്കണം",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: അറിയാത്ത ഫീൽഡ് \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ \"@@\" കൊണ്ട് തുടങ്ങുന്നു; ഇത് rules-ലും referralMarketing-ലുമുള്ള $removeparam ഫിൽട്ടറുകൾക്ക് മാത്രമേ ബാധകമാകൂ. പകരം റൂൾ ഒബ്ജക്റ്റിലെ \"exceptions\" ഉപയോഗിക്കുക",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$-ൽ അറിയാത്ത $removeparam ഓപ്ഷൻ \"$OPTION$\" ഉണ്ട്",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" ഒറ്റ \"|\" കൊണ്ട് തുടങ്ങുന്നു; അതിനാൽ അക്ഷരാർത്ഥത്തിൽ \"$REST$\" കൊണ്ട് തുടങ്ങുന്ന URL-കൾക്ക് മാത്രമേ പൊരുത്തപ്പെടൂ, അത്തരം URL-കളില്ല (URL-കൾ \"https://\" കൊണ്ടാണ് തുടങ്ങുന്നത്). ഡൊമെയ്‌നുമായി പൊരുത്തപ്പെടുത്താൻ \"||$REST$\" ഉപയോഗിക്കുക.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$-ൽ \"targetId\" ഉണ്ട്; ഇത് ഒരു ഒഴിവാക്കലിൽ മാത്രമേ പ്രവർത്തിക്കൂ. matchPattern \"@@\" കൊണ്ട് തുടങ്ങണം (ഉദാ. \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$-ൽ \"targetId\"-ഉം \"rawrule=\"-ന് ശേഷമുള്ള regex-ഉം ഉണ്ട്; ഇവയിൽ ഒന്ന് മാത്രം ഉപയോഗിക്കുക",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$-ലെ targetId \"$ID$\"-ന് പൊരുത്തപ്പെടുന്ന ID-യോ അപരനാമമോ ഈ provider-ലെ ഒരു raw rule-ലുമില്ല",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ \"$REGEX$\"-നുള്ള \"@@\" ഒഴിവാക്കലാണ്, എന്നാൽ ഈ provider-ലെ ഒരു raw rule-ഉം ആ regex ഉപയോഗിക്കുന്നില്ല. റൂളിന് ID നൽകി \"targetId\" ഉപയോഗിച്ച് അതിലേക്ക് ചൂണ്ടുക",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ ഒരു \"@@\" ഒഴിവാക്കലാണ്, അതിനാൽ \"$KEY$\" ഒന്നും ചെയ്യില്ല",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$-ൽ \"rawrule=\"-ന് ശേഷം ഒന്നുമില്ല; നീക്കം ചെയ്യേണ്ട regex ആവശ്യമാണ്",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$-ൽ \"rawrule=\"-ന് ശേഷം അസാധുവായ regex ഉണ്ട്: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$-ൽ $GROUPS$ ക്യാപ്ചർ ഗ്രൂപ്പുകളുണ്ട്; ലക്ഷ്യ URL-നെ ചുറ്റി കൃത്യമായി ഒരു \"( … )\" ഉണ്ടായിരിക്കണം (മറ്റ് ഗ്രൂപ്പുകൾ \"(?: … )\" എന്ന് എഴുതുക)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ $WHERE$-ൽ റൂൾ ID \"$ID$\" വീണ്ടും ഉപയോഗിക്കുന്നു; ആദ്യം ഉപയോഗിച്ചത് $FIRST$-ൽ",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ ഒരു JSON ഒബ്ജക്റ്റ് ആയിരിക്കണം",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ ഒരു അറേ ആയിരിക്കണം",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$-ൽ അറിയാത്ത കീ \"$KEY$\" ഉണ്ട്",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL പ്രോസസ് ചെയ്യുന്നതിൽ പിശക്: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "പേജ് ആരംഭിക്കുന്നതിൽ പിശക്: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "അസാധുവായ ടാബ്"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "ഈ ടാബിനായി റൂൾ തിരച്ചിൽ ഇതിനകം പ്രവർത്തിക്കുന്നു"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "ഈ ടാബിനായി താൽക്കാലികമായി നിർത്തിയ പരിശോധന പ്രവർത്തിക്കുന്നില്ല"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "റൂളുകൾ ഇപ്പോഴും ലോഡ് ചെയ്യുന്നു. കുറച്ച് കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "ഈ പേജിൽ പ്രവർത്തിച്ച റൂളുകളിൽ ഒന്നും ഓഫാക്കാനാകില്ല."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "റൂളുകൾ ഓഫാക്കാനായില്ല"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "ഈ ടാബിനായി റൂൾ തിരച്ചിൽ പ്രവർത്തിക്കുന്നില്ല"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "ഈ ടാബിനായി ഒഴിവാക്കാൻ കണ്ടെത്തിയ റൂളില്ല"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "ഡൗൺലോഡ് ലഭ്യമല്ല"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "സെഷൻ സ്റ്റോറേജിൽ റെക്കോർഡിംഗ് സംരക്ഷിക്കാനായില്ല"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "അറിയാത്ത റൂൾ"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "അറിയാത്ത പിശക്"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "എക്സ്പോർട്ട് പരാജയപ്പെട്ടു"
   }
 }

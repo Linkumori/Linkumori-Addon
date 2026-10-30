@@ -39,7 +39,7 @@
     "message": "Використовувати вбудовані правила Linkumori/ClearURLs. Вимкніть цю опцію, щоб використовувати лише віддалені та/або власні правила."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori використовує єдиний набір правил постачальника ClearURLsData. Власний постачальник JSON, об’єкти канонічного правила та локальні фільтри $removeparam постачальника об’єднуються перед запуском clearurls.js."
   },
   "bundled_rules_section_title": {
     "message": "Інформація про правила"
@@ -1137,25 +1137,25 @@
     "message": "Відкрити налаштування Linkumori"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Поведінка в режимі перевантаження"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Лише режим патча"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Застосуйте віддалені виправлення до вбудованих правил. Правила віддаленого постачальника не включені."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Режим виправлення + злиття"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Об’єднайте вбудовані та віддалені правила постачальника, а потім застосуйте віддалені виправлення."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Без режиму виправлення + злиття"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Об’єднайте вбудовані та віддалені правила постачальника без застосування віддалених виправлень."
   },
   "overload_mode_enabled": {
     "message": "Увімкнути режим перевантаження"
@@ -1221,7 +1221,7 @@
     "message": "Інформація про ліцензію та конфіденційність"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "GNU Загальна публічна ліцензія v3.0"
   },
   "popup_html_gpl_link_title": {
     "message": "Відкрити текст ліцензії GNU GPL v3.0"
@@ -1632,7 +1632,13 @@
     "message": "Повний"
   },
   "providerList_confirmDelete": {
-    "message": "Ви впевнені, що хочете видалити провайдера \"$1\"?"
+    "message": "Ви впевнені, що хочете видалити провайдера \"$1\"?",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
   },
   "providerList_copySuffix": {
     "message": "Копія"
@@ -1830,7 +1836,7 @@
     "message": "Основний URL хеша повинен використовувати HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Основне правило URL і основний хеш URL потрібно налаштувати разом."
   },
   "save_primary_rule_https_required": {
     "message": "Основний URL правила повинен використовувати HTTPS"
@@ -1866,13 +1872,13 @@
     "message": "Я розумію ризики — Продовжити"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Вам слід переглянути використання віддалених правил, якщо ви не повністю розумієте або не довіряєте джерелу набору правил Linkumori."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Ця функція віддалених правил розроблена для досвідчених користувачів, які розуміють Linkumori JSON, який вони завантажують. Віддалені правила мають містити відповідний хеш URL для перевірки."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Якщо ви додасте віддалене правило URL, розширення з’єднається з вашим призначеним сервером, щоб отримати набір правил Linkumori і його хеш-файл після налаштування. Кожне отримання може надати серверу хостингу вашу адресу IP і загальну інформацію, таку як версія розширення, браузер і версія браузера. Ці дані регулюються політикою конфіденційності цього веб-сайту або веб-сервера."
   },
   "security_modal_privacy_link_text": {
     "message": "За потреби ще раз прочитайте %PRIVACY_POLICY_LINK% перед продовженням."
@@ -1881,7 +1887,7 @@
     "message": "повідомлення про конфіденційність:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Використовуйте вбудовані правила, якщо не довіряєте віддаленому джерелу та не контролюєте його. Надайте відповідний хеш URL для віддалених правил Linkumori JSON."
   },
   "security_modal_risk_1": {
     "message": "Ваша IP-адреса та інформація про браузер будуть видимі налаштованим серверам"
@@ -1893,7 +1899,7 @@
     "message": "Перевірка хешу застосовується лише до правил Linkumori CLN Format 1.0 JSON; він захищає від втручання в передачу, а не від шкідливих джерел правил."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Віддалені правила без успішної перевірки хешу повністю покладаються на довіру до джерела URL."
   },
   "security_modal_risks_title": {
     "message": "Ризики безпеки:"
@@ -1908,7 +1914,7 @@
     "message": "URL-адреса файлу rules.hash (хеш)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Необхідно для віддаленої перевірки правила Linkumori JSON."
   },
   "setting_html_export_button": {
     "message": "Експорт"
@@ -1938,7 +1944,7 @@
     "message": "Ліміт журналу (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Додаткові віддалені джерела Linkumori JSON об’єднані разом. Введіть одну пару на рядок як <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Додаткові набори віддалених правил"
@@ -1947,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Спеціальний пульт URL для правил Linkumori JSON"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL до віддаленого файлу правил JSON"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Хеш URL потрібен для кожного віддаленого набору правил."
   },
   "settings_html_page_title": {
     "message": "Налаштування Linkumori (Clean URLS)"
@@ -2415,19 +2421,19 @@
     "message": "ПОПЕРЕДЖЕННЯ: Розширена функція, призначена лише для самостійно розміщених серверів"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Ви вимикаєте захист Gatekeeper для віддаленого редагування правила URL. Ця функція може завантажувати віддалені правила Linkumori JSON в уніфікований набір правил постачальника. Продовжуйте, лише якщо ви розумієте та довіряєте джерелу, яке налаштовуєте."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper — це вбудований процес безпеки, який блокує пряме редагування віддалених URL, доки ви не підтвердите попередження безпеки та не завершите підтвердження введенням."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Залиште Gatekeeper увімкненим, якщо ви не довіряєте та не контролюєте свої віддалені джерела. Віддалені правила JSON мають містити відповідний хеш URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "повідомлення про конфіденційність:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Якщо ви додасте віддалене правило URL, розширення з’єднається з вашим призначеним сервером, щоб отримати набір правил Linkumori і його хеш-файл після налаштування. Кожне отримання може надати серверу хостингу вашу адресу IP і загальну інформацію, таку як версія розширення, браузер і версія браузера. Ці дані регулюються політикою конфіденційності цього веб-сайту або веб-сервера."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "За потреби ще раз прочитайте %PRIVACY_POLICY_LINK% перед продовженням."
@@ -2442,7 +2448,7 @@
     "message": "Розширення підключатиметься до вказаної вами URL-адреси щоразу, коли розширення ввімкнено та завантажено у вашому браузері."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Сервер, на якому розміщено віддалені JSON або хеш-файли, отримає вашу адресу IP."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Сервер також може отримувати версію вашого розширення, браузер та версію браузера."
@@ -2451,7 +2457,7 @@
     "message": "Ці дані підпадають під дію політики конфіденційності веб-сайту або веб-сервера, на якому розміщено ці файли."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Вимкнувши Gatekeeper, ви збільшуєте ризик від небезпечних або скомпрометованих віддалених джерел правил. Перевірка хешу захищає віддалені завантаження Linkumori JSON, лише якщо налаштовано відповідний хеш URL."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Скасувати"
@@ -2511,7 +2517,7 @@
     "message": "Введіть точну фразу підтвердження"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Ця дія зменшує захист для віддалених правил. Продовжуйте, лише якщо ви довіряєте своєму віддаленому джерелу JSON."
   },
   "remote_urls_template_note_1": {
     "message": "Замініть значення-заповнювачі на свої реальні HTTPS URL, а потім імпортуйте цей файл."
@@ -2841,10 +2847,10 @@
     "message": "Немає"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Колізії правил:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "Помилки $ERRORS$, попередження $WARNINGS$, повідомлення $NOTICES$",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2861,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Можливості віддаленого файлу:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "неактивний до прийняття: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2873,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Прийняти $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2882,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Патчі правил:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ застосовано, $NOT_APPLIED$ не застосовано",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2898,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Стандартні значення правил"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Вбудований"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Користувацький"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Немає — вбудована поведінка"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Режим перевантаження поєднує вбудовані та віддалені правила; правила кожного джерела зберігають власні налаштування цього джерела за замовчуванням."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Зберегти параметри за замовчуванням"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Стандартні параметри збережено"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Коли ввімкнено, кожне джерело правил зберігає власні параметри за замовчуванням (вбудовані параметри за замовчуванням застосовуються до вбудованих правил, а для кожного віддаленого файлу за замовчуванням застосовуються правила цього файлу), якщо ви не виберете власні параметри за замовчуванням у редакторі спеціальних правил."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Пульт: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2931,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Які стандартні значення застосовуються"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Кожне джерело своє"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Ваші вбудовані та віддалені правила"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Ваші за всіма правилами"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(замінено вашими параметрами за замовчуванням)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Ваша"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "Типи запитів $COUNT$",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2958,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL винятки",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2967,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 виняток URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ препроцесорів",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2979,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Правила кожного джерела отримують власні значення за замовчуванням цього джерела."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Вбудовані та віддалені правила отримують ваші параметри за замовчуванням замість власних файлів; звичайні правила залишаються своїми."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Вбудовані, віддалені та власні правила отримують ваші значення за умовчанням замість власних."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Керувати правилами за замовчуванням"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Типові значення заповнюють значення, які правило не встановлює саме по собі. Власне значення правила завжди перемагає, а винятки постачальника ніколи не змінюються."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Редагувати значення за замовчуванням"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Ваші параметри за умовчанням"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Стандартні параметри спеціальних правил"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "За замовчуванням для редагування"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Вбудовані правила"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(відредаговано)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Відновити параметри файлу за замовчуванням"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Об’єднати з джерел…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Стандартні параметри правила злиття"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Результат з’явиться у списку як «Об’єднані значення за замовчуванням». Скопіюйте його в набір там, а потім натисніть «Зберегти за замовчуванням», щоб використати його."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Джерела для об’єднання"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Конфлікти"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Об’єднані параметри за замовчуванням"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Використовувати об’єднані параметри за замовчуванням"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Об’єднані параметри за замовчуванням"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Не використовується, доки ви не скопіюєте його в один з інших наборів і не збережете."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Копіювати в"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Копія"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Виберіть принаймні два джерела."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Жодних конфліктів: вибрані джерела погоджуються щодо кожного значення."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Винятки додаються з кожного джерела: всього $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3063,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Об’єднані з усіх джерел"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Від: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3075,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Не встановлено (вбудована поведінка)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Не встановлено: кожен тип запиту"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Зараз не використовується: ваші налаштування за замовчуванням замінюють власні вбудовані та віддалені правила."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Відредаговано вами: вони замінюють власні параметри файлу за замовчуванням. Сам файл не змінюється."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(відредаговано вами)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Зараз не використовується: вище вибрано \"Кожне джерело своє\"."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Зараз не використовується: ваші налаштування за замовчуванням також замінюють ці для спеціальних правил."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Початок правил вимкнено (активний: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "опис"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Типи запитів"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Всі види"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Тільки ці"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Виберіть принаймні один тип запиту або виберіть «Усі типи»."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Правила очищають усі типи запитів, якщо вони або за замовчуванням не вказують деякі. Постачальники також можуть обмежувати типи за допомогою resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Винятки"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Один регулярний вираз URL на рядок. Правила пропускаються при відповідності URLs."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Препроцесори"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Вхідні дані: \"усі\" або захоплення номерів груп, наприклад 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Додати препроцесор"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Тип препроцесора"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Входи препроцесора"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "видалити"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Вхідні дані препроцесора \"$INPUTS$\" мають бути \"всі\" або числа, наприклад 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3150,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Вимкнути захист від обходу історії (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Показати як JSON"
   },
   "settings_remote_health_unknown": {
     "message": "невідомо"
@@ -3999,10 +4005,10 @@
     "message": "Посібник постачальника JSON"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Відкрийте посібник із правил Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Який синтаксис правила слід використовувати?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4011,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Відкрити посібник з правил"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Не вдалося завантажити джерела постачальника: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Збірні правила недоступні."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Не вдалося завантажити об’єднані правила: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Не вдалося перемкнути мову на $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Світла тема"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Темна тема"
   },
   "posarCopied": {
     "message": "POSAR скопійовано!"
@@ -4053,100 +4059,100 @@
     "message": "POSAR прийнято."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Скинути"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Інструменти доступності"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Відкрийте Інструменти доступності"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Закрийте інструменти доступності"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Скинути всі налаштування доступності"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Бачення"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Читання"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Взаємодія"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Високий контраст"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Кольоровий фільтр"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "насиченість"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Інвертувати"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Виділіть посилання"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Приховати зображення"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Збільшення розміру тексту"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Зменшення розміру тексту"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Розмір тексту за замовчуванням"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Вибір шрифту"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Дружній до дислексії"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Інтервал між текстом"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Висота лінії"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Вирівнювання тексту"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Призупинити анімацію"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Більший курсор"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "За замовчуванням"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Середній"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Високий"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Ультра"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Низький"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Жодного"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "світло"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Важка"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4167,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Без фільтра"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Протанопія"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Дейтеранопія"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Тританопія"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Відтінки сірого"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Ліворуч"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "центр"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "правильно"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Дуже малий"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Маленький"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Великий"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Дуже великий"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Найбільший"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Увімкнено"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Вимкнено"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4218,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "включено"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "вимкнено"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Вибрано розмір тексту за замовчуванням"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Усі налаштування доступності скинуто"
+  },
+  "skip_to_main_content": {
+    "message": "Перейти до основного вмісту"
+  },
+  "popupNavAriaLabel": {
+    "message": "Спливаюча навігація"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Користувальницькі перегляди правил"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Перегляд журналу"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Захист обходу історії (пропустити під час навігації по сторінці)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Перенаправлення полів"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Копіювати правило"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Правило скопійовано"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Не вдалося скопіювати правило"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Що робить historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Односторінкові сайти часто змінюють адресу з історією.pushState/replaceState замість завантаження нової сторінки. Linkumori також очищає ці адреси. Додайте history-bypass-protection=false до фільтра $removeparam, щоб пропустити лише цей фільтр для цих змін на сторінці; він все ще працює на звичайні запити."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Щоб пропустити весь постачальник для змін на сторінці, установіть його на постачальнику:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Залишено, це правда, а зміни на сторінці видаляються. Власні налаштування правила перевершують параметри постачальника, тому правило може знову ввімкнути history-bypass-protection=true або \"historyBypassProtection\": true в об’єкті правила."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Пропускає навігацію на сторінці"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Перейменуйте ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Новий ідентифікатор для $OLD$ (a-z, 0-9, - і _). Старий ідентифікатор зберігається як псевдонім, тому правила, вимкнені під ним, залишаються вимкненими.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" не є дійсним ідентифікатором. Використовуйте малі літери, цифри - і _, починаючи з літери або цифри.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Інше правило цього провайдера вже використовує \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Вимкнути правило"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Вимкнути $ID$ для всього постачальника чи лише для цього шаблону URL/домену?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Мій провайдер"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "Шаблон URL/домен"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Ідентифікатор правила перейменовано на $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Осиротілі тумблери"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Вихідне правило не знайдено"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "видалити"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Пропускає очищення навігації на сторінці"
+  },
+  "whitelist_added_general": {
+    "message": "%s додано до загального білого списку"
+  },
+  "whitelist_added_history_api": {
+    "message": "Додано %s як виняток історії API"
+  },
+  "whitelist_exception_count": {
+    "message": "%d винятки"
+  },
+  "whitelist_exception_empty": {
+    "message": "Немає винятків із білого списку"
+  },
+  "whitelist_mode_general": {
+    "message": "Загальний білий список"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Тільки історія API"
+  },
+  "whitelist_mode_label": {
+    "message": "Область дії білого списку"
+  },
+  "whitelist_removed_general": {
+    "message": "Видалено %s із загального білого списку"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Видалено винятки історії API для %s"
+  },
+  "whitelist_type_general": {
+    "message": "Загальний"
+  },
+  "whitelist_type_history_api": {
+    "message": "Тільки історія API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Додати $1 до загального білого списку"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Загальний білий список: $1 - натисніть лише для історії API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Виняток історії API: $1 - натисніть лише для цієї вкладки"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Лише вкладка: $1 – натисніть, щоб видалити"
+  },
+  "logger_action_allowed": {
+    "message": "Дозволено"
+  },
+  "logger_action_blocked": {
+    "message": "заблоковано"
+  },
+  "logger_action_filter_label": {
+    "message": "Дія"
+  },
+  "logger_action_info": {
+    "message": "Інформація"
+  },
+  "logger_action_modified": {
+    "message": "Змінено"
+  },
+  "logger_action_redirected": {
+    "message": "Перенаправлено"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Копіювати резюме"
+  },
+  "logger_btn_export": {
+    "message": "Експорт"
+  },
+  "logger_btn_group": {
+    "message": "Згрупуйте за правилом"
+  },
+  "logger_col_hits": {
+    "message": "Хіти"
+  },
+  "logger_col_last_seen": {
+    "message": "Востаннє бачили"
+  },
+  "logger_detail_group_title": {
+    "message": "Деталь правила"
+  },
+  "logger_detail_all_urls": {
+    "message": "URLs ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Вкладки"
+  },
+  "logger_exported": {
+    "message": "Експортовані записи $1."
+  },
+  "logger_filter_all": {
+    "message": "все"
+  },
+  "logger_report_rule": {
+    "message": "Повідомте про це"
+  },
+  "logger_rule_disable": {
+    "message": "Вимкніть правило"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Правило $1 вимкнено. Перезавантажте сторінку, щоб перевірити."
+  },
+  "logger_rule_enable": {
+    "message": "Увімкніть правило"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Правило $1 знову ввімкнено."
+  },
+  "logger_rule_failed": {
+    "message": "Не вдалося змінити правило."
+  },
+  "logger_rule_off": {
+    "message": "Правило вимкнено"
+  },
+  "logger_rule_on": {
+    "message": "Правило ввімкнено"
+  },
+  "logger_rule_unavailable": {
+    "message": "Це правило не можна змінити звідси."
+  },
+  "logger_status_rules": {
+    "message": "Правила $1"
+  },
+  "logger_summary_copied": {
+    "message": "Резюме скопійовано."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Не вдалося скопіювати резюме."
+  },
+  "logger_type_filter_label": {
+    "message": "Тип"
+  },
+  "logger_btn_logging_off": {
+    "message": "Вихід із системи"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Логування вимкнено. Натисніть, щоб увімкнути його."
+  },
+  "logger_btn_logging_on": {
+    "message": "Вхід в систему"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Журнал увімкнено. Натисніть, щоб вимкнути його."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Не вдалося змінити налаштування журналювання."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Додати правило рефералу"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Додати необроблений виняток правила"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Додати перенаправлення поля"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Додати виняток"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Кожен шаблон додає об’єкт правила з ідентифікатором і заповнювачем matchPattern на example.com. Запис також може бути звичайним рядком: назвою параметра, регулярним виразом імені, фільтром $removeparam або, у rawRules, регулярним виразом. Об’єкти правила приймають id, псевдоніми, matchPattern, replacePattern, preprocessors, requestTypes, винятки, прапорці, порядок, referralMarketing, historyBypassProtection, активний, опис і targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Лінтер"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Проблем не виявлено."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Помилка"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Попередження"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ помилка(и), $WARNINGS$ попередження(я)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Виконати порядок"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ крок(и) у порядку їх виконання",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Немає записів rawRules, правил або referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Опрацьовано движком з тексту вище, збережено чи ні. Кроки сортування за (етап, orderGroup, порядок, ранг, arrayIndex): необроблені правила виконуються перед правилами поля; у межах етапу спочатку запускаються записи з порядком, спочатку найнижчі, потім решта за списком і позиціями."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Реферальний маркетинг"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Реферал видалено"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Рекомендація дозволена"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Сирий"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Поле"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Направлення"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(генерується)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "замовлення $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "переписує"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "замінює $COUNT$ попередні визначення(я)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "додано completeProvider: видаляє всі параметри"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Вимкнено"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Вимкнено для деяких шаблонів"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Ключ сортування: (етап, orderGroup, порядок, ранг, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Потім фільтр(и) $FILTERS$ $removeparam і винятки $EXCEPTIONS$ @@ після кожного кроку вище",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= винятки можуть зупиняти необроблені правила вище, де вони відповідають",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Перетягніть крок або використовуйте його стрілки, щоб перемістити його в межах його етапу. Переміщення дає кожному входу цього етапу порядок 10, 20, 30, … у новій послідовності."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Перемикач на реферал вилучено, щоб змінити порядок: у цьому поданні відображається кожен запис."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Перетягніть, щоб переміститися"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Перемістіть $ENTRY$ раніше",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Перемістіть $ENTRY$ пізніше",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Переміщено $ENTRY$ на позицію $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Скасувати переміщення"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Переміщення скасовано"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Симулювати"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Запускає цього постачальника на URL-адресі так само, як очищення скопійованого посилання, з урахуванням вимкнених вами правил і вибраного вище параметра реферального маркетингу, та показує URL-адресу після кожного кроку. Інші постачальники не запускаються. Кнопка «Створити тестову URL-адресу» створює її на основі правил цього постачальника."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Тест URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "бігти"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Пройдіть через симуляцію"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "старт"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Попередній"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Далі"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Кінець"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "грати"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Пауза"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL перед будь-яким кроком"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Пройти $PASS$ · крок $STEP$ з $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "без змін"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "Фільтри $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Перехід $PASS$ нічого не змінює, тому очищення припиняється",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Цей постачальник зупиняється тут: ліміт циклу досягнуто, URL повернувся до попереднього, або він більше не відповідає постачальнику"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Пройти перенаправлення $PASS$; прибирання відбувається за новою адресою у кожного провайдера",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Провайдер блокує цей запит (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Результат"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Шаблони цього постачальника не відповідають цьому URL, тому жодне з його правил не виконується."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Цей URL відповідає одному з винятків постачальника, тому жодне з його правил не виконується."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Введіть повний http:// або https:// URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Не вдалося запустити моделювання. Перевірте JSON вище."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Згенеруйте тест URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Створено з правил цього постачальника: текст для необроблених правил $RAW$ і параметрів $PARAMS$, кожен з яких перевірено на відповідність своєму правилу. keep=1 не відповідає жодному правилу та має залишатися. Перенаправлення та блокування не включені, оскільки вони завершуватимуть запуск перед іншими правилами.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Жоден хост не може бути створений таким, щоб він відповідав шаблонам цього постачальника, тому URL використовує інший хост, і постачальник не працюватиме на ньому."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Кожен URL, який відповідає шаблонам цього постачальника, покривається одним із власних винятків, тому його правила ніколи не виконуються."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ правило (правила), пропущене в тесті URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "жоден текст не може бути створений, щоб він відповідав"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "його текст створить відповідність одному з винятків постачальника"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "він видаляє всі параметри, тому не потребує власних параметрів"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Цей постачальник має фільтр $removeparam без імені, який видаляє всі параметри, включаючи keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "немає порядку"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "замовлення $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Відновити номери замовлень"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Поверніть кожне замовлення, як воно було, коли ви відкривали цього постачальника"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Номери замовлень відновлено"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Сховати"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Показати"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Чіткі попередження"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Відновити попередження"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "Попередження $COUNT$ видалено",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern без indexPattern перевіряється за кожним URL; додати підказки indexPattern, наприклад \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ повторює \"$ENTRY$\"; копія нічого не робить і обидва мають один ідентифікатор",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ все ще має покажчик місця заповнення шаблону \"$PATTERN$\"; замініть його справжнім шаблоном",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ має matchPattern \"(?!)\", який ніколи нічого не відповідає",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Усунення несправностей"
+  },
+  "troubleshooter_launch": {
+    "message": "Усунення несправностей цієї вкладки (експериментально)"
+  },
+  "troubleshooter_title": {
+    "message": "Засіб усунення несправностей вкладки"
+  },
+  "troubleshooter_page": {
+    "message": "Сторінка"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Як працює запис"
+  },
+  "troubleshooter_about_note": {
+    "message": "Відкриття цього подання може перевірити сторінку URL, але нічого не записати. Запис буде вимкнено, доки ви не виберете «Почати запис». Запуск перезавантажує цю вкладку, щоб отримати її запити ресурсів. Захоплені URLs залишаються в сховищі сеансу протягом цього сеансу браузера та очищаються, коли ця вкладка закривається або сеанс браузера завершується. Запис припиняється через 15 хвилин, якщо ви не зупините його раніше. Ресурс URLs може містити приватні дані запиту."
+  },
+  "troubleshooter_start": {
+    "message": "Почніть запис"
+  },
+  "troubleshooter_starting": {
+    "message": "Початок..."
+  },
+  "troubleshooter_recording": {
+    "message": "Запис..."
+  },
+  "troubleshooter_stop": {
+    "message": "Зупинити запис"
+  },
+  "troubleshooter_refresh": {
+    "message": "Оновити"
+  },
+  "troubleshooter_copy": {
+    "message": "Копіювати резюме"
+  },
+  "troubleshooter_export": {
+    "message": "Експорт"
+  },
+  "troubleshooter_export_title": {
+    "message": "Збережіть запис як файл JSON. Ресурс URLs може містити приватні дані запиту."
+  },
+  "troubleshooter_category": {
+    "message": "Категорія"
+  },
+  "troubleshooter_category_all": {
+    "message": "Всі категорії"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "Правила URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Перенаправлення"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Захист і обходи"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Тип ресурсу"
+  },
+  "troubleshooter_type_all": {
+    "message": "Усі види ресурсів"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Правила пошуку, провайдери та URLs"
+  },
+  "troubleshooter_timer": {
+    "message": "Запис $1 · $2 залишилося"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Перевірка цієї вкладки…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Жодна активна вкладка недоступна."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Ця сторінка не дозволяє перевірку правил URL. Відкрийте звичайну веб-сторінку http або https."
+  },
+  "troubleshooter_status_off": {
+    "message": "Запис вимкнено. Почніть запис, щоб перевірити ресурс URLs, завантажений цією сторінкою."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL зміни, зафіксовані на даний момент. Нові з'являються тут автоматично."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Запис зупинено. $1 URL зміни зафіксовано."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Дані запису не вдалося зберегти в пам’яті сеансу. $1 URL зміни можуть бути втрачені, якщо розширення перезавантажиться."
+  },
+  "troubleshooter_status_started": {
+    "message": "Запис розпочато, вкладка перезавантажується. Захоплені URLs з’являються тут під час завантаження сторінки."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Запис зупинено. $1 URL зміни, зафіксовані та збережені для цього сеансу веб-переглядача."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Запис зупинено. $1 URL зміни зафіксовано, але сховище сеансу не змогло їх зберегти."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Спочатку відкрийте звичайну веб-сторінку http або https."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Не вдалося почати запис для цієї вкладки."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Не вдалося зупинити запис для цієї вкладки."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Не вдалося прочитати цю вкладку. Спробуйте закрити та знову відкрити спливаюче вікно."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Резюме скопійовано."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Не вдалося скопіювати резюме."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Запис експортовано."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Не вдалося експортувати запис."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Не вдалося відкрити форму звіту."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Правило ввімкнено; перезавантажте вкладку для порівняння."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Правило вимкнено; перезавантажте вкладку для порівняння."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Не вдалося оновити це правило."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Змін правил ще не знайдено. Почніть запис, щоб перевірити ресурс цієї сторінки URLs."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Цю сторінку браузера неможливо просканувати."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Жодна знахідка не відповідає цим фільтрам."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Показано перші правила $1."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 звернень(а)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 не вдалося"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Правило ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Вбудована дія захисту (без правила ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Правило ID: недоступне для цього висновку"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Не вдалося вирішити це правило ID у поточному наборі правил."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Спостережений запит"
+  },
+  "troubleshooter_source_page": {
+    "message": "Перевірка сторінки URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Що змінилося: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Постраждало URLs ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…та ще $1"
+  },
+  "troubleshooter_after": {
+    "message": "Після Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Помилка після зміни Linkumori: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Це правило ввімкнено. Вимкніть його та перезавантажте, щоб порівняти сторінку."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Це правило вимкнено. Увімкніть його та перезавантажте, щоб відновити його поведінку."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Це вбудована дія захисту, а не окреме правило."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Перш ніж змінювати правила, перегляньте відповідний URL."
+  },
+  "troubleshooter_report": {
+    "message": "Повідомте про це правило"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Вимкнути правило"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Увімкнути правило"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Вимкнути правило $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Увімкнути правило $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Збереження…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "видалено $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "додано $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "змінено $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "переспрямовано на $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "шлях змінився"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "фрагмент змінений"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL змінено"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "заблоковано навмисно"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "Запит(и) $1 не виконано на цій сторінці; $2 одразу після того, як Linkumori змінив URL"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Ця сторінка зламана?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Знайдіть правило, яке його порушує: правила, які виконувалися на цій сторінці, вимикаються по одному, і після кожного ви говорите, чи сторінку виправлено. Не впевнені, що причиною є Linkumori? Перевірте, спочатку призупинивши очищення."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Перевірте, спочатку призупинивши очищення"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Очищення призупинено для $1 на цій вкладці"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Вкладку перезавантажено без очищення. Зараз сторінка працює?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Так, працює"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Ні, все ще зламаний"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Скасувати"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Готово"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Можливо, не Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Сторінка все ще була зламана, очищення призупинено, тому проблема, ймовірно, в іншому місці: на самому сайті, іншому розширенні чи мережі. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Ймовірно, причиною є Linkumori"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Сторінка працює з паузою очищення. Знайдіть правило: правила вимикаються по черзі, вкладка перезавантажується, а ви говорите, чи сторінка виправлена. Кожне інше правило знову вмикається в кінці."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Вкладка перезавантажується з відновленням очищення, щоб записати, які правила виконуються на цій сторінці. За мить вони з’являються тут. Якщо ніхто не робить, використовуйте сторінку, доки вона не зламається."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Знайдіть правило (правила $1)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Так, виправлено"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Ні, все ще зламаний"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Знайшов"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Сторінка розривається через правило $1$2. Його знову вмикають. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Вимкніть це правило"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Повідомте про це"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Правило вимкнено. Перезавантажте вкладку, щоб перевірити. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Не знайдено єдиного правила"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Вимкнення правил по черзі не виправило сторінку, тож, ймовірно, це викликано кількома правилами разом або налаштуванням захисту. Кожне правило знову ввімкнено. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Не вдалося виконати перевірку: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Перезавантажте Linkumori, щоб використати цю перевірку"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori було оновлено, але у його фоновій частині все ще працює стара версія. Перезавантажте розширення (для тимчасового доповнення: about:debugging → Цей Firefox → Перезавантажте) або перезапустіть Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Знайшов"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Сторінка розривається через правило $1$2. Він залишається вимкненим, тому сторінка працює; всі інші правила знову включені. Перезавантажте вкладку, щоб перевірити. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Перезавантажити вкладку"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Увімкніть його знову"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Правило знову ввімкнено. Перезавантажте вкладку, щоб перевірити. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Запишіть і знайдіть правило"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Запис, які правила виконуються на цій сторінці. Використовуйте сторінку, поки вона не зламається; правила відображаються тут."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Поки що вимкнено пошуком по правилам. Він знову вмикається після завершення пошуку."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Виконується пошук за правилом. Змініть правила після його закінчення."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Пропустити — увімкнути знову"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Тримайте це"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Пошук за правилом пропущено; усі правила діють знову. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Правило $1 не працює. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Вимкнено для цього тесту:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…та ще $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Зупинити пошук"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Пропущено: це правило знову ввімкнено та пропущено. Тестування наступного."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Серед перевірених правил не знайдено жодного правила. Правила $1, які ви пропустили, не перевірялися. Усі правила діють знову. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_experimental": {
+    "message": "Експериментальний"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Експериментальний: цей засіб вирішення проблем не є повністю стабільним. Його результати можуть бути неправильними, і він вимикає правила під час тестування. Якщо згодом щось виглядає не так, перевірте свої правила в редакторі спеціальних правил або скористайтеся Зупинити пошук, щоб увімкнути їх знову."
+  },
+  "troubleshooter_working": {
+    "message": "Робота…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Запис знову"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Старий запис видалено. Знову запис цієї вкладки з нового завантаження."
+  },
+  "troubleshooter_clear": {
+    "message": "ясно"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Очистити записи цієї вкладки, результати та завершений пошук за правилом. Правила залишаються такими, як є."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Очищено. Правила залишаються такими, як є."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Очищено. Правило $1 не працює."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Тестування одного правила за раз — правило $1 з $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Тільки це правило вимикається, а вкладка перезавантажується. Зараз сторінка виправлена?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Пропустіть це правило"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Пропустити — увімкнути знову, перевірити далі (залишилося $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 інші правила, які запускалися на цій сторінці, не перевірялися. Ви хочете продовжити їх тестування?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Не вимкнено, перевірте наступним (залишилося $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Правило $1 не працює. Перевірка наступного правила."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Жодне інше правило не виправляє сторінку самостійно. Правила $1, які ви не використовували, залишаються неактивними; всі інші правила знову ввімкнено. Щоб почати спочатку, натисніть Очистити."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Перевірте наступне правило (зліва $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Правило $1 знову ввімкнено та виключено. Перевірка наступного правила."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Жодне інше правило не виправляє сторінку самостійно. Правила $1, які ви пропустили, також знову ввімкнено, тому кожне правило ввімкнено знову. Щоб почати спочатку, натисніть Очистити."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori очищає URLs за допомогою правил, написаних у форматі <strong>CLN 1.0</strong> (нотація чистого посилання), формат JSON. У цьому посібнику йдеться від першого правила до кожного варіанту з прикладами, які можна скопіювати."
+  },
+  "guide_intro_p_2": {
+    "message": "Вбудовані правила, списки віддалених правил і ваші власні правила використовують однаковий формат. Ви пишете спеціальні правила в редакторі спеціальних правил, який перевіряє їх під час збереження або імпорту. Офіційний каталог правил ClearURLs (<code>data.min.json</code>) уже є дійсним файлом CLN, і його можна використовувати як є."
+  },
+  "guide_rules_file_p_1": {
+    "message": "Назва постачальника є лише міткою. Який URLs обробляє постачальник, вирішує <code>domainPatterns</code> або <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Ключ верхнього рівня"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Обов'язковий. Провайдери, поіменно."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Необов'язкова версія формату. Єдиним дійсним значенням є <code>\"1.0\"</code>. Файл без нього також читається як 1.0; будь-яке інше значення відхиляє файл. Воно не називається <code>version</code>, оскільки новий формат правила ClearURLs уже використовує цей ключ."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Додаткова інформація про файл."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Значення для кожного правила файлу, яке не встановлює власне (розділ 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Лише віддалені списки правил: заміни правил, які вже завантажено (розділ 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Який URLs обробляє постачальник, як один шаблон домену або їх список (розділ 3). Використовуйте це або <code>urlPattern</code>, ніколи обидва."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Який URLs обробляє постачальник, як один регулярний вираз, який відповідає повному URL. Регістр ігнорується."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Лише з <code>urlPattern</code>: підказки щодо хостів, наприклад <code>||example.com^</code>, тому постачальник перевіряється лише для цих хостів, а не для кожного URL. Це підказка пошуку, а не умова збігу."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Параметри рефералів і партнерів, які потрібно видалити. Пропущено, коли ввімкнено <em>Дозволити реферальний маркетинг</em> (розділ 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URLs провайдер залишає в спокої (розділ 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Надішліть запит на іншу адресу, а не редагуйте його (розділ 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Надішліть запит до значення параметра (розділ 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: коли завантаження сторінки (<code>main_frame</code>) перенаправляється, уся вкладка переходить на нову адресу, а не лише мережевий запит."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Обробляйте лише ці методи HTTP, наприклад <code>[\"GET\"]</code>. Залишено: кожен метод."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Обробляйте лише ці типи запитів, наприклад <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Виключено: кожен тип запиту."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "За замовчуванням <code>true</code>. <code>false</code> пропускає весь провайдер, коли сторінка змінює власну адресу з історією API (<code>pushState</code>/<code>replaceState</code>). Звичайні мережеві запити все ще очищаються."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> вимикає провайдера, не видаляючи його."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> — це список шаблонів домену. URL відповідає, якщо будь-який із них збігається. Ті самі шаблони використовуються перед фільтрами <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> і необробленими правилами."
+  },
+  "guide_matching_cell_1": {
+    "message": "повний URL, як регулярний вираз"
+  },
+  "guide_matching_cell_2": {
+    "message": "URLs, які містять цей текст будь-де (без початкового <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> позначає кінець імені хоста або роздільник, наприклад <code>/</code>, <code>?</code>, <code>:</code> або кінець URL. <code>*</code> є символом підстановки."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> означає домен: хост і кожен субдомен. Один <code>|</code> позначає самий початок URL і має супроводжуватися такою схемою, як <code>https://</code>. Для домену ви завжди хочете <code>||</code>; <code>|example.com^</code> ніколи не може збігатися, тому редактор відхиляє його."
+  },
+  "guide_matching_p_4": {
+    "message": "Наприклад, <code>||smile.amazon.*^</code> читається як: <code>||</code> хост і його субдомени, <code>smile.amazon</code> необхідні мітки, <code>.*</code> будь-який публічний суфікс (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), і <code>^</code> кінець хоста."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "саме цей параметр"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "кожен параметр, повна назва якого відповідає; регістр ігнорується"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> і <code>\"$removeparam=fbclid\"</code> видаляють те саме. Використовуйте звичайну назву, якщо вам не знадобиться щось із розділу 5. Будь-який запис також можна записати як об’єкт правила (розділ 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Тут <code>qid</code> видаляється на кожному сайті Amazon, <code>tag</code> лише на <code>amazon.de</code>, лише <code>sr</code> на <code>smile.amazon</code> і <code>ref_</code> лише під <code>/gp/</code>. Шаблон звужує власні шаблони постачальника; воно ніколи не зможе їх розширити."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> перетворює фільтр на виняток, який зберігає параметр (див. нижче)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> звужує дію фільтра до частини URL-адрес постачальника (розділ 3). Якщо його не вказати, фільтр застосовується до кожної URL-адреси, якій відповідає постачальник."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> вибирає параметри. Якщо залишено, усі параметри буде видалено."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Модифікатори кажуть, коли спрацьовує фільтр. Кожен перерахований модифікатор має зберігатися; між ними немає «або»."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "кожен параметр, крім <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "параметри, назва яких або <code>name=value</code> разом відповідає регулярному виразу; додати <code>i</code>, щоб ігнорувати регістр"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "параметри, назва яких починається з <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Екранування імені параметра"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Зворотний слеш робить наступний символ літералом, тому будь-яке ім’я параметра може бути націленим:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Значення"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Видаляє названий параметр"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (кома не починається з модифікаторів)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Ці п’ять є єдиними вихідними сигналами в значенні імені; зворотна коса риска перед будь-яким іншим символом є помилкою. Усередині значення <code>/regex/</code> зворотна коса риска зберігає значення регулярного виразу. Втечі працюють у <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> і записи <code>@@</code>. У JSON напишіть кожну зворотну косу риску двічі: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Модифікатори"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Модифікатори йдуть після значення, розділені комами. Відокремте кілька значень одного модифікатора <code>|</code> і поставте <code>~</code> перед значенням, щоб виключити його:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Модифікатор"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "лише якщо сторінка, яка зробила запит, є (або, з <code>~</code>, не є) однією з цих; допустимі значення регулярного виразу"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "лише тоді, коли сам запит надходить до одного з них, незалежно від того, яка сторінка його створила"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "лише для цих методів HTTP: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "лише тоді, коли запит надходить до того самого реєстрованого домену, що й сторінка (<code>a.example.com</code> і <code>b.example.com</code> вважаються однаковими), або до іншого"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "те саме, але порівнюючи точне ім’я хоста, тому субдомен вважається стороннім"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "імена параметрів порівнюються з урахуванням регістру"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "пропускати цей фільтр, коли сторінка змінює власну адресу за допомогою History API. Також приймає <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "Чотири модифікатори <code>*-party</code> не можна поєднувати між собою; значення <code>first-party,third-party</code> відхиляється."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Наприклад, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> видаляє <code>sid</code> на <code>example.com</code> лише для запитів GET, зроблених на іншому сайті, і ніколи, коли ця сторінка <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Запис <code>@@</code> захищає лише від фільтрів <code>$removeparam</code>. Простий запис, такий як <code>\"ref\"</code>, усе одно видаляє параметр; використовуйте для цього <code>exceptions</code> об’єкта правила. Необроблені правила мають власні записи <code>@@…$rawrule=</code> (розділ 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Місце, де ви перераховуєте, не має значення, і воно не може мати <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Його шаблон перевіряється на відповідність URL, як його отримав постачальник, перед виконанням необроблених правил. Запис <code>@@</code>, обмежений шляхом, який видаляє необроблене правило, усе ще збігається."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Він також охоплює фільтри інших постачальників для запитів, зроблених сторінкою, якій відповідає цей постачальник, що зручно для вирізання одного сайту з правила, визначеного в іншому місці."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Необроблені правила виконуються перед <code>rules</code>, не зважають на регістр і замінюють кожен збіг (прапорці <code>gi</code> або <code>g</code> разом із <code>match-case</code>). У JSON кожну зворотну скісну риску слід записувати двічі."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Необроблене правило може приймати шаблон і модифікатори фільтра <code>$removeparam</code>, де останнім є <code>rawrule=</code>. Все після <code>rawrule=</code> є регулярним виразом:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Шаблон і модифікатори вирішують, де виконуватиметься правило; регулярний вираз усе ще видаляється."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Запис, який починається на <code>@@</code> і закінчується на <code>rawrule=</code>, запобігає виконанню необроблених правил, де відповідає шаблон:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Без нічого після <code>rawrule=</code>, він зупиняє кожне необроблене правило постачальника для цих URLs."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "З регулярним виразом після <code>rawrule=</code> він зупиняє необроблені правила з цим регулярним виразом."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Як об’єкт правила з <code>targetId</code>, він зупиняє лише необроблене правило з цим ідентифікатором або псевдонімом."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Щоб пропустити весь постачальник, замість цього використовуйте <code>exceptions</code>."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Якщо URL відповідає запису в <code>exceptions</code>, жодне з правил постачальника не виконується для цього запиту. Запис — це регулярний вираз проти повного URL або шаблон домену, який починається з <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Винятки не враховують регістр. Щоб пропустити одне правило, а не весь постачальник, задайте цьому правилу власне <code>exceptions</code> (розділ 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Виграє будь-який відповідний параметр, який буде першим у URL. Для <code>https://site.example/away?redirect=https://real.example/page</code> запит надходить до <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Дійсні цілі переспрямування"
+  },
+  "guide_redirects_p_2": {
+    "message": "Переспрямування відбувається лише на абсолютну адресу <code>http</code> або <code>https</code> з хостом. Це перевіряється після preprocessors і відсоткового декодування. Через недійсну ціль запис вважається таким, що не відповідає: нічого не перенаправляється, а наступні кроки постачальника виконуються на незмінному URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Цільова"
+  },
+  "guide_redirects_th_2": {
+    "message": "Перенаправлення?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "так"
+  },
+  "guide_redirects_cell_2": {
+    "message": "так, до <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "ні: схема не <code>http</code> або <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "ні: не абсолютна адреса"
+  },
+  "guide_redirects_p_3": {
+    "message": "Необроблене правило, результат якого має іншу схему, хост або порт, ніж його вхід, також вважається перенаправленням, навіть якщо воно видаляє лише текст: видалення <code>secure-</code> із <code>https://secure-bank.example/</code> потрапляє на інший сайт. Для цього потрібен дійсний ціль і схвалення <code>redirect</code> у списку віддалених правил (розділ 15). В іншому випадку правило залишає URL таким, яким він був."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Будь-який запис у будь-якому списку може бути об’єктом замість рядка. Використовуйте його, коли правило потребує стабільного ідентифікатора, має починатися вимкненим, має переписати замість видалення або має виконуватися лише в деяких випадках:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Обов'язковий. Текст, який ви б написали як простий запис у цьому списку."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Стабільна назва (літери, цифри, <code>-</code>, <code>_</code>), яка використовується для ввімкнення та вимкнення правила (розділ 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Попередні ідентифікатори правила, тому параметр, збережений під старим ідентифікатором, продовжує застосовуватися після перейменування."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Переписати замість видалення; <code>§1§</code>, <code>§2§</code>, … є записаними значеннями."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Спочатку трансформуйте отримані значення."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Лише для цих типів запитів, наприклад <code>[\"main_frame\"]</code>. Очищення без запиту (<em>Скопіювати очищене посилання</em>, інструмент очищення, зміни через History API) зараховується як <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URLs (регулярні вирази), де це правило не виконується."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Прапорці регулярного виразу задаються рядком. За замовчуванням <code>i</code>; для <code>rawRules</code> — <code>gi</code> або <code>g</code> разом із <code>match-case</code>."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Запустіть правило раніше або пізніше на етапі (розділ 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: правило в <code>rules</code> також вважається правилом реферального маркетингу (розділ 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Комутатор провайдера з такою ж назвою, для цього єдиного правила. Це перевершує вартість постачальника та файл за замовчуванням."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: правило починається вимкненим."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Примітка для тих, хто читає файл; це має бути рядок."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Лише для записів <code>@@…$rawrule=</code>: ідентифікатор необробленого правила, яке зупиняється."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Тут <code>?token=abc123</code> стає <code>?token=clean-abc123</code>. Перезапис застосовується щонайбільше один раз на запит, тому значення не загортається."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Попередні обробники змінюють захоплені значення по черзі, перш ніж їх використає <code>replacePattern</code> або перенаправлення. <code>inputs</code> — це <code>\"all\"</code> або список номерів груп:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> приймає ті самі записи, що й <code>rules</code>. Вони працюють лише тоді, коли <em>Дозволити реферальний маркетинг</em> вимкнено, тож партнерські посилання продовжують працювати, якщо ввімкнути цей параметр:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Правило може залишатися в <code>rules</code> і все одно вважатися маркетингом за рекомендаціями, з <code>\"referralMarketing\": true</code>. Не вставляйте однаковий текст у <code>rules</code> і <code>referralMarketing</code>; про це попереджає ред."
+  },
+  "guide_request_types_cell_1": {
+    "message": "типи запитів один об’єкт правила обробляє (також можна встановити в <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Типи запитів використовують імена браузера: <code>main_frame</code> (сторінка), <code>sub_frame</code> (кадр), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> тощо. Модифікатори фільтрів називають перші два <code>document</code> і <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Типи запитів походять лише з правил: списку типів запитів у налаштуваннях немає. Якщо жоден із них не встановлений, правило очищає всі типи запитів."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Значення за замовчуванням"
+  },
+  "guide_defaults_p_1": {
+    "message": "Блок верхнього рівня <code>defaults</code> надає кожне правило значень файлів, які він сам не встановлює:"
+  },
+  "guide_defaults_th_1": {
+    "message": "За замовчуванням для кожного правила…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; значення <code>false</code> вимикає всі правила, якщо не задано <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; значення <code>\"all\"</code> або відсутність цього поля означає всі типи"
+  },
+  "guide_defaults_item_1": {
+    "message": "Власне значення правила завжди перемагає, а <code>exceptions</code> правила замінює список за умовчанням, а не додає до нього."
+  },
+  "guide_defaults_item_2": {
+    "message": "Значення за замовчуванням застосовуються до <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> і <code>fieldRedirections</code>. Власний список <code>exceptions</code> постачальника не змінюється. Записи <code>$redirect=</code> використовують лише <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Кожен файл зберігає власні параметри за замовчуванням: вбудовані правила, кожен віддалений список і ваші спеціальні правила, а також коли режим перевантаження об’єднує їх."
+  },
+  "guide_defaults_item_4": {
+    "message": "Для <code>completeProvider</code> стандартні <code>requestTypes</code> і <code>exceptions</code> також обмежують блокування."
+  },
+  "guide_defaults_item_5": {
+    "message": "Невідомі ключі та неправильні типи є помилками, а віддалений список із недійсним блоком <code>defaults</code> відхиляється."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Ваші власні налаштування за замовчуванням"
+  },
+  "guide_defaults_p_2": {
+    "message": "У редакторі настроюваних правил <em>Manage rule defaults</em> відкриває форму, де ви встановлюєте власний блок <code>defaults</code> і вибираєте, де він замінює власні файли:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Власні для кожного джерела</em> (за замовчуванням): кожен файл використовує власні <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Ваші для вбудованих і віддалених правил</em>: вбудовані та віддалені правила використовують ваші; звичайні правила залишаються своїми."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Ваше для всіх правил</em>: кожне правило використовує ваше."
+  },
+  "guide_defaults_p_3": {
+    "message": "У тій самій формі можна редагувати значення за замовчуванням вбудованих правил і кожного завантаженого віддаленого списку. Ваше редагування зберігається в розширенні, а не у файлі, і <em>Скинути значення за замовчуванням для файлу</em> видаляє його. <em>Об’єднати з джерел…</em> об’єднує значення за замовчуванням джерел, які ви відмічаєте; нічого не зберігається, поки ви не збережете."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Як обробляється URL"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, потім <code>fieldRedirections</code>: збіг із дійсною метою перенаправляє запит."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> і <code>referralMarketing</code> видаляють або переписують параметри."
+  },
+  "guide_processing_order_item_3": {
+    "message": "Фільтри <code>$removeparam</code> виконуються, за винятком випадків, коли запис <code>@@</code> зберігає параметр."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Перший постачальник, який змінить, перенаправить або заблокує URL, виграє. Потім новий URL знову виконує ті самі кроки (див. <a href=\"#termination\">Коли обробка припиняється</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Порядок виконання та <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Кроки 4 і 5 сортуються разом за цими правилами по черзі:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Необроблені правила завжди виконуються першими. </strong> Ні <code>order</code> переміщує запис <code>rules</code> перед необробленим правилом. Очищення, яке має відбутися перед необробленим правилом, має бути необробленим правилом."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>У межах етапу правила з <code>order</code> виконуються раніше за правила без нього</strong>; спочатку — з найменшим значенням. Дозволені від’ємні числа та дроби. <code>order: 10</code> не означає «десяте»: це означає, що правило виконається після впорядкованих правил етапу зі значенням нижче 10 і перед усіма правилами без порядку."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Потім за списком:</strong> <code>rules</code>, потім <code>rules</code> об’єкти з позначкою <code>\"referralMarketing\": true</code>, потім <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Потім за позицією</strong> у списку. Кожен запис зберігає своє місце, включаючи записи, написані як <code>\"3\"</code> або <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Тут маркер переписується перед видаленням <code>utm_source</code>, хоча він стоїть другим:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Вимкнені правила залишаються поза увагою. <code>$removeparam</code> фільтри та записи <code>@@</code> поза цим сортуванням і не можуть мати <code>order</code>, навіть <code>null</code>; фільтри завжди працюють останніми."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Той самий текст двічі"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Два записи з однаковим текстом <code>matchPattern</code> в одній групі є одним правилом. Групи є сирими (<code>rawRules</code>), полями (<code>rules</code> без позначки переходу) та реферальними (позначеними об’єктами <code>rules</code>, потім <code>referralMarketing</code>). Найчастіше це трапляється, коли списки правил об’єднуються."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Останнє визначення, яке не вимкнено, виграє з усіма його ключами."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Без власного <code>order</code> переможець займає першу позицію визначення та найближчий попередній <code>order</code>. <code>\"order\": null</code> означає, що порядок відсутній і видаляє успадкований."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Ідентифікатори та псевдоніми замінених визначень також вмикають і вимикають переможця."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Під час виконання правил реферального маркетингу запис реферала замінює запис у полі тим самим текстом."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Необроблене правило та правило поля з однаковим текстом не конфліктують; обидва біжать."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Всередині одного списку два різні записи з однаковим текстом є помилкою, а точна копія – попередженням."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Коли обробка припиняється"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Щонайбільше 10 циклів на запит; на шапці URL використовується без змін."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Правило з <code>replacePattern</code> застосовується щонайбільше один раз на запит."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Крок, який не змінює URL, не починає новий цикл."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Параметри → <em>Необмежені цикли очищення</em> (за замовчуванням вимкнено) усуває обмеження на 10 циклів для ланцюжків правил, які потребують більше. Потім обробка завершується, коли цикл нічого не змінює, але два правила, які перенаправляють одне до одного, циклюють, доки браузер не відмовиться і сторінка не завантажиться. Вмикайте його лише для правил, яким ви довіряєте."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Ідентифікатори правил і вимикачі"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Кожне правило має ідентифікатор. Правило без <code>id</code> отримує його зі свого списку та тексту: <code>\"utm_source\"</code> у <code>rules</code> перетворюється на <code>field-utm-source</code>. Згенерований ідентифікатор змінюється разом із текстом правила, після чого вимкнене правило може знову ввімкнутися. Якщо налаштування ввімкнення/вимкнення має зберігатися під час редагувань, задайте правилу власний <code>id</code>; під час перейменування додайте старі ідентифікатори до <code>aliases</code>."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Правило вмикається та вимикається його постачальником та ідентифікатором разом, наприклад <code>shop::session-token</code>, тому два постачальники можуть використовувати той самий ідентифікатор. Редактор настроюваних правил також може зберегти його під шаблоном постачальника, наприклад <code>domainPattern:||shop.example^::session-token</code>; обидві форми працюють."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "У межах одного постачальника кожен ідентифікатор і псевдонім мають відрізнятися. Враховуються згенеровані ідентифікатори."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Ідентифікатор не може містити двокрапку."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Параметри, збережені під голим ідентифікатором, без свого постачальника, нічого не перемикають; знову вимкніть правило в редакторі спеціальних правил."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Віддалені списки правил"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Віддалені списки правил — це файли правил, які завантажує Linkumori та за бажанням перевіряє за файлом хешу. Список із недійсним значенням <code>cln</code>, блоком <code>defaults</code> або масивом <code>patches</code> не завантажується; про це повідомляє стан віддалених правил."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Перенаправлення та блокування потребують вашого схвалення"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Те, що може робити віддалений список, визначається його вмістом під час завантаження:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Можливість"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Список має його, якщо містить"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Активний під час завантаження"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "запис <code>rules</code>, <code>rawRules</code> або <code>referralMarketing</code> або <code>$removeparam</code> фільтр"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "запис із <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "запис провайдера <code>exceptions</code> або запис <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "запис <code>redirections</code> або <code>fieldRedirections</code>, або <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "після затвердження"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "постачальник із <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "У стані віддалених правил підтвердьте <code>redirect</code> і <code>block</code> для кожного списку. До підтвердження перенаправлення й блокування цього списку залишаються вимкненими, а його необроблені правила не можуть надсилати URL-адресу на інший сайт; решта списку працює відразу. Якщо оновлення додає нову можливість, вона також очікує на підтвердження. Вбудовані та власні правила мають доступ до всіх можливостей."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Режим перевантаження"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Зазвичай віддалені списки з постачальниками замінюють вбудовані правила; списки, що містять лише <code>patches</code>, застосовуються до вбудованих правил. Якщо ввімкнути <em>Увімкнути режим перевантаження</em>, списки завантажуються разом за однією з трьох стратегій:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Лише режим виправлення</em>: застосувати виправлення віддалених списків до вбудованих правил; віддалені постачальники залишаються поза увагою."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Режим виправлення + об’єднання</em>: об’єднати вбудованих і віддалених постачальників, а потім застосувати виправлення."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Без режиму виправлення + об’єднання</em>: об’єднати постачальників і пропустити виправлення."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Під час об’єднання віддалені списки зливаються між собою в указаному вами порядку, а потім — із вбудованими правилами (спочатку вбудовані). Об’єднуються лише постачальники з однаковими <code>domainPatterns</code> (або <code>urlPattern</code>), <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> і <code>forceRedirection</code>. Їхні списки <code>rules</code>, <code>rawRules</code> та <code>referralMarketing</code> зливаються, а <a href=\"#same-text-twice\">Однаковий текст двічі</a> визначає, яка копія виконується. Стан віддалених правил показує кожне замінене правило як сповіщення."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Спеціальні правила застосовуються в останню чергу. Спеціальний постачальник замінює кожного завантаженого постачальника тим самим шаблоном; їх правила не поєднуються."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Патчі правил"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Віддалений список може замінити окремі вже завантажені правила без публікації повної копії в масиві <code>patches</code> верхнього рівня:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Обов'язковий. Правило для заміни, написане як його клавіша ввімкнення/вимкнення: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> або <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Обов’язково. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> або <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Обов'язковий. Нове правило як звичайний запис або об’єкт правила."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Примітка для тих, хто читає файл."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Виправлення запускаються після об’єднання віддалених списків і до власних правил. Файлу, що містить лише <code>patches</code>, не потрібні <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Злиття може перейменовувати постачальників, тому форма <code>domainPattern:</code> або <code>urlPattern:</code> завжди їх знаходить."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Заміна зберігає ідентифікатор старого правила або бере старий ідентифікатор як псевдонім, тому налаштування ввімкнення/вимкнення продовжують застосовуватися."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Патч для перенаправлення очікує на схвалення списку <code>redirect</code>. Патч, мета якого нічого не відповідає, нічого не змінює."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Стан віддалених правил позначає кожне виправлення як застосоване, невідповідне або пропущене."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Правила та білий список"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Білий список є окремим від <code>exceptions</code> постачальника: у ньому перераховуються сайти, які ви сказали Linkumori залишити в спокої, без файлу правил. Записи виглядають як <code>example.com</code>, <code>*.example.com</code> (сайт і його субдомени) або <code>example.*</code> (будь-який суфікс). Білий список сторінки також охоплює все, що вона завантажує."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Доповніть приклади"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Перевірка ваших правил"
+  },
+  "guide_checking_p_1": {
+    "message": "Редактор спеціальних правил перевіряє правила, коли ви їх зберігаєте або імпортуєте, а <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> виконує ті самі перевірки. Крім несправних JSON і недійсних регулярних виразів, вони відхиляють правила, які завантажуються, але тихо виконують неправильні дії, наприклад:"
+  },
+  "guide_checking_item_1": {
+    "message": "невідомі поля, ключі та модифікатори"
+  },
+  "guide_check_7": {
+    "message": "значення <code>cln</code>, відмінне від <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "ідентифікатор або псевдонім, використаний двічі в одному провайдері"
+  },
+  "guide_checking_item_2": {
+    "message": "два різні записи з однаковим текстом в одному списку"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> на <code>$removeparam</code> фільтр або запис <code>@@</code>, <code>null</code> включено"
+  },
+  "guide_check_9": {
+    "message": "адреса <code>$redirect=</code>, яка не є <code>http</code> або <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "зворотна коса риска в імені <code>$removeparam</code> перед символом, який не має екранування"
+  },
+  "guide_checking_p_2": {
+    "message": "Вони також попереджають про точні копії та про однаковий текст у <code>rules</code> та <code>referralMarketing</code>. Якщо зберегти не вдалося, у повідомленні буде названо назву постачальника, список і запис."
+  },
+  "guide_toc_search": {
+    "message": "Фільтр розділів"
+  },
+  "guide_toc_no_results": {
+    "message": "Немає відповідних розділів."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: перенаправлення, що починається з \"|\", має відповідати формату \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: ціль $redirect= має бути абсолютною URL-адресою http або https",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ має бути об’єктом",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type має бути непорожнім рядком",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type має бути одним із таких значень: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs має бути \"all\" або масивом додатних цілих чисел",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ має бути рядком або об’єктом правила",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern має бути рядком",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern має бути рядком",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId має бути ідентифікатором правила",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId застосовується лише до винятків \"@@…$rawrule=\" у rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags має бути рядком (прапорці регулярного виразу, наприклад \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing має бути true або false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing не діє в $FIELD$; цей параметр застосовується лише в $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order має бути числом або null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order не діє в $FIELD$; цей параметр застосовується лише в $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order не діє на фільтр $removeparam або запис \"@@\"; вони завжди запускаються після інших правил",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active має бути логічним значенням (true або false)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id має бути рядком",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id має відповідати шаблону $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases має бути списком ідентифікаторів, що відповідають шаблону $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases не має містити власний ідентифікатор правила",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description має бути рядком",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection має бути логічним значенням (true або false)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions має бути масивом рядків",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes має бути масивом рядків",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors має бути масивом",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: невідоме поле \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ починається з \"@@\", що застосовується лише до фільтрів $removeparam у rules і referralMarketing; натомість використовуйте поле \"exceptions\" об’єкта правила",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ містить невідомий параметр $removeparam \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" починається з одного символу \"|\", тому відповідає лише URL-адресам, що буквально починаються з \"$REST$\", але таких немає (URL-адреси починаються з \"https://\"). Щоб зіставити домен, використовуйте \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ містить \"targetId\", який працює лише у винятку; почніть matchPattern із \"@@\" (наприклад, \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ містить і \"targetId\", і регулярний вираз після \"rawrule=\"; використайте щось одне",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ містить targetId \"$ID$\", але в цього постачальника немає необробленого правила з таким ідентифікатором або псевдонімом",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ є винятком \"@@\" для \"$REGEX$\", але в цього постачальника немає необробленого правила з таким регулярним виразом. Надайте правилу ідентифікатор і вкажіть його через \"targetId\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ є винятком \"@@\", тому \"$KEY$\" не матиме дії",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "Після \"rawrule=\" у $WHERE$ нічого немає; потрібен регулярний вираз для видалення",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ містить недійсний регулярний вираз після \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ містить $GROUPS$ груп захоплення; навколо цільової URL-адреси має бути рівно одна група \"( … )\" (інші групи записуйте як \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ повторно використовує ідентифікатор правила \"$ID$\" у $WHERE$; уперше його використано в $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ має бути об’єктом JSON",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ має бути масивом",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ містить невідомий ключ \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Помилка під час обробки URL-адреси: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Помилка під час ініціалізації сторінки: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Недійсна вкладка"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Для цієї вкладки пошук правила вже виконується"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Для цієї вкладки немає активної перевірки паузи"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Правила ще завантажуються. Спробуйте ще раз за мить."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Жодне правило, що спрацювало на цій сторінці, не можна вимкнути."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Не вдалося вимкнути правила"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Для цієї вкладки пошук правила не виконується"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Для цієї вкладки немає знайденого правила, яке можна пропустити"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Завантаження недоступне"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Не вдалося зберегти запис у сховищі сеансу"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Невідоме правило"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "невідома помилка"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "не вдалося експортувати"
   }
 }

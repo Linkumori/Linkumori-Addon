@@ -39,7 +39,7 @@
     "message": "使用內建 Linkumori/ClearURLs 規則。禁用此選項以僅運行遠端規則和/或自定義規則。"
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori 使用統一的 ClearURLsData 提供者規則集。原生提供者 JSON、規範規則物件和提供者本地的 $removeparam 過濾器會先合併，然後再由 clearurls.js 執行。"
   },
   "bundled_rules_section_title": {
     "message": "規則資訊"
@@ -1089,25 +1089,25 @@
     "message": "打開 Linkumori 設定"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "過載模式行為"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "僅補丁模式"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "將遠端補丁應用於內建規則。不包含遠端提供者規則。"
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "補丁模式 + 合併"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "合併內建規則和遠端提供者規則，然後應用遠端補丁。"
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "無補丁模式 + 合併"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "合併內建規則和遠端提供者規則，但不應用遠端補丁。"
   },
   "overload_mode_enabled": {
     "message": "啟用超載模式"
@@ -1614,7 +1614,7 @@
     "message": "主要哈希 URL 必須使用 HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "必須同時配置主規則網址和主雜湊網址。"
   },
   "save_primary_rule_https_required": {
     "message": "主要規則 URL 必須使用 HTTPS"
@@ -1650,13 +1650,13 @@
     "message": "我了解風險 - 繼續"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "如果您並未完全瞭解或信任 Linkumori 規則集的來源，應重新考慮使用遠端規則。"
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "此遠端規則功能面向瞭解所載入的 Linkumori JSON 的高階使用者。遠端規則應包含相匹配的雜湊網址，以便驗證。"
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "如果新增遠端規則網址，擴充套件程式會在配置後連線到您指定的伺服器，以獲取 Linkumori 規則集及其雜湊檔案。每次獲取都可能向託管伺服器暴露您的 IP 地址以及擴充套件程式版本、瀏覽器和瀏覽器版本等一般資訊。這些資料受該網站或 Web 伺服器的隱私政策約束。"
   },
   "security_modal_privacy_link_text": {
     "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。"
@@ -1665,7 +1665,7 @@
     "message": "警告提示："
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "除非您信任並控制遠端來源，否則請使用內建規則。為遠端 Linkumori JSON 規則提供相匹配的雜湊網址。"
   },
   "security_modal_risk_1": {
     "message": "您的IP地址和瀏覽器信息將暴露給配置的服務器。"
@@ -1677,7 +1677,7 @@
     "message": "雜湊驗證僅適用於 Linkumori CLN Format 1.0 JSON 規則；它可以防止傳輸篡改，而不是惡意規則來源。"
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "未能成功驗證雜湊的遠端規則完全依賴於對來源網址的信任。"
   },
   "security_modal_risks_title": {
     "message": "安全風險："
@@ -1692,7 +1692,7 @@
     "message": "rules.hash 文件的 URL (哈希)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "遠端 Linkumori JSON 規則驗證必須提供。"
   },
   "setting_html_export_button": {
     "message": "導出"
@@ -1722,7 +1722,7 @@
     "message": "日誌限制 (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "合併其他遠端 Linkumori JSON 來源。每行輸入一組 <code>ruleURL | hashURL</code>。"
   },
   "setting_remote_rule_sets_label": {
     "message": "其他遠程規則集"
@@ -1731,13 +1731,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Linkumori JSON 規則的自定義遠端網址"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "遠端規則 JSON 檔案的網址"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "每個遠端規則集都必須提供雜湊網址。"
   },
   "settings_html_page_title": {
     "message": "Linkumori (清除 URL) 設定"
@@ -2199,19 +2199,19 @@
     "message": "警告：僅供自架設伺服器使用的高級功能"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "您正在關閉 Gatekeeper 對遠端規則網址編輯的保護。此功能可以將遠端 Linkumori JSON 規則載入到統一的提供者規則集中。請僅在瞭解並信任所配置的來源時繼續。"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper 是一個內建的安全機制，它會阻止直接編輯遠端 URL，直到您確認安全警告並完成輸入確認。"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "除非您信任並控制遠端來源，否則請保持 Gatekeeper 啟用。遠端 JSON 規則應包含相匹配的雜湊網址。"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "警告提示："
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "如果新增遠端規則網址，擴充套件程式會在配置後連線到您指定的伺服器，以獲取 Linkumori 規則集及其雜湊檔案。每次獲取都可能向託管伺服器暴露您的 IP 地址以及擴充套件程式版本、瀏覽器和瀏覽器版本等一般資訊。這些資料受該網站或 Web 伺服器的隱私政策約束。"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。"
@@ -2226,7 +2226,7 @@
     "message": "每次啟用並在您的瀏覽器中載入擴充功能時，該擴充功能會連接到您指定的 URL。"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "託管遠端 JSON 或雜湊檔案的伺服器會收到您的 IP 地址。"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "該伺服器也可能接收到您的擴充功能版本、瀏覽器和瀏覽器版本。"
@@ -2235,7 +2235,7 @@
     "message": "這些資料受託管這些檔案的網站或網路伺服器的隱私權政策約束。"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "關閉 Gatekeeper 會增加不安全或遭入侵的遠端規則來源帶來的風險。只有在配置了相匹配的雜湊網址時，雜湊驗證才會保護遠端 Linkumori JSON 下載。"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "取消"
@@ -2295,7 +2295,7 @@
     "message": "輸入確切的確認短語"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "此操作會降低遠端規則的安全防護。請僅在信任遠端 JSON 來源時繼續。"
   },
   "remote_urls_template_note_1": {
     "message": "將佔位符值替換為您的實際 HTTPS URL，然後匯入此檔案。"
@@ -2316,22 +2316,22 @@
     "message": "REPLACE_WITH_PRIMARY_HASH_URL"
   },
   "remote_urls_template_additional_rule_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1"
+    "message": "請替換為其他規則網址_1"
   },
   "remote_urls_template_additional_hash_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1"
+    "message": "請替換為其他雜湊網址_1"
   },
   "remote_urls_template_additional_rule_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2"
+    "message": "請替換為其他規則網址_2"
   },
   "remote_urls_template_additional_hash_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2"
+    "message": "請替換為其他雜湊網址_2"
   },
   "remote_urls_template_additional_rule_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3"
+    "message": "請替換為其他規則網址_3"
   },
   "remote_urls_template_additional_hash_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3"
+    "message": "請替換為其他雜湊網址_3"
   },
   "remote_urls_export_success": {
     "message": "已匯出遠端 URL 設定。"
@@ -2847,10 +2847,10 @@
     "message": "無"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "規則衝突："
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ 個錯誤，$WARNINGS$ 個警告，$NOTICES$ 條提示",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "遠端檔案功能："
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "接受前處於停用狀態：$CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "接受 $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "規則補丁："
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ 個已應用，$NOT_APPLIED$ 個未應用",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "規則預設值"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "內建"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "自定義"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "無 — 使用內建行為"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "過載模式會合並內建規則和遠端規則；除非您在自定義規則編輯器中選擇自己的預設值，否則每個來源的規則都保留該來源自己的預設值。"
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "儲存預設值"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "預設值已儲存"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "啟用後，除非您在自定義規則編輯器中選擇自己的預設值，否則每個規則來源都會保留其自己的預設值（內建規則使用內建預設值，每個遠端檔案的規則使用該檔案的預設值）。"
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "遠端：$URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "應用哪些預設值"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "每個來源各自的預設值"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "內建和遠端規則使用您的預設值"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "所有規則使用您的預設值"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "（已被您的預設值替代）"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "您的預設值"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ 種請求型別",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ 個網址例外",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 個網址例外"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ 個前處理器",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "每個來源的規則都使用該來源自己的預設值。"
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "內建和遠端規則使用您的預設值，而不是其檔案中的預設值；自定義規則保留自己的預設值。"
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "內建規則、遠端規則和自定義規則都使用您的預設值，而不是各自的預設值。"
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "管理規則預設值"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "預設值會填補規則未自行設定的值。規則自身的值始終優先，並且不會更改提供者例外。"
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "編輯預設值"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "您的預設值"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "自定義規則的預設值"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "要編輯的預設值"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "內建規則"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "（已編輯）"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "重置為檔案預設值"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "從來源合併…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "合併規則預設值"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "結果會在列表中顯示為“合併後的預設值”。將它複製到其中一組，然後點選“儲存預設值”即可使用。"
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "要合併的來源"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "衝突"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "合併後的預設值"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "使用合併後的預設值"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "合併後的預設值"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "只有將其複製到其他某一組並儲存後，才會使用。"
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "複製到"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "複製"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "至少選擇兩個來源。"
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "沒有衝突：所選來源的每個值都相同。"
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "會累加每個來源中的例外：共 $COUNT$ 個。",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "合併自所有來源"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "來源：$SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "未設定（內建行為）"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "未設定：所有請求型別"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "當前未使用：您的預設值會替代內建規則和遠端規則各自的預設值。"
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "由您編輯：這些值會替代檔案自身的預設值。檔案本身不會更改。"
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "（由您編輯）"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "當前未使用：上方選擇的是“每個來源各自的預設值”。"
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "當前未使用：您的預設值也會替代自定義規則的預設值。"
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "規則預設處於關閉狀態（active: false）"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "說明"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "請求型別"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "所有型別"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "僅限這些型別"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "至少選擇一種請求型別，或選擇“所有型別”。"
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "除非規則或預設值指定了請求型別，否則規則會清理所有請求型別。提供者也可以使用 resourceTypes 限制型別。"
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "例外"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "每行一個網址正規表示式。匹配的網址會跳過規則。"
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "前處理器"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "輸入：“all”或捕獲組編號，例如 1、2。"
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ 新增前處理器"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "前處理器型別"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "前處理器輸入"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "移除"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "前處理器輸入“$INPUTS$”必須為“all”或數字，例如 1、2。",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "關閉歷史記錄繞過保護（historyBypassProtection: false）"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "顯示為 JSON"
   },
   "settings_remote_health_unknown": {
     "message": "未知"
@@ -4005,10 +4005,10 @@
     "message": "提供者JSON指南"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "開啟 Linkumori 規則指南"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "我應該使用哪種規則語法？"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "開啟規則指南"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "無法載入提供者來源：$1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "捆綁規則不可用。"
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "無法載入捆綁規則：$1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "無法切換到語言 $1。"
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "淺色主題"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "深色主題"
   },
   "posarCopied": {
     "message": "POSAR複製了！"
@@ -4059,100 +4059,100 @@
     "message": "POSAR 接受。"
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "重置"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "無障礙工具"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "開啟無障礙工具"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "關閉無障礙工具"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "重置所有無障礙設定"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "視覺"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "閱讀"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "互動"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "高對比度"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "顏色濾鏡"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "飽和度"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "反色"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "突出顯示連結"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "隱藏圖片"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "增大文字"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "減小文字"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "預設文字大小"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "字型選擇"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "易讀字型（適合閱讀障礙）"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "文字間距"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "行高"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "文字對齊"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "暫停動畫"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "放大游標"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "預設"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "中"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "高"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "超高"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "低"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "無"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "淺"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "重"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "無濾鏡"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "紅色盲"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "綠色盲"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "藍黃色盲"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "灰度"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "左對齊"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "居中"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "右對齊"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "特小"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "小"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "大"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "特大"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "最大"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "開啟"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "關閉"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "已啟用"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "已停用"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "已選擇預設文字大小"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "已重置所有無障礙設定"
+  },
+  "skip_to_main_content": {
+    "message": "跳到主要內容"
+  },
+  "popupNavAriaLabel": {
+    "message": "彈出視窗導航"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "自定義規則檢視"
+  },
+  "logViewNavAriaLabel": {
+    "message": "日誌檢視"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "歷史記錄繞過保護（在頁面內導航時跳過）"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "欄位重定向"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "複製規則"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "規則已複製"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "無法複製規則"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection 有什麼作用？"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "單頁網站通常會使用 history.pushState/replaceState 更改地址，而不會載入新頁面。Linkumori 也會清理這些地址。將 history-bypass-protection=false 新增到 $removeparam 過濾器，即可在這些頁面內更改時跳過該過濾器；普通請求仍會應用該過濾器。"
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "要在頁面內更改時跳過整個提供者，請在提供者上設定此項："
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "如果未設定，預設值為 true，頁面內更改時會執行清理。規則自己的設定優先於提供者設定，因此規則可以使用 history-bypass-protection=true，或在規則物件中使用 \"historyBypassProtection\": true，重新啟用此功能。"
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "跳過頁面內導航"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "重新命名 ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "為 $OLD$ 設定新 ID（a-z、0-9、- 和 _）。舊 ID 會保留為別名，因此透過舊 ID 關閉的規則仍會保持關閉。",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" 不是有效 ID。請使用小寫字母、數字、- 和 _，並以字母或數字開頭。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "此提供者的另一條規則已使用 \"$ID$\"。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "禁用規則"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "為整個提供者禁用 $ID$，還是僅針對此網址/網域模式禁用？",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "我的提供者"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "網址/網域模式"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "規則 ID 已重新命名為 $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "孤立的開關"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "上游未找到匹配規則"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "移除"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "跳過頁面內導航時的清理"
+  },
+  "whitelist_added_general": {
+    "message": "已將 %s 新增到常規白名單"
+  },
+  "whitelist_added_history_api": {
+    "message": "已將 %s 新增為 History API 例外"
+  },
+  "whitelist_exception_count": {
+    "message": "%d 個例外"
+  },
+  "whitelist_exception_empty": {
+    "message": "沒有白名單例外"
+  },
+  "whitelist_mode_general": {
+    "message": "常規白名單"
+  },
+  "whitelist_mode_history_api": {
+    "message": "僅限 History API"
+  },
+  "whitelist_mode_label": {
+    "message": "白名單範圍"
+  },
+  "whitelist_removed_general": {
+    "message": "已從常規白名單移除 %s"
+  },
+  "whitelist_removed_history_api": {
+    "message": "已移除 %s 的 History API 例外"
+  },
+  "whitelist_type_general": {
+    "message": "常規"
+  },
+  "whitelist_type_history_api": {
+    "message": "僅限 History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "將 $1 新增到常規白名單"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "常規白名單：$1 — 點選以切換為僅限 History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API 例外：$1 — 點選以切換為僅限此標籤頁"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "僅限此標籤頁：$1 — 點選以移除"
+  },
+  "logger_action_allowed": {
+    "message": "允許"
+  },
+  "logger_action_blocked": {
+    "message": "已阻止"
+  },
+  "logger_action_filter_label": {
+    "message": "操作"
+  },
+  "logger_action_info": {
+    "message": "資訊"
+  },
+  "logger_action_modified": {
+    "message": "已修改"
+  },
+  "logger_action_redirected": {
+    "message": "已重定向"
+  },
+  "logger_btn_copy_summary": {
+    "message": "複製摘要"
+  },
+  "logger_btn_export": {
+    "message": "匯出"
+  },
+  "logger_btn_group": {
+    "message": "按規則分組"
+  },
+  "logger_col_hits": {
+    "message": "命中次數"
+  },
+  "logger_col_last_seen": {
+    "message": "最後出現時間"
+  },
+  "logger_detail_group_title": {
+    "message": "規則詳情"
+  },
+  "logger_detail_all_urls": {
+    "message": "網址（$1）"
+  },
+  "logger_detail_tabs": {
+    "message": "標籤頁"
+  },
+  "logger_exported": {
+    "message": "已匯出 $1 條記錄。"
+  },
+  "logger_filter_all": {
+    "message": "全部"
+  },
+  "logger_report_rule": {
+    "message": "舉報"
+  },
+  "logger_rule_disable": {
+    "message": "關閉規則"
+  },
+  "logger_rule_disabled_done": {
+    "message": "規則 $1 已關閉。重新載入頁面進行檢查。"
+  },
+  "logger_rule_enable": {
+    "message": "啟用規則"
+  },
+  "logger_rule_enabled_done": {
+    "message": "規則 $1 已重新啟用。"
+  },
+  "logger_rule_failed": {
+    "message": "無法更改規則。"
+  },
+  "logger_rule_off": {
+    "message": "規則已關閉"
+  },
+  "logger_rule_on": {
+    "message": "規則已啟用"
+  },
+  "logger_rule_unavailable": {
+    "message": "無法在此處切換此規則。"
+  },
+  "logger_status_rules": {
+    "message": "$1 條規則"
+  },
+  "logger_summary_copied": {
+    "message": "已複製摘要。"
+  },
+  "logger_summary_copy_failed": {
+    "message": "無法複製摘要。"
+  },
+  "logger_type_filter_label": {
+    "message": "型別"
+  },
+  "logger_btn_logging_off": {
+    "message": "日誌記錄已關閉"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "日誌記錄已關閉。點選以啟用。"
+  },
+  "logger_btn_logging_on": {
+    "message": "日誌記錄已開啟"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "日誌記錄已開啟。點選以關閉。"
+  },
+  "logger_logging_toggle_failed": {
+    "message": "無法更改日誌記錄設定。"
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "新增引薦規則"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "新增原始規則例外"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "新增欄位重定向"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "新增例外"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "每個模板都會新增一個規則物件，其中包含 id 和一個指向 example.com 的佔位 matchPattern。條目也可以是純文字：引數名稱、名稱正規表示式、$removeparam 過濾器，或 rawRules 中的正規表示式。規則物件可使用 id、aliases、matchPattern、replacePattern、preprocessors、requestTypes、exceptions、flags、order、referralMarketing、historyBypassProtection、active、description 和 targetId。"
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "檢查器"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "未發現問題。"
+  },
+  "customRulesEditor_lintError": {
+    "message": "錯誤"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "警告"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ 個錯誤，$WARNINGS$ 個警告",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "執行順序"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ 個步驟，按實際執行順序排列",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "沒有 rawRules、rules 或 referralMarketing 條目"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "引擎根據上方文字計算得出，無論是否已儲存。步驟按 (stage, orderGroup, order, rank, arrayIndex) 排序：原始規則先於欄位規則執行；在同一階段中，帶有 order 的條目先執行，數值較小者優先，然後其餘條目按列表順序和位置執行。"
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "引薦營銷"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "已移除引薦"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "允許引薦"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "原始"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "欄位"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "引薦"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "（自動生成）"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "重寫"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "替換了之前定義的 $COUNT$ 項",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "由 completeProvider 新增：移除所有引數"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "已關閉"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "對部分模式關閉"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "排序鍵：(stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "隨後應用 $FILTERS$ 個 $removeparam 過濾器和 $EXCEPTIONS$ 個 @@ 例外，位於上述所有步驟之後",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ 個 @@…$rawrule= 例外可以在匹配處阻止上方的原始規則",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "拖動步驟或使用箭頭，可在其所屬階段內移動。移動後，該階段中的每個條目都會按新順序設定為 10、20、30……。"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "切換到“已移除引薦”以重新排序：該檢視會顯示所有條目。"
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "拖動以移動"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "將 $ENTRY$ 提前",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "將 $ENTRY$ 移後",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "已將 $ENTRY$ 移至位置 $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "撤銷移動"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "已撤銷移動"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "模擬"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "此功能會像清理複製的連結一樣，在網址上執行此提供者，並使用您關閉的規則和上方的引薦選項，同時顯示每一步之後的網址。其他提供者不會執行。“生成測試網址”會根據此提供者自己的規則生成網址。"
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "測試網址"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "執行"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "逐步檢視模擬過程"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "開始"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "上一步"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "下一步"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "結束"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "播放"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "暫停"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "任何步驟執行前的網址"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "第 $PASS$ 輪 · 第 $STEP$ 步（共 $TOTAL$ 步）：$ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "無變化"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam 過濾器"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "第 $PASS$ 輪沒有任何變化，因此清理已停止",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "此提供者在此處停止：已達到迴圈次數限制、網址恢復為之前的值，或網址已不再匹配此提供者"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "第 $PASS$ 輪執行了重定向；清理會在新地址處繼續，並執行所有提供者",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "此提供者會阻止此請求（completeProvider）"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "結果"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "此提供者的模式與此網址不匹配，因此不會執行其中的任何規則。"
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "此網址匹配此提供者的一條例外，因此不會執行其中的任何規則。"
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "請輸入完整的 http:// 或 https:// 網址。"
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "無法執行模擬。請檢查上方的 JSON。"
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "生成測試網址"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "根據此提供者的規則生成：為 $RAW$ 條原始規則和 $PARAMS$ 個引數生成文字，並分別檢查它們是否匹配相應規則。keep=1 不匹配任何規則，應予以保留。不包含重定向和阻止規則，因為它們會在其他規則執行前結束流程。",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "無法生成此提供者模式所匹配的主機，因此該網址使用其他主機，提供者不會對其執行。"
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "此提供者模式所匹配的每個網址都屬於其自身某條例外，因此其規則永遠不會執行。"
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ 條規則未納入測試網址",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "無法生成與其匹配的文字"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "其文字會導致匹配此提供者的一條例外"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "它會移除所有引數，因此不需要自己的引數"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "此提供者有一個沒有名稱的 $removeparam 過濾器，它會移除所有引數，包括 keep=1。"
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "無 order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "還原順序編號"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "將所有 order 還原為開啟此提供者時的狀態"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "順序編號已還原"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "隱藏"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "顯示"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "清除警告"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "恢復警告"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "已清除 $COUNT$ 條警告",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$：沒有 indexPattern 的 urlPattern 會針對每個網址進行檢查；請新增類似“||example.com^”的 indexPattern 提示",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ 重複了“$ENTRY$”；重複項不會產生作用，且兩者共用一個 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ 仍包含模板佔位符“$PATTERN$”；請將其替換為實際模式",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ 使用 matchPattern “(?!)”，該模式永遠不會匹配任何內容",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "故障排查"
+  },
+  "troubleshooter_launch": {
+    "message": "排查此標籤頁的問題（實驗性）"
+  },
+  "troubleshooter_title": {
+    "message": "標籤頁故障排查工具"
+  },
+  "troubleshooter_page": {
+    "message": "頁面"
+  },
+  "troubleshooter_about_summary": {
+    "message": "記錄工作方式"
+  },
+  "troubleshooter_about_note": {
+    "message": "開啟此檢視時可能會檢查頁面網址，但不會記錄任何內容。只有選擇“開始記錄”後才會開始記錄。開始記錄會重新載入此標籤頁，以捕獲其資源請求。捕獲的網址會儲存在此瀏覽器會話的會話儲存中，並在關閉此標籤頁或結束瀏覽器會話時清除。除非您提前停止，否則記錄會在 15 分鐘後停止。資源網址可能包含私人查詢資料。"
+  },
+  "troubleshooter_start": {
+    "message": "開始記錄"
+  },
+  "troubleshooter_starting": {
+    "message": "正在啟動…"
+  },
+  "troubleshooter_recording": {
+    "message": "正在記錄…"
+  },
+  "troubleshooter_stop": {
+    "message": "停止記錄"
+  },
+  "troubleshooter_refresh": {
+    "message": "重新整理"
+  },
+  "troubleshooter_copy": {
+    "message": "複製摘要"
+  },
+  "troubleshooter_export": {
+    "message": "匯出"
+  },
+  "troubleshooter_export_title": {
+    "message": "將記錄儲存為 JSON 檔案。資源網址可能包含私人查詢資料。"
+  },
+  "troubleshooter_category": {
+    "message": "類別"
+  },
+  "troubleshooter_category_all": {
+    "message": "所有類別"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "網址規則"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "重定向"
+  },
+  "troubleshooter_category_protection": {
+    "message": "保護與繞過"
+  },
+  "troubleshooter_resource_type": {
+    "message": "資源型別"
+  },
+  "troubleshooter_type_all": {
+    "message": "所有資源型別"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "搜尋規則、提供者和網址"
+  },
+  "troubleshooter_timer": {
+    "message": "正在記錄 $1 · 剩餘 $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "正在檢查此標籤頁…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "沒有可用的活動標籤頁。"
+  },
+  "troubleshooter_status_not_web": {
+    "message": "此頁面不允許掃描網址規則。請開啟普通的 http 或 https 網頁。"
+  },
+  "troubleshooter_status_off": {
+    "message": "記錄已關閉。開始記錄以檢查此頁面載入的資源網址。"
+  },
+  "troubleshooter_status_active": {
+    "message": "目前已捕獲 $1 次網址更改。新記錄會自動顯示在此處。"
+  },
+  "troubleshooter_status_stopped": {
+    "message": "記錄已停止。共捕獲 $1 次網址更改。"
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "無法將記錄資料儲存到會話儲存。如果擴充套件程式重啟，可能會丟失 $1 次網址更改。"
+  },
+  "troubleshooter_status_started": {
+    "message": "記錄已開始，正在重新載入標籤頁。頁面載入時，捕獲的網址會顯示在此處。"
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "記錄已停止。共捕獲 $1 次網址更改，並已儲存到此瀏覽器會話。"
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "記錄已停止。共捕獲 $1 次網址更改，但會話儲存無法儲存這些記錄。"
+  },
+  "troubleshooter_status_need_web": {
+    "message": "請先開啟普通的 http 或 https 網頁。"
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "無法開始記錄此標籤頁。"
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "無法停止記錄此標籤頁。"
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "無法讀取此標籤頁。請嘗試關閉並重新開啟彈出視窗。"
+  },
+  "troubleshooter_status_copied": {
+    "message": "已複製摘要。"
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "無法複製摘要。"
+  },
+  "troubleshooter_status_exported": {
+    "message": "記錄已匯出。"
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "無法匯出記錄。"
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "無法開啟報告表單。"
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "規則已啟用；重新載入標籤頁進行比較。"
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "規則已停用；重新載入標籤頁進行比較。"
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "無法更新此規則。"
+  },
+  "troubleshooter_empty_web": {
+    "message": "尚未發現規則更改。開始記錄以檢查此頁面的資源網址。"
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "無法掃描此瀏覽器頁面。"
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "沒有符合這些篩選條件的結果。"
+  },
+  "troubleshooter_showing_first": {
+    "message": "顯示前 $1 條規則"
+  },
+  "troubleshooter_hits": {
+    "message": "$1 次命中"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 項失敗"
+  },
+  "troubleshooter_rule_id": {
+    "message": "規則 ID：$1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "內建保護操作（無規則 ID）"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "規則 ID：此項結果沒有可用的 ID"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "無法在當前規則集中解析此規則 ID。"
+  },
+  "troubleshooter_source_observed": {
+    "message": "已觀察到的請求"
+  },
+  "troubleshooter_source_page": {
+    "message": "頁面網址檢查"
+  },
+  "troubleshooter_changes": {
+    "message": "更改內容：$1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "受影響的網址（$1）"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…以及另外 $1 個"
+  },
+  "troubleshooter_after": {
+    "message": "經過 Linkumori 處理後"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori 更改網址後失敗：$1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "此規則已啟用。請關閉規則並重新載入，以比較頁面。"
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "此規則已停用。請啟用規則並重新載入，以恢復其行為。"
+  },
+  "troubleshooter_advice_protection": {
+    "message": "這是內建保護操作，不是單獨的規則。"
+  },
+  "troubleshooter_advice_review": {
+    "message": "更改規則前請檢查受影響的網址。"
+  },
+  "troubleshooter_report": {
+    "message": "報告此規則"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "禁用規則"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "啟用規則"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "禁用規則 $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "啟用規則 $1"
+  },
+  "troubleshooter_saving": {
+    "message": "正在儲存…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "已移除 $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "已新增 $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "已更改 $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "已重定向至 $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "路徑已更改"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "片段已更改"
+  },
+  "troubleshooter_change_other": {
+    "message": "網址已更改"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "已主動阻止"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 個請求在此頁面上失敗；其中 $2 個在 Linkumori 更改網址後立即失敗"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "此頁面無法正常工作嗎？"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "找出導致問題的規則：此頁面上執行的規則會逐一關閉，每次關閉後您都可以判斷頁面是否已修復。如果不確定是否由 Linkumori 導致？請先暫停清理並檢查。"
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "先暫停清理並檢查"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "此標籤頁中已暫停對 $1 的清理"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "標籤頁已在未清理的情況下重新載入。現在頁面可以正常工作了嗎？"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "可以，頁面正常"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "不行，仍然無法正常工作"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "取消"
+  },
+  "troubleshooter_diag_done": {
+    "message": "完成"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "可能與 Linkumori 無關"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "暫停清理後頁面仍然無法正常工作，因此問題可能出在其他方面：網站本身、其他擴充套件程式或網路。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "問題可能由 Linkumori 導致"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "暫停清理後頁面可以正常工作。找出導致問題的規則：逐一關閉規則、重新載入標籤頁，然後判斷頁面是否已修復。最後會重新啟用其他所有規則。"
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "正在重新載入標籤頁並重新啟用清理，以記錄此頁面上執行的規則。規則稍後會顯示在此處。如果沒有規則執行，請繼續使用頁面，直到問題再次出現。"
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "查詢規則（$1 條規則）"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "可以，已修復"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "不行，仍然無法正常工作"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "找到問題規則"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "規則 $1$2 導致頁面無法正常工作。該規則已重新啟用。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "禁用此規則"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "舉報"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "規則已關閉。重新載入標籤頁進行檢查。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "未找到單條問題規則"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "逐一關閉規則並未修復頁面，因此問題可能由多條規則共同導致，也可能與保護設定有關。所有規則都已重新啟用。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_failed": {
+    "message": "無法執行檢查：$1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "重新載入 Linkumori 以使用此檢查"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori 已更新，但其後臺部分仍在執行舊版本。請重新載入擴充套件程式（對於臨時載入的附加元件：about:debugging → 此 Firefox → 重新載入），或重啟 Firefox。"
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "找到問題規則"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "規則 $1$2 導致頁面無法正常工作。該規則會保持關閉以確保頁面正常；其他所有規則均已重新啟用。重新載入標籤頁進行檢查。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "重新載入標籤頁"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "重新啟用"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "規則已重新啟用。重新載入標籤頁進行檢查。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "記錄並查詢規則"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "正在記錄此頁面上執行的規則。請繼續使用頁面直到問題出現；執行的規則會顯示在此處。"
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "規則搜尋暫時關閉了此規則。搜尋結束後會重新啟用。"
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "規則搜尋正在執行。請在搜尋結束後更改規則。"
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "跳過 — 重新啟用"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "保持關閉"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "已跳過規則搜尋；所有規則均已重新啟用。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "規則 $1 會保持關閉。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "此測試中關閉的規則："
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…以及另外 $1 條"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "停止搜尋"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "已跳過：該規則已重新啟用並跳過。正在測試下一條規則。"
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "在已測試的規則中未找到問題規則。您跳過的 $1 條規則尚未測試。所有規則均已重新啟用。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_experimental": {
+    "message": "實驗性"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "實驗性：此故障排查工具尚未完全穩定，結果可能不準確，而且測試期間會關閉規則。如果之後發現異常，請在自定義規則編輯器中檢查規則，或使用“停止搜尋”重新啟用規則。"
+  },
+  "troubleshooter_working": {
+    "message": "正在處理…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "重新記錄"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "已清除舊記錄。正在從全新載入開始重新記錄此標籤頁。"
+  },
+  "troubleshooter_clear": {
+    "message": "清除"
+  },
+  "troubleshooter_clear_title": {
+    "message": "清除此標籤頁的記錄、發現結果和已完成的規則搜尋。規則狀態保持不變。"
+  },
+  "troubleshooter_status_cleared": {
+    "message": "已清除。規則狀態保持不變。"
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "已清除。規則 $1 保持關閉。"
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "每次測試一條規則 — 正在測試第 $1 條，共 $2 條"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "僅此規則處於關閉狀態，並且標籤頁已重新載入。頁面現在修復了嗎？"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "跳過此規則"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "跳過 — 重新啟用並測試下一條（還剩 $1 條）"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "此頁面上還有 $1 條執行過的規則尚未測試。是否繼續測試？"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "保持關閉並測試下一條（還剩 $1 條）"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "規則 $1 保持關閉。正在測試下一條規則。"
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "沒有其他單條規則可以修復頁面。您選擇保持關閉的 $1 條規則仍會關閉；其他所有規則均已重新啟用。若要重新開始，請點選“清除”。"
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "測試下一條規則（還剩 $1 條）"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "規則 $1 已重新啟用並跳過。正在測試下一條規則。"
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "沒有其他單條規則可以修復頁面。您跳過的 $1 條規則也已重新啟用，因此現在所有規則均已啟用。若要重新開始，請點選“清除”。"
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori 使用以 <strong>CLN Format 1.0</strong>（Clean Link Notation）編寫的規則清理網址。這是一種 JSON 格式。本指南從第一條規則講起，介紹所有選項，並提供可複製的示例。"
+  },
+  "guide_intro_p_2": {
+    "message": "內建規則、遠端規則列表和自定義規則都使用相同的格式。您可以在自定義規則編輯器中編寫自定義規則；儲存或匯入時，編輯器會檢查規則。官方 Clear網址s 規則目錄（<code>data.min.json</code>）本身就是有效的 CLN 檔案，可以直接使用。"
+  },
+  "guide_rules_file_p_1": {
+    "message": "提供者名稱僅是一個標籤。提供者處理哪些網址由 <code>domainPatterns</code> 或 <code>urlPattern</code> 決定。"
+  },
+  "guide_rules_file_th_1": {
+    "message": "頂層鍵"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "必填。按名稱列出的提供者。"
+  },
+  "guide_rules_file_cell_2": {
+    "message": "可選的格式版本。唯一有效值為 <code>\"1.0\"</code>。未填寫時，檔案也會按 1.0 讀取；其他值都會導致檔案被拒絕。它不叫 <code>version</code>，因為 Clear網址s 新規則格式已經使用了該鍵。"
+  },
+  "guide_rules_file_cell_3": {
+    "message": "有關檔案的可選資訊。"
+  },
+  "guide_rules_file_cell_4": {
+    "message": "檔案中每條規則的預設值（第 12 章）。"
+  },
+  "guide_rules_file_cell_5": {
+    "message": "僅適用於遠端規則列表：替換已載入規則的內容（第 15 章）。"
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "提供者處理哪些網址，可以是一個網域模式或模式列表（第 3 章）。請使用此項或 <code>urlPattern</code>，不要同時使用兩者。"
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "提供者處理哪些網址：將一個正規表示式與完整網址匹配。不區分大小寫。"
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "僅與 <code>urlPattern</code> 搭配使用：例如 <code>||example.com^</code> 的主機提示，可讓提供者僅檢查這些主機，而非每個網址。這是查詢提示，不是匹配條件。"
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "要移除的引薦和聯盟引數。啟用<em>允許引薦營銷</em>時會跳過（第 10 章）。"
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "提供者完全不處理的網址（第 7 章）。"
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "將請求傳送到其他地址，而不是修改請求（第 8 章）。"
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "將請求傳送到某個引數的值（第 8 章）。"
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>：頁面載入（<code>main_frame</code>）發生重定向時，整個標籤頁會導航到新地址，而不只是重定向網路請求。"
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "僅處理這些 HTTP 方法，例如 <code>[\"GET\"]</code>。未填寫時：處理所有方法。"
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "僅處理這些請求型別，例如 <code>[\"main_frame\", \"xmlhttprequest\"]</code>。未填寫時：處理所有請求型別。"
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "預設值為 <code>true</code>。設為 <code>false</code> 時，如果頁面透過 History API（<code>pushState</code>/<code>replaceState</code>）更改自身地址，則跳過整個提供者。普通網路請求仍會清理。"
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "設為 <code>false</code> 可關閉提供者，但不會刪除它。"
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> 是網域模式列表。只要匹配其中任意一個模式，網址即為匹配。相同的模式也用於 <code>exceptions</code>、<code>redirections</code>、<code>$removeparam</code> 過濾器和原始規則。"
+  },
+  "guide_matching_cell_1": {
+    "message": "完整網址，作為正規表示式"
+  },
+  "guide_matching_cell_2": {
+    "message": "網址中任意位置包含此文字（開頭沒有 <code>|</code>）"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> 表示主機名的結尾，或表示分隔符（例如 <code>/</code>、<code>?</code>、<code>:</code>）或網址的結尾。<code>*</code> 是萬用字元。"
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> 代表一個網域：主機及其所有子網域。單個 <code>|</code> 代表網址的最開頭，後面必須跟上 <code>https://</code> 之類的協議。網域始終應使用 <code>||</code>；<code>|example.com^</code> 永遠不會匹配，因此編輯器會拒絕它。"
+  },
+  "guide_matching_p_4": {
+    "message": "例如，<code>||smile.amazon.*^</code> 可以拆解為：<code>||</code> 表示主機及其子網域，<code>smile.amazon</code> 表示必需的標籤，<code>.*</code> 表示任意公共字尾（<code>.com</code>、<code>.co.jp</code>、<code>.de</code> 等），<code>^</code> 表示主機結尾。"
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "僅該引數"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "引數名稱整體匹配的所有引數；不區分大小寫"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> 和 <code>\"$removeparam=fbclid\"</code> 會移除同一個引數。除非需要第 5 章中的功能，否則請使用純名稱。任何條目也可以寫成規則物件（第 9 章）。"
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "此處的 <code>qid</code> 會在所有 Amazon 網站上移除，<code>tag</code> 僅在 <code>amazon.de</code> 上移除，<code>sr</code> 僅在 <code>smile.amazon</code> 上移除，<code>ref_</code> 僅在 <code>/gp/</code> 路徑下移除。此模式會進一步限制提供者自己的模式；它無法擴大範圍。"
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> 會將過濾器變成保留引數的例外（見下文）。"
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> 會將過濾器限制在提供者的部分網址上（第 3 章）。未填寫時，會應用於提供者匹配的所有網址。"
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> 用於選擇引數。未填寫時，會移除所有引數。"
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "修飾符用於指定過濾器觸發的條件。必須滿足列出的每個修飾符；修飾符之間沒有“或”的關係。"
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "除 <code>ref</code> 以外的所有引數"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "名稱或完整的 <code>name=value</code> 與正規表示式匹配的引數；新增 <code>i</code> 可忽略大小寫"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "名稱以 <code>utm_</code> 開頭的引數"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "轉義引數名稱"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "反斜槓會讓下一個字元按字面值處理，因此可以指定任意引數名稱："
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "值"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "要移除的引數名稱"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code>（逗號不會開始修飾符部分）"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "引數名稱值中僅允許這五種轉義；在其他字元前使用反斜槓會報錯。在 <code>/regex/</code> 值中，反斜槓仍按正規表示式規則解釋。這些轉義可用於 <code>rules</code>、<code>referralMarketing</code>、<code>fieldRedirections</code> 和 <code>@@</code> 條目。在 JSON 中，每個反斜槓都要寫兩次：<code>\"$removeparam=\\\\~foo\"</code>。"
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "修飾符"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "修飾符寫在值之後，並用逗號分隔。同一修飾符的多個值用 <code>|</code> 分隔；要排除某個值，請在其前面加 <code>~</code>："
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "修飾符"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "僅當發出請求的頁面屬於其中之一時適用（如果帶有 <code>~</code>，則表示不屬於）；也允許正規表示式值"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "僅當請求本身發往其中之一時適用，與發出請求的頁面無關"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "僅適用於以下 HTTP 方法：<code>get</code>、<code>head</code>、<code>options</code>、<code>post</code>、<code>put</code>、<code>patch</code>、<code>delete</code>、<code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "僅當請求發往與頁面相同的可註冊網域時適用（<code>a.example.com</code> 和 <code>b.example.com</code> 會視為相同），也可用於指定不同的網域"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "相同規則，但比較的是確切主機名，因此子網域會被視為第三方"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "引數名稱區分大小寫"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "當頁面透過 History API 更改自身地址時，跳過此過濾器。也接受 <code>true</code>/<code>false</code>、<code>1</code>/<code>0</code>、<code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "四種 <code>*-party</code> 修飾符不能相互組合；<code>first-party,third-party</code> 會被拒絕。"
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "例如，<code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> 會在 <code>example.com</code> 上移除 <code>sid</code>，但僅適用於由其他網站頁面發起的 GET 請求，並且不會在該頁面屬於 <code>partner.com</code> 時觸發。"
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> 條目僅對 <code>$removeparam</code> 過濾器提供保護。像 <code>\"ref\"</code> 這樣的普通條目仍會移除引數；要保護此類條目，請使用規則物件的 <code>exceptions</code>。原始規則有自己的 <code>@@…$rawrule=</code> 條目（第 6 章）。"
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "無論將它列在哪裡都無關緊要，而且它不能帶有 <code>order</code>。"
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "其模式會與提供者收到的網址匹配，在原始規則執行之前進行檢查。即使原始規則刪除了某個路徑，針對該路徑設定的 <code>@@</code> 條目仍然匹配。"
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "它還會涵蓋其他提供者的過濾器（針對由此提供者匹配的頁面發出的請求），因此可以方便地從其他位置定義的規則中排除某個網站。"
+  },
+  "guide_raw_rules_p_1": {
+    "message": "原始規則在 <code>rules</code> 之前執行，不區分大小寫，並會替換每個匹配項（標誌為 <code>gi</code>，或者使用 <code>match-case</code> 時為 <code>g</code>）。在 JSON 中，每個反斜槓都要寫兩次。"
+  },
+  "guide_raw_rules_p_2": {
+    "message": "原始規則可以使用 <code>$removeparam</code> 過濾器的模式和修飾符，並將 <code>rawrule=</code> 放在末尾。<code>rawrule=</code> 之後的所有內容都是正規表示式："
+  },
+  "guide_raw_rules_p_3": {
+    "message": "模式和修飾符決定規則的執行位置；真正被刪除的仍是正規表示式匹配內容。"
+  },
+  "guide_raw_rules_p_4": {
+    "message": "以 <code>@@</code> 開頭、以 <code>rawrule=</code> 結尾的條目，會在其模式匹配的位置阻止原始規則執行："
+  },
+  "guide_raw_rules_item_1": {
+    "message": "如果 <code>rawrule=</code> 後面沒有內容，它會阻止此提供者在這些網址上執行所有原始規則。"
+  },
+  "guide_raw_rules_item_2": {
+    "message": "如果 <code>rawrule=</code> 後面有正規表示式，它會阻止匹配該正規表示式的原始規則。"
+  },
+  "guide_raw_rules_item_3": {
+    "message": "如果將條目寫為帶有 <code>targetId</code> 的規則物件，它只會阻止具有該 ID 或別名的原始規則。"
+  },
+  "guide_raw_rules_p_5": {
+    "message": "若要跳過整個提供者，請改用 <code>exceptions</code>。"
+  },
+  "guide_exceptions_p_1": {
+    "message": "如果網址匹配 <code>exceptions</code> 中的某一項，則此請求不會執行該提供者的任何規則。條目可以是與完整網址匹配的正規表示式，也可以是以 <code>|</code> 開頭的網域模式："
+  },
+  "guide_exceptions_p_2": {
+    "message": "例外不區分大小寫。若要跳過單條規則而非整個提供者，請為該規則設定自己的 <code>exceptions</code>（第 9 章）。"
+  },
+  "guide_redirects_p_1": {
+    "message": "網址中最先出現的匹配引數會生效。對於 <code>https://site.example/away?redirect=https://real.example/page</code>，請求會轉到 <code>https://real.example/page</code>。"
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "有效的重定向目標"
+  },
+  "guide_redirects_p_2": {
+    "message": "只有目標為帶主機名的絕對 <code>http</code> 或 <code>https</code> 地址時才會重定向。檢查會在前處理器執行和百分號解碼之後進行。目標無效時，該條目會視為不匹配：不會發生重定向，提供者的後續步驟會在未更改的網址上執行。"
+  },
+  "guide_redirects_th_1": {
+    "message": "目標"
+  },
+  "guide_redirects_th_2": {
+    "message": "是否重定向？"
+  },
+  "guide_redirects_cell_1": {
+    "message": "是"
+  },
+  "guide_redirects_cell_2": {
+    "message": "是，轉到 <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "否：協議不是 <code>http</code> 或 <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "否：不是絕對地址"
+  },
+  "guide_redirects_p_3": {
+    "message": "原始規則如果生成的結果與輸入網址的協議、主機或埠不同，也會視為重定向，即使它只刪除了文字也是如此：從 <code>https://secure-bank.example/</code> 中刪除 <code>secure-</code> 後會轉到另一個網站。它需要有效目標，並且遠端規則列表還需要獲得 <code>redirect</code> 批准（第 15 章）。否則規則會保持網址不變。"
+  },
+  "guide_rule_objects_p_1": {
+    "message": "任何列表中的任何條目都可以寫成物件，而不是字串。若規則需要穩定 ID、預設關閉、改寫而非移除，或僅在某些情況下執行，請使用物件："
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "必填。您原本會在該列表中寫入的純文字條目。"
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "穩定名稱（字母、數字、<code>-</code>、<code>_</code>），用於開啟或關閉規則（第 14 章）。"
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "規則之前使用過的 ID，因此使用舊 ID 儲存的設定在重新命名後仍然有效。"
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "改寫而非移除；<code>§1§</code>、<code>§2§</code> 等代表捕獲的值。"
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "先轉換捕獲的值。"
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "僅適用於這些請求型別，例如 <code>[\"main_frame\"]</code>。沒有請求的清理（<em>複製清潔連結</em>、清理工具、History API 更改）會視為 <code>main_frame</code>。"
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "此規則不執行的網址（正規表示式）。"
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "正規表示式標誌，以字串表示。預設值為 <code>i</code>；在 <code>rawRules</code> 中為 <code>gi</code>（或搭配 <code>match-case</code> 使用時為 <code>g</code>）。"
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "在所屬階段中提前或延後執行規則（第 13 章）。"
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>：<code>rules</code> 中的規則也會計為引薦營銷規則（第 10 章）。"
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "對此規則單獨設定同名的提供者開關。它優先於提供者的值和檔案預設值。"
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>：規則預設關閉。"
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "供閱讀檔案的人檢視的備註；必須是字串。"
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "僅適用於 <code>@@…$rawrule=</code> 條目：要阻止的原始規則 ID。"
+  },
+  "guide_rule_objects_p_2": {
+    "message": "此處 <code>?token=abc123</code> 會變為 <code>?token=clean-abc123</code>。每個請求最多改寫一次，因此不會反覆包裝該值。"
+  },
+  "guide_rule_objects_p_3": {
+    "message": "前處理器會按順序更改捕獲值，然後 <code>replacePattern</code> 或重定向才會使用這些值。<code>inputs</code> 可以是 <code>\"all\"</code> 或組編號列表："
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> 可使用與 <code>rules</code> 相同的條目。只有關閉<em>允許引薦營銷</em>時，這些條目才會執行，因此啟用此選項後聯盟連結仍能正常工作："
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "規則可以留在 <code>rules</code> 中，同時計為引薦營銷規則，方法是設定 <code>\"referralMarketing\": true</code>。不要在 <code>rules</code> 和 <code>referralMarketing</code> 中重複填寫相同文字；編輯器會對此發出警告。"
+  },
+  "guide_request_types_cell_1": {
+    "message": "單條規則物件處理的請求型別（也可在 <code>defaults</code> 中設定）"
+  },
+  "guide_request_types_p_1": {
+    "message": "請求型別使用瀏覽器所用的名稱：<code>main_frame</code>（頁面）、<code>sub_frame</code>（框架）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> 等。過濾器修飾符將前兩種稱為 <code>document</code> 和 <code>subdocument</code>。"
+  },
+  "guide_request_types_p_2": {
+    "message": "請求型別只能在規則中設定：設定中沒有請求型別列表。如果沒有設定這些型別，規則會清理所有請求型別。"
+  },
+  "guide_defaults_title_1": {
+    "message": "12. 預設值"
+  },
+  "guide_defaults_p_1": {
+    "message": "頂層 <code>defaults</code> 塊會為檔案中的每條規則提供其未自行設定的值："
+  },
+  "guide_defaults_th_1": {
+    "message": "每條規則的預設值……"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>；設為 <code>false</code> 會關閉所有規則，除非規則自身設定 <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>；設為 <code>\"all\"</code> 或留空都表示所有型別"
+  },
+  "guide_defaults_item_1": {
+    "message": "規則自身的值始終優先；規則的 <code>exceptions</code> 會替代預設列表，而不是附加到該列表。"
+  },
+  "guide_defaults_item_2": {
+    "message": "預設值適用於 <code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code>、<code>redirections</code> 和 <code>fieldRedirections</code>。提供者自己的 <code>exceptions</code> 列表保持不變。<code>$redirect=</code> 條目只使用 <code>active</code>。"
+  },
+  "guide_defaults_item_3": {
+    "message": "每個檔案都會保留自己的預設值：內建規則、每個遠端列表以及您的自定義規則都是如此，即使過載模式將它們合併也是一樣。"
+  },
+  "guide_defaults_item_4": {
+    "message": "對於 <code>completeProvider</code>，預設的 <code>requestTypes</code> 和 <code>exceptions</code> 也會限制阻止操作。"
+  },
+  "guide_defaults_item_5": {
+    "message": "未知鍵和錯誤型別會導致錯誤；包含無效 <code>defaults</code> 塊的遠端列表會被拒絕。"
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "自定義預設值"
+  },
+  "guide_defaults_p_2": {
+    "message": "在自定義規則編輯器中，開啟<em>管理規則預設值</em>會顯示一個表單，您可以在其中設定自己的 <code>defaults</code> 塊，並選擇替換哪些檔案自身的預設值："
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>每個來源各自的預設值</em>（預設）：每個檔案使用自己的 <code>defaults</code>。"
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>內建和遠端規則使用您的預設值</em>：內建規則和遠端規則使用您的預設值；自定義規則保留自己的預設值。"
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>所有規則使用您的預設值</em>：所有規則都使用您的預設值。"
+  },
+  "guide_defaults_p_3": {
+    "message": "同一表單也可以編輯內建規則和每個已載入遠端列表的預設值。編輯內容會儲存在擴充套件程式中，而不會寫入檔案；選擇<em>重置為檔案預設值</em>即可清除編輯內容。<em>從來源合併…</em>可合併您勾選的來源預設值；儲存前不會儲存任何更改。"
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. 網址的處理流程"
+  },
+  "guide_processing_order_item_1": {
+    "message": "先處理 <code>redirections</code>，再處理 <code>fieldRedirections</code>：匹配且目標有效時，會重定向請求。"
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> 和 <code>referralMarketing</code> 會移除或改寫引數。"
+  },
+  "guide_processing_order_item_3": {
+    "message": "執行 <code>$removeparam</code> 過濾器，但 <code>@@</code> 條目所保留的引數除外。"
+  },
+  "guide_processing_order_p_1": {
+    "message": "第一個更改、重定向或阻止網址的提供者會獲勝。新網址隨後會再次經過相同步驟（請參閱<a href=\"#termination\">處理何時停止</a>）。"
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "執行順序和 <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "第 4 步和第 5 步會根據以下規則依次共同排序："
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>原始規則始終最先執行。</strong>沒有 <code>order</code> 可以讓 <code>rules</code> 條目排到原始規則之前。必須在原始規則前執行的清理操作本身也必須是原始規則。"
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>在同一階段中，帶有 <code>order</code> 的規則會排在沒有該值的規則之前，</strong>數值較小的優先。允許負數和小數。<code>order: 10</code> 並不表示“第十位”：它表示排在該階段中小於 10 的有序規則之後、所有無序規則之前。"
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>然後按列表排序：</strong>先是 <code>rules</code>，再是標記為 <code>\"referralMarketing\": true</code> 的 <code>rules</code> 物件，最後是 <code>referralMarketing</code>。"
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>最後按列表中的位置排序。</strong>每個條目都會保留自己的位置，包括寫成 <code>\"3\"</code> 或 <code>\"20\"</code> 的條目。"
+  },
+  "guide_processing_order_p_3": {
+    "message": "此處會先改寫令牌，然後移除 <code>utm_source</code>，儘管令牌排在第二位："
+  },
+  "guide_processing_order_p_4": {
+    "message": "已關閉的規則會被忽略。<code>$removeparam</code> 過濾器和 <code>@@</code> 條目不參與此排序，也不能設定 <code>order</code>，包括 <code>null</code>；過濾器始終最後執行。"
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "相同文字出現兩次"
+  },
+  "guide_processing_order_p_5": {
+    "message": "同一分組中如果有兩個條目的 <code>matchPattern</code> 文字相同，它們就算作同一條規則。分組為原始組（<code>rawRules</code>）、欄位組（未標記為引薦的 <code>rules</code>）和引薦組（標記為引薦的 <code>rules</code> 物件，然後是 <code>referralMarketing</code>）。規則列表合併時最容易出現這種情況。"
+  },
+  "guide_processing_order_item_8": {
+    "message": "最後一個未關閉的定義會生效，並保留其所有鍵。"
+  },
+  "guide_processing_order_item_9": {
+    "message": "如果生效規則沒有自己的 <code>order</code>，它會採用第一個定義的位置以及最接近的較早 <code>order</code>。<code>\"order\": null</code> 表示不排序，並會清除繼承的排序值。"
+  },
+  "guide_processing_order_item_10": {
+    "message": "被替換定義的 ID 和別名也可以用於關閉或啟用生效規則。"
+  },
+  "guide_processing_order_item_11": {
+    "message": "引薦營銷規則執行時，引薦條目會替換文字相同的欄位條目。"
+  },
+  "guide_processing_order_item_12": {
+    "message": "文字相同的原始規則和欄位規則不會衝突；兩者都會執行。"
+  },
+  "guide_processing_order_p_6": {
+    "message": "同一個列表中，不同條目如果文字相同就會報錯；完全重複的條目會發出警告。"
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "處理何時停止"
+  },
+  "guide_processing_order_item_13": {
+    "message": "每個請求最多執行 10 個迴圈；達到上限後會使用當前網址。"
+  },
+  "guide_processing_order_item_14": {
+    "message": "每個請求中，帶有 <code>replacePattern</code> 的規則最多應用一次。"
+  },
+  "guide_processing_order_item_15": {
+    "message": "不會更改網址的步驟不會啟動新迴圈。"
+  },
+  "guide_processing_order_p_7": {
+    "message": "設定 → <em>無限清理迴圈</em>（預設關閉）會移除 10 次迴圈上限，以支援需要更多輪次的規則鏈。之後只要某個迴圈沒有任何更改，處理就會結束；但如果兩條規則相互重定向，瀏覽器會在放棄後結束迴圈，頁面也無法載入。請僅為您信任的規則啟用此選項。"
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. 規則 ID 和啟用/關閉開關"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "每條規則都有 ID。未設定 <code>id</code> 的規則會根據所屬列表和文字生成 ID：例如 <code>rules</code> 中的 <code>\"utm_source\"</code> 會變為 <code>field-utm-source</code>。更改規則文字會改變生成的 ID，原本已關閉的規則隨後會重新啟用。如果規則在編輯後也必須保留啟用/關閉狀態，請為其設定自己的 <code>id</code>；重新命名時，請在 <code>aliases</code> 中列出舊 ID。"
+  },
+  "guide_rule_ids_p_2": {
+    "message": "規則透過提供者和 ID 的組合來啟用或關閉，例如 <code>shop::session-token</code>，因此兩個提供者可以使用相同的 ID。自定義規則編輯器也可能使用提供者模式儲存設定，例如 <code>domainPattern:||shop.example^::session-token</code>；兩種形式都有效。"
+  },
+  "guide_rule_ids_item_1": {
+    "message": "在同一提供者中，每個 ID 和別名都必須不同。生成的 ID 也計入其中。"
+  },
+  "guide_rule_ids_item_2": {
+    "message": "ID 不能包含冒號。"
+  },
+  "guide_rule_ids_item_3": {
+    "message": "在未指定提供者的情況下，僅用裸 ID 儲存的設定不會關閉任何規則；請在自定義規則編輯器中再次關閉該規則。"
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. 遠端規則列表"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "遠端規則列表是 Linkumori 下載的規則檔案，可以選擇使用雜湊檔案進行驗證。如果 <code>cln</code> 值、<code>defaults</code> 塊或 <code>patches</code> 陣列無效，該列表就不會載入，並會在“遠端規則狀態”中報告。"
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "重定向和阻止需要您的批准"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "載入時會根據遠端列表的內容判斷它能執行哪些操作："
+  },
+  "guide_remote_rules_th_1": {
+    "message": "功能"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "列表包含以下內容時即可使用"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "載入時啟用"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "包含 <code>rules</code>、<code>rawRules</code> 或 <code>referralMarketing</code> 條目，或 <code>$removeparam</code> 過濾器"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "包含帶有 <code>replacePattern</code> 的條目"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "包含提供者 <code>exceptions</code> 條目或 <code>@@</code> 條目"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "包含 <code>redirections</code> 或 <code>fieldRedirections</code> 條目，或 <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "批准後"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "包含 <code>\"completeProvider\": true</code> 的提供者"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "請在“遠端規則狀態”中為每個列表批准 <code>redirect</code> 和 <code>block</code>。批准前，該列表的重定向和阻止操作會保持關閉，其原始規則也無法將網址傳送到其他網站；列表的其他功能會立即生效。更新新增新功能時，也需要等待批准。內建和自定義規則始終擁有全部功能。"
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "過載模式"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "通常，包含提供者的遠端列表會替代內建規則；僅包含 <code>patches</code> 的列表則會應用於內建規則。啟用<em>啟用過載模式</em>後，列表會一起載入，並使用以下三種策略之一："
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>僅補丁模式</em>：將遠端列表的補丁應用於內建規則；不包含遠端提供者。"
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>補丁模式 + 合併</em>：合併內建和遠端提供者，然後應用補丁。"
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>無補丁模式 + 合併</em>：合併提供者並跳過補丁。"
+  },
+  "guide_remote_rules_p_5": {
+    "message": "合併時，遠端列表會按照列出的順序彼此合併，然後再與內建規則合併（內建規則優先）。僅當提供者的 <code>domainPatterns</code>（或 <code>urlPattern</code>）以及 <code>methods</code>、<code>resourceTypes</code>、<code>completeProvider</code> 和 <code>forceRedirection</code> 均相同時，才會合併這些提供者；其 <code>rules</code>、<code>rawRules</code> 和 <code>referralMarketing</code> 會合併在一起，並根據<a href=\"#same-text-twice\">相同文字出現兩次</a>中的規則決定執行哪個副本。“遠端規則狀態”會將每條被替換規則列為提示。"
+  },
+  "guide_remote_rules_p_6": {
+    "message": "自定義規則最後應用。自定義提供者會替換所有模式相同的已載入提供者；它們的規則不會合並。"
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "規則補丁"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "遠端列表可以在頂層 <code>patches</code> 陣列中替換已載入的單條規則，而不必釋出完整副本："
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "必填。要替換的規則，格式與其啟用/關閉鍵相同：<code>providerKey::id</code>、<code>domainPattern:&lt;pattern&gt;::id</code> 或 <code>urlPattern:&lt;regex&gt;::id</code>。"
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "必填。可選 <code>rules</code>、<code>referralMarketing</code>、<code>rawRules</code>、<code>exceptions</code>、<code>redirections</code> 或 <code>fieldRedirections</code>。"
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "必填。新規則，可以是純文字條目或規則物件。"
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "供閱讀檔案的人檢視的備註。"
+  },
+  "guide_remote_rules_item_4": {
+    "message": "補丁會在遠端列表合併後、自定義規則之前執行。僅包含 <code>patches</code> 的檔案不需要 <code>providers</code>。"
+  },
+  "guide_remote_rules_item_5": {
+    "message": "合併可能會重新命名提供者，因此始終能找到它們的形式是 <code>domainPattern:</code> 或 <code>urlPattern:</code>。"
+  },
+  "guide_remote_rules_item_6": {
+    "message": "替換規則會保留舊規則的 ID，或將舊 ID 設為別名，因此原有啟用/關閉設定仍然有效。"
+  },
+  "guide_remote_rules_item_7": {
+    "message": "重定向補丁需要等待列表獲得 <code>redirect</code> 批准。目標無法匹配任何內容的補丁不會產生更改。"
+  },
+  "guide_remote_rules_item_8": {
+    "message": "“遠端規則狀態”會將每個補丁列為已應用、不匹配或已跳過。"
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. 規則和白名單"
+  },
+  "guide_whitelist_p_1": {
+    "message": "白名單獨立於提供者的 <code>exceptions</code>：其中列出您告知 Linkumori 不要處理的網站，無需使用任何規則檔案。條目示例：<code>example.com</code>、<code>*.example.com</code>（該網站及其子網域）或 <code>example.*</code>（任意字尾）。將頁面加入白名單後，其載入的所有內容也會受到保護。"
+  },
+  "guide_examples_title_1": {
+    "message": "17. 完整示例"
+  },
+  "guide_checking_title_1": {
+    "message": "18. 檢查規則"
+  },
+  "guide_checking_p_1": {
+    "message": "自定義規則編輯器會在儲存或匯入時檢查規則，<code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> 會執行相同的檢查。除了無效 JSON 和無效正規表示式，它還會拒絕那些雖然可以載入、卻會悄悄產生錯誤行為的規則，例如："
+  },
+  "guide_checking_item_1": {
+    "message": "未知欄位、鍵和修飾符"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> 值不是 <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "同一提供者中重複使用的 ID 或別名"
+  },
+  "guide_checking_item_2": {
+    "message": "同一個列表中有兩條不同的規則文字相同"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> 過濾器或 <code>@@</code> 條目上設定了 <code>order</code>，包括 <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> 地址不是 <code>http</code> 或 <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "在 <code>$removeparam</code> 名稱中，反斜槓後跟了不允許轉義的字元"
+  },
+  "guide_checking_p_2": {
+    "message": "它還會提示完全重複的條目，以及同時出現在 <code>rules</code> 和 <code>referralMarketing</code> 中的相同文字。如果儲存失敗，訊息會指出提供者、列表和條目。"
+  },
+  "guide_toc_search": {
+    "message": "篩選章節"
+  },
+  "guide_toc_no_results": {
+    "message": "沒有匹配的章節。"
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: 以 \"|\" 開頭的重定向必須採用以下格式：\"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= 目標必須是絕對 http 或 https URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ 必須是物件",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type 必須是非空字串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type 必須是以下之一：$TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs 必須是 \"all\" 或正整數陣列",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ 必須是字串或規則物件",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern 必須是字串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern 必須是字串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId 必須是規則 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId 僅適用於 rawRules 中的 \"@@…$rawrule=\" 例外項",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags 必須是字串（例如 \"i\" 這樣的正則標誌）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing 必須為 true 或 false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing 在 $FIELD$ 中不起作用；它僅適用於 $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order 必須是數字或 null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order 在 $FIELD$ 中不起作用；它僅適用於 $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order 對 $removeparam 過濾器或 \"@@\" 條目不起作用；它們始終在其他規則之後執行",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active 必須是布林值",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id 必須是字串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id 必須匹配 $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases 必須是匹配 $PATTERN$ 的 ID 列表",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases 不得包含規則自身的 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description 必須是字串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection 必須是布林值",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions 必須是字串陣列",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes 必須是字串陣列",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors 必須是陣列",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$：未知欄位 \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ 以 \"@@\" 開頭，此寫法僅適用於 rules 和 referralMarketing 中的 $removeparam 篩選器；請改用規則物件的 \"exceptions\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ 包含未知的 $removeparam 選項 \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$：\"$PATTERN$\" 以單個 \"|\" 開頭，因此只會匹配字面上以 \"$REST$\" 開頭的 URL，但不存在這樣的 URL（URL 以 \"https://\" 開頭）。要匹配網域，請使用 \"||$REST$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ 包含 \"targetId\"，但它僅適用於例外項；請讓 matchPattern 以 \"@@\" 開頭（例如 \"@@||example.com^$rawrule=\"）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ 同時包含 \"targetId\" 和 \"rawrule=\" 後的正規表示式；請只使用其中一個",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ 的 targetId \"$ID$\" 在此提供者中沒有對應 ID 或別名的 raw rule",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ 是針對 \"$REGEX$\" 的 \"@@\" 例外項，但此提供者沒有任何 raw rule 使用該正規表示式。請為規則指定 ID，並改用 \"targetId\" 指向它",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ 是一個 \"@@\" 例外項，因此 \"$KEY$\" 不會產生任何效果",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ 的 \"rawrule=\" 後沒有內容；這裡需要要刪除的正規表示式",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ 的 \"rawrule=\" 後有無效的正規表示式：$ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ 有 $GROUPS$ 個捕獲組；目標 URL 周圍必須恰好有一個括號組 \"( … )\"（其他組請寫成 \"(?: … )\"）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ 在 $WHERE$ 中重複使用規則 ID \"$ID$\"；首次使用位置：$FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ 必須是 JSON 物件",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$：$FIELD$ 必須是陣列",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ 包含未知鍵 \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "處理 URL 時出錯：$1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "初始化頁面時出錯：$1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "無效標籤頁"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "此標籤頁已有規則搜尋正在執行"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "此標籤頁沒有正在執行的暫停檢查"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "規則仍在載入。請稍後重試。"
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "此頁面上觸發的規則均無法關閉。"
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "無法關閉這些規則"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "此標籤頁沒有正在執行的規則搜尋"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "此標籤頁沒有可跳過的已找到規則"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "無法下載"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "無法將錄製內容儲存到會話儲存"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "未知規則"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "未知錯誤"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "匯出失敗"
   }
 }

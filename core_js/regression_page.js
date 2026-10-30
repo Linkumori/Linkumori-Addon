@@ -73,6 +73,9 @@
     document.title = t('regression_page_title');
     document.getElementById('page-title').textContent = t('regression_page_title');
     document.getElementById('page-heading').textContent = t('regression_heading');
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        element.textContent = t(element.getAttribute('data-i18n'));
+    });
     runButton.textContent = t('regression_run_again');
     exportButton.textContent = t('regression_export_results');
     status.textContent = t('regression_loading_suite');

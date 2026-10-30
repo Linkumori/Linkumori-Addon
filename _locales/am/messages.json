@@ -39,7 +39,7 @@
     "message": "የታሸጉ Linkumori/ClearURLs ደንቦችን ይጠቀሙ ። ይህንን ከርቀት ህጎች እና/ወይም ብጁ ህጎች ጋር ብቻ ለማሄድ ያሰናክሉ ።"
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori አንድ ወጥ የ ClearURLsData አቅራቢ ደንብ ስብስብ ይጠቀማል። ቤተኛ የአቅራቢ JSON፣ ቀኖናዊ የደንብ ነገሮች እና በአቅራቢ ውስጥ ያሉ $removeparam ማጣሪያዎች clearurls.js ከመሮጡ በፊት ይዋሃዳሉ።"
   },
   "bundled_rules_section_title": {
     "message": "ደንቦች መረጃ"
@@ -1137,25 +1137,25 @@
     "message": "የሊንኩሞሪ ቅንብሮችን ይክፈቱ"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "የከመጠን በላይ ጭነት ሁነታ ባህሪ"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "የፓች ሁነታ ብቻ"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "የርቀት ፓችዎችን በአብሮ የተሰሩ ደንቦች ላይ ይተግብሩ። የርቀት አቅራቢ ደንቦች አይካተቱም።"
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "የፓች ሁነታ + ውህደት"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "አብሮ የተሰሩ እና የርቀት አቅራቢ ደንቦችን ያዋህዱ፣ ከዚያም የርቀት ፓችዎችን ይተግብሩ።"
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "ያለ ፓች ሁነታ + ውህደት"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "አብሮ የተሰሩ እና የርቀት አቅራቢ ደንቦችን የርቀት ፓችዎችን ሳይተገብሩ ያዋህዱ።"
   },
   "overload_mode_enabled": {
     "message": "ከመጠን በላይ የመጫን ሁኔታን አንቃ"
@@ -1836,7 +1836,7 @@
     "message": "ዋና ሃሽ URL HTTPS መጠቀም አለበት።"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "ዋናው የደንብ URL እና ዋናው የሃሽ URL አብረው መዋቀር አለባቸው።"
   },
   "save_primary_rule_https_required": {
     "message": "ዋናው ደንብ URL HTTPS መጠቀም አለበት።"
@@ -1872,13 +1872,13 @@
     "message": "ስጋቶቹን ተረድቻለሁ - ቀጥል"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "የርቀት ደንቦችን የ Linkumori ደንብ ስብስብ ምንጭ ሙሉ በሙሉ ካልተረዱ ወይም ካላመኑ እነሱን መጠቀም እንደገና ቢያስቡበት ይሻላል።"
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "ይህ የርቀት ደንቦች ባህሪ የሚጭኑትን Linkumori JSON ለሚረዱ የላቀ ተጠቃሚዎች የተነደፈ ነው። የርቀት ደንቦች ለማረጋገጫ ተዛማጅ የሃሽ URL ማካተት አለባቸው።"
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "የርቀት ደንብ URL ካከሉ፣ ሲዋቀር ቅጥያው የ Linkumori ደንብ ስብስብን እና የሃሽ ፋይሉን ለማምጣት ከመረጡት አገልጋይ ጋር ይገናኛል። እያንዳንዱ ማምጣት የእርስዎን IP አድራሻ እና እንደ የቅጥያ ስሪት፣ አሳሽ እና የአሳሽ ስሪት ያሉ አጠቃላይ መረጃዎችን ለአስተናጋጁ አገልጋይ ሊያጋልጥ ይችላል። ይህ መረጃ በዚያ ድር ጣቢያ ወይም ድር አገልጋይ የግላዊነት ፖሊሲ ስር ነው።"
   },
   "security_modal_privacy_link_text": {
     "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።"
@@ -1887,7 +1887,7 @@
     "message": "የማስጠንቀቂያ ማስታወቂያ፡-"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "የርቀቱን ምንጭ ካላመኑና ካልተቆጣጠሩ በስተቀር አብሮ የተሰሩ ደንቦችን ይጠቀሙ። ለርቀት Linkumori JSON ደንቦች ተዛማጅ የሃሽ URL ያቅርቡ።"
   },
   "security_modal_risk_1": {
     "message": "የእርስዎ የአይፒ አድራሻ እና የአሳሽ መረጃ ለተዋቀሩ አገልጋዮች ይጋለጣሉ"
@@ -1899,7 +1899,7 @@
     "message": "የሃሽ ማረጋገጫ የሚመለከተው ለLinkumori CLN Format 1.0 JSON ደንቦች ብቻ ነው፤ ከተንኮል-አዘል ህግ ምንጮች ሳይሆን ከስርጭት መዛባት ይከላከላል."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "ሃሽ ማረጋገጫ ያልተሳካላቸው የርቀት ደንቦች ሙሉ በሙሉ በምንጩ URL ላይ ባለ እምነት ላይ ይመካሉ።"
   },
   "security_modal_risks_title": {
     "message": "የደህንነት ስጋቶች፡-"
@@ -1914,7 +1914,7 @@
     "message": "ዩአርኤል ወደ ደንቡ።hash ፋይል (ሃሽ)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "ለርቀት Linkumori JSON ደንብ ማረጋገጫ ያስፈልጋል።"
   },
   "setting_html_export_button": {
     "message": "ወደ ውጪ ላክ"
@@ -1944,7 +1944,7 @@
     "message": "የምዝግብ ማስታወሻ ገደብ (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "በአንድ መስመር አንድ ጥንድ በማስገባት የተዋሃዱ ተጨማሪ የርቀት Linkumori JSON ምንጮች። <code>ruleURL | hashURL</code> በሚለው መልኩ ያስገቡ።"
   },
   "setting_remote_rule_sets_label": {
     "message": "ተጨማሪ የርቀት ደንብ ስብስቦች"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "ለ Linkumori JSON ደንቦች ብጁ የርቀት URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "ወደ የርቀት ደንቦች JSON ፋይል የሚወስደው URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "ለእያንዳንዱ የርቀት ደንብ ስብስብ የሃሽ URL ያስፈልጋል።"
   },
   "settings_html_page_title": {
     "message": "Linkumori (ንጹህ URLS) ቅንብሮች"
@@ -2421,19 +2421,19 @@
     "message": "ማስጠንቀቂያ፡ የላቀ ባህሪ የታሰበ በራስ ለሚስተናገዱ አገልጋዮች ብቻ ነው።"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "ለርቀት ደንብ URL አርትዖት የ Gatekeeper ጥበቃዎችን እያሰናከሉ ነው። ይህ ባህሪ የርቀት Linkumori JSON ደንቦችን ወደ አንድ ወጥ የአቅራቢ ደንብ ስብስብ ሊጭን ይችላል። እያዋቀሩት ያለውን ምንጭ ከተረዱትና ካመኑት ብቻ ይቀጥሉ።"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "በረኛ ለደህንነት ማስጠንቀቂያው እውቅና እስኪሰጡ ድረስ እና የተተየበው ማረጋገጫ እስኪያጠናቅቁ ድረስ የርቀት ዩአርኤል አርትዖቶችን የሚያግድ አብሮ የተሰራ የደህንነት ፍሰት ነው።"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "የርቀት ምንጮችዎን ካላመኑና ካልተቆጣጠሩ በስተቀር Gatekeeper ን ነቅቶ ያቆዩት። የርቀት JSON ደንቦች ተዛማጅ የሃሽ URL ማካተት አለባቸው።"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "የማስጠንቀቂያ ማስታወቂያ፡-"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "የርቀት ደንብ URL ካከሉ፣ ሲዋቀር ቅጥያው የ Linkumori ደንብ ስብስብን እና የሃሽ ፋይሉን ለማምጣት ከመረጡት አገልጋይ ጋር ይገናኛል። እያንዳንዱ ማምጣት የእርስዎን IP አድራሻ እና እንደ የቅጥያ ስሪት፣ አሳሽ እና የአሳሽ ስሪት ያሉ አጠቃላይ መረጃዎችን ለአስተናጋጁ አገልጋይ ሊያጋልጥ ይችላል። ይህ መረጃ በዚያ ድር ጣቢያ ወይም ድር አገልጋይ የግላዊነት ፖሊሲ ስር ነው።"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።"
@@ -2448,7 +2448,7 @@
     "message": "ቅጥያው በነቃ እና በአሳሽዎ ውስጥ በተጫነ ቁጥር ቅጥያው ከተሰየመው ዩአርኤል ጋር ይገናኛል።"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "የርቀት JSON ወይም የሃሽ ፋይሎችን የሚያስተናግደው አገልጋይ የእርስዎን IP አድራሻ ይቀበላል።"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "አገልጋዩ የእርስዎን የኤክስቴንሽን ስሪት፣ አሳሽ እና የአሳሽ ስሪት ሊቀበል ይችላል።"
@@ -2457,7 +2457,7 @@
     "message": "ያ ውሂብ እነዚያን ፋይሎች በሚያስተናግደው የድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Gatekeeper ን በማሰናከል ከደህንነቱ ያልተጠበቀ ወይም ከተጠለፈ የርቀት ደንብ ምንጮች የሚመጣውን አደጋ ይጨምራሉ። የሃሽ ማረጋገጫ የርቀት Linkumori JSON ውርዶችን የሚጠብቀው ተዛማጅ የሃሽ URL ሲዋቀር ብቻ ነው።"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "ሰርዝ"
@@ -2517,7 +2517,7 @@
     "message": "ትክክለኛ የማረጋገጫ ሐረግ ይተይቡ"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "ይህ እርምጃ ለርቀት ደንቦች ያሉትን መከላከያዎች ይቀንሳል። የርቀት JSON ምንጭዎን ካመኑ ብቻ ይቀጥሉ።"
   },
   "remote_urls_template_note_1": {
     "message": "የቦታ ያዥ እሴቶችን በእውነተኛ HTTPS ዩአርኤሎች ይተኩ፣ ከዚያ ይህን ፋይል ያስመጡ።"
@@ -2847,10 +2847,10 @@
     "message": "ምንም"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "የደንብ ግጭቶች፦"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ ስህተቶች፣ $WARNINGS$ ማስጠንቀቂያዎች፣ $NOTICES$ ማሳሰቢያዎች",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "የርቀት ፋይል አቅሞች፦"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "እስኪቀበሉ ድረስ ንቁ አይደለም፦ $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ ተቀበል",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "የደንብ ፓችዎች፦"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ ተተግብሯል፣ $NOT_APPLIED$ አልተተገበረም",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "የደንብ ነባሪዎች"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "አብሮ የተሰራ"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "ብጁ"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "ምንም — አብሮ የተሰራ ባህሪ"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "የከመጠን በላይ ጭነት ሁነታ አብሮ የተሰሩ እና የርቀት ደንቦችን ያዋህዳል፤ የእያንዳንዱ ምንጭ ደንቦች የዚያን ምንጭ የራሱን ነባሪዎች ይይዛሉ።"
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "ነባሪዎችን አስቀምጥ"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "ነባሪዎች ተቀምጠዋል"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "ሲበራ፣ በብጁ ደንቦች አርታዒ ውስጥ የራስዎን ነባሪዎች ካልመረጡ በስተቀር እያንዳንዱ የደንብ ምንጭ የራሱን ነባሪዎች ይይዛል (አብሮ የተሰሩ ነባሪዎች በአብሮ የተሰሩ ደንቦች ላይ፣ የእያንዳንዱ የርቀት ፋይል ነባሪዎች በዚያ ፋይል ደንቦች ላይ ይተገበራሉ)።"
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "የርቀት፦ $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "የትኞቹ ነባሪዎች ይተገበራሉ"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "የእያንዳንዱ ምንጭ የራሱ"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "የእርስዎ ለአብሮ የተሰሩ እና ለርቀት ደንቦች"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "የእርስዎ ለሁሉም ደንቦች"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(በእርስዎ ነባሪዎች ተተክቷል)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "የእርስዎ"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ የጥያቄ ዓይነቶች",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ የURL ልዩ ሁኔታዎች",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 የURL ልዩ ሁኔታ"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ ቅድመ-ማቀነባበሪያዎች",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "የእያንዳንዱ ምንጭ ደንቦች የዚያን ምንጭ የራሱን ነባሪዎች ያገኛሉ።"
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "አብሮ የተሰሩ እና የርቀት ደንቦች ከፋይሎቻቸው ነባሪዎች ይልቅ የእርስዎን ነባሪዎች ያገኛሉ፤ ብጁ ደንቦች የራሳቸውን ይይዛሉ።"
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "አብሮ የተሰሩ፣ የርቀት እና ብጁ ደንቦች ሁሉም ከራሳቸው ይልቅ የእርስዎን ነባሪዎች ያገኛሉ።"
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "የደንብ ነባሪዎችን አስተዳድር"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "ነባሪዎች ደንብ ራሱ ያላዘጋጃቸውን እሴቶች ይሞላሉ። የደንብ የራሱ እሴት ሁልጊዜ ያሸንፋል፣ የአቅራቢ ልዩ ሁኔታዎችም በፍጹም አይለወጡም።"
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "ነባሪዎችን አርትዕ"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "የእርስዎ ነባሪዎች"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "የብጁ ደንቦች ነባሪዎች"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "የሚስተካከሉ ነባሪዎች"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "አብሮ የተሰሩ ደንቦች"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(ተስተካክሏል)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "ወደ ፋይሉ ነባሪዎች መልስ"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "ከምንጮች አዋህድ…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "የደንብ ነባሪዎችን አዋህድ"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "ውጤቱ በዝርዝሩ ውስጥ \"የተዋሃዱ ነባሪዎች\" ሆኖ ይታያል። እዚያ ወደ አንድ ስብስብ ገልብጠው ለመጠቀም ነባሪዎችን አስቀምጥ ን ይጫኑ።"
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "የሚዋሃዱ ምንጮች"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "ግጭቶች"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "የተዋሃዱ ነባሪዎች"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "የተዋሃዱ ነባሪዎችን ተጠቀም"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "የተዋሃዱ ነባሪዎች"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "ወደ ሌሎቹ ስብስቦች አንዱ ገልብጠው እስካላስቀመጡት ድረስ ጥቅም ላይ አይውልም።"
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "ቅዳ ወደ"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "ቅዳ"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "ቢያንስ ሁለት ምንጮችን ይምረጡ።"
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "ግጭት የለም፦ የተመረጡት ምንጮች በእያንዳንዱ እሴት ይስማማሉ።"
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "ልዩ ሁኔታዎች ከእያንዳንዱ ምንጭ ተደምረው ይጨመራሉ፦ በጠቅላላው $COUNT$።",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "ከእያንዳንዱ ምንጭ ተጣምሯል"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "ከ፦ $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "አልተዘጋጀም (አብሮ የተሰራ ባህሪ)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "አልተዘጋጀም፦ ሁሉም የጥያቄ ዓይነቶች"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "አሁን ጥቅም ላይ አይውልም፦ የእርስዎ ነባሪዎች የአብሮ የተሰሩ እና የርቀት ደንቦችን የራሳቸውን ይተካሉ።"
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "በእርስዎ የተስተካከለ፦ እነዚህ የፋይሉን የራሱ ነባሪዎች ይተካሉ። ፋይሉ ራሱ አይለወጥም።"
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(በእርስዎ የተስተካከለ)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "አሁን ጥቅም ላይ አይውልም፦ ከላይ \"የእያንዳንዱ ምንጭ የራሱ\" ተመርጧል።"
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "አሁን ጥቅም ላይ አይውልም፦ የእርስዎ ነባሪዎች ለብጁ ደንቦችም እነዚህን ይተካሉ።"
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "ደንቦች ጠፍተው ይጀምራሉ (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "መግለጫ"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "የጥያቄ ዓይነቶች"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "ሁሉም ዓይነቶች"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "እነዚህ ብቻ"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "ቢያንስ አንድ የጥያቄ ዓይነት ይምረጡ ወይም \"ሁሉም ዓይነቶች\" ን ይምረጡ።"
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "ደንቦች ራሳቸው ወይም ነባሪዎች አንዳንዶችን ካልጠቀሱ በስተቀር እያንዳንዱን የጥያቄ ዓይነት ያጸዳሉ። አቅራቢዎች ዓይነቶችን በ resourceTypes ሊገድቡም ይችላሉ።"
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "ልዩ ሁኔታዎች"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "በአንድ መስመር አንድ URL regex። ደንቦች በሚዛመዱ URLዎች ላይ ይዘለላሉ።"
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "ቅድመ-ማቀነባበሪያዎች"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "ግብዓቶች፦ \"all\" ወይም እንደ 1፣ 2 ያሉ የቀረጻ ቡድን ቁጥሮች።"
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ ቅድመ-ማቀነባበሪያ ጨምር"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "የቅድመ-ማቀነባበሪያ ዓይነት"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "የቅድመ-ማቀነባበሪያ ግብዓቶች"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "አስወግድ"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "የቅድመ-ማቀነባበሪያ ግብዓቶች \"$INPUTS$\" \"all\" ወይም እንደ 1፣ 2 ያሉ ቁጥሮች መሆን አለባቸው።",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "የታሪክ ማለፍ ጥበቃን አጥፋ (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "እንደ JSON አሳይ"
   },
   "settings_remote_health_unknown": {
     "message": "የማይታወቅ"
@@ -3918,7 +3918,7 @@
     "message": "በ <code>replacePattern</code> አማካኝነት፣ በ <code>rules</code> ውስጥ ያለ ህግ ፓራሜትሩን ጠብቆ እሴቱን ይተካል፣ ይህም <code>§1§</code> ነው። በ <code>rawRules</code> እና <code>redirections</code> ውስጥ፣ <code>§1§</code>፣ <code>§2§</code>፣ … የcapture groups ናቸው፡"
   },
   "guide_obj_pre_title": {
-    "message": "Preprocessors"
+    "message": "ቅድመ-ማቀነባበሪያዎች"
   },
   "guide_obj_p4": {
     "message": "ዓይነቶቹ <code>urlEncode</code>፣ <code>urlDecode</code>፣ <code>doubleUrlEncode</code>፣ <code>doubleUrlDecode</code>፣ <code>base64Encode</code> እና <code>base64Decode</code> ናቸው።"
@@ -4005,10 +4005,10 @@
     "message": "አቅራቢ JSON መመሪያ"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "የ Linkumori ደንቦች መመሪያን ክፈት"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "የትኛውን የደንብ አገባብ ልጠቀም?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "የደንቦች መመሪያን ክፈት"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "የአቅራቢ ምንጮችን መጫን አልተሳካም፦ $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "የተጠቀለሉ ደንቦች አይገኙም።"
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "የተጠቀለሉ ደንቦችን መጫን አልተሳካም፦ $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "ቋንቋን ወደ $1 መቀየር አልተቻለም።"
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "ብሩህ ገጽታ"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "ጨለማ ገጽታ"
   },
   "posarCopied": {
     "message": "POSAR ተቀድቷል!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR ተቀባይነት አግኝቷል።"
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "ዳግም አስጀምር"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "የተደራሽነት መሣሪያዎች"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "የተደራሽነት መሣሪያዎችን ክፈት"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "የተደራሽነት መሣሪያዎችን ዝጋ"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "ሁሉንም የተደራሽነት ቅንብሮች ዳግም አስጀምር"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "እይታ"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "ንባብ"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "መስተጋብር"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "ከፍተኛ ንፅፅር"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "የቀለም ማጣሪያ"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "ሙሌት"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "ገልብጥ"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "አገናኞችን አድምቅ"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "ምስሎችን ደብቅ"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "የጽሑፍ መጠን ጨምር"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "የጽሑፍ መጠን ቀንስ"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "ነባሪ የጽሑፍ መጠን"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "የፊደል ቅርጽ ምርጫ"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "ለዲስሌክሲያ ተስማሚ"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "የጽሑፍ ክፍተት"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "የመስመር ቁመት"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "የጽሑፍ አሰላለፍ"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "እነማዎችን አቁም"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "ትልቅ ጠቋሚ"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "ነባሪ"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "መካከለኛ"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "ከፍተኛ"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "እጅግ ከፍተኛ"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "ዝቅተኛ"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "ምንም"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "ቀላል"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "ከባድ"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "ማጣሪያ የለም"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "ፕሮታኖፒያ"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "ዲዩተራኖፒያ"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "ትሪታኖፒያ"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "ግራጫ ሚዛን"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "ግራ"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "መሃል"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "ቀኝ"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "እጅግ ትንሽ"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "ትንሽ"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "ትልቅ"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "እጅግ ትልቅ"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "ትልቁ"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "በርቷል"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "ጠፍቷል"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "ነቅቷል"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "ተሰናክሏል"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "ነባሪ የጽሑፍ መጠን ተመርጧል"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "ሁሉም የተደራሽነት ቅንብሮች ዳግም ተጀምረዋል"
+  },
+  "skip_to_main_content": {
+    "message": "ወደ ዋና ይዘት ዝለል"
+  },
+  "popupNavAriaLabel": {
+    "message": "የብቅ-ባይ አሰሳ"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "የብጁ ደንቦች እይታዎች"
+  },
+  "logViewNavAriaLabel": {
+    "message": "የምዝግብ ማስታወሻ እይታዎች"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "የታሪክ ማለፍ ጥበቃ (በገጽ ውስጥ አሰሳ ወቅት ዝለል)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "የመስክ አቅጣጫ ማዛወሪያዎች"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "ደንቡን ቅዳ"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "ደንቡ ተቀድቷል"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "ደንቡን መቅዳት አልተቻለም"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection ምን ያደርጋል?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "ነጠላ-ገጽ ጣቢያዎች አዲስ ገጽ ከመጫን ይልቅ አድራሻውን በ history.pushState/replaceState ይለውጣሉ። Linkumori እነዚያንም አድራሻዎች ያጸዳል። ለእነዚህ በገጽ ውስጥ ለውጦች ያንን ማጣሪያ ብቻ ለመዝለል history-bypass-protection=false ወደ $removeparam ማጣሪያ ያክሉ፤ በተለመዱ ጥያቄዎች ላይ አሁንም ይሰራል።"
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "አንድን አቅራቢ በሙሉ በገጽ ውስጥ ለውጦች ለመዝለል፣ በአቅራቢው ላይ ያዋቅሩት፦"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "ካልተጠቀሰ እሴቱ true ነው እና በገጽ ውስጥ ለውጦች ይጸዳሉ። የአንድ ደንብ የራሱ ቅንብር ከአቅራቢው ይበልጣል፤ ስለዚህ ደንብ በ history-bypass-protection=true ወይም በደንብ ነገር ውስጥ \"historyBypassProtection\": true እንደገና መምረጥ ይችላል።"
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "በገጽ ውስጥ አሰሳን ይዘላል"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "መታወቂያ ቀይር"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "ለ$OLD$ አዲስ መታወቂያ (a-z፣ 0-9፣ - እና _)። አሮጌው መታወቂያ እንደ ተለዋጭ ስም ይቆያል፤ ስለዚህ በእሱ ስር የጠፉ ደንቦች ጠፍተው ይቆያሉ።",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" ልክ ያልሆነ መታወቂያ ነው። ትንንሽ ፊደላትን፣ አሃዞችን፣ - እና _ ይጠቀሙ፣ በፊደል ወይም በአሃዝ ይጀምሩ።",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "የዚህ አቅራቢ ሌላ ደንብ \"$ID$\" ን አስቀድሞ ይጠቀማል።",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "ደንቡን አሰናክል"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ ን ለአቅራቢው በሙሉ ማሰናከል ይፈልጋሉ ወይስ ለዚህ URL/የጎራ ቅጥ ብቻ?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "ይህ አቅራቢ"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/የጎራ ቅጥ"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "የደንብ መታወቂያ ወደ $ID$ ተቀይሯል",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "ያልተያያዙ መቀያየሪያዎች"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "በምንጩ ውስጥ ተዛማጅ ደንብ አልተገኘም"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "አስወግድ"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "በገጽ ውስጥ አሰሳ ጽዳትን ይዘላል"
+  },
+  "whitelist_added_general": {
+    "message": "%s ወደ አጠቃላይ የተፈቀደላቸው ዝርዝር ታክሏል"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s እንደ History API ልዩ ሁኔታ ታክሏል"
+  },
+  "whitelist_exception_count": {
+    "message": "%d ልዩ ሁኔታ(ዎች)"
+  },
+  "whitelist_exception_empty": {
+    "message": "ምንም የተፈቀደላቸው ዝርዝር ልዩ ሁኔታዎች የሉም"
+  },
+  "whitelist_mode_general": {
+    "message": "አጠቃላይ የተፈቀደላቸው ዝርዝር"
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API ብቻ"
+  },
+  "whitelist_mode_label": {
+    "message": "የተፈቀደላቸው ዝርዝር ወሰን"
+  },
+  "whitelist_removed_general": {
+    "message": "%s ከአጠቃላይ የተፈቀደላቸው ዝርዝር ተወግዷል"
+  },
+  "whitelist_removed_history_api": {
+    "message": "ለ%s የ History API ልዩ ሁኔታ ተወግዷል"
+  },
+  "whitelist_type_general": {
+    "message": "አጠቃላይ"
+  },
+  "whitelist_type_history_api": {
+    "message": "History API ብቻ"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 ን ወደ አጠቃላይ የተፈቀደላቸው ዝርዝር ያክሉ"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "አጠቃላይ የተፈቀደላቸው ዝርዝር፦ $1 - ለ History API ብቻ ለመቀየር ጠቅ ያድርጉ"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API ልዩ ሁኔታ፦ $1 - ለዚህ ትር ብቻ ለመቀየር ጠቅ ያድርጉ"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "ለትር ብቻ፦ $1 - ለማስወገድ ጠቅ ያድርጉ"
+  },
+  "logger_action_allowed": {
+    "message": "ተፈቅዷል"
+  },
+  "logger_action_blocked": {
+    "message": "ታግዷል"
+  },
+  "logger_action_filter_label": {
+    "message": "እርምጃ"
+  },
+  "logger_action_info": {
+    "message": "መረጃ"
+  },
+  "logger_action_modified": {
+    "message": "ተሻሽሏል"
+  },
+  "logger_action_redirected": {
+    "message": "አቅጣጫ ተቀይሯል"
+  },
+  "logger_btn_copy_summary": {
+    "message": "ማጠቃለያ ቅዳ"
+  },
+  "logger_btn_export": {
+    "message": "ላክ"
+  },
+  "logger_btn_group": {
+    "message": "በደንብ አቧድን"
+  },
+  "logger_col_hits": {
+    "message": "ስኬቶች"
+  },
+  "logger_col_last_seen": {
+    "message": "መጨረሻ የታየው"
+  },
+  "logger_detail_group_title": {
+    "message": "የደንብ ዝርዝር"
+  },
+  "logger_detail_all_urls": {
+    "message": "URLዎች ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "ትሮች"
+  },
+  "logger_exported": {
+    "message": "$1 ግቤቶች ተልከዋል።"
+  },
+  "logger_filter_all": {
+    "message": "ሁሉም"
+  },
+  "logger_report_rule": {
+    "message": "ሪፖርት አድርግ"
+  },
+  "logger_rule_disable": {
+    "message": "ደንቡን አጥፋ"
+  },
+  "logger_rule_disabled_done": {
+    "message": "ደንብ $1 ጠፍቷል። ለመፈተሽ ገጹን እንደገና ይጫኑ።"
+  },
+  "logger_rule_enable": {
+    "message": "ደንቡን አብራ"
+  },
+  "logger_rule_enabled_done": {
+    "message": "ደንብ $1 እንደገና በርቷል።"
+  },
+  "logger_rule_failed": {
+    "message": "ደንቡን መለወጥ አልተቻለም።"
+  },
+  "logger_rule_off": {
+    "message": "ደንቡ ጠፍቷል"
+  },
+  "logger_rule_on": {
+    "message": "ደንቡ በርቷል"
+  },
+  "logger_rule_unavailable": {
+    "message": "ይህ ደንብ ከዚህ ሊቀየር አይችልም።"
+  },
+  "logger_status_rules": {
+    "message": "$1 ደንብ(ቦች)"
+  },
+  "logger_summary_copied": {
+    "message": "ማጠቃለያው ተቀድቷል።"
+  },
+  "logger_summary_copy_failed": {
+    "message": "ማጠቃለያውን መቅዳት አልተቻለም።"
+  },
+  "logger_type_filter_label": {
+    "message": "ዓይነት"
+  },
+  "logger_btn_logging_off": {
+    "message": "ምዝግብ ጠፍቷል"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "ምዝግብ ጠፍቷል። ለማብራት ጠቅ ያድርጉ።"
+  },
+  "logger_btn_logging_on": {
+    "message": "ምዝግብ በርቷል"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "ምዝግብ በርቷል። ለማጥፋት ጠቅ ያድርጉ።"
+  },
+  "logger_logging_toggle_failed": {
+    "message": "የምዝግብ ቅንብሩን መለወጥ አልተቻለም።"
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "የሪፈራል ደንብ ጨምር"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "ጥሬ የደንብ ልዩ ሁኔታ ጨምር"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "የመስክ አቅጣጫ ማዛወሪያ ጨምር"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "ልዩ ሁኔታ ጨምር"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "እያንዳንዱ አብነት መታወቂያ እና example.com ላይ ቦታ ያዥ matchPattern ያለው የደንብ ነገር ይጨምራል። ግቤት ተራ ሕብረቁምፊም ሊሆን ይችላል፦ የመለኪያ ስም፣ የስም regex፣ $removeparam ማጣሪያ ወይም በ rawRules ውስጥ regex። የደንብ ነገሮች id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description እና targetId ይቀበላሉ።"
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "ሊንተር"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "ምንም ችግር አልተገኘም።"
+  },
+  "customRulesEditor_lintError": {
+    "message": "ስህተት"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "ማስጠንቀቂያ"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ ስህተት(ቶች)፣ $WARNINGS$ ማስጠንቀቂያ(ዎች)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "የአሰራር ቅደም ተከተል"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ ደረጃ(ዎች)፣ በሚሰሩበት ቅደም ተከተል",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "ምንም rawRules፣ rules ወይም referralMarketing ግቤቶች የሉም"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "ሞተሩ ከላይ ካለው ጽሑፍ ያሰላዋል፣ ተቀምጦም ይሁን አልተቀመጠ። ደረጃዎች በ (stage, orderGroup, order, rank, arrayIndex) ይደረደራሉ፦ ጥሬ ደንቦች ከመስክ ደንቦች በፊት ይሰራሉ፤ በአንድ ደረጃ ውስጥ order ያላቸው ግቤቶች መጀመሪያ ከትንሹ ጀምሮ፣ ከዚያ ቀሪዎቹ በዝርዝር እና በቦታ ይሰራሉ።"
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "ሪፈራል ማርኬቲንግ"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "ሪፈራል ተወግዷል"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "ሪፈራል ተፈቅዷል"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "ጥሬ"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "መስክ"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "ሪፈራል"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(የተፈጠረ)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "ይጽፋል"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "$COUNT$ ቀደም ያሉ ትርጓሜዎችን ይተካል",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "በ completeProvider ተጨምሯል፦ እያንዳንዱን መለኪያ ያስወግዳል"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "ጠፍቷል"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "ለአንዳንድ ቅጦች ጠፍቷል"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "የመደርደሪያ ቁልፍ፦ (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "ከዚያ $FILTERS$ $removeparam ማጣሪያ(ዎች) እና $EXCEPTIONS$ @@ ልዩ ሁኔታ(ዎች)፣ ከላይ ካሉት ሁሉም ደረጃዎች በኋላ",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= ልዩ ሁኔታ(ዎች) ከላይ ያሉትን ጥሬ ደንቦች በሚዛመዱበት ቦታ ሊያቆሙ ይችላሉ",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "ደረጃን ለማንቀሳቀስ በደረጃው ውስጥ ይጎትቱት ወይም ቀስቶቹን ይጠቀሙ። ማንቀሳቀስ ለዚያ ደረጃ ለእያንዳንዱ ግቤት በአዲሱ ቅደም ተከተል 10፣ 20፣ 30፣ … order ይሰጣል።"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "ለማስተካከል ወደ \"ሪፈራል ተወግዷል\" ይቀይሩ፦ ያ እይታ እያንዳንዱን ግቤት ያሳያል።"
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "ለማንቀሳቀስ ይጎትቱ"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ ን ወደ ፊት አንቀሳቅስ",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ ን ወደ ኋላ አንቀሳቅስ",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ ወደ ቦታ $POSITION$ ተንቀሳቅሷል",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "እንቅስቃሴን ቀልብስ"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "እንቅስቃሴ ተቀልብሷል"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "አስመስል"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "ይህ አቅራቢ የተቀዳ አገናኝ ሲጸዳ በሚሆነው መንገድ በ URL ላይ ይሰራል፣ ከጠፉ ደንቦችዎ እና ከላይ ካለው የሪፈራል ምርጫ ጋር፣ እና ከእያንዳንዱ ደረጃ በኋላ URL ን ያሳያል። ሌሎች አቅራቢዎች አይሰሩም። የሙከራ URL ፍጠር ከዚህ አቅራቢ የራሱ ደንቦች አንዱን ይሠራል።"
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "የሙከራ URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "አሂድ"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "የማስመሰሉን ደረጃዎች ይሂዱ"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "መጀመሪያ"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "ቀዳሚ"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "ቀጣይ"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "መጨረሻ"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "አጫውት"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "ላፍታ አቁም"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "ከማንኛውም ደረጃ በፊት ያለው URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "ዙር $PASS$ · ደረጃ $STEP$ ከ$TOTAL$፦ $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "ለውጥ የለም"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam ማጣሪያዎች"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "ዙር $PASS$ ምንም አይለውጥም፣ ስለዚህ ጽዳት ይቆማል",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "ይህ አቅራቢ እዚህ ይቆማል፦ የዑደት ገደቡ ደርሷል፣ URL ወደ ቀድሞው ተመልሷል፣ ወይም ከአሁን በኋላ ከአቅራቢው ጋር አይዛመድም"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "ዙር $PASS$ አቅጣጫ ያዞራል፤ ጽዳት በአዲሱ አድራሻ ከሁሉም አቅራቢዎች ጋር ይቀጥላል",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "አቅራቢው ይህንን ጥያቄ ያግዳል (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "ውጤት"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "የዚህ አቅራቢ ቅጦች ከዚህ URL ጋር አይዛመዱም፣ ስለዚህ ምንም ደንቦቹ አይሰሩም።"
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "ይህ URL ከአቅራቢው ልዩ ሁኔታዎች አንዱን ይዛመዳል፣ ስለዚህ ምንም ደንቦቹ አይሰሩም።"
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "ሙሉ http:// ወይም https:// URL ያስገቡ።"
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "ማስመሰሉን ማሄድ አልተቻለም። ከላይ ያለውን JSON ይፈትሹ።"
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "የሙከራ URL ፍጠር"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "ከዚህ አቅራቢ ደንቦች የተሠራ፦ ለ$RAW$ ጥሬ ደንብ(ቦች) እና ለ$PARAMS$ መለኪያ(ዎች) ጽሑፍ፣ እያንዳንዱ ከደንቡ ጋር ተፈትሿል። keep=1 ከማንኛውም ደንብ ጋር አይዛመድም እና መቆየት አለበት። አቅጣጫ ማዛወሪያዎች እና ማገጃዎች አልተካተቱም፣ ምክንያቱም ከሌሎቹ ደንቦች በፊት ሩጫውን ያጠናቅቃሉ።",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "የዚህ አቅራቢ ቅጦች የሚዛመዱት አስተናጋጅ ሊሠራ አልቻለም፣ ስለዚህ URL ሌላ አስተናጋጅ ይጠቀማል እና አቅራቢው በእሱ ላይ አይሰራም።"
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "ይህ አቅራቢ የሚዛመዳቸው እያንዳንዱ URL በራሱ ልዩ ሁኔታዎች አንዱ ተሸፍኗል፣ ስለዚህ ደንቦቹ በፍጹም አይሰሩም።"
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ ደንብ(ቦች) ከሙከራ URL ውጪ ቀርተዋል",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "የሚዛመድ ጽሑፍ ሊሠራ አልቻለም"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "ጽሑፉ ከአቅራቢው ልዩ ሁኔታዎች አንዱ እንዲዛመድ ያደርጋል"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "እያንዳንዱን መለኪያ ያስወግዳል፣ ስለዚህ የራሱ መለኪያ አያስፈልገውም"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "ይህ አቅራቢ ስም የሌለው $removeparam ማጣሪያ አለው፣ ይህም keep=1 ን ጨምሮ እያንዳንዱን መለኪያ ያስወግዳል።"
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "order የለም"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "የ order ቁጥሮችን መልስ"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "እያንዳንዱን order ይህን አቅራቢ ሲከፍቱ ወደነበረበት ይመልሱ"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "የ order ቁጥሮች ተመልሰዋል"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "ደብቅ"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "አሳይ"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "ማስጠንቀቂያዎችን አጽዳ"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "ማስጠንቀቂያዎችን መልስ"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ ማስጠንቀቂያ(ዎች) ጸድተዋል",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$፦ indexPattern የሌለው urlPattern ከእያንዳንዱ URL ጋር ይፈተሻል፤ እንደ \"||example.com^\" ያሉ indexPattern ፍንጮችን ያክሉ",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ \"$ENTRY$\" ን ይደግማል፤ ቅጂው ምንም አያደርግም እና ሁለቱም አንድ መታወቂያ ይጋራሉ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ አሁንም የአብነት ቦታ ያዥ \"$PATTERN$\" አለው፤ በእውነተኛው ስርዓተ-ጥለት ይተኩት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ matchPattern \"(?!)\" አለው፣ ይህም ከምንም ጋር አይዛመድም",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "መላ ፈልግ"
+  },
+  "troubleshooter_launch": {
+    "message": "ይህን ትር መላ ፈልግ (የሙከራ)"
+  },
+  "troubleshooter_title": {
+    "message": "የትር መላ ፈላጊ"
+  },
+  "troubleshooter_page": {
+    "message": "ገጽ"
+  },
+  "troubleshooter_about_summary": {
+    "message": "ቀረጻ እንዴት እንደሚሰራ"
+  },
+  "troubleshooter_about_note": {
+    "message": "ይህን እይታ መክፈት የገጹን URL ሊፈትሽ ይችላል፣ ነገር ግን ምንም አይመዘግብም። \"ቀረጻ ጀምር\" እስኪመርጡ ድረስ ቀረጻ ጠፍቶ ይቆያል። መጀመር የሀብት ጥያቄዎቹን ለመያዝ ይህን ትር እንደገና ይጭናል። የተያዙ URLዎች ለዚህ አሳሽ ክፍለ ጊዜ በክፍለ ጊዜ ማከማቻ ውስጥ ይቆያሉ፣ ይህ ትር ሲዘጋ ወይም የአሳሹ ክፍለ ጊዜ ሲያበቃ ይጸዳሉ። ቀድመው ካላቆሙት ቀረጻ ከ15 ደቂቃ በኋላ ይቆማል። የሀብት URLዎች የግል የመጠይቅ ውሂብ ሊይዙ ይችላሉ።"
+  },
+  "troubleshooter_start": {
+    "message": "ቀረጻ ጀምር"
+  },
+  "troubleshooter_starting": {
+    "message": "በመጀመር ላይ…"
+  },
+  "troubleshooter_recording": {
+    "message": "በመቅረጽ ላይ…"
+  },
+  "troubleshooter_stop": {
+    "message": "ቀረጻ አቁም"
+  },
+  "troubleshooter_refresh": {
+    "message": "አድስ"
+  },
+  "troubleshooter_copy": {
+    "message": "ማጠቃለያ ቅዳ"
+  },
+  "troubleshooter_export": {
+    "message": "ላክ"
+  },
+  "troubleshooter_export_title": {
+    "message": "ቀረጻውን እንደ JSON ፋይል ያስቀምጡ። የሀብት URLዎች የግል የመጠይቅ ውሂብ ሊይዙ ይችላሉ።"
+  },
+  "troubleshooter_category": {
+    "message": "ምድብ"
+  },
+  "troubleshooter_category_all": {
+    "message": "ሁሉም ምድቦች"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL ደንቦች"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "አቅጣጫ ማዛወሪያዎች"
+  },
+  "troubleshooter_category_protection": {
+    "message": "ጥበቃ እና ማለፊያዎች"
+  },
+  "troubleshooter_resource_type": {
+    "message": "የሀብት ዓይነት"
+  },
+  "troubleshooter_type_all": {
+    "message": "ሁሉም የሀብት ዓይነቶች"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "ደንቦችን፣ አቅራቢዎችን እና URLዎችን ይፈልጉ"
+  },
+  "troubleshooter_timer": {
+    "message": "በመቅረጽ ላይ $1 · $2 ቀርቷል"
+  },
+  "troubleshooter_status_checking": {
+    "message": "ይህን ትር በመፈተሽ ላይ…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "ምንም ንቁ ትር አይገኝም።"
+  },
+  "troubleshooter_status_not_web": {
+    "message": "ይህ ገጽ የ URL ደንብ ቅኝትን አይፈቅድም። ተራ http ወይም https ድረ-ገጽ ይክፈቱ።"
+  },
+  "troubleshooter_status_off": {
+    "message": "ቀረጻ ጠፍቷል። በዚህ ገጽ የተጫኑ የሀብት URLዎችን ለመመርመር ቀረጻ ይጀምሩ።"
+  },
+  "troubleshooter_status_active": {
+    "message": "እስካሁን $1 የ URL ለውጥ(ዎች) ተይዘዋል። አዳዲሶች በራስ-ሰር እዚህ ይታያሉ።"
+  },
+  "troubleshooter_status_stopped": {
+    "message": "ቀረጻ ቆሟል። $1 የ URL ለውጥ(ዎች) ተይዘዋል።"
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "የቀረጻ ውሂብ በክፍለ ጊዜ ማከማቻ ውስጥ ሊቀመጥ አልቻለም። ቅጥያው እንደገና ከጀመረ $1 የ URL ለውጥ(ዎች) ሊጠፉ ይችላሉ።"
+  },
+  "troubleshooter_status_started": {
+    "message": "ቀረጻ ተጀምሯል እና ትሩ እንደገና እየተጫነ ነው። ገጹ ሲጫን የተያዙ URLዎች እዚህ ይታያሉ።"
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "ቀረጻ ቆሟል። $1 የ URL ለውጥ(ዎች) ተይዘው ለዚህ አሳሽ ክፍለ ጊዜ ተቀምጠዋል።"
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "ቀረጻ ቆሟል። $1 የ URL ለውጥ(ዎች) ተይዘዋል፣ ነገር ግን የክፍለ ጊዜ ማከማቻ ማስቀመጥ አልቻለም።"
+  },
+  "troubleshooter_status_need_web": {
+    "message": "መጀመሪያ ተራ http ወይም https ድረ-ገጽ ይክፈቱ።"
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "ለዚህ ትር ቀረጻ መጀመር አልተቻለም።"
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "ለዚህ ትር ቀረጻ ማቆም አልተቻለም።"
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "ይህን ትር ማንበብ አልተቻለም። ብቅ-ባዩን ዘግተው እንደገና ለመክፈት ይሞክሩ።"
+  },
+  "troubleshooter_status_copied": {
+    "message": "ማጠቃለያው ተቀድቷል።"
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "ማጠቃለያውን መቅዳት አልተቻለም።"
+  },
+  "troubleshooter_status_exported": {
+    "message": "ቀረጻው ተልኳል።"
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "ቀረጻውን መላክ አልተቻለም።"
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "የሪፖርት ቅጹን መክፈት አልተቻለም።"
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "ደንቡ ነቅቷል፤ ለማነጻጸር ትሩን እንደገና ይጫኑ።"
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "ደንቡ ተሰናክሏል፤ ለማነጻጸር ትሩን እንደገና ይጫኑ።"
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "ይህን ደንብ ማዘመን አልተቻለም።"
+  },
+  "troubleshooter_empty_web": {
+    "message": "እስካሁን ምንም የደንብ ለውጦች አልተገኙም። የዚህን ገጽ የሀብት URLዎች ለመመርመር ቀረጻ ይጀምሩ።"
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "ይህ የአሳሽ ገጽ ሊቃኝ አይችልም።"
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "ከእነዚህ ማጣሪያዎች ጋር የሚዛመዱ ግኝቶች የሉም።"
+  },
+  "troubleshooter_showing_first": {
+    "message": "የመጀመሪያዎቹን $1 ደንቦች በማሳየት ላይ።"
+  },
+  "troubleshooter_hits": {
+    "message": "$1 ስኬት(ቶች)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 አልተሳካም"
+  },
+  "troubleshooter_rule_id": {
+    "message": "የደንብ መታወቂያ፦ $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "አብሮ የተሰራ የጥበቃ እርምጃ (የደንብ መታወቂያ የለም)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "የደንብ መታወቂያ፦ ለዚህ ግኝት አይገኝም"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "ይህን የደንብ መታወቂያ አሁን ባለው የደንብ ስብስብ ውስጥ መፍታት አልተቻለም።"
+  },
+  "troubleshooter_source_observed": {
+    "message": "የታየ ጥያቄ"
+  },
+  "troubleshooter_source_page": {
+    "message": "የገጽ URL ፍተሻ"
+  },
+  "troubleshooter_changes": {
+    "message": "ምን ተቀየረ፦ $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "የተጎዱ URLዎች ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…እና ሌላ $1"
+  },
+  "troubleshooter_after": {
+    "message": "ከ Linkumori በኋላ"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori ከለወጠው በኋላ አልተሳካም፦ $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "ይህ ደንብ ነቅቷል። ገጹን ለማነጻጸር ያጥፉት እና እንደገና ይጫኑ።"
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "ይህ ደንብ ተሰናክሏል። ባህሪውን ለመመለስ ያብሩት እና እንደገና ይጫኑ።"
+  },
+  "troubleshooter_advice_protection": {
+    "message": "ይህ አብሮ የተሰራ የጥበቃ እርምጃ ነው፣ የግለሰብ ደንብ አይደለም።"
+  },
+  "troubleshooter_advice_review": {
+    "message": "ደንቦችን ከመቀየርዎ በፊት የተጎዳውን URL ይገምግሙ።"
+  },
+  "troubleshooter_report": {
+    "message": "ይህን ደንብ ሪፖርት አድርግ"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "ደንቡን አሰናክል"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "ደንቡን አንቃ"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "ደንብ $1 ን አሰናክል"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "ደንብ $1 ን አንቃ"
+  },
+  "troubleshooter_saving": {
+    "message": "በማስቀመጥ ላይ…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 ተወግዷል"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 ተጨምሯል"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 ተቀይሯል"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "ወደ $1 አቅጣጫ ተዛውሯል"
+  },
+  "troubleshooter_change_path": {
+    "message": "መንገድ ተቀይሯል"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "ቁርጥራጭ ተቀይሯል"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL ተቀይሯል"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "ሆን ተብሎ ታግዷል"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "በዚህ ገጽ ላይ $1 ጥያቄ(ዎች) አልተሳኩም፤ $2 Linkumori URL ን ከለወጠ በኋላ ወዲያውኑ"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "ይህ ገጽ ተበላሽቷል?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "የሚያበላሸውን ደንብ ያግኙ፦ በዚህ ገጽ ላይ የሰሩት ደንቦች አንድ በአንድ ይጠፋሉ፣ ከእያንዳንዱ በኋላ ገጹ ተስተካክሏል ወይም አልተስተካከለም ይላሉ። Linkumori መንስኤ መሆኑን እርግጠኛ አይደሉም? መጀመሪያ ጽዳት ባለበት ይፈትሹ።"
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "መጀመሪያ ጽዳት ባለበት ይፈትሹ"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "በዚህ ትር ውስጥ ለ$1 ጽዳት ባለበት ቆሟል"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "ትሩ ያለ ጽዳት እንደገና ተጭኗል። ገጹ አሁን ይሰራል?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "አዎ፣ ይሰራል"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "አይ፣ አሁንም ተበላሽቷል"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "ሰርዝ"
+  },
+  "troubleshooter_diag_done": {
+    "message": "ተጠናቋል"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "ምናልባት Linkumori አይደለም"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "ጽዳት ባለበት ቆሞ ገጹ አሁንም ተበላሽቶ ነበር፣ ስለዚህ ችግሩ ሌላ ቦታ ሊሆን ይችላል፦ በጣቢያው ራሱ፣ በሌላ ቅጥያ ወይም በአውታረ መረቡ። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori መንስኤ ሊሆን ይችላል"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "ገጹ ጽዳት ባለበት ቆሞ ይሰራል። ደንቡን ያግኙ፦ ደንቦቹ አንድ በአንድ ይጠፋሉ፣ ትሩ እንደገና ይጫናል፣ እና ገጹ ተስተካክሏል ወይም አልተስተካከለም ይላሉ። በመጨረሻ ሌላው ሁሉ ደንብ እንደገና ይበራል።"
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "ትሩ በዚህ ገጽ ላይ የሚሰሩ ደንቦችን ለመቅዳት ጽዳት እንደገና በርቶ እየተጫነ ነው። በቅጽበት እዚህ ይታያሉ። ምንም ካልታዩ ገጹ እስኪበላሽ ድረስ ይጠቀሙበት።"
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "ደንቡን ያግኙ ($1 ደንቦች)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "አዎ፣ ተስተካክሏል"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "አይ፣ አሁንም ተበላሽቷል"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "ተገኝቷል"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "ገጹ በደንብ $1$2 ምክንያት ተበላሽቷል። እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "ይህን ደንብ አሰናክል"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "ሪፖርት አድርግ"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "ደንቡ ጠፍቷል። ለመፈተሽ ትሩን እንደገና ይጫኑ። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "አንድ ደንብ አልተገኘም"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "ደንቦቹን አንድ በአንድ ማጥፋት ገጹን አላስተካከለም፣ ስለዚህ ምናልባት በበርካታ ደንቦች አንድ ላይ ወይም በጥበቃ ቅንብር ምክንያት ሊሆን ይችላል። ሁሉም ደንብ እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_failed": {
+    "message": "ፍተሻውን ማሄድ አልተቻለም፦ $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "ይህን ፍተሻ ለመጠቀም Linkumori ን እንደገና ይጫኑ"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori ተዘምኗል፣ ነገር ግን የጀርባ ክፍሉ አሁንም የድሮውን ስሪት እያሄደ ነው። ቅጥያውን እንደገና ይጫኑ (ለጊዜያዊ ተጨማሪ፦ about:debugging → This Firefox → Reload) ወይም Firefox ን እንደገና ያስጀምሩ።"
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "ተገኝቷል"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "ገጹ በደንብ $1$2 ምክንያት ተበላሽቷል። ገጹ እንዲሰራ ጠፍቶ ይቆያል፤ ሌሎቹ ሁሉ ደንቦች እንደገና በርተዋል። ለመፈተሽ ትሩን እንደገና ይጫኑ። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "ትሩን እንደገና ጫን"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "መልሰው ያብሩት"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "ደንቡ እንደገና በርቷል። ለመፈተሽ ትሩን እንደገና ይጫኑ። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "ቅረጽ እና ደንቡን አግኝ"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "በዚህ ገጽ ላይ የሚሰሩ ደንቦችን በመቅረጽ ላይ። ገጹ እስኪበላሽ ድረስ ይጠቀሙበት፤ ደንቦቹ እዚህ ይታያሉ።"
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "በደንብ ፍለጋው ለአሁኑ ጠፍቷል። ፍለጋው ሲያበቃ እንደገና ይበራል።"
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "የደንብ ፍለጋው እየሰራ ነው። ከሚያበቃ በኋላ ደንቦችን ይለውጡ።"
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "ዝለል — መልሰው ያብሩት"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "ጠፍቶ ይቆይ"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "የደንብ ፍለጋ ተዘሏል፤ ሁሉም ደንብ እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "ደንብ $1 ጠፍቶ ይቆያል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "ለዚህ ሙከራ ጠፍተዋል፦"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…እና ሌላ $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "ፍለጋ አቁም"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "ተዘሏል፦ ያ ደንብ እንደገና በርቷል እና ተትቷል። ቀጣዩን በመሞከር ላይ።"
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "በተሞከሩት ደንቦች ውስጥ ምንም ደንብ አልተገኘም። የዘለሏቸው $1 ደንብ(ቦች) አልተሞከሩም። ሁሉም ደንብ እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_experimental": {
+    "message": "የሙከራ"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "የሙከራ፦ ይህ መላ ፈላጊ ሙሉ በሙሉ የተረጋጋ አይደለም። ውጤቶቹ ስህተት ሊሆኑ ይችላሉ፣ እና በሚሞክርበት ጊዜ ደንቦችን ያጠፋል። በኋላ የሆነ ነገር ስህተት መስሎ ከታየ በብጁ ደንቦች አርታዒ ውስጥ ደንቦችዎን ይፈትሹ ወይም እንደገና ለማብራት ፍለጋ አቁም ን ይጠቀሙ።"
+  },
+  "troubleshooter_working": {
+    "message": "በመስራት ላይ…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "እንደገና ቅረጽ"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "የድሮ ቀረጻ ጸድቷል። ይህን ትር ከአዲስ ጭነት እንደገና በመቅረጽ ላይ።"
+  },
+  "troubleshooter_clear": {
+    "message": "አጽዳ"
+  },
+  "troubleshooter_clear_title": {
+    "message": "የዚህን ትር ቀረጻ፣ ግኝቶች እና የተጠናቀቀ የደንብ ፍለጋ ያጽዱ። ደንቦች እንዳሉ ይቆያሉ።"
+  },
+  "troubleshooter_status_cleared": {
+    "message": "ጸድቷል። ደንቦች እንዳሉ ይቆያሉ።"
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "ጸድቷል። ደንብ $1 ጠፍቶ ይቆያል።"
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "አንድ ደንብ በአንድ ጊዜ በመሞከር ላይ — ደንብ $1 ከ$2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "ይህ ደንብ ብቻ ጠፍቷል፣ እና ትሩ እንደገና ተጭኗል። ገጹ አሁን ተስተካክሏል?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "ይህን ደንብ ዝለል"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "ዝለል — መልሰው ያብሩት፣ ቀጣዩን ሞክር ($1 ቀርቷል)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "በዚህ ገጽ ላይ የሰሩ ሌሎች $1 ደንብ(ቦች) አልተሞከሩም። እነሱን መሞከር መቀጠል ይፈልጋሉ?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "ጠፍቶ ይቆይ፣ ቀጣዩን ሞክር ($1 ቀርቷል)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "ደንብ $1 ጠፍቶ ይቆያል። ቀጣዩን ደንብ በመሞከር ላይ።"
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "ገጹን በራሱ የሚያስተካክል ሌላ ደንብ የለም። ጠፍተው ያቆዩዋቸው $1 ደንብ(ቦች) ጠፍተው ይቆያሉ፤ ሌላው ሁሉ ደንብ እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "ቀጣዩን ደንብ ሞክር ($1 ቀርቷል)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "ደንብ $1 እንደገና በርቷል እና ተትቷል። ቀጣዩን ደንብ በመሞከር ላይ።"
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "ገጹን በራሱ የሚያስተካክል ሌላ ደንብ የለም። የዘለሏቸው $1 ደንብ(ቦች) እንዲሁ እንደገና በርተዋል፣ ስለዚህ ሁሉም ደንብ እንደገና በርቷል። ለመጀመር አጽዳ ን ጠቅ ያድርጉ።"
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori URLዎችን የሚያጸዳው በ<strong>CLN Format 1.0</strong> (Clean Link Notation) በተጻፉ ደንቦች ነው፣ ይህም የ JSON ቅርጸት ነው። ይህ መመሪያ ከመጀመሪያው ደንብ እስከ እያንዳንዱ አማራጭ ይሄዳል፣ ሊቀዱዋቸው በሚችሏቸው ምሳሌዎች።"
+  },
+  "guide_intro_p_2": {
+    "message": "አብሮ የተሰሩ ደንቦች፣ የርቀት ደንብ ዝርዝሮች እና የእርስዎ ብጁ ደንቦች ሁሉም አንድ ዓይነት ቅርጸት ይጠቀማሉ። ብጁ ደንቦችን የሚጽፉት በብጁ ደንቦች አርታዒ ውስጥ ነው፣ ሲያስቀምጡ ወይም ሲያስመጡ ይፈትሻቸዋል። ኦፊሴላዊ የ ClearURLs ደንብ ካታሎግ (<code>data.min.json</code>) አስቀድሞ ትክክለኛ የ CLN ፋይል ነው እና እንዳለ ሊጠቀሙበት ይችላሉ።"
+  },
+  "guide_rules_file_p_1": {
+    "message": "የአቅራቢው ስም መለያ ብቻ ነው። አቅራቢው የትኞቹን URLዎች እንደሚያስተናግድ የሚወስነው <code>domainPatterns</code> ወይም <code>urlPattern</code> ነው።"
+  },
+  "guide_rules_file_th_1": {
+    "message": "ከፍተኛ-ደረጃ ቁልፍ"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "ያስፈልጋል። አቅራቢዎቹ፣ በስም።"
+  },
+  "guide_rules_file_cell_2": {
+    "message": "አማራጭ የቅርጸት ስሪት። ብቸኛው ትክክለኛ እሴት <code>\"1.0\"</code> ነው። ያለዚህ ያለ ፋይል እንዲሁ እንደ 1.0 ይነበባል፤ ማንኛውም ሌላ እሴት ፋይሉን ውድቅ ያደርጋል። የ ClearURLs አዲስ የደንብ ቅርጸት ያንን ቁልፍ አስቀድሞ ስለሚጠቀም <code>version</code> ተብሎ አልተጠራም።"
+  },
+  "guide_rules_file_cell_3": {
+    "message": "ስለ ፋይሉ አማራጭ መረጃ።"
+  },
+  "guide_rules_file_cell_4": {
+    "message": "የራሱን ላላዘጋጀ የፋይሉ እያንዳንዱ ደንብ እሴቶች (ምዕራፍ 12)።"
+  },
+  "guide_rules_file_cell_5": {
+    "message": "የርቀት ደንብ ዝርዝሮች ብቻ፦ አስቀድመው ለተጫኑ ደንቦች ምትክዎች (ምዕራፍ 15)።"
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "አቅራቢው የሚያስተናግዳቸው URLዎች፣ እንደ አንድ የጎራ ስርዓተ-ጥለት ወይም ዝርዝር (ምዕራፍ 3)። ይህንን ወይም <code>urlPattern</code> ይጠቀሙ፣ ሁለቱንም በፍጹም አይደለም።"
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "አቅራቢው የሚያስተናግዳቸው URLዎች፣ ከሙሉ URL ጋር የሚዛመድ እንደ አንድ መደበኛ አገላለጽ። የፊደል ዓይነት ችላ ይባላል።"
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "ከ<code>urlPattern</code> ጋር ብቻ፦ እንደ <code>||example.com^</code> ያሉ የአስተናጋጅ ፍንጮች፣ ስለዚህ አቅራቢው ከእያንዳንዱ URL ጋር ከመፈተሽ ይልቅ ለእነዚያ አስተናጋጆች ብቻ ይፈተሻል። የመፈለጊያ ፍንጭ ነው፣ የማዛመጃ ሁኔታ አይደለም።"
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "የሚወገዱ የሪፈራል እና አጋርነት መለኪያዎች። <em>የሪፈራል ማርኬቲንግን ፍቀድ</em> ሲበራ ይዘለላሉ (ምዕራፍ 10)።"
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "አቅራቢው ሙሉ በሙሉ ብቻውን የሚተዋቸው URLዎች (ምዕራፍ 7)።"
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "ጥያቄውን ከማረም ይልቅ ወደ ሌላ አድራሻ ይላኩ (ምዕራፍ 8)።"
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "ጥያቄውን ወደ መለኪያ እሴት ይላኩ (ምዕራፍ 8)።"
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>፦ የገጽ ጭነት (<code>main_frame</code>) አቅጣጫ ሲዛወር፣ የአውታረ መረብ ጥያቄው ብቻ ሳይሆን ሙሉው ትር ወደ አዲሱ አድራሻ ይሄዳል።"
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "እነዚህን የ HTTP ዘዴዎች ብቻ ያስተናግዱ፣ ለምሳሌ <code>[\"GET\"]</code>። ከተተወ፦ እያንዳንዱ ዘዴ።"
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "እነዚህን የጥያቄ ዓይነቶች ብቻ ያስተናግዱ፣ ለምሳሌ <code>[\"main_frame\", \"xmlhttprequest\"]</code>። ከተተወ፦ እያንዳንዱ የጥያቄ ዓይነት።"
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "ነባሪው <code>true</code> ነው። ገጽ አድራሻውን በራሱ በ History API (<code>pushState</code>/<code>replaceState</code>) ሲለውጥ <code>false</code> አቅራቢውን በሙሉ ይዘላል። መደበኛ የአውታረ መረብ ጥያቄዎች አሁንም ይጸዳሉ።"
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> አቅራቢውን ሳይሰርዝ ያጠፋዋል።"
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> የጎራ ስርዓተ-ጥለቶች ዝርዝር ነው። ከእነሱ ማንኛቸውም ቢዛመዱ URL ይዛመዳል። ተመሳሳይ ስርዓተ-ጥለቶች በ<code>exceptions</code>፣ <code>redirections</code>፣ <code>$removeparam</code> ማጣሪያዎች እና ጥሬ ደንቦች ፊት ላይ ይጠቀማሉ።"
+  },
+  "guide_matching_cell_1": {
+    "message": "ሙሉው URL፣ እንደ መደበኛ አገላለጽ"
+  },
+  "guide_matching_cell_2": {
+    "message": "ይህን ጽሑፍ በማንኛውም ቦታ የያዙ URLዎች (መጀመሪያ ላይ <code>|</code> የለም)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> የአስተናጋጅ ስም መጨረሻን ወይም እንደ <code>/</code>፣ <code>?</code>፣ <code>:</code> ያለ ከፋይን ወይም የ URL መጨረሻን ያመለክታል። <code>*</code> ምትክ ምልክት ነው።"
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> ጎራን ይወክላል፦ አስተናጋጁን እና እያንዳንዱን ንዑስ ጎራ። ነጠላ <code>|</code> የ URL ን የመጀመሪያ ጫፍ ይወክላል እና እንደ <code>https://</code> ያለ እቅድ ሊከተለው ይገባል። ለጎራ ሁልጊዜ <code>||</code> ይፈልጋሉ፤ <code>|example.com^</code> በፍጹም ሊዛመድ አይችልም፣ ስለዚህ አርታዒው ውድቅ ያደርገዋል።"
+  },
+  "guide_matching_p_4": {
+    "message": "ለምሳሌ <code>||smile.amazon.*^</code> እንዲህ ይነበባል፦ <code>||</code> አስተናጋጁ እና ንዑስ ጎራዎቹ፣ <code>smile.amazon</code> አስፈላጊዎቹ መለያዎች፣ <code>.*</code> ማንኛውም የሕዝብ ቅጥያ (<code>.com</code>፣ <code>.co.jp</code>፣ <code>.de</code>፣ …)፣ እና <code>^</code> የአስተናጋጁ መጨረሻ።"
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "በትክክል ያ መለኪያ"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "ሙሉ ስማቸው የሚዛመድ እያንዳንዱ መለኪያ፤ የፊደል ዓይነት ችላ ይባላል"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> እና <code>\"$removeparam=fbclid\"</code> ተመሳሳዩን ያስወግዳሉ። ከምዕራፍ 5 የሆነ ነገር ካላስፈለገዎት ተራውን ስም ይጠቀሙ። ማንኛውም ግቤት እንደ የደንብ ነገርም ሊጻፍ ይችላል (ምዕራፍ 9)።"
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "እዚህ <code>qid</code> በእያንዳንዱ የ Amazon ጣቢያ ላይ ይወገዳል፣ <code>tag</code> በ<code>amazon.de</code> ላይ ብቻ፣ <code>sr</code> በ<code>smile.amazon</code> ላይ ብቻ፣ እና <code>ref_</code> በ<code>/gp/</code> ስር ብቻ። ስርዓተ-ጥለቱ የአቅራቢውን የራሱን ስርዓተ-ጥለቶች ያጠባል፤ በፍጹም ሊያሰፋቸው አይችልም።"
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> ማጣሪያውን መለኪያውን የሚያቆይ ልዩ ሁኔታ ያደርገዋል (ከታች ይመልከቱ)።"
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> ማጣሪያውን ወደ አንዳንድ የአቅራቢው URLዎች ያጠባል (ምዕራፍ 3)። ከተተወ አቅራቢው ለሚዛመደው እያንዳንዱ URL ይተገበራል።"
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> መለኪያዎችን ይመርጣል። ከተተወ እያንዳንዱ መለኪያ ይወገዳል።"
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "ማሻሻያዎች ማጣሪያው መቼ እንደሚሰራ ይናገራሉ። የተዘረዘረው እያንዳንዱ ማሻሻያ መያዝ አለበት፤ በመካከላቸው \"ወይም\" የለም።"
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "ከ<code>ref</code> በስተቀር እያንዳንዱ መለኪያ"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "ስማቸው ወይም <code>name=value</code> አንድ ላይ ከመደበኛ አገላለጹ ጋር የሚዛመዱ መለኪያዎች፤ የፊደል ዓይነትን ችላ ለማለት <code>i</code> ያክሉ"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "ስማቸው በ<code>utm_</code> የሚጀምሩ መለኪያዎች"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "የመለኪያ ስም ማምለጥ"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "የኋላ ሰረዝ ቀጣዩን ቁምፊ ቃል በቃል ያደርገዋል፣ ስለዚህ ማንኛውም የመለኪያ ስም ሊነጣጠር ይችላል፦"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "እሴት"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "የሚባለውን መለኪያ ያስወግዳል"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (ኮማው ማሻሻያዎቹን አይጀምርም)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "እነዚህ አምስቱ በስም እሴት ውስጥ ያሉ ብቸኛ ማምለጫዎች ናቸው፤ ከሌላ ማንኛውም ቁምፊ በፊት የኋላ ሰረዝ ስህተት ነው። በ<code>/regex/</code> እሴት ውስጥ የኋላ ሰረዙ የ regex ትርጉሙን ይይዛል። ማምለጫዎቹ በ<code>rules</code>፣ <code>referralMarketing</code>፣ <code>fieldRedirections</code> እና <code>@@</code> ግቤቶች ውስጥ ይሰራሉ። በ JSON ውስጥ እያንዳንዱን የኋላ ሰረዝ ሁለት ጊዜ ይጻፉ፦ <code>\"$removeparam=\\\\~foo\"</code>።"
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "ማሻሻያዎች"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "ማሻሻያዎች ከእሴቱ በኋላ ይመጣሉ፣ በኮማ ተለይተው። የአንድ ማሻሻያ በርካታ እሴቶችን በ<code>|</code> ይለዩ፣ እና አንድ እሴት ለማግለል ከፊቱ <code>~</code> ያስቀምጡ፦"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "ማሻሻያ"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "ጥያቄውን ያቀረበው ገጽ ከእነዚህ አንዱ ሲሆን (ወይም <code>~</code> ሲኖር ካልሆነ) ብቻ፤ የ regex እሴቶች ይፈቀዳሉ"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "ጥያቄው ራሱ ከእነዚህ ወደ አንዱ ሲሄድ ብቻ፣ ማንኛውም ገጽ ቢያቀርበው"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "ለእነዚህ የ HTTP ዘዴዎች ብቻ፦ <code>get</code>፣ <code>head</code>፣ <code>options</code>፣ <code>post</code>፣ <code>put</code>፣ <code>patch</code>፣ <code>delete</code>፣ <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "ጥያቄው እንደ ገጹ ወደ ተመሳሳይ ሊመዘገብ የሚችል ጎራ (<code>a.example.com</code> እና <code>b.example.com</code> እንደ አንድ ይቆጠራሉ) ወይም ወደ ሌላ ጎራ ሲሄድ ብቻ"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "ተመሳሳይ ነው፣ ነገር ግን ትክክለኛውን የአስተናጋጅ ስም ያወዳድራል፣ ስለዚህ ንዑስ ጎራ እንደ ሦስተኛ-ወገን ይቆጠራል"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "የመለኪያ ስሞች በፊደል ዓይነት ተለይተው ይነጻጸራሉ"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "ገጽ አድራሻውን በራሱ በ History API ሲለውጥ ይህን ማጣሪያ ይዝለሉ። እንዲሁም <code>true</code>/<code>false</code>፣ <code>1</code>/<code>0</code>፣ <code>yes</code>/<code>no</code> ይቀበላል"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "አራቱ <code>*-party</code> ማሻሻያዎች እርስ በርስ ሊጣመሩ አይችሉም፤ <code>first-party,third-party</code> ውድቅ ይደረጋል።"
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "ለምሳሌ <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> <code>sid</code> ን በ<code>example.com</code> ላይ ያስወግዳል፣ በሌላ ጣቢያ ገጽ ለቀረቡ የ GET ጥያቄዎች ብቻ፣ እና ገጹ <code>partner.com</code> ሲሆን በፍጹም አያስወግድም።"
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "የ<code>@@</code> ግቤት ከ<code>$removeparam</code> ማጣሪያዎች ብቻ ይጠብቃል። እንደ <code>\"ref\"</code> ያለ ተራ ግቤት አሁንም መለኪያውን ያስወግዳል፤ ለዚያ የደንብ ነገር <code>exceptions</code> ን ይጠቀሙ። ጥሬ ደንቦች የራሳቸው <code>@@…$rawrule=</code> ግቤቶች አሏቸው (ምዕራፍ 6)።"
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "የት እንደሚዘረዝሩት ምንም አይደለም፣ እና <code>order</code> ሊኖረው አይችልም።"
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "ስርዓተ-ጥለቱ አቅራቢው እንደተቀበለው URL ጋር ይፈተሻል፣ ጥሬ ደንቦች ከመሰራታቸው በፊት። ጥሬ ደንብ በሚሰርዘው መንገድ ላይ የተወሰነ የ<code>@@</code> ግቤት አሁንም ይዛመዳል።"
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "እንዲሁም ይህ አቅራቢ በሚዛመደው ገጽ ለሚቀርቡ ጥያቄዎች የሌሎች አቅራቢዎችን ማጣሪያዎች ይሸፍናል፣ ይህም ሌላ ቦታ ከተገለጸ ደንብ አንድ ጣቢያ ለመለየት ጠቃሚ ነው።"
+  },
+  "guide_raw_rules_p_1": {
+    "message": "ጥሬ ደንቦች ከ<code>rules</code> በፊት ይሰራሉ፣ የፊደል ዓይነትን ችላ ይላሉ እና እያንዳንዱን ተዛማጅ ይተካሉ (ባንዲራዎች <code>gi</code>፣ ወይም <code>g</code> ከ<code>match-case</code> ጋር)። በ JSON ውስጥ እያንዳንዱን የኋላ ሰረዝ ሁለት ጊዜ ይጻፉ።"
+  },
+  "guide_raw_rules_p_2": {
+    "message": "ጥሬ ደንብ የ<code>$removeparam</code> ማጣሪያን ስርዓተ-ጥለት እና ማሻሻያዎች ሊወስድ ይችላል፣ <code>rawrule=</code> በመጨረሻ። ከ<code>rawrule=</code> በኋላ ያለው ሁሉ መደበኛ አገላለጽ ነው፦"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "ስርዓተ-ጥለቱ እና ማሻሻያዎቹ ደንቡ የት እንደሚሰራ ይወስናሉ፤ የሚሰረዘው አሁንም መደበኛ አገላለጹ ነው።"
+  },
+  "guide_raw_rules_p_4": {
+    "message": "በ<code>@@</code> የሚጀምር እና በ<code>rawrule=</code> የሚያበቃ ግቤት ስርዓተ-ጥለቱ በሚዛመድበት ቦታ ጥሬ ደንቦች እንዳይሰሩ ያደርጋል፦"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "ከ<code>rawrule=</code> በኋላ ምንም ከሌለ በእነዚያ URLዎች ላይ የአቅራቢውን እያንዳንዱን ጥሬ ደንብ ያቆማል።"
+  },
+  "guide_raw_rules_item_2": {
+    "message": "ከ<code>rawrule=</code> በኋላ መደበኛ አገላለጽ ካለ ያንን መደበኛ አገላለጽ ያላቸውን ጥሬ ደንቦች ያቆማል።"
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> ያለው የደንብ ነገር ሲሆን ያንን መታወቂያ ወይም ተለዋጭ ስም ያለውን ጥሬ ደንብ ብቻ ያቆማል።"
+  },
+  "guide_raw_rules_p_5": {
+    "message": "መላውን አቅራቢ ለመዝለል በምትኩ <code>exceptions</code> ን ይጠቀሙ።"
+  },
+  "guide_exceptions_p_1": {
+    "message": "URL በ<code>exceptions</code> ውስጥ ካለ ግቤት ጋር ከተዛመደ ለዚያ ጥያቄ ከአቅራቢው ደንቦች ምንም አይሰራም። ግቤት ከሙሉ URL ጋር የሚነጻጸር መደበኛ አገላለጽ ወይም በ<code>|</code> የሚጀምር የጎራ ስርዓተ-ጥለት ነው፦"
+  },
+  "guide_exceptions_p_2": {
+    "message": "ልዩ ሁኔታዎች የፊደል ዓይነትን ችላ ይላሉ። መላውን አቅራቢ ከመዝለል ይልቅ አንድ ደንብ ለመዝለል ለዚያ ደንብ የራሱን <code>exceptions</code> ይስጡት (ምዕራፍ 9)።"
+  },
+  "guide_redirects_p_1": {
+    "message": "በ URL ውስጥ መጀመሪያ የሚመጣው ተዛማጅ መለኪያ ያሸንፋል። ለ<code>https://site.example/away?redirect=https://real.example/page</code> ጥያቄው ወደ <code>https://real.example/page</code> ይሄዳል።"
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "ትክክለኛ የአቅጣጫ ማዛወሪያ ዒላማዎች"
+  },
+  "guide_redirects_p_2": {
+    "message": "አቅጣጫ ማዛወር የሚከሰተው አስተናጋጅ ወዳለው ፍጹም <code>http</code> ወይም <code>https</code> አድራሻ ብቻ ነው። ይህ ከቅድመ-ማቀነባበሪያዎች እና ከመቶኛ-ዲኮዲንግ በኋላ ይፈተሻል። ልክ ያልሆነ ዒላማ ግቤቱ እንዳልተዛመደ እንዲቆጠር ያደርጋል፦ ምንም አይዛወርም፣ እና የአቅራቢው ቀጣይ ደረጃዎች ባልተለወጠው URL ላይ ይሰራሉ።"
+  },
+  "guide_redirects_th_1": {
+    "message": "ዒላማ"
+  },
+  "guide_redirects_th_2": {
+    "message": "ይዛወራል?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "አዎ"
+  },
+  "guide_redirects_cell_2": {
+    "message": "አዎ፣ ወደ <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "አይ፦ እቅዱ <code>http</code> ወይም <code>https</code> አይደለም"
+  },
+  "guide_redirects_cell_4": {
+    "message": "አይ፦ ፍጹም አድራሻ አይደለም"
+  },
+  "guide_redirects_p_3": {
+    "message": "ውጤቱ ከግብዓቱ የተለየ እቅድ፣ አስተናጋጅ ወይም ወደብ ያለው ጥሬ ደንብ ጽሑፍ ብቻ ቢሰርዝም እንደ አቅጣጫ ማዛወር ይቆጠራል፦ ከ<code>https://secure-bank.example/</code> <code>secure-</code> ን መሰረዝ ወደ ሌላ ጣቢያ ያደርሳል። ትክክለኛ ዒላማ ያስፈልገዋል፣ እና በርቀት ደንብ ዝርዝር ውስጥ የ<code>redirect</code> ፈቃድ (ምዕራፍ 15)። ካልሆነ ደንቡ URL ን እንደነበረ ይተዋል።"
+  },
+  "guide_rule_objects_p_1": {
+    "message": "ማንኛውም ግቤት፣ በማንኛውም ዝርዝር ውስጥ፣ ከሕብረቁምፊ ይልቅ ነገር ሊሆን ይችላል። ደንብ የተረጋጋ መታወቂያ ሲያስፈልገው፣ ጠፍቶ መጀመር ሲኖርበት፣ ከማስወገድ ይልቅ መጻፍ ሲኖርበት ወይም በአንዳንድ ሁኔታዎች ብቻ መሰራት ሲኖርበት አንዱን ይጠቀሙ፦"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "ያስፈልጋል። በዚያ ዝርዝር ውስጥ እንደ ተራ ግቤት የሚጽፉት ጽሑፍ።"
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "ደንቡን ለማብራት እና ለማጥፋት የሚያገለግል የተረጋጋ ስም (ፊደላት፣ አሃዞች፣ <code>-</code>፣ <code>_</code>) (ምዕራፍ 14)።"
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "የደንቡ ቀዳሚ መታወቂያዎች፣ ስለዚህ በአሮጌ መታወቂያ የተቀመጠ ቅንብር ከስም ለውጥ በኋላ መተግበሩን ይቀጥላል።"
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "ከማስወገድ ይልቅ ይጻፉ፤ <code>§1§</code>፣ <code>§2§</code>፣ … የተያዙት እሴቶች ናቸው።"
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "መጀመሪያ የተያዙትን እሴቶች ይለውጡ።"
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "ለእነዚህ የጥያቄ ዓይነቶች ብቻ፣ ለምሳሌ <code>[\"main_frame\"]</code>። ያለ ጥያቄ ማጽዳት (<em>ንጹህ አገናኝ ቅዳ</em>፣ የማጽጃ መሣሪያው፣ የ History API ለውጦች) እንደ <code>main_frame</code> ይቆጠራል።"
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "ይህ አንድ ደንብ የማይሰራባቸው URLዎች (መደበኛ አገላለጾች)።"
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "የመደበኛ አገላለጽ ባንዲራዎች፣ እንደ ሕብረቁምፊ። ነባሪው <code>i</code>፤ በ<code>rawRules</code> ውስጥ <code>gi</code> (ወይም <code>g</code> ከ<code>match-case</code> ጋር)።"
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "ደንቡን በደረጃው ውስጥ ቀድሞ ወይም ዘግይቶ ያሂዱ (ምዕራፍ 13)።"
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>፦ በ<code>rules</code> ውስጥ ያለ ደንብ እንደ ሪፈራል-ማርኬቲንግ ደንብም ይቆጠራል (ምዕራፍ 10)።"
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "ለዚህ አንድ ደንብ ተመሳሳይ ስም ያለው የአቅራቢ ማብሪያ። የአቅራቢውን እሴት እና የፋይሉን ነባሪ ይበልጣል።"
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>፦ ደንቡ ጠፍቶ ይጀምራል።"
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "ፋይሉን ለሚያነቡ ሰዎች ማስታወሻ፤ ሕብረቁምፊ መሆን አለበት።"
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "በ<code>@@…$rawrule=</code> ግቤቶች ላይ ብቻ፦ የሚያቆመው የጥሬ ደንብ መታወቂያ።"
+  },
+  "guide_rule_objects_p_2": {
+    "message": "እዚህ <code>?token=abc123</code> <code>?token=clean-abc123</code> ይሆናል። መጻፍ በአንድ ጥያቄ ቢበዛ አንድ ጊዜ ይተገበራል፣ ስለዚህ እሴቱን መጠቅለሉን አይቀጥልም።"
+  },
+  "guide_rule_objects_p_3": {
+    "message": "ቅድመ-ማቀነባበሪያዎች <code>replacePattern</code> ወይም አቅጣጫ ማዛወሪያ ከመጠቀማቸው በፊት የተያዙ እሴቶችን በቅደም ተከተል ይለውጣሉ። <code>inputs</code> <code>\"all\"</code> ወይም የቡድን ቁጥሮች ዝርዝር ነው፦"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> ልክ እንደ <code>rules</code> ተመሳሳይ ግቤቶችን ይወስዳል። የሚሰሩት <em>የሪፈራል ማርኬቲንግን ፍቀድ</em> ሲጠፋ ብቻ ነው፣ ስለዚህ ካበሩት የአጋርነት አገናኞች መስራታቸውን ይቀጥላሉ፦"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "ደንብ በ<code>rules</code> ውስጥ ሊቆይ እና በ<code>\"referralMarketing\": true</code> እንደ ሪፈራል ማርኬቲንግ ሊቆጠር ይችላል። ተመሳሳዩን ጽሑፍ በ<code>rules</code> እና በ<code>referralMarketing</code> ሁለቱም ውስጥ አያስቀምጡ፤ አርታዒው ስለዚህ ያስጠነቅቃል።"
+  },
+  "guide_request_types_cell_1": {
+    "message": "አንድ የደንብ ነገር የሚያስተናግዳቸው የጥያቄ ዓይነቶች (በ<code>defaults</code> ውስጥም ሊዘጋጅ ይችላል)"
+  },
+  "guide_request_types_p_1": {
+    "message": "የጥያቄ ዓይነቶች የአሳሹን ስሞች ይጠቀማሉ፦ <code>main_frame</code> (ገጽ)፣ <code>sub_frame</code> (ፍሬም)፣ <code>xmlhttprequest</code>፣ <code>script</code>፣ <code>image</code> እና የመሳሰሉት። የማጣሪያ ማሻሻያዎች የመጀመሪያዎቹን ሁለቱን <code>document</code> እና <code>subdocument</code> ይሏቸዋል።"
+  },
+  "guide_request_types_p_2": {
+    "message": "የጥያቄ ዓይነቶች የሚመጡት ከደንቦቹ ብቻ ነው፦ በቅንብሮች ውስጥ የጥያቄ ዓይነት ዝርዝር የለም። ከእነዚህ ምንም ካልተዘጋጀ ደንብ እያንዳንዱን የጥያቄ ዓይነት ያጸዳል።"
+  },
+  "guide_defaults_title_1": {
+    "message": "12. ነባሪዎች"
+  },
+  "guide_defaults_p_1": {
+    "message": "ከፍተኛ-ደረጃ <code>defaults</code> ብሎክ ለፋይሉ እያንዳንዱ ደንብ ራሱ ያላዘጋጃቸውን እሴቶች ይሰጣል፦"
+  },
+  "guide_defaults_th_1": {
+    "message": "ለእያንዳንዱ ደንብ ነባሪ…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>፤ ደንቡ <code>\"active\": true</code> ካላለ በስተቀር <code>false</code> እያንዳንዱን ደንብ ያጠፋል"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>፤ <code>\"all\"</code> ወይም መተው እያንዳንዱ ዓይነት ማለት ነው"
+  },
+  "guide_defaults_item_1": {
+    "message": "የደንብ የራሱ እሴት ሁልጊዜ ያሸንፋል፣ እና የደንብ <code>exceptions</code> ወደ ነባሪው ዝርዝር ከመጨመር ይልቅ ይተኩታል።"
+  },
+  "guide_defaults_item_2": {
+    "message": "ነባሪዎች በ<code>rules</code>፣ <code>rawRules</code>፣ <code>referralMarketing</code>፣ <code>redirections</code> እና <code>fieldRedirections</code> ላይ ይተገበራሉ። የአቅራቢው የራሱ <code>exceptions</code> ዝርዝር ብቻውን ይተዋል። <code>$redirect=</code> ግቤቶች <code>active</code> ን ብቻ ይጠቀማሉ።"
+  },
+  "guide_defaults_item_3": {
+    "message": "እያንዳንዱ ፋይል የራሱን ነባሪዎች ይይዛል፦ አብሮ የተሰሩ ደንቦች፣ እያንዳንዱ የርቀት ዝርዝር እና የእርስዎ ብጁ ደንቦች፣ የከመጠን በላይ ጭነት ሁነታ ሲያዋህዳቸውም።"
+  },
+  "guide_defaults_item_4": {
+    "message": "ለ<code>completeProvider</code> ነባሪው <code>requestTypes</code> እና <code>exceptions</code> ማገዱንም ይገድባሉ።"
+  },
+  "guide_defaults_item_5": {
+    "message": "ያልታወቁ ቁልፎች እና የተሳሳቱ ዓይነቶች ስህተቶች ናቸው፣ እና ልክ ያልሆነ <code>defaults</code> ብሎክ ያለው የርቀት ዝርዝር ውድቅ ይደረጋል።"
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "የእርስዎ ነባሪዎች"
+  },
+  "guide_defaults_p_2": {
+    "message": "በብጁ ደንቦች አርታዒ ውስጥ <em>የደንብ ነባሪዎችን አስተዳድር</em> የራስዎን <code>defaults</code> ብሎክ የሚያዘጋጁበት እና የፋይሎቹን የራሱን የት እንደሚተካ የሚመርጡበት ቅጽ ይከፍታል፦"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>የእያንዳንዱ ምንጭ የራሱ</em> (ነባሪ)፦ እያንዳንዱ ፋይል የራሱን <code>defaults</code> ይጠቀማል።"
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>የእርስዎ ለአብሮ የተሰሩ እና ለርቀት ደንቦች</em>፦ አብሮ የተሰሩ እና የርቀት ደንቦች የእርስዎን ይጠቀማሉ፤ ብጁ ደንቦች የራሳቸውን ይይዛሉ።"
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>የእርስዎ ለሁሉም ደንቦች</em>፦ እያንዳንዱ ደንብ የእርስዎን ይጠቀማል።"
+  },
+  "guide_defaults_p_3": {
+    "message": "ያው ቅጽ የአብሮ የተሰሩ ደንቦችን እና የእያንዳንዱ የተጫነ የርቀት ዝርዝር ነባሪዎችን ማርትዕ ይችላል። አርትዖትዎ በፋይሉ ውስጥ ሳይሆን በቅጥያው ውስጥ ይቀመጣል፣ እና <em>ወደ ፋይሉ ነባሪዎች መልስ</em> ያስወግደዋል። <em>ከምንጮች አዋህድ…</em> ምልክት ያደረጉባቸውን ምንጮች ነባሪዎች ያጣምራል፤ እስኪያስቀምጡ ድረስ ምንም አይቀመጥም።"
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL እንዴት እንደሚሰራ"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>፣ ከዚያ <code>fieldRedirections</code>፦ ትክክለኛ ዒላማ ያለው ተዛማጅ ጥያቄውን አቅጣጫ ያዛውራል።"
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> እና <code>referralMarketing</code> መለኪያዎችን ያስወግዳሉ ወይም ይጽፋሉ።"
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code> ማጣሪያዎች ይሰራሉ፣ የ<code>@@</code> ግቤት መለኪያውን ከሚያቆይበት በስተቀር።"
+  },
+  "guide_processing_order_p_1": {
+    "message": "URL ን የሚቀይር፣ አቅጣጫ የሚያዛውር ወይም የሚያግድ የመጀመሪያው አቅራቢ ያሸንፋል። ከዚያ አዲሱ URL እንደገና በተመሳሳይ ደረጃዎች ያልፋል (<a href=\"#termination\">ሂደት መቼ እንደሚቆም</a> ይመልከቱ)።"
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "የአሰራር ቅደም ተከተል እና <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "ደረጃዎች 4 እና 5 በእነዚህ ደንቦች በየተራ አንድ ላይ ይደረደራሉ፦"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>ጥሬ ደንቦች ሁልጊዜ መጀመሪያ ይሰራሉ።</strong> ምንም <code>order</code> የ<code>rules</code> ግቤትን ከጥሬ ደንብ በፊት አያንቀሳቅስም። ከጥሬ ደንብ በፊት መሆን ያለበት ጽዳት ራሱ ጥሬ ደንብ መሆን አለበት።"
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>በአንድ ደረጃ ውስጥ <code>order</code> ያላቸው ደንቦች ከሌላቸው በፊት ይሰራሉ</strong>፣ ከትንሹ ጀምሮ። አሉታዊ ቁጥሮች እና ክፍልፋዮች ይፈቀዳሉ። <code>order: 10</code> \"አሥረኛ\" ማለት አይደለም፦ ከ10 በታች ካሉት የደረጃው በ order የተደረደሩ ደንቦች በኋላ እና ከሁሉም ያልተደረደሩ ደንቦቹ በፊት ማለት ነው።"
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>ከዚያ በዝርዝር፦</strong> <code>rules</code>፣ ከዚያ <code>\"referralMarketing\": true</code> የተባሉ <code>rules</code> ነገሮች፣ ከዚያ <code>referralMarketing</code>።"
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>ከዚያ በቦታ</strong> በዝርዝሩ ውስጥ። እያንዳንዱ ግቤት ቦታውን ይይዛል፣ እንደ <code>\"3\"</code> ወይም <code>\"20\"</code> የተጻፉትንም ጨምሮ።"
+  },
+  "guide_processing_order_p_3": {
+    "message": "እዚህ ቶከኑ ሁለተኛ ቢመጣም <code>utm_source</code> ከመወገዱ በፊት ይጻፋል፦"
+  },
+  "guide_processing_order_p_4": {
+    "message": "የጠፉ ደንቦች ይተዋሉ። <code>$removeparam</code> ማጣሪያዎች እና <code>@@</code> ግቤቶች ከዚህ ደርደራ ውጪ ናቸው እና <code>null</code> እንኳን <code>order</code> ሊኖራቸው አይችልም፤ ማጣሪያዎች ሁልጊዜ የመጨረሻ ይሰራሉ።"
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "ተመሳሳይ ጽሑፍ ሁለት ጊዜ"
+  },
+  "guide_processing_order_p_5": {
+    "message": "በአንድ ቡድን ውስጥ ተመሳሳይ <code>matchPattern</code> ጽሑፍ ያላቸው ሁለት ግቤቶች አንድ ደንብ ናቸው። ቡድኖቹ ጥሬ (<code>rawRules</code>)፣ መስክ (ያለ ሪፈራል ምልክት <code>rules</code>) እና ሪፈራል (ምልክት የተደረገባቸው <code>rules</code> ነገሮች፣ ከዚያ <code>referralMarketing</code>) ናቸው። ይህ ባብዛኛው የሚሆነው የደንብ ዝርዝሮች ሲዋሃዱ ነው።"
+  },
+  "guide_processing_order_item_8": {
+    "message": "ያልጠፋው የመጨረሻ ትርጓሜ ከሁሉም ቁልፎቹ ጋር ያሸንፋል።"
+  },
+  "guide_processing_order_item_9": {
+    "message": "የራሱ <code>order</code> ከሌለው አሸናፊው የመጀመሪያውን ትርጓሜ ቦታ እና በጣም ቅርብ የሆነውን ቀዳሚ <code>order</code> ይወስዳል። <code>\"order\": null</code> ምንም order የለም ማለት ነው፣ እና የተወረሰውን ያስወግዳል።"
+  },
+  "guide_processing_order_item_10": {
+    "message": "የተተኩ ትርጓሜዎች መታወቂያዎች እና ተለዋጭ ስሞች አሸናፊውንም ያበራሉ እና ያጠፋሉ።"
+  },
+  "guide_processing_order_item_11": {
+    "message": "የሪፈራል-ማርኬቲንግ ደንቦች ሲሰሩ የሪፈራል ግቤት ተመሳሳይ ጽሑፍ ያለውን የመስክ ግቤት ይተካል።"
+  },
+  "guide_processing_order_item_12": {
+    "message": "ተመሳሳይ ጽሑፍ ያላቸው ጥሬ ደንብ እና የመስክ ደንብ አይጋጩም፤ ሁለቱም ይሰራሉ።"
+  },
+  "guide_processing_order_p_6": {
+    "message": "በአንድ ዝርዝር ውስጥ ተመሳሳይ ጽሑፍ ያላቸው ሁለት የተለያዩ ግቤቶች ስህተት ናቸው፣ እና ትክክለኛ ቅጂ ማስጠንቀቂያ ነው።"
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "ሂደት መቼ እንደሚቆም"
+  },
+  "guide_processing_order_item_13": {
+    "message": "በአንድ ጥያቄ ቢበዛ 10 ዑደቶች ይሰራሉ፤ በገደቡ URL እንዳለ ይጠቀማል።"
+  },
+  "guide_processing_order_item_14": {
+    "message": "<code>replacePattern</code> ያለው ደንብ በአንድ ጥያቄ ቢበዛ አንድ ጊዜ ይተገበራል።"
+  },
+  "guide_processing_order_item_15": {
+    "message": "URL ን የማይለውጥ ደረጃ አዲስ ዑደት አይጀምርም።"
+  },
+  "guide_processing_order_p_7": {
+    "message": "ቅንብሮች → <em>ገደብ የሌላቸው የጽዳት ዑደቶች</em> (በነባሪ ጠፍቷል) ተጨማሪ ለሚያስፈልጋቸው የደንብ ሰንሰለቶች የ10-ዑደት ገደቡን ያስወግዳል። ከዚያ ሂደቱ ዑደት ምንም ሲለውጥ ያበቃል፣ ነገር ግን እርስ በርስ አቅጣጫ የሚያዛውሩ ሁለት ደንቦች አሳሹ እስኪተው ድረስ ይደጋገማሉ እና ገጹ አይጫንም። ለሚያምኗቸው ደንቦች ብቻ ያብሩት።"
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. የደንብ መታወቂያዎች እና የማብሪያ/ማጥፊያዎች"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "እያንዳንዱ ደንብ መታወቂያ አለው። <code>id</code> የሌለው ደንብ ከዝርዝሩ እና ከጽሑፉ ያገኛል፦ በ<code>rules</code> ውስጥ <code>\"utm_source\"</code> <code>field-utm-source</code> ይሆናል። የተፈጠረ መታወቂያ የደንቡ ጽሑፍ ሲቀየር ይቀየራል፣ እና የጠፋ ደንብ ከዚያ እንደገና ይበራል። ደንብ በአርትዖቶች ውስጥ የማብሪያ/ማጥፊያ ቅንብሩን መያዝ ሲኖርበት የራሱን <code>id</code> ይስጡት፣ እና ስሙን ሲቀይሩ የድሮ መታወቂያዎችን በ<code>aliases</code> ውስጥ ይዘርዝሩ።"
+  },
+  "guide_rule_ids_p_2": {
+    "message": "ደንብ የሚበራውና የሚጠፋው በአቅራቢው እና በመታወቂያው አንድ ላይ ነው፣ ለምሳሌ <code>shop::session-token</code>፣ ስለዚህ ሁለት አቅራቢዎች ተመሳሳይ መታወቂያ ሊጠቀሙ ይችላሉ። የብጁ ደንቦች አርታዒ በአቅራቢው ስርዓተ-ጥለት ስርም ሊያስቀምጠው ይችላል፣ ለምሳሌ <code>domainPattern:||shop.example^::session-token</code>፤ ሁለቱም ቅጾች ይሰራሉ።"
+  },
+  "guide_rule_ids_item_1": {
+    "message": "በአንድ አቅራቢ ውስጥ እያንዳንዱ መታወቂያ እና ተለዋጭ ስም የተለየ መሆን አለበት። የተፈጠሩ መታወቂያዎችም ይቆጠራሉ።"
+  },
+  "guide_rule_ids_item_2": {
+    "message": "መታወቂያ ሁለት ነጥብ ሊይዝ አይችልም።"
+  },
+  "guide_rule_ids_item_3": {
+    "message": "ያለ አቅራቢው በባዶ መታወቂያ የተቀመጠ ቅንብር ምንም አያበራም አያጠፋም፤ ደንቡን በብጁ ደንቦች አርታዒ ውስጥ እንደገና ያጥፉት።"
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. የርቀት ደንብ ዝርዝሮች"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "የርቀት ደንብ ዝርዝሮች Linkumori የሚያወርዳቸው የደንብ ፋይሎች ናቸው፣ እንደ አማራጭ ከሃሽ ፋይል ጋር ይፈተሻሉ። ልክ ያልሆነ <code>cln</code> እሴት፣ <code>defaults</code> ብሎክ ወይም <code>patches</code> ድርድር ያለው ዝርዝር አይጫንም፣ እና የርቀት ደንቦች ጤና ሪፖርት ያደርገዋል።"
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "አቅጣጫ ማዛወር እና ማገድ ፈቃድዎን ይፈልጋሉ"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "የርቀት ዝርዝር ምን ማድረግ እንደሚችል ሲጫን ከይዘቱ ይሰላል፦"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "አቅም"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "ዝርዝሩ ሲይዘው ያለው"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "ሲጫን ንቁ"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "<code>rules</code>፣ <code>rawRules</code> ወይም <code>referralMarketing</code> ግቤት፣ ወይም <code>$removeparam</code> ማጣሪያ"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "<code>replacePattern</code> ያለው ግቤት"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "የአቅራቢ <code>exceptions</code> ግቤት ወይም <code>@@</code> ግቤት"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "<code>redirections</code> ወይም <code>fieldRedirections</code> ግቤት፣ ወይም <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "ከፈቃድ በኋላ"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "<code>\"completeProvider\": true</code> ያለው አቅራቢ"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "በየርቀት ደንቦች ጤና ውስጥ <code>redirect</code> እና <code>block</code> ን በዝርዝር ይፍቀዱ። እስከዚያ ድረስ የዚያ ዝርዝር አቅጣጫ ማዛወሪያዎች እና ማገጃዎች ጠፍተው ይቆያሉ፣ እና ጥሬ ደንቦቹ URL ን ወደ ሌላ ጣቢያ መላክ አይችሉም፤ የዝርዝሩ ቀሪ ወዲያውኑ ይሰራል። ማሻሻያ አዲስ አቅም ሲጨምር ያም ፈቃድ ይጠብቃል። አብሮ የተሰሩ እና ብጁ ደንቦች ሁሉም አቅም አላቸው።"
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "የከመጠን በላይ ጭነት ሁነታ"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "በመደበኛነት አቅራቢዎች ያሏቸው የርቀት ዝርዝሮች አብሮ የተሰሩ ደንቦችን ይተካሉ፤ <code>patches</code> ብቻ የያዙ ዝርዝሮች በአብሮ የተሰሩ ደንቦች ላይ ይተገበራሉ። <em>የከመጠን በላይ ጭነት ሁነታን አንቃ</em> ሲበራ ከሦስት ስልቶች አንዱን በመጠቀም አብረው ይጫናሉ፦"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>የፓች ሁነታ ብቻ</em>፦ የርቀት ዝርዝሮችን ፓችዎች በአብሮ የተሰሩ ደንቦች ላይ ይተግብሩ፤ የርቀት አቅራቢዎች ይተዋሉ።"
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>የፓች ሁነታ + ውህደት</em>፦ አብሮ የተሰሩ እና የርቀት አቅራቢዎችን ያዋህዱ፣ ከዚያ ፓችዎችን ይተግብሩ።"
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>ያለ ፓች ሁነታ + ውህደት</em>፦ አቅራቢዎቹን ያዋህዱ እና ፓችዎችን ይዝለሉ።"
+  },
+  "guide_remote_rules_p_5": {
+    "message": "ሲዋሃዱ የርቀት ዝርዝሮች በሚዘረዝሯቸው ቅደም ተከተል እርስ በርስ ይዋሃዳሉ፣ ከዚያ ከአብሮ የተሰሩ ደንቦች ጋር (አብሮ የተሰሩ መጀመሪያ)። ተመሳሳይ <code>domainPatterns</code> (ወይም <code>urlPattern</code>) እና ተመሳሳይ <code>methods</code>፣ <code>resourceTypes</code>፣ <code>completeProvider</code> እና <code>forceRedirection</code> ያላቸው አቅራቢዎች ብቻ ይዋሃዳሉ፤ <code>rules</code>፣ <code>rawRules</code> እና <code>referralMarketing</code> ይጣመራሉ፣ እና <a href=\"#same-text-twice\">ተመሳሳይ ጽሑፍ ሁለት ጊዜ</a> የትኛው ቅጂ እንደሚሰራ ይወስናል። የርቀት ደንቦች ጤና እያንዳንዱን የተተካ ደንብ እንደ ማሳሰቢያ ይዘረዝራል።"
+  },
+  "guide_remote_rules_p_6": {
+    "message": "ብጁ ደንቦች በመጨረሻ ይተገበራሉ። ብጁ አቅራቢ ተመሳሳይ ስርዓተ-ጥለት ያለውን እያንዳንዱን የተጫነ አቅራቢ ይተካል፤ ደንቦቻቸው አይጣመሩም።"
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "የደንብ ፓችዎች"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "የርቀት ዝርዝር አስቀድመው የተጫኑ ነጠላ ደንቦችን ሙሉ ቅጂ ሳያትም በከፍተኛ-ደረጃ <code>patches</code> ድርድር ሊተካ ይችላል፦"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "ያስፈልጋል። የሚተካው ደንብ፣ እንደ ማብሪያ/ማጥፊያ ቁልፉ ተጽፎ፦ <code>providerKey::id</code>፣ <code>domainPattern:&lt;pattern&gt;::id</code> ወይም <code>urlPattern:&lt;regex&gt;::id</code>።"
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "ያስፈልጋል። <code>rules</code>፣ <code>referralMarketing</code>፣ <code>rawRules</code>፣ <code>exceptions</code>፣ <code>redirections</code> ወይም <code>fieldRedirections</code>።"
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "ያስፈልጋል። አዲሱ ደንብ፣ እንደ ተራ ግቤት ወይም የደንብ ነገር።"
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "ፋይሉን ለሚያነቡ ሰዎች ማስታወሻ።"
+  },
+  "guide_remote_rules_item_4": {
+    "message": "ፓችዎች የሚሰሩት የርቀት ዝርዝሮች ከተዋሃዱ በኋላ እና ብጁ ደንቦች ከመሰራታቸው በፊት ነው። <code>patches</code> ብቻ ያለው ፋይል <code>providers</code> አያስፈልገውም።"
+  },
+  "guide_remote_rules_item_5": {
+    "message": "ማዋሃድ አቅራቢዎችን እንደገና ሊሰይም ይችላል፣ ስለዚህ <code>domainPattern:</code> ወይም <code>urlPattern:</code> ቅጽ ሁልጊዜ የሚያገኛቸው ነው።"
+  },
+  "guide_remote_rules_item_6": {
+    "message": "ምትክው የድሮውን ደንብ መታወቂያ ይይዛል፣ ወይም የድሮውን መታወቂያ እንደ ተለዋጭ ስም ይወስዳል፣ ስለዚህ የማብሪያ/ማጥፊያ ቅንብሮች መተግበራቸውን ይቀጥላሉ።"
+  },
+  "guide_remote_rules_item_7": {
+    "message": "ለአቅጣጫ ማዛወር ፓች የዝርዝሩን <code>redirect</code> ፈቃድ ይጠብቃል። ዒላማው ከምንም ጋር የማይዛመድ ፓች ምንም አይለውጥም።"
+  },
+  "guide_remote_rules_item_8": {
+    "message": "የርቀት ደንቦች ጤና እያንዳንዱን ፓች እንደ ተተገበረ፣ እንዳልተዛመደ ወይም እንደተዘለለ ይዘረዝራል።"
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. ደንቦች እና የተፈቀደላቸው ዝርዝር"
+  },
+  "guide_whitelist_p_1": {
+    "message": "የተፈቀደላቸው ዝርዝር ከአቅራቢው <code>exceptions</code> የተለየ ነው፦ ምንም የደንብ ፋይል ሳይኖር Linkumori ብቻቸውን እንዲተዋቸው የነገሯቸውን ጣቢያዎች ይዘረዝራል። ግቤቶች እንደ <code>example.com</code>፣ <code>*.example.com</code> (ጣቢያው እና ንዑስ ጎራዎቹ) ወይም <code>example.*</code> (ማንኛውም ቅጥያ) ይመስላሉ። ገጽን በተፈቀደላቸው ዝርዝር ውስጥ ማስገባት የሚጭነውን ሁሉ ይሸፍናል።"
+  },
+  "guide_examples_title_1": {
+    "message": "17. ሙሉ ምሳሌዎች"
+  },
+  "guide_checking_title_1": {
+    "message": "18. ደንቦችዎን መፈተሽ"
+  },
+  "guide_checking_p_1": {
+    "message": "የብጁ ደንቦች አርታዒ ሲያስቀምጡ ወይም ሲያስመጡ ደንቦችን ይፈትሻል፣ እና <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> ተመሳሳዩን ፍተሻዎች ያሄዳል። ከተበላሸ JSON እና ልክ ያልሆኑ መደበኛ አገላለጾች በተጨማሪ፣ ይጫናሉ ግን በጸጥታ የተሳሳተውን የሚያደርጉ ደንቦችን ውድቅ ያደርጋሉ፣ ለምሳሌ፦"
+  },
+  "guide_checking_item_1": {
+    "message": "ያልታወቁ መስኮች፣ ቁልፎች እና ማሻሻያዎች"
+  },
+  "guide_check_7": {
+    "message": "ከ<code>\"1.0\"</code> ሌላ <code>cln</code> እሴት"
+  },
+  "guide_check_8": {
+    "message": "በአንድ አቅራቢ ውስጥ ሁለት ጊዜ የተጠቀመ መታወቂያ ወይም ተለዋጭ ስም"
+  },
+  "guide_checking_item_2": {
+    "message": "በአንድ ዝርዝር ውስጥ ተመሳሳይ ጽሑፍ ያላቸው ሁለት የተለያዩ ግቤቶች"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>null</code> ን ጨምሮ በ<code>$removeparam</code> ማጣሪያ ወይም <code>@@</code> ግቤት ላይ <code>order</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>http</code> ወይም <code>https</code> ያልሆነ <code>$redirect=</code> አድራሻ"
+  },
+  "guide_check_10": {
+    "message": "በ<code>$removeparam</code> ስም ውስጥ ማምለጫ በሌለው ቁምፊ ፊት የኋላ ሰረዝ"
+  },
+  "guide_checking_p_2": {
+    "message": "ትክክለኛ ቅጂዎችን፣ እንዲሁም ተመሳሳይ ጽሑፍ በ<code>rules</code> እና በ<code>referralMarketing</code> ሁለቱም ውስጥ ስለመኖሩ ያስጠነቅቃሉ። ማስቀመጥ ካልተሳካ መልዕክቱ አቅራቢውን፣ ዝርዝሩን እና ግቤቱን ይሰይማል።"
+  },
+  "guide_toc_search": {
+    "message": "ክፍሎችን አጣራ"
+  },
+  "guide_toc_no_results": {
+    "message": "የሚዛመዱ ክፍሎች የሉም።"
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: \"|\" በሚል የሚጀምር ማዘዋወር እንዲህ መሆን አለበት፦ \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: የ$redirect= መዳረሻ ፍጹም http ወይም https URL መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ ነገር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type ባዶ ያልሆነ ሕብረቁምፊ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type ከሚከተሉት አንዱ መሆን አለበት፦ $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs \"all\" ወይም አዎንታዊ ሙሉ ቁጥሮች ዝርዝር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ ሕብረቁምፊ ወይም የደንብ ነገር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern ሕብረቁምፊ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern ሕብረቁምፊ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId የደንብ መለያ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId በrawRules ውስጥ ላሉ \"@@…$rawrule=\" ልዩ ሁኔታዎች ብቻ ይሠራል",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags ሕብረቁምፊ መሆን አለበት (እንደ \"i\" ያሉ የregex ባንዲራዎች)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing true ወይም false መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing በ$FIELD$ ውስጥ ምንም ውጤት የለውም፤ በ$LISTS$ ውስጥ ብቻ ይሠራል",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order ቁጥር ወይም null መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order በ$FIELD$ ውስጥ ምንም ውጤት የለውም፤ በ$LISTS$ ውስጥ ብቻ ይሠራል",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order በ$removeparam ማጣሪያ ወይም \"@@\" ግቤት ላይ ምንም ውጤት የለውም፤ እነሱ ሁልጊዜ ከሌሎቹ ደንቦች በኋላ ይሠራሉ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active ቡሊያን መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id ሕብረቁምፊ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id ከ$PATTERN$ ጋር መዛመድ አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases ከ$PATTERN$ ጋር የሚዛመዱ መለያዎች ዝርዝር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases የደንቡን ራሱን መለያ መያዝ የለበትም",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description ሕብረቁምፊ መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection ቡሊያን መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions የሕብረቁምፊዎች ድርድር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes የሕብረቁምፊዎች ድርድር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors ድርድር መሆን አለበት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: ያልታወቀ መስክ \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ በ\"@@\" ይጀምራል፤ ይህ በrules እና referralMarketing ውስጥ ላሉ $removeparam ማጣሪያዎች ብቻ ይሠራል፤ በምትኩ በደንብ ነገር ውስጥ \"exceptions\" ይጠቀሙ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ ያልታወቀ $removeparam አማራጭ \"$OPTION$\" አለው",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" በአንድ \"|\" ይጀምራል፤ ስለዚህ በትክክል \"$REST$\" ብለው ከሚጀምሩ URL-ዎች ጋር ብቻ ይዛመዳል፤ እነዚህ የሉም (URL-ዎች በ\"https://\" ይጀምራሉ)። ከዶሜይኑ ጋር ለማዛመድ \"||$REST$\" ይጠቀሙ።",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ \"targetId\" አለው፤ ይህ በልዩ ሁኔታ ላይ ብቻ ይሠራል፤ matchPattern በ\"@@\" ይጀምር (ለምሳሌ \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ ሁለቱንም \"targetId\" እና ከ\"rawrule=\" በኋላ regex አለው፤ ከሁለቱ አንዱን ብቻ ይጠቀሙ",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ targetId \"$ID$\" አለው፤ በዚህ አቅራቢ ውስጥ ይህ መለያ ወይም ቅጽል ስም ያለው ጥሬ ደንብ የለም",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ ለ\"$REGEX$\" የ\"@@\" ልዩ ሁኔታ ነው፤ ግን በዚህ አቅራቢ ውስጥ ያለ ጥሬ ደንብ ይህን regex አይጠቀምም። ለደንቡ መለያ ይስጡና \"targetId\" በመጠቀም ያመልክቱት",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ የ\"@@\" ልዩ ሁኔታ ስለሆነ \"$KEY$\" ምንም አያደርግም",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ ከ\"rawrule=\" በኋላ ምንም ነገር የለውም፤ የሚሰረዘው regex ያስፈልጋል",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ ከ\"rawrule=\" በኋላ ልክ ያልሆነ regex አለው፦ $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ $GROUPS$ የተያዙ ቡድኖች አሉት፤ በመዳረሻ URL ዙሪያ በትክክል አንድ \"( … )\" ያስፈልጋል (ሌሎችን ቡድኖች \"(?: … )\" ብለው ይጻፉ)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ በ$WHERE$ ውስጥ የደንብ መለያ \"$ID$\" እንደገና ይጠቀማል፤ መጀመሪያ በ$FIRST$ ተጠቅሟል",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ JSON ነገር መሆን አለበት",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ ድርድር መሆን አለበት",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ ያልታወቀ ቁልፍ \"$KEY$\" አለው",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "URL ሲሰራ ስህተት ተፈጥሯል፦ $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "ገጹን ሲጀምር ስህተት ተፈጥሯል፦ $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "ልክ ያልሆነ ትር"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "ለዚህ ትር የደንብ ፍለጋ አስቀድሞ እየተካሄደ ነው"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "ለዚህ ትር ምንም የማቆም ማረጋገጫ እየተካሄደ አይደለም"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "ደንቦቹ አሁንም እየተጫኑ ነው። ትንሽ ቆይተው እንደገና ይሞክሩ።"
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "በዚህ ገጽ ላይ ከተነሱት ደንቦች አንዳቸውም ሊጠፉ አይችሉም።"
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "ደንቦቹን ማጥፋት አልተቻለም"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "ለዚህ ትር ምንም የደንብ ፍለጋ አይካሄድም"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "ለዚህ ትር የሚዘለል የተገኘ ደንብ የለም"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "ማውረድ አይገኝም"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "ቀረጻውን በክፍለ ጊዜ ማከማቻ ውስጥ ማስቀመጥ አልተቻለም"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "ያልታወቀ ደንብ"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "ያልታወቀ ስህተት"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "ወደ ውጭ መላክ አልተሳካም"
   }
 }

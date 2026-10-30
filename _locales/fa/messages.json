@@ -39,7 +39,7 @@
     "message": "از قوانین Linkumori/ClearURLهای همراه استفاده کنید. این را غیرفعال کنید تا فقط با قوانین راه دور و/یا قوانین سفارشی اجرا شود."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori از یک مجموعه قوانین یکپارچه ارائه‌دهندگان ClearURLsData استفاده می‌کند. JSON بومی ارائه‌دهندگان، اشیای قانون استاندارد و فیلترهای $removeparam محلی ارائه‌دهنده پیش از اجرای clearurls.js با هم ادغام می‌شوند."
   },
   "bundled_rules_section_title": {
     "message": "اطلاعات قوانین"
@@ -1137,25 +1137,25 @@
     "message": "تنظیمات Linkumori را باز کنید"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "رفتار حالت اضافه‌بار"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "فقط حالت وصله"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "وصله‌های راه دور را روی قوانین داخلی اعمال کنید. قوانین ارائه‌دهندگان راه دور شامل نمی‌شوند."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "حالت وصله + ادغام"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "قوانین داخلی و قوانین ارائه‌دهندگان راه دور را ادغام کنید، سپس وصله‌های راه دور را اعمال کنید."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "بدون حالت وصله + ادغام"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "قوانین داخلی و قوانین ارائه‌دهندگان راه دور را بدون اعمال وصله‌های راه دور ادغام کنید."
   },
   "overload_mode_enabled": {
     "message": "حالت اضافه بار را فعال کنید"
@@ -1836,7 +1836,7 @@
     "message": "URL هش اصلی باید از HTTPS استفاده کند"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "URL قانون اصلی و URL هش اصلی باید با هم پیکربندی شوند."
   },
   "save_primary_rule_https_required": {
     "message": "URL قانون اصلی باید از HTTPS استفاده کند"
@@ -1872,13 +1872,13 @@
     "message": "من خطرات را درک می کنم - ادامه دهید"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "اگر منبع مجموعه قوانین Linkumori را کاملاً درک نمی‌کنید یا به آن اعتماد ندارید، باید در استفاده از قوانین راه دور تجدیدنظر کنید."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "این قابلیت قوانین راه دور برای کاربران پیشرفته طراحی شده است که JSON مربوط به Linkumori را که بارگذاری می‌کنند درک می‌کنند. قوانین راه دور باید شامل یک URL هش متناظر برای تأیید باشند."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "اگر URL قانون راه دور اضافه کنید، افزونه در صورت پیکربندی به سرور تعیین‌شده شما متصل می‌شود تا مجموعه قوانین Linkumori و فایل هش آن را دریافت کند. هر بار دریافت ممکن است نشانی IP شما و اطلاعات کلی مانند نسخه افزونه، مرورگر و نسخه مرورگر را در اختیار سرور میزبان قرار دهد. این داده‌ها تابع سیاست حریم خصوصی آن وب‌سایت یا وب‌سرور است."
   },
   "security_modal_privacy_link_text": {
     "message": "قبل از ادامه در صورت نیاز، %PRIVACY_POLICY_LINK% را دوباره بخوانید."
@@ -1887,7 +1887,7 @@
     "message": "هشدار هشدار:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "تا زمانی که به منبع راه دور اعتماد ندارید و آن را کنترل نمی‌کنید، از قوانین داخلی استفاده کنید. برای قوانین JSON راه دور Linkumori یک URL هش متناظر ارائه دهید."
   },
   "security_modal_risk_1": {
     "message": "آدرس IP و اطلاعات مرورگر شما در معرض سرورهای پیکربندی شده قرار خواهد گرفت"
@@ -1899,7 +1899,7 @@
     "message": "تأیید هش فقط برای قوانین Linkumori CLN Format 1.0 JSON اعمال می شود. از دستکاری انتقال محافظت می کند، نه منابع قوانین مخرب."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "قوانین راه دور بدون تأیید موفق هش، کاملاً به اعتماد به URL منبع متکی هستند."
   },
   "security_modal_risks_title": {
     "message": "خطرات امنیتی:"
@@ -1914,7 +1914,7 @@
     "message": "نشانی اینترنتی فایل rules.hash (هش)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "برای تأیید قوانین JSON راه دور Linkumori الزامی است."
   },
   "setting_html_export_button": {
     "message": "صادرات"
@@ -1944,7 +1944,7 @@
     "message": "محدودیت گزارش (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "منابع JSON راه دور اضافی Linkumori که با هم ادغام می‌شوند. هر جفت را در یک خط وارد کنید: <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "مجموعه قوانین از راه دور اضافی"
@@ -1953,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "URL راه دور سفارشی برای قوانین JSON مربوط به Linkumori"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL فایل JSON قوانین راه دور"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "URL هش برای هر مجموعه قوانین راه دور الزامی است."
   },
   "settings_html_page_title": {
     "message": "تنظیمات Linkumori (URLهای پاک)."
@@ -2421,19 +2421,19 @@
     "message": "هشدار: ویژگی پیشرفته فقط برای سرورهای خود میزبان در نظر گرفته شده است"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "شما در حال غیرفعال کردن محافظت‌های Gatekeeper برای ویرایش URL قوانین راه دور هستید. این قابلیت می‌تواند قوانین JSON راه دور Linkumori را در مجموعه قوانین یکپارچه ارائه‌دهندگان بارگذاری کند. فقط در صورتی ادامه دهید که منبعی را که پیکربندی می‌کنید درک می‌کنید و به آن اعتماد دارید."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper یک جریان امنیتی داخلی است که ویرایش‌های مستقیم URL از راه دور را تا زمانی که هشدار امنیتی را تأیید نکنید و تأیید تایپ شده را کامل کنید، مسدود می‌کند."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "تا زمانی که به منابع راه دور خود اعتماد ندارید و آن‌ها را کنترل نمی‌کنید، Gatekeeper را فعال نگه دارید. قوانین JSON راه دور باید شامل یک URL هش متناظر باشند."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "هشدار هشدار:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "اگر URL قانون راه دور اضافه کنید، افزونه در صورت پیکربندی به سرور تعیین‌شده شما متصل می‌شود تا مجموعه قوانین Linkumori و فایل هش آن را دریافت کند. هر بار دریافت ممکن است نشانی IP شما و اطلاعات کلی مانند نسخه افزونه، مرورگر و نسخه مرورگر را در اختیار سرور میزبان قرار دهد. این داده‌ها تابع سیاست حریم خصوصی آن وب‌سایت یا وب‌سرور است."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "قبل از ادامه در صورت نیاز، %PRIVACY_POLICY_LINK% را دوباره بخوانید."
@@ -2448,7 +2448,7 @@
     "message": "هر بار که برنامه افزودنی در مرورگر شما فعال و بارگیری می شود، برنامه افزودنی به URL تعیین شده شما متصل می شود."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "سروری که فایل‌های JSON یا هش راه دور را میزبانی می‌کند نشانی IP شما را دریافت خواهد کرد."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "سرور همچنین ممکن است نسخه افزونه، مرورگر و نسخه مرورگر شما را دریافت کند."
@@ -2457,7 +2457,7 @@
     "message": "این داده ها مشمول سیاست حفظ حریم خصوصی وب سایت یا سرور وب است که آن فایل ها را میزبانی می کند."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "با غیرفعال کردن Gatekeeper، خطر ناشی از منابع قوانین راه دور ناامن یا آلوده افزایش می‌یابد. تأیید هش فقط زمانی از دانلودهای JSON راه دور Linkumori محافظت می‌کند که یک URL هش متناظر پیکربندی شده باشد."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "لغو کنید"
@@ -2517,7 +2517,7 @@
     "message": "عبارت تایید دقیق را تایپ کنید"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "این اقدام محافظت‌ها برای قوانین راه دور را کاهش می‌دهد. فقط در صورتی ادامه دهید که به منبع JSON راه دور خود اعتماد دارید."
   },
   "remote_urls_template_note_1": {
     "message": "مقادیر مکان‌نما را با نشانی‌های اینترنتی HTTPS واقعی خود جایگزین کنید، سپس این فایل را وارد کنید."
@@ -2847,10 +2847,10 @@
     "message": "هیچ کدام"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "تداخل قوانین:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ خطا، $WARNINGS$ هشدار، $NOTICES$ اطلاعیه",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "قابلیت‌های فایل راه دور:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "تا پذیرفته شدن غیرفعال است: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "پذیرفتن $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "وصله‌های قانون:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ اعمال شد، $NOT_APPLIED$ اعمال نشد",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "پیش‌فرض‌های قانون"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "داخلی"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "سفارشی"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "هیچ — رفتار داخلی"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "حالت اضافه‌بار قوانین داخلی و راه دور را ادغام می‌کند؛ قوانین هر منبع پیش‌فرض‌های خود همان منبع را حفظ می‌کنند."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "ذخیره پیش‌فرض‌ها"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "پیش‌فرض‌ها ذخیره شدند"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "در صورت روشن بودن، هر منبع قوانین پیش‌فرض‌های خود را حفظ می‌کند (پیش‌فرض‌های داخلی برای قوانین داخلی و پیش‌فرض‌های هر فایل راه دور برای قوانین همان فایل)، مگر اینکه در ویرایشگر قوانین سفارشی پیش‌فرض‌های خودتان را انتخاب کنید."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "راه دور: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "کدام پیش‌فرض‌ها اعمال شوند"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "پیش‌فرض‌های خود هر منبع"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "پیش‌فرض‌های شما برای قوانین داخلی و راه دور"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "پیش‌فرض‌های شما برای همه قوانین"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(با پیش‌فرض‌های شما جایگزین شد)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "مال شما"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ نوع درخواست",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ استثنای URL",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 استثنای URL"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ پیش‌پردازنده",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "قوانین هر منبع پیش‌فرض‌های خود همان منبع را می‌گیرند."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "قوانین داخلی و راه دور به‌جای پیش‌فرض‌های فایل‌های خودشان، پیش‌فرض‌های شما را می‌گیرند؛ قوانین سفارشی پیش‌فرض‌های خود را حفظ می‌کنند."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "قوانین داخلی، راه دور و سفارشی همگی به‌جای پیش‌فرض‌های خودشان، پیش‌فرض‌های شما را می‌گیرند."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "مدیریت پیش‌فرض‌های قانون"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "پیش‌فرض‌ها مقادیری را پر می‌کنند که خود قانون تنظیم نکرده است. مقدار خود قانون همیشه اولویت دارد و استثناهای ارائه‌دهنده هرگز تغییر نمی‌کنند."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "ویرایش پیش‌فرض‌ها"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "پیش‌فرض‌های شما"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "پیش‌فرض‌های قوانین سفارشی"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "پیش‌فرض‌های قابل ویرایش"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "قوانین داخلی"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(ویرایش‌شده)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "بازنشانی به پیش‌فرض‌های فایل"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "ادغام از منابع…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "ادغام پیش‌فرض‌های قانون"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "نتیجه در فهرست با عنوان «پیش‌فرض‌های ادغام‌شده» ظاهر می‌شود. آن را در آنجا در یکی از مجموعه‌ها کپی کنید، سپس برای استفاده از آن «ذخیره پیش‌فرض‌ها» را فشار دهید."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "منابع برای ادغام"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "تداخل‌ها"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "پیش‌فرض‌های ادغام‌شده"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "استفاده از پیش‌فرض‌های ادغام‌شده"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "پیش‌فرض‌های ادغام‌شده"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "تا زمانی که آن را در یکی از مجموعه‌های دیگر کپی و ذخیره نکنید استفاده نمی‌شود."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "کپی در"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "کپی"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "حداقل دو منبع را انتخاب کنید."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "بدون تداخل: منابع انتخاب‌شده در همه مقادیر توافق دارند."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "استثناها از همه منابع با هم جمع می‌شوند: در مجموع $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "ترکیب‌شده از همه منابع"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "از: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "تنظیم نشده (رفتار داخلی)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "تنظیم نشده: همه انواع درخواست"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "فعلاً استفاده نمی‌شود: پیش‌فرض‌های شما جایگزین پیش‌فرض‌های خود قوانین داخلی و راه دور شده‌اند."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "توسط شما ویرایش شده: این‌ها جایگزین پیش‌فرض‌های خود فایل می‌شوند. خود فایل تغییر نمی‌کند."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(ویرایش‌شده توسط شما)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "فعلاً استفاده نمی‌شود: در بالا «پیش‌فرض‌های خود هر منبع» انتخاب شده است."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "فعلاً استفاده نمی‌شود: پیش‌فرض‌های شما برای قوانین سفارشی نیز جایگزین این‌ها می‌شوند."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "قوانین خاموش شروع می‌شوند (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "توضیحات"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "انواع درخواست"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "همه انواع"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "فقط این‌ها"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "حداقل یک نوع درخواست انتخاب کنید یا «همه انواع» را برگزینید."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "قوانین همه انواع درخواست را پاک می‌کنند، مگر اینکه خودشان یا پیش‌فرض‌ها برخی را نام ببرند. ارائه‌دهندگان نیز می‌توانند انواع را با resourceTypes محدود کنند."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "استثناها"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "در هر خط یک regex برای URL. قوانین روی URLهای منطبق نادیده گرفته می‌شوند."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "پیش‌پردازنده‌ها"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "ورودی‌ها: «all» یا شماره گروه‌های ثبت مانند 1، 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ افزودن پیش‌پردازنده"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "نوع پیش‌پردازنده"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "ورودی‌های پیش‌پردازنده"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "حذف"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "ورودی‌های پیش‌پردازنده «$INPUTS$» باید «all» یا اعدادی مانند 1، 2 باشند.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "خاموش کردن محافظت از دور زدن تاریخچه (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "نمایش به‌صورت JSON"
   },
   "settings_remote_health_unknown": {
     "message": "ناشناخته"
@@ -3357,7 +3357,7 @@
     "message": "فیلتر ورودی ها…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "زبانه"
   },
   "logger_tab_all": {
     "message": "همه برگه ها"
@@ -4005,10 +4005,10 @@
     "message": "ارائه دهنده JSON راهنمای"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "باز کردن راهنمای قوانین Linkumori"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "از کدام نحو قانون استفاده کنم؟"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "باز کردن راهنمای قوانین"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "بارگذاری منابع ارائه‌دهنده ناموفق بود: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "قوانین همراه در دسترس نیستند."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "بارگذاری قوانین همراه ناموفق بود: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "تغییر زبان به $1 ممکن نبود."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "تم روشن"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "تم تیره"
   },
   "posarCopied": {
     "message": "POSAR کپی شد!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR پذیرفته شد."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "بازنشانی"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "ابزارهای دسترسی‌پذیری"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "باز کردن ابزارهای دسترسی‌پذیری"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "بستن ابزارهای دسترسی‌پذیری"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "بازنشانی همه تنظیمات دسترسی‌پذیری"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "بینایی"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "خواندن"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "تعامل"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "کنتراست بالا"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "فیلتر رنگ"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "اشباع رنگ"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "وارونه‌سازی"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "برجسته کردن پیوندها"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "پنهان کردن تصاویر"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "افزایش اندازه متن"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "کاهش اندازه متن"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "اندازه پیش‌فرض متن"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "انتخاب قلم"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "مناسب نارساخوانی"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "فاصله متن"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "ارتفاع خط"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "تراز متن"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "توقف انیمیشن‌ها"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "نشانگر بزرگ‌تر"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "پیش‌فرض"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "متوسط"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "زیاد"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "بسیار زیاد"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "کم"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "هیچ"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "سبک"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "سنگین"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "بدون فیلتر"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "پروتانوپی"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "دوترانوپی"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "تریتانوپی"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "خاکستری"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "چپ"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "وسط"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "راست"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "بسیار کوچک"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "کوچک"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "بزرگ"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "بسیار بزرگ"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "بزرگ‌ترین"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "روشن"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "خاموش"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "فعال"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "غیرفعال"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "اندازه پیش‌فرض متن انتخاب شد"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "همه تنظیمات دسترسی‌پذیری بازنشانی شد"
+  },
+  "skip_to_main_content": {
+    "message": "پرش به محتوای اصلی"
+  },
+  "popupNavAriaLabel": {
+    "message": "پیمایش پنجره بازشو"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "نماهای قوانین سفارشی"
+  },
+  "logViewNavAriaLabel": {
+    "message": "نماهای گزارش"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "محافظت از دور زدن تاریخچه (در پیمایش درون‌صفحه‌ای نادیده گرفته شود)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "تغییر مسیر فیلدها"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "کپی قانون"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "قانون کپی شد"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "کپی قانون ممکن نبود"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection چه کاری انجام می‌دهد؟"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "سایت‌های تک‌صفحه‌ای اغلب به‌جای بارگذاری صفحه جدید، نشانی را با history.pushState/replaceState تغییر می‌دهند. Linkumori این نشانی‌ها را هم پاک می‌کند. برای نادیده گرفتن فقط یک فیلتر در این تغییرات درون‌صفحه‌ای، history-bypass-protection=false را به فیلتر $removeparam اضافه کنید؛ آن فیلتر همچنان روی درخواست‌های معمولی اجرا می‌شود."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "برای نادیده گرفتن کل یک ارائه‌دهنده در تغییرات درون‌صفحه‌ای، آن را روی ارائه‌دهنده تنظیم کنید:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "اگر ذکر نشود، مقدار آن true است و تغییرات درون‌صفحه‌ای پاک می‌شوند. تنظیم خود قانون بر تنظیم ارائه‌دهنده اولویت دارد؛ بنابراین یک قانون می‌تواند با history-bypass-protection=true یا با \"historyBypassProtection\": true در شیء قانون دوباره فعال شود."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "پیمایش درون‌صفحه‌ای را نادیده می‌گیرد"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "تغییر نام شناسه"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "شناسه جدید برای $OLD$ (a-z، 0-9، - و _). شناسه قبلی به‌عنوان نام مستعار نگه داشته می‌شود، بنابراین قوانینی که با آن خاموش شده‌اند خاموش می‌مانند.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "«$ID$» شناسه معتبری نیست. از حروف کوچک انگلیسی، ارقام، - و _ استفاده کنید و با یک حرف یا رقم شروع کنید.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "قانون دیگری از این ارائه‌دهنده از قبل از «$ID$» استفاده می‌کند.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "غیرفعال کردن قانون"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ برای کل ارائه‌دهنده غیرفعال شود یا فقط برای این الگوی URL/دامنه؟",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "ارائه‌دهنده من"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "الگوی URL/دامنه"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "شناسه قانون به $ID$ تغییر نام یافت",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "کلیدهای بی‌صاحب"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "هیچ قانون متناظری در مبدأ یافت نشد"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "حذف"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "پاکسازی پیمایش درون‌صفحه‌ای را نادیده می‌گیرد"
+  },
+  "whitelist_added_general": {
+    "message": "%s به لیست سفید عمومی اضافه شد"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s به‌عنوان استثنای History API اضافه شد"
+  },
+  "whitelist_exception_count": {
+    "message": "%d استثنا"
+  },
+  "whitelist_exception_empty": {
+    "message": "هیچ استثنای لیست سفیدی وجود ندارد"
+  },
+  "whitelist_mode_general": {
+    "message": "لیست سفید عمومی"
+  },
+  "whitelist_mode_history_api": {
+    "message": "فقط History API"
+  },
+  "whitelist_mode_label": {
+    "message": "دامنه لیست سفید"
+  },
+  "whitelist_removed_general": {
+    "message": "%s از لیست سفید عمومی حذف شد"
+  },
+  "whitelist_removed_history_api": {
+    "message": "استثنای History API برای %s حذف شد"
+  },
+  "whitelist_type_general": {
+    "message": "عمومی"
+  },
+  "whitelist_type_history_api": {
+    "message": "فقط History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "افزودن $1 به لیست سفید عمومی"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "لیست سفید عمومی: $1 - برای «فقط History API» کلیک کنید"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "استثنای History API: $1 - برای «فقط این زبانه» کلیک کنید"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "فقط زبانه: $1 - برای حذف کلیک کنید"
+  },
+  "logger_action_allowed": {
+    "message": "مجاز"
+  },
+  "logger_action_blocked": {
+    "message": "مسدود"
+  },
+  "logger_action_filter_label": {
+    "message": "اقدام"
+  },
+  "logger_action_info": {
+    "message": "اطلاعات"
+  },
+  "logger_action_modified": {
+    "message": "تغییر یافته"
+  },
+  "logger_action_redirected": {
+    "message": "تغییر مسیر یافته"
+  },
+  "logger_btn_copy_summary": {
+    "message": "کپی خلاصه"
+  },
+  "logger_btn_export": {
+    "message": "صادر کردن"
+  },
+  "logger_btn_group": {
+    "message": "گروه‌بندی بر اساس قانون"
+  },
+  "logger_col_hits": {
+    "message": "تعداد برخورد"
+  },
+  "logger_col_last_seen": {
+    "message": "آخرین مشاهده"
+  },
+  "logger_detail_group_title": {
+    "message": "جزئیات قانون"
+  },
+  "logger_detail_all_urls": {
+    "message": "URLها ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "زبانه‌ها"
+  },
+  "logger_exported": {
+    "message": "$1 مورد صادر شد."
+  },
+  "logger_filter_all": {
+    "message": "همه"
+  },
+  "logger_report_rule": {
+    "message": "گزارش دادن"
+  },
+  "logger_rule_disable": {
+    "message": "خاموش کردن قانون"
+  },
+  "logger_rule_disabled_done": {
+    "message": "قانون $1 خاموش شد. برای بررسی، صفحه را دوباره بارگذاری کنید."
+  },
+  "logger_rule_enable": {
+    "message": "روشن کردن قانون"
+  },
+  "logger_rule_enabled_done": {
+    "message": "قانون $1 دوباره روشن شد."
+  },
+  "logger_rule_failed": {
+    "message": "تغییر قانون ممکن نبود."
+  },
+  "logger_rule_off": {
+    "message": "قانون خاموش است"
+  },
+  "logger_rule_on": {
+    "message": "قانون روشن است"
+  },
+  "logger_rule_unavailable": {
+    "message": "این قانون از اینجا قابل تغییر نیست."
+  },
+  "logger_status_rules": {
+    "message": "$1 قانون"
+  },
+  "logger_summary_copied": {
+    "message": "خلاصه کپی شد."
+  },
+  "logger_summary_copy_failed": {
+    "message": "کپی خلاصه ممکن نبود."
+  },
+  "logger_type_filter_label": {
+    "message": "نوع"
+  },
+  "logger_btn_logging_off": {
+    "message": "ثبت گزارش خاموش"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "ثبت گزارش خاموش است. برای روشن کردن کلیک کنید."
+  },
+  "logger_btn_logging_on": {
+    "message": "ثبت گزارش روشن"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "ثبت گزارش روشن است. برای خاموش کردن کلیک کنید."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "تغییر تنظیم ثبت گزارش ممکن نبود."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "افزودن قانون ارجاع"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "افزودن استثنای قانون خام"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "افزودن تغییر مسیر فیلد"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "افزودن استثنا"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "هر قالب یک شیء قانون با id و یک matchPattern نمونه روی example.com اضافه می‌کند. هر مورد می‌تواند یک رشته ساده هم باشد: نام پارامتر، regex نام، فیلتر $removeparam یا، در rawRules، یک regex. اشیای قانون این موارد را می‌پذیرند: id، aliases، matchPattern، replacePattern، preprocessors، requestTypes، exceptions، flags، order، referralMarketing، historyBypassProtection، active، description و targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "بررسی‌کننده"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "مشکلی یافت نشد."
+  },
+  "customRulesEditor_lintError": {
+    "message": "خطا"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "هشدار"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ خطا، $WARNINGS$ هشدار",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "ترتیب اجرا"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ مرحله، به ترتیب اجرا",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "هیچ مورد rawRules، rules یا referralMarketing وجود ندارد"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "موتور آن را از متن بالا محاسبه می‌کند، چه ذخیره شده باشد چه نه. مراحل بر اساس (stage, orderGroup, order, rank, arrayIndex) مرتب می‌شوند: قوانین خام پیش از قوانین فیلد اجرا می‌شوند؛ در هر مرحله، موارد دارای order اول و از کمترین شروع می‌شوند، سپس بقیه بر اساس فهرست و جایگاه."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "بازاریابی ارجاعی"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "ارجاع حذف شد"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "ارجاع مجاز است"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "خام"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "فیلد"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "ارجاع"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(تولیدشده)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "بازنویسی می‌کند"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "جایگزین $COUNT$ تعریف قبلی می‌شود",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "توسط completeProvider اضافه شده: همه پارامترها را حذف می‌کند"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "خاموش شده"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "برای برخی الگوها خاموش است"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "کلید مرتب‌سازی: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "سپس $FILTERS$ فیلتر $removeparam و $EXCEPTIONS$ استثنای @@، پس از همه مراحل بالا",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ استثنای @@…$rawrule= می‌تواند قوانین خام بالا را در جاهایی که منطبق‌اند متوقف کند",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "یک مرحله را بکشید یا از فلش‌های آن استفاده کنید تا در همان مرحله جابه‌جا شود. جابه‌جایی به هر مورد آن مرحله در ترتیب جدید order برابر با 10، 20، 30، … می‌دهد."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "برای تغییر ترتیب به «ارجاع حذف شد» بروید: آن نما همه موارد را نشان می‌دهد."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "برای جابه‌جایی بکشید"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "انتقال $ENTRY$ به قبل",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "انتقال $ENTRY$ به بعد",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ به جایگاه $POSITION$ منتقل شد",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "واگرد انتقال"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "انتقال واگرد شد"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "شبیه‌سازی"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "این ارائه‌دهنده را روی یک URL همان‌طور اجرا می‌کند که پاک‌سازی پیوند کپی‌شده انجام می‌شود، با قوانین خاموش‌شده شما و انتخاب ارجاع در بالا، و URL را پس از هر مرحله نشان می‌دهد. ارائه‌دهندگان دیگر اجرا نمی‌شوند. «تولید URL آزمایشی» یکی را از قوانین خود این ارائه‌دهنده می‌سازد."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "URL آزمایشی"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "اجرا"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "مرحله‌به‌مرحله گذر از شبیه‌سازی"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "شروع"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "قبلی"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "بعدی"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "پایان"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "پخش"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "توقف"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL پیش از هر مرحله"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "گذر $PASS$ · مرحله $STEP$ از $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "بدون تغییر"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "فیلترهای $removeparam"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "گذر $PASS$ چیزی را تغییر نمی‌دهد، بنابراین پاک‌سازی متوقف می‌شود",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "این ارائه‌دهنده در اینجا متوقف می‌شود: به محدودیت چرخه رسیده است، URL به یکی از URLهای قبلی بازگشته یا دیگر با ارائه‌دهنده مطابقت ندارد"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "گذر $PASS$ تغییر مسیر می‌دهد؛ پاک‌سازی در نشانی جدید با همه ارائه‌دهندگان ادامه می‌یابد",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "ارائه‌دهنده این درخواست را مسدود می‌کند (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "نتیجه"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "الگوهای این ارائه‌دهنده با این URL مطابقت ندارند، بنابراین هیچ‌یک از قوانین آن اجرا نمی‌شود."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "این URL با یکی از استثناهای ارائه‌دهنده مطابقت دارد، بنابراین هیچ‌یک از قوانین آن اجرا نمی‌شود."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "یک URL کامل http:// یا https:// وارد کنید."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "شبیه‌سازی اجرا نشد. JSON بالا را بررسی کنید."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "تولید URL آزمایشی"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "از قوانین این ارائه‌دهنده ساخته شد: متن برای $RAW$ قانون خام و $PARAMS$ پارامتر، که هرکدام با قانون خود بررسی شده‌اند. keep=1 با هیچ قانونی مطابقت ندارد و باید باقی بماند. تغییر مسیرها و مسدودسازی‌ها شامل نیستند، چون اجرا را پیش از قوانین دیگر پایان می‌دهند.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "هیچ میزبانی که با الگوهای این ارائه‌دهنده مطابقت داشته باشد ساخته نشد، بنابراین URL از میزبان دیگری استفاده می‌کند و ارائه‌دهنده روی آن اجرا نمی‌شود."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "هر URLی که با الگوهای این ارائه‌دهنده مطابقت دارد زیر پوشش یکی از استثناهای خود آن است، بنابراین قوانینش هرگز اجرا نمی‌شود."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ قانون از URL آزمایشی کنار گذاشته شد",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "متنی که با آن مطابقت داشته باشد ساخته نشد"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "متن آن باعث می‌شود یکی از استثناهای ارائه‌دهنده منطبق شود"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "همه پارامترها را حذف می‌کند، بنابراین به پارامتر خاصی نیاز ندارد"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "این ارائه‌دهنده یک فیلتر $removeparam بدون نام دارد که همه پارامترها از جمله keep=1 را حذف می‌کند."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "بدون order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "بازگرداندن شماره‌های order"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "هر order را به حالتی که هنگام باز کردن این ارائه‌دهنده بود برگردانید"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "شماره‌های order بازگردانده شدند"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "پنهان کردن"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "نمایش"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "پاک کردن هشدارها"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "بازگرداندن هشدارها"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ هشدار پاک شد",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern بدون indexPattern با هر URL بررسی می‌شود؛ راهنمای indexPattern مانند «||example.com^» اضافه کنید",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ مورد «$ENTRY$» را تکرار می‌کند؛ نسخه تکراری هیچ کاری نمی‌کند و هر دو یک id مشترک دارند",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ هنوز جایگزین قالب «$PATTERN$» را دارد؛ آن را با الگوی واقعی عوض کنید",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ دارای matchPattern «(?!)» است که هرگز با چیزی مطابقت ندارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "عیب‌یابی"
+  },
+  "troubleshooter_launch": {
+    "message": "عیب‌یابی این زبانه (آزمایشی)"
+  },
+  "troubleshooter_title": {
+    "message": "عیب‌یاب زبانه"
+  },
+  "troubleshooter_page": {
+    "message": "صفحه"
+  },
+  "troubleshooter_about_summary": {
+    "message": "ضبط چگونه کار می‌کند"
+  },
+  "troubleshooter_about_note": {
+    "message": "باز کردن این نما ممکن است URL صفحه را بررسی کند، اما چیزی ضبط نمی‌کند. ضبط تا زمانی که «شروع ضبط» را انتخاب نکنید خاموش می‌ماند. شروع ضبط، این زبانه را برای ثبت درخواست‌های منابع آن دوباره بارگذاری می‌کند. URLهای ثبت‌شده در حافظه نشست برای همین نشست مرورگر نگه داشته می‌شوند و با بسته شدن این زبانه یا پایان نشست مرورگر پاک می‌شوند. ضبط پس از ۱۵ دقیقه متوقف می‌شود، مگر اینکه زودتر آن را متوقف کنید. URLهای منابع ممکن است حاوی داده‌های خصوصی پرس‌وجو باشند."
+  },
+  "troubleshooter_start": {
+    "message": "شروع ضبط"
+  },
+  "troubleshooter_starting": {
+    "message": "در حال شروع…"
+  },
+  "troubleshooter_recording": {
+    "message": "در حال ضبط…"
+  },
+  "troubleshooter_stop": {
+    "message": "توقف ضبط"
+  },
+  "troubleshooter_refresh": {
+    "message": "تازه‌سازی"
+  },
+  "troubleshooter_copy": {
+    "message": "کپی خلاصه"
+  },
+  "troubleshooter_export": {
+    "message": "صادر کردن"
+  },
+  "troubleshooter_export_title": {
+    "message": "ذخیره ضبط به‌صورت فایل JSON. URLهای منابع ممکن است حاوی داده‌های خصوصی پرس‌وجو باشند."
+  },
+  "troubleshooter_category": {
+    "message": "دسته"
+  },
+  "troubleshooter_category_all": {
+    "message": "همه دسته‌ها"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "قوانین URL"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "تغییر مسیرها"
+  },
+  "troubleshooter_category_protection": {
+    "message": "حفاظت و دور زدن‌ها"
+  },
+  "troubleshooter_resource_type": {
+    "message": "نوع منبع"
+  },
+  "troubleshooter_type_all": {
+    "message": "همه انواع منبع"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "جست‌وجوی قوانین، ارائه‌دهندگان و URLها"
+  },
+  "troubleshooter_timer": {
+    "message": "در حال ضبط $1 · $2 باقی مانده"
+  },
+  "troubleshooter_status_checking": {
+    "message": "در حال بررسی این زبانه…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "هیچ زبانه فعالی در دسترس نیست."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "این صفحه اجازه اسکن قوانین URL را نمی‌دهد. یک صفحه وب معمولی http یا https را باز کنید."
+  },
+  "troubleshooter_status_off": {
+    "message": "ضبط خاموش است. برای بررسی URLهای منابعی که این صفحه بارگذاری می‌کند، ضبط را شروع کنید."
+  },
+  "troubleshooter_status_active": {
+    "message": "تا اینجا $1 تغییر URL ثبت شده است. موارد جدید به‌طور خودکار در اینجا ظاهر می‌شوند."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "ضبط متوقف شد. $1 تغییر URL ثبت شد."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "داده‌های ضبط را نمی‌توان در حافظه نشست ذخیره کرد. اگر افزونه دوباره راه‌اندازی شود، ممکن است $1 تغییر URL از بین برود."
+  },
+  "troubleshooter_status_started": {
+    "message": "ضبط شروع شد و زبانه در حال بارگذاری مجدد است. URLهای ثبت‌شده هنگام بارگذاری صفحه در اینجا ظاهر می‌شوند."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "ضبط متوقف شد. $1 تغییر URL ثبت و برای این نشست مرورگر ذخیره شد."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "ضبط متوقف شد. $1 تغییر URL ثبت شد، اما حافظه نشست نتوانست آن‌ها را ذخیره کند."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "ابتدا یک صفحه وب معمولی http یا https را باز کنید."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "شروع ضبط برای این زبانه ممکن نبود."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "توقف ضبط برای این زبانه ممکن نبود."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "خواندن این زبانه ممکن نبود. بستن و باز کردن دوباره پنجره بازشو را امتحان کنید."
+  },
+  "troubleshooter_status_copied": {
+    "message": "خلاصه کپی شد."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "کپی خلاصه ممکن نبود."
+  },
+  "troubleshooter_status_exported": {
+    "message": "ضبط صادر شد."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "صادر کردن ضبط ممکن نبود."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "باز کردن فرم گزارش ممکن نبود."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "قانون فعال شد؛ برای مقایسه، زبانه را دوباره بارگذاری کنید."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "قانون غیرفعال شد؛ برای مقایسه، زبانه را دوباره بارگذاری کنید."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "به‌روزرسانی این قانون ممکن نبود."
+  },
+  "troubleshooter_empty_web": {
+    "message": "هنوز تغییری در قوانین یافت نشده است. برای بررسی URLهای منابع این صفحه، ضبط را شروع کنید."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "این صفحه مرورگر قابل اسکن نیست."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "هیچ یافته‌ای با این فیلترها مطابقت ندارد."
+  },
+  "troubleshooter_showing_first": {
+    "message": "نمایش $1 قانون اول."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 برخورد"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 ناموفق"
+  },
+  "troubleshooter_rule_id": {
+    "message": "شناسه قانون: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "اقدام حفاظتی داخلی (بدون شناسه قانون)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "شناسه قانون: برای این یافته در دسترس نیست"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "این شناسه قانون در مجموعه قوانین فعلی یافت نشد."
+  },
+  "troubleshooter_source_observed": {
+    "message": "درخواست مشاهده‌شده"
+  },
+  "troubleshooter_source_page": {
+    "message": "بررسی URL صفحه"
+  },
+  "troubleshooter_changes": {
+    "message": "آنچه تغییر کرد: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "URLهای تحت تأثیر ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…و $1 مورد دیگر"
+  },
+  "troubleshooter_after": {
+    "message": "پس از Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "پس از تغییر توسط Linkumori ناموفق بود: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "این قانون فعال است. آن را خاموش کنید و برای مقایسه صفحه را دوباره بارگذاری کنید."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "این قانون غیرفعال است. آن را روشن کنید و برای بازگرداندن رفتارش دوباره بارگذاری کنید."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "این یک اقدام حفاظتی داخلی است، نه یک قانون مجزا."
+  },
+  "troubleshooter_advice_review": {
+    "message": "پیش از تغییر قوانین، URL تحت تأثیر را بررسی کنید."
+  },
+  "troubleshooter_report": {
+    "message": "گزارش این قانون"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "غیرفعال کردن قانون"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "فعال کردن قانون"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "غیرفعال کردن قانون $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "فعال کردن قانون $1"
+  },
+  "troubleshooter_saving": {
+    "message": "در حال ذخیره…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 حذف شد"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 اضافه شد"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 تغییر کرد"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "به $1 هدایت شد"
+  },
+  "troubleshooter_change_path": {
+    "message": "مسیر تغییر کرد"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "قطعه (fragment) تغییر کرد"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL تغییر کرد"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "عمداً مسدود شد"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 درخواست در این صفحه ناموفق بود؛ $2 مورد بلافاصله پس از تغییر URL توسط Linkumori"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "آیا این صفحه خراب است؟"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "قانونی را که صفحه را خراب می‌کند پیدا کنید: قوانینی که در این صفحه اجرا شده‌اند یکی‌یکی خاموش می‌شوند و پس از هر مورد شما می‌گویید که صفحه درست شده است یا نه. مطمئن نیستید Linkumori علت است؟ ابتدا با توقف پاک‌سازی بررسی کنید."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "ابتدا با توقف پاک‌سازی بررسی کنید"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "پاک‌سازی برای $1 در این زبانه متوقف شده است"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "زبانه بدون پاک‌سازی دوباره بارگذاری شد. آیا صفحه اکنون کار می‌کند؟"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "بله، کار می‌کند"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "نه، هنوز خراب است"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "لغو"
+  },
+  "troubleshooter_diag_done": {
+    "message": "انجام شد"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "احتمالاً Linkumori نیست"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "صفحه با توقف پاک‌سازی هم همچنان خراب بود، بنابراین مشکل احتمالاً جای دیگری است: خود سایت، افزونه‌ای دیگر یا شبکه. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori احتمالاً علت است"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "صفحه با توقف پاک‌سازی کار می‌کند. قانون را پیدا کنید: قوانین یکی‌یکی خاموش می‌شوند، زبانه دوباره بارگذاری می‌شود و شما می‌گویید که صفحه درست شده است یا نه. در پایان، همه قوانین دیگر دوباره روشن می‌شوند."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "زبانه با روشن شدن دوباره پاک‌سازی در حال بارگذاری مجدد است تا ثبت شود کدام قوانین در این صفحه اجرا می‌شوند. آن‌ها به‌زودی در اینجا ظاهر می‌شوند. اگر هیچ‌کدام ظاهر نشد، از صفحه استفاده کنید تا خراب شود."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "پیدا کردن قانون ($1 قانون)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "بله، درست شد"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "نه، هنوز خراب است"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "پیدا شد"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "صفحه به دلیل قانون $1$2 خراب می‌شود. این قانون دوباره روشن شده است. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "غیرفعال کردن این قانون"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "گزارش دادن"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "قانون خاموش شد. برای بررسی، زبانه را دوباره بارگذاری کنید. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "هیچ قانون واحدی پیدا نشد"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "خاموش کردن یکی‌یکی قوانین صفحه را درست نکرد، بنابراین احتمالاً علت چند قانون با هم یا یک تنظیم حفاظتی است. همه قوانین دوباره روشن شده‌اند. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "اجرای بررسی ممکن نبود: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "برای استفاده از این بررسی، Linkumori را دوباره بارگذاری کنید"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori به‌روزرسانی شد، اما بخش پس‌زمینه آن هنوز نسخه قدیمی را اجرا می‌کند. افزونه را دوباره بارگذاری کنید (برای افزونه موقت: about:debugging → This Firefox → Reload) یا Firefox را دوباره راه‌اندازی کنید."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "پیدا شد"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "صفحه به دلیل قانون $1$2 خراب می‌شود. این قانون خاموش می‌ماند تا صفحه کار کند؛ همه قوانین دیگر دوباره روشن‌اند. برای بررسی، زبانه را دوباره بارگذاری کنید. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "بارگذاری مجدد زبانه"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "دوباره روشن کردن"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "قانون دوباره روشن شد. برای بررسی، زبانه را دوباره بارگذاری کنید. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "ضبط و پیدا کردن قانون"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "در حال ضبط اینکه کدام قوانین در این صفحه اجرا می‌شوند. از صفحه استفاده کنید تا خراب شود؛ قوانین در اینجا نمایش داده می‌شوند."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "فعلاً توسط جست‌وجوی قانون خاموش شده است. با پایان جست‌وجو دوباره روشن می‌شود."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "جست‌وجوی قانون در حال اجراست. پس از پایان آن قوانین را تغییر دهید."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "رد کردن — دوباره روشن شود"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "خاموش بماند"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "جست‌وجوی قانون رد شد؛ همه قوانین دوباره روشن‌اند. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "قانون $1 خاموش می‌ماند. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "برای این آزمایش خاموش شده‌اند:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…و $1 مورد دیگر"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "توقف جست‌وجو"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "رد شد: آن قانون دوباره روشن و کنار گذاشته شد. در حال آزمایش قانون بعدی."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "در میان قوانین آزمایش‌شده هیچ قانونی پیدا نشد. $1 قانونی که رد کردید آزمایش نشد. همه قوانین دوباره روشن‌اند. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_experimental": {
+    "message": "آزمایشی"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "آزمایشی: این عیب‌یاب کاملاً پایدار نیست. نتایج آن ممکن است نادرست باشد و هنگام آزمایش قوانین را خاموش می‌کند. اگر پس از آن چیزی نادرست به نظر رسید، قوانین خود را در ویرایشگر قوانین سفارشی بررسی کنید یا از «توقف جست‌وجو» برای روشن کردن دوباره آن‌ها استفاده کنید."
+  },
+  "troubleshooter_working": {
+    "message": "در حال انجام…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "ضبط دوباره"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "ضبط قبلی پاک شد. این زبانه دوباره از یک بارگذاری تازه ضبط می‌شود."
+  },
+  "troubleshooter_clear": {
+    "message": "پاک کردن"
+  },
+  "troubleshooter_clear_title": {
+    "message": "ضبط، یافته‌ها و جست‌وجوی قانون تمام‌شده این زبانه را پاک می‌کند. قوانین به همان حال می‌مانند."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "پاک شد. قوانین به همان حال می‌مانند."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "پاک شد. قانون $1 خاموش می‌ماند."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "آزمایش یک قانون در هر بار — قانون $1 از $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "فقط این قانون خاموش است و زبانه دوباره بارگذاری شد. آیا صفحه اکنون درست شده است؟"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "رد کردن این قانون"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "رد کردن — دوباره روشن شود، آزمایش بعدی ($1 باقی مانده)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 قانون دیگر که در این صفحه اجرا شدند آزمایش نشده‌اند. آیا می‌خواهید آزمایش آن‌ها را ادامه دهید؟"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "خاموش بماند، آزمایش بعدی ($1 باقی مانده)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "قانون $1 خاموش می‌ماند. در حال آزمایش قانون بعدی."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "هیچ قانون دیگری به‌تنهایی صفحه را درست نمی‌کند. $1 قانونی که خاموش نگه داشتید خاموش می‌مانند؛ هر قانون دیگر دوباره روشن است. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "آزمایش قانون بعدی ($1 باقی مانده)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "قانون $1 دوباره روشن و کنار گذاشته شد. در حال آزمایش قانون بعدی."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "هیچ قانون دیگری به‌تنهایی صفحه را درست نمی‌کند. $1 قانونی که رد کردید نیز دوباره روشن شده‌اند، بنابراین همه قوانین دوباره روشن‌اند. برای شروع دوباره، روی «پاک کردن» کلیک کنید."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori با قوانینی که به قالب <strong>CLN Format 1.0</strong> (Clean Link Notation) نوشته شده‌اند، URLها را پاک می‌کند؛ قالبی مبتنی بر JSON. این راهنما از اولین قانون تا همه گزینه‌ها را همراه با مثال‌های قابل کپی پوشش می‌دهد."
+  },
+  "guide_intro_p_2": {
+    "message": "قوانین داخلی، فهرست‌های قوانین راه دور و قوانین سفارشی شما همگی از یک قالب استفاده می‌کنند. قوانین سفارشی را در ویرایشگر قوانین سفارشی می‌نویسید که هنگام ذخیره یا وارد کردن آن‌ها را بررسی می‌کند. کاتالوگ رسمی قوانین ClearURLs (<code>data.min.json</code>) از قبل یک فایل CLN معتبر است و می‌توان آن را همان‌طور که هست استفاده کرد."
+  },
+  "guide_rules_file_p_1": {
+    "message": "نام ارائه‌دهنده فقط یک برچسب است. اینکه یک ارائه‌دهنده کدام URLها را مدیریت می‌کند با <code>domainPatterns</code> یا <code>urlPattern</code> تعیین می‌شود."
+  },
+  "guide_rules_file_th_1": {
+    "message": "کلید سطح بالا"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "الزامی. ارائه‌دهندگان، به‌ترتیب نام."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "نسخه قالب، اختیاری. تنها مقدار معتبر <code>\"1.0\"</code> است. فایل بدون آن نیز 1.0 خوانده می‌شود؛ هر مقدار دیگری فایل را رد می‌کند. نام آن <code>version</code> نیست، چون قالب جدید قوانین ClearURLs از قبل از این کلید استفاده می‌کند."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "اطلاعات اختیاری درباره فایل."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "مقادیر برای هر قانون فایل که مقدار خودش را تنظیم نکرده است (فصل ۱۲)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "فقط برای فهرست‌های قوانین راه دور: جایگزین‌هایی برای قوانینی که از قبل بارگذاری شده‌اند (فصل ۱۵)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "ارائه‌دهنده کدام URLها را مدیریت می‌کند، به‌صورت یک الگوی دامنه یا فهرستی از آن‌ها (فصل ۳). از این یا <code>urlPattern</code> استفاده کنید، هرگز هر دو."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "ارائه‌دهنده کدام URLها را مدیریت می‌کند، به‌صورت یک عبارت منظم که با کل URL مطابقت داده می‌شود. حروف بزرگ و کوچک نادیده گرفته می‌شوند."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "فقط همراه با <code>urlPattern</code>: راهنمای میزبان مانند <code>||example.com^</code>، تا ارائه‌دهنده فقط برای آن میزبان‌ها بررسی شود، نه برای هر URL. این یک راهنمای جست‌وجوست، نه شرط تطابق."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "پارامترهای ارجاع و همکاری در فروش که باید حذف شوند. وقتی <em>مجاز کردن بازاریابی ارجاعی</em> روشن است نادیده گرفته می‌شوند (فصل ۱۰)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URLهایی که ارائه‌دهنده کاملاً به حال خود رها می‌کند (فصل ۷)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "به‌جای ویرایش درخواست، آن را به نشانی دیگری بفرستید (فصل ۸)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "درخواست را به مقدار یک پارامتر بفرستید (فصل ۸)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: وقتی بارگذاری یک صفحه (<code>main_frame</code>) هدایت می‌شود، کل زبانه به نشانی جدید می‌رود، نه فقط درخواست شبکه."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "فقط این متدهای HTTP را مدیریت کن، برای مثال <code>[\"GET\"]</code>. در صورت ذکر نشدن: همه متدها."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "فقط این انواع درخواست را مدیریت کن، برای مثال <code>[\"main_frame\", \"xmlhttprequest\"]</code>. در صورت ذکر نشدن: همه انواع درخواست."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "پیش‌فرض <code>true</code>. مقدار <code>false</code> کل ارائه‌دهنده را وقتی صفحه نشانی خود را با History API (<code>pushState</code>/<code>replaceState</code>) تغییر می‌دهد نادیده می‌گیرد. درخواست‌های معمولی شبکه همچنان پاک می‌شوند."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> ارائه‌دهنده را بدون حذف آن خاموش می‌کند."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> فهرستی از الگوهای دامنه است. اگر هر یک از آن‌ها مطابقت داشته باشد، URL منطبق است. همین الگوها پیش از <code>exceptions</code>، <code>redirections</code>، فیلترهای <code>$removeparam</code> و قوانین خام استفاده می‌شوند."
+  },
+  "guide_matching_cell_1": {
+    "message": "کل URL، به‌صورت عبارت منظم"
+  },
+  "guide_matching_cell_2": {
+    "message": "URLهایی که این متن در هر جای آن‌ها باشد (بدون <code>|</code> ابتدایی)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> پایان نام میزبان یا یک جداکننده مانند <code>/</code>، <code>?</code>، <code>:</code> یا پایان URL را نشان می‌دهد. <code>*</code> یک نویسه عام است."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> نماینده یک دامنه است: میزبان و همه زیردامنه‌ها. یک <code>|</code> تنها نماینده ابتدای URL است و باید پس از آن یک طرح مانند <code>https://</code> بیاید. برای دامنه همیشه <code>||</code> می‌خواهید؛ <code>|example.com^</code> هرگز مطابقت نمی‌یابد، بنابراین ویرایشگر آن را رد می‌کند."
+  },
+  "guide_matching_p_4": {
+    "message": "برای مثال، <code>||smile.amazon.*^</code> این‌گونه خوانده می‌شود: <code>||</code> میزبان و زیردامنه‌های آن، <code>smile.amazon</code> برچسب‌های لازم، <code>.*</code> هر پسوند عمومی (<code>.com</code>، <code>.co.jp</code>، <code>.de</code>، …) و <code>^</code> پایان میزبان."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "دقیقاً همان پارامتر"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "هر پارامتری که کل نام آن مطابقت داشته باشد؛ حروف بزرگ و کوچک نادیده گرفته می‌شوند"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> و <code>\"$removeparam=fbclid\"</code> یک چیز را حذف می‌کنند. مگر اینکه چیزی از فصل ۵ لازم داشته باشید، از نام ساده استفاده کنید. هر مورد را می‌توان به‌صورت شیء قانون هم نوشت (فصل ۹)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "در اینجا <code>qid</code> در همه سایت‌های آمازون حذف می‌شود، <code>tag</code> فقط در <code>amazon.de</code>، <code>sr</code> فقط در <code>smile.amazon</code> و <code>ref_</code> فقط زیر <code>/gp/</code>. این الگو الگوهای خود ارائه‌دهنده را محدودتر می‌کند؛ هرگز نمی‌تواند آن‌ها را گسترده‌تر کند."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> فیلتر را به استثنایی تبدیل می‌کند که پارامتر را نگه می‌دارد (پایین را ببینید)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> فیلتر را به بخشی از URLهای ارائه‌دهنده محدود می‌کند (فصل ۳). در صورت ذکر نشدن، روی هر URLی که ارائه‌دهنده با آن مطابقت دارد اعمال می‌شود."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> پارامترها را انتخاب می‌کند. در صورت ذکر نشدن، همه پارامترها حذف می‌شوند."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "اصلاح‌گرها مشخص می‌کنند فیلتر چه زمانی فعال شود. همه اصلاح‌گرهای ذکر شده باید برقرار باشند؛ میان آن‌ها «یا» وجود ندارد."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "هر پارامتر به‌جز <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "پارامترهایی که نام آن‌ها، یا <code>name=value</code> با هم، با عبارت منظم مطابقت دارد؛ برای نادیده گرفتن حروف بزرگ و کوچک <code>i</code> اضافه کنید"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "پارامترهایی که نامشان با <code>utm_</code> شروع می‌شود"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "escape کردن نام پارامتر"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "بک‌اسلش نویسه بعدی را تحت‌اللفظی می‌کند، بنابراین هر نام پارامتری را می‌توان هدف قرار داد:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "مقدار"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "پارامتری را حذف می‌کند با نام"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (کاما اصلاح‌گرها را شروع نمی‌کند)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "این پنج مورد تنها escapeها در مقدار نام هستند؛ بک‌اسلش پیش از هر نویسه دیگر خطاست. درون مقدار <code>/regex/</code> بک‌اسلش معنای عبارت منظم خود را حفظ می‌کند. escapeها در <code>rules</code>، <code>referralMarketing</code>، <code>fieldRedirections</code> و موارد <code>@@</code> کار می‌کنند. در JSON هر بک‌اسلش را دو بار بنویسید: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "اصلاح‌گرها"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "اصلاح‌گرها پس از مقدار می‌آیند و با کاما جدا می‌شوند. چند مقدار یک اصلاح‌گر را با <code>|</code> جدا کنید و برای مستثنا کردن یک مقدار، <code>~</code> را پیش از آن بگذارید:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "اصلاح‌گر"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "فقط وقتی صفحه‌ای که درخواست را ایجاد کرده یکی از این‌هاست (یا، با <code>~</code>، نیست)؛ مقادیر regex مجازند"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "فقط وقتی خود درخواست به یکی از این‌ها می‌رود، هر صفحه‌ای که آن را ایجاد کرده باشد"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "فقط برای این متدهای HTTP: <code>get</code>، <code>head</code>، <code>options</code>، <code>post</code>، <code>put</code>، <code>patch</code>، <code>delete</code>، <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "فقط وقتی درخواست به همان دامنه ثبت‌پذیر صفحه می‌رود (<code>a.example.com</code> و <code>b.example.com</code> یکسان محسوب می‌شوند) یا به دامنه‌ای متفاوت"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "همان، اما با مقایسه نام دقیق میزبان، بنابراین یک زیردامنه شخص ثالث محسوب می‌شود"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "نام پارامترها با حساسیت به حروف بزرگ و کوچک مقایسه می‌شوند"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "وقتی صفحه نشانی خود را با History API تغییر می‌دهد این فیلتر را نادیده بگیر. همچنین <code>true</code>/<code>false</code>، <code>1</code>/<code>0</code>، <code>yes</code>/<code>no</code> را می‌پذیرد"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "چهار اصلاح‌گر <code>*-party</code> را نمی‌توان با یکدیگر ترکیب کرد؛ <code>first-party,third-party</code> رد می‌شود."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "برای مثال، <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> پارامتر <code>sid</code> را در <code>example.com</code> حذف می‌کند، فقط برای درخواست‌های GET که صفحه‌ای در سایت دیگر ایجاد کرده و هرگز وقتی آن صفحه <code>partner.com</code> باشد."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "مورد <code>@@</code> فقط در برابر فیلترهای <code>$removeparam</code> محافظت می‌کند. یک مورد ساده مانند <code>\"ref\"</code> همچنان پارامتر را حذف می‌کند؛ برای آن از <code>exceptions</code> شیء قانون استفاده کنید. قوانین خام ورودی‌های <code>@@…$rawrule=</code> مخصوص خود را دارند (فصل ۶)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "جایی که آن را فهرست می‌کنید اهمیتی ندارد و نمی‌تواند <code>order</code> داشته باشد."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "الگوی آن با URL به همان شکلی که ارائه‌دهنده دریافت کرده، پیش از اجرای قوانین خام، بررسی می‌شود. موردی از <code>@@</code> که به مسیری محدود است که قانون خام آن را حذف می‌کند همچنان مطابقت می‌یابد."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "همچنین فیلترهای ارائه‌دهندگان دیگر را برای درخواست‌هایی که صفحه‌ای مطابق با این ارائه‌دهنده ایجاد کرده پوشش می‌دهد؛ برای جدا کردن یک سایت از قانونی که جای دیگری تعریف شده کاربردی است."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "قوانین خام پیش از <code>rules</code> اجرا می‌شوند، حروف بزرگ و کوچک را نادیده می‌گیرند و هر تطابق را جایگزین می‌کنند (پرچم‌های <code>gi</code>، یا <code>g</code> با <code>match-case</code>). در JSON هر بک‌اسلش را دو بار بنویسید."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "یک قانون خام می‌تواند الگو و اصلاح‌گرهای یک فیلتر <code>$removeparam</code> را بپذیرد، با <code>rawrule=</code> در آخر. هر چیزی پس از <code>rawrule=</code> عبارت منظم است:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "الگو و اصلاح‌گرها تعیین می‌کنند قانون کجا اجرا شود؛ عبارت منظم همچنان چیزی است که حذف می‌شود."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "موردی که با <code>@@</code> شروع و به <code>rawrule=</code> ختم می‌شود، اجرای قوانین خام را در جاهایی که الگوی آن مطابقت دارد متوقف می‌کند:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "اگر پس از <code>rawrule=</code> چیزی نباشد، همه قوانین خام ارائه‌دهنده را روی آن URLها متوقف می‌کند."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "اگر پس از <code>rawrule=</code> یک عبارت منظم باشد، قوانین خامی را که همان عبارت منظم را دارند متوقف می‌کند."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "به‌صورت شیء قانون با <code>targetId</code>، فقط قانون خامی را که آن id یا نام مستعار را دارد متوقف می‌کند."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "برای نادیده گرفتن کل ارائه‌دهنده، به‌جای آن از <code>exceptions</code> استفاده کنید."
+  },
+  "guide_exceptions_p_1": {
+    "message": "اگر URL با یکی از موارد <code>exceptions</code> مطابقت داشته باشد، هیچ‌یک از قوانین ارائه‌دهنده برای آن درخواست اجرا نمی‌شود. هر مورد یک عبارت منظم برای کل URL است یا یک الگوی دامنه که با <code>|</code> شروع می‌شود:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "استثناها حروف بزرگ و کوچک را نادیده می‌گیرند. برای نادیده گرفتن یک قانون به‌جای کل ارائه‌دهنده، به همان قانون <code>exceptions</code> مخصوص خودش را بدهید (فصل ۹)."
+  },
+  "guide_redirects_p_1": {
+    "message": "هر پارامتر منطبقی که در URL زودتر بیاید برنده است. برای <code>https://site.example/away?redirect=https://real.example/page</code>، درخواست به <code>https://real.example/page</code> می‌رود."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "مقصدهای معتبر تغییر مسیر"
+  },
+  "guide_redirects_p_2": {
+    "message": "تغییر مسیر فقط به یک نشانی مطلق <code>http</code> یا <code>https</code> دارای میزبان انجام می‌شود. این مورد پس از پیش‌پردازنده‌ها و رمزگشایی درصدی بررسی می‌شود. مقصد نامعتبر باعث می‌شود آن مورد منطبق شمرده نشود: چیزی هدایت نمی‌شود و مراحل بعدی ارائه‌دهنده روی URL بدون تغییر اجرا می‌شوند."
+  },
+  "guide_redirects_th_1": {
+    "message": "مقصد"
+  },
+  "guide_redirects_th_2": {
+    "message": "هدایت می‌شود؟"
+  },
+  "guide_redirects_cell_1": {
+    "message": "بله"
+  },
+  "guide_redirects_cell_2": {
+    "message": "بله، به <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "خیر: طرح <code>http</code> یا <code>https</code> نیست"
+  },
+  "guide_redirects_cell_4": {
+    "message": "خیر: نشانی مطلق نیست"
+  },
+  "guide_redirects_p_3": {
+    "message": "قانون خامی که نتیجه آن طرح، میزبان یا پورت متفاوتی از ورودی‌اش دارد، حتی اگر فقط متن را حذف کند، تغییر مسیر هم شمرده می‌شود: حذف <code>secure-</code> از <code>https://secure-bank.example/</code> به سایت دیگری می‌رسد. این کار به مقصد معتبر و، در فهرست قوانین راه دور، به تأیید <code>redirect</code> (فصل ۱۵) نیاز دارد. در غیر این صورت قانون URL را همان‌طور که بود رها می‌کند."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "هر مورد، در هر فهرستی، می‌تواند به‌جای رشته یک شیء باشد. وقتی قانونی به id پایدار نیاز دارد، باید خاموش شروع شود، باید به‌جای حذف بازنویسی کند یا فقط در برخی موارد اجرا شود، از آن استفاده کنید:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "الزامی. متنی که به‌عنوان یک مورد ساده در آن فهرست می‌نوشتید."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "یک نام پایدار (حروف، ارقام، <code>-</code>، <code>_</code>) که برای روشن و خاموش کردن قانون استفاده می‌شود (فصل ۱۴)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "شناسه‌های قبلی قانون، تا تنظیم ذخیره‌شده با id قدیمی پس از تغییر نام همچنان اعمال شود."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "به‌جای حذف، بازنویسی کن؛ <code>§1§</code>، <code>§2§</code>، … مقادیر ثبت‌شده هستند."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "ابتدا مقادیر ثبت‌شده را تبدیل کن."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "فقط برای این انواع درخواست، برای مثال <code>[\"main_frame\"]</code>. پاک‌سازی بدون درخواست (<em>کپی پیوند پاک</em>، ابزار پاک‌سازی، تغییرات History API) به‌عنوان <code>main_frame</code> شمرده می‌شود."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URLهایی (عبارت‌های منظم) که این یک قانون در آن‌ها اجرا نمی‌شود."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "پرچم‌های عبارت منظم، به‌صورت رشته. پیش‌فرض <code>i</code>؛ در <code>rawRules</code>، <code>gi</code> (یا <code>g</code> با <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "قانون را در مرحله خود زودتر یا دیرتر اجرا کن (فصل ۱۳)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: قانونی در <code>rules</code> به‌عنوان قانون بازاریابی ارجاعی هم شمرده می‌شود (فصل ۱۰)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "کلید هم‌نام ارائه‌دهنده، برای همین یک قانون. بر مقدار ارائه‌دهنده و پیش‌فرض فایل اولویت دارد."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: قانون خاموش شروع می‌شود."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "یادداشتی برای افرادی که فایل را می‌خوانند؛ باید رشته باشد."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "فقط در موارد <code>@@…$rawrule=</code>: id قانون خامی که متوقف می‌کند."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "در اینجا <code>?token=abc123</code> به <code>?token=clean-abc123</code> تبدیل می‌شود. بازنویسی حداکثر یک‌بار برای هر درخواست اعمال می‌شود، بنابراین مقدار را مدام بسته‌بندی نمی‌کند."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "پیش‌پردازنده‌ها مقادیر ثبت‌شده را به‌ترتیب تغییر می‌دهند، پیش از اینکه <code>replacePattern</code> یا یک تغییر مسیر از آن‌ها استفاده کند. <code>inputs</code> مقدار <code>\"all\"</code> یا فهرستی از شماره گروه‌هاست:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> همان مواردی را می‌پذیرد که <code>rules</code> می‌پذیرد. آن‌ها فقط وقتی اجرا می‌شوند که <em>مجاز کردن بازاریابی ارجاعی</em> خاموش باشد، بنابراین اگر آن را روشن کنید پیوندهای همکاری در فروش کار می‌کنند:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "یک قانون می‌تواند در <code>rules</code> بماند و با <code>\"referralMarketing\": true</code> همچنان بازاریابی ارجاعی شمرده شود. یک متن را هم در <code>rules</code> و هم در <code>referralMarketing</code> قرار ندهید؛ ویرایشگر درباره آن هشدار می‌دهد."
+  },
+  "guide_request_types_cell_1": {
+    "message": "انواع درخواستی که یک شیء قانون مدیریت می‌کند (در <code>defaults</code> هم قابل تنظیم است)"
+  },
+  "guide_request_types_p_1": {
+    "message": "انواع درخواست از نام‌های مرورگر استفاده می‌کنند: <code>main_frame</code> (یک صفحه)، <code>sub_frame</code> (یک فریم)، <code>xmlhttprequest</code>، <code>script</code>، <code>image</code> و غیره. اصلاح‌گرهای فیلتر دو مورد اول را <code>document</code> و <code>subdocument</code> می‌نامند."
+  },
+  "guide_request_types_p_2": {
+    "message": "انواع درخواست فقط از قوانین می‌آیند: در تنظیمات فهرست انواع درخواست وجود ندارد. اگر هیچ‌یک از این‌ها تنظیم نشده باشد، قانون همه انواع درخواست را پاک می‌کند."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. پیش‌فرض‌ها"
+  },
+  "guide_defaults_p_1": {
+    "message": "بلوک سطح بالای <code>defaults</code> به هر قانون فایل مقادیری می‌دهد که خودش تنظیم نکرده است:"
+  },
+  "guide_defaults_th_1": {
+    "message": "پیش‌فرض برای هر قانون…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>؛ <code>false</code> همه قوانین را خاموش می‌کند، مگر اینکه قانونی <code>\"active\": true</code> بگوید"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>؛ <code>\"all\"</code> یا ذکر نکردن آن یعنی همه انواع"
+  },
+  "guide_defaults_item_1": {
+    "message": "مقدار خود قانون همیشه اولویت دارد و <code>exceptions</code> قانون به‌جای افزوده شدن به فهرست پیش‌فرض، جایگزین آن می‌شود."
+  },
+  "guide_defaults_item_2": {
+    "message": "پیش‌فرض‌ها روی <code>rules</code>، <code>rawRules</code>، <code>referralMarketing</code>، <code>redirections</code> و <code>fieldRedirections</code> اعمال می‌شوند. فهرست <code>exceptions</code> خود ارائه‌دهنده دست‌نخورده می‌ماند. موارد <code>$redirect=</code> فقط از <code>active</code> استفاده می‌کنند."
+  },
+  "guide_defaults_item_3": {
+    "message": "هر فایل پیش‌فرض‌های خود را حفظ می‌کند: قوانین داخلی، هر فهرست راه دور و قوانین سفارشی شما، حتی وقتی حالت اضافه‌بار آن‌ها را ادغام می‌کند."
+  },
+  "guide_defaults_item_4": {
+    "message": "برای <code>completeProvider</code>، <code>requestTypes</code> و <code>exceptions</code> پیش‌فرض نیز مسدودسازی را محدود می‌کنند."
+  },
+  "guide_defaults_item_5": {
+    "message": "کلیدهای ناشناخته و نوع‌های نادرست خطا هستند و فهرست راه دور با بلوک <code>defaults</code> نامعتبر رد می‌شود."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "پیش‌فرض‌های خودتان"
+  },
+  "guide_defaults_p_2": {
+    "message": "در ویرایشگر قوانین سفارشی، <em>مدیریت پیش‌فرض‌های قانون</em> فرمی را باز می‌کند که در آن بلوک <code>defaults</code> خودتان را تنظیم می‌کنید و انتخاب می‌کنید کجا جایگزین پیش‌فرض‌های خود فایل‌ها شود:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>پیش‌فرض‌های خود هر منبع</em> (پیش‌فرض): هر فایل از <code>defaults</code> خودش استفاده می‌کند."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>پیش‌فرض‌های شما برای قوانین داخلی و راه دور</em>: قوانین داخلی و راه دور از پیش‌فرض‌های شما استفاده می‌کنند؛ قوانین سفارشی پیش‌فرض‌های خود را حفظ می‌کنند."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>پیش‌فرض‌های شما برای همه قوانین</em>: هر قانون از پیش‌فرض‌های شما استفاده می‌کند."
+  },
+  "guide_defaults_p_3": {
+    "message": "همین فرم می‌تواند پیش‌فرض‌های قوانین داخلی و هر فهرست راه دور بارگذاری‌شده را ویرایش کند. ویرایش شما در افزونه ذخیره می‌شود، نه در فایل، و <em>بازنشانی به پیش‌فرض‌های فایل</em> آن را کنار می‌گذارد. <em>ادغام از منابع…</em> پیش‌فرض‌های منابعی را که علامت می‌زنید ترکیب می‌کند؛ تا زمانی که ذخیره نکنید چیزی ذخیره نمی‌شود."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL چگونه پردازش می‌شود"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>، سپس <code>fieldRedirections</code>: تطابقی با مقصد معتبر، درخواست را هدایت می‌کند."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> و <code>referralMarketing</code> پارامترها را حذف یا بازنویسی می‌کنند."
+  },
+  "guide_processing_order_item_3": {
+    "message": "فیلترهای <code>$removeparam</code> اجرا می‌شوند، مگر جایی که یک مورد <code>@@</code> پارامتر را نگه دارد."
+  },
+  "guide_processing_order_p_1": {
+    "message": "نخستین ارائه‌دهنده‌ای که URL را تغییر دهد، هدایت کند یا مسدود کند برنده است. سپس URL جدید دوباره از همین مراحل می‌گذرد (<a href=\"#termination\">زمان توقف پردازش</a> را ببینید)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "ترتیب اجرا و <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "مراحل ۴ و ۵ با هم و به‌ترتیب با این قواعد مرتب می‌شوند:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>قوانین خام همیشه اول اجرا می‌شوند.</strong> هیچ <code>order</code>ی یک مورد <code>rules</code> را جلوتر از قانون خام نمی‌برد. پاک‌سازی‌ای که باید پیش از یک قانون خام انجام شود باید خودش قانون خام باشد."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>در یک مرحله، قوانین دارای <code>order</code> پیش از قوانین بدون آن اجرا می‌شوند</strong>، از کمترین شروع می‌شود. اعداد منفی و کسری مجازند. <code>order: 10</code> به معنای «دهم» نیست: یعنی پس از قوانین دارای order کمتر از ۱۰ در آن مرحله و پیش از همه قوانین بدون order آن."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>سپس بر اساس فهرست:</strong> <code>rules</code>، سپس اشیای <code>rules</code> که با <code>\"referralMarketing\": true</code> علامت خورده‌اند، سپس <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>سپس بر اساس جایگاه</strong> در فهرست. هر مورد جای خود را حفظ می‌کند، از جمله مواردی که مانند <code>\"3\"</code> یا <code>\"20\"</code> نوشته شده‌اند."
+  },
+  "guide_processing_order_p_3": {
+    "message": "در اینجا توکن پیش از حذف <code>utm_source</code> بازنویسی می‌شود، هرچند دوم آمده است:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "قوانین خاموش کنار گذاشته می‌شوند. فیلترهای <code>$removeparam</code> و موارد <code>@@</code> خارج از این مرتب‌سازی هستند و نمی‌توانند <code>order</code> داشته باشند، حتی <code>null</code>؛ فیلترها همیشه آخر اجرا می‌شوند."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "یک متن، دو بار"
+  },
+  "guide_processing_order_p_5": {
+    "message": "دو مورد با متن <code>matchPattern</code> یکسان در یک گروه، یک قانون هستند. گروه‌ها عبارت‌اند از خام (<code>rawRules</code>)، فیلد (<code>rules</code> بدون علامت ارجاع) و ارجاع (اشیای <code>rules</code> علامت‌دار، سپس <code>referralMarketing</code>). این بیشتر هنگام ادغام فهرست‌های قوانین رخ می‌دهد."
+  },
+  "guide_processing_order_item_8": {
+    "message": "آخرین تعریفی که خاموش نیست، با همه کلیدهایش برنده است."
+  },
+  "guide_processing_order_item_9": {
+    "message": "بدون <code>order</code> خودش، برنده جایگاه تعریف اول و نزدیک‌ترین <code>order</code> قبلی را می‌گیرد. <code>\"order\": null</code> یعنی بدون order و order به ارث رسیده را کنار می‌گذارد."
+  },
+  "guide_processing_order_item_10": {
+    "message": "شناسه‌ها و نام‌های مستعار تعریف‌های جایگزین‌شده نیز برنده را روشن و خاموش می‌کنند."
+  },
+  "guide_processing_order_item_11": {
+    "message": "هنگام اجرای قوانین بازاریابی ارجاعی، یک مورد ارجاع جایگزین مورد فیلد با همان متن می‌شود."
+  },
+  "guide_processing_order_item_12": {
+    "message": "یک قانون خام و یک قانون فیلد با متن یکسان با هم تداخل ندارند؛ هر دو اجرا می‌شوند."
+  },
+  "guide_processing_order_p_6": {
+    "message": "در یک فهرست، دو مورد متفاوت با متن یکسان خطا هستند و نسخه کاملاً مشابه هشدار است."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "زمان توقف پردازش"
+  },
+  "guide_processing_order_item_13": {
+    "message": "حداکثر ۱۰ چرخه برای هر درخواست اجرا می‌شود؛ در سقف، URL همان‌طور که هست استفاده می‌شود."
+  },
+  "guide_processing_order_item_14": {
+    "message": "قانونی با <code>replacePattern</code> حداکثر یک‌بار برای هر درخواست اعمال می‌شود."
+  },
+  "guide_processing_order_item_15": {
+    "message": "مرحله‌ای که URL را تغییر نمی‌دهد چرخه جدیدی آغاز نمی‌کند."
+  },
+  "guide_processing_order_p_7": {
+    "message": "تنظیمات ← <em>چرخه‌های پاک‌سازی نامحدود</em> (به‌طور پیش‌فرض خاموش) سقف ۱۰ چرخه را برای زنجیره‌های قانونی که به بیشتر نیاز دارند برمی‌دارد. پردازش وقتی پایان می‌یابد که چرخه‌ای چیزی را تغییر ندهد، اما دو قانونی که به یکدیگر هدایت می‌کنند تا زمانی که مرورگر تسلیم شود تکرار می‌شوند و صفحه بارگذاری نمی‌شود. فقط برای قوانینی که به آن‌ها اعتماد دارید روشن کنید."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. شناسه‌های قانون و کلیدهای روشن/خاموش"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "هر قانون یک id دارد. قانون بدون <code>id</code> آن را از فهرست و متن خود می‌گیرد: <code>\"utm_source\"</code> در <code>rules</code> به <code>field-utm-source</code> تبدیل می‌شود. id تولیدشده با تغییر متن قانون عوض می‌شود و قانون خاموش‌شده دوباره روشن می‌شود. وقتی قانون باید تنظیم روشن/خاموش خود را در ویرایش‌ها حفظ کند، <code>id</code> مخصوص خودش را به آن بدهید و هنگام تغییر نام، id‌های قدیمی را در <code>aliases</code> فهرست کنید."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "قانون با ترکیب ارائه‌دهنده و id آن روشن و خاموش می‌شود، مانند <code>shop::session-token</code>، بنابراین دو ارائه‌دهنده می‌توانند id یکسان داشته باشند. ویرایشگر قوانین سفارشی ممکن است آن را با الگوی ارائه‌دهنده هم ذخیره کند، مانند <code>domainPattern:||shop.example^::session-token</code>؛ هر دو شکل کار می‌کنند."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "در یک ارائه‌دهنده، هر id و نام مستعار باید متفاوت باشد. idهای تولیدشده هم حساب می‌شوند."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "id نمی‌تواند دونقطه داشته باشد."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "تنظیمی که با id تنها، بدون ارائه‌دهنده، ذخیره شده باشد چیزی را خاموش نمی‌کند؛ قانون را دوباره در ویرایشگر قوانین سفارشی خاموش کنید."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. فهرست‌های قوانین راه دور"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "فهرست‌های قوانین راه دور فایل‌های قانونی هستند که Linkumori دانلود می‌کند و به‌صورت اختیاری با یک فایل هش بررسی می‌شوند. فهرستی با مقدار <code>cln</code>، بلوک <code>defaults</code> یا آرایه <code>patches</code> نامعتبر بارگذاری نمی‌شود و سلامت قوانین راه دور آن را گزارش می‌دهد."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "تغییر مسیر و مسدودسازی به تأیید شما نیاز دارند"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "اینکه یک فهرست راه دور چه کاری می‌تواند انجام دهد هنگام بارگذاری از محتوای آن تعیین می‌شود:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "قابلیت"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "فهرست آن را دارد وقتی شامل این باشد"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "هنگام بارگذاری فعال است"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "یک مورد <code>rules</code>، <code>rawRules</code> یا <code>referralMarketing</code>، یا یک فیلتر <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "یک مورد با <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "یک مورد <code>exceptions</code> ارائه‌دهنده یا یک مورد <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "یک مورد <code>redirections</code> یا <code>fieldRedirections</code>، یا <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "پس از تأیید"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "ارائه‌دهنده‌ای با <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "<code>redirect</code> و <code>block</code> را برای هر فهرست در سلامت قوانین راه دور تأیید کنید. تا آن زمان، تغییر مسیرها و مسدودسازی‌های آن فهرست خاموش می‌مانند و قوانین خام آن نمی‌توانند URL را به سایت دیگری بفرستند؛ بقیه فهرست بلافاصله کار می‌کند. وقتی به‌روزرسانی قابلیت جدیدی اضافه کند، آن هم منتظر تأیید می‌ماند. قوانین داخلی و سفارشی همه قابلیت‌ها را دارند."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "حالت اضافه‌بار"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "به‌طور معمول، فهرست‌های راه دور دارای ارائه‌دهنده جایگزین قوانین داخلی می‌شوند؛ فهرست‌هایی که فقط <code>patches</code> دارند روی قوانین داخلی اعمال می‌شوند. با روشن بودن <em>فعال کردن حالت اضافه‌بار</em>، آن‌ها با یکی از سه راهبرد با هم بارگذاری می‌شوند:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>فقط حالت وصله</em>: وصله‌های فهرست‌های راه دور را روی قوانین داخلی اعمال کن؛ ارائه‌دهندگان راه دور کنار گذاشته می‌شوند."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>حالت وصله + ادغام</em>: ارائه‌دهندگان داخلی و راه دور را ادغام کن، سپس وصله‌ها را اعمال کن."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>بدون حالت وصله + ادغام</em>: ارائه‌دهندگان را ادغام کن و وصله‌ها را نادیده بگیر."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "هنگام ادغام، فهرست‌های راه دور به همان ترتیبی که فهرست کرده‌اید با یکدیگر ادغام می‌شوند، سپس با قوانین داخلی (ابتدا داخلی). فقط ارائه‌دهندگانی با <code>domainPatterns</code> (یا <code>urlPattern</code>) یکسان و <code>methods</code>، <code>resourceTypes</code>، <code>completeProvider</code> و <code>forceRedirection</code> یکسان ادغام می‌شوند؛ <code>rules</code>، <code>rawRules</code> و <code>referralMarketing</code> آن‌ها به هم می‌پیوندند و <a href=\"#same-text-twice\">یک متن، دو بار</a> تعیین می‌کند کدام نسخه اجرا شود. سلامت قوانین راه دور هر قانون جایگزین‌شده را به‌عنوان اطلاعیه فهرست می‌کند."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "قوانین سفارشی آخر اعمال می‌شوند. ارائه‌دهنده سفارشی جایگزین هر ارائه‌دهنده بارگذاری‌شده با الگوی یکسان می‌شود؛ قوانین آن‌ها ترکیب نمی‌شوند."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "وصله‌های قانون"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "یک فهرست راه دور می‌تواند بدون انتشار نسخه کامل، قوانین منفرد از قبل بارگذاری‌شده را در آرایه سطح بالای <code>patches</code> جایگزین کند:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "الزامی. قانونی که باید جایگزین شود، نوشته‌شده مانند کلید روشن/خاموش آن: <code>providerKey::id</code>، <code>domainPattern:&lt;pattern&gt;::id</code> یا <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "الزامی. <code>rules</code>، <code>referralMarketing</code>، <code>rawRules</code>، <code>exceptions</code>، <code>redirections</code> یا <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "الزامی. قانون جدید، به‌صورت یک مورد ساده یا یک شیء قانون."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "یادداشتی برای افرادی که فایل را می‌خوانند."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "وصله‌ها پس از ادغام فهرست‌های راه دور و پیش از قوانین سفارشی اجرا می‌شوند. فایلی که فقط <code>patches</code> دارد به <code>providers</code> نیازی ندارد."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "ادغام می‌تواند نام ارائه‌دهندگان را تغییر دهد، بنابراین شکل <code>domainPattern:</code> یا <code>urlPattern:</code> همان است که همیشه آن‌ها را پیدا می‌کند."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "جایگزین id قانون قدیمی را نگه می‌دارد یا id قدیمی را به‌عنوان نام مستعار می‌گیرد، بنابراین تنظیمات روشن/خاموش همچنان اعمال می‌شوند."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "وصله برای تغییر مسیر منتظر تأیید <code>redirect</code> فهرست می‌ماند. وصله‌ای که هدفش با چیزی مطابقت ندارد چیزی را تغییر نمی‌دهد."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "سلامت قوانین راه دور هر وصله را به‌صورت اعمال‌شده، بدون تطابق یا ردشده فهرست می‌کند."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. قوانین و لیست سفید"
+  },
+  "guide_whitelist_p_1": {
+    "message": "لیست سفید از <code>exceptions</code> ارائه‌دهنده جداست: سایت‌هایی را فهرست می‌کند که به Linkumori گفته‌اید به حال خود رها کند، بدون هیچ فایل قانونی. موارد شبیه <code>example.com</code>، <code>*.example.com</code> (سایت و زیردامنه‌های آن) یا <code>example.*</code> (هر پسوند) هستند. در لیست سفید قرار دادن یک صفحه همه آنچه را بارگذاری می‌کند نیز پوشش می‌دهد."
+  },
+  "guide_examples_title_1": {
+    "message": "17. مثال‌های کامل"
+  },
+  "guide_checking_title_1": {
+    "message": "18. بررسی قوانین شما"
+  },
+  "guide_checking_p_1": {
+    "message": "ویرایشگر قوانین سفارشی هنگام ذخیره یا وارد کردن قوانین آن‌ها را بررسی می‌کند و <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> همان بررسی‌ها را اجرا می‌کند. افزون بر JSON خراب و عبارت‌های منظم نامعتبر، قوانینی را رد می‌کنند که بارگذاری می‌شوند اما بی‌صدا کار اشتباه انجام می‌دهند، مانند:"
+  },
+  "guide_checking_item_1": {
+    "message": "فیلدها، کلیدها و اصلاح‌گرهای ناشناخته"
+  },
+  "guide_check_7": {
+    "message": "مقدار <code>cln</code> غیر از <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "id یا نام مستعاری که در یک ارائه‌دهنده دو بار استفاده شده"
+  },
+  "guide_checking_item_2": {
+    "message": "دو مورد متفاوت با متن یکسان در یک فهرست"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>order</code> روی فیلتر <code>$removeparam</code> یا مورد <code>@@</code>، از جمله <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "نشانی <code>$redirect=</code> که <code>http</code> یا <code>https</code> نیست"
+  },
+  "guide_check_10": {
+    "message": "بک‌اسلش در نام <code>$removeparam</code> پیش از نویسه‌ای که escape ندارد"
+  },
+  "guide_checking_p_2": {
+    "message": "همچنین درباره نسخه‌های کاملاً مشابه و درباره یک متن در هر دو <code>rules</code> و <code>referralMarketing</code> هشدار می‌دهند. اگر ذخیره ناموفق باشد، پیام ارائه‌دهنده، فهرست و مورد را نام می‌برد."
+  },
+  "guide_toc_search": {
+    "message": "فیلتر بخش‌ها"
+  },
+  "guide_toc_no_results": {
+    "message": "هیچ بخش منطبقی وجود ندارد."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: تغییرمسیرِ آغازشده با \"|\" باید به این شکل باشد: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: مقصد $redirect= باید یک نشانی اینترنتی مطلق از نوع http یا https باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ باید یک شیء باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type باید یک رشتهٔ غیرخالی باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type باید یکی از این موارد باشد: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs باید \"all\" یا آرایه‌ای از اعداد صحیح مثبت باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ باید یک رشته یا شیء قانون باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern باید یک رشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern باید یک رشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId باید شناسهٔ قانون باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId فقط برای استثناهای \"@@…$rawrule=\" در rawRules کاربرد دارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags باید یک رشته باشد (پرچم‌های regex مانند \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing باید true یا false باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing در $FIELD$ اثری ندارد و فقط در $LISTS$ کاربرد دارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order باید عدد یا null باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order در $FIELD$ اثری ندارد و فقط در $LISTS$ کاربرد دارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order روی فیلتر $removeparam یا ورودی \"@@\" اثری ندارد؛ این موارد همیشه پس از قوانین دیگر اجرا می‌شوند",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active باید یک مقدار بولی باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id باید یک رشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id باید با $PATTERN$ مطابقت داشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases باید فهرستی از شناسه‌های منطبق با $PATTERN$ باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases نباید شناسهٔ خود قانون را داشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description باید یک رشته باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection باید یک مقدار بولی باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions باید آرایه‌ای از رشته‌ها باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes باید آرایه‌ای از رشته‌ها باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors باید آرایه باشد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: فیلد ناشناختهٔ \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ با \"@@\" شروع می‌شود که فقط برای فیلترهای $removeparam در rules و referralMarketing کاربرد دارد؛ به‌جای آن از \"exceptions\" در شیء قانون استفاده کنید",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ گزینهٔ ناشناختهٔ $removeparam به نام \"$OPTION$\" را دارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" با یک \"|\" تنها شروع می‌شود، بنابراین فقط با نشانی‌هایی مطابقت دارد که دقیقاً با \"$REST$\" آغاز می‌شوند؛ چنین نشانی‌ای وجود ندارد (نشانی‌ها با \"https://\" شروع می‌شوند). برای تطبیق دامنه از \"||$REST$\" استفاده کنید.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ دارای \"targetId\" است که فقط برای استثنا کار می‌کند؛ matchPattern را با \"@@\" شروع کنید (برای نمونه \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ هم \"targetId\" و هم یک regex پس از \"rawrule=\" دارد؛ فقط یکی از آن‌ها را به کار ببرید",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ دارای targetId برابر \"$ID$\" است، اما هیچ قانون raw در این ارائه‌دهنده این شناسه یا نام مستعار آن را ندارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ یک استثنای \"@@\" برای \"$REGEX$\" است، اما هیچ قانون raw در این ارائه‌دهنده از این regex استفاده نمی‌کند. برای قانون شناسه تعیین کنید و با \"targetId\" به آن ارجاع دهید",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ یک استثنای \"@@\" است، بنابراین \"$KEY$\" اثری نخواهد داشت",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "پس از \"rawrule=\" در $WHERE$ چیزی نیامده است؛ regex موردنیاز برای حذف را وارد کنید",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ پس از \"rawrule=\" یک regex نامعتبر دارد: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ دارای $GROUPS$ گروه ضبط است؛ باید دقیقاً یک \"( … )\" دور نشانی مقصد باشد (گروه‌های دیگر را به شکل \"(?: … )\" بنویسید)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ شناسهٔ قانون \"$ID$\" را در $WHERE$ دوباره استفاده کرده است؛ نخستین استفاده در $FIRST$ بود",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ باید یک شیء JSON باشد",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ باید آرایه باشد",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ کلید ناشناختهٔ \"$KEY$\" را دارد",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "خطا در پردازش نشانی اینترنتی: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "خطا در راه‌اندازی صفحه: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "زبانهٔ نامعتبر"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "جست‌وجوی قانون برای این زبانه از قبل در حال اجراست"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "هیچ بررسی مکثی برای این زبانه در حال اجرا نیست"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "قوانین هنوز در حال بارگیری هستند. کمی بعد دوباره امتحان کنید."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "هیچ‌کدام از قوانینی که در این صفحه اجرا شدند قابل خاموش‌کردن نیستند."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "خاموش‌کردن قوانین ممکن نشد"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "هیچ جست‌وجوی قانونی برای این زبانه در حال اجرا نیست"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "قانونی برای ردکردن در این زبانه پیدا نشده است"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "بارگیری در دسترس نیست"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "ذخیرهٔ ضبط در فضای ذخیره‌سازی نشست ممکن نشد"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "قانون ناشناخته"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "خطای ناشناخته"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "خروجی‌گرفتن ناموفق بود"
   }
 }

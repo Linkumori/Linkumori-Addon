@@ -39,7 +39,7 @@
     "message": "A csomagolt Linkumori/ClearURLs szabályok használata. Kapcsold ki ezt, ha csak távoli és/vagy egyéni szabályokkal szeretnéd futtatni."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "A Linkumori egyetlen egységes ClearURLsData szolgáltatói szabályrendszert használ. A natív szolgáltatói JSON, a kanonikus szabályobjektumok és a szolgáltatón belüli $removeparam szűrők a clearurls.js futtatása előtt egyesítésre kerülnek."
   },
   "bundled_rules_section_title": {
     "message": "Szabályok információi"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori beállítások megnyitása"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Túlterhelés mód viselkedése"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Csak javítómód"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Távoli javítások alkalmazása a beépített szabályokra. A távoli szolgáltatói szabályok nem szerepelnek benne."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Javítómód + egyesítés"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "A beépített és a távoli szolgáltatói szabályok egyesítése, majd a távoli javítások alkalmazása."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Nincs javítómód + egyesítés"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "A beépített és a távoli szolgáltatói szabályok egyesítése a távoli javítások alkalmazása nélkül."
   },
   "overload_mode_enabled": {
     "message": "Túlterhelési mód engedélyezése"
@@ -1836,7 +1836,7 @@
     "message": "Az elsődleges hash URL-nek HTTPS-t kell használnia"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Az elsődleges szabály-URL-t és az elsődleges hash-URL-t együtt kell beállítani."
   },
   "save_primary_rule_https_required": {
     "message": "Az elsődleges szabály URL-nek HTTPS-t kell használnia"
@@ -1872,13 +1872,13 @@
     "message": "Megértem a kockázatokat - Folytatás"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Fontold meg újra a távoli szabályok használatát, ha nem érted vagy nem bízol teljesen a Linkumori szabályrendszer forrásában."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Ez a távoli szabályok funkció haladó felhasználóknak készült, akik értik a betöltött Linkumori JSON tartalmát. A távoli szabályokhoz ellenőrzés céljából tartozzon megfelelő hash-URL."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ha megadsz egy távoli szabály-URL-t, a bővítmény a megadott szerverhez kapcsolódik, hogy lekérje a Linkumori szabályrendszert és annak hash-fájlját. Minden lekérés felfedheti az IP-címedet és általános információkat, például a bővítmény verzióját, a böngészőt és annak verzióját a kiszolgáló szerver számára. Ezekre az adatokra az adott webhely vagy webszerver adatvédelmi szabályzata vonatkozik."
   },
   "security_modal_privacy_link_text": {
     "message": "Olvasd el újra a %PRIVACY_POLICY_LINK% -t, ha szükséges, mielőtt folytatod."
@@ -1887,7 +1887,7 @@
     "message": "adatvédelmi figyelmeztetés:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Használj beépített szabályokat, hacsak nem bízol meg a távoli forrásban és nem te kezeled azt. Add meg a távoli Linkumori JSON szabályokhoz tartozó hash-URL-t."
   },
   "security_modal_risk_1": {
     "message": "Az IP-címed és böngésző információid láthatóvá válnak a konfigurált szerverek számára"
@@ -1899,7 +1899,7 @@
     "message": "A hash ellenőrzés csak a Linkumori CLN Format 1.0 JSON szabályokra vonatkozik; az átvitel manipulálása ellen véd, nem pedig a rosszindulatú szabályforrások ellen."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "A sikeres hash-ellenőrzés nélküli távoli szabályok teljes mértékben a forrás-URL megbízhatóságára támaszkodnak."
   },
   "security_modal_risks_title": {
     "message": "Biztonsági kockázatok:"
@@ -1914,7 +1914,7 @@
     "message": "A rules.hash fájl URL-je (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "A távoli Linkumori JSON szabályok ellenőrzéséhez kötelező."
   },
   "setting_html_export_button": {
     "message": "Exportálás"
@@ -1944,7 +1944,7 @@
     "message": "Naplókorlát (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "További, egyesített távoli Linkumori JSON források. Soronként egy párt adj meg <code>ruleURL | hashURL</code> formában."
   },
   "setting_remote_rule_sets_label": {
     "message": "További távoli szabálykészletek"
@@ -1953,13 +1953,13 @@
     "message": "https://pelda.com/szabalyok-2.json | https://pelda.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Egyéni távoli URL a Linkumori JSON szabályokhoz"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "A távoli szabályok JSON-fájljának URL-je"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Minden távoli szabályrendszerhez kötelező a hash-URL."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) beállítások"
@@ -2421,19 +2421,19 @@
     "message": "FIGYELMEZTETÉS: Haladó funkció, kizárólag saját szerverekhez"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Letiltod a Gatekeeper védelmét a távoli szabály-URL szerkesztésénél. Ez a funkció távoli Linkumori JSON szabályokat tölthet be az egységes szolgáltatói szabályrendszerbe. Csak akkor folytasd, ha érted és megbízol a beállított forrásban."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "A Gatekeeper a beépített biztonsági folyamat, amely blokkolja a közvetlen távoli URL szerkesztéseket, amíg el nem ismered a biztonsági figyelmeztetést és be nem fejezed a gépelt megerősítést."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Tartsd bekapcsolva a Gatekeepert, hacsak nem bízol meg a távoli forrásaidban és nem te kezeled őket. A távoli JSON szabályokhoz tartozzon megfelelő hash-URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "adatvédelmi figyelmeztetés:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Ha megadsz egy távoli szabály-URL-t, a bővítmény a megadott szerverhez kapcsolódik, hogy lekérje a Linkumori szabályrendszert és annak hash-fájlját. Minden lekérés felfedheti az IP-címedet és általános információkat, például a bővítmény verzióját, a böngészőt és annak verzióját a kiszolgáló szerver számára. Ezekre az adatokra az adott webhely vagy webszerver adatvédelmi szabályzata vonatkozik."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Olvasd el újra a %PRIVACY_POLICY_LINK% -t, ha szükséges, mielőtt folytatod."
@@ -2448,7 +2448,7 @@
     "message": "A bővítmény minden alkalommal csatlakozni fog a kijelölt URL-hez, amikor a bővítmény engedélyezve van és betöltődik a böngésződben."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "A távoli JSON- vagy hash-fájlokat üzemeltető szerver megkapja az IP-címedet."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "A szerver megkaphatja a bővítmény verzióját, a böngészőt és a böngésző verzióját is."
@@ -2457,7 +2457,7 @@
     "message": "Ezek az adatok azon weboldal vagy webszerver adatvédelmi irányelvei hatálya alá tartoznak, amely ezeket a fájlokat tárolja."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "A Gatekeeper kikapcsolásával megnöveled a nem biztonságos vagy feltört távoli szabályforrások kockázatát. A hash-ellenőrzés a távoli Linkumori JSON letöltéseket csak megfelelő hash-URL beállítása esetén védi."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Mégse"
@@ -2517,7 +2517,7 @@
     "message": "Írd be a pontos megerősítő kifejezést"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Ez a művelet csökkenti a távoli szabályok védelmét. Csak akkor folytasd, ha megbízol a távoli JSON forrásban."
   },
   "remote_urls_template_note_1": {
     "message": "Cseréld ki a helyőrző értékeket a valós HTTPS URL-jeidre, majd importáld ezt a fájlt."
@@ -2841,16 +2841,16 @@
     "message": "Aktuális hash állapot:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "Nincs adat"
   },
   "settings_remote_health_none": {
     "message": "Nincs"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Szabályütközések:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ hiba, $WARNINGS$ figyelmeztetés, $NOTICES$ megjegyzés",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Távoli fájl képességei:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "elfogadásig inaktív: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ elfogadása",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Szabályjavítások:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ alkalmazva, $NOT_APPLIED$ nem alkalmazva",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Szabályok alapértékei"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Beépített"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Egyéni"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Nincs — beépített viselkedés"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "A túlterhelés mód egyesíti a beépített és a távoli szabályokat; minden forrás szabályai megtartják az adott forrás saját alapértékeit."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Alapértékek mentése"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Alapértékek mentve"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Bekapcsolt állapotban minden szabályforrás megtartja a saját alapértékeit (a beépített szabályokra a beépített alapértékek vonatkoznak, az egyes távoli fájlok szabályaira pedig az adott fájl alapértékei), kivéve ha az egyéni szabályok szerkesztőjében saját alapértékeket választasz."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Távoli: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Melyik alapértékek érvényesek"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Az egyes források saját alapértékei"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "A tieid a beépített és távoli szabályokhoz"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "A tieid az összes szabályhoz"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(a te alapértékeid felülírták)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "A tieid"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ kéréstípus",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-kivétel",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-kivétel"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ előfeldolgozó",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Az egyes források szabályai az adott forrás saját alapértékeit kapják."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "A beépített és a távoli szabályok a fájlok saját alapértékei helyett a te alapértékeidet kapják; az egyéni szabályok megtartják a sajátjukat."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "A beépített, a távoli és az egyéni szabályok mind a saját alapértékeik helyett a te alapértékeidet kapják."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Szabályok alapértékeinek kezelése"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Az alapértékek azokat az értékeket töltik ki, amelyeket a szabály maga nem állít be. A szabály saját értéke mindig elsőbbséget élvez, a szolgáltatói kivételek pedig soha nem módosulnak."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Alapértékek szerkesztése"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Saját alapértékek"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Az egyéni szabályok alapértékei"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Szerkesztendő alapértékek"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Beépített szabályok"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(szerkesztve)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Visszaállítás a fájl alapértékeire"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Egyesítés forrásokból…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Szabályok alapértékeinek egyesítése"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Az eredmény \"Egyesített alapértékek\" néven jelenik meg a listában. Másold át az ottani egyik készletbe, majd a használatához nyomd meg az Alapértékek mentése gombot."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Egyesítendő források"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Ütközések"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Egyesített alapértékek"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Egyesített alapértékek használata"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Egyesített alapértékek"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Nem használatos, amíg át nem másolod egy másik készletbe és nem mented."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Másolás ide:"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Másolás"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Válassz legalább két forrást."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Nincs ütközés: a kiválasztott források minden értékben megegyeznek."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "A kivételek az összes forrásból összeadódnak: összesen $COUNT$.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Az összes forrásból összevonva"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Forrás: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Nincs beállítva (beépített viselkedés)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Nincs beállítva: minden kéréstípus"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Jelenleg nem használatos: a te alapértékeid felülírják a beépített és a távoli szabályok sajátjait."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Általad szerkesztve: ezek felülírják a fájl saját alapértékeit. Maga a fájl nem módosul."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(általad szerkesztve)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Jelenleg nem használatos: fent az \"Az egyes források saját alapértékei\" van kiválasztva."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Jelenleg nem használatos: a te alapértékeid az egyéni szabályokat is felülírják."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "A szabályok kikapcsolva indulnak (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Leírás"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Kéréstípusok"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Minden típus"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Csak ezek"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Válassz legalább egy kéréstípust, vagy jelöld be a \"Minden típus\" lehetőséget."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "A szabályok minden kéréstípust megtisztítanak, kivéve ha ők vagy az alapértékek megneveznek néhányat. A szolgáltatók a resourceTypes segítségével is korlátozhatják a típusokat."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Kivételek"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Soronként egy URL-regex. A szabályok kihagyásra kerülnek a megfelelő URL-eknél."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Előfeldolgozók"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Bemenetek: \"all\", vagy rögzítési csoportok számai, például 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Előfeldolgozó hozzáadása"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Előfeldolgozó típusa"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Előfeldolgozó bemenetei"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Eltávolítás"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Az előfeldolgozó bemenetei (\"$INPUTS$\") csak \"all\" vagy számok lehetnek, például 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Az előzménykerülés elleni védelem kikapcsolása (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Megjelenítés JSON-ként"
   },
   "settings_remote_health_unknown": {
     "message": "ismeretlen"
@@ -3357,7 +3357,7 @@
     "message": "Bejegyzések szűrése…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Lap"
   },
   "logger_tab_all": {
     "message": "Minden lap"
@@ -4005,10 +4005,10 @@
     "message": "Szolgáltató JSON Útmutató"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori szabályútmutató megnyitása"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Melyik szabályszintaxist használjam?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4017,25 +4017,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Szabályútmutató megnyitása"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "A szolgáltatói források betöltése sikertelen: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "A csomagolt szabályok nem érhetők el."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "A csomagolt szabályok betöltése sikertelen: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "A nyelvet nem sikerült átváltani erre: $1."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Világos téma"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Sötét téma"
   },
   "posarCopied": {
     "message": "POSAR másolva!"
@@ -4059,100 +4059,100 @@
     "message": "POSAR elfogadva."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Visszaállítás"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Kisegítő eszközök"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Kisegítő eszközök megnyitása"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Kisegítő eszközök bezárása"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Az összes kisegítő beállítás visszaállítása"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Látás"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Olvasás"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interakció"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Nagy kontraszt"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Színszűrő"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Telítettség"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Invertálás"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Hivatkozások kiemelése"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Képek elrejtése"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Szövegméret növelése"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Szövegméret csökkentése"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Alapértelmezett szövegméret"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Betűtípus kiválasztása"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Diszlexiabarát"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Szövegköz"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Sormagasság"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Szövegigazítás"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Animációk szüneteltetése"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Nagyobb kurzor"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Alapértelmezett"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Közepes"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Magas"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra"
+    "message": "Rendkívül magas"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Alacsony"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Nincs"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Világos"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Erős"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4173,49 +4173,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Nincs szűrő"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanópia"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranópia"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanópia"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Szürkeárnyalat"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Balra"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Középre"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Jobbra"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Extra kicsi"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Kicsi"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Nagy"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Extra nagy"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Legnagyobb"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Be"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Ki"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4224,15 +4224,2239 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "engedélyezve"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "letiltva"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Az alapértelmezett szövegméret kiválasztva"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Az összes kisegítő beállítás visszaállítva"
+  },
+  "skip_to_main_content": {
+    "message": "Ugrás a fő tartalomra"
+  },
+  "popupNavAriaLabel": {
+    "message": "Felugró ablak navigációja"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Egyéni szabályok nézetei"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Napló nézetei"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Előzménykerülés elleni védelem (kihagyás oldalon belüli navigáció során)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Mezőátirányítások"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Szabály másolása"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Szabály átmásolva"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "A szabályt nem sikerült átmásolni"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Mit csinál a historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Az egyoldalas webhelyek gyakran a history.pushState/replaceState segítségével módosítják a címet új oldal betöltése helyett. A Linkumori ezeket a címeket is megtisztítja. Adj hozzá history-bypass-protection=false értéket egy $removeparam szűrőhöz, hogy csak az adott szűrő legyen kihagyva ezeknél az oldalon belüli változásoknál; a normál kéréseknél továbbra is fut."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Egy teljes szolgáltató kihagyásához az oldalon belüli változásoknál állítsd be a szolgáltatónál:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Ha nincs megadva, az értéke true, és az oldalon belüli változások megtisztításra kerülnek. A szabály saját beállítása felülírja a szolgáltatóét, így egy szabály a history-bypass-protection=true vagy egy szabályobjektumban a \"historyBypassProtection\": true megadásával újra bekapcsolhatja."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Kihagyja az oldalon belüli navigációt"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "ID átnevezése"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Új azonosító ehhez: $OLD$ (a-z, 0-9, - és _). A régi azonosító aliasként megmarad, így az alatta kikapcsolt szabályok kikapcsolva maradnak.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "A(z) \"$ID$\" nem érvényes azonosító. Használj kisbetűket, számjegyeket, - és _ karaktert, betűvel vagy számjeggyel kezdve.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Ennek a szolgáltatónak egy másik szabálya már használja a(z) \"$ID$\" azonosítót.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Szabály letiltása"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Letiltod a(z) $ID$ szabályt a teljes szolgáltatónál, vagy csak ennél az URL-/tartománymintánál?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Saját szolgáltató"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-/tartományminta"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "A szabály azonosítója átnevezve erre: $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Árva kapcsolók"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Nem található megfelelő szabály a forrásban"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Eltávolítás"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Kihagyja az oldalon belüli navigáció tisztítását"
+  },
+  "whitelist_added_general": {
+    "message": "%s hozzáadva az általános fehérlistához"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s hozzáadva History API kivételként"
+  },
+  "whitelist_exception_count": {
+    "message": "%d kivétel"
+  },
+  "whitelist_exception_empty": {
+    "message": "Nincsenek fehérlista-kivételek"
+  },
+  "whitelist_mode_general": {
+    "message": "Általános fehérlista"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Csak History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Fehérlista hatóköre"
+  },
+  "whitelist_removed_general": {
+    "message": "%s eltávolítva az általános fehérlistáról"
+  },
+  "whitelist_removed_history_api": {
+    "message": "A(z) %s History API kivétele eltávolítva"
+  },
+  "whitelist_type_general": {
+    "message": "Általános"
+  },
+  "whitelist_type_history_api": {
+    "message": "Csak History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 hozzáadása az általános fehérlistához"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Általános fehérlista: $1 – kattints a csak History API módhoz"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API kivétel: $1 – kattints a csak erre a lapra módhoz"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Csak erre a lapra: $1 – kattints az eltávolításhoz"
+  },
+  "logger_action_allowed": {
+    "message": "Engedélyezve"
+  },
+  "logger_action_blocked": {
+    "message": "Blokkolva"
+  },
+  "logger_action_filter_label": {
+    "message": "Művelet"
+  },
+  "logger_action_info": {
+    "message": "Infó"
+  },
+  "logger_action_modified": {
+    "message": "Módosítva"
+  },
+  "logger_action_redirected": {
+    "message": "Átirányítva"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Összegzés másolása"
+  },
+  "logger_btn_export": {
+    "message": "Exportálás"
+  },
+  "logger_btn_group": {
+    "message": "Csoportosítás szabály szerint"
+  },
+  "logger_col_hits": {
+    "message": "Találatok"
+  },
+  "logger_col_last_seen": {
+    "message": "Utoljára látva"
+  },
+  "logger_detail_group_title": {
+    "message": "Szabály részletei"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL-ek ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Lapok"
+  },
+  "logger_exported": {
+    "message": "$1 bejegyzés exportálva."
+  },
+  "logger_filter_all": {
+    "message": "Mind"
+  },
+  "logger_report_rule": {
+    "message": "Jelentés"
+  },
+  "logger_rule_disable": {
+    "message": "Szabály kikapcsolása"
+  },
+  "logger_rule_disabled_done": {
+    "message": "A(z) $1 szabály kikapcsolva. Töltsd újra az oldalt az ellenőrzéshez."
+  },
+  "logger_rule_enable": {
+    "message": "Szabály bekapcsolása"
+  },
+  "logger_rule_enabled_done": {
+    "message": "A(z) $1 szabály újra bekapcsolva."
+  },
+  "logger_rule_failed": {
+    "message": "A szabályt nem sikerült módosítani."
+  },
+  "logger_rule_off": {
+    "message": "A szabály ki van kapcsolva"
+  },
+  "logger_rule_on": {
+    "message": "A szabály be van kapcsolva"
+  },
+  "logger_rule_unavailable": {
+    "message": "Ez a szabály innen nem kapcsolható."
+  },
+  "logger_status_rules": {
+    "message": "$1 szabály"
+  },
+  "logger_summary_copied": {
+    "message": "Összegzés másolva."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Az összegzést nem sikerült másolni."
+  },
+  "logger_type_filter_label": {
+    "message": "Típus"
+  },
+  "logger_btn_logging_off": {
+    "message": "Naplózás ki"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "A naplózás ki van kapcsolva. Kattints a bekapcsoláshoz."
+  },
+  "logger_btn_logging_on": {
+    "message": "Naplózás be"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "A naplózás be van kapcsolva. Kattints a kikapcsoláshoz."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "A naplózási beállítást nem sikerült módosítani."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Hivatkozási szabály hozzáadása"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Nyers szabály kivételének hozzáadása"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Mezőátirányítás hozzáadása"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Kivétel hozzáadása"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Minden sablon egy szabályobjektumot ad hozzá azonosítóval és egy helyőrző matchPattern mintával az example.com címen. A bejegyzés lehet egyszerű karakterlánc is: paraméternév, névregex, $removeparam szűrő vagy a rawRules-ban regex. A szabályobjektumok az id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description és targetId mezőket fogadják."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Szabályellenőrző"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Nem található probléma."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Hiba"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Figyelmeztetés"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ hiba, $WARNINGS$ figyelmeztetés",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Futtatási sorrend"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ lépés, futtatási sorrendben",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Nincs rawRules, rules vagy referralMarketing bejegyzés"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "A motor a fenti szövegből számolja ki, mentve vagy sem. A lépések a (stage, orderGroup, order, rank, arrayIndex) szerint rendeződnek: a nyers szabályok a mezőszabályok előtt futnak; egy szakaszon belül az order értékkel rendelkező bejegyzések futnak előbb, a legkisebbtől kezdve, majd a többi lista és pozíció szerint."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Ajánlói marketing"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral eltávolítva"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral engedélyezve"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Nyers"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Mező"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Ajánlás"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(generált)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "átír"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "lecseréli $COUNT$ korábbi definícióját",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "a completeProvider adta hozzá: minden paramétert eltávolít"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Kikapcsolva"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Egyes mintáknál kikapcsolva"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Rendezési kulcs: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Ezután $FILTERS$ $removeparam szűrő és $EXCEPTIONS$ @@ kivétel, a fenti lépések után",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule= kivétel megállíthatja a fenti nyers szabályokat, ahol egyeznek",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Húzz egy lépést, vagy használd a nyilakat, hogy a szakaszán belül mozgasd. A mozgatás a szakasz minden bejegyzésének 10, 20, 30, … order értéket ad az új sorrendben."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Az átrendezéshez válts a Referral eltávolítva nézetre: az mutatja az összes bejegyzést."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Húzd a mozgatáshoz"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ korábbra helyezése",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ későbbre helyezése",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ áthelyezve a(z) $POSITION$. pozícióba",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Mozgatás visszavonása"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Mozgatás visszavonva"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Szimuláció"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Lefuttatja ezt a szolgáltatót egy URL-en úgy, ahogy a másolt hivatkozás tisztítása teszi, a kikapcsolt szabályaiddal és a fenti referral-választással, és minden lépés után megmutatja az URL-t. Más szolgáltatók nem futnak. A Tesztelési URL generálása ezen szolgáltató saját szabályaiból készít egyet."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Tesztelési URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Futtatás"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "A szimuláció léptetése"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Eleje"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Előző"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Következő"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Vége"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Lejátszás"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Szünet"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "Az URL az első lépés előtt"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "$PASS$. menet · $STEP$. lépés / $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "nincs változás"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam szűrők"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "A(z) $PASS$. menet nem változtat semmit, ezért a tisztítás leáll",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Ez a szolgáltató itt leáll: elérte a ciklushatárt, az URL egy korábbi URL-re tért vissza, vagy már nem felel meg a szolgáltatónak"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "A(z) $PASS$. menet átirányít; a tisztítás az új címen folytatódik az összes szolgáltatóval",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "A szolgáltató blokkolja ezt a kérést (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Eredmény"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Ennek a szolgáltatónak a mintái nem egyeznek ezzel az URL-lel, ezért egyik szabálya sem fut."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Ez az URL megfelel a szolgáltató egyik kivételének, ezért egyik szabálya sem fut."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Adj meg egy teljes http:// vagy https:// URL-t."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "A szimulációt nem sikerült lefuttatni. Ellenőrizd a fenti JSON-t."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Tesztelési URL generálása"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "A szolgáltató szabályaiból készült: szöveg $RAW$ nyers szabályhoz és $PARAMS$ paraméterhez, mindegyik a saját szabályával ellenőrizve. A keep=1 egyetlen szabályra sem illik, és maradnia kell. Az átirányítások és blokkolások nem szerepelnek, mert azok a többi szabály előtt véget vetnének a futásnak.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Nem készíthető olyan gazdagép, amelyre a szolgáltató mintái illenének, ezért az URL másik gazdagépet használ, és a szolgáltató nem fut rajta."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "A szolgáltató mintáinak megfelelő minden URL-t lefed a szolgáltató egyik saját kivétele, ezért a szabályai soha nem futnak."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ szabály kimaradt a tesztelési URL-ből",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "nem készíthető olyan szöveg, amelyre illene"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "a szövege a szolgáltató egyik kivételét egyeztetné"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "minden paramétert eltávolít, ezért nincs szüksége saját paraméterre"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Ennek a szolgáltatónak van egy név nélküli $removeparam szűrője, amely minden paramétert eltávolít, a keep=1 értéket is."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "nincs order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Sorrendszámok visszaállítása"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Minden order érték visszaállítása arra, amilyen a szolgáltató megnyitásakor volt"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Sorrendszámok visszaállítva"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Elrejtés"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Megjelenítés"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Figyelmeztetések törlése"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Figyelmeztetések visszaállítása"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ figyelmeztetés törölve",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: az indexPattern nélküli urlPattern minden URL-lel összevetésre kerül; adj hozzá indexPattern tippeket, például \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "A(z) $WHERE$ megismétli ezt: \"$ENTRY$\"; a másolat nem csinál semmit, és mindkettő ugyanazt az azonosítót használja",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "A(z) $WHERE$ még tartalmazza a sablon helyőrzőt (\"$PATTERN$\"); cseréld le a valódi mintára",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "A(z) $WHERE$ matchPattern értéke \"(?!)\", amely soha semmire nem illik",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Hibaelhárítás"
+  },
+  "troubleshooter_launch": {
+    "message": "A lap hibaelhárítása (kísérleti)"
+  },
+  "troubleshooter_title": {
+    "message": "Lap hibaelhárítója"
+  },
+  "troubleshooter_page": {
+    "message": "Oldal"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Hogyan működik a rögzítés"
+  },
+  "troubleshooter_about_note": {
+    "message": "A nézet megnyitása ellenőrizheti az oldal URL-jét, de semmit nem rögzít. A rögzítés kikapcsolva marad, amíg a Rögzítés indítása lehetőséget nem választod. Az indítás újratölti a lapot az erőforrás-kérések rögzítéséhez. A rögzített URL-ek a böngészési munkamenet idejére a munkamenet-tárolóban maradnak, és a lap bezárásakor vagy a böngészési munkamenet végén törlődnek. A rögzítés 15 perc után leáll, hacsak korábban le nem állítod. Az erőforrás-URL-ek privát lekérdezési adatokat tartalmazhatnak."
+  },
+  "troubleshooter_start": {
+    "message": "Rögzítés indítása"
+  },
+  "troubleshooter_starting": {
+    "message": "Indítás…"
+  },
+  "troubleshooter_recording": {
+    "message": "Rögzítés…"
+  },
+  "troubleshooter_stop": {
+    "message": "Rögzítés leállítása"
+  },
+  "troubleshooter_refresh": {
+    "message": "Frissítés"
+  },
+  "troubleshooter_copy": {
+    "message": "Összegzés másolása"
+  },
+  "troubleshooter_export": {
+    "message": "Exportálás"
+  },
+  "troubleshooter_export_title": {
+    "message": "A rögzítés mentése JSON-fájlként. Az erőforrás-URL-ek privát lekérdezési adatokat tartalmazhatnak."
+  },
+  "troubleshooter_category": {
+    "message": "Kategória"
+  },
+  "troubleshooter_category_all": {
+    "message": "Minden kategória"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-szabályok"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Átirányítások"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Védelem és kerülőutak"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Erőforrás típusa"
+  },
+  "troubleshooter_type_all": {
+    "message": "Minden erőforrástípus"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Szabályok, szolgáltatók és URL-ek keresése"
+  },
+  "troubleshooter_timer": {
+    "message": "Rögzítés $1 · még $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "A lap ellenőrzése…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Nincs elérhető aktív lap."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Ez az oldal nem engedi az URL-szabályok vizsgálatát. Nyiss meg egy hagyományos http vagy https weboldalt."
+  },
+  "troubleshooter_status_off": {
+    "message": "A rögzítés ki van kapcsolva. Indítsd el a rögzítést, hogy megvizsgálhasd az oldal által betöltött erőforrás-URL-eket."
+  },
+  "troubleshooter_status_active": {
+    "message": "Eddig $1 URL-változás rögzítve. Az újak automatikusan megjelennek itt."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "A rögzítés leállt. $1 URL-változás rögzítve."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "A rögzítési adatokat nem sikerült menteni a munkamenet-tárolóba. $1 URL-változás elveszhet, ha a bővítmény újraindul."
+  },
+  "troubleshooter_status_started": {
+    "message": "A rögzítés elindult, és a lap újratöltődik. A rögzített URL-ek az oldal betöltődésével jelennek meg itt."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "A rögzítés leállt. $1 URL-változás rögzítve és mentve erre a böngészési munkamenetre."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "A rögzítés leállt. $1 URL-változás rögzítve, de a munkamenet-tárolóba nem sikerült menteni."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Előbb nyiss meg egy hagyományos http vagy https weboldalt."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "A lap rögzítését nem sikerült elindítani."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "A lap rögzítését nem sikerült leállítani."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "A lapot nem sikerült beolvasni. Próbáld meg bezárni és újra megnyitni a felugró ablakot."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Összegzés másolva."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Az összegzést nem sikerült másolni."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Rögzítés exportálva."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "A rögzítést nem sikerült exportálni."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "A jelentési űrlapot nem sikerült megnyitni."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Szabály engedélyezve; töltsd újra a lapot az összehasonlításhoz."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Szabály letiltva; töltsd újra a lapot az összehasonlításhoz."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "A szabályt nem sikerült frissíteni."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Még nincs szabályváltozás. Indítsd el a rögzítést, hogy megvizsgálhasd az oldal erőforrás-URL-jeit."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Ez a böngészőoldal nem vizsgálható."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Egyetlen találat sem felel meg ezeknek a szűrőknek."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Az első $1 szabály megjelenítve."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 találat"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 sikertelen"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Szabályazonosító: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Beépített védelmi művelet (nincs szabályazonosító)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Szabályazonosító: ennél a találatnál nem érhető el"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Ezt a szabályazonosítót nem sikerült feloldani a jelenlegi szabályrendszerben."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Megfigyelt kérés"
+  },
+  "troubleshooter_source_page": {
+    "message": "Oldal-URL ellenőrzése"
+  },
+  "troubleshooter_changes": {
+    "message": "Mi változott: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Érintett URL-ek ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…és még $1"
+  },
+  "troubleshooter_after": {
+    "message": "A Linkumori után"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Sikertelen, miután a Linkumori módosította: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Ez a szabály engedélyezve van. Kapcsold ki, és töltsd újra az oldalt az összehasonlításhoz."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Ez a szabály le van tiltva. Kapcsold be, és töltsd újra az oldalt a viselkedésének visszaállításához."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Ez egy beépített védelmi művelet, nem önálló szabály."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Szabályok módosítása előtt vizsgáld meg az érintett URL-t."
+  },
+  "troubleshooter_report": {
+    "message": "Szabály jelentése"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Szabály letiltása"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Szabály engedélyezése"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "A(z) $1 szabály letiltása"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "A(z) $1 szabály engedélyezése"
+  },
+  "troubleshooter_saving": {
+    "message": "Mentés…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "eltávolítva: $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "hozzáadva: $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "módosítva: $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "átirányítva ide: $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "az útvonal megváltozott"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "a töredék megváltozott"
+  },
+  "troubleshooter_change_other": {
+    "message": "az URL megváltozott"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "szándékosan blokkolva"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 kérés sikertelen ezen az oldalon; ebből $2 közvetlenül azután, hogy a Linkumori módosította az URL-t"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Elromlott ez az oldal?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Keresd meg a hibát okozó szabályt: az oldalon lefutott szabályokat egyenként kikapcsoljuk, és minden után megmondod, hogy megjavult-e az oldal. Nem biztos, hogy a Linkumori az ok? Előbb ellenőrizd szüneteltetett tisztítással."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Ellenőrzés előbb szüneteltetett tisztítással"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "A tisztítás szüneteltetve van ehhez: $1, ezen a lapon"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "A lap tisztítás nélkül töltődött újra. Működik most az oldal?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Igen, működik"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nem, még mindig hibás"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Mégse"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Kész"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Valószínűleg nem a Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Az oldal szüneteltetett tisztítással is hibás maradt, ezért a probléma valószínűleg máshol van: magán a webhelyen, egy másik bővítményben vagy a hálózaton. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "A Linkumori valószínűleg az ok"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Az oldal szüneteltetett tisztítással működik. Keresd meg a szabályt: a szabályokat egyenként kikapcsoljuk, a lap újratöltődik, és te megmondod, hogy megjavult-e az oldal. A végén minden más szabály újra be lesz kapcsolva."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "A lap újratöltődik bekapcsolt tisztítással, hogy rögzítse, mely szabályok futnak ezen az oldalon. Hamarosan megjelennek itt. Ha egy sem jelenik meg, használd az oldalt, amíg el nem romlik."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "Szabály keresése ($1 szabály)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Igen, megjavult"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Nem, még mindig hibás"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Megvan"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Az oldal a(z) $1$2 szabály miatt romlik el. Újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Szabály letiltása"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Jelentés"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "A szabály kikapcsolva. Az ellenőrzéshez töltsd újra a lapot. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Egyetlen szabály sem található"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "A szabályok egyenkénti kikapcsolása nem javította meg az oldalt, ezért valószínűleg több szabály együtt, vagy egy védelmi beállítás okozza. Minden szabály újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Az ellenőrzést nem sikerült lefuttatni: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Töltsd újra a Linkumorit az ellenőrzés használatához"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "A Linkumori frissült, de a háttérrésze még a régi verziót futtatja. Töltsd újra a bővítményt (ideiglenes kiegészítőnél: about:debugging → This Firefox → Reload), vagy indítsd újra a Firefoxot."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Megvan"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Az oldal a(z) $1$2 szabály miatt romlik el. Kikapcsolva marad, hogy az oldal működjön; az összes többi szabály újra be van kapcsolva. Az ellenőrzéshez töltsd újra a lapot. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Lap újratöltése"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Bekapcsolás újra"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "A szabály újra be van kapcsolva. Az ellenőrzéshez töltsd újra a lapot. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Rögzítés és a szabály keresése"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Rögzítjük, mely szabályok futnak ezen az oldalon. Használd az oldalt, amíg el nem romlik; a szabályok megjelennek itt."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "A szabálykeresés átmenetileg kikapcsolta. A keresés végén újra bekapcsol."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "A szabálykeresés fut. A szabályokat a befejezése után módosíthatod."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Kihagyás — bekapcsolás újra"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Kikapcsolva marad"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "A szabálykeresés kihagyva; minden szabály újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "A(z) $1 szabály kikapcsolva marad. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Ehhez a teszthez kikapcsolva:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…és még $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Keresés leállítása"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Kihagyva: ez a szabály újra be van kapcsolva, és kimaradt. A következő tesztelése."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "A tesztelt szabályok között nincs találat. $1 kihagyott szabály nem lett tesztelve. Minden szabály újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_experimental": {
+    "message": "Kísérleti"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Kísérleti: ez a hibaelhárító nem teljesen stabil. Az eredményei hibásak lehetnek, és teszt közben kikapcsolja a szabályokat. Ha utána valami nem stimmel, ellenőrizd a szabályaidat az egyéni szabályok szerkesztőjében, vagy a Keresés leállítása gombbal kapcsold vissza őket."
+  },
+  "troubleshooter_working": {
+    "message": "Folyamatban…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Rögzítés újra"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "A régi rögzítés törölve. A lap rögzítése újra, friss betöltésből."
+  },
+  "troubleshooter_clear": {
+    "message": "Törlés"
+  },
+  "troubleshooter_clear_title": {
+    "message": "A lap rögzítésének, találatainak és befejezett szabálykeresésének törlése. A szabályok változatlanok maradnak."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Törölve. A szabályok változatlanok maradnak."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Törölve. A(z) $1 szabály kikapcsolva marad."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Egyenkénti tesztelés — $1. szabály / $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Csak ez a szabály van kikapcsolva, és a lap újratöltődött. Megjavult most az oldal?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Szabály kihagyása"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Kihagyás — bekapcsolás újra, következő tesztelése (még $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "Az oldalon lefutott másik $1 szabály nem lett tesztelve. Folytatod a tesztelésüket?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Kikapcsolva marad, következő tesztelése (még $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "A(z) $1 szabály kikapcsolva marad. A következő szabály tesztelése."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Egyetlen másik szabály sem javítja meg önmagában az oldalt. A kikapcsolva hagyott $1 szabály kikapcsolva marad; minden más szabály újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Következő szabály tesztelése (még $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "A(z) $1 szabály újra be van kapcsolva, és kimaradt. A következő szabály tesztelése."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Egyetlen másik szabály sem javítja meg önmagában az oldalt. A kihagyott $1 szabály is újra be van kapcsolva, így minden szabály újra be van kapcsolva. Az újrakezdéshez kattints a Törlés gombra."
+  },
+  "guide_intro_p_1": {
+    "message": "A Linkumori URL-eket a <strong>CLN Format 1.0</strong> (Clean Link Notation) JSON formátumú szabályokkal tisztít. Ez az útmutató az első szabálytól kezdve minden lehetőséget bemutat, kimásolható példákkal."
+  },
+  "guide_intro_p_2": {
+    "message": "A beépített szabályok, a távoli szabálylisták és az egyéni szabályaid ugyanazt a formátumot használják. Az egyéni szabályokat az egyéni szabályok szerkesztőjében írod, amely mentéskor és importáláskor ellenőrzi őket. A hivatalos ClearURLs szabálykatalógus (<code>data.min.json</code>) már eleve érvényes CLN-fájl, és változtatás nélkül használható."
+  },
+  "guide_rules_file_p_1": {
+    "message": "A szolgáltató neve csak címke. Hogy a szolgáltató mely URL-eket kezeli, azt a <code>domainPatterns</code> vagy az <code>urlPattern</code> dönti el."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Legfelső szintű kulcs"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Kötelező. A szolgáltatók név szerint."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Nem kötelező formátumverzió. Az egyetlen érvényes érték: <code>\"1.0\"</code>. Az ezt nem tartalmazó fájlt is 1.0-ként olvassa be; bármely más érték elutasítja a fájlt. Azért nem <code>version</code> a neve, mert a ClearURLs új szabályformátuma már használja ezt a kulcsot."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Nem kötelező információ a fájlról."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Értékek a fájl minden olyan szabályához, amely nem állítja be a sajátját (12. fejezet)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Csak távoli szabálylistákhoz: a már betöltött szabályok cseréi (15. fejezet)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Mely URL-eket kezeli a szolgáltató, egyetlen domainmintaként vagy azok listájaként (3. fejezet). Ezt vagy az <code>urlPattern</code> mezőt használd, soha mindkettőt."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Mely URL-eket kezeli a szolgáltató, egyetlen, a teljes URL-re illesztett reguláris kifejezésként. A kis- és nagybetűk közötti különbség figyelmen kívül marad."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Csak az <code>urlPattern</code> mellett: gazdagép-tippek, például <code>||example.com^</code>, így a szolgáltató csak ezekre a gazdagépekre kerül ellenőrzésre az összes URL helyett. Ez keresési tipp, nem illeszkedési feltétel."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Eltávolítandó referral- és társult paraméterek. Kimarad, amíg az <em>Referral marketing engedélyezése</em> be van kapcsolva (10. fejezet)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL-ek, amelyeket a szolgáltató teljesen békén hagy (7. fejezet)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "A kérés elküldése egy másik címre a szerkesztése helyett (8. fejezet)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "A kérés elküldése egy paraméter értékére (8. fejezet)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: ha egy oldalbetöltést (<code>main_frame</code>) átirányít, a teljes lap az új címre navigál, nem csak a hálózati kérés."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Csak ezeket a HTTP-metódusokat kezeli, például <code>[\"GET\"]</code>. Ha nincs megadva: minden metódust."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Csak ezeket a kéréstípusokat kezeli, például <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Ha nincs megadva: minden kéréstípust."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Alapértelmezés: <code>true</code>. A <code>false</code> kihagyja a teljes szolgáltatót, amikor egy oldal a History API-val (<code>pushState</code>/<code>replaceState</code>) módosítja a saját címét. A normál hálózati kérések továbbra is megtisztításra kerülnek."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "A <code>false</code> kikapcsolja a szolgáltatót annak törlése nélkül."
+  },
+  "guide_matching_p_1": {
+    "message": "A <code>domainPatterns</code> domainminták listája. Egy URL akkor egyezik, ha bármelyik minta illik rá. Ugyanezek a minták szerepelnek az <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> szűrők és a nyers szabályok előtt."
+  },
+  "guide_matching_cell_1": {
+    "message": "a teljes URL, reguláris kifejezésként"
+  },
+  "guide_matching_cell_2": {
+    "message": "azok az URL-ek, amelyek bárhol tartalmazzák ezt a szöveget (nincs vezető <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "A <code>^</code> a gazdagépnév végét jelöli, vagy egy elválasztót, például <code>/</code>, <code>?</code>, <code>:</code>, illetve az URL végét. A <code>*</code> helyettesítő karakter."
+  },
+  "guide_matching_p_3": {
+    "message": "A <code>||</code> egy domaint jelent: a gazdagépet és minden aldomainjét. Egyetlen <code>|</code> az URL legelejét jelöli, és sémának, például <code>https://</code> kell követnie. Domainhez mindig <code>||</code> kell; a <code>|example.com^</code> soha nem illeszkedhet, ezért a szerkesztő elutasítja."
+  },
+  "guide_matching_p_4": {
+    "message": "Például a <code>||smile.amazon.*^</code> jelentése: <code>||</code> a gazdagép és aldomainjei, <code>smile.amazon</code> a kötelező címkék, <code>.*</code> bármely nyilvános utótag (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), a <code>^</code> pedig a gazdagép vége."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "pontosan az a paraméter"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "minden paraméter, amelynek teljes neve egyezik; a kis- és nagybetűk közötti különbség figyelmen kívül marad"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "A <code>\"fbclid\"</code> és a <code>\"$removeparam=fbclid\"</code> ugyanazt távolítja el. Használd az egyszerű nevet, hacsak nincs szükséged valamire az 5. fejezetből. Bármely bejegyzés szabályobjektumként is megadható (9. fejezet)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Itt a <code>qid</code> minden Amazon-webhelyen eltávolításra kerül, a <code>tag</code> csak az <code>amazon.de</code> oldalon, az <code>sr</code> csak a <code>smile.amazon</code> oldalon, a <code>ref_</code> pedig csak a <code>/gp/</code> alatt. A minta szűkíti a szolgáltató saját mintáit; soha nem bővítheti őket."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "A <code>@@</code> a szűrőt olyan kivétellé alakítja, amely megtartja a paramétert (lásd lent)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "A <code>pattern</code> a szűrőt a szolgáltató néhány URL-jére szűkíti (3. fejezet). Ha nincs megadva, a szolgáltató által illesztett minden URL-re vonatkozik."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "Az <code>=value</code> választja ki a paramétereket. Ha nincs megadva, minden paraméter eltávolításra kerül."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "A módosítók azt határozzák meg, mikor lép működésbe a szűrő. Minden felsorolt módosítónak teljesülnie kell; köztük nincs \"vagy\"."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "minden paraméter a <code>ref</code> kivételével"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "azok a paraméterek, amelyek neve, vagy a <code>név=érték</code> együtt, illeszkedik a reguláris kifejezésre; a kis- és nagybetűk figyelmen kívül hagyásához adj hozzá <code>i</code>-t"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "azok a paraméterek, amelyek neve <code>utm_</code> előtaggal kezdődik"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Paraméternév escape-elése"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "A fordított perjel a következő karaktert szó szerintivé teszi, így bármely paraméternév megcélozható:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Érték"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Ilyen nevű paramétert távolít el"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (a vessző nem indítja el a módosítókat)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Ez az öt az egyetlen escape egy névértékben; bármely más karakter előtti fordított perjel hiba. Egy <code>/regex/</code> értéken belül a fordított perjel megtartja a regex szerinti jelentését. Az escape-ek a <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> és <code>@@</code> bejegyzésekben működnek. JSON-ban minden fordított perjelet kétszer írj: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Módosítók"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "A módosítók az érték után következnek, vesszővel elválasztva. Egy módosító több értékét <code>|</code> választja el, és egy érték elé tett <code>~</code> kizárja azt:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Módosító"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "csak akkor, ha a kérést indító oldal ezek egyike (vagy a <code>~</code> esetén nem egyike); regex-értékek megengedettek"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "csak akkor, ha maga a kérés ezek egyikére megy, bármelyik oldal indította is"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "csak ezeknél a HTTP-metódusoknál: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "csak akkor, ha a kérés az oldallal azonos regisztrálható domainre megy (az <code>a.example.com</code> és a <code>b.example.com</code> azonosnak számít), vagy egy másikra"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "ugyanez, de a pontos gazdagépnevet hasonlítja össze, így az aldomain külső félnek számít"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "a paraméterneveket kis- és nagybetű érzékenyen hasonlítja össze"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "a szűrő kihagyása, amikor egy oldal a History API-val módosítja a saját címét. Elfogadja a <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code> értékeket is"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "A négy <code>*-party</code> módosító nem kombinálható egymással; a <code>first-party,third-party</code> elutasításra kerül."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Például a <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> eltávolítja a <code>sid</code> paramétert az <code>example.com</code> oldalon, csak egy másik webhelyen lévő oldal által indított GET kéréseknél, és soha nem akkor, ha az oldal a <code>partner.com</code>."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Egy <code>@@</code> bejegyzés csak a <code>$removeparam</code> szűrők ellen véd. Egy egyszerű bejegyzés, például a <code>\"ref\"</code> továbbra is eltávolítja a paramétert; ahhoz használd a szabályobjektum <code>exceptions</code> mezőjét. A nyers szabályoknak saját <code>@@…$rawrule=</code> bejegyzéseik vannak (6. fejezet)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Nem számít, hová veszed fel, és nem lehet <code>order</code> értéke."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "A mintáját az URL-lel veti össze úgy, ahogy a szolgáltató megkapta, a nyers szabályok futása előtt. Egy olyan elérési útra korlátozott <code>@@</code> bejegyzés, amelyet egy nyers szabály töröl, továbbra is egyezik."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Más szolgáltatók szűrőire is kiterjed azoknál a kéréseknél, amelyeket a szolgáltatóra illő oldal indít, ami hasznos, ha egy webhelyet ki akarsz venni máshol definiált szabály alól."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "A nyers szabályok a <code>rules</code> előtt futnak, figyelmen kívül hagyják a kis- és nagybetűket, és minden egyezést lecserélnek (<code>gi</code> flagek, vagy <code>g</code> a <code>match-case</code> esetén). JSON-ban minden fordított perjelet kétszer írj."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "A nyers szabály átveheti egy <code>$removeparam</code> szűrő mintáját és módosítóit, a <code>rawrule=</code> az utolsó helyen. A <code>rawrule=</code> utáni rész a reguláris kifejezés:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "A minta és a módosítók döntik el, hol fut a szabály; a reguláris kifejezés továbbra is az, ami törlődik."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Az <code>@@</code> jellel kezdődő és <code>rawrule=</code> jellel végződő bejegyzés megakadályozza a nyers szabályok futását ott, ahol a mintája egyezik:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Ha a <code>rawrule=</code> után nincs semmi, a szolgáltató minden nyers szabályát leállítja az adott URL-eken."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Ha a <code>rawrule=</code> után reguláris kifejezés áll, azokat a nyers szabályokat állítja le, amelyeknek ugyanez a reguláris kifejezése."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "<code>targetId</code> mezővel rendelkező szabályobjektumként csak az adott azonosítójú vagy aliasú nyers szabályt állítja le."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "A teljes szolgáltató kihagyásához használd inkább az <code>exceptions</code> mezőt."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Ha egy URL megfelel az <code>exceptions</code> egy bejegyzésének, a szolgáltató egyik szabálya sem fut az adott kérésnél. A bejegyzés a teljes URL-re illesztett reguláris kifejezés, vagy <code>|</code> jellel kezdődő domainminta:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "A kivételek figyelmen kívül hagyják a kis- és nagybetűket. Ha csak egyetlen szabályt akarsz kihagyni a teljes szolgáltató helyett, adj annak a szabálynak saját <code>exceptions</code> mezőt (9. fejezet)."
+  },
+  "guide_redirects_p_1": {
+    "message": "Az URL-ben előbb szereplő illeszkedő paraméter nyer. A <code>https://site.example/away?redirect=https://real.example/page</code> esetén a kérés a <code>https://real.example/page</code> címre megy."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Érvényes átirányítási célok"
+  },
+  "guide_redirects_p_2": {
+    "message": "Átirányítás csak gazdagéppel rendelkező, abszolút <code>http</code> vagy <code>https</code> címre történik. Ezt az előfeldolgozók és a százalékos dekódolás után ellenőrzi. Érvénytelen cél esetén a bejegyzés nem egyezőnek számít: semmi nem irányítódik át, és a szolgáltató későbbi lépései a változatlan URL-en futnak."
+  },
+  "guide_redirects_th_1": {
+    "message": "Cél"
+  },
+  "guide_redirects_th_2": {
+    "message": "Átirányít?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "igen"
+  },
+  "guide_redirects_cell_2": {
+    "message": "igen, ide: <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nem: a séma nem <code>http</code> vagy <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nem: nem abszolút cím"
+  },
+  "guide_redirects_p_3": {
+    "message": "Az a nyers szabály is átirányításnak számít, amelynek eredménye más sémájú, gazdagépű vagy portú, mint a bemenete, akkor is, ha csak szöveget töröl: a <code>secure-</code> törlése a <code>https://secure-bank.example/</code> címből egy másik webhelyre visz. Érvényes cél kell hozzá, távoli szabálylistában pedig a <code>redirect</code> jóváhagyása (15. fejezet). Ellenkező esetben a szabály változatlanul hagyja az URL-t."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Bármely lista bármely bejegyzése lehet karakterlánc helyett objektum. Akkor használd, ha a szabálynak stabil azonosító kell, kikapcsolva kell indulnia, eltávolítás helyett átírnia kell, vagy csak bizonyos esetekben futhat:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Kötelező. A szöveg, amelyet egyszerű bejegyzésként írnál az adott listába."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Stabil név (betűk, számjegyek, <code>-</code>, <code>_</code>), amellyel a szabály be- és kikapcsolható (14. fejezet)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "A szabály korábbi azonosítói, hogy a régi azonosító alatt mentett beállítás átnevezés után is érvényes maradjon."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Átírás eltávolítás helyett; a <code>§1§</code>, <code>§2§</code>, … a rögzített értékek."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "A rögzített értékek előzetes átalakítása."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Csak ezekhez a kéréstípusokhoz, például <code>[\"main_frame\"]</code>. A kérés nélküli tisztítás (<em>Tiszta hivatkozás másolása</em>, a tisztító eszköz, History API változások) <code>main_frame</code>-nek számít."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL-ek (reguláris kifejezések), ahol ez az egy szabály nem fut."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Reguláris kifejezés flagek karakterláncként. Alapértelmezés: <code>i</code>; a <code>rawRules</code>-ban <code>gi</code> (vagy <code>g</code> a <code>match-case</code> esetén)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "A szabály korábbi vagy későbbi futtatása a szakaszán belül (13. fejezet)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: a <code>rules</code> egyik szabálya referral marketing szabálynak is számít (10. fejezet)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Az azonos nevű szolgáltatói kapcsoló erre az egy szabályra. Felülírja a szolgáltató értékét és a fájl alapértékét."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: a szabály kikapcsolva indul."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Megjegyzés a fájlt olvasóknak; karakterláncnak kell lennie."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Csak az <code>@@…$rawrule=</code> bejegyzéseknél: az általa leállított nyers szabály azonosítója."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Itt a <code>?token=abc123</code> <code>?token=clean-abc123</code> lesz. Az átírás kérésenként legfeljebb egyszer érvényesül, így nem csomagolja újra és újra az értéket."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Az előfeldolgozók sorrendben módosítják a rögzített értékeket, mielőtt a <code>replacePattern</code> vagy egy átirányítás felhasználná őket. Az <code>inputs</code> értéke <code>\"all\"</code> vagy csoportszámok listája:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "A <code>referralMarketing</code> ugyanazokat a bejegyzéseket fogadja, mint a <code>rules</code>. Csak akkor futnak, ha a <em>Referral marketing engedélyezése</em> ki van kapcsolva, így a társult hivatkozások működnek, ha bekapcsolod:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Egy szabály a <code>rules</code> között maradhat, és mégis referral marketingnek számíthat a <code>\"referralMarketing\": true</code> értékkel. Ne tedd ugyanazt a szöveget a <code>rules</code> és a <code>referralMarketing</code> listába is; a szerkesztő figyelmeztet erre."
+  },
+  "guide_request_types_cell_1": {
+    "message": "azok a kéréstípusok, amelyeket egy szabályobjektum kezel (a <code>defaults</code> blokkban is beállítható)"
+  },
+  "guide_request_types_p_1": {
+    "message": "A kéréstípusok a böngésző neveit használják: <code>main_frame</code> (oldal), <code>sub_frame</code> (keret), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> és így tovább. A szűrőmódosítók az első kettőt <code>document</code> és <code>subdocument</code> néven nevezik."
+  },
+  "guide_request_types_p_2": {
+    "message": "A kéréstípusok csak a szabályokból jönnek: a Beállításokban nincs kéréstípus-lista. Ha ezek egyike sincs megadva, a szabály minden kéréstípust megtisztít."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Alapértékek"
+  },
+  "guide_defaults_p_1": {
+    "message": "A legfelső szintű <code>defaults</code> blokk a fájl minden szabályának értéket ad azokhoz, amelyeket maga nem állít be:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Alapérték minden szabály…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; a <code>false</code> minden szabályt kikapcsol, hacsak nem szerepel benne <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; az <code>\"all\"</code> vagy az elhagyása minden típust jelent"
+  },
+  "guide_defaults_item_1": {
+    "message": "A szabály saját értéke mindig elsőbbséget élvez, és a szabály <code>exceptions</code> listája lecseréli az alapértelmezett listát, nem bővíti azt."
+  },
+  "guide_defaults_item_2": {
+    "message": "Az alapértékek a <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> és <code>fieldRedirections</code> bejegyzésekre vonatkoznak. A szolgáltató saját <code>exceptions</code> listáját nem érintik. A <code>$redirect=</code> bejegyzések csak az <code>active</code> értéket használják."
+  },
+  "guide_defaults_item_3": {
+    "message": "Minden fájl megtartja a saját alapértékeit: a beépített szabályok, az egyes távoli listák és az egyéni szabályaid is, akkor is, ha a túlterhelés mód egyesíti őket."
+  },
+  "guide_defaults_item_4": {
+    "message": "Egy <code>completeProvider</code> esetén az alapértelmezett <code>requestTypes</code> és <code>exceptions</code> a blokkolást is korlátozza."
+  },
+  "guide_defaults_item_5": {
+    "message": "Az ismeretlen kulcsok és a hibás típusok hibának számítanak, és az érvénytelen <code>defaults</code> blokkal rendelkező távoli lista elutasításra kerül."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Saját alapértékek"
+  },
+  "guide_defaults_p_2": {
+    "message": "Az egyéni szabályok szerkesztőjében a <em>Szabályok alapértékeinek kezelése</em> egy űrlapot nyit meg, ahol saját <code>defaults</code> blokkot állíthatsz be, és kiválaszthatod, hol írja felül a fájlok sajátjait:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Az egyes források saját alapértékei</em> (alapértelmezett): minden fájl a saját <code>defaults</code> blokkját használja."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>A tieid a beépített és távoli szabályokhoz</em>: a beépített és a távoli szabályok a tiédet használják; az egyéni szabályok megtartják a sajátjukat."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>A tieid az összes szabályhoz</em>: minden szabály a tiédet használja."
+  },
+  "guide_defaults_p_3": {
+    "message": "Ugyanez az űrlap szerkesztheti a beépített szabályok és az egyes betöltött távoli listák alapértékeit. A szerkesztésed a bővítményben tárolódik, nem a fájlban, és a <em>Visszaállítás a fájl alapértékeire</em> elveti azt. Az <em>Egyesítés forrásokból…</em> a bejelölt források alapértékeit kombinálja; mentésig semmi nem tárolódik."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Egy URL feldolgozása"
+  },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, majd <code>fieldRedirections</code>: az érvényes céllal rendelkező találat átirányítja a kérést."
+  },
+  "guide_processing_order_item_2": {
+    "message": "A <code>rules</code> és a <code>referralMarketing</code> eltávolítja vagy átírja a paramétereket."
+  },
+  "guide_processing_order_item_3": {
+    "message": "A <code>$removeparam</code> szűrők lefutnak, kivéve ahol egy <code>@@</code> bejegyzés megtartja a paramétert."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Az első szolgáltató, amely módosítja, átirányítja vagy blokkolja az URL-t, nyer. Az új URL ezután ugyanezeken a lépéseken megy át újra (lásd: <a href=\"#termination\">Mikor áll le a feldolgozás</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Futtatási sorrend és <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "A 4. és 5. lépést együtt rendezi, sorban ezek a szabályok szerint:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>A nyers szabályok mindig először futnak.</strong> Semmilyen <code>order</code> nem tesz egy <code>rules</code> bejegyzést a nyers szabály elé. Az a tisztítás, amelynek a nyers szabály előtt kell megtörténnie, maga is nyers szabály kell legyen."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Egy szakaszon belül az <code>order</code> értékkel rendelkező szabályok a nélkülük levők előtt futnak</strong>, a legkisebbtől kezdve. Negatív számok és törtek megengedettek. Az <code>order: 10</code> nem azt jelenti, hogy \"tizedik\": azt jelenti, hogy a szakasz 10 alatti rendezett szabályai után és az összes rendezetlen szabálya előtt."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Ezután lista szerint:</strong> <code>rules</code>, majd a <code>\"referralMarketing\": true</code> jelölésű <code>rules</code> objektumok, majd a <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Ezután a lista szerinti pozíció.</strong> Minden bejegyzés megtartja a helyét, a <code>\"3\"</code> vagy <code>\"20\"</code> alakú bejegyzéseket is beleértve."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Itt a token átírása az <code>utm_source</code> eltávolítása előtt történik, bár második helyen áll:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "A kikapcsolt szabályok kimaradnak. A <code>$removeparam</code> szűrők és az <code>@@</code> bejegyzések kívül esnek ezen a rendezésen, és nem lehet <code>order</code> értékük, még <code>null</code> sem; a szűrők mindig utoljára futnak."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Ugyanaz a szöveg kétszer"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Egy csoportban két, azonos <code>matchPattern</code> szövegű bejegyzés egy szabálynak számít. A csoportok: nyers (<code>rawRules</code>), mező (a referral-jelölés nélküli <code>rules</code>) és referral (a jelölt <code>rules</code> objektumok, majd a <code>referralMarketing</code>). Ez többnyire a szabálylisták egyesítésekor fordul elő."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Az utolsó nem kikapcsolt definíció nyer, az összes kulcsával együtt."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Saját <code>order</code> nélkül a nyertes az első definíció pozícióját és a legközelebbi korábbi <code>order</code> értéket veszi át. Az <code>\"order\": null</code> azt jelenti, hogy nincs sorrend, és elveti az örökölt értéket."
+  },
+  "guide_processing_order_item_10": {
+    "message": "A lecserélt definíciók azonosítói és aliasai a nyertest is be- és kikapcsolják."
+  },
+  "guide_processing_order_item_11": {
+    "message": "A referral marketing szabályok futása közben a referral bejegyzés lecseréli az azonos szövegű mező bejegyzést."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Az azonos szövegű nyers szabály és mezőszabály nem ütközik; mindkettő fut."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Egy listán belül két különböző, azonos szövegű bejegyzés hiba, a pontos másolat pedig figyelmeztetés."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Mikor áll le a feldolgozás"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Kérésenként legfeljebb 10 ciklus fut le; a korlátnál az URL úgy kerül felhasználásra, ahogy éppen van."
+  },
+  "guide_processing_order_item_14": {
+    "message": "A <code>replacePattern</code> mezővel rendelkező szabály kérésenként legfeljebb egyszer érvényesül."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Az a lépés, amely nem változtatja az URL-t, nem indít új ciklust."
+  },
+  "guide_processing_order_p_7": {
+    "message": "A Beállítások → <em>Korlátlan tisztítási ciklusok</em> (alapból kikapcsolva) feloldja a 10 ciklusos korlátot azoknál a szabályláncok esetén, amelyeknek több kell. A feldolgozás ilyenkor akkor ér véget, ha egy ciklus nem változtat semmit, de két egymásra átirányító szabály addig ismétlődik, amíg a böngésző fel nem adja, és az oldal nem töltődik be. Csak megbízható szabályokhoz kapcsold be."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Szabályazonosítók és be-/kikapcsolók"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Minden szabálynak van azonosítója. Az <code>id</code> nélküli szabály a listájából és a szövegéből kap egyet: a <code>rules</code> listában a <code>\"utm_source\"</code> <code>field-utm-source</code> lesz. A generált azonosító megváltozik, ha a szabály szövege megváltozik, és a kikapcsolt szabály ilyenkor újra bekapcsolna. Adj a szabálynak saját <code>id</code> értéket, ha szerkesztések során meg kell őriznie a be-/kikapcsolt beállítását, és átnevezéskor sorold fel a régi azonosítókat az <code>aliases</code> mezőben."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "A szabályt a szolgáltatója és az azonosítója együtt kapcsolja be és ki, például <code>shop::session-token</code>, így két szolgáltató használhatja ugyanazt az azonosítót. Az egyéni szabályok szerkesztője a szolgáltató mintája alatt is mentheti, például <code>domainPattern:||shop.example^::session-token</code>; mindkét alak működik."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Egy szolgáltatón belül minden azonosítónak és aliasnak különbözőnek kell lennie. A generált azonosítók is számítanak."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Az azonosító nem tartalmazhat kettőspontot."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "A szolgáltató nélkül, puszta azonosító alatt mentett beállítás semmit nem kapcsol; kapcsold ki újra a szabályt az egyéni szabályok szerkesztőjében."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Távoli szabálylisták"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "A távoli szabálylisták olyan szabályfájlok, amelyeket a Linkumori letölt, és opcionálisan hash-fájllal ellenőriz. Az érvénytelen <code>cln</code> értékű, <code>defaults</code> blokkú vagy <code>patches</code> tömbű lista nem töltődik be, és a Távoli szabályok állapota jelzi ezt."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Az átirányításhoz és a blokkoláshoz jóváhagyás kell"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Hogy egy távoli lista mire képes, azt a tartalmából állapítja meg betöltéskor:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Képesség"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "A lista akkor rendelkezik vele, ha tartalmaz"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Betöltéskor aktív"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "egy <code>rules</code>, <code>rawRules</code> vagy <code>referralMarketing</code> bejegyzést, vagy egy <code>$removeparam</code> szűrőt"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "egy <code>replacePattern</code> mezővel rendelkező bejegyzést"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "egy szolgáltatói <code>exceptions</code> bejegyzést vagy egy <code>@@</code> bejegyzést"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "egy <code>redirections</code> vagy <code>fieldRedirections</code> bejegyzést, vagy <code>forceRedirection</code> értéket"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "jóváhagyás után"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "egy <code>\"completeProvider\": true</code> értékű szolgáltatót"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "A <code>redirect</code> és a <code>block</code> jóváhagyása listánként történik a Távoli szabályok állapotánál. Addig az adott lista átirányításai és blokkolásai ki maradnak kapcsolva, nyers szabályai nem küldhetnek URL-t másik webhelyre; a lista többi része azonnal működik. Ha egy frissítés új képességet ad hozzá, az is jóváhagyásra vár. A beépített és az egyéni szabályok minden képességgel rendelkeznek."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Túlterhelés mód"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Általában a szolgáltatókat tartalmazó távoli listák lecserélik a beépített szabályokat; a csak <code>patches</code> mezőt tartalmazó listák a beépített szabályokra kerülnek alkalmazásra. A <em>Túlterhelés mód engedélyezése</em> bekapcsolt állapotában együtt töltődnek be, három stratégia egyikével:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Csak javítómód</em>: a távoli listák javításainak alkalmazása a beépített szabályokra; a távoli szolgáltatók kimaradnak."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Javítómód + egyesítés</em>: a beépített és a távoli szolgáltatók egyesítése, majd a javítások alkalmazása."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Nincs javítómód + egyesítés</em>: a szolgáltatók egyesítése a javítások kihagyásával."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Egyesítéskor a távoli listák a felsorolásod sorrendjében egyesülnek egymással, majd a beépített szabályokkal (a beépített az első). Csak azok a szolgáltatók egyesülnek, amelyeknek azonos a <code>domainPatterns</code> (vagy <code>urlPattern</code>) értéke, valamint a <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> és <code>forceRedirection</code> mezője; a <code>rules</code>, <code>rawRules</code> és <code>referralMarketing</code> listáik összeolvadnak, és az <a href=\"#same-text-twice\">Ugyanaz a szöveg kétszer</a> dönti el, melyik másolat fut. A Távoli szabályok állapota minden lecserélt szabályt megjegyzésként sorol fel."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Az egyéni szabályok alkalmazódnak utoljára. Az egyéni szolgáltató lecseréli az azonos mintájú összes betöltött szolgáltatót; a szabályaik nem kombinálódnak."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Szabályjavítások"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Egy távoli lista a legfelső szintű <code>patches</code> tömbben cserélhet le egyes, már betöltött szabályokat anélkül, hogy teljes másolatot kellene közzétennie:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Kötelező. A lecserélendő szabály, a be-/kikapcsoló kulcsához hasonlóan megadva: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> vagy <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Kötelező. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> vagy <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Kötelező. Az új szabály, egyszerű bejegyzésként vagy szabályobjektumként."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Megjegyzés a fájlt olvasóknak."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "A javítások a távoli listák egyesítése után és az egyéni szabályok előtt futnak. A csak <code>patches</code> mezőt tartalmazó fájlnak nincs szüksége <code>providers</code> mezőre."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Az egyesítés átnevezheti a szolgáltatókat, ezért a <code>domainPattern:</code> vagy <code>urlPattern:</code> alak az, amely mindig megtalálja őket."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "A csere megtartja a régi szabály azonosítóját, vagy a régi azonosítót aliasként veszi át, így a be-/kikapcsolt beállítások tovább érvényesek."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Az átirányításra vonatkozó javítás a lista <code>redirect</code> jóváhagyására vár. Az a javítás, amelynek célja semmire sem illik, nem változtat semmit."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "A Távoli szabályok állapota minden javítást alkalmazottként, nem egyezőként vagy kihagyottként sorol fel."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Szabályok és a fehérlista"
+  },
+  "guide_whitelist_p_1": {
+    "message": "A fehérlista különálló a szolgáltató <code>exceptions</code> mezőjétől: azokat a webhelyeket sorolja fel, amelyeket a Linkumorinak békén kell hagynia, szabályfájl nélkül. A bejegyzések például <code>example.com</code>, <code>*.example.com</code> (a webhely és aldomainjei) vagy <code>example.*</code> (bármely utótag) alakúak. Egy oldal fehérlistára tétele mindenre kiterjed, amit betölt."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Teljes példák"
+  },
+  "guide_checking_title_1": {
+    "message": "18. A szabályok ellenőrzése"
+  },
+  "guide_checking_p_1": {
+    "message": "Az egyéni szabályok szerkesztője mentéskor és importáláskor ellenőrzi a szabályokat, a <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> pedig ugyanezeket az ellenőrzéseket futtatja. A hibás JSON-on és az érvénytelen reguláris kifejezéseken túl elutasítja azokat a szabályokat, amelyek betöltődnének, de csendben rosszul működnének, például:"
+  },
+  "guide_checking_item_1": {
+    "message": "ismeretlen mezők, kulcsok és módosítók"
+  },
+  "guide_check_7": {
+    "message": "az <code>\"1.0\"</code>-tól eltérő <code>cln</code> érték"
+  },
+  "guide_check_8": {
+    "message": "egy szolgáltatón belül kétszer használt azonosító vagy alias"
+  },
+  "guide_checking_item_2": {
+    "message": "két különböző, azonos szövegű bejegyzés egy listában"
+  },
+  "guide_checking_item_3": {
+    "message": "egy <code>$removeparam</code> szűrőn vagy <code>@@</code> bejegyzésen lévő <code>order</code>, a <code>null</code> is"
+  },
+  "guide_check_9": {
+    "message": "nem <code>http</code> vagy <code>https</code> <code>$redirect=</code> cím"
+  },
+  "guide_check_10": {
+    "message": "egy <code>$removeparam</code> névben fordított perjel olyan karakter előtt, amelynek nincs escape-je"
+  },
+  "guide_checking_p_2": {
+    "message": "Figyelmeztetnek a pontos másolatokra, valamint arra is, ha ugyanaz a szöveg a <code>rules</code> és a <code>referralMarketing</code> listában is szerepel. Ha a mentés sikertelen, az üzenet megnevezi a szolgáltatót, a listát és a bejegyzést."
+  },
+  "guide_toc_search": {
+    "message": "Szakaszok szűrése"
+  },
+  "guide_toc_no_results": {
+    "message": "Nincs egyező szakasz."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: a \"|\" jellel kezdődő átirányítás formátuma: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: a $redirect= céljának abszolút http vagy https URL-címnek kell lennie",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ csak objektum lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type csak nem üres karakterlánc lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type csak az alábbiak egyike lehet: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs csak \"all\" vagy pozitív egész számok tömbje lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ csak karakterlánc vagy szabályobjektum lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern csak karakterlánc lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern csak karakterlánc lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId csak szabályazonosító lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "A $WHERE$.targetId csak a rawRules \"@@…$rawrule=\" kivételeire vonatkozik",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags csak karakterlánc lehet (például \"i\" regex-jelző)",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing értéke csak true vagy false lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "A $WHERE$.referralMarketing nincs hatással erre: $FIELD$; csak itt érvényes: $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order csak szám vagy null lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "A $WHERE$.order nincs hatással erre: $FIELD$; csak itt érvényes: $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "A $WHERE$.order nincs hatással a $removeparam szűrőre vagy az \"@@\" bejegyzésre; ezek mindig a többi szabály után futnak",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active csak logikai érték lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id csak karakterlánc lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "A $WHERE$.id értékének illeszkednie kell erre a mintára: $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "A $WHERE$.aliases csak a $PATTERN$ mintára illeszkedő azonosítók listája lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "A $WHERE$.aliases nem tartalmazhatja a szabály saját azonosítóját",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description csak karakterlánc lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection csak logikai érték lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions csak karakterláncok tömbje lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes csak karakterláncok tömbje lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors csak tömb lehet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: ismeretlen mező: \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "A $WHERE$ \"@@\" jellel kezdődik, ez viszont csak a rules és referralMarketing $removeparam szűrőire érvényes; használd helyette a szabályobjektum \"exceptions\" mezőjét",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "A $WHERE$ ismeretlen $removeparam beállítást tartalmaz: \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: a \"$PATTERN$\" egyetlen \"|\" jellel kezdődik, ezért csak a szó szerint \"$REST$\" szöveggel kezdődő URL-címekre illeszkedik, ilyen pedig nincs (az URL-címek \"https://\" kezdetűek). A domain illesztéséhez használd ezt: \"||$REST$\".",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "A $WHERE$ \"targetId\" mezőt tartalmaz, amely csak kivételnél használható; a matchPattern mezőt kezdd ezzel: \"@@\" (például: \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "A $WHERE$ a \"targetId\" mezőt és a \"rawrule=\" utáni regexet is tartalmazza; csak az egyiket használd",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "A $WHERE$ \"$ID$\" targetId értéket tartalmaz, de a szolgáltató egyik nyers szabályának sincs ilyen azonosítója vagy aliasa",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "A $WHERE$ a \"$REGEX$\" regexhez tartozó \"@@\" kivétel, de a szolgáltató egyik nyers szabálya sem használja ezt a regexet. Adj azonosítót a szabálynak, és hivatkozz rá a \"targetId\" mezővel",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "A $WHERE$ \"@@\" kivétel, ezért a \"$KEY$\" nem fejtene ki hatást",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "A $WHERE$ mezőben nincs semmi a \"rawrule=\" után; meg kell adni a törlendő regexet",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "A $WHERE$ mezőben érvénytelen regex szerepel a \"rawrule=\" után: $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "A $WHERE$ $GROUPS$ rögzítőcsoportot tartalmaz; pontosan egy \"( … )\" csoportnak kell körülvennie a cél URL-címét (a többi csoportot így írd: \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "A $PROVIDER$ ismételten használja a \"$ID$\" szabályazonosítót itt: $WHERE$; először itt szerepelt: $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "A $PROVIDER$ csak JSON-objektum lehet",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "A $PROVIDER$ esetén a $FIELD$ csak tömb lehet",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "A $WHERE$ ismeretlen kulcsot tartalmaz: \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Hiba az URL feldolgozásakor: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Hiba az oldal inicializálásakor: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Érvénytelen lap"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Már fut egy szabálykeresés ezen a lapon"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Ezen a lapon nem fut szüneteltetési ellenőrzés"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "A szabályok betöltése még folyamatban van. Próbáld újra egy kis idő múlva."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Az oldalon futó szabályok közül egyiket sem lehet kikapcsolni."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Nem sikerült kikapcsolni a szabályokat"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Nem fut szabálykeresés ezen a lapon"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Nincs kihagyható, megtalált szabály ezen a lapon"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "A letöltés nem érhető el"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Nem sikerült menteni a rögzítést a munkamenet tárhelyére"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Ismeretlen szabály"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "ismeretlen hiba"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "az exportálás nem sikerült"
   }
 }

@@ -559,7 +559,7 @@ function pushToLog(beforeProcessing, afterProcessing, rule, providerMatch = null
 async function startTabTroubleshooterCapture(tabId) {
     await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
-    if (!Number.isInteger(id) || id < 0) return { success: false, error: 'Invalid tab' };
+    if (!Number.isInteger(id) || id < 0) return { success: false, error: translate('troubleshooter_error_invalid_tab') || 'Invalid tab' };
     const now = Date.now();
     linkumoriTroubleshooterCaptures.delete(id);
     linkumoriTroubleshooterCaptures.set(id, {
@@ -580,7 +580,7 @@ async function startTabTroubleshooterCapture(tabId) {
     if (!saved) {
         linkumoriTroubleshooterCaptures.delete(id);
         await persistTroubleshooterCapture(id);
-        return { success: false, error: 'Could not save the recording in session storage' };
+        return { success: false, error: translate('troubleshooter_error_capture_save_failed') || 'Could not save the recording in session storage' };
     }
     return {
         success: true,
@@ -594,7 +594,7 @@ async function startTabTroubleshooterCapture(tabId) {
 async function clearTabTroubleshooterCapture(tabId) {
     await linkumoriTroubleshooterCaptureSessionReady;
     const id = Number(tabId);
-    if (!Number.isInteger(id) || id < 0) return { success: false, error: 'Invalid tab' };
+    if (!Number.isInteger(id) || id < 0) return { success: false, error: translate('troubleshooter_error_invalid_tab') || 'Invalid tab' };
     linkumoriTroubleshooterCaptures.delete(id);
     linkumoriTroubleshooterCaptureStorageFailures.delete(id);
     await persistTroubleshooterCapture(id);

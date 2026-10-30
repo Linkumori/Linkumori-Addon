@@ -39,7 +39,7 @@
     "message": "Gebruik de gebundelde Linkumori/ClearURLs-regels. Schakel dit uit om alleen met externe en/of aangepaste regels te werken."
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori gebruikt één uniforme ClearURLsData-aanbiedersregelset. Native aanbieder-JSON, canonieke regelobjecten en aanbiederlokale $removeparam-filters worden samengevoegd voordat clearurls.js wordt uitgevoerd."
   },
   "bundled_rules_section_title": {
     "message": "Regelinformatie"
@@ -1008,7 +1008,7 @@
     "message": "Weet u zeker dat u het logboek wilt resetten? Deze actie kan niet ongedaan worden gemaakt."
   },
   "log_nav_dashboard": {
-    "message": "Dashboard"
+    "message": "Overzicht"
   },
   "log_nav_logs": {
     "message": "Logboeken"
@@ -1137,25 +1137,25 @@
     "message": "Linkumori-instellingen openen"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
+    "message": "Gedrag van overbelastingsmodus"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only"
+    "message": "Alleen patchmodus"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
+    "message": "Pas externe patches toe op ingebouwde regels. Externe aanbiederregels worden niet meegenomen."
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
+    "message": "Patchmodus + samenvoegen"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
+    "message": "Voeg ingebouwde en externe aanbiederregels samen en pas daarna externe patches toe."
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
+    "message": "Geen patchmodus + samenvoegen"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
+    "message": "Voeg ingebouwde en externe aanbiederregels samen zonder externe patches toe te passen."
   },
   "overload_mode_enabled": {
     "message": "Overbelastingsmodus inschakelen"
@@ -1632,7 +1632,13 @@
     "message": "Volledig"
   },
   "providerList_confirmDelete": {
-    "message": "Weet u zeker dat u aanbieder \"$1\" wilt verwijderen?"
+    "message": "Weet u zeker dat u aanbieder \"$1\" wilt verwijderen?",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
   },
   "providerList_copySuffix": {
     "message": "Kopie"
@@ -1830,7 +1836,7 @@
     "message": "Primaire hash-URL moet HTTPS gebruiken"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "De primaire regel-URL en de primaire hash-URL moeten samen worden ingesteld."
   },
   "save_primary_rule_https_required": {
     "message": "Primaire regel-URL moet HTTPS gebruiken"
@@ -1866,13 +1872,13 @@
     "message": "Ik begrijp de risico's - Doorgaan"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "U moet heroverwegen om externe regels te gebruiken als u de bron van de Linkumori-regelset niet volledig begrijpt of vertrouwt."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Deze functie voor externe regels is bedoeld voor geavanceerde gebruikers die begrijpen welke Linkumori-JSON ze laden. Externe regels moeten een bijbehorende hash-URL bevatten voor verificatie."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Als u een URL voor externe regels toevoegt, maakt de extensie verbinding met uw aangewezen server om de Linkumori-regelset en het bijbehorende hashbestand op te halen wanneer dit is geconfigureerd. Bij elke ophaalactie kunnen uw IP-adres en algemene informatie zoals de extensieversie, de browser en de browserversie worden blootgesteld aan de hostingserver. Deze gegevens vallen onder het privacybeleid van die website of webserver."
   },
   "security_modal_privacy_link_text": {
     "message": "Lees indien nodig de %PRIVACY_POLICY_LINK% opnieuw voordat u doorgaat."
@@ -1881,7 +1887,7 @@
     "message": "privacykennisgeving:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Gebruik ingebouwde regels, tenzij u de externe bron vertrouwt en beheert. Geef een bijbehorende hash-URL op voor externe Linkumori-JSON-regels."
   },
   "security_modal_risk_1": {
     "message": "Uw IP-adres en browserinformatie worden blootgesteld aan de geconfigureerde servers"
@@ -1893,7 +1899,7 @@
     "message": "Hashverificatie is alleen van toepassing op Linkumori CLN Format 1.0 JSON-regels; het beschermt tegen manipulatie van de transmissie, niet tegen kwaadaardige regelbronnen."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Externe regels zonder geslaagde hashverificatie zijn volledig afhankelijk van het vertrouwen in de bron-URL."
   },
   "security_modal_risks_title": {
     "message": "Beveiligingsrisico's:"
@@ -1908,7 +1914,7 @@
     "message": "De URL van het rules.hash-bestand (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Vereist voor verificatie van externe Linkumori-JSON-regels."
   },
   "setting_html_export_button": {
     "message": "Exporteren"
@@ -1938,7 +1944,7 @@
     "message": "Logboeklimiet (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Extra externe Linkumori-JSON-bronnen die samen worden samengevoegd. Voer één paar per regel in als <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Extra externe regelsets"
@@ -1947,13 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Aangepaste externe URL voor Linkumori-JSON-regels"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "De URL naar het externe JSON-bestand met regels"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "Een hash-URL is vereist voor elke externe regelset."
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) instellingen"
@@ -2415,19 +2421,19 @@
     "message": "WAARSCHUWING: Geavanceerde functie uitsluitend bedoeld voor zelfgehoste servers"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "U schakelt de Gatekeeper-beveiliging uit voor het bewerken van URL's voor externe regels. Deze functie kan externe Linkumori-JSON-regels laden in de uniforme aanbiedersregelset. Ga alleen verder als u de bron die u configureert begrijpt en vertrouwt."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper is de ingebouwde veiligheidsstroom die directe bewerkingen van externe URL's blokkeert totdat u de veiligheidswaarschuwing erkent en de getypte bevestiging hebt voltooid."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Laat Gatekeeper ingeschakeld, tenzij u uw externe bronnen vertrouwt en beheert. Externe JSON-regels moeten een bijbehorende hash-URL bevatten."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "privacykennisgeving:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Als u een URL voor externe regels toevoegt, maakt de extensie verbinding met uw aangewezen server om de Linkumori-regelset en het bijbehorende hashbestand op te halen wanneer dit is geconfigureerd. Bij elke ophaalactie kunnen uw IP-adres en algemene informatie zoals de extensieversie, de browser en de browserversie worden blootgesteld aan de hostingserver. Deze gegevens vallen onder het privacybeleid van die website of webserver."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Lees indien nodig de %PRIVACY_POLICY_LINK% opnieuw voordat u doorgaat."
@@ -2442,7 +2448,7 @@
     "message": "De extensie zal elke keer dat de extensie is ingeschakeld en geladen in uw browser verbinding maken met de door u opgegeven URL."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "De server die externe JSON- of hashbestanden host, ontvangt uw IP-adres."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "De server kan ook uw extensieversie, browser en browserversie ontvangen."
@@ -2451,7 +2457,7 @@
     "message": "Die gegevens zijn onderworpen aan het privacybeleid van de website of webserver die die bestanden host."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Door Gatekeeper uit te schakelen vergroot u het risico van onveilige of gecompromitteerde bronnen voor externe regels. Hashverificatie beschermt downloads van externe Linkumori-JSON alleen wanneer een bijbehorende hash-URL is geconfigureerd."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Annuleren"
@@ -2511,7 +2517,7 @@
     "message": "Typ exacte bevestigingszin"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Deze actie vermindert de beveiliging voor externe regels. Ga alleen verder als u uw externe JSON-bron vertrouwt."
   },
   "remote_urls_template_note_1": {
     "message": "Vervang de plaatsaanduidingswaarden door uw echte HTTPS-URL's en importeer dit bestand."
@@ -2841,10 +2847,10 @@
     "message": "Geen"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Regelconflicten:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ fouten, $WARNINGS$ waarschuwingen, $NOTICES$ meldingen",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2861,10 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Mogelijkheden van extern bestand:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inactief tot geaccepteerd: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2873,7 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "$CAPABILITIES$ accepteren",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2882,10 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Regelpatches:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ toegepast, $NOT_APPLIED$ niet toegepast",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2898,31 +2904,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Standaardwaarden voor regels"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Ingebouwd"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Aangepast"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Geen — ingebouwd gedrag"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "De overbelastingsmodus voegt ingebouwde en externe regels samen; de regels van elke bron behouden de eigen standaardwaarden van die bron."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Standaardwaarden opslaan"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Standaardwaarden opgeslagen"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "Indien ingeschakeld behoudt elke regelbron zijn eigen standaardwaarden (ingebouwde standaardwaarden gelden voor ingebouwde regels, en de standaardwaarden van elk extern bestand voor de regels van dat bestand), tenzij u in de editor voor aangepaste regels uw eigen standaardwaarden kiest."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Extern: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2931,25 +2937,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Welke standaardwaarden gelden"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Die van elke bron zelf"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Uw waarden voor ingebouwde en externe regels"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Uw waarden voor alle regels"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(vervangen door uw standaardwaarden)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Die van u"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ aanvraagtypen",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2958,7 +2964,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-uitzonderingen",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2967,10 +2973,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-uitzondering"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ voorbewerkers",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2979,82 +2985,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "De regels van elke bron krijgen de eigen standaardwaarden van die bron."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Ingebouwde en externe regels krijgen uw standaardwaarden in plaats van die van hun eigen bestanden; aangepaste regels behouden hun eigen waarden."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Ingebouwde, externe en aangepaste regels krijgen allemaal uw standaardwaarden in plaats van hun eigen."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Standaardwaarden voor regels beheren"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Standaardwaarden vullen waarden in die een regel zelf niet instelt. De eigen waarde van een regel gaat altijd voor, en uitzonderingen van de aanbieder worden nooit gewijzigd."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Standaardwaarden bewerken"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Uw standaardwaarden"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Standaardwaarden van aangepaste regels"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Te bewerken standaardwaarden"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Ingebouwde regels"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(bewerkt)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Terugzetten naar de standaardwaarden van het bestand"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Samenvoegen uit bronnen…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Standaardwaarden voor regels samenvoegen"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Het resultaat verschijnt als \"Samengevoegde standaardwaarden\" in de lijst. Kopieer het daar naar een set en druk daarna op Standaardwaarden opslaan om het te gebruiken."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Samen te voegen bronnen"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Conflicten"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Samengevoegde standaardwaarden"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Samengevoegde standaardwaarden gebruiken"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Samengevoegde standaardwaarden"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Niet in gebruik totdat u het naar een van de andere sets kopieert en opslaat."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopiëren naar"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopiëren"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Kies minstens twee bronnen."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Geen conflicten: de gekozen bronnen komen voor elke waarde overeen."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Uitzonderingen van alle bronnen worden bij elkaar opgeteld: $COUNT$ in totaal.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3063,10 +3069,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Gecombineerd uit alle bronnen"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Van: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3075,73 +3081,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Niet ingesteld (ingebouwd gedrag)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Niet ingesteld: alle aanvraagtypen"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Momenteel niet in gebruik: uw standaardwaarden vervangen die van de ingebouwde en externe regels."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Door u bewerkt: deze vervangen de eigen standaardwaarden van het bestand. Het bestand zelf wordt niet gewijzigd."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(door u bewerkt)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Momenteel niet in gebruik: hierboven is \"Die van elke bron zelf\" gekozen."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Momenteel niet in gebruik: uw standaardwaarden vervangen deze ook voor aangepaste regels."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Regels starten uitgeschakeld (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Beschrijving"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Aanvraagtypen"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Alle typen"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Alleen deze"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Kies minstens één aanvraagtype, of selecteer \"Alle typen\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Regels schonen elk aanvraagtype op, tenzij zij of de standaardwaarden er een aantal noemen. Aanbieders kunnen typen ook beperken met resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Uitzonderingen"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Eén URL-regex per regel. Regels worden overgeslagen bij overeenkomende URL's."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Voorbewerkers"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Invoer: \"all\", of nummers van capturegroepen zoals 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Preprocessor toevoegen"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Type preprocessor"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Invoer van preprocessor"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Verwijderen"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Invoer van preprocessor \"$INPUTS$\" moet \"all\" zijn of nummers zoals 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3150,10 +3156,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Bescherming tegen omzeilen van geschiedenis uitschakelen (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Weergeven als JSON"
   },
   "settings_remote_health_unknown": {
     "message": "onbekend"
@@ -3351,7 +3357,7 @@
     "message": "Inzendingen filteren…"
   },
   "logger_tab_filter_label": {
-    "message": "Tab"
+    "message": "Tabblad"
   },
   "logger_tab_all": {
     "message": "Alle tabbladen"
@@ -3667,7 +3673,7 @@
     "message": "Annuleer"
   },
   "urlPreviewProceedButton": {
-    "message": "Open GitHub"
+    "message": "GitHub openen"
   },
   "urlPreviewSecurityNotice": {
     "message": "Deze URL leidt u door naar GitHub. Uw gegevens zijn onderworpen aan $link$ zodra ze worden doorgestuurd.",
@@ -3831,7 +3837,7 @@
     "message": "Een gewone naam is van toepassing op elke URL die de Aanbieder matcht. Om een parameter slechts op enkele daarvan te verwijderen, plaatst u een patroon vóór een <code>$removeparam</code>-filter:"
   },
   "guide_rp_title": {
-    "message": "5. $removeparam filters"
+    "message": "5. $removeparam-filters"
   },
   "guide_rp_p1": {
     "message": "Een <code>$removeparam</code> filter heeft deze vorm; de delen tussen haakjes zijn optioneel:"
@@ -3912,13 +3918,13 @@
     "message": "Met <code>replacePattern</code> behoudt een regel in <code>rules</code> de parameter en vervangt de waarde ervan, wat <code>§1§</code> is. In <code>rawRules</code> en <code>redirections</code> zijn <code>§1§</code>, <code>§2§</code>, … de capture-groepen:"
   },
   "guide_obj_pre_title": {
-    "message": "Preprocessors"
+    "message": "Voorbewerkers"
   },
   "guide_obj_p4": {
     "message": "De typen zijn <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> en <code>base64Decode</code>."
   },
   "guide_ref_title": {
-    "message": "10. Referral marketing"
+    "message": "10. Verwijzingsmarketing"
   },
   "guide_req_title": {
     "message": "11. Methoden en aanvraagtypen"
@@ -4011,10 +4017,10 @@
     "message": "Provider JSON Gids"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
+    "message": "Linkumori-regelgids openen"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
+    "message": "Welke regelsyntaxis moet ik gebruiken?"
   },
   "faq_rules_guide_syntax_answer": {
     "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
@@ -4023,25 +4029,25 @@
     "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
+    "message": "Regelgids openen"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
+    "message": "Aanbiedersbronnen laden mislukt: $1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
+    "message": "Gebundelde regels zijn niet beschikbaar."
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
+    "message": "Gebundelde regels laden mislukt: $1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1."
+    "message": "Taal wijzigen naar $1 is mislukt."
   },
   "theme_light": {
-    "message": "Light theme"
+    "message": "Licht thema"
   },
   "theme_dark": {
-    "message": "Dark theme"
+    "message": "Donker thema"
   },
   "posarCopied": {
     "message": "POSAR gekopieerd!"
@@ -4065,100 +4071,100 @@
     "message": "POSAR geaccepteerd."
   },
   "button_reset": {
-    "message": "Reset"
+    "message": "Opnieuw instellen"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools"
+    "message": "Toegankelijkheidshulpmiddelen"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
+    "message": "Toegankelijkheidshulpmiddelen openen"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
+    "message": "Toegankelijkheidshulpmiddelen sluiten"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
+    "message": "Alle toegankelijkheidsinstellingen opnieuw instellen"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision"
+    "message": "Zicht"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading"
+    "message": "Lezen"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction"
+    "message": "Interactie"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
+    "message": "Hoog contrast"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter"
+    "message": "Kleurfilter"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation"
+    "message": "Verzadiging"
   },
   "accessibility_tools_invert": {
-    "message": "Invert"
+    "message": "Inverteren"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
+    "message": "Links markeren"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images"
+    "message": "Afbeeldingen verbergen"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
+    "message": "Tekst vergroten"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
+    "message": "Tekst verkleinen"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
+    "message": "Standaardtekengrootte"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection"
+    "message": "Lettertype kiezen"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
+    "message": "Dyslexievriendelijk"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
+    "message": "Tekstafstand"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height"
+    "message": "Regelhoogte"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align"
+    "message": "Tekstuitlijning"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
+    "message": "Animaties pauzeren"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
+    "message": "Grotere cursor"
   },
   "accessibility_tools_value_default": {
-    "message": "Default"
+    "message": "Standaard"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium"
+    "message": "Gemiddeld"
   },
   "accessibility_tools_value_high": {
-    "message": "High"
+    "message": "Hoog"
   },
   "accessibility_tools_value_ultra": {
     "message": "Ultra"
   },
   "accessibility_tools_value_low": {
-    "message": "Low"
+    "message": "Laag"
   },
   "accessibility_tools_value_none": {
-    "message": "None"
+    "message": "Geen"
   },
   "accessibility_tools_value_light": {
-    "message": "Light"
+    "message": "Licht"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy"
+    "message": "Zwaar"
   },
   "accessibility_tools_value_2x": {
     "message": "2x"
@@ -4179,49 +4185,49 @@
     "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
+    "message": "Geen filter"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
+    "message": "Protanopie"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
+    "message": "Deuteranopie"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
+    "message": "Tritanopie"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
+    "message": "Grijstinten"
   },
   "accessibility_tools_value_left": {
-    "message": "Left"
+    "message": "Links"
   },
   "accessibility_tools_value_center": {
-    "message": "Center"
+    "message": "Midden"
   },
   "accessibility_tools_value_right": {
-    "message": "Right"
+    "message": "Rechts"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
+    "message": "Extra klein"
   },
   "accessibility_tools_value_small": {
-    "message": "Small"
+    "message": "Klein"
   },
   "accessibility_tools_value_large": {
-    "message": "Large"
+    "message": "Groot"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
+    "message": "Extra groot"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest"
+    "message": "Grootst"
   },
   "accessibility_tools_value_on": {
-    "message": "On"
+    "message": "Aan"
   },
   "accessibility_tools_value_off": {
-    "message": "Off"
+    "message": "Uit"
   },
   "accessibility_tools_control_status": {
     "message": "$1: $2"
@@ -4230,15 +4236,2227 @@
     "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled"
+    "message": "ingeschakeld"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled"
+    "message": "uitgeschakeld"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
+    "message": "Standaardtekengrootte geselecteerd"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+    "message": "Alle toegankelijkheidsinstellingen opnieuw ingesteld"
+  },
+  "skip_to_main_content": {
+    "message": "Naar hoofdinhoud gaan"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigatie in pop-up"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Weergaven van aangepaste regels"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Logweergaven"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Bescherming tegen omzeilen van geschiedenis (overslaan bij navigatie binnen de pagina)"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Veldomleidingen"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Regel kopiëren"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regel gekopieerd"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Kon de regel niet kopiëren"
+  },
+  "faq_history_bypass_protection": {
+    "message": "Wat doet historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Single-page-sites wijzigen het adres vaak met history.pushState/replaceState in plaats van een nieuwe pagina te laden. Linkumori schoont die adressen ook op. Voeg history-bypass-protection=false toe aan een $removeparam-filter om alleen dat filter over te slaan bij deze wijzigingen binnen de pagina; het blijft werken bij normale verzoeken."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "Om een hele aanbieder over te slaan bij wijzigingen binnen de pagina, stelt u dit in op de aanbieder:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Indien weggelaten is de waarde true en worden wijzigingen binnen de pagina opgeschoond. De eigen instelling van een regel gaat voor die van de aanbieder, dus een regel kan zich weer aanmelden met history-bypass-protection=true, of \"historyBypassProtection\": true in een regelobject."
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Slaat navigatie op pagina over"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "ID hernoemen"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nieuwe id voor $OLD$ (a-z, 0-9, - en _). De oude id blijft behouden als alias, zodat regels die eronder zijn uitgeschakeld uitgeschakeld blijven.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" is geen geldige id. Gebruik kleine letters, cijfers, - en _, beginnend met een letter of cijfer.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "Een andere regel van deze aanbieder gebruikt al \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Regel uitschakelen"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "$ID$ uitschakelen voor de hele aanbieder, of alleen voor dit URL-/domeinpatroon?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Mijn aanbieder"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-/domeinpatroon"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Regel-id hernoemd naar $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Verweesde schakelaars"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Geen overeenkomende regel gevonden in de bron"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Verwijderen"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Slaat opschonen bij navigatie binnen de pagina over"
+  },
+  "whitelist_added_general": {
+    "message": "%s toegevoegd aan algemene witte lijst"
+  },
+  "whitelist_added_history_api": {
+    "message": "%s toegevoegd als History API-uitzondering"
+  },
+  "whitelist_exception_count": {
+    "message": "%d uitzondering(en)"
+  },
+  "whitelist_exception_empty": {
+    "message": "Geen uitzonderingen op de witte lijst"
+  },
+  "whitelist_mode_general": {
+    "message": "Algemene witte lijst"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Alleen History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Bereik van witte lijst"
+  },
+  "whitelist_removed_general": {
+    "message": "%s verwijderd van algemene witte lijst"
+  },
+  "whitelist_removed_history_api": {
+    "message": "History API-uitzondering voor %s verwijderd"
+  },
+  "whitelist_type_general": {
+    "message": "Algemeen"
+  },
+  "whitelist_type_history_api": {
+    "message": "Alleen History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "$1 toevoegen aan algemene witte lijst"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Algemene witte lijst: $1 - klik voor alleen History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API-uitzondering: $1 - klik voor alleen dit tabblad"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Alleen tabblad: $1 - klik om te verwijderen"
+  },
+  "logger_action_allowed": {
+    "message": "Toegestaan"
+  },
+  "logger_action_blocked": {
+    "message": "Geblokkeerd"
+  },
+  "logger_action_filter_label": {
+    "message": "Actie"
+  },
+  "logger_action_info": {
+    "message": "Info"
+  },
+  "logger_action_modified": {
+    "message": "Gewijzigd"
+  },
+  "logger_action_redirected": {
+    "message": "Omgeleid"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Samenvatting kopiëren"
+  },
+  "logger_btn_export": {
+    "message": "Exporteren"
+  },
+  "logger_btn_group": {
+    "message": "Groeperen op regel"
+  },
+  "logger_col_hits": {
+    "message": "Treffers"
+  },
+  "logger_col_last_seen": {
+    "message": "Laatst gezien"
+  },
+  "logger_detail_group_title": {
+    "message": "Regeldetails"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL's ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Tabbladen"
+  },
+  "logger_exported": {
+    "message": "$1 vermeldingen geëxporteerd."
+  },
+  "logger_filter_all": {
+    "message": "Alle"
+  },
+  "logger_report_rule": {
+    "message": "Melden"
+  },
+  "logger_rule_disable": {
+    "message": "Regel uitschakelen"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Regel $1 uitgeschakeld. Laad de pagina opnieuw om te controleren."
+  },
+  "logger_rule_enable": {
+    "message": "Regel inschakelen"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Regel $1 weer ingeschakeld."
+  },
+  "logger_rule_failed": {
+    "message": "Kon de regel niet wijzigen."
+  },
+  "logger_rule_off": {
+    "message": "Regel is uitgeschakeld"
+  },
+  "logger_rule_on": {
+    "message": "Regel is ingeschakeld"
+  },
+  "logger_rule_unavailable": {
+    "message": "Deze regel kan hier niet worden in- of uitgeschakeld."
+  },
+  "logger_status_rules": {
+    "message": "$1 regel(s)"
+  },
+  "logger_summary_copied": {
+    "message": "Samenvatting gekopieerd."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Kon de samenvatting niet kopiëren."
+  },
+  "logger_type_filter_label": {
+    "message": "Type"
+  },
+  "logger_btn_logging_off": {
+    "message": "Loggen uit"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Loggen staat uit. Klik om het in te schakelen."
+  },
+  "logger_btn_logging_on": {
+    "message": "Loggen aan"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Loggen staat aan. Klik om het uit te schakelen."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Kon de logginginstelling niet wijzigen."
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "Referralregel toevoegen"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Uitzondering voor ruwe regel toevoegen"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Veldomleiding toevoegen"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Uitzondering toevoegen"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Elk sjabloon voegt een regelobject toe met een id en een tijdelijke matchPattern op example.com. Een invoer kan ook een gewone tekenreeks zijn: een parameternaam, een naam-regex, een $removeparam-filter of, in rawRules, een regex. Regelobjecten accepteren id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description en targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Codecontrole"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Geen problemen gevonden."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Fout"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Waarschuwing"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ fout(en), $WARNINGS$ waarschuwing(en)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Uitvoervolgorde"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ stap(pen), in de volgorde waarin ze worden uitgevoerd",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Geen rawRules-, rules- of referralMarketing-invoeren"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Door de engine bepaald op basis van de tekst hierboven, opgeslagen of niet. Stappen worden gesorteerd op (stage, orderGroup, order, rank, arrayIndex): ruwe regels worden vóór veldregels uitgevoerd; binnen een fase worden invoeren met een order eerst uitgevoerd, de laagste eerst, daarna de rest op lijst en positie."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Referralmarketing"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Referral verwijderd"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Referral toegestaan"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Ruw"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Veld"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Verwijzing"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(gegenereerd)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "herschrijft"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "vervangt $COUNT$ eerdere definitie(s)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "toegevoegd door completeProvider: verwijdert elke parameter"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Uitgeschakeld"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Uit voor sommige patronen"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Sorteersleutel: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Daarna $FILTERS$ $removeparam-filter(s) en $EXCEPTIONS$ @@-uitzondering(en), na elke stap hierboven",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule=-uitzondering(en) kunnen ruwe regels hierboven stoppen waar ze overeenkomen",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Sleep een stap, of gebruik de pijlen, om deze binnen de fase te verplaatsen. Bij het verplaatsen krijgt elke invoer van die fase in de nieuwe volgorde een order van 10, 20, 30, …"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Schakel over naar Referral verwijderd om te herschikken: die weergave toont elke invoer."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Slepen om te verplaatsen"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "$ENTRY$ eerder plaatsen",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "$ENTRY$ later plaatsen",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "$ENTRY$ verplaatst naar positie $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Verplaatsing ongedaan maken"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Verplaatsing ongedaan gemaakt"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simuleren"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Voert deze aanbieder uit op een URL zoals bij het opschonen van een gekopieerde link, met de regels die u hebt uitgeschakeld en de keuze voor verwijzingsmarketing hierboven. Na elke stap wordt de URL getoond. Andere aanbieders worden niet uitgevoerd. Met Test-URL genereren wordt een URL gemaakt op basis van de eigen regels van deze aanbieder."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Test-URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Uitvoeren"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Door de simulatie stappen"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Begin"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Vorige"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Volgende"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Einde"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Afspelen"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pauzeren"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "De URL vóór een stap"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "$PASS$ · stap $STEP$ van $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "geen wijziging"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam-filters"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "$PASS$ verandert niets, dus het opschonen stopt",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Deze aanbieder stopt hier: de cycluslimiet is bereikt, de URL is teruggekeerd naar een eerdere waarde of komt niet meer overeen met de aanbieder"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "$PASS$ leidt om; het opschonen gaat op het nieuwe adres verder met elke aanbieder",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "De aanbieder blokkeert dit verzoek (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Resultaat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "De patronen van deze aanbieder komen niet overeen met deze URL, dus geen van de regels wordt uitgevoerd."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Deze URL komt overeen met een uitzondering van de aanbieder, dus geen van de regels wordt uitgevoerd."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Voer een volledige http://- of https://-URL in."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "De simulatie kon niet worden uitgevoerd. Controleer de JSON hierboven."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Test-URL genereren"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Gemaakt op basis van de regels van deze aanbieder: tekst voor $RAW$ onbewerkte regel(s) en $PARAMS$ parameter(s), elk gecontroleerd aan de hand van de bijbehorende regel. keep=1 komt met geen enkele regel overeen en moet blijven staan. Omleidingen en blokkeringen zijn niet opgenomen, omdat ze de uitvoering vóór de andere regels beëindigen.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Er kon geen host worden gemaakt die overeenkomt met de patronen van deze aanbieder. Daarom gebruikt de URL een andere host en wordt de aanbieder daarop niet uitgevoerd."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Elke URL die overeenkomt met de patronen van deze aanbieder valt onder een van de eigen uitzonderingen; daarom worden de regels nooit uitgevoerd."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ regel(s) niet opgenomen in de test-URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "Er kon geen tekst worden gemaakt die overeenkomt"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "De tekst zou overeenkomen met een uitzondering van de aanbieder"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "De filter verwijdert elke parameter, dus er is geen eigen parameter nodig"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Deze aanbieder heeft een $removeparam-filter zonder naam. Daardoor worden alle parameters verwijderd, ook keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "geen order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "volgorde $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Ordernummers herstellen"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Zet alle ordernummers terug zoals ze waren toen u deze aanbieder opende"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Ordernummers hersteld"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Verbergen"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Tonen"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Waarschuwingen wissen"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Waarschuwingen herstellen"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ waarschuwing(en) gewist",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern zonder indexPattern wordt met elke URL gecontroleerd; voeg indexPattern-aanwijzingen toe, zoals \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ bevat nog steeds \"$ENTRY$\"; deze kopie doet niets en beide delen één id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ bevat nog steeds de sjabloonplaceholder \"$PATTERN$\"; vervang deze door het echte patroon",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ heeft matchPattern \"(?!)\", dat nooit ergens mee overeenkomt",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "Problemen oplossen"
+  },
+  "troubleshooter_launch": {
+    "message": "Problemen met dit tabblad oplossen (experimenteel)"
+  },
+  "troubleshooter_title": {
+    "message": "Tabbladprobleemoplosser"
+  },
+  "troubleshooter_page": {
+    "message": "Pagina"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Hoe opnemen werkt"
+  },
+  "troubleshooter_about_note": {
+    "message": "Bij het openen van deze weergave kan de pagina-URL worden gecontroleerd, maar er wordt niets opgenomen. Opnemen blijft uit totdat u Opname starten kiest. Daarna wordt dit tabblad opnieuw geladen om de netwerkverzoeken vast te leggen. Vastgelegde URL’s blijven in de sessieopslag van deze browsersessie en worden gewist wanneer dit tabblad wordt gesloten of de browsersessie eindigt. De opname stopt na 15 minuten, tenzij u eerder stopt. URL’s van bronnen kunnen privégegevens in queryparameters bevatten."
+  },
+  "troubleshooter_start": {
+    "message": "Opname starten"
+  },
+  "troubleshooter_starting": {
+    "message": "Wordt gestart…"
+  },
+  "troubleshooter_recording": {
+    "message": "Neemt op…"
+  },
+  "troubleshooter_stop": {
+    "message": "Opname stoppen"
+  },
+  "troubleshooter_refresh": {
+    "message": "Vernieuwen"
+  },
+  "troubleshooter_copy": {
+    "message": "Samenvatting kopiëren"
+  },
+  "troubleshooter_export": {
+    "message": "Exporteren"
+  },
+  "troubleshooter_export_title": {
+    "message": "Sla de opname op als JSON-bestand. URL’s van bronnen kunnen privégegevens in queryparameters bevatten."
+  },
+  "troubleshooter_category": {
+    "message": "Categorie"
+  },
+  "troubleshooter_category_all": {
+    "message": "Alle categorieën"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-regels"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Omleidingen"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Bescherming en omzeilingen"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Bronsoort"
+  },
+  "troubleshooter_type_all": {
+    "message": "Alle bronsoorten"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Regels, aanbieders en URL’s zoeken"
+  },
+  "troubleshooter_timer": {
+    "message": "Opname $1 · nog $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Dit tabblad controleren…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Er is geen actief tabblad beschikbaar."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Op deze pagina kunnen geen URL-regels worden gescand. Open een gewone http- of https-webpagina."
+  },
+  "troubleshooter_status_off": {
+    "message": "Opnemen staat uit. Start een opname om de bron-URL’s te bekijken die deze pagina laadt."
+  },
+  "troubleshooter_status_active": {
+    "message": "Tot nu toe zijn $1 URL-wijziging(en) vastgelegd. Nieuwe verschijnen hier automatisch."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Opname gestopt. $1 URL-wijziging(en) vastgelegd."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Opnamegegevens konden niet in de sessieopslag worden opgeslagen. Bij een herstart van de extensie kunnen $1 URL-wijziging(en) verloren gaan."
+  },
+  "troubleshooter_status_started": {
+    "message": "Opname gestart en tabblad wordt opnieuw geladen. Vastgelegde URL’s verschijnen hier zodra de pagina laadt."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Opname gestopt. $1 URL-wijziging(en) vastgelegd en opgeslagen voor deze browsersessie."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Opname gestopt. $1 URL-wijziging(en) vastgelegd, maar de sessieopslag kon ze niet opslaan."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Open eerst een gewone http- of https-webpagina."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Opname voor dit tabblad starten mislukt."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Opname voor dit tabblad stoppen mislukt."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Dit tabblad lezen mislukt. Probeer de pop-up te sluiten en opnieuw te openen."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Samenvatting gekopieerd."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Samenvatting kopiëren mislukt."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Opname geëxporteerd."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Opname exporteren mislukt."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Rapportformulier openen mislukt."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regel ingeschakeld; laad het tabblad opnieuw om te vergelijken."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regel uitgeschakeld; laad het tabblad opnieuw om te vergelijken."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Deze regel bijwerken mislukt."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Nog geen regelwijzigingen gevonden. Start een opname om de bron-URL’s van deze pagina te bekijken."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Deze browserpagina kan niet worden gescand."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Geen resultaten komen overeen met deze filters."
+  },
+  "troubleshooter_showing_first": {
+    "message": "De eerste $1 regels worden weergegeven."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 treffer(s)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 mislukt"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Regel-id: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Ingebouwde beschermingsactie (geen regel-id)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Regel-id: niet beschikbaar voor deze treffer"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Deze regel-id kon niet in de huidige regelset worden gevonden."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Waargenomen verzoek"
+  },
+  "troubleshooter_source_page": {
+    "message": "Controle van de pagina-URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Wat is gewijzigd: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Betrokken URL’s ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…en nog $1"
+  },
+  "troubleshooter_after": {
+    "message": "Na Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Mislukt nadat Linkumori deze heeft gewijzigd: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Deze regel is ingeschakeld. Schakel hem uit en laad de pagina opnieuw om te vergelijken."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Deze regel is uitgeschakeld. Schakel hem in en laad de pagina opnieuw om het gedrag te herstellen."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Dit is een ingebouwde beschermingsactie, geen afzonderlijke regel."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Controleer de betrokken URL voordat u regels wijzigt."
+  },
+  "troubleshooter_report": {
+    "message": "Deze regel melden"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Regel uitschakelen"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Regel inschakelen"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Regel $1 uitschakelen"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Regel $1 inschakelen"
+  },
+  "troubleshooter_saving": {
+    "message": "Opslaan…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "$1 verwijderd"
+  },
+  "troubleshooter_change_added": {
+    "message": "$1 toegevoegd"
+  },
+  "troubleshooter_change_changed": {
+    "message": "$1 gewijzigd"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "Omgeleid naar $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "Pad gewijzigd"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "Fragment gewijzigd"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL gewijzigd"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "Opzettelijk geblokkeerd"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 verzoek(en) op deze pagina zijn mislukt; $2 direct nadat Linkumori de URL heeft gewijzigd"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Is deze pagina kapot?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Zoek de regel die de pagina breekt: de regels die op deze pagina zijn uitgevoerd, worden één voor één uitgeschakeld. Na elke regel geeft u aan of de pagina is hersteld. Weet u niet zeker of Linkumori de oorzaak is? Controleer dit eerst terwijl opschonen is gepauzeerd."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Eerst controleren met gepauzeerd opschonen"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Opschonen is in dit tabblad gepauzeerd voor $1"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Het tabblad is opnieuw geladen zonder opschonen. Werkt de pagina nu?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ja, de pagina werkt"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nee, nog steeds kapot"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "Annuleren"
+  },
+  "troubleshooter_diag_done": {
+    "message": "Gereed"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Waarschijnlijk niet Linkumori"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "De pagina was nog steeds kapot terwijl opschonen was gepauzeerd. Het probleem ligt waarschijnlijk ergens anders: op de site zelf, bij een andere extensie of op het netwerk. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Waarschijnlijk is Linkumori de oorzaak"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "De pagina werkt wanneer opschonen is gepauzeerd. Zoek de regel: regels worden één voor één uitgeschakeld, het tabblad wordt opnieuw geladen en u geeft aan of de pagina is hersteld. Aan het einde worden alle andere regels weer ingeschakeld."
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Het tabblad wordt opnieuw geladen met opschonen ingeschakeld om vast te leggen welke regels op deze pagina actief zijn. Ze verschijnen zo meteen hier. Verschijnt er geen enkele, gebruik de pagina dan totdat deze stukgaat."
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "De regel vinden ($1 regels)"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ja, opgelost"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "Nee, nog steeds kapot"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "Gevonden"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "Regel $1$2 zorgt ervoor dat de pagina niet werkt. De regel is weer ingeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Deze regel uitschakelen"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "Melden"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Regel uitgeschakeld. Laad het tabblad opnieuw om dit te controleren. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "Geen afzonderlijke regel gevonden"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "Het één voor één uitschakelen van regels heeft de pagina niet hersteld. Waarschijnlijk veroorzaken meerdere regels samen het probleem, of komt het door een beveiligingsinstelling. Alle regels zijn weer ingeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_failed": {
+    "message": "Controle uitvoeren mislukt: $1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "Laad Linkumori opnieuw om deze controle te gebruiken"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori is bijgewerkt, maar het achtergrondgedeelte gebruikt nog de oude versie. Laad de extensie opnieuw (voor een tijdelijke add-on: about:debugging → This Firefox → Reload) of start Firefox opnieuw."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Gevonden"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Regel $1$2 zorgt ervoor dat de pagina niet werkt. De regel blijft uitgeschakeld zodat de pagina werkt; alle andere regels zijn weer ingeschakeld. Laad het tabblad opnieuw om dit te controleren. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Tabblad opnieuw laden"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Weer inschakelen"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Regel weer ingeschakeld. Laad het tabblad opnieuw om dit te controleren. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "De regel opnemen en vinden"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Regels die op deze pagina worden uitgevoerd, worden opgenomen. Gebruik de pagina totdat deze stukgaat; de regels verschijnen hier."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Tijdelijk uitgeschakeld door de regelzoekfunctie. De regel wordt weer ingeschakeld zodra het zoeken is afgelopen."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "De regelzoekfunctie is actief. Wijzig regels nadat het zoeken is afgelopen."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Overslaan — weer inschakelen"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Uitgeschakeld houden"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Regelzoekfunctie overgeslagen; alle regels zijn weer ingeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Regel $1 blijft uitgeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Uitgeschakeld voor deze test:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…en nog $1"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Zoeken stoppen"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Overgeslagen: die regel is weer ingeschakeld en wordt niet meegenomen. De volgende wordt getest."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Geen regel gevonden tussen de geteste regels. De $1 regel(s) die u hebt overgeslagen, zijn niet getest. Alle regels zijn weer ingeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimenteel"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimenteel: deze probleemoplosser is niet volledig stabiel. De resultaten kunnen onjuist zijn en tijdens het testen worden regels uitgeschakeld. Als er daarna iets niet goed lijkt, controleert u uw regels in de editor voor aangepaste regels of gebruikt u Zoeken stoppen om ze weer in te schakelen."
+  },
+  "troubleshooter_working": {
+    "message": "Bezig…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Opnieuw opnemen"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Oude opname gewist. Dit tabblad wordt vanaf een nieuwe paginalading opnieuw opgenomen."
+  },
+  "troubleshooter_clear": {
+    "message": "Wissen"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Wis de opname, bevindingen en afgeronde regelzoekactie van dit tabblad. De regels blijven ongewijzigd."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Gewist. De regels blijven ongewijzigd."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Gewist. Regel $1 blijft uitgeschakeld."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Eén regel tegelijk testen — regel $1 van $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Alleen deze regel is uitgeschakeld en het tabblad is opnieuw geladen. Is de pagina nu hersteld?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Deze regel overslaan"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Overslaan — weer inschakelen en de volgende testen (nog $1)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 andere regel(s) die op deze pagina actief waren, zijn niet getest. Wilt u ze alsnog testen?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Uitgeschakeld houden en de volgende testen (nog $1)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Regel $1 blijft uitgeschakeld. De volgende regel wordt getest."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Geen andere afzonderlijke regel herstelt de pagina. De $1 regel(s) die u uitgeschakeld hield, blijven uit; alle andere regels zijn weer ingeschakeld. Klik op Wissen om opnieuw te beginnen."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "De volgende regel testen (nog $1)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Regel $1 is weer ingeschakeld en wordt overgeslagen. De volgende regel wordt getest."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Geen andere afzonderlijke regel herstelt de pagina. De $1 regel(s) die u hebt overgeslagen, zijn ook weer ingeschakeld, dus alle regels staan weer aan. Klik op Wissen om opnieuw te beginnen."
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori schoont URL’s op met regels in <strong>CLN Format 1.0</strong> (Clean Link Notation), een JSON-indeling. Deze gids behandelt alles, van een eerste regel tot alle opties, met voorbeelden die u kunt kopiëren."
+  },
+  "guide_intro_p_2": {
+    "message": "De ingebouwde regels, externe regellijsten en uw aangepaste regels gebruiken allemaal dezelfde indeling. U schrijft aangepaste regels in de editor voor aangepaste regels; die controleert ze wanneer u ze opslaat of importeert. De officiële ClearURLs-regelcatalogus (<code>data.min.json</code>) is al een geldig CLN-bestand en kan zo worden gebruikt."
+  },
+  "guide_rules_file_p_1": {
+    "message": "De naam van de aanbieder is alleen een label. Welke URL’s een aanbieder verwerkt, wordt bepaald door <code>domainPatterns</code> of <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Sleutel op het hoogste niveau"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Vereist. De aanbieders, op naam."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Optionele indelingsversie. De enige geldige waarde is <code>\"1.0\"</code>. Zonder deze waarde wordt het bestand ook als 1.0 gelezen; elke andere waarde leidt tot afwijzing. De sleutel heet niet <code>version</code>, omdat de nieuwe ClearURLs-regelindeling die sleutel al gebruikt."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Optionele informatie over het bestand."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Waarden voor elke regel in het bestand die geen eigen waarden heeft ingesteld (hoofdstuk 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Alleen voor externe regellijsten: vervangingen voor regels die al zijn geladen (hoofdstuk 15)."
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "Welke URL’s de aanbieder verwerkt, als één domeinpatroon of als lijst (hoofdstuk 3). Gebruik dit of <code>urlPattern</code>, nooit beide."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Welke URL’s de aanbieder verwerkt, als één reguliere expressie die met de volledige URL wordt vergeleken. Hoofdletters en kleine letters worden genegeerd."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Alleen met <code>urlPattern</code>: hostaanwijzingen zoals <code>||example.com^</code>, zodat de aanbieder alleen voor die hosts wordt gecontroleerd in plaats van voor elke URL. Dit is een zoekaanwijzing, geen voorwaarde voor een overeenkomst."
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "Te verwijderen verwijzings- en affiliatieparameters. Worden overgeslagen wanneer <em>Verwijzingsmarketing toestaan</em> is ingeschakeld (hoofdstuk 10)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL’s die de aanbieder volledig met rust laat (hoofdstuk 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Stuur het verzoek naar een ander adres in plaats van het te bewerken (hoofdstuk 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Stuur het verzoek naar de waarde van een parameter (hoofdstuk 8)."
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: wanneer een paginalading (<code>main_frame</code>) wordt omgeleid, navigeert het hele tabblad naar het nieuwe adres, niet alleen het netwerkverzoek."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Verwerk alleen deze HTTP-methoden, bijvoorbeeld <code>[\"GET\"]</code>. Weggelaten: alle methoden."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Verwerk alleen deze verzoektypen, bijvoorbeeld <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Weggelaten: alle verzoektypen."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Standaard <code>true</code>. <code>false</code> slaat de hele aanbieder over wanneer een pagina het eigen adres wijzigt met de History API (<code>pushState</code>/<code>replaceState</code>). Normale netwerkverzoeken worden nog steeds opgeschoond."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> schakelt de aanbieder uit zonder deze te verwijderen."
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> is een lijst met domeinpatronen. Een URL komt overeen als een van die patronen overeenkomt. Dezelfde patronen worden gebruikt voor <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code>-filters en onbewerkte regels."
+  },
+  "guide_matching_cell_1": {
+    "message": "de volledige URL, als reguliere expressie"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL’s die deze tekst ergens bevatten (zonder voorloopteken <code>|</code>)"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> markeert het einde van de hostnaam, een scheidingsteken zoals <code>/</code>, <code>?</code> of <code>:</code>, of het einde van de URL. <code>*</code> is een jokerteken."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> staat voor een domein: de host en alle subdomeinen. Eén <code>|</code> staat voor het exacte begin van de URL en moet worden gevolgd door een schema zoals <code>https://</code>. Voor een domein gebruikt u altijd <code>||</code>; <code>|example.com^</code> kan nooit overeenkomen en wordt daarom door de editor afgewezen."
+  },
+  "guide_matching_p_4": {
+    "message": "Zo betekent <code>||smile.amazon.*^</code>: <code>||</code> de host en subdomeinen, <code>smile.amazon</code> de vereiste labels, <code>.*</code> elk openbaar achtervoegsel (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) en <code>^</code> het einde van de host."
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "precies die parameter"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "elke parameter waarvan de volledige naam overeenkomt; hoofdlettergevoeligheid wordt genegeerd"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> en <code>\"$removeparam=fbclid\"</code> verwijderen hetzelfde. Gebruik de gewone naam, tenzij u iets uit hoofdstuk 5 nodig hebt. Elke invoer kan ook als regelobject worden geschreven (hoofdstuk 9)."
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "Hier wordt <code>qid</code> op elke Amazon-site verwijderd, <code>tag</code> alleen op <code>amazon.de</code>, <code>sr</code> alleen op <code>smile.amazon</code> en <code>ref_</code> alleen onder <code>/gp/</code>. Het patroon beperkt de eigen patronen van de aanbieder verder, maar kan ze nooit uitbreiden."
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> maakt van het filter een uitzondering die de parameter behoudt (zie hieronder)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> beperkt het filter tot bepaalde URL’s van de aanbieder (hoofdstuk 3). Weggelaten: het geldt voor elke URL die de aanbieder verwerkt."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> selecteert de parameters. Weggelaten: elke parameter wordt verwijderd."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifiers bepalen wanneer het filter wordt uitgevoerd. Alle genoemde modifiers moeten gelden; er is geen “of” tussen de modifiers."
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "elke parameter behalve <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parameters waarvan de naam, of de combinatie <code>name=value</code>, overeenkomt met de reguliere expressie; voeg <code>i</code> toe om hoofdlettergevoeligheid te negeren"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parameters waarvan de naam begint met <code>utm_</code>"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Een parameternaam escapen"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Een backslash maakt het volgende teken letterlijk, zodat elke parameternaam kan worden opgegeven:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Waarde"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Verwijdert de parameter met deze naam"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (de komma begint niet aan de modifiers)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Dit zijn de enige vijf escapes in een naamwaarde; een backslash vóór een ander teken is een fout. In een <code>/regex/</code>-waarde behoudt de backslash de betekenis in de reguliere expressie. De escapes werken in <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> en <code>@@</code>-invoer. Schrijf in JSON elke backslash twee keer: <code>\"$removeparam=\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modificatoren"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifiers komen na de waarde en worden door komma’s gescheiden. Scheid meerdere waarden voor één modifier met <code>|</code> en zet <code>~</code> vóór een waarde om die uit te sluiten:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modificator"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "alleen wanneer de pagina die het verzoek heeft gedaan een van deze is (of, met <code>~</code>, juist niet); regexwaarden zijn toegestaan"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "alleen wanneer het verzoek zelf naar een van deze gaat, ongeacht de pagina die het heeft gedaan"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "alleen voor deze HTTP-methoden: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "alleen wanneer het verzoek naar hetzelfde registreerbare domein als de pagina gaat (<code>a.example.com</code> en <code>b.example.com</code> gelden als hetzelfde), of naar een ander domein"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "hetzelfde, maar met vergelijking van de exacte hostnaam; een subdomein geldt daardoor als een derde partij"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parameternamen worden hoofdlettergevoelig vergeleken"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "sla dit filter over wanneer een pagina het eigen adres wijzigt met de History API. Accepteert ook <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code> en <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "De vier <code>*-party</code>-modifiers kunnen niet met elkaar worden gecombineerd; <code>first-party,third-party</code> wordt afgewezen."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Zo verwijdert <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> <code>sid</code> op <code>example.com</code>, alleen bij GET-verzoeken vanaf een pagina op een andere site en nooit wanneer die pagina <code>partner.com</code> is."
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "Een <code>@@</code>-invoer beschermt alleen tegen <code>$removeparam</code>-filters. Een gewone invoer zoals <code>\"ref\"</code> verwijdert de parameter nog steeds; gebruik daarvoor <code>exceptions</code> van een regelobject. Onbewerkte regels hebben eigen <code>@@…$rawrule=</code>-invoer (hoofdstuk 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Waar u dit opgeeft, maakt niet uit; er mag geen <code>order</code> bij staan."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Het patroon wordt vergeleken met de URL zoals de aanbieder die ontving, voordat onbewerkte regels worden uitgevoerd. Een <code>@@</code>-invoer die is beperkt tot een pad dat door een onbewerkte regel wordt verwijderd, blijft ook overeenkomen."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Dit omvat ook filters van andere aanbieders voor verzoeken vanaf een pagina die deze aanbieder verwerkt. Dat is handig om één site uit te sluiten van een regel die ergens anders is gedefinieerd."
+  },
+  "guide_raw_rules_p_1": {
+    "message": "Onbewerkte regels worden vóór <code>rules</code> uitgevoerd, negeren hoofdlettergebruik en vervangen elke overeenkomst (vlaggen <code>gi</code>, of <code>g</code> met <code>match-case</code>). Schrijf in JSON elke backslash twee keer."
+  },
+  "guide_raw_rules_p_2": {
+    "message": "Een onbewerkte regel kan het patroon en de modifiers van een <code>$removeparam</code>-filter gebruiken, met <code>rawrule=</code> als laatste. Alles na <code>rawrule=</code> is de reguliere expressie:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Het patroon en de modifiers bepalen waar de regel wordt uitgevoerd; de reguliere expressie bepaalt nog steeds wat wordt verwijderd."
+  },
+  "guide_raw_rules_p_4": {
+    "message": "Een invoer die begint met <code>@@</code> en eindigt op <code>rawrule=</code> voorkomt dat onbewerkte regels worden uitgevoerd waar het patroon overeenkomt:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Zonder tekst na <code>rawrule=</code> stopt dit elke onbewerkte regel van de aanbieder voor die URL’s."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Met een reguliere expressie na <code>rawrule=</code> stopt dit de onbewerkte regels met die expressie."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Als regelobject met <code>targetId</code> stopt dit alleen de onbewerkte regel met die id of alias."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "Gebruik in plaats daarvan <code>exceptions</code> om de hele aanbieder over te slaan."
+  },
+  "guide_exceptions_p_1": {
+    "message": "Als een URL overeenkomt met een invoer in <code>exceptions</code>, worden voor dat verzoek geen regels van de aanbieder uitgevoerd. Een invoer is een reguliere expressie voor de volledige URL of een domeinpatroon dat begint met <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Uitzonderingen zijn niet hoofdlettergevoelig. Om één regel over te slaan in plaats van de hele aanbieder, geeft u die regel eigen <code>exceptions</code> (hoofdstuk 9)."
+  },
+  "guide_redirects_p_1": {
+    "message": "De eerste overeenkomende parameter in de URL wint. Voor <code>https://site.example/away?redirect=https://real.example/page</code> gaat het verzoek naar <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Geldige omleidingsdoelen"
+  },
+  "guide_redirects_p_2": {
+    "message": "Er wordt alleen omgeleid naar een absoluut <code>http</code>- of <code>https</code>-adres met een host. Dit wordt gecontroleerd na voorbewerkers en percentcodering. Een ongeldig doel geldt als geen overeenkomst: er wordt niets omgeleid en de volgende stappen van de aanbieder worden uitgevoerd op de ongewijzigde URL."
+  },
+  "guide_redirects_th_1": {
+    "message": "Doel"
+  },
+  "guide_redirects_th_2": {
+    "message": "Leidt om?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ja"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ja, naar <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nee: het schema is geen <code>http</code> of <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nee: geen absoluut adres"
+  },
+  "guide_redirects_p_3": {
+    "message": "Een onbewerkte regel geldt ook als omleiding als het resultaat een ander schema, host of poort heeft dan de invoer, zelfs wanneer er alleen tekst wordt verwijderd: het verwijderen van <code>secure-</code> uit <code>https://secure-bank.example/</code> leidt naar een andere site. Hiervoor is een geldig doel nodig en, in een externe regellijst, de goedkeuring <code>redirect</code> (hoofdstuk 15). Anders blijft de URL ongewijzigd."
+  },
+  "guide_rule_objects_p_1": {
+    "message": "Elke invoer in elke lijst kan een object zijn in plaats van een tekenreeks. Gebruik een object wanneer een regel een stabiele id nodig heeft, standaard uitgeschakeld moet zijn, iets moet herschrijven in plaats van verwijderen of slechts in bepaalde gevallen mag worden uitgevoerd:"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Vereist. De tekst die u als gewone invoer in die lijst zou schrijven."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Een stabiele naam (letters, cijfers, <code>-</code>, <code>_</code>) om de regel in en uit te schakelen (hoofdstuk 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "De vorige id’s van de regel, zodat een instelling met een oude id na een hernoeming blijft gelden."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Herschrijven in plaats van verwijderen; <code>§1§</code>, <code>§2§</code>, … zijn de vastgelegde waarden."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Wijzig eerst de vastgelegde waarden."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Alleen voor deze verzoektypen, bijvoorbeeld <code>[\"main_frame\"]</code>. Opschonen zonder verzoek (<em>Schone link kopiëren</em>, de opschoontool, History API-wijzigingen) geldt als <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL’s (reguliere expressies) waarvoor deze regel niet wordt uitgevoerd."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Vlaggen voor reguliere expressies, als tekenreeks. Standaard <code>i</code>; in <code>rawRules</code> <code>gi</code> (of <code>g</code> met <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Voer de regel eerder of later uit binnen de eigen fase (hoofdstuk 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: een regel in <code>rules</code> telt ook als een regel voor verwijzingsmarketing (hoofdstuk 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "De gelijknamige schakelaar van de aanbieder, alleen voor deze regel. Deze heeft voorrang op de waarde van de aanbieder en de standaardwaarde van het bestand."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: de regel is standaard uitgeschakeld."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "Een notitie voor mensen die het bestand lezen; dit moet een tekenreeks zijn."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Alleen voor <code>@@…$rawrule=</code>-invoer: de id van de onbewerkte regel die hiermee wordt gestopt."
+  },
+  "guide_rule_objects_p_2": {
+    "message": "Hier wordt <code>?token=abc123</code> <code>?token=clean-abc123</code>. Een herschrijving wordt hoogstens één keer per verzoek toegepast, zodat de waarde niet steeds opnieuw wordt ingepakt."
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Voorbewerkers wijzigen vastgelegde waarden in volgorde, voordat <code>replacePattern</code> of een omleiding ze gebruikt. <code>inputs</code> is <code>\"all\"</code> of een lijst met groepsnummers:"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> gebruikt dezelfde invoer als <code>rules</code>. Ze worden alleen uitgevoerd wanneer <em>Verwijzingsmarketing toestaan</em> uitstaat, zodat affiliatelinks blijven werken als u deze optie inschakelt:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "Een regel kan in <code>rules</code> blijven en toch meetellen als verwijzingsmarketing met <code>\"referralMarketing\": true</code>. Zet dezelfde tekst niet in zowel <code>rules</code> als <code>referralMarketing</code>; de editor waarschuwt daarvoor."
+  },
+  "guide_request_types_cell_1": {
+    "message": "De verzoektypen die één regelobject afhandelt (ook in te stellen in <code>defaults</code>)"
+  },
+  "guide_request_types_p_1": {
+    "message": "Verzoektypen gebruiken de namen van de browser: <code>main_frame</code> (een pagina), <code>sub_frame</code> (een frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> enzovoort. Filtermodifiers noemen de eerste twee <code>document</code> en <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Verzoektypen komen alleen uit de regels; in Instellingen staat geen lijst met verzoektypen. Als geen van deze typen is ingesteld, schoont een regel elk verzoektype op."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Standaardwaarden"
+  },
+  "guide_defaults_p_1": {
+    "message": "Een blok <code>defaults</code> op het hoogste niveau geeft elke regel in het bestand waarden die de regel zelf niet instelt:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Standaardwaarde voor elke regel…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> schakelt elke regel uit, tenzij deze <code>\"active\": true</code> aangeeft"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> of weglaten betekent elk type"
+  },
+  "guide_defaults_item_1": {
+    "message": "De eigen waarde van een regel heeft altijd voorrang. De <code>exceptions</code> van een regel vervangen de standaardlijst in plaats van deze aan te vullen."
+  },
+  "guide_defaults_item_2": {
+    "message": "Standaardwaarden gelden voor <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> en <code>fieldRedirections</code>. De eigen lijst <code>exceptions</code> van een aanbieder blijft ongewijzigd. Invoer met <code>$redirect=</code> gebruikt alleen <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Elk bestand behoudt zijn eigen standaardwaarden: de ingebouwde regels, elke externe lijst en uw aangepaste regels, ook wanneer de overbelastingsmodus ze samenvoegt."
+  },
+  "guide_defaults_item_4": {
+    "message": "Voor een <code>completeProvider</code> beperken de standaardwaarden <code>requestTypes</code> en <code>exceptions</code> ook de blokkering."
+  },
+  "guide_defaults_item_5": {
+    "message": "Onbekende sleutels en verkeerde typen zijn fouten. Een externe lijst met een ongeldig blok <code>defaults</code> wordt afgewezen."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Uw eigen standaardwaarden"
+  },
+  "guide_defaults_p_2": {
+    "message": "In de editor voor aangepaste regels opent <em>Standaardwaarden voor regels beheren</em> een formulier waarin u een eigen blok <code>defaults</code> instelt en kiest waar dit de standaardwaarden van bestanden vervangt:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Eigen standaardwaarden per bron</em> (standaard): elk bestand gebruikt zijn eigen <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Uw standaardwaarden voor ingebouwde en externe regels</em>: ingebouwde en externe regels gebruiken die van u; aangepaste regels behouden hun eigen waarden."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Uw standaardwaarden voor alle regels</em>: elke regel gebruikt die van u."
+  },
+  "guide_defaults_p_3": {
+    "message": "Met hetzelfde formulier kunt u de standaardwaarden van ingebouwde regels en elke geladen externe lijst bewerken. Uw wijziging wordt in de extensie opgeslagen, niet in het bestand. <em>Herstellen naar de standaardwaarden van het bestand</em> verwijdert de wijziging. <em>Samenvoegen uit bronnen…</em> combineert de standaardwaarden van geselecteerde bronnen; er wordt niets opgeslagen totdat u opslaat."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Hoe een URL wordt verwerkt"
+  },
+  "guide_processing_order_item_1": {
+    "message": "Eerst <code>redirections</code> en daarna <code>fieldRedirections</code>: een overeenkomst met een geldig doel leidt het verzoek om."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> en <code>referralMarketing</code> verwijderen of herschrijven parameters."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code>-filters worden uitgevoerd, behalve waar een <code>@@</code>-invoer de parameter behoudt."
+  },
+  "guide_processing_order_p_1": {
+    "message": "De eerste aanbieder die de URL wijzigt, omleidt of blokkeert, wint. De nieuwe URL doorloopt daarna dezelfde stappen opnieuw (zie <a href=\"#termination\">Wanneer de verwerking stopt</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Uitvoervolgorde en <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Stap 4 en 5 worden samen gesorteerd volgens deze regels, in deze volgorde:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Onbewerkte regels worden altijd eerst uitgevoerd.</strong> Met <code>order</code> kan een invoer in <code>rules</code> niet vóór een onbewerkte regel worden geplaatst. Opschoning die vóór een onbewerkte regel moet plaatsvinden, moet zelf een onbewerkte regel zijn."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Binnen een fase worden regels met <code>order</code> vóór regels zonder die waarde uitgevoerd</strong>, van laag naar hoog. Negatieve getallen en breuken zijn toegestaan. <code>order: 10</code> betekent niet “tiende”: het komt na de geordende regels onder 10 en vóór alle regels zonder order in die fase."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Daarna op lijst:</strong> <code>rules</code>, vervolgens <code>rules</code>-objecten met de markering <code>\"referralMarketing\": true</code>, en daarna <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Daarna op positie</strong> in de lijst. Elke invoer behoudt zijn plaats, ook invoer zoals <code>\"3\"</code> of <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Hier wordt het token herschreven voordat <code>utm_source</code> wordt verwijderd, hoewel het als tweede komt:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Uitgeschakelde regels worden weggelaten. <code>$removeparam</code>-filters en <code>@@</code>-invoer vallen buiten deze sortering en mogen geen <code>order</code> hebben, ook geen <code>null</code>; filters worden altijd als laatste uitgevoerd."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Dezelfde tekst twee keer"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Twee invoeren met dezelfde tekst voor <code>matchPattern</code> in één groep vormen één regel. De groepen zijn onbewerkt (<code>rawRules</code>), veld (<code>rules</code> zonder markering voor verwijzingsmarketing) en verwijzing (gemarkeerde <code>rules</code>-objecten, daarna <code>referralMarketing</code>). Dit gebeurt vooral wanneer regellijsten worden samengevoegd."
+  },
+  "guide_processing_order_item_8": {
+    "message": "De laatste definitie die niet is uitgeschakeld, wint met al haar sleutels."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Zonder eigen <code>order</code> neemt de winnende definitie de positie van de eerste definitie en de dichtstbijzijnde eerdere <code>order</code> over. <code>\"order\": null</code> betekent geen volgorde en verwijdert een overgenomen waarde."
+  },
+  "guide_processing_order_item_10": {
+    "message": "De id’s en aliassen van vervangen definities kunnen de winnende regel ook in- en uitschakelen."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Wanneer regels voor verwijzingsmarketing actief zijn, vervangt een verwijzingsinvoer een veldinvoer met dezelfde tekst."
+  },
+  "guide_processing_order_item_12": {
+    "message": "Een onbewerkte regel en een veldregel met dezelfde tekst botsen niet; beide worden uitgevoerd."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Twee verschillende invoeren met dezelfde tekst in één lijst zijn een fout; een exacte kopie is een waarschuwing."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "Wanneer de verwerking stopt"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Per verzoek worden maximaal 10 cycli uitgevoerd; bij de limiet wordt de URL gebruikt zoals die is."
+  },
+  "guide_processing_order_item_14": {
+    "message": "Een regel met <code>replacePattern</code> wordt hoogstens één keer per verzoek toegepast."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Een stap die de URL niet wijzigt, start geen nieuwe cyclus."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Instellingen → <em>Onbeperkte opschooncycli</em> (standaard uit) verwijdert de limiet van 10 cycli voor regelreeksen die meer nodig hebben. De verwerking eindigt zodra een cyclus niets wijzigt. Twee regels die elkaar omleiden, blijven echter rondgaan totdat de browser opgeeft en de pagina niet wordt geladen. Schakel dit alleen in voor regels die u vertrouwt."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Regel-id’s en in-/uitschakelaars"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Elke regel heeft een id. Een regel zonder <code>id</code> krijgt er een op basis van de lijst en de tekst: <code>\"utm_source\"</code> in <code>rules</code> wordt <code>field-utm-source</code>. De gegenereerde id verandert als de regeltekst verandert; een uitgeschakelde regel wordt dan weer ingeschakeld. Geef een regel een eigen <code>id</code> als de in-/uitschakelinstelling bij bewerkingen behouden moet blijven, en vermeld oude id’s in <code>aliases</code> wanneer u de naam wijzigt."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "Een regel wordt in- en uitgeschakeld met de combinatie van aanbieder en id, zoals <code>shop::session-token</code>, zodat twee aanbieders dezelfde id kunnen gebruiken. De editor voor aangepaste regels kan de instelling ook opslaan onder het patroon van de aanbieder, zoals <code>domainPattern:||shop.example^::session-token</code>; beide vormen werken."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Binnen één aanbieder moeten alle id’s en aliassen verschillend zijn. Gegenereerde id’s tellen ook mee."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Een id mag geen dubbele punt bevatten."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "Een instelling die alleen met een id is opgeslagen, zonder aanbieder, schakelt niets uit; schakel de regel opnieuw uit in de editor voor aangepaste regels."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Externe regellijsten"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Externe regellijsten zijn regelbestanden die Linkumori downloadt en eventueel met een hashbestand controleert. Een lijst met een ongeldige waarde voor <code>cln</code>, een ongeldig blok <code>defaults</code> of een ongeldige array <code>patches</code> wordt niet geladen; Remote Rules Health meldt dit."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Omleiden en blokkeren vereisen uw toestemming"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Bij het laden wordt op basis van de inhoud bepaald wat een externe lijst kan doen:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Mogelijkheid"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "De lijst heeft deze mogelijkheid als deze bevat"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Actief bij laden"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "een invoer in <code>rules</code>, <code>rawRules</code> of <code>referralMarketing</code>, of een filter <code>$removeparam</code>"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "een invoer met <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "een invoer van de aanbieder in <code>exceptions</code> of een invoer <code>@@</code>"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "een invoer in <code>redirections</code> of <code>fieldRedirections</code>, of <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "na goedkeuring"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "een aanbieder met <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Keur <code>redirect</code> en <code>block</code> per lijst goed in Remote Rules Health. Tot die tijd blijven omleidingen en blokkeringen van die lijst uitgeschakeld en kunnen de onbewerkte regels geen URL naar een andere site sturen; de rest van de lijst werkt meteen. Een update die een nieuwe mogelijkheid toevoegt, vereist ook goedkeuring. Ingebouwde en aangepaste regels hebben alle mogelijkheden."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Overbelastingsmodus"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normaal gesproken vervangen externe lijsten met aanbieders de ingebouwde regels; lijsten met alleen <code>patches</code> worden op de ingebouwde regels toegepast. Met <em>Overbelastingsmodus inschakelen</em> worden ze samen geladen volgens een van drie strategieën:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Alleen patchmodus</em>: pas patches van externe lijsten toe op de ingebouwde regels; externe aanbieders worden weggelaten."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Patchmodus + samenvoegen</em>: voeg ingebouwde en externe aanbieders samen en pas daarna patches toe."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Geen patchmodus + samenvoegen</em>: voeg de aanbieders samen en sla patches over."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Bij het samenvoegen worden externe lijsten samengevoegd in de volgorde waarin u ze opgeeft, daarna met de ingebouwde regels (ingebouwde eerst). Alleen aanbieders met dezelfde <code>domainPatterns</code> (of <code>urlPattern</code>) en dezelfde <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> en <code>forceRedirection</code> worden samengevoegd. Hun <code>rules</code>, <code>rawRules</code> en <code>referralMarketing</code> worden gecombineerd; <a href=\"#same-text-twice\">Dezelfde tekst twee keer</a> bepaalt welke kopie wordt uitgevoerd. Remote Rules Health vermeldt elke vervangen regel als melding."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Aangepaste regels worden als laatste toegepast. Een aangepaste aanbieder vervangt elke geladen aanbieder met hetzelfde patroon; hun regels worden niet gecombineerd."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Regelpatches"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "Een externe lijst kan afzonderlijke, al geladen regels vervangen zonder een volledige kopie te publiceren, met een array <code>patches</code> op het hoogste niveau:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Vereist. De te vervangen regel, geschreven als de bijbehorende in-/uitschakelsleutel: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> of <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Vereist. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> of <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Vereist. De nieuwe regel, als gewone invoer of als regelobject."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "Een notitie voor mensen die het bestand lezen."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Patches worden uitgevoerd nadat externe lijsten zijn samengevoegd en vóór aangepaste regels. Een bestand met alleen <code>patches</code> heeft geen <code>providers</code> nodig."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Door samenvoegen kunnen aanbieders een andere naam krijgen; de vorm <code>domainPattern:</code> of <code>urlPattern:</code> vindt ze altijd."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "De vervanging behoudt de oude id of neemt die over als alias, zodat in-/uitschakelinstellingen blijven gelden."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "Een patch voor een omleiding wacht op goedkeuring van <code>redirect</code> voor de lijst. Een patch waarvan het doel nergens mee overeenkomt, verandert niets."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Remote Rules Health vermeldt elke patch als toegepast, geen overeenkomst of overgeslagen."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Regels en de witte lijst"
+  },
+  "guide_whitelist_p_1": {
+    "message": "De witte lijst staat los van <code>exceptions</code> van een aanbieder: deze bevat sites die Linkumori met rust moet laten, zonder dat daarvoor een regelbestand nodig is. Invoer ziet eruit als <code>example.com</code>, <code>*.example.com</code> (de site en subdomeinen) of <code>example.*</code> (elk achtervoegsel). Als u een pagina op de witte lijst zet, geldt dit ook voor alles wat de pagina laadt."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Volledige voorbeelden"
+  },
+  "guide_checking_title_1": {
+    "message": "18. Uw regels controleren"
+  },
+  "guide_checking_p_1": {
+    "message": "De editor voor aangepaste regels controleert regels wanneer u ze opslaat of importeert. <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> voert dezelfde controles uit. Naast ongeldige JSON en ongeldige reguliere expressies worden regels afgewezen die wel laden maar ongemerkt verkeerd werken, zoals:"
+  },
+  "guide_checking_item_1": {
+    "message": "onbekende velden, sleutels en modifiers"
+  },
+  "guide_checking_item_2": {
+    "message": "twee verschillende invoeren met dezelfde tekst in één lijst"
+  },
+  "guide_checking_item_3": {
+    "message": "een <code>order</code> bij een <code>$removeparam</code>-filter of <code>@@</code>-invoer, ook wanneer deze <code>null</code> is"
+  },
+  "guide_checking_p_2": {
+    "message": "Ook exacte kopieën en dezelfde tekst in zowel <code>rules</code> als <code>referralMarketing</code> leiden tot een waarschuwing. Als opslaan mislukt, noemt het bericht de aanbieder, de lijst en de invoer."
+  },
+  "guide_toc_search": {
+    "message": "Secties filteren"
+  },
+  "guide_toc_no_results": {
+    "message": "Geen overeenkomende secties."
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: een omleiding die met \"|\" begint, moet er zo uitzien: \"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: het doel van $redirect= moet een absolute http- of https-URL zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ moet een object zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type moet een niet-lege tekenreeks zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type moet een van de volgende waarden zijn: $TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs moet \"all\" of een array met positieve gehele getallen zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ moet een tekenreeks of regelobject zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern moet een tekenreeks zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern moet een tekenreeks zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId moet een regel-ID zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId geldt alleen voor \"@@…$rawrule=\"-uitzonderingen in rawRules",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags moet een tekenreeks zijn (reguliere-expressievlaggen zoals \"i\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing moet true of false zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing heeft geen effect in $FIELD$; het geldt alleen in $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order moet een getal of null zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order heeft geen effect in $FIELD$; het geldt alleen in $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order heeft geen effect op een $removeparam-filter of een \"@@\"-item; deze worden altijd na de andere regels uitgevoerd",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active moet een booleaanse waarde zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id moet een tekenreeks zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id moet overeenkomen met $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases moet een lijst zijn met ID's die overeenkomen met $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases mag niet de eigen ID van de regel bevatten",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description moet een tekenreeks zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection moet een booleaanse waarde zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions moet een array met tekenreeksen zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes moet een array met tekenreeksen zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors moet een array zijn",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$: onbekend veld \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ begint met \"@@\", wat alleen geldt voor $removeparam-filters in rules en referralMarketing; gebruik in plaats daarvan \"exceptions\" van een regelobject",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ bevat de onbekende $removeparam-optie \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$: \"$PATTERN$\" begint met één \"|\", en komt daardoor alleen overeen met URL's die letterlijk met \"$REST$\" beginnen; zulke URL's bestaan niet (URL's beginnen met \"https://\"). Gebruik \"||$REST$\" om het domein te matchen.",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ heeft \"targetId\", dat alleen werkt bij een uitzondering; laat matchPattern beginnen met \"@@\" (bijvoorbeeld \"@@||example.com^$rawrule=\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ heeft zowel \"targetId\" als een reguliere expressie na \"rawrule=\"; gebruik er maar één",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "bij $WHERE$ heeft geen enkele raw rule in deze provider de ID of alias van targetId \"$ID$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ is een \"@@\"-uitzondering voor \"$REGEX$\", maar geen raw rule in deze provider gebruikt die reguliere expressie. Geef de regel een ID en verwijs ernaar met \"targetId\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ is een \"@@\"-uitzondering, dus \"$KEY$\" heeft geen effect",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "na \"rawrule=\" ontbreekt de waarde bij $WHERE$; de te verwijderen reguliere expressie is vereist",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ heeft een ongeldige reguliere expressie na \"rawrule=\": $ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ heeft $GROUPS$ vastleggroepen; er moet precies één \"( … )\" om de bestemmings-URL staan (schrijf andere groepen als \"(?: … )\")",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ gebruikt regel-ID \"$ID$\" opnieuw bij $WHERE$; voor het eerst gebruikt bij $FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ moet een JSON-object zijn",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$: $FIELD$ moet een array zijn",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ bevat de onbekende sleutel \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "Fout bij verwerken van URL: $1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "Fout bij initialiseren van pagina: $1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "Ongeldig tabblad"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "Er wordt al naar regels gezocht voor dit tabblad"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "Er wordt geen pauzecontrole uitgevoerd voor dit tabblad"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "Regels worden nog geladen. Probeer het zo meteen opnieuw."
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "Geen van de regels die op deze pagina zijn geactiveerd, kan worden uitgeschakeld."
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "Kan de regels niet uitschakelen"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "Er wordt niet naar regels gezocht voor dit tabblad"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "Geen gevonden regel om over te slaan voor dit tabblad"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "Downloaden niet beschikbaar"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "Kan de opname niet opslaan in sessieopslag"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "Onbekende regel"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "Onbekende fout"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "Exporteren mislukt"
   }
 }
