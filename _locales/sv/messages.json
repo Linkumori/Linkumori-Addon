@@ -2,6 +2,18 @@
   "aboutPageTitle": {
     "message": "Linkumori - Om"
   },
+  "skip_to_main_content": {
+    "message": "Hoppa till huvudinnehållet"
+  },
+  "popupNavAriaLabel": {
+    "message": "Navigering i popup-fönstret"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "Vyer för anpassade regler"
+  },
+  "logViewNavAriaLabel": {
+    "message": "Loggvyer"
+  },
   "active_bundled_providers_label": {
     "message": "Aktiva inbakade leverantörer:"
   },
@@ -38,8 +50,26 @@
   "built_in_rules_enabled_description": {
     "message": "Använd de inbakade Linkumori/ClearURLs-reglerna. Inaktivera detta för att endast köra med fjärrregler och/eller anpassade regler."
   },
+  "linkumori_cname_uncloak_enabled": {
+    "message": "Uncloak CNAME-spårare"
+  },
+  "linkumori_cname_uncloak_enabled_description": {
+    "message": "Använd Firefoxs lokala DNS API för att avslöja True Domain"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorera rotdokumentvärd för CNAME-uncloaking"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Hoppa över CNAME DNS kontrollerar när begäran värdnamn matchar det aktuella dokumentet värdnamn."
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Spela upp fullständiga webbadresser igen under CNAME-uncloaking"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Inkludera den ursprungliga sökvägen, frågan och fragmentet när du spelar upp filtrering mot ett CNAME-värdnamn."
+  },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs."
+    "message": "Linkumori använder en enda samlad ClearURLsData-regeluppsättning för leverantörer. Inbyggd leverantörs-JSON, kanoniska regelobjekt och leverantörslokala $removeparam-filter slås samman innan clearurls.js körs."
   },
   "bundled_rules_section_title": {
     "message": "Regelinformation"
@@ -263,6 +293,9 @@
   "customRulesEditor_forceRedirection": {
     "message": "Tvinga omdirigering"
   },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "Skydd mot historikkringgående (hoppa över vid navigering inom sidan)"
+  },
   "customRulesEditor_httpMethods": {
     "message": "HTTP-metoder"
   },
@@ -347,6 +380,18 @@
   "customRulesEditor_redirections": {
     "message": "Omdirigeringar"
   },
+  "customRulesEditor_fieldRedirections": {
+    "message": "Fältomdirigeringar"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "Kopiera regel"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "Regeln kopierades"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "Det gick inte att kopiera regeln"
+  },
   "customRulesEditor_referralMarketing": {
     "message": "Hänvisningsmarknadsföring"
   },
@@ -376,6 +421,15 @@
   },
   "customRulesEditor_unsavedChanges": {
     "message": "Du har osparade ändringar. Fortsätta utan att spara?"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indexmönster"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Ett domänmönster som används för att antyda vilken domän denna leverantör riktar sig till. Detta används för att optimera leverantörssökningar. Format: ||exempel.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||exempel.com^"
   },
   "customRulesEditor_urlPattern": {
     "message": "URL-mönster *"
@@ -453,55 +507,55 @@
     "message": "Vad gör completeProvider?"
   },
   "faq_complete_provider_explanation": {
-    "message": "När den är satt till true markerar completeProvider matchande förfrågningar för blockering. Själva blockeringen sker endast när den globala inställningen \"Domänblockering\" är aktiverad. När false kan du använda vanliga regler, undantag och omdirigeringar."
+    "message": "completeProvider: true blockerar varje förfrågan som leverantören matchar, innan någon regel körs. Blockering sker bara medan \"Tillåt domänblockering\" är på i Inställningar. I en fjärrregellista väntar den dessutom tills du godkänner listans blockeringsförmåga i Hälsa för fjärrregler."
   },
   "faq_complete_provider_usage": {
-    "message": "De flesta anpassade regler bör ställa in detta till false och istället använda specifika regler för borttagning av parametrar."
+    "message": "De flesta leverantörer utelämnar completeProvider (false) och tar i stället bort parametrar."
   },
   "faq_complete_provider_warning": {
-    "message": "Om domänblockering är aktiverad kan detta blockera full åtkomst för matchande webbadresser."
+    "message": "Detta blockerar hela webbplatsen eller URL:en för varje matchande förfrågan, vilket kan förstöra sidor."
   },
   "faq_complex_example": {
     "message": "Visa mig ett komplext leverantörsexempel"
   },
   "faq_complex_example_explanation": {
-    "message": "Denna leverantör tar bort spårningsparametrar och fragment, hanterar omdirigeringar, men skyddar API-, inloggnings- och utcheckningssidor från ändringar."
+    "message": "Denna leverantör tar bort spårningsparametrar och ett sökvägssegment, skriver om en sessionstoken, packar upp omdirigeringslänkar och lämnar API-, inloggnings- och kassasidor orörda."
   },
   "faq_complex_example_intro": {
-    "message": "Här är en avancerad leverantör med omdirigeringar och undantag:"
+    "message": "Här är en avancerad leverantör med råa regler, en omskrivning, omdirigeringar och undantag:"
   },
   "faq_custom_rules_note": {
-    "message": "Anpassade regler körs tillsammans med inbyggda regler och kan åsidosätta importerade inbakade/fjärrleverantörsposter efter namn."
+    "message": "Anpassade regler tillämpas sist. En anpassad leverantör ersätter varje inbyggd leverantör eller fjärrleverantör med samma domainPatterns eller urlPattern; deras regler kombineras inte. Andra anpassade leverantörer läggs till vid sidan av dem."
   },
   "faq_default_note": {
     "message": "Standard:"
   },
   "faq_domain_pattern_adblock": {
-    "message": "||example.com^ - Värdnamnsmatchning för example.com och dess subdomäner"
+    "message": "||example.com^ - example.com och alla dess underdomäner"
   },
   "faq_domain_pattern_adblock_wildcard": {
-    "message": "||*.example.com^ - Värdnamns jokertecken; varje * matchar en etikett (punktsegment)"
+    "message": "||*.example.com^ - samma som ||example.com^"
   },
   "faq_domain_pattern_basic": {
-    "message": "example.com - Enkel delsträngsmatchning på full webbadress (kan också matcha inuti längre värdnamn/sökvägar)"
+    "message": "example.com - URL:er som innehåller denna text var som helst, vilket även kan vara inuti ett längre värdnamn eller en sökväg"
   },
   "faq_domain_pattern_full_wildcard": {
-    "message": "||*.example.*^ - Matchar subdomäner med jokertecken-TLD, inklusive flerdelade TLD:er (a.example.co.uk)"
+    "message": "||*.example.*^ - samma som ||example.*^"
   },
   "faq_domain_pattern_tld": {
-    "message": "||example.*^ - Matchar domänen med jokertecken-TLD, inklusive flerdelade TLD:er (example.co.uk, example.gov.in)"
+    "message": "||example.*^ - example på valfritt publikt suffix, även flerdelade (example.de, example.co.uk)"
   },
   "faq_domain_pattern_types": {
     "message": "Domänmönstertyper:"
   },
   "faq_domain_pattern_wildcard": {
-    "message": "*.example.com - Jokertecken regex-matchning på full webbadress, inte strikt enbart värdnamnsmatchning"
+    "message": "*.example.com - också en innehållsmatchning, med * som jokertecken; använd ||example.com^ för en domän"
   },
   "faq_domain_patterns": {
     "message": "Domänmönster vs URL-mönster"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domänmönster stöder enkla tokens och formulär i AdBlock-stil. När domainPatterns inte är tomma, använder clearurls.js dem för leverantörsmatchning och extrahering av lookup-token innan eventuella urlPattern fallback:"
+    "message": "domainPatterns är en lista med mönster i AdBlock-stil. En URL matchar om något av dem matchar. Publika suffix hanteras korrekt, så ||example.*^ täcker även example.co.uk:"
   },
   "faq_example": {
     "message": "Exempel:"
@@ -510,25 +564,43 @@
     "message": "Hur fungerar undantag?"
   },
   "faq_exceptions_explanation": {
-    "message": "Undantag är regex-mönster som matchar webbadresser där ingen bearbetning ska ske. Om en webbadress matchar ett undantag ignoreras alla andra regler."
+    "message": "Undantag listar URL:er som leverantören lämnar orörda. Varje post är ett reguljärt uttryck för hela URL:en (till exempel ^https?:\\/\\/example\\.com\\/login) eller ett domänmönster som börjar med | (till exempel ||example.com^/login). Om en URL matchar körs ingen av leverantörens regler."
   },
   "faq_exceptions_usage": {
-    "message": "Använd undantag för att skydda inloggningssidor, API-slutpunkter eller andra känsliga webbadresser från ändringar."
+    "message": "Använd undantag för att skydda inloggningssidor, API-slutpunkter eller andra URL:er som slutar fungera när de rensas. För att hoppa över en enskild regel i stället för hela leverantören, ge den regeln egna undantag."
   },
   "faq_force_redirection": {
     "message": "När ska jag använda forceRedirection?"
   },
   "faq_force_redirection_explanation": {
-    "message": "Vissa webbplatser manipulerar länkar via JavaScript, vilket förhindrar normala omdirigeringar. forceRedirection skriver webbadressen direkt till webbläsarens huvudram."
+    "message": "Normalt ändrar en omdirigering bara nätverksförfrågan. Med forceRedirection: true får en omdirigering vid sidladdning (main_frame) hela fliken att navigera till den nya adressen."
   },
   "faq_force_redirection_usage": {
-    "message": "Aktivera detta för webbplatser som Google som använder onClick-hanterare istället för direkta href-attribut."
+    "message": "Använd det när en webbplats omdirigeringssida inte följer en vanlig omdirigering, så att fliken annars skulle stanna kvar på spårningssidan."
   },
   "faq_force_redirection_warning": {
-    "message": "Använd endast när normala omdirigeringar misslyckas, eftersom denna metod är mer påträngande."
+    "message": "Använd det bara när vanliga omdirigeringar inte fungerar, eftersom det navigerar fliken direkt."
+  },
+  "faq_history_bypass_protection": {
+    "message": "Vad gör historyBypassProtection?"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Ensidiga webbplatser ändrar ofta adressen med history.pushState/replaceState i stället för att läsa in en ny sida. Linkumori rensar även dessa adresser. Lägg till history-bypass-protection=false i ett $removeparam-filter för att hoppa över just det filtret vid sådana ändringar inom sidan; det körs fortfarande på vanliga förfrågningar."
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "För att hoppa över en hel leverantör vid ändringar inom sidan, ange det på leverantören:"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Utelämnat är det true och ändringar inom sidan rensas. En regels egen inställning går före leverantörens, så en regel kan aktivera det igen med history-bypass-protection=true, eller \"historyBypassProtection\": true i ett regelobjekt."
   },
   "faq_how_providers_work": {
     "message": "Hur fungerar leverantörer?"
+  },
+  "faq_index_pattern": {
+    "message": "Vad är indexPattern?"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern är en uppslagsledtråd för en leverantör som använder urlPattern, inte ett matchningsvillkor. Det listar värdar som domänmönster, till exempel ||example.com^, så att leverantören bara kontrolleras för URL:er på dessa värdar. URL:en måste fortfarande matcha urlPattern. Det fungerar bara tillsammans med urlPattern."
   },
   "faq_http_methods": {
     "message": "Vad är HTTP-metoder?"
@@ -540,7 +612,7 @@
     "message": "DELETE - Borttagningsoperationer"
   },
   "faq_http_methods_explanation": {
-    "message": "HTTP-metoder låter dig tillämpa regler endast på specifika typer av HTTP-förfrågningar (GET, POST, PUT, DELETE, etc.). Detta ger dig kontroll över vilka förfrågningsmetoder som utlöser dina regler."
+    "message": "methods begränsar en leverantör till vissa HTTP-metoder, till exempel [\"GET\"]. Ett $removeparam-filter kan göra samma sak med en modifierare som method=get|~post."
   },
   "faq_http_methods_get": {
     "message": "GET - Standard webbsidans förfrågningar"
@@ -558,73 +630,73 @@
     "message": "PUT - Uppdateringsoperationer"
   },
   "faq_http_methods_tip": {
-    "message": "Lämna tomt för att tillämpa på alla HTTP-metoder, eller ange endast de metoder du vill rikta in dig på."
+    "message": "Utelämna methods för att hantera alla metoder."
   },
   "faq_import_benefit_quick": {
-    "message": "Snabb installation – inget behov av att manuellt skapa komplexa mönster"
+    "message": "Snabb konfiguration: utgå från en fungerande leverantör i stället för att skriva en från grunden"
   },
   "faq_import_benefit_search": {
-    "message": "Sök och filtrera för att hitta exakt vad du behöver"
+    "message": "Sök och filtrera för att hitta den leverantör du behöver"
   },
   "faq_import_benefit_tested": {
-    "message": "Förtestade regler som är kända för att fungera korrekt"
+    "message": "Utgå från regler som redan används"
   },
   "faq_import_benefit_updates": {
-    "message": "Enkelt att hålla reglerna uppdaterade med nya leverantörer"
+    "message": "Inaktiverade leverantörer förblir inaktiverade när reglerna uppdateras"
   },
   "faq_list_feature_actions": {
-    "message": "Redigera, duplicera eller ta bort leverantörer med ett klick"
+    "message": "Redigera, duplicera eller radera en leverantör med ett klick"
   },
   "faq_list_feature_overview": {
-    "message": "Snabb översikt över alla leverantörer med nyckelstatistik"
+    "message": "Alla anpassade leverantörer i en överblick"
   },
   "faq_list_feature_search": {
-    "message": "Sök leverantörer efter namn för att snabbt hitta specifika"
+    "message": "Sök leverantörer efter namn"
   },
   "faq_list_feature_stats": {
-    "message": "Se regelantal och mönstertyper i ett ögonkast"
+    "message": "Se varje leverantörs antal mönster och regler"
   },
   "faq_mistake_broad": {
-    "message": "Göra urlPattern för bred (matchar oavsiktliga webbplatser)"
+    "message": "Att göra domainPatterns eller urlPattern för breda, så att de matchar webbplatser du inte avsåg"
   },
   "faq_mistake_complete": {
-    "message": "Ställa in completeProvider till true om du inte verkligen vill blockera webbplatsen"
+    "message": "Att sätta completeProvider till true när du bara vill ta bort parametrar"
   },
   "faq_mistake_escape": {
-    "message": "Glömma att escaped specialtecken i regex-mönster"
+    "message": "Att glömma att escapa specialtecken i reguljära uttryck, eller att skriva varje omvänt snedstreck två gånger i JSON"
   },
   "faq_mistake_exceptions": {
-    "message": "Inte lägga till undantag för viktig funktionalitet"
+    "message": "Att inte lägga till undantag för sidor som slutar fungera när de rensas"
   },
   "faq_mistake_testing": {
-    "message": "Att inte testa regler noggrant innan driftsättning"
+    "message": "Att inte testa regler innan man förlitar sig på dem"
   },
   "faq_note": {
     "message": "Notera:"
   },
   "faq_pattern_exclusive_note": {
-    "message": "För skapade anpassade leverantörer, välj antingen domänmönster eller urlmönster. I clearurls.js runtime data, icke-tomma domainPatterns win och urlPattern används endast när domainPatterns saknas eller är tomt. Domänmatchning är PSL-medveten för formulär i AdBlock-stil som stöds, inklusive hantering av registrerbara domäner och stöd för TLD med flera delar."
+    "message": "En leverantör har antingen domainPatterns eller urlPattern, aldrig båda; redigeraren avvisar en leverantör med båda. Om du behöver båda typerna av matchning, skapa två leverantörer."
   },
   "faq_perf_combine": {
-    "message": "Kombinera flera liknande mönster till ett regex"
+    "message": "Kombinera liknande parameternamn i ett enda reguljärt uttryck för namn"
   },
   "faq_perf_limit": {
-    "message": "Begränsa antalet leverantörer till vad du faktiskt behöver"
+    "message": "Behåll bara de leverantörer du faktiskt behöver"
   },
   "faq_perf_review": {
-    "message": "Granska och städa regelbundet bort oanvända regler"
+    "message": "Granska och ta bort regler du inte längre använder"
   },
   "faq_perf_simple": {
-    "message": "Använd enkla regler istället för komplexa rawRules när det är möjligt"
+    "message": "Använd rules i stället för rawRules när texten är en vanlig parameter"
   },
   "faq_perf_specific": {
-    "message": "Gör urlPattern så specifik som möjligt"
+    "message": "Föredra domainPatterns; med urlPattern, lägg alltid till indexPattern"
   },
   "faq_performance_tips": {
     "message": "Hur kan jag optimera prestanda?"
   },
   "faq_provider_example": {
-    "message": "Till exempel skulle en \"Google\"-leverantör hantera alla Google-tjänster med regler för att ta bort spårningsparametrar från sökresultat, YouTube-länkar, etc."
+    "message": "Till exempel hanterar en \"Google\"-leverantör Googles webbplatser, med regler som tar bort spårningsparametrar från sökresultat och packar upp Googles omdirigeringslänkar."
   },
   "faq_provider_import": {
     "message": "Hur importerar jag leverantörer från regler?"
@@ -633,52 +705,52 @@
     "message": "Fördelar med att importera:"
   },
   "faq_provider_import_explanation": {
-    "message": "Funktionen Importera leverantör låter dig snabbt lägga till leverantörer från den inbyggda regelkatalogen. Klicka på knappen 'Importera från regler' för att bläddra och välja leverantörer."
+    "message": "Med \"Importera/inaktivera leverantörer\" kan du bläddra bland leverantörerna i de inbyggda reglerna och fjärrreglerna. Importera de du väljer som anpassade regler för att redigera dem, eller inaktivera leverantörer du inte vill ha."
   },
   "faq_provider_import_tip": {
-    "message": "Du kan importera flera leverantörer samtidigt genom att markera dem och klicka på Importera."
+    "message": "Du kan markera flera leverantörer och importera eller inaktivera dem på en gång. \"Inaktiverade regler\" listar det du har inaktiverat och låter dig återställa det."
   },
   "faq_provider_list": {
     "message": "Hur hanterar jag mina leverantörer effektivt?"
   },
   "faq_provider_list_explanation": {
-    "message": "Vyn Leverantörslista ger dig en snabb översikt över alla anpassade leverantörer. Du kan söka, redigera, duplicera eller ta bort leverantörer utan att öppna var och en individuellt."
+    "message": "När ingen leverantör är öppen visar redigeraren Alla leverantörer, en lista över dina anpassade leverantörer. Du kan söka, redigera, duplicera eller radera leverantörer utan att öppna var och en."
   },
   "faq_provider_list_features": {
     "message": "Funktioner i leverantörslistan:"
   },
   "faq_provider_list_tip": {
-    "message": "Öppna Leverantörslistan från redigerarens verktygsfält för att bläddra och hantera leverantörer."
+    "message": "Stäng den öppna leverantören för att återgå till listan."
   },
   "faq_providers_explanation": {
-    "message": "Leverantörer heter behållare som grupperar matchningsfält och regler för URL-rensning. Kandidatsökning använder värdnamnstokens från domänPatterns eller indexPattern; leverantörens namn är endast en etikett/nyckel och avgör inte om en begäran matchar."
+    "message": "En leverantör är en namngiven grupp regler för vissa URL:er. domainPatterns eller urlPattern avgör vilka URL:er den hanterar. Leverantörens namn är bara en etikett och påverkar inte matchningen."
   },
   "faq_raw_rules_explanation": {
-    "message": "Kanoniska råregelobjekt tillämpar regexmönster på hela URL. Använd för komplexa mönster som inte passar standardparameterformatet."
+    "message": "Varje post är ett reguljärt uttryck som körs på hela URL:en; varje träff raderas. Råa regler körs alltid före vanliga regler."
   },
   "faq_raw_rules_title": {
-    "message": "Rå regelobjekt:"
+    "message": "rawRules:"
   },
   "faq_raw_rules_usage": {
-    "message": "Använd rules[]-objekt med kind: \"raw\" för fragment, sökvägssegment eller komplexa parametermönster."
+    "message": "Använd rawRules för text som inte är en namn=värde-parameter, till exempel ett /ref=…-sökvägssegment. Varje post i båda listorna kan också vara ett regelobjekt med matchPattern och valfritt id, replacePattern, order med mera."
   },
   "faq_redirections": {
     "message": "Hur fungerar omdirigeringar?"
   },
   "faq_redirections_example": {
-    "message": "https://redirect.com?url=https%3A//target.com blir https://target.com"
+    "message": "https://redirect.example/?url=https%3A%2F%2Ftarget.example%2F blir https://target.example/"
   },
   "faq_redirections_explanation": {
-    "message": "Omdirigeringar extraherar den verkliga destinations-URL:en från omdirigeringstjänster. Den första fångstgruppen i regex blir den nya webbadressen."
+    "message": "Omdirigeringar skickar förfrågan någon annanstans. En post med reguljärt uttryck omdirigerar till sin fångstgrupp, så den behöver exakt en ( … ). En post som börjar med | är en fast omdirigering: \"||go.example.com^$redirect=https://example.com/\" skickar varje matchande URL till den adressen. Omdirigeringar körs bara medan \"Aktivera kringgående av tredjepartsomdirigeringar\" är på i Inställningar (av som standard)."
   },
   "faq_redirections_process": {
-    "message": "Den fångade webbadressen avkodas automatiskt med decodeURIComponent() och ersätter den ursprungliga webbadressen."
+    "message": "Det fångade värdet URL-avkodas och måste vara en absolut http- eller https-adress; annars omdirigeras ingenting och leverantörens övriga regler körs. fieldRedirections omdirigerar till en parameters värde utan reguljärt uttryck. I en fjärrregellista väntar omdirigeringar tills du godkänner listans omdirigeringsförmåga."
   },
   "faq_referral_default": {
-    "message": "Hänvisningsmarknadsföring är inaktiverad som standard, så dessa parametrar kommer att tas bort om inte användaren uttryckligen tillåter dem."
+    "message": "\"Tillåt hänvisningsmarknadsföring\" är av som standard, så dessa parametrar tas bort om inte användaren slår på det."
   },
   "faq_referral_explanation": {
-    "message": "Hänvisningsmarknadsföringsparametrar hjälper innehållsskapare att tjäna provision. Dessa parametrar tas endast bort när användaren har inaktiverat stöd för hänvisningsmarknadsföring i inställningarna."
+    "message": "referralMarketing tar samma poster som rules, för affiliate- och hänvisningsparametrar som stöder kreatörer och butiker. De tas bara bort medan \"Tillåt hänvisningsmarknadsföring\" är av i Inställningar. En regel i rules kan räknas som hänvisningsmarknadsföring med \"referralMarketing\": true."
   },
   "faq_referral_marketing": {
     "message": "Vad är referralMarketing?"
@@ -690,10 +762,10 @@
     "message": "Vanliga resurstyper:"
   },
   "faq_resource_types_explanation": {
-    "message": "Resurstyper låter dig tillämpa regler endast på specifika typer av webbförfrågningar (bilder, skript, huvudsidor, etc.). Detta ger dig finkornig kontroll över när regler tillämpas."
+    "message": "resourceTypes begränsar en leverantör till vissa förfrågningstyper (sidor, ramar, skript, bilder och så vidare). Ett regelobjekt kan göra samma sak med requestTypes, och ett $removeparam-filter med modifierare som document eller xmlhttprequest."
   },
   "faq_resource_types_tip": {
-    "message": "Lämna tomt för att tillämpa på alla resurstyper, eller ange endast de typer du vill rikta in dig på."
+    "message": "Utelämna det för att hantera alla förfrågningstyper. Det finns ingen lista över förfrågningstyper i Inställningar; förfrågningstyper kommer bara från reglerna."
   },
   "faq_rt_font": {
     "message": "font - Webbteckensnitt (.woff, .ttf, etc.)"
@@ -711,7 +783,7 @@
     "message": "media - Ljud- och videofiler"
   },
   "faq_rt_object": {
-    "message": "object - Inbäddade objekt (Flash, plugins)"
+    "message": "object - Inbäddat innehåll (<object>, <embed>)"
   },
   "faq_rt_object_subrequest": {
     "message": "object_subrequest - Förfrågningar gjorda av inbäddade objekt"
@@ -741,16 +813,16 @@
     "message": "xslt - XSLT-transformationsfiler"
   },
   "faq_rules_converted": {
-    "message": "Exempel: \"utm_source\" matchar exakt; \"utm_.*\" matchar utm_source och utm_campaign. Scopade Linkumori-undantag/regler löses först, sedan körs normala/regex-regler endast för icke-matchande nycklar."
+    "message": "Exempel: \"utm_source\" tar bort exakt den parametern; \"utm_.*\" tar bort utm_source, utm_campaign och så vidare. Namn och reguljära uttryck körs först, sedan $removeparam-filter, utom där en @@-post behåller parametern."
   },
   "faq_rules_explanation": {
-    "message": "Regler matchar frågeparameternycklar och hashfragmentnycklar. Använd enkla namn (exakt nyckel), regex (bredare matchning) eller scopade Linkumori-regler som ||example.com^$removeparam=... för att rikta in dig på specifika domäner."
+    "message": "Varje post tar bort matchande parametrar från frågan (?a=1) och fragmentet (#a=1). En post är ett parameternamn, ett reguljärt uttryck för hela namnet eller ett $removeparam-filter, eventuellt med ett mönster framför, till exempel ||example.com^$removeparam=tag."
   },
   "faq_rules_title": {
-    "message": "Regler:"
+    "message": "rules:"
   },
   "faq_rules_vs_raw": {
-    "message": "Vilka regelformer kan rules[] innehålla?"
+    "message": "Vad kan rules och rawRules innehålla?"
   },
   "faq_section_advanced": {
     "message": "Avancerade funktioner"
@@ -774,25 +846,25 @@
     "message": "Visa mig ett enkelt leverantörsexempel"
   },
   "faq_simple_example_explanation": {
-    "message": "Detta tar bort Facebook-klick-ID:n och UTM-parametrar, men bevarar affiliate-länkar om användaren tillåter hänvisningsmarknadsföring."
+    "message": "Detta tar bort Facebooks klick-id:n och UTM-parametrar. Affiliate-parametrarna tas bara bort medan hänvisningsmarknadsföring inte är tillåten."
   },
   "faq_simple_example_intro": {
-    "message": "Här är en grundläggande leverantör som tar bort spårningsparametrar från en fiktiv shoppingwebbplats:"
+    "message": "Här är en enkel leverantör som tar bort spårningsparametrar i en påhittad butik:"
   },
   "faq_test_backup": {
-    "message": "Exportera dina regler innan du gör stora förändringar"
+    "message": "Exportera dina regler innan du gör stora ändringar"
   },
   "faq_test_exceptions": {
-    "message": "Lägg alltid till undantag för kritiska sidor (inloggning, utcheckning, API)"
+    "message": "Lägg till undantag för sidor som måste behålla sina parametrar (inloggning, kassa, API)"
   },
   "faq_test_regex": {
-    "message": "Testa regex-mönster med onlineverktyg som regex101.com"
+    "message": "Testa mönster för reguljära uttryck innan du sparar, och kom ihåg att skriva varje omvänt snedstreck två gånger i JSON"
   },
   "faq_test_reload": {
-    "message": "Använd knappen \"Tillämpa regler\" för att ladda om ändringar utan att starta om webbläsaren"
+    "message": "Använd \"Tillämpa regler\" för att tillämpa dina ändringar utan att starta om webbläsaren, och \"Regeltestlabb\" för att prova en URL"
   },
   "faq_test_small": {
-    "message": "Börja med enkla regler och öka komplexiteten gradvis"
+    "message": "Börja med enkla regler och öka komplexiteten steg för steg"
   },
   "faq_testing_tips": {
     "message": "Hur ska jag testa mina anpassade regler?"
@@ -807,22 +879,22 @@
     "message": "Vad är urlPattern?"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern är ett reguljärt uttryck som testas mot den fullständiga webbadressen för begäran när leverantören inte har icke-tomma domänmönster. Om du använder urlPattern, lägg till indexPattern när det är möjligt så att clearurls.js kan hitta leverantören genom värdnamnstoken innan du testar regexet."
+    "message": "urlPattern är ett enda reguljärt uttryck, som testas mot hela URL:en utan hänsyn till skiftläge, och avgör vilka URL:er leverantören hanterar. Använd det eller domainPatterns, aldrig båda. Lägg till indexPattern så att leverantören bara kontrolleras på matchande värdar i stället för mot varje URL."
   },
   "faq_url_pattern_structure": {
-    "message": "Den typiska strukturen täcker: protokoll + subdomän + domän + TLD + kataloger + parametrar"
+    "message": "Ett typiskt urlPattern täcker schemat, eventuella underdomäner, domänen och vid behov början av sökvägen."
   },
   "faq_url_pattern_tip": {
-    "message": "Använd online-regex-testare för att validera dina mönster innan du lägger till dem."
+    "message": "I JSON skriver du varje omvänt snedstreck två gånger. Testa det reguljära uttrycket innan du sparar; redigeraren avvisar ogiltiga uttryck."
   },
   "faq_url_patterns_explanation": {
-    "message": "URL-mönster använder fullt regex för precis kontroll över vilka webbadresser som matchar:"
+    "message": "urlPattern är ett enda reguljärt uttryck för hela URL:en, för matchningar som domänmönster inte kan uttrycka:"
   },
   "faq_use_domain_patterns": {
-    "message": "Använd domänmönster för enklare värdnamn/sökvägsmatchning utan att skriva ett fullt urlPattern-regex."
+    "message": "Använd domainPatterns för webbplatser och sökvägar. Det är enklare och låter leverantören hittas via värdnamnet."
   },
   "faq_use_url_patterns": {
-    "message": "Använd URL-mönster för komplex matchning (specifika sökvägar, frågeparametrar, etc.)"
+    "message": "Använd urlPattern bara när du behöver ett reguljärt uttryck, och lägg till indexPattern tillsammans med det."
   },
   "faq_warning": {
     "message": "Varning:"
@@ -831,7 +903,7 @@
     "message": "Vad är anpassade regler?"
   },
   "faq_what_is_custom_rules_answer": {
-    "message": "Anpassade regler låter dig skapa dina egna URL-rengöringsmönster för webbplatser som inte täcks av de inbyggda reglerna. De följer samma struktur som huvudkatalogen men hanteras separat."
+    "message": "Anpassade regler är dina egna leverantörer, för webbplatser som de inbyggda reglerna inte täcker eller för att ändra hur en webbplats rensas. De använder CLN Format 1.0, samma JSON-format som de inbyggda reglerna och fjärrreglerna, och lagras separat i tillägget."
   },
   "faq_when_to_use_patterns": {
     "message": "När du ska använda vilket:"
@@ -952,6 +1024,27 @@
   },
   "licenseSection": {
     "message": "Licensinformation"
+  },
+  "posarCopied": {
+    "message": "POSAR kopierad!"
+  },
+  "posarDescription": {
+    "message": "Vänligen granska Linkumoris dokument för programvarans prestanda och riskacceptans nedan."
+  },
+  "posarDownloaded": {
+    "message": "POSAR har laddats ner!"
+  },
+  "posarSection": {
+    "message": "Utförande av programvara och acceptans av risk"
+  },
+  "posar_consent_accept_button": {
+    "message": "Acceptera POSAR"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR accepteras"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR accepteras."
   },
   "license_links_title": {
     "message": "Länkar"
@@ -1136,29 +1229,29 @@
   "openSettings": {
     "message": "Öppna Linkumori-inställningar"
   },
-  "overload_mode_strategy_label": {
-    "message": "Overload mode behavior"
-  },
-  "overload_mode_patch_only": {
-    "message": "Patch mode only"
-  },
-  "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included."
-  },
-  "overload_mode_patch_merge": {
-    "message": "Patch mode + merge"
-  },
-  "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches."
-  },
-  "overload_mode_merge_only": {
-    "message": "No patch mode + merge"
-  },
-  "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches."
-  },
   "overload_mode_enabled": {
     "message": "Aktivera överbelastningsläge"
+  },
+  "overload_mode_strategy_label": {
+    "message": "Beteende för överbelastningsläge"
+  },
+  "overload_mode_patch_only": {
+    "message": "Endast patchläge"
+  },
+  "overload_mode_patch_only_description": {
+    "message": "Tillämpa fjärrpatchar på inbyggda regler. Fjärrleverantörernas regler inkluderas inte."
+  },
+  "overload_mode_patch_merge": {
+    "message": "Patchläge + sammanslagning"
+  },
+  "overload_mode_patch_merge_description": {
+    "message": "Slå samman inbyggda regler och fjärrleverantörers regler och tillämpa sedan fjärrpatchar."
+  },
+  "overload_mode_merge_only": {
+    "message": "Inget patchläge + sammanslagning"
+  },
+  "overload_mode_merge_only_description": {
+    "message": "Slå samman inbyggda regler och fjärrleverantörers regler utan att tillämpa fjärrpatchar."
   },
   "overload_mode_enabled_description": {
     "message": "När aktiverat laddas inbyggda och fjärrregler tillsammans och sammanfogas innan anpassade regler tillämpas."
@@ -1250,6 +1343,201 @@
   "popup_html_report_issues_title": {
     "message": "Öppna ärendespårare"
   },
+  "popup_report_issue_button_title": {
+    "message": "Rapportera ett problem"
+  },
+  "reportIssueTitle": {
+    "message": "Rapportera problem"
+  },
+  "reportIssueHeader": {
+    "message": "Rapportera problem eller föreslå förbättringar"
+  },
+  "reportIssueDescription": {
+    "message": "Hittade du ett problem med URL-rensning eller har du ett förslag? Hjälp oss att förbättra Linkumori genom att skicka in en rapport."
+  },
+  "findExistingButton": {
+    "message": "Hitta befintliga problem"
+  },
+  "beforeReporting": {
+    "message": "Innan du rapporterar, kontrollera om ditt problem redan har rapporterats:"
+  },
+  "issueTypeLabel": {
+    "message": "Problemtyp:"
+  },
+  "issueTypeSelect": {
+    "message": "Välj problemtyp..."
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Spårningsparametern har inte tagits bort"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL bruten efter rengöring"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Falsk positiv (onödig rengöring)"
+  },
+  "issueTypePerformance": {
+    "message": "Prestandaproblem"
+  },
+  "issueTypeUi": {
+    "message": "Problem med UI/display"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Funktionsbegäran"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Regelförslag"
+  },
+  "urlLabel": {
+    "message": "URL där problemet uppstår:"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com"
+  },
+  "enterCustomUrl": {
+    "message": "Ange anpassad URL"
+  },
+  "nsfwLabel": {
+    "message": "Sidan innehåller barnförbjudet innehåll (NSFW)"
+  },
+  "additionalInfoLabel": {
+    "message": "Ytterligare information:"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Ange ytterligare information eller kommentarer om problemet..."
+  },
+  "consentMessage": {
+    "message": "Jag förstår att ett klick på \"Rapportera på GitHub\" kommer att skapa en GitHub-URL som innehåller informationen jag har angett och konfigurationssektionerna jag valde nedan, och sedan omdirigera mig till den URL:en. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga webbadressen innan den öppnas, och jag kan granska exakt vilken information som kommer att inkluderas. När jag har omdirigerats till GitHub kommer jag att ha full kontroll att antingen skicka in det förifyllda ärendeformuläret eller avbryta utan att skicka in något. Jag förstår att åtkomst till GitHub utsätter mig för $privacy_link$. Att skapa ett problem kräver ett GitHub-konto, och när du väl väljer att fortsätta och omdirigeras till GitHub, styrs din aktivitet av $privacy_statement$ och $terms_service$. Efter att ha blivit omdirigerad med förifylld information behåller du full kontroll och kan välja om du vill skicka eller avbryta skapandet av problemet på vårt arkiv på $repo_link$. Även om du avbryter problemskapandet kan GitHub fortfarande samla in data enligt deras integritetspolicy på grund av din interaktion med deras plattform. Om du fortsätter med att skicka in ärendet kommer informationen du skickar, inklusive eventuella ytterligare kommentarer, att bli tillgänglig för allmänheten. Detta beror på att förvaret är offentligt och alla rapporterade problem kommer att vara synliga för alla som använder GitHub eller relaterade tjänster.",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Rapportera på GitHub"
+  },
+  "configInformation": {
+    "message": "Konfigurationsinformation"
+  },
+  "report_share_extension_info": {
+    "message": "Tillägg och webbläsardetaljer"
+  },
+  "report_share_settings_info": {
+    "message": "Skyddsinställningar"
+  },
+  "report_share_whitelist_info": {
+    "message": "Vitlistade domäner"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Anpassade regler"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Inaktiverade regler och leverantörer"
+  },
+  "report_no_config_shared": {
+    "message": "Ingen konfigurationsinformation har valts."
+  },
+  "findExistingConsentMessage": {
+    "message": "Jag förstår att genom att klicka på \"Hitta befintliga problem\" skapas en GitHub-sök-URL med domännamnet och probleminformationen jag har angett, och sedan omdirigerar jag mig till den webbadressen. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga sökadressen innan jag öppnar den, så att jag kan granska vilka söktermer som kommer att användas. När jag omdirigeras till GitHub kommer jag att vara föremål för $link$ och $terms_service$.",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL-förhandsgranskning"
+  },
+  "urlPreviewWarning": {
+    "message": "Granska webbadressen som kommer att öppnas. Denna URL innehåller informationen du angett och kommer att omdirigera dig till GitHub."
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Meddelande om integritetspolicy"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori skapar denna URL lokalt i din webbläsare. Linkumori överför inte direkt data från dig eller din webbläsare till GitHub eller till någon annan server medan den här URLen skapas."
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Om du väljer \"Öppna GitHub\" väljer du att låta din webbläsare öppna webbadressen som visas. Den webbläsarnavigeringen kan skicka URL:en och dess frågeparametrar till GitHub."
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "För att skapa problem kan webbadressen inkludera problemtyp, vald problemadress, rensad URL, NSFW-markör, kommentarer och valda konfigurationsavsnitt."
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "För problemsökning kan URL:en inkludera det valda värdnamnet, domänen, problemtypen och NSFW-söktermen om den har valts."
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori stöder inte GitHub. Linkumori vet, verifierar eller garanterar inte om GitHub följer din lokala integritet, dataskydd eller andra tillämpliga lagar."
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Granska hela webbadressen innan du fortsätter. Avbryt om du inte vill att din webbläsare ska öppna GitHub."
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL som ska öppnas (tekniskt format):"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Visa läsbart format (avkodad URL)"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopiera URL"
+  },
+  "urlPreviewCopied": {
+    "message": "Kopierade!"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Avbryt"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Öppna GitHub"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Denna URL omdirigerar dig till GitHub. Dina uppgifter kommer att omfattas av $link$ när de omdirigeras.",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Markera kryssrutan för samtycke för att fortsätta."
+  },
+  "findExistingConsentRequired": {
+    "message": "Vänligen bekräfta att du förstår hur dina uppgifter kommer att användas genom att markera samtyckesrutan."
+  },
+  "issueTypeRequired": {
+    "message": "Välj en problemtyp."
+  },
+  "urlRequired": {
+    "message": "Ange en URL."
+  },
+  "urlInvalid": {
+    "message": "Ange en giltig URL."
+  },
+  "errorCreatingIssue": {
+    "message": "Det gick inte att skapa GitHub-problem:"
+  },
+  "errorFindingIssues": {
+    "message": "Det gick inte att hitta befintliga problem:"
+  },
+  "report_browser_api_unavailable": {
+    "message": "webbläsarens API är inte tillgängligt. Den här sidan måste laddas som ett webbläsartillägg."
+  },
+  "report_config_error": {
+    "message": "Fel vid hämtning av konfigurationsdata:"
+  },
   "popup_html_clearurls_migration_repository": {
     "message": "ClearURLs MV3-migreringsrepository"
   },
@@ -1313,6 +1601,27 @@
   "legal_consent_status_required_posar": {
     "message": "Samtycke krävs. Linkumori pausas tills du accepterar den aktuella POSAR."
   },
+  "legal_consent_status_accepted": {
+    "message": "Samtycke accepterat. Linkumori kan köras med de aktuella juridiska villkoren."
+  },
+  "legal_consent_button_accepted": {
+    "message": "Accepterad"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Bekräfta ålder"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bekräfta att du är 18+ eller lagligt vuxen innan du accepterar."
+  },
+  "legal_consent_saved": {
+    "message": "Samtycke accepterat."
+  },
+  "legal_consent_save_failed": {
+    "message": "Kunde inte spara samtycke."
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "Kunde inte fastställa den aktuella versionen av samtyckespolicyn."
+  },
   "legal_document_review_modal_title": {
     "message": "Granska dokument"
   },
@@ -1342,27 +1651,6 @@
   },
   "legal_document_review_posar_accept": {
     "message": "Acceptera POSAR"
-  },
-  "legal_consent_status_accepted": {
-    "message": "Samtycke accepterat. Linkumori kan köras med de aktuella juridiska villkoren."
-  },
-  "legal_consent_button_accepted": {
-    "message": "Accepterad"
-  },
-  "legal_consent_confirm_age_button": {
-    "message": "Bekräfta ålder"
-  },
-  "legal_consent_adult_required": {
-    "message": "Bekräfta att du är 18+ eller lagligt vuxen innan du accepterar."
-  },
-  "legal_consent_saved": {
-    "message": "Samtycke accepterat."
-  },
-  "legal_consent_save_failed": {
-    "message": "Kunde inte spara samtycke."
-  },
-  "legal_consent_error_version_unavailable": {
-    "message": "Kunde inte fastställa den aktuella versionen av samtyckespolicyn."
   },
   "legal_consent_withdraw_button": {
     "message": "Hur man återkallar samtycke"
@@ -1514,6 +1802,9 @@
   "providerImport_complete": {
     "message": "Komplett"
   },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Hoppar över nav. inom sidan"
+  },
   "providerImport_completeProvider": {
     "message": "Komplett leverantör"
   },
@@ -1552,6 +1843,105 @@
   },
   "providerImport_disabledTitle": {
     "message": "Inaktiverade regler"
+  },
+  "providerImport_disable": {
+    "message": "Inaktivera"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Leverantörsregel-id:n"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "Byt namn på ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "Nytt id för $OLD$ (a-z, 0-9, - och _). Det gamla id:t behålls som alias, så regler som stängts av under det förblir avstängda.",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" är inte ett giltigt id. Använd gemener, siffror, - och _, och börja med en bokstav eller siffra.",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "En annan regel hos denna leverantör använder redan \"$ID$\".",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Inaktivera regel"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Inaktivera $ID$ för hela leverantören, eller bara för detta URL-/domänmönster?",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "Min leverantör"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL-/domänmönster"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "Regelns id har bytt namn till $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "Föräldralösa växlar"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "Ingen matchande regel hittades i källan"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "Ta bort"
+  },
+  "providerImport_disableByPattern": {
+    "message": "Av URL/domänmönster"
+  },
+  "providerImport_disableByProvider": {
+    "message": "Efter leverantör"
+  },
+  "providerImport_providerRuleNav": {
+    "message": "Leverantörsregelnavigering"
+  },
+  "providerImport_noProviderRuleActivations": {
+    "message": "Inga aktiva regelaktiveringar för denna leverantör."
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Kontroller för leverantörsregel-ID"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Inaktivera kanoniska leverantörsregel-ID:n utan att ta bort dem. Lagrade ID använder provider::rule-identitet."
+  },
+  "providerImport_ruleActivation": {
+    "message": "Regelaktivering"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Inga kanoniska regel-ID:n har hittats i den här leverantören ännu."
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Regel-ID-kontroller är tillgängliga när leverantören JSON är giltig."
   },
   "providerImport_domainPatterns": {
     "message": "Domänmönster"
@@ -1630,6 +2020,9 @@
   },
   "providerList_complete": {
     "message": "Komplett"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Hoppar över rensning vid navigering inom sidan"
   },
   "providerList_confirmDelete": {
     "message": "Är du säker på att du vill radera leverantören \"$1\"?",
@@ -1766,6 +2159,12 @@
   "rules_hash_status_label": {
     "message": "Laddningsstatus:"
   },
+  "clearurls_json_rules_section": {
+    "message": "Linkumori CLN Format 1.0 JSON Regler:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "message": "Linkumori CLN Format 1.0 JSON Regelinformation:"
+  },
   "rules_last_updated_label": {
     "message": "Senast uppdaterad:"
   },
@@ -1836,7 +2235,7 @@
     "message": "Primär hash-URL måste använda HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together."
+    "message": "Primär regel-URL och primär hash-URL måste konfigureras tillsammans."
   },
   "save_primary_rule_https_required": {
     "message": "Primär regel-URL måste använda HTTPS"
@@ -1872,13 +2271,13 @@
     "message": "Jag förstår riskerna - Fortsätt"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source."
+    "message": "Du bör ompröva användningen av fjärrregler om du inte helt förstår eller litar på källan till Linkumori-regeluppsättningen."
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification."
+    "message": "Funktionen för fjärrregler är avsedd för avancerade användare som förstår den Linkumori-JSON de läser in. Fjärrregler bör ha en matchande hash-URL för verifiering."
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Om du lägger till en URL för fjärrregler ansluter tillägget till din angivna server för att hämta Linkumori-regeluppsättningen och dess hash-fil, om en sådan är konfigurerad. Varje hämtning kan exponera din IP-adress och allmän information som tilläggets version, webbläsare och webbläsarversion för servern. Dessa uppgifter omfattas av integritetspolicyn för den webbplatsen eller webbservern."
   },
   "security_modal_privacy_link_text": {
     "message": "Läs %PRIVACY_POLICY_LINK% igen innan du fortsätter om det behövs."
@@ -1887,7 +2286,7 @@
     "message": "integritetsmeddelande:"
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules."
+    "message": "Använd inbyggda regler om du inte litar på och kontrollerar fjärrkällan. Ange en matchande hash-URL för fjärrregler i Linkumori-JSON."
   },
   "security_modal_risk_1": {
     "message": "Din IP-adress och webbläsarinformation kommer att exponeras för de konfigurerade servrarna"
@@ -1899,7 +2298,7 @@
     "message": "Hashverifiering gäller endast Linkumori CLN Format 1.0 JSON regler; det skyddar mot överföringsmanipulering, inte skadliga regelkällor."
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL."
+    "message": "Fjärrregler utan lyckad hash-verifiering förlitar sig helt på förtroende för käll-URL:en."
   },
   "security_modal_risks_title": {
     "message": "Säkerhetsrisker:"
@@ -1914,7 +2313,7 @@
     "message": "Webbadressen till filen rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification."
+    "message": "Krävs för verifiering av fjärrregler i Linkumori-JSON."
   },
   "setting_html_export_button": {
     "message": "Exportera"
@@ -1944,7 +2343,7 @@
     "message": "Logggräns (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>."
+    "message": "Ytterligare fjärrkällor med Linkumori-JSON som slås samman. Ange ett par per rad som <code>ruleURL | hashURL</code>."
   },
   "setting_remote_rule_sets_label": {
     "message": "Ytterligare fjärrregeluppsättningar"
@@ -1953,13 +2352,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules"
+    "message": "Anpassad fjärr-URL för regler i Linkumori-JSON"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file"
+    "message": "URL:en till JSON-filen med fjärrregler"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset."
+    "message": "En hash-URL krävs för varje fjärrregeluppsättning."
   },
   "settings_html_page_title": {
     "message": "Inställningar för Linkumori (Clean URLS)"
@@ -2294,11 +2693,23 @@
   "whitelist_add_button": {
     "message": "Lägg till"
   },
+  "whitelist_added_general": {
+    "message": "Lade till %s i den allmänna vitlistan"
+  },
+  "whitelist_added_history_api": {
+    "message": "Lade till %s som ett undantag för History API"
+  },
   "whitelist_add_failed": {
     "message": "Kunde inte lägga till domän i vitlistan"
   },
   "whitelist_already_exists": {
     "message": "Domän finns redan i vitlistan eller är ogiltig"
+  },
+  "whitelist_exception_count": {
+    "message": "%d undantag"
+  },
+  "whitelist_exception_empty": {
+    "message": "Inga undantag i vitlistan"
   },
   "whitelist_enter_domain": {
     "message": "Ange ett domännamn"
@@ -2336,6 +2747,15 @@
   "whitelist_input_placeholder": {
     "message": "example.com eller *.example.com"
   },
+  "whitelist_mode_general": {
+    "message": "Allmän vitlista"
+  },
+  "whitelist_mode_history_api": {
+    "message": "Endast History API"
+  },
+  "whitelist_mode_label": {
+    "message": "Vitlistans omfattning"
+  },
   "whitelist_invalid_format": {
     "message": "Ogiltigt domänformat. Använd: example.com eller *.example.com"
   },
@@ -2348,6 +2768,12 @@
   "whitelist_remove_failed": {
     "message": "Kunde inte ta bort domän från vitlistan"
   },
+  "whitelist_removed_general": {
+    "message": "Tog bort %s från den allmänna vitlistan"
+  },
+  "whitelist_removed_history_api": {
+    "message": "Tog bort undantaget för History API för %s"
+  },
   "whitelist_search_placeholder": {
     "message": "Sök bland vitlistade domäner"
   },
@@ -2356,6 +2782,12 @@
   },
   "whitelist_section_title": {
     "message": "Domänvitlista"
+  },
+  "whitelist_type_general": {
+    "message": "Allmän"
+  },
+  "whitelist_type_history_api": {
+    "message": "Endast History API"
   },
   "whitelist_update_failed": {
     "message": "Kunde inte uppdatera vitlistan"
@@ -2421,19 +2853,19 @@
     "message": "VARNING: Avancerad funktion endast avsedd för egenhysta servrar"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring."
+    "message": "Du inaktiverar Gatekeeper-skyddet för redigering av URL:er för fjärrregler. Den här funktionen kan läsa in fjärrregler i Linkumori-JSON i den samlade regeluppsättningen för leverantörer. Fortsätt bara om du förstår och litar på källan du konfigurerar."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper är det inbyggda säkerhetsflödet som blockerar direkta fjärr-URL-redigeringar tills du bekräftar säkerhetsvarningen och slutför den inskrivna bekräftelsen."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL."
+    "message": "Låt Gatekeeper vara aktiverat om du inte litar på och kontrollerar dina fjärrkällor. JSON-fjärrregler bör ha en matchande hash-URL."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "integritetsmeddelande:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server."
+    "message": "Om du lägger till en URL för fjärrregler ansluter tillägget till din angivna server för att hämta Linkumori-regeluppsättningen och dess hash-fil, om en sådan är konfigurerad. Varje hämtning kan exponera din IP-adress och allmän information som tilläggets version, webbläsare och webbläsarversion för servern. Dessa uppgifter omfattas av integritetspolicyn för den webbplatsen eller webbservern."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Läs %PRIVACY_POLICY_LINK% igen innan du fortsätter om det behövs."
@@ -2448,7 +2880,7 @@
     "message": "Tillägget kommer att ansluta till din angivna webbadress varje gång tillägget är aktiverat och laddat i din webbläsare."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address."
+    "message": "Servern som är värd för JSON- eller hash-fjärrfilerna kommer att få din IP-adress."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Servern kan också ta emot din tilläggsversion, webbläsare och webbläsarversion."
@@ -2457,7 +2889,7 @@
     "message": "Dessa data omfattas av integritetspolicyn för webbplatsen eller webbservern som är värd för dessa filer."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured."
+    "message": "Genom att inaktivera Gatekeeper ökar du risken från osäkra eller komprometterade källor för fjärrregler. Hash-verifiering skyddar nedladdningar av Linkumori-JSON från fjärrkällor endast när en matchande hash-URL är konfigurerad."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Avbryt"
@@ -2517,7 +2949,7 @@
     "message": "Skriv exakt bekräftelsefras"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source."
+    "message": "Den här åtgärden minskar skyddet för fjärrregler. Fortsätt bara om du litar på din JSON-fjärrkälla."
   },
   "remote_urls_template_note_1": {
     "message": "Ersätt platshållarvärdena med dina riktiga HTTPS-URL:er och importera sedan denna fil."
@@ -2718,7 +3150,7 @@
     "message": "Vanliga frågor om granskning"
   },
   "audit_faq_intro": {
-    "message": "Dessa anteckningar beskriver de leverantörsfält som clearurls.js faktiskt läser när den bygger och tillämpar regler."
+    "message": "Dessa anteckningar beskriver leverantörsfälten i CLN Format 1.0, regelformatet som Linkumori läser."
   },
   "audit_faq_audit_provider_title": {
     "message": "Hur gör jag en granskning av en leverantör?"
@@ -2730,55 +3162,55 @@
     "message": "Hur aktiverar, inaktiverar, importerar, redigerar eller åsidosätter jag enskilda regler?"
   },
   "audit_faq_override_body": {
-    "message": "<p>Använd redigeraren för anpassade regler när du vill ha regel-för-regel-kontroll. Det är där du kan importera regler som anpassade regler, redigera leverantörsfält och spara din egen version av en leverantör.</p><p>Du kan använda den för att aktivera eller inaktivera enskilda leverantörer eller enskilt regelinnehåll genom att omvandla den importerade eller redigerade leverantören till din anpassade version. Den anpassade versionen sammanfogas sedan i körningsreglerna.</p><p>Du kan också individuellt åsidosätta inbakade regler och fjärrregler. Granska <span class=\"faq-code\">Inbakade regler</span> eller <span class=\"faq-code\">Senaste cachade fjärrregler</span> för att hitta den leverantör du vill ha, inspektera sedan <span class=\"faq-code\">Anpassade regler</span> och <span class=\"faq-code\">Slutliga regler</span> för att bekräfta att din anpassade redigering eller åsidosättning träder i kraft.</p><p>Om du importerar en regelsamling till redigeraren för anpassade regler kan du behålla endast de delar du vill ha, inaktivera de delar du inte vill ha och redigera leverantören så att den slutliga sammanslagna utdatan beter sig som du avser.</p>"
+    "message": "<p>Använd redigeraren för anpassade regler för att styra regel för regel. Där kan du importera en inbyggd leverantör eller fjärrleverantör som en anpassad regel, redigera den, stänga av enskilda regler eller inaktivera hela leverantörer.</p><p>En anpassad leverantör ersätter varje inbyggd leverantör eller fjärrleverantör med samma <span class=\"faq-code\">domainPatterns</span> eller <span class=\"faq-code\">urlPattern</span>; deras regler kombineras inte.</p><p>Granska <span class=\"faq-code\">Inbakade regler</span> eller <span class=\"faq-code\">Senaste cachade fjärrregler</span> för att hitta leverantören du vill ha, och kontrollera sedan <span class=\"faq-code\">Anpassade regler</span> och <span class=\"faq-code\">Slutliga regler</span> för att bekräfta att din ändring får effekt.</p>"
   },
   "audit_faq_url_pattern_title": {
     "message": "Vad är urlPattern?"
   },
   "audit_faq_url_pattern_body": {
-    "message": "<p><span class=\"faq-code\">urlPattern</span> är det reguljära uttryck som används för att avgöra om en leverantör matchar en webbadress.</p><p>Om en leverantör har <span class=\"faq-code\">urlPattern</span> använder ClearURLs det regexet först. I clearurls.js omvandlas detta till en riktig RegExp av <span class=\"faq-code\">setURLPattern()</span>.</p>"
+    "message": "<p><span class=\"faq-code\">urlPattern</span> är ett enda reguljärt uttryck, som testas mot hela URL:en utan hänsyn till skiftläge, och avgör vilka URL:er leverantören hanterar.</p><p>En leverantör har <span class=\"faq-code\">urlPattern</span> eller <span class=\"faq-code\">domainPatterns</span>, aldrig båda. <span class=\"faq-code\">indexPattern</span> listar de värdar som en <span class=\"faq-code\">urlPattern</span>-leverantör kontrolleras på, så att den inte testas mot varje URL.</p>"
   },
   "audit_faq_domain_patterns_title": {
     "message": "Vad är domainPatterns?"
   },
   "audit_faq_domain_patterns_body": {
-    "message": "<p><span class=\"faq-code\">domainPatterns</span> är den domänbaserade matcharen som används när en leverantör inte förlitar sig på <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs lagrar dessa med <span class=\"faq-code\">setURLDomainPattern()</span> och kontrollerar dem sedan med domänmatchningslogik istället för regex-URL-matchning.</p>"
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> listar mönster i AdBlock-stil, till exempel <span class=\"faq-code\">||example.com^</span> (domänen och dess underdomäner) eller <span class=\"faq-code\">||example.*^</span> (valfritt publikt suffix). En URL matchar om något av dem matchar.</p><p>Använd det eller <span class=\"faq-code\">urlPattern</span>, aldrig båda. Med domänmönster kan leverantören hittas via värdnamnet, så de är snabbare än ett reguljärt uttryck.</p>"
   },
   "audit_faq_rules_title": {
-    "message": "Vad kan rules[] innehålla?"
+    "message": "Vad kan rules, rawRules och referralMarketing innehålla?"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> accepterar enkla parametersträngar, inline <span class=\"faq-code\">$removeparam</span> filter och kanoniska objekt.</p><p>Använda <span class=\"faq-code\">kind: \"raw\"</span> för rensning av hela URL regex och <span class=\"faq-code\">kind: \"redirection\"</span> för omdirigeringsextraktion.</p><p>Använda <span class=\"faq-code\">referralMarketing: true</span> på en fältregel när parametern beror på inställningen för remissmarknadsföring.</p>"
+    "message": "<p>Poster i <span class=\"faq-code\">rules</span> är parameternamn, reguljära uttryck för namn, <span class=\"faq-code\">$removeparam</span>-filter eller regelobjekt med <span class=\"faq-code\">matchPattern</span> och valfritt <span class=\"faq-code\">id</span>, <span class=\"faq-code\">replacePattern</span>, <span class=\"faq-code\">order</span> med mera.</p><p>Poster i <span class=\"faq-code\">rawRules</span> är reguljära uttryck som körs på hela URL:en; varje träff raderas. De körs alltid före <span class=\"faq-code\">rules</span>.</p><p><span class=\"faq-code\">referralMarketing</span> tar samma poster som <span class=\"faq-code\">rules</span>, men körs bara medan hänvisningsmarknadsföring inte är tillåten. Ett objekt i <span class=\"faq-code\">rules</span> kan göra samma sak med <span class=\"faq-code\">\"referralMarketing\": true</span>.</p>"
   },
   "audit_faq_exceptions_title": {
-    "message": "Vad är exceptions och domainExceptions?"
+    "message": "Vad är undantag?"
   },
   "audit_faq_exceptions_body": {
-    "message": "<p><span class=\"faq-code\">exceptions</span> är regex-mönster som hindrar en leverantör från att agera på matchande webbadresser.</p><p><span class=\"faq-code\">domainExceptions</span> gör samma sak med domänbaserad matchning istället för regex-URL-matchning.</p><p>Om ett undantag matchar kringgås leverantören även om dess huvudmönster matchade först.</p>"
+    "message": "<p><span class=\"faq-code\">exceptions</span> listar URL:er som leverantören lämnar orörda. Varje post är ett reguljärt uttryck eller ett domänmönster som börjar med <span class=\"faq-code\">|</span>, till exempel <span class=\"faq-code\">||example.com^/login</span>.</p><p>Om en post matchar körs ingen av leverantörens regler, trots att leverantören matchade. För att i stället behålla en enskild parameter, använd en <span class=\"faq-code\">@@</span>-post i <span class=\"faq-code\">rules</span>.</p>"
   },
   "audit_faq_redirections_title": {
-    "message": "Vad är redirections och domainRedirections?"
+    "message": "Vad är redirections och fieldRedirections?"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> poster med <span class=\"faq-code\">kind: \"redirection\"</span> är regex-baserade unwrappers. De fångar vanligtvis den verkliga destinationen URL i grupp 1, och ClearURLs omdirigerar till det infångade värdet.</p><p><span class=\"faq-code\">domainRedirections</span> är omdirigeringsregler i domänstil. I den här kodbasen kontrolleras de för poster som är formade som <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Om en regex-omdirigering matchar först, vinner den. Om inte, kontrollerar ClearURLs nästa domän redirections.</p>"
+    "message": "<p>Poster i <span class=\"faq-code\">redirections</span> är reguljära uttryck med exakt en fångstgrupp, vars URL-avkodade värde blir den nya adressen, eller fasta omdirigeringar som <span class=\"faq-code\">||go.example.com^$redirect=https://example.com/</span>.</p><p><span class=\"faq-code\">fieldRedirections</span> anger en parameter vars värde blir den nya adressen.</p><p>En omdirigering sker bara till en absolut <span class=\"faq-code\">http</span>- eller <span class=\"faq-code\">https</span>-adress, och bara medan kringgående av tredjepartsomdirigeringar är på. I en fjärrregellista väntar den dessutom på att listans omdirigeringar godkänns i Hälsa för fjärrregler.</p>"
   },
   "audit_faq_methods_resources_title": {
     "message": "Vad är methods och resourceTypes?"
   },
   "audit_faq_methods_resources_body": {
-    "message": "<p><span class=\"faq-code\">methods</span> begränsar en leverantör till specifika HTTP-metoder som <span class=\"faq-code\">GET</span> eller <span class=\"faq-code\">POST</span>. Om inga metoder anges tillåts alla metoder.</p><p><span class=\"faq-code\">resourceTypes</span> begränsar en leverantör till webRequest-resurstyper som <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span> eller <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Om inga resurstyper anges, faller ClearURLs tillbaka på globalt tillåtna förfrågningstyper från inställningarna.</p>"
+    "message": "<p><span class=\"faq-code\">methods</span> begränsar en leverantör till HTTP-metoder som <span class=\"faq-code\">GET</span> eller <span class=\"faq-code\">POST</span>. Om inga anges hanteras alla metoder.</p><p><span class=\"faq-code\">resourceTypes</span> begränsar en leverantör till förfrågningstyper som <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span> eller <span class=\"faq-code\">xmlhttprequest</span>. Om inga anges hanteras alla förfrågningstyper.</p><p>Enskilda regler kan begränsas med <span class=\"faq-code\">requestTypes</span>, direkt eller via filens <span class=\"faq-code\">defaults</span>. Det finns ingen lista över förfrågningstyper i Inställningar.</p>"
   },
   "audit_faq_complete_force_title": {
     "message": "Vad är completeProvider och forceRedirection?"
   },
   "audit_faq_complete_force_body": {
-    "message": "<p><span class=\"faq-code\">completeProvider</span> förvandlar leverantören till en blockerande leverantör. I clearurls.js innebär det att leverantören kan avbryta matchande förfrågningar när domänblockering är aktiverad.</p><p><span class=\"faq-code\">forceRedirection</span> gör en omdirigering mer aggressiv. När en omdirigering hittas på en <span class=\"faq-code\">main_frame</span>-förfrågan kan ClearURLs uppdatera webbläsarfliken direkt istället för att returnera ett normalt omdirigeringssvar.</p>"
+    "message": "<p><span class=\"faq-code\">completeProvider</span>: <span class=\"faq-code\">true</span> blockerar varje matchande förfrågan innan någon regel körs, så länge domänblockering är tillåten i Inställningar.</p><p><span class=\"faq-code\">forceRedirection</span>: <span class=\"faq-code\">true</span> får en omdirigering vid sidladdning (<span class=\"faq-code\">main_frame</span>) att navigera hela fliken i stället för bara nätverksförfrågan.</p><p>I en fjärrregellista väntar båda tills du godkänner listans blockerings- eller omdirigeringsförmåga i Hälsa för fjärrregler.</p>"
   },
   "audit_faq_fields_title": {
-    "message": "Vilka leverantörsfält använder clearurls.js här?"
+    "message": "Vilka leverantörsfält finns det?"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Provider-byggande sökvägen i den här grenen läser dessa författarnycklar: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, och <span class=\"faq-code\">resourceTypes</span>.</p><p>Raw cleanup, remiss-marketing cleanup och regex redirections kan använda de bibehållna ClearURLs-fälten eller kanoniska objekt inuti <span class=\"faq-code\">rules[]</span>.</p><p>Vid revision av beteende är den viktigaste platsen att kontrollera <span class=\"faq-code\">Final Rules</span>, eftersom det visar det sammanslagna resultatet efter att paketerade, fjärranslutna och anpassade källor har kombinerats.</p>"
+    "message": "<p>En leverantör kan ha: <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">fieldRedirections</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">methods</span>, <span class=\"faq-code\">resourceTypes</span>, <span class=\"faq-code\">historyBypassProtection</span> och <span class=\"faq-code\">active</span>.</p><p>Utöver <span class=\"faq-code\">providers</span> kan en regelfil ha <span class=\"faq-code\">cln</span> (formatversionen, <span class=\"faq-code\">\"1.0\"</span>), <span class=\"faq-code\">metadata</span>, <span class=\"faq-code\">defaults</span> och, i en fjärrregellista, <span class=\"faq-code\">patches</span>.</p><p>När du granskar beteendet, kontrollera <span class=\"faq-code\">Slutliga regler</span> först: den visar resultatet efter att inbyggda regler, fjärrregler och anpassade regler har kombinerats och patchar har tillämpats.</p>"
   },
   "popup_temporary_pause_title": {
     "message": "Tillfällig paus"
@@ -2841,16 +3273,16 @@
     "message": "Aktuell hash-status:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "Ej tillämpligt"
   },
   "settings_remote_health_none": {
     "message": "Ingen"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:"
+    "message": "Regelkollisioner:"
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
+    "message": "$ERRORS$ fel, $WARNINGS$ varningar, $NOTICES$ meddelanden",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -2867,10 +3299,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:"
+    "message": "Fjärrfilens förmågor:"
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
+    "message": "inaktiva tills de godkänns: $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2879,7 +3311,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
+    "message": "Godkänn $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -2888,10 +3320,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:"
+    "message": "Regelpatchar:"
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
+    "message": "$APPLIED$ tillämpade, $NOT_APPLIED$ ej tillämpade",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -2904,31 +3336,31 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults"
+    "message": "Standardvärden för regler"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in"
+    "message": "Inbyggda"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom"
+    "message": "Anpassade"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour"
+    "message": "Inga — inbyggt beteende"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults."
+    "message": "Överbelastningsläget slår samman inbyggda regler och fjärrregler; varje källas regler behåller källans egna standardvärden."
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults"
+    "message": "Spara standardvärden"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved"
+    "message": "Standardvärdena sparades"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor."
+    "message": "När det är på behåller varje regelkälla sina egna standardvärden (inbyggda standardvärden gäller inbyggda regler och varje fjärrfils standardvärden gäller den filens regler), om du inte väljer egna standardvärden i redigeraren för anpassade regler."
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
+    "message": "Fjärr: $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -2937,25 +3369,25 @@
     }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply"
+    "message": "Vilka standardvärden som gäller"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own"
+    "message": "Varje källas egna"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules"
+    "message": "Dina för inbyggda regler och fjärrregler"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules"
+    "message": "Dina för alla regler"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)"
+    "message": "(ersatta av dina standardvärden)"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours"
+    "message": "Dina"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
+    "message": "$COUNT$ förfrågningstyper",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2964,7 +3396,7 @@
     }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
+    "message": "$COUNT$ URL-undantag",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2973,10 +3405,10 @@
     }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception"
+    "message": "1 URL-undantag"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
+    "message": "$COUNT$ förprocessorer",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -2985,82 +3417,82 @@
     }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults."
+    "message": "Varje källas regler får källans egna standardvärden."
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own."
+    "message": "Inbyggda regler och fjärrregler får dina standardvärden i stället för sina filers egna; anpassade regler behåller sina egna."
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own."
+    "message": "Inbyggda, fjärr- och anpassade regler får alla dina standardvärden i stället för sina egna."
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults"
+    "message": "Hantera standardvärden för regler"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed."
+    "message": "Standardvärden fyller i värden som en regel inte själv anger. En regels eget värde vinner alltid, och leverantörsundantag ändras aldrig."
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults"
+    "message": "Redigera standardvärden"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults"
+    "message": "Dina standardvärden"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults"
+    "message": "Anpassade reglers standardvärden"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit"
+    "message": "Standardvärden att redigera"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules"
+    "message": "Inbyggda regler"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)"
+    "message": "(redigerad)"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults"
+    "message": "Återställ till filens standardvärden"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…"
+    "message": "Slå samman från källor…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults"
+    "message": "Slå samman standardvärden för regler"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it."
+    "message": "Resultatet visas som \"Sammanslagna standardvärden\" i listan. Kopiera det till en uppsättning där och tryck sedan på Spara standardvärden för att använda det."
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge"
+    "message": "Källor att slå samman"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts"
+    "message": "Konflikter"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults"
+    "message": "Sammanslagna standardvärden"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults"
+    "message": "Använd sammanslagna standardvärden"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults"
+    "message": "Sammanslagna standardvärden"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save."
+    "message": "Används inte förrän du kopierar det till en av de andra uppsättningarna och sparar."
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to"
+    "message": "Kopiera till"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy"
+    "message": "Kopiera"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources."
+    "message": "Välj minst två källor."
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value."
+    "message": "Inga konflikter: de valda källorna är överens om alla värden."
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
+    "message": "Undantag läggs ihop från alla källor: $COUNT$ totalt.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -3069,10 +3501,10 @@
     }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source"
+    "message": "Kombinerat från alla källor"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
+    "message": "Från: $SOURCES$",
     "placeholders": {
       "sources": {
         "content": "$1",
@@ -3081,73 +3513,73 @@
     }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)"
+    "message": "Inte angivet (inbyggt beteende)"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type"
+    "message": "Inte angivet: alla förfrågningstyper"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own."
+    "message": "Används inte just nu: dina standardvärden ersätter de inbyggda reglernas och fjärrreglernas egna."
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed."
+    "message": "Redigerade av dig: dessa ersätter filens egna standardvärden. Själva filen ändras inte."
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)"
+    "message": "(redigerad av dig)"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above."
+    "message": "Används inte just nu: \"Varje källas egna\" är valt ovan."
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too."
+    "message": "Används inte just nu: dina standardvärden ersätter även dessa för anpassade regler."
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)"
+    "message": "Regler börjar avstängda (active: false)"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description"
+    "message": "Beskrivning"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types"
+    "message": "Förfrågningstyper"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types"
+    "message": "Alla typer"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these"
+    "message": "Endast dessa"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\"."
+    "message": "Välj minst en förfrågningstyp, eller välj \"Alla typer\"."
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes."
+    "message": "Regler rensar alla förfrågningstyper om inte de själva, eller standardvärdena, anger några. Leverantörer kan också begränsa typer med resourceTypes."
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions"
+    "message": "Undantag"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs."
+    "message": "Ett reguljärt uttryck för URL per rad. Regler hoppas över på matchande URL:er."
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors"
+    "message": "Förprocessorer"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2."
+    "message": "Indata: \"all\" eller fångstgruppsnummer som 1, 2."
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor"
+    "message": "+ Lägg till förprocessor"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type"
+    "message": "Förprocessortyp"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs"
+    "message": "Förprocessorns indata"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove"
+    "message": "Ta bort"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
+    "message": "Förprocessorns indata \"$INPUTS$\" måste vara \"all\" eller nummer som 1, 2.",
     "placeholders": {
       "inputs": {
         "content": "$1",
@@ -3156,10 +3588,10 @@
     }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)"
+    "message": "Stäng av skydd mot historikkringgående (historyBypassProtection: false)"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON"
+    "message": "Visa som JSON"
   },
   "settings_remote_health_unknown": {
     "message": "okänd"
@@ -3223,6 +3655,18 @@
   },
   "popup_dynamic_whitelist_unavailable_aria": {
     "message": "Vitlisteknapp inaktiverad eftersom denna sida inte har någon domän som stöds"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Lägg till $1 i den allmänna vitlistan"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "Allmän vitlista: $1 - klicka för endast History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "Undantag för History API: $1 - klicka för endast denna flik"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Endast flik: $1 - klicka för att ta bort"
   },
   "popup_pause_15m_title": {
     "message": "Pausa tillfälligt rengöring i 15 minuter"
@@ -3335,12 +3779,6 @@
   "customRulesEditor_ruleTestLab_value_false": {
     "message": "Nej"
   },
-  "clearurls_json_rules_section": {
-    "message": "Linkumori CLN Format 1.0 JSON Regler:"
-  },
-  "clearurls_json_rules_metadata_section": {
-    "message": "Linkumori CLN Format 1.0 JSON Regelinformation:"
-  },
   "linkumoriClearUrlsStatusGroup": {
     "message": "Linkumori CLN Format 1.0"
   },
@@ -3393,7 +3831,109 @@
     "message": "Inga loggposter än. Genom att surfa kommer den här listan att fyllas."
   },
   "logger_logging_disabled_banner": {
-    "message": "Loggning är inaktiverad – aktivera den i Inställningar för att fånga nya poster."
+    "message": "Loggning är av — slå på den med knappen Loggning för att fånga nya poster."
+  },
+  "logger_action_allowed": {
+    "message": "Tillåten"
+  },
+  "logger_action_blocked": {
+    "message": "Blockerad"
+  },
+  "logger_action_filter_label": {
+    "message": "Åtgärd"
+  },
+  "logger_action_info": {
+    "message": "Info"
+  },
+  "logger_action_modified": {
+    "message": "Ändrad"
+  },
+  "logger_action_redirected": {
+    "message": "Omdirigerad"
+  },
+  "logger_btn_copy_summary": {
+    "message": "Kopiera sammanfattning"
+  },
+  "logger_btn_export": {
+    "message": "Exportera"
+  },
+  "logger_btn_group": {
+    "message": "Gruppera efter regel"
+  },
+  "logger_col_hits": {
+    "message": "Träffar"
+  },
+  "logger_col_last_seen": {
+    "message": "Senast sedd"
+  },
+  "logger_detail_group_title": {
+    "message": "Regeldetaljer"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL:er ($1)"
+  },
+  "logger_detail_tabs": {
+    "message": "Flikar"
+  },
+  "logger_exported": {
+    "message": "Exporterade $1 poster."
+  },
+  "logger_filter_all": {
+    "message": "Alla"
+  },
+  "logger_report_rule": {
+    "message": "Rapportera den"
+  },
+  "logger_rule_disable": {
+    "message": "Stäng av regeln"
+  },
+  "logger_rule_disabled_done": {
+    "message": "Regel $1 har stängts av. Läs in sidan igen för att kontrollera."
+  },
+  "logger_rule_enable": {
+    "message": "Slå på regeln"
+  },
+  "logger_rule_enabled_done": {
+    "message": "Regel $1 har slagits på igen."
+  },
+  "logger_rule_failed": {
+    "message": "Det gick inte att ändra regeln."
+  },
+  "logger_rule_off": {
+    "message": "Regeln är avstängd"
+  },
+  "logger_rule_on": {
+    "message": "Regeln är på"
+  },
+  "logger_rule_unavailable": {
+    "message": "Den här regeln kan inte slås på eller av härifrån."
+  },
+  "logger_status_rules": {
+    "message": "$1 regel/regler"
+  },
+  "logger_summary_copied": {
+    "message": "Sammanfattningen kopierades."
+  },
+  "logger_summary_copy_failed": {
+    "message": "Det gick inte att kopiera sammanfattningen."
+  },
+  "logger_type_filter_label": {
+    "message": "Typ"
+  },
+  "logger_btn_logging_off": {
+    "message": "Loggning av"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "Loggning är av. Klicka för att slå på den."
+  },
+  "logger_btn_logging_on": {
+    "message": "Loggning på"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "Loggning är på. Klicka för att stänga av den."
+  },
+  "logger_logging_toggle_failed": {
+    "message": "Det gick inte att ändra loggningsinställningen."
   },
   "logger_detail_title": {
     "message": "Inträdesdetalj"
@@ -3421,39 +3961,6 @@
   },
   "logger_detail_time": {
     "message": "Tidsstämpel"
-  },
-  "linkumori_cname_uncloak_enabled": {
-    "message": "Uncloak CNAME-spårare"
-  },
-  "linkumori_cname_uncloak_enabled_description": {
-    "message": "Använd Firefoxs lokala DNS API för att avslöja True Domain"
-  },
-  "cname_ignore_root_document_enabled": {
-    "message": "Ignorera rotdokumentvärd för CNAME-uncloaking"
-  },
-  "cname_ignore_root_document_enabled_description": {
-    "message": "Hoppa över CNAME DNS kontrollerar när begäran värdnamn matchar det aktuella dokumentet värdnamn."
-  },
-  "cname_replay_full_url_enabled": {
-    "message": "Spela upp fullständiga webbadresser igen under CNAME-uncloaking"
-  },
-  "cname_replay_full_url_enabled_description": {
-    "message": "Inkludera den ursprungliga sökvägen, frågan och fragmentet när du spelar upp filtrering mot ett CNAME-värdnamn."
-  },
-  "customRulesEditor_indexPattern": {
-    "message": "Indexmönster"
-  },
-  "customRulesEditor_indexPatternHelp": {
-    "message": "Ett domänmönster som används för att antyda vilken domän denna leverantör riktar sig till. Detta används för att optimera leverantörssökningar. Format: ||exempel.com^"
-  },
-  "customRulesEditor_indexPatternPlaceholder": {
-    "message": "||exempel.com^"
-  },
-  "faq_index_pattern": {
-    "message": "Vad är indexPattern?"
-  },
-  "faq_index_pattern_explanation": {
-    "message": "indexPattern är ett leverantörsuppslagstips, inte ett matchningsvillkor. clearurls.js extraherar värdnamnstokens från indexPattern för att placera en urlPattern-leverantör i providersByToken-kandidathinkar. Providern matchar fortfarande bara om provider.matchRequestURL() passerar det verkliga urlPattern och undantagen inte matchar."
   },
   "settings_import_regression_detected": {
     "message": "Regressionssvit upptäcktes. Vill du köra regressionstestet?"
@@ -3512,233 +4019,1092 @@
   "customRulesEditor_v3ProviderFields": {
     "message": "Leverantörsfält"
   },
+  "customRulesEditor_addReferralRule": {
+    "message": "Lägg till hänvisningsregel"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Lägg till undantag för rå regel"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Lägg till fältomdirigering"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Lägg till undantag"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Varje mall lägger till ett regelobjekt med ett id och ett platshållar-matchPattern på example.com. En post kan också vara en vanlig sträng: ett parameternamn, ett reguljärt uttryck för namn, ett $removeparam-filter eller, i rawRules, ett reguljärt uttryck. Regelobjekt tar id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description och targetId."
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Linter"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "Inga problem hittades."
+  },
+  "customRulesEditor_lintError": {
+    "message": "Fel"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Varning"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ fel, $WARNINGS$ varning(ar)",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "Körordning"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ steg, i den ordning de körs",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "Inga poster i rawRules, rules eller referralMarketing"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "Beräknad av motorn från texten ovan, sparad eller inte. Stegen sorteras efter (stage, orderGroup, order, rank, arrayIndex): råa regler körs före fältregler; inom ett steg körs poster med order först, lägsta först, sedan resten efter lista och position."
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "Hänvisningsmarknadsföring"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "Hänvisning borttagen"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "Hänvisning tillåten"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "Rå"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "Fält"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "Hänvisning"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "(genererat)"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "skriver om"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "ersätter $COUNT$ tidigare definition(er)",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "tillagd av completeProvider: tar bort alla parametrar"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "Avstängd"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "Av för vissa mönster"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "Sorteringsnyckel: (stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "Sedan $FILTERS$ $removeparam-filter och $EXCEPTIONS$ @@-undantag, efter alla steg ovan",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ @@…$rawrule=-undantag kan stoppa råa regler ovan där de matchar",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "Dra ett steg, eller använd dess pilar, för att flytta det inom sitt skede. En flytt ger varje post i det skedet en order på 10, 20, 30, … i den nya ordningen."
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "Byt till Hänvisning borttagen för att ändra ordningen: den vyn visar alla poster."
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "Dra för att flytta"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "Flytta $ENTRY$ tidigare",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "Flytta $ENTRY$ senare",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "Flyttade $ENTRY$ till position $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "Ångra flytt"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "Flytten ångrades"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "Simulera"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "Kör denna leverantör på en URL på samma sätt som när en kopierad länk rensas, med dina avstängda regler och hänvisningsvalet ovan, och visar URL:en efter varje steg. Andra leverantörer körs inte. Generera test-URL skapar en utifrån leverantörens egna regler."
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "Test-URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "Kör"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "Stega genom simuleringen"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "Början"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "Föregående"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "Nästa"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "Slut"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "Spela upp"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "Pausa"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "URL:en före alla steg"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "Varv $PASS$ · steg $STEP$ av $TOTAL$: $ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "ingen ändring"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam-filter"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "Varv $PASS$ ändrar ingenting, så rensningen avslutas",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "Den här leverantören stannar här: cykelgränsen nåddes, URL:en återgick till en tidigare URL eller så matchar den inte längre leverantören"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "Varv $PASS$ omdirigerar; rensningen fortsätter på den nya adressen med alla leverantörer",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "Leverantören blockerar denna förfrågan (completeProvider)"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "Resultat"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "Leverantörens mönster matchar inte denna URL, så ingen av dess regler körs."
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "Denna URL matchar ett av leverantörens undantag, så ingen av dess regler körs."
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "Ange en fullständig http://- eller https://-URL."
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "Simuleringen kunde inte köras. Kontrollera JSON-koden ovan."
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "Generera test-URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "Skapad från leverantörens regler: text för $RAW$ rå(a) regel/regler och $PARAMS$ parameter/parametrar, var och en kontrollerad mot sin regel. keep=1 matchar ingen regel och bör stå kvar. Omdirigeringar och blockeringar ingår inte, eftersom de skulle avsluta körningen före de andra reglerna.",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "Ingen värd som leverantörens mönster matchar kunde skapas, så URL:en använder en annan värd och leverantören körs inte på den."
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "Varje URL som leverantörens mönster matchar omfattas av ett av dess egna undantag, så dess regler körs aldrig."
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ regel/regler utelämnades från test-URL:en",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "ingen text som den matchar kunde skapas"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "dess text skulle få ett av leverantörens undantag att matcha"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "den tar bort alla parametrar, så den behöver ingen egen parameter"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "Den här leverantören har ett $removeparam-filter utan namn, vilket tar bort alla parametrar, även keep=1."
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "ingen order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "Återställ ordernummer"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "Återställ varje order som den var när du öppnade den här leverantören"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "Ordernumren återställdes"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "Dölj"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "Visa"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "Rensa varningar"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "Återställ varningar"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "$COUNT$ varning(ar) rensade",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern utan indexPattern kontrolleras mot varje URL; lägg till indexPattern-ledtrådar som \"||example.com^\"",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ upprepar \"$ENTRY$\"; kopian gör ingenting och båda delar samma id",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ har fortfarande mallens platshållare \"$PATTERN$\"; ersätt den med det riktiga mönstret",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ har matchPattern \"(?!)\", som aldrig matchar något",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regelmallar"
   },
-  "popup_report_issue_button_title": {
-    "message": "Rapportera ett problem"
+  "popup_html_guide_link": {
+    "message": "Guide för leverantör JSON"
   },
-  "reportIssueTitle": {
-    "message": "Rapportera problem"
+  "popup_html_guide_link_title": {
+    "message": "Öppna Linkumoris regelguide"
   },
-  "reportIssueHeader": {
-    "message": "Rapportera problem eller föreslå förbättringar"
+  "faq_rules_guide_syntax": {
+    "message": "Vilken regelsyntax ska jag använda?"
   },
-  "reportIssueDescription": {
-    "message": "Hittade du ett problem med URL-rensning eller har du ett förslag? Hjälp oss att förbättra Linkumori genom att skicka in en rapport."
+  "faq_rules_guide_syntax_answer": {
+    "message": "Använd CLN Format 1.0, JSON-formatet som beskrivs i regelguiden. Parameternamn, reguljära uttryck för namn, $removeparam-filter och regelobjekt hamnar alla i samma leverantörslistor, och redigeraren kontrollerar dem när du sparar."
   },
-  "findExistingButton": {
-    "message": "Hitta befintliga problem"
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam-filter placeras i en leverantörs lista rules, referralMarketing eller fieldRedirections, inte fristående. En officiell ClearURLs-regelkatalog är redan en giltig CLN-fil; en YAML-fil för ClearURLs 2.0 kan inte läsas och måste flyttas över manuellt."
   },
-  "beforeReporting": {
-    "message": "Innan du rapporterar, kontrollera om ditt problem redan har rapporterats:"
+  "faq_rules_guide_open_page": {
+    "message": "Öppna regelguiden"
   },
-  "issueTypeLabel": {
-    "message": "Problemtyp:"
+  "providerImport_failedToLoadSources": {
+    "message": "Det gick inte att läsa in leverantörskällor: $1"
   },
-  "issueTypeSelect": {
-    "message": "Välj problemtyp..."
+  "providerImport_noBundledRules": {
+    "message": "Inbakade regler är inte tillgängliga."
   },
-  "issueTypeTrackingNotRemoved": {
-    "message": "Spårningsparametern har inte tagits bort"
+  "providerImport_failedToLoadBundled": {
+    "message": "Det gick inte att läsa in inbakade regler: $1"
   },
-  "issueTypeUrlBroken": {
-    "message": "URL bruten efter rengöring"
+  "status_language_change_failed": {
+    "message": "Det gick inte att byta språk till $1."
   },
-  "issueTypeFalsePositive": {
-    "message": "Falsk positiv (onödig rengöring)"
+  "theme_light": {
+    "message": "Ljust tema"
   },
-  "issueTypePerformance": {
-    "message": "Prestandaproblem"
+  "theme_dark": {
+    "message": "Mörkt tema"
   },
-  "issueTypeUi": {
-    "message": "Problem med UI/display"
+  "button_reset": {
+    "message": "Återställ"
   },
-  "issueTypeFeatureRequest": {
-    "message": "Funktionsbegäran"
+  "accessibility_tools_title": {
+    "message": "Tillgänglighetsverktyg"
   },
-  "issueTypeRuleSuggestion": {
-    "message": "Regelförslag"
+  "accessibility_tools_open": {
+    "message": "Öppna tillgänglighetsverktyg"
   },
-  "urlLabel": {
-    "message": "URL där problemet uppstår:"
+  "accessibility_tools_close": {
+    "message": "Stäng tillgänglighetsverktyg"
   },
-  "customUrlPlaceholder": {
-    "message": "https://example.com"
+  "accessibility_tools_reset_all_settings": {
+    "message": "Återställ alla tillgänglighetsinställningar"
   },
-  "enterCustomUrl": {
-    "message": "Ange anpassad URL"
+  "accessibility_tools_group_vision": {
+    "message": "Syn"
   },
-  "nsfwLabel": {
-    "message": "Sidan innehåller barnförbjudet innehåll (NSFW)"
+  "accessibility_tools_group_reading": {
+    "message": "Läsning"
   },
-  "additionalInfoLabel": {
-    "message": "Ytterligare information:"
+  "accessibility_tools_group_interaction": {
+    "message": "Interaktion"
   },
-  "additionalInfoPlaceholder": {
-    "message": "Ange ytterligare information eller kommentarer om problemet..."
+  "accessibility_tools_high_contrast": {
+    "message": "Hög kontrast"
   },
-  "consentMessage": {
-    "message": "Jag förstår att ett klick på \"Rapportera på GitHub\" kommer att skapa en GitHub-URL som innehåller informationen jag har angett och konfigurationssektionerna jag valde nedan, och sedan omdirigera mig till den URL:en. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga webbadressen innan den öppnas, och jag kan granska exakt vilken information som kommer att inkluderas. När jag har omdirigerats till GitHub kommer jag att ha full kontroll att antingen skicka in det förifyllda ärendeformuläret eller avbryta utan att skicka in något. Jag förstår att åtkomst till GitHub utsätter mig för $privacy_link$. Att skapa ett problem kräver ett GitHub-konto, och när du väl väljer att fortsätta och omdirigeras till GitHub, styrs din aktivitet av $privacy_statement$ och $terms_service$. Efter att ha blivit omdirigerad med förifylld information behåller du full kontroll och kan välja om du vill skicka eller avbryta skapandet av problemet på vårt arkiv på $repo_link$. Även om du avbryter problemskapandet kan GitHub fortfarande samla in data enligt deras integritetspolicy på grund av din interaktion med deras plattform. Om du fortsätter med att skicka in ärendet kommer informationen du skickar, inklusive eventuella ytterligare kommentarer, att bli tillgänglig för allmänheten. Detta beror på att förvaret är offentligt och alla rapporterade problem kommer att vara synliga för alla som använder GitHub eller relaterade tjänster.",
-    "placeholders": {
-      "privacy_link": {
-        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
-      },
-      "privacy_statement": {
-        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
-      },
-      "terms_service": {
-        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
-      },
-      "repo_link": {
-        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
-      }
-    }
+  "accessibility_tools_color_filter": {
+    "message": "Färgfilter"
   },
-  "reportOnGitHub": {
-    "message": "Rapportera på GitHub"
+  "accessibility_tools_saturation": {
+    "message": "Mättnad"
   },
-  "configInformation": {
-    "message": "Konfigurationsinformation"
+  "accessibility_tools_invert": {
+    "message": "Invertera"
   },
-  "report_share_extension_info": {
-    "message": "Tillägg och webbläsardetaljer"
+  "accessibility_tools_highlight_links": {
+    "message": "Markera länkar"
   },
-  "report_share_settings_info": {
-    "message": "Skyddsinställningar"
+  "accessibility_tools_hide_images": {
+    "message": "Dölj bilder"
   },
-  "report_share_whitelist_info": {
-    "message": "Vitlistade domäner"
+  "accessibility_tools_text_size_increase": {
+    "message": "Öka textstorlek"
   },
-  "report_share_custom_rules_info": {
-    "message": "Anpassade regler"
+  "accessibility_tools_text_size_decrease": {
+    "message": "Minska textstorlek"
   },
-  "report_share_disabled_rules_info": {
-    "message": "Inaktiverade regler och leverantörer"
+  "accessibility_tools_default_text_size": {
+    "message": "Standardtextstorlek"
   },
-  "report_no_config_shared": {
-    "message": "Ingen konfigurationsinformation har valts."
+  "accessibility_tools_font_selection": {
+    "message": "Typsnittsval"
   },
-  "findExistingConsentMessage": {
-    "message": "Jag förstår att genom att klicka på \"Hitta befintliga problem\" skapas en GitHub-sök-URL med domännamnet och probleminformationen jag har angett, och sedan omdirigerar jag mig till den webbadressen. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga sökadressen innan jag öppnar den, så att jag kan granska vilka söktermer som kommer att användas. När jag omdirigeras till GitHub kommer jag att vara föremål för $link$ och $terms_service$.",
-    "placeholders": {
-      "link": {
-        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
-      },
-      "terms_service": {
-        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
-      }
-    }
+  "accessibility_tools_dyslexia_friendly": {
+    "message": "Dyslexivänligt"
   },
-  "urlPreviewTitle": {
-    "message": "URL-förhandsgranskning"
+  "accessibility_tools_text_spacing": {
+    "message": "Textavstånd"
   },
-  "urlPreviewWarning": {
-    "message": "Granska webbadressen som kommer att öppnas. Denna URL innehåller informationen du angett och kommer att omdirigera dig till GitHub."
+  "accessibility_tools_line_height": {
+    "message": "Radhöjd"
   },
-  "urlPreviewPrivacyNoticeTitle": {
-    "message": "Meddelande om integritetspolicy"
+  "accessibility_tools_text_align": {
+    "message": "Textjustering"
   },
-  "urlPreviewPrivacyNoticeLocalOnly": {
-    "message": "Linkumori skapar denna URL lokalt i din webbläsare. Linkumori överför inte direkt data från dig eller din webbläsare till GitHub eller till någon annan server medan den här URLen skapas."
+  "accessibility_tools_pause_animations": {
+    "message": "Pausa animationer"
   },
-  "urlPreviewPrivacyNoticeBrowserNavigation": {
-    "message": "Om du väljer \"Öppna GitHub\" väljer du att låta din webbläsare öppna webbadressen som visas. Den webbläsarnavigeringen kan skicka URL:en och dess frågeparametrar till GitHub."
+  "accessibility_tools_bigger_cursor": {
+    "message": "Större markör"
   },
-  "urlPreviewPrivacyNoticeIssueContents": {
-    "message": "För att skapa problem kan webbadressen inkludera problemtyp, vald problemadress, rensad URL, NSFW-markör, kommentarer och valda konfigurationsavsnitt."
+  "accessibility_tools_value_default": {
+    "message": "Standard"
   },
-  "urlPreviewPrivacyNoticeSearchContents": {
-    "message": "För problemsökning kan URL:en inkludera det valda värdnamnet, domänen, problemtypen och NSFW-söktermen om den har valts."
+  "accessibility_tools_value_medium": {
+    "message": "Medel"
   },
-  "urlPreviewPrivacyNoticeNoEndorsement": {
-    "message": "Linkumori stöder inte GitHub. Linkumori vet, verifierar eller garanterar inte om GitHub följer din lokala integritet, dataskydd eller andra tillämpliga lagar."
+  "accessibility_tools_value_high": {
+    "message": "Hög"
   },
-  "urlPreviewPrivacyNoticeReview": {
-    "message": "Granska hela webbadressen innan du fortsätter. Avbryt om du inte vill att din webbläsare ska öppna GitHub."
+  "accessibility_tools_value_ultra": {
+    "message": "Ultra"
   },
-  "urlPreviewEncodedUrl": {
-    "message": "URL som ska öppnas (tekniskt format):"
+  "accessibility_tools_value_low": {
+    "message": "Låg"
   },
-  "urlPreviewShowDecoded": {
-    "message": "Visa läsbart format (avkodad URL)"
+  "accessibility_tools_value_none": {
+    "message": "Ingen"
   },
-  "urlPreviewCopy": {
-    "message": "Kopiera URL"
+  "accessibility_tools_value_light": {
+    "message": "Lätt"
   },
-  "urlPreviewCopied": {
-    "message": "Kopierade!"
+  "accessibility_tools_value_heavy": {
+    "message": "Kraftig"
   },
-  "urlPreviewCancelButton": {
+  "accessibility_tools_value_2x": {
+    "message": "2x"
+  },
+  "accessibility_tools_value_3x": {
+    "message": "3x"
+  },
+  "accessibility_tools_value_4x": {
+    "message": "4x"
+  },
+  "accessibility_tools_value_arial": {
+    "message": "Arial"
+  },
+  "accessibility_tools_value_times": {
+    "message": "Times"
+  },
+  "accessibility_tools_value_verdana": {
+    "message": "Verdana"
+  },
+  "accessibility_tools_value_no_filter": {
+    "message": "Inget filter"
+  },
+  "accessibility_tools_value_protanopia": {
+    "message": "Protanopi"
+  },
+  "accessibility_tools_value_deuteranopia": {
+    "message": "Deuteranopi"
+  },
+  "accessibility_tools_value_tritanopia": {
+    "message": "Tritanopi"
+  },
+  "accessibility_tools_value_grayscale": {
+    "message": "Gråskala"
+  },
+  "accessibility_tools_value_left": {
+    "message": "Vänster"
+  },
+  "accessibility_tools_value_center": {
+    "message": "Centrerad"
+  },
+  "accessibility_tools_value_right": {
+    "message": "Höger"
+  },
+  "accessibility_tools_value_extra_small": {
+    "message": "Extra liten"
+  },
+  "accessibility_tools_value_small": {
+    "message": "Liten"
+  },
+  "accessibility_tools_value_large": {
+    "message": "Stor"
+  },
+  "accessibility_tools_value_extra_large": {
+    "message": "Extra stor"
+  },
+  "accessibility_tools_value_largest": {
+    "message": "Störst"
+  },
+  "accessibility_tools_value_on": {
+    "message": "På"
+  },
+  "accessibility_tools_value_off": {
+    "message": "Av"
+  },
+  "accessibility_tools_control_status": {
+    "message": "$1: $2"
+  },
+  "accessibility_tools_toggle_announcement": {
+    "message": "$1 $2"
+  },
+  "accessibility_tools_enabled": {
+    "message": "aktiverad"
+  },
+  "accessibility_tools_disabled": {
+    "message": "inaktiverad"
+  },
+  "accessibility_tools_default_text_size_selected": {
+    "message": "Standardtextstorlek vald"
+  },
+  "accessibility_tools_reset_announcement": {
+    "message": "Alla tillgänglighetsinställningar har återställts"
+  },
+  "troubleshooter_nav_label": {
+    "message": "Felsök"
+  },
+  "troubleshooter_launch": {
+    "message": "Felsök den här fliken (experimentellt)"
+  },
+  "troubleshooter_title": {
+    "message": "Felsökning av flik"
+  },
+  "troubleshooter_page": {
+    "message": "Sida"
+  },
+  "troubleshooter_about_summary": {
+    "message": "Så fungerar inspelningen"
+  },
+  "troubleshooter_about_note": {
+    "message": "När den här vyn öppnas kan sidans URL kontrolleras, men ingenting spelas in. Inspelningen är av tills du väljer Starta inspelning. Vid start läses fliken in igen för att fånga dess resursförfrågningar. Fångade URL:er sparas i sessionslagringen under denna webbläsarsession och rensas när fliken stängs eller webbläsarsessionen avslutas. Inspelningen stoppas efter 15 minuter om du inte stoppar den tidigare. Resurs-URL:er kan innehålla privata frågedata."
+  },
+  "troubleshooter_start": {
+    "message": "Starta inspelning"
+  },
+  "troubleshooter_starting": {
+    "message": "Startar…"
+  },
+  "troubleshooter_recording": {
+    "message": "Spelar in…"
+  },
+  "troubleshooter_stop": {
+    "message": "Stoppa inspelning"
+  },
+  "troubleshooter_refresh": {
+    "message": "Uppdatera"
+  },
+  "troubleshooter_copy": {
+    "message": "Kopiera sammanfattning"
+  },
+  "troubleshooter_export": {
+    "message": "Exportera"
+  },
+  "troubleshooter_export_title": {
+    "message": "Spara inspelningen som en JSON-fil. Resurs-URL:er kan innehålla privata frågedata."
+  },
+  "troubleshooter_category": {
+    "message": "Kategori"
+  },
+  "troubleshooter_category_all": {
+    "message": "Alla kategorier"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL-regler"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "Omdirigeringar"
+  },
+  "troubleshooter_category_protection": {
+    "message": "Skydd och kringgåenden"
+  },
+  "troubleshooter_resource_type": {
+    "message": "Resurstyp"
+  },
+  "troubleshooter_type_all": {
+    "message": "Alla resurstyper"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "Sök regler, leverantörer och URL:er"
+  },
+  "troubleshooter_timer": {
+    "message": "Spelar in $1 · $2 kvar"
+  },
+  "troubleshooter_status_checking": {
+    "message": "Kontrollerar den här fliken…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "Ingen aktiv flik är tillgänglig."
+  },
+  "troubleshooter_status_not_web": {
+    "message": "Den här sidan tillåter inte genomsökning med URL-regler. Öppna en vanlig http- eller https-webbsida."
+  },
+  "troubleshooter_status_off": {
+    "message": "Inspelningen är av. Starta inspelningen för att granska resurs-URL:er som sidan läser in."
+  },
+  "troubleshooter_status_active": {
+    "message": "$1 URL-ändring(ar) har fångats hittills. Nya visas här automatiskt."
+  },
+  "troubleshooter_status_stopped": {
+    "message": "Inspelningen stoppades. $1 URL-ändring(ar) fångades."
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "Inspelningsdata kunde inte sparas i sessionslagringen. $1 URL-ändring(ar) kan gå förlorade om tillägget startas om."
+  },
+  "troubleshooter_status_started": {
+    "message": "Inspelningen har startat och fliken läses in igen. Fångade URL:er visas här medan sidan läses in."
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "Inspelningen stoppades. $1 URL-ändring(ar) fångades och sparades för denna webbläsarsession."
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "Inspelningen stoppades. $1 URL-ändring(ar) fångades, men sessionslagringen kunde inte spara dem."
+  },
+  "troubleshooter_status_need_web": {
+    "message": "Öppna en vanlig http- eller https-webbsida först."
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "Det gick inte att starta inspelningen för den här fliken."
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "Det gick inte att stoppa inspelningen för den här fliken."
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "Det gick inte att läsa den här fliken. Prova att stänga och öppna popup-fönstret igen."
+  },
+  "troubleshooter_status_copied": {
+    "message": "Sammanfattningen kopierades."
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "Det gick inte att kopiera sammanfattningen."
+  },
+  "troubleshooter_status_exported": {
+    "message": "Inspelningen exporterades."
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "Det gick inte att exportera inspelningen."
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "Det gick inte att öppna rapportformuläret."
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "Regeln aktiverades; läs in fliken igen för att jämföra."
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "Regeln inaktiverades; läs in fliken igen för att jämföra."
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "Det gick inte att uppdatera den här regeln."
+  },
+  "troubleshooter_empty_web": {
+    "message": "Inga regeländringar hittades ännu. Starta inspelningen för att granska sidans resurs-URL:er."
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "Den här webbläsarsidan kan inte genomsökas."
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "Inga fynd matchar dessa filter."
+  },
+  "troubleshooter_showing_first": {
+    "message": "Visar de första $1 reglerna."
+  },
+  "troubleshooter_hits": {
+    "message": "$1 träff(ar)"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 misslyckades"
+  },
+  "troubleshooter_rule_id": {
+    "message": "Regel-ID: $1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "Inbyggd skyddsåtgärd (inget regel-ID)"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "Regel-ID: inte tillgängligt för detta fynd"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "Det gick inte att hitta detta regel-ID i den aktuella regeluppsättningen."
+  },
+  "troubleshooter_source_observed": {
+    "message": "Observerad förfrågan"
+  },
+  "troubleshooter_source_page": {
+    "message": "Kontroll av sidans URL"
+  },
+  "troubleshooter_changes": {
+    "message": "Vad som ändrades: $1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "Berörda URL:er ($1)"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…och $1 till"
+  },
+  "troubleshooter_after": {
+    "message": "Efter Linkumori"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Misslyckades efter att Linkumori ändrat den: $1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "Den här regeln är aktiverad. Stäng av den och läs in igen för att jämföra sidan."
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "Den här regeln är inaktiverad. Slå på den och läs in igen för att återställa dess beteende."
+  },
+  "troubleshooter_advice_protection": {
+    "message": "Detta är en inbyggd skyddsåtgärd, inte en enskild regel."
+  },
+  "troubleshooter_advice_review": {
+    "message": "Granska den berörda URL:en innan du ändrar regler."
+  },
+  "troubleshooter_report": {
+    "message": "Rapportera den här regeln"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "Inaktivera regel"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "Aktivera regel"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "Inaktivera regel $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "Aktivera regel $1"
+  },
+  "troubleshooter_saving": {
+    "message": "Sparar…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "tog bort $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "lade till $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "ändrade $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "omdirigerades till $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "sökvägen ändrades"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "fragmentet ändrades"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL:en ändrades"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "blockerades avsiktligt"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 förfrågning(ar) misslyckades på den här sidan; $2 direkt efter att Linkumori ändrat URL:en"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "Fungerar inte sidan?"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "Hitta regeln som orsakar felet: reglerna som kördes på sidan stängs av en i taget, och efter varje anger du om sidan fungerar. Osäker på om Linkumori är orsaken? Kontrollera först med rensningen pausad."
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "Kontrollera först med rensningen pausad"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "Rensningen är pausad för $1 i den här fliken"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "Fliken lästes in igen utan rensning. Fungerar sidan nu?"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "Ja, den fungerar"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "Nej, fortfarande trasig"
+  },
+  "troubleshooter_diag_cancel": {
     "message": "Avbryt"
   },
-  "urlPreviewProceedButton": {
-    "message": "Öppna GitHub"
+  "troubleshooter_diag_done": {
+    "message": "Klar"
   },
-  "urlPreviewSecurityNotice": {
-    "message": "Denna URL omdirigerar dig till GitHub. Dina uppgifter kommer att omfattas av $link$ när de omdirigeras.",
-    "placeholders": {
-      "link": {
-        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
-      }
-    }
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "Troligen inte Linkumori"
   },
-  "consentRequired": {
-    "message": "Markera kryssrutan för samtycke för att fortsätta."
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "Sidan fungerade fortfarande inte med rensningen pausad, så problemet ligger troligen någon annanstans: själva webbplatsen, ett annat tillägg eller nätverket. Klicka på Rensa för att börja om."
   },
-  "findExistingConsentRequired": {
-    "message": "Vänligen bekräfta att du förstår hur dina uppgifter kommer att användas genom att markera samtyckesrutan."
+  "troubleshooter_diag_linkumori_title": {
+    "message": "Linkumori är troligen orsaken"
   },
-  "issueTypeRequired": {
-    "message": "Välj en problemtyp."
+  "troubleshooter_diag_linkumori_text": {
+    "message": "Sidan fungerar med rensningen pausad. Hitta regeln: reglerna stängs av en i taget, fliken läses in igen och du anger om sidan fungerar. Alla andra regler slås på igen i slutet."
   },
-  "urlRequired": {
-    "message": "Ange en URL."
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "Fliken läses in igen med rensningen påslagen för att registrera vilka regler som körs på sidan. De visas här om en stund. Om inga visas, använd sidan tills den slutar fungera."
   },
-  "urlInvalid": {
-    "message": "Ange en giltig URL."
+  "troubleshooter_diag_find_button": {
+    "message": "Hitta regeln ($1 regler)"
   },
-  "errorCreatingIssue": {
-    "message": "Det gick inte att skapa GitHub-problem:"
+  "troubleshooter_diag_yes_fixed": {
+    "message": "Ja, fixat"
   },
-  "errorFindingIssues": {
-    "message": "Det gick inte att hitta befintliga problem:"
+  "troubleshooter_diag_no_still": {
+    "message": "Nej, fortfarande trasig"
   },
-  "report_browser_api_unavailable": {
-    "message": "webbläsarens API är inte tillgängligt. Den här sidan måste laddas som ett webbläsartillägg."
+  "troubleshooter_diag_found_title": {
+    "message": "Hittad"
   },
-  "report_config_error": {
-    "message": "Fel vid hämtning av konfigurationsdata:"
+  "troubleshooter_diag_found_text": {
+    "message": "Sidan slutar fungera på grund av regel $1$2. Den är påslagen igen. Klicka på Rensa för att börja om."
   },
-  "providerImport_disable": {
-    "message": "Inaktivera"
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
   },
-  "providerImport_providerRuleIds": {
-    "message": "Leverantörsregel-id:n"
+  "troubleshooter_diag_disable_culprit": {
+    "message": "Inaktivera den här regeln"
   },
-  "providerImport_ruleIdControls": {
-    "message": "Kontroller för leverantörsregel-ID"
+  "troubleshooter_diag_report_culprit": {
+    "message": "Rapportera den"
   },
-  "providerImport_ruleIdControlsHelp": {
-    "message": "Inaktivera kanoniska leverantörsregel-ID:n utan att ta bort dem. Lagrade ID använder provider::rule-identitet."
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "Regeln stängdes av. Läs in fliken igen för att kontrollera. Klicka på Rensa för att börja om."
   },
-  "providerImport_ruleActivation": {
-    "message": "Regelaktivering"
+  "troubleshooter_diag_not_found_title": {
+    "message": "Ingen enskild regel hittades"
   },
-  "providerImport_noRuleIds": {
-    "message": "Inga kanoniska regel-ID:n har hittats i den här leverantören ännu."
+  "troubleshooter_diag_not_found_text": {
+    "message": "Att stänga av reglerna en i taget fick inte sidan att fungera, så felet orsakas troligen av flera regler tillsammans eller av en skyddsinställning. Alla regler är påslagna igen. Klicka på Rensa för att börja om."
   },
-  "providerImport_ruleIdsRequireValidJson": {
-    "message": "Regel-ID-kontroller är tillgängliga när leverantören JSON är giltig."
+  "troubleshooter_diag_failed": {
+    "message": "Det gick inte att köra kontrollen: $1"
   },
-  "guide_page_title": {
-    "message": "Linkumori — Guide för regler"
+  "troubleshooter_diag_outdated_title": {
+    "message": "Läs in Linkumori igen för att använda den här kontrollen"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori har uppdaterats, men dess bakgrundsdel kör fortfarande den gamla versionen. Läs in tillägget igen (för ett tillfälligt tillägg: about:debugging → Denna Firefox → Ladda om), eller starta om Firefox."
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "Hittad"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "Sidan slutar fungera på grund av regel $1$2. Den förblir avstängd så att sidan fungerar; alla andra regler är påslagna igen. Läs in fliken igen för att kontrollera. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "Läs in fliken igen"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "Slå på den igen"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "Regeln slogs på igen. Läs in fliken igen för att kontrollera. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "Spela in och hitta regeln"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "Registrerar vilka regler som körs på den här sidan. Använd sidan tills den slutar fungera; reglerna visas här."
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "Tillfälligt avstängd av regelsökningen. Den slås på igen när sökningen avslutas."
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "Regelsökningen pågår. Ändra regler när den är klar."
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "Hoppa över — slå på den igen"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "Behåll den avstängd"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "Regelsökningen hoppades över; alla regler är påslagna igen. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "Regel $1 förblir avstängd. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "Avstängda för det här testet:"
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…och $1 till"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "Stoppa sökningen"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "Överhoppad: den regeln är påslagen igen och utelämnad. Testar nästa."
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "Ingen regel hittades bland de testade reglerna. $1 regel/regler som du hoppade över testades inte. Alla regler är påslagna igen. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_experimental": {
+    "message": "Experimentell"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "Experimentell: den här felsökaren är inte helt stabil. Resultaten kan vara felaktiga, och den stänger av regler medan den testar. Om något verkar fel efteråt, kontrollera dina regler i redigeraren för anpassade regler eller använd Stoppa sökningen för att slå på dem igen."
+  },
+  "troubleshooter_working": {
+    "message": "Arbetar…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "Spela in igen"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "Den gamla inspelningen rensades. Spelar in fliken igen från en ny inläsning."
+  },
+  "troubleshooter_clear": {
+    "message": "Rensa"
+  },
+  "troubleshooter_clear_title": {
+    "message": "Rensa flikens inspelning, fynd och avslutade regelsökning. Reglerna förblir som de är."
+  },
+  "troubleshooter_status_cleared": {
+    "message": "Rensat. Reglerna förblir som de är."
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "Rensat. Regel $1 förblir avstängd."
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "Testar en regel i taget — regel $1 av $2"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "Endast den här regeln är avstängd och fliken har lästs in igen. Fungerar sidan nu?"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "Hoppa över den här regeln"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "Hoppa över — slå på den igen, testa nästa ($1 kvar)"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "$1 annan/andra regel/regler som kördes på sidan testades inte. Vill du fortsätta testa dem?"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "Behåll den avstängd, testa nästa ($1 kvar)"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "Regel $1 förblir avstängd. Testar nästa regel."
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "Ingen annan regel får sidan att fungera på egen hand. De $1 regel/regler som du behöll avstängda förblir avstängda; alla andra regler är påslagna igen. Klicka på Rensa för att börja om."
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "Testa nästa regel ($1 kvar)"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "Regel $1 är påslagen igen och utelämnad. Testar nästa regel."
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "Ingen annan regel får sidan att fungera på egen hand. De $1 regel/regler som du hoppade över är också påslagna igen, så alla regler är på igen. Klicka på Rensa för att börja om."
   },
   "guide_toc_label": {
     "message": "Innehåll"
   },
   "guide_title": {
     "message": "Skriva Linkumori-regler"
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori rensar URL:er med regler skrivna i <strong>CLN Format 1.0</strong> (Clean Link Notation), ett JSON-format. Den här guiden går från en första regel till alla alternativ, med exempel som du kan kopiera."
+  },
+  "guide_intro_p_2": {
+    "message": "De inbyggda reglerna, fjärrregellistor och dina anpassade regler använder alla samma format. Du skriver anpassade regler i redigeraren för anpassade regler, som kontrollerar dem när du sparar eller importerar. En officiell ClearURLs-regelkatalog (<code>data.min.json</code>) är redan en giltig CLN-fil och kan användas som den är."
   },
   "guide_file_title": {
     "message": "1. Regelfilen"
@@ -3749,26 +5115,86 @@
   "guide_file_p2": {
     "message": "En Leverantör anger vilka URL:er den hanterar och vad som ska göras med dem. Denna tar bort <code>utm_source</code> och <code>utm_medium</code> från varje URL på <code>example.com</code> och dess subdomäner:"
   },
+  "guide_rules_file_p_1": {
+    "message": "Leverantörens namn är bara en etikett. Vilka URL:er en leverantör hanterar avgörs av <code>domainPatterns</code> eller <code>urlPattern</code>."
+  },
+  "guide_rules_file_th_1": {
+    "message": "Nyckel på toppnivå"
+  },
+  "guide_th_meaning": {
+    "message": "Vad det gör"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "Obligatorisk. Leverantörerna, efter namn."
+  },
+  "guide_rules_file_cell_2": {
+    "message": "Valfri formatversion. Det enda giltiga värdet är <code>\"1.0\"</code>. En fil utan den läses också som 1.0; alla andra värden gör att filen avvisas. Den heter inte <code>version</code> eftersom ClearURLs nya regelformat redan använder den nyckeln."
+  },
+  "guide_rules_file_cell_3": {
+    "message": "Valfri information om filen."
+  },
+  "guide_rules_file_cell_4": {
+    "message": "Värden för varje regel i filen som inte anger egna (kapitel 12)."
+  },
+  "guide_rules_file_cell_5": {
+    "message": "Endast fjärrregellistor: ersättningar för regler som redan är inlästa (kapitel 15)."
+  },
   "guide_fields_title": {
     "message": "2. Leverantörens fält"
   },
   "guide_th_field": {
     "message": "Fält"
   },
-  "guide_th_meaning": {
-    "message": "Vad det gör"
+  "guide_provider_fields_cell_1": {
+    "message": "Vilka URL:er leverantören hanterar, som ett domänmönster eller en lista med sådana (kapitel 3). Använd detta eller <code>urlPattern</code>, aldrig båda."
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "Vilka URL:er leverantören hanterar, som ett reguljärt uttryck som matchas mot hela URL:en. Skiftläge ignoreras."
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "Endast med <code>urlPattern</code>: värdledtrådar som <code>||example.com^</code>, så att leverantören bara kontrolleras för de värdarna i stället för mot varje URL. Det är en uppslagsledtråd, inte ett matchningsvillkor."
   },
   "guide_field_rules": {
     "message": "Parametrar som ska tas bort (kapitel 4 och 5)."
   },
+  "guide_provider_fields_cell_4": {
+    "message": "Hänvisnings- och affiliateparametrar som ska tas bort. Hoppas över medan <em>Tillåt hänvisningsmarknadsföring</em> är på (kapitel 10)."
+  },
   "guide_field_rawrules": {
     "message": "Reguljära uttryck som körs på hela URL:en; varje matchning raderas (kapitel 6)."
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "URL:er som leverantören lämnar helt orörda (kapitel 7)."
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "Skicka förfrågan till en annan adress i stället för att redigera den (kapitel 8)."
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "Skicka förfrågan till värdet av en parameter (kapitel 8)."
   },
   "guide_field_completeprovider": {
     "message": "<code>true</code> blockerar varje begäran som Leverantören matchar, medan <em>Tillåt domänblockering</em> är på."
   },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>: när en sidladdning (<code>main_frame</code>) omdirigeras navigerar hela fliken till den nya adressen, inte bara nätverksförfrågan."
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "Hantera bara dessa HTTP-metoder, till exempel <code>[\"GET\"]</code>. Utelämnat: alla metoder."
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "Hantera bara dessa förfrågningstyper, till exempel <code>[\"main_frame\", \"xmlhttprequest\"]</code>. Utelämnat: alla förfrågningstyper."
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "Standard <code>true</code>. <code>false</code> hoppar över hela leverantören när en sida ändrar sin egen adress med History API (<code>pushState</code>/<code>replaceState</code>). Vanliga nätverksförfrågningar rensas fortfarande."
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "<code>false</code> stänger av leverantören utan att radera den."
+  },
   "guide_match_title": {
     "message": "3. Vilka URL:er en leverantör hanterar"
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> är en lista med domänmönster. En URL matchar om något av dem matchar. Samma mönster används framför <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code>-filter och råa regler."
   },
   "guide_th_pattern": {
     "message": "Mönster"
@@ -3794,8 +5220,23 @@
   "guide_pat_end": {
     "message": "URL:er som slutar exakt med denna text"
   },
+  "guide_matching_cell_1": {
+    "message": "hela URL:en, som ett reguljärt uttryck"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL:er som innehåller denna text var som helst (inget inledande <code>|</code>)"
+  },
   "guide_pat_all": {
     "message": "varje URL"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> markerar slutet på värdnamnet, eller en avgränsare som <code>/</code>, <code>?</code>, <code>:</code> eller slutet på URL:en. <code>*</code> är ett jokertecken."
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> står för en domän: värden och alla underdomäner. Ett enkelt <code>|</code> står för URL:ens absoluta början och måste följas av ett schema som <code>https://</code>. För en domän vill du alltid ha <code>||</code>; <code>|example.com^</code> kan aldrig matcha, så redigeraren avvisar det."
+  },
+  "guide_matching_p_4": {
+    "message": "Till exempel läses <code>||smile.amazon.*^</code> så här: <code>||</code> värden och dess underdomäner, <code>smile.amazon</code> de obligatoriska etiketterna, <code>.*</code> valfritt publikt suffix (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …) och <code>^</code> slutet på värden."
   },
   "guide_match_p4": {
     "message": "För att istället matcha med ett reguljärt uttryck, använd <code>urlPattern</code>, och lägg till <code>indexPattern</code> så att Leverantören endast kontrolleras på dessa värdar:"
@@ -3821,8 +5262,14 @@
   "guide_rules_name": {
     "message": "ett parameternamn"
   },
+  "guide_removing_parameters_cell_1": {
+    "message": "exakt den parametern"
+  },
   "guide_rules_regex": {
     "message": "ett namn-regex"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "varje parameter vars hela namn matchar; skiftläge ignoreras"
   },
   "guide_rules_filter": {
     "message": "ett <code>$removeparam</code>-filter"
@@ -3830,17 +5277,35 @@
   "guide_rules_filter_removes": {
     "message": "se kapitel 5"
   },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> och <code>\"$removeparam=fbclid\"</code> tar bort samma sak. Använd det enkla namnet om du inte behöver något från kapitel 5. Varje post kan också skrivas som ett regelobjekt (kapitel 9)."
+  },
   "guide_rules_part_title": {
     "message": "Regler för en del av en Leverantör"
   },
   "guide_rules_p3": {
     "message": "Ett enkelt namn gäller för varje URL som Leverantören matchar. För att ta bort en parameter på endast några av dem, placera ett mönster framför ett <code>$removeparam</code>-filter:"
   },
+  "guide_removing_parameters_p_2": {
+    "message": "Här tas <code>qid</code> bort på alla Amazon-webbplatser, <code>tag</code> bara på <code>amazon.de</code>, <code>sr</code> bara på <code>smile.amazon</code> och <code>ref_</code> bara under <code>/gp/</code>. Mönstret smalnar av leverantörens egna mönster; det kan aldrig bredda dem."
+  },
   "guide_rp_title": {
     "message": "5. $removeparam filter"
   },
   "guide_rp_p1": {
     "message": "Ett <code>$removeparam</code> filter har denna form; delarna inom klamrar är valfria:"
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> gör filtret till ett undantag som behåller parametern (se nedan)."
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> begränsar filtret till några av leverantörens URL:er (kapitel 3). Utelämnat gäller det varje URL som leverantören matchar."
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> väljer parametrarna. Utelämnat tas alla parametrar bort."
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "Modifierare anger när filtret slår till. Varje angiven modifierare måste gälla; det finns inget \"eller\" mellan dem."
   },
   "guide_rp_value_title": {
     "message": "Värdet"
@@ -3854,11 +5319,74 @@
   "guide_rp_v_all": {
     "message": "varje parameter"
   },
+  "guide_removeparam_filters_cell_1": {
+    "message": "alla parametrar utom <code>ref</code>"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "parametrar vars namn, eller <code>name=value</code> tillsammans, matchar det reguljära uttrycket; lägg till <code>i</code> för att ignorera skiftläge"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "parametrar vars namn börjar med <code>utm_</code>"
+  },
   "guide_rp_v_name": {
     "message": "exakt den parametern; skiftläge ignoreras om du inte lägger till <code>match-case</code>"
   },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "Escapa ett parameternamn"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "Ett omvänt snedstreck gör nästa tecken bokstavligt, så att vilket parameternamn som helst kan anges:"
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "Värde"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "Tar bort parametern med namnet"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code> (kommatecknet inleder inte modifierarna)"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "Dessa fem är de enda escape-sekvenserna i ett namnvärde; ett omvänt snedstreck före något annat tecken är ett fel. Inuti ett <code>/regex/</code>-värde behåller det omvända snedstrecket sin betydelse i reguljära uttryck. Escape-sekvenserna fungerar i posterna <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> och <code>@@</code>. I JSON skriver du varje omvänt snedstreck två gånger: <code>\"$removeparam=\\\\~foo\"</code>."
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "Modifierare"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "Modifierare kommer efter värdet, åtskilda med kommatecken. Skilj flera värden för en modifierare åt med <code>|</code>, och sätt <code>~</code> framför ett värde för att utesluta det:"
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "Modifierare"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "bara när sidan som gjorde förfrågan är (eller, med <code>~</code>, inte är) en av dessa; värden med reguljära uttryck är tillåtna"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "bara när själva förfrågan går till en av dessa, oavsett vilken sida som gjorde den"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "bara för dessa HTTP-metoder: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "bara när förfrågan går till samma registrerbara domän som sidan (<code>a.example.com</code> och <code>b.example.com</code> räknas som samma), eller till en annan"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "samma sak, men det exakta värdnamnet jämförs, så en underdomän räknas som tredjepart"
+  },
   "guide_rp_o_types": {
     "message": "endast för dessa förfrågningstyper; <code>~type</code> exkluderar en"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "parameternamn jämförs med hänsyn till skiftläge"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "hoppa över detta filter när en sida ändrar sin egen adress med History API. Accepterar även <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "De fyra <code>*-party</code>-modifierarna kan inte kombineras med varandra; <code>first-party,third-party</code> avvisas."
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "Till exempel tar <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> bort <code>sid</code> på <code>example.com</code>, bara för GET-förfrågningar som görs av en sida på en annan webbplats, och aldrig när den sidan är <code>partner.com</code>."
   },
   "guide_rp_keep_title": {
     "message": "Behålla en parameter med @@"
@@ -3866,20 +5394,62 @@
   "guide_rp_p5": {
     "message": "Ett filter som börjar med <code>@@</code> behåller parametern istället för att ta bort den. Här tas <code>ref</code> bort överallt utom på GitHub:"
   },
+  "guide_removeparam_filters_item_5": {
+    "message": "En <code>@@</code>-post skyddar bara mot <code>$removeparam</code>-filter. En vanlig post som <code>\"ref\"</code> tar fortfarande bort parametern; använd ett regelobjekts <code>exceptions</code> för det. Råa regler har egna <code>@@…$rawrule=</code>-poster (kapitel 6)."
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "Var du listar den spelar ingen roll, och den kan inte ha någon <code>order</code>."
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "Dess mönster kontrolleras mot URL:en så som leverantören tog emot den, innan råa regler körs. En <code>@@</code>-post som är begränsad till en sökväg som en rå regel raderar matchar ändå."
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "Den omfattar även andra leverantörers filter för förfrågningar som görs av en sida som denna leverantör matchar, vilket är praktiskt för att undanta en webbplats från en regel som definierats någon annanstans."
+  },
   "guide_raw_title": {
     "message": "6. Råa regler"
   },
   "guide_raw_p1": {
     "message": "En rå regel är ett reguljärt uttryck som körs på hela URL:en; varje matchning raderas. Använd det för text som inte är en <code>name=value</code>-parameter, såsom Amazons <code>/ref=…</code>-sökvägssegment:"
   },
+  "guide_raw_rules_p_1": {
+    "message": "Råa regler körs före <code>rules</code>, ignorerar skiftläge och ersätter varje träff (flaggorna <code>gi</code>, eller <code>g</code> med <code>match-case</code>). I JSON skriver du varje omvänt snedstreck två gånger."
+  },
   "guide_raw_scope_title": {
     "message": "Endast på vissa URL:er"
+  },
+  "guide_raw_rules_p_2": {
+    "message": "En rå regel kan ta mönstret och modifierarna från ett <code>$removeparam</code>-filter, med <code>rawrule=</code> sist. Allt efter <code>rawrule=</code> är det reguljära uttrycket:"
+  },
+  "guide_raw_rules_p_3": {
+    "message": "Mönstret och modifierarna avgör var regeln körs; det reguljära uttrycket är fortfarande det som raderas."
   },
   "guide_raw_stop_title": {
     "message": "Stoppa råa regler på vissa URL:er"
   },
+  "guide_raw_rules_p_4": {
+    "message": "En post som börjar med <code>@@</code> och slutar med <code>rawrule=</code> hindrar råa regler från att köras där dess mönster matchar:"
+  },
+  "guide_raw_rules_item_1": {
+    "message": "Med ingenting efter <code>rawrule=</code> stoppar den alla leverantörens råa regler på dessa URL:er."
+  },
+  "guide_raw_rules_item_2": {
+    "message": "Med ett reguljärt uttryck efter <code>rawrule=</code> stoppar den de råa regler som har det reguljära uttrycket."
+  },
+  "guide_raw_rules_item_3": {
+    "message": "Som ett regelobjekt med <code>targetId</code> stoppar den bara den råa regel som har det id:t eller aliaset."
+  },
+  "guide_raw_rules_p_5": {
+    "message": "För att hoppa över hela leverantören, använd <code>exceptions</code> i stället."
+  },
   "guide_exc_title": {
     "message": "7. Undantag"
+  },
+  "guide_exceptions_p_1": {
+    "message": "Om en URL matchar en post i <code>exceptions</code> körs ingen av leverantörens regler för den förfrågan. En post är ett reguljärt uttryck mot hela URL:en, eller ett domänmönster som börjar med <code>|</code>:"
+  },
+  "guide_exceptions_p_2": {
+    "message": "Undantag ignorerar skiftläge. För att hoppa över en enskild regel i stället för hela leverantören, ge den regeln egna <code>exceptions</code> (kapitel 9)."
   },
   "guide_redir_title": {
     "message": "8. Omdirigeringar"
@@ -3905,11 +5475,86 @@
   "guide_redir_p4": {
     "message": "<code>fieldRedirections</code> namnger parametern som innehåller destinationen, så inget reguljärt uttryck behövs. Den tar samma poster som <code>rules</code>:"
   },
+  "guide_redirects_p_1": {
+    "message": "Den matchande parameter som kommer först i URL:en vinner. För <code>https://site.example/away?redirect=https://real.example/page</code> går förfrågan till <code>https://real.example/page</code>."
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "Giltiga omdirigeringsmål"
+  },
+  "guide_redirects_p_2": {
+    "message": "En omdirigering sker bara till en absolut <code>http</code>- eller <code>https</code>-adress med en värd. Detta kontrolleras efter förprocessorer och procentavkodning. Ett ogiltigt mål gör att posten räknas som icke-matchande: ingenting omdirigeras, och leverantörens senare steg körs på den oförändrade URL:en."
+  },
+  "guide_redirects_th_1": {
+    "message": "Mål"
+  },
+  "guide_redirects_th_2": {
+    "message": "Omdirigerar?"
+  },
+  "guide_redirects_cell_1": {
+    "message": "ja"
+  },
+  "guide_redirects_cell_2": {
+    "message": "ja, till <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "nej: schemat är inte <code>http</code> eller <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "nej: inte en absolut adress"
+  },
+  "guide_redirects_p_3": {
+    "message": "En rå regel vars resultat har ett annat schema, en annan värd eller port än indata räknas också som en omdirigering, även när den bara raderar text: att radera <code>secure-</code> från <code>https://secure-bank.example/</code> leder till en annan webbplats. Den behöver ett giltigt mål och, i en fjärrregellista, godkännandet <code>redirect</code> (kapitel 15). Annars lämnar regeln URL:en som den var."
+  },
   "guide_obj_title": {
     "message": "9. Regelobjekt"
   },
+  "guide_rule_objects_p_1": {
+    "message": "Varje post, i vilken lista som helst, kan vara ett objekt i stället för en sträng. Använd ett när en regel behöver ett stabilt id, ska börja avstängd, ska skriva om i stället för att ta bort, eller bara ska köras i vissa fall:"
+  },
   "guide_th_key": {
     "message": "Nyckel"
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "Obligatorisk. Texten du skulle skriva som en vanlig post i den listan."
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "Ett stabilt namn (bokstäver, siffror, <code>-</code>, <code>_</code>) som används för att slå på och av regeln (kapitel 14)."
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "Regelns tidigare id:n, så att en inställning som sparats under ett gammalt id fortsätter att gälla efter ett namnbyte."
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "Skriv om i stället för att ta bort; <code>§1§</code>, <code>§2§</code>, … är de fångade värdena."
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "Omvandla de fångade värdena först."
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "Bara för dessa förfrågningstyper, till exempel <code>[\"main_frame\"]</code>. Rensning utan förfrågan (<em>Kopiera ren länk</em>, rensningsverktyget, ändringar via History API) räknas som <code>main_frame</code>."
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "URL:er (reguljära uttryck) där just denna regel inte körs."
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "Flaggor för reguljära uttryck, som en sträng. Standard <code>i</code>; i <code>rawRules</code>, <code>gi</code> (eller <code>g</code> med <code>match-case</code>)."
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "Kör regeln tidigare eller senare inom sitt skede (kapitel 13)."
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>: en regel i <code>rules</code> räknas också som en regel för hänvisningsmarknadsföring (kapitel 10)."
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "Leverantörsväxeln med samma namn, för just denna regel. Den går före leverantörens värde och filens standardvärde."
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>: regeln börjar avstängd."
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "En anteckning för den som läser filen; den måste vara en sträng."
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "Endast i <code>@@…$rawrule=</code>-poster: id:t för den råa regel som den stoppar."
   },
   "guide_obj_rewrite_title": {
     "message": "Omskrivning istället för borttagning"
@@ -3917,14 +5562,26 @@
   "guide_obj_p2": {
     "message": "Med <code>replacePattern</code> behåller en regel i <code>rules</code> parametern och ersätter dess värde, vilket är <code>§1§</code>. I <code>rawRules</code> och <code>redirections</code> är <code>§1§</code>, <code>§2§</code>, … fångstgrupper:"
   },
+  "guide_rule_objects_p_2": {
+    "message": "Här blir <code>?token=abc123</code> till <code>?token=clean-abc123</code>. En omskrivning tillämpas högst en gång per förfrågan, så den fortsätter inte att svepa in värdet."
+  },
   "guide_obj_pre_title": {
     "message": "Förprocessorer"
+  },
+  "guide_rule_objects_p_3": {
+    "message": "Förprocessorer ändrar fångade värden, i ordning, innan <code>replacePattern</code> eller en omdirigering använder dem. <code>inputs</code> är <code>\"all\"</code> eller en lista med gruppnummer:"
   },
   "guide_obj_p4": {
     "message": "Typerna är <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> och <code>base64Decode</code>."
   },
   "guide_ref_title": {
     "message": "10. Affiliate-marknadsföring"
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> tar samma poster som <code>rules</code>. De körs bara medan <em>Tillåt hänvisningsmarknadsföring</em> är av, så att affiliatelänkar fortsätter att fungera om du slår på det:"
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "En regel kan stanna i <code>rules</code> och ändå räknas som hänvisningsmarknadsföring, med <code>\"referralMarketing\": true</code>. Lägg inte samma text i både <code>rules</code> och <code>referralMarketing</code>; redigeraren varnar för det."
   },
   "guide_req_title": {
     "message": "11. Metoder och förfråganstyper"
@@ -3938,8 +5595,68 @@
   "guide_req_resourcetypes": {
     "message": "förfråganstyper som leverantören hanterar"
   },
+  "guide_request_types_cell_1": {
+    "message": "förfrågningstyper som ett regelobjekt hanterar (kan även anges i <code>defaults</code>)"
+  },
   "guide_req_options": {
     "message": "detsamma för ett <code>$removeparam</code>-filter eller en rå regel"
+  },
+  "guide_request_types_p_1": {
+    "message": "Förfrågningstyper använder webbläsarens namn: <code>main_frame</code> (en sida), <code>sub_frame</code> (en ram), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> och så vidare. Filtermodifierare kallar de två första <code>document</code> och <code>subdocument</code>."
+  },
+  "guide_request_types_p_2": {
+    "message": "Förfrågningstyper kommer bara från reglerna: det finns ingen lista över förfrågningstyper i Inställningar. Om ingen av dessa är angiven rensar en regel alla förfrågningstyper."
+  },
+  "guide_defaults_title_1": {
+    "message": "12. Standardvärden"
+  },
+  "guide_defaults_p_1": {
+    "message": "Ett <code>defaults</code>-block på toppnivå ger varje regel i filen värden som den inte anger själv:"
+  },
+  "guide_defaults_th_1": {
+    "message": "Standardvärde för varje regels…"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>; <code>false</code> stänger av alla regler som inte anger <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>; <code>\"all\"</code> eller att utelämna det betyder alla typer"
+  },
+  "guide_defaults_item_1": {
+    "message": "En regels eget värde vinner alltid, och en regels <code>exceptions</code> ersätter standardlistan i stället för att läggas till den."
+  },
+  "guide_defaults_item_2": {
+    "message": "Standardvärden gäller <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> och <code>fieldRedirections</code>. En leverantörs egen <code>exceptions</code>-lista lämnas orörd. <code>$redirect=</code>-poster använder bara <code>active</code>."
+  },
+  "guide_defaults_item_3": {
+    "message": "Varje fil behåller sina egna standardvärden: de inbyggda reglerna, varje fjärrlista och dina anpassade regler, även när överbelastningsläget slår samman dem."
+  },
+  "guide_defaults_item_4": {
+    "message": "För en <code>completeProvider</code> begränsar standardvärdena för <code>requestTypes</code> och <code>exceptions</code> även blockeringen."
+  },
+  "guide_defaults_item_5": {
+    "message": "Okända nycklar och fel typer är fel, och en fjärrlista med ett ogiltigt <code>defaults</code>-block avvisas."
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "Dina egna standardvärden"
+  },
+  "guide_defaults_p_2": {
+    "message": "I redigeraren för anpassade regler öppnar <em>Hantera standardvärden för regler</em> ett formulär där du anger ett eget <code>defaults</code>-block och väljer var det ersätter filernas egna:"
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>Varje källas egna</em> (standard): varje fil använder sina egna <code>defaults</code>."
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>Dina för inbyggda regler och fjärrregler</em>: inbyggda regler och fjärrregler använder dina; anpassade regler behåller sina egna."
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>Dina för alla regler</em>: alla regler använder dina."
+  },
+  "guide_defaults_p_3": {
+    "message": "Samma formulär kan redigera standardvärdena för de inbyggda reglerna och för varje inläst fjärrlista. Din ändring lagras i tillägget, inte i filen, och <em>Återställ till filens standardvärden</em> tar bort den. <em>Slå samman från källor…</em> kombinerar standardvärdena från de källor du markerar; ingenting lagras förrän du sparar."
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. Hur en URL bearbetas"
   },
   "guide_order_p1": {
     "message": "För varje leverantör som matchar URL:en och tillåter förfrågan:"
@@ -3947,11 +5664,209 @@
   "guide_order_1": {
     "message": "<code>exceptions</code>: om en matchar, hoppas leverantören över."
   },
+  "guide_processing_order_item_1": {
+    "message": "<code>redirections</code>, sedan <code>fieldRedirections</code>: en träff med ett giltigt mål omdirigerar förfrågan."
+  },
   "guide_order_3": {
     "message": "<code>completeProvider</code>: förfrågan blockeras."
   },
   "guide_order_4": {
     "message": "<code>rawRules</code> körs på den fullständiga URL:en."
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> och <code>referralMarketing</code> tar bort eller skriver om parametrar."
+  },
+  "guide_processing_order_item_3": {
+    "message": "<code>$removeparam</code>-filter körs, utom där en <code>@@</code>-post behåller parametern."
+  },
+  "guide_processing_order_p_1": {
+    "message": "Den första leverantören som ändrar, omdirigerar eller blockerar URL:en vinner. Den nya URL:en går sedan igenom samma steg igen (se <a href=\"#termination\">När bearbetningen avslutas</a>)."
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "Körordning och <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "Steg 4 och 5 sorteras tillsammans, enligt dessa regler i tur och ordning:"
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>Råa regler körs alltid först.</strong> Ingen <code>order</code> flyttar en <code>rules</code>-post före en rå regel. En rensning som måste ske före en rå regel måste själv vara en rå regel."
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>Inom ett skede körs regler med <code>order</code> före regler utan</strong>, lägsta först. Negativa tal och bråktal är tillåtna. <code>order: 10</code> betyder inte \"tionde\": det betyder efter skedets ordnade regler under 10 och före alla dess oordnade regler."
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>Sedan efter lista:</strong> <code>rules</code>, sedan <code>rules</code>-objekt markerade med <code>\"referralMarketing\": true</code>, sedan <code>referralMarketing</code>."
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>Sedan efter position</strong> i listan. Varje post behåller sin plats, även poster skrivna som <code>\"3\"</code> eller <code>\"20\"</code>."
+  },
+  "guide_processing_order_p_3": {
+    "message": "Här skrivs token om innan <code>utm_source</code> tas bort, trots att den kommer som nummer två:"
+  },
+  "guide_processing_order_p_4": {
+    "message": "Regler som är avstängda utelämnas. <code>$removeparam</code>-filter och <code>@@</code>-poster ingår inte i denna sortering och kan inte ha någon <code>order</code>, inte ens <code>null</code>; filter körs alltid sist."
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "Samma text två gånger"
+  },
+  "guide_processing_order_p_5": {
+    "message": "Två poster med samma <code>matchPattern</code>-text i en grupp är en och samma regel. Grupperna är rå (<code>rawRules</code>), fält (<code>rules</code> utan hänvisningsmarkering) och hänvisning (markerade <code>rules</code>-objekt, sedan <code>referralMarketing</code>). Detta händer oftast när regellistor slås samman."
+  },
+  "guide_processing_order_item_8": {
+    "message": "Den sista definitionen som inte är avstängd vinner, med alla sina nycklar."
+  },
+  "guide_processing_order_item_9": {
+    "message": "Utan egen <code>order</code> tar vinnaren den första definitionens position och närmast föregående <code>order</code>. <code>\"order\": null</code> betyder ingen ordning och tar bort en ärvd."
+  },
+  "guide_processing_order_item_10": {
+    "message": "Id:n och alias för ersatta definitioner slår också på och av vinnaren."
+  },
+  "guide_processing_order_item_11": {
+    "message": "Medan regler för hänvisningsmarknadsföring körs ersätter en hänvisningspost en fältpost med samma text."
+  },
+  "guide_processing_order_item_12": {
+    "message": "En rå regel och en fältregel med samma text krockar inte; båda körs."
+  },
+  "guide_processing_order_p_6": {
+    "message": "Inom en lista är två olika poster med samma text ett fel, och en exakt kopia är en varning."
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "När bearbetningen avslutas"
+  },
+  "guide_processing_order_item_13": {
+    "message": "Högst 10 cykler körs per förfrågan; vid taket används URL:en som den är."
+  },
+  "guide_processing_order_item_14": {
+    "message": "En regel med <code>replacePattern</code> tillämpas högst en gång per förfrågan."
+  },
+  "guide_processing_order_item_15": {
+    "message": "Ett steg som inte ändrar URL:en startar ingen ny cykel."
+  },
+  "guide_processing_order_p_7": {
+    "message": "Inställningar → <em>Obegränsade rensningscykler</em> (av som standard) tar bort taket på 10 cykler för regelkedjor som behöver fler. Bearbetningen avslutas då när en cykel inte ändrar något, men två regler som omdirigerar till varandra loopar tills webbläsaren ger upp och sidan inte läses in. Slå bara på det för regler du litar på."
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. Regel-id:n och på/av-växlar"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "Varje regel har ett id. En regel utan <code>id</code> får ett från sin lista och sin text: <code>\"utm_source\"</code> i <code>rules</code> blir <code>field-utm-source</code>. Ett genererat id ändras när regelns text ändras, och en avstängd regel skulle då slås på igen. Ge en regel ett eget <code>id</code> när den måste behålla sin på/av-inställning genom redigeringar, och lista gamla id:n i <code>aliases</code> när du byter namn på den."
+  },
+  "guide_rule_ids_p_2": {
+    "message": "En regel slås på och av med sin leverantör och sitt id tillsammans, till exempel <code>shop::session-token</code>, så två leverantörer kan använda samma id. Redigeraren för anpassade regler kan också spara den under leverantörens mönster, till exempel <code>domainPattern:||shop.example^::session-token</code>; båda formerna fungerar."
+  },
+  "guide_rule_ids_item_1": {
+    "message": "Inom en leverantör måste varje id och alias vara olika. Genererade id:n räknas."
+  },
+  "guide_rule_ids_item_2": {
+    "message": "Ett id kan inte innehålla kolon."
+  },
+  "guide_rule_ids_item_3": {
+    "message": "En inställning som sparats under ett ensamt id, utan sin leverantör, växlar ingenting; stäng av regeln igen i redigeraren för anpassade regler."
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. Fjärrregellistor"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "Fjärrregellistor är regelfiler som Linkumori laddar ned, eventuellt kontrollerade mot en hash-fil. En lista med ett ogiltigt <code>cln</code>-värde, <code>defaults</code>-block eller <code>patches</code>-array läses inte in, och Hälsa för fjärrregler rapporterar det."
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "Omdirigering och blockering kräver ditt godkännande"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "Vad en fjärrlista kan göra beräknas utifrån dess innehåll när den läses in:"
+  },
+  "guide_remote_rules_th_1": {
+    "message": "Förmåga"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "Listan har den när den innehåller"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "Aktiv vid inläsning"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "en <code>rules</code>-, <code>rawRules</code>- eller <code>referralMarketing</code>-post, eller ett <code>$removeparam</code>-filter"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "en post med <code>replacePattern</code>"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "en <code>exceptions</code>-post för en leverantör eller en <code>@@</code>-post"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "en <code>redirections</code>- eller <code>fieldRedirections</code>-post, eller <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "efter godkännande"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "en leverantör med <code>\"completeProvider\": true</code>"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "Godkänn <code>redirect</code> och <code>block</code> per lista i Hälsa för fjärrregler. Fram till dess är listans omdirigeringar och blockeringar avstängda, och dess råa regler kan inte skicka en URL till en annan webbplats; resten av listan fungerar direkt. När en uppdatering lägger till en ny förmåga väntar även den på godkännande. Inbyggda och anpassade regler har alla förmågor."
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "Överbelastningsläge"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "Normalt ersätter fjärrlistor som har leverantörer de inbyggda reglerna; listor som bara innehåller <code>patches</code> tillämpas på de inbyggda reglerna. Med <em>Aktivera överbelastningsläge</em> påslaget läses de in tillsammans, med en av tre strategier:"
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>Endast patchläge</em>: tillämpa fjärrlistornas patchar på de inbyggda reglerna; fjärrleverantörer utelämnas."
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>Patchläge + sammanslagning</em>: slå samman inbyggda leverantörer och fjärrleverantörer och tillämpa sedan patchar."
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>Inget patchläge + sammanslagning</em>: slå samman leverantörerna och hoppa över patchar."
+  },
+  "guide_remote_rules_p_5": {
+    "message": "Vid sammanslagning slås fjärrlistor samman med varandra i den ordning du listar dem, sedan med de inbyggda reglerna (inbyggda först). Bara leverantörer med samma <code>domainPatterns</code> (eller <code>urlPattern</code>) och samma <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> och <code>forceRedirection</code> slås samman; deras <code>rules</code>, <code>rawRules</code> och <code>referralMarketing</code> förenas, och <a href=\"#same-text-twice\">Samma text två gånger</a> avgör vilken kopia som körs. Hälsa för fjärrregler listar varje ersatt regel som ett meddelande."
+  },
+  "guide_remote_rules_p_6": {
+    "message": "Anpassade regler tillämpas sist. En anpassad leverantör ersätter varje inläst leverantör med samma mönster; deras regler kombineras inte."
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "Regelpatchar"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "En fjärrlista kan ersätta enskilda regler som redan är inlästa, utan att publicera en fullständig kopia, i en <code>patches</code>-array på toppnivå:"
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "Obligatorisk. Regeln som ska ersättas, skriven som dess på/av-nyckel: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> eller <code>urlPattern:&lt;regex&gt;::id</code>."
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "Obligatorisk. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> eller <code>fieldRedirections</code>."
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "Obligatorisk. Den nya regeln, som en vanlig post eller ett regelobjekt."
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "En anteckning för den som läser filen."
+  },
+  "guide_remote_rules_item_4": {
+    "message": "Patchar körs efter att fjärrlistor slagits samman och före anpassade regler. En fil med bara <code>patches</code> behöver inga <code>providers</code>."
+  },
+  "guide_remote_rules_item_5": {
+    "message": "Sammanslagning kan byta namn på leverantörer, så formen <code>domainPattern:</code> eller <code>urlPattern:</code> är den som alltid hittar dem."
+  },
+  "guide_remote_rules_item_6": {
+    "message": "Ersättningen behåller den gamla regelns id, eller tar det gamla id:t som alias, så att på/av-inställningar fortsätter att gälla."
+  },
+  "guide_remote_rules_item_7": {
+    "message": "En patch för en omdirigering väntar på listans <code>redirect</code>-godkännande. En patch vars mål inte matchar något ändrar ingenting."
+  },
+  "guide_remote_rules_item_8": {
+    "message": "Hälsa för fjärrregler listar varje patch som tillämpad, utan träff eller överhoppad."
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. Regler och vitlistan"
+  },
+  "guide_whitelist_p_1": {
+    "message": "Vitlistan är skild från en leverantörs <code>exceptions</code>: den listar webbplatser som du har bett Linkumori att lämna orörda, utan någon regelfil inblandad. Poster ser ut som <code>example.com</code>, <code>*.example.com</code> (webbplatsen och dess underdomäner) eller <code>example.*</code> (valfritt suffix). Att vitlista en sida omfattar även allt som den läser in."
+  },
+  "guide_examples_title_1": {
+    "message": "17. Fullständiga exempel"
   },
   "guide_ex1_title": {
     "message": "Rensa en butik"
@@ -3977,6 +5892,12 @@
   "guide_ex4_p": {
     "message": "Tar bort <code>ref</code> överallt på webbplatsen utom på inloggningssidan, som behöver den:"
   },
+  "guide_checking_title_1": {
+    "message": "18. Kontrollera dina regler"
+  },
+  "guide_checking_p_1": {
+    "message": "Redigeraren för anpassade regler kontrollerar regler när du sparar eller importerar dem, och <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> kör samma kontroller. Utöver trasig JSON och ogiltiga reguljära uttryck avvisar de regler som skulle läsas in men tyst göra fel sak, till exempel:"
+  },
   "guide_check_1": {
     "message": "<code>domainPatterns</code> och <code>urlPattern</code> på en leverantör"
   },
@@ -3986,253 +5907,40 @@
   "guide_check_3": {
     "message": "en omdirigering med reguljärt uttryck utan exakt en fångstgrupp"
   },
+  "guide_checking_item_1": {
+    "message": "okända fält, nycklar och modifierare"
+  },
+  "guide_check_7": {
+    "message": "ett <code>cln</code>-värde som inte är <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "ett id eller alias som används två gånger i en leverantör"
+  },
+  "guide_checking_item_2": {
+    "message": "två olika poster med samma text i en lista"
+  },
+  "guide_checking_item_3": {
+    "message": "en <code>order</code> på ett <code>$removeparam</code>-filter eller en <code>@@</code>-post, även <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "en <code>$redirect=</code>-adress som inte är <code>http</code> eller <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "ett omvänt snedstreck i ett <code>$removeparam</code>-namn före ett tecken som saknar escape-sekvens"
+  },
   "guide_check_6": {
     "message": "en <code>@@…$rawrule=</code>-post som inte stoppar någon rå regel"
   },
-  "providerImport_disableByPattern": {
-    "message": "Av URL/domänmönster"
+  "guide_checking_p_2": {
+    "message": "De varnar också för exakta kopior och för samma text i både <code>rules</code> och <code>referralMarketing</code>. Om sparandet misslyckas anger meddelandet leverantören, listan och posten."
   },
-  "providerImport_disableByProvider": {
-    "message": "Efter leverantör"
+  "guide_page_title": {
+    "message": "Linkumori — Guide för regler"
   },
-  "providerImport_noProviderRuleActivations": {
-    "message": "Inga aktiva regelaktiveringar för denna leverantör."
+  "guide_toc_search": {
+    "message": "Filtrera avsnitt"
   },
-  "providerImport_providerRuleNav": {
-    "message": "Leverantörsregelnavigering"
-  },
-  "popup_html_guide_link": {
-    "message": "Guide för leverantör JSON"
-  },
-  "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide"
-  },
-  "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?"
-  },
-  "faq_rules_guide_syntax_answer": {
-    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
-  },
-  "faq_rules_guide_syntax_note": {
-    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
-  },
-  "faq_rules_guide_open_page": {
-    "message": "Open rules guide"
-  },
-  "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1"
-  },
-  "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available."
-  },
-  "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1"
-  },
-  "status_language_change_failed": {
-    "message": "Could not switch language to $1."
-  },
-  "theme_light": {
-    "message": "Light theme"
-  },
-  "theme_dark": {
-    "message": "Dark theme"
-  },
-  "posarCopied": {
-    "message": "POSAR kopierad!"
-  },
-  "posarDescription": {
-    "message": "Vänligen granska Linkumoris dokument för programvarans prestanda och riskacceptans nedan."
-  },
-  "posarDownloaded": {
-    "message": "POSAR har laddats ner!"
-  },
-  "posarSection": {
-    "message": "Utförande av programvara och acceptans av risk"
-  },
-  "posar_consent_accept_button": {
-    "message": "Acceptera POSAR"
-  },
-  "posar_consent_button_accepted": {
-    "message": "POSAR accepteras"
-  },
-  "posar_consent_saved": {
-    "message": "POSAR accepteras."
-  },
-  "button_reset": {
-    "message": "Reset"
-  },
-  "accessibility_tools_title": {
-    "message": "Accessibility Tools"
-  },
-  "accessibility_tools_open": {
-    "message": "Open Accessibility Tools"
-  },
-  "accessibility_tools_close": {
-    "message": "Close Accessibility Tools"
-  },
-  "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings"
-  },
-  "accessibility_tools_group_vision": {
-    "message": "Vision"
-  },
-  "accessibility_tools_group_reading": {
-    "message": "Reading"
-  },
-  "accessibility_tools_group_interaction": {
-    "message": "Interaction"
-  },
-  "accessibility_tools_high_contrast": {
-    "message": "High Contrast"
-  },
-  "accessibility_tools_color_filter": {
-    "message": "Color Filter"
-  },
-  "accessibility_tools_saturation": {
-    "message": "Saturation"
-  },
-  "accessibility_tools_invert": {
-    "message": "Invert"
-  },
-  "accessibility_tools_highlight_links": {
-    "message": "Highlight Links"
-  },
-  "accessibility_tools_hide_images": {
-    "message": "Hide Images"
-  },
-  "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase"
-  },
-  "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease"
-  },
-  "accessibility_tools_default_text_size": {
-    "message": "Default Text Size"
-  },
-  "accessibility_tools_font_selection": {
-    "message": "Font Selection"
-  },
-  "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly"
-  },
-  "accessibility_tools_text_spacing": {
-    "message": "Text Spacing"
-  },
-  "accessibility_tools_line_height": {
-    "message": "Line Height"
-  },
-  "accessibility_tools_text_align": {
-    "message": "Text Align"
-  },
-  "accessibility_tools_pause_animations": {
-    "message": "Pause Animations"
-  },
-  "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor"
-  },
-  "accessibility_tools_value_default": {
-    "message": "Default"
-  },
-  "accessibility_tools_value_medium": {
-    "message": "Medium"
-  },
-  "accessibility_tools_value_high": {
-    "message": "High"
-  },
-  "accessibility_tools_value_ultra": {
-    "message": "Ultra"
-  },
-  "accessibility_tools_value_low": {
-    "message": "Low"
-  },
-  "accessibility_tools_value_none": {
-    "message": "None"
-  },
-  "accessibility_tools_value_light": {
-    "message": "Light"
-  },
-  "accessibility_tools_value_heavy": {
-    "message": "Heavy"
-  },
-  "accessibility_tools_value_2x": {
-    "message": "2x"
-  },
-  "accessibility_tools_value_3x": {
-    "message": "3x"
-  },
-  "accessibility_tools_value_4x": {
-    "message": "4x"
-  },
-  "accessibility_tools_value_arial": {
-    "message": "Arial"
-  },
-  "accessibility_tools_value_times": {
-    "message": "Times"
-  },
-  "accessibility_tools_value_verdana": {
-    "message": "Verdana"
-  },
-  "accessibility_tools_value_no_filter": {
-    "message": "No Filter"
-  },
-  "accessibility_tools_value_protanopia": {
-    "message": "Protanopia"
-  },
-  "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia"
-  },
-  "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia"
-  },
-  "accessibility_tools_value_grayscale": {
-    "message": "Grayscale"
-  },
-  "accessibility_tools_value_left": {
-    "message": "Left"
-  },
-  "accessibility_tools_value_center": {
-    "message": "Center"
-  },
-  "accessibility_tools_value_right": {
-    "message": "Right"
-  },
-  "accessibility_tools_value_extra_small": {
-    "message": "Extra Small"
-  },
-  "accessibility_tools_value_small": {
-    "message": "Small"
-  },
-  "accessibility_tools_value_large": {
-    "message": "Large"
-  },
-  "accessibility_tools_value_extra_large": {
-    "message": "Extra Large"
-  },
-  "accessibility_tools_value_largest": {
-    "message": "Largest"
-  },
-  "accessibility_tools_value_on": {
-    "message": "On"
-  },
-  "accessibility_tools_value_off": {
-    "message": "Off"
-  },
-  "accessibility_tools_control_status": {
-    "message": "$1: $2"
-  },
-  "accessibility_tools_toggle_announcement": {
-    "message": "$1 $2"
-  },
-  "accessibility_tools_enabled": {
-    "message": "enabled"
-  },
-  "accessibility_tools_disabled": {
-    "message": "disabled"
-  },
-  "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected"
-  },
-  "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset"
+  "guide_toc_no_results": {
+    "message": "Inga matchande avsnitt."
   }
 }
