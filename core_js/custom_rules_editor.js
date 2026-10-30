@@ -225,10 +225,10 @@ function assertDomainRedirectEntry(entry, label) {
     const pattern = markerIndex === -1 ? '' : entry.slice(0, markerIndex).trim();
     const target = markerIndex === -1 ? '' : entry.slice(markerIndex + '$redirect='.length).trim();
     if (!pattern || !target) {
-        throw new Error(`${label}: a redirect starting with "|" must look like "||example.com^$redirect=https://target/"`);
+        throw new Error(i18n('customRulesEditor_syntaxRedirectEntryFormat', label));
     }
     if (!LinkumoriRuleIds.isValidRedirectTarget(target)) {
-        throw new Error(`${label}: the $redirect= target must be an absolute http or https URL`);
+        throw new Error(i18n('customRulesEditor_syntaxRedirectTargetNotHttp', label));
     }
 }
 
@@ -276,19 +276,19 @@ const SUPPORTED_PREPROCESSORS = Object.freeze([
 
 function assertPreprocessorSyntax(preprocessor, prefix) {
     if (!isPlainObject(preprocessor)) {
-        throw new Error(`${prefix} must be an object`);
+        throw new Error(i18n('customRulesEditor_syntaxMustBeObject', prefix));
     }
     assertOnlyKeys(preprocessor, ['type', 'inputs'], prefix);
     if (typeof preprocessor.type !== 'string' || preprocessor.type.trim() === '') {
-        throw new Error(`${prefix}.type must be a non-empty string`);
+        throw new Error(i18n('customRulesEditor_syntaxPreprocessorTypeEmpty', prefix));
     }
     if (!SUPPORTED_PREPROCESSORS.includes(preprocessor.type)) {
-        throw new Error(`${prefix}.type must be one of: ${SUPPORTED_PREPROCESSORS.join(', ')}`);
+        throw new Error(i18n('customRulesEditor_syntaxPreprocessorTypeUnsupported', prefix, SUPPORTED_PREPROCESSORS.join(', ')));
     }
     if (preprocessor.inputs !== 'all' &&
         (!Array.isArray(preprocessor.inputs) ||
             preprocessor.inputs.some(input => !Number.isInteger(input) || input < 1))) {
-        throw new Error(`${prefix}.inputs must be "all" or an array of positive integers`);
+        throw new Error(i18n('customRulesEditor_syntaxPreprocessorInputs', prefix));
     }
 }
 
@@ -301,75 +301,75 @@ const RULE_OBJECT_KEYS = Object.freeze([
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
     if (!isPlainObject(rule)) {
-        throw new Error(`${prefix} must be a string or rule object`);
+        throw new Error(i18n('customRulesEditor_syntaxRuleMustBeStringOrObject', prefix));
     }
     assertOnlyKeys(rule, RULE_OBJECT_KEYS, prefix);
     if (typeof rule.matchPattern !== 'string') {
-        throw new Error(`${prefix}.matchPattern must be a string`);
+        throw new Error(i18n('customRulesEditor_syntaxMatchPatternNotString', prefix));
     }
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
-        throw new Error(`${prefix}.replacePattern must be a string`);
+        throw new Error(i18n('customRulesEditor_syntaxReplacePatternNotString', prefix));
     }
     if (rule.targetId !== undefined) {
-        if (typeof rule.targetId !== 'string' || !rule.targetId) throw new Error(`${prefix}.targetId must be a rule id`);
-        if (fieldName !== 'rawRules') throw new Error(`${prefix}.targetId only applies to "@@…$rawrule=" exceptions in rawRules`);
+        if (typeof rule.targetId !== 'string' || !rule.targetId) throw new Error(i18n('customRulesEditor_syntaxTargetIdNotRuleId', prefix));
+        if (fieldName !== 'rawRules') throw new Error(i18n('customRulesEditor_syntaxTargetIdOnlyRawRules', prefix));
     }
     if (rule.flags !== undefined && typeof rule.flags !== 'string') {
-        throw new Error(`${prefix}.flags must be a string (regex flags such as "i")`);
+        throw new Error(i18n('customRulesEditor_syntaxFlagsNotString', prefix));
     }
     if (rule.referralMarketing !== undefined) {
         if (typeof rule.referralMarketing !== 'boolean') {
-            throw new Error(`${prefix}.referralMarketing must be true or false`);
+            throw new Error(i18n('customRulesEditor_syntaxReferralMarketingNotBoolean', prefix));
         }
         if (!REFERRAL_MARKETING_KEY_LISTS.includes(fieldName)) {
-            throw new Error(`${prefix}.referralMarketing has no effect in ${fieldName}; it only applies in ${REFERRAL_MARKETING_KEY_LISTS.join(', ')}`);
+            throw new Error(i18n('customRulesEditor_syntaxReferralMarketingNoEffect', prefix, fieldName, REFERRAL_MARKETING_KEY_LISTS.join(', ')));
         }
     }
     // "order": null means no order, and none inherited (CLN 1.0 §Same text
     // twice). A $removeparam filter or "@@" entry takes no "order" at all.
     if (rule.order !== undefined) {
         if (rule.order !== null && (typeof rule.order !== 'number' || !Number.isFinite(rule.order))) {
-            throw new Error(`${prefix}.order must be a number or null`);
+            throw new Error(i18n('customRulesEditor_syntaxOrderNotNumber', prefix));
         }
         if (!ORDERABLE_RULE_LISTS.includes(fieldName)) {
-            throw new Error(`${prefix}.order has no effect in ${fieldName}; it only applies in ${ORDERABLE_RULE_LISTS.join(', ')}`);
+            throw new Error(i18n('customRulesEditor_syntaxOrderNoEffectInList', prefix, fieldName, ORDERABLE_RULE_LISTS.join(', ')));
         }
         if (isRemoveParamRuleText(rule.matchPattern)) {
-            throw new Error(`${prefix}.order has no effect on a $removeparam filter or "@@" entry; they always run after the other rules`);
+            throw new Error(i18n('customRulesEditor_syntaxOrderNoEffectOnFilter', prefix));
         }
     }
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
-        throw new Error(`${prefix}.active must be a boolean`);
+        throw new Error(i18n('customRulesEditor_syntaxActiveNotBoolean', prefix));
     }
     if (rule.id !== undefined && typeof rule.id !== 'string') {
-        throw new Error(`${prefix}.id must be a string`);
+        throw new Error(i18n('customRulesEditor_syntaxIdNotString', prefix));
     }
     if (rule.id !== undefined && !CORE_RULE_ID_PATTERN.test(rule.id)) {
-        throw new Error(`${prefix}.id must match ${CORE_RULE_ID_PATTERN.source}`);
+        throw new Error(i18n('customRulesEditor_syntaxIdPattern', prefix, CORE_RULE_ID_PATTERN.source));
     }
     if (rule.aliases !== undefined &&
         (!Array.isArray(rule.aliases) || rule.aliases.some(alias => typeof alias !== 'string' || !CORE_RULE_ID_PATTERN.test(alias)))) {
-        throw new Error(`${prefix}.aliases must be a list of ids matching ${CORE_RULE_ID_PATTERN.source}`);
+        throw new Error(i18n('customRulesEditor_syntaxAliasesPattern', prefix, CORE_RULE_ID_PATTERN.source));
     }
     if (rule.aliases !== undefined && rule.id !== undefined && rule.aliases.includes(rule.id)) {
-        throw new Error(`${prefix}.aliases must not contain the rule's own id`);
+        throw new Error(i18n('customRulesEditor_syntaxAliasesContainOwnId', prefix));
     }
     if (rule.description !== undefined && typeof rule.description !== 'string') {
-        throw new Error(`${prefix}.description must be a string`);
+        throw new Error(i18n('customRulesEditor_syntaxDescriptionNotString', prefix));
     }
     if (rule.historyBypassProtection !== undefined && typeof rule.historyBypassProtection !== 'boolean') {
-        throw new Error(`${prefix}.historyBypassProtection must be a boolean`);
+        throw new Error(i18n('customRulesEditor_syntaxHistoryBypassNotBoolean', prefix));
     }
     if (rule.exceptions !== undefined &&
         (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
-        throw new Error(`${prefix}.exceptions must be an array of strings`);
+        throw new Error(i18n('customRulesEditor_syntaxExceptionsNotStrings', prefix));
     }
     if (rule.requestTypes !== undefined &&
         (!Array.isArray(rule.requestTypes) || rule.requestTypes.some(item => typeof item !== 'string'))) {
-        throw new Error(`${prefix}.requestTypes must be an array of strings`);
+        throw new Error(i18n('customRulesEditor_syntaxRequestTypesNotStrings', prefix));
     }
     if (rule.preprocessors !== undefined && !Array.isArray(rule.preprocessors)) {
-        throw new Error(`${prefix}.preprocessors must be an array`);
+        throw new Error(i18n('customRulesEditor_syntaxPreprocessorsNotArray', prefix));
     }
     (rule.preprocessors || []).forEach((preprocessor, preprocessorIndex) => {
         assertPreprocessorSyntax(preprocessor, `${prefix}.preprocessors[${preprocessorIndex}]`);
@@ -453,7 +453,7 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
     const label = providerName || 'Provider';
     Object.keys(provider).forEach((key) => {
         if (!PROVIDER_FIELDS.includes(key)) {
-            throw new Error(`${label}: unknown field "${key}"`);
+            throw new Error(i18n('customRulesEditor_syntaxUnknownField', label, key));
         }
     });
     FIELD_RULE_LISTS.forEach((fieldName) => {
@@ -462,7 +462,7 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
                 : (isPlainObject(entry) && typeof entry.matchPattern === 'string' ? entry.matchPattern : '');
             // @@ keeps a parameter; a redirect has nothing to keep.
             if (fieldName === 'fieldRedirections' && text.trim().startsWith('@@')) {
-                throw new Error(`${label}: fieldRedirections[${index}] starts with "@@", which only applies to $removeparam filters in rules and referralMarketing; use a rule object's "exceptions" instead`);
+                throw new Error(i18n('customRulesEditor_syntaxFieldRedirectionException', `${label}: fieldRedirections[${index}]`));
             }
             const options = getRemoveParamOptions(text);
             if (!options) return;
@@ -480,7 +480,7 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
                     : (lower === 'removeparam' || REMOVEPARAM_FLAG_OPTIONS.has(lower) ||
                         (lower.startsWith('~') && REMOVEPARAM_NEGATABLE_OPTIONS.has(lower.slice(1))));
                 if (!known) {
-                    throw new Error(`${label}: ${fieldName}[${index}] has unknown $removeparam option "${option}"`);
+                    throw new Error(i18n('customRulesEditor_syntaxUnknownRemoveparamOption', `${label}: ${fieldName}[${index}]`, option));
                 }
             });
         });
@@ -572,7 +572,7 @@ function isBrokenSinglePipePattern(pattern) {
 
 function singlePipeError(label, pattern) {
     const rest = String(pattern).trim().slice(1);
-    return new Error(`${label}: "${pattern}" starts with a single "|", so it only matches URLs that literally begin with "${rest}" and none do (URLs start with "https://"). Use "||${rest}" to match the domain.`);
+    return new Error(i18n('customRulesEditor_syntaxSinglePipe', label, pattern, rest));
 }
 
 function countCaptureGroups(source, flags) {
@@ -623,29 +623,29 @@ function assertNoSilentMistakes(provider, providerName = '') {
         const where = `${label}: rawRules[${index}]`;
         const targetId = isPlainObject(entry) ? entry.targetId : undefined;
         if (targetId !== undefined && !(scoped && scoped.pattern.startsWith('@@'))) {
-            throw new Error(`${where} has "targetId", which only works on an exception; start matchPattern with "@@" (e.g. "@@||example.com^$rawrule=")`);
+            throw new Error(i18n('customRulesEditor_syntaxTargetIdNeedsException', where));
         }
         if (!scoped) return;
         const isException = scoped.pattern.startsWith('@@');
         const optionProblem = rawRuleOptionProblem(scoped.options, isException);
         if (optionProblem) throw new Error(`${where} ${optionProblem}`);
         if (isException && typeof targetId === 'string') {
-            if (scoped.regex) throw new Error(`${where} has both "targetId" and a regex after "rawrule="; use one of them`);
-            if (!rawRuleIds.has(targetId)) throw new Error(`${where} has targetId "${targetId}", but no raw rule in this provider has that id or alias`);
+            if (scoped.regex) throw new Error(i18n('customRulesEditor_syntaxTargetIdAndRegex', where));
+            if (!rawRuleIds.has(targetId)) throw new Error(i18n('customRulesEditor_syntaxTargetIdUnknown', where, targetId));
         } else if (isException && scoped.regex && !rawRuleRegexes.has(scoped.regex)) {
-            throw new Error(`${where} is an "@@" exception for "${scoped.regex}", but no raw rule in this provider uses that regex. Give the rule an id and point at it with "targetId" instead`);
+            throw new Error(i18n('customRulesEditor_syntaxExceptionRegexUnknown', where, scoped.regex));
         }
         if (isException && isPlainObject(entry)) {
             // An @@ entry only names the raw rules it stops; nothing it would rewrite or reorder.
             ['replacePattern', 'preprocessors', 'order', 'flags'].forEach((key) => {
-                if (entry[key] !== undefined) throw new Error(`${where} is an "@@" exception, so "${key}" would do nothing`);
+                if (entry[key] !== undefined) throw new Error(i18n('customRulesEditor_syntaxExceptionKeyNoEffect', where, key));
             });
         }
-        if (!isException && !scoped.regex) throw new Error(`${where} has nothing after "rawrule="; it needs the regex to delete`);
+        if (!isException && !scoped.regex) throw new Error(i18n('customRulesEditor_syntaxRawRuleMissingRegex', where));
         checkPattern(isException ? scoped.pattern.slice(2).trim() : scoped.pattern, `rawRules[${index}]`);
         if (!scoped.regex) return;
         try { new RegExp(scoped.regex, isPlainObject(entry) && typeof entry.flags === 'string' ? entry.flags : 'gi'); }
-        catch (error) { throw new Error(`${where} has an invalid regex after "rawrule=": ${error.message}`); }
+        catch (error) { throw new Error(i18n('customRulesEditor_syntaxRawRuleInvalidRegex', where, error.message)); }
     });
     // A regex redirect without replacePattern goes to its first capture group,
     // so it needs exactly one: none never redirects, more than one is a trap.
@@ -656,7 +656,7 @@ function assertNoSilentMistakes(provider, providerName = '') {
         let groups;
         try { groups = countCaptureGroups(source, isPlainObject(entry) && entry.flags ? entry.flags : 'i'); } catch (_) { return; }
         if (groups !== 1) {
-            throw new Error(`${label}: redirections[${index}] has ${groups} capture groups; it needs exactly one "( … )" around the destination URL (write other groups as "(?: … )")`);
+            throw new Error(i18n('customRulesEditor_syntaxRedirectCaptureGroups', `${label}: redirections[${index}]`, groups));
         }
     });
 }
@@ -683,7 +683,7 @@ function assertRuleEntrySyntax(provider, providerName = '') {
                 const firstSeenAt = occupiedNames.get(name);
                 const here = `${fieldName}[${index}]`;
                 if (firstSeenAt) {
-                    throw new Error(`${providerName || 'Provider'} reuses rule id "${name}" in ${here}; first used in ${firstSeenAt}`);
+                    throw new Error(i18n('customRulesEditor_syntaxRuleIdReused', providerName || 'Provider', name, here, firstSeenAt));
                 }
                 occupiedNames.set(name, here);
             });
@@ -725,7 +725,7 @@ function lintProvider(provider, providerName = '') {
     const error = message => problems.push({ severity: 'error', message });
     const warning = message => problems.push({ severity: 'warning', message });
     if (!isPlainObject(provider)) {
-        error(`${label} must be a JSON object`);
+        error(i18n('customRulesEditor_syntaxProviderNotObject', label));
         return problems;
     }
 
@@ -733,7 +733,7 @@ function lintProvider(provider, providerName = '') {
     const base = {};
     Object.keys(provider).forEach((key) => {
         if (!PROVIDER_FIELDS.includes(key)) {
-            error(`${label}: unknown field "${key}"`);
+            error(i18n('customRulesEditor_syntaxUnknownField', label, key));
         } else if (!OBJECT_STYLE_RULE_FIELDS.includes(key)) {
             base[key] = provider[key];
         }
@@ -776,7 +776,7 @@ function lintProvider(provider, providerName = '') {
         const entries = provider[list];
         if (entries === undefined) return;
         if (!Array.isArray(entries)) {
-            error(`${label}: ${list} must be an array`);
+            error(i18n('customRulesEditor_syntaxListNotArray', label, list));
             return;
         }
         const seenEntries = new Set();
@@ -796,7 +796,7 @@ function lintProvider(provider, providerName = '') {
             names.forEach((name) => {
                 const firstSeenAt = occupiedNames.get(name);
                 if (firstSeenAt) {
-                    error(`${label} reuses rule id "${name}" in ${here}; first used in ${firstSeenAt}`);
+                    error(i18n('customRulesEditor_syntaxRuleIdReused', label, name, here, firstSeenAt));
                 } else {
                     occupiedNames.set(name, here);
                 }
@@ -7647,7 +7647,7 @@ function getDefaultsFromImportedCustomRules(imported) {
 function assertOnlyKeys(value, allowedKeys, label) {
     Object.keys(value || {}).forEach((key) => {
         if (!allowedKeys.includes(key)) {
-            throw new Error(`${label} has unknown key "${key}"`);
+            throw new Error(i18n('customRulesEditor_syntaxUnknownKey', label, key));
         }
     });
 }
@@ -7704,7 +7704,7 @@ function assertProviderArrayFields(provider, providerName = '') {
         'resourceTypes'
     ].forEach((key) => {
         if (provider[key] !== undefined && !Array.isArray(provider[key])) {
-            throw new Error(`${providerName || 'Provider'}: ${key} must be an array`);
+            throw new Error(i18n('customRulesEditor_syntaxListNotArray', providerName || 'Provider', key));
         }
     });
 }

@@ -53,6 +53,17 @@ const LINKUMORI_DIAGNOSIS_MAX_RULES = 64;
 const linkumoriDiagnoses = new Map();
 let linkumoriDiagnosesLoaded = null;
 
+// Localized error text for the popup, with the English text as fallback.
+function troubleshooterErrorText(key, fallback) {
+    try {
+        const message = typeof translate === 'function' ? translate(key) : '';
+        if (message && message !== key) return message;
+    } catch (_) {
+        // Fall back to English below.
+    }
+    return fallback;
+}
+
 function getDiagnosisSessionArea() {
     return typeof browser !== 'undefined' ? browser.storage?.session || null : null;
 }
@@ -146,9 +157,9 @@ async function startTroubleshooterPauseCheck(tabId, domain) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const cleanDomain = String(domain || '').toLowerCase().trim();
-    if (id === null || !cleanDomain) return { success: false, error: 'Invalid tab' };
+    if (id === null || !cleanDomain) return { success: false, error: troubleshooterErrorText('troubleshooter_error_invalid_tab', 'Invalid tab') };
     const current = linkumoriDiagnoses.get(id);
-    if (current?.phase === 'bisect') return { success: false, error: 'A rule search is already running for this tab' };
+    if (current?.phase === 'bisect') return { success: false, error: troubleshooterErrorText('troubleshooter_error_search_running', 'A rule search is already running for this tab') };
     // Leave a whitelist entry the person made themselves alone.
     const alreadyPaused = typeof getTemporaryTabWhitelistForTab === 'function' &&
         getTemporaryTabWhitelistForTab(id).includes(cleanDomain);
@@ -176,7 +187,7 @@ async function answerTroubleshooterPauseCheck(tabId, worksNow) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
-    if (!state || state.phase !== 'paused') return { success: false, error: 'No pause check is running for this tab' };
+    if (!state || state.phase !== 'paused') return { success: false, error: troubleshooterErrorText('troubleshooter_error_no_pause_check', 'No pause check is running for this tab') };
     endTroubleshooterPause(id, state);
     linkumoriDiagnoses.set(id, {
         phase: 'checked',
@@ -267,10 +278,10 @@ async function countTroubleshooterExtraRules(tabId, identities) {
 async function startTroubleshooterBisect(tabId, identities) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
-    if (id === null) return { success: false, error: 'Invalid tab' };
+    if (id === null) return { success: false, error: troubleshooterErrorText('troubleshooter_error_invalid_tab', 'Invalid tab') };
     if (typeof globalThis.getTroubleshooterRuleState !== 'function' ||
         typeof globalThis.setTroubleshooterRulesEnabledBatch !== 'function') {
-        return { success: false, error: 'Rules are still loading. Try again in a moment.' };
+        return { success: false, error: troubleshooterErrorText('troubleshooter_error_rules_loading', 'Rules are still loading. Try again in a moment.') };
     }
     const previous = linkumoriDiagnoses.get(id);
     if (previous?.phase === 'bisect') await restoreTroubleshooterTestRound(previous);
@@ -278,7 +289,7 @@ async function startTroubleshooterBisect(tabId, identities) {
 
     const rules = collectTroubleshooterBisectRules(identities);
     if (rules.length === 0) {
-        return { success: false, error: 'None of the rules that fired on this page can be switched off.' };
+        return { success: false, error: troubleshooterErrorText('troubleshooter_error_no_switchable_rules', 'None of the rules that fired on this page can be switched off.') };
     }
 
     const state = {
@@ -296,7 +307,7 @@ async function startTroubleshooterBisect(tabId, identities) {
     // than named untested.
     if (state.suspects.length === 1) state.confirming = true;
     const result = await applyTroubleshooterTestRound(state);
-    if (!result?.success) return { success: false, error: result?.error || 'Could not switch the rules off' };
+    if (!result?.success) return { success: false, error: result?.error || troubleshooterErrorText('troubleshooter_error_switch_off_failed', 'Could not switch the rules off') };
     linkumoriDiagnoses.set(id, state);
     await saveTroubleshooterDiagnosis(id);
     return { success: true, diagnosis: publicTroubleshooterDiagnosis(state) };
@@ -309,7 +320,7 @@ async function answerTroubleshooterBisect(tabId, fixedNow, skip = false) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
-    if (!state || state.phase !== 'bisect') return { success: false, error: 'No rule search is running for this tab' };
+    if (!state || state.phase !== 'bisect') return { success: false, error: troubleshooterErrorText('troubleshooter_error_no_search', 'No rule search is running for this tab') };
     const testing = state.testing.slice();
     const tested = new Set(testing);
     state.confirming = false;
@@ -364,7 +375,7 @@ async function continueTroubleshooterBisect(tabId, identities = [], keepOff = fa
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
     const state = id === null ? null : linkumoriDiagnoses.get(id);
-    if (!state || state.phase !== 'found') return { success: false, error: 'No found rule to skip for this tab' };
+    if (!state || state.phase !== 'found') return { success: false, error: troubleshooterErrorText('troubleshooter_error_no_found_rule', 'No found rule to skip for this tab') };
     const culprit = state.culprit;
     if (keepOff === true && Number.isInteger(culprit) && state.rules[culprit]) {
         state.keptOff = (Array.isArray(state.keptOff) ? state.keptOff : []).concat([culprit]);
@@ -397,7 +408,7 @@ async function continueTroubleshooterBisect(tabId, identities = [], keepOff = fa
 async function cancelTroubleshooterDiagnosis(tabId) {
     await loadTroubleshooterDiagnoses();
     const id = normalizeTabId(tabId);
-    if (id === null) return { success: false, error: 'Invalid tab' };
+    if (id === null) return { success: false, error: troubleshooterErrorText('troubleshooter_error_invalid_tab', 'Invalid tab') };
     const state = linkumoriDiagnoses.get(id);
     if (state?.phase === 'bisect') await restoreTroubleshooterTestRound(state);
     if (state?.phase === 'paused') endTroubleshooterPause(id, state);
@@ -411,7 +422,7 @@ async function cancelTroubleshooterDiagnosis(tabId) {
 // download. The background page outlives the dialog.
 async function exportTroubleshooterRecording(json, filename) {
     if (typeof json !== 'string' || !browser.downloads?.download) {
-        return { success: false, error: 'Download unavailable' };
+        return { success: false, error: troubleshooterErrorText('troubleshooter_error_download_unavailable', 'Download unavailable') };
     }
     const safeName = String(filename || 'linkumori-troubleshooter.json')
         .replace(/[^a-z0-9._-]/gi, '_');

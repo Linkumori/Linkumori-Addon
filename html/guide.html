@@ -60,7 +60,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="guide_page_title"></title>
+    <title data-i18n="guide_page_title">Linkumori — Rules Guide</title>
     <script src="../external_js/theme_bootstrap.js"></script>
     <script src="../external_js/theme_favicon.js"></script>
     <style>
@@ -737,7 +737,7 @@
                        fill="var(--logo-accent)"/>
             </svg>
             <div class="header-text">
-                <h1 id="page_title" data-i18n="guide_page_title"></h1>
+                <h1 id="page_title" data-i18n="guide_page_title">Linkumori — Rules Guide</h1>
                 <span class="version-badge" id="version"></span>
             </div>
         </div>
@@ -753,69 +753,85 @@
         <div class="guide-layout">
             <!-- Sidebar: guide contents -->
             <nav class="sidebar" aria-labelledby="guide-toc-label">
-                <h2 class="sidebar-title" id="guide-toc-label" data-i18n-html="guide_toc_label"></h2>
-                <input type="search" class="toc-search" id="toc-search" data-i18n-placeholder="guide_toc_search" data-i18n-aria="guide_toc_search" aria-controls="guide-toc">
+                <h2 class="sidebar-title" id="guide-toc-label" data-i18n-html="guide_toc_label">Contents</h2>
+                <input type="search" class="toc-search" id="toc-search" data-i18n-placeholder="guide_toc_search" data-i18n-aria="guide_toc_search" placeholder="Filter sections" aria-label="Filter sections" aria-controls="guide-toc">
                 <div class="toc" id="guide-toc">
-<ul>
-<li><a href="#rules-file" data-i18n-html="guide_file_title"></a></li>
-<li><a href="#provider-fields" data-i18n-html="guide_fields_title"></a></li>
-<li><a href="#matching" data-i18n-html="guide_match_title"></a></li>
-<li><a href="#removing-parameters" data-i18n-html="guide_rules_title"></a>
-<ul>
-<li><a href="#rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title"></a></li>
-</ul></li>
-<li><a href="#removeparam-filters" data-i18n-html="guide_rp_title"></a>
-<ul>
-<li><a href="#removeparam-value" data-i18n-html="guide_rp_value_title"></a></li>
-<li><a href="#removeparam-options" data-i18n-html="guide_rp_options_title"></a></li>
-<li><a href="#removeparam-keep" data-i18n-html="guide_rp_keep_title"></a></li>
-</ul></li>
-<li><a href="#raw-rules" data-i18n-html="guide_raw_title"></a>
-<ul>
-<li><a href="#raw-rules-scope" data-i18n-html="guide_raw_scope_title"></a></li>
-<li><a href="#raw-rules-stop" data-i18n-html="guide_raw_stop_title"></a></li>
-</ul></li>
-<li><a href="#exceptions" data-i18n-html="guide_exc_title"></a></li>
-<li><a href="#redirects" data-i18n-html="guide_redir_title"></a>
-<ul>
-<li><a href="#redirect-regex" data-i18n-html="guide_redir_regex_title"></a></li>
-<li><a href="#redirect-fixed" data-i18n-html="guide_redir_fixed_title"></a></li>
-<li><a href="#redirect-field" data-i18n-html="guide_redir_field_title"></a></li>
-</ul></li>
-<li><a href="#rule-objects" data-i18n-html="guide_obj_title"></a>
-<ul>
-<li><a href="#rewriting" data-i18n-html="guide_obj_rewrite_title"></a></li>
-<li><a href="#preprocessors" data-i18n-html="guide_obj_pre_title"></a></li>
-<li><a href="#rule-ids" data-i18n-html="guide_obj_ids_title"></a></li>
-<li><a href="#order" data-i18n-html="guide_obj_order_title"></a></li>
-</ul></li>
-<li><a href="#referral-marketing" data-i18n-html="guide_ref_title"></a></li>
-<li><a href="#request-types" data-i18n-html="guide_req_title"></a></li>
-<li><a href="#processing-order" data-i18n-html="guide_order_title"></a></li>
-<li><a href="#examples" data-i18n-html="guide_ex_title"></a>
-<ul>
-<li><a href="#example-shop" data-i18n-html="guide_ex1_title"></a></li>
-<li><a href="#example-utm" data-i18n-html="guide_ex2_title"></a></li>
-<li><a href="#example-click-tracker" data-i18n-html="guide_ex3_title"></a></li>
-<li><a href="#example-keep" data-i18n-html="guide_ex4_title"></a></li>
-</ul></li>
-<li><a href="#checking" data-i18n-html="guide_check_title"></a>
-</li>
-</ul>
-
+                    <ul>
+                        <li><a href="#rules-file" data-i18n-html="guide_file_title">1. The rules file</a></li>
+                        <li><a href="#provider-fields" data-i18n-html="guide_fields_title">2. Provider fields</a></li>
+                        <li><a href="#matching" data-i18n-html="guide_match_title">3. Which URLs a provider handles</a></li>
+                        <li><a href="#removing-parameters" data-i18n-html="guide_rules_title">4. Removing parameters</a>
+                            <ul>
+                                <li><a href="#rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title">Rules for part of a provider</a></li>
+                            </ul></li>
+                        <li><a href="#removeparam-filters" data-i18n-html="guide_rp_title">5. $removeparam filters</a>
+                            <ul>
+                                <li><a href="#removeparam-value" data-i18n-html="guide_rp_value_title">The value</a></li>
+                                <li><a href="#removeparam-escapes" data-i18n-html="guide_removeparam_filters_subtitle_1">Escaping a parameter name</a></li>
+                                <li><a href="#removeparam-options" data-i18n-html="guide_removeparam_filters_subtitle_2">Modifiers</a></li>
+                                <li><a href="#removeparam-keep" data-i18n-html="guide_rp_keep_title">Keeping a parameter with @@</a></li>
+                            </ul></li>
+                        <li><a href="#raw-rules" data-i18n-html="guide_raw_title">6. Raw rules</a>
+                            <ul>
+                                <li><a href="#raw-rules-scope" data-i18n-html="guide_raw_scope_title">Only on some URLs</a></li>
+                                <li><a href="#raw-rules-stop" data-i18n-html="guide_raw_stop_title">Stopping raw rules on some URLs</a></li>
+                            </ul></li>
+                        <li><a href="#exceptions" data-i18n-html="guide_exc_title">7. Exceptions</a></li>
+                        <li><a href="#redirects" data-i18n-html="guide_redir_title">8. Redirects</a>
+                            <ul>
+                                <li><a href="#redirect-regex" data-i18n-html="guide_redir_regex_title">Redirect to part of the URL</a></li>
+                                <li><a href="#redirect-fixed" data-i18n-html="guide_redir_fixed_title">Redirect to a fixed address</a></li>
+                                <li><a href="#redirect-field" data-i18n-html="guide_redir_field_title">Redirect to a parameter's value</a></li>
+                                <li><a href="#redirect-targets" data-i18n-html="guide_redirects_subtitle_1">Valid redirect targets</a></li>
+                            </ul></li>
+                        <li><a href="#rule-objects" data-i18n-html="guide_obj_title">9. Rule objects</a>
+                            <ul>
+                                <li><a href="#rewriting" data-i18n-html="guide_obj_rewrite_title">Rewriting instead of removing</a></li>
+                                <li><a href="#preprocessors" data-i18n-html="guide_obj_pre_title">Preprocessors</a></li>
+                            </ul></li>
+                        <li><a href="#referral-marketing" data-i18n-html="guide_ref_title">10. Referral marketing</a></li>
+                        <li><a href="#request-types" data-i18n-html="guide_req_title">11. Methods and request types</a></li>
+                        <li><a href="#defaults" data-i18n-html="guide_defaults_title_1">12. Defaults</a>
+                            <ul>
+                                <li><a href="#defaults-yours" data-i18n-html="guide_defaults_subtitle_1">Your own defaults</a></li>
+                            </ul></li>
+                        <li><a href="#processing-order" data-i18n-html="guide_processing_order_title_1">13. How a URL is processed</a>
+                            <ul>
+                                <li><a href="#order" data-i18n-html="guide_processing_order_subtitle_1">Run order and <code>order</code></a></li>
+                                <li><a href="#same-text-twice" data-i18n-html="guide_processing_order_subtitle_2">Same text twice</a></li>
+                                <li><a href="#termination" data-i18n-html="guide_processing_order_subtitle_3">When processing stops</a></li>
+                            </ul></li>
+                        <li><a href="#rule-ids" data-i18n-html="guide_rule_ids_title_1">14. Rule ids and on/off switches</a></li>
+                        <li><a href="#remote-rules" data-i18n-html="guide_remote_rules_title_1">15. Remote rule lists</a>
+                            <ul>
+                                <li><a href="#capabilities" data-i18n-html="guide_remote_rules_subtitle_1">Redirect and block need your approval</a></li>
+                                <li><a href="#overload-mode" data-i18n-html="guide_remote_rules_subtitle_2">Overload mode</a></li>
+                                <li><a href="#patches" data-i18n-html="guide_remote_rules_subtitle_3">Rule patches</a></li>
+                            </ul></li>
+                        <li><a href="#whitelist" data-i18n-html="guide_whitelist_title_1">16. Rules and the whitelist</a></li>
+                        <li><a href="#examples" data-i18n-html="guide_examples_title_1">17. Complete examples</a>
+                            <ul>
+                                <li><a href="#example-shop" data-i18n-html="guide_ex1_title">Clean one shop</a></li>
+                                <li><a href="#example-utm" data-i18n-html="guide_ex2_title">Remove UTM parameters everywhere</a></li>
+                                <li><a href="#example-click-tracker" data-i18n-html="guide_ex3_title">Skip a click tracker</a></li>
+                                <li><a href="#example-keep" data-i18n-html="guide_ex4_title">Keep a parameter on one page</a></li>
+                            </ul></li>
+                        <li><a href="#checking" data-i18n-html="guide_checking_title_1">18. Checking your rules</a></li>
+                    </ul>
                 </div>
-                <p class="toc-empty" id="toc-empty" data-i18n="guide_toc_no_results" hidden></p>
+                <p class="toc-empty" id="toc-empty" data-i18n="guide_toc_no_results" hidden>No matching sections.</p>
             </nav>
 
             <main id="main-content" tabindex="-1" class="content">
-<section class="card guide-intro">
-<h1 id="guide-top" data-i18n-html="guide_title"></h1>
-<p data-i18n-html="guide_intro_1"></p>
-<p data-i18n-html="guide_intro_2"></p>
-</section>
-<section class="card guide-section" aria-labelledby="rules-file">
-<h2 id="rules-file" data-i18n-html="guide_file_title"></h2>
-<p data-i18n-html="guide_file_p1"></p>
+                <section class="card guide-intro">
+                    <h1 id="guide-top" data-i18n-html="guide_title">Writing Linkumori rules</h1>
+                    <p data-i18n-html="guide_intro_p_1">Linkumori cleans URLs with rules written in <strong>CLN Format 1.0</strong> (Clean Link Notation), a JSON format. This guide goes from a first rule to every option, with examples you can copy.</p>
+                    <p data-i18n-html="guide_intro_p_2">The built-in rules, remote rule lists and your custom rules all use the same format. You write custom rules in the custom rules editor, which checks them when you save or import. An official ClearURLs rule catalog (<code>data.min.json</code>) is already a valid CLN file and can be used as it is.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="rules-file">
+                    <h2 id="rules-file" data-i18n-html="guide_file_title">1. The rules file</h2>
+                    <p data-i18n-html="guide_file_p1">A rules file is one JSON object. Its <code>providers</code> object maps a name of your choice to a provider:</p>
 <pre><code class="language-json">{
   "cln": "1.0",
   "providers": {
@@ -825,77 +841,90 @@
     }
   }
 }</code></pre>
-<p data-i18n-html="guide_file_p2"></p>
+                    <p data-i18n-html="guide_file_p2">A provider says which URLs it handles and what to do with them. This one removes <code>utm_source</code> and <code>utm_medium</code> from every URL on <code>example.com</code> and its subdomains:</p>
 <pre><code class="language-txt">https://www.example.com/page?utm_source=news&amp;utm_medium=mail&amp;id=10
 → https://www.example.com/page?id=10</code></pre>
-<p data-i18n-html="guide_file_p3"></p>
-<p data-i18n-html="guide_file_p4"></p>
-</section>
-<section class="card guide-section" aria-labelledby="provider-fields">
-<h2 id="provider-fields" data-i18n-html="guide_fields_title"></h2>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_field"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
-<tbody>
-<tr><td><code>domainPatterns</code></td><td data-i18n-html="guide_field_domainpatterns"></td></tr>
-<tr><td><code>urlPattern</code></td><td data-i18n-html="guide_field_urlpattern"></td></tr>
-<tr><td><code>indexPattern</code></td><td data-i18n-html="guide_field_indexpattern"></td></tr>
-<tr><td><code>rules</code></td><td data-i18n-html="guide_field_rules"></td></tr>
-<tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_field_referral"></td></tr>
-<tr><td><code>rawRules</code></td><td data-i18n-html="guide_field_rawrules"></td></tr>
-<tr><td><code>exceptions</code></td><td data-i18n-html="guide_field_exceptions"></td></tr>
-<tr><td><code>redirections</code></td><td data-i18n-html="guide_field_redirections"></td></tr>
-<tr><td><code>fieldRedirections</code></td><td data-i18n-html="guide_field_fieldredirections"></td></tr>
-<tr><td><code>completeProvider</code></td><td data-i18n-html="guide_field_completeprovider"></td></tr>
-<tr><td><code>forceRedirection</code></td><td data-i18n-html="guide_field_forceredirection"></td></tr>
-<tr><td><code>methods</code></td><td data-i18n-html="guide_field_methods"></td></tr>
-<tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_field_resourcetypes"></td></tr>
-<tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_field_history"></td></tr>
-<tr><td><code>active</code></td><td data-i18n-html="guide_field_active"></td></tr>
-</tbody>
-</table></div>
-</section>
-<section class="card guide-section" aria-labelledby="matching">
-<h2 id="matching" data-i18n-html="guide_match_title"></h2>
-<p data-i18n-html="guide_match_p1"></p>
+                    <p data-i18n-html="guide_rules_file_p_1">The provider name is only a label. Which URLs a provider handles is decided by <code>domainPatterns</code> or <code>urlPattern</code>.</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_rules_file_th_1">Top-level key</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>providers</code></td><td data-i18n-html="guide_rules_file_cell_1">Required. The providers, by name.</td></tr>
+                            <tr><td><code>cln</code></td><td data-i18n-html="guide_rules_file_cell_2">Optional format version. The only valid value is <code>"1.0"</code>. A file without it is read as 1.0 too; any other value rejects the file. It is not called <code>version</code> because the ClearURLs new rule format already uses that key.</td></tr>
+                            <tr><td><code>metadata</code></td><td data-i18n-html="guide_rules_file_cell_3">Optional information about the file.</td></tr>
+                            <tr><td><code>defaults</code></td><td data-i18n-html="guide_rules_file_cell_4">Values for every rule of the file that doesn't set its own (chapter 12).</td></tr>
+                            <tr><td><code>patches</code></td><td data-i18n-html="guide_rules_file_cell_5">Remote rule lists only: replacements for rules that are already loaded (chapter 15).</td></tr>
+                        </tbody>
+                    </table></div>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="provider-fields">
+                    <h2 id="provider-fields" data-i18n-html="guide_fields_title">2. Provider fields</h2>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_field">Field</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>domainPatterns</code></td><td data-i18n-html="guide_provider_fields_cell_1">Which URLs the provider handles, as one domain pattern or a list of them (chapter 3). Use this or <code>urlPattern</code>, never both.</td></tr>
+                            <tr><td><code>urlPattern</code></td><td data-i18n-html="guide_provider_fields_cell_2">Which URLs the provider handles, as one regular expression matched against the full URL. Case is ignored.</td></tr>
+                            <tr><td><code>indexPattern</code></td><td data-i18n-html="guide_provider_fields_cell_3">Only with <code>urlPattern</code>: host hints such as <code>||example.com^</code>, so the provider is only checked for those hosts instead of against every URL. It is a lookup hint, not a match condition.</td></tr>
+                            <tr><td><code>rules</code></td><td data-i18n-html="guide_field_rules">Parameters to remove (chapters 4 and 5).</td></tr>
+                            <tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_provider_fields_cell_4">Referral and affiliate parameters to remove. Skipped while <em>Allow referral marketing</em> is on (chapter 10).</td></tr>
+                            <tr><td><code>rawRules</code></td><td data-i18n-html="guide_field_rawrules">Regular expressions run on the full URL; every match is deleted (chapter 6).</td></tr>
+                            <tr><td><code>exceptions</code></td><td data-i18n-html="guide_provider_fields_cell_5">URLs the provider leaves completely alone (chapter 7).</td></tr>
+                            <tr><td><code>redirections</code></td><td data-i18n-html="guide_provider_fields_cell_6">Send the request to another address instead of editing it (chapter 8).</td></tr>
+                            <tr><td><code>fieldRedirections</code></td><td data-i18n-html="guide_provider_fields_cell_7">Send the request to the value of a parameter (chapter 8).</td></tr>
+                            <tr><td><code>completeProvider</code></td><td data-i18n-html="guide_field_completeprovider"><code>true</code> blocks every request the provider matches, while <em>Allow domain blocking</em> is on.</td></tr>
+                            <tr><td><code>forceRedirection</code></td><td data-i18n-html="guide_provider_fields_cell_8"><code>true</code>: when a page load (<code>main_frame</code>) is redirected, the whole tab navigates to the new address, not just the network request.</td></tr>
+                            <tr><td><code>methods</code></td><td data-i18n-html="guide_provider_fields_cell_9">Only handle these HTTP methods, for example <code>["GET"]</code>. Left out: every method.</td></tr>
+                            <tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_provider_fields_cell_10">Only handle these request types, for example <code>["main_frame", "xmlhttprequest"]</code>. Left out: every request type.</td></tr>
+                            <tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_provider_fields_cell_11">Default <code>true</code>. <code>false</code> skips the whole provider when a page changes its own address with the History API (<code>pushState</code>/<code>replaceState</code>). Normal network requests are still cleaned.</td></tr>
+                            <tr><td><code>active</code></td><td data-i18n-html="guide_provider_fields_cell_12"><code>false</code> switches the provider off without deleting it.</td></tr>
+                        </tbody>
+                    </table></div>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="matching">
+                    <h2 id="matching" data-i18n-html="guide_match_title">3. Which URLs a provider handles</h2>
+                    <p data-i18n-html="guide_matching_p_1"><code>domainPatterns</code> is a list of domain patterns. A URL matches if any of them matches. The same patterns are used in front of <code>exceptions</code>, <code>redirections</code>, <code>$removeparam</code> filters and raw rules.</p>
 <pre><code class="language-json">"domainPatterns": ["||example.com^", "||example.*^", "||shop.example.org^/cart"]</code></pre>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_pattern"></th><th data-i18n-html="guide_th_matches"></th></tr></thead>
-<tbody>
-<tr><td><code>||example.com^</code></td><td data-i18n-html="guide_pat_domain"></td></tr>
-<tr><td><code>||example.*^</code></td><td data-i18n-html="guide_pat_anysuffix"></td></tr>
-<tr><td><code>||example.com^/path</code></td><td data-i18n-html="guide_pat_path"></td></tr>
-<tr><td><code>||*.example.com^</code></td><td data-i18n-html="guide_pat_star"></td></tr>
-<tr><td><code>|https://example.com/</code></td><td data-i18n-html="guide_pat_start"></td></tr>
-<tr><td><code>…/page.html|</code></td><td data-i18n-html="guide_pat_end"></td></tr>
-<tr><td><code>/regex/i</code></td><td data-i18n-html="guide_pat_regex"></td></tr>
-<tr><td><code>example.com/path</code></td><td data-i18n-html="guide_pat_contains"></td></tr>
-<tr><td><code>*</code></td><td data-i18n-html="guide_pat_all"></td></tr>
-</tbody>
-</table></div>
-<p data-i18n-html="guide_match_p2"></p>
-<p data-i18n-html="guide_match_p3"></p>
-<p data-i18n-html="guide_match_p4"></p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_pattern">Pattern</th><th data-i18n-html="guide_th_matches">Matches</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>||example.com^</code></td><td data-i18n-html="guide_pat_domain"><code>example.com</code> and every subdomain</td></tr>
+                            <tr><td><code>||example.*^</code></td><td data-i18n-html="guide_pat_anysuffix"><code>example</code> on any public suffix (<code>example.de</code>, <code>example.co.uk</code>, …)</td></tr>
+                            <tr><td><code>||example.com^/path</code></td><td data-i18n-html="guide_pat_path">that host and its subdomains, when the path starts with <code>/path</code></td></tr>
+                            <tr><td><code>||*.example.com^</code></td><td data-i18n-html="guide_pat_star">the same as <code>||example.com^</code></td></tr>
+                            <tr><td><code>|https://example.com/</code></td><td data-i18n-html="guide_pat_start">URLs that start with exactly this text</td></tr>
+                            <tr><td><code>…/page.html|</code></td><td data-i18n-html="guide_pat_end">URLs that end with exactly this text</td></tr>
+                            <tr><td><code>/regex/i</code></td><td data-i18n-html="guide_matching_cell_1">the full URL, as a regular expression</td></tr>
+                            <tr><td><code>example.com/path</code></td><td data-i18n-html="guide_matching_cell_2">URLs that contain this text anywhere (no leading <code>|</code>)</td></tr>
+                            <tr><td><code>*</code></td><td data-i18n-html="guide_pat_all">every URL</td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_matching_p_2"><code>^</code> marks the end of the host name, or a separator such as <code>/</code>, <code>?</code>, <code>:</code> or the end of the URL. <code>*</code> is a wildcard.</p>
+                    <p data-i18n-html="guide_matching_p_3"><code>||</code> stands for a domain: the host and every subdomain. A single <code>|</code> stands for the very start of the URL and must be followed by a scheme such as <code>https://</code>. For a domain you always want <code>||</code>; <code>|example.com^</code> can never match, so the editor rejects it.</p>
+                    <p data-i18n-html="guide_matching_p_4">For example, <code>||smile.amazon.*^</code> reads as: <code>||</code> the host and its subdomains, <code>smile.amazon</code> the required labels, <code>.*</code> any public suffix (<code>.com</code>, <code>.co.jp</code>, <code>.de</code>, …), and <code>^</code> the end of the host.</p>
+                    <p data-i18n-html="guide_match_p4">To match with a regular expression instead, use <code>urlPattern</code>, and add <code>indexPattern</code> so the provider is only checked on those hosts:</p>
 <pre><code class="language-json">"news": {
   "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?news\\.example\\.com\\/article",
   "indexPattern": ["||news.example.com^"],
   "rules": ["share_id"]
 }</code></pre>
-<p data-i18n-html="guide_match_p5"></p>
-</section>
-<section class="card guide-section" aria-labelledby="removing-parameters">
-<h2 id="removing-parameters" data-i18n-html="guide_rules_title"></h2>
-<p data-i18n-html="guide_rules_p1"></p>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_entry"></th><th data-i18n-html="guide_th_example"></th><th data-i18n-html="guide_th_removes"></th></tr></thead>
-<tbody>
-<tr><td data-i18n-html="guide_rules_name"></td><td><code>"utm_source"</code></td><td><code>utm_source</code></td></tr>
-<tr><td data-i18n-html="guide_rules_regex"></td><td><code>"utm_[a-z]+"</code></td><td data-i18n-html="guide_rules_regex_removes"></td></tr>
-<tr><td data-i18n-html="guide_rules_filter"></td><td><code>"$removeparam=fbclid"</code></td><td data-i18n-html="guide_rules_filter_removes"></td></tr>
-</tbody>
-</table></div>
-<p data-i18n-html="guide_rules_p2"></p>
-<h3 id="rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title"></h3>
-<p data-i18n-html="guide_rules_p3"></p>
+                    <p data-i18n-html="guide_match_p5">A provider has <code>domainPatterns</code> or <code>urlPattern</code>, never both. If you need both kinds of match, make two providers.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="removing-parameters">
+                    <h2 id="removing-parameters" data-i18n-html="guide_rules_title">4. Removing parameters</h2>
+                    <p data-i18n-html="guide_rules_p1">Each entry in <code>rules</code> removes parameters from the query (<code>?a=1</code>) and from the fragment (<code>#a=1</code>). An entry is one of:</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_entry">Entry</th><th data-i18n-html="guide_th_example">Example</th><th data-i18n-html="guide_th_removes">Removes</th></tr></thead>
+                        <tbody>
+                            <tr><td data-i18n-html="guide_rules_name">a parameter name</td><td><code>"utm_source"</code></td><td data-i18n-html="guide_removing_parameters_cell_1">exactly that parameter</td></tr>
+                            <tr><td data-i18n-html="guide_rules_regex">a name regex</td><td><code>"utm_[a-z]+"</code></td><td data-i18n-html="guide_removing_parameters_cell_2">every parameter whose whole name matches; case is ignored</td></tr>
+                            <tr><td data-i18n-html="guide_rules_filter">a <code>$removeparam</code> filter</td><td><code>"$removeparam=fbclid"</code></td><td data-i18n-html="guide_rules_filter_removes">see chapter 5</td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_removing_parameters_p_1"><code>"fbclid"</code> and <code>"$removeparam=fbclid"</code> remove the same thing. Use the plain name unless you need something from chapter 5. Any entry can also be written as a rule object (chapter 9).</p>
+                    <h3 id="rules-for-part-of-a-provider" data-i18n-html="guide_rules_part_title">Rules for part of a provider</h3>
+                    <p data-i18n-html="guide_rules_p3">A plain name applies to every URL the provider matches. To remove a parameter on only some of them, put a pattern in front of a <code>$removeparam</code> filter:</p>
 <pre><code class="language-json">"amazon": {
   "domainPatterns": ["||amazon.*^"],
   "rules": [
@@ -905,105 +934,149 @@
     "||amazon.*^/gp/$removeparam=ref_"
   ]
 }</code></pre>
-<p data-i18n-html="guide_rules_p4"></p>
-</section>
-<section class="card guide-section" aria-labelledby="removeparam-filters">
-<h2 id="removeparam-filters" data-i18n-html="guide_rp_title"></h2>
-<p data-i18n-html="guide_rp_p1"></p>
-<pre><code class="language-txt">[@@][pattern]$removeparam[=value][,option…]</code></pre>
-<h3 id="removeparam-value" data-i18n-html="guide_rp_value_title"></h3>
-<p data-i18n-html="guide_rp_p2"></p>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_filter"></th><th data-i18n-html="guide_th_removes"></th></tr></thead>
-<tbody>
-<tr><td><code>$removeparam</code></td><td data-i18n-html="guide_rp_v_all"></td></tr>
-<tr><td><code>$removeparam=~ref</code></td><td data-i18n-html="guide_rp_v_except"></td></tr>
-<tr><td><code>$removeparam=/^utm_/i</code></td><td data-i18n-html="guide_rp_v_regex"></td></tr>
-<tr><td><code>$removeparam=|utm_</code></td><td data-i18n-html="guide_rp_v_prefix"></td></tr>
-<tr><td><code>$removeparam=fbclid</code></td><td data-i18n-html="guide_rp_v_name"></td></tr>
-<tr><td><code>$removeparam=\~ref</code></td><td data-i18n-html="guide_rp_v_escape"></td></tr>
-</tbody>
-</table></div>
-<h3 id="removeparam-options" data-i18n-html="guide_rp_options_title"></h3>
-<p data-i18n-html="guide_rp_p3"></p>
+                    <p data-i18n-html="guide_removing_parameters_p_2">Here <code>qid</code> is removed on every Amazon site, <code>tag</code> only on <code>amazon.de</code>, <code>sr</code> only on <code>smile.amazon</code>, and <code>ref_</code> only under <code>/gp/</code>. The pattern narrows the provider's own patterns; it can never widen them.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="removeparam-filters">
+                    <h2 id="removeparam-filters" data-i18n-html="guide_rp_title">5. $removeparam filters</h2>
+                    <p data-i18n-html="guide_rp_p1">A <code>$removeparam</code> filter has this shape; the parts in brackets are optional:</p>
+<pre><code class="language-txt">[@@][pattern]$removeparam[=value][,modifier,modifier,…]</code></pre>
+                    <ul>
+                        <li data-i18n-html="guide_removeparam_filters_item_1"><code>@@</code> turns the filter into an exception that keeps the parameter (see below).</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_2"><code>pattern</code> narrows the filter to some of the provider's URLs (chapter 3). Left out, it applies to every URL the provider matches.</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_3"><code>=value</code> picks the parameters. Left out, every parameter is removed.</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_4">Modifiers say when the filter fires. Every modifier listed must hold; there is no "or" between them.</li>
+                    </ul>
+                    <h3 id="removeparam-value" data-i18n-html="guide_rp_value_title">The value</h3>
+                    <p data-i18n-html="guide_rp_p2">The first character of the value decides what it means:</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_filter">Filter</th><th data-i18n-html="guide_th_removes">Removes</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>$removeparam</code></td><td data-i18n-html="guide_rp_v_all">every parameter</td></tr>
+                            <tr><td><code>$removeparam=~ref</code></td><td data-i18n-html="guide_removeparam_filters_cell_1">every parameter except <code>ref</code></td></tr>
+                            <tr><td><code>$removeparam=/^utm_/i</code></td><td data-i18n-html="guide_removeparam_filters_cell_2">parameters whose name, or <code>name=value</code> together, matches the regular expression; add <code>i</code> to ignore case</td></tr>
+                            <tr><td><code>$removeparam=|utm_</code></td><td data-i18n-html="guide_removeparam_filters_cell_3">parameters whose name starts with <code>utm_</code></td></tr>
+                            <tr><td><code>$removeparam=fbclid</code></td><td data-i18n-html="guide_rp_v_name">exactly that parameter; case is ignored unless you add <code>match-case</code></td></tr>
+                        </tbody>
+                    </table></div>
+                    <h3 id="removeparam-escapes" data-i18n-html="guide_removeparam_filters_subtitle_1">Escaping a parameter name</h3>
+                    <p data-i18n-html="guide_removeparam_filters_p_1">A backslash makes the next character literal, so any parameter name can be targeted:</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_removeparam_filters_th_1">Value</th><th data-i18n-html="guide_removeparam_filters_th_2">Removes the parameter named</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>\~foo</code></td><td><code>~foo</code></td></tr>
+                            <tr><td><code>\|foo</code></td><td><code>|foo</code></td></tr>
+                            <tr><td><code>\/foo/</code></td><td><code>/foo/</code></td></tr>
+                            <tr><td><code>a\,b</code></td><td data-i18n-html="guide_removeparam_filters_cell_4"><code>a,b</code> (the comma doesn't start the modifiers)</td></tr>
+                            <tr><td><code>\\foo</code></td><td><code>\foo</code></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_removeparam_filters_p_2">These five are the only escapes in a name value; a backslash before any other character is an error. Inside a <code>/regex/</code> value the backslash keeps its regex meaning. The escapes work in <code>rules</code>, <code>referralMarketing</code>, <code>fieldRedirections</code> and <code>@@</code> entries. In JSON, write each backslash twice: <code>"$removeparam=\\~foo"</code>.</p>
+                    <h3 id="removeparam-options" data-i18n-html="guide_removeparam_filters_subtitle_2">Modifiers</h3>
+                    <p data-i18n-html="guide_removeparam_filters_p_3">Modifiers come after the value, separated by commas. Separate several values of one modifier with <code>|</code>, and put <code>~</code> in front of a value to exclude it:</p>
 <pre><code class="language-json">"rules": [
   "||example.com^/search$removeparam=q,domain=example.com|~shop.example.com",
   "$removeparam=sid,third-party,method=get,~xmlhttprequest"
 ]</code></pre>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_option"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
-<tbody>
-<tr><td><code>domain=a.com|~b.com</code></td><td data-i18n-html="guide_rp_o_domain"></td></tr>
-<tr><td><code>to=a.com|~b.com</code></td><td data-i18n-html="guide_rp_o_to"></td></tr>
-<tr><td><code>method=get|~post</code></td><td data-i18n-html="guide_rp_o_method"></td></tr>
-<tr><td><code>first-party, third-party</code></td><td data-i18n-html="guide_rp_o_party"></td></tr>
-<tr><td><code>strict-first-party, strict-third-party</code></td><td data-i18n-html="guide_rp_o_strict"></td></tr>
-<tr><td><code>document, subdocument, script, stylesheet, image, imageset, media, font, object, xmlhttprequest, websocket, ping, other</code></td><td data-i18n-html="guide_rp_o_types"></td></tr>
-<tr><td><code>match-case</code></td><td data-i18n-html="guide_rp_o_matchcase"></td></tr>
-<tr><td><code>history-bypass-protection=false</code></td><td data-i18n-html="guide_rp_o_history"></td></tr>
-</tbody>
-</table></div>
-<p data-i18n-html="guide_rp_p4"></p>
-<h3 id="removeparam-keep" data-i18n-html="guide_rp_keep_title"></h3>
-<p data-i18n-html="guide_rp_p5"></p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_removeparam_filters_th_3">Modifier</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>domain=a.com|~b.com</code></td><td data-i18n-html="guide_removeparam_filters_cell_5">only when the page that made the request is (or, with <code>~</code>, is not) one of these; regex values are allowed</td></tr>
+                            <tr><td><code>to=a.com|~b.com</code></td><td data-i18n-html="guide_removeparam_filters_cell_6">only when the request itself goes to one of these, whatever page made it</td></tr>
+                            <tr><td><code>method=get|~post</code></td><td data-i18n-html="guide_removeparam_filters_cell_7">only for these HTTP methods: <code>get</code>, <code>head</code>, <code>options</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>, <code>connect</code></td></tr>
+                            <tr><td><code>first-party</code>, <code>third-party</code></td><td data-i18n-html="guide_removeparam_filters_cell_8">only when the request goes to the same registrable domain as the page (<code>a.example.com</code> and <code>b.example.com</code> count as the same), or to a different one</td></tr>
+                            <tr><td><code>strict-first-party</code>, <code>strict-third-party</code></td><td data-i18n-html="guide_removeparam_filters_cell_9">the same, but comparing the exact host name, so a subdomain counts as third-party</td></tr>
+                            <tr><td><code>document</code>, <code>subdocument</code>, <code>script</code>, <code>stylesheet</code>, <code>image</code>, <code>imageset</code>, <code>media</code>, <code>font</code>, <code>object</code>, <code>xmlhttprequest</code>, <code>websocket</code>, <code>ping</code>, <code>other</code></td><td data-i18n-html="guide_rp_o_types">only for these request types; <code>~type</code> excludes one</td></tr>
+                            <tr><td><code>match-case</code></td><td data-i18n-html="guide_removeparam_filters_cell_10">parameter names are compared case-sensitively</td></tr>
+                            <tr><td><code>history-bypass-protection=false</code></td><td data-i18n-html="guide_removeparam_filters_cell_11">skip this filter when a page changes its own address with the History API. Also accepts <code>true</code>/<code>false</code>, <code>1</code>/<code>0</code>, <code>yes</code>/<code>no</code></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_removeparam_filters_p_4">The four <code>*-party</code> modifiers can't be combined with each other; <code>first-party,third-party</code> is rejected.</p>
+                    <p data-i18n-html="guide_removeparam_filters_p_5">For example, <code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> removes <code>sid</code> on <code>example.com</code>, only for GET requests made by a page on another site, and never when that page is <code>partner.com</code>.</p>
+                    <h3 id="removeparam-keep" data-i18n-html="guide_rp_keep_title">Keeping a parameter with @@</h3>
+                    <p data-i18n-html="guide_rp_p5">A filter that starts with <code>@@</code> keeps the parameter instead of removing it. Here <code>ref</code> is removed everywhere except on GitHub:</p>
 <pre><code class="language-json">"rules": [
   "$removeparam=ref",
   "@@||github.com^$removeparam=ref"
 ]</code></pre>
-<p data-i18n-html="guide_rp_p6"></p>
-</section>
-<section class="card guide-section" aria-labelledby="raw-rules">
-<h2 id="raw-rules" data-i18n-html="guide_raw_title"></h2>
-<p data-i18n-html="guide_raw_p1"></p>
+                    <ul>
+                        <li data-i18n-html="guide_removeparam_filters_item_5">An <code>@@</code> entry only protects against <code>$removeparam</code> filters. A plain entry such as <code>"ref"</code> still removes the parameter; use a rule object's <code>exceptions</code> for that. Raw rules have their own <code>@@…$rawrule=</code> entries (chapter 6).</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_6">Where you list it doesn't matter, and it can't have an <code>order</code>.</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_7">Its pattern is checked against the URL as the provider received it, before raw rules run. An <code>@@</code> entry scoped to a path that a raw rule deletes still matches.</li>
+                        <li data-i18n-html="guide_removeparam_filters_item_8">It also covers other providers' filters for requests made by a page this provider matches, which is handy for carving one site out of a rule defined elsewhere.</li>
+                    </ul>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="raw-rules">
+                    <h2 id="raw-rules" data-i18n-html="guide_raw_title">6. Raw rules</h2>
+                    <p data-i18n-html="guide_raw_p1">A raw rule is a regular expression run on the full URL; every match is deleted. Use it for text that is not a <code>name=value</code> parameter, such as Amazon's <code>/ref=…</code> path segment:</p>
 <pre><code class="language-json">"rawRules": ["\\/ref=[^/?]*"]</code></pre>
-<p data-i18n-html="guide_raw_p2"></p>
-<h3 id="raw-rules-scope" data-i18n-html="guide_raw_scope_title"></h3>
-<p data-i18n-html="guide_raw_p3"></p>
+                    <p data-i18n-html="guide_raw_rules_p_1">Raw rules run before <code>rules</code>, ignore case and replace every match (flags <code>gi</code>, or <code>g</code> with <code>match-case</code>). In JSON, write each backslash twice.</p>
+                    <h3 id="raw-rules-scope" data-i18n-html="guide_raw_scope_title">Only on some URLs</h3>
+                    <p data-i18n-html="guide_raw_rules_p_2">A raw rule can take the pattern and modifiers of a <code>$removeparam</code> filter, with <code>rawrule=</code> last. Everything after <code>rawrule=</code> is the regular expression:</p>
 <pre><code class="language-json">"rawRules": [
   "||amazon.*^/dp/$rawrule=\\/ref=[^/?]*",
   "||example.com^$third-party,method=get,rawrule=\\/sid=[^/?]*"
 ]</code></pre>
-<p data-i18n-html="guide_raw_p4"></p>
-<h3 id="raw-rules-stop" data-i18n-html="guide_raw_stop_title"></h3>
-<p data-i18n-html="guide_raw_p5"></p>
+                    <p data-i18n-html="guide_raw_rules_p_3">The pattern and modifiers decide where the rule runs; the regular expression is still what gets deleted.</p>
+                    <h3 id="raw-rules-stop" data-i18n-html="guide_raw_stop_title">Stopping raw rules on some URLs</h3>
+                    <p data-i18n-html="guide_raw_rules_p_4">An entry that starts with <code>@@</code> and ends in <code>rawrule=</code> keeps raw rules from running where its pattern matches:</p>
 <pre><code class="language-json">"rawRules": [
   { "id": "ref-strip", "matchPattern": "\\/ref=[^/?]*" },
   { "matchPattern": "@@||smile.example.com^$rawrule=", "targetId": "ref-strip" },
   "@@||example.com^/checkout/$rawrule="
 ]</code></pre>
-<p data-i18n-html="guide_raw_p6"></p>
-</section>
-<section class="card guide-section" aria-labelledby="exceptions">
-<h2 id="exceptions" data-i18n-html="guide_exc_title"></h2>
-<p data-i18n-html="guide_exc_p1"></p>
+                    <ul>
+                        <li data-i18n-html="guide_raw_rules_item_1">With nothing after <code>rawrule=</code>, it stops every raw rule of the provider on those URLs.</li>
+                        <li data-i18n-html="guide_raw_rules_item_2">With a regular expression after <code>rawrule=</code>, it stops the raw rules with that regular expression.</li>
+                        <li data-i18n-html="guide_raw_rules_item_3">As a rule object with <code>targetId</code>, it stops only the raw rule with that id or alias.</li>
+                    </ul>
+                    <p data-i18n-html="guide_raw_rules_p_5">To skip the whole provider, use <code>exceptions</code> instead.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="exceptions">
+                    <h2 id="exceptions" data-i18n-html="guide_exc_title">7. Exceptions</h2>
+                    <p data-i18n-html="guide_exceptions_p_1">If a URL matches an entry in <code>exceptions</code>, none of the provider's rules run for that request. An entry is a regular expression against the full URL, or a domain pattern that starts with <code>|</code>:</p>
 <pre><code class="language-json">"exceptions": [
-  "^https?:\\/\\/mail\\.google\\.com\\/mail\\/",
+  "^https?:\\/\\/mail\\.google\\.com\\/mail\\/u\\/",
   "||accounts.google.com^",
   "||example.com^/login"
 ]</code></pre>
-<p data-i18n-html="guide_exc_p2"></p>
-</section>
-<section class="card guide-section" aria-labelledby="redirects">
-<h2 id="redirects" data-i18n-html="guide_redir_title"></h2>
-<p data-i18n-html="guide_redir_p1"></p>
-<h3 id="redirect-regex" data-i18n-html="guide_redir_regex_title"></h3>
-<p data-i18n-html="guide_redir_p2"></p>
+                    <p data-i18n-html="guide_exceptions_p_2">Exceptions ignore case. To skip a single rule instead of the whole provider, give that rule its own <code>exceptions</code> (chapter 9).</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="redirects">
+                    <h2 id="redirects" data-i18n-html="guide_redir_title">8. Redirects</h2>
+                    <p data-i18n-html="guide_redir_p1">Redirect rules skip tracking pages by going straight to the real destination. They only run while <em>Enable Third-Party Redirect Bypass</em> is on.</p>
+                    <h3 id="redirect-regex" data-i18n-html="guide_redir_regex_title">Redirect to part of the URL</h3>
+                    <p data-i18n-html="guide_redir_p2">An entry in <code>redirections</code> is a regular expression with exactly one capture group, <code>( … )</code>. The request goes to what the group captured, URL-decoded. Write any other group as <code>(?: … )</code>:</p>
 <pre><code class="language-json">"redirections": [
   "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/url\\?.*?(?:url|q)=(https?[^&amp;]+)"
 ]</code></pre>
-<h3 id="redirect-fixed" data-i18n-html="guide_redir_fixed_title"></h3>
-<p data-i18n-html="guide_redir_p3"></p>
+                    <h3 id="redirect-fixed" data-i18n-html="guide_redir_fixed_title">Redirect to a fixed address</h3>
+                    <p data-i18n-html="guide_redir_p3">An entry that starts with <code>|</code> sends every matching URL to one address:</p>
 <pre><code class="language-json">"redirections": ["||go.example.com^$redirect=https://example.com/"]</code></pre>
-<h3 id="redirect-field" data-i18n-html="guide_redir_field_title"></h3>
-<p data-i18n-html="guide_redir_p4"></p>
+                    <h3 id="redirect-field" data-i18n-html="guide_redir_field_title">Redirect to a parameter's value</h3>
+                    <p data-i18n-html="guide_redir_p4"><code>fieldRedirections</code> names the parameter that holds the destination, so no regular expression is needed. It takes the same entries as <code>rules</code>:</p>
 <pre><code class="language-json">"fieldRedirections": ["redirect", "continue_url", "$removeparam=/^(u|dest)$/i"]</code></pre>
-<p data-i18n-html="guide_redir_p5"></p>
-<p data-i18n-html="guide_redir_p6"></p>
-<p data-i18n-html="guide_redir_p7"></p>
-</section>
-<section class="card guide-section" aria-labelledby="rule-objects">
-<h2 id="rule-objects" data-i18n-html="guide_obj_title"></h2>
-<p data-i18n-html="guide_obj_p1"></p>
+                    <p data-i18n-html="guide_redirects_p_1">Whichever matching parameter comes first in the URL wins. For <code>https://site.example/away?redirect=https://real.example/page</code>, the request goes to <code>https://real.example/page</code>.</p>
+                    <h3 id="redirect-targets" data-i18n-html="guide_redirects_subtitle_1">Valid redirect targets</h3>
+                    <p data-i18n-html="guide_redirects_p_2">A redirect only happens to an absolute <code>http</code> or <code>https</code> address with a host. This is checked after preprocessors and percent-decoding. An invalid target makes the entry count as not matching: nothing is redirected, and the provider's later steps run on the unchanged URL.</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_redirects_th_1">Target</th><th data-i18n-html="guide_redirects_th_2">Redirects?</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>https://real.example/page</code></td><td data-i18n-html="guide_redirects_cell_1">yes</td></tr>
+                            <tr><td><code>https%3A%2F%2Freal.example%2Fpage</code></td><td data-i18n-html="guide_redirects_cell_2">yes, to <code>https://real.example/page</code></td></tr>
+                            <tr><td><code>javascript:alert(1)</code>, <code>ftp://files.example/x</code></td><td data-i18n-html="guide_redirects_cell_3">no: the scheme is not <code>http</code> or <code>https</code></td></tr>
+                            <tr><td><code>//real.example/page</code>, <code>/local/page</code>, <code>real.example/page</code></td><td data-i18n-html="guide_redirects_cell_4">no: not an absolute address</td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_redirects_p_3">A raw rule whose result has a different scheme, host or port than its input counts as a redirect too, even when it only deletes text: deleting <code>secure-</code> from <code>https://secure-bank.example/</code> lands on another site. It needs a valid target, and in a remote rule list the <code>redirect</code> approval (chapter 15). Otherwise the rule leaves the URL as it was.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="rule-objects">
+                    <h2 id="rule-objects" data-i18n-html="guide_obj_title">9. Rule objects</h2>
+                    <p data-i18n-html="guide_rule_objects_p_1">Any entry, in any list, can be an object instead of a string. Use one when a rule needs a stable id, should start switched off, should rewrite instead of remove, or should only run in some cases:</p>
 <pre><code class="language-json">"rules": [
   "utm_source",
   {
@@ -1015,35 +1088,36 @@
     "description": "Session token; off until switched on"
   }
 ]</code></pre>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_key"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
-<tbody>
-<tr><td><code>matchPattern</code></td><td data-i18n-html="guide_key_matchpattern"></td></tr>
-<tr><td><code>id</code></td><td data-i18n-html="guide_key_id"></td></tr>
-<tr><td><code>aliases</code></td><td data-i18n-html="guide_key_aliases"></td></tr>
-<tr><td><code>replacePattern</code></td><td data-i18n-html="guide_key_replacepattern"></td></tr>
-<tr><td><code>preprocessors</code></td><td data-i18n-html="guide_key_preprocessors"></td></tr>
-<tr><td><code>requestTypes</code></td><td data-i18n-html="guide_key_requesttypes"></td></tr>
-<tr><td><code>exceptions</code></td><td data-i18n-html="guide_key_exceptions"></td></tr>
-<tr><td><code>flags</code></td><td data-i18n-html="guide_key_flags"></td></tr>
-<tr><td><code>order</code></td><td data-i18n-html="guide_key_order"></td></tr>
-<tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_key_referral"></td></tr>
-<tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_key_history"></td></tr>
-<tr><td><code>active</code></td><td data-i18n-html="guide_key_active"></td></tr>
-<tr><td><code>description</code></td><td data-i18n-html="guide_key_description"></td></tr>
-<tr><td><code>targetId</code></td><td data-i18n-html="guide_key_targetid"></td></tr>
-</tbody>
-</table></div>
-<h3 id="rewriting" data-i18n-html="guide_obj_rewrite_title"></h3>
-<p data-i18n-html="guide_obj_p2"></p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_key">Key</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>matchPattern</code></td><td data-i18n-html="guide_rule_objects_cell_1">Required. The text you would write as a plain entry in that list.</td></tr>
+                            <tr><td><code>id</code></td><td data-i18n-html="guide_rule_objects_cell_2">A stable name (letters, digits, <code>-</code>, <code>_</code>) used to switch the rule on and off (chapter 14).</td></tr>
+                            <tr><td><code>aliases</code></td><td data-i18n-html="guide_rule_objects_cell_3">The rule's previous ids, so a setting saved under an old id keeps applying after a rename.</td></tr>
+                            <tr><td><code>replacePattern</code></td><td data-i18n-html="guide_rule_objects_cell_4">Rewrite instead of remove; <code>§1§</code>, <code>§2§</code>, … are the captured values.</td></tr>
+                            <tr><td><code>preprocessors</code></td><td data-i18n-html="guide_rule_objects_cell_5">Transform the captured values first.</td></tr>
+                            <tr><td><code>requestTypes</code></td><td data-i18n-html="guide_rule_objects_cell_6">Only for these request types, for example <code>["main_frame"]</code>. Cleaning without a request (<em>Copy clean link</em>, the cleaning tool, History API changes) counts as <code>main_frame</code>.</td></tr>
+                            <tr><td><code>exceptions</code></td><td data-i18n-html="guide_rule_objects_cell_7">URLs (regular expressions) where this one rule does not run.</td></tr>
+                            <tr><td><code>flags</code></td><td data-i18n-html="guide_rule_objects_cell_8">Regular expression flags, as a string. Default <code>i</code>; in <code>rawRules</code>, <code>gi</code> (or <code>g</code> with <code>match-case</code>).</td></tr>
+                            <tr><td><code>order</code></td><td data-i18n-html="guide_rule_objects_cell_9">Run the rule earlier or later within its stage (chapter 13).</td></tr>
+                            <tr><td><code>referralMarketing</code></td><td data-i18n-html="guide_rule_objects_cell_10"><code>true</code>: a rule in <code>rules</code> also counts as a referral-marketing rule (chapter 10).</td></tr>
+                            <tr><td><code>historyBypassProtection</code></td><td data-i18n-html="guide_rule_objects_cell_11">The provider switch of the same name, for this one rule. It beats the provider's value and the file default.</td></tr>
+                            <tr><td><code>active</code></td><td data-i18n-html="guide_rule_objects_cell_12"><code>false</code>: the rule starts switched off.</td></tr>
+                            <tr><td><code>description</code></td><td data-i18n-html="guide_rule_objects_cell_13">A note for people reading the file; it must be a string.</td></tr>
+                            <tr><td><code>targetId</code></td><td data-i18n-html="guide_rule_objects_cell_14">Only on <code>@@…$rawrule=</code> entries: the id of the raw rule it stops.</td></tr>
+                        </tbody>
+                    </table></div>
+                    <h3 id="rewriting" data-i18n-html="guide_obj_rewrite_title">Rewriting instead of removing</h3>
+                    <p data-i18n-html="guide_obj_p2">With <code>replacePattern</code>, a rule in <code>rules</code> keeps the parameter and replaces its value, which is <code>§1§</code>. In <code>rawRules</code> and <code>redirections</code>, <code>§1§</code>, <code>§2§</code>, … are the capture groups:</p>
 <pre><code class="language-json">"rules": [
   { "id": "wrap-token", "matchPattern": "token", "replacePattern": "clean-§1§" }
 ],
 "rawRules": [
   { "id": "ref-to-path", "matchPattern": "\\/ref=([^/?]*)", "replacePattern": "/r/§1§" }
 ]</code></pre>
-<h3 id="preprocessors" data-i18n-html="guide_obj_pre_title"></h3>
-<p data-i18n-html="guide_obj_p3"></p>
+                    <p data-i18n-html="guide_rule_objects_p_2">Here <code>?token=abc123</code> becomes <code>?token=clean-abc123</code>. A rewrite applies at most once per request, so it doesn't keep wrapping the value.</p>
+                    <h3 id="preprocessors" data-i18n-html="guide_obj_pre_title">Preprocessors</h3>
+                    <p data-i18n-html="guide_rule_objects_p_3">Preprocessors change captured values, in order, before <code>replacePattern</code> or a redirect uses them. <code>inputs</code> is <code>"all"</code> or a list of group numbers:</p>
 <pre><code class="language-json">"redirections": [
   {
     "id": "unwrap-base64",
@@ -1052,47 +1126,31 @@
     "replacePattern": "§1§"
   }
 ]</code></pre>
-<p data-i18n-html="guide_obj_p4"></p>
-<h3 id="rule-ids" data-i18n-html="guide_obj_ids_title"></h3>
-<p data-i18n-html="guide_obj_p5"></p>
-<p data-i18n-html="guide_obj_p6"></p>
-<p data-i18n-html="guide_obj_p9"></p>
-<pre><code class="language-json">"patches": [
-  {
-    "target": "shop::session-token",
-    "section": "rules",
-    "replace": { "matchPattern": "token", "requestTypes": ["main_frame"] }
-  }
-]</code></pre>
-<h3 id="order" data-i18n-html="guide_obj_order_title"></h3>
-<p data-i18n-html="guide_obj_p7"></p>
-<pre><code class="language-json">"rules": [
-  "utm_source",
-  { "id": "token-rewrite", "matchPattern": "token", "replacePattern": "clean-§1§", "order": 1 }
-]</code></pre>
-<p data-i18n-html="guide_obj_p8"></p>
-</section>
-<section class="card guide-section" aria-labelledby="referral-marketing">
-<h2 id="referral-marketing" data-i18n-html="guide_ref_title"></h2>
-<p data-i18n-html="guide_ref_p1"></p>
+                    <p data-i18n-html="guide_obj_p4">The types are <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> and <code>base64Decode</code>.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="referral-marketing">
+                    <h2 id="referral-marketing" data-i18n-html="guide_ref_title">10. Referral marketing</h2>
+                    <p data-i18n-html="guide_referral_marketing_p_1"><code>referralMarketing</code> takes the same entries as <code>rules</code>. They only run while <em>Allow referral marketing</em> is off, so affiliate links keep working if you turn it on:</p>
 <pre><code class="language-json">"referralMarketing": ["tag", "$removeparam=/^aff_/"],
 "rules": [
   { "matchPattern": "ref_id", "referralMarketing": true }
 ]</code></pre>
-<p data-i18n-html="guide_ref_p2"></p>
-</section>
-<section class="card guide-section" aria-labelledby="request-types">
-<h2 id="request-types" data-i18n-html="guide_req_title"></h2>
-<p data-i18n-html="guide_req_p1"></p>
-<div class="table-wrap"><table>
-<thead><tr><th data-i18n-html="guide_th_field"></th><th data-i18n-html="guide_th_meaning"></th></tr></thead>
-<tbody>
-<tr><td><code>methods</code></td><td data-i18n-html="guide_req_methods"></td></tr>
-<tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_req_resourcetypes"></td></tr>
-<tr><td><code>requestTypes</code></td><td data-i18n-html="guide_req_requesttypes"></td></tr>
-<tr><td><code>method=…, document, xmlhttprequest, …</code></td><td data-i18n-html="guide_req_options"></td></tr>
-</tbody>
-</table></div>
+                    <p data-i18n-html="guide_referral_marketing_p_2">A rule can stay in <code>rules</code> and still count as referral marketing, with <code>"referralMarketing": true</code>. Don't put the same text in both <code>rules</code> and <code>referralMarketing</code>; the editor warns about it.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="request-types">
+                    <h2 id="request-types" data-i18n-html="guide_req_title">11. Methods and request types</h2>
+                    <p data-i18n-html="guide_req_p1">These narrow down when a provider or a rule runs:</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_field">Field</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>methods</code></td><td data-i18n-html="guide_req_methods">HTTP methods the provider handles</td></tr>
+                            <tr><td><code>resourceTypes</code></td><td data-i18n-html="guide_req_resourcetypes">request types the provider handles</td></tr>
+                            <tr><td><code>requestTypes</code></td><td data-i18n-html="guide_request_types_cell_1">request types one rule object handles (also settable in <code>defaults</code>)</td></tr>
+                            <tr><td><code>method=…</code>, <code>document</code>, <code>xmlhttprequest</code>, …</td><td data-i18n-html="guide_req_options">the same for one <code>$removeparam</code> filter or raw rule</td></tr>
+                        </tbody>
+                    </table></div>
 <pre><code class="language-json">"example": {
   "domainPatterns": ["||example.com^"],
   "methods": ["GET", "POST"],
@@ -1102,25 +1160,175 @@
     "$removeparam=trk,xmlhttprequest,method=post"
   ]
 }</code></pre>
-<p data-i18n-html="guide_req_p2"></p>
-</section>
-<section class="card guide-section" aria-labelledby="processing-order">
-<h2 id="processing-order" data-i18n-html="guide_order_title"></h2>
-<p data-i18n-html="guide_order_p1"></p>
-<ol>
-<li data-i18n-html="guide_order_1"></li>
-<li data-i18n-html="guide_order_2"></li>
-<li data-i18n-html="guide_order_3"></li>
-<li data-i18n-html="guide_order_4"></li>
-<li data-i18n-html="guide_order_5"></li>
-<li data-i18n-html="guide_order_6"></li>
-</ol>
-<p data-i18n-html="guide_order_p2"></p>
-</section>
-<section class="card guide-section" aria-labelledby="examples">
-<h2 id="examples" data-i18n-html="guide_ex_title"></h2>
-<h3 id="example-shop" data-i18n-html="guide_ex1_title"></h3>
-<p data-i18n-html="guide_ex1_p"></p>
+                    <p data-i18n-html="guide_request_types_p_1">Request types use the browser's names: <code>main_frame</code> (a page), <code>sub_frame</code> (a frame), <code>xmlhttprequest</code>, <code>script</code>, <code>image</code> and so on. Filter modifiers call the first two <code>document</code> and <code>subdocument</code>.</p>
+                    <p data-i18n-html="guide_request_types_p_2">Request types come only from the rules: there is no request type list in Settings. With none of these set, a rule cleans every request type.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="defaults">
+                    <h2 id="defaults" data-i18n-html="guide_defaults_title_1">12. Defaults</h2>
+                    <p data-i18n-html="guide_defaults_p_1">A top-level <code>defaults</code> block gives every rule of the file values it doesn't set itself:</p>
+<pre><code class="language-json">{
+  "cln": "1.0",
+  "defaults": {
+    "requestTypes": ["main_frame"],
+    "exceptions": ["^https:\\/\\/example\\.com\\/keep"]
+  },
+  "providers": { … }
+}</code></pre>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_key">Key</th><th data-i18n-html="guide_defaults_th_1">Default for each rule's…</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>active</code></td><td data-i18n-html="guide_defaults_cell_1"><code>active</code>; <code>false</code> switches every rule off unless it says <code>"active": true</code></td></tr>
+                            <tr><td><code>description</code></td><td><code>description</code></td></tr>
+                            <tr><td><code>requestTypes</code></td><td data-i18n-html="guide_defaults_cell_2"><code>requestTypes</code>; <code>"all"</code> or leaving it out means every type</td></tr>
+                            <tr><td><code>preprocessors</code></td><td><code>preprocessors</code></td></tr>
+                            <tr><td><code>exceptions</code></td><td><code>exceptions</code></td></tr>
+                            <tr><td><code>historyBypassProtection</code></td><td><code>historyBypassProtection</code></td></tr>
+                        </tbody>
+                    </table></div>
+                    <ul>
+                        <li data-i18n-html="guide_defaults_item_1">A rule's own value always wins, and a rule's <code>exceptions</code> replace the default list instead of adding to it.</li>
+                        <li data-i18n-html="guide_defaults_item_2">Defaults apply to <code>rules</code>, <code>rawRules</code>, <code>referralMarketing</code>, <code>redirections</code> and <code>fieldRedirections</code>. A provider's own <code>exceptions</code> list is left alone. <code>$redirect=</code> entries only use <code>active</code>.</li>
+                        <li data-i18n-html="guide_defaults_item_3">Each file keeps its own defaults: the built-in rules, each remote list and your custom rules, also when overload mode merges them.</li>
+                        <li data-i18n-html="guide_defaults_item_4">For a <code>completeProvider</code>, the default <code>requestTypes</code> and <code>exceptions</code> also limit the block.</li>
+                        <li data-i18n-html="guide_defaults_item_5">Unknown keys and wrong types are errors, and a remote list with an invalid <code>defaults</code> block is rejected.</li>
+                    </ul>
+                    <h3 id="defaults-yours" data-i18n-html="guide_defaults_subtitle_1">Your own defaults</h3>
+                    <p data-i18n-html="guide_defaults_p_2">In the custom rules editor, <em>Manage rule defaults</em> opens a form where you set a <code>defaults</code> block of your own and choose where it replaces the files' own:</p>
+                    <ul>
+                        <li data-i18n-html="guide_defaults_item_6"><em>Each source's own</em> (the default): every file uses its own <code>defaults</code>.</li>
+                        <li data-i18n-html="guide_defaults_item_7"><em>Yours for built-in and remote rules</em>: built-in and remote rules use yours; custom rules keep their own.</li>
+                        <li data-i18n-html="guide_defaults_item_8"><em>Yours for all rules</em>: every rule uses yours.</li>
+                    </ul>
+                    <p data-i18n-html="guide_defaults_p_3">The same form can edit the defaults of the built-in rules and of each loaded remote list. Your edit is stored in the extension, not in the file, and <em>Reset to the file's defaults</em> drops it. <em>Merge from sources…</em> combines the defaults of the sources you tick; nothing is stored until you save.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="processing-order">
+                    <h2 id="processing-order" data-i18n-html="guide_processing_order_title_1">13. How a URL is processed</h2>
+                    <p data-i18n-html="guide_order_p1">For each provider that matches the URL and allows the request:</p>
+                    <ol>
+                        <li data-i18n-html="guide_order_1"><code>exceptions</code>: if one matches, the provider is skipped.</li>
+                        <li data-i18n-html="guide_processing_order_item_1"><code>redirections</code>, then <code>fieldRedirections</code>: a match with a valid target redirects the request.</li>
+                        <li data-i18n-html="guide_order_3"><code>completeProvider</code>: the request is blocked.</li>
+                        <li data-i18n-html="guide_order_4"><code>rawRules</code> run on the full URL.</li>
+                        <li data-i18n-html="guide_processing_order_item_2"><code>rules</code> and <code>referralMarketing</code> remove or rewrite parameters.</li>
+                        <li data-i18n-html="guide_processing_order_item_3"><code>$removeparam</code> filters run, except where an <code>@@</code> entry keeps the parameter.</li>
+                    </ol>
+                    <p data-i18n-html="guide_processing_order_p_1">The first provider that changes, redirects or blocks the URL wins. The new URL then goes through the same steps again (see <a href="#termination">When processing stops</a>).</p>
+                    <h3 id="order" data-i18n-html="guide_processing_order_subtitle_1">Run order and <code>order</code></h3>
+                    <p data-i18n-html="guide_processing_order_p_2">Steps 4 and 5 are sorted together, by these rules in turn:</p>
+                    <ol>
+                        <li data-i18n-html="guide_processing_order_item_4"><strong>Raw rules always run first.</strong> No <code>order</code> moves a <code>rules</code> entry ahead of a raw rule. A cleanup that must happen before a raw rule has to be a raw rule itself.</li>
+                        <li data-i18n-html="guide_processing_order_item_5"><strong>Inside a stage, rules with <code>order</code> run before rules without one</strong>, lowest first. Negative numbers and fractions are allowed. <code>order: 10</code> doesn't mean "tenth": it means after the stage's ordered rules below 10 and before all its unordered rules.</li>
+                        <li data-i18n-html="guide_processing_order_item_6"><strong>Then by list:</strong> <code>rules</code>, then <code>rules</code> objects marked <code>"referralMarketing": true</code>, then <code>referralMarketing</code>.</li>
+                        <li data-i18n-html="guide_processing_order_item_7"><strong>Then by position</strong> in the list. Every entry keeps its place, including entries written like <code>"3"</code> or <code>"20"</code>.</li>
+                    </ol>
+                    <p data-i18n-html="guide_processing_order_p_3">Here the token is rewritten before <code>utm_source</code> is removed, although it comes second:</p>
+<pre><code class="language-json">"rules": [
+  "utm_source",
+  { "id": "token-rewrite", "matchPattern": "token", "replacePattern": "clean-§1§", "order": 1 }
+]</code></pre>
+                    <p data-i18n-html="guide_processing_order_p_4">Rules that are off are left out. <code>$removeparam</code> filters and <code>@@</code> entries are outside this sort and can't have an <code>order</code>, not even <code>null</code>; filters always run last.</p>
+                    <h3 id="same-text-twice" data-i18n-html="guide_processing_order_subtitle_2">Same text twice</h3>
+                    <p data-i18n-html="guide_processing_order_p_5">Two entries with the same <code>matchPattern</code> text in one group are one rule. The groups are raw (<code>rawRules</code>), field (<code>rules</code> without the referral mark) and referral (marked <code>rules</code> objects, then <code>referralMarketing</code>). This mostly happens when rule lists are merged.</p>
+                    <ul>
+                        <li data-i18n-html="guide_processing_order_item_8">The last definition that isn't off wins, with all its keys.</li>
+                        <li data-i18n-html="guide_processing_order_item_9">Without its own <code>order</code>, the winner takes the first definition's position and the nearest earlier <code>order</code>. <code>"order": null</code> means no order, and drops an inherited one.</li>
+                        <li data-i18n-html="guide_processing_order_item_10">The ids and aliases of replaced definitions switch the winner on and off too.</li>
+                        <li data-i18n-html="guide_processing_order_item_11">While referral-marketing rules run, a referral entry replaces a field entry with the same text.</li>
+                        <li data-i18n-html="guide_processing_order_item_12">A raw rule and a field rule with the same text don't collide; both run.</li>
+                    </ul>
+                    <p data-i18n-html="guide_processing_order_p_6">Inside one list, two different entries with the same text are an error, and an exact copy is a warning.</p>
+                    <h3 id="termination" data-i18n-html="guide_processing_order_subtitle_3">When processing stops</h3>
+                    <ul>
+                        <li data-i18n-html="guide_processing_order_item_13">At most 10 cycles run per request; at the cap the URL is used as it stands.</li>
+                        <li data-i18n-html="guide_processing_order_item_14">A rule with <code>replacePattern</code> applies at most once per request.</li>
+                        <li data-i18n-html="guide_processing_order_item_15">A step that doesn't change the URL doesn't start a new cycle.</li>
+                    </ul>
+                    <p data-i18n-html="guide_processing_order_p_7">Settings → <em>Unbounded cleaning cycles</em> (off by default) removes the 10-cycle cap for rule chains that need more. Processing then ends when a cycle changes nothing, but two rules that redirect to each other loop until the browser gives up and the page doesn't load. Turn it on only for rules you trust.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="rule-ids">
+                    <h2 id="rule-ids" data-i18n-html="guide_rule_ids_title_1">14. Rule ids and on/off switches</h2>
+                    <p data-i18n-html="guide_rule_ids_p_1">Every rule has an id. A rule without <code>id</code> gets one from its list and its text: <code>"utm_source"</code> in <code>rules</code> becomes <code>field-utm-source</code>. A generated id changes when the rule's text changes, and a switched-off rule would then switch back on. Give a rule its own <code>id</code> when it must keep its on/off setting through edits, and list old ids in <code>aliases</code> when you rename it.</p>
+                    <p data-i18n-html="guide_rule_ids_p_2">A rule is switched on and off by its provider and id together, such as <code>shop::session-token</code>, so two providers can use the same id. The custom rules editor may also save it under the provider's pattern, such as <code>domainPattern:||shop.example^::session-token</code>; both forms work.</p>
+                    <ul>
+                        <li data-i18n-html="guide_rule_ids_item_1">Within one provider, every id and alias must be different. Generated ids count.</li>
+                        <li data-i18n-html="guide_rule_ids_item_2">An id can't contain a colon.</li>
+                        <li data-i18n-html="guide_rule_ids_item_3">A setting saved under a bare id, without its provider, switches nothing; switch the rule off again in the custom rules editor.</li>
+                    </ul>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="remote-rules">
+                    <h2 id="remote-rules" data-i18n-html="guide_remote_rules_title_1">15. Remote rule lists</h2>
+                    <p data-i18n-html="guide_remote_rules_p_1">Remote rule lists are rule files Linkumori downloads, optionally checked against a hash file. A list with an invalid <code>cln</code> value, <code>defaults</code> block or <code>patches</code> array is not loaded, and Remote Rules Health reports it.</p>
+                    <h3 id="capabilities" data-i18n-html="guide_remote_rules_subtitle_1">Redirect and block need your approval</h3>
+                    <p data-i18n-html="guide_remote_rules_p_2">What a remote list can do is worked out from its content when it loads:</p>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_remote_rules_th_1">Capability</th><th data-i18n-html="guide_remote_rules_th_2">The list has it when it contains</th><th data-i18n-html="guide_remote_rules_th_3">Active on load</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>strip</code></td><td data-i18n-html="guide_remote_rules_cell_1">a <code>rules</code>, <code>rawRules</code> or <code>referralMarketing</code> entry, or a <code>$removeparam</code> filter</td><td data-i18n-html="guide_redirects_cell_1">yes</td></tr>
+                            <tr><td><code>rewrite</code></td><td data-i18n-html="guide_remote_rules_cell_2">an entry with a <code>replacePattern</code></td><td data-i18n-html="guide_redirects_cell_1">yes</td></tr>
+                            <tr><td><code>except</code></td><td data-i18n-html="guide_remote_rules_cell_3">a provider <code>exceptions</code> entry or an <code>@@</code> entry</td><td data-i18n-html="guide_redirects_cell_1">yes</td></tr>
+                            <tr><td><code>redirect</code></td><td data-i18n-html="guide_remote_rules_cell_4">a <code>redirections</code> or <code>fieldRedirections</code> entry, or <code>forceRedirection</code></td><td data-i18n-html="guide_remote_rules_cell_5">after approval</td></tr>
+                            <tr><td><code>block</code></td><td data-i18n-html="guide_remote_rules_cell_6">a provider with <code>"completeProvider": true</code></td><td data-i18n-html="guide_remote_rules_cell_5">after approval</td></tr>
+                        </tbody>
+                    </table></div>
+                    <p data-i18n-html="guide_remote_rules_p_3">Approve <code>redirect</code> and <code>block</code> per list in Remote Rules Health. Until then, that list's redirects and blocks stay off, and its raw rules can't send a URL to another site; the rest of the list works right away. When an update adds a new capability, it waits for approval too. Built-in and custom rules have every capability.</p>
+                    <h3 id="overload-mode" data-i18n-html="guide_remote_rules_subtitle_2">Overload mode</h3>
+                    <p data-i18n-html="guide_remote_rules_p_4">Normally, remote lists that have providers replace the built-in rules; lists that hold only <code>patches</code> are applied to the built-in rules. With <em>Enable Overload Mode</em> on, they load together, using one of three strategies:</p>
+                    <ul>
+                        <li data-i18n-html="guide_remote_rules_item_1"><em>Patch mode only</em>: apply the remote lists' patches to the built-in rules; remote providers are left out.</li>
+                        <li data-i18n-html="guide_remote_rules_item_2"><em>Patch mode + merge</em>: merge built-in and remote providers, then apply patches.</li>
+                        <li data-i18n-html="guide_remote_rules_item_3"><em>No patch mode + merge</em>: merge the providers and skip patches.</li>
+                    </ul>
+                    <p data-i18n-html="guide_remote_rules_p_5">When merging, remote lists are merged with each other in the order you list them, then with the built-in rules (built-in first). Only providers with the same <code>domainPatterns</code> (or <code>urlPattern</code>) and the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code> merge; their <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code> are joined, and <a href="#same-text-twice">Same text twice</a> decides which copy runs. Remote Rules Health lists every replaced rule as a notice.</p>
+                    <p data-i18n-html="guide_remote_rules_p_6">Custom rules are applied last. A custom provider replaces every loaded provider with the same pattern; their rules are not combined.</p>
+                    <h3 id="patches" data-i18n-html="guide_remote_rules_subtitle_3">Rule patches</h3>
+                    <p data-i18n-html="guide_remote_rules_p_7">A remote list can replace single rules that are already loaded, without publishing a full copy, in a top-level <code>patches</code> array:</p>
+<pre><code class="language-json">{
+  "cln": "1.0",
+  "patches": [
+    {
+      "target": "amazon::field-qid",
+      "section": "rules",
+      "replace": { "matchPattern": "qid", "requestTypes": ["main_frame"] },
+      "description": "Only strip qid on page loads"
+    },
+    {
+      "target": "domainPattern:||amazon.*^::strip-ref",
+      "section": "rawRules",
+      "replace": "\\/ref=[^/?#]*"
+    }
+  ]
+}</code></pre>
+                    <div class="table-wrap"><table>
+                        <thead><tr><th data-i18n-html="guide_th_key">Key</th><th data-i18n-html="guide_th_meaning">What it does</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>target</code></td><td data-i18n-html="guide_remote_rules_cell_7">Required. The rule to replace, written like its on/off key: <code>providerKey::id</code>, <code>domainPattern:&lt;pattern&gt;::id</code> or <code>urlPattern:&lt;regex&gt;::id</code>.</td></tr>
+                            <tr><td><code>section</code></td><td data-i18n-html="guide_remote_rules_cell_8">Required. <code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code> or <code>fieldRedirections</code>.</td></tr>
+                            <tr><td><code>replace</code></td><td data-i18n-html="guide_remote_rules_cell_9">Required. The new rule, as a plain entry or a rule object.</td></tr>
+                            <tr><td><code>description</code></td><td data-i18n-html="guide_remote_rules_cell_10">A note for people reading the file.</td></tr>
+                        </tbody>
+                    </table></div>
+                    <ul>
+                        <li data-i18n-html="guide_remote_rules_item_4">Patches run after remote lists are merged and before custom rules. A file with only <code>patches</code> needs no <code>providers</code>.</li>
+                        <li data-i18n-html="guide_remote_rules_item_5">Merging can rename providers, so the <code>domainPattern:</code> or <code>urlPattern:</code> form is the one that always finds them.</li>
+                        <li data-i18n-html="guide_remote_rules_item_6">The replacement keeps the old rule's id, or takes the old id as an alias, so on/off settings keep applying.</li>
+                        <li data-i18n-html="guide_remote_rules_item_7">A patch for a redirect waits for the list's <code>redirect</code> approval. A patch whose target matches nothing changes nothing.</li>
+                        <li data-i18n-html="guide_remote_rules_item_8">Remote Rules Health lists each patch as applied, unmatched or skipped.</li>
+                    </ul>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="whitelist">
+                    <h2 id="whitelist" data-i18n-html="guide_whitelist_title_1">16. Rules and the whitelist</h2>
+                    <p data-i18n-html="guide_whitelist_p_1">The whitelist is separate from a provider's <code>exceptions</code>: it lists sites you told Linkumori to leave alone, with no rule file involved. Entries look like <code>example.com</code>, <code>*.example.com</code> (the site and its subdomains) or <code>example.*</code> (any suffix). Whitelisting a page also covers everything it loads.</p>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="examples">
+                    <h2 id="examples" data-i18n-html="guide_examples_title_1">17. Complete examples</h2>
+                    <h3 id="example-shop" data-i18n-html="guide_ex1_title">Clean one shop</h3>
+                    <p data-i18n-html="guide_ex1_p">Removes tracking parameters and an affiliate id on one shop, and leaves its checkout pages alone:</p>
 <pre><code class="language-json">{
   "cln": "1.0",
   "providers": {
@@ -1132,8 +1340,8 @@
     }
   }
 }</code></pre>
-<h3 id="example-utm" data-i18n-html="guide_ex2_title"></h3>
-<p data-i18n-html="guide_ex2_p"></p>
+                    <h3 id="example-utm" data-i18n-html="guide_ex2_title">Remove UTM parameters everywhere</h3>
+                    <p data-i18n-html="guide_ex2_p">The pattern <code>*</code> matches every URL:</p>
 <pre><code class="language-json">{
   "cln": "1.0",
   "providers": {
@@ -1143,8 +1351,8 @@
     }
   }
 }</code></pre>
-<h3 id="example-click-tracker" data-i18n-html="guide_ex3_title"></h3>
-<p data-i18n-html="guide_ex3_p"></p>
+                    <h3 id="example-click-tracker" data-i18n-html="guide_ex3_title">Skip a click tracker</h3>
+                    <p data-i18n-html="guide_ex3_p">Sends links through a click tracker straight to their destination, which is in the <code>url</code> parameter:</p>
 <pre><code class="language-json">{
   "cln": "1.0",
   "providers": {
@@ -1154,8 +1362,8 @@
     }
   }
 }</code></pre>
-<h3 id="example-keep" data-i18n-html="guide_ex4_title"></h3>
-<p data-i18n-html="guide_ex4_p"></p>
+                    <h3 id="example-keep" data-i18n-html="guide_ex4_title">Keep a parameter on one page</h3>
+                    <p data-i18n-html="guide_ex4_p">Removes <code>ref</code> everywhere on the site except on the login page, which needs it:</p>
 <pre><code class="language-json">{
   "cln": "1.0",
   "providers": {
@@ -1168,24 +1376,26 @@
     }
   }
 }</code></pre>
-</section>
-<section class="card guide-section" aria-labelledby="checking">
-<h2 id="checking" data-i18n-html="guide_check_title"></h2>
-<p data-i18n-html="guide_check_p1"></p>
-<ul>
-<li data-i18n-html="guide_check_1"></li>
-<li data-i18n-html="guide_check_2"></li>
-<li data-i18n-html="guide_check_3"></li>
-<li data-i18n-html="guide_check_4"></li>
-<li data-i18n-html="guide_check_5"></li>
-<li data-i18n-html="guide_check_6"></li>
-<li data-i18n-html="guide_check_7"></li>
-<li data-i18n-html="guide_check_8"></li>
-<li data-i18n-html="guide_check_9"></li>
-<li data-i18n-html="guide_check_10"></li>
-</ul>
-<p data-i18n-html="guide_check_p2"></p>
-</section>
+                </section>
+
+                <section class="card guide-section" aria-labelledby="checking">
+                    <h2 id="checking" data-i18n-html="guide_checking_title_1">18. Checking your rules</h2>
+                    <p data-i18n-html="guide_checking_p_1">The custom rules editor checks rules when you save or import them, and <code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> runs the same checks. Besides broken JSON and invalid regular expressions, they reject rules that would load but quietly do the wrong thing, such as:</p>
+                    <ul>
+                        <li data-i18n-html="guide_check_1"><code>domainPatterns</code> and <code>urlPattern</code> on one provider</li>
+                        <li data-i18n-html="guide_check_2">a pattern with a single <code>|</code> and no scheme, such as <code>|example.com^</code></li>
+                        <li data-i18n-html="guide_check_3">a regular-expression redirect without exactly one capture group</li>
+                        <li data-i18n-html="guide_checking_item_1">unknown fields, keys and modifiers</li>
+                        <li data-i18n-html="guide_check_7">a <code>cln</code> value other than <code>"1.0"</code></li>
+                        <li data-i18n-html="guide_check_8">an id or alias used twice in one provider</li>
+                        <li data-i18n-html="guide_checking_item_2">two different entries with the same text in one list</li>
+                        <li data-i18n-html="guide_checking_item_3">an <code>order</code> on a <code>$removeparam</code> filter or <code>@@</code> entry, <code>null</code> included</li>
+                        <li data-i18n-html="guide_check_9">a <code>$redirect=</code> address that is not <code>http</code> or <code>https</code></li>
+                        <li data-i18n-html="guide_check_10">a backslash in a <code>$removeparam</code> name before a character that has no escape</li>
+                        <li data-i18n-html="guide_check_6">an <code>@@…$rawrule=</code> entry that stops no raw rule</li>
+                    </ul>
+                    <p data-i18n-html="guide_checking_p_2">They also warn about exact copies, and about the same text in both <code>rules</code> and <code>referralMarketing</code>. If saving fails, the message names the provider, the list and the entry.</p>
+                </section>
             </main>
         </div>
     </div>

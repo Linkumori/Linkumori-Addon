@@ -8,9 +8,6 @@
   "active_remote_providers_label": {
     "message": "活动远程提供者："
   },
-  "addDomainToWhitelist": {
-    "message": "将 $1 添加到白名单"
-  },
   "addcurrentdomain_to_whitelist": {
     "message": "将当前域名添加到白名单"
   },
@@ -42,8 +39,7 @@
     "message": "使用捆绑的 Linkumori/ClearURLs 规则。禁用此项将仅使用远程规则和/或自定义规则运行。"
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
-    "description": "Description text for the built-in bundled rules setting."
+    "message": "Linkumori 使用统一的 ClearURLsData 提供商规则集。原生提供商 JSON、规范规则对象和提供商本地的 $removeparam 过滤器会先合并，然后再由 clearurls.js 运行。"
   },
   "bundled_rules_section_title": {
     "message": "规则信息"
@@ -297,9 +293,6 @@
   "customRulesEditor_jsonRequired": {
     "message": "需要 JSON 内容"
   },
-  "customRulesEditor_jsonToolbarHelp": {
-    "message": "单击 urlPattern 会移除 domainPatterns，反之亦然。"
-  },
   "customRulesEditor_jsonToolbarTitle": {
     "message": "向 JSON 添加字段"
   },
@@ -329,9 +322,6 @@
   },
   "customRulesEditor_providerHasEmptyDomainPattern": {
     "message": "提供者“$1”的域名模式为空"
-  },
-  "customRulesEditor_providerMissingUrlPattern": {
-    "message": "提供者“$1”缺少 urlPattern"
   },
   "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
     "message": "提供者“$1”必须具有 urlPattern 或 domainPatterns"
@@ -420,21 +410,6 @@
   "datatable_empty_table": {
     "message": "表中没有可用数据"
   },
-  "datatable_info": {
-    "message": "显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项"
-  },
-  "datatable_info_empty": {
-    "message": "显示 0 至 0 项，共 0 项"
-  },
-  "datatable_showing_all": {
-    "message": "显示全部 $1 项"
-  },
-  "datatable_showing_entries": {
-    "message": "显示第 $1 至 $2 项，共 $3 项"
-  },
-  "datatable_zero_records": {
-    "message": "未找到匹配的记录"
-  },
   "domain_blocking_enabled": {
     "message": "允许域名屏蔽（在不允许广告拦截器的页面上可能会导致问题）"
   },
@@ -461,9 +436,6 @@
   },
   "error_loading_data": {
     "message": "加载日志数据失败。请刷新页面。"
-  },
-  "error_rendering_table": {
-    "message": "渲染表格数据时出错"
   },
   "extension_description": {
     "message": "从 URL 中移除追踪元素。"
@@ -529,8 +501,7 @@
     "message": "域名模式与 URL 模式"
   },
   "faq_domain_patterns_explanation": {
-    "message": "域模式支持简单的令牌和 AdBlock 样式的表单。当domainPatterns非空时，clearurls.js在任何urlPattern回退之前使用它们进行提供者匹配和查找令牌提取：",
-    "description": "FAQ explanation of domain patterns"
+    "message": "域模式支持简单的令牌和 AdBlock 样式的表单。当domainPatterns非空时，clearurls.js在任何urlPattern回退之前使用它们进行提供者匹配和查找令牌提取："
   },
   "faq_example": {
     "message": "示例："
@@ -632,8 +603,7 @@
     "message": "注意："
   },
   "faq_pattern_exclusive_note": {
-    "message": "对于创作的自定义提供程序，请选择domainPatterns 或urlPattern。在clearurls.js运行时数据中，非空domainPatterns获胜，并且仅当domainPatterns缺失或为空时才使用urlPattern。域匹配可感知 PSL，支持受支持的 AdBlock 样式表单，包括可注册域处理和多部分 TLD 支持。",
-    "description": "FAQ note about pattern exclusivity"
+    "message": "对于创作的自定义提供程序，请选择domainPatterns 或urlPattern。在clearurls.js运行时数据中，非空domainPatterns获胜，并且仅当domainPatterns缺失或为空时才使用urlPattern。域匹配可感知 PSL，支持受支持的 AdBlock 样式表单，包括可注册域处理和多部分 TLD 支持。"
   },
   "faq_perf_combine": {
     "message": "将多个相似模式合并为一个正则表达式"
@@ -681,20 +651,16 @@
     "message": "从编辑器工具栏打开提供者列表以浏览和管理提供者。"
   },
   "faq_providers_explanation": {
-    "message": "提供程序是对匹配器字段和 URL 清理规则进行分组的命名容器。候选查找使用来自domainPatterns或indexPattern的主机名标记；提供者名称只是一个标签/键，并不能决定请求是否匹配。",
-    "description": "FAQ answer explaining providers"
+    "message": "提供程序是对匹配器字段和 URL 清理规则进行分组的命名容器。候选查找使用来自domainPatterns或indexPattern的主机名标记；提供者名称只是一个标签/键，并不能决定请求是否匹配。"
   },
   "faq_raw_rules_explanation": {
-    "message": "规范原始规则对象将正则表达式模式应用于整个 URL。用于不符合标准参数格式的复杂模式。",
-    "description": "FAQ rawRules 的解释"
+    "message": "规范原始规则对象将正则表达式模式应用于整个 URL。用于不符合标准参数格式的复杂模式。"
   },
   "faq_raw_rules_title": {
-    "message": "原始规则对象：",
-    "description": "FAQ rawRules 说明的章节标题"
+    "message": "原始规则对象："
   },
   "faq_raw_rules_usage": {
-    "message": "将 rules[] 对象与 kind: \"raw\" 结合使用用于片段、路径段或复杂参数模式。",
-    "description": "FAQ guidance 对 rawRules 的使用"
+    "message": "将 rules[] 对象与 kind: \"raw\" 结合使用用于片段、路径段或复杂参数模式。"
   },
   "faq_redirections": {
     "message": "重定向是如何工作的？"
@@ -784,8 +750,7 @@
     "message": "规则："
   },
   "faq_rules_vs_raw": {
-    "message": "rules[] 可以包含哪些规则形状？",
-    "description": "FAQ 关于规则的问题与 rawRules"
+    "message": "rules[] 可以包含哪些规则形状？"
   },
   "faq_section_advanced": {
     "message": "高级功能"
@@ -842,8 +807,7 @@
     "message": "什么是 urlPattern？"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern 是当提供者没有非空domainPatterns 时针对完整请求URL 进行测试的正则表达式。如果您使用 urlPattern，请尽可能添加 indexPattern，以便clearurls.js 可以在测试正则表达式之前通过主机名标记找到提供程序。",
-    "description": "FAQ answer explaining urlPattern"
+    "message": "urlPattern 是当提供者没有非空domainPatterns 时针对完整请求URL 进行测试的正则表达式。如果您使用 urlPattern，请尽可能添加 indexPattern，以便clearurls.js 可以在测试正则表达式之前通过主机名标记找到提供程序。"
   },
   "faq_url_pattern_structure": {
     "message": "典型结构包括：协议 + 子域名 + 域名 + TLD + 目录 + 参数"
@@ -962,27 +926,6 @@
   "search_link_fix_enabled_description": {
     "message": "启用 Google 和 Yandex 内容脚本，从搜索结果链接中移除重定向追踪。"
   },
-  "google_link_fix_enabled": {
-    "message": "Google 链接修复"
-  },
-  "google_link_fix_enabled_description": {
-    "message": "启用 Google 内容脚本，从 Google 结果链接中移除重定向追踪。"
-  },
-  "yandex_link_fix_enabled": {
-    "message": "Yandex 链接修复"
-  },
-  "yandex_link_fix_enabled_description": {
-    "message": "启用 Yandex 内容脚本，从 Yandex 结果链接中移除重定向追踪。"
-  },
-  "import_invalid_format": {
-    "message": "无效的文件格式或数据已损坏"
-  },
-  "import_parse_error": {
-    "message": "无法解析文件。请检查文件格式。"
-  },
-  "import_read_error": {
-    "message": "无法读取文件"
-  },
   "inputUrlsDescription": {
     "message": "使用此工具，您可以粘贴 URL，点击绿色按钮后 ClearURLs 将清理这些 URL。您可以一次粘贴多个 URL，但每个 URL 必须位于单独的行上。"
   },
@@ -1040,12 +983,6 @@
   "log_domain_blocked": {
     "message": "此域名已被屏蔽"
   },
-  "log_html_export_button": {
-    "message": "导出"
-  },
-  "log_html_export_button_title": {
-    "message": "导出全局日志"
-  },
   "log_html_import_button": {
     "message": "导入"
   },
@@ -1070,42 +1007,6 @@
   "log_html_reset_confirm": {
     "message": "您确定要重置日志吗？此操作无法撤销。"
   },
-  "log_html_search": {
-    "message": "搜索"
-  },
-  "log_html_search_placeholder": {
-    "message": "搜索日志..."
-  },
-  "log_html_show_all": {
-    "message": "全部"
-  },
-  "log_html_show_entries": {
-    "message": "显示条目"
-  },
-  "log_html_table_head_1": {
-    "message": "之前 "
-  },
-  "log_html_table_head_2": {
-    "message": "之后 "
-  },
-  "log_html_table_head_3": {
-    "message": "规则"
-  },
-  "log_html_table_head_4": {
-    "message": "时间"
-  },
-  "log_html_table_head_5": {
-    "message": "提供者"
-  },
-  "log_html_table_head_6": {
-    "message": "模式"
-  },
-  "log_html_table_head_7": {
-    "message": "方法"
-  },
-  "log_html_table_head_8": {
-    "message": "资源类型"
-  },
   "log_nav_dashboard": {
     "message": "仪表板"
   },
@@ -1120,12 +1021,6 @@
   },
   "log_provider_pattern_url": {
     "message": "url模式"
-  },
-  "log_provider_request_method": {
-    "message": "方法"
-  },
-  "log_provider_methods": {
-    "message": "提供者方法"
   },
   "log_redirect": {
     "message": "此 URL 被重定向"
@@ -1242,32 +1137,25 @@
     "message": "打开 Linkumori 设置"
   },
   "overload_mode_strategy_label": {
-    "message": "Overload mode behavior",
-    "description": "Heading for the mutually exclusive overload mode strategies"
+    "message": "过载模式行为"
   },
   "overload_mode_patch_only": {
-    "message": "Patch mode only",
-    "description": "Overload mode strategy that applies remote patches without adding remote providers"
+    "message": "仅补丁模式"
   },
   "overload_mode_patch_only_description": {
-    "message": "Apply remote patches to built-in rules. Remote provider rules are not included.",
-    "description": "Description for the patch-only overload mode strategy"
+    "message": "将远程补丁应用于内置规则。不包含远程提供商规则。"
   },
   "overload_mode_patch_merge": {
-    "message": "Patch mode + merge",
-    "description": "Overload mode strategy that merges rule sources and applies remote patches"
+    "message": "补丁模式 + 合并"
   },
   "overload_mode_patch_merge_description": {
-    "message": "Merge built-in and remote provider rules, then apply remote patches.",
-    "description": "Description for the patch-and-merge overload mode strategy"
+    "message": "合并内置规则和远程提供商规则，然后应用远程补丁。"
   },
   "overload_mode_merge_only": {
-    "message": "No patch mode + merge",
-    "description": "Overload mode strategy that merges rule sources without applying patches"
+    "message": "无补丁模式 + 合并"
   },
   "overload_mode_merge_only_description": {
-    "message": "Merge built-in and remote provider rules without applying remote patches.",
-    "description": "Description for the merge-only overload mode strategy"
+    "message": "合并内置规则和远程提供商规则，但不应用远程补丁。"
   },
   "overload_mode_enabled": {
     "message": "启用过载模式"
@@ -1276,48 +1164,16 @@
     "message": "启用后，内置规则和远程规则将一起加载，并在应用自定义规则之前合并。"
   },
   "unbounded_cycles_enabled": {
-    "message": "无限清理循环",
-    "description": "Label for the toggle that removes the 10-cycle limit per request"
+    "message": "无限清理循环"
   },
   "unbounded_cycles_enabled_description": {
-    "message": "取消每个请求最多 10 次清理循环的限制。每次重写仍只应用一次，但来回重定向的规则可能导致页面无法加载，直到浏览器将其停止。除非某条规则链需要超过 10 次循环，否则请保持关闭。",
-    "description": "Description for the unbounded cleaning cycles toggle"
+    "message": "取消每个请求最多 10 次清理循环的限制。每次重写仍只应用一次，但来回重定向的规则可能导致页面无法加载，直到浏览器将其停止。除非某条规则链需要超过 10 次循环，否则请保持关闭。"
   },
   "overridden_providers_label": {
     "message": "已覆盖："
   },
   "overridden_providers_list_label": {
     "message": "已覆盖的提供者："
-  },
-  "pagination_current_page_aria": {
-    "message": "当前页，第 $1 页"
-  },
-  "pagination_first": {
-    "message": "第一页"
-  },
-  "pagination_first_aria": {
-    "message": "第一页"
-  },
-  "pagination_last": {
-    "message": "最后一页"
-  },
-  "pagination_last_aria": {
-    "message": "最后一页"
-  },
-  "pagination_next": {
-    "message": "下一页"
-  },
-  "pagination_next_aria": {
-    "message": "下一页"
-  },
-  "pagination_page_aria": {
-    "message": "第 $1 页"
-  },
-  "pagination_previous": {
-    "message": "上一页"
-  },
-  "pagination_previous_aria": {
-    "message": "上一页"
   },
   "percentage_symbol": {
     "message": "%"
@@ -1332,12 +1188,10 @@
     "message": "接受并继续"
   },
   "popup_consent_checkbox": {
-    "message": "我确认我已年满 18 岁或在法律上已成年，并且我已阅读并接受隐私政策、POSAR 和许可证。",
-    "description": "Consent checkbox label for popup gate"
+    "message": "我确认我已年满 18 岁或在法律上已成年，并且我已阅读并接受隐私政策、POSAR 和许可证。"
   },
   "popup_consent_description": {
-    "message": "使用此弹出窗口之前，请阅读隐私政策、POSAR 和许可证。我们不收集您的数据。所有数据都存储在您的设备上，不会传输给我们。年龄确认适用于隐私政策和 POSAR 接受。",
-    "description": "Description for popup consent gate"
+    "message": "使用此弹出窗口之前，请阅读隐私政策、POSAR 和许可证。我们不收集您的数据。所有数据都存储在您的设备上，不会传输给我们。年龄确认适用于隐私政策和 POSAR 接受。"
   },
   "popup_consent_legal_button": {
     "message": "阅读法律信息"
@@ -1350,9 +1204,6 @@
   },
   "popup_html_version_label": {
     "message": "版本："
-  },
-  "popup_html_firefox_signature_label": {
-    "message": "Firefox 附加组件签名"
   },
   "popup_html_firefox_signature_title": {
     "message": "Firefox 附加组件签名"
@@ -1415,107 +1266,82 @@
     "message": "Linkumori v."
   },
   "legal_consent_notice_default": {
-    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受继续使用 Linkumori。",
-    "description": "Default notice text for the legal page consent section"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受继续使用 Linkumori。"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori 法律条款已更新。查看隐私政策、POSAR 和许可证，然后接受继续使用该扩展。",
-    "description": "Notice text shown on the legal page after a consent version update"
+    "message": "Linkumori 法律条款已更新。查看隐私政策、POSAR 和许可证，然后接受继续使用该扩展。"
   },
   "legal_consent_notice_first_install": {
-    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成 Linkumori 的设置。",
-    "description": "Notice text shown on the legal page during first install"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成 Linkumori 的设置。"
   },
   "legal_consent_notice_import": {
-    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成向 Linkumori 的迁移。",
-    "description": "Notice text shown on the legal page during import or migration"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成向 Linkumori 的迁移。"
   },
   "legal_adult_consent_modal_title": {
-    "message": "需要确认年龄",
-    "description": "Title for the age confirmation modal shown before legal document acceptance"
+    "message": "需要确认年龄"
   },
   "legal_adult_consent_modal_intro": {
-    "message": "仅当您确认自己已年满 18 周岁，或者在您所在司法管辖区已合法成年时，Linkumori 才能继续。此年龄确认适用于隐私政策和 POSAR 接受。",
-    "description": "Intro text for the age confirmation modal"
+    "message": "仅当您确认自己已年满 18 周岁，或者在您所在司法管辖区已合法成年时，Linkumori 才能继续。此年龄确认适用于隐私政策和 POSAR 接受。"
   },
   "legal_adult_consent_modal_stop": {
-    "message": "如果您无法确认这一点，Linkumori 将保持暂停状态，并且不会接受任何文件。",
-    "description": "Stop notice in the age confirmation modal"
+    "message": "如果您无法确认这一点，Linkumori 将保持暂停状态，并且不会接受任何文件。"
   },
   "legal_adult_consent_modal_cancel": {
-    "message": "取消",
-    "description": "Cancel button label for the age confirmation modal"
+    "message": "取消"
   },
   "legal_adult_consent_modal_decline": {
-    "message": "我还不是成年人",
-    "description": "Decline button label for the age confirmation modal"
+    "message": "我还不是成年人"
   },
   "legal_adult_consent_modal_confirm": {
-    "message": "适用于隐私和 POSAR",
-    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+    "message": "适用于隐私和 POSAR"
   },
   "legal_adult_consent_saved": {
-    "message": "已为隐私政策和 POSAR 保存年龄确认信息。",
-    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+    "message": "已为隐私政策和 POSAR 保存年龄确认信息。"
   },
   "legal_consent_status_required": {
     "message": "需要同意。在您接受当前法律条款之前，Linkumori 将暂停运行。"
   },
   "legal_consent_status_required_adult": {
-    "message": "需要同意。 Linkumori 将暂停，直到您确认您已年满 18 岁或在法律上已成年。",
-    "description": "Status message shown when adult confirmation is required"
+    "message": "需要同意。 Linkumori 将暂停，直到您确认您已年满 18 岁或在法律上已成年。"
   },
   "legal_consent_status_required_both": {
-    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的隐私政策和 POSAR。",
-    "description": "Status message shown when both current privacy policy and POSAR consent are required"
+    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的隐私政策和 POSAR。"
   },
   "legal_consent_status_required_privacy": {
-    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的隐私政策。",
-    "description": "Status message shown when current privacy policy consent is required"
+    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的隐私政策。"
   },
   "legal_consent_status_required_posar": {
-    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的 POSAR。",
-    "description": "Status message shown when current POSAR consent is required"
+    "message": "需要同意。 Linkumori 将暂停，直到您接受当前的 POSAR。"
   },
   "legal_document_review_modal_title": {
-    "message": "审查文件",
-    "description": "Fallback title for the legal document review modal"
+    "message": "审查文件"
   },
   "legal_document_review_modal_intro": {
-    "message": "在接受当前文档之前请先阅读该文档。",
-    "description": "Fallback intro text for the legal document review modal"
+    "message": "在接受当前文档之前请先阅读该文档。"
   },
   "legal_document_review_modal_cancel": {
-    "message": "取消",
-    "description": "Cancel button and close label for the legal document review modal"
+    "message": "取消"
   },
   "legal_document_review_modal_accept": {
-    "message": "接受本文件",
-    "description": "Fallback accept button label for the legal document review modal"
+    "message": "接受本文件"
   },
   "legal_document_review_privacy_title": {
-    "message": "查看隐私政策",
-    "description": "Title for the privacy policy review modal"
+    "message": "查看隐私政策"
   },
   "legal_document_review_privacy_intro": {
-    "message": "在接受之前请阅读当前的隐私政策。",
-    "description": "Intro text for the privacy policy review modal"
+    "message": "在接受之前请阅读当前的隐私政策。"
   },
   "legal_document_review_privacy_accept": {
-    "message": "接受隐私政策",
-    "description": "Accept button label for the privacy policy review modal"
+    "message": "接受隐私政策"
   },
   "legal_document_review_posar_title": {
-    "message": "回顾POSAR",
-    "description": "Title for the POSAR review modal"
+    "message": "回顾POSAR"
   },
   "legal_document_review_posar_intro": {
-    "message": "在接受之前，请阅读当前的软件性能和风险接受文档。",
-    "description": "Intro text for the POSAR review modal"
+    "message": "在接受之前，请阅读当前的软件性能和风险接受文档。"
   },
   "legal_document_review_posar_accept": {
-    "message": "接受POSAR",
-    "description": "Accept button label for the POSAR review modal"
+    "message": "接受POSAR"
   },
   "legal_consent_status_accepted": {
     "message": "已接受同意。Linkumori 可在当前法律条款下运行。"
@@ -1524,12 +1350,10 @@
     "message": "已接受"
   },
   "legal_consent_confirm_age_button": {
-    "message": "确认年龄",
-    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+    "message": "确认年龄"
   },
   "legal_consent_adult_required": {
-    "message": "接受之前请确认您已年满 18 岁或在法律上已成年。",
-    "description": "Error message shown when adult confirmation is missing during consent acceptance"
+    "message": "接受之前请确认您已年满 18 岁或在法律上已成年。"
   },
   "legal_consent_saved": {
     "message": "已接受同意。"
@@ -1559,44 +1383,34 @@
     "message": "由于 Linkumori 不会向外部服务器传输任何数据，因此没有需要请求删除的远程数据。"
   },
   "legal_consent_withdraw_modal_uninstall_self": {
-    "message": "你也可以在此页面请求浏览器卸载 Linkumori 来撤回同意。",
-    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+    "message": "你也可以在此页面请求浏览器卸载 Linkumori 来撤回同意。"
   },
   "legal_consent_withdraw_modal_uninstall_button": {
-    "message": "卸载 Linkumori",
-    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+    "message": "卸载 Linkumori"
   },
   "legal_consent_withdraw_uninstall_confirm_title": {
-    "message": "确认卸载",
-    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+    "message": "确认卸载"
   },
   "legal_consent_withdraw_uninstall_confirm_intro": {
-    "message": "卸载 Linkumori 会撤回你的同意，并从此浏览器中移除该扩展。",
-    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+    "message": "卸载 Linkumori 会撤回你的同意，并从此浏览器中移除该扩展。"
   },
   "legal_consent_withdraw_uninstall_confirm_warning": {
-    "message": "这将从此浏览器中删除本地存储的 Linkumori 数据。你可以取消并保留 Linkumori。",
-    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+    "message": "这将从此浏览器中删除本地存储的 Linkumori 数据。你可以取消并保留 Linkumori。"
   },
   "legal_consent_withdraw_uninstall_confirm_cancel": {
-    "message": "保留 Linkumori",
-    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+    "message": "保留 Linkumori"
   },
   "legal_consent_withdraw_uninstall_confirm_button": {
-    "message": "卸载 Linkumori",
-    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+    "message": "卸载 Linkumori"
   },
   "legal_consent_withdraw_uninstall_failed": {
-    "message": "Linkumori 未被卸载。你可以重试，或从浏览器的附加组件页面卸载它。",
-    "description": "Toast shown when browser self-uninstall does not complete"
+    "message": "Linkumori 未被卸载。你可以重试，或从浏览器的附加组件页面卸载它。"
   },
   "legal_consent_withdraw_uninstall_cancelled": {
-    "message": "卸载已取消。Linkumori 仍保持安装。",
-    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+    "message": "卸载已取消。Linkumori 仍保持安装。"
   },
   "legal_consent_withdraw_uninstall_unavailable": {
-    "message": "此处无法直接卸载。你仍然可以从浏览器的附加组件页面卸载 Linkumori 来撤回同意。",
-    "description": "Toast shown when direct uninstall is unavailable"
+    "message": "此处无法直接卸载。你仍然可以从浏览器的附加组件页面卸载 Linkumori 来撤回同意。"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "关闭"
@@ -1606,18 +1420,6 @@
   },
   "legal_optional_features_description": {
     "message": "这些可选保护默认处于禁用状态。打开您想要的功能，然后保存并重新加载 Linkumori。"
-  },
-  "legal_optional_feature_disabled": {
-    "message": "已禁用"
-  },
-  "legal_optional_feature_enabled": {
-    "message": "已启用"
-  },
-  "legal_optional_feature_pending_enable": {
-    "message": "保存时启用"
-  },
-  "legal_optional_feature_pending_disable": {
-    "message": "保存时禁用"
   },
   "legal_optional_features_note": {
     "message": "仅当您使用右侧的按钮时，更改才会被保存。"
@@ -1652,9 +1454,6 @@
   "popup_html_settings_button": {
     "message": "设置"
   },
-  "popup_html_statistics": {
-    "message": "统计信息"
-  },
   "popup_html_statistics_blocked": {
     "message": "已屏蔽"
   },
@@ -1666,9 +1465,6 @@
   },
   "popup_html_statistics_reset_button": {
     "message": "重置"
-  },
-  "popup_html_tools_button": {
-    "message": "工具"
   },
   "popup_html_tools_button_title": {
     "message": "打开清理工具"
@@ -1697,9 +1493,6 @@
   "privacyVersionDescription": {
     "message": "选择您想查看的隐私政策翻译版本。请注意，目前仅有英文版本，其他语言可能会在将来添加。"
   },
-  "privacyVersionEnGlobal": {
-    "message": "英语"
-  },
   "privacyVersionLabel": {
     "message": "隐私政策 "
   },
@@ -1710,8 +1503,7 @@
     "message": "无法加载隐私政策版本映射。"
   },
   "providerImport_activeProviderRules": {
-    "message": "活动捆绑/远程规则/自定义规则",
-    "description": "当前活动的捆绑、远程支持和自定义规则的侧边栏选项。"
+    "message": "活动捆绑/远程规则/自定义规则"
   },
   "providerImport_button": {
     "message": "导入/禁用提供者"
@@ -1812,24 +1604,6 @@
   "providerImport_overwrittenCount": {
     "message": "已覆盖：$1 个提供者"
   },
-  "providerImport_rawRules": {
-    "message": "原始规则"
-  },
-  "providerImport_rawRulesAbbr": {
-    "message": "原始"
-  },
-  "providerImport_redirections": {
-    "message": "重定向"
-  },
-  "providerImport_redirectionsAbbr": {
-    "message": "重定"
-  },
-  "providerImport_referralAbbr": {
-    "message": "引荐"
-  },
-  "providerImport_referralMarketing": {
-    "message": "引荐营销"
-  },
   "providerImport_rules": {
     "message": "规则"
   },
@@ -1854,14 +1628,17 @@
   "providerImport_title": {
     "message": "导入或禁用提供者"
   },
-  "providerList_button": {
-    "message": "列出所有自定义提供者并搜索"
-  },
   "providerList_complete": {
     "message": "完整"
   },
   "providerList_confirmDelete": {
-    "message": "您确定要删除提供者“$1”吗？"
+    "message": "您确定要删除提供者“$1”吗？",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
   },
   "providerList_copySuffix": {
     "message": "副本"
@@ -1898,15 +1675,6 @@
   },
   "providerList_noUrlPattern": {
     "message": "无 URL 模式"
-  },
-  "providerList_rawRules": {
-    "message": "原始规则"
-  },
-  "providerList_redirections": {
-    "message": "重定向"
-  },
-  "providerList_referral": {
-    "message": "引荐"
   },
   "providerList_rules": {
     "message": "规则"
@@ -1983,9 +1751,6 @@
   "settings_change_pending_save_apply": {
     "message": "设置更改待处理。单击“保存”以应用。"
   },
-  "removeDomainFromWhitelist": {
-    "message": "从白名单中移除 $1"
-  },
   "rule_url_placeholder": {
     "message": "https://example.com/rules.json"
   },
@@ -2009,9 +1774,6 @@
   },
   "rules_metadata_name_remote_merged": {
     "message": "合并的远程规则"
-  },
-  "rules_metadata_section": {
-    "message": "规则信息："
   },
   "rules_name_label": {
     "message": "规则名称："
@@ -2074,8 +1836,7 @@
     "message": "主哈希 URL 必须使用 HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary rule URL and primary hash URL must be configured together.",
-    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
+    "message": "必须同时配置主规则 URL 和主哈希 URL。"
   },
   "save_primary_rule_https_required": {
     "message": "主规则 URL 必须使用 HTTPS"
@@ -2111,16 +1872,13 @@
     "message": "我了解风险 - 继续"
   },
   "security_modal_final_warning": {
-    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
-    "description": "Final warning shown in the remote rules security modal."
+    "message": "如果你并未完全了解或信任 Linkumori 规则集的来源，应重新考虑使用远程规则。"
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
-    "description": "Main warning text for the remote rules security modal."
+    "message": "此远程规则功能面向了解所加载的 Linkumori JSON 的高级用户。远程规则应包含相匹配的哈希 URL，以便验证。"
   },
   "security_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
-    "description": "Privacy text shown in the remote rules security modal."
+    "message": "如果添加远程规则 URL，扩展程序会在配置后连接到你指定的服务器，以获取 Linkumori 规则集及其哈希文件。每次获取都可能向托管服务器暴露你的 IP 地址以及扩展程序版本、浏览器和浏览器版本等一般信息。这些数据受该网站或 Web 服务器的隐私政策约束。"
   },
   "security_modal_privacy_link_text": {
     "message": "如有需要，请在继续之前再次阅读 %PRIVACY_POLICY_LINK%。"
@@ -2129,8 +1887,7 @@
     "message": "隐私声明："
   },
   "security_modal_recommendation": {
-    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
-    "description": "Recommendation text shown in the remote rules security modal."
+    "message": "除非你信任并控制远程来源，否则请使用内置规则。为远程 Linkumori JSON 规则提供相匹配的哈希 URL。"
   },
   "security_modal_risk_1": {
     "message": "您的 IP 地址和浏览器信息将暴露给配置的服务器"
@@ -2139,12 +1896,10 @@
     "message": "如果规则源被入侵，恶意规则可能会被提供给您的浏览器"
   },
   "security_modal_risk_3": {
-    "message": "哈希验证仅适用于 Linkumori CLN Format 1.0 JSON 规则；它可以防止传输篡改，而不是恶意规则源。",
-    "description": "Third security risk point"
+    "message": "哈希验证仅适用于 Linkumori CLN Format 1.0 JSON 规则；它可以防止传输篡改，而不是恶意规则源。"
   },
   "security_modal_risk_4": {
-    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
-    "description": "Risk list item for remote rules without successful hash verification."
+    "message": "未能成功验证哈希的远程规则完全依赖于对来源 URL 的信任。"
   },
   "security_modal_risks_title": {
     "message": "安全风险："
@@ -2159,8 +1914,7 @@
     "message": "rules.hash 文件的 URL（哈希）"
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote Linkumori JSON rule verification.",
-    "description": "Description for hash URL field explaining that remote rules require a hash URL."
+    "message": "远程 Linkumori JSON 规则验证必须提供。"
   },
   "setting_html_export_button": {
     "message": "导出"
@@ -2186,21 +1940,11 @@
   "setting_html_audit_button_title": {
     "message": "打开审计页面"
   },
-  "setting_log_limit_label": {
-    "message": "将日志限制为 $LIMIT$ 条条目。",
-    "placeholders": {
-      "limit": {
-        "content": "$1",
-        "example": "100"
-      }
-    }
-  },
   "setting_log_limit_label_with_range": {
     "message": "日志限制（0-5000）"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
-    "description": "Description for additional remote rule sources."
+    "message": "合并其他远程 Linkumori JSON 来源。每行输入一组 <code>ruleURL | hashURL</code>。"
   },
   "setting_remote_rule_sets_label": {
     "message": "额外的远程规则集"
@@ -2209,16 +1953,13 @@
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for Linkumori JSON rules",
-    "description": "Description for the custom rule URL input field."
+    "message": "Linkumori JSON 规则的自定义远程 URL"
   },
   "setting_rule_url_label": {
-    "message": "The URL to the remote rules JSON file",
-    "description": "Label for the remote rule URL input field."
+    "message": "远程规则 JSON 文件的 URL"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Hash URL is required for every remote ruleset.",
-    "description": "Note explaining that every remote ruleset requires a hash URL."
+    "message": "每个远程规则集都必须提供哈希 URL。"
   },
   "settings_html_page_title": {
     "message": "Linkumori (Clean URLS) 设置"
@@ -2376,12 +2117,6 @@
   "theme_name_icecold": {
     "message": "冰寒"
   },
-  "theme_name_zengray": {
-    "message": "禅灰"
-  },
-  "theme_name_forest": {
-    "message": "森林"
-  },
   "theme_name_light": {
     "message": "浅色"
   },
@@ -2527,8 +2262,7 @@
     "message": "欢迎使用 Linkumori"
   },
   "welcome_migration_description": {
-    "message": "您的 ClearURLs 设置已导入。查看下面的 Linkumori 功能，然后继续阅读隐私政策、POSAR 和许可证。",
-    "description": "Description shown on migration welcome screen."
+    "message": "您的 ClearURLs 设置已导入。查看下面的 Linkumori 功能，然后继续阅读隐私政策、POSAR 和许可证。"
   },
   "welcome_migration_feature_bundled": {
     "message": "默认启用内置的注重隐私的规则。"
@@ -2563,17 +2297,8 @@
   "whitelist_add_failed": {
     "message": "向白名单添加域名失败"
   },
-  "whitelist_added": {
-    "message": "已将 %s 添加到白名单"
-  },
   "whitelist_already_exists": {
     "message": "域名已在白名单中或无效"
-  },
-  "whitelist_count": {
-    "message": "%d 个域名已加入白名单"
-  },
-  "whitelist_empty": {
-    "message": "没有域名在白名单中"
   },
   "whitelist_enter_domain": {
     "message": "请输入域名"
@@ -2623,9 +2348,6 @@
   "whitelist_remove_failed": {
     "message": "从白名单中移除域名失败"
   },
-  "whitelist_removed": {
-    "message": "已从白名单中移除 %s"
-  },
   "whitelist_search_placeholder": {
     "message": "搜索白名单域名"
   },
@@ -2663,8 +2385,7 @@
     "message": "自定义规则"
   },
   "popup_consent_legal_button_title": {
-    "message": "法律信息 - 隐私政策、POSAR 和许可证",
-    "description": "Title for legal information page opened from popup consent gate"
+    "message": "法律信息 - 隐私政策、POSAR 和许可证"
   },
   "popup_html_whitelist_button_title": {
     "message": "白名单"
@@ -2700,22 +2421,19 @@
     "message": "警告：高级功能仅适用于自托管服务器"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
-    "description": "Main warning text for the disable Gatekeeper modal."
+    "message": "你正在关闭 Gatekeeper 对远程规则 URL 编辑的保护。此功能可以将远程 Linkumori JSON 规则加载到统一的提供商规则集中。请仅在了解并信任所配置的来源时继续。"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper 是内置的安全流程，它会阻止直接编辑远程 URL，直到您确认安全警告并完成键入确认。"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
-    "description": "Recommendation text for the disable Gatekeeper modal."
+    "message": "除非你信任并控制远程来源，否则请保持 Gatekeeper 启用。远程 JSON 规则应包含相匹配的哈希 URL。"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "隐私声明："
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
-    "description": "Privacy text shown in the disable Gatekeeper modal."
+    "message": "如果添加远程规则 URL，扩展程序会在配置后连接到你指定的服务器，以获取 Linkumori 规则集及其哈希文件。每次获取都可能向托管服务器暴露你的 IP 地址以及扩展程序版本、浏览器和浏览器版本等一般信息。这些数据受该网站或 Web 服务器的隐私政策约束。"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "如有需要，请在继续之前再次阅读 %PRIVACY_POLICY_LINK%。"
@@ -2730,8 +2448,7 @@
     "message": "每次扩展在您的浏览器中启用和加载时，扩展都会连接到您指定的 URL。"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON or hash files will receive your IP address.",
-    "description": "Risk list item for remote file hosts receiving the user IP address."
+    "message": "托管远程 JSON 或哈希文件的服务器会收到你的 IP 地址。"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "服务器还可能收到您的扩展版本、浏览器和浏览器版本。"
@@ -2740,8 +2457,7 @@
     "message": "这些数据受托管这些文件的网站或 Web 服务器的隐私政策约束。"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
-    "description": "Final warning shown in the disable Gatekeeper modal."
+    "message": "关闭 Gatekeeper 会增加不安全或遭入侵的远程规则来源带来的风险。只有在配置了相匹配的哈希 URL 时，哈希验证才会保护远程 Linkumori JSON 下载。"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "取消"
@@ -2801,8 +2517,7 @@
     "message": "输入准确的确认短语"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
-    "description": "Final confirmation text for disabling Gatekeeper."
+    "message": "此操作会降低远程规则的安全防护。请仅在信任远程 JSON 来源时继续。"
   },
   "remote_urls_template_note_1": {
     "message": "将占位符值替换为您的真实 HTTPS URL，然后导入此文件。"
@@ -2875,9 +2590,6 @@
   },
   "configs_switch_statistics_title": {
     "message": "切换统计信息的开/关"
-  },
-  "popup_html_statistics_element_title": {
-    "message": "元素"
   },
   "popup_html_statistics_blocked_title": {
     "message": "已屏蔽"
@@ -3033,12 +2745,10 @@
     "message": "<p><span class=\"faq-code\">domainPatterns</span> 是当提供者不依赖 <span class=\"faq-code\">urlPattern</span> 时使用的基于域名的匹配器。</p><p>ClearURLs 使用 <span class=\"faq-code\">setURLDomainPattern()</span> 存储这些模式，然后使用域名匹配逻辑（而不是正则表达式 URL 匹配）来检查它们。</p>"
   },
   "audit_faq_rules_title": {
-    "message": "rules[] 可以包含什么？",
-    "description": "统一Linkumori-ClearURLs规则的常见问题解答标题"
+    "message": "rules[] 可以包含什么？"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> 接受简单的参数字符串，内联 <span class=\"faq-code\">$removeparam</span> 过滤器和规范对象。</p><p>使用 <span class=\"faq-code\">kind: \"raw\"</span> 用于整个 URL 正则表达式清理和 <span class=\"faq-code\">kind: \"redirection\"</span> 用于重定向提取。</p><p>使用 <span class=\"faq-code\">referralMarketing: true</span> 当参数取决于推荐营销设置时，基于字段规则。</p>",
-    "description": "统一Linkumori-ClearURLs规则的常见问题解答正文"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 接受简单的参数字符串，内联 <span class=\"faq-code\">$removeparam</span> 过滤器和规范对象。</p><p>使用 <span class=\"faq-code\">kind: \"raw\"</span> 用于整个 URL 正则表达式清理和 <span class=\"faq-code\">kind: \"redirection\"</span> 用于重定向提取。</p><p>使用 <span class=\"faq-code\">referralMarketing: true</span> 当参数取决于推荐营销设置时，基于字段规则。</p>"
   },
   "audit_faq_exceptions_title": {
     "message": "什么是 exceptions 和 domainExceptions？"
@@ -3050,8 +2760,7 @@
     "message": "什么是 redirections 和 domainRedirections？"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">rules[]</span> 条目与 <span class=\"faq-code\">kind: \"redirection\"</span> 是基于正则表达式的解包器。它们通常捕获组 1 中的真实目标 URL，并且 ClearURLs 重定向到该捕获的值。</p><p><span class=\"faq-code\">domainRedirections</span> 是域样式的重定向规则。在此代码库中，检查它们是否有类似形状的条目 <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>如果正则表达式重定向首先匹配，则获胜。如果不是，ClearURLs 接下来检查域 redirections。</p>",
-    "description": "redirections 和域重定向的 FAQ 主体"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 条目与 <span class=\"faq-code\">kind: \"redirection\"</span> 是基于正则表达式的解包器。它们通常捕获组 1 中的真实目标 URL，并且 ClearURLs 重定向到该捕获的值。</p><p><span class=\"faq-code\">domainRedirections</span> 是域样式的重定向规则。在此代码库中，检查它们是否有类似形状的条目 <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>如果正则表达式重定向首先匹配，则获胜。如果不是，ClearURLs 接下来检查域 redirections。</p>"
   },
   "audit_faq_methods_resources_title": {
     "message": "什么是 methods 和 resourceTypes？"
@@ -3069,8 +2778,7 @@
     "message": "clearurls.js 在此处使用哪些提供者字段？"
   },
   "audit_faq_fields_body": {
-    "message": "<p>该分支中的提供程序构建路径读取这些创作密钥： <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>， 和 <span class=\"faq-code\">resourceTypes</span>.</p><p>原始清理、推荐​​营销清理和正则表达式 redirections 可以使用内部保留的 ClearURLs 字段或规范对象 <span class=\"faq-code\">rules[]</span>.</p><p>在审计行为时，最重要的检查地方是 <span class=\"faq-code\">Final Rules</span>，因为这显示了捆绑、远程和自定义源合并后的合并结果。</p>",
-    "description": "clearurls.js 使用的 provider 字段列表的 FAQ 主体"
+    "message": "<p>该分支中的提供程序构建路径读取这些创作密钥： <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>， 和 <span class=\"faq-code\">resourceTypes</span>.</p><p>原始清理、推荐​​营销清理和正则表达式 redirections 可以使用内部保留的 ClearURLs 字段或规范对象 <span class=\"faq-code\">rules[]</span>.</p><p>在审计行为时，最重要的检查地方是 <span class=\"faq-code\">Final Rules</span>，因为这显示了捆绑、远程和自定义源合并后的合并结果。</p>"
   },
   "popup_temporary_pause_title": {
     "message": "临时暂停"
@@ -3139,17 +2847,10 @@
     "message": "无"
   },
   "settings_remote_health_rule_collisions_label": {
-    "message": "Rule collisions:",
-    "description": "Remote Rules Health label for rule collisions found in the loaded remote rules"
-  },
-  "settings_remote_health_rule_collisions_summary": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings",
-    "description": "Remote Rules Health summary of rule collisions",
-    "placeholders": { "errors": { "content": "$1", "example": "1" }, "warnings": { "content": "$2", "example": "2" } }
+    "message": "规则冲突："
   },
   "settings_remote_health_rule_collisions_summary_notices": {
-    "message": "$ERRORS$ errors, $WARNINGS$ warnings, $NOTICES$ notices",
-    "description": "Remote Rules Health summary of rule collisions; a notice is a rule another file replaced",
+    "message": "$ERRORS$ 个错误，$WARNINGS$ 个警告，$NOTICES$ 条提示",
     "placeholders": {
       "errors": {
         "content": "$1",
@@ -3166,12 +2867,10 @@
     }
   },
   "settings_remote_health_capabilities_label": {
-    "message": "Remote file capabilities:",
-    "description": "Remote Rules Health label for what each remote rule file can do (strip, rewrite, except, redirect, block)"
+    "message": "远程文件功能："
   },
   "settings_remote_health_capabilities_pending": {
-    "message": "inactive until accepted: $CAPABILITIES$",
-    "description": "Remote Rules Health: capabilities of a remote rule file that wait for the person to accept them",
+    "message": "接受前处于停用状态：$CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -3180,8 +2879,7 @@
     }
   },
   "settings_remote_health_capabilities_accept": {
-    "message": "Accept $CAPABILITIES$",
-    "description": "Button that lets a remote rule file redirect or block requests",
+    "message": "接受 $CAPABILITIES$",
     "placeholders": {
       "capabilities": {
         "content": "$1",
@@ -3190,12 +2888,10 @@
     }
   },
   "settings_remote_health_rule_patches_label": {
-    "message": "Rule patches:",
-    "description": "Remote Rules Health label for the patches remote rule files apply to existing rules"
+    "message": "规则补丁："
   },
   "settings_remote_health_rule_patches_summary": {
-    "message": "$APPLIED$ applied, $NOT_APPLIED$ not applied",
-    "description": "Remote Rules Health summary of remote rule patches; a patch is not applied when no loaded rule matches it or it was skipped",
+    "message": "$APPLIED$ 个已应用，$NOT_APPLIED$ 个未应用",
     "placeholders": {
       "applied": {
         "content": "$1",
@@ -3208,299 +2904,262 @@
     }
   },
   "customRulesEditor_defaultsTitle": {
-    "message": "Rule defaults",
-    "description": "Custom rules editor heading for the defaults each rule source applies to its own rules"
+    "message": "规则默认值"
   },
   "customRulesEditor_defaultsBuiltIn": {
-    "message": "Built-in",
-    "description": "Label for the built-in rules' defaults"
+    "message": "内置"
   },
   "customRulesEditor_defaultsCustom": {
-    "message": "Custom",
-    "description": "Label for the custom rules' defaults"
+    "message": "自定义"
   },
   "customRulesEditor_defaultsNone": {
-    "message": "None — built-in behaviour",
-    "description": "Shown when a rule source sets no defaults that change anything"
+    "message": "无 — 使用内置行为"
   },
   "customRulesEditor_defaultsOverloadNote": {
-    "message": "Overload mode merges built-in and remote rules; each source's rules keep that source's own defaults.",
-    "description": "Note under the rule defaults when overload mode is on"
+    "message": "过载模式会合并内置规则和远程规则；除非你在自定义规则编辑器中选择自己的默认值，否则每个来源的规则都保留该来源自己的默认值。"
   },
   "customRulesEditor_defaultsSave": {
-    "message": "Save defaults",
-    "description": "Button that saves the custom rule defaults"
+    "message": "保存默认值"
   },
   "customRulesEditor_defaultsSaved": {
-    "message": "Defaults saved",
-    "description": "Shown after the custom rule defaults are saved"
+    "message": "默认值已保存"
   },
   "overload_mode_defaults_note": {
-    "message": "When on, each rule source keeps its own defaults (built-in defaults apply to built-in rules, and each remote file's defaults to that file's rules) unless you choose your own defaults in the custom rules editor.",
-    "description": "Note under the overload mode toggle about rule defaults"
+    "message": "启用后，除非你在自定义规则编辑器中选择自己的默认值，否则每个规则来源都会保留其自己的默认值（内置规则使用内置默认值，每个远程文件的规则使用该文件的默认值）。"
   },
   "customRulesEditor_defaultsRemote": {
-    "message": "Remote: $URL$",
-    "description": "Label for one remote rule file's defaults",
-    "placeholders": { "url": { "content": "$1", "example": "https://example.com/rules.json" } }
+    "message": "远程：$URL$",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "https://example.com/rules.json"
+      }
+    }
   },
   "customRulesEditor_defaultsModeLabel": {
-    "message": "Which defaults apply",
-    "description": "Label of the rule defaults mode choice"
+    "message": "应用哪些默认值"
   },
   "customRulesEditor_defaultsModeSource": {
-    "message": "Each source's own",
-    "description": "Rule defaults mode: each rules file's own defaults"
+    "message": "每个来源各自的默认值"
   },
   "customRulesEditor_defaultsModeFinal": {
-    "message": "Yours for built-in and remote rules",
-    "description": "Rule defaults mode: the user's defaults for built-in and remote rules"
+    "message": "内置和远程规则使用你的默认值"
   },
   "customRulesEditor_defaultsModeUnified": {
-    "message": "Yours for all rules",
-    "description": "Rule defaults mode: the user's defaults for every rule source"
+    "message": "所有规则使用你的默认值"
   },
   "customRulesEditor_defaultsReplaced": {
-    "message": "(replaced by your defaults)",
-    "description": "Shown under a rule source's defaults when the user's defaults are used instead"
+    "message": "（已被你的默认值替代）"
   },
   "customRulesEditor_defaultsUser": {
-    "message": "Yours",
-    "description": "Label for the user's own rule defaults"
+    "message": "你的默认值"
   },
   "customRulesEditor_defaultsCountRequestTypes": {
-    "message": "$COUNT$ request types",
-    "description": "Rule defaults sidebar summary: number of request types",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "message": "$COUNT$ 种请求类型",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsCountExceptions": {
-    "message": "$COUNT$ URL exceptions",
-    "description": "Rule defaults sidebar summary: number of exceptions",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "message": "$COUNT$ 个 URL 例外",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsCountExceptionsOne": {
-    "message": "1 URL exception",
-    "description": "Rule defaults sidebar summary: exactly one exception"
+    "message": "1 个 URL 例外"
   },
   "customRulesEditor_defaultsCountPreprocessors": {
-    "message": "$COUNT$ preprocessors",
-    "description": "Rule defaults sidebar summary: number of preprocessors",
-    "placeholders": { "count": { "content": "$1", "example": "48" } }
+    "message": "$COUNT$ 个预处理器",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "48"
+      }
+    }
   },
   "customRulesEditor_defaultsModeSourceNote": {
-    "message": "Each source's rules get that source's own defaults.",
-    "description": "Note for the rule defaults mode 'each source's own'"
+    "message": "每个来源的规则都使用该来源自己的默认值。"
   },
   "customRulesEditor_defaultsModeFinalNote": {
-    "message": "Built-in and remote rules get your defaults instead of their files' own; custom rules keep their own.",
-    "description": "Note for the rule defaults mode 'yours for built-in and remote rules'"
+    "message": "内置和远程规则使用你的默认值，而不是其文件中的默认值；自定义规则保留自己的默认值。"
   },
   "customRulesEditor_defaultsModeUnifiedNote": {
-    "message": "Built-in, remote and custom rules all get your defaults instead of their own.",
-    "description": "Note for the rule defaults mode 'yours for every source'"
+    "message": "内置规则、远程规则和自定义规则都使用你的默认值，而不是各自的默认值。"
   },
   "customRulesEditor_defaultsManage": {
-    "message": "Manage rule defaults",
-    "description": "Button that opens the rule defaults editor"
+    "message": "管理规则默认值"
   },
   "customRulesEditor_defaultsIntro": {
-    "message": "Defaults fill in values a rule does not set itself. A rule's own value always wins, and provider exceptions are never changed.",
-    "description": "Introduction at the top of the rule defaults editor"
+    "message": "默认值会填补规则未自行设置的值。规则自身的值始终优先，并且不会更改提供商例外。"
   },
   "customRulesEditor_defaultsEditing": {
-    "message": "Edit defaults",
-    "description": "Heading of the section where a set of defaults is edited"
+    "message": "编辑默认值"
   },
   "customRulesEditor_defaultsTabUser": {
-    "message": "Your defaults",
-    "description": "Tab for the user's own rule defaults"
+    "message": "你的默认值"
   },
   "customRulesEditor_defaultsTabCustom": {
-    "message": "Custom rules' defaults",
-    "description": "Tab for the custom rules file's own defaults"
+    "message": "自定义规则的默认值"
   },
   "customRulesEditor_defaultsSetLabel": {
-    "message": "Defaults to edit",
-    "description": "Label of the list of rule defaults sets in the defaults editor"
+    "message": "要编辑的默认值"
   },
   "customRulesEditor_defaultsSetBuiltIn": {
-    "message": "Built-in rules",
-    "description": "Defaults set: the built-in rules' defaults"
+    "message": "内置规则"
   },
   "customRulesEditor_defaultsEditedSuffix": {
-    "message": "(edited)",
-    "description": "Added to a rule source in the defaults set list when the user edited its defaults"
+    "message": "（已编辑）"
   },
   "customRulesEditor_defaultsResetToFile": {
-    "message": "Reset to the file's defaults",
-    "description": "Button that drops the user's edit of a rules file's defaults"
+    "message": "重置为文件默认值"
   },
   "customRulesEditor_defaultsMergeOpen": {
-    "message": "Merge from sources…",
-    "description": "Button that opens the merge of several rule defaults sets"
+    "message": "从来源合并…"
   },
   "customRulesEditor_defaultsMergeTitle": {
-    "message": "Merge rule defaults",
-    "description": "Title of the rule defaults merge dialog"
+    "message": "合并规则默认值"
   },
   "customRulesEditor_defaultsMergeTarget": {
-    "message": "The result appears as \"Merged defaults\" in the list. Copy it into a set there, then press Save defaults to use it.",
-    "description": "Explains where merged rule defaults go"
+    "message": "结果会在列表中显示为“合并后的默认值”。将它复制到其中一组，然后点击“保存默认值”即可使用。"
   },
   "customRulesEditor_defaultsMergeSources": {
-    "message": "Sources to merge",
-    "description": "Heading of the list of sources in the defaults merge dialog"
+    "message": "要合并的来源"
   },
   "customRulesEditor_defaultsMergeConflicts": {
-    "message": "Conflicts",
-    "description": "Heading of the values the merged sources disagree on"
+    "message": "冲突"
   },
   "customRulesEditor_defaultsMergeResult": {
-    "message": "Merged defaults",
-    "description": "Summary of the JSON preview of the merged defaults"
+    "message": "合并后的默认值"
   },
   "customRulesEditor_defaultsMergeApply": {
-    "message": "Use merged defaults",
-    "description": "Button that puts the merged defaults into the set being edited"
+    "message": "使用合并后的默认值"
   },
   "customRulesEditor_defaultsSetMerged": {
-    "message": "Merged defaults",
-    "description": "Defaults set holding the result of a merge"
+    "message": "合并后的默认值"
   },
   "customRulesEditor_defaultsMergedUnused": {
-    "message": "Not used until you copy it into one of the other sets and save.",
-    "description": "Shown while the merged defaults are on screen"
+    "message": "只有将其复制到其他某一组并保存后，才会使用。"
   },
   "customRulesEditor_defaultsCopyTo": {
-    "message": "Copy to",
-    "description": "Label of the list of sets merged defaults can be copied into"
+    "message": "复制到"
   },
   "customRulesEditor_defaultsCopyButton": {
-    "message": "Copy",
-    "description": "Button that copies the merged defaults into the chosen set"
+    "message": "复制"
   },
   "customRulesEditor_defaultsMergeNeedTwo": {
-    "message": "Choose at least two sources.",
-    "description": "Shown when fewer than two sources are ticked in the defaults merge"
+    "message": "至少选择两个来源。"
   },
   "customRulesEditor_defaultsMergeNoConflicts": {
-    "message": "No conflicts: the chosen sources agree on every value.",
-    "description": "Shown when merged sources agree on every value"
+    "message": "没有冲突：所选来源的每个值都相同。"
   },
   "customRulesEditor_defaultsMergeExceptionsAdded": {
-    "message": "Exceptions are added together from every source: $COUNT$ in total.",
-    "description": "Defaults merge: exceptions never conflict, they are combined",
-    "placeholders": { "count": { "content": "$1", "example": "50" } }
+    "message": "会累加每个来源中的例外：共 $COUNT$ 个。",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "50"
+      }
+    }
   },
   "customRulesEditor_defaultsMergeCombined": {
-    "message": "Combined from every source",
-    "description": "Marks the combined option of a list in the defaults merge"
+    "message": "合并自所有来源"
   },
   "customRulesEditor_defaultsMergeFrom": {
-    "message": "From: $SOURCES$",
-    "description": "Which sources a value in the defaults merge comes from",
-    "placeholders": { "sources": { "content": "$1", "example": "Built-in rules, Custom rules' defaults" } }
+    "message": "来源：$SOURCES$",
+    "placeholders": {
+      "sources": {
+        "content": "$1",
+        "example": "Built-in rules, Custom rules' defaults"
+      }
+    }
   },
   "customRulesEditor_defaultsMergeUnset": {
-    "message": "Not set (built-in behaviour)",
-    "description": "A defaults key a source leaves out, in the merge dialog"
+    "message": "未设置（内置行为）"
   },
   "customRulesEditor_defaultsMergeAllTypes": {
-    "message": "Not set: every request type",
-    "description": "Request types a source leaves out, in the merge dialog"
+    "message": "未设置：所有请求类型"
   },
   "customRulesEditor_defaultsUnusedSource": {
-    "message": "Not used right now: your defaults replace the built-in and remote rules' own.",
-    "description": "Shown when a built-in or remote file's defaults are not used under the chosen mode"
+    "message": "当前未使用：你的默认值会替代内置规则和远程规则各自的默认值。"
   },
   "customRulesEditor_defaultsEditedSource": {
-    "message": "Edited by you: these replace the file's own defaults. The file itself is not changed.",
-    "description": "Shown when the user edited a built-in or remote file's defaults"
+    "message": "由你编辑：这些值会替代文件自身的默认值。文件本身不会更改。"
   },
   "customRulesEditor_defaultsEditedMarker": {
-    "message": "(edited by you)",
-    "description": "Rule defaults sidebar: shown under a source whose defaults the user edited"
+    "message": "（由你编辑）"
   },
   "customRulesEditor_defaultsUnusedUser": {
-    "message": "Not used right now: \"Each source's own\" is chosen above.",
-    "description": "Shown when the user's defaults are not used under the chosen mode"
+    "message": "当前未使用：上方选择的是“每个来源各自的默认值”。"
   },
   "customRulesEditor_defaultsUnusedCustom": {
-    "message": "Not used right now: your defaults replace these for custom rules too.",
-    "description": "Shown when the custom rules' defaults are not used under the chosen mode"
+    "message": "当前未使用：你的默认值也会替代自定义规则的默认值。"
   },
   "customRulesEditor_defaultsFieldInactive": {
-    "message": "Rules start switched off (active: false)",
-    "description": "Checkbox for the active: false default"
+    "message": "规则默认处于关闭状态（active: false）"
   },
   "customRulesEditor_defaultsFieldDescription": {
-    "message": "Description",
-    "description": "Label of the description default"
+    "message": "说明"
   },
   "customRulesEditor_defaultsFieldRequestTypes": {
-    "message": "Request types",
-    "description": "Label of the request types default"
+    "message": "请求类型"
   },
   "customRulesEditor_defaultsTypesAll": {
-    "message": "All types",
-    "description": "Request types default: all types"
+    "message": "所有类型"
   },
   "customRulesEditor_defaultsTypesSome": {
-    "message": "Only these",
-    "description": "Request types default: only the checked types"
+    "message": "仅限这些类型"
   },
   "customRulesEditor_defaultsTypesNone": {
-    "message": "Choose at least one request type, or pick \"All types\".",
-    "description": "Error when 'Only these' is picked with no request type checked"
+    "message": "至少选择一种请求类型，或选择“所有类型”。"
   },
   "customRulesEditor_defaultsTypesHelp": {
-    "message": "Rules clean every request type unless they, or defaults, name some. Providers can also limit types with resourceTypes.",
-    "description": "Help under the request types default"
+    "message": "除非规则或默认值指定了请求类型，否则规则会清理所有请求类型。提供商也可以使用 resourceTypes 限制类型。"
   },
   "customRulesEditor_defaultsFieldExceptions": {
-    "message": "Exceptions",
-    "description": "Label of the exceptions default"
+    "message": "例外"
   },
   "customRulesEditor_defaultsFieldExceptionsHelp": {
-    "message": "One URL regex per line. Rules are skipped on matching URLs.",
-    "description": "Help for the exceptions default"
+    "message": "每行一个 URL 正则表达式。匹配的 URL 会跳过规则。"
   },
   "customRulesEditor_defaultsFieldPreprocessors": {
-    "message": "Preprocessors",
-    "description": "Label of the preprocessors default"
+    "message": "预处理器"
   },
   "customRulesEditor_defaultsFieldPreprocessorsHelp": {
-    "message": "Inputs: \"all\", or capture group numbers such as 1, 2.",
-    "description": "Help for the preprocessors default"
+    "message": "输入：“all”或捕获组编号，例如 1、2。"
   },
   "customRulesEditor_defaultsAddPreprocessor": {
-    "message": "+ Add preprocessor",
-    "description": "Button that adds a preprocessor to the defaults"
+    "message": "+ 添加预处理器"
   },
   "customRulesEditor_defaultsPreprocessorType": {
-    "message": "Preprocessor type",
-    "description": "Accessible label of a preprocessor's type"
+    "message": "预处理器类型"
   },
   "customRulesEditor_defaultsPreprocessorInputs": {
-    "message": "Preprocessor inputs",
-    "description": "Accessible label of a preprocessor's inputs"
+    "message": "预处理器输入"
   },
   "customRulesEditor_defaultsRemove": {
-    "message": "Remove",
-    "description": "Button that removes a preprocessor from the defaults"
+    "message": "移除"
   },
   "customRulesEditor_defaultsInputsInvalid": {
-    "message": "Preprocessor inputs \"$INPUTS$\" must be \"all\" or numbers such as 1, 2.",
-    "description": "Error for invalid preprocessor inputs",
-    "placeholders": { "inputs": { "content": "$1", "example": "1, x" } }
+    "message": "预处理器输入“$INPUTS$”必须为“all”或数字，例如 1、2。",
+    "placeholders": {
+      "inputs": {
+        "content": "$1",
+        "example": "1, x"
+      }
+    }
   },
   "customRulesEditor_defaultsFieldHistoryOff": {
-    "message": "Turn off history bypass protection (historyBypassProtection: false)",
-    "description": "Checkbox for the historyBypassProtection: false default"
+    "message": "关闭历史记录绕过保护（historyBypassProtection: false）"
   },
   "customRulesEditor_defaultsPreview": {
-    "message": "Show as JSON",
-    "description": "Summary of the JSON preview of the defaults"
+    "message": "显示为 JSON"
   },
   "settings_remote_health_unknown": {
     "message": "未知"
@@ -3559,12 +3218,6 @@
   "popup_dynamic_whitelist_detecting": {
     "message": "正在检测域名..."
   },
-  "popup_dynamic_whitelist_loading_add": {
-    "message": "正在添加 %s..."
-  },
-  "popup_dynamic_whitelist_loading_remove": {
-    "message": "正在移除 %s..."
-  },
   "popup_dynamic_whitelist_unavailable_title": {
     "message": "无法检测此页面的域名"
   },
@@ -3609,12 +3262,6 @@
   },
   "log_i18n_load_failed": {
     "message": "加载国际化失败。某些功能可能无法正常工作。"
-  },
-  "log_html_sort_oldest_first": {
-    "message": "单击以从最旧开始显示"
-  },
-  "log_html_sort_newest_first": {
-    "message": "单击以从最新开始显示"
   },
   "customRulesEditor_ruleTestLab_close_aria": {
     "message": "关闭规则测试实验室"
@@ -3688,58 +3335,14 @@
   "customRulesEditor_ruleTestLab_value_false": {
     "message": "否"
   },
-  "color_picket_clear": {
-    "message": "清除"
-  },
-  "customRulesAnswer_enforceRules": {
-    "message": "强制执行规则"
-  },
-  "log_stats_chart_type_bar": {
-    "message": "条形图"
-  },
-  "log_stats_chart_type_line": {
-    "message": "折线图"
-  },
-  "log_stats_daily_activity": {
-    "message": "每日活动（最近 14 天）"
-  },
-  "log_stats_date_col": {
-    "message": "日期"
-  },
-  "log_stats_entries_col": {
-    "message": "条目"
-  },
-  "log_stats_no_activity": {
-    "message": "无活动"
-  },
   "clearurls_json_rules_section": {
-    "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori CLN Format 1.0 JSON 规则："
   },
   "clearurls_json_rules_metadata_section": {
-    "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori CLN Format 1.0 JSON 规则信息："
   },
   "linkumoriClearUrlsStatusGroup": {
-    "description": "Group heading for native Linkumori CLN Format 1.0 rule status in the custom rules editor.",
     "message": "Linkumori CLN Format 1.0"
-  },
-  "popup_whitelist_state_permanent": {
-    "message": "白名单：$1 — 再次单击仅选项卡",
-    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
-  },
-  "popup_whitelist_state_temporary": {
-    "message": "仅选项卡：$1 — 单击以删除",
-    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
-  },
-  "logger_nav_label": {
-    "message": "实时记录器"
-  },
-  "logger_btn_pause": {
-    "message": "⏸ 暂停"
-  },
-  "logger_btn_resume": {
-    "message": "▶ 恢复"
   },
   "logger_btn_clear": {
     "message": "🗑 清除"
@@ -3820,28 +3423,22 @@
     "message": "时间戳"
   },
   "linkumori_cname_uncloak_enabled": {
-    "message": "解锁 CNAME 跟踪器",
-    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
+    "message": "解锁 CNAME 跟踪器"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "使用 Firefox 的本地 DNS API 来显示 True Domain",
-    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+    "message": "使用 Firefox 的本地 DNS API 来显示 True Domain"
   },
   "cname_ignore_root_document_enabled": {
-    "message": "忽略根文档主机以进行 CNAME 解密",
-    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+    "message": "忽略根文档主机以进行 CNAME 解密"
   },
   "cname_ignore_root_document_enabled_description": {
-    "message": "当请求主机名与当前文档主机名匹配时，跳过 CNAME DNS 检查。",
-    "description": "Description for the CNAME root document ignore toggle"
+    "message": "当请求主机名与当前文档主机名匹配时，跳过 CNAME DNS 检查。"
   },
   "cname_replay_full_url_enabled": {
-    "message": "在 CNAME 取消隐藏期间重播完整 URL",
-    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+    "message": "在 CNAME 取消隐藏期间重播完整 URL"
   },
   "cname_replay_full_url_enabled_description": {
-    "message": "重播针对 CNAME 主机名的过滤时，包括原始路径、查询和片段。",
-    "description": "Description for the CNAME full URL replay toggle"
+    "message": "重播针对 CNAME 主机名的过滤时，包括原始路径、查询和片段。"
   },
   "customRulesEditor_indexPattern": {
     "message": "指数形态"
@@ -3853,212 +3450,136 @@
     "message": "||example.com^"
   },
   "faq_index_pattern": {
-    "message": "什么是索引模式？",
-    "description": "FAQ question about indexPattern"
+    "message": "什么是索引模式？"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern 是提供程序查找提示，而不是匹配条件。 clearurls.js 从indexPattern 中提取主机名令牌，以将urlPattern 提供程序放入providersByToken 候选存储桶中。仅当provider.matchRequestURL()传递真实的urlPattern并且异常不匹配时，提供者仍然匹配。",
-    "description": "FAQ answer explaining indexPattern"
+    "message": "indexPattern 是提供程序查找提示，而不是匹配条件。 clearurls.js 从indexPattern 中提取主机名令牌，以将urlPattern 提供程序放入providersByToken 候选存储桶中。仅当provider.matchRequestURL()传递真实的urlPattern并且异常不匹配时，提供者仍然匹配。"
   },
   "settings_import_regression_detected": {
-    "message": "检测到回归套件。您想运行回归测试吗？",
-    "description": "Prompt shown when an imported JSON file is a regression suite."
+    "message": "检测到回归套件。您想运行回归测试吗？"
   },
   "settings_import_regression_run_confirm": {
-    "message": "运行回归测试",
-    "description": "Confirm button for launching an imported regression suite."
+    "message": "运行回归测试"
   },
   "regression_page_title": {
-    "message": "林科森回归",
-    "description": "Browser page title for the regression runner."
+    "message": "林科森回归"
   },
   "regression_heading": {
-    "message": "回归测试",
-    "description": "Heading for the regression runner page."
+    "message": "回归测试"
   },
   "regression_run_again": {
-    "message": "再次运行",
-    "description": "Button label to rerun the regression suite."
+    "message": "再次运行"
   },
   "regression_export_results": {
-    "message": "导出结果",
-    "description": "Button label to export regression results."
+    "message": "导出结果"
   },
   "regression_loading_suite": {
-    "message": "正在加载套件...",
-    "description": "Status shown while loading the imported regression suite."
+    "message": "正在加载套件..."
   },
   "regression_no_suite": {
-    "message": "未找到导入的回归套件。",
-    "description": "Status shown when the regression page has no imported suite to run."
+    "message": "未找到导入的回归套件。"
   },
   "regression_summary": {
-    "message": "执行 $2 的 $1。通过：$3。失败：$4。按偏好跳过：$5。",
-    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+    "message": "执行 $2 的 $1。通过：$3。失败：$4。按偏好跳过：$5。"
   },
   "regression_preference_mismatch": {
-    "message": "$1：预期 $2，实际 $3",
-    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+    "message": "$1：预期 $2，实际 $3"
   },
   "regression_expected_label": {
-    "message": "预期的",
-    "description": "Label before the expected regression output."
+    "message": "预期的"
   },
   "regression_actual_label": {
-    "message": "实际的",
-    "description": "Label before the actual regression output."
+    "message": "实际的"
   },
   "regression_running": {
-    "message": "跑步",
-    "description": "Status prefix shown while a regression case is running."
+    "message": "跑步"
   },
   "regression_finished": {
-    "message": "完成的。",
-    "description": "Status shown when the regression run finishes."
+    "message": "完成的。"
   },
   "regression_run_failed": {
-    "message": "运行失败",
-    "description": "Status prefix shown when the regression run fails."
-  },
-  "customRulesEditor_syntaxModeLabel": {
-    "message": "规则布局",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
-  },
-  "customRulesEditor_syntaxLegacy": {
-    "message": "经典数组",
-    "description": "经典 Linkumori-ClearURLs 规则的自定义规则编辑器语法模式标签"
-  },
-  "customRulesEditor_syntaxV3": {
-    "message": "规范对象",
-    "description": "规范 Linkumori-ClearURLs 规则的自定义规则编辑器语法模式标签"
-  },
-  "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs 保留旧的 ClearURLs 字段，并在 rules[] 中添加简单字符串、内联 $removeparam 规则和规范规则对象。",
-    "description": "Linkumori-ClearURLs 规则布局的自定义规则编辑器帮助文本"
-  },
-  "customRulesEditor_syntaxV3Help": {
-    "message": "规范的 Linkumori-ClearURLs 规则在 rules[] 中使用种类 + 动作。旧的 rawRules、referralMarketing 和 redirections 字段仍然有效。",
-    "description": "规范 Linkumori-ClearURLs 规则的自定义规则编辑器帮助文本"
-  },
-  "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "对所有提供商规则使用 linkumori-clearurls-dialect。",
-    "description": "统一 Linkumori-ClearURLs 规则的自定义规则编辑器 JSON 帮助文本"
-  },
-  "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "对提供者 JSON 使用 Linkumori-ClearURLs 方言。新存档包括 syntax: \"linkumori-clearurls-dialect\"。",
-    "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
-  },
-  "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "Linkumori-ClearURLs 保留旧的 ClearURLs 字段，并添加 rules[] 字符串、$removeparam 过滤器以及具有 id、kind、match 和 action 的规范对象。",
-    "description": "统一 Linkumori-ClearURLs 规则的自定义规则编辑器工具栏帮助文本"
+    "message": "运行失败"
   },
   "customRulesEditor_addFieldRule": {
-    "message": "添加字段规则",
-    "description": "Auto-added i18n key: customRulesEditor_addFieldRule"
+    "message": "添加字段规则"
   },
   "customRulesEditor_addRawRule": {
-    "message": "添加原始规则",
-    "description": "Auto-added i18n key: customRulesEditor_addRawRule"
+    "message": "添加原始规则"
   },
   "customRulesEditor_addRedirectRule": {
-    "message": "添加重定向规则",
-    "description": "Auto-added i18n key: customRulesEditor_addRedirectRule"
+    "message": "添加重定向规则"
   },
   "customRulesEditor_v3ProviderFields": {
-    "message": "提供商字段",
-    "description": "统一 Linkumori-ClearURLs 模式下提供商字段的自定义规则编辑器标签"
+    "message": "提供商字段"
   },
   "customRulesEditor_v3RuleTemplates": {
-    "message": "规则模板",
-    "description": "统一 Linkumori-ClearURLs 模式下规则模板的自定义规则编辑器标签"
+    "message": "规则模板"
   },
   "popup_report_issue_button_title": {
-    "message": "报告问题",
-    "description": "Tooltip and aria label for the popup bug report button"
+    "message": "报告问题"
   },
   "reportIssueTitle": {
-    "message": "报告问题",
-    "description": "Title for the report issue page"
+    "message": "报告问题"
   },
   "reportIssueHeader": {
-    "message": "报告问题或提出改进建议",
-    "description": "Header for the report issue page"
+    "message": "报告问题或提出改进建议"
   },
   "reportIssueDescription": {
-    "message": "发现 URL 清理问题或有建议？提交报告帮助我们改进 Linkumori。",
-    "description": "Introductory text for the report issue page"
+    "message": "发现 URL 清理问题或有建议？提交报告帮助我们改进 Linkumori。"
   },
   "findExistingButton": {
-    "message": "查找现有问题",
-    "description": "Button label for searching existing GitHub issues"
+    "message": "查找现有问题"
   },
   "beforeReporting": {
-    "message": "报告之前，请检查您的问题是否已被报告：",
-    "description": "Text shown before the existing issue search consent"
+    "message": "报告之前，请检查您的问题是否已被报告："
   },
   "issueTypeLabel": {
-    "message": "问题类型：",
-    "description": "Label for report issue type selector"
+    "message": "问题类型："
   },
   "issueTypeSelect": {
-    "message": "选择问题类型...",
-    "description": "Placeholder option for report issue type selector"
+    "message": "选择问题类型..."
   },
   "issueTypeTrackingNotRemoved": {
-    "message": "跟踪参数未删除",
-    "description": "Report issue type option"
+    "message": "跟踪参数未删除"
   },
   "issueTypeUrlBroken": {
-    "message": "清理后网址损坏",
-    "description": "Report issue type option"
+    "message": "清理后网址损坏"
   },
   "issueTypeFalsePositive": {
-    "message": "误报（不必要的清洁）",
-    "description": "Report issue type option"
+    "message": "误报（不必要的清洁）"
   },
   "issueTypePerformance": {
-    "message": "性能问题",
-    "description": "Report issue type option"
+    "message": "性能问题"
   },
   "issueTypeUi": {
-    "message": "用户界面/显示问题",
-    "description": "Report issue type option"
+    "message": "用户界面/显示问题"
   },
   "issueTypeFeatureRequest": {
-    "message": "功能请求",
-    "description": "Report issue type option"
+    "message": "功能请求"
   },
   "issueTypeRuleSuggestion": {
-    "message": "规则建议",
-    "description": "Report issue type option"
+    "message": "规则建议"
   },
   "urlLabel": {
-    "message": "出现问题的网址：",
-    "description": "Label for report URL selector"
+    "message": "出现问题的网址："
   },
   "customUrlPlaceholder": {
-    "message": "https://example.com",
-    "description": "Placeholder for custom report URL input"
+    "message": "https://example.com"
   },
   "enterCustomUrl": {
-    "message": "输入自定义网址",
-    "description": "Option label for custom report URL entry"
+    "message": "输入自定义网址"
   },
   "nsfwLabel": {
-    "message": "页面包含成人内容 (NSFW)",
-    "description": "Report form NSFW checkbox label"
+    "message": "页面包含成人内容 (NSFW)"
   },
   "additionalInfoLabel": {
-    "message": "附加信息：",
-    "description": "Label for report additional information textarea"
+    "message": "附加信息："
   },
   "additionalInfoPlaceholder": {
-    "message": "请提供有关该问题的任何其他详细信息或评论...",
-    "description": "Placeholder for report additional information textarea"
+    "message": "请提供有关该问题的任何其他详细信息或评论..."
   },
   "consentMessage": {
     "message": "我了解，单击“在 GitHub 上报告”将构建一个 GitHub URL，其中包含我输入的信息和我在下面选择的配置部分，然后将我重定向到该 URL。此扩展不直接传输任何数据。该扩展程序会在打开之前向我显示完整的 URL，我可以准确查看将包含哪些信息。一旦重定向到 GitHub，我将完全控制提交预先填写的问题表单或取消而不提交任何内容。我了解访问 GitHub 会使我受到 $privacy_link$ 的约束。创建问题需要 GitHub 帐户，一旦您选择继续并重定向到 GitHub，您的活动将受到 $privacy_statement$ 和 $terms_service$ 的约束。使用预先填写的信息重定向后，您保留完全控制权，并可以选择是否在我们的存储库 $repo_link$ 上提交或取消问题创建。即使您取消问题创建，由于您与其平台的交互，GitHub 仍可能根据其隐私政策收集数据。如果您继续提交问题，您提交的信息（包括任何其他评论）将可供公开访问。这是因为存储库是公共的，使用 GitHub 或相关服务的任何人都可以看到任何报告的问题。",
-    "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
         "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
@@ -4075,40 +3596,31 @@
     }
   },
   "reportOnGitHub": {
-    "message": "在 GitHub 上报告",
-    "description": "Submit report button label"
+    "message": "在 GitHub 上报告"
   },
   "configInformation": {
-    "message": "配置信息",
-    "description": "Summary label for report configuration details"
+    "message": "配置信息"
   },
   "report_share_extension_info": {
-    "message": "扩展程序和浏览器详细信息",
-    "description": "Checkbox label for sharing extension and browser details in a report"
+    "message": "扩展程序和浏览器详细信息"
   },
   "report_share_settings_info": {
-    "message": "保护设置",
-    "description": "Checkbox label for sharing protection settings in a report"
+    "message": "保护设置"
   },
   "report_share_whitelist_info": {
-    "message": "白名单域",
-    "description": "Checkbox label for sharing whitelisted domains in a report"
+    "message": "白名单域"
   },
   "report_share_custom_rules_info": {
-    "message": "自定义规则",
-    "description": "Checkbox label for sharing custom rules in a report"
+    "message": "自定义规则"
   },
   "report_share_disabled_rules_info": {
-    "message": "禁用的规则和提供程序",
-    "description": "Checkbox label for sharing disabled rules and providers in a report"
+    "message": "禁用的规则和提供程序"
   },
   "report_no_config_shared": {
-    "message": "未选择配置信息。",
-    "description": "Report configuration preview text when no configuration sections are selected"
+    "message": "未选择配置信息。"
   },
   "findExistingConsentMessage": {
     "message": "据我了解，单击“查找现有问题”将使用我输入的域名和问题详细信息构建 GitHub 搜索 URL，然后将我重定向到该 URL。此扩展不直接传输任何数据。该扩展程序将在打开之前向我显示完整的搜索 URL，以便我可以查看将使用哪些搜索词。一旦重定向到 GitHub，我将受到 $link$ 和 $terms_service$ 的约束。",
-    "description": "Consent text shown before opening GitHub issue search",
     "placeholders": {
       "link": {
         "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
@@ -4119,68 +3631,52 @@
     }
   },
   "urlPreviewTitle": {
-    "message": "网址预览",
-    "description": "Title for URL preview dialog"
+    "message": "网址预览"
   },
   "urlPreviewWarning": {
-    "message": "请检查将打开的 URL。此 URL 包含您输入的信息并将您重定向到 GitHub。",
-    "description": "Warning about URL contents and redirection"
+    "message": "请检查将打开的 URL。此 URL 包含您输入的信息并将您重定向到 GitHub。"
   },
   "urlPreviewPrivacyNoticeTitle": {
-    "message": "隐私政策通知",
-    "description": "Title for privacy notice in URL preview dialog"
+    "message": "隐私政策通知"
   },
   "urlPreviewPrivacyNoticeLocalOnly": {
-    "message": "Linkumori 在您的浏览器本地创建此 URL。创建此 URL 时，Linkumori 不会直接将数据从您或您的浏览器传输到 GitHub 或任何其他服务器。",
-    "description": "Privacy notice explaining local-only URL construction"
+    "message": "Linkumori 在您的浏览器本地创建此 URL。创建此 URL 时，Linkumori 不会直接将数据从您或您的浏览器传输到 GitHub 或任何其他服务器。"
   },
   "urlPreviewPrivacyNoticeBrowserNavigation": {
-    "message": "如果您选择“打开 GitHub”，则表示您选择让浏览器打开显示的 URL。该浏览器导航可能会将 URL 及其查询参数发送到 GitHub。",
-    "description": "Privacy notice explaining browser navigation after user proceeds"
+    "message": "如果您选择“打开 GitHub”，则表示您选择让浏览器打开显示的 URL。该浏览器导航可能会将 URL 及其查询参数发送到 GitHub。"
   },
   "urlPreviewPrivacyNoticeIssueContents": {
-    "message": "对于问题创建，URL 可以包括问题类型、选定的问题 URL、清理的 URL、NSFW 标记、注释和选定的配置部分。",
-    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+    "message": "对于问题创建，URL 可以包括问题类型、选定的问题 URL、清理的 URL、NSFW 标记、注释和选定的配置部分。"
   },
   "urlPreviewPrivacyNoticeSearchContents": {
-    "message": "对于问题搜索，URL 可能包括选定的主机名、域、问题类型和 NSFW 搜索词（如果选择）。",
-    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+    "message": "对于问题搜索，URL 可能包括选定的主机名、域、问题类型和 NSFW 搜索词（如果选择）。"
   },
   "urlPreviewPrivacyNoticeNoEndorsement": {
-    "message": "Linkumori 不认可 GitHub。 Linkumori 不知道、验证或保证 GitHub 是否遵守您当地的隐私、数据保护或其他适用法律。",
-    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+    "message": "Linkumori 不认可 GitHub。 Linkumori 不知道、验证或保证 GitHub 是否遵守您当地的隐私、数据保护或其他适用法律。"
   },
   "urlPreviewPrivacyNoticeReview": {
-    "message": "在继续之前查看完整的 URL。如果您不希望浏览器打开 GitHub，请取消。",
-    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
+    "message": "在继续之前查看完整的 URL。如果您不希望浏览器打开 GitHub，请取消。"
   },
   "urlPreviewEncodedUrl": {
-    "message": "要打开的URL（技术格式）：",
-    "description": "Label for encoded URL display"
+    "message": "要打开的URL（技术格式）："
   },
   "urlPreviewShowDecoded": {
-    "message": "显示可读格式（解码后的 URL）",
-    "description": "Label for decoded URL toggle button"
+    "message": "显示可读格式（解码后的 URL）"
   },
   "urlPreviewCopy": {
-    "message": "复制网址",
-    "description": "Label for copy URL button"
+    "message": "复制网址"
   },
   "urlPreviewCopied": {
-    "message": "复制了！",
-    "description": "Confirmation message after copying URL"
+    "message": "复制了！"
   },
   "urlPreviewCancelButton": {
-    "message": "取消",
-    "description": "Label for cancel button in URL preview"
+    "message": "取消"
   },
   "urlPreviewProceedButton": {
-    "message": "打开 GitHub",
-    "description": "Label for proceed button in URL preview"
+    "message": "打开 GitHub"
   },
   "urlPreviewSecurityNotice": {
     "message": "此 URL 会将您重定向到 GitHub。一旦重定向，您的数据将受到 $link$ 的约束。",
-    "description": "Security notice in URL preview dialog",
     "placeholders": {
       "link": {
         "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
@@ -4188,1075 +3684,2779 @@
     }
   },
   "consentRequired": {
-    "message": "请选中同意复选框以继续。",
-    "description": "Error message when consent is not given"
+    "message": "请选中同意复选框以继续。"
   },
   "findExistingConsentRequired": {
-    "message": "请勾选同意框，确认您了解您的数据将如何使用。",
-    "description": "Error message when existing issue search consent is not given"
+    "message": "请勾选同意框，确认您了解您的数据将如何使用。"
   },
   "issueTypeRequired": {
-    "message": "请选择问题类型。",
-    "description": "Error message when issue type is not selected"
+    "message": "请选择问题类型。"
   },
   "urlRequired": {
-    "message": "请提供一个网址。",
-    "description": "Error message when URL is missing"
+    "message": "请提供一个网址。"
   },
   "urlInvalid": {
-    "message": "请输入有效的网址。",
-    "description": "Error message when URL is invalid"
+    "message": "请输入有效的网址。"
   },
   "errorCreatingIssue": {
-    "message": "创建 GitHub 问题时出错：",
-    "description": "Error message prefix when GitHub issue URL creation fails"
+    "message": "创建 GitHub 问题时出错："
   },
   "errorFindingIssues": {
-    "message": "发现现有问题时出错：",
-    "description": "Error message prefix when searching for existing issues fails"
+    "message": "发现现有问题时出错："
   },
   "report_browser_api_unavailable": {
-    "message": "浏览器 API 不可用。该页面必须作为浏览器扩展加载。",
-    "description": "Report page error when extension APIs are unavailable"
+    "message": "浏览器 API 不可用。该页面必须作为浏览器扩展加载。"
   },
   "report_config_error": {
-    "message": "检索配置数据时出错：",
-    "description": "Report page configuration retrieval error prefix"
+    "message": "检索配置数据时出错："
   },
   "providerImport_disable": {
-    "message": "禁用",
-    "description": "用于禁用提供商规则 ID 的按钮标签"
+    "message": "禁用"
   },
   "providerImport_providerRuleIds": {
-    "message": "提供商规则 ID",
-    "description": "禁用的 ClearURLs 提供商规则 ID 的部分标题"
+    "message": "提供商规则 ID"
   },
   "providerImport_ruleIdControls": {
-    "message": "提供商规则 ID 控制",
-    "description": "提供程序编辑器中规则 ID 禁用控件的工具栏标题"
+    "message": "提供商规则 ID 控制"
   },
   "providerImport_ruleIdControlsHelp": {
-    "message": "禁用规范提供程序规则 ID，而不删除它们。存储的 id 使用 provider::rule 身份。",
-    "description": "提供程序规则 ID 禁用控件的帮助文本"
+    "message": "禁用规范提供程序规则 ID，而不删除它们。存储的 id 使用 provider::rule 身份。"
   },
   "providerImport_ruleActivation": {
-    "message": "规则激活",
-    "description": "活动提供商规则激活切换的部分标题"
+    "message": "规则激活"
   },
   "providerImport_noRuleIds": {
-    "message": "在此提供程序中尚未找到规范规则 ID。",
-    "description": "提供者规则 ID 控件的空状态"
+    "message": "在此提供程序中尚未找到规范规则 ID。"
   },
   "providerImport_ruleIdsRequireValidJson": {
-    "message": "一旦提供者 JSON 有效，规则 ID 控制就可用。",
-    "description": "提供程序规则 ID 控件的 JSON 状态无效"
+    "message": "一旦提供者 JSON 有效，规则 ID 控制就可用。"
   },
   "guide_page_title": {
-    "message": "Linkumori — 规则指南",
-    "description": "Guide page text."
+    "message": "Linkumori — 规则指南"
   },
   "guide_toc_label": {
-    "message": "目录",
-    "description": "Guide page text."
+    "message": "目录"
   },
   "guide_title": {
-    "message": "编写 Linkumori 规则",
-    "description": "Guide page text."
-  },
-  "guide_intro_1": {
-    "message": "Linkumori 使用规则来清理 URL。本指南将向您展示如何编写规则，从第一条规则到所有选项，并提供可复制的示例。",
-    "description": "Guide page text."
-  },
-  "guide_intro_2": {
-    "message": "规则采用 JSON 格式。您在自定义规则编辑器中编写它们，编辑器会在您保存时进行检查。内置规则列表和远程规则列表使用相同的格式。",
-    "description": "Guide page text."
+    "message": "编写 Linkumori 规则"
   },
   "guide_file_title": {
-    "message": "1. 规则文件",
-    "description": "Guide page text."
+    "message": "1. 规则文件"
   },
   "guide_file_p1": {
-    "message": "规则文件是一个 JSON 对象。其 <code>providers</code> 对象将您自定义的名称映射到一个提供者：",
-    "description": "Guide page text."
+    "message": "规则文件是一个 JSON 对象。其 <code>providers</code> 对象将您自定义的名称映射到一个提供者："
   },
   "guide_file_p2": {
-    "message": "提供者定义它处理哪些 URL 以及如何处理。这个提供者会删除 <code>example.com</code> 及其子域名下每个 URL 中的 <code>utm_source</code> 和 <code>utm_medium</code>：",
-    "description": "Guide page text."
-  },
-  "guide_file_p3": {
-    "message": "名称仅作为标签。提供者处理哪些 URL 由 <code>domainPatterns</code> 或 <code>urlPattern</code> 决定。",
-    "description": "Guide page text."
+    "message": "提供者定义它处理哪些 URL 以及如何处理。这个提供者会删除 <code>example.com</code> 及其子域名下每个 URL 中的 <code>utm_source</code> 和 <code>utm_medium</code>："
   },
   "guide_fields_title": {
-    "message": "2. 提供者字段",
-    "description": "Guide page text."
+    "message": "2. 提供者字段"
   },
   "guide_th_field": {
-    "message": "字段",
-    "description": "Guide page text."
+    "message": "字段"
   },
   "guide_th_meaning": {
-    "message": "功能描述",
-    "description": "Guide page text."
-  },
-  "guide_field_domainpatterns": {
-    "message": "提供者处理哪些 URL，以域名模式形式定义（第 3 章）。使用此项或 <code>urlPattern</code>，不可两者同时使用。",
-    "description": "Guide page text."
-  },
-  "guide_field_urlpattern": {
-    "message": "提供者处理哪些 URL，以针对完整 URL 匹配的正则表达式形式定义。忽略大小写。",
-    "description": "Guide page text."
-  },
-  "guide_field_indexpattern": {
-    "message": "仅配合 <code>urlPattern</code> 使用：主机提示，例如 <code>||example.com^</code>，这样提供者仅针对这些主机进行检查。如果不设置，提供者将针对每个 URL 进行检查。",
-    "description": "Guide page text."
+    "message": "功能描述"
   },
   "guide_field_rules": {
-    "message": "要移除的参数（第 4 章和第 5 章）。",
-    "description": "Guide page text."
-  },
-  "guide_field_referral": {
-    "message": "要移除的推荐和联盟参数。当 <em>允许引荐营销</em> 开启时，这些参数将被跳过（第 10 章）。",
-    "description": "Guide page text."
+    "message": "要移除的参数（第 4 章和第 5 章）。"
   },
   "guide_field_rawrules": {
-    "message": "在完整 URL 上运行的正则表达式；每个匹配项都将被删除（第 6 章）。",
-    "description": "Guide page text."
-  },
-  "guide_field_exceptions": {
-    "message": "提供者不处理的 URL（第 7 章）。",
-    "description": "Guide page text."
-  },
-  "guide_field_redirections": {
-    "message": "改为将请求发送到何处（第 8 章）。",
-    "description": "Guide page text."
-  },
-  "guide_field_fieldredirections": {
-    "message": "重定向到某个参数的值（第 8 章）。",
-    "description": "Guide page text."
+    "message": "在完整 URL 上运行的正则表达式；每个匹配项都将被删除（第 6 章）。"
   },
   "guide_field_completeprovider": {
-    "message": "当 <em>允许域名屏蔽</em> 开启时，<code>true</code> 会拦截提供者匹配的所有请求。",
-    "description": "Guide page text."
-  },
-  "guide_field_forceredirection": {
-    "message": "<code>true</code>：当页面本身被重定向时，标签页将打开新地址。",
-    "description": "Guide page text."
-  },
-  "guide_field_methods": {
-    "message": "仅处理这些 HTTP 方法，例如 <code>[\"GET\"]</code>。默认：全部。",
-    "description": "Guide page text."
-  },
-  "guide_field_resourcetypes": {
-    "message": "仅处理这些请求类型，例如 <code>[\"main_frame\"]</code>。默认：所有请求类型。",
-    "description": "Guide page text."
-  },
-  "guide_field_history": {
-    "message": "当页面通过 History API 更改自身地址时，<code>false</code> 会跳过该提供者。",
-    "description": "Guide page text."
-  },
-  "guide_field_active": {
-    "message": "<code>false</code> 将提供者关闭。",
-    "description": "Guide page text."
+    "message": "当 <em>允许域名屏蔽</em> 开启时，<code>true</code> 会拦截提供者匹配的所有请求。"
   },
   "guide_match_title": {
-    "message": "3. 提供者处理哪些 URL",
-    "description": "Guide page text."
-  },
-  "guide_match_p1": {
-    "message": "<code>domainPatterns</code> 是一个域名模式列表。如果其中任何一个匹配，则 URL 匹配：",
-    "description": "Guide page text."
+    "message": "3. 提供者处理哪些 URL"
   },
   "guide_th_pattern": {
-    "message": "模式",
-    "description": "Guide page text."
+    "message": "模式"
   },
   "guide_th_matches": {
-    "message": "匹配",
-    "description": "Guide page text."
+    "message": "匹配"
   },
   "guide_pat_domain": {
-    "message": "<code>example.com</code> 及其所有子域名",
-    "description": "Guide page text."
+    "message": "<code>example.com</code> 及其所有子域名"
   },
   "guide_pat_anysuffix": {
-    "message": "任何公共后缀上的 <code>example</code> (<code>example.de</code>, <code>example.co.uk</code>, …)",
-    "description": "Guide page text."
+    "message": "任何公共后缀上的 <code>example</code> (<code>example.de</code>, <code>example.co.uk</code>, …)"
   },
   "guide_pat_path": {
-    "message": "当路径以 <code>/path</code> 开始时，匹配该主机及其子域名",
-    "description": "Guide page text."
+    "message": "当路径以 <code>/path</code> 开始时，匹配该主机及其子域名"
   },
   "guide_pat_star": {
-    "message": "与 <code>||example.com^</code> 相同",
-    "description": "Guide page text."
+    "message": "与 <code>||example.com^</code> 相同"
   },
   "guide_pat_start": {
-    "message": "恰好以此文本开头的 URL",
-    "description": "Guide page text."
+    "message": "恰好以此文本开头的 URL"
   },
   "guide_pat_end": {
-    "message": "恰好以此文本结尾的 URL",
-    "description": "Guide page text."
-  },
-  "guide_pat_regex": {
-    "message": "完整的 URL，作为正则表达式（除非您添加 <code>i</code>，否则区分大小写）",
-    "description": "Guide page text."
-  },
-  "guide_pat_contains": {
-    "message": "任何位置包含此文本的 URL",
-    "description": "Guide page text."
+    "message": "恰好以此文本结尾的 URL"
   },
   "guide_pat_all": {
-    "message": "所有 URL",
-    "description": "Guide page text."
-  },
-  "guide_match_p2": {
-    "message": "<code>^</code> 标记主机名的结尾，或像 <code>/</code>, <code>?</code> 或 <code>:</code> 这样的分隔符。<code>*</code> 匹配任何内容。除 <code>/regex/</code> 之外，模式不区分大小写。",
-    "description": "Guide page text."
-  },
-  "guide_match_p3": {
-    "message": "<code>||</code> 代表一个域名，而单个 <code>|</code> 代表 URL 的最开始，且必须后接像 <code>https://</code> 这样的协议。<code>|example.com^</code> 永远无法匹配，因此编辑器会将其拒绝。",
-    "description": "Guide page text."
+    "message": "所有 URL"
   },
   "guide_match_p4": {
-    "message": "若要改为使用正则表达式匹配，请使用 <code>urlPattern</code>，并添加 <code>indexPattern</code> 以使提供者仅在这些主机上被检查：",
-    "description": "Guide page text."
+    "message": "若要改为使用正则表达式匹配，请使用 <code>urlPattern</code>，并添加 <code>indexPattern</code> 以使提供者仅在这些主机上被检查："
   },
   "guide_match_p5": {
-    "message": "一个提供者拥有 <code>domainPatterns</code> 或 <code>urlPattern</code>，绝不会同时拥有。如果您需要两种匹配方式，请创建两个提供者。",
-    "description": "Guide page text."
+    "message": "一个提供者拥有 <code>domainPatterns</code> 或 <code>urlPattern</code>，绝不会同时拥有。如果您需要两种匹配方式，请创建两个提供者。"
   },
   "guide_rules_title": {
-    "message": "4. 移除参数",
-    "description": "Guide page text."
+    "message": "4. 移除参数"
   },
   "guide_rules_p1": {
-    "message": "<code>rules</code> 中的每个条目都会从查询 (<code>?a=1</code>) 和片段 (<code>#a=1</code>) 中移除参数。条目可以是以下之一：",
-    "description": "Guide page text."
+    "message": "<code>rules</code> 中的每个条目都会从查询 (<code>?a=1</code>) 和片段 (<code>#a=1</code>) 中移除参数。条目可以是以下之一："
   },
   "guide_th_entry": {
-    "message": "条目",
-    "description": "Guide page text."
+    "message": "条目"
   },
   "guide_th_example": {
-    "message": "示例",
-    "description": "Guide page text."
+    "message": "示例"
   },
   "guide_th_removes": {
-    "message": "移除",
-    "description": "Guide page text."
+    "message": "移除"
   },
   "guide_rules_name": {
-    "message": "参数名称",
-    "description": "Guide page text."
+    "message": "参数名称"
   },
   "guide_rules_regex": {
-    "message": "名称正则表达式",
-    "description": "Guide page text."
-  },
-  "guide_rules_regex_removes": {
-    "message": "所有完整名称匹配的参数；系统会为您添加 <code>^…$</code>，且忽略大小写",
-    "description": "Guide page text."
+    "message": "名称正则表达式"
   },
   "guide_rules_filter": {
-    "message": "一个 <code>$removeparam</code> 过滤器",
-    "description": "Guide page text."
+    "message": "一个 <code>$removeparam</code> 过滤器"
   },
   "guide_rules_filter_removes": {
-    "message": "参见第 5 章",
-    "description": "Guide page text."
-  },
-  "guide_rules_p2": {
-    "message": "<code>\"fbclid\"</code> 和 <code>\"$removeparam=fbclid\"</code> 移除的内容相同。除非您需要第 5 章中的功能，否则请使用纯名称。",
-    "description": "Guide page text."
+    "message": "参见第 5 章"
   },
   "guide_rules_part_title": {
-    "message": "提供者部分规则",
-    "description": "Guide page text."
+    "message": "提供者部分规则"
   },
   "guide_rules_p3": {
-    "message": "纯名称适用于提供者匹配的每个 URL。若要仅在其中一部分 URL 上移除参数，请在 <code>$removeparam</code> 过滤器前放置一个模式：",
-    "description": "Guide page text."
-  },
-  "guide_rules_p4": {
-    "message": "这里 <code>qid</code> 在每个 Amazon 站点上都被移除，<code>tag</code> 仅在 <code>amazon.de</code> 上移除，<code>sr</code> 仅在 <code>smile.amazon</code> 上移除，而 <code>ref_</code> 仅在 <code>/gp/</code> 下移除。该模式会缩小提供者自身的模式范围；它不能扩大范围。",
-    "description": "Guide page text."
+    "message": "纯名称适用于提供者匹配的每个 URL。若要仅在其中一部分 URL 上移除参数，请在 <code>$removeparam</code> 过滤器前放置一个模式："
   },
   "guide_rp_title": {
-    "message": "5. $removeparam 过滤器",
-    "description": "Guide page text."
+    "message": "5. $removeparam 过滤器"
   },
   "guide_rp_p1": {
-    "message": "一个 <code>$removeparam</code> 过滤器具有这种形式；括号中的部分是可选的：",
-    "description": "Guide page text."
+    "message": "一个 <code>$removeparam</code> 过滤器具有这种形式；括号中的部分是可选的："
   },
   "guide_rp_value_title": {
-    "message": "值",
-    "description": "Guide page text."
+    "message": "值"
   },
   "guide_rp_p2": {
-    "message": "值的第一个字符决定了它的含义：",
-    "description": "Guide page text."
+    "message": "值的第一个字符决定了它的含义："
   },
   "guide_th_filter": {
-    "message": "过滤器",
-    "description": "Guide page text."
+    "message": "过滤器"
   },
   "guide_rp_v_all": {
-    "message": "每个参数",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_except": {
-    "message": "除 <code>ref</code> 以外的每个参数（同样适用于 <code>~/regex/</code> 和 <code>~|prefix</code>）",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_regex": {
-    "message": "其名称或 <code>name=value</code> 符合正则表达式的参数；除非添加 <code>i</code>，否则区分大小写",
-    "description": "Guide page text."
-  },
-  "guide_rp_v_prefix": {
-    "message": "名称以 <code>utm_</code> 开头的参数；忽略大小写",
-    "description": "Guide page text."
+    "message": "每个参数"
   },
   "guide_rp_v_name": {
-    "message": "正是该参数；除非添加 <code>match-case</code>，否则忽略大小写",
-    "description": "Guide page text."
-  },
-  "guide_rp_options_title": {
-    "message": "选项",
-    "description": "Guide page text."
-  },
-  "guide_rp_p3": {
-    "message": "选项位于值之后，用逗号分隔。使用 <code>|</code> 分隔一个选项的多个值，并在值前面加上 <code>~</code> 以将其排除：",
-    "description": "Guide page text."
-  },
-  "guide_th_option": {
-    "message": "选项",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_domain": {
-    "message": "仅在来自这些域名的页面上",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_to": {
-    "message": "仅针对发往这些域名的请求",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_method": {
-    "message": "仅针对这些 HTTP 方法",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_party": {
-    "message": "仅适用于与页面相同站点的请求，或仅适用于其他站点",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_strict": {
-    "message": "相同，但比较的是精确的主机而非站点",
-    "description": "Guide page text."
+    "message": "正是该参数；除非添加 <code>match-case</code>，否则忽略大小写"
   },
   "guide_rp_o_types": {
-    "message": "仅适用于这些请求类型；<code>~type</code> 将排除其中一个",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_matchcase": {
-    "message": "参数名称区分大小写",
-    "description": "Guide page text."
-  },
-  "guide_rp_o_history": {
-    "message": "当页面通过 History API 更改其自身地址时，跳过此过滤器",
-    "description": "Guide page text."
-  },
-  "guide_rp_p4": {
-    "message": "每个选项只有一种拼写方式。矛盾的选项（如 <code>first-party,third-party</code>）将被拒绝。",
-    "description": "Guide page text."
+    "message": "仅适用于这些请求类型；<code>~type</code> 将排除其中一个"
   },
   "guide_rp_keep_title": {
-    "message": "使用 @@ 保留参数",
-    "description": "Guide page text."
+    "message": "使用 @@ 保留参数"
   },
   "guide_rp_p5": {
-    "message": "以 <code>@@</code> 开头的过滤器会保留参数而不是将其删除。在此示例中，<code>ref</code> 在除 GitHub 以外的所有地方都被删除：",
-    "description": "Guide page text."
-  },
-  "guide_rp_p6": {
-    "message": "即使由另一个提供者处理，<code>@@</code> 过滤器也涵盖由匹配此提供者的页面发出的请求。",
-    "description": "Guide page text."
+    "message": "以 <code>@@</code> 开头的过滤器会保留参数而不是将其删除。在此示例中，<code>ref</code> 在除 GitHub 以外的所有地方都被删除："
   },
   "guide_raw_title": {
-    "message": "6. 原始规则",
-    "description": "Guide page text."
+    "message": "6. 原始规则"
   },
   "guide_raw_p1": {
-    "message": "原始规则是对完整 URL 运行的正则表达式；每个匹配项都会被删除。请将其用于非 <code>name=value</code> 参数的文本，例如 Amazon 的 <code>/ref=…</code> 路径段：",
-    "description": "Guide page text."
-  },
-  "guide_raw_p2": {
-    "message": "原始规则忽略大小写并替换每个匹配项。在 JSON 中，请将每个反斜杠写两次。",
-    "description": "Guide page text."
+    "message": "原始规则是对完整 URL 运行的正则表达式；每个匹配项都会被删除。请将其用于非 <code>name=value</code> 参数的文本，例如 Amazon 的 <code>/ref=…</code> 路径段："
   },
   "guide_raw_scope_title": {
-    "message": "仅在某些 URL 上",
-    "description": "Guide page text."
-  },
-  "guide_raw_p3": {
-    "message": "原始规则可以采用 <code>$removeparam</code> 过滤器的模式和选项，且 <code>rawrule=</code> 在最后。<code>rawrule=</code> 之后的所有内容均为正则表达式：",
-    "description": "Guide page text."
-  },
-  "guide_raw_p4": {
-    "message": "模式和选项决定规则在何处运行；正则表达式仍然是被删除的内容。<code>match-case</code> 使其区分大小写。",
-    "description": "Guide page text."
+    "message": "仅在某些 URL 上"
   },
   "guide_raw_stop_title": {
-    "message": "在某些 URL 上停止原始规则",
-    "description": "Guide page text."
-  },
-  "guide_raw_p5": {
-    "message": "以 <code>@@</code> 开头的条目会在其模式匹配时阻止原始规则运行。为原始规则提供 <code>id</code> 并使用 <code>targetId</code> 为其命名：",
-    "description": "Guide page text."
-  },
-  "guide_raw_p6": {
-    "message": "如果 <code>rawrule=</code> 之后没有任何内容且没有 <code>targetId</code>，该条目将停止提供者在这些 URL 上的所有原始规则。要跳过整个提供者，请改用 <code>exceptions</code>。",
-    "description": "Guide page text."
+    "message": "在某些 URL 上停止原始规则"
   },
   "guide_exc_title": {
-    "message": "7. 例外",
-    "description": "Guide page text."
-  },
-  "guide_exc_p1": {
-    "message": "如果 URL 匹配 <code>exceptions</code> 中的条目，则提供者的任何规则都不会运行。条目是一个正则表达式，或者是以 <code>|</code> 开头的域名模式：",
-    "description": "Guide page text."
-  },
-  "guide_exc_p2": {
-    "message": "例外不区分大小写。",
-    "description": "Guide page text."
+    "message": "7. 例外"
   },
   "guide_redir_title": {
-    "message": "8. 重定向",
-    "description": "Guide page text."
+    "message": "8. 重定向"
   },
   "guide_redir_p1": {
-    "message": "重定向规则通过直接跳转到真实目的地来跳过跟踪页面。它们仅在 <em>启用第三方重定向绕过</em> 开启时运行。",
-    "description": "Guide page text."
+    "message": "重定向规则通过直接跳转到真实目的地来跳过跟踪页面。它们仅在 <em>启用第三方重定向绕过</em> 开启时运行。"
   },
   "guide_redir_regex_title": {
-    "message": "重定向到 URL 的一部分",
-    "description": "Guide page text."
+    "message": "重定向到 URL 的一部分"
   },
   "guide_redir_p2": {
-    "message": "<code>redirections</code> 中的条目是一个具有且仅有一个捕获组 <code>( … )</code> 的正则表达式。请求将发送到该组捕获的内容（经过 URL 解码）。将任何其他组写为 <code>(?: … )</code>：",
-    "description": "Guide page text."
+    "message": "<code>redirections</code> 中的条目是一个具有且仅有一个捕获组 <code>( … )</code> 的正则表达式。请求将发送到该组捕获的内容（经过 URL 解码）。将任何其他组写为 <code>(?: … )</code>："
   },
   "guide_redir_fixed_title": {
-    "message": "重定向到固定地址",
-    "description": "Guide page text."
+    "message": "重定向到固定地址"
   },
   "guide_redir_p3": {
-    "message": "以 <code>|</code> 开头的条目将所有匹配的 URL 发送到一个地址：",
-    "description": "Guide page text."
+    "message": "以 <code>|</code> 开头的条目将所有匹配的 URL 发送到一个地址："
   },
   "guide_redir_field_title": {
-    "message": "重定向到参数值",
-    "description": "Guide page text."
+    "message": "重定向到参数值"
   },
   "guide_redir_p4": {
-    "message": "<code>fieldRedirections</code> 指定包含目的地的参数名称，因此不需要正则表达式。它接受与 <code>rules</code> 相同的条目：",
-    "description": "Guide page text."
-  },
-  "guide_redir_p5": {
-    "message": "第一个匹配且有值的参数将生效。重定向会停止该请求的所有其他处理。",
-    "description": "Guide page text."
+    "message": "<code>fieldRedirections</code> 指定包含目的地的参数名称，因此不需要正则表达式。它接受与 <code>rules</code> 相同的条目："
   },
   "guide_obj_title": {
-    "message": "9. 规则对象",
-    "description": "Guide page text."
-  },
-  "guide_obj_p1": {
-    "message": "任何条目都可以是对象而不是字符串。当规则需要 ID、应在关闭状态下启动、应执行重写而非删除，或仅在某些情况下运行的时候，请使用对象：",
-    "description": "Guide page text."
+    "message": "9. 规则对象"
   },
   "guide_th_key": {
-    "message": "键",
-    "description": "Guide page text."
-  },
-  "guide_key_matchpattern": {
-    "message": "您将作为普通条目编写的文本",
-    "description": "Guide page text."
-  },
-  "guide_key_id": {
-    "message": "用于开启和关闭规则的稳定名称 (<code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>)",
-    "description": "Guide page text."
-  },
-  "guide_key_aliases": {
-    "message": "规则之前的 ID，以便在重命名后，您关闭的规则依然保持关闭状态",
-    "description": "Guide page text."
-  },
-  "guide_key_replacepattern": {
-    "message": "重写而非删除；<code>§1§</code>, <code>§2§</code>, … 是捕获的值",
-    "description": "Guide page text."
-  },
-  "guide_key_preprocessors": {
-    "message": "先更改捕获的值",
-    "description": "Guide page text."
-  },
-  "guide_key_requesttypes": {
-    "message": "仅适用于这些请求类型，例如 <code>[\"main_frame\"]</code>",
-    "description": "Guide page text."
-  },
-  "guide_key_exceptions": {
-    "message": "此规则不运行的 URL",
-    "description": "Guide page text."
-  },
-  "guide_key_flags": {
-    "message": "正则表达式标志，以字符串形式表示 (默认 <code>i</code>；<code>rawRules</code> 中的 <code>gi</code>)",
-    "description": "Guide page text."
-  },
-  "guide_key_order": {
-    "message": "提前或延后运行规则",
-    "description": "Guide page text."
-  },
-  "guide_key_referral": {
-    "message": "<code>true</code>：<code>rules</code> 中的规则被视为推荐营销规则",
-    "description": "Guide page text."
-  },
-  "guide_key_history": {
-    "message": "<code>false</code>：当页面使用 History API 更改其自身地址时，跳过此规则",
-    "description": "Guide page text."
-  },
-  "guide_key_active": {
-    "message": "<code>false</code>：规则初始状态为关闭",
-    "description": "Guide page text."
-  },
-  "guide_key_description": {
-    "message": "自由文本",
-    "description": "Guide page text."
-  },
-  "guide_key_targetid": {
-    "message": "仅适用于 <code>@@…$rawrule=</code> 条目：它所停止的原始规则",
-    "description": "Guide page text."
+    "message": "键"
   },
   "guide_obj_rewrite_title": {
-    "message": "重写而非删除",
-    "description": "Guide page text."
+    "message": "重写而非删除"
   },
   "guide_obj_p2": {
-    "message": "通过 <code>replacePattern</code>，<code>rules</code> 中的规则会保留参数并替换其值，即 <code>§1§</code>。在 <code>rawRules</code> 和 <code>redirections</code> 中，<code>§1§</code>, <code>§2§</code>, … 是捕获组：",
-    "description": "Guide page text."
+    "message": "通过 <code>replacePattern</code>，<code>rules</code> 中的规则会保留参数并替换其值，即 <code>§1§</code>。在 <code>rawRules</code> 和 <code>redirections</code> 中，<code>§1§</code>, <code>§2§</code>, … 是捕获组："
   },
   "guide_obj_pre_title": {
-    "message": "预处理器",
-    "description": "Guide page text."
-  },
-  "guide_obj_p3": {
-    "message": "预处理器在 <code>replacePattern</code> 使用捕获值之前对其进行更改。<code>inputs</code> 是 <code>\"all\"</code> 或一组组号：",
-    "description": "Guide page text."
+    "message": "预处理器"
   },
   "guide_obj_p4": {
-    "message": "类型包括 <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> 和 <code>base64Decode</code>。",
-    "description": "Guide page text."
-  },
-  "guide_obj_ids_title": {
-    "message": "规则 ID",
-    "description": "Guide page text."
-  },
-  "guide_obj_p5": {
-    "message": "每条规则都有一个 ID。没有 <code>id</code> 的规则将根据其列表和文本生成一个：<code>rules</code> 中的 <code>\"utm_source\"</code> 变为 <code>field-utm-source</code>。如果两条规则获得相同的 ID，两者末尾都会加上一个短哈希值。",
-    "description": "Guide page text."
-  },
-  "guide_obj_p6": {
-    "message": "当规则文本更改时，生成的 ID 也会随之更改。如果规则在编辑后必须保持其开启/关闭设置，请为其指定一个 <code>id</code>。",
-    "description": "Guide page text."
-  },
-  "guide_obj_order_title": {
-    "message": "提前或延后运行规则",
-    "description": "Guide page text."
-  },
-  "guide_obj_p7": {
-    "message": "原始规则通常首先运行，然后是 <code>rules</code> 和 <code>referralMarketing</code>。带有 <code>order</code> 的规则在没有该项的规则之前运行，数值最低的优先。在这种情况下，令牌先被替换，然后被删除：",
-    "description": "Guide page text."
-  },
-  "guide_obj_p8": {
-    "message": "<code>order</code> 适用于 <code>rules</code>, <code>rawRules</code> 和 <code>referralMarketing</code>，但不适用于 <code>$removeparam</code> 过滤器，后者总是最后运行。",
-    "description": "Guide page text."
+    "message": "类型包括 <code>urlEncode</code>, <code>urlDecode</code>, <code>doubleUrlEncode</code>, <code>doubleUrlDecode</code>, <code>base64Encode</code> 和 <code>base64Decode</code>。"
   },
   "guide_ref_title": {
-    "message": "10. 推荐营销",
-    "description": "Guide page text."
-  },
-  "guide_ref_p1": {
-    "message": "<code>referralMarketing</code> 采用与 <code>rules</code> 相同的条目。当 <em>允许引荐营销</em> 开启时，这些条目会被跳过，因此如果您需要，联盟链接将继续有效：",
-    "description": "Guide page text."
-  },
-  "guide_ref_p2": {
-    "message": "一条规则可以留在 <code>rules</code> 中，且通过 <code>\"referralMarketing\": true</code> 仍被视为推荐营销。",
-    "description": "Guide page text."
+    "message": "10. 推荐营销"
   },
   "guide_req_title": {
-    "message": "11. 方法和请求类型",
-    "description": "Guide page text."
+    "message": "11. 方法和请求类型"
   },
   "guide_req_p1": {
-    "message": "这些项用于缩小提供者或规则运行的范围：",
-    "description": "Guide page text."
+    "message": "这些项用于缩小提供者或规则运行的范围："
   },
   "guide_req_methods": {
-    "message": "提供者处理的 HTTP 方法",
-    "description": "Guide page text."
+    "message": "提供者处理的 HTTP 方法"
   },
   "guide_req_resourcetypes": {
-    "message": "提供者处理的请求类型",
-    "description": "Guide page text."
-  },
-  "guide_req_requesttypes": {
-    "message": "单个规则对象处理的请求类型",
-    "description": "Guide page text."
+    "message": "提供者处理的请求类型"
   },
   "guide_req_options": {
-    "message": "单个 <code>$removeparam</code> 过滤器或原始规则也是如此",
-    "description": "Guide page text."
-  },
-  "guide_req_p2": {
-    "message": "请求类型使用浏览器的名称：<code>main_frame</code>（页面）、<code>sub_frame</code>（框架）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> 等。过滤器选项将前两个称为 <code>document</code> 和 <code>subdocument</code>。",
-    "description": "Guide page text."
-  },
-  "guide_order_title": {
-    "message": "12. URL 如何被处理",
-    "description": "Guide page text."
+    "message": "单个 <code>$removeparam</code> 过滤器或原始规则也是如此"
   },
   "guide_order_p1": {
-    "message": "对于每个匹配该 URL 且允许该请求的提供者：",
-    "description": "Guide page text."
+    "message": "对于每个匹配该 URL 且允许该请求的提供者："
   },
   "guide_order_1": {
-    "message": "<code>exceptions</code>：如果其中一个匹配，则跳过该提供者。",
-    "description": "Guide page text."
-  },
-  "guide_order_2": {
-    "message": "<code>redirections</code>，然后 <code>fieldRedirections</code>：匹配将重定向请求，且不再运行其他内容。",
-    "description": "Guide page text."
+    "message": "<code>exceptions</code>：如果其中一个匹配，则跳过该提供者。"
   },
   "guide_order_3": {
-    "message": "<code>completeProvider</code>：请求被拦截。",
-    "description": "Guide page text."
+    "message": "<code>completeProvider</code>：请求被拦截。"
   },
   "guide_order_4": {
-    "message": "<code>rawRules</code> 在完整 URL 上运行。",
-    "description": "Guide page text."
-  },
-  "guide_order_5": {
-    "message": "<code>rules</code> 和 <code>referralMarketing</code> 移除参数。",
-    "description": "Guide page text."
-  },
-  "guide_order_6": {
-    "message": "<code>$removeparam</code> 过滤器运行，除非 <code>@@</code> 过滤器保留了该参数。",
-    "description": "Guide page text."
-  },
-  "guide_order_p2": {
-    "message": "第一个更改、重定向或拦截请求的提供者决定结果。随后新 URL 将再次经过相同的步骤。",
-    "description": "Guide page text."
-  },
-  "guide_ex_title": {
-    "message": "13. 完整示例",
-    "description": "Guide page text."
+    "message": "<code>rawRules</code> 在完整 URL 上运行。"
   },
   "guide_ex1_title": {
-    "message": "清理单个商店",
-    "description": "Guide page text."
+    "message": "清理单个商店"
   },
   "guide_ex1_p": {
-    "message": "移除单个商店的追踪参数和联盟 ID，并保持其结账页面不变：",
-    "description": "Guide page text."
+    "message": "移除单个商店的追踪参数和联盟 ID，并保持其结账页面不变："
   },
   "guide_ex2_title": {
-    "message": "在所有地方移除 UTM 参数",
-    "description": "Guide page text."
+    "message": "在所有地方移除 UTM 参数"
   },
   "guide_ex2_p": {
-    "message": "模式 <code>*</code> 匹配所有 URL：",
-    "description": "Guide page text."
+    "message": "模式 <code>*</code> 匹配所有 URL："
   },
   "guide_ex3_title": {
-    "message": "跳过点击追踪器",
-    "description": "Guide page text."
+    "message": "跳过点击追踪器"
   },
   "guide_ex3_p": {
-    "message": "将通过点击追踪器的链接直接发送到其目的地，目的地位于 <code>url</code> 参数中：",
-    "description": "Guide page text."
+    "message": "将通过点击追踪器的链接直接发送到其目的地，目的地位于 <code>url</code> 参数中："
   },
   "guide_ex4_title": {
-    "message": "在某个页面保留参数",
-    "description": "Guide page text."
+    "message": "在某个页面保留参数"
   },
   "guide_ex4_p": {
-    "message": "在网站所有地方移除 <code>ref</code>，但登录页面除外，因为登录页面需要它：",
-    "description": "Guide page text."
-  },
-  "guide_check_title": {
-    "message": "14. 检查您的规则",
-    "description": "Guide page text."
-  },
-  "guide_check_p1": {
-    "message": "自定义规则编辑器在您保存或导入规则时会进行检查。除了损坏的 JSON 和无效的正则表达式外，它还会拒绝那些虽然能加载但会悄悄产生错误效果的规则，例如：",
-    "description": "Guide page text."
+    "message": "在网站所有地方移除 <code>ref</code>，但登录页面除外，因为登录页面需要它："
   },
   "guide_check_1": {
-    "message": "一个提供者拥有 <code>domainPatterns</code> 和 <code>urlPattern</code>",
-    "description": "Guide page text."
+    "message": "一个提供者拥有 <code>domainPatterns</code> 和 <code>urlPattern</code>"
   },
   "guide_check_2": {
-    "message": "仅包含单个 <code>|</code> 且没有 scheme 的模式，例如 <code>|example.com^</code>",
-    "description": "Guide page text."
+    "message": "仅包含单个 <code>|</code> 且没有 scheme 的模式，例如 <code>|example.com^</code>"
   },
   "guide_check_3": {
-    "message": "没有恰好包含一个捕获组的正则表达式重定向",
-    "description": "Guide page text."
-  },
-  "guide_check_4": {
-    "message": "未知的字段、键和选项",
-    "description": "Guide page text."
-  },
-  "guide_check_5": {
-    "message": "在没有任何作用的地方使用 <code>order</code> 或 <code>referralMarketing</code>",
-    "description": "Guide page text."
+    "message": "没有恰好包含一个捕获组的正则表达式重定向"
   },
   "guide_check_6": {
-    "message": "一个没有停止任何原始规则的 <code>@@…$rawrule=</code> 条目",
-    "description": "Guide page text."
-  },
-  "guide_check_p2": {
-    "message": "如果保存失败，消息会指明提供者、列表和条目。",
-    "description": "Guide page text."
-  },
-  "providerImport_allProviders": {
-    "message": "所有提供商",
-    "description": "Filter label for showing rule activations from every provider"
+    "message": "一个没有停止任何原始规则的 <code>@@…$rawrule=</code> 条目"
   },
   "providerImport_disableByPattern": {
-    "message": "按URL/域模式",
-    "description": "Tab label for disabling rules by urlPattern or domainPattern activation"
+    "message": "按URL/域模式"
   },
   "providerImport_disableByProvider": {
-    "message": "按提供商",
-    "description": "Tab label for disabling rules by legacy provider::rule identity"
+    "message": "按提供商"
   },
   "providerImport_noProviderRuleActivations": {
-    "message": "该提供商没有有效的规则激活。",
-    "description": "Empty state when a provider filter has no active rule toggles"
+    "message": "该提供商没有有效的规则激活。"
   },
   "providerImport_providerRuleNav": {
-    "message": "提供商规则导航",
-    "description": "Accessible label for provider filter navigation on the disabled rules page"
+    "message": "提供商规则导航"
   },
   "popup_html_guide_link": {
-    "message": "提供者JSON指南",
-    "description": "Popup license link label for the Linkumori provider JSON guide page"
+    "message": "提供者JSON指南"
   },
   "popup_html_guide_link_title": {
-    "message": "Open Linkumori rules guide",
-    "description": "Tooltip and aria label for the popup guide link in the license section."
+    "message": "打开 Linkumori 规则指南"
   },
   "faq_rules_guide_syntax": {
-    "message": "Which rule syntax should I use?",
-    "description": "FAQ question for the unified Linkumori rule syntax guide."
+    "message": "我应该使用哪种规则语法？"
   },
   "faq_rules_guide_syntax_answer": {
-    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
-    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path."
   },
   "faq_rules_guide_syntax_note": {
-    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
-    "description": "FAQ note for the unified Linkumori rule syntax."
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path."
   },
   "faq_rules_guide_open_page": {
-    "message": "Open rules guide",
-    "description": "FAQ link text that opens the unified rules guide."
+    "message": "打开规则指南"
   },
   "providerImport_failedToLoadSources": {
-    "message": "Failed to load provider sources: $1",
-    "description": "Error shown when provider import sources fail to load."
+    "message": "无法加载提供商来源：$1"
   },
   "providerImport_noBundledRules": {
-    "message": "Bundled rules are not available.",
-    "description": "Error shown when bundled rules are unavailable for provider import."
+    "message": "捆绑规则不可用。"
   },
   "providerImport_failedToLoadBundled": {
-    "message": "Failed to load bundled rules: $1",
-    "description": "Error shown when bundled rules fail to load for provider import."
+    "message": "无法加载捆绑规则：$1"
   },
   "status_language_change_failed": {
-    "message": "Could not switch language to $1.",
-    "description": "Status text shown when changing the UI language fails."
+    "message": "无法切换到语言 $1。"
   },
   "theme_light": {
-    "message": "Light theme",
-    "description": "Accessible label for switching to the light theme."
+    "message": "浅色主题"
   },
   "theme_dark": {
-    "message": "Dark theme",
-    "description": "Accessible label for switching to the dark theme."
+    "message": "深色主题"
   },
   "posarCopied": {
-    "message": "POSAR复制了！",
-    "description": "Toast message after copying POSAR content"
+    "message": "POSAR复制了！"
   },
   "posarDescription": {
-    "message": "请查看下面的 Linkumori 的软件性能和风险接受文档。",
-    "description": "Description text for POSAR section"
+    "message": "请查看下面的 Linkumori 的软件性能和风险接受文档。"
   },
   "posarDownloaded": {
-    "message": "POSAR已下载！",
-    "description": "Toast message after downloading POSAR content"
+    "message": "POSAR已下载！"
   },
   "posarSection": {
-    "message": "软件性能和风险接受",
-    "description": "Section header for Linkumori POSAR"
+    "message": "软件性能和风险接受"
   },
   "posar_consent_accept_button": {
-    "message": "接受POSAR",
-    "description": "Button label to accept the POSAR document on the legal page"
+    "message": "接受POSAR"
   },
   "posar_consent_button_accepted": {
-    "message": "POSAR 已接受",
-    "description": "Button label shown after POSAR has been accepted"
+    "message": "POSAR 已接受"
   },
   "posar_consent_saved": {
-    "message": "POSAR 接受。",
-    "description": "Toast shown after saving POSAR consent"
+    "message": "POSAR 接受。"
   },
   "button_reset": {
-    "message": "Reset",
-    "description": "Generic reset button text."
+    "message": "重置"
   },
   "accessibility_tools_title": {
-    "message": "Accessibility Tools",
-    "description": "Title for the shared accessibility tools widget."
+    "message": "无障碍工具"
   },
   "accessibility_tools_open": {
-    "message": "Open Accessibility Tools",
-    "description": "Accessible text for the accessibility tools trigger button."
+    "message": "打开无障碍工具"
   },
   "accessibility_tools_close": {
-    "message": "Close Accessibility Tools",
-    "description": "Accessible label for closing the accessibility tools widget."
+    "message": "关闭无障碍工具"
   },
   "accessibility_tools_reset_all_settings": {
-    "message": "Reset All Accessibility Settings",
-    "description": "Accessible label for resetting all accessibility tool settings."
+    "message": "重置所有无障碍设置"
   },
   "accessibility_tools_group_vision": {
-    "message": "Vision",
-    "description": "Accessibility tools group heading for visual adjustments."
+    "message": "视觉"
   },
   "accessibility_tools_group_reading": {
-    "message": "Reading",
-    "description": "Accessibility tools group heading for reading adjustments."
+    "message": "阅读"
   },
   "accessibility_tools_group_interaction": {
-    "message": "Interaction",
-    "description": "Accessibility tools group heading for interaction adjustments."
+    "message": "交互"
   },
   "accessibility_tools_high_contrast": {
-    "message": "High Contrast",
-    "description": "Accessibility tool button label."
+    "message": "高对比度"
   },
   "accessibility_tools_color_filter": {
-    "message": "Color Filter",
-    "description": "Accessibility tool button label."
+    "message": "颜色滤镜"
   },
   "accessibility_tools_saturation": {
-    "message": "Saturation",
-    "description": "Accessibility tool button label."
+    "message": "饱和度"
   },
   "accessibility_tools_invert": {
-    "message": "Invert",
-    "description": "Accessibility tool button label."
+    "message": "反色"
   },
   "accessibility_tools_highlight_links": {
-    "message": "Highlight Links",
-    "description": "Accessibility tool button label."
+    "message": "突出显示链接"
   },
   "accessibility_tools_hide_images": {
-    "message": "Hide Images",
-    "description": "Accessibility tool button label."
+    "message": "隐藏图片"
   },
   "accessibility_tools_text_size_increase": {
-    "message": "Text Size Increase",
-    "description": "Accessibility tool button label."
+    "message": "增大文字"
   },
   "accessibility_tools_text_size_decrease": {
-    "message": "Text Size Decrease",
-    "description": "Accessibility tool button label."
+    "message": "减小文字"
   },
   "accessibility_tools_default_text_size": {
-    "message": "Default Text Size",
-    "description": "Accessibility tool button label."
+    "message": "默认文字大小"
   },
   "accessibility_tools_font_selection": {
-    "message": "Font Selection",
-    "description": "Accessibility tool button label."
+    "message": "字体选择"
   },
   "accessibility_tools_dyslexia_friendly": {
-    "message": "Dyslexia Friendly",
-    "description": "Accessibility tool button label."
+    "message": "易读字体（适合阅读障碍）"
   },
   "accessibility_tools_text_spacing": {
-    "message": "Text Spacing",
-    "description": "Accessibility tool button label."
+    "message": "文字间距"
   },
   "accessibility_tools_line_height": {
-    "message": "Line Height",
-    "description": "Accessibility tool button label."
+    "message": "行高"
   },
   "accessibility_tools_text_align": {
-    "message": "Text Align",
-    "description": "Accessibility tool button label."
+    "message": "文字对齐"
   },
   "accessibility_tools_pause_animations": {
-    "message": "Pause Animations",
-    "description": "Accessibility tool button label."
+    "message": "暂停动画"
   },
   "accessibility_tools_bigger_cursor": {
-    "message": "Bigger Cursor",
-    "description": "Accessibility tool button label."
+    "message": "放大光标"
   },
   "accessibility_tools_value_default": {
-    "message": "Default",
-    "description": "Default option value in the accessibility tools widget."
+    "message": "默认"
   },
   "accessibility_tools_value_medium": {
-    "message": "Medium",
-    "description": "Medium option value in the accessibility tools widget."
+    "message": "中"
   },
   "accessibility_tools_value_high": {
-    "message": "High",
-    "description": "High option value in the accessibility tools widget."
+    "message": "高"
   },
   "accessibility_tools_value_ultra": {
-    "message": "Ultra",
-    "description": "Ultra option value in the accessibility tools widget."
+    "message": "超高"
   },
   "accessibility_tools_value_low": {
-    "message": "Low",
-    "description": "Low option value in the accessibility tools widget."
+    "message": "低"
   },
   "accessibility_tools_value_none": {
-    "message": "None",
-    "description": "None option value in the accessibility tools widget."
+    "message": "无"
   },
   "accessibility_tools_value_light": {
-    "message": "Light",
-    "description": "Light option value in the accessibility tools widget."
+    "message": "浅"
   },
   "accessibility_tools_value_heavy": {
-    "message": "Heavy",
-    "description": "Heavy option value in the accessibility tools widget."
+    "message": "重"
   },
   "accessibility_tools_value_2x": {
-    "message": "2x",
-    "description": "Two-times line height option value in the accessibility tools widget."
+    "message": "2x"
   },
   "accessibility_tools_value_3x": {
-    "message": "3x",
-    "description": "Three-times line height option value in the accessibility tools widget."
+    "message": "3x"
   },
   "accessibility_tools_value_4x": {
-    "message": "4x",
-    "description": "Four-times line height option value in the accessibility tools widget."
+    "message": "4x"
   },
   "accessibility_tools_value_arial": {
-    "message": "Arial",
-    "description": "Arial font option value in the accessibility tools widget."
+    "message": "Arial"
   },
   "accessibility_tools_value_times": {
-    "message": "Times",
-    "description": "Times font option value in the accessibility tools widget."
+    "message": "Times"
   },
   "accessibility_tools_value_verdana": {
-    "message": "Verdana",
-    "description": "Verdana font option value in the accessibility tools widget."
+    "message": "Verdana"
   },
   "accessibility_tools_value_no_filter": {
-    "message": "No Filter",
-    "description": "No color filter option value in the accessibility tools widget."
+    "message": "无滤镜"
   },
   "accessibility_tools_value_protanopia": {
-    "message": "Protanopia",
-    "description": "Protanopia color filter option value in the accessibility tools widget."
+    "message": "红色盲"
   },
   "accessibility_tools_value_deuteranopia": {
-    "message": "Deuteranopia",
-    "description": "Deuteranopia color filter option value in the accessibility tools widget."
+    "message": "绿色盲"
   },
   "accessibility_tools_value_tritanopia": {
-    "message": "Tritanopia",
-    "description": "Tritanopia color filter option value in the accessibility tools widget."
+    "message": "蓝黄色盲"
   },
   "accessibility_tools_value_grayscale": {
-    "message": "Grayscale",
-    "description": "Grayscale color filter option value in the accessibility tools widget."
+    "message": "灰度"
   },
   "accessibility_tools_value_left": {
-    "message": "Left",
-    "description": "Left text alignment option value in the accessibility tools widget."
+    "message": "左对齐"
   },
   "accessibility_tools_value_center": {
-    "message": "Center",
-    "description": "Center text alignment option value in the accessibility tools widget."
+    "message": "居中"
   },
   "accessibility_tools_value_right": {
-    "message": "Right",
-    "description": "Right text alignment option value in the accessibility tools widget."
+    "message": "右对齐"
   },
   "accessibility_tools_value_extra_small": {
-    "message": "Extra Small",
-    "description": "Extra small text size option value in the accessibility tools widget."
+    "message": "特小"
   },
   "accessibility_tools_value_small": {
-    "message": "Small",
-    "description": "Small text size option value in the accessibility tools widget."
+    "message": "小"
   },
   "accessibility_tools_value_large": {
-    "message": "Large",
-    "description": "Large text size option value in the accessibility tools widget."
+    "message": "大"
   },
   "accessibility_tools_value_extra_large": {
-    "message": "Extra Large",
-    "description": "Extra large text size option value in the accessibility tools widget."
+    "message": "特大"
   },
   "accessibility_tools_value_largest": {
-    "message": "Largest",
-    "description": "Largest text size option value in the accessibility tools widget."
+    "message": "最大"
   },
   "accessibility_tools_value_on": {
-    "message": "On",
-    "description": "Enabled status value in the accessibility tools widget."
+    "message": "开启"
   },
   "accessibility_tools_value_off": {
-    "message": "Off",
-    "description": "Disabled status value in the accessibility tools widget."
+    "message": "关闭"
   },
   "accessibility_tools_control_status": {
-    "message": "$1: $2",
-    "description": "Template for accessibility tool label plus current status. $1 is the tool label and $2 is the status."
+    "message": "$1: $2"
   },
   "accessibility_tools_toggle_announcement": {
-    "message": "$1 $2",
-    "description": "Live-region template for accessibility toggle changes. $1 is the tool label and $2 is enabled or disabled."
+    "message": "$1 $2"
   },
   "accessibility_tools_enabled": {
-    "message": "enabled",
-    "description": "Enabled word used in accessibility tool announcements."
+    "message": "已启用"
   },
   "accessibility_tools_disabled": {
-    "message": "disabled",
-    "description": "Disabled word used in accessibility tool announcements."
+    "message": "已停用"
   },
   "accessibility_tools_default_text_size_selected": {
-    "message": "Default Text Size selected",
-    "description": "Live-region announcement after resetting text size."
+    "message": "已选择默认文字大小"
   },
   "accessibility_tools_reset_announcement": {
-    "message": "All accessibility settings reset",
-    "description": "Live-region announcement after resetting accessibility tools."
+    "message": "已重置所有无障碍设置"
+  },
+  "skip_to_main_content": {
+    "message": "跳到主要内容"
+  },
+  "popupNavAriaLabel": {
+    "message": "弹出窗口导航"
+  },
+  "customRulesViewNavAriaLabel": {
+    "message": "自定义规则视图"
+  },
+  "logViewNavAriaLabel": {
+    "message": "日志视图"
+  },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "历史记录绕过保护（在页面内导航时跳过）"
+  },
+  "customRulesEditor_fieldRedirections": {
+    "message": "字段重定向"
+  },
+  "customRulesEditor_copyRule": {
+    "message": "复制规则"
+  },
+  "customRulesEditor_ruleCopied": {
+    "message": "规则已复制"
+  },
+  "customRulesEditor_ruleCopyFailed": {
+    "message": "无法复制规则"
+  },
+  "faq_history_bypass_protection": {
+    "message": "historyBypassProtection 有什么作用？"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "单页网站通常会使用 history.pushState/replaceState 更改地址，而不会加载新页面。Linkumori 也会清理这些地址。将 history-bypass-protection=false 添加到 $removeparam 过滤器，即可在这些页面内更改时跳过该过滤器；普通请求仍会应用该过滤器。"
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "要在页面内更改时跳过整个提供商，请在提供商上设置此项："
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "如果未设置，默认值为 true，页面内更改时会执行清理。规则自己的设置优先于提供商设置，因此规则可以使用 history-bypass-protection=true，或在规则对象中使用 \"historyBypassProtection\": true，重新启用此功能。"
+  },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "跳过页面内导航"
+  },
+  "customRulesEditor_renameRuleId": {
+    "message": "重命名 ID"
+  },
+  "customRulesEditor_renameRuleIdPrompt": {
+    "message": "为 $OLD$ 设置新 ID（a-z、0-9、- 和 _）。旧 ID 会保留为别名，因此通过旧 ID 关闭的规则仍会保持关闭。",
+    "placeholders": {
+      "old": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdInvalid": {
+    "message": "\"$ID$\" 不是有效 ID。请使用小写字母、数字、- 和 _，并以字母或数字开头。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "Field DD"
+      }
+    }
+  },
+  "customRulesEditor_renameRuleIdTaken": {
+    "message": "此提供商的另一条规则已使用 \"$ID$\"。",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-dd"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "禁用规则"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "为整个提供商禁用 $ID$，还是仅针对此 URL/域名模式禁用？",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "field-sx"
+      }
+    }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "我的提供商"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/域名模式"
+  },
+  "customRulesEditor_ruleIdRenamed": {
+    "message": "规则 ID 已重命名为 $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1",
+        "example": "strip-dd"
+      }
+    }
+  },
+  "providerImport_orphanedToggles": {
+    "message": "孤立的开关"
+  },
+  "providerImport_orphanedToggleReason": {
+    "message": "上游未找到匹配规则"
+  },
+  "providerImport_orphanedToggleRemove": {
+    "message": "移除"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "跳过页面内导航时的清理"
+  },
+  "whitelist_added_general": {
+    "message": "已将 %s 添加到常规白名单"
+  },
+  "whitelist_added_history_api": {
+    "message": "已将 %s 添加为 History API 例外"
+  },
+  "whitelist_exception_count": {
+    "message": "%d 个例外"
+  },
+  "whitelist_exception_empty": {
+    "message": "没有白名单例外"
+  },
+  "whitelist_mode_general": {
+    "message": "常规白名单"
+  },
+  "whitelist_mode_history_api": {
+    "message": "仅限 History API"
+  },
+  "whitelist_mode_label": {
+    "message": "白名单范围"
+  },
+  "whitelist_removed_general": {
+    "message": "已从常规白名单移除 %s"
+  },
+  "whitelist_removed_history_api": {
+    "message": "已移除 %s 的 History API 例外"
+  },
+  "whitelist_type_general": {
+    "message": "常规"
+  },
+  "whitelist_type_history_api": {
+    "message": "仅限 History API"
+  },
+  "popup_whitelist_add_general": {
+    "message": "将 $1 添加到常规白名单"
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "常规白名单：$1 — 点击以切换为仅限 History API"
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API 例外：$1 — 点击以切换为仅限此标签页"
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "仅限此标签页：$1 — 点击以移除"
+  },
+  "logger_action_allowed": {
+    "message": "允许"
+  },
+  "logger_action_blocked": {
+    "message": "已阻止"
+  },
+  "logger_action_filter_label": {
+    "message": "操作"
+  },
+  "logger_action_info": {
+    "message": "信息"
+  },
+  "logger_action_modified": {
+    "message": "已修改"
+  },
+  "logger_action_redirected": {
+    "message": "已重定向"
+  },
+  "logger_btn_copy_summary": {
+    "message": "复制摘要"
+  },
+  "logger_btn_export": {
+    "message": "导出"
+  },
+  "logger_btn_group": {
+    "message": "按规则分组"
+  },
+  "logger_col_hits": {
+    "message": "命中次数"
+  },
+  "logger_col_last_seen": {
+    "message": "最后出现时间"
+  },
+  "logger_detail_group_title": {
+    "message": "规则详情"
+  },
+  "logger_detail_all_urls": {
+    "message": "URL（$1）"
+  },
+  "logger_detail_tabs": {
+    "message": "标签页"
+  },
+  "logger_exported": {
+    "message": "已导出 $1 条记录。"
+  },
+  "logger_filter_all": {
+    "message": "全部"
+  },
+  "logger_report_rule": {
+    "message": "举报"
+  },
+  "logger_rule_disable": {
+    "message": "关闭规则"
+  },
+  "logger_rule_disabled_done": {
+    "message": "规则 $1 已关闭。重新加载页面进行检查。"
+  },
+  "logger_rule_enable": {
+    "message": "启用规则"
+  },
+  "logger_rule_enabled_done": {
+    "message": "规则 $1 已重新启用。"
+  },
+  "logger_rule_failed": {
+    "message": "无法更改规则。"
+  },
+  "logger_rule_off": {
+    "message": "规则已关闭"
+  },
+  "logger_rule_on": {
+    "message": "规则已启用"
+  },
+  "logger_rule_unavailable": {
+    "message": "无法在此处切换此规则。"
+  },
+  "logger_status_rules": {
+    "message": "$1 条规则"
+  },
+  "logger_summary_copied": {
+    "message": "已复制摘要。"
+  },
+  "logger_summary_copy_failed": {
+    "message": "无法复制摘要。"
+  },
+  "logger_type_filter_label": {
+    "message": "类型"
+  },
+  "logger_btn_logging_off": {
+    "message": "日志记录已关闭"
+  },
+  "logger_btn_logging_off_title": {
+    "message": "日志记录已关闭。点击以启用。"
+  },
+  "logger_btn_logging_on": {
+    "message": "日志记录已开启"
+  },
+  "logger_btn_logging_on_title": {
+    "message": "日志记录已开启。点击以关闭。"
+  },
+  "logger_logging_toggle_failed": {
+    "message": "无法更改日志记录设置。"
+  },
+  "customRulesEditor_addReferralRule": {
+    "message": "添加引荐规则"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "添加原始规则例外"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "添加字段重定向"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "添加例外"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "每个模板都会添加一个规则对象，其中包含 id 和一个指向 example.com 的占位 matchPattern。条目也可以是纯文本：参数名称、名称正则表达式、$removeparam 过滤器，或 rawRules 中的正则表达式。规则对象可使用 id、aliases、matchPattern、replacePattern、preprocessors、requestTypes、exceptions、flags、order、referralMarketing、historyBypassProtection、active、description 和 targetId。"
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "检查器"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "未发现问题。"
+  },
+  "customRulesEditor_lintError": {
+    "message": "错误"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "警告"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ 个错误，$WARNINGS$ 个警告",
+    "placeholders": {
+      "errors": {
+        "content": "$1",
+        "example": "2"
+      },
+      "warnings": {
+        "content": "$2",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderTitle": {
+    "message": "运行顺序"
+  },
+  "customRulesEditor_runOrderSummary": {
+    "message": "$COUNT$ 个步骤，按实际运行顺序排列",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderEmpty": {
+    "message": "没有 rawRules、rules 或 referralMarketing 条目"
+  },
+  "customRulesEditor_runOrderHelp": {
+    "message": "引擎根据上方文本计算得出，无论是否已保存。步骤按 (stage, orderGroup, order, rank, arrayIndex) 排序：原始规则先于字段规则运行；在同一阶段中，带有 order 的条目先运行，数值较小者优先，然后其余条目按列表顺序和位置运行。"
+  },
+  "customRulesEditor_runOrderViewLabel": {
+    "message": "引荐营销"
+  },
+  "customRulesEditor_runOrderViewRemoved": {
+    "message": "已移除引荐"
+  },
+  "customRulesEditor_runOrderViewAllowed": {
+    "message": "允许引荐"
+  },
+  "customRulesEditor_runOrderStageRaw": {
+    "message": "原始"
+  },
+  "customRulesEditor_runOrderStageField": {
+    "message": "字段"
+  },
+  "customRulesEditor_runOrderStageReferral": {
+    "message": "引荐"
+  },
+  "customRulesEditor_runOrderId": {
+    "message": "id"
+  },
+  "customRulesEditor_runOrderIdGenerated": {
+    "message": "（自动生成）"
+  },
+  "customRulesEditor_runOrderOrder": {
+    "message": "order $ORDER$",
+    "placeholders": {
+      "order": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRewrite": {
+    "message": "重写"
+  },
+  "customRulesEditor_runOrderReplaces": {
+    "message": "替换了之前定义的 $COUNT$ 项",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderCompleteProvider": {
+    "message": "由 completeProvider 添加：移除所有参数"
+  },
+  "customRulesEditor_runOrderOff": {
+    "message": "已关闭"
+  },
+  "customRulesEditor_runOrderOffSome": {
+    "message": "对部分模式关闭"
+  },
+  "customRulesEditor_runOrderKeyTitle": {
+    "message": "排序键：(stage, orderGroup, order, rank, arrayIndex)"
+  },
+  "customRulesEditor_runOrderFilters": {
+    "message": "随后应用 $FILTERS$ 个 $removeparam 过滤器和 $EXCEPTIONS$ 个 @@ 例外，位于上述所有步骤之后",
+    "placeholders": {
+      "filters": {
+        "content": "$1",
+        "example": "2"
+      },
+      "exceptions": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRawExceptions": {
+    "message": "$COUNT$ 个 @@…$rawrule= 例外可以在匹配处阻止上方的原始规则",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRearrangeHelp": {
+    "message": "拖动步骤或使用箭头，可在其所属阶段内移动。移动后，该阶段中的每个条目都会按新顺序设置为 10、20、30……。"
+  },
+  "customRulesEditor_runOrderRearrangeOtherView": {
+    "message": "切换到“已移除引荐”以重新排序：该视图会显示所有条目。"
+  },
+  "customRulesEditor_runOrderDrag": {
+    "message": "拖动以移动"
+  },
+  "customRulesEditor_runOrderMoveUp": {
+    "message": "将 $ENTRY$ 提前",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoveDown": {
+    "message": "将 $ENTRY$ 移后",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderMoved": {
+    "message": "已将 $ENTRY$ 移至位置 $POSITION$",
+    "placeholders": {
+      "entry": {
+        "content": "$1",
+        "example": "utm_source"
+      },
+      "position": {
+        "content": "$2",
+        "example": "3"
+      }
+    }
+  },
+  "customRulesEditor_runOrderUndo": {
+    "message": "撤销移动"
+  },
+  "customRulesEditor_runOrderUndone": {
+    "message": "已撤销移动"
+  },
+  "customRulesEditor_runOrderSimTitle": {
+    "message": "模拟"
+  },
+  "customRulesEditor_runOrderSimHelp": {
+    "message": "此功能会像清理复制的链接一样，在 URL 上运行此提供商，并使用你关闭的规则和上方的引荐选项，同时显示每一步之后的 URL。其他提供商不会运行。“生成测试 URL”会根据此提供商自己的规则生成 URL。"
+  },
+  "customRulesEditor_runOrderSimUrlLabel": {
+    "message": "测试 URL"
+  },
+  "customRulesEditor_runOrderSimRun": {
+    "message": "运行"
+  },
+  "customRulesEditor_runOrderSimControls": {
+    "message": "逐步查看模拟过程"
+  },
+  "customRulesEditor_runOrderSimFirst": {
+    "message": "开始"
+  },
+  "customRulesEditor_runOrderSimPrev": {
+    "message": "上一步"
+  },
+  "customRulesEditor_runOrderSimNext": {
+    "message": "下一步"
+  },
+  "customRulesEditor_runOrderSimLast": {
+    "message": "结束"
+  },
+  "customRulesEditor_runOrderSimPlay": {
+    "message": "播放"
+  },
+  "customRulesEditor_runOrderSimPause": {
+    "message": "暂停"
+  },
+  "customRulesEditor_runOrderSimStart": {
+    "message": "任何步骤运行前的 URL"
+  },
+  "customRulesEditor_runOrderSimStep": {
+    "message": "第 $PASS$ 轮 · 第 $STEP$ 步（共 $TOTAL$ 步）：$ENTRY$",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      },
+      "step": {
+        "content": "$2",
+        "example": "3"
+      },
+      "total": {
+        "content": "$3",
+        "example": "9"
+      },
+      "entry": {
+        "content": "$4",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimNoChange": {
+    "message": "无变化"
+  },
+  "customRulesEditor_runOrderSimRemoveParam": {
+    "message": "$removeparam 过滤器"
+  },
+  "customRulesEditor_runOrderSimDone": {
+    "message": "第 $PASS$ 轮没有任何变化，因此清理已停止",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimLimit": {
+    "message": "此提供商在此处停止：已达到循环次数限制、URL 恢复为之前的值，或 URL 已不再匹配此提供商"
+  },
+  "customRulesEditor_runOrderSimRedirect": {
+    "message": "第 $PASS$ 轮执行了重定向；清理会在新地址处继续，并运行所有提供商",
+    "placeholders": {
+      "pass": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimCancel": {
+    "message": "此提供商会阻止此请求（completeProvider）"
+  },
+  "customRulesEditor_runOrderSimResult": {
+    "message": "结果"
+  },
+  "customRulesEditor_runOrderSimNoMatch": {
+    "message": "此提供商的模式与此 URL 不匹配，因此不会运行其中的任何规则。"
+  },
+  "customRulesEditor_runOrderSimException": {
+    "message": "此 URL 匹配此提供商的一条例外，因此不会运行其中的任何规则。"
+  },
+  "customRulesEditor_runOrderSimInvalidUrl": {
+    "message": "请输入完整的 http:// 或 https:// URL。"
+  },
+  "customRulesEditor_runOrderSimFailed": {
+    "message": "无法运行模拟。请检查上方的 JSON。"
+  },
+  "customRulesEditor_runOrderSimGenerate": {
+    "message": "生成测试 URL"
+  },
+  "customRulesEditor_runOrderSimGenerated": {
+    "message": "根据此提供商的规则生成：为 $RAW$ 条原始规则和 $PARAMS$ 个参数生成文本，并分别检查它们是否匹配相应规则。keep=1 不匹配任何规则，应予以保留。不包含重定向和阻止规则，因为它们会在其他规则运行前结束流程。",
+    "placeholders": {
+      "raw": {
+        "content": "$1",
+        "example": "2"
+      },
+      "params": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimGeneratedNoMatch": {
+    "message": "无法生成此提供商模式所匹配的主机，因此该 URL 使用其他主机，提供商不会对其运行。"
+  },
+  "customRulesEditor_runOrderSimGeneratedExcepted": {
+    "message": "此提供商模式所匹配的每个 URL 都属于其自身某条例外，因此其规则永远不会运行。"
+  },
+  "customRulesEditor_runOrderSimSkipped": {
+    "message": "$COUNT$ 条规则未纳入测试 URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_runOrderSimSkipSample": {
+    "message": "无法生成与其匹配的文本"
+  },
+  "customRulesEditor_runOrderSimSkipException": {
+    "message": "其文本会导致匹配此提供商的一条例外"
+  },
+  "customRulesEditor_runOrderSimSkipRemoveAll": {
+    "message": "它会移除所有参数，因此不需要自己的参数"
+  },
+  "customRulesEditor_runOrderSimKeepGone": {
+    "message": "此提供商有一个没有名称的 $removeparam 过滤器，它会移除所有参数，包括 keep=1。"
+  },
+  "customRulesEditor_runOrderNoOrder": {
+    "message": "无 order"
+  },
+  "customRulesEditor_runOrderOrderChange": {
+    "message": "order $FROM$ → $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "20"
+      },
+      "to": {
+        "content": "$2",
+        "example": "20"
+      }
+    }
+  },
+  "customRulesEditor_runOrderRestore": {
+    "message": "还原顺序编号"
+  },
+  "customRulesEditor_runOrderRestoreTitle": {
+    "message": "将所有 order 还原为打开此提供商时的状态"
+  },
+  "customRulesEditor_runOrderRestored": {
+    "message": "顺序编号已还原"
+  },
+  "customRulesEditor_lintHide": {
+    "message": "隐藏"
+  },
+  "customRulesEditor_lintShow": {
+    "message": "显示"
+  },
+  "customRulesEditor_lintClearWarnings": {
+    "message": "清除警告"
+  },
+  "customRulesEditor_lintRestoreWarnings": {
+    "message": "恢复警告"
+  },
+  "customRulesEditor_lintClearedCount": {
+    "message": "已清除 $COUNT$ 条警告",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$：没有 indexPattern 的 urlPattern 会针对每个 URL 进行检查；请添加类似“||example.com^”的 indexPattern 提示",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "example"
+      }
+    }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ 重复了“$ENTRY$”；重复项不会产生作用，且两者共用一个 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[3]"
+      },
+      "entry": {
+        "content": "$2",
+        "example": "utm_source"
+      }
+    }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ 仍包含模板占位符“$PATTERN$”；请将其替换为实际模式",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "$removeparam=example_param"
+      }
+    }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ 使用 matchPattern “(?!)”，该模式永远不会匹配任何内容",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "troubleshooter_nav_label": {
+    "message": "故障排查"
+  },
+  "troubleshooter_launch": {
+    "message": "排查此标签页的问题（实验性）"
+  },
+  "troubleshooter_title": {
+    "message": "标签页故障排查工具"
+  },
+  "troubleshooter_page": {
+    "message": "页面"
+  },
+  "troubleshooter_about_summary": {
+    "message": "记录工作方式"
+  },
+  "troubleshooter_about_note": {
+    "message": "打开此视图时可能会检查页面 URL，但不会记录任何内容。只有选择“开始记录”后才会开始记录。开始记录会重新加载此标签页，以捕获其资源请求。捕获的 URL 会保存在此浏览器会话的会话存储中，并在关闭此标签页或结束浏览器会话时清除。除非你提前停止，否则记录会在 15 分钟后停止。资源 URL 可能包含私人查询数据。"
+  },
+  "troubleshooter_start": {
+    "message": "开始记录"
+  },
+  "troubleshooter_starting": {
+    "message": "正在启动…"
+  },
+  "troubleshooter_recording": {
+    "message": "正在记录…"
+  },
+  "troubleshooter_stop": {
+    "message": "停止记录"
+  },
+  "troubleshooter_refresh": {
+    "message": "刷新"
+  },
+  "troubleshooter_copy": {
+    "message": "复制摘要"
+  },
+  "troubleshooter_export": {
+    "message": "导出"
+  },
+  "troubleshooter_export_title": {
+    "message": "将记录保存为 JSON 文件。资源 URL 可能包含私人查询数据。"
+  },
+  "troubleshooter_category": {
+    "message": "类别"
+  },
+  "troubleshooter_category_all": {
+    "message": "所有类别"
+  },
+  "troubleshooter_category_url_rules": {
+    "message": "URL 规则"
+  },
+  "troubleshooter_category_redirects": {
+    "message": "重定向"
+  },
+  "troubleshooter_category_protection": {
+    "message": "保护与绕过"
+  },
+  "troubleshooter_resource_type": {
+    "message": "资源类型"
+  },
+  "troubleshooter_type_all": {
+    "message": "所有资源类型"
+  },
+  "troubleshooter_search_placeholder": {
+    "message": "搜索规则、提供商和 URL"
+  },
+  "troubleshooter_timer": {
+    "message": "正在记录 $1 · 剩余 $2"
+  },
+  "troubleshooter_status_checking": {
+    "message": "正在检查此标签页…"
+  },
+  "troubleshooter_status_no_tab": {
+    "message": "没有可用的活动标签页。"
+  },
+  "troubleshooter_status_not_web": {
+    "message": "此页面不允许扫描 URL 规则。请打开普通的 http 或 https 网页。"
+  },
+  "troubleshooter_status_off": {
+    "message": "记录已关闭。开始记录以检查此页面加载的资源 URL。"
+  },
+  "troubleshooter_status_active": {
+    "message": "目前已捕获 $1 次 URL 更改。新记录会自动显示在此处。"
+  },
+  "troubleshooter_status_stopped": {
+    "message": "记录已停止。共捕获 $1 次 URL 更改。"
+  },
+  "troubleshooter_status_not_saved": {
+    "message": "无法将记录数据保存到会话存储。如果扩展程序重启，可能会丢失 $1 次 URL 更改。"
+  },
+  "troubleshooter_status_started": {
+    "message": "记录已开始，正在重新加载标签页。页面加载时，捕获的 URL 会显示在此处。"
+  },
+  "troubleshooter_status_stopped_saved": {
+    "message": "记录已停止。共捕获 $1 次 URL 更改，并已保存到此浏览器会话。"
+  },
+  "troubleshooter_status_stopped_unsaved": {
+    "message": "记录已停止。共捕获 $1 次 URL 更改，但会话存储无法保存这些记录。"
+  },
+  "troubleshooter_status_need_web": {
+    "message": "请先打开普通的 http 或 https 网页。"
+  },
+  "troubleshooter_status_start_failed": {
+    "message": "无法开始记录此标签页。"
+  },
+  "troubleshooter_status_stop_failed": {
+    "message": "无法停止记录此标签页。"
+  },
+  "troubleshooter_status_read_failed": {
+    "message": "无法读取此标签页。请尝试关闭并重新打开弹出窗口。"
+  },
+  "troubleshooter_status_copied": {
+    "message": "已复制摘要。"
+  },
+  "troubleshooter_status_copy_failed": {
+    "message": "无法复制摘要。"
+  },
+  "troubleshooter_status_exported": {
+    "message": "记录已导出。"
+  },
+  "troubleshooter_status_export_failed": {
+    "message": "无法导出记录。"
+  },
+  "troubleshooter_status_report_failed": {
+    "message": "无法打开报告表单。"
+  },
+  "troubleshooter_status_rule_changed_on": {
+    "message": "规则已启用；重新加载标签页进行比较。"
+  },
+  "troubleshooter_status_rule_changed_off": {
+    "message": "规则已停用；重新加载标签页进行比较。"
+  },
+  "troubleshooter_status_rule_failed": {
+    "message": "无法更新此规则。"
+  },
+  "troubleshooter_empty_web": {
+    "message": "尚未发现规则更改。开始记录以检查此页面的资源 URL。"
+  },
+  "troubleshooter_empty_not_web": {
+    "message": "无法扫描此浏览器页面。"
+  },
+  "troubleshooter_empty_filtered": {
+    "message": "没有符合这些筛选条件的结果。"
+  },
+  "troubleshooter_showing_first": {
+    "message": "显示前 $1 条规则"
+  },
+  "troubleshooter_hits": {
+    "message": "$1 次命中"
+  },
+  "troubleshooter_failed_badge": {
+    "message": "$1 项失败"
+  },
+  "troubleshooter_rule_id": {
+    "message": "规则 ID：$1"
+  },
+  "troubleshooter_rule_id_protection": {
+    "message": "内置保护操作（无规则 ID）"
+  },
+  "troubleshooter_rule_id_missing": {
+    "message": "规则 ID：此项结果没有可用的 ID"
+  },
+  "troubleshooter_rule_unresolved": {
+    "message": "无法在当前规则集中解析此规则 ID。"
+  },
+  "troubleshooter_source_observed": {
+    "message": "已观察到的请求"
+  },
+  "troubleshooter_source_page": {
+    "message": "页面 URL 检查"
+  },
+  "troubleshooter_changes": {
+    "message": "更改内容：$1"
+  },
+  "troubleshooter_affected_urls": {
+    "message": "受影响的 URL（$1）"
+  },
+  "troubleshooter_more_urls": {
+    "message": "…以及另外 $1 个"
+  },
+  "troubleshooter_after": {
+    "message": "经过 Linkumori 处理后"
+  },
+  "troubleshooter_failed_after": {
+    "message": "Linkumori 更改 URL 后失败：$1"
+  },
+  "troubleshooter_advice_enabled": {
+    "message": "此规则已启用。请关闭规则并重新加载，以比较页面。"
+  },
+  "troubleshooter_advice_disabled": {
+    "message": "此规则已停用。请启用规则并重新加载，以恢复其行为。"
+  },
+  "troubleshooter_advice_protection": {
+    "message": "这是内置保护操作，不是单独的规则。"
+  },
+  "troubleshooter_advice_review": {
+    "message": "更改规则前请检查受影响的 URL。"
+  },
+  "troubleshooter_report": {
+    "message": "报告此规则"
+  },
+  "troubleshooter_disable_rule": {
+    "message": "禁用规则"
+  },
+  "troubleshooter_enable_rule": {
+    "message": "启用规则"
+  },
+  "troubleshooter_disable_rule_aria": {
+    "message": "禁用规则 $1"
+  },
+  "troubleshooter_enable_rule_aria": {
+    "message": "启用规则 $1"
+  },
+  "troubleshooter_saving": {
+    "message": "正在保存…"
+  },
+  "troubleshooter_change_removed": {
+    "message": "已移除 $1"
+  },
+  "troubleshooter_change_added": {
+    "message": "已添加 $1"
+  },
+  "troubleshooter_change_changed": {
+    "message": "已更改 $1"
+  },
+  "troubleshooter_change_redirect": {
+    "message": "已重定向至 $1"
+  },
+  "troubleshooter_change_path": {
+    "message": "路径已更改"
+  },
+  "troubleshooter_change_fragment": {
+    "message": "片段已更改"
+  },
+  "troubleshooter_change_other": {
+    "message": "URL 已更改"
+  },
+  "troubleshooter_change_blocked": {
+    "message": "已主动阻止"
+  },
+  "troubleshooter_failures_summary": {
+    "message": "$1 个请求在此页面上失败；其中 $2 个在 Linkumori 更改 URL 后立即失败"
+  },
+  "troubleshooter_diag_idle_title": {
+    "message": "此页面无法正常工作吗？"
+  },
+  "troubleshooter_diag_idle_text": {
+    "message": "找出导致问题的规则：此页面上运行的规则会逐一关闭，每次关闭后你都可以判断页面是否已修复。如果不确定是否由 Linkumori 导致？请先暂停清理并检查。"
+  },
+  "troubleshooter_diag_idle_button": {
+    "message": "先暂停清理并检查"
+  },
+  "troubleshooter_diag_paused_title": {
+    "message": "此标签页中已暂停对 $1 的清理"
+  },
+  "troubleshooter_diag_paused_text": {
+    "message": "标签页已在未清理的情况下重新加载。现在页面可以正常工作了吗？"
+  },
+  "troubleshooter_diag_yes_works": {
+    "message": "可以，页面正常"
+  },
+  "troubleshooter_diag_no_broken": {
+    "message": "不行，仍然无法正常工作"
+  },
+  "troubleshooter_diag_cancel": {
+    "message": "取消"
+  },
+  "troubleshooter_diag_done": {
+    "message": "完成"
+  },
+  "troubleshooter_diag_not_linkumori_title": {
+    "message": "可能与 Linkumori 无关"
+  },
+  "troubleshooter_diag_not_linkumori_text": {
+    "message": "暂停清理后页面仍然无法正常工作，因此问题可能出在其他方面：网站本身、其他扩展程序或网络。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_linkumori_title": {
+    "message": "问题可能由 Linkumori 导致"
+  },
+  "troubleshooter_diag_linkumori_text": {
+    "message": "暂停清理后页面可以正常工作。找出导致问题的规则：逐一关闭规则、重新加载标签页，然后判断页面是否已修复。最后会重新启用其他所有规则。"
+  },
+  "troubleshooter_diag_linkumori_no_rules": {
+    "message": "正在重新加载标签页并重新启用清理，以记录此页面上运行的规则。规则稍后会显示在此处。如果没有规则运行，请继续使用页面，直到问题再次出现。"
+  },
+  "troubleshooter_diag_find_button": {
+    "message": "查找规则（$1 条规则）"
+  },
+  "troubleshooter_diag_yes_fixed": {
+    "message": "可以，已修复"
+  },
+  "troubleshooter_diag_no_still": {
+    "message": "不行，仍然无法正常工作"
+  },
+  "troubleshooter_diag_found_title": {
+    "message": "找到问题规则"
+  },
+  "troubleshooter_diag_found_text": {
+    "message": "规则 $1$2 导致页面无法正常工作。该规则已重新启用。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_found_provider": {
+    "message": " ($1)"
+  },
+  "troubleshooter_diag_disable_culprit": {
+    "message": "禁用此规则"
+  },
+  "troubleshooter_diag_report_culprit": {
+    "message": "举报"
+  },
+  "troubleshooter_diag_culprit_disabled": {
+    "message": "规则已关闭。重新加载标签页进行检查。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_not_found_title": {
+    "message": "未找到单条问题规则"
+  },
+  "troubleshooter_diag_not_found_text": {
+    "message": "逐一关闭规则并未修复页面，因此问题可能由多条规则共同导致，也可能与保护设置有关。所有规则都已重新启用。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_failed": {
+    "message": "无法运行检查：$1"
+  },
+  "troubleshooter_diag_outdated_title": {
+    "message": "重新加载 Linkumori 以使用此检查"
+  },
+  "troubleshooter_diag_outdated_text": {
+    "message": "Linkumori 已更新，但其后台部分仍在运行旧版本。请重新加载扩展程序（对于临时加载的附加组件：about:debugging → 此 Firefox → 重新加载），或重启 Firefox。"
+  },
+  "troubleshooter_diag_off_title": {
+    "message": "找到问题规则"
+  },
+  "troubleshooter_diag_off_text": {
+    "message": "规则 $1$2 导致页面无法正常工作。该规则会保持关闭以确保页面正常；其他所有规则均已重新启用。重新加载标签页进行检查。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_reload_tab": {
+    "message": "重新加载标签页"
+  },
+  "troubleshooter_diag_enable_again": {
+    "message": "重新启用"
+  },
+  "troubleshooter_diag_culprit_enabled": {
+    "message": "规则已重新启用。重新加载标签页进行检查。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_find_record": {
+    "message": "记录并查找规则"
+  },
+  "troubleshooter_diag_idle_recording": {
+    "message": "正在记录此页面上运行的规则。请继续使用页面直到问题出现；运行的规则会显示在此处。"
+  },
+  "troubleshooter_advice_in_search": {
+    "message": "规则搜索暂时关闭了此规则。搜索结束后会重新启用。"
+  },
+  "troubleshooter_advice_search_running": {
+    "message": "规则搜索正在运行。请在搜索结束后更改规则。"
+  },
+  "troubleshooter_diag_skip_found": {
+    "message": "跳过 — 重新启用"
+  },
+  "troubleshooter_diag_keep_off": {
+    "message": "保持关闭"
+  },
+  "troubleshooter_diag_skipped": {
+    "message": "已跳过规则搜索；所有规则均已重新启用。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_kept_off": {
+    "message": "规则 $1 会保持关闭。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_testing_rules": {
+    "message": "此测试中关闭的规则："
+  },
+  "troubleshooter_diag_testing_more": {
+    "message": "…以及另外 $1 条"
+  },
+  "troubleshooter_diag_stop_search": {
+    "message": "停止搜索"
+  },
+  "troubleshooter_diag_skipped_round": {
+    "message": "已跳过：该规则已重新启用并跳过。正在测试下一条规则。"
+  },
+  "troubleshooter_diag_not_found_skipped": {
+    "message": "在已测试的规则中未找到问题规则。你跳过的 $1 条规则尚未测试。所有规则均已重新启用。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_experimental": {
+    "message": "实验性"
+  },
+  "troubleshooter_experimental_warning": {
+    "message": "实验性：此故障排查工具尚未完全稳定，结果可能不准确，而且测试期间会关闭规则。如果之后发现异常，请在自定义规则编辑器中检查规则，或使用“停止搜索”重新启用规则。"
+  },
+  "troubleshooter_working": {
+    "message": "正在处理…"
+  },
+  "troubleshooter_diag_record_again": {
+    "message": "重新记录"
+  },
+  "troubleshooter_diag_recorded_fresh": {
+    "message": "已清除旧记录。正在从全新加载开始重新记录此标签页。"
+  },
+  "troubleshooter_clear": {
+    "message": "清除"
+  },
+  "troubleshooter_clear_title": {
+    "message": "清除此标签页的记录、发现结果和已完成的规则搜索。规则状态保持不变。"
+  },
+  "troubleshooter_status_cleared": {
+    "message": "已清除。规则状态保持不变。"
+  },
+  "troubleshooter_status_cleared_off": {
+    "message": "已清除。规则 $1 保持关闭。"
+  },
+  "troubleshooter_diag_bisect_title_single": {
+    "message": "每次测试一条规则 — 正在测试第 $1 条，共 $2 条"
+  },
+  "troubleshooter_diag_single_text": {
+    "message": "仅此规则处于关闭状态，并且标签页已重新加载。页面现在修复了吗？"
+  },
+  "troubleshooter_diag_skip_one": {
+    "message": "跳过此规则"
+  },
+  "troubleshooter_diag_skip_next": {
+    "message": "跳过 — 重新启用并测试下一条（还剩 $1 条）"
+  },
+  "troubleshooter_diag_continue_question": {
+    "message": "此页面上还有 $1 条运行过的规则尚未测试。是否继续测试？"
+  },
+  "troubleshooter_diag_keep_off_next": {
+    "message": "保持关闭并测试下一条（还剩 $1 条）"
+  },
+  "troubleshooter_diag_kept_off_next_done": {
+    "message": "规则 $1 保持关闭。正在测试下一条规则。"
+  },
+  "troubleshooter_diag_not_found_kept": {
+    "message": "没有其他单条规则可以修复页面。你选择保持关闭的 $1 条规则仍会关闭；其他所有规则均已重新启用。若要重新开始，请点击“清除”。"
+  },
+  "troubleshooter_diag_test_next": {
+    "message": "测试下一条规则（还剩 $1 条）"
+  },
+  "troubleshooter_diag_skip_next_done": {
+    "message": "规则 $1 已重新启用并跳过。正在测试下一条规则。"
+  },
+  "troubleshooter_diag_not_found_passed": {
+    "message": "没有其他单条规则可以修复页面。你跳过的 $1 条规则也已重新启用，因此现在所有规则均已启用。若要重新开始，请点击“清除”。"
+  },
+  "guide_intro_p_1": {
+    "message": "Linkumori 使用以 <strong>CLN Format 1.0</strong>（Clean Link Notation）编写的规则清理 URL。这是一种 JSON 格式。本指南从第一条规则讲起，介绍所有选项，并提供可复制的示例。"
+  },
+  "guide_intro_p_2": {
+    "message": "内置规则、远程规则列表和自定义规则都使用相同的格式。你可以在自定义规则编辑器中编写自定义规则；保存或导入时，编辑器会检查规则。官方 ClearURLs 规则目录（<code>data.min.json</code>）本身就是有效的 CLN 文件，可以直接使用。"
+  },
+  "guide_rules_file_p_1": {
+    "message": "提供商名称仅是一个标签。提供商处理哪些 URL 由 <code>domainPatterns</code> 或 <code>urlPattern</code> 决定。"
+  },
+  "guide_rules_file_th_1": {
+    "message": "顶层键"
+  },
+  "guide_rules_file_cell_1": {
+    "message": "必填。按名称列出的提供商。"
+  },
+  "guide_rules_file_cell_2": {
+    "message": "可选的格式版本。唯一有效值为 <code>\"1.0\"</code>。未填写时，文件也会按 1.0 读取；其他值都会导致文件被拒绝。它不叫 <code>version</code>，因为 ClearURLs 新规则格式已经使用了该键。"
+  },
+  "guide_rules_file_cell_3": {
+    "message": "有关文件的可选信息。"
+  },
+  "guide_rules_file_cell_4": {
+    "message": "文件中每条规则的默认值（第 12 章）。"
+  },
+  "guide_rules_file_cell_5": {
+    "message": "仅适用于远程规则列表：替换已加载规则的内容（第 15 章）。"
+  },
+  "guide_provider_fields_cell_1": {
+    "message": "提供商处理哪些 URL，可以是一个域名模式或模式列表（第 3 章）。请使用此项或 <code>urlPattern</code>，不要同时使用两者。"
+  },
+  "guide_provider_fields_cell_2": {
+    "message": "提供商处理哪些 URL：将一个正则表达式与完整 URL 匹配。不区分大小写。"
+  },
+  "guide_provider_fields_cell_3": {
+    "message": "仅与 <code>urlPattern</code> 搭配使用：例如 <code>||example.com^</code> 的主机提示，可让提供商仅检查这些主机，而非每个 URL。这是查找提示，不是匹配条件。"
+  },
+  "guide_provider_fields_cell_4": {
+    "message": "要移除的引荐和联盟参数。启用<em>允许引荐营销</em>时会跳过（第 10 章）。"
+  },
+  "guide_provider_fields_cell_5": {
+    "message": "提供商完全不处理的 URL（第 7 章）。"
+  },
+  "guide_provider_fields_cell_6": {
+    "message": "将请求发送到其他地址，而不是修改请求（第 8 章）。"
+  },
+  "guide_provider_fields_cell_7": {
+    "message": "将请求发送到某个参数的值（第 8 章）。"
+  },
+  "guide_provider_fields_cell_8": {
+    "message": "<code>true</code>：页面加载（<code>main_frame</code>）发生重定向时，整个标签页会导航到新地址，而不只是重定向网络请求。"
+  },
+  "guide_provider_fields_cell_9": {
+    "message": "仅处理这些 HTTP 方法，例如 <code>[\"GET\"]</code>。未填写时：处理所有方法。"
+  },
+  "guide_provider_fields_cell_10": {
+    "message": "仅处理这些请求类型，例如 <code>[\"main_frame\", \"xmlhttprequest\"]</code>。未填写时：处理所有请求类型。"
+  },
+  "guide_provider_fields_cell_11": {
+    "message": "默认值为 <code>true</code>。设为 <code>false</code> 时，如果页面通过 History API（<code>pushState</code>/<code>replaceState</code>）更改自身地址，则跳过整个提供商。普通网络请求仍会清理。"
+  },
+  "guide_provider_fields_cell_12": {
+    "message": "设为 <code>false</code> 可关闭提供商，但不会删除它。"
+  },
+  "guide_matching_p_1": {
+    "message": "<code>domainPatterns</code> 是域名模式列表。只要匹配其中任意一个模式，URL 即为匹配。相同的模式也用于 <code>exceptions</code>、<code>redirections</code>、<code>$removeparam</code> 过滤器和原始规则。"
+  },
+  "guide_matching_cell_1": {
+    "message": "完整 URL，作为正则表达式"
+  },
+  "guide_matching_cell_2": {
+    "message": "URL 中任意位置包含此文本（开头没有 <code>|</code>）"
+  },
+  "guide_matching_p_2": {
+    "message": "<code>^</code> 表示主机名的结尾，或表示分隔符（例如 <code>/</code>、<code>?</code>、<code>:</code>）或 URL 的结尾。<code>*</code> 是通配符。"
+  },
+  "guide_matching_p_3": {
+    "message": "<code>||</code> 代表一个域名：主机及其所有子域名。单个 <code>|</code> 代表 URL 的最开头，后面必须跟上 <code>https://</code> 之类的协议。域名始终应使用 <code>||</code>；<code>|example.com^</code> 永远不会匹配，因此编辑器会拒绝它。"
+  },
+  "guide_matching_p_4": {
+    "message": "例如，<code>||smile.amazon.*^</code> 可以拆解为：<code>||</code> 表示主机及其子域名，<code>smile.amazon</code> 表示必需的标签，<code>.*</code> 表示任意公共后缀（<code>.com</code>、<code>.co.jp</code>、<code>.de</code> 等），<code>^</code> 表示主机结尾。"
+  },
+  "guide_removing_parameters_cell_1": {
+    "message": "仅该参数"
+  },
+  "guide_removing_parameters_cell_2": {
+    "message": "参数名称整体匹配的所有参数；不区分大小写"
+  },
+  "guide_removing_parameters_p_1": {
+    "message": "<code>\"fbclid\"</code> 和 <code>\"$removeparam=fbclid\"</code> 会移除同一个参数。除非需要第 5 章中的功能，否则请使用纯名称。任何条目也可以写成规则对象（第 9 章）。"
+  },
+  "guide_removing_parameters_p_2": {
+    "message": "此处的 <code>qid</code> 会在所有 Amazon 网站上移除，<code>tag</code> 仅在 <code>amazon.de</code> 上移除，<code>sr</code> 仅在 <code>smile.amazon</code> 上移除，<code>ref_</code> 仅在 <code>/gp/</code> 路径下移除。此模式会进一步限制提供商自己的模式；它无法扩大范围。"
+  },
+  "guide_removeparam_filters_item_1": {
+    "message": "<code>@@</code> 会将过滤器变成保留参数的例外（见下文）。"
+  },
+  "guide_removeparam_filters_item_2": {
+    "message": "<code>pattern</code> 会将过滤器限制在提供商的部分 URL 上（第 3 章）。未填写时，会应用于提供商匹配的所有 URL。"
+  },
+  "guide_removeparam_filters_item_3": {
+    "message": "<code>=value</code> 用于选择参数。未填写时，会移除所有参数。"
+  },
+  "guide_removeparam_filters_item_4": {
+    "message": "修饰符用于指定过滤器触发的条件。必须满足列出的每个修饰符；修饰符之间没有“或”的关系。"
+  },
+  "guide_removeparam_filters_cell_1": {
+    "message": "除 <code>ref</code> 以外的所有参数"
+  },
+  "guide_removeparam_filters_cell_2": {
+    "message": "名称或完整的 <code>name=value</code> 与正则表达式匹配的参数；添加 <code>i</code> 可忽略大小写"
+  },
+  "guide_removeparam_filters_cell_3": {
+    "message": "名称以 <code>utm_</code> 开头的参数"
+  },
+  "guide_removeparam_filters_subtitle_1": {
+    "message": "转义参数名称"
+  },
+  "guide_removeparam_filters_p_1": {
+    "message": "反斜杠会让下一个字符按字面值处理，因此可以指定任意参数名称："
+  },
+  "guide_removeparam_filters_th_1": {
+    "message": "值"
+  },
+  "guide_removeparam_filters_th_2": {
+    "message": "要移除的参数名称"
+  },
+  "guide_removeparam_filters_cell_4": {
+    "message": "<code>a,b</code>（逗号不会开始修饰符部分）"
+  },
+  "guide_removeparam_filters_p_2": {
+    "message": "参数名称值中仅允许这五种转义；在其他字符前使用反斜杠会报错。在 <code>/regex/</code> 值中，反斜杠仍按正则表达式规则解释。这些转义可用于 <code>rules</code>、<code>referralMarketing</code>、<code>fieldRedirections</code> 和 <code>@@</code> 条目。在 JSON 中，每个反斜杠都要写两次：<code>\"$removeparam=\\\\~foo\"</code>。"
+  },
+  "guide_removeparam_filters_subtitle_2": {
+    "message": "修饰符"
+  },
+  "guide_removeparam_filters_p_3": {
+    "message": "修饰符写在值之后，并用逗号分隔。同一修饰符的多个值用 <code>|</code> 分隔；要排除某个值，请在其前面加 <code>~</code>："
+  },
+  "guide_removeparam_filters_th_3": {
+    "message": "修饰符"
+  },
+  "guide_removeparam_filters_cell_5": {
+    "message": "仅当发出请求的页面属于其中之一时适用（如果带有 <code>~</code>，则表示不属于）；也允许正则表达式值"
+  },
+  "guide_removeparam_filters_cell_6": {
+    "message": "仅当请求本身发往其中之一时适用，与发出请求的页面无关"
+  },
+  "guide_removeparam_filters_cell_7": {
+    "message": "仅适用于以下 HTTP 方法：<code>get</code>、<code>head</code>、<code>options</code>、<code>post</code>、<code>put</code>、<code>patch</code>、<code>delete</code>、<code>connect</code>"
+  },
+  "guide_removeparam_filters_cell_8": {
+    "message": "仅当请求发往与页面相同的可注册域名时适用（<code>a.example.com</code> 和 <code>b.example.com</code> 会视为相同），也可用于指定不同的域名"
+  },
+  "guide_removeparam_filters_cell_9": {
+    "message": "相同规则，但比较的是确切主机名，因此子域名会被视为第三方"
+  },
+  "guide_removeparam_filters_cell_10": {
+    "message": "参数名称区分大小写"
+  },
+  "guide_removeparam_filters_cell_11": {
+    "message": "当页面通过 History API 更改自身地址时，跳过此过滤器。也接受 <code>true</code>/<code>false</code>、<code>1</code>/<code>0</code>、<code>yes</code>/<code>no</code>"
+  },
+  "guide_removeparam_filters_p_4": {
+    "message": "四种 <code>*-party</code> 修饰符不能相互组合；<code>first-party,third-party</code> 会被拒绝。"
+  },
+  "guide_removeparam_filters_p_5": {
+    "message": "例如，<code>||example.com^$removeparam=sid,domain=~partner.com,method=get,third-party</code> 会在 <code>example.com</code> 上移除 <code>sid</code>，但仅适用于由其他网站页面发起的 GET 请求，并且不会在该页面属于 <code>partner.com</code> 时触发。"
+  },
+  "guide_removeparam_filters_item_5": {
+    "message": "<code>@@</code> 条目仅对 <code>$removeparam</code> 过滤器提供保护。像 <code>\"ref\"</code> 这样的普通条目仍会移除参数；要保护此类条目，请使用规则对象的 <code>exceptions</code>。原始规则有自己的 <code>@@…$rawrule=</code> 条目（第 6 章）。"
+  },
+  "guide_removeparam_filters_item_6": {
+    "message": "无论将它列在哪里都无关紧要，而且它不能带有 <code>order</code>。"
+  },
+  "guide_removeparam_filters_item_7": {
+    "message": "其模式会与提供商收到的 URL 匹配，在原始规则运行之前进行检查。即使原始规则删除了某个路径，针对该路径设置的 <code>@@</code> 条目仍然匹配。"
+  },
+  "guide_removeparam_filters_item_8": {
+    "message": "它还会涵盖其他提供商的过滤器（针对由此提供商匹配的页面发出的请求），因此可以方便地从其他位置定义的规则中排除某个网站。"
+  },
+  "guide_raw_rules_p_1": {
+    "message": "原始规则在 <code>rules</code> 之前运行，不区分大小写，并会替换每个匹配项（标志为 <code>gi</code>，或者使用 <code>match-case</code> 时为 <code>g</code>）。在 JSON 中，每个反斜杠都要写两次。"
+  },
+  "guide_raw_rules_p_2": {
+    "message": "原始规则可以使用 <code>$removeparam</code> 过滤器的模式和修饰符，并将 <code>rawrule=</code> 放在末尾。<code>rawrule=</code> 之后的所有内容都是正则表达式："
+  },
+  "guide_raw_rules_p_3": {
+    "message": "模式和修饰符决定规则的运行位置；真正被删除的仍是正则表达式匹配内容。"
+  },
+  "guide_raw_rules_p_4": {
+    "message": "以 <code>@@</code> 开头、以 <code>rawrule=</code> 结尾的条目，会在其模式匹配的位置阻止原始规则运行："
+  },
+  "guide_raw_rules_item_1": {
+    "message": "如果 <code>rawrule=</code> 后面没有内容，它会阻止此提供商在这些 URL 上运行所有原始规则。"
+  },
+  "guide_raw_rules_item_2": {
+    "message": "如果 <code>rawrule=</code> 后面有正则表达式，它会阻止匹配该正则表达式的原始规则。"
+  },
+  "guide_raw_rules_item_3": {
+    "message": "如果将条目写为带有 <code>targetId</code> 的规则对象，它只会阻止具有该 ID 或别名的原始规则。"
+  },
+  "guide_raw_rules_p_5": {
+    "message": "若要跳过整个提供商，请改用 <code>exceptions</code>。"
+  },
+  "guide_exceptions_p_1": {
+    "message": "如果 URL 匹配 <code>exceptions</code> 中的某一项，则此请求不会运行该提供商的任何规则。条目可以是与完整 URL 匹配的正则表达式，也可以是以 <code>|</code> 开头的域名模式："
+  },
+  "guide_exceptions_p_2": {
+    "message": "例外不区分大小写。若要跳过单条规则而非整个提供商，请为该规则设置自己的 <code>exceptions</code>（第 9 章）。"
+  },
+  "guide_redirects_p_1": {
+    "message": "URL 中最先出现的匹配参数会生效。对于 <code>https://site.example/away?redirect=https://real.example/page</code>，请求会转到 <code>https://real.example/page</code>。"
+  },
+  "guide_redirects_subtitle_1": {
+    "message": "有效的重定向目标"
+  },
+  "guide_redirects_p_2": {
+    "message": "只有目标为带主机名的绝对 <code>http</code> 或 <code>https</code> 地址时才会重定向。检查会在预处理器运行和百分号解码之后进行。目标无效时，该条目会视为不匹配：不会发生重定向，提供商的后续步骤会在未更改的 URL 上运行。"
+  },
+  "guide_redirects_th_1": {
+    "message": "目标"
+  },
+  "guide_redirects_th_2": {
+    "message": "是否重定向？"
+  },
+  "guide_redirects_cell_1": {
+    "message": "是"
+  },
+  "guide_redirects_cell_2": {
+    "message": "是，转到 <code>https://real.example/page</code>"
+  },
+  "guide_redirects_cell_3": {
+    "message": "否：协议不是 <code>http</code> 或 <code>https</code>"
+  },
+  "guide_redirects_cell_4": {
+    "message": "否：不是绝对地址"
+  },
+  "guide_redirects_p_3": {
+    "message": "原始规则如果生成的结果与输入 URL 的协议、主机或端口不同，也会视为重定向，即使它只删除了文本也是如此：从 <code>https://secure-bank.example/</code> 中删除 <code>secure-</code> 后会转到另一个网站。它需要有效目标，并且远程规则列表还需要获得 <code>redirect</code> 批准（第 15 章）。否则规则会保持 URL 不变。"
+  },
+  "guide_rule_objects_p_1": {
+    "message": "任何列表中的任何条目都可以写成对象，而不是字符串。若规则需要稳定 ID、默认关闭、改写而非移除，或仅在某些情况下运行，请使用对象："
+  },
+  "guide_rule_objects_cell_1": {
+    "message": "必填。你原本会在该列表中写入的纯文本条目。"
+  },
+  "guide_rule_objects_cell_2": {
+    "message": "稳定名称（字母、数字、<code>-</code>、<code>_</code>），用于开启或关闭规则（第 14 章）。"
+  },
+  "guide_rule_objects_cell_3": {
+    "message": "规则之前使用过的 ID，因此使用旧 ID 保存的设置在重命名后仍然有效。"
+  },
+  "guide_rule_objects_cell_4": {
+    "message": "改写而非移除；<code>§1§</code>、<code>§2§</code> 等代表捕获的值。"
+  },
+  "guide_rule_objects_cell_5": {
+    "message": "先转换捕获的值。"
+  },
+  "guide_rule_objects_cell_6": {
+    "message": "仅适用于这些请求类型，例如 <code>[\"main_frame\"]</code>。没有请求的清理（<em>复制清洁链接</em>、清理工具、History API 更改）会视为 <code>main_frame</code>。"
+  },
+  "guide_rule_objects_cell_7": {
+    "message": "此规则不运行的 URL（正则表达式）。"
+  },
+  "guide_rule_objects_cell_8": {
+    "message": "正则表达式标志，以字符串表示。默认值为 <code>i</code>；在 <code>rawRules</code> 中为 <code>gi</code>（或搭配 <code>match-case</code> 使用时为 <code>g</code>）。"
+  },
+  "guide_rule_objects_cell_9": {
+    "message": "在所属阶段中提前或延后运行规则（第 13 章）。"
+  },
+  "guide_rule_objects_cell_10": {
+    "message": "<code>true</code>：<code>rules</code> 中的规则也会计为引荐营销规则（第 10 章）。"
+  },
+  "guide_rule_objects_cell_11": {
+    "message": "对此规则单独设置同名的提供商开关。它优先于提供商的值和文件默认值。"
+  },
+  "guide_rule_objects_cell_12": {
+    "message": "<code>false</code>：规则默认关闭。"
+  },
+  "guide_rule_objects_cell_13": {
+    "message": "供阅读文件的人查看的备注；必须是字符串。"
+  },
+  "guide_rule_objects_cell_14": {
+    "message": "仅适用于 <code>@@…$rawrule=</code> 条目：要阻止的原始规则 ID。"
+  },
+  "guide_rule_objects_p_2": {
+    "message": "此处 <code>?token=abc123</code> 会变为 <code>?token=clean-abc123</code>。每个请求最多改写一次，因此不会反复包装该值。"
+  },
+  "guide_rule_objects_p_3": {
+    "message": "预处理器会按顺序更改捕获值，然后 <code>replacePattern</code> 或重定向才会使用这些值。<code>inputs</code> 可以是 <code>\"all\"</code> 或组编号列表："
+  },
+  "guide_referral_marketing_p_1": {
+    "message": "<code>referralMarketing</code> 可使用与 <code>rules</code> 相同的条目。只有关闭<em>允许引荐营销</em>时，这些条目才会运行，因此启用此选项后联盟链接仍能正常工作："
+  },
+  "guide_referral_marketing_p_2": {
+    "message": "规则可以留在 <code>rules</code> 中，同时计为引荐营销规则，方法是设置 <code>\"referralMarketing\": true</code>。不要在 <code>rules</code> 和 <code>referralMarketing</code> 中重复填写相同文本；编辑器会对此发出警告。"
+  },
+  "guide_request_types_cell_1": {
+    "message": "单条规则对象处理的请求类型（也可在 <code>defaults</code> 中设置）"
+  },
+  "guide_request_types_p_1": {
+    "message": "请求类型使用浏览器所用的名称：<code>main_frame</code>（页面）、<code>sub_frame</code>（框架）、<code>xmlhttprequest</code>、<code>script</code>、<code>image</code> 等。过滤器修饰符将前两种称为 <code>document</code> 和 <code>subdocument</code>。"
+  },
+  "guide_request_types_p_2": {
+    "message": "请求类型只能在规则中设置：设置中没有请求类型列表。如果没有设置这些类型，规则会清理所有请求类型。"
+  },
+  "guide_defaults_title_1": {
+    "message": "12. 默认值"
+  },
+  "guide_defaults_p_1": {
+    "message": "顶层 <code>defaults</code> 块会为文件中的每条规则提供其未自行设置的值："
+  },
+  "guide_defaults_th_1": {
+    "message": "每条规则的默认值……"
+  },
+  "guide_defaults_cell_1": {
+    "message": "<code>active</code>；设为 <code>false</code> 会关闭所有规则，除非规则自身设置 <code>\"active\": true</code>"
+  },
+  "guide_defaults_cell_2": {
+    "message": "<code>requestTypes</code>；设为 <code>\"all\"</code> 或留空都表示所有类型"
+  },
+  "guide_defaults_item_1": {
+    "message": "规则自身的值始终优先；规则的 <code>exceptions</code> 会替代默认列表，而不是附加到该列表。"
+  },
+  "guide_defaults_item_2": {
+    "message": "默认值适用于 <code>rules</code>、<code>rawRules</code>、<code>referralMarketing</code>、<code>redirections</code> 和 <code>fieldRedirections</code>。提供商自己的 <code>exceptions</code> 列表保持不变。<code>$redirect=</code> 条目只使用 <code>active</code>。"
+  },
+  "guide_defaults_item_3": {
+    "message": "每个文件都会保留自己的默认值：内置规则、每个远程列表以及你的自定义规则都是如此，即使过载模式将它们合并也是一样。"
+  },
+  "guide_defaults_item_4": {
+    "message": "对于 <code>completeProvider</code>，默认的 <code>requestTypes</code> 和 <code>exceptions</code> 也会限制阻止操作。"
+  },
+  "guide_defaults_item_5": {
+    "message": "未知键和错误类型会导致错误；包含无效 <code>defaults</code> 块的远程列表会被拒绝。"
+  },
+  "guide_defaults_subtitle_1": {
+    "message": "自定义默认值"
+  },
+  "guide_defaults_p_2": {
+    "message": "在自定义规则编辑器中，打开<em>管理规则默认值</em>会显示一个表单，你可以在其中设置自己的 <code>defaults</code> 块，并选择替换哪些文件自身的默认值："
+  },
+  "guide_defaults_item_6": {
+    "message": "<em>每个来源各自的默认值</em>（默认）：每个文件使用自己的 <code>defaults</code>。"
+  },
+  "guide_defaults_item_7": {
+    "message": "<em>内置和远程规则使用你的默认值</em>：内置规则和远程规则使用你的默认值；自定义规则保留自己的默认值。"
+  },
+  "guide_defaults_item_8": {
+    "message": "<em>所有规则使用你的默认值</em>：所有规则都使用你的默认值。"
+  },
+  "guide_defaults_p_3": {
+    "message": "同一表单也可以编辑内置规则和每个已加载远程列表的默认值。编辑内容会保存在扩展程序中，而不会写入文件；选择<em>重置为文件默认值</em>即可清除编辑内容。<em>从来源合并…</em>可合并你勾选的来源默认值；保存前不会存储任何更改。"
+  },
+  "guide_processing_order_title_1": {
+    "message": "13. URL 的处理流程"
+  },
+  "guide_processing_order_item_1": {
+    "message": "先处理 <code>redirections</code>，再处理 <code>fieldRedirections</code>：匹配且目标有效时，会重定向请求。"
+  },
+  "guide_processing_order_item_2": {
+    "message": "<code>rules</code> 和 <code>referralMarketing</code> 会移除或改写参数。"
+  },
+  "guide_processing_order_item_3": {
+    "message": "运行 <code>$removeparam</code> 过滤器，但 <code>@@</code> 条目所保留的参数除外。"
+  },
+  "guide_processing_order_p_1": {
+    "message": "第一个更改、重定向或阻止 URL 的提供商会获胜。新 URL 随后会再次经过相同步骤（请参阅<a href=\"#termination\">处理何时停止</a>）。"
+  },
+  "guide_processing_order_subtitle_1": {
+    "message": "运行顺序和 <code>order</code>"
+  },
+  "guide_processing_order_p_2": {
+    "message": "第 4 步和第 5 步会根据以下规则依次共同排序："
+  },
+  "guide_processing_order_item_4": {
+    "message": "<strong>原始规则始终最先运行。</strong>没有 <code>order</code> 可以让 <code>rules</code> 条目排到原始规则之前。必须在原始规则前执行的清理操作本身也必须是原始规则。"
+  },
+  "guide_processing_order_item_5": {
+    "message": "<strong>在同一阶段中，带有 <code>order</code> 的规则会排在没有该值的规则之前，</strong>数值较小的优先。允许负数和小数。<code>order: 10</code> 并不表示“第十位”：它表示排在该阶段中小于 10 的有序规则之后、所有无序规则之前。"
+  },
+  "guide_processing_order_item_6": {
+    "message": "<strong>然后按列表排序：</strong>先是 <code>rules</code>，再是标记为 <code>\"referralMarketing\": true</code> 的 <code>rules</code> 对象，最后是 <code>referralMarketing</code>。"
+  },
+  "guide_processing_order_item_7": {
+    "message": "<strong>最后按列表中的位置排序。</strong>每个条目都会保留自己的位置，包括写成 <code>\"3\"</code> 或 <code>\"20\"</code> 的条目。"
+  },
+  "guide_processing_order_p_3": {
+    "message": "此处会先改写令牌，然后移除 <code>utm_source</code>，尽管令牌排在第二位："
+  },
+  "guide_processing_order_p_4": {
+    "message": "已关闭的规则会被忽略。<code>$removeparam</code> 过滤器和 <code>@@</code> 条目不参与此排序，也不能设置 <code>order</code>，包括 <code>null</code>；过滤器始终最后运行。"
+  },
+  "guide_processing_order_subtitle_2": {
+    "message": "相同文本出现两次"
+  },
+  "guide_processing_order_p_5": {
+    "message": "同一分组中如果有两个条目的 <code>matchPattern</code> 文本相同，它们就算作同一条规则。分组为原始组（<code>rawRules</code>）、字段组（未标记为引荐的 <code>rules</code>）和引荐组（标记为引荐的 <code>rules</code> 对象，然后是 <code>referralMarketing</code>）。规则列表合并时最容易出现这种情况。"
+  },
+  "guide_processing_order_item_8": {
+    "message": "最后一个未关闭的定义会生效，并保留其所有键。"
+  },
+  "guide_processing_order_item_9": {
+    "message": "如果生效规则没有自己的 <code>order</code>，它会采用第一个定义的位置以及最接近的较早 <code>order</code>。<code>\"order\": null</code> 表示不排序，并会清除继承的排序值。"
+  },
+  "guide_processing_order_item_10": {
+    "message": "被替换定义的 ID 和别名也可以用于关闭或启用生效规则。"
+  },
+  "guide_processing_order_item_11": {
+    "message": "引荐营销规则运行时，引荐条目会替换文本相同的字段条目。"
+  },
+  "guide_processing_order_item_12": {
+    "message": "文本相同的原始规则和字段规则不会冲突；两者都会运行。"
+  },
+  "guide_processing_order_p_6": {
+    "message": "同一个列表中，不同条目如果文本相同就会报错；完全重复的条目会发出警告。"
+  },
+  "guide_processing_order_subtitle_3": {
+    "message": "处理何时停止"
+  },
+  "guide_processing_order_item_13": {
+    "message": "每个请求最多运行 10 个循环；达到上限后会使用当前 URL。"
+  },
+  "guide_processing_order_item_14": {
+    "message": "每个请求中，带有 <code>replacePattern</code> 的规则最多应用一次。"
+  },
+  "guide_processing_order_item_15": {
+    "message": "不会更改 URL 的步骤不会启动新循环。"
+  },
+  "guide_processing_order_p_7": {
+    "message": "设置 → <em>无限清理循环</em>（默认关闭）会移除 10 次循环上限，以支持需要更多轮次的规则链。之后只要某个循环没有任何更改，处理就会结束；但如果两条规则相互重定向，浏览器会在放弃后结束循环，页面也无法加载。请仅为你信任的规则启用此选项。"
+  },
+  "guide_rule_ids_title_1": {
+    "message": "14. 规则 ID 和启用/关闭开关"
+  },
+  "guide_rule_ids_p_1": {
+    "message": "每条规则都有 ID。未设置 <code>id</code> 的规则会根据所属列表和文本生成 ID：例如 <code>rules</code> 中的 <code>\"utm_source\"</code> 会变为 <code>field-utm-source</code>。更改规则文本会改变生成的 ID，原本已关闭的规则随后会重新启用。如果规则在编辑后也必须保留启用/关闭状态，请为其设置自己的 <code>id</code>；重命名时，请在 <code>aliases</code> 中列出旧 ID。"
+  },
+  "guide_rule_ids_p_2": {
+    "message": "规则通过提供商和 ID 的组合来启用或关闭，例如 <code>shop::session-token</code>，因此两个提供商可以使用相同的 ID。自定义规则编辑器也可能使用提供商模式保存设置，例如 <code>domainPattern:||shop.example^::session-token</code>；两种形式都有效。"
+  },
+  "guide_rule_ids_item_1": {
+    "message": "在同一提供商中，每个 ID 和别名都必须不同。生成的 ID 也计入其中。"
+  },
+  "guide_rule_ids_item_2": {
+    "message": "ID 不能包含冒号。"
+  },
+  "guide_rule_ids_item_3": {
+    "message": "在未指定提供商的情况下，仅用裸 ID 保存的设置不会关闭任何规则；请在自定义规则编辑器中再次关闭该规则。"
+  },
+  "guide_remote_rules_title_1": {
+    "message": "15. 远程规则列表"
+  },
+  "guide_remote_rules_p_1": {
+    "message": "远程规则列表是 Linkumori 下载的规则文件，可以选择使用哈希文件进行验证。如果 <code>cln</code> 值、<code>defaults</code> 块或 <code>patches</code> 数组无效，该列表就不会加载，并会在“远程规则状态”中报告。"
+  },
+  "guide_remote_rules_subtitle_1": {
+    "message": "重定向和阻止需要你的批准"
+  },
+  "guide_remote_rules_p_2": {
+    "message": "加载时会根据远程列表的内容判断它能执行哪些操作："
+  },
+  "guide_remote_rules_th_1": {
+    "message": "功能"
+  },
+  "guide_remote_rules_th_2": {
+    "message": "列表包含以下内容时即可使用"
+  },
+  "guide_remote_rules_th_3": {
+    "message": "加载时启用"
+  },
+  "guide_remote_rules_cell_1": {
+    "message": "包含 <code>rules</code>、<code>rawRules</code> 或 <code>referralMarketing</code> 条目，或 <code>$removeparam</code> 过滤器"
+  },
+  "guide_remote_rules_cell_2": {
+    "message": "包含带有 <code>replacePattern</code> 的条目"
+  },
+  "guide_remote_rules_cell_3": {
+    "message": "包含提供商 <code>exceptions</code> 条目或 <code>@@</code> 条目"
+  },
+  "guide_remote_rules_cell_4": {
+    "message": "包含 <code>redirections</code> 或 <code>fieldRedirections</code> 条目，或 <code>forceRedirection</code>"
+  },
+  "guide_remote_rules_cell_5": {
+    "message": "批准后"
+  },
+  "guide_remote_rules_cell_6": {
+    "message": "包含 <code>\"completeProvider\": true</code> 的提供商"
+  },
+  "guide_remote_rules_p_3": {
+    "message": "请在“远程规则状态”中为每个列表批准 <code>redirect</code> 和 <code>block</code>。批准前，该列表的重定向和阻止操作会保持关闭，其原始规则也无法将 URL 发送到其他网站；列表的其他功能会立即生效。更新添加新功能时，也需要等待批准。内置和自定义规则始终拥有全部功能。"
+  },
+  "guide_remote_rules_subtitle_2": {
+    "message": "过载模式"
+  },
+  "guide_remote_rules_p_4": {
+    "message": "通常，包含提供商的远程列表会替代内置规则；仅包含 <code>patches</code> 的列表则会应用于内置规则。启用<em>启用过载模式</em>后，列表会一起加载，并使用以下三种策略之一："
+  },
+  "guide_remote_rules_item_1": {
+    "message": "<em>仅补丁模式</em>：将远程列表的补丁应用于内置规则；不包含远程提供商。"
+  },
+  "guide_remote_rules_item_2": {
+    "message": "<em>补丁模式 + 合并</em>：合并内置和远程提供商，然后应用补丁。"
+  },
+  "guide_remote_rules_item_3": {
+    "message": "<em>无补丁模式 + 合并</em>：合并提供商并跳过补丁。"
+  },
+  "guide_remote_rules_p_5": {
+    "message": "合并时，远程列表会按照列出的顺序彼此合并，然后再与内置规则合并（内置规则优先）。仅当提供商的 <code>domainPatterns</code>（或 <code>urlPattern</code>）以及 <code>methods</code>、<code>resourceTypes</code>、<code>completeProvider</code> 和 <code>forceRedirection</code> 均相同时，才会合并这些提供商；其 <code>rules</code>、<code>rawRules</code> 和 <code>referralMarketing</code> 会合并在一起，并根据<a href=\"#same-text-twice\">相同文本出现两次</a>中的规则决定运行哪个副本。“远程规则状态”会将每条被替换规则列为提示。"
+  },
+  "guide_remote_rules_p_6": {
+    "message": "自定义规则最后应用。自定义提供商会替换所有模式相同的已加载提供商；它们的规则不会合并。"
+  },
+  "guide_remote_rules_subtitle_3": {
+    "message": "规则补丁"
+  },
+  "guide_remote_rules_p_7": {
+    "message": "远程列表可以在顶层 <code>patches</code> 数组中替换已加载的单条规则，而不必发布完整副本："
+  },
+  "guide_remote_rules_cell_7": {
+    "message": "必填。要替换的规则，格式与其启用/关闭键相同：<code>providerKey::id</code>、<code>domainPattern:&lt;pattern&gt;::id</code> 或 <code>urlPattern:&lt;regex&gt;::id</code>。"
+  },
+  "guide_remote_rules_cell_8": {
+    "message": "必填。可选 <code>rules</code>、<code>referralMarketing</code>、<code>rawRules</code>、<code>exceptions</code>、<code>redirections</code> 或 <code>fieldRedirections</code>。"
+  },
+  "guide_remote_rules_cell_9": {
+    "message": "必填。新规则，可以是纯文本条目或规则对象。"
+  },
+  "guide_remote_rules_cell_10": {
+    "message": "供阅读文件的人查看的备注。"
+  },
+  "guide_remote_rules_item_4": {
+    "message": "补丁会在远程列表合并后、自定义规则之前运行。仅包含 <code>patches</code> 的文件不需要 <code>providers</code>。"
+  },
+  "guide_remote_rules_item_5": {
+    "message": "合并可能会重命名提供商，因此始终能找到它们的形式是 <code>domainPattern:</code> 或 <code>urlPattern:</code>。"
+  },
+  "guide_remote_rules_item_6": {
+    "message": "替换规则会保留旧规则的 ID，或将旧 ID 设为别名，因此原有启用/关闭设置仍然有效。"
+  },
+  "guide_remote_rules_item_7": {
+    "message": "重定向补丁需要等待列表获得 <code>redirect</code> 批准。目标无法匹配任何内容的补丁不会产生更改。"
+  },
+  "guide_remote_rules_item_8": {
+    "message": "“远程规则状态”会将每个补丁列为已应用、不匹配或已跳过。"
+  },
+  "guide_whitelist_title_1": {
+    "message": "16. 规则和白名单"
+  },
+  "guide_whitelist_p_1": {
+    "message": "白名单独立于提供商的 <code>exceptions</code>：其中列出你告知 Linkumori 不要处理的网站，无需使用任何规则文件。条目示例：<code>example.com</code>、<code>*.example.com</code>（该网站及其子域名）或 <code>example.*</code>（任意后缀）。将页面加入白名单后，其加载的所有内容也会受到保护。"
+  },
+  "guide_examples_title_1": {
+    "message": "17. 完整示例"
+  },
+  "guide_checking_title_1": {
+    "message": "18. 检查规则"
+  },
+  "guide_checking_p_1": {
+    "message": "自定义规则编辑器会在保存或导入时检查规则，<code>node linkumori-cli-tool.js lint-rules &lt;file&gt;</code> 会执行相同的检查。除了无效 JSON 和无效正则表达式，它还会拒绝那些虽然可以加载、却会悄悄产生错误行为的规则，例如："
+  },
+  "guide_checking_item_1": {
+    "message": "未知字段、键和修饰符"
+  },
+  "guide_check_7": {
+    "message": "<code>cln</code> 值不是 <code>\"1.0\"</code>"
+  },
+  "guide_check_8": {
+    "message": "同一提供商中重复使用的 ID 或别名"
+  },
+  "guide_checking_item_2": {
+    "message": "同一个列表中有两条不同的规则文本相同"
+  },
+  "guide_checking_item_3": {
+    "message": "<code>$removeparam</code> 过滤器或 <code>@@</code> 条目上设置了 <code>order</code>，包括 <code>null</code>"
+  },
+  "guide_check_9": {
+    "message": "<code>$redirect=</code> 地址不是 <code>http</code> 或 <code>https</code>"
+  },
+  "guide_check_10": {
+    "message": "在 <code>$removeparam</code> 名称中，反斜杠后跟了不允许转义的字符"
+  },
+  "guide_checking_p_2": {
+    "message": "它还会提示完全重复的条目，以及同时出现在 <code>rules</code> 和 <code>referralMarketing</code> 中的相同文本。如果保存失败，消息会指出提供商、列表和条目。"
+  },
+  "guide_toc_search": {
+    "message": "筛选章节"
+  },
+  "guide_toc_no_results": {
+    "message": "没有匹配的章节。"
+  },
+  "customRulesEditor_syntaxRedirectEntryFormat": {
+    "message": "$WHERE$: 以 \"|\" 开头的重定向必须采用以下格式：\"||example.com^$redirect=https://target/\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectTargetNotHttp": {
+    "message": "$WHERE$: $redirect= 目标必须是绝对 http 或 https URL",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMustBeObject": {
+    "message": "$WHERE$ 必须是对象",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeEmpty": {
+    "message": "$WHERE$.type 必须是非空字符串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorTypeUnsupported": {
+    "message": "$WHERE$.type 必须是以下之一：$TYPES$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      },
+      "types": {
+        "content": "$2",
+        "example": "urlEncode, urlDecode"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorInputs": {
+    "message": "$WHERE$.inputs 必须是 \"all\" 或正整数数组",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0].preprocessors[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleMustBeStringOrObject": {
+    "message": "$WHERE$ 必须是字符串或规则对象",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxMatchPatternNotString": {
+    "message": "$WHERE$.matchPattern 必须是字符串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReplacePatternNotString": {
+    "message": "$WHERE$.replacePattern 必须是字符串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNotRuleId": {
+    "message": "$WHERE$.targetId 必须是规则 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdOnlyRawRules": {
+    "message": "$WHERE$.targetId 仅适用于 rawRules 中的 \"@@…$rawrule=\" 例外项",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFlagsNotString": {
+    "message": "$WHERE$.flags 必须是字符串（例如 \"i\" 这样的正则标志）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNotBoolean": {
+    "message": "$WHERE$.referralMarketing 必须为 true 或 false",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxReferralMarketingNoEffect": {
+    "message": "$WHERE$.referralMarketing 在 $FIELD$ 中不起作用；它仅适用于 $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rawRules"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNotNumber": {
+    "message": "$WHERE$.order 必须是数字或 null",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectInList": {
+    "message": "$WHERE$.order 在 $FIELD$ 中不起作用；它仅适用于 $LISTS$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: exceptions[0]"
+      },
+      "field": {
+        "content": "$2",
+        "example": "exceptions"
+      },
+      "lists": {
+        "content": "$3",
+        "example": "rules, rawRules, referralMarketing"
+      }
+    }
+  },
+  "customRulesEditor_syntaxOrderNoEffectOnFilter": {
+    "message": "$WHERE$.order 对 $removeparam 过滤器或 \"@@\" 条目不起作用；它们始终在其他规则之后运行",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxActiveNotBoolean": {
+    "message": "$WHERE$.active 必须是布尔值",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdNotString": {
+    "message": "$WHERE$.id 必须是字符串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxIdPattern": {
+    "message": "$WHERE$.id 必须匹配 $PATTERN$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesPattern": {
+    "message": "$WHERE$.aliases 必须是匹配 $PATTERN$ 的 ID 列表",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "^[a-z0-9][a-z0-9_-]*$"
+      }
+    }
+  },
+  "customRulesEditor_syntaxAliasesContainOwnId": {
+    "message": "$WHERE$.aliases 不得包含规则自身的 ID",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxDescriptionNotString": {
+    "message": "$WHERE$.description 必须是字符串",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxHistoryBypassNotBoolean": {
+    "message": "$WHERE$.historyBypassProtection 必须是布尔值",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionsNotStrings": {
+    "message": "$WHERE$.exceptions 必须是字符串数组",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRequestTypesNotStrings": {
+    "message": "$WHERE$.requestTypes 必须是字符串数组",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxPreprocessorsNotArray": {
+    "message": "$WHERE$.preprocessors 必须是数组",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownField": {
+    "message": "$WHERE$：未知字段 \"$FIELD$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "domainPattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxFieldRedirectionException": {
+    "message": "$WHERE$ 以 \"@@\" 开头，该写法仅适用于 rules 和 referralMarketing 中的 $removeparam 过滤器；请改用规则对象的 \"exceptions\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: fieldRedirections[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownRemoveparamOption": {
+    "message": "$WHERE$ 包含未知的 $removeparam 选项 \"$OPTION$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "option": {
+        "content": "$2",
+        "example": "frist-party"
+      }
+    }
+  },
+  "customRulesEditor_syntaxSinglePipe": {
+    "message": "$WHERE$：\"$PATTERN$\" 以单个 \"|\" 开头，因此只会匹配字面上以 \"$REST$\" 开头的 URL，但不存在这样的 URL（URL 以 \"https://\" 开头）。要匹配域名，请使用 \"||$REST$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: domainPatterns[0]"
+      },
+      "pattern": {
+        "content": "$2",
+        "example": "|example.com^"
+      },
+      "rest": {
+        "content": "$3",
+        "example": "example.com^"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdNeedsException": {
+    "message": "$WHERE$ 包含 \"targetId\"，但它仅适用于例外项；请让 matchPattern 以 \"@@\" 开头（例如 \"@@||example.com^$rawrule=\"）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdAndRegex": {
+    "message": "$WHERE$ 同时包含 \"targetId\" 和 \"rawrule=\" 后的正则表达式；请只使用其中一个",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxTargetIdUnknown": {
+    "message": "$WHERE$ 的 targetId \"$ID$\" 在此提供者中没有对应 ID 或别名的 raw rule",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "id": {
+        "content": "$2",
+        "example": "ref-strip"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionRegexUnknown": {
+    "message": "$WHERE$ 是针对 \"$REGEX$\" 的 \"@@\" 例外项，但此提供者没有任何 raw rule 使用该正则表达式。请为规则指定 ID，并改用 \"targetId\" 指向它",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "regex": {
+        "content": "$2",
+        "example": "\\/ref=[^/?]*"
+      }
+    }
+  },
+  "customRulesEditor_syntaxExceptionKeyNoEffect": {
+    "message": "$WHERE$ 是一个 \"@@\" 例外项，因此 \"$KEY$\" 不会产生任何效果",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "replacePattern"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleMissingRegex": {
+    "message": "$WHERE$ 的 \"rawrule=\" 后没有内容；这里需要要删除的正则表达式",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRawRuleInvalidRegex": {
+    "message": "$WHERE$ 的 \"rawrule=\" 后有无效的正则表达式：$ERROR$",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rawRules[0]"
+      },
+      "error": {
+        "content": "$2",
+        "example": "Unterminated group"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRedirectCaptureGroups": {
+    "message": "$WHERE$ 有 $GROUPS$ 个捕获组；目标 URL 周围必须恰好有一个括号组 \"( … )\"（其他组请写成 \"(?: … )\"）",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: redirections[0]"
+      },
+      "groups": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "customRulesEditor_syntaxRuleIdReused": {
+    "message": "$PROVIDER$ 在 $WHERE$ 中重复使用规则 ID \"$ID$\"；首次使用位置：$FIRST$",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "id": {
+        "content": "$2",
+        "example": "field-utm"
+      },
+      "where": {
+        "content": "$3",
+        "example": "rules[2]"
+      },
+      "first": {
+        "content": "$4",
+        "example": "rules[0]"
+      }
+    }
+  },
+  "customRulesEditor_syntaxProviderNotObject": {
+    "message": "$PROVIDER$ 必须是 JSON 对象",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
+  "customRulesEditor_syntaxListNotArray": {
+    "message": "$PROVIDER$：$FIELD$ 必须是数组",
+    "placeholders": {
+      "provider": {
+        "content": "$1",
+        "example": "Example"
+      },
+      "field": {
+        "content": "$2",
+        "example": "rules"
+      }
+    }
+  },
+  "customRulesEditor_syntaxUnknownKey": {
+    "message": "$WHERE$ 包含未知键 \"$KEY$\"",
+    "placeholders": {
+      "where": {
+        "content": "$1",
+        "example": "Example: rules[0]"
+      },
+      "key": {
+        "content": "$2",
+        "example": "matchpattern"
+      }
+    }
+  },
+  "reportErrorProcessingUrl": {
+    "message": "处理 URL 时出错：$1"
+  },
+  "reportErrorInitializingPage": {
+    "message": "初始化页面时出错：$1"
+  },
+  "troubleshooter_error_invalid_tab": {
+    "message": "无效标签页"
+  },
+  "troubleshooter_error_search_running": {
+    "message": "此标签页已有规则搜索正在运行"
+  },
+  "troubleshooter_error_no_pause_check": {
+    "message": "此标签页没有正在运行的暂停检查"
+  },
+  "troubleshooter_error_rules_loading": {
+    "message": "规则仍在加载。请稍后重试。"
+  },
+  "troubleshooter_error_no_switchable_rules": {
+    "message": "此页面上触发的规则均无法关闭。"
+  },
+  "troubleshooter_error_switch_off_failed": {
+    "message": "无法关闭这些规则"
+  },
+  "troubleshooter_error_no_search": {
+    "message": "此标签页没有正在运行的规则搜索"
+  },
+  "troubleshooter_error_no_found_rule": {
+    "message": "此标签页没有可跳过的已找到规则"
+  },
+  "troubleshooter_error_download_unavailable": {
+    "message": "无法下载"
+  },
+  "troubleshooter_error_capture_save_failed": {
+    "message": "无法将录制内容保存到会话存储"
+  },
+  "troubleshooter_unknown_rule": {
+    "message": "未知规则"
+  },
+  "troubleshooter_error_unknown": {
+    "message": "未知错误"
+  },
+  "troubleshooter_error_export_failed": {
+    "message": "导出失败"
   }
 }

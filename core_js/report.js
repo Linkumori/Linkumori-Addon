@@ -241,8 +241,8 @@ const reportedPage = (function() {
         };
     } catch (error) {
         console.error('Error processing URL parameters:', error);
-        const errorMsg = createElement('p', { class: 'error' }, 
-            'Error processing URL: ' + error.message);
+        const errorMsg = createElement('p', { class: 'error' },
+            t('reportErrorProcessingUrl', [error.message], 'Error processing URL: ' + error.message));
         document.querySelector('section').prepend(errorMsg);
     }
     return null;
@@ -1281,8 +1281,8 @@ async function initReportPage() {
         updateURLSelectVisibility();
     } catch (error) {
         console.error('Error initializing report page:', error);
-        const errorMsg = createElement('p', { class: 'error' }, 
-            'Error initializing page: ' + error.message);
+        const errorMsg = createElement('p', { class: 'error' },
+            t('reportErrorInitializingPage', [error.message], 'Error initializing page: ' + error.message));
         document.querySelector('section').prepend(errorMsg);
     }
 }

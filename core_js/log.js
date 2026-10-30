@@ -263,6 +263,10 @@ function setI18nText() {
         element.title = translate(element.getAttribute('data-i18n-title'));
     });
 
+    document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        element.setAttribute('aria-label', translate(element.getAttribute('data-i18n-aria')));
+    });
+
     // Log-view button labels
     const resetText  = document.getElementById('reset_log_btn_text');
     const importText = document.getElementById('import_log_btn_text');

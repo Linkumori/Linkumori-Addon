@@ -190,7 +190,10 @@
         diag_skip_next_done: 'Rule $1 is back on and left out. Testing the next rule.',
         diag_not_found_passed: 'No other rule fixes the page on its own. The $1 rule(s) you skipped are back on too, so every rule is on again. To start over, click Clear.',
         diag_outdated_title: 'Reload Linkumori to use this check',
-        diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.'
+        diag_outdated_text: 'Linkumori was updated, but its background part is still running the old version. Reload the extension (for a temporary add-on: about:debugging → This Firefox → Reload), or restart Firefox.',
+        unknown_rule: 'Unknown rule',
+        error_unknown: 'unknown error',
+        error_export_failed: 'export failed'
     };
 
     function ts(key, ...subs) {
@@ -419,7 +422,7 @@
             pageUrl: tab.url,
             resourceUrl: entry.resourceURL || entry.before || entry.url || tab.url,
             after: entry.after || '',
-            rule: entry.rule || 'Unknown rule',
+            rule: entry.rule || ts('unknown_rule'),
             providerName: entry.providerName || '',
             requestType: entry.requestType || '',
             matchedRuleSection: entry.matchedRuleSection || '',
@@ -435,7 +438,7 @@
                 pageUrl: tab.url,
                 resourceUrl: step.before || tab.url,
                 after: step.after || '',
-                rule: step.matchedRule || 'Unknown rule',
+                rule: step.matchedRule || ts('unknown_rule'),
                 providerName: step.providerName || '',
                 requestType: 'main_frame',
                 matchedRuleSection: step.matchedRuleSection || '',
@@ -936,7 +939,7 @@
             const tab = await getActiveTab();
             if (!tab) throw new Error(ts('status_no_tab'));
             const response = await message(functionName, [tab.id, ...params]);
-            if (!response?.response?.success) throw new Error(response?.response?.error || response?.error || 'unknown error');
+            if (!response?.response?.success) throw new Error(response?.response?.error || response?.error || ts('error_unknown'));
             const diagnosis = response.response.diagnosis;
             if (reloadAfter === true || (typeof reloadAfter === 'function' && reloadAfter(diagnosis))) {
                 await browser.tabs.reload(tab.id);
@@ -1311,7 +1314,7 @@
                 [JSON.stringify(payload, null, 2), filename]);
             const result = response?.response;
             if (result?.canceled) return;
-            if (!result?.success) throw new Error(response?.error || result?.error || 'export failed');
+            if (!result?.success) throw new Error(response?.error || result?.error || ts('error_export_failed'));
             status.textContent = ts('status_exported');
         } catch (error) {
             console.error('[Linkumori] Troubleshooter export failed:', error);
