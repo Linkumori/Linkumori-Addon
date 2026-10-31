@@ -2,7 +2,7 @@
 
 The static site for [Linkumori](https://github.com/Linkumori/Linkumori-Addon): the extension's features and the CLN Format 1.0 standard.
 
-This branch has no history in common with `main`. It holds only the site.
+This branch is based on `main` and includes the extension source alongside the static site.
 
 | File | What it is |
 | --- | --- |
