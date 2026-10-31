@@ -5574,12 +5574,12 @@ async function updateRuleDefaultsStatus() {
 // RULE DEFAULTS MODAL
 // ============================================================================
 
-// Request types offered as checkboxes (the webRequest ResourceTypes);
-// types a loaded block names that are not here are added to the list.
+// Firefox webRequest.ResourceType values offered as checkboxes in the
+// custom rules editor's defaults modal.
 const RULE_DEFAULTS_REQUEST_TYPES = Object.freeze([
-    'main_frame', 'sub_frame', 'xmlhttprequest', 'script', 'stylesheet', 'image', 'imageset', 'font',
-    'media', 'object', 'object_subrequest', 'websocket', 'ping', 'beacon', 'csp_report', 'speculative',
-    'web_manifest', 'xml_dtd', 'xslt', 'other'
+    'beacon', 'csp_report', 'font', 'image', 'imageset', 'json', 'main_frame', 'media', 'object',
+    'object_subrequest', 'other', 'ping', 'script', 'speculative', 'stylesheet', 'sub_frame',
+    'web_manifest', 'websocket', 'xml_dtd', 'xmlhttprequest', 'xslt'
 ]);
 
 // Every editable set while the modal is open, by key: 'user' (the user's
@@ -5811,8 +5811,7 @@ function fillRuleDefaultsForm(defaults) {
     if (typesModeInput) typesModeInput.checked = true;
     const grid = document.getElementById('rule-defaults-types');
     const chosen = new Set(someTypes ? value.requestTypes : []);
-    const types = [...new Set([...RULE_DEFAULTS_REQUEST_TYPES, ...chosen])];
-    grid.replaceChildren(...types.map(type => {
+    grid.replaceChildren(...RULE_DEFAULTS_REQUEST_TYPES.map(type => {
         const wrapper = document.createElement('label');
         wrapper.className = 'form-checkbox';
         const checkbox = document.createElement('input');

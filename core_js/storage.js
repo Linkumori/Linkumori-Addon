@@ -998,7 +998,7 @@ function tagRuleSources(data, source) {
     return result;
 }
 
-function mergeRemoteProviderGroup(providerGroup) {
+function mergeRemoteProviderGroup(providerGroup, options = {}) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
         indexPattern: [],
@@ -1029,8 +1029,11 @@ function mergeRemoteProviderGroup(providerGroup) {
     const allResourceTypes = unlimitedList('resourceTypes');
 
     members.forEach(provider => {
+        const providerData = options.stripRuleOrder
+            ? stripProviderRuleOrder(provider.data || {})
+            : (provider.data || {});
         const data = tagRuleSources(applyProviderHistoryBypassProtection(
-            attachProviderActivationIds(provider.name, provider.data || {})), provider.source);
+            attachProviderActivationIds(provider.name, providerData)), provider.source);
 
         if (data.indexPattern) {
             const indexPatterns = Array.isArray(data.indexPattern)
@@ -1203,7 +1206,7 @@ function createMergedRemoteProviderName(providerGroup) {
 }
 
 // `collisionSink`, when given, collects the rule collisions merging creates.
-function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new Set(), collisionSink = null) {
+function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new Set(), collisionSink = null, options = {}) {
     const providerGroups = {}; // key → array of providers
 
     const normalizedProviders = normalizeProviderEntries(providers, primaryProviderNames);
@@ -1233,7 +1236,7 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
     const mergedByPattern = new Map();
 
     Object.values(providerGroups).forEach(providerGroup => {
-        const finalProvider = mergeRemoteProviderGroup(providerGroup);
+        const finalProvider = mergeRemoteProviderGroup(providerGroup, options);
 
         const baseName = createMergedRemoteProviderName(providerGroup);
         let finalName = baseName;
@@ -1260,7 +1263,7 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
     return mergedProviders;
 }
 
-function mergeRemoteRulesSources(successfulSources, failedSources = [], collisionSink = null) {
+function mergeRemoteRulesSources(successfulSources, failedSources = [], collisionSink = null, options = {}) {
     const combinedProviders = [];
     let mergedMetadata = null;
 
@@ -1280,7 +1283,7 @@ function mergeRemoteRulesSources(successfulSources, failedSources = [], collisio
         }
     });
 
-    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink);
+    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink, options);
     const mergedRules = { providers: mergedProviders };
     const mergedProviderCount = Object.keys(mergedProviders).length;
 
@@ -1432,6 +1435,36 @@ function applyRemoteRulePatches(rules, patchSets, options = {}) {
     return patched;
 }
 
+// Optional merge behavior: retain each provider rule but remove its explicit
+// order before deduplication. Remote patches run afterward and keep their own.
+function stripProviderRuleOrder(providerData) {
+    if (!providerData || typeof providerData !== 'object' || Array.isArray(providerData)) {
+        return providerData;
+    }
+    const nextProvider = { ...providerData };
+    LinkumoriRuleIds.RULE_ID_SECTIONS.forEach(section => {
+        if (!Array.isArray(nextProvider[section])) return;
+        nextProvider[section] = nextProvider[section].map(rule => {
+            if (!rule || typeof rule !== 'object' || Array.isArray(rule) || !Object.prototype.hasOwnProperty.call(rule, 'order')) {
+                return rule;
+            }
+            const withoutOrder = { ...rule };
+            delete withoutOrder.order;
+            return withoutOrder;
+        });
+    });
+    return nextProvider;
+}
+
+function stripProviderRuleOrders(rules) {
+    if (!rules || typeof rules !== 'object' || !rules.providers || typeof rules.providers !== 'object') {
+        return rules;
+    }
+    const providers = Object.fromEntries(Object.entries(rules.providers)
+        .map(([providerName, providerData]) => [providerName, stripProviderRuleOrder(providerData)]));
+    return { ...rules, providers };
+}
+
 const MAX_REPORTED_RULE_PATCHES = 100;
 
 function recordRulePatchResults(results) {
@@ -1452,7 +1485,7 @@ function recordRulePatchResults(results) {
     }, true);
 }
 
-function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = null) {
+function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = null, options = {}) {
     const remoteProviders = remoteRules?.providers || {};
     const bundledProviders = bundledRules?.providers || {};
     const combinedProviders = [];
@@ -1475,7 +1508,7 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = 
             });
     });
 
-    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink);
+    const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders, new Set(), collisionSink, options);
     const mergedProviderCount = Object.keys(mergedProviders).length;
 
     const remoteMetadata = (remoteRules?.metadata && typeof remoteRules.metadata === 'object' && !Array.isArray(remoteRules.metadata))
@@ -2387,6 +2420,8 @@ function loadBundledRules() {
                 : null;
             const patchOnlyMode = overloadModeStrategy === 'patch-only';
             const skipRemotePatches = overloadModeStrategy === 'merge-only';
+            const hasProviderMerge = overloadModeStrategy === 'patch-and-merge' || skipRemotePatches;
+            const stripRuleOrder = hasProviderMerge && storage.overloadModeStripRuleOrder === true;
 
             // Collisions inside each file, then ones merging creates. In
             // patch-only mode remote providers are ignored, so they cannot
@@ -2407,7 +2442,7 @@ function loadBundledRules() {
                 ? createPatchOnlyRemoteRules(patchSources, failed)
                 : (patchOnly
                     ? createPatchOnlyRemoteRules(successful, failed)
-                    : mergeRemoteRulesSources(providerSources, failed, ruleCollisions));
+                    : mergeRemoteRulesSources(providerSources, failed, ruleCollisions, { stripRuleOrder }));
             ruleDefaultsStatus.remote = successful.map(source => ({ ruleURL: source.ruleURL, defaults: source.defaults }));
             let finalRules = mergedRemoteRules;
             const withBuiltIn = storage.builtInRulesEnabled !== false && (patchOnly || storage.overloadModeEnabled === true);
@@ -2417,7 +2452,7 @@ function loadBundledRules() {
                     const bundledRules = await fetchBundledRulesRaw();
                     finalRules = patchOnlyMode || patchOnly
                         ? withPatchOnlyBuiltInRules(mergedRemoteRules, bundledRules)
-                        : mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions);
+                        : mergeRemoteWithBundledRules(mergedRemoteRules, bundledRules, ruleCollisions, { stripRuleOrder });
                 } catch (e) {
                 }
             }
@@ -2486,6 +2521,8 @@ function loadBundledRules() {
                     ? normalizeOverloadModeStrategy(storage.overloadModeStrategy)
                     : null;
                 const skipRemotePatches = overloadModeStrategy === 'merge-only';
+                const hasProviderMerge = overloadModeStrategy === 'patch-and-merge' || skipRemotePatches;
+                const stripRuleOrder = hasProviderMerge && storage.overloadModeStripRuleOrder === true;
                 const patchOnlyMode = overloadModeStrategy === 'patch-only';
                 const cachedPatchOnlyRules = patchOnlyMode
                     ? createPatchOnlyRemoteRules(patchSets.map(set => ({
@@ -2502,7 +2539,7 @@ function loadBundledRules() {
                         const mergedCachedRules = patchOnlyMode
                             ? withPatchOnlyBuiltInRules(cachedPatchOnlyRules, bundledRules)
                             : hasRuleProviders(cacheRules)
-                            ? mergeRemoteWithBundledRules(cacheRules, bundledRules)
+                            ? mergeRemoteWithBundledRules(cacheRules, bundledRules, null, { stripRuleOrder })
                             : withPatchOnlyBuiltInRules(cacheRules, bundledRules);
                         storage.hashStatus = "cache_remote_built_in_merged";
                         return mergeCustomRules(applyRemoteRulePatches(mergedCachedRules, patchSets, {
@@ -2513,7 +2550,10 @@ function loadBundledRules() {
                     }
                 }
 
-                return mergeCustomRules(applyRemoteRulePatches(cachedPatchOnlyRules, patchSets, {
+                const normalizedCachedRules = stripRuleOrder
+                    ? stripProviderRuleOrders(cachedPatchOnlyRules)
+                    : cachedPatchOnlyRules;
+                return mergeCustomRules(applyRemoteRulePatches(normalizedCachedRules, patchSets, {
                     skip: skipRemotePatches
                 }));
             }
@@ -3409,6 +3449,9 @@ function setData(key, value) {
         case "overloadModeStrategy":
             storage[key] = normalizeOverloadModeStrategy(value);
             break;
+        case "overloadModeStripRuleOrder":
+            storage[key] = value === true || value === "true";
+            break;
         case "redirection":
         case "domainredirection":
         case "domainRedirection":
@@ -3511,6 +3554,7 @@ function initSettings() {
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;
     storage.overloadModeStrategy = 'patch-and-merge';
+    storage.overloadModeStripRuleOrder = false;
     storage.unboundedCyclesEnabled = false;
     storage.ruleDefaultsMode = 'source';
     storage.userRuleDefaults = {};

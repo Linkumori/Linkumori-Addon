@@ -420,6 +420,7 @@ async function getConfigDataSections() {
             'builtInRulesEnabled',
             'overloadModeEnabled',
             'overloadModeStrategy',
+            'overloadModeStripRuleOrder',
             'unboundedCyclesEnabled',
             'hashStatus',
             'hashValidationStatus',
@@ -449,6 +450,7 @@ async function getConfigDataSections() {
                 builtInRulesEnabled: storage.builtInRulesEnabled !== false,
                 overloadModeEnabled: storage.overloadModeEnabled === true,
                 overloadModeStrategy: storage.overloadModeStrategy || 'patch-and-merge',
+                overloadModeStripRuleOrder: storage.overloadModeStripRuleOrder === true,
                 unboundedCyclesEnabled: storage.unboundedCyclesEnabled === true,
                 hashStatus: storage.hashStatus || 'unknown',
                 hashValidationStatus: storage.hashValidationStatus || 'unknown'

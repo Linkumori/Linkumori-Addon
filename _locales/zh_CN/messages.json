@@ -1157,6 +1157,12 @@
   "overload_mode_merge_only_description": {
     "message": "合并内置规则和远程提供商规则，但不应用远程补丁。"
   },
+  "overload_mode_merge_strip_order": {
+    "message": "合并时移除规则顺序"
+  },
+  "overload_mode_merge_strip_order_description": {
+    "message": "在两种合并模式下，合并前都会从内置和远程提供方规则中移除 order。远程补丁会保留自己的 order。"
+  },
   "overload_mode_enabled": {
     "message": "启用过载模式"
   },

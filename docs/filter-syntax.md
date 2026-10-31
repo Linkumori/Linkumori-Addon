@@ -452,16 +452,24 @@ than one of them. Provider merging in either mode follows these rules:
 The overload settings offer three strategies: **Patch mode only** applies
 remote patches to the built-in rules and omits remote provider rules;
 **Patch mode + merge** merges built-in and remote providers, then applies
-patches; **No patch mode + merge** merges the providers and skips remote patches. The
-strategy is used only while overload mode is enabled. If built-in rules are
-disabled, patch-only mode has no built-in rules to patch.
+patches; **No patch mode + merge** merges the providers and skips remote patches.
+The optional **Strip rule order while merging** setting is available in both
+merge modes. By default, merges keep the current same-text behavior, including
+inheriting an earlier definition's `order`; when the setting is on, built-in
+and remote provider rules lose their `order` property before merging while the
+rest of each rule stays intact. For example,
+`{"matchPattern":"pk","order":1}` becomes `{"matchPattern":"pk"}`.
+In Patch mode + merge, remote patches still apply after merging, and their
+replacement rules keep any `order` they specify. The strategy is used only
+while overload mode is enabled. If built-in rules are disabled, patch-only
+mode has no built-in rules to patch.
 
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
 2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
 3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
-4. **Exact copies.** Only entries that are exactly alike count once while joining. `order` is part of what makes two entries alike, `"order": null` included.
+4. **Exact copies.** Only entries that are exactly alike count once while joining. By default, `order` is part of what makes two entries alike, `"order": null` included. With **Strip rule order while merging** enabled, `order` is removed first, so entries that differ only by `order` count once.
 
-The merged provider then runs like any other, so §Same text twice applies: after a merge the last definition is the remote one — with several remote files, the last-listed file's. A remote copy without an `order` keeps the `order` of the copy it replaces; to drop it, the remote copy sets `"order": null`.
+The merged provider then runs like any other, so §Same text twice applies: after a merge the last definition is the remote one — with several remote files, the last-listed file's. By default, a remote copy without an `order` keeps the `order` of the copy it replaces; to drop it, the remote copy sets `"order": null`. With **Strip rule order while merging** enabled, built-in and remote provider `order` values are removed before joining, so no order is inherited. Remote patches run afterward and keep their own `order` values.
 
 | Built-in | Remote | What runs |
 | --- | --- | --- |

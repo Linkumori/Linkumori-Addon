@@ -3366,6 +3366,10 @@ function save() {
     const overloadModeStrategyValue = normalizeOverloadModeStrategy(
         document.querySelector('input[name="overloadModeStrategy"]:checked')?.value || settings.overloadModeStrategy
     );
+    const stripRuleOrderInput = document.getElementById('overloadModeStripRuleOrder');
+    const stripRuleOrderValue = stripRuleOrderInput
+        ? stripRuleOrderInput.checked
+        : settings.overloadModeStripRuleOrder === true;
     
     // Validate URLs before saving
     let urlValidationPassed = true;
@@ -3442,6 +3446,7 @@ function save() {
     Promise.all([
         ...toggleConfigs.map(({ key }) => saveData(key, toggleValues[key])),
         saveData('overloadModeStrategy', overloadModeStrategyValue),
+        saveData('overloadModeStripRuleOrder', stripRuleOrderValue),
         saveData("badged_color", currentColor),
         saveData("logLimit", logLimitValue),
         saveData("ruleURL", ruleURLValue),
@@ -3454,6 +3459,7 @@ function save() {
                 settings[key] = toggleValues[key];
             });
             settings.overloadModeStrategy = overloadModeStrategyValue;
+            settings.overloadModeStripRuleOrder = stripRuleOrderValue;
             settings["badged_color"] = currentColor;
             settings["ruleURL"] = ruleURLValue;
             settings["hashURL"] = hashURLValue;
@@ -3875,7 +3881,8 @@ async function getData() {
             loadData("remoteRulesEnabled"),
             loadData("disableGatekeeper"),
             loadData("overloadModeEnabled"),
-            loadData("overloadModeStrategy")
+            loadData("overloadModeStrategy"),
+            loadData("overloadModeStripRuleOrder")
         ]);
 
         const overloadModeStrategyInput = document.querySelector(
@@ -3883,6 +3890,10 @@ async function getData() {
         );
         if (overloadModeStrategyInput) {
             overloadModeStrategyInput.checked = true;
+        }
+        const stripRuleOrderInput = document.getElementById('overloadModeStripRuleOrder');
+        if (stripRuleOrderInput) {
+            stripRuleOrderInput.checked = settings.overloadModeStripRuleOrder === true;
         }
         updateOverloadModeOptionsVisibility();
 
@@ -4450,14 +4461,37 @@ function updateOverloadModeOptionsVisibility() {
         return;
     }
     options.hidden = !overloadToggle.classList.contains('active');
+    updateOverloadModeMergeOrderOptionVisibility();
+}
+
+function updateOverloadModeMergeOrderOptionVisibility() {
+    const option = document.getElementById('overloadModeMergeOrderOption');
+    if (!option) {
+        return;
+    }
+    const selectedStrategy = document.querySelector('input[name="overloadModeStrategy"]:checked')?.value;
+    const shouldShow = selectedStrategy === 'merge-only' || selectedStrategy === 'patch-and-merge';
+    option.hidden = !shouldShow;
+    option.style.display = shouldShow ? '' : 'none';
 }
 
 function setupOverloadModeStrategy() {
     document.querySelectorAll('input[name="overloadModeStrategy"]').forEach(input => {
+        const updateStrategyVisibility = () => {
+            updateOverloadModeMergeOrderOptionVisibility();
+        };
+        input.addEventListener('input', updateStrategyVisibility);
         input.addEventListener('change', () => {
+            updateStrategyVisibility();
             showStatus(translate('settings_change_pending_save_apply'), 'info');
         });
     });
+    const stripRuleOrderInput = document.getElementById('overloadModeStripRuleOrder');
+    if (stripRuleOrderInput) {
+        stripRuleOrderInput.addEventListener('change', () => {
+            showStatus(translate('settings_change_pending_save_apply'), 'info');
+        });
+    }
 }
 
 /**
@@ -4768,6 +4802,8 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('overload_mode_patch_merge_description', 'overload_mode_patch_merge_description');
     setElementText('overload_mode_merge_only', 'overload_mode_merge_only');
     setElementText('overload_mode_merge_only_description', 'overload_mode_merge_only_description');
+    setElementText('overload_mode_merge_strip_order', 'overload_mode_merge_strip_order');
+    setElementText('overload_mode_merge_strip_order_description', 'overload_mode_merge_strip_order_description');
     setElementText('unbounded_cycles_enabled', 'unbounded_cycles_enabled');
     setElementText('unbounded_cycles_enabled_description', 'unbounded_cycles_enabled_description');
     

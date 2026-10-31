@@ -1253,6 +1253,12 @@
   "overload_mode_merge_only_description": {
     "message": "Merge built-in and remote provider rules without applying remote patches."
   },
+  "overload_mode_merge_strip_order": {
+    "message": "Strip rule order while merging"
+  },
+  "overload_mode_merge_strip_order_description": {
+    "message": "In both merge modes, remove order from built-in and remote provider rules before merging. Remote patches keep their own order."
+  },
   "overload_mode_enabled_description": {
     "message": "When enabled, built-in and remote rules are loaded together and merged before custom rules are applied."
   },

@@ -1157,6 +1157,12 @@
   "overload_mode_merge_only_description": {
     "message": "リモートパッチを適用せずに、組み込みルールとリモートプロバイダーのルールをマージします。"
   },
+  "overload_mode_merge_strip_order": {
+    "message": "マージ時にルールの順序を削除"
+  },
+  "overload_mode_merge_strip_order_description": {
+    "message": "どちらのマージモードでも、マージ前に組み込みおよびリモートプロバイダーのルールから order を削除します。リモートパッチの order は保持されます。"
+  },
   "overload_mode_enabled": {
     "message": "オーバーロードモードを有効にする"
   },

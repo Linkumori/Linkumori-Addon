@@ -1109,6 +1109,12 @@
   "overload_mode_merge_only_description": {
     "message": "合併內建規則和遠端提供者規則，但不應用遠端補丁。"
   },
+  "overload_mode_merge_strip_order": {
+    "message": "合併時移除規則順序"
+  },
+  "overload_mode_merge_strip_order_description": {
+    "message": "在兩種合併模式下，合併前都會從內建和遠端提供者規則中移除 order。遠端修補會保留自己的 order。"
+  },
   "overload_mode_enabled": {
     "message": "啟用超載模式"
   },

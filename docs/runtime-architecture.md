@@ -190,7 +190,7 @@ Keys that shape the runtime:
 | `customrules_import_exclusions` | providers the user switched off (by provider signature) |
 | `clearurls_disabled_rule_ids` | rules the user switched off, as `<scope>::<ruleId>` (§6.2) |
 | `userWhitelist`, `historyApiWhitelist` | whitelists (§8) |
-| `builtInRulesEnabled`, `remoteRulesEnabled`, `overloadModeEnabled`, `overloadModeStrategy` | which rule sources to use and how overload mode handles patches (§5) |
+| `builtInRulesEnabled`, `remoteRulesEnabled`, `overloadModeEnabled`, `overloadModeStrategy`, `overloadModeStripRuleOrder` | which rule sources to use, how overload mode handles patches, and whether either merge mode removes provider-rule `order` values (§5) |
 | `ruleURL` + `hashURL`, `remoteRuleSets` | remote rule sources |
 | `remoteRulescache`, `remoteRulesHealth` | last verified remote rules; fetch history |
 | `hashStatus`, `hashValidationStatus`, `dataHash`, `mergeStats`, `rulesMetadata` | what was loaded, from where, and how it merged; shown in settings |
@@ -312,8 +312,11 @@ flowchart TD
 mode on, `overloadModeStrategy` selects patch-only (use bundled rules as the
 base and omit remote providers), patch-and-merge (merge remote and bundled
 providers, then apply patches), or merge-only (merge providers and skip
-patches). With overload mode off, the strategy is ignored and existing remote
-rule behavior applies. When every loaded remote file holds only `patches`,
+patches). The `overloadModeStripRuleOrder` option can remove the `order` key
+from built-in and remote provider rules before merging in either merge mode.
+Remote patches still apply afterward and keep any `order` they specify. With
+overload mode off, the strategy and order option are ignored and existing
+remote rule behavior applies. When every loaded remote file holds only `patches`,
 the base is the bundled rules, unmerged so their provider names stay
 (`withPatchOnlyBuiltInRules`). Each patch's result (applied, unmatched or
 skipped) is stored in `remoteRulesHealth.rulePatches`.
