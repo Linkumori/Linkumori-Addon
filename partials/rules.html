@@ -4,7 +4,7 @@
 <p>Rules are loaded at startup and again whenever you save custom rules or refresh remote rules in settings. Each load runs these steps, in order, and the engine then uses the result for every request until the next load.</p>
 <ol class="rx-flow" aria-label="How a rule set is built">
   <li><span class="rx-step">1</span><b>Pick the sources</b><small>Built-in, remote, the verified cache, or none</small></li>
-  <li><span class="rx-step">2</span><b>Merge</b><small>Remote files with each other; with built-in in overload mode; then remote patches</small></li>
+  <li><span class="rx-step">2</span><b>Assemble rules</b><small>Resolve remote files, merge providers when selected, and apply patches according to the strategy</small></li>
   <li><span class="rx-step">3</span><b>Custom rules on top</b><small>A matching custom provider replaces; others are added</small></li>
   <li><span class="rx-step">4</span><b>Switch things off</b><small>Excluded providers go; switched-off rules are skipped</small></li>
   <li><span class="rx-step">5</span><b>Clean requests</b><small>Providers run in order, pass after pass</small></li>
@@ -45,7 +45,7 @@
 <p>Both requests skip the browser cache, so a file and its hash always come from the same moment. Files are fetched in parallel, and one failing file doesn't stop the others.</p>
 
 <h2 id="which-sources-load">Which sources load</h2>
-<p>Three settings and what happens to the remote files decide the base rule set. Change the switches to see the path Linkumori takes.</p>
+<p>The built-in and remote switches, overload strategy, file results and custom rules decide the base rule set. Change the controls to see the path Linkumori takes.</p>
 
 <div class="rx-explorer" id="rx-explorer">
   <div class="rx-controls" role="group" aria-label="Settings">
@@ -68,7 +68,13 @@
     </div></fieldset>
     <fieldset class="rx-seg"><legend>Overload mode</legend><div class="rx-opts">
       <label><input type="radio" name="rx-overload" value="off" checked><span>Off</span></label>
-      <label><input type="radio" name="rx-overload" value="on"><span>On</span></label>
+      <label><input type="radio" name="rx-overload" value="patch-only"><span>Patch mode only</span></label>
+      <label><input type="radio" name="rx-overload" value="patch-and-merge"><span>Patch mode + merge</span></label>
+      <label><input type="radio" name="rx-overload" value="merge-only"><span>No patch mode + merge</span></label>
+    </div></fieldset>
+    <fieldset class="rx-seg" data-when-merge hidden><legend>Strip rule order while merging</legend><div class="rx-opts">
+      <label><input type="radio" name="rx-strip-order" value="off" checked><span>Off</span></label>
+      <label><input type="radio" name="rx-strip-order" value="on"><span>On</span></label>
     </div></fieldset>
     <fieldset class="rx-seg"><legend>Custom rules</legend><div class="rx-opts">
       <label><input type="radio" name="rx-custom" value="yes" checked><span>Some</span></label>
@@ -82,21 +88,27 @@
   </div>
 </div>
 
-<h3 id="every-combination">Every combination</h3>
-<p>Every decision as a card. A setting that isn't shown makes no difference in that case. Custom rules, if you have any, go on top in every one.</p>
+<h3 id="every-combination">Source-loading examples</h3>
+<p>Each card shows a source-loading path; a setting that isn't shown makes no difference in that case. Custom rules, if you have any, go on top in every one.</p>
 <!-- cases:sources -->
-<p class="rx-note">Remote rules switched on with no valid pair of addresses count as off.</p>
+<p class="rx-note">The explorer's remote layer stands for verified provider files; patch messages assume at least one loaded file has a patch. A file containing only patches has no provider layer and targets built-in rules when available, except in <i>No patch mode + merge</i>, which skips patches.</p>
 
-<h2 id="overload-mode">Overload mode: merging sources</h2>
-<p>Without overload mode, remote rules <em>replace</em> the built-in ones. With it, both load and providers for the same site merge into one, so you can add to the built-in rules instead of copying them.</p>
+<h2 id="overload-mode">Overload mode: patching and merging</h2>
+<p>Without overload mode, remote providers replace the built-in providers. With overload mode on, choose how Linkumori handles remote providers and patches:</p>
+<ul class="rx-steps">
+  <li><b>Patch mode only:</b> keep the built-in rules, apply remote patches to them, and leave remote provider rules out. With built-in rules off, there is no base for patches to change.</li>
+  <li><b>Patch mode + merge:</b> merge built-in and remote providers, then apply remote patches to the merged rules.</li>
+  <li><b>No patch mode + merge:</b> merge built-in and remote providers, and skip remote patches.</li>
+</ul>
+<p>The optional <i>Strip rule order while merging</i> setting appears in both merge modes. When on, it removes <code>order</code> from built-in and remote provider rules before they merge. For example, <code>{"matchPattern":"pk","order":1}</code> becomes <code>{"matchPattern":"pk"}</code>. Remote patches run after merging and keep any <code>order</code> they specify.</p>
 
 <h3 id="merge-order">Order and matching</h3>
 <ol class="rx-steps">
   <li><b>Remote files merge first,</b> with each other, in the order you list them.</li>
   <li><b>Then with built-in:</b> built-in providers first, remote providers after.</li>
   <li><b>Providers merge only if they match:</b> the same <code>domainPatterns</code> (in any order) or the same <code>urlPattern</code>, and the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code>. Anything else stays a separate provider.</li>
-  <li><b>Lists join in load order:</b> <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>, built-in entries first. Exact copies count once.</li>
-  <li><b>The same text twice:</b> the later definition, from remote, wins. Without its own <code>order</code> it keeps the earlier one's place and <code>order</code>.</li>
+  <li><b>Lists join in load order:</b> <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code>, built-in entries first. Exact copies count once; with order stripping on, entries that differ only by <code>order</code> count as exact copies.</li>
+  <li><b>The same text twice:</b> after exact-copy removal, the later definition from remote wins. By default, without its own <code>order</code> it keeps the earlier one's place and <code>order</code>. With order stripping on, entries that differed only by <code>order</code> are already one copy with no <code>order</code> to inherit.</li>
 </ol>
 
 <h3 id="merge-example">Example: one site in both sources</h3>
@@ -123,15 +135,16 @@
     <ul>
       <li class="rx-o-builtin"><code>\/ref=[^/?]*</code><small>rawRules</small></li>
       <li class="rx-o-builtin"><code>qid</code></li>
-      <li class="rx-o-remote"><code>token</code><small>remote wins, keeps order 1</small></li>
+      <li class="rx-o-remote"><code>token</code><small>default: remote wins, keeps order 1</small></li>
       <li class="rx-o-remote"><code>psc</code></li>
     </ul>
   </div>
 </div>
 <p class="rx-legend"><span class="rx-tag rx-o-builtin">Built-in</span> <span class="rx-tag rx-o-remote">Remote</span> show where each rule came from.</p>
+<p class="rx-note">With order stripping on, both copies become the same entry before merging, so the merged provider has one <code>token</code> rule with no <code>order</code>.</p>
 
-<h3 id="overload-cases">Every overload case</h3>
-<p>Each case shows the files as JSON, what runs, and the merged provider Linkumori builds. Pick a case to see it.</p>
+<h3 id="overload-cases">Provider-merge cases</h3>
+<p>These cases show provider behavior shared by both merge strategies. Each card shows the files as JSON, what runs, and the merged provider Linkumori builds. Remote patch behavior is covered below.</p>
 <!-- cases:overload -->
 <p>Remote Rules Health in settings lists each rule a merge replaced as a notice, naming the file that won. Errors are kept for files and entries that didn't load.</p>
 
@@ -141,7 +154,7 @@
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
   <span class="k">&quot;patches&quot;</span>: [
     { <span class="k">&quot;target&quot;</span>: <span class="s">&quot;amazon::field-qid&quot;</span>, <span class="k">&quot;section&quot;</span>: <span class="s">&quot;rules&quot;</span>,
-      <span class="k">&quot;replace&quot;</span>: { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;qid&quot;</span>, <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>] } }
+      <span class="k">&quot;replace&quot;</span>: { <span class="k">&quot;matchPattern&quot;</span>: <span class="s">&quot;qid&quot;</span>, <span class="k">&quot;requestTypes&quot;</span>: [<span class="s">&quot;main_frame&quot;</span>], <span class="k">&quot;order&quot;</span>: <span class="n">20</span> } }
   ]
 }</code></pre></div>
 <div class="table-wrap"><table>
@@ -154,8 +167,9 @@
 </tbody>
 </table></div>
 <ul>
-  <li><b>When they run.</b> After remote files merge (and, in overload mode, merge with built-in), before custom rules. A custom provider still overrides a patched one.</li>
-  <li><b>Patch-only files.</b> A file with only <code>patches</code> needs no <code>providers</code>. When every remote file is one, the patches apply to the built-in rules. Without overload mode, built-in rules aren't loaded next to remote files with providers, so patches then reach only those files' rules.</li>
+  <li><b>When they run.</b> After remote files merge (and, in <i>Patch mode + merge</i>, after the provider merge), before custom rules. A custom provider still overrides a patched one.</li>
+  <li><b>Order is retained.</b> A patch replacement keeps any <code>order</code> it specifies, including when <i>Strip rule order while merging</i> is on.</li>
+  <li><b>Patch-only files.</b> A file with only <code>patches</code> needs no <code>providers</code>. When every remote file is one, the patches apply to the built-in rules when available. <i>Patch mode only</i> always omits remote provider rules and targets built-in rules; <i>No patch mode + merge</i> skips patches.</li>
   <li><b>Finding the rule.</b> Merging can rename providers, so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always matches.</li>
   <li><b>Toggles stay.</b> The replacement keeps the old rule's id unless it sets its own; then the old id becomes an alias. A rule you switched off stays off.</li>
   <li><b>Same safety as the file.</b> The file's defaults apply to its replacements. A patch for a redirect list waits until you accept <code>redirect</code> for that file.</li>
@@ -220,7 +234,7 @@
 </ul>
 
 <h2 id="defaults">Rule defaults</h2>
-<p>Each rule file can have a <code>defaults</code> block, for example request types or exceptions that every rule in the file gets unless it sets its own. In the custom rules editor, <i>Manage rule defaults</i> sets your own block and where it applies.</p>
+<p>Each rule file can have a <code>defaults</code> block, for example request types or exceptions that every rule in the file gets unless it sets its own. In the custom rules editor, <i>Manage rule defaults</i> sets your own block and where it applies. Its request-type picker offers Firefox <code>webRequest.ResourceType</code> values: <code>beacon</code>, <code>csp_report</code>, <code>font</code>, <code>image</code>, <code>imageset</code>, <code>json</code>, <code>main_frame</code>, <code>media</code>, <code>object</code>, <code>object_subrequest</code>, <code>other</code>, <code>ping</code>, <code>script</code>, <code>speculative</code>, <code>stylesheet</code>, <code>sub_frame</code>, <code>web_manifest</code>, <code>websocket</code>, <code>xml_dtd</code>, <code>xmlhttprequest</code> and <code>xslt</code>.</p>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Setting</th><th scope="col">Built-in rules use</th><th scope="col">Remote files use</th><th scope="col">Custom rules use</th></tr></thead>
 <tbody>

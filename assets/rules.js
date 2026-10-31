@@ -8,7 +8,9 @@
   function decide(s) {
     const steps = [];
     const builtIn = s.builtin === 'on';
-    const overload = s.overload === 'on' && builtIn;
+    const strategy = s.overload;
+    const mergeMode = strategy === 'patch-and-merge' || strategy === 'merge-only';
+    const stripOrder = s.stripOrder === 'on' && mergeMode;
 
     if (!builtIn && s.remote === 'off') {
       steps.push('Built-in and remote rules are both off.');
@@ -24,24 +26,59 @@
       steps.push(s.fetch === 'ok'
         ? 'Every file passed. They merge, in the order listed, and are saved as the verified cache.'
         : 'Some files passed. Those merge and are saved as the verified cache; the rest are reported in Remote Rules Health.');
-      if (overload) {
-        steps.push('Overload mode is on: the remote rules merge with the built-in rules, built-in providers first.');
-        return { base: ['builtin', 'remote'], merged: true, steps: steps };
+      if (strategy === 'patch-only') {
+        steps.push(builtIn
+          ? 'Patch mode only: built-in rules load, remote provider rules are omitted, and remote patches apply to the built-in rules.'
+          : 'Patch mode only has no built-in rules to patch; remote provider rules are omitted.');
+        return { base: builtIn ? ['builtin'] : [], patched: builtIn, steps: steps };
       }
-      steps.push(s.overload === 'on'
-        ? 'Overload mode is on but built-in rules are off, so only the remote rules load.'
-        : 'Overload mode is off, so the remote rules replace the built-in ones.');
-      return { base: ['remote'], steps: steps };
+      if (mergeMode && stripOrder) {
+        steps.push('Strip rule order is on: loaded provider rules lose their order before merging.');
+      }
+      if (mergeMode && builtIn) {
+        steps.push('The remote providers merge with the built-in rules, built-in providers first.');
+      } else if (mergeMode) {
+        steps.push('The remote providers merge with each other; built-in rules are off.');
+      } else {
+        steps.push('Overload mode is off, so the remote rules replace the built-in ones.');
+      }
+      if (strategy === 'patch-and-merge') {
+        steps.push('Remote patches apply after merging and keep any order they specify.');
+      } else if (strategy === 'merge-only') {
+        steps.push('Remote patches are skipped.');
+      }
+      return {
+        base: builtIn && mergeMode ? ['builtin', 'remote'] : ['remote'],
+        merged: mergeMode,
+        patched: strategy === 'patch-and-merge',
+        steps: steps
+      };
     }
 
     steps.push('Every file failed to load or verify.');
     if (s.cache === 'yes') {
-      if (overload) {
-        steps.push('The verified cache for these files loads, merged with the built-in rules.');
-        return { base: ['builtin', 'cache'], merged: true, steps: steps };
+      if (strategy === 'patch-only') {
+        steps.push(builtIn
+          ? 'Patch mode only: built-in rules load, remote provider rules are omitted, and cached remote patches apply to the built-in rules.'
+          : 'Patch mode only has no built-in rules to patch; remote provider rules are omitted.');
+        return { base: builtIn ? ['builtin'] : [], patched: builtIn, steps: steps };
       }
-      steps.push('The verified cache for these files loads instead.');
-      return { base: ['cache'], steps: steps };
+      if (mergeMode && stripOrder) {
+        steps.push('Strip rule order is on: loaded provider rules lose their order before merging.');
+      }
+      if (mergeMode && builtIn) {
+        steps.push('The verified cache loads and merges with the built-in rules.');
+      } else {
+        steps.push('The verified cache loads.');
+      }
+      if (strategy === 'patch-and-merge') steps.push('Cached remote patches apply after merging and keep any order they specify.');
+      else if (strategy === 'merge-only') steps.push('Remote patches are skipped.');
+      return {
+        base: builtIn && mergeMode ? ['builtin', 'cache'] : ['cache'],
+        merged: builtIn && mergeMode,
+        patched: strategy === 'patch-and-merge',
+        steps: steps
+      };
     }
     if (builtIn) {
       steps.push('There is no verified cache, so the built-in rules load.');
@@ -73,11 +110,12 @@
     function render() {
       const s = {
         builtin: value('builtin'), remote: value('remote'), fetch: value('fetch'),
-        cache: value('cache'), overload: value('overload'), custom: value('custom')
+        cache: value('cache'), overload: value('overload'), stripOrder: value('strip-order'), custom: value('custom')
       };
       // Only show the questions that matter for the current answers.
       root.querySelector('[data-when="remote"]').hidden = s.remote !== 'on';
       root.querySelector('[data-when="failed"]').hidden = !(s.remote === 'on' && s.fetch === 'none');
+      root.querySelector('[data-when-merge]').hidden = !(s.overload === 'patch-and-merge' || s.overload === 'merge-only');
 
       const r = decide(s);
       const layers = (s.custom === 'yes' ? ['custom'] : []).concat(r.base.slice().reverse());
@@ -95,6 +133,7 @@
       else if (!r.base.length) text = 'Only your custom rules run.';
       else {
         text = (r.merged ? names.join(' and ') + ', merged' : names[0]).replace(/^./, function (c) { return c.toUpperCase(); });
+        if (r.patched) text += ', with remote patches applied';
         text += s.custom === 'yes' ? ', with your custom rules on top.' : '.';
       }
       summary.textContent = text;

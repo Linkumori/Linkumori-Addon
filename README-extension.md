@@ -25,7 +25,7 @@ ClearURLs is a great project. It's also effectively unmaintained, last updated i
 | **Custom rules that override built-ins** | ❌ | ✅ |
 | **Disable specific rules without replacing** | ❌ | ✅ |
 | **Multiple remote rule sources** | ❌ | ✅ |
-| **Overload mode (merge rule sets)** | ❌ | ✅ |
+| **Overload mode (patch and merge strategies)** | ❌ | ✅ |
 | Firefox MV3 native | ❌ | ✅ |
 | Active development | ❌ | ✅ |
 
@@ -70,7 +70,7 @@ No redirect. No popup. No reload. It just works.
 - **Custom rules with override support** — write your own rules that take precedence over built-in or remote rules
 - **Rule disable/restore** — disable specific rules or entire built-in/remote rule sets without creating counter-rules, then restore them anytime
 - **Multiple remote rule sources** — load and merge several remote rule sets simultaneously
-- **Overload mode** — merges built-in and remote rules together before applying your custom rules on top
+- **Overload mode** — choose patch-only, patch-and-merge, or merge-only behavior; optionally strip provider-rule order before either merge. Remote patches keep their own order, and custom rules are applied afterward.
 - **Remote rule patches** — a remote file can replace existing built-in or remote rules by id with a `patches` list, without republishing the whole rule set (see `docs/filter-syntax.md` §Rule patches)
 
 

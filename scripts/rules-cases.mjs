@@ -2,9 +2,10 @@
 // card: the input files as JSON, a diagram of what runs, and the resulting JSON.
 //
 // Results follow core_js/storage.js and the CLN 1.0 spec on main:
-// - overload: lists join in load order, built-in first; the same text is resolved at run
-//   time (the last definition wins and inherits the first one's place and the nearest
-//   earlier `order`);
+// - overload: lists join in load order, built-in first; by default the same text is
+//   resolved at run time and inherits the earlier `order`. With order stripping on,
+//   provider rules lose `order` before joining and copies that then match are deduped;
+//   remote patch replacements still keep their own `order`.
 // - custom rules: a provider with the same pattern replaces every base provider on that
 //   pattern whole, whatever their methods, resourceTypes, completeProvider or forceRedirection;
 // - defaults: written into each file's own rules as it loads, before any merge.
@@ -445,18 +446,21 @@ export const defaultsCases = [
 export const sourceCases = [
   { settings: { 'Built-in': 'Off', Remote: 'Off' }, layers: [], result: 'No base rules: custom rules only' },
   { settings: { 'Built-in': 'On', Remote: 'Off' }, layers: ['builtin'], result: 'Built-in' },
-  { settings: { Remote: 'On', 'Remote files': 'Verified', Overload: 'Off' }, layers: ['remote'], result: 'Remote replaces built-in' },
-  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'Verified', Overload: 'On' }, layers: ['remote', 'builtin'], merged: true, result: 'Built-in and remote, merged' },
-  { settings: { 'Built-in': 'Off', Remote: 'On', 'Remote files': 'Verified', Overload: 'On' }, layers: ['remote'], result: 'Remote: overload needs built-in on' },
-  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'All failed', Cache: 'Available', Overload: 'On' }, layers: ['cache', 'builtin'], merged: true, result: 'Cached remote and built-in, merged' },
-  { settings: { Remote: 'On', 'Remote files': 'All failed', Cache: 'Available', Overload: 'Off' }, layers: ['cache'], result: 'Cached remote' },
+  { settings: { Remote: 'On', 'Remote files': 'Verified', 'Overload strategy': 'Off' }, layers: ['remote'], result: 'Remote replaces built-in' },
+  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'Verified', 'Overload strategy': 'Patch mode + merge' }, layers: ['remote', 'builtin'], merged: true, result: 'Built-in and remote merge; patches apply' },
+  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'Verified', 'Overload strategy': 'No patch mode + merge' }, layers: ['remote', 'builtin'], merged: true, result: 'Built-in and remote merge; patches are skipped' },
+  { settings: { 'Built-in': 'Off', Remote: 'On', 'Remote files': 'Verified', 'Overload strategy': 'Patch mode + merge' }, layers: ['remote'], merged: true, result: 'Remote providers merge; patches apply' },
+  { settings: { 'Built-in': 'Off', Remote: 'On', 'Remote files': 'Verified', 'Overload strategy': 'Patch mode only' }, layers: [], result: 'Remote providers are omitted; there are no built-in rules to patch' },
+  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'All failed', Cache: 'Available', 'Overload strategy': 'Patch mode only' }, layers: ['builtin'], result: 'Built-in rules load with cached remote patches' },
+  { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'All failed', Cache: 'Available', 'Overload strategy': 'No patch mode + merge' }, layers: ['cache', 'builtin'], merged: true, result: 'Cached remote and built-in merge; patches are skipped' },
+  { settings: { Remote: 'On', 'Remote files': 'All failed', Cache: 'Available', 'Overload strategy': 'Off' }, layers: ['cache'], result: 'Cached remote' },
   { settings: { 'Built-in': 'On', Remote: 'On', 'Remote files': 'All failed', Cache: 'None' }, layers: ['builtin'], result: 'Built-in' },
   { settings: { 'Built-in': 'Off', Remote: 'On', 'Remote files': 'All failed', Cache: 'None' }, layers: [], result: 'No base rules: custom rules only' }
 ];
 
 // What starts each case: a setting or action of yours ('you'), or what Linkumori then does
 // on its own every time rules load ('auto'). Shown as the first line of each case card.
-const OVERLOAD_ON = ['you', 'You turned on overload mode in settings, with built-in rules on and a remote rule file set up.'];
+const OVERLOAD_ON = ['you', 'You chose Patch mode + merge with order stripping off, with built-in rules on and a remote rule file set up.'];
 const MERGE_ON_LOAD = ['auto', 'Every load merges the files. The same text is resolved when rules run.'];
 const CUSTOM_SAVED = ['you', 'You saved a custom provider in the custom rules editor.'];
 const DEFAULTS_ON_LOAD = ['auto', 'Every load writes each file\'s own defaults into its rules, then merges them.'];

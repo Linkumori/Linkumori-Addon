@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.75.0</span>
+      <span class="brand-ver">v100.82.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -262,7 +262,7 @@
 <tr><td><code>customrules_import_exclusions</code></td><td>providers the user switched off (by provider signature)</td></tr>
 <tr><td><code>clearurls_disabled_rule_ids</code></td><td>rules the user switched off, as <code>&lt;scope&gt;::&lt;ruleId&gt;</code> (§6.2)</td></tr>
 <tr><td><code>userWhitelist</code>, <code>historyApiWhitelist</code></td><td>whitelists (§8)</td></tr>
-<tr><td><code>builtInRulesEnabled</code>, <code>remoteRulesEnabled</code>, <code>overloadModeEnabled</code>, <code>overloadModeStrategy</code></td><td>which rule sources to use and how overload mode handles patches (§5)</td></tr>
+<tr><td><code>builtInRulesEnabled</code>, <code>remoteRulesEnabled</code>, <code>overloadModeEnabled</code>, <code>overloadModeStrategy</code>, <code>overloadModeStripRuleOrder</code></td><td>which rule sources to use, how overload mode handles patches, and whether either merge mode removes provider-rule <code>order</code> values (§5)</td></tr>
 <tr><td><code>ruleURL</code> + <code>hashURL</code>, <code>remoteRuleSets</code></td><td>remote rule sources</td></tr>
 <tr><td><code>remoteRulescache</code>, <code>remoteRulesHealth</code></td><td>last verified remote rules; fetch history</td></tr>
 <tr><td><code>hashStatus</code>, <code>hashValidationStatus</code>, <code>dataHash</code>, <code>mergeStats</code>, <code>rulesMetadata</code></td><td>what was loaded, from where, and how it merged; shown in settings</td></tr>
@@ -336,7 +336,7 @@
     C --&gt; O[ClearURLsData]
     N --&gt; O</code></pre></div></details>
 </figure>
-<p><strong>Rule patches.</strong> A remote file's <code>patches</code> (see <a href="filter-syntax.html#rule-patches">filter syntax §Rule patches</a>) are applied by <code>applyRemoteRulePatches()</code> to the rules chosen above, just before <code>mergeCustomRules</code>, including when the remote cache is used. With overload mode on, <code>overloadModeStrategy</code> selects patch-only (use bundled rules as the base and omit remote providers), patch-and-merge (merge remote and bundled providers, then apply patches), or merge-only (merge providers and skip patches). With overload mode off, the strategy is ignored and existing remote rule behavior applies. When every loaded remote file holds only <code>patches</code>, the base is the bundled rules, unmerged so their provider names stay (<code>withPatchOnlyBuiltInRules</code>). Each patch's result (applied, unmatched or skipped) is stored in <code>remoteRulesHealth.rulePatches</code>.</p>
+<p><strong>Rule patches.</strong> A remote file's <code>patches</code> (see <a href="filter-syntax.html#rule-patches">filter syntax §Rule patches</a>) are applied by <code>applyRemoteRulePatches()</code> to the rules chosen above, just before <code>mergeCustomRules</code>, including when the remote cache is used. With overload mode on, <code>overloadModeStrategy</code> selects patch-only (use bundled rules as the base and omit remote providers), patch-and-merge (merge remote and bundled providers, then apply patches), or merge-only (merge providers and skip patches). The <code>overloadModeStripRuleOrder</code> option can remove the <code>order</code> key from built-in and remote provider rules before merging in either merge mode. Remote patches still apply afterward and keep any <code>order</code> they specify. With overload mode off, the strategy and order option are ignored and existing remote rule behavior applies. When every loaded remote file holds only <code>patches</code>, the base is the bundled rules, unmerged so their provider names stay (<code>withPatchOnlyBuiltInRules</code>). Each patch's result (applied, unmatched or skipped) is stored in <code>remoteRulesHealth.rulePatches</code>.</p>
 <p><code>hashStatus</code> records which path was taken, for example <code>bundled_rules_loaded</code>, <code>remote_verified</code>, <code>remote_rules_partially_merged</code>, <code>cache_remote_rules_after_remote_failure</code> or <code>fallback_rules_used</code>. When custom rules are merged in, it gets a <code>custom</code> variant, such as <code>custom_rules_merged</code>.</p>
 <h3 id="54-merging-custom-rules"><span class="h-num">5.4</span>Merging custom rules</h3>
 <p><code>mergeCustomRules(baseRules)</code> builds the final list:</p>

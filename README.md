@@ -18,17 +18,17 @@ This branch is based on `main` and includes the extension source alongside the s
 | `404.html` | Shown by GitHub Pages for any missing path |
 | `sitemap.xml` | Every page, written by `scripts/build-docs.mjs` |
 | `partials/run-order-tool.html` | The calculator markup, placed into `cln-1.0.html` by the build |
-| `scripts/build-docs.mjs` | Regenerates the two doc pages |
+| `scripts/build-docs.mjs` | Regenerates the generated specification, reference, architecture, rules, converter and legal pages plus the sitemap |
 
 ## Updating the doc pages
 
-The doc and legal pages are generated. Edit the spec Markdown on `main`, or `legal/*.md` here (keep the `**Last updated:**` line current), then rebuild:
+The specification, reference, runtime, rules, converter and legal pages are generated. Edit the spec Markdown on `main` (or the local `docs/` copy), `partials/rules.html`, `scripts/rules-cases.mjs`, `partials/converter.html`, or `legal/*.md` here (keep the legal `**Last updated:**` line current), then rebuild:
 
 ```bash
 node scripts/build-docs.mjs
 ```
 
-It reads `docs/*.md` from the local `main` branch with `git show`. It also stamps every link to a file in `assets/` with `?v=` and a hash of that file, in the generated pages and in `index.html` and `404.html`, so browsers never pair a new page with an old cached script or stylesheet. Run it after changing anything in `assets/`, including after `scripts/make-images.py` or `scripts/capture-popup.sh`. To read from a folder instead, pass its path, for example `node scripts/build-docs.mjs ../Linkumori-Addon/docs`.
+By default it reads `docs/*.md` from the local `main` branch with `git show`; pass `docs` to build from this branch's local copies. It also stamps every link to a file in `assets/` with `?v=` and a hash of that file, in the generated pages and in `index.html` and `404.html`, so browsers never pair a new page with an old cached script or stylesheet. Run it after changing anything in `assets/`, including after `scripts/make-images.py` or `scripts/capture-popup.sh`. To read from another folder, pass its path, for example `node scripts/build-docs.mjs ../Linkumori-Addon/docs`.
 
 ## Regenerating the images
 

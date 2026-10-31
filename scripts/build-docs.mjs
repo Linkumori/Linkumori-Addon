@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-// Builds cln-1.0.html and filter-syntax.html from the docs on the main branch,
-// and privacy.html and terms.html from legal/ on this branch.
+// Builds the specification, reference, architecture, rules, converter, legal pages and sitemap.
 //
 //   node scripts/build-docs.mjs            # reads docs with `git show main:docs/…`
 //   node scripts/build-docs.mjs ../docs    # reads docs from a folder instead
@@ -90,10 +89,10 @@ const pages = [
     out: 'rules.html',
     title: 'How rules work — Linkumori',
     heading: 'How rules work',
-    description: 'How Linkumori picks its rule sources, merges built-in and remote rules in overload mode, applies custom rules on top, and handles toggles, defaults and remote file capabilities, with every case.',
+    description: 'How Linkumori picks its rule sources, chooses a patch or merge strategy, optionally strips rule order while merging, applies custom rules and handles toggles, defaults and remote file capabilities.',
     kicker: 'Guide',
     // The page describes custom rules as they work after 100.66.0, and notes the older behaviour.
-    facts: [['Covers', 'Sources, merging, custom rules'], ['Applies to', 'Linkumori after 100.66.0']],
+    facts: [['Covers', 'Sources, overload strategies, merging, patches, custom rules'], ['Applies to', 'Current Linkumori behavior']],
     wide: true,
     scripts: ['assets/rules.js']
   },
