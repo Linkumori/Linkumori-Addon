@@ -1,16 +1,68 @@
 # Git Commit History
 
-**Generated**: 2026-10-31T08:11:26.460Z
-**Total Commits**: 943
+**Generated**: 2026-10-31T08:18:43.150Z
+**Total Commits**: 946
 
 ---
 
-## Commit 1: chore: resolve README case collision on website
+## Commit 1: docs: update website for current rule behavior
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
-**Date**: 2026-10-31 13:41:08 +0530
-**Commit Hash**: `101490e69a2f254dd2d15075f704eb33cd51c669`
-**Short Hash**: `101490e`
+**Date**: 2026-10-31 13:46:11 +0530
+**Commit Hash**: `9b0f7cfce2f2885ab5e70e4e44f1444664c75b99`
+**Short Hash**: `9b0f7cf`
+
+### Files Modified
+
+- **Modified**: `404.html`
+- **Modified**: `README-extension.md`
+- **Modified**: `README.md`
+- **Modified**: `assets/rules.js`
+- **Modified**: `cln-1.0.html`
+- **Modified**: `converter.html`
+- **Modified**: `filter-syntax.html`
+- **Modified**: `index.html`
+- **Modified**: `partials/rules.html`
+- **Modified**: `privacy.html`
+- **Modified**: `rules.html`
+- **Modified**: `runtime-architecture.html`
+- **Modified**: `scripts/build-docs.mjs`
+- **Modified**: `scripts/rules-cases.mjs`
+- **Modified**: `terms.html`
+
+### Commit Message
+
+```text
+docs: update website for current rule behavior
+```
+
+---
+
+## Commit 2: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-10-31 08:11:26 +0000
+**Commit Hash**: `eacb2e7268ded41cf7dd75e61231e2f3fd327f83`
+**Short Hash**: `eacb2e7`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 3: chore: resolve README case collision on website
+
+**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-10-31 13:48:00 +0530
+**Commit Hash**: `fe056998af2954dc56ba187fa0d60ec49ff1d6c5`
+**Short Hash**: `fe05699`
 
 ### Files Modified
 
@@ -24,12 +76,12 @@ chore: resolve README case collision on website
 
 ---
 
-## Commit 2: Add the tab troubleshooter to the homepage
+## Commit 4: Add the tab troubleshooter to the homepage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 23:05:53 +0530
-**Commit Hash**: `ba00653fe478374a47ba12ca028d48ea2406922e`
-**Short Hash**: `ba00653`
+**Commit Hash**: `020b5f9dac78fc4c1d25c074d29a3639f55ff8ec`
+**Short Hash**: `020b5f9`
 
 ### Files Modified
 
@@ -43,12 +95,12 @@ Add the tab troubleshooter to the homepage
 
 ---
 
-## Commit 3: Put the homepage demo in matching editor panes
+## Commit 5: Put the homepage demo in matching editor panes
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 23:48:22 +0530
-**Commit Hash**: `5a667359b336935f9a6f0634c015e8c5c265aa4b`
-**Short Hash**: `5a66735`
+**Commit Hash**: `82fb246c5c357c2c15d275dbc208ccd36623d556`
+**Short Hash**: `82fb246`
 
 ### Files Modified
 
@@ -74,12 +126,12 @@ Put the homepage demo in matching editor panes
 
 ---
 
-## Commit 4: Redesign the URL simulator and converter source card for phones
+## Commit 6: Redesign the URL simulator and converter source card for phones
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 23:45:03 +0530
-**Commit Hash**: `c40f1f4701c4b2154ff9bb6d8fe84431069d5081`
-**Short Hash**: `c40f1f4`
+**Commit Hash**: `9cab4ee7c261ca3edec18176f09a0caf7e005533`
+**Short Hash**: `9cab4ee`
 
 ### Files Modified
 
@@ -104,12 +156,12 @@ Redesign the URL simulator and converter source card for phones
 
 ---
 
-## Commit 5: Turn the JSON text areas into editor-style panes
+## Commit 7: Turn the JSON text areas into editor-style panes
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 23:39:35 +0530
-**Commit Hash**: `5caa6d62980fb07d54f3b3f62855b709af989a3d`
-**Short Hash**: `5caa6d6`
+**Commit Hash**: `613ab5911eae2c155bbad71383603da1ebe8a12d`
+**Short Hash**: `613ab59`
 
 ### Files Modified
 
@@ -134,12 +186,12 @@ Turn the JSON text areas into editor-style panes
 
 ---
 
-## Commit 6: Style form fields after apple.com's inputs
+## Commit 8: Style form fields after apple.com's inputs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 23:37:43 +0530
-**Commit Hash**: `5a966a1276ffc14c5abe9fb5d0509f2b62dd6740`
-**Short Hash**: `5a966a1`
+**Commit Hash**: `5663efcf70b0c209bb70dbccf9c0b90937ae9b63`
+**Short Hash**: `5663efc`
 
 ### Files Modified
 
@@ -162,12 +214,12 @@ Style form fields after apple.com's inputs
 
 ---
 
-## Commit 7: Give every form field on the site one shared style
+## Commit 9: Give every form field on the site one shared style
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 23:30:16 +0530
-**Commit Hash**: `a4d9a1654e3897c4c229e2fb6506bc4cc9bac5b8`
-**Short Hash**: `a4d9a16`
+**Commit Hash**: `27ca359b6e762e45756f541a08d55bb8d2758e53`
+**Short Hash**: `27ca359`
 
 ### Files Modified
 
@@ -191,12 +243,12 @@ Give every form field on the site one shared style
 
 ---
 
-## Commit 8: docs: update website for overload strategies
+## Commit 10: docs: update website for overload strategies
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 19:01:45 +0530
-**Commit Hash**: `0d60709c453db776d3bf1d431d62662235975793`
-**Short Hash**: `0d60709`
+**Commit Hash**: `76e77efae770ed7997c2062dbfe34fccc165f284`
+**Short Hash**: `76e77ef`
 
 ### Files Modified
 
@@ -220,12 +272,12 @@ docs: update website for overload strategies
 
 ---
 
-## Commit 9: Match file, simulator and provider controls to the site's button style
+## Commit 11: Match file, simulator and provider controls to the site's button style
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:40:35 +0530
-**Commit Hash**: `1f2463ba75175ec5501cbd2272b9b0f121fd5fdc`
-**Short Hash**: `1f2463b`
+**Commit Hash**: `91ab7a133aa966bdb5e6d274635e81556d4d5573`
+**Short Hash**: `91ab7a1`
 
 ### Files Modified
 
@@ -249,12 +301,12 @@ Match file, simulator and provider controls to the site's button style
 
 ---
 
-## Commit 10: Document remote rule patches (#183)
+## Commit 12: Document remote rule patches (#183)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 16:06:20 +0530
-**Commit Hash**: `cd15cdd8974c79317d32f33fcec6e00cbcbf828f`
-**Short Hash**: `cd15cdd`
+**Commit Hash**: `6e4c8cd8964d88d793d69af2b19e0b2169529420`
+**Short Hash**: `6e4c8cd`
 
 ### Files Modified
 
@@ -274,12 +326,12 @@ Document remote rule patches (#183)
 
 ---
 
-## Commit 11: Split host groups in the converter into one rule per host
+## Commit 13: Split host groups in the converter into one rule per host
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:57:27 +0530
-**Commit Hash**: `912630baa829e3bd571d3a1812aa2d4c6d94e091`
-**Short Hash**: `912630b`
+**Commit Hash**: `702f6a4ffc422a6d592181416aab538431675ae0`
+**Short Hash**: `702f6a4`
 
 ### Files Modified
 
@@ -293,12 +345,12 @@ Split host groups in the converter into one rule per host
 
 ---
 
-## Commit 12: added filter list
+## Commit 14: added filter list
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:33:11 +0530
-**Commit Hash**: `7175305c753733f03b877a0a7053042f96450aef`
-**Short Hash**: `7175305`
+**Commit Hash**: `a8bd0021ad2b180ecad91fb125b6a8e4016a5f1d`
+**Short Hash**: `a8bd002`
 
 ### Files Modified
 
@@ -329,12 +381,12 @@ added filter list
 
 ---
 
-## Commit 13: Rebuild from main
+## Commit 15: Rebuild from main
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 21:14:49 +0530
-**Commit Hash**: `76ea8212d68474d56ebd79b78fa8bf1a71a35618`
-**Short Hash**: `76ea821`
+**Commit Hash**: `2042c5ec0e72e1e99fd37e05b12b00d67623084d`
+**Short Hash**: `2042c5e`
 
 ### Files Modified
 
@@ -349,12 +401,12 @@ Rebuild from main
 
 ---
 
-## Commit 14: Make Run play the URL simulation
+## Commit 16: Make Run play the URL simulation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 20:47:12 +0530
-**Commit Hash**: `fb25de146eeef3d64d3df0e3ed4de8dc6f76b36c`
-**Short Hash**: `fb25de1`
+**Commit Hash**: `d774cb4fd3fee457421be800857404d2392a981c`
+**Short Hash**: `d774cb4`
 
 ### Files Modified
 
@@ -369,12 +421,12 @@ Make Run play the URL simulation
 
 ---
 
-## Commit 15: Rebuild from main and show v100.69.0
+## Commit 17: Rebuild from main and show v100.69.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 17:05:11 +0530
-**Commit Hash**: `e8fefb71abfb233ce5ef6c42654a7e61f84c262a`
-**Short Hash**: `e8fefb7`
+**Commit Hash**: `582bdb21b302dcd138c899ca9f48c40ffef210d5`
+**Short Hash**: `582bdb2`
 
 ### Files Modified
 
@@ -395,12 +447,12 @@ Rebuild from main and show v100.69.0
 
 ---
 
-## Commit 16: Add a URL simulation to the run-order calculator
+## Commit 18: Add a URL simulation to the run-order calculator
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 17:00:24 +0530
-**Commit Hash**: `e51abf7479e2434517a4cf9d9634440a84ee4cc8`
-**Short Hash**: `e51abf7`
+**Commit Hash**: `7c448e4f24d1101b4baf5a8ce96a2077f12d055c`
+**Short Hash**: `7c448e4`
 
 ### Files Modified
 
@@ -424,12 +476,12 @@ Add a URL simulation to the run-order calculator
 
 ---
 
-## Commit 17: Rebuild from main and show v100.68.0
+## Commit 19: Rebuild from main and show v100.68.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:47:57 +0530
-**Commit Hash**: `368e8878b6ca9c63be81a5c577a16954b709fb01`
-**Short Hash**: `368e887`
+**Commit Hash**: `52153313884452948ea54a5d752400c49087aa2d`
+**Short Hash**: `5215331`
 
 ### Files Modified
 
@@ -450,12 +502,12 @@ Rebuild from main and show v100.68.0
 
 ---
 
-## Commit 18: Rebuild from main after #176 and show v100.67.0
+## Commit 20: Rebuild from main after #176 and show v100.67.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:19:33 +0530
-**Commit Hash**: `8c2d5619dca6fe63e999cc8bf9e10437a3cd5ffc`
-**Short Hash**: `8c2d561`
+**Commit Hash**: `57aebb02008baf8bc25a0be13ae2ae0141560b4f`
+**Short Hash**: `57aebb0`
 
 ### Files Modified
 
@@ -476,12 +528,12 @@ Rebuild from main after #176 and show v100.67.0
 
 ---
 
-## Commit 19: List the site's components under other licenses in the terms
+## Commit 21: List the site's components under other licenses in the terms
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:16:33 +0530
-**Commit Hash**: `f01252299fe134517b5c494d66c600bd5a1910c6`
-**Short Hash**: `f012522`
+**Commit Hash**: `db45557184d364cdecc809e55eaa364a8395ac22`
+**Short Hash**: `db45557`
 
 ### Files Modified
 
@@ -497,12 +549,12 @@ List the site's components under other licenses in the terms
 
 ---
 
-## Commit 20: Stop shrinking the first table column to its narrowest
+## Commit 22: Stop shrinking the first table column to its narrowest
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:14:19 +0530
-**Commit Hash**: `05ffb186833ccc52859f1f1cab1b6dd977141948`
-**Short Hash**: `05ffb18`
+**Commit Hash**: `b396db042c30b24a0f63bbdd038304104a4723f1`
+**Short Hash**: `b396db0`
 
 ### Files Modified
 
@@ -524,12 +576,12 @@ Stop shrinking the first table column to its narrowest
 
 ---
 
-## Commit 21: Say which fonts the site serves
+## Commit 23: Say which fonts the site serves
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:12:37 +0530
-**Commit Hash**: `549a7d3556b1642b609ad03261733da299ddb2f8`
-**Short Hash**: `549a7d3`
+**Commit Hash**: `574a7c0134af918c33b72465411faf9e3bbe9351`
+**Short Hash**: `574a7c0`
 
 ### Files Modified
 
@@ -543,12 +595,12 @@ Say which fonts the site serves
 
 ---
 
-## Commit 22: Give the documentation pages a proper docs design
+## Commit 24: Give the documentation pages a proper docs design
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:12:32 +0530
-**Commit Hash**: `2cf344853c6a21dbee20ebf9c4c9d9b01d4f51e3`
-**Short Hash**: `2cf3448`
+**Commit Hash**: `6cce494fd37633dbc56580dbe75cb433ab27c937`
+**Short Hash**: `6cce494`
 
 ### Files Modified
 
@@ -580,12 +632,12 @@ Give the documentation pages a proper docs design
 
 ---
 
-## Commit 23: Add a Runtime architecture page
+## Commit 25: Add a Runtime architecture page
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:00:22 +0530
-**Commit Hash**: `7d8b6bfa8cb45045e884ae6aa264f41dc53ce0f5`
-**Short Hash**: `7d8b6bf`
+**Commit Hash**: `be1c4b1a1abe7e0e2b541f60ad25071e53d1b71b`
+**Short Hash**: `be1c4b1`
 
 ### Files Modified
 
@@ -619,12 +671,12 @@ Add a Runtime architecture page
 
 ---
 
-## Commit 24: Show the newly documented rule keys, language choice and remote confirmation
+## Commit 26: Show the newly documented rule keys, language choice and remote confirmation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:52:59 +0530
-**Commit Hash**: `b834f39e250bbefa9f1b561783472e9e35a31296`
-**Short Hash**: `b834f39`
+**Commit Hash**: `ac1de320524c68a9f6e66a1b9d76e545f5a916a7`
+**Short Hash**: `ac1de32`
 
 ### Files Modified
 
@@ -641,12 +693,12 @@ Show the newly documented rule keys, language choice and remote confirmation
 
 ---
 
-## Commit 25: Show what triggers each case on How rules work
+## Commit 27: Show what triggers each case on How rules work
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:41:36 +0530
-**Commit Hash**: `f29635c92bd996615bac86496383677d4669549e`
-**Short Hash**: `f29635c`
+**Commit Hash**: `9bccaa434f15ead4ea099db11242f4a10abe3b57`
+**Short Hash**: `9bccaa4`
 
 ### Files Modified
 
@@ -669,12 +721,12 @@ Show what triggers each case on How rules work
 
 ---
 
-## Commit 26: Say which defaults merges are automatic and which you start
+## Commit 28: Say which defaults merges are automatic and which you start
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:37:04 +0530
-**Commit Hash**: `3fc1294ee895691c3d13064d0795f340829b4a5f`
-**Short Hash**: `3fc1294`
+**Commit Hash**: `d7656b799cca3b21cf9d2bba3a7239ee9a119cf3`
+**Short Hash**: `d7656b7`
 
 ### Files Modified
 
@@ -697,12 +749,12 @@ Say which defaults merges are automatic and which you start
 
 ---
 
-## Commit 27: Describe full custom overrides on How rules work
+## Commit 29: Describe full custom overrides on How rules work
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 20:13:52 +0530
-**Commit Hash**: `5af4d33f5fe21fc674137e097dfa698a2d857bff`
-**Short Hash**: `5af4d33`
+**Commit Hash**: `e2f5f1e5cce37397683422d4c8b0110ff8b91f33`
+**Short Hash**: `e2f5f1e`
 
 ### Files Modified
 
@@ -727,12 +779,12 @@ Describe full custom overrides on How rules work
 
 ---
 
-## Commit 28: Draw every rules-page case with JSON and a diagram
+## Commit 30: Draw every rules-page case with JSON and a diagram
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 19:54:17 +0530
-**Commit Hash**: `ba333f0a07aef03866db395cda001794f2ded156`
-**Short Hash**: `ba333f0`
+**Commit Hash**: `159981b59cec72b4df725444b01bef214f2b6919`
+**Short Hash**: `159981b`
 
 ### Files Modified
 
@@ -758,12 +810,12 @@ Draw every rules-page case with JSON and a diagram
 
 ---
 
-## Commit 29: Explain how defaults are kept apart when rules merge
+## Commit 31: Explain how defaults are kept apart when rules merge
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 19:41:10 +0530
-**Commit Hash**: `bdde8a9159d14b56797212952aea4ec13f3840db`
-**Short Hash**: `bdde8a9`
+**Commit Hash**: `cd0ed7637d9fa318f4dfda47dabf6cccc2cb4bfe`
+**Short Hash**: `cd0ed76`
 
 ### Files Modified
 
@@ -785,12 +837,12 @@ Explain how defaults are kept apart when rules merge
 
 ---
 
-## Commit 30: Add a How rules work page
+## Commit 32: Add a How rules work page
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 19:35:42 +0530
-**Commit Hash**: `8179579105f010f0ae8797f73c3a4f785d9be5e3`
-**Short Hash**: `8179579`
+**Commit Hash**: `2355f7ad09342781d6c431e35649d7e0ad3e7f10`
+**Short Hash**: `2355f7a`
 
 ### Files Modified
 
@@ -816,12 +868,12 @@ Add a How rules work page
 
 ---
 
-## Commit 31: Document unbounded mode on the CLN 1.0 and filter syntax pages (#174)
+## Commit 33: Document unbounded mode on the CLN 1.0 and filter syntax pages (#174)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:40:31 +0530
-**Commit Hash**: `7e4fd3d5fc12ef1a0ea5348f71a2b77e8d9264cc`
-**Short Hash**: `7e4fd3d`
+**Commit Hash**: `117b9db0cd8d3eb14fdd6e89d795d9d6750dbcfe`
+**Short Hash**: `117b9db`
 
 ### Files Modified
 
@@ -836,12 +888,12 @@ Document unbounded mode on the CLN 1.0 and filter syntax pages (#174)
 
 ---
 
-## Commit 32: Document capabilities of remote entries that can't be traced to a file (#172)
+## Commit 34: Document capabilities of remote entries that can't be traced to a file (#172)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:26:20 +0530
-**Commit Hash**: `a573a77b9b6a62b27eff98e005fb1249dd1fd176`
-**Short Hash**: `a573a77`
+**Commit Hash**: `9e3724ae7cd77ffae66ca1ce81598b5988b1ac9f`
+**Short Hash**: `9e3724a`
 
 ### Files Modified
 
@@ -856,12 +908,12 @@ Document capabilities of remote entries that can't be traced to a file (#172)
 
 ---
 
-## Commit 33: Make the CLN 1.0 spec match the engine (#170)
+## Commit 35: Make the CLN 1.0 spec match the engine (#170)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:20:32 +0530
-**Commit Hash**: `b44a073b9da194b3e1523b39ac43e5a263ae8c09`
-**Short Hash**: `b44a073`
+**Commit Hash**: `e962ec2ff0ef8c6bc37f1b7257c98742755836cb`
+**Short Hash**: `e962ec2`
 
 ### Files Modified
 
@@ -875,12 +927,12 @@ Make the CLN 1.0 spec match the engine (#170)
 
 ---
 
-## Commit 34: Fix contradictory saved-toggle wording in the CLN 1.0 page
+## Commit 36: Fix contradictory saved-toggle wording in the CLN 1.0 page
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:12:12 +0530
-**Commit Hash**: `3f435494ed237cc695d4194c3d0a494111a9febf`
-**Short Hash**: `3f43549`
+**Commit Hash**: `2c365affc55027dd655a08001599943811c98a9e`
+**Short Hash**: `2c365af`
 
 ### Files Modified
 
@@ -894,12 +946,12 @@ Fix contradictory saved-toggle wording in the CLN 1.0 page
 
 ---
 
-## Commit 35: Create COPYING
+## Commit 37: Create COPYING
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:41:22 +0530
-**Commit Hash**: `2e02f2101b7be035d4dfce3050a652da61d83cd5`
-**Short Hash**: `2e02f21`
+**Commit Hash**: `2b297a36356ac0ad66e928205dfe6b62200f51e0`
+**Short Hash**: `2b297a3`
 
 ### Files Modified
 
@@ -913,12 +965,12 @@ Create COPYING
 
 ---
 
-## Commit 36: Create COPYING.LESSER
+## Commit 38: Create COPYING.LESSER
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:40:25 +0530
-**Commit Hash**: `204a05751a25761a95626d5e2c60784fac3e56c8`
-**Short Hash**: `204a057`
+**Commit Hash**: `86837da66e3f56c684919ee3e8f2201799cc8b1f`
+**Short Hash**: `86837da`
 
 ### Files Modified
 
@@ -932,12 +984,12 @@ Create COPYING.LESSER
 
 ---
 
-## Commit 37: Fingerprint asset URLs so pages never run stale scripts
+## Commit 39: Fingerprint asset URLs so pages never run stale scripts
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:35:47 +0530
-**Commit Hash**: `a046d0361838e45ed0e362887b35e72a25be4f74`
-**Short Hash**: `a046d03`
+**Commit Hash**: `c69f110c32e713a95d8e9104026f8dd3ebdc5305`
+**Short Hash**: `c69f110`
 
 ### Files Modified
 
@@ -958,12 +1010,12 @@ Fingerprint asset URLs so pages never run stale scripts
 
 ---
 
-## Commit 38: Style tables and code listings like Apple's developer docs
+## Commit 40: Style tables and code listings like Apple's developer docs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:34:10 +0530
-**Commit Hash**: `ad1b1e506e8623d8128c516098be8fdb49cbdbec`
-**Short Hash**: `ad1b1e5`
+**Commit Hash**: `104ff6e9eda3d9c8377a014400d948647cf2bc31`
+**Short Hash**: `104ff6e`
 
 ### Files Modified
 
@@ -982,12 +1034,12 @@ Style tables and code listings like Apple's developer docs
 
 ---
 
-## Commit 39: Show the sort key as five columns
+## Commit 41: Show the sort key as five columns
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:25:14 +0530
-**Commit Hash**: `14acce715628aa672c02aaac3164f8f78b6f5814`
-**Short Hash**: `14acce7`
+**Commit Hash**: `a811998f99ceba7a1e5b17618e105d35b1ea8360`
+**Short Hash**: `a811998`
 
 ### Files Modified
 
@@ -1006,12 +1058,12 @@ Show the sort key as five columns
 
 ---
 
-## Commit 40: Draw doc and calculator tables as bordered grids
+## Commit 42: Draw doc and calculator tables as bordered grids
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 16:20:08 +0530
-**Commit Hash**: `e3986645b3caf09dca5c8a7d34f6a40f07c0cdcc`
-**Short Hash**: `e398664`
+**Commit Hash**: `45acef8bdd55961c1a870319a880b73b58941c37`
+**Short Hash**: `45acef8`
 
 ### Files Modified
 
@@ -1025,12 +1077,12 @@ Draw doc and calculator tables as bordered grids
 
 ---
 
-## Commit 41: Give the release that shipped CLN 1.0 final
+## Commit 43: Give the release that shipped CLN 1.0 final
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 14:23:21 +0530
-**Commit Hash**: `5c031b71788774769c17da15c29533770c1af626`
-**Short Hash**: `5c031b7`
+**Commit Hash**: `5d00dec566db0fa2c2b4c6575a7f095ba75263c6`
+**Short Hash**: `5d00dec`
 
 ### Files Modified
 
@@ -1046,12 +1098,12 @@ Give the release that shipped CLN 1.0 final
 
 ---
 
-## Commit 42: Explain "earlier 1.0 text" and "1.0 final" on the CLN pages
+## Commit 44: Explain "earlier 1.0 text" and "1.0 final" on the CLN pages
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 14:16:55 +0530
-**Commit Hash**: `89d9022b075eb6691e71912248374851cdf1b942`
-**Short Hash**: `89d9022`
+**Commit Hash**: `0185cd199b0fda59e21076c727bfa4dc597f27c3`
+**Short Hash**: `0185cd1`
 
 ### Files Modified
 
@@ -1069,12 +1121,12 @@ Explain "earlier 1.0 text" and "1.0 final" on the CLN pages
 
 ---
 
-## Commit 43: Show the real extension popup and tidy the run-order table
+## Commit 45: Show the real extension popup and tidy the run-order table
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 14:11:37 +0530
-**Commit Hash**: `953ff65ebc7ce8fe06f39bdbc0a710ab13112cfd`
-**Short Hash**: `953ff65`
+**Commit Hash**: `3c6b1093f7faae18b6e6262c52d7952b2690e2b3`
+**Short Hash**: `3c6b109`
 
 ### Files Modified
 
@@ -1098,12 +1150,12 @@ Show the real extension popup and tidy the run-order table
 
 ---
 
-## Commit 44: Take the accent from the logo and restyle tables
+## Commit 46: Take the accent from the logo and restyle tables
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:55:02 +0530
-**Commit Hash**: `d3cf4fffad66e92077151e21aa416665e642731b`
-**Short Hash**: `d3cf4ff`
+**Commit Hash**: `3c0b6120a93e186da390f444591133f327e1ee1c`
+**Short Hash**: `3c0b612`
 
 ### Files Modified
 
@@ -1120,12 +1172,12 @@ Take the accent from the logo and restyle tables
 
 ---
 
-## Commit 45: Redesign the site in a modern product-page style
+## Commit 47: Redesign the site in a modern product-page style
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:45:10 +0530
-**Commit Hash**: `06d7615983ee9eef760a0ffc77ea61007c129362`
-**Short Hash**: `06d7615`
+**Commit Hash**: `1e28b0916c9d65a4dd1e424c63fa62fd4fc7ef87`
+**Short Hash**: `1e28b09`
 
 ### Files Modified
 
@@ -1162,12 +1214,12 @@ Redesign the site in a modern product-page style
 
 ---
 
-## Commit 46: Polish the site after a design critique and accessibility audit
+## Commit 48: Polish the site after a design critique and accessibility audit
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:25:10 +0530
-**Commit Hash**: `8e2642cefc7c8ba1bdabf08c3a89bdec31e4c3e4`
-**Short Hash**: `8e2642c`
+**Commit Hash**: `703ec17ffe00feb484b580c5d36b97bb6d2a47fb`
+**Short Hash**: `703ec17`
 
 ### Files Modified
 
@@ -1196,12 +1248,12 @@ Polish the site after a design critique and accessibility audit
 
 ---
 
-## Commit 47: Link the GitHub Terms of Service from the terms and every footer
+## Commit 49: Link the GitHub Terms of Service from the terms and every footer
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:05:09 +0530
-**Commit Hash**: `6ebd6faeadd070ab47dae25bb139383e58a99115`
-**Short Hash**: `6ebd6fa`
+**Commit Hash**: `90da01da5858934ea0cc89fcfc699fd354305060`
+**Short Hash**: `90da01d`
 
 ### Files Modified
 
@@ -1221,12 +1273,12 @@ Link the GitHub Terms of Service from the terms and every footer
 
 ---
 
-## Commit 48: Add the site's Privacy Policy and Terms of Use
+## Commit 50: Add the site's Privacy Policy and Terms of Use
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:04:21 +0530
-**Commit Hash**: `9912f919f3d28161266e7c42da0908707209d036`
-**Short Hash**: `9912f91`
+**Commit Hash**: `80aeed7924012f19256a550b608eab9c9c94bbcc`
+**Short Hash**: `80aeed7`
 
 ### Files Modified
 
@@ -1248,12 +1300,12 @@ Add the site's Privacy Policy and Terms of Use
 
 ---
 
-## Commit 49: Self-host Charis SIL with its license
+## Commit 51: Self-host Charis SIL with its license
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 13:01:29 +0530
-**Commit Hash**: `981be1927d3c1188e26ba89ce3a281bf754109ad`
-**Short Hash**: `981be19`
+**Commit Hash**: `db50fe47618adbe6c61822f450796d26813c5769`
+**Short Hash**: `db50fe4`
 
 ### Files Modified
 
@@ -1282,12 +1334,12 @@ Self-host Charis SIL with its license
 
 ---
 
-## Commit 50: Redesign the website with an editorial spec-sheet style
+## Commit 52: Redesign the website with an editorial spec-sheet style
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 12:59:46 +0530
-**Commit Hash**: `84093320ff3dce588aa51f28bcc599b612df486a`
-**Short Hash**: `8409332`
+**Commit Hash**: `c978247470c31c05762e8336ad592e100aedaae5`
+**Short Hash**: `c978247`
 
 ### Files Modified
 
@@ -1308,12 +1360,12 @@ Redesign the website with an editorial spec-sheet style
 
 ---
 
-## Commit 51: Add Linkumori website: features, CLN 1.0 standard and filter syntax
+## Commit 53: Add Linkumori website: features, CLN 1.0 standard and filter syntax
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 12:51:20 +0530
-**Commit Hash**: `329d75c1151a3a85c77f6cc795410d1612faa4c4`
-**Short Hash**: `329d75c`
+**Commit Hash**: `3324a498ec423ab355f522b7a25035a250e32b09`
+**Short Hash**: `3324a49`
 
 ### Files Modified
 
@@ -1338,7 +1390,26 @@ Add Linkumori website: features, CLN 1.0 standard and filter syntax
 
 ---
 
-## Commit 52: feat: add order stripping for provider merges
+## Commit 54: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-10-31 08:10:22 +0000
+**Commit Hash**: `02141d3108e3e7332284571908bdce244754bcd2`
+**Short Hash**: `02141d3`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```text
+chore: update commit history
+```
+
+---
+
+## Commit 55: feat: add order stripping for provider merges
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-31 13:39:45 +0530
@@ -1419,7 +1490,7 @@ feat: add order stripping for provider merges
 
 ---
 
-## Commit 53: chore: update changelog for v100.82.0
+## Commit 56: chore: update changelog for v100.82.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 18:01:52 +0000
@@ -1438,7 +1509,7 @@ chore: update changelog for v100.82.0
 
 ---
 
-## Commit 54: chore: update commit history for v100.82.0
+## Commit 57: chore: update commit history for v100.82.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 18:01:49 +0000
@@ -1457,7 +1528,7 @@ chore: update commit history for v100.82.0
 
 ---
 
-## Commit 55: release 100.82.0
+## Commit 58: release 100.82.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 18:01:47 +0000
@@ -1479,7 +1550,7 @@ release 100.82.0
 
 ---
 
-## Commit 56: chore: update commit history
+## Commit 59: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 11:55:36 +0000
@@ -1498,7 +1569,7 @@ chore: update commit history
 
 ---
 
-## Commit 57: Improve custom rules loading and localize whitelist UI
+## Commit 60: Improve custom rules loading and localize whitelist UI
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-30 17:24:49 +0530
@@ -1574,7 +1645,7 @@ Improve custom rules loading and localize whitelist UI
 
 ---
 
-## Commit 58: Add whitelist manager to popup
+## Commit 61: Add whitelist manager to popup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-30 17:14:43 +0530
@@ -1595,7 +1666,7 @@ Add whitelist manager to popup
 
 ---
 
-## Commit 59: chore: update changelog for v100.81.0
+## Commit 62: chore: update changelog for v100.81.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 09:29:13 +0000
@@ -1614,7 +1685,7 @@ chore: update changelog for v100.81.0
 
 ---
 
-## Commit 60: chore: update commit history for v100.81.0
+## Commit 63: chore: update commit history for v100.81.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 09:29:11 +0000
@@ -1633,7 +1704,7 @@ chore: update commit history for v100.81.0
 
 ---
 
-## Commit 61: release 100.81.0
+## Commit 64: release 100.81.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 09:29:09 +0000
@@ -1655,7 +1726,7 @@ release 100.81.0
 
 ---
 
-## Commit 62: chore: update commit history
+## Commit 65: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-30 09:28:02 +0000
@@ -1674,7 +1745,7 @@ chore: update commit history
 
 ---
 
-## Commit 63: Fix translation
+## Commit 66: Fix translation
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-30 14:57:48 +0530
@@ -1760,7 +1831,7 @@ Fix translation
 
 ---
 
-## Commit 64: chore: update changelog for v100.80.0
+## Commit 67: chore: update changelog for v100.80.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-29 14:56:50 +0000
@@ -1779,7 +1850,7 @@ chore: update changelog for v100.80.0
 
 ---
 
-## Commit 65: chore: update commit history for v100.80.0
+## Commit 68: chore: update commit history for v100.80.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-29 14:56:48 +0000
@@ -1798,7 +1869,7 @@ chore: update commit history for v100.80.0
 
 ---
 
-## Commit 66: release 100.80.0
+## Commit 69: release 100.80.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-29 14:56:47 +0000
@@ -1821,7 +1892,7 @@ release 100.80.0
 
 ---
 
-## Commit 67: chore: update commit history
+## Commit 70: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-29 06:47:53 +0000
@@ -1840,7 +1911,7 @@ chore: update commit history
 
 ---
 
-## Commit 68: Strip utm_* parameters on github.com (#194)
+## Commit 71: Strip utm_* parameters on github.com (#194)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-29 12:17:31 +0530
@@ -1861,7 +1932,7 @@ Strip utm_* parameters on github.com (#194)
 
 ---
 
-## Commit 69: chore: update changelog for v100.79.0
+## Commit 72: chore: update changelog for v100.79.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-28 01:40:58 +0000
@@ -1880,7 +1951,7 @@ chore: update changelog for v100.79.0
 
 ---
 
-## Commit 70: chore: update commit history for v100.79.0
+## Commit 73: chore: update commit history for v100.79.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-28 01:40:56 +0000
@@ -1899,7 +1970,7 @@ chore: update commit history for v100.79.0
 
 ---
 
-## Commit 71: release 100.79.0
+## Commit 74: release 100.79.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-28 01:40:54 +0000
@@ -1921,7 +1992,7 @@ release 100.79.0
 
 ---
 
-## Commit 72: chore: update changelog for v100.78.0
+## Commit 75: chore: update changelog for v100.78.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 17:32:17 +0000
@@ -1940,7 +2011,7 @@ chore: update changelog for v100.78.0
 
 ---
 
-## Commit 73: chore: update commit history for v100.78.0
+## Commit 76: chore: update commit history for v100.78.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 17:32:14 +0000
@@ -1959,7 +2030,7 @@ chore: update commit history for v100.78.0
 
 ---
 
-## Commit 74: release 100.78.0
+## Commit 77: release 100.78.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 17:32:12 +0000
@@ -1981,7 +2052,7 @@ release 100.78.0
 
 ---
 
-## Commit 75: chore: update commit history
+## Commit 78: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 01:30:01 +0000
@@ -2000,7 +2071,7 @@ chore: update commit history
 
 ---
 
-## Commit 76: Merge the logs and live logger into one Logs view
+## Commit 79: Merge the logs and live logger into one Logs view
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-27 06:59:25 +0530
@@ -2024,7 +2095,7 @@ Merge the logs and live logger into one Logs view
 
 ---
 
-## Commit 77: chore: update commit history
+## Commit 80: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 00:26:45 +0000
@@ -2043,7 +2114,7 @@ chore: update commit history
 
 ---
 
-## Commit 78: Move the troubleshooter into the popup nav bar
+## Commit 81: Move the troubleshooter into the popup nav bar
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-27 05:56:30 +0530
@@ -2068,7 +2139,7 @@ Move the troubleshooter into the popup nav bar
 
 ---
 
-## Commit 79: chore: update commit history
+## Commit 82: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-27 00:14:33 +0000
@@ -2087,7 +2158,7 @@ chore: update commit history
 
 ---
 
-## Commit 80: Exempt samarth.edu.in from the global ref rule
+## Commit 83: Exempt samarth.edu.in from the global ref rule
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-27 05:44:15 +0530
@@ -2108,7 +2179,7 @@ Exempt samarth.edu.in from the global ref rule
 
 ---
 
-## Commit 81: chore: update commit history
+## Commit 84: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 19:25:08 +0000
@@ -2127,7 +2198,7 @@ chore: update commit history
 
 ---
 
-## Commit 82: Let the troubleshooter keep testing after a rule is found
+## Commit 85: Let the troubleshooter keep testing after a rule is found
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-27 00:54:50 +0530
@@ -2152,7 +2223,7 @@ Let the troubleshooter keep testing after a rule is found
 
 ---
 
-## Commit 83: Fix troubleshooter colours and consent box flash in the popup
+## Commit 86: Fix troubleshooter colours and consent box flash in the popup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 23:42:16 +0530
@@ -2172,7 +2243,7 @@ Fix troubleshooter colours and consent box flash in the popup
 
 ---
 
-## Commit 84: Fix troubleshooter export not downloading the JSON file
+## Commit 87: Fix troubleshooter export not downloading the JSON file
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 22:42:42 +0530
@@ -2193,7 +2264,7 @@ Fix troubleshooter export not downloading the JSON file
 
 ---
 
-## Commit 85: chore: update changelog for v100.77.0
+## Commit 88: chore: update changelog for v100.77.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 14:46:46 +0000
@@ -2212,7 +2283,7 @@ chore: update changelog for v100.77.0
 
 ---
 
-## Commit 86: chore: update commit history for v100.77.0
+## Commit 89: chore: update commit history for v100.77.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 14:46:44 +0000
@@ -2231,7 +2302,7 @@ chore: update commit history for v100.77.0
 
 ---
 
-## Commit 87: release 100.77.0
+## Commit 90: release 100.77.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 14:46:42 +0000
@@ -2253,7 +2324,7 @@ release 100.77.0
 
 ---
 
-## Commit 88: Troubleshooter: find the rule one at a time
+## Commit 91: Troubleshooter: find the rule one at a time
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 20:00:59 +0530
@@ -2278,7 +2349,7 @@ Troubleshooter: find the rule one at a time
 
 ---
 
-## Commit 89: Feature/bug fixing
+## Commit 92: Feature/bug fixing
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 19:18:48 +0530
@@ -2305,7 +2376,7 @@ Feature/bug fixing
 
 ---
 
-## Commit 90: Feature/bug fixing (#190)
+## Commit 93: Feature/bug fixing (#190)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 17:23:50 +0530
@@ -2328,7 +2399,7 @@ Feature/bug fixing (#190)
 
 ---
 
-## Commit 91: Feature/bug fixing
+## Commit 94: Feature/bug fixing
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 17:18:52 +0530
@@ -2349,7 +2420,7 @@ Feature/bug fixing
 
 ---
 
-## Commit 92: Feature/bug fixing
+## Commit 95: Feature/bug fixing
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 17:09:36 +0530
@@ -2373,7 +2444,7 @@ Feature/bug fixing
 
 ---
 
-## Commit 93: Feature/bug fixing
+## Commit 96: Feature/bug fixing
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 16:51:00 +0530
@@ -2406,7 +2477,7 @@ Feature/bug fixing
 
 ---
 
-## Commit 94: chore: update commit history
+## Commit 97: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 07:01:08 +0000
@@ -2425,7 +2496,7 @@ chore: update commit history
 
 ---
 
-## Commit 95: Store troubleshooter captures in session storage
+## Commit 98: Store troubleshooter captures in session storage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 12:30:51 +0530
@@ -2447,7 +2518,7 @@ Store troubleshooter captures in session storage
 
 ---
 
-## Commit 96: chore: update changelog for v100.76.0
+## Commit 99: chore: update changelog for v100.76.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 06:55:45 +0000
@@ -2466,7 +2537,7 @@ chore: update changelog for v100.76.0
 
 ---
 
-## Commit 97: chore: update commit history for v100.76.0
+## Commit 100: chore: update commit history for v100.76.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 06:55:43 +0000
@@ -2485,7 +2556,7 @@ chore: update commit history for v100.76.0
 
 ---
 
-## Commit 98: release 100.76.0
+## Commit 101: release 100.76.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 06:55:41 +0000
@@ -2507,7 +2578,7 @@ release 100.76.0
 
 ---
 
-## Commit 99: chore: update commit history
+## Commit 102: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-26 06:54:59 +0000
@@ -2526,7 +2597,7 @@ chore: update commit history
 
 ---
 
-## Commit 100: Add opt-in tab troubleshooter controls
+## Commit 103: Add opt-in tab troubleshooter controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 12:24:36 +0530
@@ -2551,7 +2622,7 @@ Add opt-in tab troubleshooter controls
 
 ---
 
-## Commit 101: Update guide  (#185)
+## Commit 104: Update guide  (#185)
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 09:44:54 +0530
@@ -2585,7 +2656,7 @@ Update guide  (#185)
 
 ---
 
-## Commit 102: chore: update commit history
+## Commit 105: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 19:31:18 +0000
@@ -2604,7 +2675,7 @@ chore: update commit history
 
 ---
 
-## Commit 103: Add explicit ids to bundled rules
+## Commit 106: Add explicit ids to bundled rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-26 01:01:00 +0530
@@ -2623,7 +2694,7 @@ Add explicit ids to bundled rules
 
 ---
 
-## Commit 104: chore: update changelog for v100.75.0
+## Commit 107: chore: update changelog for v100.75.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 15:23:42 +0000
@@ -2642,7 +2713,7 @@ chore: update changelog for v100.75.0
 
 ---
 
-## Commit 105: chore: update commit history for v100.75.0
+## Commit 108: chore: update commit history for v100.75.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 15:23:40 +0000
@@ -2661,7 +2732,7 @@ chore: update commit history for v100.75.0
 
 ---
 
-## Commit 106: release 100.75.0
+## Commit 109: release 100.75.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 15:23:39 +0000
@@ -2683,7 +2754,7 @@ release 100.75.0
 
 ---
 
-## Commit 107: chore: update commit history
+## Commit 110: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 15:20:53 +0000
@@ -2702,7 +2773,7 @@ chore: update commit history
 
 ---
 
-## Commit 108: fix: limit global MID cleanup to page requests
+## Commit 111: fix: limit global MID cleanup to page requests
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 20:50:38 +0530
@@ -2723,7 +2794,7 @@ fix: limit global MID cleanup to page requests
 
 ---
 
-## Commit 109: chore: update changelog for v100.74.0
+## Commit 112: chore: update changelog for v100.74.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 14:51:03 +0000
@@ -2742,7 +2813,7 @@ chore: update changelog for v100.74.0
 
 ---
 
-## Commit 110: chore: update commit history for v100.74.0
+## Commit 113: chore: update commit history for v100.74.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 14:51:01 +0000
@@ -2761,7 +2832,7 @@ chore: update commit history for v100.74.0
 
 ---
 
-## Commit 111: release 100.74.0
+## Commit 114: release 100.74.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 14:50:59 +0000
@@ -2783,7 +2854,7 @@ release 100.74.0
 
 ---
 
-## Commit 112: chore: update commit history
+## Commit 115: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 14:49:28 +0000
@@ -2802,7 +2873,7 @@ chore: update commit history
 
 ---
 
-## Commit 113: fix: preserve MID on Bilibili media requests
+## Commit 116: fix: preserve MID on Bilibili media requests
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 20:19:01 +0530
@@ -2823,7 +2894,7 @@ fix: preserve MID on Bilibili media requests
 
 ---
 
-## Commit 114: chore: update commit history
+## Commit 117: chore: update commit history
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 19:45:30 +0530
@@ -2842,7 +2913,7 @@ chore: update commit history
 
 ---
 
-## Commit 115: chore: update commit history
+## Commit 118: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 14:05:44 +0000
@@ -2861,7 +2932,7 @@ chore: update commit history
 
 ---
 
-## Commit 116: feat: add overload mode patch strategies
+## Commit 119: feat: add overload mode patch strategies
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:59:05 +0530
@@ -2941,7 +3012,7 @@ feat: add overload mode patch strategies
 
 ---
 
-## Commit 117: chore: update commit history
+## Commit 120: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:36:00 +0000
@@ -2960,7 +3031,7 @@ chore: update commit history
 
 ---
 
-## Commit 118: Update consent_config.js
+## Commit 121: Update consent_config.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:05:48 +0530
@@ -2979,7 +3050,7 @@ Update consent_config.js
 
 ---
 
-## Commit 119: chore: update commit history
+## Commit 122: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:34:46 +0000
@@ -2998,7 +3069,7 @@ chore: update commit history
 
 ---
 
-## Commit 120: Update Linkumori-POSAR.md
+## Commit 123: Update Linkumori-POSAR.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:04:31 +0530
@@ -3017,7 +3088,7 @@ Update Linkumori-POSAR.md
 
 ---
 
-## Commit 121: chore: update commit history
+## Commit 124: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 12:31:02 +0000
@@ -3036,7 +3107,7 @@ chore: update commit history
 
 ---
 
-## Commit 122: Update Linkumori-POSAR.md
+## Commit 125: Update Linkumori-POSAR.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 18:00:47 +0530
@@ -3055,7 +3126,7 @@ Update Linkumori-POSAR.md
 
 ---
 
-## Commit 123: chore: update commit history
+## Commit 126: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:35:55 +0000
@@ -3074,7 +3145,7 @@ chore: update commit history
 
 ---
 
-## Commit 124: Add remote rule patches
+## Commit 127: Add remote rule patches
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 16:05:40 +0530
@@ -3159,7 +3230,7 @@ Add remote rule patches
 
 ---
 
-## Commit 125: chore: update changelog for v100.73.0
+## Commit 128: chore: update changelog for v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:55 +0000
@@ -3178,7 +3249,7 @@ chore: update changelog for v100.73.0
 
 ---
 
-## Commit 126: chore: update commit history for v100.73.0
+## Commit 129: chore: update commit history for v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:53 +0000
@@ -3197,7 +3268,7 @@ chore: update commit history for v100.73.0
 
 ---
 
-## Commit 127: chore: release v100.73.0
+## Commit 130: chore: release v100.73.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 10:09:52 +0000
@@ -3219,7 +3290,7 @@ chore: release v100.73.0
 
 ---
 
-## Commit 128: Move the bundled defaults.exceptions to @@ $removeparam filters
+## Commit 131: Move the bundled defaults.exceptions to @@ $removeparam filters
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 15:38:28 +0530
@@ -3241,7 +3312,7 @@ Move the bundled defaults.exceptions to @@ $removeparam filters
 
 ---
 
-## Commit 129: Drop provider rule exceptions that are already covered or never match
+## Commit 132: Drop provider rule exceptions that are already covered or never match
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 15:30:16 +0530
@@ -3262,7 +3333,7 @@ Drop provider rule exceptions that are already covered or never match
 
 ---
 
-## Commit 130: fix: remove redundant provider rule exceptions
+## Commit 133: fix: remove redundant provider rule exceptions
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 14:37:49 +0530
@@ -3283,7 +3354,7 @@ fix: remove redundant provider rule exceptions
 
 ---
 
-## Commit 131: chore: update commit history
+## Commit 134: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:27:57 +0000
@@ -3302,7 +3373,7 @@ chore: update commit history
 
 ---
 
-## Commit 132: Fix Lazada and Shopee rules that never matched
+## Commit 135: Fix Lazada and Shopee rules that never matched
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:57:32 +0530
@@ -3323,7 +3394,7 @@ Fix Lazada and Shopee rules that never matched
 
 ---
 
-## Commit 133: data: update bundled provider rules
+## Commit 136: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:56:57 +0530
@@ -3342,7 +3413,7 @@ data: update bundled provider rules
 
 ---
 
-## Commit 134: chore: update changelog for v100.72.0
+## Commit 137: chore: update changelog for v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:21 +0000
@@ -3361,7 +3432,7 @@ chore: update changelog for v100.72.0
 
 ---
 
-## Commit 135: chore: update commit history for v100.72.0
+## Commit 138: chore: update commit history for v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:20 +0000
@@ -3380,7 +3451,7 @@ chore: update commit history for v100.72.0
 
 ---
 
-## Commit 136: chore: release v100.72.0
+## Commit 139: chore: release v100.72.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 07:11:19 +0000
@@ -3402,7 +3473,7 @@ chore: release v100.72.0
 
 ---
 
-## Commit 137: chore: update commit history
+## Commit 140: chore: update commit history
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:39:57 +0530
@@ -3421,7 +3492,7 @@ chore: update commit history
 
 ---
 
-## Commit 138: data: update bundled provider rules
+## Commit 141: data: update bundled provider rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 12:38:21 +0530
@@ -3443,7 +3514,7 @@ data: update bundled provider rules
 
 ---
 
-## Commit 139: chore: update commit history
+## Commit 142: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 06:18:35 +0000
@@ -3462,7 +3533,7 @@ chore: update commit history
 
 ---
 
-## Commit 140: data: update bundled provider rules
+## Commit 143: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:48:11 +0530
@@ -3483,7 +3554,7 @@ data: update bundled provider rules
 
 ---
 
-## Commit 141: chore: update commit history
+## Commit 144: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 06:17:20 +0000
@@ -3502,7 +3573,7 @@ chore: update commit history
 
 ---
 
-## Commit 142: data: update bundled provider rules
+## Commit 145: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:45:34 +0530
@@ -3521,7 +3592,7 @@ data: update bundled provider rules
 
 ---
 
-## Commit 143: chore: update changelog for v100.71.0
+## Commit 146: chore: update changelog for v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:56 +0000
@@ -3540,7 +3611,7 @@ chore: update changelog for v100.71.0
 
 ---
 
-## Commit 144: chore: update commit history for v100.71.0
+## Commit 147: chore: update commit history for v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:54 +0000
@@ -3559,7 +3630,7 @@ chore: update commit history for v100.71.0
 
 ---
 
-## Commit 145: chore: release v100.71.0
+## Commit 148: chore: release v100.71.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:53 +0000
@@ -3581,7 +3652,7 @@ chore: release v100.71.0
 
 ---
 
-## Commit 146: chore: update commit history
+## Commit 149: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 05:49:21 +0000
@@ -3600,7 +3671,7 @@ chore: update commit history
 
 ---
 
-## Commit 147: perf: optimize provider rules
+## Commit 150: perf: optimize provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-25 11:18:32 +0530
@@ -3620,7 +3691,7 @@ perf: optimize provider rules
 
 ---
 
-## Commit 148: chore: update changelog for v100.70.0
+## Commit 151: chore: update changelog for v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:11 +0000
@@ -3639,7 +3710,7 @@ chore: update changelog for v100.70.0
 
 ---
 
-## Commit 149: chore: update commit history for v100.70.0
+## Commit 152: chore: update commit history for v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:09 +0000
@@ -3658,7 +3729,7 @@ chore: update commit history for v100.70.0
 
 ---
 
-## Commit 150: chore: release v100.70.0
+## Commit 153: chore: release v100.70.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-25 03:10:08 +0000
@@ -3680,7 +3751,7 @@ chore: release v100.70.0
 
 ---
 
-## Commit 151: chore: update commit history
+## Commit 154: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 15:39:34 +0000
@@ -3699,7 +3770,7 @@ chore: update commit history
 
 ---
 
-## Commit 152: Show order numbers live while dragging; restore them
+## Commit 155: Show order numbers live while dragging; restore them
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 21:09:18 +0530
@@ -3721,7 +3792,7 @@ Show order numbers live while dragging; restore them
 
 ---
 
-## Commit 153: chore: update commit history
+## Commit 156: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 15:17:26 +0000
@@ -3740,7 +3811,7 @@ chore: update commit history
 
 ---
 
-## Commit 154: Make Run play the simulation in the run-order panel
+## Commit 157: Make Run play the simulation in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 20:47:07 +0530
@@ -3759,7 +3830,7 @@ Make Run play the simulation in the run-order panel
 
 ---
 
-## Commit 155: chore: update commit history
+## Commit 158: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 13:38:14 +0000
@@ -3778,7 +3849,7 @@ chore: update commit history
 
 ---
 
-## Commit 156: Generate a test URL from a provider's rules in the run-order panel
+## Commit 159: Generate a test URL from a provider's rules in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 19:07:56 +0530
@@ -3802,7 +3873,7 @@ Generate a test URL from a provider's rules in the run-order panel
 
 ---
 
-## Commit 157: Clean without a request as a main_frame request
+## Commit 160: Clean without a request as a main_frame request
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 19:04:42 +0530
@@ -3824,7 +3895,7 @@ Clean without a request as a main_frame request
 
 ---
 
-## Commit 158: chore: update commit history
+## Commit 161: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:34:32 +0000
@@ -3843,7 +3914,7 @@ chore: update commit history
 
 ---
 
-## Commit 159: Treat a raw deletion that changes the origin as a redirect
+## Commit 162: Treat a raw deletion that changes the origin as a redirect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 17:04:16 +0530
@@ -3868,7 +3939,7 @@ Treat a raw deletion that changes the origin as a redirect
 
 ---
 
-## Commit 160: chore: update changelog for v100.69.0
+## Commit 163: chore: update changelog for v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:22:00 +0000
@@ -3887,7 +3958,7 @@ chore: update changelog for v100.69.0
 
 ---
 
-## Commit 161: chore: update commit history for v100.69.0
+## Commit 164: chore: update commit history for v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:21:58 +0000
@@ -3906,7 +3977,7 @@ chore: update commit history for v100.69.0
 
 ---
 
-## Commit 162: chore: release v100.69.0
+## Commit 165: chore: release v100.69.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:21:57 +0000
@@ -3927,7 +3998,7 @@ chore: release v100.69.0
 
 ---
 
-## Commit 163: chore: update commit history
+## Commit 166: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:16:52 +0000
@@ -3946,7 +4017,7 @@ chore: update commit history
 
 ---
 
-## Commit 164: Apply each regression case's whitelist; require redirects where needed
+## Commit 167: Apply each regression case's whitelist; require redirects where needed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
@@ -3966,7 +4037,7 @@ Apply each regression case's whitelist; require redirects where needed
 
 ---
 
-## Commit 165: Update the regression case for colliding generated ids
+## Commit 168: Update the regression case for colliding generated ids
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
@@ -3985,7 +4056,7 @@ Update the regression case for colliding generated ids
 
 ---
 
-## Commit 166: Leave a URL exactly as it was when a provider changes nothing
+## Commit 169: Leave a URL exactly as it was when a provider changes nothing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:57 +0530
@@ -4005,7 +4076,7 @@ Leave a URL exactly as it was when a provider changes nothing
 
 ---
 
-## Commit 167: Fix the CLI help: name the real script, drop commands that don't exist
+## Commit 170: Fix the CLI help: name the real script, drop commands that don't exist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:38 +0530
@@ -4024,7 +4095,7 @@ Fix the CLI help: name the real script, drop commands that don't exist
 
 ---
 
-## Commit 168: Remove the trailing comma that made package.json invalid JSON
+## Commit 171: Remove the trailing comma that made package.json invalid JSON
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:38 +0530
@@ -4043,7 +4114,7 @@ Remove the trailing comma that made package.json invalid JSON
 
 ---
 
-## Commit 169: Let a 
+## Commit 172: Let a 
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:44:37 +0530
@@ -4062,7 +4133,7 @@ Let a
 
 ---
 
-## Commit 170: Match ^/ in domain patterns without needing the slash twice
+## Commit 173: Match ^/ in domain patterns without needing the slash twice
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:31:47 +0530
@@ -4083,7 +4154,7 @@ Match ^/ in domain patterns without needing the slash twice
 
 ---
 
-## Commit 171: chore: update commit history
+## Commit 174: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 11:16:10 +0000
@@ -4102,7 +4173,7 @@ chore: update commit history
 
 ---
 
-## Commit 172: Simulate a provider step by step in the run-order panel
+## Commit 175: Simulate a provider step by step in the run-order panel
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:25:39 +0530
@@ -4126,7 +4197,7 @@ Simulate a provider step by step in the run-order panel
 
 ---
 
-## Commit 173: Let the run-order panel rearrange steps
+## Commit 176: Let the run-order panel rearrange steps
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 16:19:25 +0530
@@ -4149,7 +4220,7 @@ Let the run-order panel rearrange steps
 
 ---
 
-## Commit 174: chore: update changelog for v100.68.0
+## Commit 177: chore: update changelog for v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:44 +0000
@@ -4168,7 +4239,7 @@ chore: update changelog for v100.68.0
 
 ---
 
-## Commit 175: chore: update commit history for v100.68.0
+## Commit 178: chore: update commit history for v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:43 +0000
@@ -4187,7 +4258,7 @@ chore: update commit history for v100.68.0
 
 ---
 
-## Commit 176: chore: release v100.68.0
+## Commit 179: chore: release v100.68.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:27:42 +0000
@@ -4208,7 +4279,7 @@ chore: release v100.68.0
 
 ---
 
-## Commit 177: chore: update commit history
+## Commit 180: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-22 01:25:55 +0000
@@ -4227,7 +4298,7 @@ chore: update commit history
 
 ---
 
-## Commit 178: Add a run-order calculator to the custom rules editor
+## Commit 181: Add a run-order calculator to the custom rules editor
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-22 06:54:31 +0530
@@ -4251,7 +4322,7 @@ Add a run-order calculator to the custom rules editor
 
 ---
 
-## Commit 179: chore: update commit history
+## Commit 182: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:49:29 +0000
@@ -4270,7 +4341,7 @@ chore: update commit history
 
 ---
 
-## Commit 180: Correct the cache capability and gatekeeper descriptions
+## Commit 183: Correct the cache capability and gatekeeper descriptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 23:18:56 +0530
@@ -4289,7 +4360,7 @@ Correct the cache capability and gatekeeper descriptions
 
 ---
 
-## Commit 181: chore: update commit history
+## Commit 184: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:47:43 +0000
@@ -4308,7 +4379,7 @@ chore: update commit history
 
 ---
 
-## Commit 182: Let unbounded mode lift the cycle cap for pure cleaning too
+## Commit 185: Let unbounded mode lift the cycle cap for pure cleaning too
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:52:28 +0530
@@ -4329,7 +4400,7 @@ Let unbounded mode lift the cycle cap for pure cleaning too
 
 ---
 
-## Commit 183: chore: update commit history
+## Commit 186: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 17:20:36 +0000
@@ -4348,7 +4419,7 @@ chore: update commit history
 
 ---
 
-## Commit 184: Document settings, messages and rule keys the docs missed
+## Commit 187: Document settings, messages and rule keys the docs missed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 22:49:39 +0530
@@ -4368,7 +4439,7 @@ Document settings, messages and rule keys the docs missed
 
 ---
 
-## Commit 185: chore: update changelog for v100.67.0
+## Commit 188: chore: update changelog for v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:04 +0000
@@ -4387,7 +4458,7 @@ chore: update changelog for v100.67.0
 
 ---
 
-## Commit 186: chore: update commit history for v100.67.0
+## Commit 189: chore: update commit history for v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:02 +0000
@@ -4406,7 +4477,7 @@ chore: update commit history for v100.67.0
 
 ---
 
-## Commit 187: chore: release v100.67.0
+## Commit 190: chore: release v100.67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 15:08:01 +0000
@@ -4428,7 +4499,7 @@ chore: release v100.67.0
 
 ---
 
-## Commit 188: Say that switching a provider off matches on the pattern only
+## Commit 191: Say that switching a provider off matches on the pattern only
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 20:35:05 +0530
@@ -4448,7 +4519,7 @@ Say that switching a provider off matches on the pattern only
 
 ---
 
-## Commit 189: Let custom providers fully override providers with the same pattern
+## Commit 192: Let custom providers fully override providers with the same pattern
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 20:12:13 +0530
@@ -4468,7 +4539,7 @@ Let custom providers fully override providers with the same pattern
 
 ---
 
-## Commit 190: Add unbounded mode to lift the 10-cycle cleaning limit
+## Commit 193: Add unbounded mode to lift the 10-cycle cleaning limit
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:40:10 +0530
@@ -4548,7 +4619,7 @@ Add unbounded mode to lift the 10-cycle cleaning limit
 
 ---
 
-## Commit 191: chore: update commit history
+## Commit 194: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:57:33 +0000
@@ -4567,7 +4638,7 @@ chore: update commit history
 
 ---
 
-## Commit 192: Document capabilities of remote entries that can't be traced to a file
+## Commit 195: Document capabilities of remote entries that can't be traced to a file
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:27:19 +0530
@@ -4588,7 +4659,7 @@ Document capabilities of remote entries that can't be traced to a file
 
 ---
 
-## Commit 193: chore: update commit history
+## Commit 196: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:50:23 +0000
@@ -4607,7 +4678,7 @@ chore: update commit history
 
 ---
 
-## Commit 194: Make the CLN 1.0 spec match the engine
+## Commit 197: Make the CLN 1.0 spec match the engine
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:20:11 +0530
@@ -4627,7 +4698,7 @@ Make the CLN 1.0 spec match the engine
 
 ---
 
-## Commit 195: chore: update commit history
+## Commit 198: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-21 11:43:58 +0000
@@ -4646,7 +4717,7 @@ chore: update commit history
 
 ---
 
-## Commit 196: Fix contradictory saved-toggle wording in the CLN 1.0 spec
+## Commit 199: Fix contradictory saved-toggle wording in the CLN 1.0 spec
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-21 17:13:46 +0530
@@ -4666,7 +4737,7 @@ Fix contradictory saved-toggle wording in the CLN 1.0 spec
 
 ---
 
-## Commit 197: chore: update changelog for v100.66.0
+## Commit 200: chore: update changelog for v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:36 +0000
@@ -4685,7 +4756,7 @@ chore: update changelog for v100.66.0
 
 ---
 
-## Commit 198: chore: update commit history for v100.66.0
+## Commit 201: chore: update commit history for v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:34 +0000
@@ -4704,7 +4775,7 @@ chore: update commit history for v100.66.0
 
 ---
 
-## Commit 199: chore: release v100.66.0
+## Commit 202: chore: release v100.66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-18 02:59:33 +0000
@@ -4726,7 +4797,7 @@ chore: release v100.66.0
 
 ---
 
-## Commit 200: chore: update changelog for v100.65.0
+## Commit 203: chore: update changelog for v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:49 +0000
@@ -4745,7 +4816,7 @@ chore: update changelog for v100.65.0
 
 ---
 
-## Commit 201: chore: update commit history for v100.65.0
+## Commit 204: chore: update commit history for v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:47 +0000
@@ -4764,7 +4835,7 @@ chore: update commit history for v100.65.0
 
 ---
 
-## Commit 202: chore: release v100.65.0
+## Commit 205: chore: release v100.65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-11 03:56:45 +0000
@@ -4786,7 +4857,7 @@ chore: release v100.65.0
 
 ---
 
-## Commit 203: chore: update changelog for v100.64.0
+## Commit 206: chore: update changelog for v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:31 +0000
@@ -4805,7 +4876,7 @@ chore: update changelog for v100.64.0
 
 ---
 
-## Commit 204: chore: update commit history for v100.64.0
+## Commit 207: chore: update commit history for v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:29 +0000
@@ -4824,7 +4895,7 @@ chore: update commit history for v100.64.0
 
 ---
 
-## Commit 205: chore: release v100.64.0
+## Commit 208: chore: release v100.64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-04 04:16:28 +0000
@@ -4846,7 +4917,7 @@ chore: release v100.64.0
 
 ---
 
-## Commit 206: chore: update changelog for v100.63.0
+## Commit 209: chore: update changelog for v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:22 +0000
@@ -4865,7 +4936,7 @@ chore: update changelog for v100.63.0
 
 ---
 
-## Commit 207: chore: update commit history for v100.63.0
+## Commit 210: chore: update commit history for v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:20 +0000
@@ -4884,7 +4955,7 @@ chore: update commit history for v100.63.0
 
 ---
 
-## Commit 208: chore: release v100.63.0
+## Commit 211: chore: release v100.63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 11:40:19 +0000
@@ -4905,7 +4976,7 @@ chore: release v100.63.0
 
 ---
 
-## Commit 209: Remove dead code
+## Commit 212: Remove dead code
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 16:00:27 +0530
@@ -4929,7 +5000,7 @@ Remove dead code
 
 ---
 
-## Commit 210: perf(rules): write bundled rules in their most efficient CLN form
+## Commit 213: perf(rules): write bundled rules in their most efficient CLN form
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 15:32:39 +0530
@@ -4950,7 +5021,7 @@ perf(rules): write bundled rules in their most efficient CLN form
 
 ---
 
-## Commit 211: * feat: implement CLN Format 1.0 (final)
+## Commit 214: * feat: implement CLN Format 1.0 (final)
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-10-02 15:20:29 +0530
@@ -5040,7 +5111,7 @@ perf(rules): write bundled rules in their most efficient CLN form
 
 ---
 
-## Commit 212: chore: update changelog for v100.62.0
+## Commit 215: chore: update changelog for v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:49 +0000
@@ -5059,7 +5130,7 @@ chore: update changelog for v100.62.0
 
 ---
 
-## Commit 213: chore: update commit history for v100.62.0
+## Commit 216: chore: update commit history for v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:48 +0000
@@ -5078,7 +5149,7 @@ chore: update commit history for v100.62.0
 
 ---
 
-## Commit 214: chore: release v100.62.0
+## Commit 217: chore: release v100.62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-10-02 07:36:46 +0000
@@ -5100,7 +5171,7 @@ chore: release v100.62.0
 
 ---
 
-## Commit 215: docs: update architecture and format guides
+## Commit 218: docs: update architecture and format guides
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-30 23:43:37 +0530
@@ -5122,7 +5193,7 @@ docs: update architecture and format guides
 
 ---
 
-## Commit 216: feat: add rule IDs and clarify filter syntax
+## Commit 219: feat: add rule IDs and clarify filter syntax
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-30 23:29:10 +0530
@@ -5146,7 +5217,7 @@ feat: add rule IDs and clarify filter syntax
 
 ---
 
-## Commit 217: chore: update commit history
+## Commit 220: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-28 10:17:27 +0000
@@ -5165,7 +5236,7 @@ chore: update commit history
 
 ---
 
-## Commit 218: 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code
+## Commit 221: 0002-perf-cache-hostname-parsing-and-decoded-parameter-values.patch applied on this code
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-28 15:45:54 +0530
@@ -5184,7 +5255,7 @@ chore: update commit history
 
 ---
 
-## Commit 219: chore: update commit history
+## Commit 222: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-28 10:06:29 +0000
@@ -5203,7 +5274,7 @@ chore: update commit history
 
 ---
 
-## Commit 220: perf: run $removeparam eligibility checks only for rules whose name matches
+## Commit 223: perf: run $removeparam eligibility checks only for rules whose name matches
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-28 15:36:04 +0530
@@ -5222,7 +5293,7 @@ perf: run $removeparam eligibility checks only for rules whose name matches
 
 ---
 
-## Commit 221: chore: update changelog for v100.61.1
+## Commit 224: chore: update changelog for v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:36 +0000
@@ -5241,7 +5312,7 @@ chore: update changelog for v100.61.1
 
 ---
 
-## Commit 222: chore: update commit history for v100.61.1
+## Commit 225: chore: update commit history for v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:34 +0000
@@ -5260,7 +5331,7 @@ chore: update commit history for v100.61.1
 
 ---
 
-## Commit 223: chore: release v100.61.1
+## Commit 226: chore: release v100.61.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:49:32 +0000
@@ -5281,7 +5352,7 @@ chore: release v100.61.1
 
 ---
 
-## Commit 224: chore: update commit history
+## Commit 227: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:48:22 +0000
@@ -5300,7 +5371,7 @@ chore: update commit history
 
 ---
 
-## Commit 225: chore: update commit history
+## Commit 228: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:47:06 +0000
@@ -5319,7 +5390,7 @@ chore: update commit history
 
 ---
 
-## Commit 226: feat: merge rule defaults from several sources
+## Commit 229: feat: merge rule defaults from several sources
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 19:16:48 +0530
@@ -5396,7 +5467,7 @@ feat: merge rule defaults from several sources
 
 ---
 
-## Commit 227: chore: update commit history
+## Commit 230: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 13:21:16 +0000
@@ -5415,7 +5486,7 @@ chore: update commit history
 
 ---
 
-## Commit 228: feat: edit built-in and remote rule defaults; compact defaults summary
+## Commit 231: feat: edit built-in and remote rule defaults; compact defaults summary
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:50:58 +0530
@@ -5494,7 +5565,7 @@ feat: edit built-in and remote rule defaults; compact defaults summary
 
 ---
 
-## Commit 229: chore: update commit history
+## Commit 232: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 12:53:54 +0000
@@ -5513,7 +5584,7 @@ chore: update commit history
 
 ---
 
-## Commit 230: feat: bundled rules carry defaults; global exceptions move into them
+## Commit 233: feat: bundled rules carry defaults; global exceptions move into them
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:23:37 +0530
@@ -5536,7 +5607,7 @@ feat: bundled rules carry defaults; global exceptions move into them
 
 ---
 
-## Commit 231: chore: update commit history
+## Commit 234: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 12:41:45 +0000
@@ -5555,7 +5626,7 @@ chore: update commit history
 
 ---
 
-## Commit 232: feat: user rule defaults with a modes choice; request types from rules
+## Commit 235: feat: user rule defaults with a modes choice; request types from rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 18:11:25 +0530
@@ -5639,7 +5710,7 @@ feat: user rule defaults with a modes choice; request types from rules
 
 ---
 
-## Commit 233: chore: update commit history
+## Commit 236: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 09:58:14 +0000
@@ -5658,7 +5729,7 @@ chore: update commit history
 
 ---
 
-## Commit 234: feat: add ClearURLs 2.0 style rule defaults, applied per source
+## Commit 237: feat: add ClearURLs 2.0 style rule defaults, applied per source
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 15:27:56 +0530
@@ -5744,7 +5815,7 @@ feat: add ClearURLs 2.0 style rule defaults, applied per source
 
 ---
 
-## Commit 235: chore: update commit history
+## Commit 238: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 08:12:53 +0000
@@ -5763,7 +5834,7 @@ chore: update commit history
 
 ---
 
-## Commit 236: docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
+## Commit 239: docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:42:38 +0530
@@ -5783,7 +5854,7 @@ docs: explain ClearURLs 2.0 vs Linkumori CLN Format 1.0
 
 ---
 
-## Commit 237: chore: update commit history
+## Commit 240: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 08:04:54 +0000
@@ -5802,7 +5873,7 @@ chore: update commit history
 
 ---
 
-## Commit 238: docs: fix mis-decoded characters in filter-syntax.md
+## Commit 241: docs: fix mis-decoded characters in filter-syntax.md
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
@@ -5821,7 +5892,7 @@ docs: fix mis-decoded characters in filter-syntax.md
 
 ---
 
-## Commit 239: fix: lint imported custom rules like saved ones
+## Commit 242: fix: lint imported custom rules like saved ones
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
@@ -5840,7 +5911,7 @@ fix: lint imported custom rules like saved ones
 
 ---
 
-## Commit 240: fix: stop remote rule merging from dropping rules and provider settings
+## Commit 243: fix: stop remote rule merging from dropping rules and provider settings
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:34:38 +0530
@@ -5860,7 +5931,7 @@ fix: stop remote rule merging from dropping rules and provider settings
 
 ---
 
-## Commit 241: chore: update commit history
+## Commit 244: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 07:57:40 +0000
@@ -5879,7 +5950,7 @@ chore: update commit history
 
 ---
 
-## Commit 242: feat: detect rule collisions in the linter and in remote rules
+## Commit 245: feat: detect rule collisions in the linter and in remote rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:27:18 +0530
@@ -5959,7 +6030,7 @@ feat: detect rule collisions in the linter and in remote rules
 
 ---
 
-## Commit 243: i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
+## Commit 246: i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 13:27:17 +0530
@@ -6032,7 +6103,7 @@ i18n: rename Linkumori (ClearURLs 2.0) to Linkumori CLN Format 1.0
 
 ---
 
-## Commit 244: chore: update changelog for v100.61.0
+## Commit 247: chore: update changelog for v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:33 +0000
@@ -6051,7 +6122,7 @@ chore: update changelog for v100.61.0
 
 ---
 
-## Commit 245: chore: update commit history for v100.61.0
+## Commit 248: chore: update commit history for v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:31 +0000
@@ -6070,7 +6141,7 @@ chore: update commit history for v100.61.0
 
 ---
 
-## Commit 246: chore: release v100.61.0
+## Commit 249: chore: release v100.61.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-27 03:37:30 +0000
@@ -6091,7 +6162,7 @@ chore: release v100.61.0
 
 ---
 
-## Commit 247: chore: update commit history
+## Commit 250: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 19:56:54 +0000
@@ -6110,7 +6181,7 @@ chore: update commit history
 
 ---
 
-## Commit 248: docs: update filter syntax guide
+## Commit 251: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 01:26:39 +0530
@@ -6129,7 +6200,7 @@ docs: update filter syntax guide
 
 ---
 
-## Commit 249: chore: update commit history
+## Commit 252: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 19:45:30 +0000
@@ -6148,7 +6219,7 @@ chore: update commit history
 
 ---
 
-## Commit 250: docs: update filter syntax guide
+## Commit 253: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-27 01:15:17 +0530
@@ -6167,7 +6238,7 @@ docs: update filter syntax guide
 
 ---
 
-## Commit 251: chore: update changelog for v100.60.0
+## Commit 254: chore: update changelog for v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:55 +0000
@@ -6186,7 +6257,7 @@ chore: update changelog for v100.60.0
 
 ---
 
-## Commit 252: chore: update commit history for v100.60.0
+## Commit 255: chore: update commit history for v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:54 +0000
@@ -6205,7 +6276,7 @@ chore: update commit history for v100.60.0
 
 ---
 
-## Commit 253: chore: release v100.60.0
+## Commit 256: chore: release v100.60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 18:32:53 +0000
@@ -6226,7 +6297,7 @@ chore: release v100.60.0
 
 ---
 
-## Commit 254: Add hide/clear to rule linter; restyle rules guide like the rest of the UI
+## Commit 257: Add hide/clear to rule linter; restyle rules guide like the rest of the UI
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 21:07:45 +0530
@@ -6303,7 +6374,7 @@ Add hide/clear to rule linter; restyle rules guide like the rest of the UI
 
 ---
 
-## Commit 255: * **Disable rule by provider or pattern**
+## Commit 258: * **Disable rule by provider or pattern**
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 20:49:33 +0530
@@ -6326,7 +6397,7 @@ Add hide/clear to rule linter; restyle rules guide like the rest of the UI
 
 ---
 
-## Commit 256: chore: update changelog for v100.59.0
+## Commit 259: chore: update changelog for v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:47 +0000
@@ -6345,7 +6416,7 @@ chore: update changelog for v100.59.0
 
 ---
 
-## Commit 257: chore: update commit history for v100.59.0
+## Commit 260: chore: update commit history for v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:45 +0000
@@ -6364,7 +6435,7 @@ chore: update commit history for v100.59.0
 
 ---
 
-## Commit 258: chore: release v100.59.0
+## Commit 261: chore: release v100.59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 15:00:43 +0000
@@ -6385,7 +6456,7 @@ chore: release v100.59.0
 
 ---
 
-## Commit 259: Add a Rename ID action to Provider rule ID controls
+## Commit 262: Add a Rename ID action to Provider rule ID controls
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 19:50:09 +0530
@@ -6407,7 +6478,7 @@ Add a Rename ID action to Provider rule ID controls
 
 ---
 
-## Commit 260: Pin a rule's generated id the first time it is switched off
+## Commit 263: Pin a rule's generated id the first time it is switched off
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 19:22:53 +0530
@@ -6439,7 +6510,7 @@ Pin a rule's generated id the first time it is switched off
 
 ---
 
-## Commit 261: chore: update commit history
+## Commit 264: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 13:13:52 +0000
@@ -6458,7 +6529,7 @@ chore: update commit history
 
 ---
 
-## Commit 262: Add a comparison of the ClearURLs rule format 2 and the Linkumori format
+## Commit 265: Add a comparison of the ClearURLs rule format 2 and the Linkumori format
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 18:42:56 +0530
@@ -6477,7 +6548,7 @@ Add a comparison of the ClearURLs rule format 2 and the Linkumori format
 
 ---
 
-## Commit 263: Rewrite the rules guide from the current syntax and translate it
+## Commit 266: Rewrite the rules guide from the current syntax and translate it
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 18:42:56 +0530
@@ -6552,7 +6623,7 @@ Rewrite the rules guide from the current syntax and translate it
 
 ---
 
-## Commit 264: feat: add rule tracking and update project docs
+## Commit 267: feat: add rule tracking and update project docs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 16:38:55 +0530
@@ -6582,7 +6653,7 @@ feat: add rule tracking and update project docs
 
 ---
 
-## Commit 265: chore: update commit history
+## Commit 268: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 10:49:58 +0000
@@ -6601,7 +6672,7 @@ chore: update commit history
 
 ---
 
-## Commit 266: Make generated rule ids unique; replace denyallow and flags tags
+## Commit 269: Make generated rule ids unique; replace denyallow and flags tags
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 16:19:01 +0530
@@ -6631,7 +6702,7 @@ Make generated rule ids unique; replace denyallow and flags tags
 
 ---
 
-## Commit 267: chore: update commit history
+## Commit 270: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 10:33:57 +0000
@@ -6650,7 +6721,7 @@ chore: update commit history
 
 ---
 
-## Commit 268: fix: remove unsupported badfilter handling
+## Commit 271: fix: remove unsupported badfilter handling
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 15:58:51 +0530
@@ -6674,7 +6745,7 @@ fix: remove unsupported badfilter handling
 
 ---
 
-## Commit 269: chore: update commit history
+## Commit 272: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 09:09:59 +0000
@@ -6693,7 +6764,7 @@ chore: update commit history
 
 ---
 
-## Commit 270: docs: update filter syntax guide
+## Commit 273: docs: update filter syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 14:39:48 +0530
@@ -6712,7 +6783,7 @@ docs: update filter syntax guide
 
 ---
 
-## Commit 271: chore: update commit history
+## Commit 274: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 09:04:54 +0000
@@ -6731,7 +6802,7 @@ chore: update commit history
 
 ---
 
-## Commit 272: refactor: remove legacy rule format converter
+## Commit 275: refactor: remove legacy rule format converter
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 14:34:24 +0530
@@ -6757,7 +6828,7 @@ refactor: remove legacy rule format converter
 
 ---
 
-## Commit 273: chore: update changelog for v100.58.0
+## Commit 276: chore: update changelog for v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:29 +0000
@@ -6776,7 +6847,7 @@ chore: update changelog for v100.58.0
 
 ---
 
-## Commit 274: chore: update commit history for v100.58.0
+## Commit 277: chore: update commit history for v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:27 +0000
@@ -6795,7 +6866,7 @@ chore: update commit history for v100.58.0
 
 ---
 
-## Commit 275: chore: release v100.58.0
+## Commit 278: chore: release v100.58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 08:21:26 +0000
@@ -6816,7 +6887,7 @@ chore: release v100.58.0
 
 ---
 
-## Commit 276: chore: update changelog for v100.57.0
+## Commit 279: chore: update changelog for v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:38 +0000
@@ -6835,7 +6906,7 @@ chore: update changelog for v100.57.0
 
 ---
 
-## Commit 277: chore: update commit history for v100.57.0
+## Commit 280: chore: update commit history for v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:37 +0000
@@ -6854,7 +6925,7 @@ chore: update commit history for v100.57.0
 
 ---
 
-## Commit 278: chore: release v100.57.0
+## Commit 281: chore: release v100.57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-26 07:30:35 +0000
@@ -6875,7 +6946,7 @@ chore: release v100.57.0
 
 ---
 
-## Commit 279: feat: support scoped raw rules
+## Commit 282: feat: support scoped raw rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-26 12:55:11 +0530
@@ -6900,7 +6971,7 @@ feat: support scoped raw rules
 
 ---
 
-## Commit 280: Implement fieldRedirections, rule order and flags tags
+## Commit 283: Implement fieldRedirections, rule order and flags tags
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 23:19:27 +0530
@@ -6927,7 +6998,7 @@ Implement fieldRedirections, rule order and flags tags
 
 ---
 
-## Commit 281: chore: update commit history
+## Commit 284: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:48:55 +0000
@@ -6946,7 +7017,7 @@ chore: update commit history
 
 ---
 
-## Commit 282: docs: update rule syntax guide
+## Commit 285: docs: update rule syntax guide
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 21:18:40 +0530
@@ -6965,7 +7036,7 @@ docs: update rule syntax guide
 
 ---
 
-## Commit 283: chore: update changelog for v100.56.0
+## Commit 286: chore: update changelog for v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:04 +0000
@@ -6984,7 +7055,7 @@ chore: update changelog for v100.56.0
 
 ---
 
-## Commit 284: chore: update commit history for v100.56.0
+## Commit 287: chore: update commit history for v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:02 +0000
@@ -7003,7 +7074,7 @@ chore: update commit history for v100.56.0
 
 ---
 
-## Commit 285: chore: release v100.56.0
+## Commit 288: chore: release v100.56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:18:01 +0000
@@ -7024,7 +7095,7 @@ chore: release v100.56.0
 
 ---
 
-## Commit 286: chore: update commit history
+## Commit 289: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:17:00 +0000
@@ -7043,7 +7114,7 @@ chore: update commit history
 
 ---
 
-## Commit 287: docs: remove the obsolete custom rules FAQ
+## Commit 290: docs: remove the obsolete custom rules FAQ
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 20:46:42 +0530
@@ -7062,7 +7133,7 @@ docs: remove the obsolete custom rules FAQ
 
 ---
 
-## Commit 288: chore: update changelog for v100.55.0
+## Commit 291: chore: update changelog for v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:50 +0000
@@ -7081,7 +7152,7 @@ chore: update changelog for v100.55.0
 
 ---
 
-## Commit 289: chore: update commit history for v100.55.0
+## Commit 292: chore: update commit history for v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:48 +0000
@@ -7100,7 +7171,7 @@ chore: update commit history for v100.55.0
 
 ---
 
-## Commit 290: chore: release v100.55.0
+## Commit 293: chore: release v100.55.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:46 +0000
@@ -7122,7 +7193,7 @@ chore: release v100.55.0
 
 ---
 
-## Commit 291: chore: update commit history
+## Commit 294: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-25 15:00:00 +0000
@@ -7141,7 +7212,7 @@ chore: update commit history
 
 ---
 
-## Commit 292: refactor: simplify rule format and strengthen validation
+## Commit 295: refactor: simplify rule format and strengthen validation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-25 20:29:26 +0530
@@ -7227,7 +7298,7 @@ refactor: simplify rule format and strengthen validation
 
 ---
 
-## Commit 293: chore: update changelog for v100.54.0
+## Commit 296: chore: update changelog for v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:56 +0000
@@ -7246,7 +7317,7 @@ chore: update changelog for v100.54.0
 
 ---
 
-## Commit 294: chore: update commit history for v100.54.0
+## Commit 297: chore: update commit history for v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:54 +0000
@@ -7265,7 +7336,7 @@ chore: update commit history for v100.54.0
 
 ---
 
-## Commit 295: chore: release v100.54.0
+## Commit 298: chore: release v100.54.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-20 03:21:53 +0000
@@ -7287,7 +7358,7 @@ chore: release v100.54.0
 
 ---
 
-## Commit 296: chore: update changelog for v100.53.2
+## Commit 299: chore: update changelog for v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:14 +0000
@@ -7306,7 +7377,7 @@ chore: update changelog for v100.53.2
 
 ---
 
-## Commit 297: chore: update commit history for v100.53.2
+## Commit 300: chore: update commit history for v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:12 +0000
@@ -7325,7 +7396,7 @@ chore: update commit history for v100.53.2
 
 ---
 
-## Commit 298: chore: release v100.53.2
+## Commit 301: chore: release v100.53.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-19 08:24:11 +0000
@@ -7347,7 +7418,7 @@ chore: release v100.53.2
 
 ---
 
-## Commit 299: chore: update commit history
+## Commit 302: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-18 18:40:42 +0000
@@ -7366,7 +7437,7 @@ chore: update commit history
 
 ---
 
-## Commit 300: Fix popup button background/centering regressions from href conversion
+## Commit 303: Fix popup button background/centering regressions from href conversion
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-19 00:10:03 +0530
@@ -7385,7 +7456,7 @@ Fix popup button background/centering regressions from href conversion
 
 ---
 
-## Commit 301: chore: update changelog for v100.53.1
+## Commit 304: chore: update changelog for v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 17:00:02 +0000
@@ -7404,7 +7475,7 @@ chore: update changelog for v100.53.1
 
 ---
 
-## Commit 302: chore: update commit history for v100.53.1
+## Commit 305: chore: update commit history for v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 17:00:00 +0000
@@ -7423,7 +7494,7 @@ chore: update commit history for v100.53.1
 
 ---
 
-## Commit 303: chore: release v100.53.1
+## Commit 306: chore: release v100.53.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:59:59 +0000
@@ -7444,7 +7515,7 @@ chore: release v100.53.1
 
 ---
 
-## Commit 304: chore: update commit history
+## Commit 307: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:59:18 +0000
@@ -7463,7 +7534,7 @@ chore: update commit history
 
 ---
 
-## Commit 305: Use real <a href> links instead of tabs.create() for internal page navigation
+## Commit 308: Use real <a href> links instead of tabs.create() for internal page navigation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:28:57 +0530
@@ -7487,7 +7558,7 @@ Use real <a href> links instead of tabs.create() for internal page navigation
 
 ---
 
-## Commit 306: Fix settings/custom rules save being lost on reload on Android
+## Commit 309: Fix settings/custom rules save being lost on reload on Android
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:28:51 +0530
@@ -7507,7 +7578,7 @@ Fix settings/custom rules save being lost on reload on Android
 
 ---
 
-## Commit 307: chore: update commit history
+## Commit 310: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:31:28 +0000
@@ -7526,7 +7597,7 @@ chore: update commit history
 
 ---
 
-## Commit 308: update COMMIT_HISTORY.md
+## Commit 311: update COMMIT_HISTORY.md
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 22:01:01 +0530
@@ -7545,7 +7616,7 @@ update COMMIT_HISTORY.md
 
 ---
 
-## Commit 309: chore: update commit history
+## Commit 312: chore: update commit history
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 21:59:18 +0530
@@ -7564,7 +7635,7 @@ chore: update commit history
 
 ---
 
-## Commit 310: chore: release v100.53.0
+## Commit 313: chore: release v100.53.0
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 21:58:26 +0530
@@ -7585,7 +7656,7 @@ chore: release v100.53.0
 
 ---
 
-## Commit 311: chore: update commit history
+## Commit 314: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 16:26:51 +0000
@@ -7604,7 +7675,7 @@ chore: update commit history
 
 ---
 
-## Commit 312: Add Firefox for Android support and touch-target accessibility sizing
+## Commit 315: Add Firefox for Android support and touch-target accessibility sizing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-17 21:56:32 +0530
@@ -7632,7 +7703,7 @@ Add Firefox for Android support and touch-target accessibility sizing
 
 ---
 
-## Commit 313: chore: update changelog for v100.52.0
+## Commit 316: chore: update changelog for v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:17 +0000
@@ -7651,7 +7722,7 @@ chore: update changelog for v100.52.0
 
 ---
 
-## Commit 314: chore: update commit history for v100.52.0
+## Commit 317: chore: update commit history for v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:15 +0000
@@ -7670,7 +7741,7 @@ chore: update commit history for v100.52.0
 
 ---
 
-## Commit 315: chore: release v100.52.0
+## Commit 318: chore: release v100.52.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 13:49:13 +0000
@@ -7691,7 +7762,7 @@ chore: release v100.52.0
 
 ---
 
-## Commit 316: chore: update changelog for v100.51.0
+## Commit 319: chore: update changelog for v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:45 +0000
@@ -7710,7 +7781,7 @@ chore: update changelog for v100.51.0
 
 ---
 
-## Commit 317: chore: update commit history for v100.51.0
+## Commit 320: chore: update commit history for v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:44 +0000
@@ -7729,7 +7800,7 @@ chore: update commit history for v100.51.0
 
 ---
 
-## Commit 318: chore: release v100.51.0
+## Commit 321: chore: release v100.51.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-17 03:49:42 +0000
@@ -7750,7 +7821,7 @@ chore: release v100.51.0
 
 ---
 
-## Commit 319: chore: update commit history
+## Commit 322: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 17:07:46 +0000
@@ -7769,7 +7840,7 @@ chore: update commit history
 
 ---
 
-## Commit 320: Add history-bypass-protection flag for in-page navigation cleanup
+## Commit 323: Add history-bypass-protection flag for in-page navigation cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-16 22:36:31 +0530
@@ -7798,7 +7869,7 @@ Add history-bypass-protection flag for in-page navigation cleanup
 
 ---
 
-## Commit 321: chore: update changelog for v100.50.0
+## Commit 324: chore: update changelog for v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:27:01 +0000
@@ -7817,7 +7888,7 @@ chore: update changelog for v100.50.0
 
 ---
 
-## Commit 322: chore: update commit history for v100.50.0
+## Commit 325: chore: update commit history for v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:26:59 +0000
@@ -7836,7 +7907,7 @@ chore: update commit history for v100.50.0
 
 ---
 
-## Commit 323: chore: release v100.50.0
+## Commit 326: chore: release v100.50.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:26:58 +0000
@@ -7857,7 +7928,7 @@ chore: release v100.50.0
 
 ---
 
-## Commit 324: chore: update commit history
+## Commit 327: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 13:25:59 +0000
@@ -7876,7 +7947,7 @@ chore: update commit history
 
 ---
 
-## Commit 325: Add scoped History API whitelist
+## Commit 328: Add scoped History API whitelist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-16 18:55:07 +0530
@@ -7904,7 +7975,7 @@ Add scoped History API whitelist
 
 ---
 
-## Commit 326: chore: update changelog for v100.49.0
+## Commit 329: chore: update changelog for v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:17 +0000
@@ -7923,7 +7994,7 @@ chore: update changelog for v100.49.0
 
 ---
 
-## Commit 327: chore: update commit history for v100.49.0
+## Commit 330: chore: update commit history for v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:16 +0000
@@ -7942,7 +8013,7 @@ chore: update commit history for v100.49.0
 
 ---
 
-## Commit 328: chore: release v100.49.0
+## Commit 331: chore: release v100.49.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-16 12:12:14 +0000
@@ -7964,7 +8035,7 @@ chore: release v100.49.0
 
 ---
 
-## Commit 329: chore: update commit history
+## Commit 332: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 10:57:18 +0000
@@ -7983,7 +8054,7 @@ chore: update commit history
 
 ---
 
-## Commit 330: refactor: simplify URL cleaning logic
+## Commit 333: refactor: simplify URL cleaning logic
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-09-13 16:27:06 +0530
@@ -8002,7 +8073,7 @@ refactor: simplify URL cleaning logic
 
 ---
 
-## Commit 331: chore: update changelog for v100.48.0
+## Commit 334: chore: update changelog for v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:35 +0000
@@ -8021,7 +8092,7 @@ chore: update changelog for v100.48.0
 
 ---
 
-## Commit 332: chore: update commit history for v100.48.0
+## Commit 335: chore: update commit history for v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:34 +0000
@@ -8040,7 +8111,7 @@ chore: update commit history for v100.48.0
 
 ---
 
-## Commit 333: chore: release v100.48.0
+## Commit 336: chore: release v100.48.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-13 03:06:31 +0000
@@ -8062,7 +8133,7 @@ chore: release v100.48.0
 
 ---
 
-## Commit 334: chore: update changelog for v100.47.0
+## Commit 337: chore: update changelog for v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:57 +0000
@@ -8081,7 +8152,7 @@ chore: update changelog for v100.47.0
 
 ---
 
-## Commit 335: chore: update commit history for v100.47.0
+## Commit 338: chore: update commit history for v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:56 +0000
@@ -8100,7 +8171,7 @@ chore: update commit history for v100.47.0
 
 ---
 
-## Commit 336: chore: release v100.47.0
+## Commit 339: chore: release v100.47.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-09-06 02:53:54 +0000
@@ -8122,7 +8193,7 @@ chore: release v100.47.0
 
 ---
 
-## Commit 337: chore: update changelog for v100.46.0
+## Commit 340: chore: update changelog for v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:56 +0000
@@ -8141,7 +8212,7 @@ chore: update changelog for v100.46.0
 
 ---
 
-## Commit 338: chore: update commit history for v100.46.0
+## Commit 341: chore: update commit history for v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:55 +0000
@@ -8160,7 +8231,7 @@ chore: update commit history for v100.46.0
 
 ---
 
-## Commit 339: chore: release v100.46.0
+## Commit 342: chore: release v100.46.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-30 03:34:54 +0000
@@ -8181,7 +8252,7 @@ chore: release v100.46.0
 
 ---
 
-## Commit 340: chore: update commit history
+## Commit 343: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-29 18:29:57 +0000
@@ -8200,7 +8271,7 @@ chore: update commit history
 
 ---
 
-## Commit 341: Delete core_js/regression_batch.js
+## Commit 344: Delete core_js/regression_batch.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-29 23:59:42 +0530
@@ -8219,7 +8290,7 @@ Delete core_js/regression_batch.js
 
 ---
 
-## Commit 342: chore: update commit history
+## Commit 345: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-29 18:26:13 +0000
@@ -8238,7 +8309,7 @@ chore: update commit history
 
 ---
 
-## Commit 343: Update privacy policy GitHub definition
+## Commit 346: Update privacy policy GitHub definition
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-29 23:55:19 +0530
@@ -8258,7 +8329,7 @@ Update privacy policy GitHub definition
 
 ---
 
-## Commit 344: chore: update changelog for v100.45.0
+## Commit 347: chore: update changelog for v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:11 +0000
@@ -8277,7 +8348,7 @@ chore: update changelog for v100.45.0
 
 ---
 
-## Commit 345: chore: update commit history for v100.45.0
+## Commit 348: chore: update commit history for v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:10 +0000
@@ -8296,7 +8367,7 @@ chore: update commit history for v100.45.0
 
 ---
 
-## Commit 346: chore: release v100.45.0
+## Commit 349: chore: release v100.45.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-23 01:09:09 +0000
@@ -8317,7 +8388,7 @@ chore: release v100.45.0
 
 ---
 
-## Commit 347: chore: update commit history
+## Commit 350: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 20:50:49 +0000
@@ -8336,7 +8407,7 @@ chore: update commit history
 
 ---
 
-## Commit 348: docs: update README
+## Commit 351: docs: update README
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-22 02:20:37 +0530
@@ -8355,7 +8426,7 @@ docs: update README
 
 ---
 
-## Commit 349: chore: update changelog for v100.44.0
+## Commit 352: chore: update changelog for v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:48 +0000
@@ -8374,7 +8445,7 @@ chore: update changelog for v100.44.0
 
 ---
 
-## Commit 350: chore: update commit history for v100.44.0
+## Commit 353: chore: update commit history for v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:46 +0000
@@ -8393,7 +8464,7 @@ chore: update commit history for v100.44.0
 
 ---
 
-## Commit 351: chore: release v100.44.0
+## Commit 354: chore: release v100.44.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:45 +0000
@@ -8414,7 +8485,7 @@ chore: release v100.44.0
 
 ---
 
-## Commit 352: chore: update commit history
+## Commit 355: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:19:01 +0000
@@ -8433,7 +8504,7 @@ chore: update commit history
 
 ---
 
-## Commit 353: Fix temporary pause controls
+## Commit 356: Fix temporary pause controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-21 23:48:20 +0530
@@ -8453,7 +8524,7 @@ Fix temporary pause controls
 
 ---
 
-## Commit 354: chore: update changelog for v100.43.0
+## Commit 357: chore: update changelog for v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:12:02 +0000
@@ -8472,7 +8543,7 @@ chore: update changelog for v100.43.0
 
 ---
 
-## Commit 355: chore: update commit history for v100.43.0
+## Commit 358: chore: update commit history for v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:12:00 +0000
@@ -8491,7 +8562,7 @@ chore: update commit history for v100.43.0
 
 ---
 
-## Commit 356: chore: release v100.43.0
+## Commit 359: chore: release v100.43.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-21 18:11:59 +0000
@@ -8513,7 +8584,7 @@ chore: release v100.43.0
 
 ---
 
-## Commit 357: chore: update changelog for v100.42.0
+## Commit 360: chore: update changelog for v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:48 +0000
@@ -8532,7 +8603,7 @@ chore: update changelog for v100.42.0
 
 ---
 
-## Commit 358: chore: update commit history for v100.42.0
+## Commit 361: chore: update commit history for v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:47 +0000
@@ -8551,7 +8622,7 @@ chore: update commit history for v100.42.0
 
 ---
 
-## Commit 359: chore: release v100.42.0
+## Commit 362: chore: release v100.42.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-16 01:07:46 +0000
@@ -8573,7 +8644,7 @@ chore: release v100.42.0
 
 ---
 
-## Commit 360: chore: update commit history
+## Commit 363: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-14 13:58:46 +0000
@@ -8592,7 +8663,7 @@ chore: update commit history
 
 ---
 
-## Commit 361: fix: keep skip link hidden with line height tools
+## Commit 364: fix: keep skip link hidden with line height tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-14 00:38:39 +0530
@@ -8611,7 +8682,7 @@ fix: keep skip link hidden with line height tools
 
 ---
 
-## Commit 362: chore: update commit history
+## Commit 365: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-13 10:59:51 +0000
@@ -8630,7 +8701,7 @@ chore: update commit history
 
 ---
 
-## Commit 363: fix: correct custom rules and report UI behavior
+## Commit 366: fix: correct custom rules and report UI behavior
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-13 16:29:08 +0530
@@ -8653,7 +8724,7 @@ fix: correct custom rules and report UI behavior
 
 ---
 
-## Commit 364: chore: update changelog for v100.41.0
+## Commit 367: chore: update changelog for v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:32 +0000
@@ -8672,7 +8743,7 @@ chore: update changelog for v100.41.0
 
 ---
 
-## Commit 365: chore: update commit history for v100.41.0
+## Commit 368: chore: update commit history for v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:30 +0000
@@ -8691,7 +8762,7 @@ chore: update commit history for v100.41.0
 
 ---
 
-## Commit 366: chore: release v100.41.0
+## Commit 369: chore: release v100.41.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-10 07:13:29 +0000
@@ -8712,7 +8783,7 @@ chore: release v100.41.0
 
 ---
 
-## Commit 367: chore: update commit history
+## Commit 370: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:47:48 +0000
@@ -8731,7 +8802,7 @@ chore: update commit history
 
 ---
 
-## Commit 368: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 371: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 22:17:32 +0530
@@ -8750,7 +8821,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 369: feat: improve settings and theme support
+## Commit 372: feat: improve settings and theme support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 22:17:17 +0530
@@ -8771,7 +8842,7 @@ feat: improve settings and theme support
 
 ---
 
-## Commit 370: chore: update changelog for v100.40.0
+## Commit 373: chore: update changelog for v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:22 +0000
@@ -8790,7 +8861,7 @@ chore: update changelog for v100.40.0
 
 ---
 
-## Commit 371: chore: update commit history for v100.40.0
+## Commit 374: chore: update commit history for v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:20 +0000
@@ -8809,7 +8880,7 @@ chore: update commit history for v100.40.0
 
 ---
 
-## Commit 372: chore: release v100.40.0
+## Commit 375: chore: release v100.40.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 16:06:19 +0000
@@ -8830,7 +8901,7 @@ chore: release v100.40.0
 
 ---
 
-## Commit 373: chore: update commit history
+## Commit 376: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 15:43:20 +0000
@@ -8849,7 +8920,7 @@ chore: update commit history
 
 ---
 
-## Commit 374: feat: expand accessibility overlay tools
+## Commit 377: feat: expand accessibility overlay tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 21:12:34 +0530
@@ -8925,7 +8996,7 @@ feat: expand accessibility overlay tools
 
 ---
 
-## Commit 375: chore: update changelog for v100.39.1
+## Commit 378: chore: update changelog for v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:42 +0000
@@ -8944,7 +9015,7 @@ chore: update changelog for v100.39.1
 
 ---
 
-## Commit 376: chore: update commit history for v100.39.1
+## Commit 379: chore: update commit history for v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:41 +0000
@@ -8963,7 +9034,7 @@ chore: update commit history for v100.39.1
 
 ---
 
-## Commit 377: chore: release v100.39.1
+## Commit 380: chore: release v100.39.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:33:39 +0000
@@ -8985,7 +9056,7 @@ chore: release v100.39.1
 
 ---
 
-## Commit 378: chore: update commit history
+## Commit 381: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 13:31:38 +0000
@@ -9004,7 +9075,7 @@ chore: update commit history
 
 ---
 
-## Commit 379: Add shared accessibility tools
+## Commit 382: Add shared accessibility tools
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-09 19:00:48 +0530
@@ -9036,7 +9107,7 @@ Add shared accessibility tools
 
 ---
 
-## Commit 380: chore: update changelog for v100.39.0
+## Commit 383: chore: update changelog for v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:27 +0000
@@ -9055,7 +9126,7 @@ chore: update changelog for v100.39.0
 
 ---
 
-## Commit 381: chore: update commit history for v100.39.0
+## Commit 384: chore: update commit history for v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:26 +0000
@@ -9074,7 +9145,7 @@ chore: update commit history for v100.39.0
 
 ---
 
-## Commit 382: chore: release v100.39.0
+## Commit 385: chore: release v100.39.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-09 01:26:25 +0000
@@ -9095,7 +9166,7 @@ chore: release v100.39.0
 
 ---
 
-## Commit 383: chore: update changelog for v100.38.2
+## Commit 386: chore: update changelog for v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:57 +0000
@@ -9114,7 +9185,7 @@ chore: update changelog for v100.38.2
 
 ---
 
-## Commit 384: chore: update commit history for v100.38.2
+## Commit 387: chore: update commit history for v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:55 +0000
@@ -9133,7 +9204,7 @@ chore: update commit history for v100.38.2
 
 ---
 
-## Commit 385: chore: release v100.38.2
+## Commit 388: chore: release v100.38.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:29:54 +0000
@@ -9154,7 +9225,7 @@ chore: release v100.38.2
 
 ---
 
-## Commit 386: chore: update commit history
+## Commit 389: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:20:56 +0000
@@ -9173,7 +9244,7 @@ chore: update commit history
 
 ---
 
-## Commit 387: chore: update commit history
+## Commit 390: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-06 11:20:06 +0000
@@ -9192,7 +9263,7 @@ chore: update commit history
 
 ---
 
-## Commit 388: Extend IP-Ranger: fix classification gaps and add network utilities
+## Commit 391: Extend IP-Ranger: fix classification gaps and add network utilities
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-06 16:48:11 +0530
@@ -9212,7 +9283,7 @@ Extend IP-Ranger: fix classification gaps and add network utilities
 
 ---
 
-## Commit 389: chore: update changelog for v100.38.1
+## Commit 392: chore: update changelog for v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:48 +0000
@@ -9231,7 +9302,7 @@ chore: update changelog for v100.38.1
 
 ---
 
-## Commit 390: chore: update commit history for v100.38.1
+## Commit 393: chore: update commit history for v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:46 +0000
@@ -9250,7 +9321,7 @@ chore: update commit history for v100.38.1
 
 ---
 
-## Commit 391: chore: release v100.38.1
+## Commit 394: chore: release v100.38.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:19:44 +0000
@@ -9271,7 +9342,7 @@ chore: release v100.38.1
 
 ---
 
-## Commit 392: chore: update commit history
+## Commit 395: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:50 +0000
@@ -9290,7 +9361,7 @@ chore: update commit history
 
 ---
 
-## Commit 393: chore: update package metadata
+## Commit 396: chore: update package metadata
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:48:31 +0530
@@ -9309,7 +9380,7 @@ chore: update package metadata
 
 ---
 
-## Commit 394: chore: update commit history
+## Commit 397: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:23 +0000
@@ -9328,7 +9399,7 @@ chore: update commit history
 
 ---
 
-## Commit 395: Delete .github/workflows/regression-test.yml
+## Commit 398: Delete .github/workflows/regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:48:09 +0530
@@ -9347,7 +9418,7 @@ Delete .github/workflows/regression-test.yml
 
 ---
 
-## Commit 396: chore: update commit history
+## Commit 399: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:18:03 +0000
@@ -9366,7 +9437,7 @@ chore: update commit history
 
 ---
 
-## Commit 397: Delete tests/ci-runner.js
+## Commit 400: Delete tests/ci-runner.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:49 +0530
@@ -9385,7 +9456,7 @@ Delete tests/ci-runner.js
 
 ---
 
-## Commit 398: Delete tests/regression-server.js
+## Commit 401: Delete tests/regression-server.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:40 +0530
@@ -9404,7 +9475,7 @@ Delete tests/regression-server.js
 
 ---
 
-## Commit 399: Delete tests/package.json
+## Commit 402: Delete tests/package.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:31 +0530
@@ -9423,7 +9494,7 @@ Delete tests/package.json
 
 ---
 
-## Commit 400: Delete tests/package-lock.json
+## Commit 403: Delete tests/package-lock.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:47:20 +0530
@@ -9442,7 +9513,7 @@ Delete tests/package-lock.json
 
 ---
 
-## Commit 401: chore: update commit history
+## Commit 404: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:14:57 +0000
@@ -9461,7 +9532,7 @@ chore: update commit history
 
 ---
 
-## Commit 402: chore: update commit history
+## Commit 405: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:14:25 +0000
@@ -9480,7 +9551,7 @@ chore: update commit history
 
 ---
 
-## Commit 403: Launch Firefox with -remote-allow-system-access for chrome-context fallback
+## Commit 406: Launch Firefox with -remote-allow-system-access for chrome-context fallback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:43:33 +0530
@@ -9499,7 +9570,7 @@ Launch Firefox with -remote-allow-system-access for chrome-context fallback
 
 ---
 
-## Commit 404: chore: update commit history
+## Commit 407: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:12:49 +0000
@@ -9518,7 +9589,7 @@ chore: update commit history
 
 ---
 
-## Commit 405: chore: update commit history
+## Commit 408: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-05 16:12:12 +0000
@@ -9537,7 +9608,7 @@ chore: update commit history
 
 ---
 
-## Commit 406: Fix regression runner navigation to extension pages
+## Commit 409: Fix regression runner navigation to extension pages
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:39:53 +0530
@@ -9556,7 +9627,7 @@ Fix regression runner navigation to extension pages
 
 ---
 
-## Commit 407: Fix parser and storage bugs in clearurls, IP-Ranger, and storage
+## Commit 410: Fix parser and storage bugs in clearurls, IP-Ranger, and storage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 21:39:45 +0530
@@ -9577,7 +9648,7 @@ Fix parser and storage bugs in clearurls, IP-Ranger, and storage
 
 ---
 
-## Commit 408: chore: update commit history
+## Commit 411: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:25:48 +0000
@@ -9596,7 +9667,7 @@ chore: update commit history
 
 ---
 
-## Commit 409: chore: update commit history
+## Commit 412: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:22:27 +0000
@@ -9615,7 +9686,7 @@ chore: update commit history
 
 ---
 
-## Commit 410: Migrate GitHub Actions workflows to Node 24 runtime
+## Commit 413: Migrate GitHub Actions workflows to Node 24 runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:52:04 +0530
@@ -9636,7 +9707,7 @@ Migrate GitHub Actions workflows to Node 24 runtime
 
 ---
 
-## Commit 411: chore: update commit history
+## Commit 414: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:18:52 +0000
@@ -9655,7 +9726,7 @@ chore: update commit history
 
 ---
 
-## Commit 412: Update regression-test.yml
+## Commit 415: Update regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:48:30 +0530
@@ -9674,7 +9745,7 @@ Update regression-test.yml
 
 ---
 
-## Commit 413: chore: update commit history
+## Commit 416: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:16:32 +0000
@@ -9693,7 +9764,7 @@ chore: update commit history
 
 ---
 
-## Commit 414: Update regression-test.yml
+## Commit 417: Update regression-test.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:46:16 +0530
@@ -9712,7 +9783,7 @@ Update regression-test.yml
 
 ---
 
-## Commit 415: chore: update changelog for v100.38.0
+## Commit 418: chore: update changelog for v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:30 +0000
@@ -9731,7 +9802,7 @@ chore: update changelog for v100.38.0
 
 ---
 
-## Commit 416: chore: update commit history for v100.38.0
+## Commit 419: chore: update commit history for v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:28 +0000
@@ -9750,7 +9821,7 @@ chore: update commit history for v100.38.0
 
 ---
 
-## Commit 417: chore: release v100.38.0
+## Commit 420: chore: release v100.38.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:10:27 +0000
@@ -9771,7 +9842,7 @@ chore: release v100.38.0
 
 ---
 
-## Commit 418: chore: update commit history
+## Commit 421: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:05:33 +0000
@@ -9790,7 +9861,7 @@ chore: update commit history
 
 ---
 
-## Commit 419: chore: update commit history
+## Commit 422: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-04 20:02:30 +0000
@@ -9809,7 +9880,7 @@ chore: update commit history
 
 ---
 
-## Commit 420: Support IPv4/IPv6 addresses in the whitelist
+## Commit 423: Support IPv4/IPv6 addresses in the whitelist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-08-05 01:31:37 +0530
@@ -9837,7 +9908,7 @@ Support IPv4/IPv6 addresses in the whitelist
 
 ---
 
-## Commit 421: chore: update changelog for v100.37.0
+## Commit 424: chore: update changelog for v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:46 +0000
@@ -9856,7 +9927,7 @@ chore: update changelog for v100.37.0
 
 ---
 
-## Commit 422: chore: update commit history for v100.37.0
+## Commit 425: chore: update commit history for v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:45 +0000
@@ -9875,7 +9946,7 @@ chore: update commit history for v100.37.0
 
 ---
 
-## Commit 423: chore: release v100.37.0
+## Commit 426: chore: release v100.37.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-08-02 02:32:44 +0000
@@ -9897,7 +9968,7 @@ chore: release v100.37.0
 
 ---
 
-## Commit 424: chore: update changelog for v100.36.1
+## Commit 427: chore: update changelog for v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:17 +0000
@@ -9916,7 +9987,7 @@ chore: update changelog for v100.36.1
 
 ---
 
-## Commit 425: chore: update commit history for v100.36.1
+## Commit 428: chore: update commit history for v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:16 +0000
@@ -9935,7 +10006,7 @@ chore: update commit history for v100.36.1
 
 ---
 
-## Commit 426: chore: release v100.36.1
+## Commit 429: chore: release v100.36.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:41:15 +0000
@@ -9956,7 +10027,7 @@ chore: release v100.36.1
 
 ---
 
-## Commit 427: chore: update commit history
+## Commit 430: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 12:33:09 +0000
@@ -9975,7 +10046,7 @@ chore: update commit history
 
 ---
 
-## Commit 428: Fix WCAG 2.1 AA gaps across extension UI
+## Commit 431: Fix WCAG 2.1 AA gaps across extension UI
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-07-26 18:02:11 +0530
@@ -10009,7 +10080,7 @@ Fix WCAG 2.1 AA gaps across extension UI
 
 ---
 
-## Commit 429: chore: update changelog for v100.36.0
+## Commit 432: chore: update changelog for v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:16 +0000
@@ -10028,7 +10099,7 @@ chore: update changelog for v100.36.0
 
 ---
 
-## Commit 430: chore: update commit history for v100.36.0
+## Commit 433: chore: update commit history for v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:15 +0000
@@ -10047,7 +10118,7 @@ chore: update commit history for v100.36.0
 
 ---
 
-## Commit 431: chore: release v100.36.0
+## Commit 434: chore: release v100.36.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-26 02:33:14 +0000
@@ -10069,7 +10140,7 @@ chore: release v100.36.0
 
 ---
 
-## Commit 432: chore: update changelog for v100.35.0
+## Commit 435: chore: update changelog for v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:29:02 +0000
@@ -10088,7 +10159,7 @@ chore: update changelog for v100.35.0
 
 ---
 
-## Commit 433: chore: update commit history for v100.35.0
+## Commit 436: chore: update commit history for v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:29:00 +0000
@@ -10107,7 +10178,7 @@ chore: update commit history for v100.35.0
 
 ---
 
-## Commit 434: chore: release v100.35.0
+## Commit 437: chore: release v100.35.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-19 02:28:59 +0000
@@ -10129,7 +10200,7 @@ chore: release v100.35.0
 
 ---
 
-## Commit 435: chore: update changelog for v100.34.0
+## Commit 438: chore: update changelog for v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:42 +0000
@@ -10148,7 +10219,7 @@ chore: update changelog for v100.34.0
 
 ---
 
-## Commit 436: chore: update commit history for v100.34.0
+## Commit 439: chore: update commit history for v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:40 +0000
@@ -10167,7 +10238,7 @@ chore: update commit history for v100.34.0
 
 ---
 
-## Commit 437: chore: release v100.34.0
+## Commit 440: chore: release v100.34.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:02:39 +0000
@@ -10188,7 +10259,7 @@ chore: release v100.34.0
 
 ---
 
-## Commit 438: chore: update commit history
+## Commit 441: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 13:01:34 +0000
@@ -10207,7 +10278,7 @@ chore: update commit history
 
 ---
 
-## Commit 439: Add Samarth ref removeparam exception
+## Commit 442: Add Samarth ref removeparam exception
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-07-12 18:30:55 +0530
@@ -10226,7 +10297,7 @@ Add Samarth ref removeparam exception
 
 ---
 
-## Commit 440: chore: update changelog for v100.33.0
+## Commit 443: chore: update changelog for v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:03 +0000
@@ -10245,7 +10316,7 @@ chore: update changelog for v100.33.0
 
 ---
 
-## Commit 441: chore: update commit history for v100.33.0
+## Commit 444: chore: update commit history for v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:02 +0000
@@ -10264,7 +10335,7 @@ chore: update commit history for v100.33.0
 
 ---
 
-## Commit 442: chore: release v100.33.0
+## Commit 445: chore: release v100.33.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-12 02:32:01 +0000
@@ -10286,7 +10357,7 @@ chore: release v100.33.0
 
 ---
 
-## Commit 443: chore: update changelog for v100.32.0
+## Commit 446: chore: update changelog for v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:37 +0000
@@ -10305,7 +10376,7 @@ chore: update changelog for v100.32.0
 
 ---
 
-## Commit 444: chore: update commit history for v100.32.0
+## Commit 447: chore: update commit history for v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:36 +0000
@@ -10324,7 +10395,7 @@ chore: update commit history for v100.32.0
 
 ---
 
-## Commit 445: chore: release v100.32.0
+## Commit 448: chore: release v100.32.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-05 02:51:35 +0000
@@ -10346,7 +10417,7 @@ chore: release v100.32.0
 
 ---
 
-## Commit 446: chore: update changelog for v100.31.0
+## Commit 449: chore: update changelog for v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:08 +0000
@@ -10365,7 +10436,7 @@ chore: update changelog for v100.31.0
 
 ---
 
-## Commit 447: chore: update commit history for v100.31.0
+## Commit 450: chore: update commit history for v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:07 +0000
@@ -10384,7 +10455,7 @@ chore: update commit history for v100.31.0
 
 ---
 
-## Commit 448: chore: release v100.31.0
+## Commit 451: chore: release v100.31.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-07-01 19:00:05 +0000
@@ -10406,7 +10477,7 @@ chore: release v100.31.0
 
 ---
 
-## Commit 449: chore: update commit history
+## Commit 452: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-29 15:11:34 +0000
@@ -10425,7 +10496,7 @@ chore: update commit history
 
 ---
 
-## Commit 450: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 453: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-29 20:41:16 +0530
@@ -10444,7 +10515,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 451: wcag complaince we donot know how much we done i think we complaint with wcag with good faith
+## Commit 454: wcag complaince we donot know how much we done i think we complaint with wcag with good faith
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-29 20:40:25 +0530
@@ -10482,7 +10553,7 @@ wcag complaince we donot know how much we done i think we complaint with wcag wi
 
 ---
 
-## Commit 452: chore: update changelog for v100.30.0
+## Commit 455: chore: update changelog for v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:29 +0000
@@ -10501,7 +10572,7 @@ chore: update changelog for v100.30.0
 
 ---
 
-## Commit 453: chore: update commit history for v100.30.0
+## Commit 456: chore: update commit history for v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:28 +0000
@@ -10520,7 +10591,7 @@ chore: update commit history for v100.30.0
 
 ---
 
-## Commit 454: chore: release v100.30.0
+## Commit 457: chore: release v100.30.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-28 03:35:27 +0000
@@ -10542,7 +10613,7 @@ chore: release v100.30.0
 
 ---
 
-## Commit 455: chore: update changelog for v100.29.0
+## Commit 458: chore: update changelog for v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:23 +0000
@@ -10561,7 +10632,7 @@ chore: update changelog for v100.29.0
 
 ---
 
-## Commit 456: chore: update commit history for v100.29.0
+## Commit 459: chore: update commit history for v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:22 +0000
@@ -10580,7 +10651,7 @@ chore: update commit history for v100.29.0
 
 ---
 
-## Commit 457: chore: release v100.29.0
+## Commit 460: chore: release v100.29.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-21 03:58:21 +0000
@@ -10601,7 +10672,7 @@ chore: release v100.29.0
 
 ---
 
-## Commit 458: chore: update changelog for v100.28.1
+## Commit 461: chore: update changelog for v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:33 +0000
@@ -10620,7 +10691,7 @@ chore: update changelog for v100.28.1
 
 ---
 
-## Commit 459: chore: update commit history for v100.28.1
+## Commit 462: chore: update commit history for v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:32 +0000
@@ -10639,7 +10710,7 @@ chore: update commit history for v100.28.1
 
 ---
 
-## Commit 460: chore: release v100.28.1
+## Commit 463: chore: release v100.28.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 20:56:31 +0000
@@ -10660,7 +10731,7 @@ chore: release v100.28.1
 
 ---
 
-## Commit 461: chore: update commit history
+## Commit 464: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-20 17:58:51 +0000
@@ -10679,7 +10750,7 @@ chore: update commit history
 
 ---
 
-## Commit 462: feat: add a withdrawn-state control
+## Commit 465: feat: add a withdrawn-state control
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-20 23:28:16 +0530
@@ -10754,7 +10825,7 @@ feat: add a withdrawn-state control
 
 ---
 
-## Commit 463: chore: update changelog for v100.28.0
+## Commit 466: chore: update changelog for v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:43 +0000
@@ -10773,7 +10844,7 @@ chore: update changelog for v100.28.0
 
 ---
 
-## Commit 464: chore: update commit history for v100.28.0
+## Commit 467: chore: update commit history for v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:41 +0000
@@ -10792,7 +10863,7 @@ chore: update commit history for v100.28.0
 
 ---
 
-## Commit 465: chore: release v100.28.0
+## Commit 468: chore: release v100.28.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 19:01:40 +0000
@@ -10813,7 +10884,7 @@ chore: release v100.28.0
 
 ---
 
-## Commit 466: chore: update commit history
+## Commit 469: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 17:35:12 +0000
@@ -10832,7 +10903,7 @@ chore: update commit history
 
 ---
 
-## Commit 467: Although we do not collect any personal data from users, there has been increasing pressure in recent years from various groups advocating for broader age-verification and surveillance measures. To address these concerns while preserving user privacy, we have adopted the following approach.
+## Commit 470: Although we do not collect any personal data from users, there has been increasing pressure in recent years from various groups advocating for broader age-verification and surveillance measures. To address these concerns while preserving user privacy, we have adopted the following approach.
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 23:03:33 +0530
@@ -10913,7 +10984,7 @@ Although we do not collect any personal data from users, there has been increasi
 
 ---
 
-## Commit 468: chore: update commit history
+## Commit 471: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:09:38 +0000
@@ -10932,7 +11003,7 @@ chore: update commit history
 
 ---
 
-## Commit 469: Refine Thai guide translation
+## Commit 472: Refine Thai guide translation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 16:39:03 +0530
@@ -10951,7 +11022,7 @@ Refine Thai guide translation
 
 ---
 
-## Commit 470: chore: update changelog for v100.27.0
+## Commit 473: chore: update changelog for v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:16 +0000
@@ -10970,7 +11041,7 @@ chore: update changelog for v100.27.0
 
 ---
 
-## Commit 471: chore: update commit history for v100.27.0
+## Commit 474: chore: update commit history for v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:14 +0000
@@ -10989,7 +11060,7 @@ chore: update commit history for v100.27.0
 
 ---
 
-## Commit 472: chore: release v100.27.0
+## Commit 475: chore: release v100.27.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:07:13 +0000
@@ -11011,7 +11082,7 @@ chore: release v100.27.0
 
 ---
 
-## Commit 473: chore: update commit history
+## Commit 476: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-16 11:05:42 +0000
@@ -11030,7 +11101,7 @@ chore: update commit history
 
 ---
 
-## Commit 474: Update privacy notices and rules guide
+## Commit 477: Update privacy notices and rules guide
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 16:34:53 +0530
@@ -11109,7 +11180,7 @@ Update privacy notices and rules guide
 
 ---
 
-## Commit 475: Add chained legal consent review modal
+## Commit 478: Add chained legal consent review modal
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-16 14:44:30 +0530
@@ -11184,7 +11255,7 @@ Add chained legal consent review modal
 
 ---
 
-## Commit 476: chore: update changelog for v100.26.0
+## Commit 479: chore: update changelog for v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:05 +0000
@@ -11203,7 +11274,7 @@ chore: update changelog for v100.26.0
 
 ---
 
-## Commit 477: chore: update commit history for v100.26.0
+## Commit 480: chore: update commit history for v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:04 +0000
@@ -11222,7 +11293,7 @@ chore: update commit history for v100.26.0
 
 ---
 
-## Commit 478: chore: release v100.26.0
+## Commit 481: chore: release v100.26.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-14 03:51:03 +0000
@@ -11243,7 +11314,7 @@ chore: release v100.26.0
 
 ---
 
-## Commit 479: chore: update changelog for v100.25.0
+## Commit 482: chore: update changelog for v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:18 +0000
@@ -11262,7 +11333,7 @@ chore: update changelog for v100.25.0
 
 ---
 
-## Commit 480: chore: update commit history for v100.25.0
+## Commit 483: chore: update commit history for v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:17 +0000
@@ -11281,7 +11352,7 @@ chore: update commit history for v100.25.0
 
 ---
 
-## Commit 481: chore: release v100.25.0
+## Commit 484: chore: release v100.25.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 18:38:16 +0000
@@ -11302,7 +11373,7 @@ chore: release v100.25.0
 
 ---
 
-## Commit 482: chore: update commit history
+## Commit 485: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 17:35:03 +0000
@@ -11321,7 +11392,7 @@ chore: update commit history
 
 ---
 
-## Commit 483: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 486: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 23:04:48 +0530
@@ -11340,7 +11411,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 484: docs: update the privacy policy
+## Commit 487: docs: update the privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 23:04:21 +0530
@@ -11360,7 +11431,7 @@ docs: update the privacy policy
 
 ---
 
-## Commit 485: chore: update commit history
+## Commit 488: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-13 10:17:45 +0000
@@ -11379,7 +11450,7 @@ chore: update commit history
 
 ---
 
-## Commit 486: Add POSAR consent flow and translations
+## Commit 489: Add POSAR consent flow and translations
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-13 15:46:57 +0530
@@ -11457,7 +11528,7 @@ Add POSAR consent flow and translations
 
 ---
 
-## Commit 487: chore: update commit history
+## Commit 490: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 11:15:03 +0000
@@ -11476,7 +11547,7 @@ chore: update commit history
 
 ---
 
-## Commit 488: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 491: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:44:46 +0530
@@ -11495,7 +11566,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 489: updated
+## Commit 492: updated
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:44:33 +0530
@@ -11514,7 +11585,7 @@ updated
 
 ---
 
-## Commit 490: chore: update commit history
+## Commit 493: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 11:00:35 +0000
@@ -11533,7 +11604,7 @@ chore: update commit history
 
 ---
 
-## Commit 491: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 494: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:30:20 +0530
@@ -11552,7 +11623,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 492: docs: add the Linkumori privacy policy
+## Commit 495: docs: add the Linkumori privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-12 16:30:00 +0530
@@ -11571,7 +11642,7 @@ docs: add the Linkumori privacy policy
 
 ---
 
-## Commit 493: chore: update changelog for v100.24.0
+## Commit 496: chore: update changelog for v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:32 +0000
@@ -11590,7 +11661,7 @@ chore: update changelog for v100.24.0
 
 ---
 
-## Commit 494: chore: update commit history for v100.24.0
+## Commit 497: chore: update commit history for v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:31 +0000
@@ -11609,7 +11680,7 @@ chore: update commit history for v100.24.0
 
 ---
 
-## Commit 495: chore: release v100.24.0
+## Commit 498: chore: release v100.24.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-12 10:49:30 +0000
@@ -11630,7 +11701,7 @@ chore: release v100.24.0
 
 ---
 
-## Commit 496: chore: update changelog for v100.23.0
+## Commit 499: chore: update changelog for v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:03 +0000
@@ -11649,7 +11720,7 @@ chore: update changelog for v100.23.0
 
 ---
 
-## Commit 497: chore: update commit history for v100.23.0
+## Commit 500: chore: update commit history for v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:02 +0000
@@ -11668,7 +11739,7 @@ chore: update commit history for v100.23.0
 
 ---
 
-## Commit 498: chore: release v100.23.0
+## Commit 501: chore: release v100.23.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 12:18:01 +0000
@@ -11689,7 +11760,7 @@ chore: release v100.23.0
 
 ---
 
-## Commit 499: chore: update changelog for v100.22.0
+## Commit 502: chore: update changelog for v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:05 +0000
@@ -11708,7 +11779,7 @@ chore: update changelog for v100.22.0
 
 ---
 
-## Commit 500: chore: update commit history for v100.22.0
+## Commit 503: chore: update commit history for v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:03 +0000
@@ -11727,7 +11798,7 @@ chore: update commit history for v100.22.0
 
 ---
 
-## Commit 501: chore: release v100.22.0
+## Commit 504: chore: release v100.22.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-11 07:46:02 +0000
@@ -11750,7 +11821,7 @@ chore: release v100.22.0
 
 ---
 
-## Commit 502: chore: update commit history
+## Commit 505: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 13:29:37 +0000
@@ -11769,7 +11840,7 @@ chore: update commit history
 
 ---
 
-## Commit 503: Replace logger controls with SVG icons
+## Commit 506: Replace logger controls with SVG icons
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-10 18:59:14 +0530
@@ -11792,7 +11863,7 @@ Replace logger controls with SVG icons
 
 ---
 
-## Commit 504: chore: update changelog for v100.21.2
+## Commit 507: chore: update changelog for v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:50 +0000
@@ -11811,7 +11882,7 @@ chore: update changelog for v100.21.2
 
 ---
 
-## Commit 505: chore: update commit history for v100.21.2
+## Commit 508: chore: update commit history for v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:49 +0000
@@ -11830,7 +11901,7 @@ chore: update commit history for v100.21.2
 
 ---
 
-## Commit 506: chore: release v100.21.2
+## Commit 509: chore: release v100.21.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 10:29:48 +0000
@@ -11852,7 +11923,7 @@ chore: release v100.21.2
 
 ---
 
-## Commit 507: chore: update commit history
+## Commit 510: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 09:49:30 +0000
@@ -11871,7 +11942,7 @@ chore: update commit history
 
 ---
 
-## Commit 508: chore: update commit history
+## Commit 511: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-10 09:46:40 +0000
@@ -11890,7 +11961,7 @@ chore: update commit history
 
 ---
 
-## Commit 509: every things is anicca hope so there is no need this type of software to exist
+## Commit 512: every things is anicca hope so there is no need this type of software to exist
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-10 15:15:45 +0530
@@ -11909,7 +11980,7 @@ every things is anicca hope so there is no need this type of software to exist
 
 ---
 
-## Commit 510: chore: update changelog for v100.21.1
+## Commit 513: chore: update changelog for v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:06 +0000
@@ -11928,7 +11999,7 @@ chore: update changelog for v100.21.1
 
 ---
 
-## Commit 511: chore: update commit history for v100.21.1
+## Commit 514: chore: update commit history for v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:05 +0000
@@ -11947,7 +12018,7 @@ chore: update commit history for v100.21.1
 
 ---
 
-## Commit 512: chore: release v100.21.1
+## Commit 515: chore: release v100.21.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-09 05:09:04 +0000
@@ -11968,7 +12039,7 @@ chore: release v100.21.1
 
 ---
 
-## Commit 513: chore: update commit history
+## Commit 516: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-08 19:50:47 +0000
@@ -11987,7 +12058,7 @@ chore: update commit history
 
 ---
 
-## Commit 514: docs: update the privacy policy
+## Commit 517: docs: update the privacy policy
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-09 01:17:24 +0530
@@ -12007,7 +12078,7 @@ docs: update the privacy policy
 
 ---
 
-## Commit 515: chore: update changelog for v100.21.0
+## Commit 518: chore: update changelog for v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:30 +0000
@@ -12026,7 +12097,7 @@ chore: update changelog for v100.21.0
 
 ---
 
-## Commit 516: chore: update commit history for v100.21.0
+## Commit 519: chore: update commit history for v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:29 +0000
@@ -12045,7 +12116,7 @@ chore: update commit history for v100.21.0
 
 ---
 
-## Commit 517: chore: release v100.21.0
+## Commit 520: chore: release v100.21.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-07 03:40:28 +0000
@@ -12066,7 +12137,7 @@ chore: release v100.21.0
 
 ---
 
-## Commit 518: chore: update changelog for v100.20.2
+## Commit 521: chore: update changelog for v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:13 +0000
@@ -12085,7 +12156,7 @@ chore: update changelog for v100.20.2
 
 ---
 
-## Commit 519: chore: update commit history for v100.20.2
+## Commit 522: chore: update commit history for v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:12 +0000
@@ -12104,7 +12175,7 @@ chore: update commit history for v100.20.2
 
 ---
 
-## Commit 520: chore: release v100.20.2
+## Commit 523: chore: release v100.20.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:55:10 +0000
@@ -12126,7 +12197,7 @@ chore: release v100.20.2
 
 ---
 
-## Commit 521: chore: update commit history
+## Commit 524: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-03 16:53:01 +0000
@@ -12145,7 +12216,7 @@ chore: update commit history
 
 ---
 
-## Commit 522: docs: update the template guidance
+## Commit 525: docs: update the template guidance
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-03 22:22:19 +0530
@@ -12164,7 +12235,7 @@ docs: update the template guidance
 
 ---
 
-## Commit 523: chore: update commit history
+## Commit 526: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:59:36 +0000
@@ -12183,7 +12254,7 @@ chore: update commit history
 
 ---
 
-## Commit 524: Remove legacy interoperability runtime traces
+## Commit 527: Remove legacy interoperability runtime traces
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 21:28:47 +0530
@@ -12263,7 +12334,7 @@ Remove legacy interoperability runtime traces
 
 ---
 
-## Commit 525: chore: update commit history
+## Commit 528: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:48:45 +0000
@@ -12282,7 +12353,7 @@ chore: update commit history
 
 ---
 
-## Commit 526: Remove legacy interoperability runtime docs
+## Commit 529: Remove legacy interoperability runtime docs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 21:18:14 +0530
@@ -12363,7 +12434,7 @@ Remove legacy interoperability runtime docs
 
 ---
 
-## Commit 527: chore: update commit history
+## Commit 530: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 15:24:25 +0000
@@ -12382,7 +12453,7 @@ chore: update commit history
 
 ---
 
-## Commit 528: Remove unused filtering context runtime
+## Commit 531: Remove unused filtering context runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 20:53:48 +0530
@@ -12402,7 +12473,7 @@ Remove unused filtering context runtime
 
 ---
 
-## Commit 529: chore: update commit history
+## Commit 532: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 10:58:33 +0000
@@ -12421,7 +12492,7 @@ chore: update commit history
 
 ---
 
-## Commit 530: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 533: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:28:19 +0530
@@ -12440,7 +12511,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 531: Remove unsupported removeparam modifiers
+## Commit 534: Remove unsupported removeparam modifiers
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:28:14 +0530
@@ -12459,7 +12530,7 @@ Remove unsupported removeparam modifiers
 
 ---
 
-## Commit 532: chore: update commit history
+## Commit 535: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-02 10:31:16 +0000
@@ -12478,7 +12549,7 @@ chore: update commit history
 
 ---
 
-## Commit 533: Remove removeparam app modifier
+## Commit 536: Remove removeparam app modifier
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 16:00:56 +0530
@@ -12499,7 +12570,7 @@ Remove removeparam app modifier
 
 ---
 
-## Commit 534: chore: update commit history
+## Commit 537: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 19:13:59 +0000
@@ -12518,7 +12589,7 @@ chore: update commit history
 
 ---
 
-## Commit 535: Retire url filter runtime
+## Commit 538: Retire url filter runtime
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 00:43:06 +0530
@@ -12554,7 +12625,7 @@ Retire url filter runtime
 
 ---
 
-## Commit 536: chore: update commit history
+## Commit 539: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 18:34:55 +0000
@@ -12573,7 +12644,7 @@ chore: update commit history
 
 ---
 
-## Commit 537: Fix ClearURLs removeparam modifiers
+## Commit 540: Fix ClearURLs removeparam modifiers
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-02 00:04:26 +0530
@@ -12595,7 +12666,7 @@ Fix ClearURLs removeparam modifiers
 
 ---
 
-## Commit 538: chore: update changelog for v100.20.1
+## Commit 541: chore: update changelog for v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:55 +0000
@@ -12614,7 +12685,7 @@ chore: update changelog for v100.20.1
 
 ---
 
-## Commit 539: chore: update commit history for v100.20.1
+## Commit 542: chore: update commit history for v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:54 +0000
@@ -12633,7 +12704,7 @@ chore: update commit history for v100.20.1
 
 ---
 
-## Commit 540: chore: release v100.20.1
+## Commit 543: chore: release v100.20.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:30:52 +0000
@@ -12654,7 +12725,7 @@ chore: release v100.20.1
 
 ---
 
-## Commit 541: chore: update commit history
+## Commit 544: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-06-01 15:28:28 +0000
@@ -12673,7 +12744,7 @@ chore: update commit history
 
 ---
 
-## Commit 542: Add configurable report sharing
+## Commit 545: Add configurable report sharing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-06-01 20:57:54 +0530
@@ -12748,7 +12819,7 @@ Add configurable report sharing
 
 ---
 
-## Commit 543: chore: update changelog for v100.20.0
+## Commit 546: chore: update changelog for v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:47 +0000
@@ -12767,7 +12838,7 @@ chore: update changelog for v100.20.0
 
 ---
 
-## Commit 544: chore: update commit history for v100.20.0
+## Commit 547: chore: update commit history for v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:46 +0000
@@ -12786,7 +12857,7 @@ chore: update commit history for v100.20.0
 
 ---
 
-## Commit 545: chore: release v100.20.0
+## Commit 548: chore: release v100.20.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-31 03:36:45 +0000
@@ -12807,7 +12878,7 @@ chore: release v100.20.0
 
 ---
 
-## Commit 546: chore: update commit history
+## Commit 549: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 16:03:26 +0000
@@ -12826,7 +12897,7 @@ chore: update commit history
 
 ---
 
-## Commit 547: Fix custom provider count calculation
+## Commit 550: Fix custom provider count calculation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 21:32:36 +0530
@@ -12847,7 +12918,7 @@ Fix custom provider count calculation
 
 ---
 
-## Commit 548: chore: update changelog for v100.19.0
+## Commit 551: chore: update changelog for v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:37 +0000
@@ -12866,7 +12937,7 @@ chore: update changelog for v100.19.0
 
 ---
 
-## Commit 549: chore: update commit history for v100.19.0
+## Commit 552: chore: update commit history for v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:36 +0000
@@ -12885,7 +12956,7 @@ chore: update commit history for v100.19.0
 
 ---
 
-## Commit 550: chore: release v100.19.0
+## Commit 553: chore: release v100.19.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 12:04:35 +0000
@@ -12908,7 +12979,7 @@ chore: release v100.19.0
 
 ---
 
-## Commit 551: chore: update commit history
+## Commit 554: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 11:48:55 +0000
@@ -12927,7 +12998,7 @@ chore: update commit history
 
 ---
 
-## Commit 552: added guidebook completly fully
+## Commit 555: added guidebook completly fully
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 17:18:06 +0530
@@ -13002,7 +13073,7 @@ added guidebook completly fully
 
 ---
 
-## Commit 553: chore: update commit history
+## Commit 556: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-30 10:52:18 +0000
@@ -13021,7 +13092,7 @@ chore: update commit history
 
 ---
 
-## Commit 554: updated translations and update guide.html and guide.js
+## Commit 557: updated translations and update guide.html and guide.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-30 16:21:18 +0530
@@ -13097,7 +13168,7 @@ updated translations and update guide.html and guide.js
 
 ---
 
-## Commit 555: chore: update commit history
+## Commit 558: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-29 17:44:56 +0000
@@ -13116,7 +13187,7 @@ chore: update commit history
 
 ---
 
-## Commit 556: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 559: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 23:14:40 +0530
@@ -13135,7 +13206,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 557: docs: add the user guide
+## Commit 560: docs: add the user guide
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 23:14:23 +0530
@@ -13155,7 +13226,7 @@ docs: add the user guide
 
 ---
 
-## Commit 558: deleted file we replaced with html
+## Commit 561: deleted file we replaced with html
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 22:33:42 +0530
@@ -13175,7 +13246,7 @@ deleted file we replaced with html
 
 ---
 
-## Commit 559: chore: update commit history
+## Commit 562: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-29 16:47:37 +0000
@@ -13194,7 +13265,7 @@ chore: update commit history
 
 ---
 
-## Commit 560: docs: add filter syntax references
+## Commit 563: docs: add filter syntax references
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-29 22:16:09 +0530
@@ -13214,7 +13285,7 @@ docs: add filter syntax references
 
 ---
 
-## Commit 561: chore: update changelog for v100.18.0
+## Commit 564: chore: update changelog for v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:18 +0000
@@ -13233,7 +13304,7 @@ chore: update changelog for v100.18.0
 
 ---
 
-## Commit 562: chore: update commit history for v100.18.0
+## Commit 565: chore: update commit history for v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:17 +0000
@@ -13252,7 +13323,7 @@ chore: update commit history for v100.18.0
 
 ---
 
-## Commit 563: chore: release v100.18.0
+## Commit 566: chore: release v100.18.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 20:01:16 +0000
@@ -13273,7 +13344,7 @@ chore: release v100.18.0
 
 ---
 
-## Commit 564: chore: update commit history
+## Commit 567: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 15:51:40 +0000
@@ -13292,7 +13363,7 @@ chore: update commit history
 
 ---
 
-## Commit 565: adopted more syntax removeparam for clearurls.js
+## Commit 568: adopted more syntax removeparam for clearurls.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-28 21:20:39 +0530
@@ -13320,7 +13391,7 @@ adopted more syntax removeparam for clearurls.js
 
 ---
 
-## Commit 566: chore: update commit history
+## Commit 569: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 14:23:54 +0000
@@ -13339,7 +13410,7 @@ chore: update commit history
 
 ---
 
-## Commit 567: Use pattern-scoped rule disable IDs
+## Commit 570: Use pattern-scoped rule disable IDs
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-28 19:53:32 +0530
@@ -13360,7 +13431,7 @@ Use pattern-scoped rule disable IDs
 
 ---
 
-## Commit 568: chore: update changelog for v100.17.1
+## Commit 571: chore: update changelog for v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:57 +0000
@@ -13379,7 +13450,7 @@ chore: update changelog for v100.17.1
 
 ---
 
-## Commit 569: chore: update commit history for v100.17.1
+## Commit 572: chore: update commit history for v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:56 +0000
@@ -13398,7 +13469,7 @@ chore: update commit history for v100.17.1
 
 ---
 
-## Commit 570: chore: release v100.17.1
+## Commit 573: chore: release v100.17.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-28 09:14:55 +0000
@@ -13420,7 +13491,7 @@ chore: release v100.17.1
 
 ---
 
-## Commit 571: chore: update commit history
+## Commit 574: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 17:21:20 +0000
@@ -13439,7 +13510,7 @@ chore: update commit history
 
 ---
 
-## Commit 572: Migrate ClearURLs rules to canonical Linkumori source
+## Commit 575: Migrate ClearURLs rules to canonical Linkumori source
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 22:43:11 +0530
@@ -13482,7 +13553,7 @@ Migrate ClearURLs rules to canonical Linkumori source
 
 ---
 
-## Commit 573: chore: update commit history
+## Commit 576: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 07:13:59 +0000
@@ -13501,7 +13572,7 @@ chore: update commit history
 
 ---
 
-## Commit 574: Allow regression page to read imported suite
+## Commit 577: Allow regression page to read imported suite
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 12:43:44 +0530
@@ -13520,7 +13591,7 @@ Allow regression page to read imported suite
 
 ---
 
-## Commit 575: chore: update commit history
+## Commit 578: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-27 07:11:41 +0000
@@ -13539,7 +13610,7 @@ chore: update commit history
 
 ---
 
-## Commit 576: Fix settings regression suite import
+## Commit 579: Fix settings regression suite import
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-27 12:41:25 +0530
@@ -13560,7 +13631,7 @@ Fix settings regression suite import
 
 ---
 
-## Commit 577: chore: update changelog for v100.17.0
+## Commit 580: chore: update changelog for v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:03 +0000
@@ -13579,7 +13650,7 @@ chore: update changelog for v100.17.0
 
 ---
 
-## Commit 578: chore: update commit history for v100.17.0
+## Commit 581: chore: update commit history for v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:01 +0000
@@ -13598,7 +13669,7 @@ chore: update commit history for v100.17.0
 
 ---
 
-## Commit 579: chore: release v100.17.0
+## Commit 582: chore: release v100.17.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 19:13:00 +0000
@@ -13617,7 +13688,7 @@ chore: release v100.17.0
 
 ---
 
-## Commit 580: chore: update commit history
+## Commit 583: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:28:11 +0000
@@ -13636,7 +13707,7 @@ chore: update commit history
 
 ---
 
-## Commit 581: Audit webrequest regression coverage
+## Commit 584: Audit webrequest regression coverage
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:57:51 +0530
@@ -13665,7 +13736,7 @@ Audit webrequest regression coverage
 
 ---
 
-## Commit 582: chore: update commit history
+## Commit 585: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:10:03 +0000
@@ -13684,7 +13755,7 @@ chore: update commit history
 
 ---
 
-## Commit 583: Honor method filters for context exceptions
+## Commit 586: Honor method filters for context exceptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:39:27 +0530
@@ -13703,7 +13774,7 @@ Honor method filters for context exceptions
 
 ---
 
-## Commit 584: chore: update commit history
+## Commit 587: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 16:05:36 +0000
@@ -13722,7 +13793,7 @@ chore: update commit history
 
 ---
 
-## Commit 585: Fix scoped removeparam context exceptions
+## Commit 588: Fix scoped removeparam context exceptions
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 21:34:47 +0530
@@ -13741,7 +13812,7 @@ Fix scoped removeparam context exceptions
 
 ---
 
-## Commit 586: chore: update changelog for v100.16.0
+## Commit 589: chore: update changelog for v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:54 +0000
@@ -13760,7 +13831,7 @@ chore: update changelog for v100.16.0
 
 ---
 
-## Commit 587: chore: update commit history for v100.16.0
+## Commit 590: chore: update commit history for v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:53 +0000
@@ -13779,7 +13850,7 @@ chore: update commit history for v100.16.0
 
 ---
 
-## Commit 588: chore: release v100.16.0
+## Commit 591: chore: release v100.16.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:33:52 +0000
@@ -13798,7 +13869,7 @@ chore: release v100.16.0
 
 ---
 
-## Commit 589: chore: update commit history
+## Commit 592: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-26 10:10:37 +0000
@@ -13817,7 +13888,7 @@ chore: update commit history
 
 ---
 
-## Commit 590: chore: update changelog for v100.15.0
+## Commit 593: chore: update changelog for v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:50 +0000
@@ -13836,7 +13907,7 @@ chore: update changelog for v100.15.0
 
 ---
 
-## Commit 591: chore: update commit history for v100.15.0
+## Commit 594: chore: update commit history for v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:49 +0000
@@ -13855,7 +13926,7 @@ chore: update commit history for v100.15.0
 
 ---
 
-## Commit 592: chore: release v100.15.0
+## Commit 595: chore: release v100.15.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:37:48 +0000
@@ -13874,7 +13945,7 @@ chore: release v100.15.0
 
 ---
 
-## Commit 593: chore: update the AMO upload script
+## Commit 596: chore: update the AMO upload script
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 01:06:08 +0530
@@ -13893,7 +13964,7 @@ chore: update the AMO upload script
 
 ---
 
-## Commit 594: chore: update changelog for v100.14.0
+## Commit 597: chore: update changelog for v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:20 +0000
@@ -13912,7 +13983,7 @@ chore: update changelog for v100.14.0
 
 ---
 
-## Commit 595: chore: update commit history for v100.14.0
+## Commit 598: chore: update commit history for v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:19 +0000
@@ -13931,7 +14002,7 @@ chore: update commit history for v100.14.0
 
 ---
 
-## Commit 596: chore: release v100.14.0
+## Commit 599: chore: release v100.14.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:34:18 +0000
@@ -13950,7 +14021,7 @@ chore: release v100.14.0
 
 ---
 
-## Commit 597: refactor: improve the AMO upload script
+## Commit 600: refactor: improve the AMO upload script
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 01:02:37 +0530
@@ -13969,7 +14040,7 @@ refactor: improve the AMO upload script
 
 ---
 
-## Commit 598: chore: update changelog for v100.13.0
+## Commit 601: chore: update changelog for v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:44 +0000
@@ -13988,7 +14059,7 @@ chore: update changelog for v100.13.0
 
 ---
 
-## Commit 599: chore: update commit history for v100.13.0
+## Commit 602: chore: update commit history for v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:42 +0000
@@ -14007,7 +14078,7 @@ chore: update commit history for v100.13.0
 
 ---
 
-## Commit 600: chore: release v100.13.0
+## Commit 603: chore: release v100.13.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 19:13:41 +0000
@@ -14026,7 +14097,7 @@ chore: release v100.13.0
 
 ---
 
-## Commit 601: fix: resolve .build-ignore relative to script file in CI
+## Commit 604: fix: resolve .build-ignore relative to script file in CI
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 00:42:46 +0530
@@ -14045,7 +14116,7 @@ fix: resolve .build-ignore relative to script file in CI
 
 ---
 
-## Commit 602: chore: update changelog for v100.12.0
+## Commit 605: chore: update changelog for v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:48 +0000
@@ -14064,7 +14135,7 @@ chore: update changelog for v100.12.0
 
 ---
 
-## Commit 603: chore: update commit history for v100.12.0
+## Commit 606: chore: update commit history for v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:47 +0000
@@ -14083,7 +14154,7 @@ chore: update commit history for v100.12.0
 
 ---
 
-## Commit 604: chore: release v100.12.0
+## Commit 607: chore: release v100.12.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 18:49:46 +0000
@@ -14102,7 +14173,7 @@ chore: release v100.12.0
 
 ---
 
-## Commit 605: i18n: update translations
+## Commit 608: i18n: update translations
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-26 00:13:19 +0530
@@ -14174,7 +14245,7 @@ i18n: update translations
 
 ---
 
-## Commit 606: chore: update commit history
+## Commit 609: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 17:17:26 +0000
@@ -14193,7 +14264,7 @@ chore: update commit history
 
 ---
 
-## Commit 607: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 610: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:47:14 +0530
@@ -14212,7 +14283,7 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 608: data: update bundled provider rules
+## Commit 611: data: update bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:46:56 +0530
@@ -14232,7 +14303,7 @@ data: update bundled provider rules
 
 ---
 
-## Commit 609: chore: update commit history
+## Commit 612: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 17:13:55 +0000
@@ -14251,7 +14322,7 @@ chore: update commit history
 
 ---
 
-## Commit 610: Address PR review cleanup
+## Commit 613: Address PR review cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:43:33 +0530
@@ -14271,7 +14342,7 @@ Address PR review cleanup
 
 ---
 
-## Commit 611: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 614: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:28:03 +0530
@@ -14290,7 +14361,7 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 612: Merge branch 'main' into consolidation
+## Commit 615: Merge branch 'main' into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:27:48 +0530
@@ -14309,7 +14380,7 @@ Merge branch 'main' into consolidation
 
 ---
 
-## Commit 613: chore: update commit history
+## Commit 616: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 16:51:53 +0000
@@ -14328,7 +14399,7 @@ chore: update commit history
 
 ---
 
-## Commit 614: Align provider context with ClearURLs core
+## Commit 617: Align provider context with ClearURLs core
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:21:27 +0530
@@ -14350,7 +14421,7 @@ Align provider context with ClearURLs core
 
 ---
 
-## Commit 615: chore: update commit history
+## Commit 618: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 16:35:38 +0000
@@ -14369,7 +14440,7 @@ chore: update commit history
 
 ---
 
-## Commit 616: Polish provider import labels
+## Commit 619: Polish provider import labels
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 22:04:45 +0530
@@ -14390,7 +14461,7 @@ Polish provider import labels
 
 ---
 
-## Commit 617: chore: update commit history
+## Commit 620: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 14:46:26 +0000
@@ -14409,7 +14480,7 @@ chore: update commit history
 
 ---
 
-## Commit 618: Merge pull request from Linkumori/consolidation
+## Commit 621: Merge pull request from Linkumori/consolidation
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 20:16:14 +0530
@@ -14428,7 +14499,7 @@ Merge pull request from Linkumori/consolidation
 
 ---
 
-## Commit 619: chore: update commit history
+## Commit 622: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 14:43:58 +0000
@@ -14447,7 +14518,7 @@ chore: update commit history
 
 ---
 
-## Commit 620: Address PR review feedback
+## Commit 623: Address PR review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 20:13:29 +0530
@@ -14468,7 +14539,7 @@ Address PR review feedback
 
 ---
 
-## Commit 621: chore: update commit history
+## Commit 624: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 13:52:38 +0000
@@ -14487,7 +14558,7 @@ chore: update commit history
 
 ---
 
-## Commit 622: Align ClearURLs rule identity and provider counts
+## Commit 625: Align ClearURLs rule identity and provider counts
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 19:22:06 +0530
@@ -14514,7 +14585,7 @@ Align ClearURLs rule identity and provider counts
 
 ---
 
-## Commit 623: chore: update commit history
+## Commit 626: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:33:59 +0000
@@ -14533,7 +14604,7 @@ chore: update commit history
 
 ---
 
-## Commit 624: Pass activation state in regression batch
+## Commit 627: Pass activation state in regression batch
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 17:03:29 +0530
@@ -14552,7 +14623,7 @@ Pass activation state in regression batch
 
 ---
 
-## Commit 625: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 628: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:59:30 +0530
@@ -14571,7 +14642,7 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 626: Merge branch 'main' into consolidation
+## Commit 629: Merge branch 'main' into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:59:13 +0530
@@ -14590,7 +14661,7 @@ Merge branch 'main' into consolidation
 
 ---
 
-## Commit 627: chore: update commit history
+## Commit 630: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:29:13 +0000
@@ -14609,7 +14680,7 @@ chore: update commit history
 
 ---
 
-## Commit 628: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
+## Commit 631: Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon into consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:58:58 +0530
@@ -14628,7 +14699,7 @@ Merge branch 'consolidation' of https://github.com/Linkumori/Linkumori-Addon int
 
 ---
 
-## Commit 629: test: remove obsolete rule fixtures
+## Commit 632: test: remove obsolete rule fixtures
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:58:38 +0530
@@ -14648,7 +14719,7 @@ test: remove obsolete rule fixtures
 
 ---
 
-## Commit 630: chore: update commit history
+## Commit 633: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-25 11:26:17 +0000
@@ -14667,7 +14738,7 @@ chore: update commit history
 
 ---
 
-## Commit 631: Align rule activation with ClearURLs origins
+## Commit 634: Align rule activation with ClearURLs origins
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-25 16:55:00 +0530
@@ -14695,7 +14766,7 @@ Align rule activation with ClearURLs origins
 
 ---
 
-## Commit 632: chore: update commit history
+## Commit 635: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 17:55:05 +0000
@@ -14714,7 +14785,7 @@ chore: update commit history
 
 ---
 
-## Commit 633: Merge pull request from Linkumori/consolidation
+## Commit 636: Merge pull request from Linkumori/consolidation
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 23:24:54 +0530
@@ -14733,7 +14804,7 @@ Merge pull request from Linkumori/consolidation
 
 ---
 
-## Commit 634: chore: update commit history
+## Commit 637: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:55:09 +0000
@@ -14752,7 +14823,7 @@ chore: update commit history
 
 ---
 
-## Commit 635: fix: thread sessionRewrites set through cleaning loop
+## Commit 638: fix: thread sessionRewrites set through cleaning loop
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 17:23:23 +0530
@@ -14772,7 +14843,7 @@ fix: thread sessionRewrites set through cleaning loop
 
 ---
 
-## Commit 636: chore: update commit history
+## Commit 639: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:33:50 +0000
@@ -14791,7 +14862,7 @@ chore: update commit history
 
 ---
 
-## Commit 637: test: add regression cases for engine improvements
+## Commit 640: test: add regression cases for engine improvements
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 16:57:53 +0530
@@ -14810,7 +14881,7 @@ test: add regression cases for engine improvements
 
 ---
 
-## Commit 638: chore: update commit history
+## Commit 641: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 11:00:06 +0000
@@ -14829,7 +14900,7 @@ chore: update commit history
 
 ---
 
-## Commit 639: fix: address review feedback
+## Commit 642: fix: address review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 16:42:43 +0530
@@ -14850,7 +14921,7 @@ fix: address review feedback
 
 ---
 
-## Commit 640: chore: update commit history
+## Commit 643: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-23 19:08:10 +0000
@@ -14869,7 +14940,7 @@ chore: update commit history
 
 ---
 
-## Commit 641: feat: engine improvements and dialect documentation consolidation
+## Commit 644: feat: engine improvements and dialect documentation consolidation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-24 00:37:48 +0530
@@ -14893,7 +14964,7 @@ feat: engine improvements and dialect documentation consolidation
 
 ---
 
-## Commit 642: chore: update changelog for v100.11.0
+## Commit 645: chore: update changelog for v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:51 +0000
@@ -14912,7 +14983,7 @@ chore: update changelog for v100.11.0
 
 ---
 
-## Commit 643: chore: update commit history for v100.11.0
+## Commit 646: chore: update commit history for v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:50 +0000
@@ -14931,7 +15002,7 @@ chore: update commit history for v100.11.0
 
 ---
 
-## Commit 644: chore: release v100.11.0
+## Commit 647: chore: release v100.11.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-24 03:24:49 +0000
@@ -14950,7 +15021,7 @@ chore: release v100.11.0
 
 ---
 
-## Commit 645: chore: update commit history
+## Commit 648: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 19:27:27 +0000
@@ -14969,7 +15040,7 @@ chore: update commit history
 
 ---
 
-## Commit 646: docs: update the rule syntax wiki
+## Commit 649: docs: update the rule syntax wiki
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-23 00:57:01 +0530
@@ -14988,7 +15059,7 @@ docs: update the rule syntax wiki
 
 ---
 
-## Commit 647: chore: update changelog for v100.10.0
+## Commit 650: chore: update changelog for v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:25 +0000
@@ -15007,7 +15078,7 @@ chore: update changelog for v100.10.0
 
 ---
 
-## Commit 648: chore: update commit history for v100.10.0
+## Commit 651: chore: update commit history for v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:23 +0000
@@ -15026,7 +15097,7 @@ chore: update commit history for v100.10.0
 
 ---
 
-## Commit 649: chore: release v100.10.0
+## Commit 652: chore: release v100.10.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 13:16:22 +0000
@@ -15045,7 +15116,7 @@ chore: release v100.10.0
 
 ---
 
-## Commit 650: chore: update commit history
+## Commit 653: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:43:21 +0000
@@ -15064,7 +15135,7 @@ chore: update commit history
 
 ---
 
-## Commit 651: Merge pull request from Linkumori/beta/remove-runtime-snapshot-cleanup
+## Commit 654: Merge pull request from Linkumori/beta/remove-runtime-snapshot-cleanup
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 17:13:07 +0530
@@ -15083,7 +15154,7 @@ Merge pull request from Linkumori/beta/remove-runtime-snapshot-cleanup
 
 ---
 
-## Commit 652: chore: update commit history
+## Commit 655: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:42:22 +0000
@@ -15102,7 +15173,7 @@ chore: update commit history
 
 ---
 
-## Commit 653: Address valid cleanup review feedback
+## Commit 656: Address valid cleanup review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 17:12:03 +0530
@@ -15123,7 +15194,7 @@ Address valid cleanup review feedback
 
 ---
 
-## Commit 654: Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
+## Commit 657: Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:57:57 +0530
@@ -15142,7 +15213,7 @@ Merge branch 'main' into beta/remove-runtime-snapshot-cleanup
 
 ---
 
-## Commit 655: Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cleanup
+## Commit 658: Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cleanup
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:57:40 +0530
@@ -15161,7 +15232,7 @@ Merge remote-tracking branch 'origin/main' into beta/remove-runtime-snapshot-cle
 
 ---
 
-## Commit 656: chore: update commit history
+## Commit 659: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 11:25:34 +0000
@@ -15180,7 +15251,7 @@ chore: update commit history
 
 ---
 
-## Commit 657: Remove redundant runtime snapshot plumbing
+## Commit 660: Remove redundant runtime snapshot plumbing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 16:55:08 +0530
@@ -15206,7 +15277,7 @@ Remove redundant runtime snapshot plumbing
 
 ---
 
-## Commit 658: chore: update commit history
+## Commit 661: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-22 10:21:28 +0000
@@ -15225,7 +15296,7 @@ chore: update commit history
 
 ---
 
-## Commit 659: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 662: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 15:51:12 +0530
@@ -15244,7 +15315,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 660: tool.js now integerate with ip-ranger.js
+## Commit 663: tool.js now integerate with ip-ranger.js
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-22 14:36:34 +0530
@@ -15263,7 +15334,7 @@ tool.js now integerate with ip-ranger.js
 
 ---
 
-## Commit 661: chore: update changelog for v100.9.1
+## Commit 664: chore: update changelog for v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:11 +0000
@@ -15282,7 +15353,7 @@ chore: update changelog for v100.9.1
 
 ---
 
-## Commit 662: chore: update commit history for v100.9.1
+## Commit 665: chore: update commit history for v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:09 +0000
@@ -15301,7 +15372,7 @@ chore: update commit history for v100.9.1
 
 ---
 
-## Commit 663: chore: release v100.9.1
+## Commit 666: chore: release v100.9.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 15:47:08 +0000
@@ -15320,7 +15391,7 @@ chore: release v100.9.1
 
 ---
 
-## Commit 664: chore: update commit history
+## Commit 667: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 14:47:17 +0000
@@ -15339,7 +15410,7 @@ chore: update commit history
 
 ---
 
-## Commit 665: fix(regression): fix 5 failing provider snapshot and preprocessor tests
+## Commit 668: fix(regression): fix 5 failing provider snapshot and preprocessor tests
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 20:16:52 +0530
@@ -15359,7 +15430,7 @@ fix(regression): fix 5 failing provider snapshot and preprocessor tests
 
 ---
 
-## Commit 666: chore: update commit history
+## Commit 669: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 14:05:22 +0000
@@ -15378,7 +15449,7 @@ chore: update commit history
 
 ---
 
-## Commit 667: feat(nav): replace localStorage view state with URL fragment navigation
+## Commit 670: feat(nav): replace localStorage view state with URL fragment navigation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 19:34:55 +0530
@@ -15398,7 +15469,7 @@ feat(nav): replace localStorage view state with URL fragment navigation
 
 ---
 
-## Commit 668: chore: update changelog for v100.9.0
+## Commit 671: chore: update changelog for v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:54 +0000
@@ -15417,7 +15488,7 @@ chore: update changelog for v100.9.0
 
 ---
 
-## Commit 669: chore: update commit history for v100.9.0
+## Commit 672: chore: update commit history for v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:53 +0000
@@ -15436,7 +15507,7 @@ chore: update commit history for v100.9.0
 
 ---
 
-## Commit 670: chore: release v100.9.0
+## Commit 673: chore: release v100.9.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:20:52 +0000
@@ -15455,7 +15526,7 @@ chore: release v100.9.0
 
 ---
 
-## Commit 671: chore: update commit history
+## Commit 674: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:18:58 +0000
@@ -15474,7 +15545,7 @@ chore: update commit history
 
 ---
 
-## Commit 672: docs(privacy): add Issue Reporting Feature clause and bump consent version
+## Commit 675: docs(privacy): add Issue Reporting Feature clause and bump consent version
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 17:48:33 +0530
@@ -15494,7 +15565,7 @@ docs(privacy): add Issue Reporting Feature clause and bump consent version
 
 ---
 
-## Commit 673: chore: update changelog for v100.8.0
+## Commit 676: chore: update changelog for v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:33 +0000
@@ -15513,7 +15584,7 @@ chore: update changelog for v100.8.0
 
 ---
 
-## Commit 674: chore: update commit history for v100.8.0
+## Commit 677: chore: update commit history for v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:31 +0000
@@ -15532,7 +15603,7 @@ chore: update commit history for v100.8.0
 
 ---
 
-## Commit 675: chore: release v100.8.0
+## Commit 678: chore: release v100.8.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:11:30 +0000
@@ -15551,7 +15622,7 @@ chore: release v100.8.0
 
 ---
 
-## Commit 676: chore: update commit history
+## Commit 679: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 12:10:31 +0000
@@ -15570,7 +15641,7 @@ chore: update commit history
 
 ---
 
-## Commit 677: feat: add bug report button and GitHub issue report page
+## Commit 680: feat: add bug report button and GitHub issue report page
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 17:39:59 +0530
@@ -15659,7 +15730,7 @@ feat: add bug report button and GitHub issue report page
 
 ---
 
-## Commit 678: chore: update commit history
+## Commit 681: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-21 10:08:51 +0000
@@ -15678,7 +15749,7 @@ chore: update commit history
 
 ---
 
-## Commit 679: perf: speed up removeparam matching
+## Commit 682: perf: speed up removeparam matching
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-21 15:37:59 +0530
@@ -15699,7 +15770,7 @@ perf: speed up removeparam matching
 
 ---
 
-## Commit 680: chore: update changelog for v100.7.1
+## Commit 683: chore: update changelog for v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:10 +0000
@@ -15718,7 +15789,7 @@ chore: update changelog for v100.7.1
 
 ---
 
-## Commit 681: chore: update commit history for v100.7.1
+## Commit 684: chore: update commit history for v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:09 +0000
@@ -15737,7 +15808,7 @@ chore: update commit history for v100.7.1
 
 ---
 
-## Commit 682: chore: release v100.7.1
+## Commit 685: chore: release v100.7.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:26:07 +0000
@@ -15756,7 +15827,7 @@ chore: release v100.7.1
 
 ---
 
-## Commit 683: chore: update changelog for v100.7.0
+## Commit 686: chore: update changelog for v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:11 +0000
@@ -15775,7 +15846,7 @@ chore: update changelog for v100.7.0
 
 ---
 
-## Commit 684: chore: update commit history for v100.7.0
+## Commit 687: chore: update commit history for v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:09 +0000
@@ -15794,7 +15865,7 @@ chore: update commit history for v100.7.0
 
 ---
 
-## Commit 685: chore: release v100.7.0
+## Commit 688: chore: release v100.7.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 17:20:08 +0000
@@ -15813,7 +15884,7 @@ chore: release v100.7.0
 
 ---
 
-## Commit 686: Delete .github/workflows/npm-publish-github-packages.yml
+## Commit 689: Delete .github/workflows/npm-publish-github-packages.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 22:47:12 +0530
@@ -15832,7 +15903,7 @@ Delete .github/workflows/npm-publish-github-packages.yml
 
 ---
 
-## Commit 687: Create npm-publish-github-packages.yml
+## Commit 690: Create npm-publish-github-packages.yml
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 22:45:56 +0530
@@ -15851,7 +15922,7 @@ Create npm-publish-github-packages.yml
 
 ---
 
-## Commit 688: chore: update changelog for v100.6.1
+## Commit 691: chore: update changelog for v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:43 +0000
@@ -15870,7 +15941,7 @@ chore: update changelog for v100.6.1
 
 ---
 
-## Commit 689: chore: update commit history for v100.6.1
+## Commit 692: chore: update commit history for v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:42 +0000
@@ -15889,7 +15960,7 @@ chore: update commit history for v100.6.1
 
 ---
 
-## Commit 690: chore: release v100.6.1
+## Commit 693: chore: release v100.6.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 16:25:41 +0000
@@ -15908,7 +15979,7 @@ chore: release v100.6.1
 
 ---
 
-## Commit 691: chore: update commit history
+## Commit 694: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 15:09:50 +0000
@@ -15927,7 +15998,7 @@ chore: update commit history
 
 ---
 
-## Commit 692: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 695: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 20:39:27 +0530
@@ -15946,7 +16017,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 693: Implement ClearURLs dialect runtime snapshots
+## Commit 696: Implement ClearURLs dialect runtime snapshots
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 20:39:19 +0530
@@ -15971,7 +16042,7 @@ Implement ClearURLs dialect runtime snapshots
 
 ---
 
-## Commit 694: chore: update commit history
+## Commit 697: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 14:08:40 +0000
@@ -15990,7 +16061,7 @@ chore: update commit history
 
 ---
 
-## Commit 695: align ClearURLs dialect with core engine
+## Commit 698: align ClearURLs dialect with core engine
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 19:38:05 +0530
@@ -16011,7 +16082,7 @@ align ClearURLs dialect with core engine
 
 ---
 
-## Commit 696: chore: update commit history
+## Commit 699: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 10:14:52 +0000
@@ -16030,7 +16101,7 @@ chore: update commit history
 
 ---
 
-## Commit 697: improve regression runner diagnostics
+## Commit 700: improve regression runner diagnostics
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 15:44:34 +0530
@@ -16050,7 +16121,7 @@ improve regression runner diagnostics
 
 ---
 
-## Commit 698: chore: update changelog for v100.6.0
+## Commit 701: chore: update changelog for v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:42 +0000
@@ -16069,7 +16140,7 @@ chore: update changelog for v100.6.0
 
 ---
 
-## Commit 699: chore: update commit history for v100.6.0
+## Commit 702: chore: update commit history for v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:41 +0000
@@ -16088,7 +16159,7 @@ chore: update commit history for v100.6.0
 
 ---
 
-## Commit 700: chore: release v100.6.0
+## Commit 703: chore: release v100.6.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:40:40 +0000
@@ -16107,7 +16178,7 @@ chore: release v100.6.0
 
 ---
 
-## Commit 701: chore: update commit history
+## Commit 704: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:32:56 +0000
@@ -16126,7 +16197,7 @@ chore: update commit history
 
 ---
 
-## Commit 702: document both custom rule dialects side by side
+## Commit 705: document both custom rule dialects side by side
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 13:02:39 +0530
@@ -16145,7 +16216,7 @@ document both custom rule dialects side by side
 
 ---
 
-## Commit 703: chore: update commit history
+## Commit 706: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:31:24 +0000
@@ -16164,7 +16235,7 @@ chore: update commit history
 
 ---
 
-## Commit 704: document ClearURLs rule dialects
+## Commit 707: document ClearURLs rule dialects
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 13:01:07 +0530
@@ -16184,7 +16255,7 @@ document ClearURLs rule dialects
 
 ---
 
-## Commit 705: chore: update commit history
+## Commit 708: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:28:16 +0000
@@ -16203,7 +16274,7 @@ chore: update commit history
 
 ---
 
-## Commit 706: name legacy syntax Linkumori ClearURLs dialect
+## Commit 709: name legacy syntax Linkumori ClearURLs dialect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:57:54 +0530
@@ -16277,7 +16348,7 @@ name legacy syntax Linkumori ClearURLs dialect
 
 ---
 
-## Commit 707: chore: update commit history
+## Commit 710: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:24:35 +0000
@@ -16296,7 +16367,7 @@ chore: update commit history
 
 ---
 
-## Commit 708: rename v3 editor mode to ClearURLs dialect
+## Commit 711: rename v3 editor mode to ClearURLs dialect
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:54:16 +0530
@@ -16371,7 +16442,7 @@ rename v3 editor mode to ClearURLs dialect
 
 ---
 
-## Commit 709: chore: update commit history
+## Commit 712: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-20 07:16:59 +0000
@@ -16390,7 +16461,7 @@ chore: update commit history
 
 ---
 
-## Commit 710: fix neutral v3 custom rule templates
+## Commit 713: fix neutral v3 custom rule templates
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:46:35 +0530
@@ -16464,7 +16535,7 @@ fix neutral v3 custom rule templates
 
 ---
 
-## Commit 711: performance boost for index
+## Commit 714: performance boost for index
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-20 12:30:00 +0530
@@ -16483,7 +16554,7 @@ performance boost for index
 
 ---
 
-## Commit 712: chore: update changelog for v100.5.2
+## Commit 715: chore: update changelog for v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:12 +0000
@@ -16502,7 +16573,7 @@ chore: update changelog for v100.5.2
 
 ---
 
-## Commit 713: chore: update commit history for v100.5.2
+## Commit 716: chore: update commit history for v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:11 +0000
@@ -16521,7 +16592,7 @@ chore: update commit history for v100.5.2
 
 ---
 
-## Commit 714: chore: release v100.5.2
+## Commit 717: chore: release v100.5.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:35:10 +0000
@@ -16540,7 +16611,7 @@ chore: release v100.5.2
 
 ---
 
-## Commit 715: chore: update changelog for v100.5.1
+## Commit 718: chore: update changelog for v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:08 +0000
@@ -16559,7 +16630,7 @@ chore: update changelog for v100.5.1
 
 ---
 
-## Commit 716: chore: update commit history for v100.5.1
+## Commit 719: chore: update commit history for v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:07 +0000
@@ -16578,7 +16649,7 @@ chore: update commit history for v100.5.1
 
 ---
 
-## Commit 717: chore: release v100.5.1
+## Commit 720: chore: release v100.5.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:33:06 +0000
@@ -16597,7 +16668,7 @@ chore: release v100.5.1
 
 ---
 
-## Commit 718: chore: update commit history
+## Commit 721: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 19:32:19 +0000
@@ -16616,7 +16687,7 @@ chore: update commit history
 
 ---
 
-## Commit 719: add localized Linkumori v3 editor mode
+## Commit 722: add localized Linkumori v3 editor mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-19 01:02:00 +0530
@@ -16691,7 +16762,7 @@ add localized Linkumori v3 editor mode
 
 ---
 
-## Commit 720: chore: update commit history
+## Commit 723: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 17:42:42 +0000
@@ -16710,7 +16781,7 @@ chore: update commit history
 
 ---
 
-## Commit 721: ci: update the upload runner
+## Commit 724: ci: update the upload runner
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 23:12:20 +0530
@@ -16729,7 +16800,7 @@ ci: update the upload runner
 
 ---
 
-## Commit 722: chore: update commit history
+## Commit 725: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 17:42:03 +0000
@@ -16748,7 +16819,7 @@ chore: update commit history
 
 ---
 
-## Commit 723: Update regression-server.js
+## Commit 726: Update regression-server.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 23:11:41 +0530
@@ -16767,7 +16838,7 @@ Update regression-server.js
 
 ---
 
-## Commit 724: chore: update commit history
+## Commit 727: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 16:35:30 +0000
@@ -16786,7 +16857,7 @@ chore: update commit history
 
 ---
 
-## Commit 725: support canonical v2 ClearURLs rules
+## Commit 728: support canonical v2 ClearURLs rules
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 22:05:11 +0530
@@ -16805,7 +16876,7 @@ support canonical v2 ClearURLs rules
 
 ---
 
-## Commit 726: chore: update commit history
+## Commit 729: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 16:08:35 +0000
@@ -16824,7 +16895,7 @@ chore: update commit history
 
 ---
 
-## Commit 727: support canonical v2 ClearURLs rules
+## Commit 730: support canonical v2 ClearURLs rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 21:38:13 +0530
@@ -16850,7 +16921,7 @@ support canonical v2 ClearURLs rules
 
 ---
 
-## Commit 728: Merge pull request from Linkumori/dev
+## Commit 731: Merge pull request from Linkumori/dev
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 21:24:27 +0530
@@ -16869,7 +16940,7 @@ Merge pull request from Linkumori/dev
 
 ---
 
-## Commit 729: Merge branch 'main' into dev
+## Commit 732: Merge branch 'main' into dev
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:57:06 +0530
@@ -16888,7 +16959,7 @@ Merge branch 'main' into dev
 
 ---
 
-## Commit 730: chore: update commit history
+## Commit 733: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 15:23:29 +0000
@@ -16907,7 +16978,7 @@ chore: update commit history
 
 ---
 
-## Commit 731: chore: update commit history
+## Commit 734: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 15:22:48 +0000
@@ -16926,7 +16997,7 @@ chore: update commit history
 
 ---
 
-## Commit 732: add rich syntax support based on clearurls based on dev branch
+## Commit 735: add rich syntax support based on clearurls based on dev branch
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:52:19 +0530
@@ -16956,7 +17027,7 @@ add rich syntax support based on clearurls based on dev branch
 
 ---
 
-## Commit 733: Revert "fix: harden native rule runtime edge cases"
+## Commit 736: Revert "fix: harden native rule runtime edge cases"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:42:12 +0530
@@ -16979,7 +17050,7 @@ Revert "fix: harden native rule runtime edge cases"
 
 ---
 
-## Commit 734: Revert "fix: address native rule review feedback"
+## Commit 737: Revert "fix: address native rule review feedback"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:41:24 +0530
@@ -17002,7 +17073,7 @@ Revert "fix: address native rule review feedback"
 
 ---
 
-## Commit 735: Revert "feat: add durable native rule identity support"
+## Commit 738: Revert "feat: add durable native rule identity support"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:40:37 +0530
@@ -17082,7 +17153,7 @@ Revert "feat: add durable native rule identity support"
 
 ---
 
-## Commit 736: Revert "feat:(rules): introduce Linkumori-native superset format"
+## Commit 739: Revert "feat:(rules): introduce Linkumori-native superset format"
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:39:51 +0530
@@ -17105,7 +17176,7 @@ Revert "feat:(rules): introduce Linkumori-native superset format"
 
 ---
 
-## Commit 737: add rich ClearURLs rule syntax support
+## Commit 740: add rich ClearURLs rule syntax support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 20:37:15 +0530
@@ -17129,7 +17200,7 @@ add rich ClearURLs rule syntax support
 
 ---
 
-## Commit 738: chore: update commit history
+## Commit 741: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 08:03:52 +0000
@@ -17148,7 +17219,7 @@ chore: update commit history
 
 ---
 
-## Commit 739: fix: harden native rule runtime edge cases
+## Commit 742: fix: harden native rule runtime edge cases
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 13:23:32 +0530
@@ -17171,7 +17242,7 @@ fix: harden native rule runtime edge cases
 
 ---
 
-## Commit 740: chore: update commit history
+## Commit 743: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 07:18:03 +0000
@@ -17190,7 +17261,7 @@ chore: update commit history
 
 ---
 
-## Commit 741: fix: address native rule review feedback
+## Commit 744: fix: address native rule review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 12:47:29 +0530
@@ -17213,7 +17284,7 @@ fix: address native rule review feedback
 
 ---
 
-## Commit 742: chore: update commit history
+## Commit 745: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 02:15:51 +0000
@@ -17232,7 +17303,7 @@ chore: update commit history
 
 ---
 
-## Commit 743: feat: add durable native rule identity support
+## Commit 746: feat: add durable native rule identity support
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 07:45:31 +0530
@@ -17312,7 +17383,7 @@ feat: add durable native rule identity support
 
 ---
 
-## Commit 744: chore: update commit history
+## Commit 747: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-18 01:49:58 +0000
@@ -17331,7 +17402,7 @@ chore: update commit history
 
 ---
 
-## Commit 745: Implement native superset rules across tooling
+## Commit 748: Implement native superset rules across tooling
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 07:19:41 +0530
@@ -17359,7 +17430,7 @@ Implement native superset rules across tooling
 
 ---
 
-## Commit 746: chore: update commit history
+## Commit 749: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 19:11:35 +0000
@@ -17378,7 +17449,7 @@ chore: update commit history
 
 ---
 
-## Commit 747: feat:(rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format
+## Commit 750: feat:(rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-18 00:40:08 +0530
@@ -17401,7 +17472,7 @@ feat:(rules): introduce Linkumori-native superset format https://gitlab.com/Clea
 
 ---
 
-## Commit 748: chore: update commit history
+## Commit 751: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:11:35 +0000
@@ -17420,7 +17491,7 @@ chore: update commit history
 
 ---
 
-## Commit 749: fix ubo removeparam interoperability
+## Commit 752: fix ubo removeparam interoperability
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-17 20:41:22 +0530
@@ -17441,7 +17512,7 @@ fix ubo removeparam interoperability
 
 ---
 
-## Commit 750: chore: update changelog for v100.5.0
+## Commit 753: chore: update changelog for v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:42 +0000
@@ -17460,7 +17531,7 @@ chore: update changelog for v100.5.0
 
 ---
 
-## Commit 751: chore: update commit history for v100.5.0
+## Commit 754: chore: update commit history for v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:41 +0000
@@ -17479,7 +17550,7 @@ chore: update commit history for v100.5.0
 
 ---
 
-## Commit 752: chore: release v100.5.0
+## Commit 755: chore: release v100.5.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:19:40 +0000
@@ -17498,7 +17569,7 @@ chore: release v100.5.0
 
 ---
 
-## Commit 753: chore: update commit history
+## Commit 756: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 10:05:35 +0000
@@ -17517,7 +17588,7 @@ chore: update commit history
 
 ---
 
-## Commit 754: chore: update changelog for v100.4.0
+## Commit 757: chore: update changelog for v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:35:14 +0530
@@ -17536,7 +17607,7 @@ chore: update changelog for v100.4.0
 
 ---
 
-## Commit 755: chore: update commit history for v100.4.0
+## Commit 758: chore: update commit history for v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:34:41 +0530
@@ -17555,7 +17626,7 @@ chore: update commit history for v100.4.0
 
 ---
 
-## Commit 756: chore: release v100.4.0
+## Commit 759: chore: release v100.4.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 15:33:47 +0530
@@ -17574,7 +17645,7 @@ chore: release v100.4.0
 
 ---
 
-## Commit 757: ci: run regression suite as single background batch call
+## Commit 760: ci: run regression suite as single background batch call
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-17 14:34:05 +0530
@@ -17594,7 +17665,7 @@ ci: run regression suite as single background batch call
 
 ---
 
-## Commit 758: chore: update changelog for v100.3.0
+## Commit 761: chore: update changelog for v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:33 +0000
@@ -17613,7 +17684,7 @@ chore: update changelog for v100.3.0
 
 ---
 
-## Commit 759: chore: update commit history for v100.3.0
+## Commit 762: chore: update commit history for v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:32 +0000
@@ -17632,7 +17703,7 @@ chore: update commit history for v100.3.0
 
 ---
 
-## Commit 760: chore: release v100.3.0
+## Commit 763: chore: release v100.3.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-17 02:53:31 +0000
@@ -17651,7 +17722,7 @@ chore: release v100.3.0
 
 ---
 
-## Commit 761: chore: update changelog for v100.2.0
+## Commit 764: chore: update changelog for v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:05 +0000
@@ -17670,7 +17741,7 @@ chore: update changelog for v100.2.0
 
 ---
 
-## Commit 762: chore: update commit history for v100.2.0
+## Commit 765: chore: update commit history for v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:04 +0000
@@ -17689,7 +17760,7 @@ chore: update commit history for v100.2.0
 
 ---
 
-## Commit 763: chore: release v100.2.0
+## Commit 766: chore: release v100.2.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:28:03 +0000
@@ -17708,7 +17779,7 @@ chore: release v100.2.0
 
 ---
 
-## Commit 764: chore: update commit history
+## Commit 767: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:27:25 +0000
@@ -17727,7 +17798,7 @@ chore: update commit history
 
 ---
 
-## Commit 765: Merge pull request from Linkumori/master
+## Commit 768: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:57:11 +0530
@@ -17746,7 +17817,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 766: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 769: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:56:37 +0530
@@ -17765,7 +17836,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 767: Merge branch 'main' into master
+## Commit 770: Merge branch 'main' into master
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 21:56:23 +0530
@@ -17784,7 +17855,7 @@ Merge branch 'main' into master
 
 ---
 
-## Commit 768: chore: update commit history
+## Commit 771: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:25:29 +0000
@@ -17803,7 +17874,7 @@ chore: update commit history
 
 ---
 
-## Commit 769: chore: update commit history
+## Commit 772: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:09:29 +0000
@@ -17822,7 +17893,7 @@ chore: update commit history
 
 ---
 
-## Commit 770: chore: update commit history
+## Commit 773: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 11:52:13 +0000
@@ -17841,7 +17912,7 @@ chore: update commit history
 
 ---
 
-## Commit 771: chore: update changelog for v100.1.0
+## Commit 774: chore: update changelog for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:21 +0000
@@ -17860,7 +17931,7 @@ chore: update changelog for v100.1.0
 
 ---
 
-## Commit 772: chore: update commit history for v100.1.0
+## Commit 775: chore: update commit history for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:20 +0000
@@ -17879,7 +17950,7 @@ chore: update commit history for v100.1.0
 
 ---
 
-## Commit 773: chore: release v100.1.0
+## Commit 776: chore: release v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:19 +0000
@@ -17898,7 +17969,7 @@ chore: release v100.1.0
 
 ---
 
-## Commit 774: chore: update changelog for v100.1.0
+## Commit 777: chore: update changelog for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:21 +0000
@@ -17917,7 +17988,7 @@ chore: update changelog for v100.1.0
 
 ---
 
-## Commit 775: chore: update commit history for v100.1.0
+## Commit 778: chore: update commit history for v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:20 +0000
@@ -17936,7 +18007,7 @@ chore: update commit history for v100.1.0
 
 ---
 
-## Commit 776: chore: release v100.1.0
+## Commit 779: chore: release v100.1.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 16:18:19 +0000
@@ -17955,7 +18026,7 @@ chore: release v100.1.0
 
 ---
 
-## Commit 777: chore: update commit history
+## Commit 780: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:30:35 +0000
@@ -17974,7 +18045,7 @@ chore: update commit history
 
 ---
 
-## Commit 778: ci: skip redundant rule-apply calls and reduce sleeps in CI mode
+## Commit 781: ci: skip redundant rule-apply calls and reduce sleeps in CI mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:59:42 +0530
@@ -17993,7 +18064,7 @@ ci: skip redundant rule-apply calls and reduce sleeps in CI mode
 
 ---
 
-## Commit 779: chore: update commit history
+## Commit 782: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:14:39 +0000
@@ -18012,7 +18083,7 @@ chore: update commit history
 
 ---
 
-## Commit 780: ci: log live progress while waiting for regression suite
+## Commit 783: ci: log live progress while waiting for regression suite
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:44:23 +0530
@@ -18031,7 +18102,7 @@ ci: log live progress while waiting for regression suite
 
 ---
 
-## Commit 781: chore: update commit history
+## Commit 784: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:13:27 +0000
@@ -18050,7 +18121,7 @@ chore: update commit history
 
 ---
 
-## Commit 782: ci: auto-detect Firefox binary path per platform
+## Commit 785: ci: auto-detect Firefox binary path per platform
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:43:10 +0530
@@ -18069,7 +18140,7 @@ ci: auto-detect Firefox binary path per platform
 
 ---
 
-## Commit 783: chore: update commit history
+## Commit 786: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 14:10:31 +0000
@@ -18088,7 +18159,7 @@ chore: update commit history
 
 ---
 
-## Commit 784: ci: skip tab navigation for non-blocked tests in CI mode
+## Commit 787: ci: skip tab navigation for non-blocked tests in CI mode
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:40:11 +0530
@@ -18108,7 +18179,7 @@ ci: skip tab navigation for non-blocked tests in CI mode
 
 ---
 
-## Commit 785: chore: update commit history
+## Commit 788: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:49:56 +0000
@@ -18127,7 +18198,7 @@ chore: update commit history
 
 ---
 
-## Commit 786: ci: add regression test server
+## Commit 789: ci: add regression test server
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 19:19:39 +0530
@@ -18146,7 +18217,7 @@ ci: add regression test server
 
 ---
 
-## Commit 787: chore: update commit history
+## Commit 790: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:11:07 +0000
@@ -18165,7 +18236,7 @@ chore: update commit history
 
 ---
 
-## Commit 788: ci: use browser-actions to install Firefox and geckodriver
+## Commit 791: ci: use browser-actions to install Firefox and geckodriver
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 18:40:51 +0530
@@ -18184,7 +18255,7 @@ ci: use browser-actions to install Firefox and geckodriver
 
 ---
 
-## Commit 789: chore: update commit history
+## Commit 792: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 13:09:29 +0000
@@ -18203,7 +18274,7 @@ chore: update commit history
 
 ---
 
-## Commit 790: ci: add Firefox regression test workflow and CI runner
+## Commit 793: ci: add Firefox regression test workflow and CI runner
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 18:39:10 +0530
@@ -18226,7 +18297,7 @@ ci: add Firefox regression test workflow and CI runner
 
 ---
 
-## Commit 791: chore: update commit history
+## Commit 794: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 11:52:13 +0000
@@ -18245,7 +18316,7 @@ chore: update commit history
 
 ---
 
-## Commit 792: fix: untyped removeparam rules default to document type only
+## Commit 795: fix: untyped removeparam rules default to document type only
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 17:22:01 +0530
@@ -18264,7 +18335,7 @@ fix: untyped removeparam rules default to document type only
 
 ---
 
-## Commit 793: chore: update commit history
+## Commit 796: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 11:41:05 +0000
@@ -18283,7 +18354,7 @@ chore: update commit history
 
 ---
 
-## Commit 794: fix: regression suite, URL filter interoperability, and AdGuard spec compliance
+## Commit 797: fix: regression suite, URL filter interoperability, and AdGuard spec compliance
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 17:09:03 +0530
@@ -18305,7 +18376,7 @@ fix: regression suite, URL filter interoperability, and AdGuard spec compliance
 
 ---
 
-## Commit 795: chore: update changelog for v100.0.4
+## Commit 798: chore: update changelog for v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:56 +0000
@@ -18324,7 +18395,7 @@ chore: update changelog for v100.0.4
 
 ---
 
-## Commit 796: chore: update commit history for v100.0.4
+## Commit 799: chore: update commit history for v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:55 +0000
@@ -18343,7 +18414,7 @@ chore: update commit history for v100.0.4
 
 ---
 
-## Commit 797: chore: release v100.0.4
+## Commit 800: chore: release v100.0.4
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:06:54 +0000
@@ -18362,7 +18433,7 @@ chore: release v100.0.4
 
 ---
 
-## Commit 798: chore: update commit history
+## Commit 801: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 05:05:19 +0000
@@ -18381,7 +18452,7 @@ chore: update commit history
 
 ---
 
-## Commit 799: Merge pull request from Linkumori/master: add regression suite
+## Commit 802: Merge pull request from Linkumori/master: add regression suite
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:35:05 +0530
@@ -18400,7 +18471,7 @@ Merge pull request from Linkumori/master: add regression suite
 
 ---
 
-## Commit 800: chore: update commit history
+## Commit 803: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 04:45:00 +0000
@@ -18419,7 +18490,7 @@ chore: update commit history
 
 ---
 
-## Commit 801: exclude regression suite from builds
+## Commit 804: exclude regression suite from builds
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:14:47 +0530
@@ -18440,7 +18511,7 @@ exclude regression suite from builds
 
 ---
 
-## Commit 802: chore: update commit history
+## Commit 805: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-16 04:40:36 +0000
@@ -18459,7 +18530,7 @@ chore: update commit history
 
 ---
 
-## Commit 803: address regression suite review feedback
+## Commit 806: address regression suite review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 10:10:18 +0530
@@ -18539,7 +18610,7 @@ address regression suite review feedback
 
 ---
 
-## Commit 804: chore: update commit history
+## Commit 807: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 19:00:52 +0000
@@ -18558,7 +18629,7 @@ chore: update commit history
 
 ---
 
-## Commit 805: add in-extension regression suite runner
+## Commit 808: add in-extension regression suite runner
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-16 00:30:34 +0530
@@ -18584,7 +18655,7 @@ add in-extension regression suite runner
 
 ---
 
-## Commit 806: chore: update commit history
+## Commit 809: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 13:02:17 +0000
@@ -18603,7 +18674,7 @@ chore: update commit history
 
 ---
 
-## Commit 807: chore: update changelog for v100.0.3
+## Commit 810: chore: update changelog for v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:10 +0000
@@ -18622,7 +18693,7 @@ chore: update changelog for v100.0.3
 
 ---
 
-## Commit 808: chore: update commit history for v100.0.3
+## Commit 811: chore: update commit history for v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:08 +0000
@@ -18641,7 +18712,7 @@ chore: update commit history for v100.0.3
 
 ---
 
-## Commit 809: chore: release v100.0.3
+## Commit 812: chore: release v100.0.3
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:48:07 +0000
@@ -18661,7 +18732,7 @@ chore: release v100.0.3
 
 ---
 
-## Commit 810: chore: update commit history
+## Commit 813: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:47:13 +0000
@@ -18680,7 +18751,7 @@ chore: update commit history
 
 ---
 
-## Commit 811: Merge pull request from Linkumori/master
+## Commit 814: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:16:58 +0530
@@ -18699,7 +18770,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 812: chore: update commit history
+## Commit 815: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:46:00 +0000
@@ -18718,7 +18789,7 @@ chore: update commit history
 
 ---
 
-## Commit 813: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 816: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:15:46 +0530
@@ -18737,7 +18808,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 814: remove inferred main frame source fallback
+## Commit 817: remove inferred main frame source fallback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:15:36 +0530
@@ -18757,7 +18828,7 @@ remove inferred main frame source fallback
 
 ---
 
-## Commit 815: chore: update commit history
+## Commit 818: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:39:05 +0000
@@ -18776,7 +18847,7 @@ chore: update commit history
 
 ---
 
-## Commit 816: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 819: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:08:40 +0530
@@ -18795,7 +18866,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 817: address pr review feedback
+## Commit 820: address pr review feedback
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 18:07:47 +0530
@@ -18818,7 +18889,7 @@ address pr review feedback
 
 ---
 
-## Commit 818: chore: update commit history
+## Commit 821: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-15 12:28:16 +0000
@@ -18837,7 +18908,7 @@ chore: update commit history
 
 ---
 
-## Commit 819: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 822: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 17:57:40 +0530
@@ -18856,7 +18927,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 820: fix url filter syntax handling and provider indexing
+## Commit 823: fix url filter syntax handling and provider indexing
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-15 17:57:16 +0530
@@ -18882,7 +18953,7 @@ fix url filter syntax handling and provider indexing
 
 ---
 
-## Commit 821: chore: update commit history
+## Commit 824: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:07:19 +0000
@@ -18901,7 +18972,7 @@ chore: update commit history
 
 ---
 
-## Commit 822: chore: update changelog for v100.0.2
+## Commit 825: chore: update changelog for v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:52 +0000
@@ -18920,7 +18991,7 @@ chore: update changelog for v100.0.2
 
 ---
 
-## Commit 823: chore: update commit history for v100.0.2
+## Commit 826: chore: update commit history for v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:51 +0000
@@ -18939,7 +19010,7 @@ chore: update commit history for v100.0.2
 
 ---
 
-## Commit 824: chore: release v100.0.2
+## Commit 827: chore: release v100.0.2
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 19:05:50 +0000
@@ -18959,7 +19030,7 @@ chore: release v100.0.2
 
 ---
 
-## Commit 825: chore: update commit history
+## Commit 828: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 16:17:21 +0000
@@ -18978,7 +19049,7 @@ chore: update commit history
 
 ---
 
-## Commit 826: Merge pull request from Linkumori/master
+## Commit 829: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 21:46:49 +0530
@@ -18997,7 +19068,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 827: chore: update commit history
+## Commit 830: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 16:16:25 +0000
@@ -19016,7 +19087,7 @@ chore: update commit history
 
 ---
 
-## Commit 828: recompile from same source code using new version of fontforge
+## Commit 831: recompile from same source code using new version of fontforge
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 21:44:45 +0530
@@ -19035,7 +19106,7 @@ recompile from same source code using new version of fontforge
 
 ---
 
-## Commit 829: chore: update changelog for v100.0.1
+## Commit 832: chore: update changelog for v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:13 +0000
@@ -19054,7 +19125,7 @@ chore: update changelog for v100.0.1
 
 ---
 
-## Commit 830: chore: update commit history for v100.0.1
+## Commit 833: chore: update commit history for v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:12 +0000
@@ -19073,7 +19144,7 @@ chore: update commit history for v100.0.1
 
 ---
 
-## Commit 831: chore: release v100.0.1
+## Commit 834: chore: release v100.0.1
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:22:11 +0000
@@ -19092,7 +19163,7 @@ chore: release v100.0.1
 
 ---
 
-## Commit 832: chore: update commit history
+## Commit 835: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:20:21 +0000
@@ -19111,7 +19182,7 @@ chore: update commit history
 
 ---
 
-## Commit 833: Merge pull request from Linkumori/master
+## Commit 836: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:50:04 +0530
@@ -19130,7 +19201,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 834: chore: update commit history
+## Commit 837: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 09:58:03 +0000
@@ -19149,7 +19220,7 @@ chore: update commit history
 
 ---
 
-## Commit 835: chore: update commit history
+## Commit 838: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:12:30 +0000
@@ -19168,7 +19239,7 @@ chore: update commit history
 
 ---
 
-## Commit 836: changed to manfiest.json
+## Commit 839: changed to manfiest.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:41:31 +0530
@@ -19187,7 +19258,7 @@ changed to manfiest.json
 
 ---
 
-## Commit 837: chore: update commit history
+## Commit 840: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 13:11:43 +0000
@@ -19206,7 +19277,7 @@ chore: update commit history
 
 ---
 
-## Commit 838: ci: add stable and patch version semantics
+## Commit 841: ci: add stable and patch version semantics
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 18:41:19 +0530
@@ -19225,7 +19296,7 @@ ci: add stable and patch version semantics
 
 ---
 
-## Commit 839: chore: update commit history
+## Commit 842: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 09:58:03 +0000
@@ -19244,7 +19315,7 @@ chore: update commit history
 
 ---
 
-## Commit 840: Merge pull request from Linkumori/master
+## Commit 843: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 15:27:51 +0530
@@ -19263,7 +19334,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 841: chore: update commit history
+## Commit 844: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 09:11:54 +0000
@@ -19282,7 +19353,7 @@ chore: update commit history
 
 ---
 
-## Commit 842: fix inaccuracy in README.MD
+## Commit 845: fix inaccuracy in README.MD
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 14:41:08 +0530
@@ -19301,7 +19372,7 @@ fix inaccuracy in README.MD
 
 ---
 
-## Commit 843: chore: update commit history
+## Commit 846: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:28:26 +0000
@@ -19320,7 +19391,7 @@ chore: update commit history
 
 ---
 
-## Commit 844: updated package-lock.json
+## Commit 847: updated package-lock.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:57:46 +0530
@@ -19339,7 +19410,7 @@ updated package-lock.json
 
 ---
 
-## Commit 845: chore: update changelog for v67.0
+## Commit 848: chore: update changelog for v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:38 +0000
@@ -19358,7 +19429,7 @@ chore: update changelog for v67.0
 
 ---
 
-## Commit 846: chore: update commit history for v67.0
+## Commit 849: chore: update commit history for v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:36 +0000
@@ -19377,7 +19448,7 @@ chore: update commit history for v67.0
 
 ---
 
-## Commit 847: chore: release v67.0
+## Commit 850: chore: release v67.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:12:35 +0000
@@ -19396,7 +19467,7 @@ chore: release v67.0
 
 ---
 
-## Commit 848: chore: update commit history
+## Commit 851: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:10:40 +0000
@@ -19415,7 +19486,7 @@ chore: update commit history
 
 ---
 
-## Commit 849: Merge pull request from Linkumori/master
+## Commit 852: Merge pull request from Linkumori/master
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:40:21 +0530
@@ -19434,7 +19505,7 @@ Merge pull request from Linkumori/master
 
 ---
 
-## Commit 850: chore: update commit history
+## Commit 853: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:09:44 +0000
@@ -19453,7 +19524,7 @@ chore: update commit history
 
 ---
 
-## Commit 851: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 854: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:38:48 +0530
@@ -19472,7 +19543,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 852: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 855: Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:38:08 +0530
@@ -19491,7 +19562,7 @@ Merge branch 'main' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 853: chore: update commit history
+## Commit 856: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:07:53 +0000
@@ -19510,7 +19581,7 @@ chore: update commit history
 
 ---
 
-## Commit 854: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
+## Commit 857: Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:37:38 +0530
@@ -19529,7 +19600,7 @@ Merge branch 'master' of https://github.com/Linkumori/Linkumori-Addon
 
 ---
 
-## Commit 855: data: refresh bundled provider rules
+## Commit 858: data: refresh bundled provider rules
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:37:17 +0530
@@ -19549,7 +19620,7 @@ data: refresh bundled provider rules
 
 ---
 
-## Commit 856: chore: update commit history
+## Commit 859: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:06:16 +0000
@@ -19568,7 +19639,7 @@ chore: update commit history
 
 ---
 
-## Commit 857: Merge pull request from Linkumori/master refactor: unify url filter rules under ClearURLsData
+## Commit 860: Merge pull request from Linkumori/master refactor: unify url filter rules under ClearURLsData
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:36:01 +0530
@@ -19587,7 +19658,7 @@ Merge pull request from Linkumori/master refactor: unify url filter rules under 
 
 ---
 
-## Commit 858: chore: update commit history
+## Commit 861: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 08:03:32 +0000
@@ -19606,7 +19677,7 @@ chore: update commit history
 
 ---
 
-## Commit 859: fix: address PR review findings
+## Commit 862: fix: address PR review findings
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:33:12 +0530
@@ -19628,7 +19699,7 @@ fix: address PR review findings
 
 ---
 
-## Commit 860: chore: update commit history
+## Commit 863: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:54:31 +0000
@@ -19647,7 +19718,7 @@ chore: update commit history
 
 ---
 
-## Commit 861: fix: align settings import with unified ClearURLsData
+## Commit 864: fix: align settings import with unified ClearURLsData
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:24:09 +0530
@@ -19667,7 +19738,7 @@ fix: align settings import with unified ClearURLsData
 
 ---
 
-## Commit 862: chore: update commit history
+## Commit 865: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:50:09 +0000
@@ -19686,7 +19757,7 @@ chore: update commit history
 
 ---
 
-## Commit 863: refactor: unify CLI clearurls URL filter output
+## Commit 866: refactor: unify CLI clearurls URL filter output
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:19:44 +0530
@@ -19708,7 +19779,7 @@ refactor: unify CLI clearurls URL filter output
 
 ---
 
-## Commit 864: chore: update commit history
+## Commit 867: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:44:13 +0000
@@ -19727,7 +19798,7 @@ chore: update commit history
 
 ---
 
-## Commit 865: refactor: unify url filter rules under ClearURLsData
+## Commit 868: refactor: unify url filter rules under ClearURLsData
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 13:13:40 +0530
@@ -19754,7 +19825,7 @@ refactor: unify url filter rules under ClearURLsData
 
 ---
 
-## Commit 866: chore: update commit history
+## Commit 869: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 07:21:17 +0000
@@ -19773,7 +19844,7 @@ chore: update commit history
 
 ---
 
-## Commit 867: docs: add maintainer wiki and refresh rule syntax
+## Commit 870: docs: add maintainer wiki and refresh rule syntax
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 12:50:52 +0530
@@ -19801,7 +19872,7 @@ docs: add maintainer wiki and refresh rule syntax
 
 ---
 
-## Commit 868: chore: update commit history
+## Commit 871: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 06:27:35 +0000
@@ -19820,7 +19891,7 @@ chore: update commit history
 
 ---
 
-## Commit 869: Tighten index pattern extraction
+## Commit 872: Tighten index pattern extraction
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 11:57:17 +0530
@@ -19841,7 +19912,7 @@ Tighten index pattern extraction
 
 ---
 
-## Commit 870: chore: update commit history
+## Commit 873: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 05:49:29 +0000
@@ -19860,7 +19931,7 @@ chore: update commit history
 
 ---
 
-## Commit 871: Improve trie persistence and index pattern generation
+## Commit 874: Improve trie persistence and index pattern generation
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 11:18:32 +0530
@@ -19884,7 +19955,7 @@ Improve trie persistence and index pattern generation
 
 ---
 
-## Commit 872: removed more stuff for enchanced speed
+## Commit 875: removed more stuff for enchanced speed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 07:47:46 +0530
@@ -19903,7 +19974,7 @@ removed more stuff for enchanced speed
 
 ---
 
-## Commit 873: chore: update changelog for v66.0
+## Commit 876: chore: update changelog for v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:23 +0000
@@ -19922,7 +19993,7 @@ chore: update changelog for v66.0
 
 ---
 
-## Commit 874: chore: update commit history for v66.0
+## Commit 877: chore: update commit history for v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:22 +0000
@@ -19941,7 +20012,7 @@ chore: update commit history for v66.0
 
 ---
 
-## Commit 875: chore: release v66.0
+## Commit 878: chore: release v66.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-13 00:51:21 +0000
@@ -19960,7 +20031,7 @@ chore: release v66.0
 
 ---
 
-## Commit 876: chore: update commit history
+## Commit 879: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 19:34:58 +0000
@@ -19979,7 +20050,7 @@ chore: update commit history
 
 ---
 
-## Commit 877: updated index logic and update matching logic
+## Commit 880: updated index logic and update matching logic
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 01:04:15 +0530
@@ -20001,7 +20072,7 @@ updated index logic and update matching logic
 
 ---
 
-## Commit 878: chore: update commit history
+## Commit 881: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:56:22 +0000
@@ -20020,7 +20091,7 @@ chore: update commit history
 
 ---
 
-## Commit 879: removed useless fuction to get best speed
+## Commit 882: removed useless fuction to get best speed
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 00:25:38 +0530
@@ -20039,7 +20110,7 @@ removed useless fuction to get best speed
 
 ---
 
-## Commit 880: chore: update changelog for v65.0
+## Commit 883: chore: update changelog for v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:51 +0000
@@ -20058,7 +20129,7 @@ chore: update changelog for v65.0
 
 ---
 
-## Commit 881: chore: update commit history for v65.0
+## Commit 884: chore: update commit history for v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:50 +0000
@@ -20077,7 +20148,7 @@ chore: update commit history for v65.0
 
 ---
 
-## Commit 882: chore: release v65.0
+## Commit 885: chore: release v65.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:42:49 +0000
@@ -20096,7 +20167,7 @@ chore: release v65.0
 
 ---
 
-## Commit 883: chore: update commit history
+## Commit 886: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 18:40:38 +0000
@@ -20115,7 +20186,7 @@ chore: update commit history
 
 ---
 
-## Commit 884: add rules with index with cli updated
+## Commit 887: add rules with index with cli updated
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-13 00:03:18 +0530
@@ -20136,7 +20207,7 @@ add rules with index with cli updated
 
 ---
 
-## Commit 885: feat: updated all translation added multiple indexpattern in one provider and some bug fixes
+## Commit 888: feat: updated all translation added multiple indexpattern in one provider and some bug fixes
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 23:37:07 +0530
@@ -20211,7 +20282,7 @@ feat: updated all translation added multiple indexpattern in one provider and so
 
 ---
 
-## Commit 886: chore: update commit history
+## Commit 889: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 15:54:55 +0000
@@ -20230,7 +20301,7 @@ chore: update commit history
 
 ---
 
-## Commit 887: feat: added index pattern in other subsytem
+## Commit 890: feat: added index pattern in other subsytem
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 20:33:43 +0530
@@ -20253,7 +20324,7 @@ feat: added index pattern in other subsytem
 
 ---
 
-## Commit 888: chore: update commit history
+## Commit 891: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 15:44:35 +0000
@@ -20272,7 +20343,7 @@ chore: update commit history
 
 ---
 
-## Commit 889: chore: update changelog for v64.0
+## Commit 892: chore: update changelog for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:08 +0000
@@ -20291,7 +20362,7 @@ chore: update changelog for v64.0
 
 ---
 
-## Commit 890: chore: update commit history for v64.0
+## Commit 893: chore: update commit history for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
@@ -20310,7 +20381,7 @@ chore: update commit history for v64.0
 
 ---
 
-## Commit 891: chore: release v64.0
+## Commit 894: chore: release v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
@@ -20329,7 +20400,7 @@ chore: release v64.0
 
 ---
 
-## Commit 892: chore: update changelog for v63.0
+## Commit 895: chore: update changelog for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:25 +0000
@@ -20348,7 +20419,7 @@ chore: update changelog for v63.0
 
 ---
 
-## Commit 893: chore: update commit history for v63.0
+## Commit 896: chore: update commit history for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:24 +0000
@@ -20367,7 +20438,7 @@ chore: update commit history for v63.0
 
 ---
 
-## Commit 894: chore: release v63.0
+## Commit 897: chore: release v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:23 +0000
@@ -20386,7 +20457,7 @@ chore: release v63.0
 
 ---
 
-## Commit 895: chore: update commit history
+## Commit 898: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:41:48 +0000
@@ -20405,7 +20476,7 @@ chore: update commit history
 
 ---
 
-## Commit 896: change linkumori to "ClearURLs(Linkumori)" in manifest.json
+## Commit 899: change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 13:11:01 +0530
@@ -20424,7 +20495,7 @@ change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 ---
 
-## Commit 897: chore: update commit history
+## Commit 900: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:49:46 +0000
@@ -20443,7 +20514,7 @@ chore: update commit history
 
 ---
 
-## Commit 898: Merge pull request from Linkumori/subham8907-patch-1
+## Commit 901: Merge pull request from Linkumori/subham8907-patch-1
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:19:24 +0530
@@ -20462,7 +20533,7 @@ Merge pull request from Linkumori/subham8907-patch-1
 
 ---
 
-## Commit 899: chore: update commit history
+## Commit 902: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:38:14 +0000
@@ -20481,7 +20552,7 @@ chore: update commit history
 
 ---
 
-## Commit 900: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns ── Problem ────────────────────────────────────────────────────────── providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes: 1. Alternation groups like (?:youtube\.com
+## Commit 903: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns ── Problem ────────────────────────────────────────────────────────── providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes: 1. Alternation groups like (?:youtube\.com
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:07:56 +0530
@@ -20500,7 +20571,7 @@ feat(provider-index): replace regex-heuristic token extraction with explicit ind
 
 ---
 
-## Commit 901: chore: update changelog for v62.0
+## Commit 904: chore: update changelog for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:30 +0000
@@ -20519,7 +20590,7 @@ chore: update changelog for v62.0
 
 ---
 
-## Commit 902: chore: update commit history for v62.0
+## Commit 905: chore: update commit history for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:29 +0000
@@ -20538,7 +20609,7 @@ chore: update commit history for v62.0
 
 ---
 
-## Commit 903: chore: release v62.0
+## Commit 906: chore: release v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:27 +0000
@@ -20557,7 +20628,7 @@ chore: release v62.0
 
 ---
 
-## Commit 904: chore: update commit history
+## Commit 907: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:20:18 +0000
@@ -20576,7 +20647,7 @@ chore: update commit history
 
 ---
 
-## Commit 905: chore: update the extension manifest
+## Commit 908: chore: update the extension manifest
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 20:50:00 +0530
@@ -20595,7 +20666,7 @@ chore: update the extension manifest
 
 ---
 
-## Commit 906: chore: update commit history
+## Commit 909: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 09:11:05 +0000
@@ -20614,7 +20685,7 @@ chore: update commit history
 
 ---
 
-## Commit 907: chore: update changelog for v60.0
+## Commit 910: chore: update changelog for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:28 +0000
@@ -20633,7 +20704,7 @@ chore: update changelog for v60.0
 
 ---
 
-## Commit 908: chore: update commit history for v60.0
+## Commit 911: chore: update commit history for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:27 +0000
@@ -20652,7 +20723,7 @@ chore: update commit history for v60.0
 
 ---
 
-## Commit 909: chore: release v60.0
+## Commit 912: chore: release v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:26 +0000
@@ -20671,7 +20742,7 @@ chore: release v60.0
 
 ---
 
-## Commit 910: chore: update commit history
+## Commit 913: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 11:21:19 +0000
@@ -20690,7 +20761,7 @@ chore: update commit history
 
 ---
 
-## Commit 911: Merge pull request from Linkumori/beta_performance
+## Commit 914: Merge pull request from Linkumori/beta_performance
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:51:07 +0530
@@ -20709,7 +20780,7 @@ Merge pull request from Linkumori/beta_performance
 
 ---
 
-## Commit 912: chore: update commit history
+## Commit 915: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 10:57:16 +0000
@@ -20728,7 +20799,7 @@ chore: update commit history
 
 ---
 
-## Commit 913: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
+## Commit 916: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:04:46 +0530
@@ -20747,7 +20818,7 @@ we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-
 
 ---
 
-## Commit 914: chore: update commit history
+## Commit 917: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 18:38:01 +0000
@@ -20766,7 +20837,7 @@ chore: update commit history
 
 ---
 
-## Commit 915: Update privacy-policy-cli.md
+## Commit 918: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 00:07:47 +0530
@@ -20785,7 +20856,7 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 916: chore: update changelog for v59.0
+## Commit 919: chore: update changelog for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:26 +0000
@@ -20804,7 +20875,7 @@ chore: update changelog for v59.0
 
 ---
 
-## Commit 917: chore: update commit history for v59.0
+## Commit 920: chore: update commit history for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:25 +0000
@@ -20823,7 +20894,7 @@ chore: update commit history for v59.0
 
 ---
 
-## Commit 918: chore: release v59.0
+## Commit 921: chore: release v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:24 +0000
@@ -20842,7 +20913,7 @@ chore: release v59.0
 
 ---
 
-## Commit 919: chore: update commit history
+## Commit 922: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:11:57 +0000
@@ -20861,7 +20932,7 @@ chore: update commit history
 
 ---
 
-## Commit 920: feat: add Firefox CNAME uncloaking controls
+## Commit 923: feat: add Firefox CNAME uncloaking controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 16:40:55 +0530
@@ -20939,7 +21010,7 @@ feat: add Firefox CNAME uncloaking controls
 
 ---
 
-## Commit 921: chore: update changelog for v58.0
+## Commit 924: chore: update changelog for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:57 +0000
@@ -20958,7 +21029,7 @@ chore: update changelog for v58.0
 
 ---
 
-## Commit 922: chore: update commit history for v58.0
+## Commit 925: chore: update commit history for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:55 +0000
@@ -20977,7 +21048,7 @@ chore: update commit history for v58.0
 
 ---
 
-## Commit 923: chore: release v58.0
+## Commit 926: chore: release v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:54 +0000
@@ -20996,7 +21067,7 @@ chore: release v58.0
 
 ---
 
-## Commit 924: chore: update commit history
+## Commit 927: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 06:53:53 +0000
@@ -21015,7 +21086,7 @@ chore: update commit history
 
 ---
 
-## Commit 925: Update privacy-policy-cli.md
+## Commit 928: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 12:23:34 +0530
@@ -21034,7 +21105,7 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 926: chore: update changelog for v57.0
+## Commit 929: chore: update changelog for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:48 +0000
@@ -21053,7 +21124,7 @@ chore: update changelog for v57.0
 
 ---
 
-## Commit 927: chore: update commit history for v57.0
+## Commit 930: chore: update commit history for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:47 +0000
@@ -21072,7 +21143,7 @@ chore: update commit history for v57.0
 
 ---
 
-## Commit 928: chore: release v57.0
+## Commit 931: chore: release v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:46 +0000
@@ -21091,7 +21162,7 @@ chore: release v57.0
 
 ---
 
-## Commit 929: chore: update commit history
+## Commit 932: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:03 +0000
@@ -21110,7 +21181,7 @@ chore: update commit history
 
 ---
 
-## Commit 930: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
+## Commit 933: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 11:21:50 +0530
@@ -21196,7 +21267,7 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ---
 
-## Commit 931: chore: update commit history
+## Commit 934: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 03:39:22 +0000
@@ -21215,7 +21286,7 @@ chore: update commit history
 
 ---
 
-## Commit 932: Fix deprecated Components warning
+## Commit 935: Fix deprecated Components warning
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 09:07:23 +0530
@@ -21236,7 +21307,7 @@ Fix deprecated Components warning
 
 ---
 
-## Commit 933: chore: update commit history
+## Commit 936: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 02:27:49 +0000
@@ -21255,7 +21326,7 @@ chore: update commit history
 
 ---
 
-## Commit 934: reverse some change made earlier reapplied
+## Commit 937: reverse some change made earlier reapplied
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:56:57 +0530
@@ -21274,7 +21345,7 @@ reverse some change made earlier reapplied
 
 ---
 
-## Commit 935: chore: update commit history
+## Commit 938: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 01:59:03 +0000
@@ -21293,7 +21364,7 @@ chore: update commit history
 
 ---
 
-## Commit 936: fix: update link audit behavior
+## Commit 939: fix: update link audit behavior
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:28:53 +0530
@@ -21312,7 +21383,7 @@ fix: update link audit behavior
 
 ---
 
-## Commit 937: chore: update changelog for v56.0
+## Commit 940: chore: update changelog for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:21 +0000
@@ -21331,7 +21402,7 @@ chore: update changelog for v56.0
 
 ---
 
-## Commit 938: chore: update commit history for v56.0
+## Commit 941: chore: update commit history for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:19 +0000
@@ -21350,7 +21421,7 @@ chore: update commit history for v56.0
 
 ---
 
-## Commit 939: chore: release v56.0
+## Commit 942: chore: release v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:18 +0000
@@ -21374,7 +21445,7 @@ chore: release v56.0
 
 ---
 
-## Commit 940: chore: update commit history
+## Commit 943: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:09:44 +0000
@@ -21393,7 +21464,7 @@ chore: update commit history
 
 ---
 
-## Commit 941: chore: update the extension manifest
+## Commit 944: chore: update the extension manifest
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:39:32 +0530
@@ -21412,7 +21483,7 @@ chore: update the extension manifest
 
 ---
 
-## Commit 942: chore: update commit history
+## Commit 945: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:04:03 +0000
@@ -21431,7 +21502,7 @@ chore: update commit history
 
 ---
 
-## Commit 943: chore: release Linkumori
+## Commit 946: chore: release Linkumori
 
 **Author**: subham8907 <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:32:17 +0530
@@ -21731,4 +21802,4 @@ chore: release Linkumori
 
 *End of Commit History*
 
-**Generated by Linkumori CLI** - 2026-10-31T08:11:26.460Z
+**Generated by Linkumori CLI** - 2026-10-31T08:18:43.150Z
