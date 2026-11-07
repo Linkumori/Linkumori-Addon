@@ -47,7 +47,6 @@
         launch: 'Troubleshoot this tab (experimental)',
         nav_label: 'Troubleshoot',
         experimental: 'Experimental',
-        experimental_warning: 'Experimental: this troubleshooter is not fully stable. Its results can be wrong, and it switches rules off while it tests. If something looks wrong afterwards, check your rules in the custom rules editor, or use Stop search to switch them back on.',
         title: 'Tab troubleshooter',
         page: 'Page',
         about_summary: 'How recording works',
