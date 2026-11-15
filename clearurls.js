@@ -1689,11 +1689,57 @@ function applyParamDecisionsToStore(store, decide, rewriteTracker, dedupeKey) {
     return changed;
 }
 
+// Keep the original spelling of query fields that survive a field rewrite.
+// URLSearchParams decodes values as UTF-8, so rebuilding the whole query from
+// it would replace invalid UTF-8 bytes (for example, GBK encoded values) with
+// U+FFFD. Match the surviving parsed entries back to their original raw pairs
+// and serialize only entries that were actually changed.
+function preserveRawQueryEntries(rawQuery, beforeEntries, afterEntries) {
+    const rawEntries = rawQuery ? rawQuery.split('&').filter(entry => entry !== '') : [];
+    const beforeValues = new Map();
+    const afterValues = new Map();
+    const rawEntriesByName = new Map();
+
+    beforeEntries.forEach(([name, value], index) => {
+        if (!beforeValues.has(name)) beforeValues.set(name, []);
+        beforeValues.get(name).push(value);
+        if (!rawEntriesByName.has(name)) rawEntriesByName.set(name, []);
+        rawEntriesByName.get(name).push(rawEntries[index]);
+    });
+    afterEntries.forEach(([name, value]) => {
+        if (!afterValues.has(name)) afterValues.set(name, []);
+        afterValues.get(name).push(value);
+    });
+
+    const unchangedNames = new Set();
+    for (const [name, values] of afterValues) {
+        const previousValues = beforeValues.get(name);
+        if (previousValues && previousValues.length === values.length &&
+            previousValues.every((value, index) => value === values[index])) {
+            unchangedNames.add(name);
+        }
+    }
+
+    const rawEntryOffsets = new Map();
+    return afterEntries.map(([name, value]) => {
+        if (unchangedNames.has(name)) {
+            const offset = rawEntryOffsets.get(name) || 0;
+            const rawEntry = rawEntriesByName.get(name)[offset];
+            rawEntryOffsets.set(name, offset + 1);
+            if (rawEntry !== undefined) return rawEntry;
+        }
+
+        // Match the existing URLSearchParams serializer for rewritten
+        // entries; only untouched entries use their original raw spelling.
+        return value ? name + '=' + encodeURIComponent(value) : name;
+    }).join('&');
+}
+
 // `stepRecorder`, an array, receives the URL before and after each ordered step
 // and after the $removeparam filters (the editor's run-order simulation).
 function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null, isHistoryUpdate = false, stepRecorder = null) {
     let url = pureUrl;
-    let domain = "", fragments = "", fields = "";
+    let domain = "", fragments = "", fields = "", rawFieldsQuery = "";
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
     let linkumoriParamExceptions = provider.getLinkumoriRemoveParamExceptions();
     let changes = false, actionType = null, matchedRuleForTrace = null, matchedRuleSectionForTrace = null;
@@ -1783,7 +1829,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     const buildURLFromParts = () => {
         let finalURL = domain;
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
+        if (rawFieldsQuery !== "") finalURL += "?" + rawFieldsQuery;
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
         return finalURL.replace(/\?&/, "?").replace(/#&/, "#");
     };
@@ -1792,6 +1838,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         if (parsed) return;
         urlObject = new URL(url);
         fields = urlObject.searchParams;
+        rawFieldsQuery = urlObject.search.startsWith('?') ? urlObject.search.slice(1) : urlObject.search;
         fragments = extractFragments(urlObject);
         domain = urlWithoutParamsAndHash(urlObject).toString();
         hadParams = fields.toString() !== "" || fragments.toString() !== "";
@@ -1912,6 +1959,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const { getDecision } = getLinkumoriState();
         const activeRegex = compiled.regex;
         const beforeFields = fields.toString(), beforeFragments = fragments.toString();
+        const beforeFieldEntries = Array.from(fields.entries());
+        const beforeRawFieldsQuery = rawFieldsQuery;
 
         // A provider field-style rule matches against the *key name*.
         // If a $removeparam rule already claimed this key this pass,
@@ -1934,9 +1983,13 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
         applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
         // A step whose output equals its input is no change.
-        const localChange = fields.toString() !== beforeFields || fragments.toString() !== beforeFragments;
+        const fieldsChanged = fields.toString() !== beforeFields;
+        const localChange = fieldsChanged || fragments.toString() !== beforeFragments;
 
         if (localChange) {
+            if (fieldsChanged) {
+                rawFieldsQuery = preserveRawQueryEntries(beforeRawFieldsQuery, beforeFieldEntries, Array.from(fields.entries()));
+            }
             if (rewriteKey) appliedFieldRewrites.add(rewriteKey);
             changes = true;
             fieldsDirty = true;
@@ -1949,9 +2002,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             }
             if (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId)) {
                 let tempURL = domain, tempBeforeURL = domain;
-                if (fields.toString() !== "") tempURL += "?" + fields.toString();
+                if (rawFieldsQuery !== "") tempURL += "?" + rawFieldsQuery;
                 if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                if (beforeRawFieldsQuery !== "") tempBeforeURL += "?" + beforeRawFieldsQuery;
                 if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                 if (!quiet) {
                     providerMatch.matchedRuleId = compiled?.runtimeRuleId || null;
@@ -1983,6 +2036,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const { activeRules: activeLinkumoriRules, activeExceptions: activeLinkumoriExceptions, getDecision: getLinkumoriDecision } = getLinkumoriState();
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
+            const beforeFieldEntries = Array.from(fields.entries());
+            const beforeRawFieldsQuery = rawFieldsQuery;
             let matchedRuleForLog = null, matchedRuleIdForLog = null, matchedRuleDisableIdForLog = null, matchedRuleSectionForLog = null;
             const removeParamRewriteKey = rule => rewriteKeyOf(rule, getLinkumoriRemoveParamTraceName(rule));
             const rewrittenBefore = new Set(appliedFieldRewrites);
@@ -2013,9 +2068,13 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
             applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
-            const localChange = fields.toString() !== beforeFields || fragments.toString() !== beforeFragments;
+            const fieldsChanged = fields.toString() !== beforeFields;
+            const localChange = fieldsChanged || fragments.toString() !== beforeFragments;
 
             if (localChange) {
+                if (fieldsChanged) {
+                    rawFieldsQuery = preserveRawQueryEntries(beforeRawFieldsQuery, beforeFieldEntries, Array.from(fields.entries()));
+                }
                 rewrittenNow.forEach(key => appliedFieldRewrites.add(key));
                 changes = true;
                 fieldsDirty = true;
@@ -2028,9 +2087,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 }
                 if (storage.loggingStatus || isTabTroubleshooterCaptureActive(request?.tabId)) {
                     let tempURL = domain, tempBeforeURL = domain;
-                    if (fields.toString() !== "") tempURL += "?" + fields.toString();
+                    if (rawFieldsQuery !== "") tempURL += "?" + rawFieldsQuery;
                     if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                    if (beforeRawFieldsQuery !== "") tempBeforeURL += "?" + beforeRawFieldsQuery;
                     if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                     if (!quiet) {
                         providerMatch.matchedRuleId = matchedRuleIdForLog;
