@@ -106,6 +106,7 @@ For a deep codebase walkthrough, see the [Linkumori Maintainer Wiki](docs/wiki/R
 Built-in rules ship with the extension and are updated with each release.
 
 Bundled rules, remote rule lists and custom rules all use one JSON format. See the [filter syntax guide](docs/filter-syntax.md). It covers:
+- a plain-language [beginner-to-advanced guide to the Linkumori rules format](docs/linkumori-rules-format-guide.md)
 - providers matched by `domainPatterns` (`||example.com^`) or `urlPattern`
 - `rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections` and `fieldRedirections`
 - `$removeparam` filters with `@@` exceptions, and `$rawrule` patterns and options

@@ -1704,7 +1704,7 @@
     "message": "Paketlenmiş, uzak ve özel kurallardan regex yönlendirmeleri ve etki alanı yönlendirmeleri kullanarak üçüncü taraf aracı yönlendirme ve izleme URL'lerini atlayın. Gerekirse önce kuralları denetleyin, ardından bunları tek tek düzenlemek veya geçersiz kılmak için Özel Kural Düzenleyici'yi kullanın."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "$LINE. satır: \"ruleURL | hashURL\" bekleniyor",
+    "message": "$LINE$. satır: \"ruleURL | hashURL\" bekleniyor",
     "placeholders": {
       "line": {
         "content": "$1",
@@ -1713,7 +1713,7 @@
     }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "$LINE. satır: geçersiz HTTPS hash URL",
+    "message": "$LINE$. satır: geçersiz HTTPS hash URL",
     "placeholders": {
       "line": {
         "content": "$1",
@@ -1722,7 +1722,7 @@
     }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "$LINE. satır: geçersiz HTTPS kural URL",
+    "message": "$LINE$. satır: geçersiz HTTPS kural URL",
     "placeholders": {
       "line": {
         "content": "$1",

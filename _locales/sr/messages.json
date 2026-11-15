@@ -171,10 +171,10 @@
     "message": "Комплетан добављач (блокира цео домен)"
   },
   "customRulesEditor_confirmDelete": {
-    "message": "Да ли сте сигурни да желите да избришете провајдера „КСКСТКНКСКС0КСКСТКНКСКС“?"
+    "message": "Да ли сте сигурни да желите да избришете провајдера „$1“?"
   },
   "customRulesEditor_confirmDeleteAll": {
-    "message": "Да ли сте сигурни да желите да избришете све КСКСТКНКСКС0КСКСТКНКСКС провајдере?"
+    "message": "Да ли сте сигурни да желите да избришете све провајдере (укупно: $1)?"
   },
   "customRulesEditor_copy": {
     "message": "копија"
@@ -228,7 +228,7 @@
     "message": "Уреди добављача"
   },
   "customRulesEditor_editing": {
-    "message": "Уређивање: КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Уређивање: $1"
   },
   "customRulesEditor_emptyDomainPattern": {
     "message": "Обрасци домена не могу бити празни"
@@ -270,7 +270,7 @@
     "message": "Ово ће заменити категорије прилагођених правила укључене у датотеку. Наставити?"
   },
   "customRulesEditor_importFailed": {
-    "message": "Увоз правила није успео: КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Увоз правила није успео: $1"
   },
   "customRulesEditor_importTooltip": {
     "message": "Увезите прилагођена правила из датотеке"
@@ -282,10 +282,10 @@
     "message": "Неважећа структура датотеке: недостају ClearURLs добављачи или прилагођена правила Linkumori URL-а"
   },
   "customRulesEditor_invalidUrlPattern": {
-    "message": "Неважећи регуларни израз УРЛ узорка: КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Неважећи регуларни израз УРЛ узорка: $1"
   },
   "customRulesEditor_jsonError": {
-    "message": "ЈСОН грешка: КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "JSON грешка: $1"
   },
   "customRulesEditor_jsonPlaceholder": {
     "message": "ЈСОН ће се појавити овде..."
@@ -318,13 +318,13 @@
     "message": "Изаберите тип узорка"
   },
   "customRulesEditor_providerHasBothPatternTypes": {
-    "message": "Провајдер „КСКСТКНКСКС0КСКСТКНКСКС“ не може да има и урлПаттерн и домаинПаттернс"
+    "message": "Провајдер „$1“ не може да има и urlPattern и domainPatterns"
   },
   "customRulesEditor_providerHasEmptyDomainPattern": {
-    "message": "Провајдер „КСКСТКНКСКС0КСКСТКНКСКС“ има празне обрасце домена"
+    "message": "Провајдер „$1“ има празне обрасце домена"
   },
   "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
-    "message": "Провајдер „КСКСТКНКСКС0КСКСТКНКСКС“ мора да има или урлПаттерн или домаинПаттернс"
+    "message": "Провајдер „$1“ мора да има или urlPattern или domainPatterns"
   },
   "customRulesEditor_providerName": {
     "message": "Име провајдера *"
@@ -1533,10 +1533,10 @@
     "message": "Онемогући изабрано"
   },
   "providerImport_disableSelectedConfirm": {
-    "message": "Желите ли да онемогућите потписе за КСКСТКНКСКС0КСКСТКНКСКС изабране добављаче?"
+    "message": "Желите ли да онемогућите потписе за изабране добављаче ($1)?"
   },
   "providerImport_disableSelectedResult": {
-    "message": "Онемогућени потписи: КСКСТКНКСКС0КСКСТКНКСКС. Уклоњени одговарајући прилагођени добављачи: КСКСТКНКСКС1КСКСТКНКСКС."
+    "message": "Онемогућени потписи: $1. Уклоњени одговарајући прилагођени добављачи: $2."
   },
   "providerImport_disabledClear": {
     "message": "Обриши све"
@@ -1575,19 +1575,19 @@
     "message": "Овај провајдер нема образац УРЛ/домена и не може се искључити потписом."
   },
   "providerImport_excludedSuccess": {
-    "message": "Потпис добављача је искључен. Уклоњено КСКСТКНКСКС0КСКСТКНКСКС који се подудара са прилагођеним добављачем(има)."
+    "message": "Потпис добављача је искључен. Уклоњено одговарајућих прилагођених добављача: $1."
   },
   "providerImport_existsInCustom": {
     "message": "(постоји у обичају)"
   },
   "providerImport_failed": {
-    "message": "Увоз добављача није успео: КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Увоз добављача није успео: $1"
   },
   "providerImport_import": {
     "message": "Увези изабрано"
   },
   "providerImport_importedCount": {
-    "message": "Увезено: КСКСТКНКСКС0КСКСТКНКСКС добављачи"
+    "message": "Увезено добављача: $1"
   },
   "providerImport_importing": {
     "message": "Увоз..."
@@ -1596,10 +1596,10 @@
     "message": "Учитавање добављача..."
   },
   "providerImport_noProvidersAvailable": {
-    "message": "Нема доступних добављача за правила КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Нема доступних добављача за правила $1"
   },
   "providerImport_noProvidersFound": {
-    "message": "Ниједан добављач није пронађен у правилима КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Ниједан добављач није пронађен у правилима $1"
   },
   "providerImport_noRulesAvailable": {
     "message": "Нема доступних правила за увоз"
@@ -1608,7 +1608,7 @@
     "message": "Нема УРЛ шаблона"
   },
   "providerImport_overwrittenCount": {
-    "message": "Замењено: КСКСТКНКСКС0КСКСТКНКСКС добављачи"
+    "message": "Замењено добављача: $1"
   },
   "providerImport_rules": {
     "message": "правила"
@@ -1623,10 +1623,10 @@
     "message": "Изаберите Све"
   },
   "providerImport_selectedCount": {
-    "message": "Изабрано је КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Изабрано: $1"
   },
   "providerImport_skippedCount": {
-    "message": "Прескочено: КСКСТКНКСКС0КСКСТКНКСКС добављачи"
+    "message": "Прескочено добављача: $1"
   },
   "providerImport_sources": {
     "message": "Извор правила"
@@ -1638,7 +1638,7 @@
     "message": "Завршено"
   },
   "providerList_confirmDelete": {
-    "message": "Да ли сте сигурни да желите да избришете провајдера „КСКСТКНКСКС0КСКСТКНКСКС“?",
+    "message": "Да ли сте сигурни да желите да избришете провајдера „$1“?",
     "placeholders": {
       "providerName": {
         "content": "$1",
@@ -1704,7 +1704,7 @@
     "message": "Заобиђите преусмеравање посредника треће стране и УРЛ-ове за праћење коришћењем преусмеравања редовних израза и преусмеравања домена из скупљених, удаљених и прилагођених правила. Прво проверите правила ако је потребно, а затим користите уређивач прилагођених правила да бисте их појединачно изменили или заменили."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "Ред КСКСТКНКСКС0КСКСТКНКСКС: очекивано „рулеУРЛ | хасхУРЛ“",
+    "message": "Ред $LINE$: очекивано „ruleURL | hashURL“",
     "placeholders": {
       "line": {
         "content": "$1",
@@ -1713,7 +1713,7 @@
     }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "Ред КСКСТКНКСКС0КСКСТКНКСКС: неважећи ХТТПС хеш УРЛ",
+    "message": "Ред $LINE$: неважећи HTTPS хеш УРЛ",
     "placeholders": {
       "line": {
         "content": "$1",
@@ -1722,7 +1722,7 @@
     }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "Ред КСКСТКНКСКС0КСКСТКНКСКС: неважећа УРЛ адреса ХТТПС правила",
+    "message": "Ред $LINE$: неважећа УРЛ адреса HTTPS правила",
     "placeholders": {
       "line": {
         "content": "$1",
@@ -2040,7 +2040,7 @@
     "message": "Неважећи ЈСОН"
   },
   "status_language_changed_success": {
-    "message": "Језик је промењен у КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Језик је успешно промењен у $1"
   },
   "status_load_settings_failed": {
     "message": "Учитавање подешавања није успело"
@@ -2064,7 +2064,7 @@
     "message": "Чување подешавања није успело"
   },
   "status_save_setting_failed": {
-    "message": "Чување подешавања КСКСТКНКСКС0КСКСТКНКСКС није успело",
+    "message": "Чување подешавања $SETTING$ није успело",
     "placeholders": {
       "setting": {
         "content": "$1",
@@ -2253,7 +2253,7 @@
     "message": "Неважећи формат УРЛ-а."
   },
   "watchdog": {
-    "message": "[Линкумори (Чиста УРЛ-ова)]: Надзорни пас је открио проблем и већ није успео КСКСТКНКСКС0КСКСТКНКСКС пута.",
+    "message": "[Linkumori (Clean URLS)]: Надзорни механизам је открио проблем и већ није успео $TIMES$ пута.",
     "placeholders": {
       "times": {
         "content": "$1",
@@ -2673,7 +2673,7 @@
     "message": "удаљена кеш меморија"
   },
   "audit_meta_template": {
-    "message": "КСКСТКНКСКС0КСКСТКНКСКС | провајдери: КСКСТКНКСКС1КСКСТКНКСКС | знакови: КСКСТКНКСКС2КСКСТКНКСКС"
+    "message": "$1 | провајдери: $2 | знакови: $3"
   },
   "audit_status_loading": {
     "message": "Учитавање извора ревизије..."
@@ -2691,7 +2691,7 @@
     "message": "Освежавање извора ревизије није успело."
   },
   "audit_error_bundled_fetch": {
-    "message": "Преузимање скупних правила није успело са статусом КСКСТКНКСКС0КСКСТКНКСКС"
+    "message": "Преузимање уграђених правила није успело са статусом $1"
   },
   "audit_error_final_missing": {
     "message": "Време извођења није вратило ЦлеарУРЛсДата"
