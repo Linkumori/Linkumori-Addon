@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.94.0] - 2026-11-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.93.0...linkumori-v100.94.0))
+### Changed
+- Preserve YAML source during rules builds (`2026-11-20`, hash: [`3a0b874`](https://github.com/Linkumori/Linkumori-Addon/commit/3a0b874))
+- Updated canonical URL cleaning rules source (`2026-11-20`, hash: [`3a0b874`](https://github.com/Linkumori/Linkumori-Addon/commit/3a0b874))
+
 ## [v100.93.0] - 2026-11-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.92.0...linkumori-v100.93.0))
 ### Added
 - Make YAML the canonical rules source (`2026-11-20`, hash: [`8a2564c`](https://github.com/Linkumori/Linkumori-Addon/commit/8a2564c))
