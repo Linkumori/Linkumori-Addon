@@ -16,6 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.93.0] - 2026-11-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.92.0...linkumori-v100.93.0))
+### Added
+- Make YAML the canonical rules source (`2026-11-20`, hash: [`8a2564c`](https://github.com/Linkumori/Linkumori-Addon/commit/8a2564c))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-11-20`, hash: [`8a52a7f`](https://github.com/Linkumori/Linkumori-Addon/commit/8a52a7f))
+- Generated JSON URL cleaning rules export (`2026-11-20`, hash: [`8a2564c`](https://github.com/Linkumori/Linkumori-Addon/commit/8a2564c))
+- Generated JSON URL cleaning rules export (`2026-11-20`, hash: [`8a52a7f`](https://github.com/Linkumori/Linkumori-Addon/commit/8a52a7f))
+- Generated compressed URL cleaning rules bundle (`2026-11-20`, hash: [`8a2564c`](https://github.com/Linkumori/Linkumori-Addon/commit/8a2564c))
+- Generated compressed URL cleaning rules bundle (`2026-11-20`, hash: [`8a52a7f`](https://github.com/Linkumori/Linkumori-Addon/commit/8a52a7f))
+- Updated canonical URL cleaning rules source (`2026-11-20`, hash: [`8a2564c`](https://github.com/Linkumori/Linkumori-Addon/commit/8a2564c))
+- Updated canonical URL cleaning rules source (`2026-11-20`, hash: [`8a52a7f`](https://github.com/Linkumori/Linkumori-Addon/commit/8a52a7f))
+
 ## [v100.92.0] - 2026-11-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.91.0...linkumori-v100.92.0))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-11-18`, hash: [`4d95db7`](https://github.com/Linkumori/Linkumori-Addon/commit/4d95db7))
