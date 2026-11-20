@@ -1549,13 +1549,14 @@ documentation when you run the build process.
     const codec = this.loadLZ4Codec();
     const input = fs.readFileSync(inputFile);
     const compressed = codec.compress(input);
-    fs.writeFileSync(outputFile, compressed);
+    const changed = this.writeFileIfChanged(outputFile, compressed);
 
     return {
       outputFile,
       inputSize: input.length,
       outputSize: compressed.length,
-      ratio: input.length > 0 ? compressed.length / input.length : 1
+      ratio: input.length > 0 ? compressed.length / input.length : 1,
+      changed
     };
   }
 
@@ -1563,14 +1564,22 @@ documentation when you run the build process.
     const codec = this.loadLZ4Codec();
     const input = Buffer.from(String(content || ''), 'utf8');
     const compressed = codec.compress(input);
-    fs.writeFileSync(outputFile, compressed);
+    const changed = this.writeFileIfChanged(outputFile, compressed);
 
     return {
       outputFile,
       inputSize: input.length,
       outputSize: compressed.length,
-      ratio: input.length > 0 ? compressed.length / input.length : 1
+      ratio: input.length > 0 ? compressed.length / input.length : 1,
+      changed
     };
+  }
+
+  writeFileIfChanged(filePath, content) {
+    const next = Buffer.isBuffer(content) ? content : Buffer.from(String(content), 'utf8');
+    if (fs.existsSync(filePath) && fs.readFileSync(filePath).equals(next)) return false;
+    fs.writeFileSync(filePath, content);
+    return true;
   }
 
   readMaybeLZ4Text(filePath) {
@@ -1586,12 +1595,82 @@ documentation when you run the build process.
     const text = String(content || '').replace(/^\uFEFF/, '');
     const extension = path.extname(String(filePath || '')).toLowerCase();
     if (extension === '.yaml' || extension === '.yml') {
-      return YAML.parse(text, { uniqueKeys: true });
+      return YAML.parse(text, { uniqueKeys: true, version: '1.2' });
     }
     return JSON.parse(text);
   }
 
-  convertRulesFormat(inputFile, outputFile, direction) {
+  validateYamlRuleEntryTypes(filePath, text) {
+    const lineCounter = new YAML.LineCounter();
+    const document = YAML.parseDocument(text, {
+      uniqueKeys: true,
+      version: '1.2',
+      lineCounter
+    });
+
+    if (document.errors.length > 0) {
+      const error = document.errors[0];
+      const position = lineCounter.linePos(error.pos?.[0] ?? 0);
+      throw new Error(`${filePath}:${position.line}:${position.col}: ${error.message}`);
+    }
+
+    const root = document.contents;
+    if (!YAML.isMap(root)) return;
+    const providers = root.get('providers', true);
+    if (!YAML.isMap(providers)) return;
+
+    const sections = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
+    const locationFor = node => {
+      const position = lineCounter.linePos(node?.range?.[0] ?? 0);
+      return `${filePath}:${position.line}:${position.col}`;
+    };
+    const typeOf = node => {
+      if (YAML.isMap(node)) return 'mapping';
+      if (YAML.isSeq(node)) return 'sequence';
+      if (YAML.isScalar(node)) {
+        if (node.value === null) return 'null';
+        if (typeof node.value === 'number') return 'number';
+        if (typeof node.value === 'boolean') return 'boolean';
+        return typeof node.value;
+      }
+      return 'unknown value';
+    };
+    const sourceValueOf = node => {
+      const [start, end] = node?.range || [];
+      return Number.isInteger(start) && Number.isInteger(end) ? text.slice(start, end) : '';
+    };
+    const problems = [];
+
+    providers.items.forEach(providerPair => {
+      const providerName = YAML.isScalar(providerPair.key) ? String(providerPair.key.value) : '(unknown provider)';
+      const provider = providerPair.value;
+      if (!YAML.isMap(provider)) return;
+
+      sections.forEach(section => {
+        const list = provider.get(section, true);
+        if (!YAML.isSeq(list)) return;
+        list.items.forEach((entry, index) => {
+          const label = `providers.${providerName}.${section}[${index}]`;
+          if (YAML.isScalar(entry) && typeof entry.value !== 'string') {
+            problems.push(`${locationFor(entry)}: ${label} expected a string or rule object, got ${typeOf(entry)} ${JSON.stringify(sourceValueOf(entry))}; quote it if you intended text`);
+            return;
+          }
+          if (!YAML.isMap(entry)) return;
+
+          const matchPattern = entry.get('matchPattern', true);
+          if (matchPattern !== undefined && (!YAML.isScalar(matchPattern) || typeof matchPattern.value !== 'string')) {
+            problems.push(`${locationFor(matchPattern)}: ${label}.matchPattern expected a string, got ${typeOf(matchPattern)} ${JSON.stringify(sourceValueOf(matchPattern))}; quote it if you intended text`);
+          }
+        });
+      });
+    });
+
+    if (problems.length > 0) {
+      throw new Error(`Invalid YAML rule value(s):\n${problems.map(problem => `  - ${problem}`).join('\n')}`);
+    }
+  }
+
+  async convertRulesFormat(inputFile, outputFile, direction) {
     if (!inputFile) {
       throw new Error(`Missing input file. Usage: ${direction === 'yaml-to-json' ? 'yaml-to-json <input.yaml> [output.json]' : 'json-to-yaml <input.json> [output.yaml]'}`);
     }
@@ -1613,16 +1692,38 @@ documentation when you run the build process.
     if (path.extname(destination).toLowerCase() !== targetExtension) {
       throw new Error(`${direction} output must use the ${targetExtension} extension`);
     }
-    const parsed = this.parseRulesDocument(inputFile);
+    const sourceText = fs.readFileSync(inputFile, 'utf8');
+    if (direction === 'yaml-to-json') {
+      this.validateYamlRuleEntryTypes(inputFile, sourceText);
+      if (!(await this.lintClearURLsRules(inputFile))) {
+        throw new Error(`Rules lint failed for ${inputFile}; output was not written`);
+      }
+    }
+    const parsed = this.parseRulesDocument(inputFile, sourceText);
     const isClearURLsData = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
       && parsed.providers && typeof parsed.providers === 'object' && !Array.isArray(parsed.providers)
       && Object.keys(parsed).every(key => ['cln', 'metadata', 'defaults', 'providers'].includes(key));
+    let outputData = parsed;
+    const isCanonicalYamlSource = direction === 'yaml-to-json' &&
+      path.resolve(inputFile) === path.resolve(this.clearurlsConfig.sourceRulesFile);
+    if (isCanonicalYamlSource && isClearURLsData) {
+      let previousOutput = null;
+      if (fs.existsSync(destination)) {
+        try {
+          previousOutput = JSON.parse(fs.readFileSync(destination, 'utf8'));
+        } catch {
+          // A malformed or unrelated previous output cannot supply stable metadata.
+        }
+      }
+      this.addIndexPatternsForUrlProviders(parsed.providers);
+      outputData = this.createLinkumoriJSON(this.minifyRules(parsed), previousOutput);
+    }
     const serialized = direction === 'yaml-to-json'
       ? (isClearURLsData
-        ? this.formatMinifiedOutput(parsed, { includeMetadata: Object.prototype.hasOwnProperty.call(parsed, 'metadata') })
+        ? this.formatMinifiedOutput(outputData, { includeMetadata: Object.prototype.hasOwnProperty.call(outputData, 'metadata') })
         : `${JSON.stringify(parsed, null, 2)}\n`)
       : YAML.stringify(parsed, { lineWidth: 0 });
-    fs.writeFileSync(destination, serialized, 'utf8');
+    this.writeFileIfChanged(destination, serialized);
     return { inputFile, outputFile: destination, outputSize: Buffer.byteLength(serialized, 'utf8') };
   }
 
@@ -1860,11 +1961,41 @@ ${commit.message}
     return markdown;
   }
 
-  // Create Linkumori JSON with metadata
-  createLinkumoriJSON(originalData) {
+  ruleDataFingerprint(data) {
+    const ordered = value => {
+      if (Array.isArray(value)) return value.map(ordered);
+      if (value && typeof value === 'object') {
+        return Object.fromEntries(Object.keys(value).sort().map(key => [key, ordered(value[key])]));
+      }
+      return value;
+    };
+    const ruleData = {};
+    if (Object.prototype.hasOwnProperty.call(data || {}, 'cln')) ruleData.cln = data.cln;
+    if (Object.prototype.hasOwnProperty.call(data || {}, 'defaults')) ruleData.defaults = ordered(data.defaults);
+    if (Object.prototype.hasOwnProperty.call(data || {}, 'providers')) {
+      // Provider order can affect which overlapping provider runs first, so
+      // preserve it while ignoring key order inside each provider object.
+      ruleData.providers = Object.entries(data.providers || {})
+        .map(([name, provider]) => [name, ordered(provider)]);
+    }
+    if (Object.prototype.hasOwnProperty.call(data || {}, 'patches')) ruleData.patches = ordered(data.patches);
+    return JSON.stringify(ordered(ruleData));
+  }
+
+  // Create Linkumori JSON with generated metadata. Keep its version and
+  // timestamp when the rule data matches the previous JSON export.
+  createLinkumoriJSON(originalData, previousOutput = null) {
     this.info('🔖 Adding Linkumori metadata...');
     
     const linkumoriMetadata = this.createLinkumoriMetadata();
+    const previousMetadata = previousOutput?.metadata;
+    const hasSameRuleData = previousOutput
+      && this.ruleDataFingerprint(previousOutput) === this.ruleDataFingerprint(originalData);
+    if (hasSameRuleData && typeof previousMetadata?.version === 'string' &&
+      typeof previousMetadata?.buildTimestamp === 'string') {
+      linkumoriMetadata.metadata.version = previousMetadata.version;
+      linkumoriMetadata.metadata.buildTimestamp = previousMetadata.buildTimestamp;
+    }
     const version = linkumoriMetadata.metadata.version;
     const buildTime = linkumoriMetadata.metadata.buildTimestamp;
     const originalMetadata = originalData?.metadata
@@ -3027,7 +3158,7 @@ ${commit.message}
   }
 
   // NEW: Create or append to NOTICE.md file (from superior script)
-  createNoticeFile(outputFiles, stats, version) {
+  createNoticeFile(outputFiles, stats, version, buildTimestamp) {
     const noticeFile = config.noticeFile;
     const sourceFile = stats.sourceFile || this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
     const bundledFile = stats.outputFile || this.clearurlsConfig.compressedRulesFile;
@@ -3049,7 +3180,7 @@ ${commit.message}
 
 ## Build Information - ${version}
 
-**Build Date**: ${new Date().toISOString()}
+**Build Date**: ${buildTimestamp}
 **Version**: ${version}
 **Source File**: ${sourceFile}
 **Bundled LZ4 Output**: ${bundledFile}
@@ -3078,6 +3209,13 @@ The rules in ${sourceFile} carry forward the historical modifications from depre
       
       // Read existing content
       const existingContent = fs.readFileSync(noticeFile, 'utf8');
+
+      const buildHeading = `## Build Information - ${version}`;
+      const existingBuilds = existingContent.split(buildHeading).slice(1);
+      if (existingBuilds.some(section => section.slice(0, 500).includes(`**Build Date**: ${buildTimestamp}`))) {
+        this.info(`Build ${version} is already recorded; leaving ${noticeFile} unchanged`);
+        return false;
+      }
       
       // Check if this is the first build entry being added
       const separator = existingContent.includes('## Build Information -') 
@@ -3086,7 +3224,7 @@ The rules in ${sourceFile} carry forward the historical modifications from depre
       
       // Append new build info
       const updatedContent = existingContent + separator;
-      fs.writeFileSync(noticeFile, updatedContent);
+      this.writeFileIfChanged(noticeFile, updatedContent);
       
     } else {
       this.info(`📋 Creating new notice file: ${noticeFile}`);
@@ -3103,8 +3241,8 @@ This directory contains the canonical Linkumori ClearURLs source YAML, a generat
 The Linkumori ClearURLs Rules Builder performs the following operations:
 
 1. **Loads Source Rules**: Reads canonical URL cleaning rules from ${sourceFile}
-2. **Normalizes Source YAML**: Keeps the wrapped ClearURLsData shape with providers and Linkumori metadata
-3. **Generates Output**: Exports JSON from the source YAML and compresses the payload into ${bundledFile}
+2. **Validates Source YAML**: Keeps the authoring file unchanged and checks the wrapped CLN data shape
+3. **Generates Output**: Exports JSON with generated metadata and compresses it into ${bundledFile}
 4. **Validation**: Ensures rules have proper structure and compile before bundling
 
 ### Versioning System
@@ -3114,7 +3252,7 @@ This build uses automatic date-time based versioning:
 - **Current Version**: ${version}
 - **Example**: 31.07.2025.1430 (July 31, 2025 at 14:30)
 
-This ensures each build has a unique version identifier based on when it was created.
+The generated version and timestamp are preserved when normalized rule data is unchanged, so a repeat build does not create new artifacts or notice history entries.
 
 ### Linkumori Project
 
@@ -3162,13 +3300,14 @@ These generated files can be used with ClearURLs browser extensions or any compa
 This section contains information about all builds performed with this script.
 ${currentBuildInfo}`;
 
-      fs.writeFileSync(noticeFile, completeNoticeContent);
+      this.writeFileIfChanged(noticeFile, completeNoticeContent);
     }
     
     this.success(`📋 NOTICE.md ${fs.existsSync(noticeFile) ? 'updated' : 'created'}`);
   }
 
-  // Build JSON and LZ4 outputs from the canonical source YAML.
+  // Build JSON and LZ4 outputs from the canonical source YAML without
+  // rewriting the authoring file.
   async buildCustomClearURLs(options = {}) {
     this.section('🧹 Building ClearURLs LZ4 Bundle');
     
@@ -3198,25 +3337,32 @@ ${currentBuildInfo}`;
 
       this.info(`📊 Source providers: ${providerCount}`);
 
+      const isYamlSource = /\.ya?ml$/i.test(sourceFile);
+      const jsonOutputFile = isYamlSource
+        ? (sourceFile === this.clearurlsConfig.sourceRulesFile
+          ? this.clearurlsConfig.combinedRulesFile
+          : sourceFile.replace(/\.ya?ml$/i, '.json'))
+        : null;
+      const previousOutputFile = jsonOutputFile || (/\.json$/i.test(sourceFile) ? sourceFile : null);
+      let previousOutput = null;
+      if (previousOutputFile && fs.existsSync(previousOutputFile)) {
+        try {
+          previousOutput = JSON.parse(fs.readFileSync(previousOutputFile, 'utf8'));
+        } catch {
+          this.warning(`Previous JSON output could not be read; a new rules version will be generated`);
+        }
+      }
+
       this.addIndexPatternsForUrlProviders(sourceRules.providers);
 
       const minifiedRules = this.minifyRules(sourceRules);
-      const linkumoriRules = this.createLinkumoriJSON(minifiedRules);
+      const ruleDataUnchanged = previousOutput
+        && this.ruleDataFingerprint(previousOutput) === this.ruleDataFingerprint(minifiedRules);
+      const linkumoriRules = this.createLinkumoriJSON(minifiedRules, previousOutput);
       const sourceOutputContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
-      const isYamlSource = /\.ya?ml$/i.test(sourceFile);
-      const normalizedSourceContent = isYamlSource
-        ? YAML.stringify(JSON.parse(sourceOutputContent), { lineWidth: 0 })
-        : sourceOutputContent;
-      fs.writeFileSync(sourceFile, normalizedSourceContent, 'utf8');
-      this.success(`📄 Source rules with Linkumori metadata normalized: ${sourceFile}`);
-
-      let jsonOutputFile = null;
       if (isYamlSource) {
-        jsonOutputFile = sourceFile === this.clearurlsConfig.sourceRulesFile
-          ? this.clearurlsConfig.combinedRulesFile
-          : sourceFile.replace(/\.ya?ml$/i, '.json');
-        fs.writeFileSync(jsonOutputFile, sourceOutputContent, 'utf8');
-        this.success(`🔄 JSON rules exported from YAML source: ${jsonOutputFile}`);
+        const jsonChanged = this.writeFileIfChanged(jsonOutputFile, sourceOutputContent);
+        this.success(`${jsonChanged ? '🔄 JSON rules exported' : '✓ JSON export unchanged'}: ${jsonOutputFile}`);
       }
 
       const lz4PayloadContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
@@ -3230,9 +3376,14 @@ ${currentBuildInfo}`;
         outputFile: lz4Stats.outputFile
       };
       
-      const outputFiles = [sourceFile, ...(jsonOutputFile ? [jsonOutputFile] : []), lz4Stats.outputFile];
+      const outputFiles = [...(jsonOutputFile ? [jsonOutputFile] : []), lz4Stats.outputFile];
       const generatedVersion = linkumoriRules.metadata.version;
-      this.createNoticeFile(outputFiles, stats, generatedVersion);
+      const generatedBuildTimestamp = linkumoriRules.metadata.buildTimestamp;
+      if (ruleDataUnchanged) {
+        this.info('Rule data unchanged; build history was not updated');
+      } else {
+        this.createNoticeFile(outputFiles, stats, generatedVersion, generatedBuildTimestamp);
+      }
 
       const sourceStats = fs.statSync(sourceFile);
       const jsonStats = jsonOutputFile ? fs.statSync(jsonOutputFile) : null;
@@ -3241,7 +3392,7 @@ ${currentBuildInfo}`;
       this.success(`📅 Version: ${generatedVersion}`);
       this.info(`📂 Source file: ${sourceFile}`);
       this.info(`📊 Providers: ${stats.sourceProviderCount}`);
-      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} written to source, JSON output, and LZ4 bundle`);
+      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} written to generated outputs`);
       this.info(`📁 Source YAML/JSON: ${Math.round(sourceStats.size / 1024)}KB`);
       if (jsonStats) this.info(`📄 Generated JSON: ${Math.round(jsonStats.size / 1024)}KB (${jsonOutputFile})`);
       this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
@@ -4410,7 +4561,7 @@ coverage/**
         case 'yaml-to-json':
         case 'json-to-yaml':
           try {
-            const stats = this.convertRulesFormat(args[1], args[2], command);
+            const stats = await this.convertRulesFormat(args[1], args[2], command);
             this.success(`Converted ${stats.inputFile} → ${stats.outputFile}`);
             this.info(`Output: ${stats.outputSize} bytes`);
           } catch (error) {

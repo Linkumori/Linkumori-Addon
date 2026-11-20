@@ -61,8 +61,8 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 >
 > 1. **Rules source** — edit `data/linkumori-clearurls.yaml`; use
 >    `node linkumori-cli-tool.js yaml-to-json data/linkumori-clearurls.yaml` to
->    export JSON. The `clearurls` command normalizes the source and generates the
->    JSON and bundled LZ4 outputs.
+>    export JSON. The `clearurls` command reads the source without rewriting it,
+>    then generates the JSON and bundled LZ4 outputs.
 >    This source file carries forward the historical modification notices from
 >    `data/custom-rules.json`, `data/downloaded-official-rules.json`, and the
 >    earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage.

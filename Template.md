@@ -1828,8 +1828,8 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 > `data/linkumori-clearurls.json` and builds `data/linkumori-clearurls-min.json.lz4`. The rules build no longer downloads or
 > merges `downloaded-official-rules.json` and `custom-rules.json`.
 >
-> 1. **Rules source** — edit `data/linkumori-clearurls.yaml`; the CLI normalizes it,
->    exports JSON, and builds the bundled LZ4 ruleset.
+> 1. **Rules source** — edit `data/linkumori-clearurls.yaml`; the `clearurls`
+>    command leaves it unchanged, exports JSON, and builds the bundled LZ4 ruleset.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
 >    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured

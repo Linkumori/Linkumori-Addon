@@ -6,6 +6,10 @@ This page describes CLN Format 1.0 in its final form. The changes from the earli
 
 Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `cln`, `metadata`, `defaults` and, in a remote file, `patches`). Each key under `providers` is a name you choose; its value is a provider object.
 
+The bundled source file is authored in YAML and converted to this JSON data
+model by the CLI. See [Writing CLN Format 1.0 in YAML](cln-yaml.md) for the
+complete YAML form of every section and rule type.
+
 The optional top-level `cln` key names the format version. Its only valid value is `"1.0"`; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails `lint-rules`). It is not called `version` because the ClearURLs new rule format already uses that key.
 
 ```json

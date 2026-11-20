@@ -35,8 +35,9 @@ ClearURLs authors and contributors retain copyright in their respective work.
 Linkumori modifications and curated additions retain the attribution above.
 
 Build outputs:
-The Linkumori CLI reads and normalizes this YAML source, exports
+The Linkumori CLI reads this YAML source without rewriting it, exports
 data/linkumori-clearurls.json, and builds data/linkumori-clearurls-min.json.lz4.
+Generated version and build timestamp values live in the JSON and LZ4 outputs.
 Please read COMMIT_HISTORY.md and NOTICE.md for the project’s modification and
 build instructions, and data/NOTICE.md for the ruleset’s build history.
 The generated JSON export has its own notice at data/linkumori-clearurls.json.txt.
@@ -44,7 +45,9 @@ The generated JSON export has its own notice at data/linkumori-clearurls.json.tx
 Writing CLN Format 1.0 in YAML:
 This file uses YAML to express the same CLN 1.0 data model. It is not the
 ClearURLs Rules YAML format. Use the CLN field names and values shown below;
-the CLI converts this source to JSON for the extension.
+the CLI converts this source to JSON for the extension. The complete YAML guide,
+covering every CLN section, field, rule form, filter, redirect, default, and
+remote patch, is in docs/cln-yaml.md.
 
 ```yaml
 cln: "1.0"

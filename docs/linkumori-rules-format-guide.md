@@ -1,7 +1,8 @@
 # Linkumori Rules Format: Beginner-to-Advanced Guide
 
-Linkumori rules are written in **JSON**. A rule file tells Linkumori two
-things:
+Linkumori uses the CLN 1.0 data model. Rules are JSON in the extension,
+remote files, custom files, imports and exports. The bundled source is authored
+in YAML and exported to JSON by the CLI. A rule file tells Linkumori two things:
 
 1. Which websites a set of rules applies to.
 2. What Linkumori should remove or change on those websites.

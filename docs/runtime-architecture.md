@@ -823,7 +823,7 @@ Some logic has to agree between the background, the custom rules editor
 
 | Build time (CLI) | Runtime (extension) |
 |---|---|
-| `data/linkumori-clearurls.yaml` is edited by hand; the CLI exports `data/linkumori-clearurls.json` | never read |
+| `data/linkumori-clearurls.yaml` is edited by hand; `clearurls` leaves it unchanged and exports `data/linkumori-clearurls.json` | never read |
 | `node linkumori-cli-tool.js clearurls` builds `data/linkumori-clearurls-min.json.lz4` with metadata | loaded at startup (§5.1) |
 | `lint-rules`, `show-rule` check and inspect rules | the editor runs the same checks on save |
 | `data/public_suffix_list.dat` is refreshed by the CLI | loaded by `linkumoriPsl` (§6.7) |

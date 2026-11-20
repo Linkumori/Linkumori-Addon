@@ -189,7 +189,7 @@ To view full modification history for third-party files, run the CLI tool and se
 
 ## 7. Adding or Updating URL Rules
 
-URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.yaml`. The complete syntax reference is [docs/filter-syntax.md](docs/filter-syntax.md).
+URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.yaml`. Use the [YAML authoring guide](docs/cln-yaml.md) and the [CLN syntax reference](docs/filter-syntax.md).
 
 ---
 

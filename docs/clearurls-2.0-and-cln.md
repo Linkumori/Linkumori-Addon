@@ -108,15 +108,17 @@ CLN takes the best part of each earlier format and puts it in one place:
   is already a valid CLN file. The published `data.minify.json` (206
   providers, fetched 2026-09-27) passes `lint-rules` with 0 errors. Its
   only warnings are performance hints, plus 5 entries it lists twice.
-- **ClearURLs 2.0 features without YAML or a compile step.** Any entry in
-  any list can be a plain string or a rule object, so a simple rule stays a
-  one-word string and a detailed one gets an object in the same list.
+- **Small and detailed rules share one list.** Any entry can be a plain
+  string or a rule object, so a simple rule stays a one-word string and a
+  detailed one gets an object in the same list. The extension's CLN data,
+  remote rules and custom rules are JSON. The bundled source is authored in
+  YAML and exported to that JSON data model by the CLI.
 - **One spelling per concept.** `matchPattern`, `replacePattern` and
   `active` are the only spellings, and `domainExceptions` and
   `domainRedirections` became part of `exceptions` and `redirections`.
-- **One format everywhere.** Bundled, remote and custom rules, imports and
-  exports all use the same JSON, checked by the same linter in the editor
-  and in `lint-rules`.
+- **One CLN data model.** The YAML bundled source and JSON remote, custom,
+  imported and exported files represent the same CLN 1.0 fields and rule
+  behavior. The CLI and editor use the same rules linter.
 
 ### How `defaults` works in CLN
 
