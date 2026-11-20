@@ -1,0 +1,137 @@
+NOTICE FOR data/linkumori-clearurls.yaml
+
+File: data/linkumori-clearurls.yaml
+Role: Canonical Linkumori ClearURLs rules source
+License: LGPL-3.0-or-later
+
+Copyright and attribution:
+Linkumori modifications and curated additions are Copyright (c) 2025–2026
+Subham Mahesh. Content derived from ClearURLs Rules remains copyright its
+respective authors and contributors, including Kevin Röbert where applicable.
+
+Historical sources and migration:
+
+1. data/custom-rules.json
+   Author: Subham Mahesh
+   Originally created on June 14, 2025, with additional rule updates from
+   July 20 through July 31, 2025. This standalone source was retired on
+   May 27, 2026, and its rules were consolidated into this YAML source on
+   November 20, 2026.
+
+2. data/downloaded-official-rules.json
+   Source: ClearURLs Rules
+   Rules repository: https://github.com/ClearURLs/Rules
+   Extension repository: https://github.com/ClearURLs/Addon
+   This standalone file was retired on May 27, 2026. Its rules and provenance
+   were first consolidated into the canonical Linkumori JSON rules file, then
+   moved into this YAML source on November 20, 2026.
+
+3. data/linkumori-clearurls-min.json.lz4
+   This earlier generated bundle is part of the rules' historical lineage.
+   Its separate notice is in data/linkumori-clearurls-min.json.lz4.txt.
+
+All listed rule data is distributed under LGPL-3.0-or-later. The original
+ClearURLs authors and contributors retain copyright in their respective work.
+Linkumori modifications and curated additions retain the attribution above.
+
+Build outputs:
+The Linkumori CLI reads and normalizes this YAML source, exports
+data/linkumori-clearurls.json, and builds data/linkumori-clearurls-min.json.lz4.
+Please read COMMIT_HISTORY.md and NOTICE.md for the project’s modification and
+build instructions, and data/NOTICE.md for the ruleset’s build history.
+The generated JSON export has its own notice at data/linkumori-clearurls.json.txt.
+
+Writing CLN Format 1.0 in YAML:
+This file uses YAML to express the same CLN 1.0 data model. It is not the
+ClearURLs Rules YAML format. Use the CLN field names and values shown below;
+the CLI converts this source to JSON for the extension.
+
+```yaml
+cln: "1.0"
+metadata:
+  name: "Example Linkumori rules"
+  version: "1.0.0"
+  description: "Example rules for a shop"
+defaults:
+  active: true
+  description: "Default rule description"
+  requestTypes:
+    - main_frame
+    - xmlhttprequest
+  preprocessors:
+    - type: urlDecode
+      inputs: all
+  exceptions:
+    - '^https://shop\.example/keep'
+  historyBypassProtection: true
+providers:
+  shop:
+    # Use domainPatterns or urlPattern. Do not use both.
+    domainPatterns:
+      - "||shop.example^"
+    rules:
+      - "utm_source"
+      - id: "token-rewrite"
+        matchPattern: "token"
+        replacePattern: "clean-§1§"
+        order: 10
+        requestTypes:
+          - main_frame
+        active: true
+        description: "Rewrite the token parameter value"
+    rawRules:
+      - '\/ref=[^/?#]*'
+    referralMarketing:
+      - "tag"
+    exceptions:
+      - "||accounts.shop.example^"
+    redirections:
+      - "||go.shop.example^$redirect=https://shop.example/"
+    fieldRedirections:
+      - "redirect"
+    completeProvider: false
+    forceRedirection: false
+    methods:
+      - GET
+    resourceTypes:
+      - main_frame
+      - xmlhttprequest
+    historyBypassProtection: true
+    active: true
+```
+
+Top-level keys are `cln`, `metadata`, `defaults`, and `providers`. For each
+provider, the supported keys are `domainPatterns`, `urlPattern`, `indexPattern`,
+`rules`, `rawRules`, `referralMarketing`, `exceptions`, `redirections`,
+`fieldRedirections`, `completeProvider`, `forceRedirection`, `methods`,
+`resourceTypes`, `historyBypassProtection`, and `active`. A rule can be a string
+or an object; rule-object fields include `id`, `aliases`, `matchPattern`,
+`replacePattern`, `preprocessors`, `requestTypes`, `exceptions`, `order`,
+`referralMarketing`, `active`, `flags`, `historyBypassProtection`,
+`description`, and `targetId` where applicable. The optional top-level `patches`
+key is for remote rule files only.
+
+Remote-file patch example:
+
+```yaml
+cln: "1.0"
+patches:
+  - target: "shop::token-rewrite"
+    section: rules
+    replace:
+      matchPattern: "token"
+      replacePattern: "safe-§1§"
+      order: 20
+    description: "Use a different token rewrite"
+```
+
+Quote rule strings, regular expressions, URLs, and parameter names that could
+be parsed as numbers or YAML keywords. Keep booleans and numeric fields such as
+`active`, `completeProvider`, `forceRedirection`, and `order` as YAML booleans
+and numbers. Read docs/filter-syntax.md for the full field definitions, value
+syntax, supported patterns, rule ordering, and remote-patch format.
+
+Validate and export the YAML source with:
+
+    node linkumori-cli-tool.js lint-rules data/linkumori-clearurls.yaml
+    node linkumori-cli-tool.js yaml-to-json data/linkumori-clearurls.yaml

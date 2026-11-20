@@ -2776,14 +2776,14 @@ please read <https://www.gnu.org/licenses/why-not-lgpl.html>.
 
 
 **Files:**
+- `data/linkumori-clearurls.yaml`
 - `data/linkumori-clearurls.json`
 - `data/linkumori-clearurls-min.json.lz4`
 
 **Historical Notice Files:**
+- `data/linkumori-clearurls.yaml.txt`
 - `data/linkumori-clearurls.json.txt`
 - `data/linkumori-clearurls-min.json.lz4.txt`
-- `data/custom-rules.json.txt`
-- `data/downloaded-official-rules.json.txt`
 
 **Source:** https://github.com/ClearURLs/Rules
 
@@ -2791,7 +2791,7 @@ please read <https://www.gnu.org/licenses/why-not-lgpl.html>.
 - Linkumori modifications and curated additions: Copyright (c) 2025-2026 Subham Mahesh
 - ClearURLs Rules portions: copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable
 
-**Provenance:** `data/linkumori-clearurls.json` is the canonical metadata-free source rules file. It carries forward the historical rule-source modifications from deprecated `data/custom-rules.json`, deprecated `data/downloaded-official-rules.json`, and the earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage. Linkumori metadata is injected only into the generated LZ4 payload.
+**Provenance:** `data/linkumori-clearurls.yaml` is the canonical source rules file. Its notice consolidates the history of deprecated `data/custom-rules.json`, deprecated `data/downloaded-official-rules.json`, and the earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage. The CLI exports it to `data/linkumori-clearurls.json` and the compressed bundle.
 
 **License:** GNU Lesser General Public License (LGPL) v3.0 or later
 
@@ -72937,12 +72937,12 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 
 > **Reproducible Builds — Rules Source and PSL Prompt:**
 > ClearURLs rules are built from the canonical source file
-> `data/linkumori-clearurls.json`, which is compressed into
-> `data/linkumori-clearurls-min.json.lz4`. The rules build no longer downloads or
+> `data/linkumori-clearurls.yaml`. The CLI exports normalized JSON to
+> `data/linkumori-clearurls.json` and builds `data/linkumori-clearurls-min.json.lz4`. The rules build no longer downloads or
 > merges `downloaded-official-rules.json` and `custom-rules.json`.
 >
-> 1. **Rules source** — edit `data/linkumori-clearurls.json`; the CLI normalizes this
->    file and converts it directly to the bundled LZ4 ruleset.
+> 1. **Rules source** — edit `data/linkumori-clearurls.yaml`; the CLI normalizes it,
+>    exports JSON, and builds the bundled LZ4 ruleset.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
 >    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured
@@ -73070,8 +73070,9 @@ The CLI runs the following steps automatically:
 
 - **Step 1/6:** Generates copyright documentation.
 
-- **Step 2/6:** Builds `data/linkumori-clearurls-min.json.lz4` from the canonical
-  source file `data/linkumori-clearurls.json`.
+- **Step 2/6:** Builds `data/linkumori-clearurls.json` and
+  `data/linkumori-clearurls-min.json.lz4` from canonical source file
+  `data/linkumori-clearurls.yaml`.
 
 - **Step 3/6:** Builds the Old Country Nobility font (`Old-Country-Nobility.sfd` → `.ttf`) using FontForge.
   *(Requires FontForge — see Requirements. If not installed, this step is skipped and the build continues.)*

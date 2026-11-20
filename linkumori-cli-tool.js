@@ -64,6 +64,7 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
+import YAML from 'yaml';
 import './core_js/linkumori_rule_ids.js';
 import './core_js/linkumori_rule_defaults.js';
 import './core_js/linkumori_rule_pins.js';
@@ -120,7 +121,7 @@ class LinkumoriCLI {
     
     // ClearURLs builder configuration
     this.clearurlsConfig = {
-      sourceRulesFile: 'data/linkumori-clearurls.json',
+      sourceRulesFile: 'data/linkumori-clearurls.yaml',
       outputBaseName: 'linkumori',
       combinedRulesFile: 'data/linkumori-clearurls.json',
       compressedRulesFile: 'data/linkumori-clearurls-min.json.lz4'
@@ -852,9 +853,10 @@ documentation when you run the build process.
         "originalProject": "ClearURLs",
         "first-modified-By": "Subham Mahesh in 2026 with significant enhancements and optimizations",
         "copyright": "Copyright (c) 2025-2026 Subham Mahesh for Linkumori modifications and curated additions; ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.",
-        "Notice-Of-Modification": "See data/NOTICE.md and sidecar notices for linkumori-clearurls.json, linkumori-clearurls-min.json.lz4, custom-rules.json, and downloaded-official-rules.json.",
+        "Notice-Of-Modification": "See data/NOTICE.md and sidecar notices for linkumori-clearurls.yaml, linkumori-clearurls.json, linkumori-clearurls-min.json.lz4, custom-rules.json, and downloaded-official-rules.json.",
         "sourceLineage": {
-          "canonicalSource": "data/linkumori-clearurls.json",
+          "canonicalSource": "data/linkumori-clearurls.yaml",
+          "generatedJson": "data/linkumori-clearurls.json",
           "generatedBundle": "data/linkumori-clearurls-min.json.lz4",
           "migratedFrom": [
             "data/downloaded-official-rules.json",
@@ -864,10 +866,9 @@ documentation when you run the build process.
           "carriesHistoricalModifications": true,
           "noticeFiles": [
             "data/NOTICE.md",
+            "data/linkumori-clearurls.yaml.txt",
             "data/linkumori-clearurls.json.txt",
-            "data/linkumori-clearurls-min.json.lz4.txt",
-            "data/custom-rules.json.txt",
-            "data/downloaded-official-rules.json.txt"
+            "data/linkumori-clearurls-min.json.lz4.txt"
           ]
         },
         "urls": {
@@ -999,7 +1000,7 @@ documentation when you run the build process.
     return ok;
   }
 
-  // Load the canonical ClearURLs source JSON.
+  // Load the canonical ClearURLs source YAML or a compatible JSON source.
   loadClearURLsSourceRules(filePath) {
     this.info(`📂 Loading ClearURLs source rules from: ${filePath}`);
     
@@ -1013,7 +1014,7 @@ documentation when you run the build process.
     
     try {
       const fileContent = fs.readFileSync(filePath, 'utf8');
-      const parsed = JSON.parse(fileContent);
+      const parsed = this.parseRulesDocument(filePath, fileContent);
       if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
         throw new Error('ClearURLs source must be an object');
       }
@@ -1581,6 +1582,50 @@ documentation when you run the build process.
     return fs.readFileSync(filePath, 'utf8');
   }
 
+  parseRulesDocument(filePath, content = this.readMaybeLZ4Text(filePath)) {
+    const text = String(content || '').replace(/^\uFEFF/, '');
+    const extension = path.extname(String(filePath || '')).toLowerCase();
+    if (extension === '.yaml' || extension === '.yml') {
+      return YAML.parse(text, { uniqueKeys: true });
+    }
+    return JSON.parse(text);
+  }
+
+  convertRulesFormat(inputFile, outputFile, direction) {
+    if (!inputFile) {
+      throw new Error(`Missing input file. Usage: ${direction === 'yaml-to-json' ? 'yaml-to-json <input.yaml> [output.json]' : 'json-to-yaml <input.json> [output.yaml]'}`);
+    }
+    const sourceExtension = direction === 'yaml-to-json' ? ['.yaml', '.yml'] : ['.json'];
+    const inputExtension = path.extname(inputFile).toLowerCase();
+    if (!sourceExtension.includes(inputExtension)) {
+      throw new Error(`${direction} expects a ${sourceExtension.join(' or ')} input file`);
+    }
+    if (!fs.existsSync(inputFile)) {
+      throw new Error(`Input file not found: ${inputFile}`);
+    }
+
+    const targetExtension = direction === 'yaml-to-json' ? '.json' : '.yaml';
+    const defaultOutput = `${inputFile.slice(0, -inputExtension.length)}${targetExtension}`;
+    const destination = outputFile || defaultOutput;
+    if (path.resolve(destination) === path.resolve(inputFile)) {
+      throw new Error('Input and output files must be different');
+    }
+    if (path.extname(destination).toLowerCase() !== targetExtension) {
+      throw new Error(`${direction} output must use the ${targetExtension} extension`);
+    }
+    const parsed = this.parseRulesDocument(inputFile);
+    const isClearURLsData = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+      && parsed.providers && typeof parsed.providers === 'object' && !Array.isArray(parsed.providers)
+      && Object.keys(parsed).every(key => ['cln', 'metadata', 'defaults', 'providers'].includes(key));
+    const serialized = direction === 'yaml-to-json'
+      ? (isClearURLsData
+        ? this.formatMinifiedOutput(parsed, { includeMetadata: Object.prototype.hasOwnProperty.call(parsed, 'metadata') })
+        : `${JSON.stringify(parsed, null, 2)}\n`)
+      : YAML.stringify(parsed, { lineWidth: 0 });
+    fs.writeFileSync(destination, serialized, 'utf8');
+    return { inputFile, outputFile: destination, outputSize: Buffer.byteLength(serialized, 'utf8') };
+  }
+
   resolveRulesFile(preferredFile = null) {
     if (preferredFile && fs.existsSync(preferredFile)) return preferredFile;
     if (preferredFile) return preferredFile;
@@ -1591,7 +1636,7 @@ documentation when you run the build process.
       return this.clearurlsConfig.compressedRulesFile;
     }
 
-    return sourceFile || 'data/linkumori-clearurls.json';
+    return sourceFile || 'data/linkumori-clearurls.yaml';
   }
 
   // Unminify rules from compressed/minified rules file
@@ -1852,9 +1897,9 @@ ${commit.message}
     return { rest, pinsFile };
   }
 
-  // Reads a Linkumori rules JSON file (plain or .lz4).
+  // Reads a Linkumori rules JSON/YAML file (plain or .lz4 JSON).
   readRulesJson(filePath) {
-    return JSON.parse(this.readMaybeLZ4Text(filePath).replace(/^\uFEFF/, ''));
+    return this.parseRulesDocument(filePath);
   }
 
   // Prints the rule with this id (its own, an alias, or the generated id of
@@ -1975,7 +2020,7 @@ ${commit.message}
         }
         this.log('');
       } else {
-        // Non-interactive (piped / CI): default to canonical source JSON.
+        // Non-interactive (piped / CI): default to canonical source YAML.
         rulesFile = sourceFile;
       }
     }
@@ -1986,7 +2031,7 @@ ${commit.message}
     if (!fs.existsSync(rulesFile)) {
       this.error(`❌ Rules file not found: ${rulesFile}`);
       if (rulesFile === (this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile)) {
-        this.info('Edit data/linkumori-clearurls.json to add or update bundled rules.');
+        this.info('Edit data/linkumori-clearurls.yaml to add or update bundled rules.');
       } else {
         this.info('Run the "clearurls" command first to build the rules file.');
       }
@@ -2987,8 +3032,11 @@ ${commit.message}
     const sourceFile = stats.sourceFile || this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
     const bundledFile = stats.outputFile || this.clearurlsConfig.compressedRulesFile;
     const describeOutputFile = (file) => {
-      if (file === sourceFile || file.endsWith('.json')) {
-        return 'Canonical ClearURLs source JSON with Linkumori metadata';
+      if (file === sourceFile) {
+        return 'Canonical ClearURLs source YAML with Linkumori metadata';
+      }
+      if (file.endsWith('.json')) {
+        return 'Generated JSON export of the canonical YAML source';
       }
       if (file.endsWith('.lz4')) {
         return `LZ4-compressed bundle generated from ${sourceFile} with Linkumori metadata v${version}`;
@@ -3016,11 +3064,11 @@ ${outputFiles.map(file => `- \`${file}\` - ${describeOutputFile(file)}`).join('\
 
 ### Build Summary
 
-This build used ${sourceFile} as the canonical ClearURLs source JSON, wrote Linkumori metadata into the source and generated rules payload, and compressed the generated payload into ${bundledFile}.
+This build used ${sourceFile} as the canonical ClearURLs source YAML, exported the normalized rules to JSON, and compressed the generated payload into ${bundledFile}.
 
 ### Provenance Notice
 
-${sourceFile} carries forward the historical rule-source modifications from deprecated data/custom-rules.json, data/downloaded-official-rules.json, and the earlier data/linkumori-clearurls-min.json.lz4 bundle. Sidecar notices are preserved at data/linkumori-clearurls.json.txt, data/linkumori-clearurls-min.json.lz4.txt, data/custom-rules.json.txt, and data/downloaded-official-rules.json.txt.
+The rules in ${sourceFile} carry forward the historical modifications from deprecated data/custom-rules.json and data/downloaded-official-rules.json, plus the earlier data/linkumori-clearurls-min.json.lz4 bundle. Their consolidated historical notice is in data/linkumori-clearurls.yaml.txt. Other sidecar notices are data/linkumori-clearurls.json.txt and data/linkumori-clearurls-min.json.lz4.txt.
 
 *Generated by  Linkumori CLI Tool  v${version}*
 `;
@@ -3048,15 +3096,15 @@ ${sourceFile} carries forward the historical rule-source modifications from depr
 
 ## About This Build
 
-This directory contains the canonical Linkumori ClearURLs source JSON with metadata and the compressed rules bundle generated from it.
+This directory contains the canonical Linkumori ClearURLs source YAML, a generated JSON export, and the compressed rules bundle.
 
 ### What This Script Does
 
 The Linkumori ClearURLs Rules Builder performs the following operations:
 
 1. **Loads Source Rules**: Reads canonical URL cleaning rules from ${sourceFile}
-2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers and Linkumori metadata
-3. **Generates Output**: Writes matching Linkumori metadata into the source and generated payload, then compresses it into ${bundledFile}
+2. **Normalizes Source YAML**: Keeps the wrapped ClearURLsData shape with providers and Linkumori metadata
+3. **Generates Output**: Exports JSON from the source YAML and compresses the payload into ${bundledFile}
 4. **Validation**: Ensures rules have proper structure and compile before bundling
 
 ### Versioning System
@@ -3075,9 +3123,9 @@ This enhanced version includes metadata for the Linkumori URL cleaning project:
 - **Homepage**: https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/
 - **Issues**: https://github.com/Linkumori/Linkumori-Addon/issues
 - **This script written by subham mahesh in 2026 some significated part taken from cleaurls Kevin Röbert which is licensed under LGPL 3.0**
-- **linkumori-clearurls.json** is the canonical source rules file with Linkumori metadata; it carries forward historical modifications and provenance from the deprecated data/custom-rules.json, data/downloaded-official-rules.json, and earlier data/linkumori-clearurls-min.json.lz4 bundle.
+- **linkumori-clearurls.yaml** is the canonical source rules file with Linkumori metadata; the CLI exports it to linkumori-clearurls.json and the compressed bundle.
 - **Copyright**: Linkumori modifications and curated additions are Copyright (c) 2025-2026 Subham Mahesh. ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.
-- **Sidecar notices**: data/linkumori-clearurls.json.txt, data/linkumori-clearurls-min.json.lz4.txt, data/custom-rules.json.txt, and data/downloaded-official-rules.json.txt.
+- **Sidecar notices**: data/linkumori-clearurls.yaml.txt contains the consolidated historical rule notices; data/linkumori-clearurls.json.txt and data/linkumori-clearurls-min.json.lz4.txt describe generated outputs.
 - **Final output generated by script**: ${bundledFile}
 
 ### License Information
@@ -3120,7 +3168,7 @@ ${currentBuildInfo}`;
     this.success(`📋 NOTICE.md ${fs.existsSync(noticeFile) ? 'updated' : 'created'}`);
   }
 
-  // Build bundled ClearURLs rules from the canonical source JSON.
+  // Build JSON and LZ4 outputs from the canonical source YAML.
   async buildCustomClearURLs(options = {}) {
     this.section('🧹 Building ClearURLs LZ4 Bundle');
     
@@ -3155,8 +3203,21 @@ ${currentBuildInfo}`;
       const minifiedRules = this.minifyRules(sourceRules);
       const linkumoriRules = this.createLinkumoriJSON(minifiedRules);
       const sourceOutputContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
-      fs.writeFileSync(sourceFile, sourceOutputContent);
+      const isYamlSource = /\.ya?ml$/i.test(sourceFile);
+      const normalizedSourceContent = isYamlSource
+        ? YAML.stringify(JSON.parse(sourceOutputContent), { lineWidth: 0 })
+        : sourceOutputContent;
+      fs.writeFileSync(sourceFile, normalizedSourceContent, 'utf8');
       this.success(`📄 Source rules with Linkumori metadata normalized: ${sourceFile}`);
+
+      let jsonOutputFile = null;
+      if (isYamlSource) {
+        jsonOutputFile = sourceFile === this.clearurlsConfig.sourceRulesFile
+          ? this.clearurlsConfig.combinedRulesFile
+          : sourceFile.replace(/\.ya?ml$/i, '.json');
+        fs.writeFileSync(jsonOutputFile, sourceOutputContent, 'utf8');
+        this.success(`🔄 JSON rules exported from YAML source: ${jsonOutputFile}`);
+      }
 
       const lz4PayloadContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
       const lz4Stats = this.writeLZ4CompressedContent(lz4PayloadContent, outputFile);
@@ -3165,21 +3226,24 @@ ${currentBuildInfo}`;
       const stats = {
         sourceProviderCount: Object.keys(linkumoriRules.providers || {}).length,
         sourceFile,
+        jsonOutputFile,
         outputFile: lz4Stats.outputFile
       };
       
-      const outputFiles = [sourceFile, lz4Stats.outputFile];
+      const outputFiles = [sourceFile, ...(jsonOutputFile ? [jsonOutputFile] : []), lz4Stats.outputFile];
       const generatedVersion = linkumoriRules.metadata.version;
       this.createNoticeFile(outputFiles, stats, generatedVersion);
 
       const sourceStats = fs.statSync(sourceFile);
+      const jsonStats = jsonOutputFile ? fs.statSync(jsonOutputFile) : null;
 
       this.section('🎉 Build Summary');
       this.success(`📅 Version: ${generatedVersion}`);
       this.info(`📂 Source file: ${sourceFile}`);
       this.info(`📊 Providers: ${stats.sourceProviderCount}`);
-      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} written to source JSON and LZ4 bundle`);
-      this.info(`📁 Source JSON: ${Math.round(sourceStats.size / 1024)}KB`);
+      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} written to source, JSON output, and LZ4 bundle`);
+      this.info(`📁 Source YAML/JSON: ${Math.round(sourceStats.size / 1024)}KB`);
+      if (jsonStats) this.info(`📄 Generated JSON: ${Math.round(jsonStats.size / 1024)}KB (${jsonOutputFile})`);
       this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
       this.info(`📋 Documentation: ${config.noticeFile}`);
       
@@ -3728,6 +3792,7 @@ svg/**
 Old-Country-Nobility/Old-Country-Nobility.sfd
 
 # Data Files (keep bundled LZ4, exclude source/config)
+data/linkumori-clearurls.yaml
 data/linkumori-clearurls.json
 data/url-config.json
 # Build Tools
@@ -3779,9 +3844,12 @@ coverage/**
     try {
       fs.mkdirSync('data', { recursive: true });
       const templatePath = this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
-      fs.writeFileSync(templatePath, this.formatMinifiedOutput(template, { includeMetadata: false }));
+      const templateContent = /\.ya?ml$/i.test(templatePath)
+        ? YAML.stringify(template, { lineWidth: 0 })
+        : this.formatMinifiedOutput(template, { includeMetadata: false });
+      fs.writeFileSync(templatePath, templateContent, 'utf8');
       this.success(`Created ClearURLs source template: ${templatePath}`);
-      this.info('Edit this source JSON with your bundled URL cleaning rules');
+      this.info('Edit this source YAML with your bundled URL cleaning rules');
     } catch (error) {
       this.error(`Failed to create template: ${error.message}`);
     }
@@ -3910,11 +3978,11 @@ coverage/**
     }
 
     try {
-      const stat = fs.statSync('data/linkumori-clearurls.json');
+      const stat = fs.statSync(this.clearurlsConfig.sourceRulesFile);
       const sizeKB = Math.round(stat.size / 1024);
       this.success(`Source rules available (${sizeKB}KB)`);
     } catch {
-      this.warning('Source rules not found: data/linkumori-clearurls.json');
+      this.warning(`Source rules not found: ${this.clearurlsConfig.sourceRulesFile}`);
     }
     
     // NOTICE.md status
@@ -3938,7 +4006,7 @@ coverage/**
       this.warning('No build artifacts to clean');
     }
     
-    // Clean generated ClearURLs files. Keep data/linkumori-clearurls.json; it is source.
+    // Clean generated ClearURLs files. Keep the canonical YAML source and JSON export.
     const clearurlsFiles = [
       'data/linkumori-clearurls-min.json.lz4',
       `data/${this.clearurlsConfig.outputBaseName}-clearurls-unminified.json`
@@ -4260,22 +4328,24 @@ coverage/**
     this.info('2. Edit .env with your Mozilla API credentials');
     this.info('3. Set your WEB_EXT_CHANNEL (listed or unlisted)');
     this.info('4. Edit Template.md with your copyright info');
-    this.info('5. Edit data/linkumori-clearurls.json with bundled URL cleaning rules');
+    this.info('5. Edit data/linkumori-clearurls.yaml with bundled URL cleaning rules');
     this.info('6. Run option 1 to build your extension');
   }
 
   // Main entry point
   async run() {
-    // Check if web-ext is available
-    const webExtCheck = await this.exec('which', ['web-ext']);
-    if (!webExtCheck.success) {
-      this.error('web-ext not found. Install with: npm install -g web-ext');
-      this.info('Or run setup first');
-      process.exit(1);
-    }
-    
     // Handle command line arguments
     const args = process.argv.slice(2);
+    const standaloneCommands = new Set(['yaml-to-json', 'json-to-yaml', 'help', '--help', '-h']);
+    if (args.length === 0 || !standaloneCommands.has(args[0])) {
+      const webExtCheck = await this.exec('which', ['web-ext']);
+      if (!webExtCheck.success) {
+        this.error('web-ext not found. Install with: npm install -g web-ext');
+        this.info('Or run setup first');
+        process.exit(1);
+      }
+    }
+
     if (args.length > 0) {
       this.printLicenseBanner();
       const command = args[0];
@@ -4334,6 +4404,18 @@ coverage/**
             this.success(`LZ4 compressed file saved to: ${stats.outputFile}`);
             this.info(`Input: ${stats.inputSize} bytes`);
             this.info(`Output: ${stats.outputSize} bytes (${((1 - stats.ratio) * 100).toFixed(1)}% smaller)`);
+          }
+          break;
+
+        case 'yaml-to-json':
+        case 'json-to-yaml':
+          try {
+            const stats = this.convertRulesFormat(args[1], args[2], command);
+            this.success(`Converted ${stats.inputFile} → ${stats.outputFile}`);
+            this.info(`Output: ${stats.outputSize} bytes`);
+          } catch (error) {
+            this.error(`Conversion failed: ${error.message}`);
+            process.exit(1);
           }
           break;
 
@@ -4425,11 +4507,13 @@ coverage/**
     this.log('  dev, run              Run in development mode', 'white');
     this.log('  lint                  Lint extension code', 'white');
     this.log('  fonts                 Build Old Country Nobility Font only', 'white');
-    this.log('  clearurls             Build ClearURLs LZ4 rules only', 'white');
+    this.log('  clearurls             Export YAML rules to JSON and build the LZ4 bundle', 'white');
     this.log('  icons                 Generate icon PNG files from SVG sources', 'white');
     this.log('  lint-rules            Lint ClearURLs rules, including .lz4 output', 'white');
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
+    this.log('  yaml-to-json <file> [output]  Convert YAML rules into JSON', 'white');
+    this.log('  json-to-yaml <file> [output]  Convert JSON rules into YAML', 'white');
     this.log('  show-rule <id>        Print one rule, wrapped in the list it belongs to', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
@@ -4459,6 +4543,8 @@ coverage/**
     this.log('  bun run linkumori-cli-tool.js icons', 'dim');
     this.log('  bun run linkumori-cli-tool.js lint-rules', 'dim');
     this.log('  bun run linkumori-cli-tool.js compress-lz4 data/linkumori-clearurls.json', 'dim');
+    this.log('  bun run linkumori-cli-tool.js yaml-to-json data/linkumori-clearurls.yaml', 'dim');
+    this.log('  bun run linkumori-cli-tool.js json-to-yaml data/linkumori-clearurls.json', 'dim');
     this.log('  bun run linkumori-cli-tool.js unminify', 'dim');
     this.log('  bun run linkumori-cli-tool.js commit-history', 'dim');
     this.log('  bun run linkumori-cli-tool.js release', 'dim');
@@ -4468,8 +4554,8 @@ coverage/**
     
     this.log('\n🆕 Enhanced Features:', 'cyan');
     this.log('  - Local license file loading (no internet required)', 'white');
-    this.log('  - Canonical ClearURLs source JSON: data/linkumori-clearurls.json', 'white');
-    this.log('  - LZ4 bundle generation from the canonical source JSON', 'white');
+    this.log('  - Canonical ClearURLs source YAML: data/linkumori-clearurls.yaml', 'white');
+    this.log('  - JSON export and LZ4 bundle generation from the canonical source YAML', 'white');
     this.log('  - Git commit history markdown generator', 'white');
     this.log('  - Automatic NOTICE.md creation and updating', 'white');
     this.log('  - Detailed build statistics and reporting', 'white');
@@ -4480,7 +4566,7 @@ coverage/**
     this.log('\nBuild Process:', 'cyan');
     this.log('  The build command performs these steps in order:', 'white');
     this.log('  1. Generate copyright documentation with embedded licenses', 'dim');
-    this.log('  2. Build ClearURLs LZ4 bundle from data/linkumori-clearurls.json', 'dim');
+    this.log('  2. Export data/linkumori-clearurls.yaml to JSON and build the LZ4 bundle', 'dim');
     this.log('  3. Build Old Country Nobility Font (.sfd → .ttf)', 'dim');
     this.log('  4. Generate icon PNG files from linkumori_icons.svg and linkumori_icon_disabled.svg', 'dim');
     this.log('  5. Validate project structure', 'dim');
@@ -4518,9 +4604,9 @@ coverage/**
     
     this.log('\nClearURLs Source Bundle:', 'cyan');
     this.log('  The ClearURLs builder:', 'white');
-    this.log('  - Reads data/linkumori-clearurls.json as the source of truth', 'dim');
-    this.log('  - Normalizes the wrapped ClearURLsData JSON with Linkumori metadata', 'dim');
-    this.log('  - Writes matching Linkumori metadata into source JSON and data/linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('  - Reads data/linkumori-clearurls.yaml as the source of truth', 'dim');
+    this.log('  - Normalizes the wrapped ClearURLsData data with Linkumori metadata', 'dim');
+    this.log('  - Exports data/linkumori-clearurls.json and writes data/linkumori-clearurls-min.json.lz4', 'dim');
     this.log('  - Does not download or merge downloaded-official-rules.json/custom-rules.json', 'dim');
     this.log('  - Generates detailed statistics and documentation', 'dim');
     this.log('  - Creates/updates NOTICE.md with build history', 'dim');
@@ -4534,9 +4620,9 @@ coverage/**
     this.log('  - Useful for debugging and manual rule inspection', 'dim');
 
     this.log('\nLint ClearURLs Rules (lint-rules / lint-clearurls):', 'cyan');
-    this.log('  Validates a rules JSON file by replaying clearurls.js logic.', 'white');
-    this.log('  Default target: data/linkumori-clearurls.json', 'white');
-    this.log('  Reads { providers } source JSON or the { metadata, providers } LZ4 payload', 'dim');
+    this.log('  Validates a rules JSON/YAML file by replaying clearurls.js logic.', 'white');
+    this.log('  Default target: data/linkumori-clearurls.yaml', 'white');
+    this.log('  Reads { providers } source YAML/JSON or the { metadata, providers } LZ4 payload', 'dim');
     this.log('      ← linkumori-clearurls.json / linkumori-clearurls-min.json.lz4', 'dim');
     this.log('  Checks per provider:', 'dim');
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
@@ -4550,7 +4636,7 @@ coverage/**
     this.log('    Google ved/ei/source, YouTube si/feature, Facebook hc_ref', 'dim');
     this.log('    Tests are skipped (not failed) when no provider in the file matches', 'dim');
     this.log('  Optional path argument:', 'dim');
-    this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.json', 'dim');
+    this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.yaml', 'dim');
 
     this.log('\nShow Rule (show-rule <id> [file], or lint-rules --show-rule <id> [file]):', 'cyan');
     this.log('  Prints one rule, wrapped in the list it is in, e.g. { "rawRules": [ { … } ] }', 'white');

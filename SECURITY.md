@@ -47,7 +47,7 @@ Please provide as much of the following as possible:
 The following are considered in scope for security reports:
 
 - **URL processing logic** — incorrect cleaning, data leakage through URLs, or bypass of tracking parameter stripping
-- **Bundled rules execution** — vulnerabilities introduced by maliciously crafted bundled rules (`data/linkumori-clearurls.json`)
+- **Bundled rules execution** — vulnerabilities introduced by maliciously crafted bundled rules (`data/linkumori-clearurls.yaml` and its generated bundle)
 - **Redirect unwrapping** — open redirect issues or navigation to unintended destinations
 - **Storage handling** — unauthorised access to or leakage of extension storage data
 - **Content Security Policy bypass** — any way to execute inline scripts or load external scripts despite the extension's CSP (`script-src 'self'`)

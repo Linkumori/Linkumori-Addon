@@ -78,7 +78,8 @@ const TAG_PREFIX = "linkumori-v";
 
 const DATA_FILE_DESCRIPTIONS = {
   "data/public_suffix_list.dat":          "Downloaded latest public suffix list from upstream",
-  "data/linkumori-clearurls.json":        "Updated canonical URL cleaning rules source",
+  "data/linkumori-clearurls.yaml":        "Updated canonical URL cleaning rules source",
+  "data/linkumori-clearurls.json":        "Generated JSON URL cleaning rules export",
   "data/linkumori-clearurls-min.json.lz4": "Generated compressed URL cleaning rules bundle",
 };
 
@@ -169,7 +170,8 @@ ${C.bold}DATA FILE AUTO-DETECTION${C.reset}
   When any of these files change, a human-readable entry is always
   added to the changelog regardless of the commit subject:
     • data/public_suffix_list.dat       → "Updated public suffix list"
-    • data/linkumori-clearurls.json → "Updated URL cleaning rules source"
+    • data/linkumori-clearurls.yaml → "Updated URL cleaning rules source"
+    • data/linkumori-clearurls.json → "Generated JSON URL cleaning rules export"
     • data/linkumori-clearurls-min.json.lz4 → "Generated compressed URL cleaning rules bundle"
 
 ${C.bold}CONVENTIONAL COMMITS SUPPORT${C.reset}

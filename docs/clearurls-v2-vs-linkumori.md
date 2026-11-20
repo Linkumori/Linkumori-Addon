@@ -22,8 +22,8 @@ files, so moving rules across is done by hand, following
 
 | | ClearURLs format 2 | Linkumori |
 |---|---|---|
-| Authoring format | YAML (`version: 2`) | JSON |
-| Shipped as | compiled JSON list (the YAML compiled, minified and compressed) | the same JSON; the bundled list is LZ4-compressed |
+| Authoring format | YAML (`version: 2`) | YAML source using Linkumori's data model, exported as JSON |
+| Shipped as | compiled JSON list (the YAML compiled, minified and compressed) | JSON; the bundled list is LZ4-compressed |
 | Older format | legacy JSON catalog (`rules`, `rawRules`, …), still published | the legacy catalog's lists, plus extensions |
 | Rule layout | one `rules` list per provider; each rule has a `kind` and an `action` | one list per behaviour: `rules`, `rawRules`, `redirections`, … |
 | Defaults | a `defaults` block copied into every rule | the same `defaults` block, plus `historyBypassProtection`; applied per file, or your own for chosen sources ([defaults](filter-syntax.md#defaults)) |
@@ -64,7 +64,7 @@ Linkumori has one format for bundled, remote and custom rules:
 - `metadata` is optional.
 - There is no `version` key. An optional `defaults` block works like
   ClearURLs' ([defaults](filter-syntax.md#defaults)).
-- The bundled list is built from `data/linkumori-clearurls.json` into an
+- The bundled list is built from `data/linkumori-clearurls.yaml` into an
   LZ4 file.
 - Remote lists must come with a hash URL. The SHA-256 of the list's raw
   text must match it, or the list is rejected.

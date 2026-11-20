@@ -28,7 +28,7 @@ It also handles practical tasks: compressing the canonical URL-cleaning rule sou
 When you run a build, the CLI uses the local ClearURLs source file and may ask one network-related question for the Public Suffix List:
 
 **1. Rules source**:
-- Uses `data/linkumori-clearurls.json` and converts it to `data/linkumori-clearurls-min.json.lz4`.
+- Uses `data/linkumori-clearurls.yaml` as the canonical source, exports `data/linkumori-clearurls.json`, and converts the rules to `data/linkumori-clearurls-min.json.lz4`.
 - The rules build does not download or merge `downloaded-official-rules.json` and `custom-rules.json`.
 
 **2. Public Suffix List (PSL) source** ("Choose PSL mode"):

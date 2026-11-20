@@ -2,8 +2,8 @@
   "cln": "1.0",
   "metadata": {
     "name": "Linkumori URL Cleaning Rules",
-    "version": "18.11.2026.1105",
-    "buildTimestamp": "2026-11-18T11:05:13.286Z",
+    "version": "20.11.2026.1732",
+    "buildTimestamp": "2026-11-20T12:02:02.138Z",
     "description": "Comprehensive URL cleaning rules for tracking parameter removal and privacy protection",
     "license": "GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.",
     "license-Url": "https://www.gnu.org/licenses/lgpl-3.0.en.html",
@@ -12,9 +12,10 @@
     "originalProject": "ClearURLs",
     "first-modified-By": "Subham Mahesh in 2026 with significant enhancements and optimizations",
     "copyright": "Copyright (c) 2025-2026 Subham Mahesh for Linkumori modifications and curated additions; ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.",
-    "Notice-Of-Modification": "See data/NOTICE.md and sidecar notices for linkumori-clearurls.json, linkumori-clearurls-min.json.lz4, custom-rules.json, and downloaded-official-rules.json.",
+    "Notice-Of-Modification": "See data/NOTICE.md and sidecar notices for linkumori-clearurls.yaml, linkumori-clearurls.json, linkumori-clearurls-min.json.lz4, custom-rules.json, and downloaded-official-rules.json.",
     "sourceLineage": {
-      "canonicalSource": "data/linkumori-clearurls.json",
+      "canonicalSource": "data/linkumori-clearurls.yaml",
+      "generatedJson": "data/linkumori-clearurls.json",
       "generatedBundle": "data/linkumori-clearurls-min.json.lz4",
       "migratedFrom": [
         "data/downloaded-official-rules.json",
@@ -24,10 +25,9 @@
       "carriesHistoricalModifications": true,
       "noticeFiles": [
         "data/NOTICE.md",
+        "data/linkumori-clearurls.yaml.txt",
         "data/linkumori-clearurls.json.txt",
-        "data/linkumori-clearurls-min.json.lz4.txt",
-        "data/custom-rules.json.txt",
-        "data/downloaded-official-rules.json.txt"
+        "data/linkumori-clearurls-min.json.lz4.txt"
       ]
     },
     "urls": {

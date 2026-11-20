@@ -54,21 +54,21 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 
 > **Reproducible Builds — Rules Source and PSL Prompt:**
 > ClearURLs rules are built from the canonical source file
-> `data/linkumori-clearurls.json`. The CLI injects Linkumori metadata only into
-> the generated `data/linkumori-clearurls-min.json.lz4` payload. The rules build
+> `data/linkumori-clearurls.yaml`. The CLI exports normalized rules to
+> `data/linkumori-clearurls.json` and `data/linkumori-clearurls-min.json.lz4`. The rules build
 > no longer downloads or merges `downloaded-official-rules.json` and
 > `custom-rules.json`.
 >
-> 1. **Rules source** — edit `data/linkumori-clearurls.json`; the CLI normalizes this
->    metadata-free source file, injects metadata in memory, and converts the
->    generated payload to the bundled LZ4 ruleset.
+> 1. **Rules source** — edit `data/linkumori-clearurls.yaml`; use
+>    `node linkumori-cli-tool.js yaml-to-json data/linkumori-clearurls.yaml` to
+>    export JSON. The `clearurls` command normalizes the source and generates the
+>    JSON and bundled LZ4 outputs.
 >    This source file carries forward the historical modification notices from
 >    `data/custom-rules.json`, `data/downloaded-official-rules.json`, and the
 >    earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage.
->    See `data/linkumori-clearurls.json.txt`,
->    `data/linkumori-clearurls-min.json.lz4.txt`,
->    `data/custom-rules.json.txt`, and
->    `data/downloaded-official-rules.json.txt`.
+>    See `data/linkumori-clearurls.yaml.txt` for consolidated rule provenance,
+>    plus `data/linkumori-clearurls.json.txt` and
+>    `data/linkumori-clearurls-min.json.lz4.txt` for generated-output notices.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
 >    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured
@@ -196,8 +196,9 @@ The CLI runs the following steps automatically:
 
 - **Step 1/6:** Generates copyright documentation.
 
-- **Step 2/6:** Builds `data/linkumori-clearurls-min.json.lz4` from the canonical
-  source file `data/linkumori-clearurls.json`.
+- **Step 2/6:** Builds `data/linkumori-clearurls.json` and
+  `data/linkumori-clearurls-min.json.lz4` from canonical source file
+  `data/linkumori-clearurls.yaml`.
 
 - **Step 3/6:** Builds the Old Country Nobility font (`Old-Country-Nobility.sfd` → `.ttf`) using FontForge.
   *(Requires FontForge — see Requirements. If not installed, this step is skipped and the build continues.)*
