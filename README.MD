@@ -1,148 +1,187 @@
-[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)
-# <sub><img src="https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/img/linkumori_icons.svg" width="64px" height="64px"></sub> Linkumori — Clean URLs for Firefox
+<div align="center">
 
+<img src="https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/img/linkumori_icons.svg" width="128" height="128" alt="Linkumori logo">
 
+# Linkumori
 
-> ClearURLs hasn't shipped a user whitelist in **four years** of requests. We did.
+### Your links, minus the trackers.
 
+**Clean URLs for Firefox.** Built for Manifest V3, with the whitelist and custom rules ClearURLs users have wanted since 2020.
+
+[![Firefox Add-on](https://img.shields.io/amo/v/linkumori-clean-urls?label=Firefox%20Add-on&logo=firefoxbrowser&logoColor=white&color=FF7139)](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)
+[![Users](https://img.shields.io/amo/users/linkumori-clean-urls?logo=firefoxbrowser&logoColor=white&color=2ea44f)](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)
 [![Build and Sign Extension](https://github.com/Linkumori/Linkumori-Addon/actions/workflows/build-and-sign.yml/badge.svg?branch=main)](https://github.com/Linkumori/Linkumori-Addon/actions/workflows/build-and-sign.yml)
+[![License: LGPL v3+](https://img.shields.io/badge/license-LGPL--3.0--or--later-blue)](License.md)
+![Manifest V3](https://img.shields.io/badge/manifest-V3-8A2BE2)
+![Telemetry](https://img.shields.io/badge/telemetry-none-success)
 
-Linkumori automatically strips tracking parameters from URLs — silently, instantly, without breaking your browsing. It's built from the ground up for Firefox's Manifest V3 and ships the features that ClearURLs users have been asking for since 2020.
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="Get the add-on for Firefox" height="60">](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)
+
+[**Install**](#install) · [**Features**](#features) · [**vs ClearURLs**](#vs-clearurls) · [**Rules**](#rules) · [**Privacy**](#privacy) · [**Contribute**](#contribute)
+
+</div>
 
 ---
 
-## Why Linkumori Instead of ClearURLs?
+## ✨ See the difference
 
-ClearURLs is a great project. It's also effectively unmaintained, last updated in February 2025, and missing features that users have been requesting for years. Linkumori fixes that.
+Shopping links like this one carry a pile of tracking parameters:
 
-| Feature | ClearURLs | Linkumori |
-|---|---|---|
+```diff
+- https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=ÅMÅŽÕÑ&keywords=tea&pd_rd_i=exampleProduct&pd_rd_r=8d39e4cd-1e4f-43db-b6e7-72e969a84aa5&pd_rd_w=1pcKM&pd_rd_wg=hYrNl&pf_rd_p=50bbfd25-5ef7-41a2-68d6-74d854b30e30
++ https://www.amazon.com/dp/exampleProduct
+```
+
+> 🧹 **No popup. No setup.** Linkumori cleans the URL in the background before the page loads.
+
+---
+
+<a id="features"></a>
+
+## 🚀 Features
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🛡️ Core protection
+*Inherited from ClearURLs*
+
+- 🔗 Removes tracking parameters automatically
+- ↪️ Skips tracking middlemen and goes straight to the destination
+- 🚫 Blocks some common ad domains (optional)
+- 📡 Blocks hyperlink auditing (`ping` tracking)
+- 🏷️ Prevents ETag tracking
+- 🕰️ Cleans tracking injected through the History API
+- 🔍 Stops Google and Yandex rewriting search results with trackers
+- 📋 Context-menu entry to copy a clean link
+- 🧰 Built-in tool to clean many URLs at once
+
+</td>
+<td width="50%" valign="top">
+
+### ⚡ Only in Linkumori
+*Features ClearURLs doesn't have*
+
+- ✅ **Whitelist.** Exclude any domain in one click, instead of switching the whole extension off when a site breaks.
+- ✍️ **Custom rules.** Write your own rules, and they take priority over built-in and remote rules.
+- 🔕 **Disable and restore.** Switch off single rules or whole rule sets without writing counter-rules, and turn them back on any time.
+- 🌐 **Multiple remote sources.** Load and merge several remote rule lists at once.
+- 🧬 **Overload mode.** Merges built-in and remote rules, then applies your custom rules on top.
+- 🩹 **Remote patches.** A remote file can replace rules by id with a `patches` list ([docs](docs/filter-syntax.md)).
+- 🎯 **`$removeparam` filters** with `@@` exceptions.
+- 🩺 **Per-tab troubleshooter** for working out why a site broke.
+
+</td>
+</tr>
+</table>
+
+---
+
+<a id="vs-clearurls"></a>
+
+## ⚔️ Linkumori vs ClearURLs
+
+ClearURLs is a great project, and it's active again: **1.28.0** (November 2026) added declarative redirect rules and a large batch of encoding and History API fixes. It is still a **Manifest V2** extension, though, and it still has **no whitelist, no custom rules and only one remote rule URL**. Those gaps are why Linkumori exists.
+
+<div align="center">
+
+| | ClearURLs 1.28.0 | **Linkumori 100.98.0** |
+|---|:---:|:---:|
 | Remove tracking parameters | ✅ | ✅ |
-| Block hyperlink auditing (ping) | ✅ | ✅ |
+| Redirect to the real destination | ✅ | ✅ |
+| Block hyperlink auditing (`ping`) | ✅ | ✅ |
 | Block ETag tracking | ✅ | ✅ |
 | Prevent Google/Yandex search rewrites | ✅ | ✅ |
-| **Per-domain whitelist** | ❌ (4yr open issue) | ✅ |
+| Clean History API URL changes | ✅ | ✅ |
+| **Per-domain whitelist** | ❌ *long-requested* | ✅ |
 | **Custom rules that override built-ins** | ❌ | ✅ |
-| **Disable specific rules without replacing** | ❌ | ✅ |
-| **Multiple remote rule sources** | ❌ | ✅ |
+| **Disable rules without replacing them** | ❌ | ✅ |
+| **Multiple remote rule sources** | ❌ *one URL* | ✅ |
 | **Overload mode (merge rule sets)** | ❌ | ✅ |
-| Firefox MV3 native | ❌ | ✅ |
-| Active development | ❌ | ✅ |
+| **Remote rule patches by id** | ❌ | ✅ |
+| **`$removeparam` + `@@` exceptions** | ❌ | ✅ |
+| **Per-tab troubleshooter** | ❌ | ✅ |
+| Remote rule download | 🔛 On by default | 🔒 Off, opt-in |
+| Manifest version | MV2 | **MV3** |
+| Minimum Firefox | 98 | 140 (Android 142) |
+
+</div>
 
 ---
 
-## What It Does
+<a id="privacy"></a>
 
-Every URL you visit gets cleaned before it loads. Tracking parameters — the stuff that follows you across the web — are stripped silently in the background.
+## 🔒 Privacy
 
-**Before:**
-```
-https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=ÅMÅŽÕÑ&keywords=tea&pd_rd_i=exampleProduct&pd_rd_r=8d39e4cd-1e4f-43db-b6e7-72e969a84aa5&pd_rd_w=1pcKM&pd_rd_wg=hYrNl&pf_rd_p=50bbfd25-5ef7-41a2-68d6-74d854b30e30
-```
+<div align="center">
 
-**After:**
-```
-https://www.amazon.com/dp/exampleProduct
-```
+**No telemetry. No analytics. No usage data.**
 
-No redirect. No popup. No reload. It just works.
+</div>
 
----
+- 🏠 All URL cleaning happens locally, inside the extension.
+- 📴 Remote rules are **disabled by default**. You have to opt in.
 
-## Features
+> [!WARNING]
+> **Remote rules are for advanced users who run their own infrastructure, physical and virtual, end to end.**
+> With remote rules on, your browser sends requests to the endpoint you configure. Whoever controls that server, and the hardware under it, can see your IP address, when you connected and how often.
+> If you don't run your own server, leave this feature off. If you do, point Linkumori at your own endpoint: you decide what gets logged, no third party sees the traffic, and you push updates when you choose. A local network address also works, which keeps the rule list entirely inside your own network.
 
-**Core features inherited from ClearURLs**
-- Removes tracking parameters from URLs automatically in the background
-- Blocks some common ad domains (optional)
-- Includes a built-in tool to clean multiple URLs at once
-- Supports redirection to the destination without tracking services as a middleman
-- Adds a context-menu entry so links can be copied quickly and cleanly
-- Blocks hyperlink auditing (also known as ping tracking)
-- Prevents ETag tracking
-- Prevents tracking injection through the History API
-- Prevents Google from rewriting search results with tracking elements
-- Prevents Yandex from rewriting search results with tracking elements
-
-
-**The features ClearURLs doesn't have**
-
-- **Whitelist** — exclude any domain from cleaning. One click. Done. No more disabling the whole extension because one site broke.
-- **Custom rules with override support** — write your own rules that take precedence over built-in or remote rules
-- **Rule disable/restore** — disable specific rules or entire built-in/remote rule sets without creating counter-rules, then restore them anytime
-- **Multiple remote rule sources** — load and merge several remote rule sets simultaneously
-- **Overload mode** — merges built-in and remote rules together before applying your custom rules on top
-- **Remote rule patches** — a remote file can replace existing built-in or remote rules by id with a `patches` list, without republishing the whole rule set (see `docs/filter-syntax.md` §Rule patches)
-
-
+📄 Full details: [privacy.md](privacy.md) · 🔑 Permissions explained: [SECURITY.md](SECURITY.md)
 
 ---
 
-## Privacy
+<a id="rules"></a>
 
-Linkumori collects nothing. No telemetry. No analytics. No usage data.
+## 📜 Rules
 
-- All URL cleaning happens locally in the extension runtime
-- Remote rules are **disabled by default** — you opt in
-- **Remote rules are for advanced users who own and fully control their own infrastructure — both physical and virtual — end-to-end.** When enabled, your browser makes a network request to the configured endpoint, and whoever controls that server and the hardware beneath it can see your IP address, when you connected, and how often. If you do not administer your own server, do not enable this feature. If you do, point Linkumori at your own endpoint: you control what gets logged, no intermediate party has visibility, and you push updates on your own schedule. Local network addresses work too, keeping the ruleset entirely within your own network — the highest-trust configuration possible.
+The built-in rules ship with each release and are regularly synced from the upstream ClearURLs rule list. Bundled, remote and custom rules all use **one JSON format**.
 
-Full details in [privacy.md](privacy.md).
-
----
-
-## Permissions
-
-All required permissions are explained in [SECURITY.md](SECURITY.md). The short version: we request only what's needed to clean URLs and nothing more.
+| Guide | What's inside |
+|---|---|
+| 📘 [Rules format, beginner to advanced](docs/linkumori-rules-format-guide.md) | A plain-language walkthrough |
+| 📗 [Filter syntax reference](docs/filter-syntax.md) | `domainPatterns` (`\|\|example.com^`) and `urlPattern` matching; `rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections` and `fieldRedirections`; `$removeparam` / `$rawrule` filters; rule objects (`id`, `aliases`, `replacePattern`, `order`, `flags`, …); and `lint-rules` |
+| 📙 [ClearURLs v2 vs Linkumori format](docs/clearurls-v2-vs-linkumori.md) | Moving rules between the two formats |
 
 ---
 
-## Developer Wiki
+<a id="install"></a>
 
-For a deep codebase walkthrough, see the [Linkumori Maintainer Wiki](docs/wiki/README.md). It covers architecture, runtime flow, rule loading, performance decisions, the current implemented rule syntax, and a file-by-file module map.
+## 📦 Install
 
----
+<div align="center">
 
-## Rules
+### [🦊 Get it on Firefox Add-ons →](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)
 
-Built-in rules ship with the extension and are updated with each release.
+or download a signed build from [**Releases**](https://github.com/Linkumori/Linkumori-Addon/releases/)
 
-Bundled rules, remote rule lists and custom rules all use one JSON format. See the [filter syntax guide](docs/filter-syntax.md). It covers:
-- a plain-language [beginner-to-advanced guide to the Linkumori rules format](docs/linkumori-rules-format-guide.md)
-- providers matched by `domainPatterns` (`||example.com^`) or `urlPattern`
-- `rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections` and `fieldRedirections`
-- `$removeparam` filters with `@@` exceptions, and `$rawrule` patterns and options
-- rule objects (`id`, `aliases`, `replacePattern`, `order`, `flags`, …) and checking rules with `lint-rules`
+</div>
 
 ---
 
-## Install
+<a id="contribute"></a>
 
-**[→ Get it on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/)**
+## 🤝 Contribute
 
-Or download a signed build from [Releases](https://github.com/Linkumori/Linkumori-Addon/releases/).
-
-
-
----
-
-## Contribute
-
-Found a site that's breaking? Got a rule to add? [Open an issue](https://github.com/Linkumori/Linkumori-Addon/issues/new) — rule suggestions are especially welcome.
-
-Want to translate Linkumori? Open the [`_locales/en/messages.json`](_locales/en/messages.json) file, translate the values into your language, and submit a pull request to `_locales/{language-code}/messages.json`.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines, and [docs/runtime-architecture.md](docs/runtime-architecture.md) for how the extension works inside the browser.
+- 🐛 **Is a site broken? Have a rule to suggest?** [Open an issue](https://github.com/Linkumori/Linkumori-Addon/issues/new). Rule suggestions are especially welcome.
+- 🌍 **Translate.** Translate the values in [`_locales/en/messages.json`](_locales/en/messages.json) and open a pull request that adds `_locales/{language-code}/messages.json`.
+- 🛠️ **Hack on it.** Start with [CONTRIBUTING.md](CONTRIBUTING.md), [runtime-architecture.md](docs/runtime-architecture.md) and the [Maintainer Wiki](docs/wiki/README.md), which covers architecture, runtime flow, rule loading, performance decisions and a file-by-file module map.
 
 ---
 
-## Built on the shoulders of giants
+## 🙏 Built on the shoulders of giants
 
-Linkumori is forked from [ClearURLs](https://github.com/ClearURLs/Addon) and shares its core engine and rule format. We owe a real debt to that project and its contributors. Our goal is not to replace it but to carry it forward — MV3-native, actively maintained, and with the features its users have been asking for.
+Linkumori is forked from [**ClearURLs**](https://github.com/ClearURLs/Addon) and shares its core engine and rule format. We owe a real debt to that project and everyone who has contributed to it. Both projects are maintained. Linkumori isn't meant to replace ClearURLs: it's an MV3-native alternative with the features ClearURLs users have been asking for.
 
 Third-party libraries and their licenses are listed in [THIRD-PARTY-NOTICE](THIRD-PARTY-NOTICE/).
 
 ---
 
+<div align="center">
 
----
+**[Source](https://github.com/Linkumori/Linkumori-Addon)** · **[License](License.md)** · **[Privacy Policy](privacy.md)** · **[Security](SECURITY.md)** · **[Changelog](CHANGELOG.md)**
 
-[Source](https://github.com/Linkumori/Linkumori-Addon) · [License](License.md) · [Privacy Policy](privacy.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
+<sub>Made with 🧹 for a cleaner web.</sub>
+
+</div>
