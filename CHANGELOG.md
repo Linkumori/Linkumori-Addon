@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.97.0] - 2026-11-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.96.0...linkumori-v100.97.0))
+### Changed
+- Generated JSON URL cleaning rules export (`2026-11-22`, hash: [`7404b5b`](https://github.com/Linkumori/Linkumori-Addon/commit/7404b5b))
+- Generated compressed URL cleaning rules bundle (`2026-11-22`, hash: [`7404b5b`](https://github.com/Linkumori/Linkumori-Addon/commit/7404b5b))
+- Rules/sync clearurls 2026 11 (#199) (`2026-11-22`, hash: [`7404b5b`](https://github.com/Linkumori/Linkumori-Addon/commit/7404b5b)) [#199](https://github.com/Linkumori/Linkumori-Addon/issues/199)
+- Test/node regression harness (#198) (`2026-11-22`, hash: [`480dfd0`](https://github.com/Linkumori/Linkumori-Addon/commit/480dfd0)) [#198](https://github.com/Linkumori/Linkumori-Addon/issues/198)
+- Updated canonical URL cleaning rules source (`2026-11-22`, hash: [`7404b5b`](https://github.com/Linkumori/Linkumori-Addon/commit/7404b5b))
+
 ## [v100.96.0] - 2026-11-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.95.0...linkumori-v100.96.0))
 ### Changed
 - Fixes (`2026-11-22`, hash: [`27416ee`](https://github.com/Linkumori/Linkumori-Addon/commit/27416ee))
