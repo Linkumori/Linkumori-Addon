@@ -90,6 +90,11 @@ Each name removes that parameter from the URL's query or fragment. A rule can
 also use a regular expression for parameter names. For example,
 `utm_[a-z]+` matches names such as `utm_source` and `utm_campaign`.
 
+Names are matched after percent-decoding, in the fragment as in the query, so
+`utm_source` also removes `#%75tm_source=x`. A fragment name without `=` (a
+page anchor such as `#section-2`) is never decoded, and neither is a name
+that is still encoded after one decode.
+
 Rules only apply to URLs that match the provider. A rule for shop.example
 does not affect other websites.
 
