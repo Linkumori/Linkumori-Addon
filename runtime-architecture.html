@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.83.0</span>
+      <span class="brand-ver">v100.95.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -286,7 +286,7 @@
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Source</th><th scope="col">Where it comes from</th></tr></thead>
 <tbody>
-<tr><td>Bundled</td><td><code>data/linkumori-clearurls-min.json.lz4</code>, built by <code>node linkumori-cli-tool.js clearurls</code> from <code>data/linkumori-clearurls.json</code> and decompressed with <code>LinkumoriLZ4</code></td></tr>
+<tr><td>Bundled</td><td><code>data/linkumori-clearurls-min.json.lz4</code>, built by <code>node linkumori-cli-tool.js clearurls</code> from <code>data/linkumori-clearurls.yaml</code> and decompressed with <code>LinkumoriLZ4</code></td></tr>
 <tr><td>Remote</td><td>one or more <code>ruleURL</code> + <code>hashURL</code> pairs set by the user (§5.2)</td></tr>
 <tr><td>Remote cache</td><td><code>remoteRulescache</code>: the last remote rules that passed verification</td></tr>
 <tr><td>Custom</td><td><code>custom_rules</code>, from the custom rules editor</td></tr>
@@ -581,7 +581,7 @@
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Build time (CLI)</th><th scope="col">Runtime (extension)</th></tr></thead>
 <tbody>
-<tr><td><code>data/linkumori-clearurls.json</code> is edited by hand</td><td>never read</td></tr>
+<tr><td><code>data/linkumori-clearurls.yaml</code> is edited by hand; <code>clearurls</code> leaves it unchanged and exports <code>data/linkumori-clearurls.json</code></td><td>never read</td></tr>
 <tr><td><code>node linkumori-cli-tool.js clearurls</code> builds <code>data/linkumori-clearurls-min.json.lz4</code> with metadata</td><td>loaded at startup (§5.1)</td></tr>
 <tr><td><code>lint-rules</code>, <code>show-rule</code> check and inspect rules</td><td>the editor runs the same checks on save</td></tr>
 <tr><td><code>data/public_suffix_list.dat</code> is refreshed by the CLI</td><td>loaded by <code>linkumoriPsl</code> (§6.7)</td></tr>

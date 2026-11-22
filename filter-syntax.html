@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.83.0</span>
+      <span class="brand-ver">v100.95.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -131,6 +131,7 @@
 </aside>
 <p>This page describes CLN Format 1.0 in its final form. The changes from the earlier 1.0 text, and why, are in <a href="cln-1.0.html">CLN Format 1.0 (Final)</a>.</p>
 <p>Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a <code>providers</code> object (and, optionally, <code>cln</code>, <code>metadata</code>, <code>defaults</code> and, in a remote file, <code>patches</code>). Each key under <code>providers</code> is a name you choose; its value is a provider object.</p>
+<p>The bundled source file is authored in YAML and converted to this JSON data model by the CLI. See <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/cln-yaml.md">Writing CLN Format 1.0 in YAML</a> for the complete YAML form of every section and rule type.</p>
 <p>The optional top-level <code>cln</code> key names the format version. Its only valid value is <code>&quot;1.0&quot;</code>; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails <code>lint-rules</code>). It is not called <code>version</code> because the ClearURLs new rule format already uses that key.</p>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
   <span class="k">&quot;cln&quot;</span>: <span class="s">&quot;1.0&quot;</span>,
@@ -202,6 +203,7 @@
 <tr><td><code>&quot;$removeparam=fbclid&quot;</code></td><td>see below — lets you add domain/method/party limits</td></tr>
 </tbody>
 </table></div>
+<p>Names are matched after percent-decoding, in the fragment as in the query, so <code>&quot;utm_source&quot;</code> also removes <code>#%75tm_source=x</code>. The same holds for <code>$removeparam</code> filters and their <code>@@</code> exceptions; the decoded name is tried first, then the name as written. A fragment name is left as written when it has no <code>=</code> (a page anchor such as <code>#section-2</code>), starts with <code>?</code>, doesn't decode, or still holds an escape after one decode. Only the matching uses the decoded name: the rest of the fragment keeps its original spelling.</p>
 <p>To strip a parameter on only <em>some</em> of a provider's URLs, put a pattern in front of <code>$removeparam</code>:</p>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json"><span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;qid&quot;</span>, <span class="s">&quot;||amazon.de^$removeparam=tag&quot;</span>]</code></pre></div>
 <p><code>referralMarketing</code> uses the exact same syntax, but only runs while the person hasn't turned on &quot;allow referral marketing.&quot;</p>

@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.83.0</span>
+      <span class="brand-ver">v100.95.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -124,6 +124,7 @@
 </aside>
 <div class="callout"><p><strong>Implementation.</strong> Linkumori implements this document after v100.62.0. The rule-by-rule reference is <a href="filter-syntax.html">filter-syntax.md</a>; where the engine makes a choice this document leaves open, that page says so. The worked examples and vectors below are checked against the engine.</p></div>
 <h2 id="status-and-scope">Status and scope</h2>
+<p>This document specifies CLN's JSON data model. The bundled canonical source is authored in YAML and converted by the CLI to the same data model; remote, custom, imported and exported rule files use JSON. See <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/cln-yaml.md">Writing CLN Format 1.0 in YAML</a> for that source serialization.</p>
 <p>This document is CLN Format 1.0 in its final form. It supersedes the 1.0 text announced on 2 October 2026, and there is no compatibility mode for that earlier text.</p>
 <p>It is written against the <a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a>.</p>
 <p><strong>What it keeps.</strong> Every key, array and pattern of the earlier 1.0 text stays valid. A file written for that text loads without edits, so no converter is needed.</p>
