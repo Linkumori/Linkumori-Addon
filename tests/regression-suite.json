@@ -2556,7 +2556,7 @@
       "id": "provider rule order runs field rule before raw rule",
       "dialect": "provider",
       "input": "https://example.com/rule-order/?token=abc&keep=1",
-      "expectedOutput": "https://example.com/rule-order/?keep=1&token",
+      "expectedOutput": "https://example.com/rule-order/?keep=1&token=",
       "providers": {
         "provider-rule-order": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/rule-order(?:[/?#]|$)",
