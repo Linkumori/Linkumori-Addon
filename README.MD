@@ -3,31 +3,39 @@
 
 
 
-> ClearURLs hasn't shipped a user whitelist in **four years** of requests. We did.
+> ClearURLs still doesn't ship a user whitelist after years of requests. Linkumori does.
 
 [![Build and Sign Extension](https://github.com/Linkumori/Linkumori-Addon/actions/workflows/build-and-sign.yml/badge.svg?branch=main)](https://github.com/Linkumori/Linkumori-Addon/actions/workflows/build-and-sign.yml)
 
-Linkumori automatically strips tracking parameters from URLs — silently, instantly, without breaking your browsing. It's built from the ground up for Firefox's Manifest V3 and ships the features that ClearURLs users have been asking for since 2020.
+Linkumori automatically strips tracking parameters from URLs — silently, instantly, without breaking your browsing. It's built for Firefox's Manifest V3 and adds the features that ClearURLs users have been asking for since 2020.
 
 ---
 
 ## Why Linkumori Instead of ClearURLs?
 
-ClearURLs is a great project. It's also effectively unmaintained, last updated in February 2025, and missing features that users have been requesting for years. Linkumori fixes that.
+ClearURLs is a great project, and it is active again: version 1.28.0 (November 2026) brought declarative redirect rules and a large batch of URL-encoding and History API fixes. It is still a Manifest V2 extension, though, and still has no way to whitelist a site, write your own rules or load more than one rule list. Linkumori does.
+
+Comparison against ClearURLs 1.28.0 and Linkumori 100.98.0:
 
 | Feature | ClearURLs | Linkumori |
 |---|---|---|
 | Remove tracking parameters | ✅ | ✅ |
+| Redirect to the real destination | ✅ | ✅ |
 | Block hyperlink auditing (ping) | ✅ | ✅ |
 | Block ETag tracking | ✅ | ✅ |
 | Prevent Google/Yandex search rewrites | ✅ | ✅ |
-| **Per-domain whitelist** | ❌ (4yr open issue) | ✅ |
+| Clean History API URL changes | ✅ | ✅ |
+| **Per-domain whitelist** | ❌ (long-requested) | ✅ |
 | **Custom rules that override built-ins** | ❌ | ✅ |
 | **Disable specific rules without replacing** | ❌ | ✅ |
-| **Multiple remote rule sources** | ❌ | ✅ |
+| **Multiple remote rule sources** | ❌ (one rule URL) | ✅ |
 | **Overload mode (merge rule sets)** | ❌ | ✅ |
-| Firefox MV3 native | ❌ | ✅ |
-| Active development | ❌ | ✅ |
+| **Remote rule patches by id** | ❌ | ✅ |
+| **`$removeparam` filters with `@@` exceptions** | ❌ | ✅ |
+| **Per-tab troubleshooter** | ❌ | ✅ |
+| Remote rule download | On by default (`rules2.clearurls.xyz`) | Off by default (opt-in, your own server) |
+| Manifest version | MV2 | MV3 |
+| Minimum Firefox | 98 | 140 (142 on Android) |
 
 ---
 
@@ -136,7 +144,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines, and [do
 
 ## Built on the shoulders of giants
 
-Linkumori is forked from [ClearURLs](https://github.com/ClearURLs/Addon) and shares its core engine and rule format. We owe a real debt to that project and its contributors. Our goal is not to replace it but to carry it forward — MV3-native, actively maintained, and with the features its users have been asking for.
+Linkumori is forked from [ClearURLs](https://github.com/ClearURLs/Addon) and shares its core engine and rule format. We owe a real debt to that project and its contributors. Both projects are maintained; Linkumori's goal is not to replace ClearURLs but to offer an MV3-native alternative with the features its users have been asking for. Built-in rules are periodically synced from the upstream ClearURLs rule list.
 
 Third-party libraries and their licenses are listed in [THIRD-PARTY-NOTICE](THIRD-PARTY-NOTICE/).
 
