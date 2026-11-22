@@ -3163,6 +3163,93 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "fragment rule matches a percent-encoded name",
+      "dialect": "provider",
+      "input": "https://example.com/fragment-encoded-name/#%75tm_source=x&keep=1",
+      "expectedOutput": "https://example.com/fragment-encoded-name/#keep=1",
+      "providers": {
+        "fragment-encoded-name": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/fragment-encoded-name(?:[/?#]|$)",
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "fragment rule leaves a bare encoded anchor",
+      "dialect": "provider",
+      "input": "https://example.com/fragment-encoded-name/?utm_source=x#%75tm_source",
+      "expectedOutput": "https://example.com/fragment-encoded-name/#%75tm_source",
+      "providers": {
+        "fragment-encoded-name": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/fragment-encoded-name(?:[/?#]|$)",
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "fragment rule leaves a double-encoded name",
+      "dialect": "provider",
+      "input": "https://example.com/fragment-encoded-name/?utm_source=x#%2575tm_source=x",
+      "expectedOutput": "https://example.com/fragment-encoded-name/#%2575tm_source=x",
+      "providers": {
+        "fragment-encoded-name": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/fragment-encoded-name(?:[/?#]|$)",
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "fragment removeparam matches a percent-encoded name",
+      "dialect": "provider",
+      "input": "https://example.com/fragment-encoded-removeparam/#%75tm_source=x&keep=1",
+      "expectedOutput": "https://example.com/fragment-encoded-removeparam/#keep=1",
+      "providers": {
+        "fragment-encoded-removeparam": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/fragment-encoded-removeparam(?:[/?#]|$)",
+          "rules": [
+            "||example.com/fragment-encoded-removeparam^$removeparam=utm_source",
+            "@@||example.com/fragment-encoded-removeparam/exception^$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "fragment removeparam exception wins on a percent-encoded name",
+      "dialect": "provider",
+      "input": "https://example.com/fragment-encoded-removeparam/exception/#%75tm_source=x&keep=1",
+      "expectedOutput": "https://example.com/fragment-encoded-removeparam/exception/#%75tm_source=x&keep=1",
+      "providers": {
+        "fragment-encoded-removeparam": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/fragment-encoded-removeparam(?:[/?#]|$)",
+          "rules": [
+            "||example.com/fragment-encoded-removeparam^$removeparam=utm_source",
+            "@@||example.com/fragment-encoded-removeparam/exception^$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

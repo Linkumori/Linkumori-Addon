@@ -1663,11 +1663,35 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
 // original cross-pass dedup). `dedupeKey(key, decision)`, if given, builds
 // the string identifying this specific rewrite; when omitted, no dedup is
 // applied (a `decide` that never rewrites twice for the same key doesn't need it).
+// A fragment name to match in decoded form, or null when it is matched only
+// as written. URLSearchParams already decodes query names, so without this
+// "#%75tm_source=x" would slip past a "utm_source" rule that removes
+// "?%75tm_source=x". Bare anchors ("#section-2", no "="), names starting
+// with "?", names that do not decode and names that still hold an escape
+// after one decode (double encoding is data, not a name) are left as written.
+function getDecodedFragmentNameForMatching(name, values) {
+    if (typeof name !== 'string' || name === '' || name.startsWith('?')) return null;
+    if (!name.includes('%')) return null;
+    if (!(values instanceof Set) || !Array.from(values).some(value => value !== null)) return null;
+    let decoded;
+    try { decoded = decodeURIComponent(name); } catch (_) { return null; }
+    if (decoded === name || decoded === '' || /%[0-9a-f]{2}/i.test(decoded)) return null;
+    return decoded;
+}
+
 function applyParamDecisionsToStore(store, decide, rewriteTracker, dedupeKey) {
     let changed = false;
     const toDelete = [];
+    const isFragmentStore = store instanceof URLHashParams;
     for (const key of Array.from(store.keys())) {
-        const decision = decide(key, store.getAll(key));
+        const values = store.getAll(key);
+        // Fragment names are matched decoded first, so an "@@" exception
+        // on the decoded name still wins; the name as written is the
+        // fallback (rules spelled "%3F..." keep working). Edits always
+        // use the name as written, so the fragment keeps its spelling.
+        const decodedKey = isFragmentStore ? getDecodedFragmentNameForMatching(key, values) : null;
+        let decision = decodedKey !== null ? decide(decodedKey, values) : null;
+        if (!decision || !decision.handled) decision = decide(key, values);
         if (!decision || !decision.handled) continue;
         if (decision.remove) {
             toDelete.push(key);
