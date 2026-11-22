@@ -129,10 +129,14 @@ async function historyCleaner(details) {
                         tabId: details.tabId,
                         frameIds: details.frameId ? [details.frameId] : undefined
                     },
-                    func: (cleanUrl) => {
-                        history.replaceState(null, "", cleanUrl);
+                    func: (originalUrl, cleanUrl) => {
+                        // Another navigation may have happened while this
+                        // script was queued; keep the page's own state object.
+                        if (location.href === originalUrl) {
+                            history.replaceState(history.state, "", cleanUrl);
+                        }
                     },
-                    args: [urlAfter]
+                    args: [urlBefore, urlAfter]
                 });
             } catch (error) {
                 onError(error);
