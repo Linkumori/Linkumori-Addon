@@ -3620,6 +3620,8 @@ providers:
         matchPattern: "@@||google.*/safebrowsing/$removeparam"
       - id: field-google-safe-browsing-removeparam
         matchPattern: "@@||google.*/safe-browsing/$removeparam"
+      - id: field-google-async-removeparam
+        matchPattern: "@@||google.*/async/$removeparam"
       - id: field-cloudflare-com-removeparam
         matchPattern: "@@||cloudflare.com^$removeparam"
       - id: field-prismic-io-removeparam
@@ -12918,6 +12920,8 @@ providers:
         matchPattern: "@@||google.*/safebrowsing/$removeparam"
       - id: field-google-safe-browsing-removeparam
         matchPattern: "@@||google.*/safe-browsing/$removeparam"
+      - id: field-google-async-removeparam
+        matchPattern: "@@||google.*/async/$removeparam"
     referralMarketing:
       - id: referral-removeparam-referrer
         matchPattern: $removeparam=referrer
@@ -12943,6 +12947,7 @@ providers:
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/(?:complete\/search|setprefs|searchbyimage)
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/(?:appsactivity|aclk\?)
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/safe[-]?browsing\/([^&]+)
+          - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/async\/.*
       - id: redirect-https-a-z0-9-google-a-z-2-1-amp-
         matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/amp\/s\/([^&]+)
         exceptions:
@@ -15722,6 +15727,9 @@ providers:
         matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
       - id: field-aff-c-removeparam-aff-id-d-i
         matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+    redirections:
+      - id: redirect-https-linkedin-com-redir-safety-go-url
+        matchPattern: ^https?:\/\/(?:[a-z0-9.-]*\.)?linkedin\.com\/(?:redir\/redirect|safety\/go)\/?\?(?:url=|[^#]*?&url=)(https?(?::|%3[Aa])(?:\/|%2[Ff]){2}[^&#]+)
     domainPatterns:
       - "||linkedin.com^"
   linkumori-linksynergy.com:
@@ -19820,8 +19828,6 @@ providers:
     redirections:
       - id: redirect-https-out-reddit-com-url
         matchPattern: ^https?:\/\/out\.reddit\.com\/.*?url=([^&]*)
-      - id: redirect-https-click-redditmail-com-url
-        matchPattern: ^https?:\/\/click\.redditmail\.com\/.*?url=([^&]*)
     domainPatterns:
       - "||reddit.com^"
   linkumori-redditmail.com:
@@ -19833,6 +19839,9 @@ providers:
     referralMarketing:
       - id: referral-click-redditmail-com-removeparam
         matchPattern: "||click.redditmail.com^$removeparam=ref"
+    redirections:
+      - id: redirect-https-click-redditmail-com-url
+        matchPattern: ^https?:\/\/click\.redditmail\.com\/.*?url=([^&]*)
     domainPatterns:
       - "||redditmail.com^"
   linkumori-reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion:
