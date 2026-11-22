@@ -87,6 +87,8 @@ Each entry removes a parameter, from the query (`?a=1`) or fragment (`#a=1`):
 | `"utm_[a-z]+"` | any parameter whose whole name matches |
 | `"$removeparam=fbclid"` | see below — lets you add domain/method/party limits |
 
+Names are matched after percent-decoding, in the fragment as in the query, so `"utm_source"` also removes `#%75tm_source=x`. The same holds for `$removeparam` filters and their `@@` exceptions; the decoded name is tried first, then the name as written. A fragment name is left as written when it has no `=` (a page anchor such as `#section-2`), starts with `?`, doesn't decode, or still holds an escape after one decode. Only the matching uses the decoded name: the rest of the fragment keeps its original spelling.
+
 To strip a parameter on only *some* of a provider's URLs, put a pattern in front of `$removeparam`:
 
 ```json

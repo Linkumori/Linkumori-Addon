@@ -308,17 +308,13 @@ function extractFragments(url) {
  * @return {URL} the url without searchParams and hash
  */
 function urlWithoutParamsAndHash(url) {
-    let newURL = url.toString();
-
-    if (url.search) {
-        newURL = newURL.replace(url.search, "");
-    }
-
-    if (url.hash) {
-        newURL = newURL.replace(url.hash, "");
-    }
-
-    return new URL(newURL);
+    // Clear the components through the URL API: string replacement left
+    // empty delimiters behind, so "https://a.example/p?x=1#" gave
+    // "https://a.example/p#" and the rebuilt query ended up in the fragment.
+    const newURL = new URL(url);
+    newURL.search = "";
+    newURL.hash = "";
+    return newURL;
 }
 
 /**
