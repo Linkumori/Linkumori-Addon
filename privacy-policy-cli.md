@@ -1,6 +1,6 @@
 # Linkumori CLI — Privacy Policy
 
-**Last Updated:** May 27, 2026
+**Last Updated:** November 22, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 "CLI tool" in this document refers to `linkumori-cli-tool.js`.
