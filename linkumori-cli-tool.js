@@ -3950,6 +3950,7 @@ data/url-config.json
 .build-ignore
 linkumori-cli-tool.js
 scripts/**
+tools/**
 Template.md
 COMMIT_HISTORY.md
 

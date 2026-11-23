@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rules editor — Linkumori</title>
+  <meta name="description" content="Open, filter, check and edit Linkumori CLN 1.0 rule files in JSON or YAML.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../img/icon32.png" type="image/png">
+  <link rel="stylesheet" href="rules-editor.css">
+  <script src="yaml.js" defer></script>
+  <script src="code-editor.js" defer></script>
+  <script src="rules-editor.js" defer></script>
+</head>
+<body>
+<main class="page">
+  <div class="page-head">
+    <h1>Rules editor</h1>
+    <span class="sub">Linkumori CLN 1.0 · JSON and YAML · runs in your browser</span>
+  </div>
+  <p class="intro">Find providers by name, domain pattern, rule id or entry. Edit one provider or a filtered set, then apply your changes back into the full file. Syntax and the CLN structure are checked as you type. <code>data/linkumori-clearurls.yaml</code> is the source of truth, so edit that file and rebuild the JSON and LZ4 with the CLI. Nothing is uploaded, and your last draft is kept in this browser only.</p>
+
+  <div class="tool re-tool" id="re-root" data-bundled='[{"label": "Load YAML source", "url": "../../data/linkumori-clearurls.yaml"}, {"label": "Load generated JSON", "url": "../../data/linkumori-clearurls.json"}]'>
+  <div class="re-bar">
+    <div class="re-group" id="re-file-group">
+      <label class="link-btn re-file">Open file…<input type="file" id="re-open" accept=".json,.yaml,.yml,application/json,text/yaml" hidden></label>
+      <button type="button" class="link-btn" id="re-new">New file</button>
+    </div>
+    <div class="re-group">
+      <div class="re-seg" role="radiogroup" aria-label="Format">
+        <button type="button" role="radio" aria-checked="true" data-format="json">JSON</button>
+        <button type="button" role="radio" aria-checked="false" data-format="yaml">YAML</button>
+      </div>
+      <button type="button" class="link-btn" id="re-pretty" title="Reformat the whole document">Format</button>
+      <button type="button" class="link-btn" id="re-copy">Copy</button>
+      <button type="button" class="link-btn" id="re-download">Download</button>
+    </div>
+  </div>
+
+  <div class="re-filter">
+    <div class="re-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="re-query" type="search" placeholder="Filter providers: reddit, ||amazon.*^, utm_, field-removeparam-cid…" spellcheck="false" autocomplete="off" aria-label="Filter providers">
+    </div>
+    <select id="re-scope" aria-label="Search in">
+      <option value="all">Anywhere</option>
+      <option value="key">Provider name</option>
+      <option value="pattern">Domain / URL pattern</option>
+      <option value="id">Rule id</option>
+      <option value="match">matchPattern / entry</option>
+    </select>
+    <label class="re-check"><input type="checkbox" id="re-regex"> Regex</label>
+    <label class="re-check"><input type="checkbox" id="re-trim"> Only matching rules</label>
+  </div>
+
+  <div class="re-tabs" role="tablist" aria-label="View">
+    <button type="button" role="tab" id="re-tab-full" aria-selected="true" aria-controls="re-pane">Full file</button>
+    <button type="button" role="tab" id="re-tab-filter" aria-selected="false" aria-controls="re-pane" disabled>Filtered <span class="re-count" id="re-count"></span></button>
+    <span class="re-spacer"></span>
+    <button type="button" class="btn btn-primary btn-sm" id="re-apply" hidden>Apply to full file</button>
+  </div>
+
+  <div class="re-pane" id="re-pane" role="tabpanel">
+    <div class="re-editor" id="re-editor"></div>
+    <nav class="re-outline" id="re-outline" aria-label="Providers"></nav>
+  </div>
+
+  <div class="re-status" id="re-status" role="status" aria-live="polite">Load the bundled rules, open a file, or paste one in.</div>
+  <ul class="re-problems" id="re-problems" hidden></ul>
+</div>
+
+  <details class="help">
+    <summary>How to use</summary>
+    <ul>
+      <li><b>Load YAML source</b> and <b>Load generated JSON</b> read the files in <code>data/</code>. They only work when this folder is served, for example with <code>python3 -m http.server</code> from the repository root, then <code>http://localhost:8000/tools/rules-editor/</code>. Opened as a <code>file://</code> page, use <b>Open file…</b> instead.</li>
+      <li><b>Providers</b> list: click a name to jump to it, or the pencil to edit that provider on its own. Arrow keys move through the list.</li>
+      <li><b>Filter</b>: plain text ignores case, or tick <b>Regex</b>. <b>Search in</b> limits the match to provider names, domain/URL patterns, rule ids or entries. Add <code>?q=reddit</code> to the address to start with a filter.</li>
+      <li><b>Filtered</b> tab: edit only the matching providers, then <b>Apply to full file</b>. Edited providers keep their place, new ones are added and deleted ones are removed. <b>Only matching rules</b> is read-only.</li>
+      <li><b>Find</b>: press Ctrl/⌘-F in the editor. Enter and Shift-Enter move between matches.</li>
+      <li><b>Keys</b>: Tab and Shift-Tab indent and outdent. Press Esc, then Tab, to move focus out of the editor.</li>
+      <li><b>JSON / YAML</b> converts the whole file. YAML output uses the same layout as <code>data/linkumori-clearurls.yaml</code>.</li>
+      <li>The checks here are a quick first pass. Run <code>lint-rules</code> from the CLI before committing.</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>
