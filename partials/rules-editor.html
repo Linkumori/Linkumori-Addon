@@ -1,0 +1,78 @@
+<p class="rx-lede">Open, filter, check and edit a Linkumori CLN 1.0 rule file in JSON or YAML, then download it.</p>
+<p>It's for working on the bundled rules or your own custom rules. The same editor is in the main repository at <a href="https://github.com/Linkumori/Linkumori-Addon/tree/main/tools/rules-editor"><code>tools/rules-editor/</code></a>, where it can load the YAML source directly. You can find every provider for a site, a rule id or a pattern, edit just those providers and write them back into the full file. The editor checks syntax and the CLN structure as you type and converts between JSON and YAML. Press Ctrl/⌘-F to find text in the file. Everything runs in your browser and nothing is uploaded. Your last draft is kept in this browser only.</p>
+
+<h2 id="editor">Editor</h2>
+<div class="tool re-tool" id="re-root" data-bundled='[{"label": "Load bundled rules", "url": "data/linkumori-clearurls.json"}]'>
+  <div class="re-bar">
+    <div class="re-group" id="re-file-group">
+      <label class="link-btn re-file">Open file…<input type="file" id="re-open" accept=".json,.yaml,.yml,application/json,text/yaml" hidden></label>
+      <button type="button" class="link-btn" id="re-new">New file</button>
+    </div>
+    <div class="re-group">
+      <div class="re-seg" role="radiogroup" aria-label="Format">
+        <button type="button" role="radio" aria-checked="true" data-format="json">JSON</button>
+        <button type="button" role="radio" aria-checked="false" data-format="yaml">YAML</button>
+      </div>
+      <button type="button" class="link-btn" id="re-pretty" title="Reformat the whole document">Format</button>
+      <button type="button" class="link-btn" id="re-copy">Copy</button>
+      <button type="button" class="link-btn" id="re-download">Download</button>
+    </div>
+  </div>
+
+  <div class="re-filter">
+    <div class="re-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="re-query" type="search" placeholder="Filter providers: reddit, ||amazon.*^, utm_, field-removeparam-cid…" spellcheck="false" autocomplete="off" aria-label="Filter providers">
+    </div>
+    <select id="re-scope" aria-label="Search in">
+      <option value="all">Anywhere</option>
+      <option value="key">Provider name</option>
+      <option value="pattern">Domain / URL pattern</option>
+      <option value="id">Rule id</option>
+      <option value="match">matchPattern / entry</option>
+    </select>
+    <label class="re-check"><input type="checkbox" id="re-regex"> Regex</label>
+    <label class="re-check"><input type="checkbox" id="re-trim"> Only matching rules</label>
+  </div>
+
+  <div class="re-tabs" role="tablist" aria-label="View">
+    <button type="button" role="tab" id="re-tab-full" aria-selected="true" aria-controls="re-pane">Full file</button>
+    <button type="button" role="tab" id="re-tab-filter" aria-selected="false" aria-controls="re-pane" disabled>Filtered <span class="re-count" id="re-count"></span></button>
+    <span class="re-spacer"></span>
+    <button type="button" class="btn btn-primary btn-sm" id="re-apply" hidden>Apply to full file</button>
+  </div>
+
+  <div class="re-pane" id="re-pane" role="tabpanel">
+    <div class="re-editor" id="re-editor"></div>
+    <nav class="re-outline" id="re-outline" aria-label="Providers"></nav>
+  </div>
+
+  <div class="re-status" id="re-status" role="status" aria-live="polite">Load the bundled rules, open a file, or paste one in.</div>
+  <ul class="re-problems" id="re-problems" hidden></ul>
+</div>
+
+<h2 id="filtering">Filtering</h2>
+<p>Type in the filter box to list the providers that match. Plain text matches anywhere and ignores case. Tick <b>Regex</b> to use a regular expression. <b>Search in</b> limits the match to one part of each provider:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Search in</th><th>Matches</th></tr></thead>
+<tbody>
+<tr><td>Anywhere</td><td>provider name, patterns, rule ids and entries</td></tr>
+<tr><td>Provider name</td><td>the key under <code>providers</code>, such as <code>linkumori-reddit.com</code></td></tr>
+<tr><td>Domain / URL pattern</td><td><code>domainPatterns</code>, <code>urlPattern</code> and <code>indexPattern</code></td></tr>
+<tr><td>Rule id</td><td>each rule object's <code>id</code> and <code>aliases</code></td></tr>
+<tr><td>matchPattern / entry</td><td>string entries and each rule object's <code>matchPattern</code></td></tr>
+</tbody></table></div>
+<p>The <b>Providers</b> list beside the editor shows every provider in the file, with its domain pattern and how many entries it has. Typing in the filter box narrows the list. Click a name to jump to that provider, or use the pencil to edit that provider on its own. Arrow keys move through the list.</p>
+<p>The <b>Filtered</b> tab shows a smaller file with only the matching providers. You can edit it there. <b>Apply to full file</b> writes each provider back in place, adds any you created and removes any you deleted. The rest of the file stays as it was.</p>
+<p><b>Only matching rules</b> keeps just the matching entries inside each provider. It's useful for reading. You can't apply a trimmed view back, because that would delete the rules it hides.</p>
+
+<h2 id="checks">What it checks</h2>
+<ul>
+<li>JSON or YAML syntax, with the line of each error.</li>
+<li>A <code>providers</code> object and a <code>cln</code> value of <code>"1.0"</code> if one is set.</li>
+<li>Unknown keys and wrong types on providers and rule objects, as listed in the <a href="filter-syntax.html#provider-fields">filter syntax reference</a>.</li>
+<li>Providers with both <code>domainPatterns</code> and <code>urlPattern</code>, or with neither.</li>
+<li>Rule objects with no <code>matchPattern</code>, and the same rule <code>id</code> used twice in one provider.</li>
+<li>Regexes that don't compile: <code>urlPattern</code>, <code>rawRules</code> and <code>/…/</code> values.</li>
+</ul>
+<p>These checks are a quick first pass. Run <code>lint-rules</code> from the CLI for the full validation Linkumori uses.</p>

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Builds the specification, reference, architecture, rules, converter, legal pages and sitemap.
+// Builds the specification, reference, architecture, rules, converter, rules editor, legal pages and sitemap.
 //
 //   node scripts/build-docs.mjs            # reads docs with `git show main:docs/…`
 //   node scripts/build-docs.mjs ../docs    # reads docs from a folder instead
@@ -106,6 +106,17 @@ const pages = [
     facts: [['Input', 'AdGuard and uBlock Origin lists'], ['Output', 'CLN 1.0 rule file'], ['Runs', 'In your browser']],
     wide: true,
     scripts: ['assets/converter-core.js', 'assets/converter.js']
+  },
+  {
+    html: 'partials/rules-editor.html',
+    out: 'rules-editor.html',
+    title: 'Rules editor — Linkumori',
+    heading: 'Rules editor',
+    description: 'Open, filter, check and edit Linkumori CLN 1.0 rule files in JSON or YAML, in your browser.',
+    kicker: 'Tool',
+    facts: [['Formats', 'JSON and YAML'], ['For', 'Rule authors and developers'], ['Runs', 'In your browser']],
+    wide: true,
+    scripts: ['assets/yaml.js', 'assets/code-editor.js', 'assets/rules-editor.js']
   },
   {
     local: 'legal/privacy.md',
@@ -697,6 +708,7 @@ ${body}
             <li><a href="cln-1.0.html">CLN Format 1.0</a></li>
             <li><a href="filter-syntax.html">Filter syntax</a></li>
             <li><a href="converter.html">AdGuard converter</a></li>
+            <li><a href="rules-editor.html">Rules editor</a></li>
             <li><a href="https://github.com/orgs/Linkumori/discussions/163">1.0 announcement</a></li>
           </ul>
         </div>

@@ -1,0 +1,12 @@
+{
+  "name": "linkumori-yaml-bundle",
+  "private": true,
+  "description": "Builds yaml.js (the `yaml` package as one browser file) for the rules editor. Run: bun install && bun run build",
+  "type": "module",
+  "scripts": {
+    "build": "bun build ./entry.mjs --outfile ../assets/yaml.js --format=iife --minify --target=browser --banner '/*! yaml 2.8.0 (https://github.com/eemeli/yaml), ISC License, Copyright Eemeli Aro. Bundled for the Linkumori rules editor: see yaml-src/. */'"
+  },
+  "dependencies": {
+    "yaml": "2.8.0"
+  }
+}
