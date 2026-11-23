@@ -60,7 +60,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="guide_page_title">Linkumori — Rules Guide</title>
+    <title data-i18n="guide_source_page_title">Linkumori Rules Format: Beginner-to-Advanced Guide</title>
     <script src="../external_js/theme_bootstrap.js"></script>
     <script src="../external_js/theme_favicon.js"></script>
     <style>
@@ -737,7 +737,7 @@
                        fill="var(--logo-accent)"/>
             </svg>
             <div class="header-text">
-                <h1 id="page_title" data-i18n="guide_page_title">Linkumori — Rules Guide</h1>
+                <h1 id="page_title" data-i18n="guide_source_page_title">Linkumori Rules Format: Beginner-to-Advanced Guide</h1>
                 <span class="version-badge" id="version"></span>
             </div>
         </div>
@@ -754,7 +754,7 @@
             <!-- Sidebar: guide contents -->
             <nav class="sidebar" aria-labelledby="guide-toc-label">
                 <h2 class="sidebar-title" id="guide-toc-label" data-i18n-html="guide_toc_label">Contents</h2>
-                <input type="search" class="toc-search" id="toc-search" data-i18n-placeholder="guide_toc_search" data-i18n-aria="guide_toc_search" placeholder="Filter sections" aria-label="Filter sections" aria-controls="guide-toc">
+                <input type="search" class="toc-search" id="toc-search" data-i18n-placeholder="guide_toc_search" data-i18n-aria="guide_toc_search" placeholder="Search guide text" aria-label="Search guide text" aria-controls="guide-toc">
                 <div class="toc" id="guide-toc">
                     <ul>
                         <li><a href="#rules-file" data-i18n-html="guide_file_title">1. The rules file</a></li>
@@ -824,9 +824,14 @@
 
             <main id="main-content" tabindex="-1" class="content">
                 <section class="card guide-intro">
-                    <h1 id="guide-top" data-i18n-html="guide_title">Writing Linkumori rules</h1>
-                    <p data-i18n-html="guide_intro_p_1">Linkumori cleans URLs with rules written in <strong>CLN Format 1.0</strong> (Clean Link Notation), a JSON format. This guide goes from a first rule to every option, with examples you can copy.</p>
-                    <p data-i18n-html="guide_intro_p_2">The built-in rules, remote rule lists and your custom rules all use the same format. You write custom rules in the custom rules editor, which checks them when you save or import. An official ClearURLs rule catalog (<code>data.min.json</code>) is already a valid CLN file and can be used as it is.</p>
+                    <h1 id="guide-top" data-i18n-html="guide_source_title">Linkumori Rules Format: Beginner-to-Advanced Guide</h1>
+                    <p data-i18n-html="guide_source_intro_p_1">Linkumori uses the CLN 1.0 data model. Rules are JSON in the extension, remote files, custom files, imports and exports.</p>
+                    <p data-i18n-html="guide_source_intro_p_2">The bundled source is authored in YAML and exported to JSON by the CLI. A rule file tells Linkumori two things:</p>
+                    <ol>
+                        <li data-i18n-html="guide_source_list_1">Which websites a set of rules applies to.</li>
+                        <li data-i18n-html="guide_source_list_2">What Linkumori should remove or change on those websites.</li>
+                    </ol>
+                    <p data-i18n-html="guide_source_intro_p_3">This page starts with a small working example. For every supported option and its exact behavior, see the <a href="../docs/filter-syntax.md">full filter syntax reference</a>.</p>
                 </section>
 
                 <section class="card guide-section" aria-labelledby="rules-file">

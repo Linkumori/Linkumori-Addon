@@ -5101,13 +5101,13 @@
     "message": "Contents"
   },
   "guide_title": {
-    "message": "Writing Linkumori rules"
+    "message": "Linkumori Rules Format: Beginner-to-Advanced Guide"
   },
   "guide_intro_p_1": {
-    "message": "Linkumori cleans URLs with rules written in <strong>CLN Format 1.0</strong> (Clean Link Notation), a JSON format. This guide goes from a first rule to every option, with examples you can copy."
+    "message": "Linkumori uses the CLN 1.0 data model. Rules are JSON in the extension, remote files, custom files, imports and exports."
   },
   "guide_intro_p_2": {
-    "message": "The built-in rules, remote rule lists and your custom rules all use the same format. You write custom rules in the custom rules editor, which checks them when you save or import. An official ClearURLs rule catalog (<code>data.min.json</code>) is already a valid CLN file and can be used as it is."
+    "message": "The bundled source is authored in YAML and exported to JSON by the CLI. A rule file tells Linkumori two things:"
   },
   "guide_file_title": {
     "message": "1. The rules file"
@@ -5938,13 +5938,34 @@
     "message": "They also warn about exact copies, and about the same text in both <code>rules</code> and <code>referralMarketing</code>. If saving fails, the message names the provider, the list and the entry."
   },
   "guide_page_title": {
-    "message": "Linkumori — Rules Guide"
+    "message": "Linkumori Rules Format: Beginner-to-Advanced Guide"
   },
   "guide_toc_search": {
-    "message": "Filter sections"
+    "message": "Search guide text"
   },
   "guide_toc_no_results": {
     "message": "No matching sections."
+  },
+  "guide_source_page_title": {
+    "message": "Linkumori Rules Format: Beginner-to-Advanced Guide"
+  },
+  "guide_source_title": {
+    "message": "Linkumori Rules Format: Beginner-to-Advanced Guide"
+  },
+  "guide_source_intro_p_1": {
+    "message": "Linkumori uses the CLN 1.0 data model. Rules are JSON in the extension, remote files, custom files, imports and exports."
+  },
+  "guide_source_intro_p_2": {
+    "message": "The bundled source is authored in YAML and exported to JSON by the CLI. A rule file tells Linkumori two things:"
+  },
+  "guide_source_list_1": {
+    "message": "Which websites a set of rules applies to."
+  },
+  "guide_source_list_2": {
+    "message": "What Linkumori should remove or change on those websites."
+  },
+  "guide_source_intro_p_3": {
+    "message": "This page starts with a small working example. For every supported option and its exact behavior, see the <a href=\"../docs/filter-syntax.md\">full filter syntax reference</a>."
   },
   "customRulesEditor_syntaxRedirectEntryFormat": {
     "message": "$WHERE$: a redirect starting with \"|\" must look like \"||example.com^$redirect=https://target/\"",

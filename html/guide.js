@@ -146,7 +146,33 @@
         });
     }
 
-    // Contents: filter by text and mark the section being read.
+    // Contents: search section text and mark the section currently in view.
+    function getAnchorId(link) {
+        const rawId = link.hash.slice(1);
+        try {
+            return decodeURIComponent(rawId);
+        } catch (_) {
+            return rawId;
+        }
+    }
+
+    function getSectionSearchText(link) {
+        const heading = document.getElementById(getAnchorId(link));
+        if (!heading) return link.textContent;
+
+        const parts = [heading.textContent];
+        let sibling = heading.nextElementSibling;
+        while (sibling && !/^H[23]$/.test(sibling.tagName)) {
+            parts.push(sibling.textContent);
+            sibling = sibling.nextElementSibling;
+        }
+        return parts.join(' ');
+    }
+
+    function matchesGuideText(link, query) {
+        return getSectionSearchText(link).toLocaleLowerCase().includes(query);
+    }
+
     function filterToc() {
         const input = document.getElementById('toc-search');
         const toc = document.getElementById('guide-toc');
@@ -154,10 +180,12 @@
         const query = input.value.trim().toLocaleLowerCase();
         let visibleCount = 0;
         toc.querySelectorAll(':scope > ul > li').forEach((item) => {
-            const topMatches = item.querySelector(':scope > a').textContent.toLocaleLowerCase().includes(query);
+            const topLink = item.querySelector(':scope > a');
+            const topMatches = topLink ? matchesGuideText(topLink, query) : false;
             let childMatches = false;
-            item.querySelectorAll('li').forEach((child) => {
-                const matches = topMatches || child.textContent.toLocaleLowerCase().includes(query);
+            item.querySelectorAll(':scope > ul > li').forEach((child) => {
+                const childLink = child.querySelector(':scope > a');
+                const matches = topMatches || (childLink && matchesGuideText(childLink, query));
                 child.hidden = !matches;
                 childMatches = childMatches || matches;
             });
@@ -170,10 +198,18 @@
 
     function initializeToc() {
         const input = document.getElementById('toc-search');
-        if (input) input.addEventListener('input', filterToc);
+        if (input) {
+            input.addEventListener('input', filterToc);
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && input.value) {
+                    input.value = '';
+                    filterToc();
+                }
+            });
+        }
 
         const links = Array.from(document.querySelectorAll('#guide-toc a[href^="#"]'));
-        const linkById = new Map(links.map(link => [decodeURIComponent(link.hash.slice(1)), link]));
+        const linkById = new Map(links.map(link => [getAnchorId(link), link]));
         const headings = Array.from(document.querySelectorAll('.content h2[id], .content h3[id]'))
             .filter(heading => linkById.has(heading.id));
         if (!headings.length || typeof IntersectionObserver !== 'function') return;
