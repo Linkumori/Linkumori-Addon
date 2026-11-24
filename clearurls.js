@@ -2002,7 +2002,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         rawFieldsQuery = urlObject.search.startsWith('?') ? urlObject.search.slice(1) : urlObject.search;
         fragments = extractFragments(urlObject);
         domain = urlWithoutParamsAndHash(urlObject).toString();
-        hadParams = fields.toString() !== "" || fragments.toString() !== "";
+        hadParams = hasParams();
         fieldsDirty = false;
         linkumoriState = null;
         parsed = true;
@@ -2014,7 +2014,33 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         parsed = false;
     };
 
-    const hasParams = () => fields.toString() !== "" || fragments.toString() !== "";
+    // PERF: "any parameter left?" without rebuilding the query string. Same
+    // answer as comparing toString() with "": URLHashParams never keeps an
+    // empty name, and a URLSearchParams entry always prints something.
+    const storeHasEntries = store => {
+        if (!store || typeof store.keys !== 'function') return false;
+        for (const _ of store.keys()) return true;
+        return false;
+    };
+    const hasParams = () => storeHasEntries(fields) || storeHasEntries(fragments);
+
+    // PERF: a field step only acts on a parameter whose name (or decoded
+    // fragment name, which decide() also tries) its regex matches. When no
+    // name matches, the step can change nothing, so the per-step bookkeeping
+    // (snapshots, rebuilt strings, request checks) is skipped.
+    const fieldStepCanMatch = regex => {
+        if (!regex || typeof regex.test !== 'function') return true;
+        const test = name => { regex.lastIndex = 0; return regex.test(name); };
+        for (const key of fields.keys()) if (test(key)) return true;
+        for (const key of fragments.keys()) {
+            if (test(key)) return true;
+            if (key.includes('%')) {
+                const decoded = getDecodedFragmentNameForMatching(key, fragments.getAll(key));
+                if (decoded !== null && test(decoded)) return true;
+            }
+        }
+        return false;
+    };
 
     const getLinkumoriState = () => {
         if (linkumoriState) return linkumoriState;
@@ -2124,6 +2150,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     const runFieldStep = (rule, compiled) => {
         parseURL();
         if (!hasParams()) return;
+        if (!fieldStepCanMatch(compiled && compiled.regex)) return;
         const rewriteKey = compiled && compiled.replacePattern !== null ? rewriteKeyOf(compiled, rule) : null;
         if (rewriteKey && appliedFieldRewrites.has(rewriteKey)) return;
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
@@ -3394,9 +3421,20 @@ function start() {
                 if (result) break;
                 const exceptionRule = exceptionRuleMap[exception];
                 const exceptionRegex = exceptionRule.regex;
-                if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
-                    exceptionRegex.lastIndex = 0;
-                    result = exceptionRegex.test(url);
+                // PERF: the cheap regex test first; the rule's own checks
+                // (scopes, request type, exceptions) only when it matches.
+                // Both have no side effects, so the answer is the same.
+                if (!exceptionRegex) {
+                    // Unchanged order for a rule without a regex.
+                    if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
+                        exceptionRegex.lastIndex = 0;
+                        result = exceptionRegex.test(url);
+                    }
+                    continue;
+                }
+                exceptionRegex.lastIndex = 0;
+                if (exceptionRegex.test(url)) {
+                    result = coreRuleAppliesToRequest(exceptionRule, url, request);
                 }
             }
             if (!result && domainExceptionPatterns.length > 0) result = matchDomainPattern(url, domainExceptionPatterns);
