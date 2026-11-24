@@ -1474,6 +1474,15 @@ documentation when you run the build process.
         self.redirections = data.providers[provider].redirections;
       }
 
+      if (data.providers[provider].fieldRedirections && data.providers[provider].fieldRedirections.length !== 0) {
+        self.fieldRedirections = data.providers[provider].fieldRedirections;
+      }
+
+      // Dropping this would switch a disabled provider back on.
+      if (data.providers[provider].active === false) {
+        self.active = false;
+      }
+
       if (data.providers[provider].domainPatterns && data.providers[provider].domainPatterns.length !== 0) {
         self.domainPatterns = data.providers[provider].domainPatterns;
       }

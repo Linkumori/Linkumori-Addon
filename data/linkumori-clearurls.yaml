@@ -4158,9 +4158,9 @@ providers:
     domainPatterns:
       - "||adesampa.com.br^"
   linkumori-adform.net:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-track-adform-net-c-ckurl
-        matchPattern: ^https?:\/\/track\.adform\.net\/C\/.*?ckurl=([^&]+)
+        matchPattern: "||track.adform.net^/C/$removeparam=ckurl"
     domainPatterns:
       - "||adform.net^"
   linkumori-adgardvpn-help.*:
@@ -4277,9 +4277,9 @@ providers:
         matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
       - id: field-aff-c-removeparam-aff-id-d-i
         matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-app-adjust-com-redirect
-        matchPattern: ^https?:\/\/app\.adjust\.com.*redirect=([^&]*)
+        matchPattern: "||app.adjust.com^$removeparam=redirect"
     domainPatterns:
       - "||adjust.com^"
   linkumori-adlibris.com:
@@ -4308,9 +4308,9 @@ providers:
         matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
       - id: field-aff-c-removeparam-aff-id-d-i
         matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-admitad-com-ulp
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?admitad\.com.*ulp=([^&]*)
+        matchPattern: "||admitad.com^$removeparam=ulp"
     domainPatterns:
       - "||admitad.com^"
   linkumori-adobe.com:
@@ -4577,9 +4577,9 @@ providers:
     domainPatterns:
       - "||al.to^"
   linkumori-alabout.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-alabout-com-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?alabout\.com.*url=([^&]*)
+        matchPattern: "||alabout.com^$removeparam=url"
     domainPatterns:
       - "||alabout.com^"
   linkumori-albiononline.com:
@@ -5824,9 +5824,9 @@ providers:
     domainPatterns:
       - "||arstechnica.com^"
   linkumori-artefact.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-artefact-com-trck-deeplink
-        matchPattern: ^https?:\/\/.*?artefact\.com\/trck\/.*?deeplinkurl=([^&]+)
+        matchPattern: "||artefact.com^/trck/$removeparam=deeplinkurl"
     domainPatterns:
       - "||artefact.com^"
   linkumori-artlist.io:
@@ -6263,9 +6263,9 @@ providers:
         matchPattern: $removeparam=clickref
       - id: field-removeparam-awinaffid
         matchPattern: $removeparam=awinaffid
-    redirections:
+    fieldRedirections:
       - id: redirect-https-awin1-com-ued
-        matchPattern: ^https?:\/\/.*?awin1\.com\/.*?ued=([^&]+)
+        matchPattern: "||awin1.com^$removeparam=ued"
     domainPatterns:
       - "||awin1.com^"
   linkumori-aws.com:
@@ -8457,9 +8457,9 @@ providers:
     domainPatterns:
       - "||cbsnews.*^"
   linkumori-ccbill.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-refer-ccbill-com-html
-        matchPattern: ^https?:\/\/refer\.ccbill\.com.*HTML=([^&]*)
+        matchPattern: "||refer.ccbill.com^$removeparam=HTML"
     domainPatterns:
       - "||refer.ccbill.com^"
   linkumori-cdc.gov:
@@ -9361,9 +9361,9 @@ providers:
     domainPatterns:
       - "||curalate.com^"
   linkumori-curseforge.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-curseforge-com-link
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?curseforge\.com\/linkout\?remoteUrl=([^&]*)
+        matchPattern: "||curseforge.com^/linkout^$removeparam=remoteUrl"
     domainPatterns:
       - "||curseforge.com^"
   linkumori-cv-measurement.com:
@@ -9870,9 +9870,9 @@ providers:
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-digidip-net-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?digidip\.net.*url=([^&]*)
+        matchPattern: "||digidip.net^$removeparam=url"
     domainPatterns:
       - "||digidip.net^"
   linkumori-digikey.*:
@@ -10221,9 +10221,9 @@ providers:
         matchPattern: $removeparam=sid
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-dpbolvw-net-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?dpbolvw\.net.*url=([^&]*)
+        matchPattern: "||dpbolvw.net^$removeparam=url"
     domainPatterns:
       - "||dpbolvw.net^"
   linkumori-dr.dk:
@@ -10344,9 +10344,9 @@ providers:
         matchPattern: "||duckduckgo.com/atb.js$removeparam=bv,document"
       - id: field-duckduckgo-com-atb-js-removepara-1sf36tg
         matchPattern: "||duckduckgo.com/atb.js$removeparam=browser,document"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-duckduckgo-com-l-uddg
-        matchPattern: ^https?:\/\/duckduckgo\.com\/l\/.*?uddg=([^&]+)
+        matchPattern: "||duckduckgo.com^/l/$removeparam=uddg"
     domainPatterns:
       - "||duckduckgo.com^"
   linkumori-duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion:
@@ -10675,9 +10675,9 @@ providers:
         matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
       - id: field-aff-c-removeparam-aff-id-d-i
         matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-rover-ebay-a-z-2-1-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?rover\.ebay(?:\.[a-z]{2,}){1,}\/rover.*mpre=([^&]*)
+        matchPattern: "||rover.ebay.*^/rover$removeparam=mpre"
     domainPatterns:
       - "||ebay.*^"
   linkumori-ebikes.ca:
@@ -10735,9 +10735,9 @@ providers:
     domainPatterns:
       - "||edx.org^"
   linkumori-effiliation.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-effiliation-com-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?effiliation\.com.*url=([^&]*)
+        matchPattern: "||effiliation.com^$removeparam=url"
     domainPatterns:
       - "||effiliation.com^"
   linkumori-eiga.com:
@@ -11113,9 +11113,9 @@ providers:
     domainPatterns:
       - "||evga.com^"
   linkumori-exactag.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-exactag-com-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?exactag\.com.*url=([^&]*)
+        matchPattern: "||exactag.com^$removeparam=url"
     domainPatterns:
       - "||exactag.com^"
   linkumori-expansion.com:
@@ -11317,9 +11317,9 @@ providers:
         matchPattern: $removeparam=ref,document
       - id: referral-removeparam-ref-document-15d5vju
         matchPattern: $removeparam=ref_,document
-    redirections:
+    fieldRedirections:
       - id: redirect-https-l-a-z-facebook-com-l-php-u
-        matchPattern: ^https?:\/\/l[a-z]?\.facebook\.com/l\.php\?.*?u=(https?%3A%2F%2F[^&]*)
+        matchPattern: "||facebook.com^/l.php^$removeparam=u"
         exceptions:
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?facebook\.com\/.*?(plugins|ajax)\/
     domainPatterns:
@@ -11781,9 +11781,9 @@ providers:
     domainPatterns:
       - "||flaticon.com^"
   linkumori-flexlinkspro.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-flexlinkspro-com-ur
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?flexlinkspro\.com.*url=([^&]*)
+        matchPattern: "||flexlinkspro.com^$removeparam=url"
     domainPatterns:
       - "||flexlinkspro.com^"
   linkumori-flipkart.com:
@@ -12233,9 +12233,9 @@ providers:
     domainPatterns:
       - "||gapcanada.ca^"
   linkumori-gate.sc:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-gate-sc-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?gate\.sc\/.*?url=([^&]*)
+        matchPattern: "||gate.sc^$removeparam=url"
     domainPatterns:
       - "||gate.sc^"
   linkumori-gearbest.*:
@@ -12336,9 +12336,9 @@ providers:
     domainPatterns:
       - "||getir.com^"
   linkumori-getpocket.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-getpocket-com-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?getpocket\.com.*url=([^&]*)
+        matchPattern: "||getpocket.com^$removeparam=url"
     domainPatterns:
       - "||getpocket.com^"
   linkumori-getproton.me:
@@ -12930,13 +12930,19 @@ providers:
       - id: referral-play-google-removeparam-referrer
         matchPattern: "||play.google.*^$removeparam=referrer"
     redirections:
+      - id: redirect-https-a-z0-9-google-a-z-2-1-amp-
+        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/amp\/s\/([^&]+)
+        exceptions:
+          - ^https?:\/\/(?:docs|accounts)\.google(?:\.[a-z]{2,}){1,}
+          - ^https?:\/\/news\.google\.com.*\?hl=.
+    fieldRedirections:
       - id: redirect-https-a-z0-9-google-a-z-2-1-url-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&]+)
+        matchPattern: "||google.*^/url^$removeparam=/^(?:url|q)$/"
         exceptions:
           - ^https?:\/\/(?:docs|accounts)\.google(?:\.[a-z]{2,}){1,}
           - ^https?:\/\/news\.google\.com.*\?hl=.
       - id: redirect-https-a-z0-9-google-a-z-2-1-adur
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/.*?adurl=([^&]+)
+        matchPattern: "||google.*^$removeparam=adurl"
         exceptions:
           - ^https?:\/\/mail\.google\.com\/mail\/u\/
           - ^https?:\/\/(?:docs|accounts)\.google(?:\.[a-z]{2,}){1,}
@@ -12948,11 +12954,6 @@ providers:
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/(?:appsactivity|aclk\?)
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/safe[-]?browsing\/([^&]+)
           - ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/async\/.*
-      - id: redirect-https-a-z0-9-google-a-z-2-1-amp-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/amp\/s\/([^&]+)
-        exceptions:
-          - ^https?:\/\/(?:docs|accounts)\.google(?:\.[a-z]{2,}){1,}
-          - ^https?:\/\/news\.google\.com.*\?hl=.
     domainPatterns:
       - "||google.*^"
   linkumori-googleadservices.com:
@@ -12971,9 +12972,9 @@ providers:
         matchPattern: $removeparam=ms
       - id: field-removeparam-ohost
         matchPattern: $removeparam=ohost
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-googleadservices-co
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?googleadservices\.com\/.*?adurl=([^&]*)
+        matchPattern: "||googleadservices.com^$removeparam=adurl"
     domainPatterns:
       - "||googleadservices.com^"
   linkumori-googleapis.com:
@@ -13525,9 +13526,9 @@ providers:
     domainPatterns:
       - "||hktvmall.com^"
   linkumori-hlserve.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-hlserve-com-dest
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?hlserve\.com.*dest=([^&]*)
+        matchPattern: "||hlserve.com^$removeparam=dest"
     domainPatterns:
       - "||hlserve.com^"
   linkumori-hmnow.com:
@@ -13903,9 +13904,9 @@ providers:
         matchPattern: "||marketing.net.idealo-partner.com^$removeparam=etcc_med"
       - id: field-marketing-net-idealo-partner-com-8ca4bf
         matchPattern: "||marketing.net.idealo-partner.com^$removeparam=etcc_produkt"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-idealo-partner-com-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?idealo-partner\.com.*trg=([^&]*)
+        matchPattern: "||idealo-partner.com^$removeparam=trg"
     domainPatterns:
       - "||idealo-partner.com^"
   linkumori-idealo.de:
@@ -14385,9 +14386,9 @@ providers:
         matchPattern: $removeparam=entry_point,document
       - id: field-removeparam-opticid-document
         matchPattern: $removeparam=optiCID,document
-    redirections:
+    fieldRedirections:
       - id: redirect-u
-        matchPattern: .*u=([^&]*)
+        matchPattern: "||l.instagram.com^$removeparam=u"
     domainPatterns:
       - "||instagram.com^"
   linkumori-intel.com:
@@ -15744,9 +15745,9 @@ providers:
         matchPattern: $removeparam=u1
       - id: field-click-linksynergy-com-removepara
         matchPattern: "||click.linksynergy.com^$removeparam=mid"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-linksynergy-com-mur
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?linksynergy\.com\/.*?murl=([^&]*)
+        matchPattern: "||linksynergy.com^$removeparam=murl"
     domainPatterns:
       - "||linksynergy.com^"
   linkumori-linkvertise.com:
@@ -15863,9 +15864,9 @@ providers:
         matchPattern: "||cc.loginfra.com/cc$removeparam=sy"
       - id: field-cc-loginfra-com-cc-removeparam-n
         matchPattern: "||cc.loginfra.com/cc$removeparam=nsc"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-cc-loginfra-com-u
-        matchPattern: ^https?:\/\/cc\.loginfra\.com\/.*?u=([^&]+)
+        matchPattern: "||cc.loginfra.com^$removeparam=u"
     domainPatterns:
       - "||loginfra.com^"
   linkumori-loistoristeilyt.fi:
@@ -16063,18 +16064,18 @@ providers:
     domainPatterns:
       - "||mail.ru^"
   linkumori-mailpanion.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-mailpanion-com-dest
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?mailpanion\.com.*destination=([^&]*)
+        matchPattern: "||mailpanion.com^$removeparam=destination"
     domainPatterns:
       - "||mailpanion.com^"
   linkumori-mailtrack.io:
     rules:
       - id: field-mailtrack-io-trace-link-removepa
         matchPattern: "||mailtrack.io/trace/link/$removeparam=userId"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-mailtrack-io-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?mailtrack\.io.*url=([^&]*)
+        matchPattern: "||mailtrack.io^$removeparam=url"
     domainPatterns:
       - "||mailtrack.io^"
   linkumori-mainichi.jp:
@@ -16517,9 +16518,9 @@ providers:
         matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
       - id: field-aff-c-removeparam-aff-id-d-i
         matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-l-messenger-com-l-php-u
-        matchPattern: ^https?:\/\/l\.messenger\.com\/l\.php\?u=([^&]*)
+        matchPattern: "||l.messenger.com^/l.php^$removeparam=u"
     domainPatterns:
       - "||messenger.com^"
   linkumori-metaffiliation.com:
@@ -17102,9 +17103,9 @@ providers:
         matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
       - id: field-admin-object-removeparam-ap-id-d
         matchPattern: "@@*/admin/object$removeparam=ap_id,document"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-mysku-ru-r
-        matchPattern: ^https?:\/\/mysku\.ru.*r=([^&]*)
+        matchPattern: "||mysku.ru^$removeparam=r"
     domainPatterns:
       - "||mysku.ru^"
   linkumori-myvisualiq.net:
@@ -18637,9 +18638,9 @@ providers:
     domainPatterns:
       - "||parkcitymountain.com^"
   linkumori-partner-ads.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-partner-ads-com-htmlurl
-        matchPattern: ^https?:\/\/.*?partner-ads\.com\/.*?htmlurl=([^&]+)
+        matchPattern: "||partner-ads.com^$removeparam=htmlurl"
     domainPatterns:
       - "||partner-ads.com^"
   linkumori-patreon.com:
@@ -19823,9 +19824,9 @@ providers:
         matchPattern: $removeparam=ref
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
-    redirections:
+    fieldRedirections:
       - id: redirect-https-out-reddit-com-url
-        matchPattern: ^https?:\/\/out\.reddit\.com\/.*?url=([^&]*)
+        matchPattern: "||out.reddit.com^$removeparam=url"
     domainPatterns:
       - "||reddit.com^"
   linkumori-redditmail.com:
@@ -19837,9 +19838,9 @@ providers:
     referralMarketing:
       - id: referral-click-redditmail-com-removeparam
         matchPattern: "||click.redditmail.com^$removeparam=ref"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-click-redditmail-com-url
-        matchPattern: ^https?:\/\/click\.redditmail\.com\/.*?url=([^&]*)
+        matchPattern: "||click.redditmail.com^$removeparam=url"
     domainPatterns:
       - "||redditmail.com^"
   linkumori-reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion:
@@ -20224,9 +20225,9 @@ providers:
     domainPatterns:
       - "||runnode.com^"
   linkumori-rutracker.org:
-    redirections:
+    fieldRedirections:
       - id: redirect-url
-        matchPattern: .*url=([^&]*)
+        matchPattern: "||rutracker.org^$removeparam=url"
     domainPatterns:
       - "||rutracker.org^"
   linkumori-s-microsoft.com:
@@ -20857,9 +20858,9 @@ providers:
     domainPatterns:
       - "||sierra.com^"
   linkumori-signtr.website:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-signtr-website-redi
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?signtr\.website.*redirect=([^&]*)
+        matchPattern: "||signtr.website^$removeparam=redirect"
     domainPatterns:
       - "||signtr.website^"
   linkumori-similarweb.com:
@@ -20986,9 +20987,9 @@ providers:
         matchPattern: $removeparam=xs
       - id: field-removeparam-xed
         matchPattern: $removeparam=xed
-    redirections:
+    fieldRedirections:
       - id: redirect-https-go-skimresources-com-url
-        matchPattern: ^https?:\/\/go\.skimresources\.com\/.*?url=([^&]+)
+        matchPattern: "||go.skimresources.com^$removeparam=url"
     domainPatterns:
       - "||skimresources.com^"
   linkumori-skinceuticals.com:
@@ -21164,9 +21165,9 @@ providers:
     domainPatterns:
       - "||smartrecruiters.com^"
   linkumori-smartredirect.de:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-smartredirect-de-ur
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?smartredirect\.de.*?url=([^&]*)
+        matchPattern: "||smartredirect.de^$removeparam=url"
     domainPatterns:
       - "||smartredirect.de^"
   linkumori-smbc.co.jp:
@@ -21637,9 +21638,9 @@ providers:
     domainPatterns:
       - "||sravni.ru^"
   linkumori-srvtrck.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-srvtrck-com-url
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?srvtrck\.com.*url=([^&]*)
+        matchPattern: "||srvtrck.com^$removeparam=url"
     domainPatterns:
       - "||srvtrck.com^"
   linkumori-ssl-images-amazon.com:
@@ -21740,9 +21741,9 @@ providers:
         matchPattern: $removeparam=snr,document
       - id: field-removeparam-curator-clanid-docum
         matchPattern: $removeparam=curator_clanid,document
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-steamcommunity-com-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?steamcommunity\.com\/linkfilter\/\?url=([^&]*)
+        matchPattern: "||steamcommunity.com^/linkfilter/$removeparam=url"
     domainPatterns:
       - "||steamcommunity.com^"
   linkumori-steamgames.com:
@@ -22430,9 +22431,9 @@ providers:
     domainPatterns:
       - "||teleflora.com^"
   linkumori-telekom.de:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-aaa-telekom-de-trck-deepli
-        matchPattern: ^https?:\/\/aaa\.telekom\.de\/trck\/.*?deeplinkurl=([^&]+)
+        matchPattern: "||aaa.telekom.de^/trck/$removeparam=deeplinkurl"
     domainPatterns:
       - "||telekom.de^"
   linkumori-telenor.no:
@@ -23178,9 +23179,9 @@ providers:
         matchPattern: $removeparam=whid
       - id: field-removeparam-xclientid
         matchPattern: $removeparam=xClientId
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-tokopedia-com-promo
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?tokopedia\.com\/promo.*r=([^&]*)
+        matchPattern: "||tokopedia.com^/promo$removeparam=r"
     domainPatterns:
       - "||tokopedia.com^"
   linkumori-tokyo-calendar.jp:
@@ -23279,9 +23280,9 @@ providers:
         matchPattern: $removeparam=epi
       - id: field-removeparam-epi2
         matchPattern: $removeparam=epi2
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-tradedoubler-com-ur
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?tradedoubler\.com.*(?:url|_td_deeplink)=([^&]*)
+        matchPattern: "||tradedoubler.com^$removeparam=/^(?:url|_td_deeplink)$/"
     domainPatterns:
       - "||tradedoubler.com^"
   linkumori-tradera.com:
@@ -23742,9 +23743,9 @@ providers:
     domainPatterns:
       - "||umami.is^"
   linkumori-umblr.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-t-umblr-com-redirect-z
-        matchPattern: ^https?:\/\/t\.umblr\.com\/redirect\?z=([^&]+)
+        matchPattern: "||t.umblr.com^/redirect^$removeparam=z"
     domainPatterns:
       - "||umblr.com^"
   linkumori-underarmour.com:
@@ -24108,9 +24109,9 @@ providers:
     domainPatterns:
       - "||videoproc.com^"
   linkumori-viglink.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-redirect-viglink-com-u
-        matchPattern: ^https?:\/\/redirect\.viglink\.com\/.*?u=([^&]+)
+        matchPattern: "||redirect.viglink.com^$removeparam=u"
     domainPatterns:
       - "||viglink.com^"
   linkumori-vihti.fi:
@@ -24268,9 +24269,9 @@ providers:
     domainPatterns:
       - "||vivaterra.com^"
   linkumori-vk.com:
-    redirections:
+    fieldRedirections:
       - id: redirect-https-vk-com-away-php-to
-        matchPattern: ^https?:\/\/vk\.com\/away\.php\?to=([^&]*)
+        matchPattern: "||vk.com^/away.php^$removeparam=to"
     domainPatterns:
       - "||vk.com^"
   linkumori-vkplay.ru:
@@ -24580,9 +24581,9 @@ providers:
     rules:
       - id: field-track-webgains-com-click-html-re
         matchPattern: "||track.webgains.com/click.html?$removeparam=clickref"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-webgains-com-wgtarg
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?webgains\.com.*wgtarget=([^&]*)
+        matchPattern: "||webgains.com^$removeparam=wgtarget"
     domainPatterns:
       - "||webgains.com^"
   linkumori-webhallen.com:
@@ -25777,9 +25778,9 @@ providers:
         matchPattern: "@@||youtube.com/videoplayback$removeparam=source"
       - id: field-youtube-com-signin-removeparam
         matchPattern: "@@||youtube.com/signin?$removeparam"
-    redirections:
+    fieldRedirections:
       - id: redirect-https-a-z0-9-youtube-com-redirec
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?youtube\.com\/redirect?.*?q=([^&]*)
+        matchPattern: "||youtube.com^/redirect$removeparam=q"
     domainPatterns:
       - "||youtube.com^"
   linkumori-youtube.com-api-stats-ads:
