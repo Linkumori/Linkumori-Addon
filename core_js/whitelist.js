@@ -108,10 +108,21 @@ browser.tabs.onRemoved.addListener((tabId) => {
 // ── Pattern matching ──────────────────────────────────────────────────────────
 
 // True for a plain IPv4 pattern or an IPv6 pattern in its stored "[...]" form.
+// PERF: patterns are checked against every request, and IP.isValid() throws
+// internally for anything that isn't an address, so answers are cached.
+const ipLiteralPatternCache = new Map();
+
 function isIpLiteralPattern(value) {
     if (!value || typeof value !== 'string') return false;
+    const cached = ipLiteralPatternCache.get(value);
+    if (cached !== undefined) return cached;
     const candidate = (value.startsWith('[') && value.endsWith(']')) ? value.slice(1, -1) : value;
-    return candidate.length > 0 && typeof IP !== 'undefined' && IP.isValid(candidate);
+    const result = candidate.length > 0 && typeof IP !== 'undefined' && IP.isValid(candidate);
+    if (typeof IP !== 'undefined') {
+        if (ipLiteralPatternCache.size >= 5000) ipLiteralPatternCache.clear();
+        ipLiteralPatternCache.set(value, result);
+    }
+    return result;
 }
 
 function matchWhitelistHostnamePattern(hostname, pattern) {

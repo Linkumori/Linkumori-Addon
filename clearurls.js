@@ -252,17 +252,48 @@ function parseCorePatternActivationScope(activationId) {
     return null;
 }
 
+// PERF: activation ids are parsed once per id string, and "url" scope
+// patterns are compiled once, instead of on every check.
+var coreActivationScopeCache = new Map();
+var coreActivationUrlRegexCache = new Map();
+
+function getCachedCorePatternActivationScope(activationId) {
+    const key = String(activationId || "");
+    let scope = coreActivationScopeCache.get(key);
+    if (scope === undefined) {
+        scope = parseCorePatternActivationScope(key);
+        if (!scope || !scope.pattern) scope = null;
+        if (coreActivationScopeCache.size >= 20000) coreActivationScopeCache.clear();
+        coreActivationScopeCache.set(key, scope);
+    }
+    return scope;
+}
+
+function getCoreActivationUrlRegex(pattern) {
+    let re = coreActivationUrlRegexCache.get(pattern);
+    if (re === undefined) {
+        try { re = new RegExp(pattern, "i"); } catch (_) { re = null; }
+        if (coreActivationUrlRegexCache.size >= 5000) coreActivationUrlRegexCache.clear();
+        coreActivationUrlRegexCache.set(pattern, re);
+    }
+    return re;
+}
+
 function coreRuleHasActivePatternForUrl(compiledRule, url) {
     const activationIds = Array.isArray(compiledRule?.activationIds) ? compiledRule.activationIds : [];
-    const patternScopes = activationIds.map(parseCorePatternActivationScope).filter(s => s && s.pattern);
-    if (patternScopes.length === 0) return true;
-    return patternScopes.some(scope => {
-        if (scope.type === "domain") return matchDomainPattern(url, [scope.pattern]);
-        if (scope.type === "url") {
-            try { return new RegExp(scope.pattern, "i").test(url); } catch (_) { return false; }
+    let sawScope = false;
+    for (const activationId of activationIds) {
+        const scope = getCachedCorePatternActivationScope(activationId);
+        if (!scope) continue;
+        sawScope = true;
+        if (scope.type === "domain") {
+            if (matchDomainPattern(url, [scope.pattern])) return true;
+        } else if (scope.type === "url") {
+            const re = getCoreActivationUrlRegex(scope.pattern);
+            if (re && re.test(url)) return true;
         }
-        return false;
-    });
+    }
+    return !sawScope;
 }
 
 // Moves disabled ids saved under a rule's previous id to its current id, so
@@ -737,10 +768,12 @@ class Multimap {
 // matchDomainPattern
 // ---------------------------------------------------------------------------
 
-function matchDomainPattern(url, patterns) {
-    if (typeof patterns === 'string') patterns = [patterns];
-    if (!Array.isArray(patterns) || patterns.length === 0) return false;
+var linkumoriLiteralRegexCache = new Map();
+var matchDomainPatternLastUrl = null;
 
+// The pattern helpers below were nested inside matchDomainPattern, so every
+// call created them again. PERF: they are created once here.
+var linkumoriDomainPatternHelpers = (function () {
     function escapeRegexChar(char) {
         return /[\\^$.*+?()[\]{}|]/.test(char) ? ('\\' + char) : char;
     }
@@ -768,13 +801,11 @@ function matchDomainPattern(url, patterns) {
 
     function compileLinkumoriRegex(pattern) {
         const cacheKey = String(pattern || '');
-        if (linkumoriPatternRegexCache.has(cacheKey)) {
-            // Refresh recency on a hit, so eviction below is least recently used.
-            const cached = linkumoriPatternRegexCache.get(cacheKey);
-            linkumoriPatternRegexCache.delete(cacheKey);
-            linkumoriPatternRegexCache.set(cacheKey, cached);
-            return cached;
-        }
+        // PERF: a plain lookup on a hit. Moving the entry to the end on every
+        // hit (to make eviction least-recently-used) cost more than it saved;
+        // the cache holds 5000 patterns, so eviction is now oldest-first.
+        const cached = linkumoriPatternRegexCache.get(cacheKey);
+        if (cached !== undefined) return cached;
 
         let raw = cacheKey;
         let domainAnchor = false, startAnchor = false, endAnchor = false;
@@ -884,11 +915,27 @@ function matchDomainPattern(url, patterns) {
         catch (e) { return false; }
     }
 
+    return { compileLinkumoriRegex, matchStructuredDomainAnchorPattern };
+})();
+
+function matchDomainPattern(url, patterns) {
+    if (typeof patterns === 'string') patterns = [patterns];
+    if (!Array.isArray(patterns) || patterns.length === 0) return false;
+
+    const { compileLinkumoriRegex, matchStructuredDomainAnchorPattern } = linkumoriDomainPatternHelpers;
+
     try {
-        const urlObj = new URL(url);
-        const hostname = normalizeAsciiHostname(urlObj.hostname);
+        // PERF: the same URL is usually checked against many rules in a row,
+        // so its parsed form is kept for the next call. The URL object is
+        // only read below, never changed.
+        let parsed = matchDomainPatternLastUrl;
+        if (!parsed || parsed.url !== url) {
+            const urlObj = new URL(url);
+            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase() };
+            matchDomainPatternLastUrl = parsed;
+        }
+        const { urlObj, hostname, fullUrl } = parsed;
         if (!hostname) return false;
-        const fullUrl = url.toLowerCase();
 
         return patterns.some(pattern => {
             const p = String(pattern || '').trim();
@@ -903,8 +950,18 @@ function matchDomainPattern(url, patterns) {
                     // Only a regex when the flags are flag characters; a plain
                     // path such as "/path/to/x" uses the wildcard path below.
                     if (/^[a-z]*$/i.test(flags)) {
-                        try { return new RegExp(body, flags).test(url); }
-                        catch (e) { /* fall through */ }
+                        // PERF: compiled once. Patterns with g or y flags are
+                        // not cached, as test() moves their lastIndex.
+                        const stateful = /[gy]/.test(flags);
+                        let re = stateful ? undefined : linkumoriLiteralRegexCache.get(p);
+                        if (re === undefined) {
+                            try { re = new RegExp(body, flags); } catch (e) { re = null; }
+                            if (!stateful) {
+                                if (linkumoriLiteralRegexCache.size >= 5000) linkumoriLiteralRegexCache.clear();
+                                linkumoriLiteralRegexCache.set(p, re);
+                            }
+                        }
+                        if (re) return re.test(url);
                     }
                 }
             }
@@ -1348,32 +1405,92 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     return true;
 }
 
-function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) {
+// The "name=value" strings a regex filter is also tested against, one per
+// value (or "name=" when there is none), with values decoded once.
+function getLinkumoriParamPairs(fieldName, values = []) {
+    const rawParamName = String(fieldName);
+    const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
+    return paramValues.map(value => rawParamName + '=' + safeDecodeLinkumoriParam(value));
+}
+
+// `pairs` is optional: getLinkumoriParamPairs(fieldName, values), passed in
+// by callers that test one parameter against many filters (PERF).
+function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], pairs = null) {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
     const rawParamName = String(fieldName);
-    const paramName = linkumoriRule.matchCase ? rawParamName : rawParamName.toLowerCase();
     let matched = false;
     if (linkumoriRule.regexParam) {
-        const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
-        linkumoriRule.regexParam.lastIndex = 0;
-        matched = linkumoriRule.regexParam.test(rawParamName) || paramValues.some(value => {
-            const pair = rawParamName + '=' + safeDecodeLinkumoriParam(value);
-            linkumoriRule.regexParam.lastIndex = 0;
-            return linkumoriRule.regexParam.test(pair);
-        });
+        const regex = linkumoriRule.regexParam;
+        regex.lastIndex = 0;
+        matched = regex.test(rawParamName);
+        if (!matched) {
+            const pairList = pairs || getLinkumoriParamPairs(rawParamName, values);
+            for (const pair of pairList) {
+                regex.lastIndex = 0;
+                if (regex.test(pair)) { matched = true; break; }
+            }
+        }
     } else if (linkumoriRule.literalParam !== null) {
+        const paramName = linkumoriRule.matchCase ? rawParamName : rawParamName.toLowerCase();
         matched = paramName === linkumoriRule.literalParam;
     }
     return linkumoriRule.negate ? !matched : matched;
 }
 
+// PERF: a parameter name can only match a plain-name filter whose name equals
+// it, so those filters are looked up by name instead of scanned. Filters that
+// can match any name (regex, removeAll, ~negated) stay in `always`. Each
+// bucket keeps list order, so the first match is the same rule as a full scan.
+var linkumoriParamIndexCache = new WeakMap();
+
+function getLinkumoriParamIndex(rules) {
+    let index = linkumoriParamIndexCache.get(rules);
+    if (index && index.length === rules.length) return index;
+    const caseInsensitive = new Map(), caseSensitive = new Map(), always = [];
+    for (let i = 0; i < rules.length; i++) {
+        const r = rules[i];
+        if (!r || r.removeAll || r.negate || r.regexParam || typeof r.literalParam !== 'string') {
+            always.push(i);
+            continue;
+        }
+        const bucketMap = r.matchCase ? caseSensitive : caseInsensitive;
+        let bucket = bucketMap.get(r.literalParam);
+        if (!bucket) bucketMap.set(r.literalParam, bucket = []);
+        bucket.push(i);
+    }
+    index = { length: rules.length, caseInsensitive, caseSensitive, always };
+    linkumoriParamIndexCache.set(rules, index);
+    return index;
+}
+
+// Indexes of `rules` that could match `fieldName`, in list order.
+function getLinkumoriParamCandidates(rules, fieldName) {
+    const index = getLinkumoriParamIndex(rules);
+    const a = index.caseInsensitive.get(fieldName.toLowerCase());
+    const b = index.caseSensitive.get(fieldName);
+    if (!a && !b) return index.always;
+    const merged = [];
+    for (const list of [a, b, index.always]) if (list) for (const i of list) merged.push(i);
+    return merged.sort((x, y) => x - y);
+}
+
+function findLinkumoriParamRule(list, fieldName, nameMatches) {
+    if (list && typeof list.findFor === 'function') return list.findFor(fieldName, nameMatches);
+    return (list || []).find(nameMatches);
+}
+
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
     const rawFieldName = String(fieldName || '');
     if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };
-    const matchedException = (activeExceptions || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    let pairs = null;
+    const nameMatches = r => {
+        if (r && r.regexParam && !r.removeAll && pairs === null) pairs = getLinkumoriParamPairs(rawFieldName, values);
+        return linkumoriRemoveParamMatchesName(r, rawFieldName, values, pairs);
+    };
+    const matchedException = findLinkumoriParamRule(activeExceptions, rawFieldName, nameMatches);
     if (matchedException) return { handled: true, remove: false, matchedRule: getLinkumoriRemoveParamTraceName(matchedException), rule: matchedException };
-    const matchedRule = (activeRules || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    const matchedRule = findLinkumoriParamRule(activeRules, rawFieldName, nameMatches);
     if (matchedRule) return {
         handled: true,
         remove: matchedRule.replacePattern === null,
@@ -1921,6 +2038,16 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 get length() { return rules.length + extra.length; },
                 find(nameMatches) {
                     for (const r of rules) if (nameMatches(r) && isEligible(r)) return r;
+                    for (const r of extra) if (nameMatches(r)) return r;
+                    return undefined;
+                },
+                // Same result as find(), but only visits rules whose name
+                // could match (see getLinkumoriParamIndex).
+                findFor(fieldName, nameMatches) {
+                    for (const i of getLinkumoriParamCandidates(rules, fieldName)) {
+                        const r = rules[i];
+                        if (nameMatches(r) && isEligible(r)) return r;
+                    }
                     for (const r of extra) if (nameMatches(r)) return r;
                     return undefined;
                 }
@@ -3118,13 +3245,27 @@ function start() {
         this.getOrderedCleaningSteps = function () {
             return storage.referralMarketing ? orderedStepsWithoutReferral : orderedStepsWithReferral;
         };
+        // PERF: the combined lists are built once per referral setting and
+        // reused (callers only read them), so the per-name index built over
+        // them in getLinkumoriParamIndex survives between requests. A list
+        // that grew since is rebuilt.
+        const removeParamListMemo = new Map();
+        const memoRemoveParamList = (key, base, referral) => {
+            const includeReferral = !storage.referralMarketing;
+            const memoKey = key + (includeReferral ? ':withReferralRules' : ':base');
+            const size = base.length + (includeReferral ? referral.length : 0);
+            let memo = removeParamListMemo.get(memoKey);
+            if (!memo || memo.size !== size) {
+                memo = { size, list: Object.freeze(includeReferral ? base.concat(referral) : base.slice()) };
+                removeParamListMemo.set(memoKey, memo);
+            }
+            return memo.list;
+        };
         this.getLinkumoriRemoveParamRules = function () {
-            if (!storage.referralMarketing) return linkumoriRemoveParamRules.concat(referralMarketingRemoveParamRules);
-            return linkumoriRemoveParamRules.slice();
+            return memoRemoveParamList('rules', linkumoriRemoveParamRules, referralMarketingRemoveParamRules);
         };
         this.getLinkumoriRemoveParamExceptions = function () {
-            if (!storage.referralMarketing) return linkumoriRemoveParamExceptions.concat(referralMarketingRemoveParamExceptions);
-            return linkumoriRemoveParamExceptions.slice();
+            return memoRemoveParamList('exceptions', linkumoriRemoveParamExceptions, referralMarketingRemoveParamExceptions);
         };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null, arrayIndex = 0) {
