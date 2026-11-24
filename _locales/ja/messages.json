@@ -3737,14 +3737,8 @@
   "providerImport_ruleIdsRequireValidJson": {
     "message": "プロバイダー JSON が有効になると、ルール ID コントロールが使用可能になります。"
   },
-  "guide_page_title": {
-    "message": "Linkumori — ルールガイド"
-  },
   "guide_toc_label": {
     "message": "目次"
-  },
-  "guide_title": {
-    "message": "Linkumoriルールの書き方"
   },
   "guide_file_title": {
     "message": "1. ルールファイル"
@@ -5354,12 +5348,6 @@
   },
   "troubleshooter_diag_not_found_passed": {
     "message": "他に単独でページを直すルールはありません。スキップした $1 件のルールもオンに戻ったため、すべてのルールが再びオンになっています。最初からやり直すには「クリア」をクリックしてください。"
-  },
-  "guide_intro_p_1": {
-    "message": "Linkumori は、JSON 形式の <strong>CLN Format 1.0</strong>（Clean Link Notation）で記述されたルールでURLをクリーンアップします。このガイドでは、最初のルールからすべてのオプションまでを、コピーして使える例とともに説明します。"
-  },
-  "guide_intro_p_2": {
-    "message": "組み込みルール、リモートルールリスト、カスタムルールはすべて同じ形式を使用します。カスタムルールはカスタムルールエディターで記述し、保存またはインポートの際にチェックされます。公式の ClearURLs ルールカタログ (<code>data.min.json</code>) はすでに有効な CLN ファイルであり、そのまま使用できます。"
   },
   "guide_rules_file_p_1": {
     "message": "プロバイダー名は単なるラベルです。プロバイダーが処理するURLは <code>domainPatterns</code> または <code>urlPattern</code> で決まります。"

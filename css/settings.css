@@ -937,11 +937,6 @@
         }
 
         /* ENHANCED LINKUMORI-PICKER STYLING - LINKUMORI THEME */
-        #color-picker-container {
-            position: absolute;
-            z-index: 10000;
-        }
-
         .linkumori-linkumori-picker.linkumori-picker-app {
             background: var(--bg-secondary) !important;
             border: 1px solid var(--border-color) !important;
@@ -967,7 +962,6 @@
             margin-bottom: 12px !important;
         }
 
-        .linkumori-linkumori-picker .linkumori-picker-last-color,
         .linkumori-linkumori-picker .linkumori-picker-current-color {
             border-radius: 4px !important;
             border: 1px solid var(--border-color) !important;
@@ -996,24 +990,6 @@
             margin-bottom: 8px !important;
         }
 
-        .linkumori-linkumori-picker .linkumori-picker-swatches {
-            background: var(--bg-secondary) !important;
-            border-top: 1px solid var(--border-color) !important;
-            padding: 8px !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-swatches > button {
-            border-radius: 4px !important;
-            border: 1px solid var(--border-color) !important;
-            margin: 2px !important;
-            transition: all 0.2s !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-swatches > button:hover {
-            transform: scale(1.1) !important;
-            border-color: var(--button-primary) !important;
-        }
-
         .linkumori-linkumori-picker .linkumori-picker-interaction {
             background: var(--bg-secondary) !important;
             border-top: 1px solid var(--border-color) !important;
@@ -1038,34 +1014,8 @@
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.24) !important;
         }
 
-        .linkumori-linkumori-picker .linkumori-picker-type {
-            background: var(--bg-tertiary) !important;
-            border: 1px solid var(--border-color) !important;
-            border-radius: 4px !important;
-            color: var(--text-secondary) !important;
-            font-size: 10px !important;
-            font-weight: 500 !important;
-            padding: 4px 8px !important;
-            margin: 2px !important;
-            cursor: pointer !important;
-            transition: all 0.2s !important;
-            font-family: "Old-Country-Nobility" !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-type:hover {
-            background: var(--bg-quaternary) !important;
-            border-color: var(--button-primary) !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-type.active {
-            background: var(--button-primary) !important;
-            border-color: var(--button-primary) !important;
-            color: #ffffff !important;
-        }
-
         .linkumori-linkumori-picker .linkumori-picker-save,
-        .linkumori-linkumori-picker .linkumori-picker-cancel,
-        .linkumori-linkumori-picker .linkumori-picker-clear {
+        .linkumori-linkumori-picker .linkumori-picker-cancel {
             border: none !important;
             border-radius: 4px !important;
             font-size: 11px !important;
@@ -1094,15 +1044,6 @@
 
         .linkumori-linkumori-picker .linkumori-picker-cancel:hover {
             background: var(--button-secondary-hover) !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-clear {
-            background: var(--button-danger) !important;
-            color: #ffffff !important;
-        }
-
-        .linkumori-linkumori-picker .linkumori-picker-clear:hover {
-            background: var(--button-danger-hover) !important;
         }
 
         /* Light theme adjustments for LinkumoriPicker */
@@ -1253,18 +1194,6 @@
             border-color: var(--button-danger);
             background: rgba(220, 38, 38, 0.08);
             box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.1);
-        }
-
-        .remote-security-alert {
-            margin-top: 8px;
-            padding: 10px 12px;
-            border-left: 4px solid var(--button-danger);
-            border-radius: 6px;
-            background: rgba(220, 38, 38, 0.1);
-            color: var(--button-danger);
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.45;
         }
 
         /* Security Modal Styles */
@@ -1700,37 +1629,6 @@
             justify-content: center;
             font-size: 13px;
             padding: 10px 16px;
-        }
-
-        /* Animation Classes */
-        .modal-fade-in {
-            animation: modalFadeIn 0.3s ease forwards;
-        }
-
-        .modal-fade-out {
-            animation: modalFadeOut 0.3s ease forwards;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        @keyframes modalFadeOut {
-            from {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: scale(0.9) translateY(-20px);
-            }
         }
 
         /* Shake Animation for Incorrect Input */
@@ -2172,11 +2070,6 @@
             .modal-overlay,
             .modal-container {
                 transition: none;
-            }
-            
-            .modal-fade-in,
-            .modal-fade-out {
-                animation: none;
             }
             
             .shake {
