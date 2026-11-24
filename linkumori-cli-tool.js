@@ -4547,8 +4547,9 @@ coverage/**
             if (!this.showRule(rest[0], rest[1] || null, pinsFile)) process.exit(1);
             break;
           }
-          // pass explicit path if given; null triggers the interactive prompt
-          await this.lintClearURLsRules(args[1] || null);
+          // pass explicit path if given; null triggers the interactive prompt.
+          // A failed lint exits 1, so CI and scripts can rely on it.
+          if (!(await this.lintClearURLsRules(args[1] || null))) process.exit(1);
           break;
         case 'show-rule': {
           const { rest, pinsFile } = this.takePinsOption(args.slice(1));

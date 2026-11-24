@@ -1,0 +1,51 @@
+name: Regression Tests
+
+# Runs the URL cleaning regression suite (tests/regression-suite.json) in Node
+# and lints the bundled rules, on every push and pull request.
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - 'COMMIT_HISTORY.md'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: regression-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # The CLI reads the YAML rules source with the `yaml` package.
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Show Node version
+        run: node --version
+
+      # Exits 1 when any case fails; failures are printed in the log.
+      - name: Run regression suite
+        run: node tests/run-regression-suite.cjs
+
+      - name: Lint rules source (YAML)
+        run: node linkumori-cli-tool.js lint-rules data/linkumori-clearurls.yaml
+
+      - name: Lint bundled rules (LZ4)
+        run: node linkumori-cli-tool.js lint-rules data/linkumori-clearurls-min.json.lz4
