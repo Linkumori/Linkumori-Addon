@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.100.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.99.0...linkumori-v100.100.0))
+### Changed
+- Release v100.100.0 (hash: `a1a0a76`).
+- Updated files:
+  - `COMMIT_HISTORY.md`
+
 ## [v100.99.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.98.0...linkumori-v100.99.0))
 ### Added
 - Introduce standalone rules editor under tools/rules-editor (`2026-11-23`, hash: [`ec8b183`](https://github.com/Linkumori/Linkumori-Addon/commit/ec8b183))
