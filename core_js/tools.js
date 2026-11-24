@@ -420,27 +420,6 @@ function getBrowser() {
 }
 
 /**
- * Decodes an URL, also one that is encoded multiple times.
- *
- *
- * @param url   the url, that should be decoded
- */
-function decodeURL(url) {
-    let rtn = decodeUriComponent(url);
-
-    while (isEncodedURI(rtn)) {
-        rtn = decodeUriComponent(rtn);
-    }
-
-    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!rtn.startsWith('http')) {
-        rtn = 'http://' + rtn
-    }
-
-    return rtn;
-}
-
-/**
  * Returns true, iff the given URI is encoded
  */
 function isEncodedURI(uri) {
