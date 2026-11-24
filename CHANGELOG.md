@@ -16,6 +16,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.101.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.100.0...linkumori-v100.101.0))
+### Added
+- **rules-editor**: Create a CLN patches file from rule edits (`2026-11-24`, hash: [`5799b5a`](https://github.com/Linkumori/Linkumori-Addon/commit/5799b5a))
+
+### Changed
+- Generated JSON URL cleaning rules export (`2026-11-25`, hash: [`3825b1f`](https://github.com/Linkumori/Linkumori-Addon/commit/3825b1f))
+- Generated JSON URL cleaning rules export (`2026-11-25`, hash: [`8790428`](https://github.com/Linkumori/Linkumori-Addon/commit/8790428))
+- Generated compressed URL cleaning rules bundle (`2026-11-25`, hash: [`3825b1f`](https://github.com/Linkumori/Linkumori-Addon/commit/3825b1f))
+- Generated compressed URL cleaning rules bundle (`2026-11-25`, hash: [`8790428`](https://github.com/Linkumori/Linkumori-Addon/commit/8790428))
+- Restructure/remove decodeurl (`2026-11-25`, hash: [`f27206f`](https://github.com/Linkumori/Linkumori-Addon/commit/f27206f))
+- Run regression suite and rules lint on push and pull request (`2026-11-25`, hash: [`69976d2`](https://github.com/Linkumori/Linkumori-Addon/commit/69976d2))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`3825b1f`](https://github.com/Linkumori/Linkumori-Addon/commit/3825b1f))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`8790428`](https://github.com/Linkumori/Linkumori-Addon/commit/8790428))
+
+### Fixed
+- **cli**: Don't require web-ext for lint-rules and show-rule (#201) (`2026-11-25`, hash: [`440b3e4`](https://github.com/Linkumori/Linkumori-Addon/commit/440b3e4)) [#201](https://github.com/Linkumori/Linkumori-Addon/issues/201)
+- **engine**: Decode redirect targets once, not until no escapes remain (`2026-11-25`, hash: [`5da3029`](https://github.com/Linkumori/Linkumori-Addon/commit/5da3029))
+- **rules**: Make the Google AMP redirect produce a valid target (`2026-11-25`, hash: [`8790428`](https://github.com/Linkumori/Linkumori-Addon/commit/8790428))
+- **rules**: Scope redirect rules to domain fieldRedirections (`2026-11-25`, hash: [`3825b1f`](https://github.com/Linkumori/Linkumori-Addon/commit/3825b1f))
+- **rules-editor**: Format switch on empty document and filtered view (`2026-11-24`, hash: [`9a49d9c`](https://github.com/Linkumori/Linkumori-Addon/commit/9a49d9c))
+
 ## [v100.100.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.99.0...linkumori-v100.100.0))
 ### Changed
 - Release v100.100.0 (hash: `a1a0a76`).
