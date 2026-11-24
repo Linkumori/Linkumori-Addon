@@ -301,12 +301,18 @@
   }
   function convertTo(format) {
     if (format === state.format) return;
+    // Nothing to convert yet: just switch, so a file can be pasted in the chosen format.
+    if (!currentFullText().trim()) { setFormatUI(format); editor.relint(); renderStatus(`Format: ${format.toUpperCase()}`); return; }
     try {
       const full = serialize(parse(currentFullText(), state.format), format);
-      const shown = state.view === 'filter' ? serialize(parse(editor.getText(), state.format), format) : full;
+      const filtered = state.view === 'filter';
+      const shown = filtered ? serialize(parse(editor.getText(), state.format), format) : full;
+      const unedited = filtered && editor.getText() === state.filteredOriginal;
       state.fullText = full;
       setFormatUI(format);
       editor.setText(shown);
+      // Converting is not an edit: leaving the filtered view afterwards shouldn't warn.
+      if (unedited) state.filteredOriginal = editor.getText();
       renderStatus(`Converted to ${format.toUpperCase()}`);
     } catch (e) {
       renderStatus(`Can't convert: fix the ${state.format.toUpperCase()} errors first`);
