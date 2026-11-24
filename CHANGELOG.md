@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.99.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.98.0...linkumori-v100.99.0))
+### Added
+- Introduce standalone rules editor under tools/rules-editor (`2026-11-23`, hash: [`ec8b183`](https://github.com/Linkumori/Linkumori-Addon/commit/ec8b183))
+
+### Changed
+- Commit (`2026-11-23`, hash: [`78ecdab`](https://github.com/Linkumori/Linkumori-Addon/commit/78ecdab))
+- Downloaded latest public suffix list from upstream (`2026-11-24`, hash: [`0317c8c`](https://github.com/Linkumori/Linkumori-Addon/commit/0317c8c))
+- Generated JSON URL cleaning rules export (`2026-11-24`, hash: [`0317c8c`](https://github.com/Linkumori/Linkumori-Addon/commit/0317c8c))
+- Generated compressed URL cleaning rules bundle (`2026-11-24`, hash: [`0317c8c`](https://github.com/Linkumori/Linkumori-Addon/commit/0317c8c))
+- Updated canonical URL cleaning rules source (`2026-11-23`, hash: [`bba1f7a`](https://github.com/Linkumori/Linkumori-Addon/commit/bba1f7a))
+
+### Fixed
+- Resolve rules (`2026-11-23`, hash: [`bba1f7a`](https://github.com/Linkumori/Linkumori-Addon/commit/bba1f7a))
+
+### Documentation
+- Update README comparison against ClearURLs 1.28.0 (`2026-11-22`, hash: [`a8f0741`](https://github.com/Linkumori/Linkumori-Addon/commit/a8f0741))
+
 ## [v100.98.0] - 2026-11-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.97.0...linkumori-v100.98.0))
 ### Changed
 - Update privacy-policy-cli.md (`2026-11-22`, hash: [`32331ab`](https://github.com/Linkumori/Linkumori-Addon/commit/32331ab))
