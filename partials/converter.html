@@ -1,4 +1,4 @@
-<p class="rx-lede">Turn AdGuard and uBlock Origin parameter-removal lists into one CLN 1.0 rule file you can load into Linkumori as a remote or custom rule file.</p>
+<p class="rx-lede">Turn AdGuard and uBlock Origin parameter-removal lists into one CLN 1.0 rule file you can load into Linkumori as a remote or custom rule file. Get it as JSON, or as YAML to edit by hand.</p>
 <p>It reads lists such as Dandelion Sprout’s <i>Actually Legitimate URL Shortener Tool</i> and the <i>AdGuard URL Tracking filter</i>, converts every <code>$removeparam</code> rule, and lists what it couldn’t convert and why. Everything runs in your browser. <b>Fetch</b> asks the list’s address for the file directly from your browser; nothing is sent to this site. We don’t check or control the sites you fetch from, so only use lists you trust; see the <a href="terms.html#content-you-fetch-from-other-sites">Terms of Use</a> and <a href="privacy.html#filter-list-converter-and-other-sites">Privacy Policy</a>.</p>
 
 <h2 id="source-lists">Source lists</h2>
@@ -46,7 +46,9 @@
       <select id="cv-format">
         <option value="pretty">Pretty JSON (one rule per line)</option>
         <option value="compact">Compact JSON</option>
+        <option value="yaml">YAML</option>
       </select>
+      <span class="cv-hint" id="cv-format-hint" hidden>Linkumori loads rule files as JSON. Use YAML to edit the rules by hand or to add them to a YAML rules source, then convert back with the CLI’s <code>yaml-to-json</code> or the <a href="rules-editor.html">rules editor</a>.</span>
     </div>
   </div>
   <div class="cv-checks">
@@ -72,12 +74,12 @@
 <div class="tool cv-tool" id="cv-results" hidden>
   <dl class="cv-stats" id="cv-stats"></dl>
   <div class="tool-bar">
-    <button type="button" class="link-btn" id="cv-copy">Copy JSON</button>
-    <button type="button" class="link-btn" id="cv-download">Download .json</button>
+    <button type="button" class="link-btn" id="cv-copy">Copy <span class="cv-fmt-name">JSON</span></button>
+    <button type="button" class="link-btn" id="cv-download">Download <span class="cv-fmt-ext">.json</span></button>
     <span class="tool-msg cv-size" id="cv-size"></span>
   </div>
   <div class="code-field">
-    <div class="code-field-bar"><label for="cv-out">Converted rule file</label><span>JSON</span></div>
+    <div class="code-field-bar"><label for="cv-out">Converted rule file</label><span class="cv-fmt-name">JSON</span></div>
     <textarea id="cv-out" class="cv-out" readonly spellcheck="false" wrap="off"></textarea>
   </div>
 </div>

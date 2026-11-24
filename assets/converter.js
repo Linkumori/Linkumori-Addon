@@ -187,7 +187,25 @@
   function stat(n, label, cls) {
     return '<div class="cv-stat' + (cls ? ' ' + cls : '') + '"><dd>' + Number(n).toLocaleString() + '</dd><dt>' + label + '</dt></div>';
   }
-  function outputText() { return $('cv-format').value === 'compact' ? lastResult.compactJson : lastResult.json; }
+  // YAML output uses the bundled `yaml` package (assets/yaml.js) when it has loaded.
+  const YAML = window.LinkumoriYAML;
+  if (!YAML) { const o = $('cv-format').querySelector('option[value="yaml"]'); if (o) o.disabled = true; }
+  const isYaml = () => $('cv-format').value === 'yaml' && !!YAML;
+  function outputText() {
+    if (isYaml()) {
+      if (lastResult.yaml === undefined) lastResult.yaml = YAML.stringify(lastResult.doc, { lineWidth: 0 });
+      return lastResult.yaml;
+    }
+    return $('cv-format').value === 'compact' ? lastResult.compactJson : lastResult.json;
+  }
+  function syncFormat() {
+    const yaml = isYaml();
+    document.querySelectorAll('.cv-fmt-name').forEach(el => { el.textContent = yaml ? 'YAML' : 'JSON'; });
+    document.querySelectorAll('.cv-fmt-ext').forEach(el => { el.textContent = yaml ? '.yaml' : '.json'; });
+    $('cv-format-hint').hidden = !yaml;
+  }
+  $('cv-format').addEventListener('change', syncFormat);
+  syncFormat();
   function renderOutput() {
     const t = outputText();
     $('cv-out').value = t;
@@ -258,14 +276,14 @@
     catch (e) { $('cv-out').focus(); $('cv-out').select(); flash($('cv-copy'), 'Press Ctrl/⌘+C'); }
   });
   $('cv-download').addEventListener('click', () => {
-    const blob = new Blob([outputText()], { type: 'application/json' });
+    const blob = new Blob([outputText()], { type: isYaml() ? 'text/yaml' : 'application/json' });
     const a = document.createElement('a');
     const used = lastResult.sources || [];
     const srcName = used.length === 1 ? (used[0].url.split('/').pop() || '').replace(/\.txt$/i, '') : (used.length > 1 ? 'merged' : '');
     let base;
     try { base = decodeURIComponent(srcName); } catch (e) { base = srcName; }
     base = (base || 'rules').replace(/[^A-Za-z0-9._-]+/g, '-');
-    a.href = URL.createObjectURL(blob); a.download = base + '.cln.json';
+    a.href = URL.createObjectURL(blob); a.download = base + (isYaml() ? '.cln.yaml' : '.cln.json');
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   });

@@ -101,11 +101,11 @@ const pages = [
     out: 'converter.html',
     title: 'AdGuard filter converter — Linkumori',
     heading: 'AdGuard filters to CLN 1.0',
-    description: 'Convert AdGuard and uBlock Origin $removeparam filter lists into one Linkumori CLN 1.0 rule file, in your browser, with a conversion report and a URL tester.',
+    description: 'Convert AdGuard and uBlock Origin $removeparam filter lists into one Linkumori CLN 1.0 rule file in JSON or YAML, in your browser, with a conversion report and a URL tester.',
     kicker: 'Tool',
-    facts: [['Input', 'AdGuard and uBlock Origin lists'], ['Output', 'CLN 1.0 rule file'], ['Runs', 'In your browser']],
+    facts: [['Input', 'AdGuard and uBlock Origin lists'], ['Output', 'CLN 1.0 rule file, JSON or YAML'], ['Runs', 'In your browser']],
     wide: true,
-    scripts: ['assets/converter-core.js', 'assets/converter.js']
+    scripts: ['assets/yaml.js', 'assets/converter-core.js', 'assets/converter.js']
   },
   {
     html: 'partials/rules-editor.html',
