@@ -210,7 +210,7 @@ In both, this keeps the key `token` and rewrites a value such as `test` to
 | Field rule anchoring | the compiled example stores `^utm_source$` | `^…$` is added to the entry for you |
 | Field rule case | compiled example: flags `i` | case-insensitive (flags `i`) |
 | Raw rules | the full URL string | the full URL, every match, case-insensitive (`gi`) |
-| Redirections | legacy: capture group 1, decoded with `decodeURIComponent()`; format 2: `replacePattern` | a plain regex needs exactly one capture group; the target is URL-decoded until no escapes are left; `http://` is added if there is no scheme |
+| Redirections | legacy: capture group 1, decoded with `decodeURIComponent()`; format 2: `replacePattern` | a plain regex needs exactly one capture group; the capture is decoded once (form-decoded when it sits in the query, so `+` is a space), then again only while it is not yet an absolute URL, so escapes inside the target are kept; nothing is added in front, and a target that is not an absolute `http` or `https` URL does not redirect |
 | Exceptions | URL regexes; case not stated | case-insensitive regexes, or `\|` domain patterns |
 | `urlPattern` case | not stated | case-insensitive |
 | Order of steps within a provider | not stated on the spec pages | exceptions → redirections → field redirections → complete provider → raw rules → field rules → `$removeparam` ([Processing order](filter-syntax.md#processing-order)) |

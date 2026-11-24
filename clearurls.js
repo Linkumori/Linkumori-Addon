@@ -1606,11 +1606,35 @@ function applyCoreReplacePattern(pattern, values) {
 // decodes it, or null when it is not an absolute http or https URL with a
 // host. Unlike decodeURL() nothing is added in front: "real.example/page",
 // "//real.example/page" and "/local/page" are not redirect targets.
-function getLinkumoriRedirectTarget(value) {
+//
+// Decoding stops as soon as the value is an absolute http(s) URL: escapes
+// inside a real target belong to it, such as a tracker that carries the
+// final link in its path ("https://click.example/CL0/https:%2F%2Fsite%2F...").
+// Decoding those too turned "%3F" into "?" and broke the link. Raw URL
+// text first gets one standard decode for where it sits
+// (`options.decodeOnce`): "form" for a query value ("+" is a space, as
+// URLSearchParams reads it), true for path or fragment text ("+" stays).
+function isLinkumoriAbsoluteHttpUrl(text) {
+    return /^https?:\/\//i.test(text);
+}
+
+// Whether [start, end) of `url` lies inside its query string ("?" to "#").
+function isLinkumoriSpanInQuery(url, start, end) {
+    const hash = url.indexOf('#');
+    const query = url.indexOf('?');
+    if (query === -1 || (hash !== -1 && hash < query)) return false;
+    return start > query && (hash === -1 || end <= hash);
+}
+
+function getLinkumoriRedirectTarget(value, options = {}) {
     if (typeof value !== 'string' || !value.trim()) return null;
     let target = value.trim();
     try {
-        for (let i = 0; i < 10 && isEncodedURI(target); i++) target = decodeUriComponent(target);
+        if (options.decodeOnce === 'form') target = decodeUriComponent(target.replace(/\+/g, ' '));
+        else if (options.decodeOnce) target = decodeUriComponent(target);
+        for (let i = 0; i < 10 && !isLinkumoriAbsoluteHttpUrl(target) && isEncodedURI(target); i++) {
+            target = decodeUriComponent(target);
+        }
     } catch (_) { /* keep what was decoded so far */ }
     let parsed;
     try { parsed = new URL(target); } catch (_) { return null; }
@@ -3155,9 +3179,11 @@ function start() {
             let urlObject;
             try { urlObject = new URL(url); } catch (_) { return null; }
             const params = [];
-            for (const [key, value] of urlObject.searchParams) params.push([key, value]);
-            extractFragments(urlObject)._params.forEach((key, value) => params.push([key, value === null ? '' : value]));
-            for (const [key, value] of params) {
+            // Query values come decoded from URLSearchParams; fragment values
+            // are raw text and get their one decode as a redirect target.
+            for (const [key, value] of urlObject.searchParams) params.push([key, value, false]);
+            extractFragments(urlObject)._params.forEach((key, value) => params.push([key, value === null ? '' : value, true]));
+            for (const [key, value, raw] of params) {
                 if (!value) continue;
                 for (const entry of applicable) {
                     let matched;
@@ -3172,7 +3198,7 @@ function start() {
                     const target = entry.compiled.replacePattern !== null && entry.compiled.replacePattern !== ''
                         ? applyCoreReplacePattern(entry.compiled.replacePattern, values)
                         : values[0];
-                    const validTarget = getLinkumoriRedirectTarget(target);
+                    const validTarget = getLinkumoriRedirectTarget(target, { decodeOnce: raw });
                     if (validTarget) return {
                         url: validTarget,
                         rule: getCoreRuleTraceName(entry.compiled, entry.compiled.matchPattern),
@@ -3279,8 +3305,21 @@ function start() {
                     let target = null;
                     if (compiled.replacePattern !== null && compiled.replacePattern !== '') target = applyCoreReplacePattern(compiled.replacePattern, values);
                     else if (captured[1] !== undefined) target = values[0];
-                    // An invalid target makes the entry not match.
-                    re = getLinkumoriRedirectTarget(target);
+                    // An invalid target makes the entry not match. A capture
+                    // is raw URL text: decode it once, as a query value when
+                    // the plain capture sits in the query (so "+" is a space,
+                    // as for fieldRedirections), else as path text.
+                    let decodeOnce = true;
+                    const hasReplace = compiled.replacePattern !== null && compiled.replacePattern !== undefined && compiled.replacePattern !== '';
+                    if (!hasReplace && captured[1] !== undefined) {
+                        if (!compiled.indexRegex) {
+                            try { compiled.indexRegex = new RegExp(activeRegex.source, activeRegex.flags.replace(/[gy]/g, '') + 'd'); }
+                            catch (_) { compiled.indexRegex = false; }
+                        }
+                        const span = compiled.indexRegex && compiled.indexRegex.exec(url)?.indices?.[1];
+                        if (span && isLinkumoriSpanInQuery(url, span[0], span[1])) decodeOnce = 'form';
+                    }
+                    re = getLinkumoriRedirectTarget(target, { decodeOnce });
                     if (re) {
                         return {
                             url: re,

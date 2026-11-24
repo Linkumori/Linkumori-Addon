@@ -3250,6 +3250,144 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "redirect target keeps escapes of a link carried in its path (fieldRedirections)",
+      "dialect": "provider",
+      "input": "https://wrap.example/url?q=https://click.example/CL0/https:%252F%252Fsite.example%252Fpost%252F%253Fref%253Dmail%2526id%253D7/1/abc%3D9&usg=x",
+      "expectedOutput": "https://click.example/CL0/https:%2F%2Fsite.example%2Fpost%2F%3Fref%3Dmail%26id%3D7/1/abc=9",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "fieldRedirections": [
+            {
+              "id": "unwrap-q",
+              "matchPattern": "||wrap.example^/url^$removeparam=q"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "redirect target keeps escapes of a link carried in its path (redirections regex)",
+      "dialect": "provider",
+      "input": "https://wrap.example/url?q=https://click.example/CL0/https:%252F%252Fsite.example%252Fpost%252F%253Fref%253Dmail%2526id%253D7/1/abc%3D9&usg=x",
+      "expectedOutput": "https://click.example/CL0/https:%2F%2Fsite.example%2Fpost%2F%3Fref%3Dmail%26id%3D7/1/abc=9",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "redirections": [
+            {
+              "id": "unwrap-q",
+              "matchPattern": "^https?:\\/\\/wrap\\.example\\/url\\?.*?q=(https?[^&]+)"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "redirect target still unwraps a double-encoded link (fieldRedirections)",
+      "dialect": "provider",
+      "input": "https://wrap.example/url?q=https%253A%252F%252Fwww.iana.org%252Fdomains",
+      "expectedOutput": "https://www.iana.org/domains",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "fieldRedirections": [
+            {
+              "id": "unwrap-q",
+              "matchPattern": "||wrap.example^/url^$removeparam=q"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "redirect target from a query capture reads \"+\" as a space, like fieldRedirections (redirections regex)",
+      "dialect": "provider",
+      "input": "https://wrap.example/url?q=https://www.iana.org/a+b%2Bc",
+      "expectedOutput": "https://www.iana.org/a b+c",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "redirections": [
+            {
+              "id": "unwrap-q",
+              "matchPattern": "^https?:\\/\\/wrap\\.example\\/url\\?.*?q=(https?[^&]+)"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "redirect target from a path capture keeps \"+\" (redirections regex)",
+      "dialect": "provider",
+      "input": "https://wrap.example/go/https://www.iana.org/a+b",
+      "expectedOutput": "https://www.iana.org/a+b",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "redirections": [
+            {
+              "id": "unwrap-path",
+              "matchPattern": "^https?:\\/\\/wrap\\.example\\/go\\/(https?[^?#]+)"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "redirect target from a fragment parameter is decoded once (fieldRedirections)",
+      "dialect": "provider",
+      "input": "https://wrap.example/x#q=https://click.example/CL0/https:%252F%252Fsite.example%252F%253Fa%253D1",
+      "expectedOutput": "https://click.example/CL0/https:%2F%2Fsite.example%2F%3Fa%3D1",
+      "providers": {
+        "redirect-decoding": {
+          "domainPatterns": [
+            "||wrap.example^"
+          ],
+          "fieldRedirections": [
+            {
+              "id": "unwrap-q",
+              "matchPattern": "q"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
     }
   ]
 }

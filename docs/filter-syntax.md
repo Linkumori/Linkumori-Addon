@@ -276,6 +276,8 @@ A redirect only happens to an absolute `http` or `https` URL with a host. This h
 | `javascript:alert(1)`, `ftp://files.example/x` | no — scheme is not `http` or `https` |
 | `//real.example/page`, `/local/page`, `real.example/page` | no — not an absolute URL |
 
+Percent-decoding stops once the target is an absolute `http` or `https` URL, so escapes that belong to the target stay as they are. Every target gets one standard decode for where it sits: a value in the query string is form-decoded, as browsers read query parameters (`%xx` escapes, and `+` is a space), and text in the path or fragment is percent-decoded (`+` stays a plus). That holds for a `redirections` capture (judged by where its capture group sits) and for a `fieldRedirections` value, from the query or the fragment. After that the target is decoded again only while it is not yet an absolute URL (`https%253A%252F%252F…` still unwraps). For example, `?q=https://click.example/CL0/https:%252F%252Fsite.example%252F%253Fa%253D1` redirects to `https://click.example/CL0/https:%2F%2Fsite.example%2F%3Fa%3D1`: the link the tracker carries in its path stays encoded, and its `%3F` does not turn into a query string.
+
 A raw rule whose result has a different scheme, host or port from its input is a redirect too, whether it rewrites with a `replacePattern` or only deletes text (`secure-` deleted from `https://secure-bank.example/` lands on another site): it needs a valid target, and in a remote file the `redirect` capability (§Remote file capabilities). Otherwise the rule leaves the URL as it was.
 
 ### Worked example
