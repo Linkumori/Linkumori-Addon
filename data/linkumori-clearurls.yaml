@@ -12931,7 +12931,8 @@ providers:
         matchPattern: "||play.google.*^$removeparam=referrer"
     redirections:
       - id: redirect-https-a-z0-9-google-a-z-2-1-amp-
-        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/amp\/s\/([^&]+)
+        matchPattern: ^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/amp\/s\/([a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[\/?#][^&]*)?)
+        replacePattern: https://§1§
         exceptions:
           - ^https?:\/\/(?:docs|accounts)\.google(?:\.[a-z]{2,}){1,}
           - ^https?:\/\/news\.google\.com.*\?hl=.
