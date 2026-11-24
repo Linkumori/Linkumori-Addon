@@ -53,27 +53,26 @@ script is listed earlier.
 | 1 | `external_js/linkumori-i18n.js` | `LinkumoriI18n`: replacement for `browser.i18n` that loads `_locales/<lang>/messages.json` itself |
 | 2 | `core_js/message_handler.js` | `runtime.onMessage` bridge for the pages (§10) |
 | 3 | `external_js/IP-Ranger.js` | IP address parsing and classification |
-| 4 | `external_js/sha256.js` | SHA-256 |
-| 5 | `core_js/tools.js` | shared helpers: `translate`, URL helpers, counters, icon, log (`pushToLog`), keep-alive |
-| 6–7 | `external_js/light-punycode.js`, `external_js/publicsuffixlist.js` | punycode; Public Suffix List parser (`linkumoriPsl`) |
-| 8 | `core_js/badgedHandler.js` | per-tab badge counter |
-| 9 | `core_js/pureCleaning.js` | cleaning outside `webRequest`, and the rule test lab (§7.1) |
-| 10 | `core_js/context_menu.js` | *Copy clean link* context menu |
-| 11 | `core_js/historyListener.js` | cleans URLs changed with the History API (§7.2) |
-| 12 | `external_js/regex_analyzer.js` | regex analysis |
-| 13 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
-| 14 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
-| 14a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
-| 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
-| 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
-| 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
-| 18 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
-| 19 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
-| 20 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
-| 21 | `core_js/watchdog.js` | self-test every minute (§9) |
-| 22 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
-| 23 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
-| 24 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
+| 4 | `core_js/tools.js` | shared helpers: `translate`, URL helpers, counters, icon, log (`pushToLog`), keep-alive, `sha256()` (Web Crypto) |
+| 5–6 | `external_js/light-punycode.js`, `external_js/publicsuffixlist.js` | punycode; Public Suffix List parser (`linkumoriPsl`) |
+| 7 | `core_js/badgedHandler.js` | per-tab badge counter |
+| 8 | `core_js/pureCleaning.js` | cleaning outside `webRequest`, and the rule test lab (§7.1) |
+| 9 | `core_js/context_menu.js` | *Copy clean link* context menu |
+| 10 | `core_js/historyListener.js` | cleans URLs changed with the History API (§7.2) |
+| 11 | `external_js/regex_analyzer.js` | regex analysis |
+| 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
+| 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
+| 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
+| 14 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
+| 15 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
+| 16 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
+| 17 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
+| 18 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
+| 19 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
+| 20 | `core_js/watchdog.js` | self-test every minute (§9) |
+| 21 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
+| 22 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
+| 23 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
 
 `consent_config.js` loads last, but `genesis()` reads its values only after
 an asynchronous storage read, so they are defined by then.

@@ -2213,10 +2213,6 @@ function getRuleSourceLabel(source) {
     return source;
 }
 
-function getRuleSourceType(source) {
-    return availableRuleSources[source]?.type || 'providers';
-}
-
 function normalizeClearURLsDisabledRuleIdsValue(value) {
     if (!value) return [];
     if (typeof value === 'string') {
@@ -2680,15 +2676,6 @@ function isProviderExcluded(source, provider) {
         return false;
     }
     return getExcludedSignaturesForSource(source).has(signature);
-}
-
-async function excludeProviderSignature(source, providerName) {
-    return excludeProviderSignatureInternal(source, providerName, {
-        requireConfirm: true,
-        showAlert: true,
-        refreshUI: true,
-        reloadRules: true
-    });
 }
 
 async function excludeProviderSignatureInternal(source, providerName, options = {}) {

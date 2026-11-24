@@ -748,16 +748,6 @@ function extractHost(rawUrl) {
     catch (_) { return null; }
 }
 
-function getQueryParamNames(rawUrl) {
-    if (typeof rawUrl !== 'string' || rawUrl.trim() === '') return [];
-    try {
-        const url  = new URL(rawUrl);
-        const keys = new Set();
-        url.searchParams.forEach((_, key) => { if (key) keys.add(key); });
-        return Array.from(keys);
-    } catch (_) { return []; }
-}
-
 function countTop(items, limit = 10) {
     const counts = new Map();
     items.forEach(item => { if (item) counts.set(item, (counts.get(item) || 0) + 1); });
@@ -804,13 +794,6 @@ function initializeTheme() {
 // ── State persistence ─────────────────────────────────────────
 
 
-
-// ── Loading overlay ───────────────────────────────────────────
-
-function showLoading(show = true) {
-    const loadingOverlay = document.getElementById('loading-overlay');
-    if (loadingOverlay) loadingOverlay.classList.toggle('show', show);
-}
 
 // ── Error toast ───────────────────────────────────────────────
 

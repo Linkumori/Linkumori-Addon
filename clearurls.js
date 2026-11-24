@@ -1368,10 +1368,6 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) 
     return linkumoriRule.negate ? !matched : matched;
 }
 
-function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null, isHistoryUpdate = false) {
-    return (rules || []).filter(rule => matchLinkumoriRemoveParamTarget(rule, fullUrl, request, isHistoryUpdate));
-}
-
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
     const rawFieldName = String(fieldName || '');
     if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };
@@ -1602,10 +1598,10 @@ function applyCoreReplacePattern(pattern, values) {
     });
 }
 
-// A redirect target (CLN 1.0 §Redirect targets), decoded as decodeURL()
-// decodes it, or null when it is not an absolute http or https URL with a
-// host. Unlike decodeURL() nothing is added in front: "real.example/page",
-// "//real.example/page" and "/local/page" are not redirect targets.
+// A redirect target (CLN 1.0 §Redirect targets), decoded, or null when it
+// is not an absolute http or https URL with a host. No scheme is added in
+// front: "real.example/page", "//real.example/page" and "/local/page" are
+// not redirect targets.
 //
 // Decoding stops as soon as the value is an absolute http(s) URL: escapes
 // inside a real target belong to it, such as a tracker that carries the

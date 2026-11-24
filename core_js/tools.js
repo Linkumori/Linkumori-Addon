@@ -420,27 +420,6 @@ function getBrowser() {
 }
 
 /**
- * Decodes an URL, also one that is encoded multiple times.
- *
- *
- * @param url   the url, that should be decoded
- */
-function decodeURL(url) {
-    let rtn = decodeUriComponent(url);
-
-    while (isEncodedURI(rtn)) {
-        rtn = decodeUriComponent(rtn);
-    }
-
-    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!rtn.startsWith('http')) {
-        rtn = 'http://' + rtn
-    }
-
-    return rtn;
-}
-
-/**
  * Returns true, iff the given URI is encoded
  */
 function isEncodedURI(uri) {
@@ -725,38 +704,6 @@ function randomASCII(len) {
     return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
 }
 
-/**
- * Returns an URLSearchParams as string.
- * Does handle spaces correctly.
- */
-function urlSearchParamsToString(searchParams) {
-    const rtn = []
-
-    searchParams.forEach((value, key) => {
-        if (value) {
-            rtn.push(key + '=' + encodeURIComponent(value))
-        } else {
-            rtn.push(key)
-        }
-    })
-
-    return rtn.join('&')
-}
-
-function opensettings(){
-     browser.runtime.openOptionsPage();
-}
-
 const keepAlive = () => setInterval(browser.runtime.getPlatformInfo, 20e3);
 browser.runtime.onStartup.addListener(keepAlive);
 keepAlive();
-
-browser.windows.onFocusChanged.addListener((windowId) => {
-    if (windowId !== browser.windows.WINDOW_ID_NONE) {
-    }
-});
-
-browser.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === 'firstInstallAlarm') {
-    }
-});
