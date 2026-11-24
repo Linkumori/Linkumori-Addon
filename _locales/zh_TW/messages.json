@@ -3737,14 +3737,8 @@
   "providerImport_ruleIdsRequireValidJson": {
     "message": "一旦提供者 JSON 有效，規則 ID 控制就可用。"
   },
-  "guide_page_title": {
-    "message": "Linkumori — 規則指南"
-  },
   "guide_toc_label": {
     "message": "目錄"
-  },
-  "guide_title": {
-    "message": "撰寫 Linkumori 規則"
   },
   "guide_file_title": {
     "message": "1. 規則檔案"
@@ -5354,12 +5348,6 @@
   },
   "troubleshooter_diag_not_found_passed": {
     "message": "沒有其他單條規則可以修復頁面。您跳過的 $1 條規則也已重新啟用，因此現在所有規則均已啟用。若要重新開始，請點選“清除”。"
-  },
-  "guide_intro_p_1": {
-    "message": "Linkumori 使用以 <strong>CLN Format 1.0</strong>（Clean Link Notation）編寫的規則清理網址。這是一種 JSON 格式。本指南從第一條規則講起，介紹所有選項，並提供可複製的示例。"
-  },
-  "guide_intro_p_2": {
-    "message": "內建規則、遠端規則列表和自定義規則都使用相同的格式。您可以在自定義規則編輯器中編寫自定義規則；儲存或匯入時，編輯器會檢查規則。官方 Clear網址s 規則目錄（<code>data.min.json</code>）本身就是有效的 CLN 檔案，可以直接使用。"
   },
   "guide_rules_file_p_1": {
     "message": "提供者名稱僅是一個標籤。提供者處理哪些網址由 <code>domainPatterns</code> 或 <code>urlPattern</code> 決定。"
