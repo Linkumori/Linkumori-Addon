@@ -119,10 +119,6 @@ const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
 // Remote Rules Health can name the file whose rule replaced another.
 const LINKUMORI_RULE_SOURCE_KEY = '_linkumoriSource';
 
-function linkumoriStorageI18n(key, substitutions = []) {
-    return globalThis.LinkumoriI18n.getMessage(key, substitutions);
-}
-
 function ensureRemoteRulesHealthShape() {
     const current = storage.remoteRulesHealth;
     if (!current || typeof current !== 'object' || Array.isArray(current)) {
@@ -3315,10 +3311,6 @@ function getData(key) {
     return storage[key];
 }
 
-function getEntireData() {
-    return storage;
-}
-
 function setData(key, value) {
     if (OBSOLETE_STORAGE_KEYS.has(key)) {
         delete storage[key];
@@ -3617,10 +3609,6 @@ function loadOldDataFromStore() {
     localDataHash = storage.dataHash;
 }
 
-function storeHashStatus(status_code) {
-    storage.hashStatus = status_code;
-}
-
 function getRulesMetadata() {
     return storage.rulesMetadata || null;
 }
@@ -3725,32 +3713,6 @@ function removeFromWhitelist(domain) {
     return false;
 }
 
-function getWhitelist() {
-    const result = storage.userWhitelist || [];
-    return result;
-}
-
-function clearWhitelist() {
-    storage.userWhitelist = [];
-    
-    try {
-        saveOnDisk(['userWhitelist']);
-    } catch (error) {
-    }
-    
-    return true;
-}
-
-function isInWhitelist(domain) {
-    if (!storage.userWhitelist || storage.userWhitelist.length === 0) {
-        return false;
-    }
-    
-    const cleanDomain = domain.toLowerCase().trim();
-    const result = storage.userWhitelist.includes(cleanDomain);
-    return result;
-}
-
 // History API exceptions use the same validated domain syntax as the general
 // whitelist, but are consulted only by historyListener.js.
 function addToHistoryApiWhitelist(domain) {
@@ -3816,29 +3778,6 @@ function getHistoryApiWhitelist() {
     return storage.historyApiWhitelist || [];
 }
 
-function clearHistoryApiWhitelist() {
-    storage.historyApiWhitelist = [];
-
-    try {
-        saveOnDisk(['historyApiWhitelist']);
-    } catch (error) {
-    }
-
-    return true;
-}
-
-function isInHistoryApiWhitelist(domain) {
-    if (!storage.historyApiWhitelist || storage.historyApiWhitelist.length === 0) {
-        return false;
-    }
-
-    if (!domain || typeof domain !== 'string') {
-        return false;
-    }
-
-    return storage.historyApiWhitelist.includes(domain.toLowerCase().trim());
-}
-
 // Strips a wrapping "[...]" (the form IPv6 literals take in a URL's hostname).
 function stripIpv6Brackets(value) {
     if (typeof value !== 'string') return value;
@@ -3892,110 +3831,6 @@ function isValidWhitelistDomain(domain) {
     const isValid = domainRegex.test(testDomain);
 
     return isValid;
-}
-
-function getWhitelistStats() {
-    const whitelist = storage.userWhitelist || [];
-    const wildcardCount = whitelist.filter(domain => domain.startsWith('*.')).length;
-    const exactCount = whitelist.length - wildcardCount;
-    
-    const stats = {
-        total: whitelist.length,
-        exact: exactCount,
-        wildcard: wildcardCount,
-        domains: whitelist
-    };
-    
-    return stats;
-}
-
-function getCustomRulesMergeInfo() {
-    const mergedData = getData('ClearURLsData') || { providers: {} };
-    const customRules = getData('custom_rules') || { providers: {} };
-    const hashStatus = getData('hashStatus') || 'unknown';
-    const mergeStats = getData('mergeStats') || {};
-    
-    const allProviders = Object.keys(mergedData.providers || {});
-    const customProviderNames = Object.keys(customRules.providers || {});
-    
-    const mergedCustomProviders = customProviderNames.filter(name => 
-        allProviders.includes(name)
-    );
-    const missingCustomProviders = customProviderNames.filter(name => 
-        !allProviders.includes(name)
-    );
-    
-    const info = {
-        totalProviders: allProviders.length,
-        customProvidersStored: customProviderNames.length,
-        customProvidersMerged: mergedCustomProviders.length,
-        customProvidersMissing: missingCustomProviders.length,
-        hashStatus: hashStatus,
-        customProviderNames: customProviderNames,
-        mergedCustomProviders: mergedCustomProviders,
-        missingCustomProviders: missingCustomProviders,
-        sampleBuiltInProviders: allProviders.filter(name => 
-            !customProviderNames.includes(name)
-        ).slice(0, 5),
-        mergeSuccess: missingCustomProviders.length === 0 && customProviderNames.length > 0,
-        
-        mergeStats: mergeStats,
-        overriddenProviders: mergeStats.overriddenProviders || 0,
-        overriddenProviderNames: mergeStats.overriddenProviderNames || [],
-        newCustomProviders: mergeStats.newCustomProviders || 0,
-        filteredBundledProviders: mergeStats.filteredBundledProviders || 0,
-        
-        providerAnalysis: {
-            bundled: {
-                total: mergeStats.bundledProviders || 0,
-                active: mergeStats.filteredBundledProviders || 0,
-                overridden: mergeStats.overriddenProviders || 0
-            },
-            custom: {
-                total: mergeStats.customProviders || 0,
-                overrides: mergeStats.overriddenProviders || 0,
-                new: mergeStats.newCustomProviders || 0
-            },
-            final: {
-                total: allProviders.length,
-                bundledActive: mergeStats.filteredBundledProviders || 0,
-                customActive: mergeStats.customProviders || 0
-            }
-        },
-        
-        remoteVerificationStatus: tempVerificationCache.isRemoteVerified
-    };
-    
-    return info;
-}
-
-function getHashVerificationStatus() {
-    return {
-        isRemoteVerified: tempVerificationCache.isRemoteVerified,
-        isCacheUsed: tempVerificationCache.isCacheUsed,
-        lastVerification: tempVerificationCache.lastVerification,
-        hashStatus: storage.hashStatus || 'unknown'
-    };
-}
-
-function getNetworkCallStatus() {
-    const configuredRemoteSets = getConfiguredRemoteRuleSets();
-    const hasValidUrls = configuredRemoteSets.length > 0;
-    const firstRemoteSet = configuredRemoteSets[0] || { ruleURL: '', hashURL: '' };
-
-    return {
-        networkCallsAllowed: hasValidUrls,
-        ruleURL: firstRemoteSet.ruleURL,
-        hashURL: firstRemoteSet.hashURL,
-        ruleURLValid: isValidRuleURL(firstRemoteSet.ruleURL),
-        hashURLValid: isValidRuleURL(firstRemoteSet.hashURL),
-        configuredRemoteSourceCount: configuredRemoteSets.length,
-        hashStatus: storage.hashStatus || 'unknown',
-        remoteVerified: tempVerificationCache.isRemoteVerified,
-        message: hasValidUrls ? 
-            `Network calls permitted - ${configuredRemoteSets.length} remote source(s) valid` :
-            'Network calls BLOCKED - missing or invalid remote source pairs'
-    };
 }
 
 genesis();

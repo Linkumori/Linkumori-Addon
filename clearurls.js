@@ -1368,10 +1368,6 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) 
     return linkumoriRule.negate ? !matched : matched;
 }
 
-function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null, isHistoryUpdate = false) {
-    return (rules || []).filter(rule => matchLinkumoriRemoveParamTarget(rule, fullUrl, request, isHistoryUpdate));
-}
-
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
     const rawFieldName = String(fieldName || '');
     if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };

@@ -364,22 +364,6 @@ async function initializePopupConsentGate() {
     };
 }
 
-
-// ===== TEXT TO HTML CONVERSION FUNCTIONS (NEW ADDITION) =====
-
-/**
- * Utility function to safely escape HTML characters (from text converter)
- */
-function escapeHtmlCharacters(text) {
-    if (typeof text !== 'string') return '';
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-}
-
 function getLocalizedText(key, fallback) {
     const translated = translate(key);
     if (translated && translated !== `[${key}]`) {
@@ -387,81 +371,6 @@ function getLocalizedText(key, fallback) {
     }
     return fallback;
 }
-
-/**
- * Function to convert URLs to clickable links (from text converter)
- */
-function makeLinksClickable(text) {
-    if (typeof text !== 'string') return '';
-    // More robust URL regex that handles various URL formats
-    const urlRegex = /(https?:\/\/(?:[-\w.])+(?::[0-9]+)?(?:\/(?:[\w/_.])*)?(?:\?(?:[\w&=%.])*)?(?:#(?:[\w.])*)?)/gi;
-    return text.replace(urlRegex, function(url) {
-        // Ensure the URL doesn't break HTML structure
-        const cleanUrl = url.replace(/['"<>]/g, '');
-        return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
-    });
-}
-
-/**
- * Convert plain text to formatted HTML using exact same logic from text converter
- * @param {string} inputText - The plain text to convert
- * @returns {string} - The formatted HTML
- */
-function convertTextToHtml(inputText) {
-    try {
-        if (!inputText || !inputText.trim()) {
-            return '<p>No content available.</p>';
-        }
-        
-        // Use the same conversion options as the text converter
-        const preserveLineBreaks = true;
-        const createParagraphs = true;
-        const linkifyUrlsEnabled = true;
-        const escapeHtmlEnabled = true;
-        
-        let processedText = inputText;
-        
-        // Step 1: Escape HTML characters if enabled (do this first)
-        if (escapeHtmlEnabled) {
-            processedText = escapeHtmlCharacters(processedText);
-        }
-        
-        // Step 2: Convert URLs to links if enabled (do this after escaping)
-        if (linkifyUrlsEnabled) {
-            processedText = makeLinksClickable(processedText);
-        }
-        
-        // Step 3: Handle paragraphs and line breaks (exact same logic from converter)
-        if (createParagraphs) {
-            // Split by double line breaks to create paragraphs
-            const paragraphs = processedText.split(/\n\s*\n/);
-            processedText = paragraphs
-                .filter(function(p) { return p.trim().length > 0; })
-                .map(function(p) {
-                    let paragraph = p.trim();
-                    if (preserveLineBreaks) {
-                        paragraph = paragraph.replace(/\n/g, '<br>');
-                    }
-                    return `<p>${paragraph}</p>`;
-                })
-                .join('\n');
-        } else if (preserveLineBreaks) {
-            processedText = processedText.replace(/\n/g, '<br>');
-        }
-        
-        // If no paragraphs and no line breaks, wrap in a paragraph
-        if (!createParagraphs && !preserveLineBreaks && processedText.trim()) {
-            processedText = `<p>${processedText}</p>`;
-        }
-        
-        return processedText || '<p>No content to display.</p>';
-        
-    } catch (error) {
-        console.error('Error during text conversion:', error);
-        return '<div class="error">Error converting text to HTML. Please try again.</div>';
-    }
-}
-
 
 // ===== PUNYCODE UTILITY FUNCTIONS (NEW ADDITION) =====
 /**
@@ -592,15 +501,6 @@ async function getCurrentTab() {
     } catch (error) {
         return null;
     }
-}
-
-/**
- * Get current tab domain using activeTab API
- * @returns {Promise<string|null>} Current domain or null
- */
-async function getCurrentTabDomain() {
-    const tab = await getCurrentTab();
-    return tab ? tab.domain : null;
 }
 
 /**

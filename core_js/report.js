@@ -477,11 +477,6 @@ async function getConfigDataSections() {
     }
 }
 
-// Get configuration data to include in the report
-async function getConfigData(selection = DEFAULT_CONFIG_SECTION_SELECTION) {
-    return renderConfigData(await getConfigDataSections(), selection);
-}
-
 /******************************************************************************/
 
 // Open a URL

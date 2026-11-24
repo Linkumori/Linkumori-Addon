@@ -330,15 +330,6 @@ function stripTrailingLabelColon(label) {
     return String(label || '').replace(/[:：]\s*$/, '');
 }
 
-/**
- * Update display elements with localized numbers
- * This function can be called after language changes to update all number displays
- */
-function updateAllLocalizedNumbers() {
-    // Re-display bundled rules info with new localization
-    displayBundledRulesInfo();
-}
-
 (function () {
     initializeSettings();
 })();
@@ -4872,13 +4863,6 @@ function setElementTooltip(id, translationKey) {
  */
 function translate(string, ...placeholders) {
     return LinkumoriI18n.getMessage(string, placeholders);
-}
-
-/**
- * Handle successful responses from background script
- * @param {Object} message - Response message
- */
-function handleResponse(message) {
 }
 
 /**

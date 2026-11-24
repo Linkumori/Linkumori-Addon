@@ -94,15 +94,6 @@ function removeFromTemporaryTabWhitelist(domain, tabId) {
     return true;
 }
 
-function isInTemporaryTabWhitelist(domain, tabId) {
-    if (!domain || typeof domain !== 'string' || typeof tabId !== 'number' || tabId < 0) {
-        return false;
-    }
-    const cleanDomain = domain.toLowerCase().trim();
-    const tabSet = temporaryTabWhitelist.get(tabId);
-    return tabSet ? tabSet.has(cleanDomain) : false;
-}
-
 function getTemporaryTabWhitelistForTab(tabId) {
     if (typeof tabId !== 'number' || tabId < 0) return [];
     const tabSet = temporaryTabWhitelist.get(tabId);
@@ -195,18 +186,6 @@ function isHostnameWhitelisted(hostname) {
 
 function isHostnameHistoryApiWhitelisted(hostname) {
     return isHostnameInWhitelist(hostname, storage.historyApiWhitelist);
-}
-
-function isUrlWhitelisted(url) {
-    if (!url || typeof url !== 'string') return false;
-
-    try {
-        const urlObj = new URL(url);
-        const hostname = urlObj.hostname.toLowerCase();
-        return isHostnameWhitelisted(hostname);
-    } catch (e) {
-        return false;
-    }
 }
 
 function isUrlHistoryApiWhitelisted(url) {

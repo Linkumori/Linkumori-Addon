@@ -787,18 +787,6 @@
     renderOptionalFeatures();
   }
 
-  function getLegalPageUrl() {
-    const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
-    try {
-      if (typeof browser !== 'undefined' && browser.runtime && typeof browser.runtime.getURL === 'function') {
-        return browser.runtime.getURL(`html/legal.html${suffix}`);
-      }
-    } catch (e) {
-      // no-op
-    }
-    return `${window.location.pathname}${suffix}`;
-  }
-
   function getPostReloadLegalPath() {
     const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
     return `html/legal.html${suffix}`;
@@ -2233,15 +2221,6 @@ ${htmlContent}
         });
       }
     } catch (e) {
-    }
-  }
-
-  async function initializeSettingsButtonVisibility() {
-    try {
-      const consentState = await getStoredConsentState();
-      updateConsentSectionUI(consentState);
-    } catch (e) {
-      updateSettingsButtonVisibility(false);
     }
   }
 

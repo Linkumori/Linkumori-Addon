@@ -704,38 +704,6 @@ function randomASCII(len) {
     return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
 }
 
-/**
- * Returns an URLSearchParams as string.
- * Does handle spaces correctly.
- */
-function urlSearchParamsToString(searchParams) {
-    const rtn = []
-
-    searchParams.forEach((value, key) => {
-        if (value) {
-            rtn.push(key + '=' + encodeURIComponent(value))
-        } else {
-            rtn.push(key)
-        }
-    })
-
-    return rtn.join('&')
-}
-
-function opensettings(){
-     browser.runtime.openOptionsPage();
-}
-
 const keepAlive = () => setInterval(browser.runtime.getPlatformInfo, 20e3);
 browser.runtime.onStartup.addListener(keepAlive);
 keepAlive();
-
-browser.windows.onFocusChanged.addListener((windowId) => {
-    if (windowId !== browser.windows.WINDOW_ID_NONE) {
-    }
-});
-
-browser.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === 'firstInstallAlarm') {
-    }
-});
