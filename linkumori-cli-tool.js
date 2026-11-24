@@ -4497,7 +4497,11 @@ coverage/**
   async run() {
     // Handle command line arguments
     const args = process.argv.slice(2);
-    const standaloneCommands = new Set(['yaml-to-json', 'json-to-yaml', 'help', '--help', '-h']);
+    // Commands that never shell out to web-ext, so they can run without it (e.g. in CI).
+    const standaloneCommands = new Set([
+      'yaml-to-json', 'json-to-yaml', 'help', '--help', '-h',
+      'lint-rules', 'lint-clearurls', 'show-rule',
+    ]);
     if (args.length === 0 || !standaloneCommands.has(args[0])) {
       const webExtCheck = await this.exec('which', ['web-ext']);
       if (!webExtCheck.success) {
