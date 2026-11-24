@@ -1322,27 +1322,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.4 SHA256.js
-
-**File:** `external_js/sha256.js`
-
-##### Original Copyright
-
-**Copyright:** © 2014-2025 Chen, Yi-Cyuan
-**License:** MIT License
-
-{{LICENSE:MIT}}
-
-##### Linkumori Modifications
-
-**Copyright:** © 2025 Subham Mahesh
-**License:** GNU Lesser General Public License (LGPL) v3.0 or later
-
-{{LICENSE:LGPL-3.0}}
-
----
-
-#### 3.2.5 Light-Punycode.js
+#### 3.2.4 Light-Punycode.js
 
 **File:** `external_js/light-punycode.js`
 
@@ -1362,7 +1342,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.6 Marked.js
+#### 3.2.5 Marked.js
 
 **Files:**
 - `external_js/marked.js`
@@ -1393,7 +1373,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.7 Custom Rules Editor & Settings
+#### 3.2.6 Custom Rules Editor & Settings
 
 **Files:**
 - `core_js/custom_rules_editor.js`
@@ -1636,7 +1616,7 @@ All embedded SVG icons are Modified Google Material SVG Icons (Apache License 2.
 
 ---
 
-#### 3.2.8 PublicSuffixList Parser
+#### 3.2.7 PublicSuffixList Parser
 
 **File:** `external_js/publicsuffixlist.js`
 
@@ -1674,7 +1654,7 @@ documented in-file in `external_js/publicsuffixlist.js`.
 
 ---
 
-#### 3.2.9 Public Suffix List Data
+#### 3.2.8 Public Suffix List Data
 
 **File:** `data/public_suffix_list.dat`
 
