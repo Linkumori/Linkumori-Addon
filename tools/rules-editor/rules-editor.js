@@ -32,7 +32,8 @@
     filterKeys: [],        // provider keys shown in the filtered view
     trimmed: false,        // filtered view hides non-matching rules (read-only)
     fileName: 'linkumori-rules',
-    loadedText: null       // text as last loaded, to warn before replacing edits
+    loadedText: null,      // text as last loaded, to warn before replacing edits and to diff patches against
+    loadedFormat: 'json'
   };
 
   // ---- parsing ----
@@ -334,6 +335,7 @@
     if (format === 'json') { try { shown = serialize(JSON.parse(text), 'json'); } catch { /* keep as is, the linter shows why */ } }
     state.fileName = (name || 'linkumori-rules').replace(/\.(json|ya?ml)$/i, '');
     state.loadedText = shown;
+    state.loadedFormat = format;
     editor.setText(shown);
     renderStatus(`Opened ${name || 'new file'}`);
     scheduleFilter();
@@ -402,6 +404,80 @@
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     renderStatus(`Downloaded ${name}`);
+  });
+
+  // ---- patch: the edited rules as a "patches" file (filter-syntax.md §Rule patches) ----
+  // Each changed rule becomes { target: "provider::id", section, replace }, with the id the
+  // engine gives the rule as loaded (linkumori_rule_ids.js). A patch can only replace a rule,
+  // so added or removed rules and providers, and changed provider keys, are reported instead.
+  const PATCH_SECTIONS = ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections', 'fieldRedirections'];
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const explicitId = e => (e && typeof e === 'object' && typeof e.id === 'string' && e.id ? e.id : null);
+
+  function buildPatches(base, edited, Ids) {
+    const patches = [], skipped = [];
+    const baseProvs = (base && base.providers) || {}, editProvs = (edited && edited.providers) || {};
+    for (const key of Object.keys(editProvs)) if (!(key in baseProvs)) skipped.push(`provider "${key}" was added`);
+    for (const key of Object.keys(baseProvs)) {
+      if (!(key in editProvs)) { skipped.push(`provider "${key}" was removed`); continue; }
+      const before = baseProvs[key] || {}, after = editProvs[key] || {};
+      const otherKeys = new Set([...Object.keys(before), ...Object.keys(after)].filter(k => !PATCH_SECTIONS.includes(k)));
+      for (const k of otherKeys) if (!same(before[k], after[k])) skipped.push(`"${key}": ${k} changed`);
+      const ids = Ids.assignProviderRuleIds(before);
+      for (const section of PATCH_SECTIONS) {
+        const oldList = Array.isArray(before[section]) ? before[section] : [];
+        const newList = Array.isArray(after[section]) ? after[section] : [];
+        const usedOld = new Set(), usedNew = new Set();
+        const patch = (oi, ni) => {
+          usedOld.add(oi); usedNew.add(ni);
+          if (same(oldList[oi], newList[ni])) return;
+          const id = ids[section][oi] && ids[section][oi].id;
+          if (!id) { skipped.push(`"${key}": ${section}[${oi}] has no id to target`); return; }
+          patches.push({ target: `${key}::${id}`, section, replace: newList[ni] });
+        };
+        // Unchanged entries first, then rules that keep their "id", then the rest in list order.
+        newList.forEach((e, ni) => {
+          const oi = oldList.findIndex((o, i) => !usedOld.has(i) && same(o, e));
+          if (oi >= 0) patch(oi, ni);
+        });
+        newList.forEach((e, ni) => {
+          if (usedNew.has(ni) || !explicitId(e)) return;
+          const oi = oldList.findIndex((o, i) => !usedOld.has(i) && explicitId(o) === explicitId(e));
+          if (oi >= 0) patch(oi, ni);
+        });
+        const restOld = oldList.map((_, i) => i).filter(i => !usedOld.has(i));
+        const restNew = newList.map((_, i) => i).filter(i => !usedNew.has(i));
+        const n = Math.min(restOld.length, restNew.length);
+        for (let i = 0; i < n; i++) patch(restOld[i], restNew[i]);
+        if (restNew.length > n) skipped.push(`"${key}": ${restNew.length - n} rule${restNew.length - n > 1 ? 's' : ''} added to ${section}`);
+        if (restOld.length > n) skipped.push(`"${key}": ${restOld.length - n} rule${restOld.length - n > 1 ? 's' : ''} removed from ${section}`);
+      }
+    }
+    return { patches, skipped };
+  }
+
+  // A page without the button (an older copy of index.html) just has no patch feature.
+  $('re-patch')?.addEventListener('click', () => {
+    const Ids = window.LinkumoriRuleIds;
+    if (!Ids) { renderStatus('Can\'t create a patch: core_js/linkumori_rule_ids.js didn\'t load'); return; }
+    if (state.view === 'filter') { renderStatus('Apply or leave the filtered view first, then create the patch'); return; }
+    if (state.loadedText == null) { renderStatus('Can\'t create a patch: open or load the original rule file first'); return; }
+    let base, edited;
+    try { base = parse(state.loadedText, state.loadedFormat); } catch { renderStatus('Can\'t create a patch: the original file doesn\'t parse'); return; }
+    try { edited = parse(editor.getText(), state.format); } catch { renderStatus('Can\'t create a patch: fix the errors first'); return; }
+    const { patches, skipped } = buildPatches(base, edited, Ids);
+    if (skipped.length) console.info('[rules editor] not in the patch:\n' + skipped.join('\n'));
+    const note = skipped.length ? ` · ${skipped.length} change${skipped.length > 1 ? 's' : ''} can't be a patch (${skipped.slice(0, 2).join('; ')}${skipped.length > 2 ? '; …' : ''})` : '';
+    if (!patches.length) { renderStatus(`No changed rules to patch${note}`); return; }
+    const ext = state.format === 'json' ? 'json' : 'yaml';
+    const name = `${state.fileName}-patch.${ext}`;
+    const blob = new Blob([serialize({ cln: '1.0', patches }, state.format)], { type: state.format === 'json' ? 'application/json' : 'text/yaml' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    renderStatus(`Downloaded ${name}: ${patches.length} patch${patches.length > 1 ? 'es' : ''}${note}`);
   });
 
   // ---- filtering ----
@@ -644,7 +720,10 @@
       try {
         const text = currentFullText();
         if (text.length > 4_000_000) return;
-        localStorage.setItem(DRAFT_KEY, JSON.stringify({ format: state.format, text, name: state.fileName }));
+        // The loaded original too, so "Create patch" still works after a reload, when it fits.
+        const base = state.loadedText != null && text.length + state.loadedText.length <= 4_000_000
+          ? { base: state.loadedText, baseFormat: state.loadedFormat } : {};
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ format: state.format, text, name: state.fileName, ...base }));
       } catch { /* storage full or blocked */ }
     }, 800);
   }
@@ -653,6 +732,7 @@
     if (draft && draft.text) {
       setFormatUI(draft.format === 'yaml' ? 'yaml' : 'json');
       state.fileName = draft.name || state.fileName;
+      if (typeof draft.base === 'string') { state.loadedText = draft.base; state.loadedFormat = draft.baseFormat === 'yaml' ? 'yaml' : 'json'; }
       editor.setText(draft.text);
       renderStatus('Restored your last draft');
     }

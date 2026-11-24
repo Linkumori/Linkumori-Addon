@@ -29,6 +29,12 @@ You can also open `tools/rules-editor/index.html` directly as a `file://` page. 
 - **Find:** Ctrl/⌘-F in the editor. Enter and Shift-Enter step through matches.
 - **JSON ↔ YAML:** converts the whole file. YAML output matches the layout of
   `data/linkumori-clearurls.yaml`.
+- **Create patch:** downloads your rule edits as a `patches` file (see *Rule patches* in
+  `docs/filter-syntax.md`) instead of a whole copy. It compares the file as you loaded or opened
+  it with your edits, and targets each changed rule as `provider::id`, using the same ids as the
+  extension (`core_js/linkumori_rule_ids.js`). A patch can only replace a rule, so added or removed
+  rules and providers and changed provider keys (such as `domainPatterns`) are listed in the status
+  line and the console, not patched.
 - **Checks:** syntax errors with line numbers, plus CLN structure: unknown keys, wrong types,
   `domainPatterns` and `urlPattern` together or missing, a missing `matchPattern`, a rule `id` used
   twice in one provider, and regexes that don't compile.
@@ -43,6 +49,7 @@ YAML source, then rebuild the JSON and LZ4 with the CLI. Don't edit the generate
 | `index.html` | The page |
 | `code-editor.js` | Our own code editor: a native textarea with syntax colours, line numbers, lint marks and find drawn underneath. No dependencies. Keep it the same as `assets/code-editor.js` on the `website` branch |
 | `rules-editor.js` | The rules editor: loading, filtering, checks, the providers list. Keep it the same as `assets/rules-editor.js` on the `website` branch |
+| `../../core_js/linkumori_rule_ids.js` | Loaded from the extension for **Create patch**, so patch targets use the engine's rule ids. On the website it must be served next to the page's scripts |
 | `rules-editor.css` | Standalone page styles, copied from the website stylesheet |
 | `yaml.js` | The [`yaml`](https://github.com/eemeli/yaml) package (ISC license, see `yaml-src/LICENSE-yaml`) as one browser file. Generated, don't edit. It's the only third-party code |
 | `yaml-src/` | Source for `yaml.js` |
