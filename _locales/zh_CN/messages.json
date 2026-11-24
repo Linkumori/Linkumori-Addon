@@ -3737,14 +3737,8 @@
   "providerImport_ruleIdsRequireValidJson": {
     "message": "一旦提供者 JSON 有效，规则 ID 控制就可用。"
   },
-  "guide_page_title": {
-    "message": "Linkumori — 规则指南"
-  },
   "guide_toc_label": {
     "message": "目录"
-  },
-  "guide_title": {
-    "message": "编写 Linkumori 规则"
   },
   "guide_file_title": {
     "message": "1. 规则文件"
@@ -5354,12 +5348,6 @@
   },
   "troubleshooter_diag_not_found_passed": {
     "message": "没有其他单条规则可以修复页面。你跳过的 $1 条规则也已重新启用，因此现在所有规则均已启用。若要重新开始，请点击“清除”。"
-  },
-  "guide_intro_p_1": {
-    "message": "Linkumori 使用以 <strong>CLN Format 1.0</strong>（Clean Link Notation）编写的规则清理 URL。这是一种 JSON 格式。本指南从第一条规则讲起，介绍所有选项，并提供可复制的示例。"
-  },
-  "guide_intro_p_2": {
-    "message": "内置规则、远程规则列表和自定义规则都使用相同的格式。你可以在自定义规则编辑器中编写自定义规则；保存或导入时，编辑器会检查规则。官方 ClearURLs 规则目录（<code>data.min.json</code>）本身就是有效的 CLN 文件，可以直接使用。"
   },
   "guide_rules_file_p_1": {
     "message": "提供商名称仅是一个标签。提供商处理哪些 URL 由 <code>domainPatterns</code> 或 <code>urlPattern</code> 决定。"
