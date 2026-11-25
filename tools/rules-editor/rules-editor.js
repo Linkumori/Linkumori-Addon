@@ -26,6 +26,7 @@
 
   // ---- state ----
   const state = {
+    ruleSets: {},          // the full document's shared rule sets, for search and the filtered view
     format: 'json',
     view: 'full',          // 'full' | 'filter'
     fullText: '',          // the full document while the filtered view is on screen
@@ -181,6 +182,9 @@
         }
       }
     }
+    // The filtered view holds only providers: its includes name the full
+    // document's sets.
+    if (!ruleSetsNode && state.view === 'filter') for (const name of Object.keys(state.ruleSets)) ruleSetNames.add(name);
     lintState.ruleSetNames = ruleSetNames;
     if (!providersNode) { add(top, 'error', 'Missing the "providers" object.'); return { diagnostics: out, providers: 0 }; }
     if (!isMap(providersNode.value)) { add(providersNode.value || providersNode.key, 'error', '"providers" must be an object.'); return { diagnostics: out, providers: 0 }; }
@@ -529,6 +533,12 @@
   function entryMatches(entry, scope, test) {
     if (typeof entry === 'string') return scope !== 'id' && test(entry);
     if (!entry || typeof entry !== 'object') return false;
+    // An { include } entry matches when one of its set's entries does.
+    if (Object.prototype.hasOwnProperty.call(entry, 'include')) {
+      const set = state.ruleSets[entry.include];
+      if (Array.isArray(set) && set.some(e => entryMatches(e, scope, test))) return true;
+      return scope === 'all' && test(JSON.stringify(entry));
+    }
     if (scope === 'id') return test(String(entry.id ?? '')) || asList(entry.aliases).some(a => test(String(a)));
     if (scope === 'match') return test(String(entry.matchPattern ?? ''));
     return test(JSON.stringify(entry));
@@ -560,6 +570,7 @@
     let data;
     try { data = parse(currentFullText(), state.format); } catch { return { test, parseError: true }; }
     const providers = (data && typeof data.providers === 'object' && data.providers) || {};
+    state.ruleSets = (data && data.ruleSets && typeof data.ruleSets === 'object' && !Array.isArray(data.ruleSets)) ? data.ruleSets : {};
     const all = Object.keys(providers);
     const keys = test ? all.filter(k => providerMatches(k, providers[k], scopeEl.value, test)) : all;
     return { test, keys, data, total: all.length };
