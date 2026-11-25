@@ -31,6 +31,41 @@ metadata:
     cleaurls-repo-addon: https://github.com/ClearURLs/Addon
     License-URL: https://www.gnu.org/licenses/lgpl-3.0.en.html
     issues: https://github.com/Linkumori/Linkumori-Addon/issues
+ruleSets:
+  functional-param-exceptions:
+    - id: field-removeparam-dest-url-document
+      matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
+    - id: field-mailinglist-removeparam-utm-i
+      matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
+    - id: field-aff-c-removeparam-aff-id-d-i
+      matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+  functional-param-exceptions-extended:
+    - id: field-authentication-login-analytics-t
+      matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
+    - id: field-mkt-unsubscribe-removeparam-mkt-
+      matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
+    - id: field-removeparam-dest-url-document
+      matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
+    - id: field-mod-djemalertnews-removeparam-mo
+      matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
+    - id: field-b-ref-removeparam-ie
+      matchPattern: "@@*/b/ref=$removeparam=ie"
+    - id: field-subscribe-removeparam-user-email
+      matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
+    - id: field-mailinglist-removeparam-utm-i
+      matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
+    - id: field-img-nga-removeparam-cmpid
+      matchPattern: "@@||img*.nga$removeparam=cmpid"
+    - id: field-aff-c-removeparam-aff-id-d-i
+      matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+    - id: field-login-removeparam-referrer
+      matchPattern: "@@*/login?$removeparam=referrer"
+    - id: field-search-php-removeparam-sid-docum
+      matchPattern: "@@*/search.php$removeparam=sid,document"
+    - id: field-remote-interaction-removeparam-a
+      matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
+    - id: field-admin-object-removeparam-ap-id-d
+      matchPattern: "@@*/admin/object$removeparam=ap_id,document"
 providers:
   linkumori-global:
     rules:
@@ -3830,12 +3865,7 @@ providers:
     rules:
       - id: field-removeparam-partnerid-i
         matchPattern: $removeparam=/^partnerid=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||1800contacts.com^"
       - "||allenedmonds.com^"
@@ -3981,12 +4011,7 @@ providers:
         matchPattern: $removeparam=embeds_referring_origin,document
       - id: field-removeparam-sub-confirmation
         matchPattern: $removeparam=sub_confirmation
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||35.190.94.206^"
   linkumori-3cx.com:
@@ -4127,44 +4152,14 @@ providers:
     rules:
       - id: field-removeparam-pf-rd
         matchPattern: $removeparam=/^pf_rd_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||6pm.com^"
   linkumori-777casino.top:
     rules:
       - id: field-removeparam
         matchPattern: $removeparam
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||777casino.top^"
       - "||blogostoks.com^"
@@ -4255,12 +4250,7 @@ providers:
         matchPattern: $removeparam=/^asc_.*$/,document
       - id: field-removeparam-refid-document-domai
         matchPattern: $removeparam=refid,document,domain=press.aboutamazon.com
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||aboutamazon.com^"
   linkumori-abp.nl:
@@ -4440,12 +4430,7 @@ providers:
         matchPattern: "||app.adjust.com^$removeparam=/^event_callback_/"
       - id: field-removeparam-adgroup
         matchPattern: $removeparam=adgroup
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     fieldRedirections:
       - id: redirect-https-app-adjust-com-redirect
         matchPattern: "||app.adjust.com^$removeparam=redirect"
@@ -4459,12 +4444,7 @@ providers:
         matchPattern: $removeparam=subid
       - id: field-removeparam-f-id
         matchPattern: $removeparam=f_id
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     fieldRedirections:
       - id: redirect-https-a-z0-9-admitad-com-ulp
         matchPattern: "||admitad.com^$removeparam=ulp"
@@ -4521,12 +4501,7 @@ providers:
         matchPattern: $removeparam=t,document
       - id: field-removeparam-rs-d
         matchPattern: $removeparam=/^rs\d.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||adressa.no^"
   linkumori-adsafeprotected.com:
@@ -4637,12 +4612,7 @@ providers:
         matchPattern: $removeparam=mid
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||agentprovocateur.com^"
   linkumori-agoda.com:
@@ -4711,12 +4681,7 @@ providers:
         matchPattern: $removeparam=token
       - id: field-removeparam-partnerid-i
         matchPattern: $removeparam=/^partnerid=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||al.to^"
       - "||combat.pl^"
@@ -4731,12 +4696,7 @@ providers:
     rules:
       - id: field-data-alexa-com-data-removeparam-
         matchPattern: "||data.alexa.com/data/$removeparam=/cdt|ref/,xmlhttprequest"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-login-removeparam-referrer
         matchPattern: "@@*/login?$removeparam=referrer"
     domainPatterns:
@@ -4769,12 +4729,7 @@ providers:
     rules:
       - id: field-removeparam-shared
         matchPattern: $removeparam=/^shared.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||alibi.fi^"
       - "||anna.fi^"
@@ -4865,12 +4820,7 @@ providers:
         matchPattern: $removeparam=aff_request_id
       - id: field-s-click-aliexpress-com-deep-link
         matchPattern: "@@||s.click.aliexpress.com/deep_link.htm?aff_short_key=$removeparam=aff_short_key"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-login-aliexpress-us-removeparam
         matchPattern: "@@||login.aliexpress.us^$removeparam"
     domainPatterns:
@@ -5004,12 +4954,7 @@ providers:
         matchPattern: $removeparam=PID
       - id: field-removeparam-refid-i-document
         matchPattern: $removeparam=/^refID=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||allmodern.com^"
   linkumori-allrecipes.com:
@@ -5046,12 +4991,7 @@ providers:
         matchPattern: $removeparam=p_p_id
       - id: field-removeparam-arena-facet-queries
         matchPattern: $removeparam=/^.*arena_facet_queries=.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||altabibliotek.no^"
       - "||berlevagbibliotek.no^"
@@ -5536,32 +5476,7 @@ providers:
     rules:
       - id: field-browsec-uninstall-s3-website-eu-
         matchPattern: "||browsec-uninstall.s3-website.eu-central-1.amazonaws.com^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||amazonaws.com^"
   linkumori-ameblo.jp:
@@ -5604,12 +5519,7 @@ providers:
     rules:
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||amerimark.com^"
       - "||beautyencounter.com^"
@@ -5651,12 +5561,7 @@ providers:
         matchPattern: $removeparam=asc_source
       - id: field-removeparam-asc-document
         matchPattern: $removeparam=/^asc_.*$/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||amzn.to^"
   linkumori-ana.co.jp:
@@ -5692,12 +5597,7 @@ providers:
         matchPattern: $removeparam=/^pubname=.*$/i
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -5759,12 +5659,7 @@ providers:
     rules:
       - id: field-removeparam-vt
         matchPattern: $removeparam=/^vt_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||apotekfordeg.no^"
   linkumori-app.link:
@@ -5833,12 +5728,7 @@ providers:
         matchPattern: $removeparam=mweb_user_name,domain=reddit.app.link
       - id: field-removeparam-tags-domain-reddit-a
         matchPattern: $removeparam=tags,domain=reddit.app.link
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||app.link^"
   linkumori-apple.*:
@@ -5901,12 +5791,7 @@ providers:
         matchPattern: "||apple.com^$removeparam=app"
       - id: field-apple-com-removeparam-ign-itsc-a
         matchPattern: "||apple.com^$removeparam=/^ign-itsc[a-z]+=/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||apple.*^"
   linkumori-applevacations.com:
@@ -5968,12 +5853,7 @@ providers:
         matchPattern: $removeparam=istBid
       - id: field-removeparam-clickorigin
         matchPattern: $removeparam=clickOrigin
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||argos.co.uk^"
   linkumori-arstechnica.com:
@@ -5998,12 +5878,7 @@ providers:
     rules:
       - id: field-removeparam-d
         matchPattern: $removeparam=/^\d.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||artstation.com^"
   linkumori-as.com:
@@ -6053,12 +5928,7 @@ providers:
         matchPattern: $removeparam=/^pubcid=.*$/i
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -6163,12 +6033,7 @@ providers:
         matchPattern: $removeparam=/^siteid=.*$/i,document
       - id: field-removeparam-ctaref
         matchPattern: $removeparam=ctaref
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||asos.com^"
   linkumori-asus.com:
@@ -6201,12 +6066,7 @@ providers:
         matchPattern: $removeparam=/^mkt_tok/
       - id: field-mkt-unsubscribe-removeparam-mkt-
         matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||atlanticcouncil.org^"
   linkumori-atlassian.net:
@@ -6283,12 +6143,7 @@ providers:
         matchPattern: $removeparam=/^ref/
       - id: field-audible-search-redirection-remov
         matchPattern: "@@||audible.*/search-redirection$removeparam=ref,document"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-login-removeparam-referrer
         matchPattern: "@@*/login?$removeparam=referrer"
       - id: field-search-redirection-removeparam-d
@@ -6306,12 +6161,7 @@ providers:
         matchPattern: $removeparam=/^utm_/
       - id: field-removeparam-clickid
         matchPattern: $removeparam=clickid
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||aufast.co^"
   linkumori-autoanything.com:
@@ -6462,12 +6312,7 @@ providers:
         matchPattern: $removeparam=source,document,to=~googlevideo.com
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||awd-it.*^"
       - "||barenecessities.com^"
@@ -6550,12 +6395,7 @@ providers:
         matchPattern: $removeparam=bbid
       - id: field-removeparam-ts
         matchPattern: $removeparam=ts
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||b23.tv^"
   linkumori-babbel.com:
@@ -6618,12 +6458,7 @@ providers:
         matchPattern: $removeparam=k_clickid
       - id: field-removeparam-fl
         matchPattern: $removeparam=fl
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-mr-referralid-i
         matchPattern: $removeparam=/^mr:referralID$/i
@@ -6633,12 +6468,7 @@ providers:
     rules:
       - id: field-removeparam-dbkanal-0-9-3
         matchPattern: $removeparam=/^dbkanal_[0-9]{3}=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bahn.de^"
   linkumori-baidu.com:
@@ -6831,12 +6661,7 @@ providers:
         matchPattern: $removeparam=lid,document
       - id: field-removeparam-wfr
         matchPattern: $removeparam=wfr
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -7009,12 +6834,7 @@ providers:
         matchPattern: "||bbc.com^$removeparam=xtor"
       - id: field-bbc-com-removeparam-at-a-z
         matchPattern: "||bbc.com^$removeparam=/^at_[a-z_]+=/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bbc.*^"
   linkumori-bedbathandbeyond.com:
@@ -7165,12 +6985,7 @@ providers:
         matchPattern: $removeparam=/^npv[0-9]+=/
       - id: field-removeparam-npi
         matchPattern: $removeparam=npi
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     rawRules:
       - id: raw-pc
         matchPattern: \?pc$
@@ -7328,12 +7143,7 @@ providers:
         matchPattern: "||live.bilibili.com^$removeparam=broadcast_type"
       - id: field-live-bilibili-com-removeparam-is
         matchPattern: "||live.bilibili.com^$removeparam=is_room_feed"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-api-bilibili-com-removeparam
         matchPattern: "@@||api.bilibili.com^$removeparam"
       - id: field-space-bilibili-com-removeparam
@@ -7549,12 +7359,7 @@ providers:
     rules:
       - id: field-removeparam-publisherid-i
         matchPattern: $removeparam=/^publisherId=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||blissworld.com^"
       - "||lensrentals.com^"
@@ -7568,12 +7373,7 @@ providers:
     rules:
       - id: field-removeparam-tl-a-z
         matchPattern: $removeparam=/^tl_[a-z_]+=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bloculus.com^"
   linkumori-blogger.com:
@@ -7594,12 +7394,7 @@ providers:
         matchPattern: "||bp.blogspot.com^$removeparam=time"
       - id: field-bp-blogspot-com-removeparam-r-hn
         matchPattern: "||bp.blogspot.com^$removeparam=/^r[hn].*$/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||blogspot.com^"
   linkumori-blogtrottr.com:
@@ -7628,12 +7423,7 @@ providers:
         matchPattern: $removeparam=fromMostRead
       - id: field-removeparam-re-source
         matchPattern: $removeparam=re_source
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bloomberg.com^"
   linkumori-bloomingdales.com:
@@ -7646,12 +7436,7 @@ providers:
         matchPattern: $removeparam=/^partnerid=.*$/i
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bloomingdales.com^"
   linkumori-blu-ray.com:
@@ -7678,12 +7463,7 @@ providers:
         matchPattern: $removeparam=zanox
       - id: field-removeparam-ja
         matchPattern: $removeparam=/^.*_(\$)ja.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||blue-tomato.com^"
   linkumori-bluekai.com:
@@ -7712,12 +7492,7 @@ providers:
     rules:
       - id: field-removeparam-tc
         matchPattern: $removeparam=/^tc_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bodenusa.com^"
   linkumori-bodykind.com:
@@ -7738,12 +7513,7 @@ providers:
         matchPattern: $removeparam=/^(\$)/
       - id: field-removeparam-11cxfyt
         matchPattern: $removeparam=/^\~/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||boohoo.com^"
       - "||forever21.com^"
@@ -7848,12 +7618,7 @@ providers:
         matchPattern: $removeparam=mc
       - id: field-removeparam-publisher-i
         matchPattern: $removeparam=/^publisher=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||bose.*^"
   linkumori-bostonglobe.com:
@@ -7872,12 +7637,7 @@ providers:
     rules:
       - id: field-steiledema-boxnow-gr-removeparam
         matchPattern: "||steiledema.boxnow.gr^$removeparam=/^lkws_/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||boxnow.gr^"
   linkumori-brave.com:
@@ -7981,12 +7741,7 @@ providers:
         matchPattern: $removeparam=source,document,to=~googlevideo.com
       - id: field-removeparam-publisherid-i
         matchPattern: $removeparam=/^publisherId=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||burkesoutlet.com^"
       - "||petsupplies.com^"
@@ -7997,12 +7752,7 @@ providers:
         matchPattern: $removeparam=CID,document
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||burpee.com^"
   linkumori-buschgardens.com:
@@ -8029,32 +7779,7 @@ providers:
     rules:
       - id: field-buydomains-com-lander-domain-rem
         matchPattern: "||buydomains.com/lander/*?domain=$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||buydomains.com^"
   linkumori-buzzfeed.com:
@@ -8111,12 +7836,7 @@ providers:
         matchPattern: $removeparam=term
       - id: field-removeparam-sa-utm-i-document
         matchPattern: $removeparam=/^sa_utm_.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -8148,12 +7868,7 @@ providers:
     rules:
       - id: field-removeparam-refid-i-document
         matchPattern: $removeparam=/^refID=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||calphalon.com^"
       - "||priceline.com^"
@@ -8268,12 +7983,7 @@ providers:
         matchPattern: $removeparam=t-tap_index
       - id: field-removeparam-t-referrer-document
         matchPattern: $removeparam=/^t-referrer_/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||carousell.*^"
   linkumori-carrefoursa.com:
@@ -8320,32 +8030,7 @@ providers:
     rules:
       - id: field-casino-ua-short-register-removep
         matchPattern: "||casino.ua/short-register/$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||casino.ua^"
   linkumori-casper.com:
@@ -8377,12 +8062,7 @@ providers:
         matchPattern: $removeparam=/^didomi.*$/
       - id: field-removeparam-udid
         matchPattern: $removeparam=udid
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||cbc.ca^"
   linkumori-cbs.com:
@@ -8512,12 +8192,7 @@ providers:
     rules:
       - id: field-removeparam-tour-campaign-first-
         matchPattern: $removeparam=/tour|campaign/,first-party
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||chaturbate.com^"
   linkumori-check24.de:
@@ -8932,12 +8607,7 @@ providers:
     rules:
       - id: field-removeparam-pubid-i
         matchPattern: $removeparam=/^pubid=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||conrad.de^"
       - "||ftd.com^"
@@ -9094,12 +8764,7 @@ providers:
     rules:
       - id: field-removeparam-mak-partner
         matchPattern: $removeparam=/^_mak_partner_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||courir.*^"
   linkumori-coursera.org:
@@ -9108,12 +8773,7 @@ providers:
         matchPattern: $removeparam=siteID
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||coursera.org^"
   linkumori-cox.com:
@@ -9206,12 +8866,7 @@ providers:
         matchPattern: "||api.cxense.com^$removeparam=/^cx_/"
       - id: field-api-cxense-com-removeparam-picku
         matchPattern: "||api.cxense.com^$removeparam=/^pickup_list_click/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -9316,12 +8971,7 @@ providers:
         matchPattern: "||daraz.com.bd^$removeparam=fuse_fs,document"
       - id: field-daraz-com-bd-removeparam-priceco
         matchPattern: "||daraz.com.bd^$removeparam=priceCompare,document"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||daraz.*^"
   linkumori-darkfans.com:
@@ -9461,12 +9111,7 @@ providers:
         matchPattern: $removeparam=host
       - id: field-removeparam-utm
         matchPattern: $removeparam=/^utm_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||deezer.*^"
   linkumori-defenseone.com:
@@ -9494,12 +9139,7 @@ providers:
         matchPattern: $removeparam=/^publisherId=.*$/i
       - id: field-removeparam-lwp
         matchPattern: $removeparam=lwp
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -9519,12 +9159,7 @@ providers:
         matchPattern: $removeparam=/^pubname=.*$/i
       - id: field-removeparam-url
         matchPattern: $removeparam=URL
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||dermstore.com^"
   linkumori-despegar.*:
@@ -9535,12 +9170,7 @@ providers:
         matchPattern: $removeparam=/^clt_.*$/
       - id: field-removeparam-mktdata
         matchPattern: $removeparam=mktdata
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||despegar.*^"
   linkumori-deviantart.com:
@@ -9580,12 +9210,7 @@ providers:
         matchPattern: "||visit.digidip.net^$removeparam=/^(ppref|ref|pid)=/"
       - id: field-removeparam-ppref
         matchPattern: $removeparam=ppref
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -9604,12 +9229,7 @@ providers:
         matchPattern: $removeparam=src,document
       - id: field-mkt-unsubscribe-removeparam-mkt-
         matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||digikey.*^"
   linkumori-discord.*:
@@ -9622,12 +9242,7 @@ providers:
         matchPattern: $removeparam=campaign,document
       - id: field-removeparam-medium
         matchPattern: $removeparam=medium
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||discord.*^"
   linkumori-discordapp.net:
@@ -9638,12 +9253,7 @@ providers:
         matchPattern: $removeparam=width,domain=media.discordapp.net
       - id: field-removeparam-height-domain-media-
         matchPattern: $removeparam=height,domain=media.discordapp.net
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||discordapp.net^"
   linkumori-discoveryplus.*:
@@ -9672,12 +9282,7 @@ providers:
         matchPattern: $removeparam=/^cid=DTCI-Synergy.*$/
       - id: field-removeparam-distributionpartner
         matchPattern: $removeparam=distributionPartner
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||disneyplus.com^"
   linkumori-disq.us:
@@ -9843,12 +9448,7 @@ providers:
         matchPattern: "||ad.doubleclick.net/ddm/trackclk/$removeparam=/^dc_trk_/"
       - id: field-ad-doubleclick-net-ddm-trackclk--1z0aobu
         matchPattern: "@@||ad.doubleclick.net/ddm/trackclk/*https://www.thegoodguys.com.au/*?utm_source=Partner$removeparam"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||doubleclick.net^"
   linkumori-douyin.com:
@@ -10055,12 +9655,7 @@ providers:
         matchPattern: $removeparam=mid
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||dxl.com^"
       - "||verabradley.com^"
@@ -10090,32 +9685,7 @@ providers:
         matchPattern: $removeparam=stid
       - id: field-removeparam-persistent-id
         matchPattern: $removeparam=persistent_id
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||dzen.ru^"
   linkumori-dzone.com:
@@ -10274,12 +9844,7 @@ providers:
         matchPattern: $removeparam=_trksid
       - id: field-removeparam-from
         matchPattern: $removeparam=_from
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     fieldRedirections:
       - id: redirect-https-a-z0-9-rover-ebay-a-z-2-1-
         matchPattern: "||rover.ebay.*^/rover$removeparam=mpre"
@@ -10509,12 +10074,7 @@ providers:
         matchPattern: $removeparam=appsrc,document
       - id: field-removeparam-rulenumber-document
         matchPattern: $removeparam=RuleNumber,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||espn.*^"
   linkumori-esquire.de:
@@ -10604,12 +10164,7 @@ providers:
     rules:
       - id: field-removeparam-ev
         matchPattern: $removeparam=/^ev_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||everesttech.net^"
   linkumori-everlane.com:
@@ -10668,12 +10223,7 @@ providers:
         matchPattern: $removeparam=/^pubid=.*$/i
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -10795,12 +10345,7 @@ providers:
         matchPattern: "||facebook.com^$removeparam=_nc_x"
       - id: field-facebook-com-removeparam-rdr-1lfnrv7
         matchPattern: "||facebook.com^$removeparam=_rdr"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-facebook-com-removeparam-s
         matchPattern: "@@||facebook.com^$removeparam=__s"
       - id: field-login-removeparam-referrer
@@ -10869,12 +10414,7 @@ providers:
         matchPattern: $removeparam=tracking,document
       - id: field-removeparam-helpref-document
         matchPattern: $removeparam=helpref,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document-1atymu1
         matchPattern: $removeparam=ref,document
@@ -10929,12 +10469,7 @@ providers:
         matchPattern: $removeparam=/^pubname=.*$/i
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||famousfootwear.com^"
   linkumori-fanatical.com:
@@ -11009,12 +10544,7 @@ providers:
         matchPattern: $removeparam=PID
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||farmandfleet.com^"
   linkumori-fashion-press.net:
@@ -11087,12 +10617,7 @@ providers:
     rules:
       - id: field-removeparam-client-ip-document
         matchPattern: $removeparam=/^client_ip=$/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||filestore.app^"
   linkumori-filmzie.com:
@@ -11229,24 +10754,14 @@ providers:
         matchPattern: $removeparam=ctx
       - id: field-removeparam-nnc
         matchPattern: $removeparam=nnc
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||flipkart.com^"
   linkumori-flixier.com:
     rules:
       - id: field-editor-flixier-com-removeparam-f
         matchPattern: "||editor.flixier.com^$removeparam=/fx_(source|medium|campaign)/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||flixier.com^"
   linkumori-fmworld.net:
@@ -11501,12 +11016,7 @@ providers:
         matchPattern: $removeparam=tid
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||gap.com^"
       - "||gapcanada.ca^"
@@ -11630,32 +11140,7 @@ providers:
     rules:
       - id: field-d-ghostery-com-removeparam
         matchPattern: "||d.ghostery.com^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||ghostery.com^"
   linkumori-giphy.com:
@@ -11699,12 +11184,7 @@ providers:
         matchPattern: $removeparam=email_source,document
       - id: field-removeparam-email-token-document
         matchPattern: $removeparam=email_token,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-github-com-removeparam
         matchPattern: "@@||github.com^$removeparam"
     domainPatterns:
@@ -11751,12 +11231,7 @@ providers:
         matchPattern: $removeparam=c,document
       - id: field-removeparam-pid-document
         matchPattern: $removeparam=pid,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||glami.cz^"
   linkumori-gmx.*:
@@ -11817,12 +11292,7 @@ providers:
     rules:
       - id: field-removeparam-pr
         matchPattern: $removeparam=/^pr_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||goodeeworld.com^"
       - "||lacemade.com^"
@@ -12214,32 +11684,7 @@ providers:
         matchPattern: "||maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate^$removeparam"
       - id: field-maps-googleapis-com-maps-api-js--nxhm1i
         matchPattern: "||maps.googleapis.com/maps/api/js/QuotaService.RecordEvent^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
       - id: field-firebaseappdistribution-googleap
         matchPattern: "@@||firebaseappdistribution.googleapis.com/app-binary-downloads/projects/?*utm_source=$removeparam"
     domainPatterns:
@@ -12272,12 +11717,7 @@ providers:
         matchPattern: $removeparam=embeds_referring_origin,document,domain=206.94.190.35.bc.googleusercontent.com
       - id: field-removeparam-sub-confirmation-dom
         matchPattern: $removeparam=sub_confirmation,domain=206.94.190.35.bc.googleusercontent.com
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||googleusercontent.com^"
   linkumori-gorodche.ru:
@@ -12318,12 +11758,7 @@ providers:
         matchPattern: $removeparam=s
       - id: field-removeparam-lever
         matchPattern: $removeparam=/^lever-.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-boards-greenhouse-io-removeparam
         matchPattern: "||boards.greenhouse.io^$removeparam=ref"
@@ -12335,12 +11770,7 @@ providers:
     rules:
       - id: field-removeparam-tap
         matchPattern: $removeparam=/^tap_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||greenmangaming.com^"
   linkumori-greenvoice.fr:
@@ -12371,12 +11801,7 @@ providers:
         matchPattern: $removeparam=PublisherSID
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||gucci.com^"
   linkumori-gumroad.com:
@@ -12424,12 +11849,7 @@ providers:
         matchPattern: $removeparam=mid
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hanes.com^"
       - "||onehanesplace.com^"
@@ -12619,12 +12039,7 @@ providers:
     rules:
       - id: field-hktvmall-com-yuicombo-removepara
         matchPattern: "||hktvmall.com/yuicombo?$removeparam=/_ui\\/shared\\/common\\/js\\/analytics\\/with-intersection-track.js/,script"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hktvmall.com^"
   linkumori-hlserve.com:
@@ -12726,12 +12141,7 @@ providers:
         matchPattern: $removeparam=/^sub_.*$/
       - id: field-removeparam-tmid
         matchPattern: $removeparam=tmid
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hoteles.com^"
   linkumori-hotels.com:
@@ -12778,12 +12188,7 @@ providers:
         matchPattern: $removeparam=/^cid=DTCI_STAR-Synergy.*$/
       - id: field-removeparam-cid-dtci-synergy
         matchPattern: $removeparam=/^cid=DTCI-Synergy.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hotstar.com^"
       - "||starplus.com^"
@@ -12793,44 +12198,14 @@ providers:
         matchPattern: $removeparam=source,document,to=~googlevideo.com
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hottopic.com^"
   linkumori-hoyoverse.com:
     rules:
       - id: field-hoyoverse-com-branding-removepar
         matchPattern: "||hoyoverse.com/branding$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||hoyoverse.com^"
   linkumori-hp.com:
@@ -12885,12 +12260,7 @@ providers:
         matchPattern: $removeparam=cmp,document
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||hulu.com^"
   linkumori-humblebundle.com:
@@ -13086,12 +12456,7 @@ providers:
         matchPattern: $removeparam=context
       - id: field-removeparam-pf-rd-a-z
         matchPattern: $removeparam=/^pf_rd_[a-z]*=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref
         matchPattern: $removeparam=ref_
@@ -13230,12 +12595,7 @@ providers:
         matchPattern: $removeparam=alid
       - id: field-removeparam-a-z-tk
         matchPattern: $removeparam=/^[a-z]*tk=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-indeed-com-rc-clk-removeparam
         matchPattern: "@@||indeed.com/rc/clk$removeparam"
     domainPatterns:
@@ -13264,12 +12624,7 @@ providers:
     rules:
       - id: field-removeparam-topicpagesponsorship
         matchPattern: $removeparam=/topicPageSponsorship|^itm_/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||infoq.com^"
   linkumori-inmobi.com:
@@ -13548,12 +12903,7 @@ providers:
         matchPattern: $removeparam=/cUrl|ref/
       - id: field-removeparam-curl
         matchPattern: $removeparam=cUrl
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-login-removeparam-referrer
         matchPattern: "@@*/login?$removeparam=referrer"
     referralMarketing:
@@ -13587,12 +12937,7 @@ providers:
         matchPattern: $removeparam=/^siteid=.*$/i,document
       - id: field-removeparam-srccode-i
         matchPattern: $removeparam=/^srcCode=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||jcrew.com^"
   linkumori-jd.com:
@@ -13642,12 +12987,7 @@ providers:
         matchPattern: $removeparam=/^publisher=.*$/i
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||josbank.com^"
   linkumori-joshi-spa.jp:
@@ -13736,32 +13076,7 @@ providers:
     rules:
       - id: field-keepstreams-jp-thanks-for-using-
         matchPattern: "||keepstreams.jp/thanks-for-using-$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||keepstreams.jp^"
   linkumori-kelkoogroup.net:
@@ -13838,12 +13153,7 @@ providers:
         matchPattern: $removeparam=src,document
       - id: field-removeparam-publisherid-i
         matchPattern: $removeparam=/^publisherId=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||kipling-usa.com^"
   linkumori-kirkkonummi.fi:
@@ -13894,12 +13204,7 @@ providers:
         matchPattern: $removeparam=network_id
       - id: field-removeparam-device-id
         matchPattern: $removeparam=device_id
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||kochava.com^"
   linkumori-kohls.com:
@@ -13934,32 +13239,7 @@ providers:
     rules:
       - id: field-promo-korabli-su-removeparam
         matchPattern: "||promo.korabli.su^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||korabli.su^"
   linkumori-koreaherald.com:
@@ -14036,12 +13316,7 @@ providers:
         matchPattern: $removeparam=ogmeas
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||lanebryant.com^"
   linkumori-languagetool.org:
@@ -14286,12 +13561,7 @@ providers:
         matchPattern: $removeparam=trackingId
       - id: field-linkedin-com-learning-removepara
         matchPattern: "||linkedin.com/learning$removeparam=u"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     redirections:
       - id: redirect-https-linkedin-com-redir-safety-go-url
         matchPattern: ^https?:\/\/(?:[a-z0-9.-]*\.)?linkedin\.com\/(?:redir\/redirect|safety\/go)\/?\?(?:url=|[^#]*?&url=)(https?(?::|%3[Aa])(?:\/|%2[Ff]){2}[^&#]+)
@@ -14392,12 +13662,7 @@ providers:
         matchPattern: $removeparam=/^pubname=.*$/i
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -14504,24 +13769,14 @@ providers:
         matchPattern: $removeparam=trackingid,document
       - id: field-removeparam-m-document
         matchPattern: $removeparam=/^m_.*$/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||macys.com^"
   linkumori-macysinc.com:
     rules:
       - id: field-removeparam-m-document
         matchPattern: $removeparam=/^m_.*$/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||macysinc.com^"
   linkumori-mag2.com:
@@ -14534,12 +13789,7 @@ providers:
     rules:
       - id: field-removeparam-srccode-i
         matchPattern: $removeparam=/^srcCode=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||magellans.com^"
       - "||tigerdirect.com^"
@@ -14575,12 +13825,7 @@ providers:
         matchPattern: "||checklink.mail.ru^$removeparam=email"
       - id: field-removeparam-mt-click-id
         matchPattern: $removeparam=mt_click_id
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||mail.ru^"
   linkumori-mailpanion.com:
@@ -14787,12 +14032,7 @@ providers:
         matchPattern: $removeparam=camp
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||maurices.com^"
   linkumori-mbga.jp:
@@ -14904,12 +14144,7 @@ providers:
     rules:
       - id: field-removeparam-param-0-9-1-utm-si-m
         matchPattern: $removeparam=/param[0-9]{1}|utm_si|matchtype|device|creative|keyword|placement|adposition|campaignid|adgroupid|feeditemid|targetid|loc_|searchtype|network|search_pos|cat_pos|block|position/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||megaknihy.cz^"
   linkumori-mel.fm:
@@ -14930,24 +14165,14 @@ providers:
         matchPattern: $removeparam=/^matt_.*$/
       - id: field-removeparam-reco
         matchPattern: $removeparam=/^reco_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||mercadolibre.com.mx^"
   linkumori-merrell.com:
     rules:
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -14975,12 +14200,7 @@ providers:
         matchPattern: $removeparam=Source
       - id: field-removeparam-tracking-document
         matchPattern: $removeparam=tracking,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     fieldRedirections:
       - id: redirect-https-l-messenger-com-l-php-u
         matchPattern: "||l.messenger.com^/l.php^$removeparam=u"
@@ -15006,12 +14226,7 @@ providers:
     rules:
       - id: field-removeparam-publisher-i
         matchPattern: $removeparam=/^publisher=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||metmuseum.org^"
       - "||untilgone.com^"
@@ -15112,12 +14327,7 @@ providers:
         matchPattern: $removeparam=w,domain=store-images.microsoft.com
       - id: field-removeparam-h-domain-store-image
         matchPattern: $removeparam=h,domain=store-images.microsoft.com
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-login-removeparam-referrer
         matchPattern: "@@*/login?$removeparam=referrer"
       - id: field-microsoft-com-research-redirect-
@@ -15197,32 +14407,7 @@ providers:
     rules:
       - id: field-mkaff-com-landings-removeparam
         matchPattern: "||mkaff.com/landings/$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||mkaff.com^"
   linkumori-modrinth.com:
@@ -15357,12 +14542,7 @@ providers:
         matchPattern: "||microsoft.msafflnk.net^$removeparam=sharedid"
       - id: field-microsoft-msafflnk-net-removepar-uj7d5z
         matchPattern: "||microsoft.msafflnk.net^$removeparam=/^subid/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||msafflnk.net^"
   linkumori-msn.com:
@@ -15424,12 +14604,7 @@ providers:
     rules:
       - id: field-removeparam-requestid-reff
         matchPattern: $removeparam=/^(_requestid|reff)=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||mvideo.ru^"
   linkumori-my-best.com:
@@ -15462,32 +14637,7 @@ providers:
     rules:
       - id: field-go-mysku-ru-removeparam-r
         matchPattern: "||go.mysku.ru^$removeparam=~r"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     fieldRedirections:
       - id: redirect-https-mysku-ru-r
         matchPattern: "||mysku.ru^$removeparam=r"
@@ -15497,32 +14647,7 @@ providers:
     rules:
       - id: field-t-myvisualiq-net-removeparam-red
         matchPattern: "||t.myvisualiq.net^$removeparam=~red"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||myvisualiq.net^"
   linkumori-n11.com:
@@ -15535,12 +14660,7 @@ providers:
         matchPattern: $removeparam=adj_adnomia_click_id,document
       - id: field-removeparam-adj-t-document
         matchPattern: $removeparam=adj_t,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||n11.com^"
   linkumori-narvar.com:
@@ -15578,12 +14698,7 @@ providers:
         matchPattern: $removeparam=/^partnerid=.*$/i
       - id: field-removeparam-pubname-i
         matchPattern: $removeparam=/^pubname=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||naturalizer.com^"
   linkumori-naver.com:
@@ -15740,12 +14855,7 @@ providers:
         matchPattern: $removeparam=dpRightClick
       - id: field-removeparam-jb-a-z
         matchPattern: $removeparam=/^jb[a-z]*?=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||netflix.com^"
   linkumori-netgames.de:
@@ -15803,12 +14913,7 @@ providers:
         matchPattern: $removeparam=sc_lid,document
       - id: field-removeparam-sc-llid-document
         matchPattern: $removeparam=sc_llid,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||newbalance.com^"
   linkumori-newegg.com:
@@ -15869,12 +14974,7 @@ providers:
         matchPattern: $removeparam=/^amp=1$/,document
       - id: field-removeparam-subref
         matchPattern: $removeparam=subref
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||newsweek.com^"
   linkumori-newyorker.com:
@@ -15919,12 +15019,7 @@ providers:
     rules:
       - id: field-removeparam-f-d-4
         matchPattern: $removeparam=/^f\d{4,}=$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||ngfiles.com^"
   linkumori-ngx.me:
@@ -16112,12 +15207,7 @@ providers:
         matchPattern: $removeparam=recs_page_type
       - id: field-removeparam-recs-seed
         matchPattern: $removeparam=recs_seed
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||nordstrom.com^"
   linkumori-nordvpn.com:
@@ -16426,12 +15516,7 @@ providers:
     rules:
       - id: field-removeparam-fo
         matchPattern: $removeparam=/^fo_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||officemonster.co.uk^"
   linkumori-oikotie.fi:
@@ -16493,12 +15578,7 @@ providers:
     rules:
       - id: field-nbcume-sc-omtrdc-net-id-d-visid-
         matchPattern: "||nbcume.sc.omtrdc.net/id?d_visid_ver=$removeparam=/mcorgid|mid|ts/,domain=nbcdfw.com"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||omtrdc.net^"
   linkumori-onbuy.com:
@@ -16670,12 +15750,7 @@ providers:
         matchPattern: $removeparam=term
       - id: field-removeparam-quot
         matchPattern: $removeparam=/^quot;/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||outnorth.fi^"
   linkumori-overstock.com:
@@ -16754,12 +15829,7 @@ providers:
     rules:
       - id: field-middleware-p7s1-io-galileo-v1-tr
         matchPattern: "||middleware.p7s1.io/galileo/v1/tracking?device=*&country=*&path=$removeparam=/^(device|country|path)=/,xmlhttprequest"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||p7s1.io^"
   linkumori-pantip.com:
@@ -16960,32 +16030,7 @@ providers:
     rules:
       - id: field-plarium-com-landings-removeparam
         matchPattern: "||plarium.com/landings/$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||plarium.com^"
   linkumori-playstation.com:
@@ -17028,12 +16073,7 @@ providers:
     rules:
       - id: field-removeparam-document-image
         matchPattern: $removeparam=/^=$/,document,image
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||polarismedia.no^"
   linkumori-politica.com.ua:
@@ -17094,12 +16134,7 @@ providers:
     rules:
       - id: field-removeparam-amp-document
         matchPattern: $removeparam=/^amp;/,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||prispresseren.dk^"
   linkumori-privatbank.ua:
@@ -17240,32 +16275,7 @@ providers:
         matchPattern: "||digital.pumb.ua^$removeparam=af_channel"
       - id: field-digital-pumb-ua-removeparam-shor
         matchPattern: "||digital.pumb.ua^$removeparam=shortlink"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||pumb.ua^"
   linkumori-purevpn.com:
@@ -17505,12 +16515,7 @@ providers:
         matchPattern: $removeparam=cid,document
       - id: field-removeparam-siteid-i-document
         matchPattern: $removeparam=/^siteid=.*$/i,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||radissonhotelsamericas.com^"
       - "||wine.com^"
@@ -17663,12 +16668,7 @@ providers:
         matchPattern: $removeparam=/^\x24original_url=/
       - id: field-removeparam-branch-match-id
         matchPattern: $removeparam=_branch_match_id
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref
         matchPattern: $removeparam=ref
@@ -17858,12 +16858,7 @@ providers:
         matchPattern: $removeparam=source,document,to=~googlevideo.com
       - id: field-removeparam-publisher-i
         matchPattern: $removeparam=/^publisher=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||riteaid.com^"
       - "||tous.com^"
@@ -17995,12 +16990,7 @@ providers:
         matchPattern: $removeparam=LSlinkid
       - id: field-removeparam-lscreativeid
         matchPattern: $removeparam=LScreativeid
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||saksfifthavenue.com^"
   linkumori-saksoff5th.com:
@@ -18011,12 +17001,7 @@ providers:
         matchPattern: $removeparam=/^siteid=.*$/i,document
       - id: field-removeparam-site-refer
         matchPattern: $removeparam=site_refer
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||saksoff5th.com^"
   linkumori-salestube.pl:
@@ -18049,12 +17034,7 @@ providers:
         matchPattern: $removeparam=mi_u,document
       - id: field-removeparam-smtrctid-document
         matchPattern: $removeparam=smtrctid,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||samsclub.com^"
   linkumori-samsung.com:
@@ -18083,12 +17063,7 @@ providers:
         matchPattern: "||org.downloadcenter.samsung.com/downloadfile^$removeparam=ModelType"
       - id: field-org-downloadcenter-samsung-com-d-1qon40j
         matchPattern: "||org.downloadcenter.samsung.com/downloadfile^$removeparam=/^ModelName=$/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -18120,12 +17095,7 @@ providers:
         matchPattern: "||sciencedirect.com/*?via%3D$removeparam=/^via%3D/"
       - id: field-sciencedirect-com-via-3d-removep-1hqtbsa
         matchPattern: "||sciencedirect.com/*?via%3D$removeparam=/^via%3D.*$/,document"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||sciencedirect.com^"
   linkumori-scmp.com:
@@ -18296,12 +17266,7 @@ providers:
         matchPattern: $removeparam=searchResultClicked
       - id: field-removeparam-breadcrumb
         matchPattern: $removeparam=breadcrumb
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref_,document
@@ -18365,12 +17330,7 @@ providers:
         matchPattern: $removeparam=rilt,document
       - id: field-removeparam-mpch-document
         matchPattern: $removeparam=mpch,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -18670,12 +17630,7 @@ providers:
         matchPattern: $removeparam=sc_referrer
       - id: field-removeparam-sc-ua
         matchPattern: $removeparam=sc_ua
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -18763,12 +17718,7 @@ providers:
         matchPattern: "||pb.sogou.com^$removeparam=uigs_t"
       - id: field-removeparam-p
         matchPattern: $removeparam=p
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||sogou.com^"
   linkumori-sohu.com:
@@ -18890,24 +17840,14 @@ providers:
         matchPattern: $removeparam=campaign,document
       - id: field-removeparam-partnerid-i
         matchPattern: $removeparam=/^partnerid=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||sportler.com^"
   linkumori-sportmail.ru:
     rules:
       - id: field-removeparam-utm-partner-id-fromm
         matchPattern: $removeparam=/utm_partner_id|frommail/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||sportmail.ru^"
   linkumori-sports.ru:
@@ -18983,12 +17923,7 @@ providers:
         matchPattern: $removeparam=context
       - id: field-removeparam-si
         matchPattern: $removeparam=si
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||spotify.com^"
   linkumori-spreadprivacy.com:
@@ -19443,12 +18378,7 @@ providers:
         matchPattern: $removeparam=spm
       - id: field-removeparam-u
         matchPattern: $removeparam=_u
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||taobao.com^"
   linkumori-tapahtumienkeskipohjanmaa.fi:
@@ -19634,12 +18564,7 @@ providers:
         matchPattern: $removeparam=SID
       - id: field-removeparam-srccode-i
         matchPattern: $removeparam=/^srcCode=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -20067,12 +18992,7 @@ providers:
         matchPattern: $removeparam=share_iid
       - id: field-removeparam-source
         matchPattern: $removeparam=source
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||tiktok.com^"
   linkumori-time.com:
@@ -20203,12 +19123,7 @@ providers:
         matchPattern: $removeparam=bftRwd
       - id: field-removeparam-activity-id
         matchPattern: $removeparam=activity_id
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||tmall.com^"
   linkumori-tmz.com:
@@ -20363,12 +19278,7 @@ providers:
         matchPattern: $removeparam=link_userID,document
       - id: field-removeparam-link-contentid-docum
         matchPattern: $removeparam=link_contentid,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||trendyol.com^"
   linkumori-trib.al:
@@ -20401,32 +19311,7 @@ providers:
     rules:
       - id: field-go-tscprts-com-removeparam
         matchPattern: "||go.tscprts.com^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||tscprts.com^"
   linkumori-tsn.ca:
@@ -20566,12 +19451,7 @@ providers:
         matchPattern: $removeparam=cn
       - id: field-removeparam-t
         matchPattern: $removeparam=t
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-twitter-com-i-redirect-removepar
         matchPattern: "@@||twitter.com/i/redirect$removeparam"
     referralMarketing:
@@ -20597,32 +19477,7 @@ providers:
         matchPattern: "||use.typekit.net^$removeparam=~/^(primer|subset_id)\\=/,font,domain=~fonts.adobe.com"
       - id: field-p-typekit-net-removeparam-styles
         matchPattern: "||p.typekit.net^$removeparam,stylesheet"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||typekit.net^"
   linkumori-uber.com:
@@ -20676,12 +19531,7 @@ providers:
     rules:
       - id: field-store-udiscovermusic-com-removep
         matchPattern: "||store.udiscovermusic.com^$removeparam=/utm_/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||udiscovermusic.com^"
   linkumori-ul.com:
@@ -20823,12 +19673,7 @@ providers:
         matchPattern: $removeparam=/^=$/,document,image
       - id: field-removeparam-redirfrom
         matchPattern: $removeparam=redirFrom
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||userbenchmark.com^"
   linkumori-uslecce.it:
@@ -20895,12 +19740,7 @@ providers:
         matchPattern: $removeparam=EMHID,document
       - id: field-removeparam-bid-document
         matchPattern: $removeparam=BID,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -20915,32 +19755,7 @@ providers:
     rules:
       - id: field-videoproc-com-install-removepara
         matchPattern: "||videoproc.com/*install/$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||videoproc.com^"
   linkumori-viglink.com:
@@ -20969,12 +19784,7 @@ providers:
         matchPattern: $removeparam=cid,document
       - id: field-removeparam-pubid-i
         matchPattern: $removeparam=/^pubid=.*$/i
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||vineyardvines.com^"
   linkumori-virginatlantic.com:
@@ -21182,12 +19992,7 @@ providers:
         matchPattern: "||walmart.com^$removeparam=u1"
       - id: field-walmart-com-removeparam-ath-a-z
         matchPattern: "||walmart.com^$removeparam=/^ath[a-z]*=/"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-search-php-removeparam-sid-docum
         matchPattern: "@@*/search.php$removeparam=sid,document"
     domainPatterns:
@@ -21202,32 +20007,7 @@ providers:
     rules:
       - id: field-trck-wargaming-net-removeparam
         matchPattern: "||trck.wargaming.net^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||wargaming.net^"
   linkumori-washingtonpost.com:
@@ -21266,12 +20046,7 @@ providers:
         matchPattern: "||wayfair.com^$removeparam=maiid,document"
       - id: field-wayfair-com-removeparam-mdlid-do
         matchPattern: "||wayfair.com^$removeparam=mdlid,document"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||wayfair.*^"
   linkumori-wayin.com:
@@ -21380,12 +20155,7 @@ providers:
         matchPattern: $removeparam=ifr
       - id: field-removeparam-share-relation
         matchPattern: $removeparam=share_relation
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||weidian.com^"
   linkumori-welt.de:
@@ -21454,12 +20224,7 @@ providers:
         matchPattern: $removeparam=/elq/
       - id: field-removeparam-af-document
         matchPattern: $removeparam=af,document
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||wiley.com^"
   linkumori-windows.com:
@@ -21536,12 +20301,7 @@ providers:
     rules:
       - id: field-removeparam-ref
         matchPattern: $removeparam=/^ref_?=/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
@@ -21555,12 +20315,7 @@ providers:
         matchPattern: $removeparam=w,domain=files.wordpress.com
       - id: field-removeparam-h-domain-files-wordp
         matchPattern: $removeparam=h,domain=files.wordpress.com
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||wordpress.com^"
   linkumori-worldoftanks.*:
@@ -21575,32 +20330,7 @@ providers:
         matchPattern: "||join.worldoftanks.$removeparam=enctid"
       - id: field-join-worldoftanks-removeparam-pu
         matchPattern: "||join.worldoftanks.$removeparam=pub_id"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||worldoftanks.*^"
   linkumori-wowma.jp:
@@ -21665,12 +20395,7 @@ providers:
         matchPattern: $removeparam=cn
       - id: field-removeparam-t
         matchPattern: $removeparam=t
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-x-com-i-redirect-removeparam
         matchPattern: "@@||x.com/i/redirect$removeparam"
     referralMarketing:
@@ -21794,64 +20519,14 @@ providers:
     rules:
       - id: field-go-xlivrdr-com-removeparam
         matchPattern: "||go.xlivrdr.com^$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||xlivrdr.com^"
   linkumori-xplosion.de:
     rules:
       - id: field-ups-xplosion-de-ctx-event-id-rem
         matchPattern: "||ups.xplosion.de/ctx?event_id=$removeparam"
-      - id: field-authentication-login-analytics-t
-        matchPattern: "@@*/authentication/*login?*analytics_trace_id=$removeparam=analytics_trace_id,document"
-      - id: field-mkt-unsubscribe-removeparam-mkt-
-        matchPattern: "@@^mkt_unsubscribe=$removeparam=mkt_tok"
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mod-djemalertnews-removeparam-mo
-        matchPattern: "@@^mod=djemalertNEWS^$removeparam=mod"
-      - id: field-b-ref-removeparam-ie
-        matchPattern: "@@*/b/ref=$removeparam=ie"
-      - id: field-subscribe-removeparam-user-email
-        matchPattern: "@@*/subscribe?$removeparam=user_email_address,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-img-nga-removeparam-cmpid
-        matchPattern: "@@||img*.nga$removeparam=cmpid"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-      - id: field-login-removeparam-referrer
-        matchPattern: "@@*/login?$removeparam=referrer"
-      - id: field-search-php-removeparam-sid-docum
-        matchPattern: "@@*/search.php$removeparam=sid,document"
-      - id: field-remote-interaction-removeparam-a
-        matchPattern: "@@*/remote_interaction$removeparam=ap_id,document"
-      - id: field-admin-object-removeparam-ap-id-d
-        matchPattern: "@@*/admin/object$removeparam=ap_id,document"
+      - include: functional-param-exceptions-extended
     domainPatterns:
       - "||xplosion.de^"
   linkumori-xvideos.*:
@@ -22168,12 +20843,7 @@ providers:
         matchPattern: $removeparam=kw
       - id: field-removeparam-si
         matchPattern: $removeparam=si
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
       - id: field-youtube-com-videoplayback-remove
         matchPattern: "@@||youtube.com/videoplayback$removeparam=source"
       - id: field-youtube-com-signin-removeparam
@@ -22201,12 +20871,7 @@ providers:
         matchPattern: $removeparam=wt_cd
       - id: field-removeparam-tm-hem
         matchPattern: $removeparam=tm_hem
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     domainPatterns:
       - "||zalando.*^"
   linkumori-zappos.com:
@@ -22215,12 +20880,7 @@ providers:
         matchPattern: $removeparam=si,document
       - id: field-removeparam-pf-rd
         matchPattern: $removeparam=/^pf_rd_.*$/
-      - id: field-removeparam-dest-url-document
-        matchPattern: "@@$removeparam=/^.*_dest_url=.*$/,document"
-      - id: field-mailinglist-removeparam-utm-i
-        matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-      - id: field-aff-c-removeparam-aff-id-d-i
-        matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+      - include: functional-param-exceptions
     referralMarketing:
       - id: referral-removeparam-ref-document
         matchPattern: $removeparam=ref,document
