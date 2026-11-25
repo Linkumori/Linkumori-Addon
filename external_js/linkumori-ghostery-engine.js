@@ -12,12 +12,12 @@
  *     https://github.com/ghostery/adblocker
  *   - its dependencies @remusao/guess-url-type,
  *     @remusao/smaz*, @remusao/trie (MPL-2.0, Ghostery GmbH / Rémi Berson)
- *   - tools/ghostery-engine/entry.mjs and tldts-global.mjs, Linkumori glue
+ *   - tools/ghostery-engine/entry.mjs and psl-global.mjs, Linkumori glue
  *     (LGPL-3.0-or-later)
  *
- * This file contains no MIT code. The tldts public suffix parser (MIT) that
- * Ghostery's Request uses is built separately into
- * external_js/linkumori-tldts.js, which must be loaded before this file.
+ * tldts is not included. Ghostery's Request gets hostnames and public
+ * suffixes from external_js/publicsuffixlist.js (globalThis.linkumoriPsl),
+ * which must be loaded before this file.
  *
  * License text: THIRD-PARTY-NOTICE/ghostery-adblocker/LICENSE (MPL-2.0).
  *
@@ -171,13 +171,30 @@ var LinkumoriGhosteryEngine = (() => {
     return "other";
   }
 
-  // tldts-global.mjs
-  function parse(url, options) {
-    const tldts = globalThis.LinkumoriTldts;
-    if (!tldts || typeof tldts.parse !== "function") {
-      throw new Error("LinkumoriTldts is not loaded (external_js/linkumori-tldts.js)");
+  // psl-global.mjs
+  var EMPTY = Object.freeze({ hostname: null, domain: null, publicSuffix: null, subdomain: null, isIp: false });
+  function parse(input, options = {}) {
+    const psl = globalThis.linkumoriPsl;
+    if (!psl || typeof psl.normalizeHostname !== "function") {
+      throw new Error("linkumoriPsl is not loaded (external_js/publicsuffixlist.js)");
     }
-    return tldts.parse(url, options);
+    const extracted = options.extractHostname === false ? String(input || "") : psl.extractHostnameFromInput(input, options.mixedInputs !== false);
+    const hostname = extracted ? psl.normalizeHostname(extracted) : null;
+    if (!hostname) return EMPTY;
+    if (psl.isIp(hostname)) {
+      return { hostname, domain: null, publicSuffix: null, subdomain: null, isIp: true };
+    }
+    const parsed = psl.status === "ready" ? psl.parseNormalizedHostname(hostname) : null;
+    if (!parsed || !parsed.listed) {
+      return { hostname, domain: null, publicSuffix: null, subdomain: null, isIp: false };
+    }
+    return {
+      hostname,
+      domain: parsed.domain || null,
+      publicSuffix: parsed.tld || null,
+      subdomain: parsed.subdomain || null,
+      isIp: false
+    };
   }
 
   // node_modules/@remusao/trie/dist/esm/index.js

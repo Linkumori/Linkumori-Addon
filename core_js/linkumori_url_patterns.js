@@ -46,9 +46,9 @@
  *                     pattern right after it: "||amazon.*" followed by
  *                     "/gp/" matches amazon.co.uk/gp/ but not
  *                     amazon.evil.com/gp/ or amazon.de/a/gp/. The suffix
- *                     comes from tldts, bundled
- *                     with Ghostery, so the answer does not depend on
- *                     whether Linkumori's Public Suffix List has loaded.
+ *                     comes from Linkumori's Public Suffix List
+ *                     (external_js/publicsuffixlist.js), so these
+ *                     patterns match nothing until the list has loaded.
  *   ||bücher.example  the host is matched in its punycode form
  *   /body/flags       a regex tested against the URL as given
  *   *                 every URL
