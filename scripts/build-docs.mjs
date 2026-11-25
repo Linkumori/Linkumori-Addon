@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 // Builds the specification, reference, architecture, rules, converter, rules editor, legal pages and sitemap.
 //
-//   node scripts/build-docs.mjs            # reads docs with `git show main:docs/…`
+//   node scripts/build-docs.mjs            # reads docs/ in this website branch
 //   node scripts/build-docs.mjs ../docs    # reads docs from a folder instead
 //
 // The converter covers the Markdown these two documents use: headings, paragraphs,
 // fenced code, tables, nested lists, block quotes, inline code, links and emphasis.
 
-import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import vm from 'node:vm';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,13 +15,9 @@ import { diagramHash, DIAGRAM_DIR } from './diagrams.mjs';
 import { overloadCases, customCases, defaultsCases, sourceCases, caseTriggers } from './rules-cases.mjs';
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
-const docsDir = process.argv[2];
+const docsDir = process.argv[2] || join(siteRoot, 'docs');
 const REPO = 'https://github.com/Linkumori/Linkumori-Addon';
 const SITE = 'https://linkumori.github.io/Linkumori-Addon/';
-
-function readMain(path) {
-  return execFileSync('git', ['show', `main:${path}`], { cwd: siteRoot, encoding: 'utf8' });
-}
 
 // Cache-busting: every link to a stylesheet, script or image under assets/ gets ?v=<hash of
 // the file>, so a browser never pairs a new page with an old cached script.
@@ -42,8 +36,8 @@ function stampAssets(html) {
     });
 }
 
-// The extension version shown in the header, from main's manifest.
-const VERSION = JSON.parse(readMain('manifest.json')).version;
+// The extension version shown in the header, stored as website metadata.
+const VERSION = JSON.parse(readFileSync(join(siteRoot, 'site-config.json'), 'utf8')).version;
 
 const pages = [
   {
@@ -146,8 +140,7 @@ const localLinks = {
 const LAST_UPDATED = /^\*\*Last updated:\*\*\s*(.+)$/m;
 
 function readDoc(name) {
-  if (docsDir) return readFileSync(join(docsDir, name), 'utf8');
-  return readMain(`docs/${name}`);
+  return readFileSync(join(docsDir, name), 'utf8');
 }
 
 function escapeHtml(s) {
@@ -351,20 +344,35 @@ function sourceGallery(cases) {
 </article>`).join('\n')}\n</div>`;
 }
 
-// The editor's "Merge from sources" example, worked out by the extension's own planner
-// (core_js/linkumori_rule_defaults.js on main), so the page can't drift from it.
+// A fixed example showing how the website explains a merge of three defaults blocks.
+// Keep the inputs, selected options, and result together so this site build is standalone.
 function defaultsMergeExample() {
-  const sandbox = {};
-  sandbox.globalThis = sandbox;
-  vm.runInNewContext(readMain('core_js/linkumori_rule_defaults.js'), sandbox);
-  const { planRuleDefaultsMerge, resolveRuleDefaultsMerge } = sandbox.LinkumoriRuleDefaults;
   const sources = [
     { name: 'Your defaults', origin: 'custom', label: 'Yours', defaults: { requestTypes: ['main_frame'], exceptions: ['^https:\\/\\/shop\\.example\\/cart'] } },
     { name: 'Built-in rules', origin: 'builtin', defaults: { requestTypes: ['main_frame', 'xmlhttprequest'], historyBypassProtection: false, exceptions: ['^https:\\/\\/shop\\.example\\/login'] } },
     { name: 'rules.example.org', origin: 'remote', defaults: { requestTypes: ['main_frame'], description: 'Shop rules' } }
   ];
-  const plan = planRuleDefaultsMerge(sources.map(({ name, defaults }) => ({ name, defaults })));
-  const result = resolveRuleDefaultsMerge(plan);
+  const cartException = sources[0].defaults.exceptions[0];
+  const loginException = sources[1].defaults.exceptions[0];
+  const plan = {
+    merged: { exceptions: [cartException, loginException] },
+    combined: [{ key: 'exceptions', count: 2 }],
+    conflicts: [
+      { key: 'description', options: [
+        { value: undefined, sources: ['Your defaults', 'Built-in rules'], combined: false },
+        { value: 'Shop rules', sources: ['rules.example.org'], combined: false }
+      ], choice: 0 },
+      { key: 'requestTypes', options: [
+        { value: ['main_frame'], sources: ['Your defaults', 'rules.example.org'], combined: false },
+        { value: ['main_frame', 'xmlhttprequest'], sources: ['Built-in rules'], combined: true }
+      ], choice: 1 },
+      { key: 'historyBypassProtection', options: [
+        { value: undefined, sources: ['Your defaults', 'rules.example.org'], combined: false },
+        { value: false, sources: ['Built-in rules'], combined: false }
+      ], choice: 0 }
+    ]
+  };
+  const result = { requestTypes: ['main_frame', 'xmlhttprequest'], exceptions: [cartException, loginException] };
   const show = v => v === undefined ? 'left out' : formatJson(v);
   const notes = [];
   Object.keys(plan.merged).forEach(key => {

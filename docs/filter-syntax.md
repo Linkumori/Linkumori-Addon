@@ -6,6 +6,10 @@ This page describes CLN Format 1.0 in its final form. The changes from the earli
 
 Linkumori CLN (Clean Link Notation) is the JSON rule format Linkumori uses to strip tracking parameters, rewrite URL text, and redirect around trackers. A rule file is one JSON object with a `providers` object (and, optionally, `cln`, `metadata`, `defaults` and, in a remote file, `patches`). Each key under `providers` is a name you choose; its value is a provider object.
 
+The bundled source file is authored in YAML and converted to this JSON data
+model by the CLI. See [Writing CLN Format 1.0 in YAML](cln-yaml.md) for the
+complete YAML form of every section and rule type.
+
 The optional top-level `cln` key names the format version. Its only valid value is `"1.0"`; a file without it loads as 1.0 too, and a file with any other value is rejected (a remote file is not loaded and Remote Rules Health reports it; a built-in or custom file fails `lint-rules`). It is not called `version` because the ClearURLs new rule format already uses that key.
 
 ```json
@@ -82,6 +86,8 @@ Each entry removes a parameter, from the query (`?a=1`) or fragment (`#a=1`):
 | `"utm_source"` | that exact parameter |
 | `"utm_[a-z]+"` | any parameter whose whole name matches |
 | `"$removeparam=fbclid"` | see below — lets you add domain/method/party limits |
+
+Names are matched after percent-decoding, in the fragment as in the query, so `"utm_source"` also removes `#%75tm_source=x`. The same holds for `$removeparam` filters and their `@@` exceptions; the decoded name is tried first, then the name as written. A fragment name is left as written when it has no `=` (a page anchor such as `#section-2`), starts with `?`, doesn't decode, or still holds an escape after one decode. Only the matching uses the decoded name: the rest of the fragment keeps its original spelling.
 
 To strip a parameter on only *some* of a provider's URLs, put a pattern in front of `$removeparam`:
 
@@ -270,6 +276,8 @@ A redirect only happens to an absolute `http` or `https` URL with a host. This h
 | `javascript:alert(1)`, `ftp://files.example/x` | no — scheme is not `http` or `https` |
 | `//real.example/page`, `/local/page`, `real.example/page` | no — not an absolute URL |
 
+Percent-decoding stops once the target is an absolute `http` or `https` URL, so escapes that belong to the target stay as they are. Every target gets one standard decode for where it sits: a value in the query string is form-decoded, as browsers read query parameters (`%xx` escapes, and `+` is a space), and text in the path or fragment is percent-decoded (`+` stays a plus). That holds for a `redirections` capture (judged by where its capture group sits) and for a `fieldRedirections` value, from the query or the fragment. After that the target is decoded again only while it is not yet an absolute URL (`https%253A%252F%252F…` still unwraps). For example, `?q=https://click.example/CL0/https:%252F%252Fsite.example%252F%253Fa%253D1` redirects to `https://click.example/CL0/https:%2F%2Fsite.example%2F%3Fa%3D1`: the link the tracker carries in its path stays encoded, and its `%3F` does not turn into a query string.
+
 A raw rule whose result has a different scheme, host or port from its input is a redirect too, whether it rewrites with a `replacePattern` or only deletes text (`secure-` deleted from `https://secure-bank.example/` lands on another site): it needs a valid target, and in a remote file the `redirect` capability (§Remote file capabilities). Otherwise the rule leaves the URL as it was.
 
 ### Worked example
@@ -384,6 +392,33 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
 - **Complete providers:** a `completeProvider` blocks every request it matches before any rule is looked at, so `requestTypes` and `exceptions` from `defaults` also limit the block. `requestTypes`, together with its rules' own, become the provider's `resourceTypes` unless it sets some. `exceptions` are added to the provider's `exceptions`.
 - **Checked:** unknown keys and wrong types are errors in `lint-rules` and the editor, and a remote file with an invalid `defaults` block is rejected.
 
+## ruleSets
+
+An optional top-level `ruleSets` object names lists of entries that several providers share. A provider uses one with an entry `{ "include": "<name>" }` in any of its rule lists (`rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections`, `fieldRedirections`):
+
+```json
+{
+  "ruleSets": {
+    "affiliate-exceptions": [
+      "@@mailinglist$removeparam=/^utm_.*$/i",
+      "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+    ]
+  },
+  "providers": {
+    "shop":  { "domainPatterns": ["||shop.example^"],  "rules": ["utm_source", { "include": "affiliate-exceptions" }] },
+    "store": { "domainPatterns": ["||store.example^"], "rules": [{ "include": "affiliate-exceptions" }] }
+  }
+}
+```
+
+- **Written out on load:** each `include` becomes its own copy of the set's entries, in its place and in their order, as soon as the file is read: built-in rules, each remote file (after its hash check; the cache keeps the written-out file) and custom rules. Everything after that sees the file with the entries written out, so run order, rule ids, toggles, pins, `defaults`, overload merges and remote file capabilities are exactly those of the written-out file, and a set cannot hide a capability.
+- **Optional:** a file without `ruleSets` loads as before. A file that uses them is still CLN 1.0; `ruleSets` is a Linkumori addition, so other CLN readers need the written-out form (the CLI's `yaml-to-json` writes it).
+- **Rules:** a set name uses lowercase letters, digits, `-` and `_`; a set is a non-empty list and cannot include another set; an `include` entry has no other keys. Ids only need to be unique within a provider, as usual.
+- **Checked:** an unknown set name, an `include` without `ruleSets` and these shape errors are errors in `lint-rules` and the editors; a remote file with one is rejected, and custom rules with one are not loaded. `lint-rules` also warns about a set no provider includes.
+- **Custom rules:** in the custom rules editor, *Manage shared rule sets* edits the custom rules' sets as JSON, and a provider uses one with an `include` entry in its JSON. The provider's checks, run order and test URLs use it written out; it is saved as written, and import and export keep the sets. The run order can't rearrange steps of a provider with an `include` in `rules`, `rawRules` or `referralMarketing`: those are ordered in the set.
+
+YAML sources use the same keys; see [Shared rule sets](cln-yaml.md#shared-rule-sets).
+
 ## Processing order
 
 For each matching provider: `exceptions` (skip if matched) → `redirections` → `fieldRedirections` → `completeProvider` → `rawRules` → `rules`/`referralMarketing` → `$removeparam` filters. A rule's `order` can move it earlier or later within its own stage, never across stages. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL (§Termination).
@@ -465,7 +500,7 @@ while overload mode is enabled. If built-in rules are disabled, patch-only
 mode has no built-in rules to patch.
 
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
-2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
+2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules. A built-in provider that lists several domains counts as one provider per domain here: a remote provider for exactly one of those domains merges with a copy of the built-in provider for that domain, and the other domains keep the built-in provider as it is.
 3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
 4. **Exact copies.** Only entries that are exactly alike count once while joining. By default, `order` is part of what makes two entries alike, `"order": null` included. With **Strip rule order while merging** enabled, `order` is removed first, so entries that differ only by `order` count once.
 
@@ -628,7 +663,7 @@ A remote rule file can replace rules that are already loaded, from the built-in 
 | `description` | a note for people reading the file; it must be a string |
 
 - **What it patches.** Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only `patches` needs no `providers`; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules. In overload **No patch mode + merge**, patch files are validated and loaded but their patches are not applied; in **Patch mode only**, remote provider rules are omitted and patches target the built-in rules.
-- **Matching.** A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the `domainPattern:` / `urlPattern:` form is the one that always finds them.
+- **Matching.** A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the `domainPattern:` / `urlPattern:` form is the one that always finds them. A `domainPattern:` target names one domain: in a provider that lists several domains, the patch changes that domain only (the domain is split off into a copy of the provider), as it would if the domain had a provider of its own.
 - **Ids and toggles.** The replacement keeps the replaced rule's id unless it sets its own `id`; then the old id becomes one of its `aliases`. Either way, an on/off setting saved for the old rule keeps applying.
 - **Defaults.** The patch file's `defaults` (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.
 - **Capabilities.** A file's patches count toward its capabilities (§Remote file capabilities). A patch for a `redirections` or `fieldRedirections` rule is skipped until the file's `redirect` capability is accepted, and a patched raw rule can't take a URL to another origin until then.

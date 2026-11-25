@@ -3,13 +3,12 @@
 // site shows them without loading Mermaid from another host. build-docs.mjs swaps each
 // ```mermaid block for the two images, found by a hash of the block's source.
 //
-//   MMDC=/path/to/mmdc node scripts/make-diagrams.mjs            # docs from `git show main:docs/…`
+//   MMDC=/path/to/mmdc node scripts/make-diagrams.mjs            # docs/ in this website branch
 //   MMDC=/path/to/mmdc node scripts/make-diagrams.mjs ../docs    # docs from a folder
 //
 // mmdc is @mermaid-js/mermaid-cli. It drives a Chromium browser: set BROWSER to one
 // (Microsoft Edge on macOS is used by default).
 
-import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -17,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { diagramHash, DIAGRAM_DOCS, DIAGRAM_DIR, mermaidBlocks } from './diagrams.mjs';
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
-const docsDir = process.argv[2];
+const docsDir = process.argv[2] || join(siteRoot, 'docs');
 const mmdc = process.env.MMDC;
 const browser = process.env.BROWSER || '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge';
 if (!mmdc) throw new Error('Set MMDC to the mmdc binary of @mermaid-js/mermaid-cli');
@@ -82,8 +81,7 @@ function setIntrinsicSize(path) {
 }
 
 function readDoc(name) {
-  if (docsDir) return readFileSync(join(docsDir, name), 'utf8');
-  return execFileSync('git', ['show', `main:docs/${name}`], { cwd: siteRoot, encoding: 'utf8' });
+  return readFileSync(join(docsDir, name), 'utf8');
 }
 
 // mmdc runs in this folder, so it reads no package.json of the project.

@@ -1,6 +1,6 @@
 # Terms of Use
 
-**Last updated:** October 25, 2026
+**Last updated:** November 25, 2026
 
 ## Definitions
 
@@ -48,10 +48,13 @@ Some parts of the site are under other licenses:
 | --- | --- | --- |
 | Inter typeface | `assets/fonts/inter-*.woff2` | SIL Open Font License 1.1. Copyright © 2016 The Inter Project Authors. See [Inter-OFL.txt](assets/fonts/Inter-OFL.txt) |
 | JetBrains Mono typeface | `assets/fonts/jetbrains-mono-*.woff2` | SIL Open Font License 1.1. Copyright © 2020 The JetBrains Mono Project Authors. See [JetBrainsMono-OFL.txt](assets/fonts/JetBrainsMono-OFL.txt) |
+| YAML parser and serializer (`yaml` 2.8.0) | `assets/yaml.js` (bundled from `yaml-src/`) | ISC License. Copyright © Eemeli Aro. See [LICENSE-yaml](https://github.com/Linkumori/Linkumori-Addon/blob/website/yaml-src/LICENSE-yaml) |
 | CLN Format 1.0, Filter syntax and Runtime architecture pages | built from `docs/` in the Linkumori repository | the license of that repository, described in its [License.md](https://github.com/Linkumori/Linkumori-Addon/blob/main/License.md) |
 | Diagrams | `assets/diagrams/*.svg` | the same license as the page they appear on. They are drawn from the Mermaid source in that page's document and rendered with Mermaid, an MIT-licensed tool that is not part of the site |
 
 The font files are used unmodified. The SIL Open Font License covers the font files only, not the pages or other files that use them. You may use, copy and redistribute the fonts under that license, but may not sell them by themselves.
+
+The ISC license applies to the bundled YAML parser and serializer only. It does not change the license of the site or the rule files processed by the converter.
 
 ## Trademarks and attribution
 

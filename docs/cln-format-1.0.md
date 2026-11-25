@@ -9,6 +9,11 @@ Oct 2, 2026 · @Subham
 
 ## Status and scope
 
+This document specifies CLN's JSON data model. The bundled canonical source is
+authored in YAML and converted by the CLI to the same data model; remote,
+custom, imported and exported rule files use JSON. See
+[Writing CLN Format 1.0 in YAML](cln-yaml.md) for that source serialization.
+
 This document is CLN Format 1.0 in its final form. It supersedes the 1.0 text announced on 2 October 2026, and there is no compatibility mode for that earlier text.
 
 It is written against the [1.0 announcement](https://github.com/orgs/Linkumori/discussions/163).

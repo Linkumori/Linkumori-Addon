@@ -53,17 +53,17 @@ script is listed earlier.
 | 1 | `external_js/linkumori-i18n.js` | `LinkumoriI18n`: replacement for `browser.i18n` that loads `_locales/<lang>/messages.json` itself |
 | 2 | `core_js/message_handler.js` | `runtime.onMessage` bridge for the pages (§10) |
 | 3 | `external_js/IP-Ranger.js` | IP address parsing and classification |
-| 4 | `external_js/sha256.js` | SHA-256 |
-| 5 | `core_js/tools.js` | shared helpers: `translate`, URL helpers, counters, icon, log (`pushToLog`), keep-alive |
-| 6–7 | `external_js/light-punycode.js`, `external_js/publicsuffixlist.js` | punycode; Public Suffix List parser (`linkumoriPsl`) |
-| 8 | `core_js/badgedHandler.js` | per-tab badge counter |
-| 9 | `core_js/pureCleaning.js` | cleaning outside `webRequest`, and the rule test lab (§7.1) |
-| 10 | `core_js/context_menu.js` | *Copy clean link* context menu |
-| 11 | `core_js/historyListener.js` | cleans URLs changed with the History API (§7.2) |
-| 12 | `external_js/regex_analyzer.js` | regex analysis |
-| 13 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
-| 14 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
-| 14a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
+| 4 | `core_js/tools.js` | shared helpers: `translate`, URL helpers, counters, icon, log (`pushToLog`), keep-alive, `sha256()` (Web Crypto) |
+| 5–6 | `external_js/light-punycode.js`, `external_js/publicsuffixlist.js` | punycode; Public Suffix List parser (`linkumoriPsl`) |
+| 7 | `core_js/badgedHandler.js` | per-tab badge counter |
+| 8 | `core_js/pureCleaning.js` | cleaning outside `webRequest`, and the rule test lab (§7.1) |
+| 9 | `core_js/context_menu.js` | *Copy clean link* context menu |
+| 10 | `core_js/historyListener.js` | cleans URLs changed with the History API (§7.2) |
+| 11 | `external_js/regex_analyzer.js` | regex analysis |
+| 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
+| 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
+| 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
+| 14 | `external_js/linkumori-ghostery-tokens.js` | `LinkumoriGhosteryTokens`: tokenizer adapted from `@ghostery/adblocker` (MPL-2.0); lets the engine skip `$removeparam` filters whose URL pattern cannot match |
 | 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
 | 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
 | 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
@@ -221,7 +221,7 @@ merges them with the custom rules, and stores the result in
 
 | Source | Where it comes from |
 |---|---|
-| Bundled | `data/linkumori-clearurls-min.json.lz4`, built by `node linkumori-cli-tool.js clearurls` from `data/linkumori-clearurls.json` and decompressed with `LinkumoriLZ4` |
+| Bundled | `data/linkumori-clearurls-min.json.lz4`, built by `node linkumori-cli-tool.js clearurls` from `data/linkumori-clearurls.yaml` and decompressed with `LinkumoriLZ4` |
 | Remote | one or more `ruleURL` + `hashURL` pairs set by the user (§5.2) |
 | Remote cache | `remoteRulescache`: the last remote rules that passed verification |
 | Custom | `custom_rules`, from the custom rules editor |
@@ -341,6 +341,13 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
    when the pattern and all four settings match (§5.2). Switching a provider
    off (step 1) uses the pattern-only key too (`isProviderSignatureDisabled`),
    so it removes every provider with that pattern.
+   A base provider that lists several domains (identical built-in providers
+   are kept as one, §6) counts as one provider per domain: a custom provider
+   for exactly one of its domains replaces it for that domain only, and
+   switching one of its domains off removes that domain only
+   (`filterProvidersByDisabledSignatures`). In overload mode a remote provider
+   for one of its domains merges with a copy of it for that domain
+   (`mergeRemoteWithBundledRules`).
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id
@@ -438,6 +445,14 @@ indexes providers by hostname token:
   - a `urlPattern` provider without `indexPattern` (which is why
     `lint-rules` warns about it);
   - a provider with a `/regex/` domain pattern.
+- **Cache.** `getCandidateProvidersForHost(host)` keeps each host's
+  candidate list (up to 512 hosts). It is dropped when the providers are
+  rebuilt or the Public Suffix List finishes loading.
+- **URLs without parameters.** A provider whose only actions work on query
+  or fragment parameters (no `rawRules`, redirections, `fieldRedirections`
+  or blocking; `isParamsOnly()`) can't change a URL with no `?` and no `#`,
+  so `clearUrl()` skips it for such URLs. Most subresources (scripts,
+  styles, images) have no query, so they skip almost every provider.
 
 ### 6.4 Cleaning a request
 
@@ -456,11 +471,11 @@ flowchart TD
     D -- no --> Z
     D -- yes --> E{ping or beacon,<br/>ping blocking on?}
     E -- yes --> X[cancel]
-    E -- no --> F[collect @@ $removeparam exceptions<br/>from providers matching the page]
-    F --> G[candidates: providers indexed under<br/>the request host + global providers]
+    E -- no --> G[candidates: providers indexed under<br/>the request host + global providers]
     G --> H{next candidate matches<br/>method, type, URL?}
     H -- no more --> Y{CNAME uncloaking?}
-    H -- yes --> I[removeFieldsFormURL]
+    H -- yes --> F[on first use: collect @@ $removeparam<br/>exceptions from providers matching the page]
+    F --> I[removeFieldsFormURL]
     I -- redirect --> R[redirect, or navigate the tab<br/>if forceRedirection]
     I -- block --> K[main frame: siteBlockedAlert page<br/>other: redirect to javascript:void 0]
     I -- changed --> M[redirect to the cleaned URL]
@@ -545,6 +560,17 @@ can stand for that page:
 - the tab's URL, kept up to date from `tabs.onUpdated` and
   `webNavigation.onCommitted`;
 - the URLs of the frame's ancestor frames.
+
+`getContextURLs(request)` is the cached form (one list per request, kept
+until the current synchronous run ends or a tab or frame URL changes); the
+whitelist check and `clearUrl()` share it.
+
+The `@@` exceptions that come from the page (`getContextRemoveParamExceptions`)
+are collected only when a provider is about to clean the request, and are
+cached (up to 512 entries) by page URLs, request type, method and the
+referral marketing setting, since nothing else changes the answer. The cache
+is dropped when the providers are rebuilt or the Public Suffix List finishes
+loading. Providers with no `@@` entries are not checked against the page.
 
 ### 6.7 Public Suffix List
 
@@ -823,7 +849,7 @@ Some logic has to agree between the background, the custom rules editor
 
 | Build time (CLI) | Runtime (extension) |
 |---|---|
-| `data/linkumori-clearurls.json` is edited by hand | never read |
+| `data/linkumori-clearurls.yaml` is edited by hand; `clearurls` leaves it unchanged and exports `data/linkumori-clearurls.json` | never read |
 | `node linkumori-cli-tool.js clearurls` builds `data/linkumori-clearurls-min.json.lz4` with metadata | loaded at startup (§5.1) |
 | `lint-rules`, `show-rule` check and inspect rules | the editor runs the same checks on save |
 | `data/public_suffix_list.dat` is refreshed by the CLI | loaded by `linkumoriPsl` (§6.7) |
