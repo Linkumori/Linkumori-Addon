@@ -821,7 +821,12 @@ var linkumoriDomainPatternHelpers = (function () {
             if (end !== -1 && raw.charAt(end) === '^') hostEndIndex = end;
         }
 
-        const source = linkumoriTokensToRegexSource(raw, hostEndIndex);
+        let source = linkumoriTokensToRegexSource(raw, hostEndIndex);
+        // PERF: without a start anchor the regex may match anywhere, so a
+        // leading ".*" (from a leading "*") changes nothing for test() but
+        // makes the engine retry it from every position. URLs hold no line
+        // breaks, which "." would not match.
+        if (!domainAnchor && !startAnchor) while (source.startsWith('.*')) source = source.slice(2);
         const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
         // A "||" pattern that is only a host must end at the host: ':' is a
@@ -931,15 +936,36 @@ function matchDomainPattern(url, patterns) {
         let parsed = matchDomainPatternLastUrl;
         if (!parsed || parsed.url !== url) {
             const urlObj = new URL(url);
-            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase() };
+            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase(),
+                results: new Map(), pslStatus: pslSupport.status };
             matchDomainPatternLastUrl = parsed;
         }
         const { urlObj, hostname, fullUrl } = parsed;
         if (!hostname) return false;
+        // PERF: many rules check the same URL against the same pattern (each
+        // rule of a provider repeats its domain, and filters are copied
+        // across providers), so a pattern's answer for this URL is kept.
+        // It depends only on the URL, the pattern and whether the Public
+        // Suffix List is loaded, so it is dropped when that changes.
+        if (parsed.pslStatus !== pslSupport.status) {
+            parsed.results = new Map();
+            parsed.pslStatus = pslSupport.status;
+        }
+        const results = parsed.results;
 
         return patterns.some(pattern => {
             const p = String(pattern || '').trim();
             if (!p) return false;
+            let answer = results.get(p);
+            if (answer === undefined) {
+                answer = matchOnePattern(p);
+                if (results.size >= 5000) results.clear();
+                results.set(p, answer);
+            }
+            return answer;
+        });
+
+        function matchOnePattern(p) {
 
             // Regex literal: /body/ or /body/flags
             if (p.charAt(0) === '/') {
@@ -975,7 +1001,7 @@ function matchDomainPattern(url, patterns) {
             const regex = compileLinkumoriRegex(pLower);
             if (regex) return regex.test(fullUrl);
             return fullUrl.includes(pLower);
-        });
+        }
     } catch (e) { return false; }
 }
 
