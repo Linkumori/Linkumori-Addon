@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Deze pagina begint met een klein werkend voorbeeld. Zie de <a href=\"../docs/filter-syntax.md\">volledige referentie voor de filtersyntaxis</a> voor elke ondersteunde optie en het exacte gedrag ervan."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Gedeelde regelsets"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Gedeelde regelsets beheren"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 gedeelde regelset(s)"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Definieer hier eenmalig benoemde lijsten met items en gebruik er daarna een in de regellijsten van een provider met <code>{ \"include\": \"name\" }</code>. De extensie schrijft elke include uit als kopieën van de items van de set, op dezelfde plek en in dezelfde volgorde, zodat de provider precies werkt alsof ze daar geschreven stonden. Een setnaam bestaat uit kleine letters, cijfers, <code>-</code> en <code>_</code>; een set is een lijst met items en kan geen andere set bevatten."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Regelsets (JSON-object: naam → lijst met items)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Regelsets opslaan"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "De regelsets zijn geen geldige JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "De regelsets moeten een JSON-object met benoemde lijsten zijn."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Gedeelde regelsets: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Deze provider bevat een gedeelde regelset, dus stappen worden in de set herschikt, niet hier."
   }
 
 }

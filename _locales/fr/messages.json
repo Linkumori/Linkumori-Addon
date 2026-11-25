@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Cette page commence par un petit exemple fonctionnel. Pour chaque option prise en charge et son comportement exact, consultez la <a href=\"../docs/filter-syntax.md\">référence complète de la syntaxe des filtres</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Ensembles de règles partagés"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Gérer les ensembles de règles partagés"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 ensemble(s) de règles partagé(s)"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Définissez ici une seule fois des listes d'entrées nommées, puis utilisez-en une dans les listes de règles d'un fournisseur avec <code>{ \"include\": \"name\" }</code>. L'extension remplace chaque inclusion par des copies des entrées de l'ensemble, au même endroit et dans le même ordre, de sorte que le fournisseur fonctionne exactement comme si elles y étaient écrites. Un nom d'ensemble utilise des lettres minuscules, des chiffres, <code>-</code> et <code>_</code> ; un ensemble est une liste d'entrées et ne peut pas inclure un autre ensemble."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Ensembles de règles (objet JSON : nom → liste d'entrées)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Enregistrer les ensembles de règles"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Les ensembles de règles ne sont pas du JSON valide : $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Les ensembles de règles doivent être un objet JSON de listes nommées."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Ensembles de règles partagés : $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Ce fournisseur inclut un ensemble de règles partagé ; les étapes se réorganisent donc dans l'ensemble, pas ici."
   }
 
 }

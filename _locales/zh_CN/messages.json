@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "本页从一个可运行的小示例开始。有关每个受支持选项及其确切行为，请参阅<a href=\"../docs/filter-syntax.md\">完整的过滤器语法参考</a>。"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "共享规则集"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "管理共享规则集"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 个共享规则集"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "在此为条目列表命名并一次性定义，然后在提供方的规则列表中通过 <code>{ \"include\": \"name\" }</code> 使用。扩展会将每个 include 原位、按顺序展开为该规则集条目的副本，因此提供方的运行效果与直接在那里写入这些条目完全相同。规则集名称可使用小写字母、数字、<code>-</code> 和 <code>_</code>；规则集是条目列表，不能包含其他规则集。"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "规则集（JSON 对象：名称 → 条目列表）"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "保存规则集"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "规则集不是有效的 JSON：$1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "规则集必须是由命名列表组成的 JSON 对象。"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "共享规则集：$1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "此提供方包含共享规则集，因此请在规则集中而非此处调整步骤顺序。"
   }
 
 }

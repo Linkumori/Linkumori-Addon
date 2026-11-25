@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "หน้านี้เริ่มต้นด้วยตัวอย่างเล็กๆ ที่ใช้งานได้จริง สำหรับตัวเลือกที่รองรับทั้งหมดและลักษณะการทำงานที่แน่นอน โปรดดู<a href=\"../docs/filter-syntax.md\">ข้อมูลอ้างอิงไวยากรณ์ตัวกรองฉบับเต็ม</a>"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "ชุดกฎที่ใช้ร่วมกัน"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "จัดการชุดกฎที่ใช้ร่วมกัน"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "ชุดกฎที่ใช้ร่วมกัน $1 ชุด"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "กำหนดรายการข้อมูลที่มีชื่อไว้ที่นี่ครั้งเดียว จากนั้นนำไปใช้ในรายการกฎของผู้ให้บริการด้วย <code>{ \"include\": \"name\" }</code> ส่วนขยายจะเขียน include แต่ละรายการออกมาเป็นสำเนาของข้อมูลในชุด ณ ตำแหน่งเดิมและตามลำดับเดิม ผู้ให้บริการจึงทำงานเหมือนกับว่าข้อมูลเหล่านั้นถูกเขียนไว้ตรงนั้นทุกประการ ชื่อชุดใช้ตัวพิมพ์เล็ก ตัวเลข <code>-</code> และ <code>_</code> ชุดคือรายการข้อมูลและไม่สามารถรวมชุดอื่นได้"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "ชุดกฎ (ออบเจ็กต์ JSON: ชื่อ → รายการข้อมูล)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "บันทึกชุดกฎ"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "ชุดกฎไม่ใช่ JSON ที่ถูกต้อง: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "ชุดกฎต้องเป็นออบเจ็กต์ JSON ของรายการที่มีชื่อ"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "ชุดกฎที่ใช้ร่วมกัน: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "ผู้ให้บริการนี้รวมชุดกฎที่ใช้ร่วมกัน จึงต้องจัดลำดับขั้นตอนใหม่ในชุดนั้น ไม่ใช่ที่นี่"
   }
 
 }

@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Questa pagina inizia con un piccolo esempio funzionante. Per ogni opzione supportata e il suo comportamento esatto, consulta il <a href=\"../docs/filter-syntax.md\">riferimento completo alla sintassi dei filtri</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Set di regole condivisi"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Gestisci set di regole condivisi"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Set di regole condivisi: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Definisci qui una sola volta elenchi di voci con un nome, poi usane uno negli elenchi di regole di un provider con <code>{ \"include\": \"name\" }</code>. L'estensione sostituisce ogni inclusione con copie delle voci del set, nella stessa posizione e nello stesso ordine, così il provider funziona esattamente come se fossero scritte lì. Il nome di un set usa lettere minuscole, cifre, <code>-</code> e <code>_</code>; un set è un elenco di voci e non può includere un altro set."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Set di regole (oggetto JSON: nome → elenco di voci)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Salva set di regole"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "I set di regole non sono JSON valido: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "I set di regole devono essere un oggetto JSON di elenchi con nome."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Set di regole condivisi: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Questo provider include un set di regole condiviso, quindi i passaggi si riordinano nel set, non qui."
   }
 
 }

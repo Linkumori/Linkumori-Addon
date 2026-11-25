@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "See leht algab väikese toimiva näitega. Kõigi toetatud valikute ja nende täpse käitumise kohta vaata <a href=\"../docs/filter-syntax.md\">filtrite süntaksi täielikku teatmikku</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Jagatud reeglikogumid"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Halda jagatud reeglikogumeid"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Jagatud reeglikogumeid: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Määra siin üks kord nimelised kirjete loendid ja kasuta neist ühte teenusepakkuja reegliloendites kujul <code>{ \"include\": \"name\" }</code>. Laiendus kirjutab iga kaasamise lahti kogumi kirjete koopiatena samasse kohta ja samas järjekorras, nii et teenusepakkuja toimib täpselt nii, nagu oleksid need sinna kirjutatud. Kogumi nimes kasutatakse väiketähti, numbreid, <code>-</code> ja <code>_</code>; kogum on kirjete loend ega saa kaasata teist kogumit."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Reeglikogumid (JSON-objekt: nimi → kirjete loend)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Salvesta reeglikogumid"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Reeglikogumid ei ole kehtiv JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Reeglikogumid peavad olema nimeliste loendite JSON-objekt."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Jagatud reeglikogumid: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "See teenusepakkuja kaasab jagatud reeglikogumi, seega muudetakse sammude järjekorda kogumis, mitte siin."
   }
 
 }

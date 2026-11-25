@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Trang này bắt đầu bằng một ví dụ nhỏ hoạt động được. Để biết mọi tùy chọn được hỗ trợ và hành vi chính xác của chúng, hãy xem <a href=\"../docs/filter-syntax.md\">tài liệu tham khảo đầy đủ về cú pháp bộ lọc</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Bộ quy tắc dùng chung"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Quản lý bộ quy tắc dùng chung"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 bộ quy tắc dùng chung"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Đặt tên và định nghĩa các danh sách mục tại đây một lần, rồi dùng một danh sách trong các danh sách quy tắc của nhà cung cấp bằng <code>{ \"include\": \"name\" }</code>. Tiện ích ghi mỗi lệnh include thành bản sao các mục của bộ, đúng vị trí và đúng thứ tự, nên nhà cung cấp hoạt động y như thể các mục được viết tại đó. Tên bộ dùng chữ thường, chữ số, <code>-</code> và <code>_</code>; một bộ là danh sách các mục và không thể bao gồm bộ khác."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Bộ quy tắc (đối tượng JSON: tên → danh sách mục)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Lưu bộ quy tắc"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Bộ quy tắc không phải JSON hợp lệ: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Bộ quy tắc phải là một đối tượng JSON gồm các danh sách có tên."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Bộ quy tắc dùng chung: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Nhà cung cấp này bao gồm một bộ quy tắc dùng chung, vì vậy các bước được sắp xếp lại trong bộ, không phải tại đây."
   }
 
 }

@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "यह पेज एक छोटे कार्यशील उदाहरण से शुरू होता है। हर समर्थित विकल्प और उसके सटीक व्यवहार के लिए, <a href=\"../docs/filter-syntax.md\">पूर्ण फ़िल्टर सिंटैक्स संदर्भ</a> देखें।"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "साझा नियम सेट"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "साझा नियम सेट प्रबंधित करें"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 साझा नियम सेट"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "प्रविष्टियों की सूचियों को यहाँ एक बार नाम देकर परिभाषित करें, फिर किसी प्रदाता की नियम सूचियों में <code>{ \"include\": \"name\" }</code> के साथ उनमें से किसी एक का उपयोग करें। एक्सटेंशन हर include को सेट की प्रविष्टियों की प्रतियों के रूप में, उसी जगह और उसी क्रम में लिख देता है, ताकि प्रदाता ठीक वैसे ही काम करे जैसे वे वहीं लिखी गई हों। सेट के नाम में छोटे अक्षर, अंक, <code>-</code> और <code>_</code> होते हैं; सेट प्रविष्टियों की एक सूची है और उसमें कोई दूसरा सेट शामिल नहीं हो सकता।"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "नियम सेट (JSON ऑब्जेक्ट: नाम → प्रविष्टियों की सूची)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "नियम सेट सहेजें"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "नियम सेट मान्य JSON नहीं हैं: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "नियम सेट नामित सूचियों का JSON ऑब्जेक्ट होने चाहिए।"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "साझा नियम सेट: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "यह प्रदाता एक साझा नियम सेट शामिल करता है, इसलिए चरणों का क्रम यहाँ नहीं, सेट में बदला जाता है।"
   }
 
 }

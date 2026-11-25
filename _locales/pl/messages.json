@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Ta strona zaczyna się od małego działającego przykładu. Opis każdej obsługiwanej opcji i jej dokładnego działania znajdziesz w <a href=\"../docs/filter-syntax.md\">pełnej dokumentacji składni filtrów</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Współdzielone zestawy reguł"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Zarządzaj współdzielonymi zestawami reguł"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Współdzielone zestawy reguł: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Zdefiniuj tu raz nazwane listy wpisów, a następnie użyj jednej z nich na listach reguł dostawcy za pomocą <code>{ \"include\": \"name\" }</code>. Rozszerzenie zastępuje każde dołączenie kopiami wpisów zestawu, w tym samym miejscu i w tej samej kolejności, więc dostawca działa dokładnie tak, jakby zostały tam wpisane. Nazwa zestawu składa się z małych liter, cyfr, <code>-</code> i <code>_</code>; zestaw to lista wpisów i nie może dołączać innego zestawu."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Zestawy reguł (obiekt JSON: nazwa → lista wpisów)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Zapisz zestawy reguł"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Zestawy reguł nie są prawidłowym JSON-em: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Zestawy reguł muszą być obiektem JSON z nazwanymi listami."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Współdzielone zestawy reguł: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Ten dostawca dołącza współdzielony zestaw reguł, więc kolejność kroków zmienia się w zestawie, a nie tutaj."
   }
 
 }

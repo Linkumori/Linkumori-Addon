@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "עמוד זה מתחיל בדוגמה קטנה שעובדת. לכל אפשרות נתמכת ולהתנהגות המדויקת שלה, ראו את <a href=\"../docs/filter-syntax.md\">מדריך העיון המלא לתחביר המסננים</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "ערכות כללים משותפות"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "ניהול ערכות כללים משותפות"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "ערכות כללים משותפות: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "הגדירו כאן פעם אחת רשימות רשומות בעלות שם, ואז השתמשו באחת מהן ברשימות הכללים של ספק באמצעות <code>{ \"include\": \"name\" }</code>. התוסף כותב כל הכללה כעותקים של רשומות הערכה, באותו מקום ובאותו סדר, כך שהספק פועל בדיוק כאילו הן נכתבו שם. שם ערכה משתמש באותיות קטנות, ספרות, <code>-</code> ו-<code>_</code>; ערכה היא רשימת רשומות ואינה יכולה לכלול ערכה אחרת."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "ערכות כללים (אובייקט JSON: שם ← רשימת רשומות)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "שמירת ערכות כללים"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "ערכות הכללים אינן JSON תקין: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "ערכות הכללים חייבות להיות אובייקט JSON של רשימות בעלות שם."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "ערכות כללים משותפות: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "ספק זה כולל ערכת כללים משותפת, ולכן סדר השלבים משתנה בערכה ולא כאן."
   }
 
 }

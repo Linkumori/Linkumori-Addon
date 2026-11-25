@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Эта страница начинается с небольшого рабочего примера. Описание всех поддерживаемых параметров и их точного поведения см. в <a href=\"../docs/filter-syntax.md\">полном справочнике по синтаксису фильтров</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Общие наборы правил"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Управление общими наборами правил"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Общих наборов правил: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Здесь один раз задайте именованные списки записей, а затем используйте любой из них в списках правил поставщика с помощью <code>{ \"include\": \"name\" }</code>. Расширение разворачивает каждое включение в копии записей набора — на том же месте и в том же порядке, — поэтому поставщик работает точно так же, как если бы они были записаны там. Имя набора состоит из строчных букв, цифр, <code>-</code> и <code>_</code>; набор — это список записей, и он не может включать другой набор."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Наборы правил (JSON-объект: имя → список записей)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Сохранить наборы правил"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Наборы правил не являются корректным JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Наборы правил должны быть JSON-объектом из именованных списков."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Общие наборы правил: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Этот поставщик включает общий набор правил, поэтому шаги переупорядочиваются в наборе, а не здесь."
   }
 
 }

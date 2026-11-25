@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Diese Seite beginnt mit einem kleinen funktionierenden Beispiel. Alle unterstützten Optionen und ihr genaues Verhalten finden Sie in der <a href=\"../docs/filter-syntax.md\">vollständigen Referenz zur Filtersyntax</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Gemeinsame Regelsätze"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Gemeinsame Regelsätze verwalten"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Gemeinsame Regelsätze: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Benannte Listen von Einträgen werden hier einmal angelegt und dann in den Regellisten eines Anbieters mit <code>{ \"include\": \"name\" }</code> verwendet. Die Erweiterung schreibt jede Einbindung als Kopien der Einträge des Satzes aus – an derselben Stelle und in derselben Reihenfolge –, sodass der Anbieter genau so funktioniert, als stünden sie dort. Ein Satzname besteht aus Kleinbuchstaben, Ziffern, <code>-</code> und <code>_</code>; ein Satz ist eine Liste von Einträgen und kann keinen anderen Satz einbinden."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Regelsätze (JSON-Objekt: Name → Liste von Einträgen)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Regelsätze speichern"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Die Regelsätze sind kein gültiges JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Die Regelsätze müssen ein JSON-Objekt aus benannten Listen sein."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Gemeinsame Regelsätze: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Dieser Anbieter bindet einen gemeinsamen Regelsatz ein, daher werden Schritte im Satz umsortiert, nicht hier."
   }
 
 }

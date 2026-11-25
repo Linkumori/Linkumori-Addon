@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Tämä sivu alkaa pienellä toimivalla esimerkillä. Kaikki tuetut asetukset ja niiden tarkan toiminnan löydät <a href=\"../docs/filter-syntax.md\">suodatinsyntaksin täydellisestä viiteoppaasta</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Jaetut sääntöjoukot"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Hallitse jaettuja sääntöjoukkoja"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Jaettuja sääntöjoukkoja: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Määritä nimetyt merkintäluettelot tässä kerran ja käytä sitten jotakin niistä palveluntarjoajan sääntöluetteloissa muodossa <code>{ \"include\": \"name\" }</code>. Laajennus kirjoittaa jokaisen sisällytyksen auki joukon merkintöjen kopioina samaan kohtaan ja samassa järjestyksessä, joten palveluntarjoaja toimii täsmälleen kuin ne olisi kirjoitettu siihen. Joukon nimessä käytetään pieniä kirjaimia, numeroita sekä merkkejä <code>-</code> ja <code>_</code>; joukko on merkintäluettelo, eikä se voi sisällyttää toista joukkoa."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Sääntöjoukot (JSON-objekti: nimi → merkintäluettelo)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Tallenna sääntöjoukot"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Sääntöjoukot eivät ole kelvollista JSONia: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Sääntöjoukkojen on oltava nimettyjen luetteloiden JSON-objekti."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Jaetut sääntöjoukot: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Tämä palveluntarjoaja sisällyttää jaetun sääntöjoukon, joten vaiheiden järjestystä muutetaan joukossa, ei täällä."
   }
 
 }

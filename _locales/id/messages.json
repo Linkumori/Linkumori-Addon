@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Halaman ini dimulai dengan contoh kecil yang berfungsi. Untuk setiap opsi yang didukung dan perilaku persisnya, lihat <a href=\"../docs/filter-syntax.md\">referensi lengkap sintaks filter</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Set aturan bersama"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Kelola set aturan bersama"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 set aturan bersama"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Tetapkan daftar entri bernama di sini sekali, lalu gunakan salah satunya dalam daftar aturan penyedia dengan <code>{ \"include\": \"name\" }</code>. Ekstensi menuliskan setiap penyertaan sebagai salinan entri set, di tempat dan urutan yang sama, sehingga penyedia bekerja persis seolah-olah entri tersebut ditulis di sana. Nama set menggunakan huruf kecil, angka, <code>-</code>, dan <code>_</code>; set adalah daftar entri dan tidak dapat menyertakan set lain."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Set aturan (objek JSON: nama → daftar entri)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Simpan set aturan"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Set aturan bukan JSON yang valid: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Set aturan harus berupa objek JSON berisi daftar bernama."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Set aturan bersama: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Penyedia ini menyertakan set aturan bersama, jadi langkah-langkah diatur ulang di set tersebut, bukan di sini."
   }
 
 }

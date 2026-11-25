@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Ця сторінка починається з невеликого робочого прикладу. Опис кожного підтримуваного параметра та його точної поведінки дивіться в <a href=\"../docs/filter-syntax.md\">повному довіднику із синтаксису фільтрів</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Спільні набори правил"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Керувати спільними наборами правил"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Спільних наборів правил: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Тут один раз задайте іменовані списки записів, а потім використовуйте будь-який із них у списках правил постачальника за допомогою <code>{ \"include\": \"name\" }</code>. Розширення розгортає кожне включення в копії записів набору — на тому самому місці й у тому самому порядку, — тож постачальник працює точно так, ніби їх було записано там. Назва набору складається з малих літер, цифр, <code>-</code> і <code>_</code>; набір — це список записів, і він не може включати інший набір."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Набори правил (JSON-об'єкт: назва → список записів)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Зберегти набори правил"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Набори правил не є коректним JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Набори правил мають бути JSON-об'єктом з іменованих списків."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Спільні набори правил: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Цей постачальник включає спільний набір правил, тому кроки переставляються в наборі, а не тут."
   }
 
 }

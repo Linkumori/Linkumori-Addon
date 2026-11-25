@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Tato stránka začíná malým funkčním příkladem. Všechny podporované volby a jejich přesné chování najdete v <a href=\"../docs/filter-syntax.md\">úplné referenci syntaxe filtrů</a>."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Sdílené sady pravidel"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Spravovat sdílené sady pravidel"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "Sdílené sady pravidel: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Zde jednou definujte pojmenované seznamy položek a poté jeden z nich použijte v seznamech pravidel poskytovatele pomocí <code>{ \"include\": \"name\" }</code>. Rozšíření každé vložení rozepíše jako kopie položek sady, na stejném místě a ve stejném pořadí, takže poskytovatel funguje přesně tak, jako by tam byly zapsány. Název sady používá malá písmena, číslice, <code>-</code> a <code>_</code>; sada je seznam položek a nemůže vkládat jinou sadu."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Sady pravidel (objekt JSON: název → seznam položek)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Uložit sady pravidel"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Sady pravidel nejsou platný JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Sady pravidel musí být objekt JSON s pojmenovanými seznamy."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Sdílené sady pravidel: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Tento poskytovatel vkládá sdílenou sadu pravidel, proto se kroky přeskupují v sadě, ne zde."
   }
 
 }

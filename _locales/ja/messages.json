@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "このページは小さな動作例から始まります。サポートされているすべてのオプションとその正確な動作については、<a href=\"../docs/filter-syntax.md\">フィルター構文の完全なリファレンス</a>を参照してください。"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "共有ルールセット"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "共有ルールセットを管理"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "共有ルールセット $1 件"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "エントリのリストにここで一度だけ名前を付けて定義し、プロバイダーのルールリストで <code>{ \"include\": \"name\" }</code> のように使用します。拡張機能は各 include をセットのエントリのコピーとして、同じ位置に同じ順序で書き出すため、プロバイダーはそれらがそこに直接書かれている場合とまったく同じように動作します。セット名には小文字、数字、<code>-</code>、<code>_</code> を使用します。セットはエントリのリストであり、別のセットを含めることはできません。"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "ルールセット（JSON オブジェクト: 名前 → エントリのリスト）"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "ルールセットを保存"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "ルールセットが有効な JSON ではありません: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "ルールセットは名前付きリストからなる JSON オブジェクトである必要があります。"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "共有ルールセット: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "このプロバイダーは共有ルールセットを含んでいるため、ステップの並べ替えはここではなくセット内で行います。"
   }
 
 }

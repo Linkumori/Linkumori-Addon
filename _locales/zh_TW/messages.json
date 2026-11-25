@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "本頁從一個可執行的小範例開始。如需了解每個支援的選項及其確切行為，請參閱<a href=\"../docs/filter-syntax.md\">完整的篩選器語法參考</a>。"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "共用規則集"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "管理共用規則集"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 個共用規則集"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "在此為項目清單命名並一次定義，接著在提供者的規則清單中透過 <code>{ \"include\": \"name\" }</code> 使用。擴充功能會將每個 include 原地、依序展開為該規則集項目的副本，因此提供者的運作方式與直接在該處寫入這些項目完全相同。規則集名稱可使用小寫字母、數字、<code>-</code> 和 <code>_</code>；規則集是項目清單，不能包含其他規則集。"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "規則集（JSON 物件：名稱 → 項目清單）"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "儲存規則集"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "規則集不是有效的 JSON：$1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "規則集必須是由具名清單組成的 JSON 物件。"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "共用規則集：$1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "此提供者包含共用規則集，因此請在規則集中而非此處調整步驟順序。"
   }
 
 }

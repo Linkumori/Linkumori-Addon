@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "Denne siden starter med et lite fungerende eksempel. Se den <a href=\"../docs/filter-syntax.md\">fullstendige referansen for filtersyntaks</a> for alle støttede alternativer og nøyaktig hvordan de fungerer."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "Delte regelsett"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "Administrer delte regelsett"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1 delt(e) regelsett"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "Definer navngitte lister med oppføringer her én gang, og bruk deretter én av dem i en leverandørs regellister med <code>{ \"include\": \"name\" }</code>. Utvidelsen skriver ut hver inkludering som kopier av settets oppføringer, på samme sted og i samme rekkefølge, slik at leverandøren fungerer nøyaktig som om de var skrevet der. Et settnavn bruker små bokstaver, sifre, <code>-</code> og <code>_</code>; et sett er en liste med oppføringer og kan ikke inkludere et annet sett."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "Regelsett (JSON-objekt: navn → liste med oppføringer)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "Lagre regelsett"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "Regelsettene er ikke gyldig JSON: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "Regelsettene må være et JSON-objekt med navngitte lister."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "Delte regelsett: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "Denne leverandøren inkluderer et delt regelsett, så trinn omorganiseres i settet, ikke her."
   }
 
 }

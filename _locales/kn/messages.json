@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "ಈ ಪುಟವು ಒಂದು ಸಣ್ಣ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಉದಾಹರಣೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ಪ್ರತಿಯೊಂದು ಬೆಂಬಲಿತ ಆಯ್ಕೆ ಮತ್ತು ಅದರ ನಿಖರ ವರ್ತನೆಗಾಗಿ, <a href=\"../docs/filter-syntax.md\">ಸಂಪೂರ್ಣ ಫಿಲ್ಟರ್ ಸಿಂಟ್ಯಾಕ್ಸ್ ಉಲ್ಲೇಖ</a> ನೋಡಿ."
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "ಹಂಚಿಕೊಂಡ ನಿಯಮ ಸೆಟ್‌ಗಳು"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "ಹಂಚಿಕೊಂಡ ನಿಯಮ ಸೆಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "ಹಂಚಿಕೊಂಡ ನಿಯಮ ಸೆಟ್‌ಗಳು: $1"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "ನಮೂದುಗಳ ಪಟ್ಟಿಗಳಿಗೆ ಇಲ್ಲಿ ಒಮ್ಮೆ ಹೆಸರಿಟ್ಟು ವ್ಯಾಖ್ಯಾನಿಸಿ, ನಂತರ ಪೂರೈಕೆದಾರರ ನಿಯಮ ಪಟ್ಟಿಗಳಲ್ಲಿ <code>{ \"include\": \"name\" }</code> ಮೂಲಕ ಅವುಗಳಲ್ಲಿ ಒಂದನ್ನು ಬಳಸಿ. ವಿಸ್ತರಣೆಯು ಪ್ರತಿ include ಅನ್ನು ಸೆಟ್‌ನ ನಮೂದುಗಳ ಪ್ರತಿಗಳಾಗಿ, ಅದೇ ಸ್ಥಳದಲ್ಲಿ ಅದೇ ಕ್ರಮದಲ್ಲಿ ಬರೆಯುತ್ತದೆ, ಆದ್ದರಿಂದ ಆ ನಮೂದುಗಳನ್ನು ಅಲ್ಲಿಯೇ ಬರೆದಿದ್ದರೆ ಹೇಗೋ ಹಾಗೆಯೇ ಪೂರೈಕೆದಾರರು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಾರೆ. ಸೆಟ್‌ನ ಹೆಸರಿನಲ್ಲಿ ಸಣ್ಣ ಅಕ್ಷರಗಳು, ಅಂಕೆಗಳು, <code>-</code> ಮತ್ತು <code>_</code> ಬಳಸಲಾಗುತ್ತದೆ; ಸೆಟ್ ಎಂದರೆ ನಮೂದುಗಳ ಪಟ್ಟಿ, ಅದು ಮತ್ತೊಂದು ಸೆಟ್ ಅನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "ನಿಯಮ ಸೆಟ್‌ಗಳು (JSON ಆಬ್ಜೆಕ್ಟ್: ಹೆಸರು → ನಮೂದುಗಳ ಪಟ್ಟಿ)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "ನಿಯಮ ಸೆಟ್‌ಗಳನ್ನು ಉಳಿಸಿ"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "ನಿಯಮ ಸೆಟ್‌ಗಳು ಮಾನ್ಯ JSON ಅಲ್ಲ: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "ನಿಯಮ ಸೆಟ್‌ಗಳು ಹೆಸರಿಸಿದ ಪಟ್ಟಿಗಳ JSON ಆಬ್ಜೆಕ್ಟ್ ಆಗಿರಬೇಕು."
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "ಹಂಚಿಕೊಂಡ ನಿಯಮ ಸೆಟ್‌ಗಳು: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "ಈ ಪೂರೈಕೆದಾರರು ಹಂಚಿಕೊಂಡ ನಿಯಮ ಸೆಟ್ ಅನ್ನು ಸೇರಿಸುತ್ತಾರೆ, ಆದ್ದರಿಂದ ಹಂತಗಳ ಕ್ರಮವನ್ನು ಇಲ್ಲಿ ಅಲ್ಲ, ಸೆಟ್‌ನಲ್ಲಿ ಬದಲಾಯಿಸಲಾಗುತ್ತದೆ."
   }
 
 }

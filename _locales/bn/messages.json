@@ -6486,6 +6486,36 @@
   },
   "guide_source_intro_p_3": {
     "message": "এই পৃষ্ঠাটি একটি ছোট কার্যকর উদাহরণ দিয়ে শুরু হয়। প্রতিটি সমর্থিত বিকল্প এবং তার সঠিক আচরণের জন্য <a href=\"../docs/filter-syntax.md\">সম্পূর্ণ ফিল্টার সিনট্যাক্স রেফারেন্স</a> দেখুন।"
+  },
+  "customRulesEditor_ruleSetsTitle": {
+    "message": "শেয়ার করা নিয়ম সেট"
+  },
+  "customRulesEditor_ruleSetsManage": {
+    "message": "শেয়ার করা নিয়ম সেট পরিচালনা করুন"
+  },
+  "customRulesEditor_ruleSetsCount": {
+    "message": "$1টি শেয়ার করা নিয়ম সেট"
+  },
+  "customRulesEditor_ruleSetsIntro": {
+    "message": "এন্ট্রির তালিকাগুলোকে এখানে একবার নাম দিয়ে সংজ্ঞায়িত করুন, তারপর কোনো প্রদানকারীর নিয়ম তালিকায় <code>{ \"include\": \"name\" }</code> দিয়ে সেগুলোর একটি ব্যবহার করুন। এক্সটেনশন প্রতিটি include-কে সেটের এন্ট্রিগুলোর অনুলিপি হিসেবে, একই জায়গায় ও একই ক্রমে লিখে দেয়, ফলে প্রদানকারী ঠিক এমনভাবে কাজ করে যেন এন্ট্রিগুলো সেখানেই লেখা হয়েছিল। সেটের নামে ছোট হাতের অক্ষর, অঙ্ক, <code>-</code> ও <code>_</code> ব্যবহৃত হয়; সেট হলো এন্ট্রির একটি তালিকা এবং এটি অন্য কোনো সেট অন্তর্ভুক্ত করতে পারে না।"
+  },
+  "customRulesEditor_ruleSetsJsonLabel": {
+    "message": "নিয়ম সেট (JSON অবজেক্ট: নাম → এন্ট্রির তালিকা)"
+  },
+  "customRulesEditor_ruleSetsSave": {
+    "message": "নিয়ম সেট সংরক্ষণ করুন"
+  },
+  "customRulesEditor_ruleSetsJsonInvalid": {
+    "message": "নিয়ম সেটগুলো বৈধ JSON নয়: $1"
+  },
+  "customRulesEditor_ruleSetsNotObject": {
+    "message": "নিয়ম সেটগুলোকে অবশ্যই নামযুক্ত তালিকার একটি JSON অবজেক্ট হতে হবে।"
+  },
+  "customRulesEditor_ruleSetInvalid": {
+    "message": "শেয়ার করা নিয়ম সেট: $1"
+  },
+  "customRulesEditor_runOrderIncludesNote": {
+    "message": "এই প্রদানকারী একটি শেয়ার করা নিয়ম সেট অন্তর্ভুক্ত করে, তাই ধাপগুলোর ক্রম এখানে নয়, সেটে পরিবর্তন করা হয়।"
   }
 
 }
