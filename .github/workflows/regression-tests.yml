@@ -44,6 +44,10 @@ jobs:
       - name: Run regression suite
         run: node tests/run-regression-suite.cjs
 
+      # The $removeparam URL shortcut against the full URL pattern check.
+      - name: Check URL shortcut
+        run: node tests/run-url-shortcut-check.cjs
+
       - name: Lint rules source (YAML)
         run: node linkumori-cli-tool.js lint-rules data/linkumori-clearurls.yaml
 

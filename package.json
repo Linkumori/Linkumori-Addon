@@ -9,7 +9,7 @@
     "make": "node ./linkumori-cli-tool.js",
     "gh": "bun ./scripts/git-workflow.js",
     "changelog:auto": "bun ./scripts/update-changelog-from-commits.js",
-    "test": "node tests/run-regression-suite.cjs"
+    "test": "node tests/run-regression-suite.cjs && node tests/run-url-shortcut-check.cjs"
   },
   "keywords": [
     "linkumori",

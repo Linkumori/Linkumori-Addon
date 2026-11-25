@@ -3388,6 +3388,299 @@
         "globalStatus": true,
         "redirectionEnabled": true
       }
+    },
+    {
+      "id": "|| path after ^ starts right after the host (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/foo/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/foo/?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com^foo/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| path after ^ does not match inside a longer word (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/xfoo/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/xfoo/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com^foo/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| path does not match after another path segment (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/x/go/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/x/go/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com/go^$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| path without ^ does not skip a port (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com:8080/go/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com:8080/go/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com/go^$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| word after ^ does not skip a port (uBO, Ghostery)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com:8080/go/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com:8080/go/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com^go/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| wildcard inside the host matches (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://ipv6.example.com/search?utm_source=a&id=1",
+      "expectedOutput": "https://ipv6.example.com/search?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||ipv6.example.com*/search?$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| @@ exception path after ^ does not match inside a longer word",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/xfoo/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/xfoo/?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "$removeparam=utm_source",
+            "@@||example.com^foo/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| host with nothing after it ends at the host",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com.evil.org/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com.evil.org/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "host-only": {
+          "domainPatterns": [
+            "||example.com"
+          ],
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| host with nothing after it matches the host and its subdomains",
+      "dialect": "providerWebRequest",
+      "input": "https://www.example.com/?utm_source=a&id=1",
+      "expectedOutput": "https://www.example.com/?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "host-only": {
+          "domainPatterns": [
+            "||example.com"
+          ],
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| host.* does not match a lookalike host",
+      "dialect": "providerWebRequest",
+      "input": "https://shopzone.evil.com/?utm_source=a&id=1",
+      "expectedOutput": "https://shopzone.evil.com/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "any-suffix": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| ^/ means the path starts with / (single slash)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/go/x?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/go/x?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.(?:com|org)",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "||example.com^/go/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "|| unicode host is matched in punycode",
+      "dialect": "providerWebRequest",
+      "input": "https://xn--bcher-kva.example/?utm_source=a&id=1",
+      "expectedOutput": "https://xn--bcher-kva.example/?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "idn": {
+          "domainPatterns": [
+            "||bücher.example^"
+          ],
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "@@ word| pattern matches the end of a longer word on the page (Ghostery tokenizer bug)",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/api?utm_source=a&id=1",
+      "expectedOutput": "https://example.com/api?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://example.com/xfooaff"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.(?:com|org)",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "$removeparam=utm_source",
+            "@@*fooaff|$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
