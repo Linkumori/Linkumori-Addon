@@ -17,28 +17,33 @@
  * ---------------------
  * 1. Code from @ghostery/adblocker
  *    Copyright (c) 2017-present Ghostery GmbH.
- *    License: Mozilla Public License 2.0 (MPL-2.0) only.
+ *    License: Mozilla Public License 2.0 (MPL-2.0).
  *    Full text: THIRD-PARTY-NOTICE/ghostery-adblocker/LICENSE and
  *    https://mozilla.org/MPL/2.0/.
  *
  * 2. Code Linkumori added or changed in this file (listed below)
  *    Copyright (c) 2026 Subham Mahesh.
- *    License: BOTH the Mozilla Public License 2.0 (MPL-2.0) AND the
- *    GNU Lesser General Public License v3.0 or later
- *    (LGPL-3.0-or-later). Because it modifies MPL-2.0 code, it is
- *    available under MPL-2.0 like the code it changes; Subham Mahesh
- *    also licenses it under LGPL-3.0-or-later, the license of the rest
- *    of Linkumori. You may use it under either license.
- *    LGPL text: https://www.gnu.org/licenses/lgpl-3.0.html
+ *    License: MPL-2.0 and GNU Lesser General Public License v3.0 or
+ *    later (LGPL-3.0-or-later).
  *
- * This file as a whole, including the Ghostery code, must be
- * distributed under MPL-2.0. Anyone who changes it must keep the file
- * available under MPL-2.0.
+ * DISTRIBUTION UNDER LGPL v3 (MPL-2.0 SECTION 3.3)
+ * -------------------------------------------------
+ * Linkumori is a Larger Work that combines this file with code under
+ * the GNU LGPL v3.0 or later. The LGPL (version 2.1 "or any later
+ * versions", so v3.0 too) is a Secondary License (MPL-2.0 section
+ * 1.12), and the Ghostery code carries no "Incompatible With Secondary
+ * Licenses" notice (Exhibit B). Section 3.3 therefore lets Linkumori
+ * distribute this whole file, the Ghostery code included, under the
+ * GNU LGPL v3.0 or later in addition to MPL-2.0.
  *
- * The rest of Linkumori is under the GNU Lesser General Public License
- * v3.0 or later. Linkumori uses this file as part of a Larger Work, as
- * section 3.3 of the MPL allows: this file keeps its MPL-2.0 terms, and
- * the other files keep theirs.
+ * As a recipient of Linkumori you may, at your option, use and further
+ * distribute this file under either:
+ *   - the Mozilla Public License 2.0, or
+ *   - the GNU Lesser General Public License v3.0 or later
+ *     (https://www.gnu.org/licenses/lgpl-3.0.html).
+ *
+ * The Ghostery copyright and MPL-2.0 notice above must be kept
+ * (MPL-2.0 section 3.4), whichever license you choose.
  *
  * Linkumori modifications (MPL-2.0 and LGPL-3.0-or-later):
  * - Kept only the hashing and tokenizing functions.
