@@ -248,6 +248,7 @@ function isWhitelisted(url, requestDetails = null) {
         return false;
     }
 
-    const contextUrls = requestContextManager.collectContextURLs(requestDetails);
+    // Cached per request, so clearUrl() reuses the same list.
+    const contextUrls = requestContextManager.getContextURLs(requestDetails);
     return contextUrls.some((contextUrl) => isUrlWhitelistedByEither(contextUrl, tabId));
 }

@@ -2129,9 +2129,27 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     let changes = false, actionType = null, matchedRuleForTrace = null, matchedRuleSectionForTrace = null;
     let matchedRuleIdForTrace = null, matchedRuleDisableIdForTrace = null;
     let urlObject = new URL(url);
+    // PERF: the first parseURL() reuses this object when the URL is still
+    // pureUrl, instead of parsing it again.
+    let unusedInitialUrlObject = urlObject;
     const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
-    const providerMatch = {
-        ...provider.getAppliedPatternForUrl(pureUrl),
+    // PERF: which pattern matched is only read when something is logged or
+    // returned to a trace, so it is worked out on first read. The
+    // properties keep their place and stay enumerable (logs copy them), and
+    // can still be assigned.
+    let appliedPattern = null;
+    const providerMatch = { providerName: provider.getName() };
+    for (const key of ['patternType', 'patternValue']) {
+        Object.defineProperty(providerMatch, key, {
+            enumerable: true, configurable: true,
+            get() {
+                if (appliedPattern === null) appliedPattern = provider.getAppliedPatternForUrl(pureUrl);
+                return appliedPattern[key];
+            },
+            set(value) { Object.defineProperty(this, key, { value, writable: true, enumerable: true, configurable: true }); }
+        });
+    }
+    Object.assign(providerMatch, {
         logCategory: 'provider',
         providerMethods: provider.getMethods(),
         providerResourceTypes: provider.getResourceTypes(),
@@ -2144,7 +2162,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             : (request && typeof request.url === 'string' ? request.url : pureUrl),
         aliasURL: request && typeof request.linkumoriAliasURL === 'string' ? request.linkumoriAliasURL : null,
         cname: request && typeof request.linkumoriCNAME === 'string' ? request.linkumoriCNAME : null
-    };
+    });
 
     if (storage.localHostsSkipping && checkLocalURL(urlObject)) {
         return { changes: false, url, cancel: false, providerMatch, matchedRule: null, action: null };
@@ -2220,7 +2238,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     const parseURL = () => {
         if (parsed) return;
-        urlObject = new URL(url);
+        urlObject = (unusedInitialUrlObject && url === pureUrl) ? unusedInitialUrlObject : new URL(url);
+        unusedInitialUrlObject = null;
         fields = urlObject.searchParams;
         rawFieldsQuery = urlObject.search.startsWith('?') ? urlObject.search.slice(1) : urlObject.search;
         fragments = extractFragments(urlObject);
@@ -3485,7 +3504,20 @@ function start() {
         this.finalizeRules = function () {
             orderedStepsWithReferral = buildOrderedSteps(true, true);
             orderedStepsWithoutReferral = buildOrderedSteps(false, true);
+            paramsOnly = !canceling && Object.keys(redirectionRuleMap).length === 0 &&
+                domainRedirectionRules.length === 0 && fieldRedirectionRules.length === 0 &&
+                !orderedStepsWithReferral.some(step => step.type !== 'field') &&
+                !orderedStepsWithoutReferral.some(step => step.type !== 'field');
         };
+
+        // PERF (idea from uBlock Origin's urlTokenizer.hasQuery()): true when
+        // everything this provider does works on query or fragment
+        // parameters: no rawRules, redirections, fieldRedirections or
+        // blocking. Such a provider changes nothing in a URL with no "?" and
+        // no "#", so clearUrl() skips it for those URLs. False until
+        // finalizeRules() has run.
+        let paramsOnly = false;
+        this.isParamsOnly = function () { return paramsOnly; };
 
         // rawRules, rules and referralMarketing as one list in the order they
         // run (CLN 1.0 §Processing order). Referral-marketing rules are left
@@ -3773,6 +3805,91 @@ function start() {
         return state;
     }
 
+    // PERF: per-request lookups whose answer depends only on their inputs
+    // and on the loaded providers, kept between requests. A page's
+    // subresources share hosts and page context, so most requests hit.
+    // Both caches are dropped when the providers are rebuilt (the index
+    // object changes) or the Public Suffix List finishes loading.
+    const LOOKUP_CACHE_MAX = 512;
+    const candidateProvidersByHost = new Map();
+    const contextExceptionsByKey = new Map();
+    let lookupCacheOwner = null, lookupCachePslStatus = null;
+    const EMPTY_EXCEPTIONS = Object.freeze([]);
+
+    function validateLookupCaches() {
+        if (lookupCacheOwner === providersByToken && lookupCachePslStatus === pslSupport.status) return;
+        candidateProvidersByHost.clear();
+        contextExceptionsByKey.clear();
+        lookupCacheOwner = providersByToken;
+        lookupCachePslStatus = pslSupport.status;
+    }
+
+    function setBoundedCacheEntry(cache, key, value) {
+        if (cache.size >= LOOKUP_CACHE_MAX) cache.delete(cache.keys().next().value);
+        cache.set(key, value);
+    }
+
+    // The providers that may apply to a host: the global ones first, then
+    // those indexed under the host's lookup tokens, in token order.
+    function getCandidateProvidersForHost(hostname) {
+        validateLookupCaches();
+        const host = String(hostname || '');
+        let candidates = candidateProvidersByHost.get(host);
+        if (candidates === undefined) {
+            const set = new Set(globalProviders);
+            for (const token of getHostnameLookupTokens(host)) {
+                const tokenProviders = providersByToken[token];
+                if (tokenProviders) for (const p of tokenProviders) set.add(p);
+            }
+            candidates = Object.freeze(Array.from(set));
+            setBoundedCacheEntry(candidateProvidersByHost, host, candidates);
+        }
+        return candidates;
+    }
+
+    // The @@removeparam exceptions of every provider whose URL pattern
+    // matches one of the request's page URLs (ideas from uBlock Origin's
+    // per-page store and AdGuard's per-frame rule cache). The answer
+    // depends on the page URLs, the request type and method, the referral
+    // marketing setting (which adds or removes exceptions) and the loaded
+    // providers, so those make up the cache key.
+    function getContextRemoveParamExceptions(contextUrls, request) {
+        if (!contextUrls || contextUrls.length === 0) return EMPTY_EXCEPTIONS;
+        validateLookupCaches();
+        const method = request && typeof request.method === 'string' ? request.method.toUpperCase() : '';
+        const key = getLinkumoriRequestType(request) + '\u0000' + method + '\u0000' +
+            (storage.referralMarketing ? '1' : '0') + '\u0000' + contextUrls.join('\u0001');
+        let exceptions = contextExceptionsByKey.get(key);
+        if (exceptions !== undefined) return exceptions;
+
+        const contextCandidateProviders = new Set(globalProviders);
+        for (const ctxUrl of contextUrls) {
+            let ctxHost;
+            try { ctxHost = new URL(ctxUrl).hostname; } catch (e) {
+                // A malformed context URL adds no lookup tokens.
+                console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
+                continue;
+            }
+            for (const p of getCandidateProvidersForHost(ctxHost)) contextCandidateProviders.add(p);
+        }
+
+        const collected = [];
+        for (const provider of contextCandidateProviders) {
+            // A provider without @@removeparam entries adds nothing, so its
+            // URL pattern is not checked.
+            const providerExceptions = provider.getLinkumoriRemoveParamExceptions();
+            if (providerExceptions.length === 0) continue;
+            const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
+            if (!matchesContext) continue;
+            for (const er of providerExceptions) {
+                if (linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request)) collected.push(er);
+            }
+        }
+        exceptions = collected.length > 0 ? Object.freeze(collected) : EMPTY_EXCEPTIONS;
+        setBoundedCacheEntry(contextExceptionsByKey, key, exceptions);
+        return exceptions;
+    }
+
     function forgetRequestCycleState(details) {
         if (details && details.requestId !== undefined) requestCycleStates.delete(details.requestId);
     }
@@ -3796,7 +3913,11 @@ function start() {
             return {};
         }
 
-        const URLbeforeReplaceCount = countFields(request.url);
+        // PERF: parsed once here and reused for the counter and the host.
+        // Throws for an invalid URL, as countFields() did.
+        const requestURLObject = new URL(request.url);
+        let URLbeforeReplaceCount = 0;
+        for (const _ of requestURLObject.searchParams) URLbeforeReplaceCount++;
         increaseTotalCounter(URLbeforeReplaceCount);
 
         if (storage.globalStatus) {
@@ -3818,60 +3939,31 @@ function start() {
                 return { cancel: true };
             }
 
-            // Collect cross-provider @@removeparam exceptions from every provider
-            // whose URL pattern matches the current page context.
-            const contextUrls = (request.type !== 'main_frame')
-                ? requestContextManager.collectContextURLs(request) : [];
-            const globalLinkumoriExceptions = [];
-
-            let contextCandidateProviders = new Set(globalProviders);
-            for (const ctxUrl of contextUrls) {
-                try {
-                    const ctxHost = new URL(ctxUrl).hostname;
-                    const ctxTokens = getHostnameLookupTokens(ctxHost);
-                    const seenCtxTokens = new Set();
-                    for (const token of ctxTokens) {
-                        if (seenCtxTokens.has(token)) continue;
-                        seenCtxTokens.add(token);
-                        const tokenProviders = providersByToken[token];
-                        if (tokenProviders) for (const p of tokenProviders) contextCandidateProviders.add(p);
-                    }
-                } catch (e) {
-                    // A malformed context URL adds no lookup tokens.
-                    console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
+            // Cross-provider @@removeparam exceptions from every provider whose
+            // URL pattern matches the current page context. Only needed once a
+            // provider cleans this request, so worked out on first use.
+            let globalLinkumoriExceptions = null;
+            const getGlobalLinkumoriExceptions = () => {
+                if (globalLinkumoriExceptions === null) {
+                    const contextUrls = (request.type !== 'main_frame')
+                        ? requestContextManager.getContextURLs(request) : [];
+                    globalLinkumoriExceptions = getContextRemoveParamExceptions(contextUrls, request);
                 }
-            }
+                return globalLinkumoriExceptions;
+            };
 
-            for (const provider of contextCandidateProviders) {
-                const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
-                if (matchesContext) {
-                    const matchedExceptions = provider.getLinkumoriRemoveParamExceptions().filter(er =>
-                        linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request));
-                    globalLinkumoriExceptions.push(...matchedExceptions);
-                }
-            }
+            // PERF: a URL with no "?" and no "#" has no parameters, so
+            // providers that only act on parameters are skipped for it.
+            const urlHasParamParts = request.url.indexOf('?') !== -1 || request.url.indexOf('#') !== -1;
 
-            let requestHost = "";
-            try { requestHost = new URL(request.url).hostname; } catch (e) {
-                console.warn('[linkumori] failed to parse request URL', { url: request && request.url, error: String(e && e.message || e) });
-            }
-            const requestHostTokens = getHostnameLookupTokens(requestHost);
-            let requestCandidateProviders = new Set(globalProviders);
-            const seenRequestTokens = new Set();
-            for (const token of requestHostTokens) {
-                if (seenRequestTokens.has(token)) continue;
-                seenRequestTokens.add(token);
-                const tokenProviders = providersByToken[token];
-                if (tokenProviders) for (const p of tokenProviders) requestCandidateProviders.add(p);
-            }
-
-            const candidates = Array.from(requestCandidateProviders);
+            const candidates = getCandidateProvidersForHost(requestURLObject.hostname);
             for (let i = 0; i < candidates.length; i++) {
                 const provider = candidates[i];
+                if (!urlHasParamParts && provider.isParamsOnly()) continue;
                 if (!provider.matchMethod(request)) continue;
                 if (!provider.matchResourceType(request)) continue;
                 if (provider.matchRequestURL(request.url, request)) {
-                    result = removeFieldsFormURL(provider, request.url, false, request, null, globalLinkumoriExceptions, cycleState.rewrites);
+                    result = removeFieldsFormURL(provider, request.url, false, request, null, getGlobalLinkumoriExceptions(), cycleState.rewrites);
                 }
 
                 if (result.redirect) {
