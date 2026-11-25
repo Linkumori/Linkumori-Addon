@@ -19,7 +19,9 @@ export function parse(input, options = {}) {
     const extracted = options.extractHostname === false
         ? String(input || '')
         : psl.extractHostnameFromInput(input, options.mixedInputs !== false);
-    const hostname = extracted ? psl.normalizeHostname(extracted) : null;
+    // Like tldts, drop every trailing dot ("tv.apple.com.." is tv.apple.com);
+    // normalizeHostname() drops only one.
+    const hostname = extracted ? psl.normalizeHostname(String(extracted).replace(/\.+$/, '')) : null;
     if (!hostname) return EMPTY;
     if (psl.isIp(hostname)) {
         return { hostname, domain: null, publicSuffix: null, subdomain: null, isIp: true };

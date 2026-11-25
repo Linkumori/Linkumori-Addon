@@ -7,8 +7,9 @@
 // matchLinkumoriRemoveParamTarget() skips a rule whose words are missing
 // from the URL. That is only safe if matchDomainPattern() can never match
 // such a URL. This script tries to break that, with the Public Suffix List
-// loaded and not loaded (matchDomainPattern() must give the same answers
-// either way):
+// loaded and not loaded. Without the list, a ||host.* pattern is a plain
+// wildcard match, so it may match more URLs (never fewer); every other
+// pattern must give the same answer either way:
 //
 //   - every "$removeparam" URL pattern of the bundled rules, and
 //   - generated hostile patterns ("||", "|", "^", "*", "*.", ".*", ports,
@@ -210,13 +211,16 @@ async function main() {
     let checked = 0, matched = 0;
     const answers = [];
     for (const psl of ['ready', 'not loaded']) {
-        if (psl !== 'ready') run("pslSupport.status = 'failed'; pslSupport.parser = null; pslSupport.service = null; LinkumoriUrlPatterns.clearCaches(); matchDomainPatternLastUrl = null;");
+        // Not loaded: both the add-on's flag and the list itself, which the
+        // Ghostery engine reads (external_js/publicsuffixlist.js).
+        if (psl !== 'ready') run("pslSupport.status = 'failed'; pslSupport.parser = null; pslSupport.service = null; linkumoriPsl.status = 'failed'; LinkumoriUrlPatterns.clearCaches(); matchDomainPatternLastUrl = null;");
         cases.forEach(([p, url], i) => {
             checked++;
             let m;
             try { m = matches(url, [p]); } catch (_) { m = false; }
             if (psl === 'ready') answers[i] = m;
-            else if (answers[i] !== m) failures.push(`[psl] answer changes when the Public Suffix List is not loaded: pattern ${p}\n    url ${url}`);
+            else if (answers[i] && !m) failures.push(`[psl] match lost when the Public Suffix List is not loaded: pattern ${p}\n    url ${url}`);
+            else if (!answers[i] && m && !/^\|\|(?:\*\.)?[^\/^|*?#:]*\.\*/.test(p.toLowerCase())) failures.push(`[psl] answer changes when the Public Suffix List is not loaded: pattern ${p}\n    url ${url}`);
             if (!m) return;
             matched++;
             if (!mayMatch(p, [url])) failures.push(`[psl ${psl}] pattern ${p}\n    url ${url}`);
