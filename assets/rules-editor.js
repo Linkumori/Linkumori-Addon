@@ -16,7 +16,7 @@
   try { BUNDLED = JSON.parse(root.dataset.bundled || '[]'); } catch { /* none */ }
 
   // ---- CLN 1.0 vocabulary (filter-syntax.md) ----
-  const TOP_KEYS = new Set(['cln', 'metadata', 'providers', 'defaults', 'patches']);
+  const TOP_KEYS = new Set(['cln', 'metadata', 'providers', 'defaults', 'patches', 'ruleSets']);
   const LIST_KEYS = ['rules', 'referralMarketing', 'rawRules', 'exceptions', 'redirections', 'fieldRedirections'];
   const BOOL_KEYS = ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'active'];
   const PROVIDER_KEYS = new Set([...LIST_KEYS, ...BOOL_KEYS, 'domainPatterns', 'urlPattern', 'indexPattern', 'methods', 'resourceTypes']);
@@ -26,13 +26,15 @@
 
   // ---- state ----
   const state = {
+    ruleSets: {},          // the full document's shared rule sets, for search and the filtered view
     format: 'json',
     view: 'full',          // 'full' | 'filter'
     fullText: '',          // the full document while the filtered view is on screen
     filterKeys: [],        // provider keys shown in the filtered view
     trimmed: false,        // filtered view hides non-matching rules (read-only)
     fileName: 'linkumori-rules',
-    loadedText: null       // text as last loaded, to warn before replacing edits
+    loadedText: null,      // text as last loaded, to warn before replacing edits and to diff patches against
+    loadedFormat: 'json'
   };
 
   // ---- parsing ----
@@ -102,6 +104,7 @@
   }
 
   // ---- linting ----
+  const lintState = { ruleSetNames: new Set() };
   const isMap = YAML.isMap, isSeq = YAML.isSeq, isScalar = YAML.isScalar;
   function pairs(node) { return isMap(node) ? node.items : []; }
   function keyOf(pair) { return isScalar(pair.key) ? String(pair.key.value) : String(pair.key); }
@@ -154,13 +157,35 @@
 
     const top = doc.contents;
     if (!isMap(top)) { add(top, 'error', 'A rule file must be one object with a "providers" object.'); return { diagnostics: out, providers: 0 }; }
-    let providersNode = null;
+    let providersNode = null, ruleSetsNode = null;
     for (const p of pairs(top)) {
       const k = keyOf(p);
       if (!TOP_KEYS.has(k)) add(p.key, 'warning', `Unknown top-level key "${k}". Known: ${[...TOP_KEYS].join(', ')}.`);
       if (k === 'cln' && !(isScalar(p.value) && String(p.value.value) === '1.0')) add(p.value, 'error', '"cln" must be the string "1.0".');
       if (k === 'providers') providersNode = p;
+      if (k === 'ruleSets') ruleSetsNode = p;
     }
+    // Shared rule sets (expanded by the CLI, see docs/cln-yaml.md): each set
+    // is a list of ordinary entries; providers use them with { include: name }.
+    const ruleSetNames = new Set();
+    if (ruleSetsNode) {
+      if (!isMap(ruleSetsNode.value)) add(ruleSetsNode.value || ruleSetsNode.key, 'error', '"ruleSets" must be an object of named lists.');
+      for (const set of pairs(ruleSetsNode.value)) {
+        const setName = keyOf(set);
+        if (!/^[a-z0-9][a-z0-9_-]*$/.test(setName)) add(set.key, 'error', `Rule set name "${setName}" must use lowercase letters, digits, - and _.`);
+        if (!isSeq(set.value) || set.value.items.length === 0) { add(set.value || set.key, 'error', `Rule set "${setName}" must be a non-empty list.`); continue; }
+        ruleSetNames.add(setName);
+        const seenInSet = new Map();
+        for (const entry of set.value.items) {
+          if (isMap(entry) && pairs(entry).some(p => keyOf(p) === 'include')) { add(entry, 'error', `Rule set "${setName}" cannot include another set.`); continue; }
+          lintEntry(entry, `ruleSets.${setName}`, 'rules', seenInSet, add);
+        }
+      }
+    }
+    // The filtered view holds only providers: its includes name the full
+    // document's sets.
+    if (!ruleSetsNode && state.view === 'filter') for (const name of Object.keys(state.ruleSets)) ruleSetNames.add(name);
+    lintState.ruleSetNames = ruleSetNames;
     if (!providersNode) { add(top, 'error', 'Missing the "providers" object.'); return { diagnostics: out, providers: 0 }; }
     if (!isMap(providersNode.value)) { add(providersNode.value || providersNode.key, 'error', '"providers" must be an object.'); return { diagnostics: out, providers: 0 }; }
 
@@ -195,6 +220,16 @@
 
   function lintEntry(entry, name, list, seen, add) {
     let pattern = null, patternNode = entry;
+    if (isMap(entry) && pairs(entry).some(p => keyOf(p) === 'include')) {
+      // { include: <set> } stands for a shared rule set's entries.
+      const keys = pairs(entry).map(keyOf);
+      if (keys.length !== 1) add(entry, 'error', `"${name}": an include entry has only the "include" key.`);
+      const includeNode = pairs(entry).find(p => keyOf(p) === 'include').value;
+      const setName = isScalar(includeNode) ? String(includeNode.value ?? '') : '';
+      if (!setName) add(includeNode || entry, 'error', `"${name}": "include" must name a rule set.`);
+      else if (!lintState.ruleSetNames.has(setName)) add(includeNode, 'error', `"${name}": no rule set named "${setName}".`);
+      return;
+    }
     if (isScalar(entry)) {
       if (typeof entry.value !== 'string') { add(entry, 'error', `"${name}": ${list} entries must be strings or rule objects.`); return; }
       pattern = entry.value;
@@ -301,12 +336,18 @@
   }
   function convertTo(format) {
     if (format === state.format) return;
+    // Nothing to convert yet: just switch, so a file can be pasted in the chosen format.
+    if (!currentFullText().trim()) { setFormatUI(format); editor.relint(); renderStatus(`Format: ${format.toUpperCase()}`); return; }
     try {
       const full = serialize(parse(currentFullText(), state.format), format);
-      const shown = state.view === 'filter' ? serialize(parse(editor.getText(), state.format), format) : full;
+      const filtered = state.view === 'filter';
+      const shown = filtered ? serialize(parse(editor.getText(), state.format), format) : full;
+      const unedited = filtered && editor.getText() === state.filteredOriginal;
       state.fullText = full;
       setFormatUI(format);
       editor.setText(shown);
+      // Converting is not an edit: leaving the filtered view afterwards shouldn't warn.
+      if (unedited) state.filteredOriginal = editor.getText();
       renderStatus(`Converted to ${format.toUpperCase()}`);
     } catch (e) {
       renderStatus(`Can't convert: fix the ${state.format.toUpperCase()} errors first`);
@@ -328,6 +369,7 @@
     if (format === 'json') { try { shown = serialize(JSON.parse(text), 'json'); } catch { /* keep as is, the linter shows why */ } }
     state.fileName = (name || 'linkumori-rules').replace(/\.(json|ya?ml)$/i, '');
     state.loadedText = shown;
+    state.loadedFormat = format;
     editor.setText(shown);
     renderStatus(`Opened ${name || 'new file'}`);
     scheduleFilter();
@@ -398,6 +440,80 @@
     renderStatus(`Downloaded ${name}`);
   });
 
+  // ---- patch: the edited rules as a "patches" file (filter-syntax.md §Rule patches) ----
+  // Each changed rule becomes { target: "provider::id", section, replace }, with the id the
+  // engine gives the rule as loaded (linkumori_rule_ids.js). A patch can only replace a rule,
+  // so added or removed rules and providers, and changed provider keys, are reported instead.
+  const PATCH_SECTIONS = ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections', 'fieldRedirections'];
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const explicitId = e => (e && typeof e === 'object' && typeof e.id === 'string' && e.id ? e.id : null);
+
+  function buildPatches(base, edited, Ids) {
+    const patches = [], skipped = [];
+    const baseProvs = (base && base.providers) || {}, editProvs = (edited && edited.providers) || {};
+    for (const key of Object.keys(editProvs)) if (!(key in baseProvs)) skipped.push(`provider "${key}" was added`);
+    for (const key of Object.keys(baseProvs)) {
+      if (!(key in editProvs)) { skipped.push(`provider "${key}" was removed`); continue; }
+      const before = baseProvs[key] || {}, after = editProvs[key] || {};
+      const otherKeys = new Set([...Object.keys(before), ...Object.keys(after)].filter(k => !PATCH_SECTIONS.includes(k)));
+      for (const k of otherKeys) if (!same(before[k], after[k])) skipped.push(`"${key}": ${k} changed`);
+      const ids = Ids.assignProviderRuleIds(before);
+      for (const section of PATCH_SECTIONS) {
+        const oldList = Array.isArray(before[section]) ? before[section] : [];
+        const newList = Array.isArray(after[section]) ? after[section] : [];
+        const usedOld = new Set(), usedNew = new Set();
+        const patch = (oi, ni) => {
+          usedOld.add(oi); usedNew.add(ni);
+          if (same(oldList[oi], newList[ni])) return;
+          const id = ids[section][oi] && ids[section][oi].id;
+          if (!id) { skipped.push(`"${key}": ${section}[${oi}] has no id to target`); return; }
+          patches.push({ target: `${key}::${id}`, section, replace: newList[ni] });
+        };
+        // Unchanged entries first, then rules that keep their "id", then the rest in list order.
+        newList.forEach((e, ni) => {
+          const oi = oldList.findIndex((o, i) => !usedOld.has(i) && same(o, e));
+          if (oi >= 0) patch(oi, ni);
+        });
+        newList.forEach((e, ni) => {
+          if (usedNew.has(ni) || !explicitId(e)) return;
+          const oi = oldList.findIndex((o, i) => !usedOld.has(i) && explicitId(o) === explicitId(e));
+          if (oi >= 0) patch(oi, ni);
+        });
+        const restOld = oldList.map((_, i) => i).filter(i => !usedOld.has(i));
+        const restNew = newList.map((_, i) => i).filter(i => !usedNew.has(i));
+        const n = Math.min(restOld.length, restNew.length);
+        for (let i = 0; i < n; i++) patch(restOld[i], restNew[i]);
+        if (restNew.length > n) skipped.push(`"${key}": ${restNew.length - n} rule${restNew.length - n > 1 ? 's' : ''} added to ${section}`);
+        if (restOld.length > n) skipped.push(`"${key}": ${restOld.length - n} rule${restOld.length - n > 1 ? 's' : ''} removed from ${section}`);
+      }
+    }
+    return { patches, skipped };
+  }
+
+  // A page without the button (an older copy of index.html) just has no patch feature.
+  $('re-patch')?.addEventListener('click', () => {
+    const Ids = window.LinkumoriRuleIds;
+    if (!Ids) { renderStatus('Can\'t create a patch: core_js/linkumori_rule_ids.js didn\'t load'); return; }
+    if (state.view === 'filter') { renderStatus('Apply or leave the filtered view first, then create the patch'); return; }
+    if (state.loadedText == null) { renderStatus('Can\'t create a patch: open or load the original rule file first'); return; }
+    let base, edited;
+    try { base = parse(state.loadedText, state.loadedFormat); } catch { renderStatus('Can\'t create a patch: the original file doesn\'t parse'); return; }
+    try { edited = parse(editor.getText(), state.format); } catch { renderStatus('Can\'t create a patch: fix the errors first'); return; }
+    const { patches, skipped } = buildPatches(base, edited, Ids);
+    if (skipped.length) console.info('[rules editor] not in the patch:\n' + skipped.join('\n'));
+    const note = skipped.length ? ` · ${skipped.length} change${skipped.length > 1 ? 's' : ''} can't be a patch (${skipped.slice(0, 2).join('; ')}${skipped.length > 2 ? '; …' : ''})` : '';
+    if (!patches.length) { renderStatus(`No changed rules to patch${note}`); return; }
+    const ext = state.format === 'json' ? 'json' : 'yaml';
+    const name = `${state.fileName}-patch.${ext}`;
+    const blob = new Blob([serialize({ cln: '1.0', patches }, state.format)], { type: state.format === 'json' ? 'application/json' : 'text/yaml' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    renderStatus(`Downloaded ${name}: ${patches.length} patch${patches.length > 1 ? 'es' : ''}${note}`);
+  });
+
   // ---- filtering ----
   const queryEl = $('re-query'), scopeEl = $('re-scope'), regexEl = $('re-regex'), trimEl = $('re-trim');
   const tabFull = $('re-tab-full'), tabFilter = $('re-tab-filter'), countEl = $('re-count');
@@ -417,6 +533,12 @@
   function entryMatches(entry, scope, test) {
     if (typeof entry === 'string') return scope !== 'id' && test(entry);
     if (!entry || typeof entry !== 'object') return false;
+    // An { include } entry matches when one of its set's entries does.
+    if (Object.prototype.hasOwnProperty.call(entry, 'include')) {
+      const set = state.ruleSets[entry.include];
+      if (Array.isArray(set) && set.some(e => entryMatches(e, scope, test))) return true;
+      return scope === 'all' && test(JSON.stringify(entry));
+    }
     if (scope === 'id') return test(String(entry.id ?? '')) || asList(entry.aliases).some(a => test(String(a)));
     if (scope === 'match') return test(String(entry.matchPattern ?? ''));
     return test(JSON.stringify(entry));
@@ -448,6 +570,7 @@
     let data;
     try { data = parse(currentFullText(), state.format); } catch { return { test, parseError: true }; }
     const providers = (data && typeof data.providers === 'object' && data.providers) || {};
+    state.ruleSets = (data && data.ruleSets && typeof data.ruleSets === 'object' && !Array.isArray(data.ruleSets)) ? data.ruleSets : {};
     const all = Object.keys(providers);
     const keys = test ? all.filter(k => providerMatches(k, providers[k], scopeEl.value, test)) : all;
     return { test, keys, data, total: all.length };
@@ -638,7 +761,10 @@
       try {
         const text = currentFullText();
         if (text.length > 4_000_000) return;
-        localStorage.setItem(DRAFT_KEY, JSON.stringify({ format: state.format, text, name: state.fileName }));
+        // The loaded original too, so "Create patch" still works after a reload, when it fits.
+        const base = state.loadedText != null && text.length + state.loadedText.length <= 4_000_000
+          ? { base: state.loadedText, baseFormat: state.loadedFormat } : {};
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ format: state.format, text, name: state.fileName, ...base }));
       } catch { /* storage full or blocked */ }
     }, 800);
   }
@@ -647,6 +773,7 @@
     if (draft && draft.text) {
       setFormatUI(draft.format === 'yaml' ? 'yaml' : 'json');
       state.fileName = draft.name || state.fileName;
+      if (typeof draft.base === 'string') { state.loadedText = draft.base; state.loadedFormat = draft.baseFormat === 'yaml' ? 'yaml' : 'json'; }
       editor.setText(draft.text);
       renderStatus('Restored your last draft');
     }

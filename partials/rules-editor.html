@@ -16,6 +16,7 @@
       <button type="button" class="link-btn" id="re-pretty" title="Reformat the whole document">Format</button>
       <button type="button" class="link-btn" id="re-copy">Copy</button>
       <button type="button" class="link-btn" id="re-download">Download</button>
+      <button type="button" class="link-btn" id="re-patch" title="Download your rule edits as a patches file">Create patch</button>
     </div>
   </div>
 
@@ -65,6 +66,8 @@
 <p>The <b>Providers</b> list beside the editor shows every provider in the file, with its domain pattern and how many entries it has. Typing in the filter box narrows the list. Click a name to jump to that provider, or use the pencil to edit that provider on its own. Arrow keys move through the list.</p>
 <p>The <b>Filtered</b> tab shows a smaller file with only the matching providers. You can edit it there. <b>Apply to full file</b> writes each provider back in place, adds any you created and removes any you deleted. The rest of the file stays as it was.</p>
 <p><b>Only matching rules</b> keeps just the matching entries inside each provider. It's useful for reading. You can't apply a trimmed view back, because that would delete the rules it hides.</p>
+<p><b>Create patch</b> downloads your rule edits as a <code>patches</code> file (see <a href="filter-syntax.html#rule-patches">Rule patches</a>) instead of a whole copy of the file. It compares the file as you loaded or opened it with your edits and targets each changed rule as <code>provider::id</code>, with the same rule ids as the extension. A patch can only replace a rule, so added or removed rules and providers, and changed provider keys such as <code>domainPatterns</code>, are listed in the status line instead.</p>
+<p>Files with <a href="filter-syntax.html#rulesets">shared rule sets</a> work too: <code>ruleSets</code> and <code>{ "include": "name" }</code> entries are checked, kept as written when you edit or apply, and searched through, so a provider that includes a set matches what the set's entries match.</p>
 
 <h2 id="checks">What it checks</h2>
 <ul>
@@ -74,5 +77,6 @@
 <li>Providers with both <code>domainPatterns</code> and <code>urlPattern</code>, or with neither.</li>
 <li>Rule objects with no <code>matchPattern</code>, and the same rule <code>id</code> used twice in one provider.</li>
 <li>Regexes that don't compile: <code>urlPattern</code>, <code>rawRules</code> and <code>/…/</code> values.</li>
+<li>Shared rule sets: set names, empty sets, a set that includes another, and <code>include</code> entries that name no set.</li>
 </ul>
 <p>These checks are a quick first pass. Run <code>lint-rules</code> from the CLI for the full validation Linkumori uses.</p>

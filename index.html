@@ -30,7 +30,7 @@
     "description": "A Firefox extension that removes tracking parameters from URLs before they load.",
     "applicationCategory": "BrowserApplication",
     "operatingSystem": "Firefox 140+, Firefox for Android 142+",
-    "softwareVersion": "100.98.0",
+    "softwareVersion": "100.104.0",
     "license": "https://www.gnu.org/licenses/lgpl-3.0.html",
     "url": "https://linkumori.github.io/Linkumori-Addon/",
     "downloadUrl": "https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/",
@@ -49,7 +49,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.98.0</span>
+      <span class="brand-ver">v100.104.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -245,7 +245,7 @@
           <article class="tile w3">
             <span class="kicker">Custom rules</span>
             <h3>Write it. Test it. Ship it.</h3>
-            <p>Build providers in the editor, set rule defaults per file, and check every rule in the test lab before it runs.</p>
+            <p>Build providers in the editor, set rule defaults per file, share one list of entries across providers with rule sets, and check every rule in the test lab before it runs. The <a href="rules-editor.html">rules editor</a> turns your edits into a patch file.</p>
             <div class="ui" aria-hidden="true">
               <div class="ui-card">
                 <div class="row"><code class="grow">"order": 5</code><span class="pill">Editor</span></div>
@@ -305,7 +305,7 @@
         <div class="sec-intro reveal">
           <span class="eyebrow">Try it</span>
           <h2 class="headline" id="try-title">See it work. Right here.</h2>
-          <p class="subhead">Paste a link to watch what comes off. This runs a few sample rules in the page; the extension runs hundreds.</p>
+          <p class="subhead">Paste a link to watch what comes off. This runs a few sample rules in the page; the extension runs over 1,300 providers.</p>
         </div>
         <div class="demo reveal">
           <div class="demo-pane">
@@ -379,6 +379,7 @@
                 <tr><th scope="row">Multiple remote rule sources</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Overload mode</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Remote rule patches</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
+                <tr><th scope="row">Shared rule sets</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Tab troubleshooter that finds a breaking rule</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">CNAME uncloaking</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>
                 <tr><th scope="row">Firefox Manifest V3 native</th><td><span class="mark-no" role="img" aria-label="No">—</span></td><td><span class="mark-yes" role="img" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span></td></tr>

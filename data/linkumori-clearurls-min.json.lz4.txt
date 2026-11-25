@@ -2,7 +2,7 @@ NOTICE FOR data/linkumori-clearurls-min.json.lz4
 
 File: data/linkumori-clearurls-min.json.lz4
 Role: Generated compressed ClearURLs rules bundle
-Source file: data/linkumori-clearurls.json
+Source file: data/linkumori-clearurls.yaml
 License: LGPL-3.0-or-later
 
 Copyright notice:
@@ -11,10 +11,10 @@ Subham Mahesh. ClearURLs Rules portions remain copyright their respective
 ClearURLs authors and contributors, including Kevin Röbert where applicable.
 
 Provenance and modification history:
-This LZ4 bundle is generated from metadata-free data/linkumori-clearurls.json.
-Linkumori metadata is injected into this generated payload. The source file
-carries forward historical modifications from the deprecated
-data/custom-rules.json and data/downloaded-official-rules.json files, as well as
-the prior generated LZ4 bundle lineage.
+The Linkumori CLI generates this LZ4 bundle from data/linkumori-clearurls.yaml
+and also writes a JSON export to data/linkumori-clearurls.json. The YAML source
+preserves historical modifications from data/custom-rules.json and
+data/downloaded-official-rules.json, along with the lineage of the earlier LZ4
+bundle.
 
-This file should be regenerated with the Linkumori CLI after source rule changes.
+Regenerate this file with the Linkumori CLI after changing the source rules.

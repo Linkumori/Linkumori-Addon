@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.98.0</span>
+      <span class="brand-ver">v100.104.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -100,6 +100,7 @@
 <li><a href="#worked-example-6">Worked example</a></li>
 </ol></li>
 <li><a href="#defaults">defaults</a></li>
+<li><a href="#rulesets">ruleSets</a></li>
 <li><a href="#processing-order">Processing order</a><ol>
 <li><a href="#run-order">Run order</a></li>
 <li><a href="#same-text-twice">Same text twice</a></li>
@@ -344,6 +345,7 @@
 <tr><td><code>//real.example/page</code>, <code>/local/page</code>, <code>real.example/page</code></td><td>no — not an absolute URL</td></tr>
 </tbody>
 </table></div>
+<p>Percent-decoding stops once the target is an absolute <code>http</code> or <code>https</code> URL, so escapes that belong to the target stay as they are. Every target gets one standard decode for where it sits: a value in the query string is form-decoded, as browsers read query parameters (<code>%xx</code> escapes, and <code>+</code> is a space), and text in the path or fragment is percent-decoded (<code>+</code> stays a plus). That holds for a <code>redirections</code> capture (judged by where its capture group sits) and for a <code>fieldRedirections</code> value, from the query or the fragment. After that the target is decoded again only while it is not yet an absolute URL (<code>https%253A%252F%252F…</code> still unwraps). For example, <code>?q=https://click.example/CL0/https:%252F%252Fsite.example%252F%253Fa%253D1</code> redirects to <code>https://click.example/CL0/https:%2F%2Fsite.example%2F%3Fa%3D1</code>: the link the tracker carries in its path stays encoded, and its <code>%3F</code> does not turn into a query string.</p>
 <p>A raw rule whose result has a different scheme, host or port from its input is a redirect too, whether it rewrites with a <code>replacePattern</code> or only deletes text (<code>secure-</code> deleted from <code>https://secure-bank.example/</code> lands on another site): it needs a valid target, and in a remote file the <code>redirect</code> capability (§Remote file capabilities). Otherwise the rule leaves the URL as it was.</p>
 <h3 id="worked-example-4">Worked example</h3>
 <div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code>^https?:\/\/(?:[a-z0-9-]+\.)*?google(?:\.[a-z]{2,}){1,}\/url\?.*?(?:url|q)=(https?[^&amp;]+)</code></pre></div>
@@ -444,6 +446,28 @@
 <li><strong>Complete providers:</strong> a <code>completeProvider</code> blocks every request it matches before any rule is looked at, so <code>requestTypes</code> and <code>exceptions</code> from <code>defaults</code> also limit the block. <code>requestTypes</code>, together with its rules' own, become the provider's <code>resourceTypes</code> unless it sets some. <code>exceptions</code> are added to the provider's <code>exceptions</code>.</li>
 <li><strong>Checked:</strong> unknown keys and wrong types are errors in <code>lint-rules</code> and the editor, and a remote file with an invalid <code>defaults</code> block is rejected.</li>
 </ul>
+<h2 id="rulesets">ruleSets</h2>
+<p>An optional top-level <code>ruleSets</code> object names lists of entries that several providers share. A provider uses one with an entry <code>{ &quot;include&quot;: &quot;&lt;name&gt;&quot; }</code> in any of its rule lists (<code>rules</code>, <code>referralMarketing</code>, <code>rawRules</code>, <code>exceptions</code>, <code>redirections</code>, <code>fieldRedirections</code>):</p>
+<div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang">JSON</span><button type="button" class="copy-code" aria-label="Copy JSON code">Copy</button></div><pre><code class="language-json">{
+  <span class="k">&quot;ruleSets&quot;</span>: {
+    <span class="k">&quot;affiliate-exceptions&quot;</span>: [
+      <span class="s">&quot;@@mailinglist$removeparam=/^utm_.*$/i&quot;</span>,
+      <span class="s">&quot;@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i&quot;</span>
+    ]
+  },
+  <span class="k">&quot;providers&quot;</span>: {
+    <span class="k">&quot;shop&quot;</span>:  { <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||shop.example^&quot;</span>],  <span class="k">&quot;rules&quot;</span>: [<span class="s">&quot;utm_source&quot;</span>, { <span class="k">&quot;include&quot;</span>: <span class="s">&quot;affiliate-exceptions&quot;</span> }] },
+    <span class="k">&quot;store&quot;</span>: { <span class="k">&quot;domainPatterns&quot;</span>: [<span class="s">&quot;||store.example^&quot;</span>], <span class="k">&quot;rules&quot;</span>: [{ <span class="k">&quot;include&quot;</span>: <span class="s">&quot;affiliate-exceptions&quot;</span> }] }
+  }
+}</code></pre></div>
+<ul>
+<li><strong>Written out on load:</strong> each <code>include</code> becomes its own copy of the set's entries, in its place and in their order, as soon as the file is read: built-in rules, each remote file (after its hash check; the cache keeps the written-out file) and custom rules. Everything after that sees the file with the entries written out, so run order, rule ids, toggles, pins, <code>defaults</code>, overload merges and remote file capabilities are exactly those of the written-out file, and a set cannot hide a capability.</li>
+<li><strong>Optional:</strong> a file without <code>ruleSets</code> loads as before. A file that uses them is still CLN 1.0; <code>ruleSets</code> is a Linkumori addition, so other CLN readers need the written-out form (the CLI's <code>yaml-to-json</code> writes it).</li>
+<li><strong>Rules:</strong> a set name uses lowercase letters, digits, <code>-</code> and <code>_</code>; a set is a non-empty list and cannot include another set; an <code>include</code> entry has no other keys. Ids only need to be unique within a provider, as usual.</li>
+<li><strong>Checked:</strong> an unknown set name, an <code>include</code> without <code>ruleSets</code> and these shape errors are errors in <code>lint-rules</code> and the editors; a remote file with one is rejected, and custom rules with one are not loaded. <code>lint-rules</code> also warns about a set no provider includes.</li>
+<li><strong>Custom rules:</strong> in the custom rules editor, <em>Manage shared rule sets</em> edits the custom rules' sets as JSON, and a provider uses one with an <code>include</code> entry in its JSON. The provider's checks, run order and test URLs use it written out; it is saved as written, and import and export keep the sets. The run order can't rearrange steps of a provider with an <code>include</code> in <code>rules</code>, <code>rawRules</code> or <code>referralMarketing</code>: those are ordered in the set.</li>
+</ul>
+<p>YAML sources use the same keys; see <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/docs/cln-yaml.md#shared-rule-sets">Shared rule sets</a>.</p>
 <h2 id="processing-order">Processing order</h2>
 <p>For each matching provider: <code>exceptions</code> (skip if matched) → <code>redirections</code> → <code>fieldRedirections</code> → <code>completeProvider</code> → <code>rawRules</code> → <code>rules</code>/<code>referralMarketing</code> → <code>$removeparam</code> filters. A rule's <code>order</code> can move it earlier or later within its own stage, never across stages. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL (§Termination).</p>
 <h3 id="run-order">Run order</h3>
@@ -509,7 +533,7 @@
 <p>The overload settings offer three strategies: <strong>Patch mode only</strong> applies remote patches to the built-in rules and omits remote provider rules; <strong>Patch mode + merge</strong> merges built-in and remote providers, then applies patches; <strong>No patch mode + merge</strong> merges the providers and skips remote patches. The optional <strong>Strip rule order while merging</strong> setting is available in both merge modes. By default, merges keep the current same-text behavior, including inheriting an earlier definition's <code>order</code>; when the setting is on, built-in and remote provider rules lose their <code>order</code> property before merging while the rest of each rule stays intact. For example, <code>{&quot;matchPattern&quot;:&quot;pk&quot;,&quot;order&quot;:1}</code> becomes <code>{&quot;matchPattern&quot;:&quot;pk&quot;}</code>. In Patch mode + merge, remote patches still apply after merging, and their replacement rules keep any <code>order</code> they specify. The strategy is used only while overload mode is enabled. If built-in rules are disabled, patch-only mode has no built-in rules to patch.</p>
 <ol>
 <li><strong>Load order.</strong> Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.</li>
-<li><strong>Which providers merge.</strong> Only providers with the same <code>domainPatterns</code> (or the same <code>urlPattern</code>) <em>and</em> the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code>. Any other provider stays separate and keeps its own rules.</li>
+<li><strong>Which providers merge.</strong> Only providers with the same <code>domainPatterns</code> (or the same <code>urlPattern</code>) <em>and</em> the same <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code>. Any other provider stays separate and keeps its own rules. A built-in provider that lists several domains counts as one provider per domain here: a remote provider for exactly one of those domains merges with a copy of the built-in provider for that domain, and the other domains keep the built-in provider as it is.</li>
 <li><strong>Joining the lists.</strong> Each of <code>rules</code>, <code>rawRules</code> and <code>referralMarketing</code> is joined in load order — built-in entries first, then each remote file's.</li>
 <li><strong>Exact copies.</strong> Only entries that are exactly alike count once while joining. By default, <code>order</code> is part of what makes two entries alike, <code>&quot;order&quot;: null</code> included. With <strong>Strip rule order while merging</strong> enabled, <code>order</code> is removed first, so entries that differ only by <code>order</code> count once.</li>
 </ol>
@@ -660,7 +684,7 @@
 </table></div>
 <ul>
 <li><strong>What it patches.</strong> Patches run after the remote files are merged (and, in overload mode, merged with the built-in rules), and before custom rules, so a custom provider still overrides a patched one. A file of only <code>patches</code> needs no <code>providers</code>; when every loaded remote file is such a file, the patches apply to the built-in rules. Without overload mode the built-in rules are not loaded next to remote files that have providers, so patches then only reach those remote files' rules. In overload <strong>No patch mode + merge</strong>, patch files are validated and loaded but their patches are not applied; in <strong>Patch mode only</strong>, remote provider rules are omitted and patches target the built-in rules.</li>
-<li><strong>Matching.</strong> A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always finds them.</li>
+<li><strong>Matching.</strong> A patch replaces the rule in every loaded provider whose key or match pattern equals the target's provider part. Merging can rename providers (in overload mode, or when two files have the same pattern), so the <code>domainPattern:</code> / <code>urlPattern:</code> form is the one that always finds them. A <code>domainPattern:</code> target names one domain: in a provider that lists several domains, the patch changes that domain only (the domain is split off into a copy of the provider), as it would if the domain had a provider of its own.</li>
 <li><strong>Ids and toggles.</strong> The replacement keeps the replaced rule's id unless it sets its own <code>id</code>; then the old id becomes one of its <code>aliases</code>. Either way, an on/off setting saved for the old rule keeps applying.</li>
 <li><strong>Defaults.</strong> The patch file's <code>defaults</code> (or the defaults it gets, §defaults) apply to its replacements as they would to its own rules.</li>
 <li><strong>Capabilities.</strong> A file's patches count toward its capabilities (§Remote file capabilities). A patch for a <code>redirections</code> or <code>fieldRedirections</code> rule is skipped until the file's <code>redirect</code> capability is accepted, and a patched raw rule can't take a URL to another origin until then.</li>
