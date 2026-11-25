@@ -1464,13 +1464,18 @@ function getLinkumoriUrlPatternTokens(urlPattern) {
 // the parsed URL (host and path, as the "||" match reads them). Null when
 // the URL does not parse (matchDomainPattern() is then false anyway, but
 // nothing is skipped on that ground).
-var linkumoriLastTokenUrl = null, linkumoriLastTokenSet = null;
+// The last few URLs and their token sets: checks alternate between the
+// request URL and its page URLs.
+var linkumoriRecentTokenUrls = [null, null, null, null];
+var linkumoriRecentTokenSets = [null, null, null, null];
+var linkumoriRecentTokenNext = 0;
 
 function getLinkumoriUrlTokens(url) {
-    if (url === linkumoriLastTokenUrl) return linkumoriLastTokenSet;
+    for (let i = 0; i < 4; i++) if (linkumoriRecentTokenUrls[i] === url) return linkumoriRecentTokenSets[i];
     const set = getLinkumoriUrlTokensUncached(url);
-    linkumoriLastTokenUrl = url;
-    linkumoriLastTokenSet = set;
+    linkumoriRecentTokenUrls[linkumoriRecentTokenNext] = url;
+    linkumoriRecentTokenSets[linkumoriRecentTokenNext] = set;
+    linkumoriRecentTokenNext = (linkumoriRecentTokenNext + 1) & 3;
     return set;
 }
 
@@ -1614,8 +1619,7 @@ function getLinkumoriRegexLiteralPrefix(regex) {
     return info;
 }
 
-function linkumoriRegexMayMatchName(regex, name) {
-    const info = getLinkumoriRegexLiteralPrefix(regex);
+function linkumoriRegexMayMatchName(regex, name, info = getLinkumoriRegexLiteralPrefix(regex)) {
     if (!info) return true;
     const n = info.ci ? name.toLowerCase() : name;
     return n.length >= info.prefix.length ? n.startsWith(info.prefix) : info.prefix.startsWith(n);
@@ -1628,7 +1632,16 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], 
     if (linkumoriRule.removeAll) return true;
     const rawParamName = String(fieldName);
     let matched = false;
-    if (linkumoriRule.regexParam && !linkumoriRegexMayMatchName(linkumoriRule.regexParam, rawParamName)) {
+    // The prefix is kept on the rule (not enumerable) for its current regex.
+    if (linkumoriRule.regexParam && linkumoriRule.__linkumoriPrefixFor !== linkumoriRule.regexParam) {
+        try {
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefix', { value: getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam), writable: true, configurable: true, enumerable: false });
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefixFor', { value: linkumoriRule.regexParam, writable: true, configurable: true, enumerable: false });
+        } catch (_) { /* a frozen rule is just not cached */ }
+    }
+    const prefixInfo = linkumoriRule.__linkumoriPrefixFor === linkumoriRule.regexParam
+        ? linkumoriRule.__linkumoriPrefix : (linkumoriRule.regexParam ? getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam) : null);
+    if (prefixInfo && !linkumoriRegexMayMatchName(linkumoriRule.regexParam, rawParamName, prefixInfo)) {
         matched = false;
     } else if (linkumoriRule.regexParam) {
         const regex = linkumoriRule.regexParam;
