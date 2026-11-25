@@ -88,7 +88,6 @@ var localDataHash;
 var os;
 var initializationComplete = false;
 // Compiled domain patterns, at most 5000 (least recently used evicted).
-var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
 // At most this many cleaning cycles run for one request; a redirect or a
 // change starts the next one (CLN 1.0 §Termination). Unbounded mode
@@ -549,22 +548,6 @@ function parseHostnameWithPsl(hostnameInput) {
     return out;
 }
 
-function matchRootDomainWildcardTldWithPsl(hostnameValue, pattern) {
-    if (pslSupport.status !== 'ready') return false;
-    const normalizedHost = normalizeAsciiHostname(hostnameValue);
-    const normalizedPattern = normalizeAsciiHostname(pattern);
-    if (!normalizedHost || !normalizedPattern || !normalizedPattern.endsWith('.*')) return false;
-    const base = normalizedPattern.slice(0, -2);
-    if (!base) return false;
-    const parsed = parseHostnameWithPsl(normalizedHost);
-    if (!parsed || !parsed.tld) return false;
-    const suffixToken = '.' + parsed.tld;
-    if (!normalizedHost.endsWith(suffixToken)) return false;
-    const prefix = normalizedHost.slice(0, -suffixToken.length);
-    if (!prefix) return false;
-    return prefix === base || prefix.endsWith('.' + base);
-}
-
 var requestContextManager = {
     initialized: false,
     tabs: new Map(),
@@ -796,242 +779,37 @@ class Multimap {
 // ---------------------------------------------------------------------------
 // matchDomainPattern
 // ---------------------------------------------------------------------------
+// True when `url` matches any of `patterns`. Each pattern is compiled once
+// by core_js/linkumori_url_patterns.js, which matches with
+// @ghostery/adblocker's NetworkFilter (see that file for Linkumori's own
+// pattern rules). The answer does not depend on whether the Public Suffix
+// List has loaded.
 
-var linkumoriLiteralRegexCache = new Map();
+// PERF: many rules check the same URL against the same pattern (each rule
+// of a provider repeats its domain, and filters are copied across
+// providers), so a pattern's answer for the last URL is kept.
 var matchDomainPatternLastUrl = null;
-
-// The pattern helpers below were nested inside matchDomainPattern, so every
-// call created them again. PERF: they are created once here.
-var linkumoriDomainPatternHelpers = (function () {
-    function escapeRegexChar(char) {
-        return /[\\^$.*+?()[\]{}|]/.test(char) ? ('\\' + char) : char;
-    }
-
-    // "^" is a separator: any character but a letter, digit, "_", "-", "."
-    // or "%", or the end. Followed by "/" ("^/path"), it only checks that a
-    // separator comes next, so "||example.com^/path" matches
-    // "example.com/path" (the "/" is not needed twice). At `hostEndIndex`, the
-    // "^" right after a "||" pattern's host, a port may come first.
-    function linkumoriTokensToRegexSource(input, hostEndIndex = -1) {
-        let output = '';
-        for (let i = 0; i < input.length; i++) {
-            const ch = input.charAt(i);
-            if (ch === '*') output += '.*';
-            else if (ch === '^') {
-                const next = input.charAt(i + 1);
-                const beforePath = next === '/';
-                if (i === hostEndIndex) output += '(?::[0-9]+)?';
-                output += beforePath ? '(?=[^0-9A-Za-z_\\-.%]|$)' : '(?:[^0-9A-Za-z_\\-.%]|$)';
-            }
-            else output += escapeRegexChar(ch);
-        }
-        return output;
-    }
-
-    function compileLinkumoriRegex(pattern) {
-        const cacheKey = String(pattern || '');
-        // PERF: a plain lookup on a hit. Moving the entry to the end on every
-        // hit (to make eviction least-recently-used) cost more than it saved;
-        // the cache holds 5000 patterns, so eviction is now oldest-first.
-        const cached = linkumoriPatternRegexCache.get(cacheKey);
-        if (cached !== undefined) return cached;
-
-        let raw = cacheKey;
-        let domainAnchor = false, startAnchor = false, endAnchor = false;
-        if (raw.startsWith('||')) { domainAnchor = true; raw = raw.slice(2); }
-        else if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
-        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
-        let hostEndIndex = -1;
-        if (domainAnchor) {
-            const hb = firstSpecialIndex(raw);
-            const hx = hb === -1 ? raw : raw.slice(0, hb);
-            if (hx.startsWith('*.')) raw = raw.slice(2);
-            const end = firstSpecialIndex(raw);
-            if (end !== -1 && raw.charAt(end) === '^') hostEndIndex = end;
-        }
-
-        let source = linkumoriTokensToRegexSource(raw, hostEndIndex);
-        // PERF: without a start anchor the regex may match anywhere, so a
-        // leading ".*" (from a leading "*") changes nothing for test() but
-        // makes the engine retry it from every position. URLs hold no line
-        // breaks, which "." would not match.
-        if (!domainAnchor && !startAnchor) while (source.startsWith('.*')) source = source.slice(2);
-        const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
-        const suffix = endAnchor ? '$' : '';
-        // A "||" pattern that is only a host must end at the host: ':' is a
-        // boundary too, so ||example.com matches http://example.com:8080/. With
-        // a path the pattern is a prefix, so ||example.com^/go/ matches
-        // example.com/go/page, as the structured match treats it.
-        const domainBoundary = (domainAnchor && firstSpecialIndex(raw) === -1 && !endAnchor) ? '(?=[:/?#]|$)' : '';
-
-        let regex = null;
-        try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
-        catch (e) { regex = null; }
-
-        // Evict only the least recently used entry, so the cache stays warm.
-        if (linkumoriPatternRegexCache.size >= 5000) {
-            const oldestKey = linkumoriPatternRegexCache.keys().next().value;
-            if (oldestKey !== undefined) linkumoriPatternRegexCache.delete(oldestKey);
-        }
-        linkumoriPatternRegexCache.set(cacheKey, regex);
-        return regex;
-    }
-
-    function compileTailRegex(tail) {
-        let raw = String(tail || '');
-        let startAnchor = false, endAnchor = false;
-        if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
-        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
-        const source = linkumoriTokensToRegexSource(raw);
-        return new RegExp((startAnchor ? '^' : '') + source + (endAnchor ? '$' : ''), 'i');
-    }
-
-    function firstSpecialIndex(input) {
-        const s = input.indexOf('/'), c = input.indexOf('^'), p = input.indexOf('|');
-        let idx = -1;
-        if (s !== -1) idx = s;
-        if (c !== -1 && (idx === -1 || c < idx)) idx = c;
-        if (p !== -1 && (idx === -1 || p < idx)) idx = p;
-        return idx;
-    }
-
-    function isSimpleHostExpression(input) { return /^[a-z0-9*.-]+$/i.test(input); }
-
-    function matchHostPattern(hostname, pattern) {
-        if (pslSupport.status !== 'ready') return false;
-        const normalizedHost = normalizeAsciiHostname(hostname);
-        let normalizedPattern = normalizeAsciiHostname(pattern);
-        if (!normalizedHost || !normalizedPattern) return false;
-        const hostParsed = parseHostnameWithPsl(normalizedHost);
-        if (!hostParsed || !hostParsed.tld) return false;
-        if (normalizedPattern.startsWith('*.')) normalizedPattern = normalizedPattern.slice(2);
-        if (!normalizedPattern) return false;
-        const wildcardTld = normalizedPattern.endsWith('.*');
-        const basePattern = wildcardTld ? normalizedPattern.slice(0, -2) : normalizedPattern;
-        if (!basePattern) return false;
-        if (wildcardTld) return matchRootDomainWildcardTldWithPsl(normalizedHost, normalizedPattern);
-        const patternParsed = parseHostnameWithPsl(basePattern);
-        if (!patternParsed || !patternParsed.tld) return false;
-        return normalizedHost === basePattern || normalizedHost.endsWith('.' + basePattern);
-    }
-
-    function matchStructuredDomainAnchorPattern(pattern, urlObj, hostname) {
-        const body = String(pattern || '').slice(2).trim();
-        if (!body) return false;
-        const specialIndex = firstSpecialIndex(body);
-        const hostExpr = specialIndex === -1 ? body : body.slice(0, specialIndex);
-        const tail = specialIndex === -1 ? '' : body.slice(specialIndex);
-        if (!hostExpr || !isSimpleHostExpression(hostExpr)) return null;
-
-        if (!matchHostPattern(hostname, hostExpr)) {
-            // PSL not ready → fall through to regex path.
-            if (pslSupport.status !== 'ready') return null;
-            // A host or pattern the PSL doesn't list (localhost, .lan,
-            // intranet TLDs) can't match structurally; null falls through to
-            // the regex path.
-            const hostParsed = parseHostnameWithPsl(hostname);
-            if (!hostParsed || !hostParsed.tld) return null;
-            let base = normalizeAsciiHostname(hostExpr) || '';
-            if (base.startsWith('*.')) base = base.slice(2);
-            if (!base.endsWith('.*')) {
-                const pp = parseHostnameWithPsl(base);
-                if (!pp || !pp.tld) return null;
-            }
-            return false;
-        }
-
-        let rest = tail;
-        if (rest.startsWith('^')) rest = rest.slice(1);
-        if (!rest) return true;
-        const pathTarget = (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase();
-        if (rest.startsWith('/') && !/[|*^]/.test(rest)) return pathTarget.startsWith(rest.toLowerCase());
-        try { return compileTailRegex(rest.toLowerCase()).test(pathTarget); }
-        catch (e) { return false; }
-    }
-
-    return { compileLinkumoriRegex, matchStructuredDomainAnchorPattern };
-})();
 
 function matchDomainPattern(url, patterns) {
     if (typeof patterns === 'string') patterns = [patterns];
-    if (!Array.isArray(patterns) || patterns.length === 0) return false;
-
-    const { compileLinkumoriRegex, matchStructuredDomainAnchorPattern } = linkumoriDomainPatternHelpers;
-
-    try {
-        // PERF: the same URL is usually checked against many rules in a row,
-        // so its parsed form is kept for the next call. The URL object is
-        // only read below, never changed.
-        let parsed = matchDomainPatternLastUrl;
-        if (!parsed || parsed.url !== url) {
-            const urlObj = new URL(url);
-            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase(),
-                results: new Map(), pslStatus: pslSupport.status };
-            matchDomainPatternLastUrl = parsed;
+    if (!Array.isArray(patterns) || patterns.length === 0 || typeof url !== 'string' || !url) return false;
+    let last = matchDomainPatternLastUrl;
+    if (!last || last.url !== url) {
+        last = { url, results: new Map() };
+        matchDomainPatternLastUrl = last;
+    }
+    const results = last.results;
+    return patterns.some(pattern => {
+        const p = String(pattern || '').trim();
+        if (!p) return false;
+        let answer = results.get(p);
+        if (answer === undefined) {
+            try { answer = LinkumoriUrlPatterns.matches(p, url); } catch (e) { answer = false; }
+            if (results.size >= 5000) results.clear();
+            results.set(p, answer);
         }
-        const { urlObj, hostname, fullUrl } = parsed;
-        if (!hostname) return false;
-        // PERF: many rules check the same URL against the same pattern (each
-        // rule of a provider repeats its domain, and filters are copied
-        // across providers), so a pattern's answer for this URL is kept.
-        // It depends only on the URL, the pattern and whether the Public
-        // Suffix List is loaded, so it is dropped when that changes.
-        if (parsed.pslStatus !== pslSupport.status) {
-            parsed.results = new Map();
-            parsed.pslStatus = pslSupport.status;
-        }
-        const results = parsed.results;
-
-        return patterns.some(pattern => {
-            const p = String(pattern || '').trim();
-            if (!p) return false;
-            let answer = results.get(p);
-            if (answer === undefined) {
-                answer = matchOnePattern(p);
-                if (results.size >= 5000) results.clear();
-                results.set(p, answer);
-            }
-            return answer;
-        });
-
-        function matchOnePattern(p) {
-
-            // Regex literal: /body/ or /body/flags
-            if (p.charAt(0) === '/') {
-                const closingSlash = p.lastIndexOf('/');
-                if (closingSlash > 0) {
-                    const body = p.slice(1, closingSlash);
-                    const flags = p.slice(closingSlash + 1);
-                    // Only a regex when the flags are flag characters; a plain
-                    // path such as "/path/to/x" uses the wildcard path below.
-                    if (/^[a-z]*$/i.test(flags)) {
-                        // PERF: compiled once. Patterns with g or y flags are
-                        // not cached, as test() moves their lastIndex.
-                        const stateful = /[gy]/.test(flags);
-                        let re = stateful ? undefined : linkumoriLiteralRegexCache.get(p);
-                        if (re === undefined) {
-                            try { re = new RegExp(body, flags); } catch (e) { re = null; }
-                            if (!stateful) {
-                                if (linkumoriLiteralRegexCache.size >= 5000) linkumoriLiteralRegexCache.clear();
-                                linkumoriLiteralRegexCache.set(p, re);
-                            }
-                        }
-                        if (re) return re.test(url);
-                    }
-                }
-            }
-
-            const pLower = p.toLowerCase();
-            if (pLower.startsWith('||')) {
-                const structured = matchStructuredDomainAnchorPattern(pLower, urlObj, hostname);
-                if (structured !== null) return structured;
-            }
-
-            const regex = compileLinkumoriRegex(pLower);
-            if (regex) return regex.test(fullUrl);
-            return fullUrl.includes(pLower);
-        }
-    } catch (e) { return false; }
+        return answer;
+    });
 }
 
 
@@ -1417,83 +1195,22 @@ function getRuleExceptionMatcher(exceptions) {
 // ---------------------------------------------------------------------------
 // PERF: required tokens of a $removeparam URL pattern
 // ---------------------------------------------------------------------------
-// A token is a run of letters, digits and "%" (the tokenizer adapted from
-// @ghostery/adblocker, external_js/linkumori-ghostery-tokens.js). A token of
-// a URL pattern that is bounded on both sides by literal punctuation or an
-// anchor must appear as a whole token in every URL matchDomainPattern()
-// matches with that pattern: literal text is matched as is (case aside),
-// "^" only matches a character that is not a letter, digit, "_", "-", "."
-// or "%", "||" sits after "//", "@" or "." and a "||" host ends the host.
-// So when one of them is missing, the pattern cannot match and the rule is
-// skipped. Left out, so nothing is skipped wrongly:
-// - tokens touching a "*", and the first (last) token when the pattern has
-//   no start (end) anchor: those can be part of a longer word
-// - "/regex/" patterns, and patterns with characters outside printable
-//   ASCII (an IDN host is matched in its punycode form)
-// URLs are split with ASCII-only token characters, so an accented letter
-// after a word (which "^" accepts) still ends the word. Tokens are hashes;
-// a collision can only make a missing token look present, never the
-// other way round.
-var linkumoriPatternTokensCache = new Map();
-var linkumoriUrlTokensCache = new Map();
+// A $removeparam rule can only apply when its URL pattern matches, so a rule
+// whose pattern cannot match the URL is skipped before anything else is
+// checked. "Cannot match" comes from the same compiled pattern that
+// matchDomainPattern() matches with (core_js/linkumori_url_patterns.js):
+// @ghostery/adblocker's filter lists the words every matching URL has
+// (NetworkFilter.getTokens(), what Ghostery indexes filters by), and
+// Ghostery's Request lists the URL's words. A missing word means no match.
 
+// The pattern's required tokens, or null when none are known.
 function getLinkumoriUrlPatternTokens(urlPattern) {
-    const key = String(urlPattern || '');
-    let tokens = linkumoriPatternTokensCache.get(key);
-    if (tokens !== undefined) return tokens;
-    tokens = null;
-    const tokenizer = globalThis.LinkumoriGhosteryTokens;
-    const p = key.trim().toLowerCase();
-    if (tokenizer && p && p !== '*' && p.charAt(0) !== '/' && /^[\x21-\x7e]+$/.test(p)) {
-        const startAnchored = p.startsWith('|');
-        let endAnchored = p.endsWith('|');
-        if (!endAnchored && p.startsWith('||')) {
-            // A "||" pattern that is only a host ends at the end of the host.
-            const body = p.slice(2);
-            endAnchored = body.length > 0 && !/[\/^|]/.test(body);
-        }
-        const found = tokenizer.tokenizeWithWildcards(p, !startAnchored, !endAnchored);
-        if (found.length > 0) tokens = Array.from(new Set(found));
-    }
-    if (linkumoriPatternTokensCache.size >= 20000) linkumoriPatternTokensCache.clear();
-    linkumoriPatternTokensCache.set(key, tokens);
-    return tokens;
+    return LinkumoriUrlPatterns.compile(urlPattern).tokens;
 }
 
-// Tokens of a URL as matchDomainPattern() reads it: the text as given and
-// the parsed URL (host and path, as the "||" match reads them). Null when
-// the URL does not parse (matchDomainPattern() is then false anyway, but
-// nothing is skipped on that ground).
-// The last few URLs and their token sets: checks alternate between the
-// request URL and its page URLs.
-var linkumoriRecentTokenUrls = [null, null, null, null];
-var linkumoriRecentTokenSets = [null, null, null, null];
-var linkumoriRecentTokenNext = 0;
-
+// The URL's tokens, or null when the URL matches no pattern anyway.
 function getLinkumoriUrlTokens(url) {
-    for (let i = 0; i < 4; i++) if (linkumoriRecentTokenUrls[i] === url) return linkumoriRecentTokenSets[i];
-    const set = getLinkumoriUrlTokensUncached(url);
-    linkumoriRecentTokenUrls[linkumoriRecentTokenNext] = url;
-    linkumoriRecentTokenSets[linkumoriRecentTokenNext] = set;
-    linkumoriRecentTokenNext = (linkumoriRecentTokenNext + 1) & 3;
-    return set;
-}
-
-function getLinkumoriUrlTokensUncached(url) {
-    let set = linkumoriUrlTokensCache.get(url);
-    if (set !== undefined) return set;
-    set = null;
-    const tokenizer = globalThis.LinkumoriGhosteryTokens;
-    if (tokenizer && typeof url === 'string') {
-        try {
-            const href = new URL(url).href;
-            set = new Set(tokenizer.tokenizeNoSkipAscii(url.toLowerCase()));
-            if (href !== url) for (const t of tokenizer.tokenizeNoSkipAscii(href.toLowerCase())) set.add(t);
-        } catch (_) { set = null; }
-    }
-    if (linkumoriUrlTokensCache.size >= 256) linkumoriUrlTokensCache.clear();
-    linkumoriUrlTokensCache.set(url, set);
-    return set;
+    return LinkumoriUrlPatterns.urlTokens(url);
 }
 
 // False only when `urlPattern` cannot match any of `urls`. `tokens` may
@@ -1511,18 +1228,51 @@ function linkumoriUrlPatternMayMatch(urlPattern, urls, tokens = undefined) {
     return false;
 }
 
-// PERF: a rule's required tokens, kept on the rule (not enumerable, so
-// copies and snapshots of the rule are unchanged).
+// A rule's required tokens (the compiled pattern is cached by its text).
 function getLinkumoriRuleUrlPatternTokens(rule) {
-    let tokens = rule.__linkumoriUrlTokens;
-    if (tokens === undefined || rule.__linkumoriUrlTokensFor !== rule.urlPattern) {
-        tokens = getLinkumoriUrlPatternTokens(rule.urlPattern);
-        try {
-            Object.defineProperty(rule, '__linkumoriUrlTokens', { value: tokens, writable: true, configurable: true, enumerable: false });
-            Object.defineProperty(rule, '__linkumoriUrlTokensFor', { value: rule.urlPattern, writable: true, configurable: true, enumerable: false });
-        } catch (_) { /* a frozen rule is just not cached */ }
+    return getLinkumoriUrlPatternTokens(rule.urlPattern);
+}
+
+// SAFETY NET for the token shortcut. The shortcut is a second description
+// of what matchDomainPattern() accepts, and when the two disagree a rule is
+// skipped with no error: a tracking parameter stays, or an @@ exception
+// stops protecting one. So some of its "cannot match" answers are checked
+// with the full URL pattern check that would have run without it: each of
+// the first `verifyFirst` skips, then one in `verifyEvery`. When the full
+// check says the pattern does match, that answer is used, the shortcut is
+// turned off until the background page restarts (every rule then takes
+// the full check, as before the shortcut existed), and a warning names the
+// pattern so it can be reported. `enabled` can also be set to false by hand.
+var linkumoriUrlShortcut = {
+    enabled: true,
+    verifyFirst: 256,
+    verifyEvery: 256,
+    skips: 0,
+    verified: 0,
+    disabledBy: null
+};
+
+// True when the skip stands; false when the shortcut was wrong (it is then
+// off, and the caller goes on with the full checks).
+function linkumoriUrlShortcutSkipStands(linkumoriRule, fullUrl, request) {
+    const state = linkumoriUrlShortcut;
+    state.skips++;
+    if (state.skips > state.verifyFirst && state.skips % state.verifyEvery !== 0) return true;
+    state.verified++;
+    const pattern = linkumoriRule.urlPattern;
+    let matches;
+    try {
+        matches = matchDomainPattern(fullUrl, [pattern]) ||
+            (!!linkumoriRule.isException && !!request &&
+                requestContextManager.getContextURLs(request).some(u => u && matchDomainPattern(u, [pattern])));
+    } catch (_) {
+        matches = true; // unsure: do not skip
     }
-    return tokens;
+    if (!matches) return true;
+    state.enabled = false;
+    state.disabledBy = { pattern: String(pattern), host: getLinkumoriURLHostname(fullUrl) || null };
+    console.warn('[linkumori] the URL token shortcut skipped a rule that matches; the shortcut is off until restart. Please report this pattern.', state.disabledBy);
+    return false;
 }
 
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
@@ -1530,12 +1280,14 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     // PERF: the URL pattern check below must pass for this to be true, and
     // nothing before it has side effects, so a pattern that cannot match
     // (see getLinkumoriUrlPatternTokens) is answered here. An "@@" rule is
-    // also tried on the request's page URLs, as below.
-    if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
+    // also tried on the request's page URLs, as below. Some of these answers
+    // are checked against the full check (linkumoriUrlShortcutSkipStands).
+    if (linkumoriUrlShortcut.enabled && linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         const tokens = getLinkumoriRuleUrlPatternTokens(linkumoriRule);
         if (tokens && !linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, [fullUrl], tokens) &&
             !(linkumoriRule.isException && request &&
-                linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, requestContextManager.getContextURLs(request), tokens))) {
+                linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, requestContextManager.getContextURLs(request), tokens)) &&
+            linkumoriUrlShortcutSkipStands(linkumoriRule, fullUrl, request)) {
             return false;
         }
     }

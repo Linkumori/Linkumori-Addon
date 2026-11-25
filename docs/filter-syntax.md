@@ -64,6 +64,15 @@ Used in `domainPatterns`, and in front of `exceptions`, `redirections`, `$remove
 
 `^` means end-of-host or any separator (`/ ? :` or end of URL). `*` is a wildcard. A single `\|` needs a scheme after it (`\|https://…`) — for a domain you always want `\|\|`.
 
+Patterns are matched by `@ghostery/adblocker`'s filter engine (the same syntax as uBlock Origin), with Linkumori's own readings kept:
+
+- After `\|\|host`, the rest of the pattern must follow the host directly: `\|\|example.com^foo/` matches `example.com/foo/` but not `/xfoo/` or `/a/foo/`. A port is not skipped: `\|\|example.com/go` does not match `example.com:8080/go` (a host-only `\|\|example.com^` does).
+- `^` right before `/` takes no character: `\|\|example.com^/path` is "that host, path starting with `/path`". (uBlock Origin and Ghostery read it as a separator and then a `/`.)
+- `\|\|example.com` with nothing after the host ends at the host, like `\|\|example.com^`: it does not match `example.com.evil.org`.
+- `\|\|example.*` is `example` on a public suffix, then the rest of the pattern right after it. The suffix comes from the list built into the engine, so matching doesn't wait for Linkumori's Public Suffix List to load.
+- A `*` elsewhere in the host (`\|\|ipv6.example.com*/search?`) is a plain wildcard.
+- Hosts written in Unicode (`\|\|bücher.example^`) are matched in their punycode form.
+
 ### Worked example
 
 ```

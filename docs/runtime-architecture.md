@@ -63,7 +63,8 @@ script is listed earlier.
 | 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
 | 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
 | 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
-| 14 | `external_js/linkumori-ghostery-tokens.js` | `LinkumoriGhosteryTokens`: tokenizer adapted from `@ghostery/adblocker` (MPL-2.0); lets the engine skip `$removeparam` filters whose URL pattern cannot match |
+| 14 | `external_js/linkumori-ghostery-engine.js` | `LinkumoriGhosteryEngine`: `NetworkFilter` and `Request` from `@ghostery/adblocker` (MPL-2.0) and the `tldts` suffix parser (MIT), bundled by `tools/ghostery-engine/` |
+| 14a | `core_js/linkumori_url_patterns.js` | `LinkumoriUrlPatterns`: compiles each URL pattern once with Ghostery's `NetworkFilter`; gives `matchDomainPattern()` its answers and the `$removeparam` shortcut its tokens |
 | 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
 | 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
 | 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
@@ -453,6 +454,22 @@ indexes providers by hostname token:
   or blocking; `isParamsOnly()`) can't change a URL with no `?` and no `#`,
   so `clearUrl()` skips it for such URLs. Most subresources (scripts,
   styles, images) have no query, so they skip almost every provider.
+- **`$removeparam` URL patterns.** `matchLinkumoriRemoveParamTarget()`
+  skips a filter whose URL pattern cannot match the URL (and, for `@@`, its
+  page URLs). The pattern is compiled once by `LinkumoriUrlPatterns`
+  (`core_js/linkumori_url_patterns.js`) with `@ghostery/adblocker`'s
+  `NetworkFilter`, and that one object gives both `matchDomainPattern()`'s
+  answer and the words every matching URL has (`getTokens()`, which Ghostery
+  indexes filters by). A word missing from the URL's words (Ghostery's
+  `Request.getTokens()`) means no match. Linkumori's own pattern rules
+  (`||host` ends at the host, `||host.*` is any public suffix, punycode
+  hosts, `/regex/`) are applied when the pattern is compiled, or as checks
+  that only narrow a match, so the words stay valid.
+  A skip is still checked against `matchDomainPattern()` sometimes: each of
+  the first 256, then one in 256 (`linkumoriUrlShortcut`). If the full check
+  matches, its answer is used, the shortcut is off until the background page
+  restarts, and a warning names the pattern. `tests/run-url-shortcut-check.cjs`
+  compares the two on the bundled patterns and generated ones.
 
 ### 6.4 Cleaning a request
 
