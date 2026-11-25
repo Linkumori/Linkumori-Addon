@@ -116,7 +116,7 @@ const pages = [
     kicker: 'Tool',
     facts: [['Formats', 'JSON and YAML'], ['For', 'Rule authors and developers'], ['Runs', 'In your browser']],
     wide: true,
-    scripts: ['assets/yaml.js', 'assets/code-editor.js', 'assets/rules-editor.js']
+    scripts: ['assets/yaml.js', 'assets/code-editor.js', 'assets/linkumori_rule_ids.js', 'assets/rules-editor.js']
   },
   {
     local: 'legal/privacy.md',

@@ -34,7 +34,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Linkumori home"><img src="assets/logo.svg?v=5c55ee1e32" alt="" width="24" height="24"><span class="brand-name">Linkumori</span></a>
-      <span class="brand-ver">v100.98.0</span>
+      <span class="brand-ver">v100.104.0</span>
       <button class="icon-btn menu-btn" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -158,17 +158,17 @@
 <tr><td>1</td><td><code>external_js/linkumori-i18n.js</code></td><td><code>LinkumoriI18n</code>: replacement for <code>browser.i18n</code> that loads <code>_locales/&lt;lang&gt;/messages.json</code> itself</td></tr>
 <tr><td>2</td><td><code>core_js/message_handler.js</code></td><td><code>runtime.onMessage</code> bridge for the pages (§10)</td></tr>
 <tr><td>3</td><td><code>external_js/IP-Ranger.js</code></td><td>IP address parsing and classification</td></tr>
-<tr><td>4</td><td><code>external_js/sha256.js</code></td><td>SHA-256</td></tr>
-<tr><td>5</td><td><code>core_js/tools.js</code></td><td>shared helpers: <code>translate</code>, URL helpers, counters, icon, log (<code>pushToLog</code>), keep-alive</td></tr>
-<tr><td>6–7</td><td><code>external_js/light-punycode.js</code>, <code>external_js/publicsuffixlist.js</code></td><td>punycode; Public Suffix List parser (<code>linkumoriPsl</code>)</td></tr>
-<tr><td>8</td><td><code>core_js/badgedHandler.js</code></td><td>per-tab badge counter</td></tr>
-<tr><td>9</td><td><code>core_js/pureCleaning.js</code></td><td>cleaning outside <code>webRequest</code>, and the rule test lab (§7.1)</td></tr>
-<tr><td>10</td><td><code>core_js/context_menu.js</code></td><td><em>Copy clean link</em> context menu</td></tr>
-<tr><td>11</td><td><code>core_js/historyListener.js</code></td><td>cleans URLs changed with the History API (§7.2)</td></tr>
-<tr><td>12</td><td><code>external_js/regex_analyzer.js</code></td><td>regex analysis</td></tr>
-<tr><td>13</td><td><code>core_js/linkumori_rule_ids.js</code></td><td><code>LinkumoriRuleIds</code>: generated rule ids, shared with the editor and CLI (§6.2)</td></tr>
-<tr><td>14</td><td><code>core_js/linkumori_rule_pins.js</code></td><td><code>LinkumoriRulePins</code>: ids pinned for switched-off rules, shared with the editor and CLI (§6.2)</td></tr>
-<tr><td>14a</td><td><code>core_js/linkumori_rule_patches.js</code></td><td><code>LinkumoriRulePatches</code>: checks and applies remote rule patches, shared with the CLI (§5.3)</td></tr>
+<tr><td>4</td><td><code>core_js/tools.js</code></td><td>shared helpers: <code>translate</code>, URL helpers, counters, icon, log (<code>pushToLog</code>), keep-alive, <code>sha256()</code> (Web Crypto)</td></tr>
+<tr><td>5–6</td><td><code>external_js/light-punycode.js</code>, <code>external_js/publicsuffixlist.js</code></td><td>punycode; Public Suffix List parser (<code>linkumoriPsl</code>)</td></tr>
+<tr><td>7</td><td><code>core_js/badgedHandler.js</code></td><td>per-tab badge counter</td></tr>
+<tr><td>8</td><td><code>core_js/pureCleaning.js</code></td><td>cleaning outside <code>webRequest</code>, and the rule test lab (§7.1)</td></tr>
+<tr><td>9</td><td><code>core_js/context_menu.js</code></td><td><em>Copy clean link</em> context menu</td></tr>
+<tr><td>10</td><td><code>core_js/historyListener.js</code></td><td>cleans URLs changed with the History API (§7.2)</td></tr>
+<tr><td>11</td><td><code>external_js/regex_analyzer.js</code></td><td>regex analysis</td></tr>
+<tr><td>12</td><td><code>core_js/linkumori_rule_ids.js</code></td><td><code>LinkumoriRuleIds</code>: generated rule ids, shared with the editor and CLI (§6.2)</td></tr>
+<tr><td>13</td><td><code>core_js/linkumori_rule_pins.js</code></td><td><code>LinkumoriRulePins</code>: ids pinned for switched-off rules, shared with the editor and CLI (§6.2)</td></tr>
+<tr><td>13a</td><td><code>core_js/linkumori_rule_patches.js</code></td><td><code>LinkumoriRulePatches</code>: checks and applies remote rule patches, shared with the CLI (§5.3)</td></tr>
+<tr><td>14</td><td><code>external_js/linkumori-ghostery-tokens.js</code></td><td><code>LinkumoriGhosteryTokens</code>: tokenizer adapted from <code>@ghostery/adblocker</code> (MPL-2.0); lets the engine skip <code>$removeparam</code> filters whose URL pattern cannot match</td></tr>
 <tr><td>15</td><td><code>clearurls.js</code></td><td>the engine: providers, request cleaning, <code>start()</code> (§6)</td></tr>
 <tr><td>16</td><td><code>core_js/linkumori_dns.js</code></td><td><code>LinkumoriDNS</code>: CNAME uncloaking (§6.5)</td></tr>
 <tr><td>17</td><td><code>core_js/whitelist.js</code></td><td>whitelists and the temporary tab whitelist (§8)</td></tr>
@@ -343,7 +343,7 @@
 <ol>
 <li>Providers the user switched off (<code>customrules_import_exclusions</code>) are removed from both the base rules and the custom rules.</li>
 <li>Providers without <code>urlPattern</code> or <code>domainPatterns</code> are dropped.</li>
-<li>A custom provider <strong>replaces</strong> every base provider with the same pattern (the same <code>urlPattern</code>, or the same <code>domainPatterns</code> in any order), whatever their <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code> (<code>getProviderPatternOnlyGroupKey</code>). Their rules are not combined. Overload mode still merges built-in and remote providers only when the pattern and all four settings match (§5.2). Switching a provider off (step 1) uses the pattern-only key too (<code>isProviderSignatureDisabled</code>), so it removes every provider with that pattern.</li>
+<li>A custom provider <strong>replaces</strong> every base provider with the same pattern (the same <code>urlPattern</code>, or the same <code>domainPatterns</code> in any order), whatever their <code>methods</code>, <code>resourceTypes</code>, <code>completeProvider</code> and <code>forceRedirection</code> (<code>getProviderPatternOnlyGroupKey</code>). Their rules are not combined. Overload mode still merges built-in and remote providers only when the pattern and all four settings match (§5.2). Switching a provider off (step 1) uses the pattern-only key too (<code>isProviderSignatureDisabled</code>), so it removes every provider with that pattern. A base provider that lists several domains (identical built-in providers are kept as one, §6) counts as one provider per domain: a custom provider for exactly one of its domains replaces it for that domain only, and switching one of its domains off removes that domain only (<code>filterProvidersByDisabledSignatures</code>). In overload mode a remote provider for one of its domains merges with a copy of it for that domain (<code>mergeRemoteWithBundledRules</code>).</li>
 <li>Other custom providers are added. A name already in use gets <code>_1</code>, <code>_2</code>, ….</li>
 <li>Every provider goes through <code>attachProviderActivationIds()</code>: each rule gets its activation ids (<code>_linkumoriActivationIds</code>) and, if its id changed, its old ids (<code>_linkumoriLegacyRuleIds</code>); see §6.2.</li>
 <li>The result is saved as <code>ClearURLsData</code>, with <code>dataHash</code> (SHA-256 of a key-sorted serialisation) and <code>mergeStats</code>.</li>
@@ -392,15 +392,17 @@
 <li>a <code>urlPattern</code> provider without <code>indexPattern</code> (which is why <code>lint-rules</code> warns about it);</li>
 <li>a provider with a <code>/regex/</code> domain pattern.</li>
 </ul></li>
+<li><strong>Cache.</strong> <code>getCandidateProvidersForHost(host)</code> keeps each host's candidate list (up to 512 hosts). It is dropped when the providers are rebuilt or the Public Suffix List finishes loading.</li>
+<li><strong>URLs without parameters.</strong> A provider whose only actions work on query or fragment parameters (no <code>rawRules</code>, redirections, <code>fieldRedirections</code> or blocking; <code>isParamsOnly()</code>) can't change a URL with no <code>?</code> and no <code>#</code>, so <code>clearUrl()</code> skips it for such URLs. Most subresources (scripts, styles, images) have no query, so they skip almost every provider.</li>
 </ul>
 <h3 id="64-cleaning-a-request"><span class="h-num">6.4</span>Cleaning a request</h3>
 <p>The <code>webRequest.onBeforeRequest</code> listener (blocking) covers <code>&lt;all_urls&gt;</code> and the request types in <code>types</code> + <code>pingRequestTypes</code>. It records tab and frame URLs for <code>requestContextManager</code>, skips <code>data:</code> URLs, and calls <code>clearUrl(request)</code>:</p>
 <figure class="diagram">
-  <div class="diagram-scroll" style="--w: 1268px" tabindex="0" role="group" aria-label="Diagram: 6.4 Cleaning a request">
-    <img class="theme-light-only" src="assets/diagrams/19fa11c315c3-light.svg?v=cb4557fbde" width="1268" height="1917" alt="Diagram: 6.4 Cleaning a request. Its Mermaid source follows." loading="lazy">
-    <img class="theme-dark-only" src="assets/diagrams/19fa11c315c3-dark.svg?v=e765778d66" width="1268" height="1917" alt="Diagram: 6.4 Cleaning a request. Its Mermaid source follows." loading="lazy">
+  <div class="diagram-scroll" style="--w: 958px" tabindex="0" role="group" aria-label="Diagram: 6.4 Cleaning a request">
+    <img class="theme-light-only" src="assets/diagrams/7d134fbeca35-light.svg?v=6ea160d0ce" width="958" height="2353" alt="Diagram: 6.4 Cleaning a request. Its Mermaid source follows." loading="lazy">
+    <img class="theme-dark-only" src="assets/diagrams/7d134fbeca35-dark.svg?v=8bb0dcca5e" width="958" height="2353" alt="Diagram: 6.4 Cleaning a request. Its Mermaid source follows." loading="lazy">
   </div>
-  <div class="diagram-links"><a class="theme-light-only" href="assets/diagrams/19fa11c315c3-light.svg?v=cb4557fbde">Open full size</a><a class="theme-dark-only" href="assets/diagrams/19fa11c315c3-dark.svg?v=e765778d66">Open full size</a></div>
+  <div class="diagram-links"><a class="theme-light-only" href="assets/diagrams/7d134fbeca35-light.svg?v=6ea160d0ce">Open full size</a><a class="theme-dark-only" href="assets/diagrams/7d134fbeca35-dark.svg?v=8bb0dcca5e">Open full size</a></div>
   <details><summary>Diagram source</summary><div class="codeblock"><div class="codeblock-bar"><span class="codeblock-lang"></span><button type="button" class="copy-code" aria-label="Copy code">Copy</button></div><pre><code class="language-mermaid">flowchart TD
     A[request] --&gt; B{paused?}
     B -- yes --&gt; Z[let it through]
@@ -410,11 +412,11 @@
     D -- no --&gt; Z
     D -- yes --&gt; E{ping or beacon,&lt;br/&gt;ping blocking on?}
     E -- yes --&gt; X[cancel]
-    E -- no --&gt; F[collect @@ $removeparam exceptions&lt;br/&gt;from providers matching the page]
-    F --&gt; G[candidates: providers indexed under&lt;br/&gt;the request host + global providers]
+    E -- no --&gt; G[candidates: providers indexed under&lt;br/&gt;the request host + global providers]
     G --&gt; H{next candidate matches&lt;br/&gt;method, type, URL?}
     H -- no more --&gt; Y{CNAME uncloaking?}
-    H -- yes --&gt; I[removeFieldsFormURL]
+    H -- yes --&gt; F[on first use: collect @@ $removeparam&lt;br/&gt;exceptions from providers matching the page]
+    F --&gt; I[removeFieldsFormURL]
     I -- redirect --&gt; R[redirect, or navigate the tab&lt;br/&gt;if forceRedirection]
     I -- block --&gt; K[main frame: siteBlockedAlert page&lt;br/&gt;other: redirect to javascript:void 0]
     I -- changed --&gt; M[redirect to the cleaned URL]
@@ -454,6 +456,8 @@
 <li>the tab's URL, kept up to date from <code>tabs.onUpdated</code> and <code>webNavigation.onCommitted</code>;</li>
 <li>the URLs of the frame's ancestor frames.</li>
 </ul>
+<p><code>getContextURLs(request)</code> is the cached form (one list per request, kept until the current synchronous run ends or a tab or frame URL changes); the whitelist check and <code>clearUrl()</code> share it.</p>
+<p>The <code>@@</code> exceptions that come from the page (<code>getContextRemoveParamExceptions</code>) are collected only when a provider is about to clean the request, and are cached (up to 512 entries) by page URLs, request type, method and the referral marketing setting, since nothing else changes the answer. The cache is dropped when the providers are rebuilt or the Public Suffix List finishes loading. Providers with no <code>@@</code> entries are not checked against the page.</p>
 <h3 id="67-public-suffix-list"><span class="h-num">6.7</span>Public Suffix List</h3>
 <p><code>initPslSupport()</code> loads <code>data/public_suffix_list.dat</code> into <code>linkumoriPsl</code>. The engine uses it for:</p>
 <ul>
