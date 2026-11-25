@@ -575,8 +575,35 @@ var requestContextManager = {
         return t;
     },
 
+    // PERF: page URLs of a request, kept until the current synchronous run
+    // ends or the tab/frame records change, whichever comes first.
+    contextCache: new WeakMap(),
+    contextCacheClearQueued: false,
+
+    invalidateContextCache() {
+        this.contextCache = new WeakMap();
+    },
+
+    // collectContextURLs() for callers that only read the list (it is frozen).
+    getContextURLs(requestDetails) {
+        if (!requestDetails || typeof requestDetails !== 'object') return this.collectContextURLs(requestDetails);
+        let urls = this.contextCache.get(requestDetails);
+        if (urls === undefined) {
+            urls = Object.freeze(this.collectContextURLs(requestDetails));
+            this.contextCache.set(requestDetails, urls);
+            if (!this.contextCacheClearQueued) {
+                this.contextCacheClearQueued = true;
+                const clear = () => { this.contextCacheClearQueued = false; this.invalidateContextCache(); };
+                if (typeof queueMicrotask === 'function') queueMicrotask(clear);
+                else Promise.resolve().then(clear);
+            }
+        }
+        return urls;
+    },
+
     setTabURL(tabId, url) {
         if (typeof tabId !== 'number' || tabId < 0 || typeof url !== 'string' || !url) return;
+        this.invalidateContextCache();
         const t = this.ensureTab(tabId);
         t.url = url;
         t.frames.set(0, { url, parentFrameId: -1 });
@@ -586,6 +613,7 @@ var requestContextManager = {
         if (typeof tabId !== 'number' || tabId < 0) return;
         if (typeof frameId !== 'number' || frameId < 0) return;
         if (typeof url !== 'string' || !url) return;
+        this.invalidateContextCache();
         const t = this.ensureTab(tabId);
         t.frames.set(frameId, { url, parentFrameId });
         if (frameId === 0) t.url = url;
@@ -639,12 +667,13 @@ var requestContextManager = {
                 ? changeInfo.url : (tab && typeof tab.url === 'string' ? tab.url : null);
             if (u) this.setTabURL(tabId, u);
         });
-        browser.tabs.onRemoved.addListener(tabId => { this.tabs.delete(tabId); });
+        browser.tabs.onRemoved.addListener(tabId => { this.invalidateContextCache(); this.tabs.delete(tabId); });
         if (browser.webNavigation && browser.webNavigation.onCommitted) {
             browser.webNavigation.onCommitted.addListener(details => {
                 // A top-level navigation starts the tab over.
                 if (details.frameId === 0) {
                     const t = this.tabs.get(details.tabId);
+                    this.invalidateContextCache();
                     if (t) t.frames.clear();
                 }
                 this.setFrameURL(details.tabId, details.frameId, details.url, details.parentFrameId);
@@ -821,7 +850,12 @@ var linkumoriDomainPatternHelpers = (function () {
             if (end !== -1 && raw.charAt(end) === '^') hostEndIndex = end;
         }
 
-        const source = linkumoriTokensToRegexSource(raw, hostEndIndex);
+        let source = linkumoriTokensToRegexSource(raw, hostEndIndex);
+        // PERF: without a start anchor the regex may match anywhere, so a
+        // leading ".*" (from a leading "*") changes nothing for test() but
+        // makes the engine retry it from every position. URLs hold no line
+        // breaks, which "." would not match.
+        if (!domainAnchor && !startAnchor) while (source.startsWith('.*')) source = source.slice(2);
         const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
         // A "||" pattern that is only a host must end at the host: ':' is a
@@ -931,15 +965,36 @@ function matchDomainPattern(url, patterns) {
         let parsed = matchDomainPatternLastUrl;
         if (!parsed || parsed.url !== url) {
             const urlObj = new URL(url);
-            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase() };
+            parsed = { url, urlObj, hostname: normalizeAsciiHostname(urlObj.hostname), fullUrl: url.toLowerCase(),
+                results: new Map(), pslStatus: pslSupport.status };
             matchDomainPatternLastUrl = parsed;
         }
         const { urlObj, hostname, fullUrl } = parsed;
         if (!hostname) return false;
+        // PERF: many rules check the same URL against the same pattern (each
+        // rule of a provider repeats its domain, and filters are copied
+        // across providers), so a pattern's answer for this URL is kept.
+        // It depends only on the URL, the pattern and whether the Public
+        // Suffix List is loaded, so it is dropped when that changes.
+        if (parsed.pslStatus !== pslSupport.status) {
+            parsed.results = new Map();
+            parsed.pslStatus = pslSupport.status;
+        }
+        const results = parsed.results;
 
         return patterns.some(pattern => {
             const p = String(pattern || '').trim();
             if (!p) return false;
+            let answer = results.get(p);
+            if (answer === undefined) {
+                answer = matchOnePattern(p);
+                if (results.size >= 5000) results.clear();
+                results.set(p, answer);
+            }
+            return answer;
+        });
+
+        function matchOnePattern(p) {
 
             // Regex literal: /body/ or /body/flags
             if (p.charAt(0) === '/') {
@@ -975,7 +1030,7 @@ function matchDomainPattern(url, patterns) {
             const regex = compileLinkumoriRegex(pLower);
             if (regex) return regex.test(fullUrl);
             return fullUrl.includes(pLower);
-        });
+        }
     } catch (e) { return false; }
 }
 
@@ -1283,7 +1338,7 @@ function linkumoriHostnameMatchesRegexes(hostname, regexes) {
 
 function getLinkumoriRequestContextHosts(request, fallbackHost = '') {
     const contextHosts = request
-        ? requestContextManager.collectContextURLs(request).map(getLinkumoriURLHostname).filter(Boolean)
+        ? requestContextManager.getContextURLs(request).map(getLinkumoriURLHostname).filter(Boolean)
         : [];
     return contextHosts.length > 0 ? contextHosts : (fallbackHost ? [fallbackHost] : []);
 }
@@ -1359,8 +1414,131 @@ function getRuleExceptionMatcher(exceptions) {
     return matcher;
 }
 
+// ---------------------------------------------------------------------------
+// PERF: required tokens of a $removeparam URL pattern
+// ---------------------------------------------------------------------------
+// A token is a run of letters, digits and "%" (the tokenizer adapted from
+// @ghostery/adblocker, external_js/linkumori-ghostery-tokens.js). A token of
+// a URL pattern that is bounded on both sides by literal punctuation or an
+// anchor must appear as a whole token in every URL matchDomainPattern()
+// matches with that pattern: literal text is matched as is (case aside),
+// "^" only matches a character that is not a letter, digit, "_", "-", "."
+// or "%", "||" sits after "//", "@" or "." and a "||" host ends the host.
+// So when one of them is missing, the pattern cannot match and the rule is
+// skipped. Left out, so nothing is skipped wrongly:
+// - tokens touching a "*", and the first (last) token when the pattern has
+//   no start (end) anchor: those can be part of a longer word
+// - "/regex/" patterns, and patterns with characters outside printable
+//   ASCII (an IDN host is matched in its punycode form)
+// URLs are split with ASCII-only token characters, so an accented letter
+// after a word (which "^" accepts) still ends the word. Tokens are hashes;
+// a collision can only make a missing token look present, never the
+// other way round.
+var linkumoriPatternTokensCache = new Map();
+var linkumoriUrlTokensCache = new Map();
+
+function getLinkumoriUrlPatternTokens(urlPattern) {
+    const key = String(urlPattern || '');
+    let tokens = linkumoriPatternTokensCache.get(key);
+    if (tokens !== undefined) return tokens;
+    tokens = null;
+    const tokenizer = globalThis.LinkumoriGhosteryTokens;
+    const p = key.trim().toLowerCase();
+    if (tokenizer && p && p !== '*' && p.charAt(0) !== '/' && /^[\x21-\x7e]+$/.test(p)) {
+        const startAnchored = p.startsWith('|');
+        let endAnchored = p.endsWith('|');
+        if (!endAnchored && p.startsWith('||')) {
+            // A "||" pattern that is only a host ends at the end of the host.
+            const body = p.slice(2);
+            endAnchored = body.length > 0 && !/[\/^|]/.test(body);
+        }
+        const found = tokenizer.tokenizeWithWildcards(p, !startAnchored, !endAnchored);
+        if (found.length > 0) tokens = Array.from(new Set(found));
+    }
+    if (linkumoriPatternTokensCache.size >= 20000) linkumoriPatternTokensCache.clear();
+    linkumoriPatternTokensCache.set(key, tokens);
+    return tokens;
+}
+
+// Tokens of a URL as matchDomainPattern() reads it: the text as given and
+// the parsed URL (host and path, as the "||" match reads them). Null when
+// the URL does not parse (matchDomainPattern() is then false anyway, but
+// nothing is skipped on that ground).
+// The last few URLs and their token sets: checks alternate between the
+// request URL and its page URLs.
+var linkumoriRecentTokenUrls = [null, null, null, null];
+var linkumoriRecentTokenSets = [null, null, null, null];
+var linkumoriRecentTokenNext = 0;
+
+function getLinkumoriUrlTokens(url) {
+    for (let i = 0; i < 4; i++) if (linkumoriRecentTokenUrls[i] === url) return linkumoriRecentTokenSets[i];
+    const set = getLinkumoriUrlTokensUncached(url);
+    linkumoriRecentTokenUrls[linkumoriRecentTokenNext] = url;
+    linkumoriRecentTokenSets[linkumoriRecentTokenNext] = set;
+    linkumoriRecentTokenNext = (linkumoriRecentTokenNext + 1) & 3;
+    return set;
+}
+
+function getLinkumoriUrlTokensUncached(url) {
+    let set = linkumoriUrlTokensCache.get(url);
+    if (set !== undefined) return set;
+    set = null;
+    const tokenizer = globalThis.LinkumoriGhosteryTokens;
+    if (tokenizer && typeof url === 'string') {
+        try {
+            const href = new URL(url).href;
+            set = new Set(tokenizer.tokenizeNoSkipAscii(url.toLowerCase()));
+            if (href !== url) for (const t of tokenizer.tokenizeNoSkipAscii(href.toLowerCase())) set.add(t);
+        } catch (_) { set = null; }
+    }
+    if (linkumoriUrlTokensCache.size >= 256) linkumoriUrlTokensCache.clear();
+    linkumoriUrlTokensCache.set(url, set);
+    return set;
+}
+
+// False only when `urlPattern` cannot match any of `urls`. `tokens` may
+// be passed in (getLinkumoriUrlPatternTokens(urlPattern)).
+function linkumoriUrlPatternMayMatch(urlPattern, urls, tokens = undefined) {
+    if (tokens === undefined) tokens = getLinkumoriUrlPatternTokens(urlPattern);
+    if (!tokens) return true;
+    for (const url of urls) {
+        const set = url ? getLinkumoriUrlTokens(url) : null;
+        if (!set) return true;
+        let all = true;
+        for (const t of tokens) if (!set.has(t)) { all = false; break; }
+        if (all) return true;
+    }
+    return false;
+}
+
+// PERF: a rule's required tokens, kept on the rule (not enumerable, so
+// copies and snapshots of the rule are unchanged).
+function getLinkumoriRuleUrlPatternTokens(rule) {
+    let tokens = rule.__linkumoriUrlTokens;
+    if (tokens === undefined || rule.__linkumoriUrlTokensFor !== rule.urlPattern) {
+        tokens = getLinkumoriUrlPatternTokens(rule.urlPattern);
+        try {
+            Object.defineProperty(rule, '__linkumoriUrlTokens', { value: tokens, writable: true, configurable: true, enumerable: false });
+            Object.defineProperty(rule, '__linkumoriUrlTokensFor', { value: rule.urlPattern, writable: true, configurable: true, enumerable: false });
+        } catch (_) { /* a frozen rule is just not cached */ }
+    }
+    return tokens;
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
+    // PERF: the URL pattern check below must pass for this to be true, and
+    // nothing before it has side effects, so a pattern that cannot match
+    // (see getLinkumoriUrlPatternTokens) is answered here. An "@@" rule is
+    // also tried on the request's page URLs, as below.
+    if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
+        const tokens = getLinkumoriRuleUrlPatternTokens(linkumoriRule);
+        if (tokens && !linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, [fullUrl], tokens) &&
+            !(linkumoriRule.isException && request &&
+                linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, requestContextManager.getContextURLs(request), tokens))) {
+            return false;
+        }
+    }
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
     if (linkumoriRule.exceptionMatcher && linkumoriRule.exceptionMatcher.test(fullUrl)) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
@@ -1368,7 +1546,7 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
             if (linkumoriRule.isException && request) {
-                const contextUrls = requestContextManager.collectContextURLs(request);
+                const contextUrls = requestContextManager.getContextURLs(request);
                 if (!contextUrls.some(u => u && matchDomainPattern(u, [linkumoriRule.urlPattern]))) return false;
             } else return false;
         }
@@ -1413,6 +1591,40 @@ function getLinkumoriParamPairs(fieldName, values = []) {
     return paramValues.map(value => rawParamName + '=' + safeDecodeLinkumoriParam(value));
 }
 
+// PERF: the literal text a name regex must start with, when that can be
+// read off safely: the source starts with "^" followed by plain characters,
+// has no "|" anywhere and no "m" flag (so "^" is the start of the string),
+// and is not case-insensitive in "u"/"v" mode (where some non-ASCII letters
+// match ASCII ones). A literal followed by a quantifier is left out. Null
+// otherwise. The name and every "name=value" pair start with the name, so
+// when neither the name starts with the prefix nor the prefix with the
+// name, the regex cannot match any of them.
+var linkumoriRegexPrefixCache = new WeakMap();
+
+function getLinkumoriRegexLiteralPrefix(regex) {
+    let info = linkumoriRegexPrefixCache.get(regex);
+    if (info !== undefined) return info;
+    info = null;
+    const src = regex.source, flags = regex.flags;
+    const ci = flags.includes('i');
+    if (src.charAt(0) === '^' && !src.includes('|') && !flags.includes('m') &&
+        !(ci && (flags.includes('u') || flags.includes('v')))) {
+        let i = 1;
+        while (i < src.length && /[A-Za-z0-9_=-]/.test(src.charAt(i))) i++;
+        let prefix = src.slice(1, i);
+        if (/^[*+?{]/.test(src.charAt(i))) prefix = prefix.slice(0, -1);
+        if (prefix) info = { prefix: ci ? prefix.toLowerCase() : prefix, ci };
+    }
+    linkumoriRegexPrefixCache.set(regex, info);
+    return info;
+}
+
+function linkumoriRegexMayMatchName(regex, name, info = getLinkumoriRegexLiteralPrefix(regex)) {
+    if (!info) return true;
+    const n = info.ci ? name.toLowerCase() : name;
+    return n.length >= info.prefix.length ? n.startsWith(info.prefix) : info.prefix.startsWith(n);
+}
+
 // `pairs` is optional: getLinkumoriParamPairs(fieldName, values), passed in
 // by callers that test one parameter against many filters (PERF).
 function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], pairs = null) {
@@ -1420,7 +1632,18 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], 
     if (linkumoriRule.removeAll) return true;
     const rawParamName = String(fieldName);
     let matched = false;
-    if (linkumoriRule.regexParam) {
+    // The prefix is kept on the rule (not enumerable) for its current regex.
+    if (linkumoriRule.regexParam && linkumoriRule.__linkumoriPrefixFor !== linkumoriRule.regexParam) {
+        try {
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefix', { value: getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam), writable: true, configurable: true, enumerable: false });
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefixFor', { value: linkumoriRule.regexParam, writable: true, configurable: true, enumerable: false });
+        } catch (_) { /* a frozen rule is just not cached */ }
+    }
+    const prefixInfo = linkumoriRule.__linkumoriPrefixFor === linkumoriRule.regexParam
+        ? linkumoriRule.__linkumoriPrefix : (linkumoriRule.regexParam ? getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam) : null);
+    if (prefixInfo && !linkumoriRegexMayMatchName(linkumoriRule.regexParam, rawParamName, prefixInfo)) {
+        matched = false;
+    } else if (linkumoriRule.regexParam) {
         const regex = linkumoriRule.regexParam;
         regex.lastIndex = 0;
         matched = regex.test(rawParamName);
