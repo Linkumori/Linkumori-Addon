@@ -1682,9 +1682,57 @@ function getLinkumoriParamIndex(rules) {
         if (!bucket) bucketMap.set(r.literalParam, bucket = []);
         bucket.push(i);
     }
-    index = { length: rules.length, caseInsensitive, caseSensitive, always };
+    const { regexGroupOf, regexGroups } = buildLinkumoriRegexGroups(rules);
+    index = { length: rules.length, caseInsensitive, caseSensitive, always, regexGroupOf, regexGroups };
     linkumoriParamIndexCache.set(rules, index);
     return index;
+}
+
+// PERF: the regex name filters of a list, joined into one regex per set of
+// flags ("(?:a)|(?:b)|..."), the way ad blockers test many patterns at once.
+// The joined regex matches a string exactly when one of its parts does, so
+// when it matches neither the parameter name nor any "name=value" pair, no
+// filter of the group can match and all of them are skipped. Otherwise each
+// filter is still tested on its own, in list order. Left out of groups:
+// negated filters, removeAll, sources with backreferences or named groups
+// (joining would renumber or repeat them), and groups whose joined regex
+// does not compile. The "g" and "y" flags only move lastIndex, which every
+// test resets, so they are not part of the group key.
+function buildLinkumoriRegexGroups(rules) {
+    const regexGroupOf = new Array(rules.length).fill(-1);
+    const byFlags = new Map();
+    for (let i = 0; i < rules.length; i++) {
+        const r = rules[i];
+        const re = r && r.regexParam;
+        if (!re || r.removeAll || r.negate) continue;
+        const src = re.source;
+        if (/\\[1-9]|\\k<|\(\?<(?![=!])/.test(src)) continue;
+        const flags = re.flags.replace(/[gy]/g, '');
+        if (!byFlags.has(flags)) byFlags.set(flags, []);
+        byFlags.get(flags).push(i);
+    }
+    const regexGroups = [];
+    for (const [flags, members] of byFlags) {
+        if (members.length < 2) continue;
+        let joined;
+        try { joined = new RegExp(members.map(i => '(?:' + rules[i].regexParam.source + ')').join('|'), flags); }
+        catch (_) { continue; }
+        const id = regexGroups.length;
+        regexGroups.push(joined);
+        for (const i of members) regexGroupOf[i] = id;
+    }
+    return { regexGroupOf, regexGroups };
+}
+
+// True when the joined regex matches the name or one of its pairs.
+function linkumoriRegexGroupMayMatch(joined, fieldName, getPairs) {
+    joined.lastIndex = 0;
+    if (joined.test(fieldName)) return true;
+    for (const pair of getPairs()) {
+        joined.lastIndex = 0;
+        if (joined.test(pair)) return true;
+    }
+    return false;
 }
 
 // Indexes of `rules` that could match `fieldName`, in list order.
@@ -1698,8 +1746,8 @@ function getLinkumoriParamCandidates(rules, fieldName) {
     return merged.sort((x, y) => x - y);
 }
 
-function findLinkumoriParamRule(list, fieldName, nameMatches) {
-    if (list && typeof list.findFor === 'function') return list.findFor(fieldName, nameMatches);
+function findLinkumoriParamRule(list, fieldName, nameMatches, getPairs) {
+    if (list && typeof list.findFor === 'function') return list.findFor(fieldName, nameMatches, getPairs);
     return (list || []).find(nameMatches);
 }
 
@@ -1707,13 +1755,14 @@ function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExc
     const rawFieldName = String(fieldName || '');
     if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };
     let pairs = null;
+    const getPairs = () => (pairs === null ? (pairs = getLinkumoriParamPairs(rawFieldName, values)) : pairs);
     const nameMatches = r => {
         if (r && r.regexParam && !r.removeAll && pairs === null) pairs = getLinkumoriParamPairs(rawFieldName, values);
         return linkumoriRemoveParamMatchesName(r, rawFieldName, values, pairs);
     };
-    const matchedException = findLinkumoriParamRule(activeExceptions, rawFieldName, nameMatches);
+    const matchedException = findLinkumoriParamRule(activeExceptions, rawFieldName, nameMatches, getPairs);
     if (matchedException) return { handled: true, remove: false, matchedRule: getLinkumoriRemoveParamTraceName(matchedException), rule: matchedException };
-    const matchedRule = findLinkumoriParamRule(activeRules, rawFieldName, nameMatches);
+    const matchedRule = findLinkumoriParamRule(activeRules, rawFieldName, nameMatches, getPairs);
     if (matchedRule) return {
         handled: true,
         remove: matchedRule.replacePattern === null,
@@ -2311,9 +2360,19 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 },
                 // Same result as find(), but only visits rules whose name
                 // could match (see getLinkumoriParamIndex).
-                findFor(fieldName, nameMatches) {
+                findFor(fieldName, nameMatches, getPairs) {
+                    const index = getLinkumoriParamIndex(rules);
+                    const groupOf = index.regexGroupOf;
+                    let groupState = null; // per group: undefined (not tested), true or false
                     for (const i of getLinkumoriParamCandidates(rules, fieldName)) {
                         const r = rules[i];
+                        const g = getPairs ? groupOf[i] : -1;
+                        if (g >= 0) {
+                            if (groupState === null) groupState = [];
+                            let may = groupState[g];
+                            if (may === undefined) may = groupState[g] = linkumoriRegexGroupMayMatch(index.regexGroups[g], fieldName, getPairs);
+                            if (!may) continue;
+                        }
                         if (nameMatches(r) && isEligible(r)) return r;
                     }
                     for (const r of extra) if (nameMatches(r)) return r;
