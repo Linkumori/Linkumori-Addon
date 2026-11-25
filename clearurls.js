@@ -1385,8 +1385,97 @@ function getRuleExceptionMatcher(exceptions) {
     return matcher;
 }
 
+// ---------------------------------------------------------------------------
+// PERF: required tokens of a $removeparam URL pattern
+// ---------------------------------------------------------------------------
+// A token is a run of letters, digits and "%" (the tokenizer adapted from
+// @ghostery/adblocker, external_js/linkumori-ghostery-tokens.js). A token of
+// a URL pattern that is bounded on both sides by literal punctuation or an
+// anchor must appear as a whole token in every URL matchDomainPattern()
+// matches with that pattern: literal text is matched as is (case aside),
+// "^" only matches a character that is not a letter, digit, "_", "-", "."
+// or "%", "||" sits after "//", "@" or "." and a "||" host ends the host.
+// So when one of them is missing, the pattern cannot match and the rule is
+// skipped. Left out, so nothing is skipped wrongly:
+// - tokens touching a "*", and the first (last) token when the pattern has
+//   no start (end) anchor: those can be part of a longer word
+// - "/regex/" patterns, and patterns with characters outside printable
+//   ASCII (an IDN host is matched in its punycode form)
+// URLs are split with ASCII-only token characters, so an accented letter
+// after a word (which "^" accepts) still ends the word. Tokens are hashes;
+// a collision can only make a missing token look present, never the
+// other way round.
+var linkumoriPatternTokensCache = new Map();
+var linkumoriUrlTokensCache = new Map();
+
+function getLinkumoriUrlPatternTokens(urlPattern) {
+    const key = String(urlPattern || '');
+    let tokens = linkumoriPatternTokensCache.get(key);
+    if (tokens !== undefined) return tokens;
+    tokens = null;
+    const tokenizer = globalThis.LinkumoriGhosteryTokens;
+    const p = key.trim().toLowerCase();
+    if (tokenizer && p && p !== '*' && p.charAt(0) !== '/' && /^[\x21-\x7e]+$/.test(p)) {
+        const startAnchored = p.startsWith('|');
+        let endAnchored = p.endsWith('|');
+        if (!endAnchored && p.startsWith('||')) {
+            // A "||" pattern that is only a host ends at the end of the host.
+            const body = p.slice(2);
+            endAnchored = body.length > 0 && !/[\/^|]/.test(body);
+        }
+        const found = tokenizer.tokenizeWithWildcards(p, !startAnchored, !endAnchored);
+        if (found.length > 0) tokens = Array.from(new Set(found));
+    }
+    if (linkumoriPatternTokensCache.size >= 20000) linkumoriPatternTokensCache.clear();
+    linkumoriPatternTokensCache.set(key, tokens);
+    return tokens;
+}
+
+// Tokens of a URL as matchDomainPattern() reads it: the text as given and
+// the parsed URL (host and path, as the "||" match reads them). Null when
+// the URL does not parse (matchDomainPattern() is then false anyway, but
+// nothing is skipped on that ground).
+function getLinkumoriUrlTokens(url) {
+    let set = linkumoriUrlTokensCache.get(url);
+    if (set !== undefined) return set;
+    set = null;
+    const tokenizer = globalThis.LinkumoriGhosteryTokens;
+    if (tokenizer && typeof url === 'string') {
+        try {
+            const href = new URL(url).href;
+            set = new Set(tokenizer.tokenizeNoSkipAscii(url.toLowerCase()));
+            if (href !== url) for (const t of tokenizer.tokenizeNoSkipAscii(href.toLowerCase())) set.add(t);
+        } catch (_) { set = null; }
+    }
+    if (linkumoriUrlTokensCache.size >= 256) linkumoriUrlTokensCache.clear();
+    linkumoriUrlTokensCache.set(url, set);
+    return set;
+}
+
+// False only when `urlPattern` cannot match any of `urls`.
+function linkumoriUrlPatternMayMatch(urlPattern, urls) {
+    const tokens = getLinkumoriUrlPatternTokens(urlPattern);
+    if (!tokens) return true;
+    return urls.some(url => {
+        const set = url ? getLinkumoriUrlTokens(url) : null;
+        if (!set) return true;
+        for (const t of tokens) if (!set.has(t)) return false;
+        return true;
+    });
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
+    // PERF: the URL pattern check below must pass for this to be true, and
+    // nothing before it has side effects, so a pattern that cannot match
+    // (see getLinkumoriUrlPatternTokens) is answered here. An "@@" rule is
+    // also tried on the request's page URLs, as below.
+    if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*' &&
+        !linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, [fullUrl]) &&
+        !(linkumoriRule.isException && request &&
+            linkumoriUrlPatternMayMatch(linkumoriRule.urlPattern, requestContextManager.collectContextURLs(request)))) {
+        return false;
+    }
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
     if (linkumoriRule.exceptionMatcher && linkumoriRule.exceptionMatcher.test(fullUrl)) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;

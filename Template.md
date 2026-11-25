@@ -1681,6 +1681,51 @@ with the terms of whichever license they choose.
 
 ---
 
+#### 3.2.9 Ghostery Adblocker Tokenizer
+
+**File:** `external_js/linkumori-ghostery-tokens.js`
+
+##### Original Copyright
+
+**Upstream Project:** `@ghostery/adblocker` 2.20.3 (`dist/esm/utils.js`)
+**Repository:** <https://github.com/ghostery/adblocker>
+**Copyright:** Copyright (c) 2017-present Ghostery GmbH
+**License:** Mozilla Public License Version 2.0 (MPL-2.0)
+**License File:** `THIRD-PARTY-NOTICE/ghostery-adblocker/LICENSE`
+
+{{LICENSE:MPL-2.0}}
+
+##### Linkumori Modifications
+
+**Author:** © 2026 Subham Mahesh
+
+**License for Modified Portions:** Mozilla Public License 2.0 (MPL-2.0) and
+GNU Lesser General Public License (LGPL) v3.0 or later
+
+Only the hashing and tokenizing functions were kept. Tokens are returned as
+plain arrays instead of through the fixed-size token buffer, the functions are
+exposed on `globalThis.LinkumoriGhosteryTokens` for the background's classic
+scripts, and `tokenizeNoSkipAscii()` was added. The changes are listed in the
+file's header.
+
+{{LICENSE:LGPL-3.0}}
+
+##### Distribution and Secondary License Notice
+
+Linkumori is a Larger Work that combines `external_js/linkumori-ghostery-tokens.js`
+with code under the GNU LGPL v3.0 or later. The LGPL is a Secondary License
+(MPL-2.0 Section 1.12), and the Ghostery code carries no "Incompatible With
+Secondary Licenses" notice (MPL-2.0 Exhibit B). As MPL-2.0 Section 3.3 permits,
+this file, the Ghostery code included, is additionally made available under the
+GNU Lesser General Public License v3.0 or later. Recipients may use and further
+distribute it under either MPL-2.0 or LGPL-3.0-or-later, at their option, and
+must keep the Ghostery copyright and MPL-2.0 notice (MPL-2.0 Section 3.4).
+
+This dual-licensing applies only to `external_js/linkumori-ghostery-tokens.js`
+and does not apply to other parts of Linkumori unless explicitly stated.
+
+---
+
 ## 4. Font Components
 
 ### 4.1 Old Country Nobility Font
