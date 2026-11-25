@@ -415,6 +415,7 @@ An optional top-level `ruleSets` object names lists of entries that several prov
 - **Optional:** a file without `ruleSets` loads as before. A file that uses them is still CLN 1.0; `ruleSets` is a Linkumori addition, so other CLN readers need the written-out form (the CLI's `yaml-to-json` writes it).
 - **Rules:** a set name uses lowercase letters, digits, `-` and `_`; a set is a non-empty list and cannot include another set; an `include` entry has no other keys. Ids only need to be unique within a provider, as usual.
 - **Checked:** an unknown set name, an `include` without `ruleSets` and these shape errors are errors in `lint-rules` and the editors; a remote file with one is rejected, and custom rules with one are not loaded. `lint-rules` also warns about a set no provider includes.
+- **Custom rules:** in the custom rules editor, *Manage shared rule sets* edits the custom rules' sets as JSON, and a provider uses one with an `include` entry in its JSON. The provider's checks, run order and test URLs use it written out; it is saved as written, and import and export keep the sets. The run order can't rearrange steps of a provider with an `include` in `rules`, `rawRules` or `referralMarketing`: those are ordered in the set.
 
 YAML sources use the same keys; see [Shared rule sets](cln-yaml.md#shared-rule-sets).
 
