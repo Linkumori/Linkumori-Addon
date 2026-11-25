@@ -84,8 +84,11 @@
     let recentNext = 0;
     const urlCache = new Map();
 
+    // "scheme://[user@]host" up to the end of the host, and its trailing dots.
+    const HOST_TRAILING_DOTS = /^([a-z][a-z0-9+.-]*:\/\/(?:[^\/?#@]*@)?[^\/?#:.][^\/?#:]*?)\.+(?=[:\/?#]|$)/i;
+
     function makeUrlEntry(url) {
-        const entry = { url, request: null, tokenSet: null };
+        const entry = { url, request: null, requestNoDots: null, tokenSet: null };
         const g = engine();
         if (!g || typeof url !== 'string' || !url) return entry;
         let host = '';
@@ -95,7 +98,29 @@
             const request = g.Request.fromRawDetails({ url, type: 'xmlhttprequest' });
             if (request && request.hostname) entry.request = request;
         } catch (_) { /* no request: matches nothing */ }
+        // A host with trailing dots ("example.com.") names the same host, but
+        // a pattern with a path (||example.com/go) is matched against the URL
+        // text, where the dot sits between host and path. So the URL is also
+        // read with those dots dropped (only the host changes), and a pattern
+        // matches if either reading does: one that spells the dot out
+        // (|https://www.example.*) still matches the first.
+        if (entry.request) {
+            const noDots = url.replace(HOST_TRAILING_DOTS, '$1');
+            if (noDots !== url) {
+                try {
+                    const request = g.Request.fromRawDetails({ url: noDots, type: 'xmlhttprequest' });
+                    if (request && request.hostname) entry.requestNoDots = request;
+                } catch (_) { /* the URL as given still applies */ }
+            }
+        }
         return entry;
+    }
+
+    // filter.match() on the URL as given, or with its host's trailing dots
+    // dropped. Both readings have the same tokens (a dot separates them).
+    function matchEntry(filter, entry) {
+        return filter.match(entry.request) ||
+            (entry.requestNoDots !== null && filter.match(entry.requestNoDots));
     }
 
     function urlEntry(url) {
@@ -217,8 +242,8 @@
                 kind: 'ghostery',
                 tokens,
                 match(url) {
-                    const request = urlEntry(url).request;
-                    return !!request && filter.match(request);
+                    const entry = urlEntry(url);
+                    return !!entry.request && matchEntry(filter, entry);
                 }
             };
         }
@@ -240,8 +265,9 @@
             kind: 'anySuffix',
             tokens,
             match(url) {
-                const request = urlEntry(url).request;
-                if (!request || !filter.match(request)) return false;
+                const entry = urlEntry(url);
+                const request = entry.request;
+                if (!request || !matchEntry(filter, entry)) return false;
                 let parsed;
                 try { parsed = g.parseDomain(request.hostname); } catch (_) { parsed = null; }
                 const suffix = parsed && parsed.publicSuffix;
@@ -254,7 +280,7 @@
                 const beforeSuffix = request.hostname.slice(0, -(suffix.length + 1));
                 if (beforeSuffix !== anySuffixBase && !beforeSuffix.endsWith('.' + anySuffixBase)) return false;
                 const exact = filterForSuffix(suffix);
-                return !!exact && exact.match(request);
+                return !!exact && matchEntry(exact, entry);
             }
         };
     }
