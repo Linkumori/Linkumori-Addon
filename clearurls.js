@@ -782,20 +782,21 @@ class Multimap {
 // True when `url` matches any of `patterns`. Each pattern is compiled once
 // by core_js/linkumori_url_patterns.js, which matches with
 // @ghostery/adblocker's NetworkFilter (see that file for Linkumori's own
-// pattern rules). The answer does not depend on whether the Public Suffix
-// List has loaded.
+// pattern rules). Only ||host.* patterns depend on the Public Suffix List:
+// until it has loaded they are a plain wildcard match.
 
 // PERF: many rules check the same URL against the same pattern (each rule
 // of a provider repeats its domain, and filters are copied across
-// providers), so a pattern's answer for the last URL is kept.
+// providers), so a pattern's answer for the last URL is kept, until the
+// URL or the Public Suffix List's status changes.
 var matchDomainPatternLastUrl = null;
 
 function matchDomainPattern(url, patterns) {
     if (typeof patterns === 'string') patterns = [patterns];
     if (!Array.isArray(patterns) || patterns.length === 0 || typeof url !== 'string' || !url) return false;
     let last = matchDomainPatternLastUrl;
-    if (!last || last.url !== url) {
-        last = { url, results: new Map() };
+    if (!last || last.url !== url || last.pslStatus !== pslSupport.status) {
+        last = { url, results: new Map(), pslStatus: pslSupport.status };
         matchDomainPatternLastUrl = last;
     }
     const results = last.results;

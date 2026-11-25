@@ -46,9 +46,11 @@
  *                     pattern right after it: "||amazon.*" followed by
  *                     "/gp/" matches amazon.co.uk/gp/ but not
  *                     amazon.evil.com/gp/ or amazon.de/a/gp/. The suffix
- *                     comes from tldts, bundled
- *                     with Ghostery, so the answer does not depend on
- *                     whether Linkumori's Public Suffix List has loaded.
+ *                     comes from Linkumori's Public Suffix List
+ *                     (external_js/publicsuffixlist.js). While the list
+ *                     is loading, or for a host it does not list, the
+ *                     pattern is a plain wildcard: "amazon." then
+ *                     anything, then the rest.
  *   ||bücher.example  the host is matched in its punycode form
  *   /body/flags       a regex tested against the URL as given
  *   *                 every URL
@@ -241,9 +243,14 @@
                 const request = urlEntry(url).request;
                 if (!request || !filter.match(request)) return false;
                 let parsed;
-                try { parsed = g.parseDomain(request.hostname); } catch (_) { return false; }
+                try { parsed = g.parseDomain(request.hostname); } catch (_) { parsed = null; }
                 const suffix = parsed && parsed.publicSuffix;
-                if (!suffix || request.hostname.length <= suffix.length + 1) return false;
+                // No suffix: the Public Suffix List is still loading, or it
+                // does not list this host (localhost, .lan). As before the
+                // Ghostery engine, fall back to the plain wildcard match
+                // ("amazon." then anything), which the generic filter is.
+                if (!suffix) return true;
+                if (request.hostname.length <= suffix.length + 1) return false;
                 const beforeSuffix = request.hostname.slice(0, -(suffix.length + 1));
                 if (beforeSuffix !== anySuffixBase && !beforeSuffix.endsWith('.' + anySuffixBase)) return false;
                 const exact = filterForSuffix(suffix);
