@@ -3012,11 +3012,15 @@ function mergeCustomRules(bundledRules) {
                 // only: the domain is taken out of the built-in provider.
                 const customSinglePatterns = new Set(Object.values(customProviders)
                     .map(getProviderSingleDomainPattern).filter(Boolean));
+                // Domains taken out this way, for the statistics: each counts
+                // as an overridden provider, as it did as a provider of its own.
+                const claimedDomains = [];
                 const baseEntries = Object.entries(baseProviders).flatMap(([name, data]) => {
                     const claimed = customSinglePatterns.size > 0
                         ? getClaimedDomainPatterns(data, pattern => customSinglePatterns.has(pattern))
                         : [];
                     if (claimed.length === 0) return [[name, data]];
+                    claimed.forEach(pattern => claimedDomains.push({ name, pattern }));
                     const kept = getProviderDomainPatternList(data).filter(pattern => !claimed.includes(pattern));
                     return kept.length > 0 ? [[name, withDomainPatterns(data, kept)]] : [];
                 }).map(([name, data]) => ({
@@ -3039,8 +3043,13 @@ function mergeCustomRules(bundledRules) {
                 const customPatternKeys = new Set(customEntries.map(entry => entry.patternKey));
                 const basePatternKeys = new Set(baseEntries.map(entry => entry.patternKey));
                 const overriddenBaseEntries = baseEntries.filter(entry => customPatternKeys.has(entry.patternKey));
-                const overridingCustomEntries = customEntries.filter(entry => basePatternKeys.has(entry.patternKey));
-                const overriddenProviderNames = overriddenBaseEntries.map(entry => entry.name);
+                const overriddenProviderNames = [
+                    ...overriddenBaseEntries.map(entry => entry.name),
+                    ...claimedDomains.map(claim => `${claim.name} (${claim.pattern})`)
+                ];
+                const claimedPatterns = new Set(claimedDomains.map(claim => claim.pattern));
+                const overridingCustomCount = customEntries.filter(entry =>
+                    basePatternKeys.has(entry.patternKey) || claimedPatterns.has(getProviderSingleDomainPattern(entry.data))).length;
                 const activeBundledProviderCount = baseEntries.length - overriddenBaseEntries.length;
 
                 const finalProviders = {};
@@ -3075,16 +3084,16 @@ function mergeCustomRules(bundledRules) {
                     source: bundledRules?.metadata?.source || 'bundled',
                     bundledProviders: bundledProviderNames.length,
                     customProviders: customProviderNames.length,
-                    overriddenProviders: overriddenBaseEntries.length,
+                    overriddenProviders: overriddenProviderNames.length,
                     totalProviders: runtimeProviderCount,
                     sourceTotalProviders: sourceTotalProviderCount,
                     runtimeProviders: runtimeProviderCount,
                     overriddenProviderNames: overriddenProviderNames,
                     filteredBundledProviders: activeBundledProviderCount,
-                    newCustomProviders: customProviderNames.length - overridingCustomEntries.length,
+                    newCustomProviders: customProviderNames.length - overridingCustomCount,
                     disabledProviders: totalDisabledProviders,
                     hasCustomRules: customProviderNames.length > 0,
-                    hasOverrides: overriddenBaseEntries.length > 0
+                    hasOverrides: overriddenProviderNames.length > 0
                 };
                 
                 storage.ClearURLsData = normalizeClearURLsDataFields(mergedRules);
