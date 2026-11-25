@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.104.0] - 2026-11-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.103.0...linkumori-v100.104.0))
+### Added
+- Feat/shared rule sets (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`0691c4e`](https://github.com/Linkumori/Linkumori-Addon/commit/0691c4e))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+- Well new update (`2026-11-25`, hash: [`ce81f91`](https://github.com/Linkumori/Linkumori-Addon/commit/ce81f91))
+
+### Fixed
+- **merge**: Patches and statistics for one domain of a multi-domain provider (#209) (`2026-11-25`, hash: [`52dacfb`](https://github.com/Linkumori/Linkumori-Addon/commit/52dacfb)) [#209](https://github.com/Linkumori/Linkumori-Addon/issues/209)
+
 ## [v100.103.0] - 2026-11-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.102.0...linkumori-v100.103.0))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`8822cc4`](https://github.com/Linkumori/Linkumori-Addon/commit/8822cc4))
