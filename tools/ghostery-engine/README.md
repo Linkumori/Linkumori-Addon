@@ -11,7 +11,8 @@ tldts is not bundled. Ghostery's import of `tldts-experimental` is replaced by
 Suffix List the rest of the add-on uses. Any other tldts import fails the
 build. `publicsuffixlist.js` must be loaded before the engine (see
 `manifest.json`). Hostnames are extracted even before the list has loaded;
-the domain and public suffix are null until it is ready.
+the domain and public suffix are null until it is ready, and `||host.*`
+patterns fall back to a plain wildcard match until then.
 
 Linkumori uses the engine for every URL pattern (`domainPatterns`, and the
 pattern in front of `$removeparam`, exceptions and redirections): see
