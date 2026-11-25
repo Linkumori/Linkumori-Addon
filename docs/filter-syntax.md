@@ -500,7 +500,7 @@ while overload mode is enabled. If built-in rules are disabled, patch-only
 mode has no built-in rules to patch.
 
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
-2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
+2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules. A built-in provider that lists several domains counts as one provider per domain here: a remote provider for exactly one of those domains merges with a copy of the built-in provider for that domain, and the other domains keep the built-in provider as it is.
 3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
 4. **Exact copies.** Only entries that are exactly alike count once while joining. By default, `order` is part of what makes two entries alike, `"order": null` included. With **Strip rule order while merging** enabled, `order` is removed first, so entries that differ only by `order` count once.
 
