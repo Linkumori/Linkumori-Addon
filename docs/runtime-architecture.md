@@ -341,6 +341,13 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
    when the pattern and all four settings match (§5.2). Switching a provider
    off (step 1) uses the pattern-only key too (`isProviderSignatureDisabled`),
    so it removes every provider with that pattern.
+   A base provider that lists several domains (identical built-in providers
+   are kept as one, §6) counts as one provider per domain: a custom provider
+   for exactly one of its domains replaces it for that domain only, and
+   switching one of its domains off removes that domain only
+   (`filterProvidersByDisabledSignatures`). In overload mode a remote provider
+   for one of its domains merges with a copy of it for that domain
+   (`mergeRemoteWithBundledRules`).
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id
