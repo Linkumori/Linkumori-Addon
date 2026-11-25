@@ -179,7 +179,7 @@ var LinkumoriGhosteryEngine = (() => {
       throw new Error("linkumoriPsl is not loaded (external_js/publicsuffixlist.js)");
     }
     const extracted = options.extractHostname === false ? String(input || "") : psl.extractHostnameFromInput(input, options.mixedInputs !== false);
-    const hostname = extracted ? psl.normalizeHostname(extracted) : null;
+    const hostname = extracted ? psl.normalizeHostname(String(extracted).replace(/\.+$/, "")) : null;
     if (!hostname) return EMPTY;
     if (psl.isIp(hostname)) {
       return { hostname, domain: null, publicSuffix: null, subdomain: null, isIp: true };
