@@ -1874,7 +1874,7 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         return null;
     }
 
-    const rawCachedData = cache.data;
+    let rawCachedData = cache.data;
     const hasSourceFiles = Array.isArray(cache.sourceFiles) && cache.sourceFiles.length > 0;
     // Files of only "patches" cache a merge without providers.
     if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers ||
@@ -1890,6 +1890,8 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         // own defaults in its rules and lists them in metadata; a single
         // file saved as fetched still has its "defaults" block.
         if (LinkumoriRuleIds.findClnVersionProblem(rawCachedData)) return null;
+        // As in rebuildRemoteRulesFromCacheFiles: shared rule sets written out.
+        try { rawCachedData = expandRuleFileSets(rawCachedData, 'cached remote'); } catch (_) { return null; }
         const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
         ruleDefaultsStatus.remote = 'defaults' in rawCachedData
             ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
@@ -1925,7 +1927,14 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
 function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
     if (!Array.isArray(sourceFiles) || sourceFiles.length === 0) return null;
     const hasPatches = rules => Array.isArray(rules.patches) && rules.patches.length > 0;
+    // Files cached by a version that kept shared rule sets as written are
+    // written out here too (a file with invalid sets is not usable).
+    const expandCached = file => {
+        if (!file || typeof file !== 'object' || !file.rules || typeof file.rules !== 'object') return file;
+        try { return { ...file, rules: expandRuleFileSets(file.rules, 'cached remote') }; } catch (_) { return null; }
+    };
     const sources = sourceFiles
+        .map(expandCached)
         .filter(file => file && typeof file === 'object' && file.rules && typeof file.rules === 'object' &&
             ((file.rules.providers && typeof file.rules.providers === 'object') || hasPatches(file.rules)) &&
             !LinkumoriRuleIds.findClnVersionProblem(file.rules) &&
@@ -2130,6 +2139,9 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
             if (!remoteRulesData || typeof remoteRulesData !== 'object' || Array.isArray(remoteRulesData)) {
                 throw new Error('Remote rules file does not contain valid object');
             }
+            // The hash above covers the file as downloaded; from here on, and
+            // in the cache, its shared rule sets are written out.
+            remoteRulesData = expandRuleFileSets(remoteRulesData, 'remote');
 
             const clnProblem = LinkumoriRuleIds.findClnVersionProblem(remoteRulesData);
             if (clnProblem) {
@@ -2247,10 +2259,23 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
     });
 }
 
+// A rules file with its shared rule sets (core_js/linkumori_rule_sets.js)
+// written out: each { "include" } entry becomes copies of its set's
+// entries, in place and in order, and "ruleSets" is removed. Done right
+// after a file is read, so every later step (checks, defaults, ids, toggles,
+// pins, merging) sees exactly the file with the entries written out. A
+// file that uses no rule sets is returned as is. Throws for invalid sets.
+function expandRuleFileSets(data, label) {
+    if (!globalThis.LinkumoriRuleSets || !LinkumoriRuleSets.fileUsesRuleSets(data)) return data;
+    const problems = LinkumoriRuleSets.findRuleSetProblems(data).errors;
+    if (problems.length > 0) throw new Error(`Invalid ${label} rules: ${problems.join('; ')}`);
+    return LinkumoriRuleSets.expandRuleSets(data);
+}
+
 // The bundled rules file, checked, with its "defaults" block still in.
 async function fetchBundledRulesFile() {
     const payload = await fetchBundledRulesText();
-    const rawRulesData = JSON.parse(payload.text);
+    const rawRulesData = expandRuleFileSets(JSON.parse(payload.text), 'bundled');
     validateBundledRulesData(rawRulesData);
     return rawRulesData;
 }
@@ -2280,7 +2305,7 @@ async function fetchBundledRulesText() {
     if (!text || text.trim().length === 0) {
         throw new Error('LZ4 rules file is empty after decompression');
     }
-    validateBundledRulesData(JSON.parse(text));
+    validateBundledRulesData(expandRuleFileSets(JSON.parse(text), 'bundled'));
 
     return {
         text,
@@ -2708,6 +2733,7 @@ function loadCustomOnlyRules() {
                 } else {
                     customRules = result.custom_rules;
                 }
+                customRules = expandRuleFileSets(customRules, 'custom');
                 ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
                 customRules = applySourceRuleDefaults('custom', customRules);
             }
@@ -2798,7 +2824,8 @@ function mergeCustomRules(bundledRules) {
                     } else {
                         customRules = result.custom_rules;
                     }
-                    
+                    customRules = expandRuleFileSets(customRules, 'custom');
+
                     ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
                     customRules = applySourceRuleDefaults('custom', customRules);
                     if (customRules && customRules.providers) {
@@ -3037,7 +3064,7 @@ globalThis.getPendingRegressionSuite = getPendingRegressionSuite;
 
 function applyRegressionRuleData(data) {
     const safeData = data && typeof data === 'object' && !Array.isArray(data)
-        ? LinkumoriRuleDefaults.applyRuleFileDefaults(data)
+        ? LinkumoriRuleDefaults.applyRuleFileDefaults(expandRuleFileSets(data, 'test'))
         : { providers: {} };
     const cloneValue = value => {
         if (typeof structuredClone === 'function') {

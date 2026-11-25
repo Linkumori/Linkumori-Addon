@@ -382,12 +382,11 @@ or by its `domainPattern:` / `urlPattern:` key and ID. See
 ## Shared rule sets
 
 A list of entries that several providers repeat can be written once under the
-optional top-level `ruleSets` and used with an `include` entry. This is an
-authoring feature of source files: the CLI expands it when it reads the file
-(`lint-rules`, `yaml-to-json`, `clearurls`), and the JSON and LZ4 it writes are
-plain CLN 1.0 with every entry written out. The extension never sees a rule
-set, so remote and custom rule files given to the extension cannot use one;
-run them through `yaml-to-json` first.
+optional top-level `ruleSets` and used with an `include` entry. The CLI expands
+it when it reads the file (`lint-rules`, `yaml-to-json`, `clearurls`), so the
+JSON and LZ4 it writes are plain CLN 1.0 with every entry written out. The
+extension also accepts rule sets in remote and custom rule files and writes
+them out as soon as it reads the file; see [ruleSets](filter-syntax.md#rulesets).
 
 ```yaml
 cln: "1.0"
