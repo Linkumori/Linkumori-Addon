@@ -108,6 +108,34 @@ ClearURLs is a great project, and it's active again: **1.28.0** (November 2026) 
 
 </div>
 
+### URL cleaning benchmarks
+
+The benchmarks compare Linkumori 100.107.0 with the URL token index (`aca2b21`) and ClearURLs 1.28.0. Times are per input URL. Lower is faster.
+
+#### Live Firefox 161.0
+
+Both add-ons handled actual Firefox requests using their own catalogs: 1,868 providers for Linkumori and 206 for ClearURLs. A local HTTP proxy served the responses. Timings include synchronous extension callback work across redirects. Each add-on ran first once.
+
+| Workload | Linkumori | ClearURLs | Result across both runs |
+|---|---:|---:|---|
+| Subresource without a query | **20.8 µs** | 58.2 µs | Linkumori faster in both |
+| Generic tracking URL | 349.4 µs | **291.4 µs** | ClearURLs faster in both |
+| Amazon product URL | 397.8 µs | 407.4 µs | Winner changed between runs |
+| Google search URL | 396.2 µs | 391.6 µs | Winner changed between runs |
+
+The table shows medians of ten batch averages, with 500 timed inputs per workload per add-on. All 2,240 paired final URLs matched, including warmups. Local request completion medians ranged from 0.60 to 0.88 ms for subresources and from 3.64 to 4.86 ms for navigations. [Firefox setup and both run orders](https://github.com/Linkumori/Linkumori-Addon/issues/216#issuecomment-7197731590)
+
+#### Node.js harness
+
+The Node.js runs compare each engine with its own catalog and with both engines using the same 206-provider ClearURLs JSON. These are median times from five batches of 4,000 inputs per workload. Referral marketing was disabled in both engines. [Shared catalog results](https://github.com/Linkumori/Linkumori-Addon/issues/216) · [Own catalog results](https://github.com/Linkumori/Linkumori-Addon/issues/216#issuecomment-7197127302)
+
+| Workload | Linkumori, shared JSON | ClearURLs, shared JSON | Linkumori, own catalog | ClearURLs, own catalog |
+|---|---:|---:|---:|---:|
+| Subresource without a query | **8.52 µs** | 61.46 µs | **2.81 µs** | 61.95 µs |
+| Generic tracking URL | **60.99 µs** | 102.13 µs | **61.83 µs** | 103.45 µs |
+| Amazon product URL | **107.60 µs** | 154.08 µs | **137.30 µs** | 152.17 µs |
+| Google search URL | **102.10 µs** | 161.66 µs | 165.30 µs | **157.51 µs** |
+
 ---
 
 <a id="privacy"></a>
