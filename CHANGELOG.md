@@ -16,6 +16,68 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.104.0] - 2026-11-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.103.0...linkumori-v100.104.0))
+### Added
+- Feat/shared rule sets (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`0691c4e`](https://github.com/Linkumori/Linkumori-Addon/commit/0691c4e))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+- Well new update (`2026-11-25`, hash: [`ce81f91`](https://github.com/Linkumori/Linkumori-Addon/commit/ce81f91))
+
+### Fixed
+- **merge**: Patches and statistics for one domain of a multi-domain provider (#209) (`2026-11-25`, hash: [`52dacfb`](https://github.com/Linkumori/Linkumori-Addon/commit/52dacfb)) [#209](https://github.com/Linkumori/Linkumori-Addon/issues/209)
+
+## [v100.103.0] - 2026-11-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.102.0...linkumori-v100.103.0))
+### Changed
+- Release v100.103.0 (hash: `fe77dac`).
+- Updated files:
+  - `CHANGELOG.md`
+
+## [v100.102.0] - 2026-11-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.101.0...linkumori-v100.102.0))
+### Added
+- Feat/shared rule sets (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+- Introduce new engine finalised (`2026-11-26`, hash: [`89d13a0`](https://github.com/Linkumori/Linkumori-Addon/commit/89d13a0))
+
+### Changed
+- Chore/more cleanup (`2026-11-25`, hash: [`eb31cc1`](https://github.com/Linkumori/Linkumori-Addon/commit/eb31cc1))
+- Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`0691c4e`](https://github.com/Linkumori/Linkumori-Addon/commit/0691c4e))
+- Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`8822cc4`](https://github.com/Linkumori/Linkumori-Addon/commit/8822cc4))
+- Downloaded latest public suffix list from upstream (`2026-11-25`, hash: [`c8d3f27`](https://github.com/Linkumori/Linkumori-Addon/commit/c8d3f27))
+- Downloaded latest public suffix list from upstream (`2026-11-26`, hash: [`ab876ab`](https://github.com/Linkumori/Linkumori-Addon/commit/ab876ab))
+- Downloaded latest public suffix list from upstream (`2026-11-26`, hash: [`e29c2d2`](https://github.com/Linkumori/Linkumori-Addon/commit/e29c2d2))
+- Generated JSON URL cleaning rules export (`2026-11-25`, hash: [`d126964`](https://github.com/Linkumori/Linkumori-Addon/commit/d126964))
+- Generated JSON URL cleaning rules export (`2026-11-26`, hash: [`ab876ab`](https://github.com/Linkumori/Linkumori-Addon/commit/ab876ab))
+- Generated compressed URL cleaning rules bundle (`2026-11-25`, hash: [`d126964`](https://github.com/Linkumori/Linkumori-Addon/commit/d126964))
+- Generated compressed URL cleaning rules bundle (`2026-11-26`, hash: [`ab876ab`](https://github.com/Linkumori/Linkumori-Addon/commit/ab876ab))
+- Psl cache speed (`2026-11-26`, hash: [`d8802ba`](https://github.com/Linkumori/Linkumori-Addon/commit/d8802ba))
+- Replace bundled Ghostery engine with a minimal port (`2026-11-26`, hash: [`051c158`](https://github.com/Linkumori/Linkumori-Addon/commit/051c158))
+- Restore request cleaning perf work, without the token shortcut (`2026-11-26`, hash: [`f3e9ce9`](https://github.com/Linkumori/Linkumori-Addon/commit/f3e9ce9))
+- Restore the tree to eb31cc1 (Chore/more cleanup) (`2026-11-26`, hash: [`ab876ab`](https://github.com/Linkumori/Linkumori-Addon/commit/ab876ab))
+- Restructure/dedupe rules (#204) (`2026-11-25`, hash: [`d126964`](https://github.com/Linkumori/Linkumori-Addon/commit/d126964)) [#204](https://github.com/Linkumori/Linkumori-Addon/issues/204)
+- Skip $removeparam rules for other sites before checking them (`2026-11-26`, hash: [`df7553b`](https://github.com/Linkumori/Linkumori-Addon/commit/df7553b))
+- Split engine (`2026-11-26`, hash: [`cbf7d21`](https://github.com/Linkumori/Linkumori-Addon/commit/cbf7d21))
+- Update NOTICE.md (`2026-11-26`, hash: [`1d95ea4`](https://github.com/Linkumori/Linkumori-Addon/commit/1d95ea4))
+- Update NOTICE.md (`2026-11-26`, hash: [`3fbb3ce`](https://github.com/Linkumori/Linkumori-Addon/commit/3fbb3ce))
+- Update NOTICE.md (`2026-11-26`, hash: [`70f19f5`](https://github.com/Linkumori/Linkumori-Addon/commit/70f19f5))
+- Update NOTICE.md (`2026-11-26`, hash: [`dec2346`](https://github.com/Linkumori/Linkumori-Addon/commit/dec2346))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`c4aafd0`](https://github.com/Linkumori/Linkumori-Addon/commit/c4aafd0))
+- Updated canonical URL cleaning rules source (`2026-11-25`, hash: [`d126964`](https://github.com/Linkumori/Linkumori-Addon/commit/d126964))
+- Updated canonical URL cleaning rules source (`2026-11-26`, hash: [`ab876ab`](https://github.com/Linkumori/Linkumori-Addon/commit/ab876ab))
+- Use Ghostery URL pattern engine for matcher (`2026-11-26`, hash: [`5d98aa6`](https://github.com/Linkumori/Linkumori-Addon/commit/5d98aa6))
+- Well new update (`2026-11-25`, hash: [`ce81f91`](https://github.com/Linkumori/Linkumori-Addon/commit/ce81f91))
+
+### Fixed
+- **merge**: Patches and statistics for one domain of a multi-domain provider (#209) (`2026-11-25`, hash: [`52dacfb`](https://github.com/Linkumori/Linkumori-Addon/commit/52dacfb)) [#209](https://github.com/Linkumori/Linkumori-Addon/issues/209)
+- Resolve (`2026-11-26`, hash: [`0d64426`](https://github.com/Linkumori/Linkumori-Addon/commit/0d64426))
+- Resolve ||host. and ||host.*&query patterns that never matched (`2026-11-26`, hash: [`ef917f8`](https://github.com/Linkumori/Linkumori-Addon/commit/ef917f8))
+
+### Performance
+- Cache per-request lookups and skip providers for URLs without parameters (`2026-11-25`, hash: [`04e49c9`](https://github.com/Linkumori/Linkumori-Addon/commit/04e49c9))
+- Perf/more matching (`2026-11-25`, hash: [`8f42923`](https://github.com/Linkumori/Linkumori-Addon/commit/8f42923))
+- Perf/regular expression groups (`2026-11-25`, hash: [`7974a34`](https://github.com/Linkumori/Linkumori-Addon/commit/7974a34))
+- Perf/safe matching (`2026-11-25`, hash: [`4b70519`](https://github.com/Linkumori/Linkumori-Addon/commit/4b70519))
+
 ## [v100.101.0] - 2026-11-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.100.0...linkumori-v100.101.0))
 ### Added
 - **rules-editor**: Create a CLN patches file from rule edits (`2026-11-24`, hash: [`5799b5a`](https://github.com/Linkumori/Linkumori-Addon/commit/5799b5a))
