@@ -64,6 +64,15 @@ Used in `domainPatterns`, and in front of `exceptions`, `redirections`, `$remove
 
 `^` means end-of-host or any separator (`/ ? :` or end of URL). `*` is a wildcard. A single `\|` needs a scheme after it (`\|https://…`) — for a domain you always want `\|\|`.
 
+Patterns are matched by Linkumori's port of `@ghostery/adblocker`'s filter engine (the same syntax as uBlock Origin), with Linkumori's own readings kept:
+
+- After `\|\|host`, the rest of the pattern must follow the host directly: `\|\|example.com^foo/` matches `example.com/foo/` but not `/xfoo/` or `/a/foo/`. A port is not skipped: `\|\|example.com/go` does not match `example.com:8080/go` (a host-only `\|\|example.com^` does).
+- `^` right before `/` takes no character: `\|\|example.com^/path` is "that host, path starting with `/path`". (uBlock Origin and Ghostery read it as a separator and then a `/`.)
+- `\|\|example.com` with nothing after the host ends at the host, like `\|\|example.com^`: it does not match `example.com.evil.org`.
+- `\|\|example.*` is `example` on a public suffix, then the rest of the pattern right after it. The suffix comes from Linkumori's Public Suffix List; while it is still loading, the pattern is a plain wildcard (`example.` then anything).
+- A `*` elsewhere in the host (`\|\|ipv6.example.com*/search?`) is a plain wildcard.
+- Hosts written in Unicode (`\|\|bücher.example^`) are matched in their punycode form.
+
 ### Worked example
 
 ```
@@ -392,6 +401,33 @@ A top-level `defaults` block gives every rule of the file values it doesn't set 
 - **Complete providers:** a `completeProvider` blocks every request it matches before any rule is looked at, so `requestTypes` and `exceptions` from `defaults` also limit the block. `requestTypes`, together with its rules' own, become the provider's `resourceTypes` unless it sets some. `exceptions` are added to the provider's `exceptions`.
 - **Checked:** unknown keys and wrong types are errors in `lint-rules` and the editor, and a remote file with an invalid `defaults` block is rejected.
 
+## ruleSets
+
+An optional top-level `ruleSets` object names lists of entries that several providers share. A provider uses one with an entry `{ "include": "<name>" }` in any of its rule lists (`rules`, `referralMarketing`, `rawRules`, `exceptions`, `redirections`, `fieldRedirections`):
+
+```json
+{
+  "ruleSets": {
+    "affiliate-exceptions": [
+      "@@mailinglist$removeparam=/^utm_.*$/i",
+      "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
+    ]
+  },
+  "providers": {
+    "shop":  { "domainPatterns": ["||shop.example^"],  "rules": ["utm_source", { "include": "affiliate-exceptions" }] },
+    "store": { "domainPatterns": ["||store.example^"], "rules": [{ "include": "affiliate-exceptions" }] }
+  }
+}
+```
+
+- **Written out on load:** each `include` becomes its own copy of the set's entries, in its place and in their order, as soon as the file is read: built-in rules, each remote file (after its hash check; the cache keeps the written-out file) and custom rules. Everything after that sees the file with the entries written out, so run order, rule ids, toggles, pins, `defaults`, overload merges and remote file capabilities are exactly those of the written-out file, and a set cannot hide a capability.
+- **Optional:** a file without `ruleSets` loads as before. A file that uses them is still CLN 1.0; `ruleSets` is a Linkumori addition, so other CLN readers need the written-out form (the CLI's `yaml-to-json` writes it).
+- **Rules:** a set name uses lowercase letters, digits, `-` and `_`; a set is a non-empty list and cannot include another set; an `include` entry has no other keys. Ids only need to be unique within a provider, as usual.
+- **Checked:** an unknown set name, an `include` without `ruleSets` and these shape errors are errors in `lint-rules` and the editors; a remote file with one is rejected, and custom rules with one are not loaded. `lint-rules` also warns about a set no provider includes.
+- **Custom rules:** in the custom rules editor, *Manage shared rule sets* edits the custom rules' sets as JSON, and a provider uses one with an `include` entry in its JSON. The provider's checks, run order and test URLs use it written out; it is saved as written, and import and export keep the sets. The run order can't rearrange steps of a provider with an `include` in `rules`, `rawRules` or `referralMarketing`: those are ordered in the set.
+
+YAML sources use the same keys; see [Shared rule sets](cln-yaml.md#shared-rule-sets).
+
 ## Processing order
 
 For each matching provider: `exceptions` (skip if matched) → `redirections` → `fieldRedirections` → `completeProvider` → `rawRules` → `rules`/`referralMarketing` → `$removeparam` filters. A rule's `order` can move it earlier or later within its own stage, never across stages. First provider to change, redirect, or block the URL wins, then the cycle repeats on the new URL (§Termination).
@@ -473,7 +509,7 @@ while overload mode is enabled. If built-in rules are disabled, patch-only
 mode has no built-in rules to patch.
 
 1. **Load order.** Your remote files are merged with each other first, in the order you list them. The result is then merged with the built-in rules: built-in providers first, remote ones after.
-2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules.
+2. **Which providers merge.** Only providers with the same `domainPatterns` (or the same `urlPattern`) *and* the same `methods`, `resourceTypes`, `completeProvider` and `forceRedirection`. Any other provider stays separate and keeps its own rules. A built-in provider that lists several domains counts as one provider per domain here: a remote provider for exactly one of those domains merges with a copy of the built-in provider for that domain, and the other domains keep the built-in provider as it is.
 3. **Joining the lists.** Each of `rules`, `rawRules` and `referralMarketing` is joined in load order — built-in entries first, then each remote file's.
 4. **Exact copies.** Only entries that are exactly alike count once while joining. By default, `order` is part of what makes two entries alike, `"order": null` included. With **Strip rule order while merging** enabled, `order` is removed first, so entries that differ only by `order` count once.
 

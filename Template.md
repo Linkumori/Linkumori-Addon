@@ -1681,6 +1681,58 @@ with the terms of whichever license they choose.
 
 ---
 
+#### 3.2.9 URL Pattern Engine (ported from Ghostery Adblocker)
+
+**File:** `external_js/linkumori-ghostery-engine.js` (hand-written, not minified)
+**SPDX-License-Identifier:** `MPL-2.0 OR LGPL-3.0-or-later`
+
+This file is Linkumori's own minimal port of the URL pattern matching in
+`@ghostery/adblocker` (`NetworkFilter` and `Request`): only the parts Linkumori
+uses. It does not include tldts: hostnames and public suffixes come from
+`external_js/publicsuffixlist.js` (`globalThis.linkumoriPsl`), the Public
+Suffix List Linkumori already uses.
+
+##### Original Copyright
+
+**Upstream Project:** `@ghostery/adblocker` 2.20.3 (`filters/network.js`,
+`request.js`, `utils.js`)
+**Repository:** <https://github.com/ghostery/adblocker>
+**Copyright:** Copyright (c) 2017-present Ghostery GmbH
+**License:** Mozilla Public License Version 2.0 (MPL-2.0)
+**License File:** `THIRD-PARTY-NOTICE/ghostery-adblocker/LICENSE`
+
+{{LICENSE:MPL-2.0}}
+
+##### Linkumori Changes
+
+**Author:** © 2026 Subham Mahesh
+
+The pattern parser, matcher and tokenizer are ported from the upstream code
+and cut down to what Linkumori uses: filter options, exceptions, request
+types, domain lists, serialization, compression, cosmetic filters, punycode
+and the `@remusao/*` dependencies are removed. Hostnames come from
+`globalThis.linkumoriPsl` (`external_js/publicsuffixlist.js`) instead of
+tldts. The file is one classic script that exposes
+`globalThis.LinkumoriGhosteryEngine`. Linkumori's use of it is in
+`core_js/linkumori_url_patterns.js` (LGPL-3.0-or-later).
+
+##### Distribution and Secondary License Notice
+
+Linkumori is a Larger Work that combines `external_js/linkumori-ghostery-engine.js`
+with code under the GNU LGPL v3.0 or later. The LGPL is a Secondary License
+(MPL-2.0 Section 1.12), and the Ghostery code carries no "Incompatible With
+Secondary Licenses" notice (MPL-2.0 Exhibit B). As MPL-2.0 Section 3.3 permits,
+the MPL-2.0 code in this file is additionally made available under the GNU
+Lesser General Public License v3.0 or later. Recipients may use and further
+distribute it under either MPL-2.0 or LGPL-3.0-or-later, at their option, and
+must keep the Ghostery copyright and MPL-2.0 notice (MPL-2.0 Section 3.4).
+
+This dual-licensing applies only to the MPL-2.0 code in
+`external_js/linkumori-ghostery-engine.js` and does not apply to other parts of
+Linkumori unless explicitly stated.
+
+---
+
 ## 4. Font Components
 
 ### 4.1 Old Country Nobility Font

@@ -69,6 +69,7 @@ import './core_js/linkumori_rule_ids.js';
 import './core_js/linkumori_rule_defaults.js';
 import './core_js/linkumori_rule_pins.js';
 import './core_js/linkumori_rule_patches.js';
+import './core_js/linkumori_rule_sets.js';
 
 const { LinkumoriRuleDefaults, LinkumoriRuleIds, LinkumoriRulePatches, LinkumoriRulePins } = globalThis;
 
@@ -1600,13 +1601,16 @@ documentation when you run the build process.
     return fs.readFileSync(filePath, 'utf8');
   }
 
-  parseRulesDocument(filePath, content = this.readMaybeLZ4Text(filePath)) {
+  // Parses a rules file. Shared rule sets (core_js/linkumori_rule_sets.js)
+  // are expanded unless `expandRuleSets` is false, so every reader sees the
+  // file with the entries written out; a file without them is unchanged.
+  parseRulesDocument(filePath, content = this.readMaybeLZ4Text(filePath), { expandRuleSets = true } = {}) {
     const text = String(content || '').replace(/^\uFEFF/, '');
     const extension = path.extname(String(filePath || '')).toLowerCase();
-    if (extension === '.yaml' || extension === '.yml') {
-      return YAML.parse(text, { uniqueKeys: true, version: '1.2' });
-    }
-    return JSON.parse(text);
+    const parsed = (extension === '.yaml' || extension === '.yml')
+      ? YAML.parse(text, { uniqueKeys: true, version: '1.2' })
+      : JSON.parse(text);
+    return expandRuleSets ? LinkumoriRuleSets.expandRuleSets(parsed) : parsed;
   }
 
   validateYamlRuleEntryTypes(filePath, text) {
@@ -1649,6 +1653,28 @@ documentation when you run the build process.
       return Number.isInteger(start) && Number.isInteger(end) ? text.slice(start, end) : '';
     };
     const problems = [];
+
+    // Entries of shared rule sets (core_js/linkumori_rule_sets.js) are
+    // checked the same way as a provider's.
+    const ruleSets = root.get('ruleSets', true);
+    if (YAML.isMap(ruleSets)) {
+      ruleSets.items.forEach(setPair => {
+        const setName = YAML.isScalar(setPair.key) ? String(setPair.key.value) : '(unknown set)';
+        if (!YAML.isSeq(setPair.value)) return;
+        setPair.value.items.forEach((entry, index) => {
+          const label = `ruleSets.${setName}[${index}]`;
+          if (YAML.isScalar(entry) && typeof entry.value !== 'string') {
+            problems.push(`${locationFor(entry)}: ${label} expected a string or rule object, got ${typeOf(entry)} ${JSON.stringify(sourceValueOf(entry))}; quote it if you intended text`);
+            return;
+          }
+          if (!YAML.isMap(entry)) return;
+          const matchPattern = entry.get('matchPattern', true);
+          if (matchPattern !== undefined && (!YAML.isScalar(matchPattern) || typeof matchPattern.value !== 'string')) {
+            problems.push(`${locationFor(matchPattern)}: ${label}.matchPattern expected a string, got ${typeOf(matchPattern)} ${JSON.stringify(sourceValueOf(matchPattern))}; quote it if you intended text`);
+          }
+        });
+      });
+    }
 
     providers.items.forEach(providerPair => {
       const providerName = YAML.isScalar(providerPair.key) ? String(providerPair.key.value) : '(unknown provider)';
@@ -1708,7 +1734,9 @@ documentation when you run the build process.
         throw new Error(`Rules lint failed for ${inputFile}; output was not written`);
       }
     }
-    const parsed = this.parseRulesDocument(inputFile, sourceText);
+    // yaml-to-json writes the expanded rules (plain CLN 1.0); json-to-yaml
+    // keeps any rule sets as written.
+    const parsed = this.parseRulesDocument(inputFile, sourceText, { expandRuleSets: direction === 'yaml-to-json' });
     const isClearURLsData = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
       && parsed.providers && typeof parsed.providers === 'object' && !Array.isArray(parsed.providers)
       && Object.keys(parsed).every(key => ['cln', 'metadata', 'defaults', 'providers'].includes(key));
@@ -2180,8 +2208,18 @@ ${commit.message}
 
     // ── 2. Parse JSON ─────────────────────────────────────────────────────────
     let data;
+    let ruleSetProblems = { errors: [], warnings: [] };
     try {
-      data = this.readRulesJson(rulesFile);
+      // Shared rule sets are checked here and then expanded, so the checks
+      // below see the entries written out.
+      data = this.parseRulesDocument(rulesFile, undefined, { expandRuleSets: false });
+      ruleSetProblems = LinkumoriRuleSets.findRuleSetProblems(data);
+      if (ruleSetProblems.errors.length === 0) {
+        if (LinkumoriRuleSets.fileUsesRuleSets(data)) {
+          this.info(`🧩 Shared rule sets found: ${Object.keys(data.ruleSets || {}).length}`);
+        }
+        data = LinkumoriRuleSets.expandRuleSets(data);
+      }
     } catch (err) {
       this.error(`❌ Parse error: ${err.message}`);
       return false;
@@ -2210,6 +2248,10 @@ ${commit.message}
     const errors   = [];
     const warnings = [];
     let totalRegexChecked = 0;
+
+    // Shared rule sets (core_js/linkumori_rule_sets.js).
+    for (const problem of ruleSetProblems.errors) errors.push(`[ruleSets] ${problem}`);
+    for (const problem of ruleSetProblems.warnings) warnings.push(`[ruleSets] ${problem}`);
 
     // A top-level "defaults" block (core_js/linkumori_rule_defaults.js).
     for (const problem of LinkumoriRuleDefaults.findRuleDefaultsProblems(data.defaults)) {

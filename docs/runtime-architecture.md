@@ -63,16 +63,18 @@ script is listed earlier.
 | 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
 | 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
 | 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
-| 14 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
-| 15 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
-| 16 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
-| 17 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
-| 18 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
-| 19 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
-| 20 | `core_js/watchdog.js` | self-test every minute (§9) |
-| 21 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
-| 22 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
-| 23 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
+| 14 | `external_js/linkumori-ghostery-engine.js` | `LinkumoriGhosteryEngine`: Linkumori's minimal port of `NetworkFilter` and `Request` from `@ghostery/adblocker` (MPL-2.0, also distributed under LGPL-3.0-or-later); hostnames and public suffixes come from `linkumoriPsl` (`external_js/publicsuffixlist.js`, loaded earlier), not tldts |
+| 14a | `core_js/linkumori_url_patterns.js` | `LinkumoriUrlPatterns`: compiles each URL pattern once with the engine's `NetworkFilter` and gives `matchDomainPattern()` its answers |
+| 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
+| 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
+| 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
+| 18 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
+| 19 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
+| 20 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
+| 21 | `core_js/watchdog.js` | self-test every minute (§9) |
+| 22 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
+| 23 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
+| 24 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
 
 `consent_config.js` loads last, but `genesis()` reads its values only after
 an asynchronous storage read, so they are defined by then.
@@ -340,6 +342,13 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
    when the pattern and all four settings match (§5.2). Switching a provider
    off (step 1) uses the pattern-only key too (`isProviderSignatureDisabled`),
    so it removes every provider with that pattern.
+   A base provider that lists several domains (identical built-in providers
+   are kept as one, §6) counts as one provider per domain: a custom provider
+   for exactly one of its domains replaces it for that domain only, and
+   switching one of its domains off removes that domain only
+   (`filterProvidersByDisabledSignatures`). In overload mode a remote provider
+   for one of its domains merges with a copy of it for that domain
+   (`mergeRemoteWithBundledRules`).
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id

@@ -882,6 +882,49 @@ function isProviderSignatureDisabled(providerData, providerName, disabledSignatu
     return disabledSignatures.has(key);
 }
 
+// ---------------------------------------------------------------------------
+// Providers that list several domains
+// ---------------------------------------------------------------------------
+// Built-in providers whose rules were identical are kept as one provider that
+// lists all of their domains (data/linkumori-clearurls.yaml). A provider from
+// another source, or a switched-off provider, for exactly one of those domains
+// still applies to that domain alone, the same as when each domain had a
+// provider of its own:
+// - switching off "domain:<one pattern>" takes that domain out of the provider
+// - a custom provider for that one domain overrides the built-in rules there
+// - a remote provider for that one domain is merged (overload mode) with a
+//   copy of the built-in provider for that domain
+// The other domains keep the provider as it is.
+
+// The provider's domain patterns (trimmed, without repeats, in order), or null
+// when it matches by urlPattern or has none.
+function getProviderDomainPatternList(providerData) {
+    if (typeof providerData?.urlPattern === 'string' && providerData.urlPattern.trim()) return null;
+    const raw = Array.isArray(providerData?.domainPatterns) ? providerData.domainPatterns
+        : (typeof providerData?.domainPatterns === 'string' ? [providerData.domainPatterns] : []);
+    const list = [...new Set(raw.filter(pattern => typeof pattern === 'string' && pattern.trim()).map(pattern => pattern.trim()))];
+    return list.length > 0 ? list : null;
+}
+
+// The pattern of a provider that lists exactly one domain, else null.
+function getProviderSingleDomainPattern(providerData) {
+    const list = getProviderDomainPatternList(providerData);
+    return list && list.length === 1 ? list[0] : null;
+}
+
+// The patterns of a provider that lists several domains which `claimed`
+// (a function of a pattern) takes; [] when it lists one domain or none.
+function getClaimedDomainPatterns(providerData, claimed) {
+    const list = getProviderDomainPatternList(providerData);
+    if (!list || list.length < 2) return [];
+    return list.filter(pattern => claimed(pattern));
+}
+
+// A copy of the provider with `domainPatterns` replaced.
+function withDomainPatterns(providerData, domainPatterns) {
+    return { ...providerData, domainPatterns: domainPatterns.slice() };
+}
+
 function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
     const filtered = {};
     let removedCount = 0;
@@ -889,6 +932,17 @@ function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
     Object.entries(providers || {}).forEach(([providerName, providerData]) => {
         if (isProviderSignatureDisabled(providerData, providerName, disabledSignatures)) {
             removedCount++;
+            return;
+        }
+        // One domain of a provider that lists several, switched off on its own.
+        const switchedOff = disabledSignatures && disabledSignatures.size > 0
+            ? getClaimedDomainPatterns(providerData, pattern => disabledSignatures.has(`domain:${pattern}`))
+            : [];
+        if (switchedOff.length > 0) {
+            // Each domain switched off counts, as a provider of its own would.
+            removedCount += switchedOff.length;
+            const kept = getProviderDomainPatternList(providerData).filter(pattern => !switchedOff.includes(pattern));
+            if (kept.length > 0) filtered[providerName] = withDomainPatterns(providerData, kept);
             return;
         }
         filtered[providerName] = providerData;
@@ -1486,7 +1540,28 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules, collisionSink = 
     const bundledProviders = bundledRules?.providers || {};
     const combinedProviders = [];
 
+    // A built-in provider that lists several domains is split for each domain
+    // a remote provider lists on its own, so the two merge as they would if
+    // that domain had a built-in provider of its own.
+    const remoteSinglePatterns = new Set(Object.values(remoteProviders)
+        .map(getProviderSingleDomainPattern).filter(Boolean));
     Object.entries(bundledProviders).forEach(([providerName, providerData]) => {
+            const split = remoteSinglePatterns.size > 0
+                ? getClaimedDomainPatterns(providerData, pattern => remoteSinglePatterns.has(pattern))
+                : [];
+            if (split.length > 0) {
+                const kept = getProviderDomainPatternList(providerData).filter(pattern => !split.includes(pattern));
+                if (kept.length > 0) {
+                    combinedProviders.push({ name: providerName, data: withDomainPatterns(providerData, kept), isPrimarySource: false, source: 'built-in' });
+                }
+                split.forEach(pattern => combinedProviders.push({
+                    name: providerName,
+                    data: withDomainPatterns(providerData, [pattern]),
+                    isPrimarySource: false,
+                    source: 'built-in'
+                }));
+                return;
+            }
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
@@ -1874,7 +1949,7 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         return null;
     }
 
-    const rawCachedData = cache.data;
+    let rawCachedData = cache.data;
     const hasSourceFiles = Array.isArray(cache.sourceFiles) && cache.sourceFiles.length > 0;
     // Files of only "patches" cache a merge without providers.
     if (!rawCachedData || typeof rawCachedData !== 'object' || !rawCachedData.providers ||
@@ -1890,6 +1965,8 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         // own defaults in its rules and lists them in metadata; a single
         // file saved as fetched still has its "defaults" block.
         if (LinkumoriRuleIds.findClnVersionProblem(rawCachedData)) return null;
+        // As in rebuildRemoteRulesFromCacheFiles: shared rule sets written out.
+        try { rawCachedData = expandRuleFileSets(rawCachedData, 'cached remote'); } catch (_) { return null; }
         const remoteSources = Array.isArray(rawCachedData.metadata?.remoteSources) ? rawCachedData.metadata.remoteSources : [];
         ruleDefaultsStatus.remote = 'defaults' in rawCachedData
             ? [{ ruleURL: cache.ruleURL || null, defaults: LinkumoriRuleDefaults.normalizeRuleDefaults(rawCachedData.defaults) }]
@@ -1925,7 +2002,14 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
 function rebuildRemoteRulesFromCacheFiles(sourceFiles) {
     if (!Array.isArray(sourceFiles) || sourceFiles.length === 0) return null;
     const hasPatches = rules => Array.isArray(rules.patches) && rules.patches.length > 0;
+    // Files cached by a version that kept shared rule sets as written are
+    // written out here too (a file with invalid sets is not usable).
+    const expandCached = file => {
+        if (!file || typeof file !== 'object' || !file.rules || typeof file.rules !== 'object') return file;
+        try { return { ...file, rules: expandRuleFileSets(file.rules, 'cached remote') }; } catch (_) { return null; }
+    };
     const sources = sourceFiles
+        .map(expandCached)
         .filter(file => file && typeof file === 'object' && file.rules && typeof file.rules === 'object' &&
             ((file.rules.providers && typeof file.rules.providers === 'object') || hasPatches(file.rules)) &&
             !LinkumoriRuleIds.findClnVersionProblem(file.rules) &&
@@ -2130,6 +2214,9 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
             if (!remoteRulesData || typeof remoteRulesData !== 'object' || Array.isArray(remoteRulesData)) {
                 throw new Error('Remote rules file does not contain valid object');
             }
+            // The hash above covers the file as downloaded; from here on, and
+            // in the cache, its shared rule sets are written out.
+            remoteRulesData = expandRuleFileSets(remoteRulesData, 'remote');
 
             const clnProblem = LinkumoriRuleIds.findClnVersionProblem(remoteRulesData);
             if (clnProblem) {
@@ -2247,10 +2334,23 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
     });
 }
 
+// A rules file with its shared rule sets (core_js/linkumori_rule_sets.js)
+// written out: each { "include" } entry becomes copies of its set's
+// entries, in place and in order, and "ruleSets" is removed. Done right
+// after a file is read, so every later step (checks, defaults, ids, toggles,
+// pins, merging) sees exactly the file with the entries written out. A
+// file that uses no rule sets is returned as is. Throws for invalid sets.
+function expandRuleFileSets(data, label) {
+    if (!globalThis.LinkumoriRuleSets || !LinkumoriRuleSets.fileUsesRuleSets(data)) return data;
+    const problems = LinkumoriRuleSets.findRuleSetProblems(data).errors;
+    if (problems.length > 0) throw new Error(`Invalid ${label} rules: ${problems.join('; ')}`);
+    return LinkumoriRuleSets.expandRuleSets(data);
+}
+
 // The bundled rules file, checked, with its "defaults" block still in.
 async function fetchBundledRulesFile() {
     const payload = await fetchBundledRulesText();
-    const rawRulesData = JSON.parse(payload.text);
+    const rawRulesData = expandRuleFileSets(JSON.parse(payload.text), 'bundled');
     validateBundledRulesData(rawRulesData);
     return rawRulesData;
 }
@@ -2280,7 +2380,7 @@ async function fetchBundledRulesText() {
     if (!text || text.trim().length === 0) {
         throw new Error('LZ4 rules file is empty after decompression');
     }
-    validateBundledRulesData(JSON.parse(text));
+    validateBundledRulesData(expandRuleFileSets(JSON.parse(text), 'bundled'));
 
     return {
         text,
@@ -2708,6 +2808,7 @@ function loadCustomOnlyRules() {
                 } else {
                     customRules = result.custom_rules;
                 }
+                customRules = expandRuleFileSets(customRules, 'custom');
                 ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
                 customRules = applySourceRuleDefaults('custom', customRules);
             }
@@ -2798,7 +2899,8 @@ function mergeCustomRules(bundledRules) {
                     } else {
                         customRules = result.custom_rules;
                     }
-                    
+                    customRules = expandRuleFileSets(customRules, 'custom');
+
                     ruleDefaultsStatus.custom = LinkumoriRuleDefaults.normalizeRuleDefaults(customRules?.defaults);
                     customRules = applySourceRuleDefaults('custom', customRules);
                     if (customRules && customRules.providers) {
@@ -2904,14 +3006,26 @@ function mergeCustomRules(bundledRules) {
             } else {
                 // Build match keys for override detection while preserving provider entries.
                 const baseProviders = filteredBundled.providers || {};
-                const baseEntries = Object.entries(baseProviders).map(([name, data]) => ({
+                const customProviders = filteredCustom.providers || {};
+                // A custom provider for one domain of a built-in provider that
+                // lists several overrides the built-in rules for that domain
+                // only: the domain is taken out of the built-in provider.
+                const customSinglePatterns = new Set(Object.values(customProviders)
+                    .map(getProviderSingleDomainPattern).filter(Boolean));
+                const baseEntries = Object.entries(baseProviders).flatMap(([name, data]) => {
+                    const claimed = customSinglePatterns.size > 0
+                        ? getClaimedDomainPatterns(data, pattern => customSinglePatterns.has(pattern))
+                        : [];
+                    if (claimed.length === 0) return [[name, data]];
+                    const kept = getProviderDomainPatternList(data).filter(pattern => !claimed.includes(pattern));
+                    return kept.length > 0 ? [[name, withDomainPatterns(data, kept)]] : [];
+                }).map(([name, data]) => ({
                     name,
                     data,
                     key: getProviderGroupKey(data, name),
                     patternKey: getProviderPatternOnlyGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
-                const customProviders = filteredCustom.providers || {};
                 const customEntries = Object.entries(customProviders).map(([name, data]) => ({
                     name,
                     data,
@@ -3037,7 +3151,7 @@ globalThis.getPendingRegressionSuite = getPendingRegressionSuite;
 
 function applyRegressionRuleData(data) {
     const safeData = data && typeof data === 'object' && !Array.isArray(data)
-        ? LinkumoriRuleDefaults.applyRuleFileDefaults(data)
+        ? LinkumoriRuleDefaults.applyRuleFileDefaults(expandRuleFileSets(data, 'test'))
         : { providers: {} };
     const cloneValue = value => {
         if (typeof structuredClone === 'function') {

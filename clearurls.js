@@ -87,8 +87,6 @@ var dataHash;
 var localDataHash;
 var os;
 var initializationComplete = false;
-// Compiled domain patterns, at most 5000 (least recently used evicted).
-var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
 // At most this many cleaning cycles run for one request; a redirect or a
 // change starts the next one (CLN 1.0 §Termination). Unbounded mode
@@ -447,6 +445,8 @@ function initPslSupport() {
             pslSupport.service = pslService;
             pslSupport.status = 'ready';
             pslSupport.error = null;
+            // ||host.* patterns answer differently now that the list is here.
+            matchDomainPatternLastUrl = null;
         } catch (e) {
             pslSupport.status = 'failed';
             pslSupport.error = e;
@@ -516,22 +516,6 @@ function parseHostnameWithPsl(hostnameInput) {
     if (pslParseCache.size >= HOSTNAME_CACHE_LIMIT) pslParseCache.clear();
     pslParseCache.set(hostnameInput, out);
     return out;
-}
-
-function matchRootDomainWildcardTldWithPsl(hostnameValue, pattern) {
-    if (pslSupport.status !== 'ready') return false;
-    const normalizedHost = normalizeAsciiHostname(hostnameValue);
-    const normalizedPattern = normalizeAsciiHostname(pattern);
-    if (!normalizedHost || !normalizedPattern || !normalizedPattern.endsWith('.*')) return false;
-    const base = normalizedPattern.slice(0, -2);
-    if (!base) return false;
-    const parsed = parseHostnameWithPsl(normalizedHost);
-    if (!parsed || !parsed.tld) return false;
-    const suffixToken = '.' + parsed.tld;
-    if (!normalizedHost.endsWith(suffixToken)) return false;
-    const prefix = normalizedHost.slice(0, -suffixToken.length);
-    if (!prefix) return false;
-    return prefix === base || prefix.endsWith('.' + base);
 }
 
 var requestContextManager = {
@@ -736,190 +720,40 @@ class Multimap {
 // ---------------------------------------------------------------------------
 // matchDomainPattern
 // ---------------------------------------------------------------------------
+// True when `url` matches any of `patterns`. Each pattern is compiled once
+// by core_js/linkumori_url_patterns.js, which matches with
+// @ghostery/adblocker's NetworkFilter (see that file for Linkumori's own
+// pattern rules). Only ||host.* patterns depend on the Public Suffix List:
+// until it has loaded they are a plain wildcard match.
+
+// PERF: many rules check the same URL against the same pattern (each rule
+// of a provider repeats its domain, and filters are copied across
+// providers), so a pattern's answer for the last URL is kept, until the
+// URL changes. initPslSupport() clears it once the Public Suffix List is
+// ready, since ||host.* answers can change then. (It is not checked on each
+// call: this runs thousands of times per URL.)
+var matchDomainPatternLastUrl = null;
 
 function matchDomainPattern(url, patterns) {
     if (typeof patterns === 'string') patterns = [patterns];
-    if (!Array.isArray(patterns) || patterns.length === 0) return false;
-
-    function escapeRegexChar(char) {
-        return /[\\^$.*+?()[\]{}|]/.test(char) ? ('\\' + char) : char;
+    if (!Array.isArray(patterns) || patterns.length === 0 || typeof url !== 'string' || !url) return false;
+    let last = matchDomainPatternLastUrl;
+    if (!last || last.url !== url) {
+        last = { url, results: new Map() };
+        matchDomainPatternLastUrl = last;
     }
-
-    // "^" is a separator: any character but a letter, digit, "_", "-", "."
-    // or "%", or the end. Followed by "/" ("^/path"), it only checks that a
-    // separator comes next, so "||example.com^/path" matches
-    // "example.com/path" (the "/" is not needed twice). At `hostEndIndex`, the
-    // "^" right after a "||" pattern's host, a port may come first.
-    function linkumoriTokensToRegexSource(input, hostEndIndex = -1) {
-        let output = '';
-        for (let i = 0; i < input.length; i++) {
-            const ch = input.charAt(i);
-            if (ch === '*') output += '.*';
-            else if (ch === '^') {
-                const next = input.charAt(i + 1);
-                const beforePath = next === '/';
-                if (i === hostEndIndex) output += '(?::[0-9]+)?';
-                output += beforePath ? '(?=[^0-9A-Za-z_\\-.%]|$)' : '(?:[^0-9A-Za-z_\\-.%]|$)';
-            }
-            else output += escapeRegexChar(ch);
+    const results = last.results;
+    return patterns.some(pattern => {
+        const p = String(pattern || '').trim();
+        if (!p) return false;
+        let answer = results.get(p);
+        if (answer === undefined) {
+            try { answer = LinkumoriUrlPatterns.matches(p, url); } catch (e) { answer = false; }
+            if (results.size >= 5000) results.clear();
+            results.set(p, answer);
         }
-        return output;
-    }
-
-    function compileLinkumoriRegex(pattern) {
-        const cacheKey = String(pattern || '');
-        if (linkumoriPatternRegexCache.has(cacheKey)) {
-            // Refresh recency on a hit, so eviction below is least recently used.
-            const cached = linkumoriPatternRegexCache.get(cacheKey);
-            linkumoriPatternRegexCache.delete(cacheKey);
-            linkumoriPatternRegexCache.set(cacheKey, cached);
-            return cached;
-        }
-
-        let raw = cacheKey;
-        let domainAnchor = false, startAnchor = false, endAnchor = false;
-        if (raw.startsWith('||')) { domainAnchor = true; raw = raw.slice(2); }
-        else if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
-        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
-        let hostEndIndex = -1;
-        if (domainAnchor) {
-            const hb = firstSpecialIndex(raw);
-            const hx = hb === -1 ? raw : raw.slice(0, hb);
-            if (hx.startsWith('*.')) raw = raw.slice(2);
-            const end = firstSpecialIndex(raw);
-            if (end !== -1 && raw.charAt(end) === '^') hostEndIndex = end;
-        }
-
-        const source = linkumoriTokensToRegexSource(raw, hostEndIndex);
-        const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
-        const suffix = endAnchor ? '$' : '';
-        // A "||" pattern that is only a host must end at the host: ':' is a
-        // boundary too, so ||example.com matches http://example.com:8080/. With
-        // a path the pattern is a prefix, so ||example.com^/go/ matches
-        // example.com/go/page, as the structured match treats it.
-        const domainBoundary = (domainAnchor && firstSpecialIndex(raw) === -1 && !endAnchor) ? '(?=[:/?#]|$)' : '';
-
-        let regex = null;
-        try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
-        catch (e) { regex = null; }
-
-        // Evict only the least recently used entry, so the cache stays warm.
-        if (linkumoriPatternRegexCache.size >= 5000) {
-            const oldestKey = linkumoriPatternRegexCache.keys().next().value;
-            if (oldestKey !== undefined) linkumoriPatternRegexCache.delete(oldestKey);
-        }
-        linkumoriPatternRegexCache.set(cacheKey, regex);
-        return regex;
-    }
-
-    function compileTailRegex(tail) {
-        let raw = String(tail || '');
-        let startAnchor = false, endAnchor = false;
-        if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
-        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
-        const source = linkumoriTokensToRegexSource(raw);
-        return new RegExp((startAnchor ? '^' : '') + source + (endAnchor ? '$' : ''), 'i');
-    }
-
-    function firstSpecialIndex(input) {
-        const s = input.indexOf('/'), c = input.indexOf('^'), p = input.indexOf('|');
-        let idx = -1;
-        if (s !== -1) idx = s;
-        if (c !== -1 && (idx === -1 || c < idx)) idx = c;
-        if (p !== -1 && (idx === -1 || p < idx)) idx = p;
-        return idx;
-    }
-
-    function isSimpleHostExpression(input) { return /^[a-z0-9*.-]+$/i.test(input); }
-
-    function matchHostPattern(hostname, pattern) {
-        if (pslSupport.status !== 'ready') return false;
-        const normalizedHost = normalizeAsciiHostname(hostname);
-        let normalizedPattern = normalizeAsciiHostname(pattern);
-        if (!normalizedHost || !normalizedPattern) return false;
-        const hostParsed = parseHostnameWithPsl(normalizedHost);
-        if (!hostParsed || !hostParsed.tld) return false;
-        if (normalizedPattern.startsWith('*.')) normalizedPattern = normalizedPattern.slice(2);
-        if (!normalizedPattern) return false;
-        const wildcardTld = normalizedPattern.endsWith('.*');
-        const basePattern = wildcardTld ? normalizedPattern.slice(0, -2) : normalizedPattern;
-        if (!basePattern) return false;
-        if (wildcardTld) return matchRootDomainWildcardTldWithPsl(normalizedHost, normalizedPattern);
-        const patternParsed = parseHostnameWithPsl(basePattern);
-        if (!patternParsed || !patternParsed.tld) return false;
-        return normalizedHost === basePattern || normalizedHost.endsWith('.' + basePattern);
-    }
-
-    function matchStructuredDomainAnchorPattern(pattern, urlObj, hostname) {
-        const body = String(pattern || '').slice(2).trim();
-        if (!body) return false;
-        const specialIndex = firstSpecialIndex(body);
-        const hostExpr = specialIndex === -1 ? body : body.slice(0, specialIndex);
-        const tail = specialIndex === -1 ? '' : body.slice(specialIndex);
-        if (!hostExpr || !isSimpleHostExpression(hostExpr)) return null;
-
-        if (!matchHostPattern(hostname, hostExpr)) {
-            // PSL not ready → fall through to regex path.
-            if (pslSupport.status !== 'ready') return null;
-            // A host or pattern the PSL doesn't list (localhost, .lan,
-            // intranet TLDs) can't match structurally; null falls through to
-            // the regex path.
-            const hostParsed = parseHostnameWithPsl(hostname);
-            if (!hostParsed || !hostParsed.tld) return null;
-            let base = normalizeAsciiHostname(hostExpr) || '';
-            if (base.startsWith('*.')) base = base.slice(2);
-            if (!base.endsWith('.*')) {
-                const pp = parseHostnameWithPsl(base);
-                if (!pp || !pp.tld) return null;
-            }
-            return false;
-        }
-
-        let rest = tail;
-        if (rest.startsWith('^')) rest = rest.slice(1);
-        if (!rest) return true;
-        const pathTarget = (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase();
-        if (rest.startsWith('/') && !/[|*^]/.test(rest)) return pathTarget.startsWith(rest.toLowerCase());
-        try { return compileTailRegex(rest.toLowerCase()).test(pathTarget); }
-        catch (e) { return false; }
-    }
-
-    try {
-        const urlObj = new URL(url);
-        const hostname = normalizeAsciiHostname(urlObj.hostname);
-        if (!hostname) return false;
-        const fullUrl = url.toLowerCase();
-
-        return patterns.some(pattern => {
-            const p = String(pattern || '').trim();
-            if (!p) return false;
-
-            // Regex literal: /body/ or /body/flags
-            if (p.charAt(0) === '/') {
-                const closingSlash = p.lastIndexOf('/');
-                if (closingSlash > 0) {
-                    const body = p.slice(1, closingSlash);
-                    const flags = p.slice(closingSlash + 1);
-                    // Only a regex when the flags are flag characters; a plain
-                    // path such as "/path/to/x" uses the wildcard path below.
-                    if (/^[a-z]*$/i.test(flags)) {
-                        try { return new RegExp(body, flags).test(url); }
-                        catch (e) { /* fall through */ }
-                    }
-                }
-            }
-
-            const pLower = p.toLowerCase();
-            if (pLower.startsWith('||')) {
-                const structured = matchStructuredDomainAnchorPattern(pLower, urlObj, hostname);
-                if (structured !== null) return structured;
-            }
-
-            const regex = compileLinkumoriRegex(pLower);
-            if (regex) return regex.test(fullUrl);
-            return fullUrl.includes(pLower);
-        });
-    } catch (e) { return false; }
+        return answer;
+    });
 }
 
 

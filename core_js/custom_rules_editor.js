@@ -249,6 +249,8 @@ const FIELD_RULE_LISTS = Object.freeze(['rules', 'referralMarketing', 'fieldRedi
 
 // Lists a rule's `order` can reorder; everything else runs at a fixed step.
 const ORDERABLE_RULE_LISTS = Object.freeze(['rules', 'rawRules', 'referralMarketing']);
+// True while the open provider has an include in one of those lists.
+let runOrderHasIncludes = false;
 
 // Lists where a rule's `"referralMarketing": true` means something.
 const REFERRAL_MARKETING_KEY_LISTS = Object.freeze(['rules', 'referralMarketing']);
@@ -694,6 +696,75 @@ function assertRuleEntrySyntax(provider, providerName = '') {
 }
 
 // ============================================================================
+// SHARED RULE SETS
+// ============================================================================
+
+// The custom rules' shared rule sets (core_js/linkumori_rule_sets.js): a
+// provider may use { "include": "<name>" } in its rule lists. The extension
+// writes them out when it loads the custom rules, so the checks, the run
+// order and the tests here use the provider written out the same way
+// (LinkumoriRuleSets.expandRuleSets), while the provider is saved as written.
+
+function providerUsesRuleSets(provider) {
+    return !!(globalThis.LinkumoriRuleSets && isPlainObject(provider) &&
+        LinkumoriRuleSets.fileUsesRuleSets({ providers: { provider } }));
+}
+
+// The rule sets a provider's includes refer to: the custom rules' own, or
+// an imported file's while it is checked. { present, ruleSets }.
+function getCustomRuleSetsSource() {
+    return {
+        present: !!customRules && Object.prototype.hasOwnProperty.call(customRules, 'ruleSets'),
+        ruleSets: customRules ? customRules.ruleSets : undefined
+    };
+}
+
+// { provider, origins, problems }: the provider with its includes written
+// out (or the provider itself when it has none), where each entry of each
+// list came from ("rules[2] (ruleSets.name[0])"), and the problems that keep
+// it from being written out (then `provider` is null).
+function expandProviderRuleSets(provider, providerName = '', source = getCustomRuleSetsSource()) {
+    if (!providerUsesRuleSets(provider)) return { provider, origins: null, problems: [] };
+    const label = providerName || 'Provider';
+    const data = { providers: { provider } };
+    if (source && source.present) data.ruleSets = source.ruleSets;
+    const { errors } = LinkumoriRuleSets.findRuleSetProblems(data);
+    const problems = errors.map(message => message.startsWith('providers.provider.')
+        ? `${label}: ${message.slice('providers.provider.'.length)}`
+        : i18n('customRulesEditor_ruleSetInvalid', message));
+    if (problems.length > 0) return { provider: null, origins: null, problems };
+    const expanded = LinkumoriRuleSets.expandRuleSets(data).providers.provider;
+    const origins = {};
+    for (const list of LinkumoriRuleSets.RULE_SET_SECTIONS) {
+        if (!Array.isArray(provider[list])) continue;
+        origins[list] = [];
+        provider[list].forEach((entry, index) => {
+            if (LinkumoriRuleSets.isIncludeEntry(entry)) {
+                data.ruleSets[entry.include].forEach((_, setIndex) =>
+                    origins[list].push(`${list}[${index}] (ruleSets.${entry.include}[${setIndex}])`));
+            } else {
+                origins[list].push(`${list}[${index}]`);
+            }
+        });
+    }
+    return { provider: expanded, origins, problems: [] };
+}
+
+// True when one of the lists the run order can rearrange has an include:
+// its steps then don't all map to entries of the provider as written.
+function providerHasOrderableIncludes(provider) {
+    return !!(globalThis.LinkumoriRuleSets && isPlainObject(provider) &&
+        ORDERABLE_RULE_LISTS.some(list => Array.isArray(provider[list]) && provider[list].some(LinkumoriRuleSets.isIncludeEntry)));
+}
+
+// The provider as the background should see it, or null when its includes
+// can't be written out.
+function providerForBackground(provider) {
+    const expanded = expandProviderRuleSets(provider, currentProvider || '');
+    return expanded.problems.length > 0 ? null : expanded.provider;
+}
+
+// ============================================================================
 // LINTER
 // ============================================================================
 
@@ -721,7 +792,7 @@ function tryRuleEntrySyntax(provider, providerName) {
 // Errors are what saving rejects. Warnings are what `lint-rules` warns about
 // (docs/filter-syntax.md §10), plus template placeholders left in place.
 // Returns [{ severity: 'error' | 'warning', message }].
-function lintProvider(provider, providerName = '') {
+function lintProvider(provider, providerName = '', ruleSetsSource = getCustomRuleSetsSource()) {
     const label = providerName || 'Provider';
     const problems = [];
     const error = message => problems.push({ severity: 'error', message });
@@ -729,6 +800,24 @@ function lintProvider(provider, providerName = '') {
     if (!isPlainObject(provider)) {
         error(i18n('customRulesEditor_syntaxProviderNotObject', label));
         return problems;
+    }
+
+    // Shared rule sets: the provider is checked written out, the way the
+    // extension loads it; an entry from a set is named by its include and
+    // its place in the set. Includes that can't be written out are errors,
+    // and the rest of the provider is still checked.
+    const ruleSetExpansion = expandProviderRuleSets(provider, label, ruleSetsSource);
+    let entryOrigins = null;
+    if (ruleSetExpansion.problems.length > 0) {
+        ruleSetExpansion.problems.forEach(error);
+        const withoutIncludes = { ...provider };
+        for (const list of LinkumoriRuleSets.RULE_SET_SECTIONS) {
+            if (Array.isArray(provider[list])) withoutIncludes[list] = provider[list].filter(entry => !LinkumoriRuleSets.isIncludeEntry(entry));
+        }
+        provider = withoutIncludes;
+    } else if (ruleSetExpansion.origins) {
+        provider = ruleSetExpansion.provider;
+        entryOrigins = ruleSetExpansion.origins;
     }
 
     // Provider fields, checked without the rule lists.
@@ -783,7 +872,7 @@ function lintProvider(provider, providerName = '') {
         }
         const seenEntries = new Set();
         entries.forEach((entry, index) => {
-            const here = `${list}[${index}]`;
+            const here = (entryOrigins && entryOrigins[list] && entryOrigins[list][index]) || `${list}[${index}]`;
             const text = getRuleEntryText(entry);
             const names = getRuleEntryNames(entry);
             let context = [];
@@ -1025,6 +1114,8 @@ async function updateProviderRunOrder() {
     } catch (_) {
         provider = null;
     }
+    runOrderHasIncludes = providerHasOrderableIncludes(provider);
+    if (isPlainObject(provider)) provider = providerForBackground(provider);
     if (!isPlainObject(provider)) {
         // The JSON error is shown above; keep the last good order hidden until it parses.
         lastRunOrder = null;
@@ -1073,8 +1164,9 @@ function renderProviderRunOrder() {
     const stageLabel = step => i18n(step.stage === 'raw' ? 'customRulesEditor_runOrderStageRaw'
         : (step.referral ? 'customRulesEditor_runOrderStageReferral' : 'customRulesEditor_runOrderStageField'));
     // Steps can be rearranged in the view that shows every entry; a step moves
-    // only among the steps of its own stage.
-    const movable = view === 'removed';
+    // only among the steps of its own stage. Not when an include adds steps:
+    // those are ordered in their rule set.
+    const movable = view === 'removed' && !runOrderHasIncludes;
     const items = steps.map((step, index) => {
         const group = runOrderGroup(step);
         const canUp = movable && group !== null && index > 0 && runOrderGroup(steps[index - 1]) === group;
@@ -1139,7 +1231,7 @@ function renderProviderRunOrder() {
         </div>
         <div id="json-run-order-body"${runOrderPanelCollapsed ? ' hidden' : ''}>
             <p class="run-order-help">${i18n('customRulesEditor_runOrderHelp')}</p>
-            ${steps.length > 1 ? `<p class="run-order-help">${i18n(movable ? 'customRulesEditor_runOrderRearrangeHelp' : 'customRulesEditor_runOrderRearrangeOtherView')}</p>` : ''}
+            ${steps.length > 1 ? `<p class="run-order-help">${i18n(runOrderHasIncludes ? 'customRulesEditor_runOrderIncludesNote' : (movable ? 'customRulesEditor_runOrderRearrangeHelp' : 'customRulesEditor_runOrderRearrangeOtherView'))}</p>` : ''}
             ${items ? `<ol class="run-order-list">${items}</ol>` : ''}
             ${notes.join('')}
             <div class="run-order-sim" id="json-run-order-sim"></div>
@@ -1322,6 +1414,9 @@ async function generateRunOrderTestUrl() {
     } catch (_) {
         return;
     }
+    // Includes written out, as the extension loads them.
+    provider = isPlainObject(provider) ? providerForBackground(provider) : null;
+    if (!provider) return;
     let generated;
     try {
         const response = await browser.runtime.sendMessage({
@@ -1366,6 +1461,9 @@ async function runRunOrderSimulation(keepCursor = false) {
     } catch (_) {
         return;
     }
+    // Includes written out, as the extension loads them.
+    provider = isPlainObject(provider) ? providerForBackground(provider) : null;
+    if (!provider) return;
     const view = runOrderReferralView || (lastRunOrder?.referralMarketingAllowed ? 'allowed' : 'removed');
     let result;
     try {
@@ -1510,6 +1608,7 @@ function clearRunOrderPreview(container) {
 // 30, … on the entry that defines it. A plain string entry becomes
 // { "matchPattern": …, "order": … }, which keeps its generated id.
 function moveRunOrderStep(from, to, direction) {
+    if (runOrderHasIncludes) return;
     const plan = planRunOrderMove(from, to);
     if (!plan) return;
     const { steps, moving, group, sequence, toInGroup } = plan;
@@ -5056,6 +5155,7 @@ function setupEventListeners() {
     }
 
     setupRuleDefaultsModal();
+    setupRuleSetsModal();
 
     // Enforce rules button - with null checks
     const enforceRulesBtn = document.getElementById('enforce-rules-btn');
@@ -5372,6 +5472,7 @@ function updateUI() {
     updateProviderList();
     updateProviderCount();
     updateRulesStatus();
+    updateRuleSetsStatus();
 
     if (!currentProvider) {
         showEmptyState();
@@ -5598,6 +5699,112 @@ function sameRuleDefaults(a, b) {
 
 function isRuleDefaultsSetEdited(key) {
     return isFileDefaultsSet(key) && !sameRuleDefaults(ruleDefaultsDraft.sets[key], ruleDefaultsDraft.baselines[key]);
+}
+
+// "Shared rule sets": the custom rules' ruleSets as JSON. Saving is refused
+// while a set or an include has an error (such as removing a set a provider
+// still includes); a set no provider includes is only a warning.
+let ruleSetsModal = null;
+
+function setupRuleSetsModal() {
+    ruleSetsModal = document.getElementById('rule-sets-modal');
+    if (!ruleSetsModal) return;
+    document.getElementById('open-rule-sets-btn')?.addEventListener('click', openRuleSetsModal);
+    document.getElementById('rule-sets-modal-close')?.addEventListener('click', closeRuleSetsModal);
+    document.getElementById('rule-sets-cancel')?.addEventListener('click', closeRuleSetsModal);
+    document.getElementById('rule-sets-save')?.addEventListener('click', saveRuleSetsFromModal);
+    document.getElementById('rule-sets-json')?.addEventListener('input', () => showRuleSetsProblems(checkRuleSetsText()));
+    ruleSetsModal.addEventListener('click', event => {
+        if (event.target === ruleSetsModal) closeRuleSetsModal();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && ruleSetsModal.classList.contains('show')) closeRuleSetsModal();
+    });
+    updateRuleSetsStatus();
+}
+
+function updateRuleSetsStatus() {
+    const status = document.getElementById('rule-sets-status');
+    if (!status) return;
+    const count = isPlainObject(customRules.ruleSets) ? Object.keys(customRules.ruleSets).length : 0;
+    status.textContent = i18n('customRulesEditor_ruleSetsCount', getLocalizedNumber(count));
+}
+
+function openRuleSetsModal() {
+    const textarea = document.getElementById('rule-sets-json');
+    if (!ruleSetsModal || !textarea) return;
+    textarea.value = JSON.stringify(isPlainObject(customRules.ruleSets) ? customRules.ruleSets : {}, null, 2);
+    showRuleSetsProblems(checkRuleSetsText());
+    ruleSetsModal.classList.add('show');
+    setTimeout(() => textarea.focus(), 0);
+}
+
+function closeRuleSetsModal() {
+    if (!ruleSetsModal) return;
+    ruleSetsModal.classList.remove('show');
+    document.getElementById('open-rule-sets-btn')?.focus();
+}
+
+// { ruleSets, errors, warnings } for the text in the dialog, checked with
+// the saved providers.
+function checkRuleSetsText() {
+    const text = (document.getElementById('rule-sets-json')?.value || '').trim();
+    let ruleSets;
+    try {
+        ruleSets = text ? JSON.parse(text) : {};
+    } catch (error) {
+        return { ruleSets: null, errors: [i18n('customRulesEditor_ruleSetsJsonInvalid', error.message)], warnings: [] };
+    }
+    if (!isPlainObject(ruleSets)) {
+        return { ruleSets: null, errors: [i18n('customRulesEditor_ruleSetsNotObject')], warnings: [] };
+    }
+    const { errors, warnings } = LinkumoriRuleSets.findRuleSetProblems({ ruleSets, providers: customRules.providers || {} });
+    // Each provider that includes a set is checked with the set written out.
+    const source = { present: true, ruleSets };
+    if (errors.length === 0) {
+        for (const [name, provider] of Object.entries(customRules.providers || {})) {
+            if (!providerUsesRuleSets(provider)) continue;
+            const providerError = lintProvider(provider, name, source).find(problem => problem.severity === 'error');
+            if (providerError) errors.push(providerError.message);
+        }
+    }
+    return { ruleSets, errors, warnings };
+}
+
+function showRuleSetsProblems(result) {
+    const list = document.getElementById('rule-sets-problems');
+    const saveButton = document.getElementById('rule-sets-save');
+    if (saveButton) saveButton.disabled = result.errors.length > 0;
+    if (!list) return;
+    const items = [
+        ...result.errors.map(message => ({ message, severity: 'error' })),
+        ...result.warnings.map(message => ({ message, severity: 'warning' }))
+    ];
+    list.hidden = items.length === 0;
+    list.replaceChildren(...items.map(({ message, severity }) => {
+        const li = document.createElement('li');
+        li.className = `json-lint-item json-lint-${severity}`;
+        li.textContent = message;
+        return li;
+    }));
+}
+
+async function saveRuleSetsFromModal() {
+    const result = checkRuleSetsText();
+    showRuleSetsProblems(result);
+    if (result.errors.length > 0 || !result.ruleSets) return;
+    if (Object.keys(result.ruleSets).length > 0) customRules.ruleSets = result.ruleSets;
+    else delete customRules.ruleSets;
+    await saveCustomRules();
+    updateRuleSetsStatus();
+    closeRuleSetsModal();
+    // The open provider's checks and run order depend on the sets.
+    const jsonEditor = document.getElementById('json-editor');
+    if (jsonEditor && currentProvider) {
+        lastEditorLint = { key: null, problems: null };
+        renderProviderLint(jsonEditor.value);
+        scheduleProviderRunOrder();
+    }
 }
 
 function setupRuleDefaultsModal() {
@@ -7132,8 +7339,14 @@ async function saveCurrentProvider() {
             return;
         }
         const provider = JSON.parse(jsonEditor.value);
-        assertProviderArrayFields(provider, currentProvider || '');
-        assertRuleEntrySyntax(provider, currentProvider || '');
+        // Includes are checked written out; the provider is saved as written.
+        const ruleSetExpansion = expandProviderRuleSets(provider, currentProvider || '');
+        if (ruleSetExpansion.problems.length > 0) {
+            await modalAlert(ruleSetExpansion.problems[0]);
+            return;
+        }
+        assertProviderArrayFields(ruleSetExpansion.provider, currentProvider || '');
+        assertRuleEntrySyntax(ruleSetExpansion.provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
             
@@ -7594,6 +7807,7 @@ async function exportCustomRules() {
             exportedAt: new Date().toISOString(),
             clearurlsCustomRules: {
                 ...(customRules.defaults ? { defaults: customRules.defaults } : {}),
+                ...(isPlainObject(customRules.ruleSets) && Object.keys(customRules.ruleSets).length > 0 ? { ruleSets: customRules.ruleSets } : {}),
                 providers: customRules.providers || {}
             },
             // Pinned ids of switched-off rules from built-in and remote
@@ -7657,6 +7871,13 @@ function getProvidersFromImportedCustomRules(imported) {
     return isPlainObject(container.providers) ? container.providers : null;
 }
 
+// The imported file's rule sets: { present, ruleSets }.
+function getRuleSetsFromImportedCustomRules(imported) {
+    if (!isPlainObject(imported)) return { present: false, ruleSets: undefined };
+    const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
+    return { present: Object.prototype.hasOwnProperty.call(container, 'ruleSets'), ruleSets: container.ruleSets };
+}
+
 // The imported file's "defaults" block, or undefined.
 function getDefaultsFromImportedCustomRules(imported) {
     if (!isPlainObject(imported)) {
@@ -7674,14 +7895,17 @@ function assertOnlyKeys(value, allowedKeys, label) {
     });
 }
 
-function validateImportedProviders(providersData) {
+function validateImportedProviders(providersData, ruleSetsSource = getCustomRuleSetsSource()) {
     if (!providersData || Object.keys(providersData).length === 0) {
         throw new Error(i18n('customRulesEditor_noProvidersInFile'));
     }
 
     for (const [name, provider] of Object.entries(providersData)) {
-        assertProviderArrayFields(provider, name);
-        assertRuleEntrySyntax(provider, name);
+        // Includes are checked written out, with the imported file's sets.
+        const ruleSetExpansion = expandProviderRuleSets(provider, name, ruleSetsSource);
+        if (ruleSetExpansion.problems.length > 0) throw new Error(ruleSetExpansion.problems[0]);
+        assertProviderArrayFields(ruleSetExpansion.provider, name);
+        assertRuleEntrySyntax(ruleSetExpansion.provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
         const normalizedDomainPatterns = toDomainPatternArray(provider.domainPatterns);
@@ -7707,7 +7931,7 @@ function validateImportedProviders(providersData) {
         }
 
         // Whatever saving rejects, importing rejects too.
-        const lintError = lintProvider(provider, name).find(problem => problem.severity === 'error');
+        const lintError = lintProvider(provider, name, ruleSetsSource).find(problem => problem.severity === 'error');
         if (lintError) {
             throw new Error(lintError.message);
         }
@@ -7762,8 +7986,13 @@ async function handleFileImport(e) {
             }
 
             const importedDefaults = getDefaultsFromImportedCustomRules(imported);
+            const importedRuleSets = getRuleSetsFromImportedCustomRules(imported);
             if (hasProviderRules) {
-                validateImportedProviders(providersData);
+                if (importedRuleSets.present) {
+                    const setProblems = LinkumoriRuleSets.findRuleSetProblems({ ruleSets: importedRuleSets.ruleSets, providers: providersData }).errors;
+                    if (setProblems.length > 0) throw new Error(setProblems[0]);
+                }
+                validateImportedProviders(providersData, importedRuleSets);
                 const defaultsProblems = LinkumoriRuleDefaults.findRuleDefaultsProblems(importedDefaults);
                 if (defaultsProblems.length > 0) {
                     throw new Error(defaultsProblems[0]);
@@ -7777,7 +8006,11 @@ async function handleFileImport(e) {
                     if (importedDefaults !== undefined && Object.keys(importedDefaults).length > 0) {
                         customRules.defaults = importedDefaults;
                     }
-                    fillCustomDefaultsInput();
+                    if (importedRuleSets.present && isPlainObject(importedRuleSets.ruleSets) && Object.keys(importedRuleSets.ruleSets).length > 0) {
+                        customRules.ruleSets = importedRuleSets.ruleSets;
+                    }
+                    // Show the imported defaults in the sidebar.
+                    await updateRuleDefaultsStatus();
                     await saveCustomRules();
                 }
                 await importRuleIdPins(importedPins);
