@@ -26,8 +26,8 @@
  *   tokens       words every matching URL contains (or null), which the
  *                $removeparam shortcut checks before calling match()
  *
- * Matching is done by @ghostery/adblocker's NetworkFilter (bundled in
- * external_js/linkumori-ghostery-engine.js), the way uBlock Origin and
+ * Matching is done by @ghostery/adblocker's NetworkFilter (Linkumori's
+ * minimal port in external_js/linkumori-ghostery-engine.js), the way uBlock Origin and
  * Ghostery match filters: a pattern is parsed once, and its index tokens
  * come from the same parsed filter as its matcher, so the two cannot
  * disagree. Ghostery's Request gives the URL's tokens.

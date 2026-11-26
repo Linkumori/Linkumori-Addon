@@ -63,7 +63,7 @@ script is listed earlier.
 | 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
 | 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
 | 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
-| 14 | `external_js/linkumori-ghostery-engine.js` | `LinkumoriGhosteryEngine`: `NetworkFilter` and `Request` from `@ghostery/adblocker` (MPL-2.0, also distributed under LGPL-3.0-or-later), bundled by `tools/ghostery-engine/`; hostnames and public suffixes come from `linkumoriPsl` (`external_js/publicsuffixlist.js`, loaded earlier), not tldts |
+| 14 | `external_js/linkumori-ghostery-engine.js` | `LinkumoriGhosteryEngine`: Linkumori's minimal port of `NetworkFilter` and `Request` from `@ghostery/adblocker` (MPL-2.0, also distributed under LGPL-3.0-or-later); hostnames and public suffixes come from `linkumoriPsl` (`external_js/publicsuffixlist.js`, loaded earlier), not tldts |
 | 14a | `core_js/linkumori_url_patterns.js` | `LinkumoriUrlPatterns`: compiles each URL pattern once with Ghostery's `NetworkFilter`; gives `matchDomainPattern()` its answers and the `$removeparam` shortcut its tokens |
 | 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
 | 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
