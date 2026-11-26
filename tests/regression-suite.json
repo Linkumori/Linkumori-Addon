@@ -3837,6 +3837,95 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "host bucket: a ||host rule for another site does not apply",
+      "dialect": "providerWebRequest",
+      "input": "https://shop.example.org/p?tag=a&id=1",
+      "expectedOutput": "https://shop.example.org/p?tag=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/",
+          "rules": [
+            "||amazon.*$removeparam=tag",
+            "||other.example.com^$removeparam=tag"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "host bucket: a ||host rule for this site applies next to rules for other sites",
+      "dialect": "providerWebRequest",
+      "input": "https://www.amazon.de/dp/1?tag=a&id=1",
+      "expectedOutput": "https://www.amazon.de/dp/1?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/",
+          "rules": [
+            "||ebay.*$removeparam=tag",
+            "||amazon.*$removeparam=tag",
+            "||other.example.com^$removeparam=tag"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "host bucket: @@ ||host matching the page, not the request, still protects",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?utm_source=a&id=1",
+      "expectedOutput": "https://cdn.example.net/x.js?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "script",
+        "documentUrl": "https://www.example.com/page"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/cdn\\.example\\.net",
+          "rules": [
+            "$removeparam=utm_source",
+            "@@||example.com^$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "host bucket: * inside the host matches a longer label",
+      "dialect": "providerWebRequest",
+      "input": "https://img4.nga.example/a.png?cmpid=1&id=1",
+      "expectedOutput": "https://img4.nga.example/a.png?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/",
+          "rules": [
+            "||img*.nga.example^$removeparam=cmpid"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

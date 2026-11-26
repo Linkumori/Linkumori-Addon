@@ -69,8 +69,9 @@
 
     const engine = () => root.LinkumoriGhosteryEngine || null;
 
-    const NEVER = Object.freeze({ kind: 'never', match: () => false });
-    const ALWAYS = Object.freeze({ kind: 'all', match: () => true });
+    const NEVER = Object.freeze({ kind: 'never', hostKey: null, match: () => false });
+    const ALWAYS = Object.freeze({ kind: 'all', hostKey: null, match: () => true });
+    const NO_HOST_KEYS = Object.freeze(new Set());
 
     // ---------------------------------------------------------------------
     // URLs
@@ -88,7 +89,7 @@
     const HOST_TRAILING_DOTS = /^([a-z][a-z0-9+.-]*:\/\/(?:[^\/?#@]*@)?[^\/?#:.][^\/?#:]*?)\.+(?=[:\/?#]|$)/i;
 
     function makeUrlEntry(url) {
-        const entry = { url, request: null, requestNoDots: null };
+        const entry = { url, request: null, requestNoDots: null, hostKeys: null };
         const g = engine();
         if (!g || typeof url !== 'string' || !url) return entry;
         let host = '';
@@ -137,6 +138,30 @@
         return entry;
     }
 
+    // Every run of whole labels of the URL's hostname, joined with dots
+    // ("a.b.c" gives a, b, c, a.b, b.c and a.b.c): what hostKey() is looked
+    // up in. Labels are split at any character that cannot be in a label,
+    // not only at dots: the engine's host check (isAnchoredByHostname, as in
+    // Ghostery) can take such a character as the end of the host, as in
+    // "www.cdn.org,ref" for ||cdn.org^. Extra keys only mean more rules are
+    // checked in full. Empty when the URL has no host (it then matches no
+    // pattern).
+    function hostKeysOf(url) {
+        const entry = urlEntry(url);
+        if (!entry.request) return NO_HOST_KEYS;
+        if (entry.hostKeys === null) {
+            const labels = entry.request.hostname.split(/[^a-z0-9_-]+/).filter(Boolean);
+            const keys = new Set();
+            for (let i = 0; i < labels.length; i++) {
+                let key = labels[i];
+                keys.add(key);
+                for (let j = i + 1; j < labels.length; j++) { key += '.' + labels[j]; keys.add(key); }
+            }
+            entry.hostKeys = keys;
+        }
+        return entry.hostKeys;
+    }
+
     // ---------------------------------------------------------------------
     // Patterns
     // ---------------------------------------------------------------------
@@ -159,8 +184,30 @@
         try { re = new RegExp(p.slice(1, closingSlash), flags.replace(/[gy]/g, '')); } catch (_) { return null; }
         return {
             kind: 'regex',
+            hostKey: null,
             match(url) { return !!urlEntry(url).request && re.test(url); }
         };
+    }
+
+    // The labels every URL a ||host filter matches has in its hostname, as
+    // a run of whole labels, or null when there are none to rely on (no
+    // host anchor). This follows the engine's isAnchoredByHostname(): the
+    // filter's host must sit in the URL's hostname on label boundaries,
+    // except that a dot at either end of it, or a "*" right after it,
+    // leaves that end open. So a leading or trailing dot is dropped (the
+    // labels next to it are still whole), and before a "*" the last label
+    // is dropped (it may continue: ||img*.nga matches img4.nga).
+    // Like uBlock Origin's per-hostname filter buckets: a filter whose key
+    // is not among the URL's hostKeysOf() cannot match it.
+    function hostKeyOf(filter) {
+        if (!filter.isHostnameAnchor()) return null;
+        let host = filter.getHostname().replace(/^\.+/, '');
+        if (host.endsWith('.')) host = host.replace(/\.+$/, '');
+        else if (filter.filter !== undefined && filter.filter.charCodeAt(0) === 42) {
+            const dot = host.lastIndexOf('.');
+            host = dot === -1 ? '' : host.slice(0, dot);
+        }
+        return host && host.indexOf('..') === -1 ? host : null;
     }
 
     function compileUncached(pattern) {
@@ -212,6 +259,7 @@
         if (anySuffixBase === null) {
             return {
                 kind: 'ghostery',
+                hostKey: hostKeyOf(filter),
                 match(url) {
                     const entry = urlEntry(url);
                     return !!entry.request && matchEntry(filter, entry);
@@ -233,6 +281,7 @@
         };
         return {
             kind: 'anySuffix',
+            hostKey: hostKeyOf(filter),
             match(url) {
                 const entry = urlEntry(url);
                 const request = entry.request;
@@ -269,6 +318,17 @@
         return compile(pattern).match(url);
     }
 
+    // The pattern's host labels (see hostKeyOf), or null.
+    function hostKey(pattern) {
+        return compile(pattern).hostKey;
+    }
+
+    // False only when the URL's hostname lacks `key`: no pattern with that
+    // hostKey() can match the URL.
+    function urlHasHostKey(url, key) {
+        return key === null || hostKeysOf(url).has(key);
+    }
+
     function clearCaches() {
         compiledCache.clear();
         urlCache.clear();
@@ -278,6 +338,8 @@
     root.LinkumoriUrlPatterns = Object.freeze({
         compile,
         matches,
+        hostKey,
+        urlHasHostKey,
         clearCaches,
         isReady: () => !!engine()
     });

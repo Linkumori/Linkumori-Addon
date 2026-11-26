@@ -1196,8 +1196,35 @@ function getRuleExceptionMatcher(exceptions) {
     return matcher;
 }
 
+// PERF (uBlock Origin's idea of per-hostname filter buckets): the labels a
+// rule's ||host URL pattern needs in the URL's hostname
+// (LinkumoriUrlPatterns.hostKey), kept on the rule (not enumerable, so
+// copies and snapshots of the rule are unchanged). Null when the pattern has
+// no ||host.
+function getLinkumoriRuleHostKey(rule) {
+    if (rule.__linkumoriHostKeyFor === rule.urlPattern) return rule.__linkumoriHostKey;
+    const key = rule.urlPattern && rule.urlPattern !== '*' ? LinkumoriUrlPatterns.hostKey(rule.urlPattern) : null;
+    try {
+        Object.defineProperty(rule, '__linkumoriHostKey', { value: key, writable: true, configurable: true, enumerable: false });
+        Object.defineProperty(rule, '__linkumoriHostKeyFor', { value: rule.urlPattern, writable: true, configurable: true, enumerable: false });
+    } catch (_) { /* a frozen rule is just not cached */ }
+    return key;
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
+    // PERF: the URL pattern check below must pass for this to be true. A
+    // ||host pattern can only match a URL whose hostname has its labels, so
+    // a rule for another site (most rules of a global provider, for any one
+    // URL) is answered here, before the pattern, activation, party and type
+    // checks. An "@@" rule is also tried on the request's page URLs, as
+    // below. Exact, not a guess: see hostKeyOf in linkumori_url_patterns.js.
+    const hostKey = getLinkumoriRuleHostKey(linkumoriRule);
+    if (hostKey !== null && !LinkumoriUrlPatterns.urlHasHostKey(fullUrl, hostKey) &&
+        !(linkumoriRule.isException && request &&
+            requestContextManager.getContextURLs(request).some(u => u && LinkumoriUrlPatterns.urlHasHostKey(u, hostKey)))) {
+        return false;
+    }
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
     if (linkumoriRule.exceptionMatcher && linkumoriRule.exceptionMatcher.test(fullUrl)) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;

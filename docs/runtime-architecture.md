@@ -454,6 +454,12 @@ indexes providers by hostname token:
   or blocking; `isParamsOnly()`) can't change a URL with no `?` and no `#`,
   so `clearUrl()` skips it for such URLs. Most subresources (scripts,
   styles, images) have no query, so they skip almost every provider.
+- **`$removeparam` rules for other sites.** A `||host` URL pattern can
+  only match a URL whose hostname has its labels (`LinkumoriUrlPatterns.hostKey`,
+  as uBlock Origin buckets filters by hostname), so
+  `matchLinkumoriRemoveParamTarget()` answers such a rule for another site
+  before any other check. An `@@` rule is also tried on the page URLs. This
+  is exact, not a guess: the key follows the engine's own host check.
 
 ### 6.4 Cleaning a request
 
