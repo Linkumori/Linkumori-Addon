@@ -68,7 +68,8 @@ Patterns are matched by Linkumori's port of `@ghostery/adblocker`'s filter engin
 
 - After `\|\|host`, the rest of the pattern must follow the host directly: `\|\|example.com^foo/` matches `example.com/foo/` but not `/xfoo/` or `/a/foo/`. A port is not skipped: `\|\|example.com/go` does not match `example.com:8080/go` (a host-only `\|\|example.com^` does).
 - `^` right before `/` takes no character: `\|\|example.com^/path` is "that host, path starting with `/path`". (uBlock Origin and Ghostery read it as a separator and then a `/`.)
-- `\|\|example.com` with nothing after the host ends at the host, like `\|\|example.com^`: it does not match `example.com.evil.org`.
+- `\|\|example.com` with nothing after the host ends at the host, like `\|\|example.com^`: it does not match `example.com.evil.org`. "Nothing after the host" means only host characters, `*` and maybe a port: text such as `\|\|amazon.*&tag=` is matched as written, with nothing added after it.
+- `\|\|www.amazon.` (a trailing dot) is a host that starts with those labels, as in uBlock Origin and Ghostery: it matches `www.amazon.de` and `www.amazon.co.uk` (and `www.amazon.example.com`), not `www.amazonx.de`.
 - `\|\|example.*` is `example` on a public suffix, then the rest of the pattern right after it. The suffix comes from Linkumori's Public Suffix List; while it is still loading, the pattern is a plain wildcard (`example.` then anything).
 - A `*` elsewhere in the host (`\|\|ipv6.example.com*/search?`) is a plain wildcard.
 - Hosts written in Unicode (`\|\|bücher.example^`) are matched in their punycode form.

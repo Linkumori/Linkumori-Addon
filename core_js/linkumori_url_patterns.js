@@ -32,10 +32,16 @@
  *
  *   ^/                "^" right before "/" takes no character, so
  *                     ||host^/path means the path starts with /path
- *   ||host            a host with nothing after it ends at the end of the
- *                     host (parsed as ||host^), so ||example.com does not
- *                     match example.com.evil.org
+ *   ||host            a host with nothing after it (host characters, "*"
+ *                     and maybe a port) ends at the end of the host (parsed
+ *                     as ||host^), so ||example.com does not match
+ *                     example.com.evil.org. Text such as "&a=" or "?a"
+ *                     after the host is matched as written, with nothing
+ *                     added
  *   ||*.host          same as ||host
+ *   ||host.           a host that starts with these labels, as in
+ *                     Ghostery and uBlock Origin: "||www.amazon." matches
+ *                     www.amazon.de, "||email-link." email-link.example.com
  *   ||host.* + rest   host on any public suffix, then the rest of the
  *                     pattern right after it: "||amazon.*" followed by
  *                     "/gp/" matches amazon.co.uk/gp/ but not
@@ -176,7 +182,10 @@
         if (p.startsWith('||')) {
             let body = p.slice(2);
             if (body.startsWith('*.')) body = body.slice(2);
-            const hostOnly = !/[\/^|]/.test(body);
+            // Only a host: host characters and "*" (a Unicode host too), and
+            // maybe a port. Anything else after the host (a path, "?", "&",
+            // "=", "#", ...) is part of the URL to match, not a host.
+            const hostOnly = /^[a-z0-9_.*\u0080-\uffff-]+(?::[0-9]+)?$/.test(body);
             const hostRun = body.match(/^[^\/^|*?#:]*/)[0];
             let host = toPunycodeHost(hostRun);
             let rest = body.slice(hostRun.length);
@@ -187,8 +196,12 @@
                 anySuffixRest = rest.slice(1);
                 if (hostOnly && anySuffixRest === '') anySuffixRest = '^';
             }
-            // ||host : ends at the end of the host.
-            if (hostOnly && !rest.endsWith('^') && !rest.endsWith('|')) rest += '^';
+            // ||host : ends at the end of the host. Not ||host. (a trailing
+            // dot), which Ghostery and uBlock Origin read as a host starting
+            // with those labels: "||www.amazon." is www.amazon.de and
+            // www.amazon.co.uk, "||email-link." is email-link.example.com.
+            const hostEndsWithDot = rest === '' && host.endsWith('.');
+            if (hostOnly && !hostEndsWithDot && !rest.endsWith('^') && !rest.endsWith('|')) rest += '^';
             p = '||' + host + rest;
         }
 

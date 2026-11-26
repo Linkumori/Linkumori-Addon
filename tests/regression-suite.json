@@ -3681,6 +3681,162 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "||host. (trailing dot) matches the host on any suffix (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://www.amazon.de/dp/1?sp_csd=a&th=1",
+      "expectedOutput": "https://www.amazon.de/dp/1?th=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:amazon|google|example|amazonx)\\.",
+          "indexPattern": [
+            "||amazon.*",
+            "||google.*",
+            "||example.*",
+            "||amazonx.*"
+          ],
+          "rules": [
+            "||www.amazon.$removeparam=sp_csd"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "||host. (trailing dot) matches a host that starts with those labels (uBO)",
+      "dialect": "providerWebRequest",
+      "input": "https://email-link.example.com/x?utm_source=a&id=1",
+      "expectedOutput": "https://email-link.example.com/x?id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:amazon|google|example|amazonx)\\.",
+          "indexPattern": [
+            "||amazon.*",
+            "||google.*",
+            "||example.*",
+            "||amazonx.*"
+          ],
+          "rules": [
+            "||email-link.$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "||host. (trailing dot) does not match a longer label",
+      "dialect": "providerWebRequest",
+      "input": "https://www.amazonx.de/dp/1?sp_csd=a&th=1",
+      "expectedOutput": "https://www.amazonx.de/dp/1?sp_csd=a&th=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:amazon|google|example|amazonx)\\.",
+          "indexPattern": [
+            "||amazon.*",
+            "||google.*",
+            "||example.*",
+            "||amazonx.*"
+          ],
+          "rules": [
+            "||www.amazon.$removeparam=sp_csd"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "||host.*&query text is matched as written, nothing added after it",
+      "dialect": "providerWebRequest",
+      "input": "https://www.amazon.com/dp/1?th=1&linkCode=ll1&tag=x-20&linkId=abc",
+      "expectedOutput": "https://www.amazon.com/dp/1?th=1&linkCode=ll1&linkId=abc",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:amazon|google|example|amazonx)\\.",
+          "indexPattern": [
+            "||amazon.*",
+            "||google.*",
+            "||example.*",
+            "||amazonx.*"
+          ],
+          "rules": [
+            "||amazon.*&linkCode=*&tag=*&linkId=$removeparam=tag"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "||host.*query text before a fragment is matched as written",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?q=a&tbm=isch&biw=1#imgrc=abc",
+      "expectedOutput": "https://www.google.com/search?q=a&tbm=isch#imgrc=abc",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:amazon|google|example|amazonx)\\.",
+          "indexPattern": [
+            "||amazon.*",
+            "||google.*",
+            "||example.*",
+            "||amazonx.*"
+          ],
+          "rules": [
+            "||google.*&tbm=isch&*#imgrc=$removeparam=biw"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "||host with nothing after it still ends at the host",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com.evil.org/?utm_source=a&id=1",
+      "expectedOutput": "https://example.com.evil.org/?utm_source=a&id=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "ex-provider": {
+          "urlPattern": "^https?:\\/\\/",
+          "rules": [
+            "||example.com$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
