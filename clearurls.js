@@ -250,17 +250,48 @@ function parseCorePatternActivationScope(activationId) {
     return null;
 }
 
+// PERF: activation ids are parsed once per id string, and "url" scope
+// patterns are compiled once, instead of on every check.
+var coreActivationScopeCache = new Map();
+var coreActivationUrlRegexCache = new Map();
+
+function getCachedCorePatternActivationScope(activationId) {
+    const key = String(activationId || "");
+    let scope = coreActivationScopeCache.get(key);
+    if (scope === undefined) {
+        scope = parseCorePatternActivationScope(key);
+        if (!scope || !scope.pattern) scope = null;
+        if (coreActivationScopeCache.size >= 20000) coreActivationScopeCache.clear();
+        coreActivationScopeCache.set(key, scope);
+    }
+    return scope;
+}
+
+function getCoreActivationUrlRegex(pattern) {
+    let re = coreActivationUrlRegexCache.get(pattern);
+    if (re === undefined) {
+        try { re = new RegExp(pattern, "i"); } catch (_) { re = null; }
+        if (coreActivationUrlRegexCache.size >= 5000) coreActivationUrlRegexCache.clear();
+        coreActivationUrlRegexCache.set(pattern, re);
+    }
+    return re;
+}
+
 function coreRuleHasActivePatternForUrl(compiledRule, url) {
     const activationIds = Array.isArray(compiledRule?.activationIds) ? compiledRule.activationIds : [];
-    const patternScopes = activationIds.map(parseCorePatternActivationScope).filter(s => s && s.pattern);
-    if (patternScopes.length === 0) return true;
-    return patternScopes.some(scope => {
-        if (scope.type === "domain") return matchDomainPattern(url, [scope.pattern]);
-        if (scope.type === "url") {
-            try { return new RegExp(scope.pattern, "i").test(url); } catch (_) { return false; }
+    let sawScope = false;
+    for (const activationId of activationIds) {
+        const scope = getCachedCorePatternActivationScope(activationId);
+        if (!scope) continue;
+        sawScope = true;
+        if (scope.type === "domain") {
+            if (matchDomainPattern(url, [scope.pattern])) return true;
+        } else if (scope.type === "url") {
+            const re = getCoreActivationUrlRegex(scope.pattern);
+            if (re && re.test(url)) return true;
         }
-        return false;
-    });
+    }
+    return !sawScope;
 }
 
 // Moves disabled ids saved under a rule's previous id to its current id, so
@@ -528,8 +559,35 @@ var requestContextManager = {
         return t;
     },
 
+    // PERF: page URLs of a request, kept until the current synchronous run
+    // ends or the tab/frame records change, whichever comes first.
+    contextCache: new WeakMap(),
+    contextCacheClearQueued: false,
+
+    invalidateContextCache() {
+        this.contextCache = new WeakMap();
+    },
+
+    // collectContextURLs() for callers that only read the list (it is frozen).
+    getContextURLs(requestDetails) {
+        if (!requestDetails || typeof requestDetails !== 'object') return this.collectContextURLs(requestDetails);
+        let urls = this.contextCache.get(requestDetails);
+        if (urls === undefined) {
+            urls = Object.freeze(this.collectContextURLs(requestDetails));
+            this.contextCache.set(requestDetails, urls);
+            if (!this.contextCacheClearQueued) {
+                this.contextCacheClearQueued = true;
+                const clear = () => { this.contextCacheClearQueued = false; this.invalidateContextCache(); };
+                if (typeof queueMicrotask === 'function') queueMicrotask(clear);
+                else Promise.resolve().then(clear);
+            }
+        }
+        return urls;
+    },
+
     setTabURL(tabId, url) {
         if (typeof tabId !== 'number' || tabId < 0 || typeof url !== 'string' || !url) return;
+        this.invalidateContextCache();
         const t = this.ensureTab(tabId);
         t.url = url;
         t.frames.set(0, { url, parentFrameId: -1 });
@@ -539,6 +597,7 @@ var requestContextManager = {
         if (typeof tabId !== 'number' || tabId < 0) return;
         if (typeof frameId !== 'number' || frameId < 0) return;
         if (typeof url !== 'string' || !url) return;
+        this.invalidateContextCache();
         const t = this.ensureTab(tabId);
         t.frames.set(frameId, { url, parentFrameId });
         if (frameId === 0) t.url = url;
@@ -592,12 +651,13 @@ var requestContextManager = {
                 ? changeInfo.url : (tab && typeof tab.url === 'string' ? tab.url : null);
             if (u) this.setTabURL(tabId, u);
         });
-        browser.tabs.onRemoved.addListener(tabId => { this.tabs.delete(tabId); });
+        browser.tabs.onRemoved.addListener(tabId => { this.invalidateContextCache(); this.tabs.delete(tabId); });
         if (browser.webNavigation && browser.webNavigation.onCommitted) {
             browser.webNavigation.onCommitted.addListener(details => {
                 // A top-level navigation starts the tab over.
                 if (details.frameId === 0) {
                     const t = this.tabs.get(details.tabId);
+                    this.invalidateContextCache();
                     if (t) t.frames.clear();
                 }
                 this.setFrameURL(details.tabId, details.frameId, details.url, details.parentFrameId);
@@ -1060,7 +1120,7 @@ function linkumoriHostnameMatchesRegexes(hostname, regexes) {
 
 function getLinkumoriRequestContextHosts(request, fallbackHost = '') {
     const contextHosts = request
-        ? requestContextManager.collectContextURLs(request).map(getLinkumoriURLHostname).filter(Boolean)
+        ? requestContextManager.getContextURLs(request).map(getLinkumoriURLHostname).filter(Boolean)
         : [];
     return contextHosts.length > 0 ? contextHosts : (fallbackHost ? [fallbackHost] : []);
 }
@@ -1145,7 +1205,7 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
             if (linkumoriRule.isException && request) {
-                const contextUrls = requestContextManager.collectContextURLs(request);
+                const contextUrls = requestContextManager.getContextURLs(request);
                 if (!contextUrls.some(u => u && matchDomainPattern(u, [linkumoriRule.urlPattern]))) return false;
             } else return false;
         }
@@ -1182,32 +1242,186 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     return true;
 }
 
-function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) {
+// The "name=value" strings a regex filter is also tested against, one per
+// value (or "name=" when there is none), with values decoded once.
+function getLinkumoriParamPairs(fieldName, values = []) {
+    const rawParamName = String(fieldName);
+    const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
+    return paramValues.map(value => rawParamName + '=' + safeDecodeLinkumoriParam(value));
+}
+
+// PERF: the literal text a name regex must start with, when that can be
+// read off safely: the source starts with "^" followed by plain characters,
+// has no "|" anywhere and no "m" flag (so "^" is the start of the string),
+// and is not case-insensitive in "u"/"v" mode (where some non-ASCII letters
+// match ASCII ones). A literal followed by a quantifier is left out. Null
+// otherwise. The name and every "name=value" pair start with the name, so
+// when neither the name starts with the prefix nor the prefix with the
+// name, the regex cannot match any of them.
+var linkumoriRegexPrefixCache = new WeakMap();
+
+function getLinkumoriRegexLiteralPrefix(regex) {
+    let info = linkumoriRegexPrefixCache.get(regex);
+    if (info !== undefined) return info;
+    info = null;
+    const src = regex.source, flags = regex.flags;
+    const ci = flags.includes('i');
+    if (src.charAt(0) === '^' && !src.includes('|') && !flags.includes('m') &&
+        !(ci && (flags.includes('u') || flags.includes('v')))) {
+        let i = 1;
+        while (i < src.length && /[A-Za-z0-9_=-]/.test(src.charAt(i))) i++;
+        let prefix = src.slice(1, i);
+        if (/^[*+?{]/.test(src.charAt(i))) prefix = prefix.slice(0, -1);
+        if (prefix) info = { prefix: ci ? prefix.toLowerCase() : prefix, ci };
+    }
+    linkumoriRegexPrefixCache.set(regex, info);
+    return info;
+}
+
+function linkumoriRegexMayMatchName(regex, name, info = getLinkumoriRegexLiteralPrefix(regex)) {
+    if (!info) return true;
+    const n = info.ci ? name.toLowerCase() : name;
+    return n.length >= info.prefix.length ? n.startsWith(info.prefix) : info.prefix.startsWith(n);
+}
+
+// `pairs` is optional: getLinkumoriParamPairs(fieldName, values), passed in
+// by callers that test one parameter against many filters (PERF).
+function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], pairs = null) {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
     const rawParamName = String(fieldName);
-    const paramName = linkumoriRule.matchCase ? rawParamName : rawParamName.toLowerCase();
     let matched = false;
-    if (linkumoriRule.regexParam) {
-        const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
-        linkumoriRule.regexParam.lastIndex = 0;
-        matched = linkumoriRule.regexParam.test(rawParamName) || paramValues.some(value => {
-            const pair = rawParamName + '=' + safeDecodeLinkumoriParam(value);
-            linkumoriRule.regexParam.lastIndex = 0;
-            return linkumoriRule.regexParam.test(pair);
-        });
+    // The prefix is kept on the rule (not enumerable) for its current regex.
+    if (linkumoriRule.regexParam && linkumoriRule.__linkumoriPrefixFor !== linkumoriRule.regexParam) {
+        try {
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefix', { value: getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam), writable: true, configurable: true, enumerable: false });
+            Object.defineProperty(linkumoriRule, '__linkumoriPrefixFor', { value: linkumoriRule.regexParam, writable: true, configurable: true, enumerable: false });
+        } catch (_) { /* a frozen rule is just not cached */ }
+    }
+    const prefixInfo = linkumoriRule.__linkumoriPrefixFor === linkumoriRule.regexParam
+        ? linkumoriRule.__linkumoriPrefix : (linkumoriRule.regexParam ? getLinkumoriRegexLiteralPrefix(linkumoriRule.regexParam) : null);
+    if (prefixInfo && !linkumoriRegexMayMatchName(linkumoriRule.regexParam, rawParamName, prefixInfo)) {
+        matched = false;
+    } else if (linkumoriRule.regexParam) {
+        const regex = linkumoriRule.regexParam;
+        regex.lastIndex = 0;
+        matched = regex.test(rawParamName);
+        if (!matched) {
+            const pairList = pairs || getLinkumoriParamPairs(rawParamName, values);
+            for (const pair of pairList) {
+                regex.lastIndex = 0;
+                if (regex.test(pair)) { matched = true; break; }
+            }
+        }
     } else if (linkumoriRule.literalParam !== null) {
+        const paramName = linkumoriRule.matchCase ? rawParamName : rawParamName.toLowerCase();
         matched = paramName === linkumoriRule.literalParam;
     }
     return linkumoriRule.negate ? !matched : matched;
 }
 
+// PERF: a parameter name can only match a plain-name filter whose name equals
+// it, so those filters are looked up by name instead of scanned. Filters that
+// can match any name (regex, removeAll, ~negated) stay in `always`. Each
+// bucket keeps list order, so the first match is the same rule as a full scan.
+var linkumoriParamIndexCache = new WeakMap();
+
+function getLinkumoriParamIndex(rules) {
+    let index = linkumoriParamIndexCache.get(rules);
+    if (index && index.length === rules.length) return index;
+    const caseInsensitive = new Map(), caseSensitive = new Map(), always = [];
+    for (let i = 0; i < rules.length; i++) {
+        const r = rules[i];
+        if (!r || r.removeAll || r.negate || r.regexParam || typeof r.literalParam !== 'string') {
+            always.push(i);
+            continue;
+        }
+        const bucketMap = r.matchCase ? caseSensitive : caseInsensitive;
+        let bucket = bucketMap.get(r.literalParam);
+        if (!bucket) bucketMap.set(r.literalParam, bucket = []);
+        bucket.push(i);
+    }
+    const { regexGroupOf, regexGroups } = buildLinkumoriRegexGroups(rules);
+    index = { length: rules.length, caseInsensitive, caseSensitive, always, regexGroupOf, regexGroups };
+    linkumoriParamIndexCache.set(rules, index);
+    return index;
+}
+
+// PERF: the regex name filters of a list, joined into one regex per set of
+// flags ("(?:a)|(?:b)|..."), the way ad blockers test many patterns at once.
+// The joined regex matches a string exactly when one of its parts does, so
+// when it matches neither the parameter name nor any "name=value" pair, no
+// filter of the group can match and all of them are skipped. Otherwise each
+// filter is still tested on its own, in list order. Left out of groups:
+// negated filters, removeAll, sources with backreferences or named groups
+// (joining would renumber or repeat them), and groups whose joined regex
+// does not compile. The "g" and "y" flags only move lastIndex, which every
+// test resets, so they are not part of the group key.
+function buildLinkumoriRegexGroups(rules) {
+    const regexGroupOf = new Array(rules.length).fill(-1);
+    const byFlags = new Map();
+    for (let i = 0; i < rules.length; i++) {
+        const r = rules[i];
+        const re = r && r.regexParam;
+        if (!re || r.removeAll || r.negate) continue;
+        const src = re.source;
+        if (/\\[1-9]|\\k<|\(\?<(?![=!])/.test(src)) continue;
+        const flags = re.flags.replace(/[gy]/g, '');
+        if (!byFlags.has(flags)) byFlags.set(flags, []);
+        byFlags.get(flags).push(i);
+    }
+    const regexGroups = [];
+    for (const [flags, members] of byFlags) {
+        if (members.length < 2) continue;
+        let joined;
+        try { joined = new RegExp(members.map(i => '(?:' + rules[i].regexParam.source + ')').join('|'), flags); }
+        catch (_) { continue; }
+        const id = regexGroups.length;
+        regexGroups.push(joined);
+        for (const i of members) regexGroupOf[i] = id;
+    }
+    return { regexGroupOf, regexGroups };
+}
+
+// True when the joined regex matches the name or one of its pairs.
+function linkumoriRegexGroupMayMatch(joined, fieldName, getPairs) {
+    joined.lastIndex = 0;
+    if (joined.test(fieldName)) return true;
+    for (const pair of getPairs()) {
+        joined.lastIndex = 0;
+        if (joined.test(pair)) return true;
+    }
+    return false;
+}
+
+// Indexes of `rules` that could match `fieldName`, in list order.
+function getLinkumoriParamCandidates(rules, fieldName) {
+    const index = getLinkumoriParamIndex(rules);
+    const a = index.caseInsensitive.get(fieldName.toLowerCase());
+    const b = index.caseSensitive.get(fieldName);
+    if (!a && !b) return index.always;
+    const merged = [];
+    for (const list of [a, b, index.always]) if (list) for (const i of list) merged.push(i);
+    return merged.sort((x, y) => x - y);
+}
+
+function findLinkumoriParamRule(list, fieldName, nameMatches, getPairs) {
+    if (list && typeof list.findFor === 'function') return list.findFor(fieldName, nameMatches, getPairs);
+    return (list || []).find(nameMatches);
+}
+
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
     const rawFieldName = String(fieldName || '');
     if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };
-    const matchedException = (activeExceptions || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    let pairs = null;
+    const getPairs = () => (pairs === null ? (pairs = getLinkumoriParamPairs(rawFieldName, values)) : pairs);
+    const nameMatches = r => {
+        if (r && r.regexParam && !r.removeAll && pairs === null) pairs = getLinkumoriParamPairs(rawFieldName, values);
+        return linkumoriRemoveParamMatchesName(r, rawFieldName, values, pairs);
+    };
+    const matchedException = findLinkumoriParamRule(activeExceptions, rawFieldName, nameMatches, getPairs);
     if (matchedException) return { handled: true, remove: false, matchedRule: getLinkumoriRemoveParamTraceName(matchedException), rule: matchedException };
-    const matchedRule = (activeRules || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    const matchedRule = findLinkumoriParamRule(activeRules, rawFieldName, nameMatches, getPairs);
     if (matchedRule) return {
         handled: true,
         remove: matchedRule.replacePattern === null,
@@ -1623,9 +1837,27 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     let changes = false, actionType = null, matchedRuleForTrace = null, matchedRuleSectionForTrace = null;
     let matchedRuleIdForTrace = null, matchedRuleDisableIdForTrace = null;
     let urlObject = new URL(url);
+    // PERF: the first parseURL() reuses this object when the URL is still
+    // pureUrl, instead of parsing it again.
+    let unusedInitialUrlObject = urlObject;
     const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
-    const providerMatch = {
-        ...provider.getAppliedPatternForUrl(pureUrl),
+    // PERF: which pattern matched is only read when something is logged or
+    // returned to a trace, so it is worked out on first read. The
+    // properties keep their place and stay enumerable (logs copy them), and
+    // can still be assigned.
+    let appliedPattern = null;
+    const providerMatch = { providerName: provider.getName() };
+    for (const key of ['patternType', 'patternValue']) {
+        Object.defineProperty(providerMatch, key, {
+            enumerable: true, configurable: true,
+            get() {
+                if (appliedPattern === null) appliedPattern = provider.getAppliedPatternForUrl(pureUrl);
+                return appliedPattern[key];
+            },
+            set(value) { Object.defineProperty(this, key, { value, writable: true, enumerable: true, configurable: true }); }
+        });
+    }
+    Object.assign(providerMatch, {
         logCategory: 'provider',
         providerMethods: provider.getMethods(),
         providerResourceTypes: provider.getResourceTypes(),
@@ -1638,7 +1870,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             : (request && typeof request.url === 'string' ? request.url : pureUrl),
         aliasURL: request && typeof request.linkumoriAliasURL === 'string' ? request.linkumoriAliasURL : null,
         cname: request && typeof request.linkumoriCNAME === 'string' ? request.linkumoriCNAME : null
-    };
+    });
 
     if (storage.localHostsSkipping && checkLocalURL(urlObject)) {
         return { changes: false, url, cancel: false, providerMatch, matchedRule: null, action: null };
@@ -1714,12 +1946,13 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     const parseURL = () => {
         if (parsed) return;
-        urlObject = new URL(url);
+        urlObject = (unusedInitialUrlObject && url === pureUrl) ? unusedInitialUrlObject : new URL(url);
+        unusedInitialUrlObject = null;
         fields = urlObject.searchParams;
         rawFieldsQuery = urlObject.search.startsWith('?') ? urlObject.search.slice(1) : urlObject.search;
         fragments = extractFragments(urlObject);
         domain = urlWithoutParamsAndHash(urlObject).toString();
-        hadParams = fields.toString() !== "" || fragments.toString() !== "";
+        hadParams = hasParams();
         fieldsDirty = false;
         linkumoriState = null;
         parsed = true;
@@ -1731,7 +1964,33 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         parsed = false;
     };
 
-    const hasParams = () => fields.toString() !== "" || fragments.toString() !== "";
+    // PERF: "any parameter left?" without rebuilding the query string. Same
+    // answer as comparing toString() with "": URLHashParams never keeps an
+    // empty name, and a URLSearchParams entry always prints something.
+    const storeHasEntries = store => {
+        if (!store || typeof store.keys !== 'function') return false;
+        for (const _ of store.keys()) return true;
+        return false;
+    };
+    const hasParams = () => storeHasEntries(fields) || storeHasEntries(fragments);
+
+    // PERF: a field step only acts on a parameter whose name (or decoded
+    // fragment name, which decide() also tries) its regex matches. When no
+    // name matches, the step can change nothing, so the per-step bookkeeping
+    // (snapshots, rebuilt strings, request checks) is skipped.
+    const fieldStepCanMatch = regex => {
+        if (!regex || typeof regex.test !== 'function') return true;
+        const test = name => { regex.lastIndex = 0; return regex.test(name); };
+        for (const key of fields.keys()) if (test(key)) return true;
+        for (const key of fragments.keys()) {
+            if (test(key)) return true;
+            if (key.includes('%')) {
+                const decoded = getDecodedFragmentNameForMatching(key, fragments.getAll(key));
+                if (decoded !== null && test(decoded)) return true;
+            }
+        }
+        return false;
+    };
 
     const getLinkumoriState = () => {
         if (linkumoriState) return linkumoriState;
@@ -1755,6 +2014,26 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 get length() { return rules.length + extra.length; },
                 find(nameMatches) {
                     for (const r of rules) if (nameMatches(r) && isEligible(r)) return r;
+                    for (const r of extra) if (nameMatches(r)) return r;
+                    return undefined;
+                },
+                // Same result as find(), but only visits rules whose name
+                // could match (see getLinkumoriParamIndex).
+                findFor(fieldName, nameMatches, getPairs) {
+                    const index = getLinkumoriParamIndex(rules);
+                    const groupOf = index.regexGroupOf;
+                    let groupState = null; // per group: undefined (not tested), true or false
+                    for (const i of getLinkumoriParamCandidates(rules, fieldName)) {
+                        const r = rules[i];
+                        const g = getPairs ? groupOf[i] : -1;
+                        if (g >= 0) {
+                            if (groupState === null) groupState = [];
+                            let may = groupState[g];
+                            if (may === undefined) may = groupState[g] = linkumoriRegexGroupMayMatch(index.regexGroups[g], fieldName, getPairs);
+                            if (!may) continue;
+                        }
+                        if (nameMatches(r) && isEligible(r)) return r;
+                    }
                     for (const r of extra) if (nameMatches(r)) return r;
                     return undefined;
                 }
@@ -1831,6 +2110,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     const runFieldStep = (rule, compiled) => {
         parseURL();
         if (!hasParams()) return;
+        if (!fieldStepCanMatch(compiled && compiled.regex)) return;
         const rewriteKey = compiled && compiled.replacePattern !== null ? rewriteKeyOf(compiled, rule) : null;
         if (rewriteKey && appliedFieldRewrites.has(rewriteKey)) return;
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
@@ -2942,7 +3222,20 @@ function start() {
         this.finalizeRules = function () {
             orderedStepsWithReferral = buildOrderedSteps(true, true);
             orderedStepsWithoutReferral = buildOrderedSteps(false, true);
+            paramsOnly = !canceling && Object.keys(redirectionRuleMap).length === 0 &&
+                domainRedirectionRules.length === 0 && fieldRedirectionRules.length === 0 &&
+                !orderedStepsWithReferral.some(step => step.type !== 'field') &&
+                !orderedStepsWithoutReferral.some(step => step.type !== 'field');
         };
+
+        // PERF (idea from uBlock Origin's urlTokenizer.hasQuery()): true when
+        // everything this provider does works on query or fragment
+        // parameters: no rawRules, redirections, fieldRedirections or
+        // blocking. Such a provider changes nothing in a URL with no "?" and
+        // no "#", so clearUrl() skips it for those URLs. False until
+        // finalizeRules() has run.
+        let paramsOnly = false;
+        this.isParamsOnly = function () { return paramsOnly; };
 
         // rawRules, rules and referralMarketing as one list in the order they
         // run (CLN 1.0 §Processing order). Referral-marketing rules are left
@@ -2952,13 +3245,27 @@ function start() {
         this.getOrderedCleaningSteps = function () {
             return storage.referralMarketing ? orderedStepsWithoutReferral : orderedStepsWithReferral;
         };
+        // PERF: the combined lists are built once per referral setting and
+        // reused (callers only read them), so the per-name index built over
+        // them in getLinkumoriParamIndex survives between requests. A list
+        // that grew since is rebuilt.
+        const removeParamListMemo = new Map();
+        const memoRemoveParamList = (key, base, referral) => {
+            const includeReferral = !storage.referralMarketing;
+            const memoKey = key + (includeReferral ? ':withReferralRules' : ':base');
+            const size = base.length + (includeReferral ? referral.length : 0);
+            let memo = removeParamListMemo.get(memoKey);
+            if (!memo || memo.size !== size) {
+                memo = { size, list: Object.freeze(includeReferral ? base.concat(referral) : base.slice()) };
+                removeParamListMemo.set(memoKey, memo);
+            }
+            return memo.list;
+        };
         this.getLinkumoriRemoveParamRules = function () {
-            if (!storage.referralMarketing) return linkumoriRemoveParamRules.concat(referralMarketingRemoveParamRules);
-            return linkumoriRemoveParamRules.slice();
+            return memoRemoveParamList('rules', linkumoriRemoveParamRules, referralMarketingRemoveParamRules);
         };
         this.getLinkumoriRemoveParamExceptions = function () {
-            if (!storage.referralMarketing) return linkumoriRemoveParamExceptions.concat(referralMarketingRemoveParamExceptions);
-            return linkumoriRemoveParamExceptions.slice();
+            return memoRemoveParamList('exceptions', linkumoriRemoveParamExceptions, referralMarketingRemoveParamExceptions);
         };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null, arrayIndex = 0) {
@@ -3087,9 +3394,20 @@ function start() {
                 if (result) break;
                 const exceptionRule = exceptionRuleMap[exception];
                 const exceptionRegex = exceptionRule.regex;
-                if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
-                    exceptionRegex.lastIndex = 0;
-                    result = exceptionRegex.test(url);
+                // PERF: the cheap regex test first; the rule's own checks
+                // (scopes, request type, exceptions) only when it matches.
+                // Both have no side effects, so the answer is the same.
+                if (!exceptionRegex) {
+                    // Unchanged order for a rule without a regex.
+                    if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
+                        exceptionRegex.lastIndex = 0;
+                        result = exceptionRegex.test(url);
+                    }
+                    continue;
+                }
+                exceptionRegex.lastIndex = 0;
+                if (exceptionRegex.test(url)) {
+                    result = coreRuleAppliesToRequest(exceptionRule, url, request);
                 }
             }
             if (!result && domainExceptionPatterns.length > 0) result = matchDomainPattern(url, domainExceptionPatterns);
@@ -3205,6 +3523,91 @@ function start() {
         return state;
     }
 
+    // PERF: per-request lookups whose answer depends only on their inputs
+    // and on the loaded providers, kept between requests. A page's
+    // subresources share hosts and page context, so most requests hit.
+    // Both caches are dropped when the providers are rebuilt (the index
+    // object changes) or the Public Suffix List finishes loading.
+    const LOOKUP_CACHE_MAX = 512;
+    const candidateProvidersByHost = new Map();
+    const contextExceptionsByKey = new Map();
+    let lookupCacheOwner = null, lookupCachePslStatus = null;
+    const EMPTY_EXCEPTIONS = Object.freeze([]);
+
+    function validateLookupCaches() {
+        if (lookupCacheOwner === providersByToken && lookupCachePslStatus === pslSupport.status) return;
+        candidateProvidersByHost.clear();
+        contextExceptionsByKey.clear();
+        lookupCacheOwner = providersByToken;
+        lookupCachePslStatus = pslSupport.status;
+    }
+
+    function setBoundedCacheEntry(cache, key, value) {
+        if (cache.size >= LOOKUP_CACHE_MAX) cache.delete(cache.keys().next().value);
+        cache.set(key, value);
+    }
+
+    // The providers that may apply to a host: the global ones first, then
+    // those indexed under the host's lookup tokens, in token order.
+    function getCandidateProvidersForHost(hostname) {
+        validateLookupCaches();
+        const host = String(hostname || '');
+        let candidates = candidateProvidersByHost.get(host);
+        if (candidates === undefined) {
+            const set = new Set(globalProviders);
+            for (const token of getHostnameLookupTokens(host)) {
+                const tokenProviders = providersByToken[token];
+                if (tokenProviders) for (const p of tokenProviders) set.add(p);
+            }
+            candidates = Object.freeze(Array.from(set));
+            setBoundedCacheEntry(candidateProvidersByHost, host, candidates);
+        }
+        return candidates;
+    }
+
+    // The @@removeparam exceptions of every provider whose URL pattern
+    // matches one of the request's page URLs (ideas from uBlock Origin's
+    // per-page store and AdGuard's per-frame rule cache). The answer
+    // depends on the page URLs, the request type and method, the referral
+    // marketing setting (which adds or removes exceptions) and the loaded
+    // providers, so those make up the cache key.
+    function getContextRemoveParamExceptions(contextUrls, request) {
+        if (!contextUrls || contextUrls.length === 0) return EMPTY_EXCEPTIONS;
+        validateLookupCaches();
+        const method = request && typeof request.method === 'string' ? request.method.toUpperCase() : '';
+        const key = getLinkumoriRequestType(request) + '\u0000' + method + '\u0000' +
+            (storage.referralMarketing ? '1' : '0') + '\u0000' + contextUrls.join('\u0001');
+        let exceptions = contextExceptionsByKey.get(key);
+        if (exceptions !== undefined) return exceptions;
+
+        const contextCandidateProviders = new Set(globalProviders);
+        for (const ctxUrl of contextUrls) {
+            let ctxHost;
+            try { ctxHost = new URL(ctxUrl).hostname; } catch (e) {
+                // A malformed context URL adds no lookup tokens.
+                console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
+                continue;
+            }
+            for (const p of getCandidateProvidersForHost(ctxHost)) contextCandidateProviders.add(p);
+        }
+
+        const collected = [];
+        for (const provider of contextCandidateProviders) {
+            // A provider without @@removeparam entries adds nothing, so its
+            // URL pattern is not checked.
+            const providerExceptions = provider.getLinkumoriRemoveParamExceptions();
+            if (providerExceptions.length === 0) continue;
+            const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
+            if (!matchesContext) continue;
+            for (const er of providerExceptions) {
+                if (linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request)) collected.push(er);
+            }
+        }
+        exceptions = collected.length > 0 ? Object.freeze(collected) : EMPTY_EXCEPTIONS;
+        setBoundedCacheEntry(contextExceptionsByKey, key, exceptions);
+        return exceptions;
+    }
+
     function forgetRequestCycleState(details) {
         if (details && details.requestId !== undefined) requestCycleStates.delete(details.requestId);
     }
@@ -3228,7 +3631,11 @@ function start() {
             return {};
         }
 
-        const URLbeforeReplaceCount = countFields(request.url);
+        // PERF: parsed once here and reused for the counter and the host.
+        // Throws for an invalid URL, as countFields() did.
+        const requestURLObject = new URL(request.url);
+        let URLbeforeReplaceCount = 0;
+        for (const _ of requestURLObject.searchParams) URLbeforeReplaceCount++;
         increaseTotalCounter(URLbeforeReplaceCount);
 
         if (storage.globalStatus) {
@@ -3250,60 +3657,31 @@ function start() {
                 return { cancel: true };
             }
 
-            // Collect cross-provider @@removeparam exceptions from every provider
-            // whose URL pattern matches the current page context.
-            const contextUrls = (request.type !== 'main_frame')
-                ? requestContextManager.collectContextURLs(request) : [];
-            const globalLinkumoriExceptions = [];
-
-            let contextCandidateProviders = new Set(globalProviders);
-            for (const ctxUrl of contextUrls) {
-                try {
-                    const ctxHost = new URL(ctxUrl).hostname;
-                    const ctxTokens = getHostnameLookupTokens(ctxHost);
-                    const seenCtxTokens = new Set();
-                    for (const token of ctxTokens) {
-                        if (seenCtxTokens.has(token)) continue;
-                        seenCtxTokens.add(token);
-                        const tokenProviders = providersByToken[token];
-                        if (tokenProviders) for (const p of tokenProviders) contextCandidateProviders.add(p);
-                    }
-                } catch (e) {
-                    // A malformed context URL adds no lookup tokens.
-                    console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
+            // Cross-provider @@removeparam exceptions from every provider whose
+            // URL pattern matches the current page context. Only needed once a
+            // provider cleans this request, so worked out on first use.
+            let globalLinkumoriExceptions = null;
+            const getGlobalLinkumoriExceptions = () => {
+                if (globalLinkumoriExceptions === null) {
+                    const contextUrls = (request.type !== 'main_frame')
+                        ? requestContextManager.getContextURLs(request) : [];
+                    globalLinkumoriExceptions = getContextRemoveParamExceptions(contextUrls, request);
                 }
-            }
+                return globalLinkumoriExceptions;
+            };
 
-            for (const provider of contextCandidateProviders) {
-                const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
-                if (matchesContext) {
-                    const matchedExceptions = provider.getLinkumoriRemoveParamExceptions().filter(er =>
-                        linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request));
-                    globalLinkumoriExceptions.push(...matchedExceptions);
-                }
-            }
+            // PERF: a URL with no "?" and no "#" has no parameters, so
+            // providers that only act on parameters are skipped for it.
+            const urlHasParamParts = request.url.indexOf('?') !== -1 || request.url.indexOf('#') !== -1;
 
-            let requestHost = "";
-            try { requestHost = new URL(request.url).hostname; } catch (e) {
-                console.warn('[linkumori] failed to parse request URL', { url: request && request.url, error: String(e && e.message || e) });
-            }
-            const requestHostTokens = getHostnameLookupTokens(requestHost);
-            let requestCandidateProviders = new Set(globalProviders);
-            const seenRequestTokens = new Set();
-            for (const token of requestHostTokens) {
-                if (seenRequestTokens.has(token)) continue;
-                seenRequestTokens.add(token);
-                const tokenProviders = providersByToken[token];
-                if (tokenProviders) for (const p of tokenProviders) requestCandidateProviders.add(p);
-            }
-
-            const candidates = Array.from(requestCandidateProviders);
+            const candidates = getCandidateProvidersForHost(requestURLObject.hostname);
             for (let i = 0; i < candidates.length; i++) {
                 const provider = candidates[i];
+                if (!urlHasParamParts && provider.isParamsOnly()) continue;
                 if (!provider.matchMethod(request)) continue;
                 if (!provider.matchResourceType(request)) continue;
                 if (provider.matchRequestURL(request.url, request)) {
-                    result = removeFieldsFormURL(provider, request.url, false, request, null, globalLinkumoriExceptions, cycleState.rewrites);
+                    result = removeFieldsFormURL(provider, request.url, false, request, null, getGlobalLinkumoriExceptions(), cycleState.rewrites);
                 }
 
                 if (result.redirect) {

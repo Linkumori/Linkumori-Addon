@@ -446,6 +446,14 @@ indexes providers by hostname token:
   - a `urlPattern` provider without `indexPattern` (which is why
     `lint-rules` warns about it);
   - a provider with a `/regex/` domain pattern.
+- **Cache.** `getCandidateProvidersForHost(host)` keeps each host's
+  candidate list (up to 512 hosts). It is dropped when the providers are
+  rebuilt or the Public Suffix List finishes loading.
+- **URLs without parameters.** A provider whose only actions work on query
+  or fragment parameters (no `rawRules`, redirections, `fieldRedirections`
+  or blocking; `isParamsOnly()`) can't change a URL with no `?` and no `#`,
+  so `clearUrl()` skips it for such URLs. Most subresources (scripts,
+  styles, images) have no query, so they skip almost every provider.
 
 ### 6.4 Cleaning a request
 
@@ -464,11 +472,11 @@ flowchart TD
     D -- no --> Z
     D -- yes --> E{ping or beacon,<br/>ping blocking on?}
     E -- yes --> X[cancel]
-    E -- no --> F[collect @@ $removeparam exceptions<br/>from providers matching the page]
-    F --> G[candidates: providers indexed under<br/>the request host + global providers]
+    E -- no --> G[candidates: providers indexed under<br/>the request host + global providers]
     G --> H{next candidate matches<br/>method, type, URL?}
     H -- no more --> Y{CNAME uncloaking?}
-    H -- yes --> I[removeFieldsFormURL]
+    H -- yes --> F[on first use: collect @@ $removeparam<br/>exceptions from providers matching the page]
+    F --> I[removeFieldsFormURL]
     I -- redirect --> R[redirect, or navigate the tab<br/>if forceRedirection]
     I -- block --> K[main frame: siteBlockedAlert page<br/>other: redirect to javascript:void 0]
     I -- changed --> M[redirect to the cleaned URL]
@@ -553,6 +561,17 @@ can stand for that page:
 - the tab's URL, kept up to date from `tabs.onUpdated` and
   `webNavigation.onCommitted`;
 - the URLs of the frame's ancestor frames.
+
+`getContextURLs(request)` is the cached form (one list per request, kept
+until the current synchronous run ends or a tab or frame URL changes); the
+whitelist check and `clearUrl()` share it.
+
+The `@@` exceptions that come from the page (`getContextRemoveParamExceptions`)
+are collected only when a provider is about to clean the request, and are
+cached (up to 512 entries) by page URLs, request type, method and the
+referral marketing setting, since nothing else changes the answer. The cache
+is dropped when the providers are rebuilt or the Public Suffix List finishes
+loading. Providers with no `@@` entries are not checked against the page.
 
 ### 6.7 Public Suffix List
 
