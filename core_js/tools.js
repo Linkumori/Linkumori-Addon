@@ -261,13 +261,6 @@ function checkLocalURL(url) {
         return true;
     }
 
-    // PERF: URL.hostname is already normalised, so an IPv4 address is only
-    // digits and dots and an IPv6 address contains ":". Any other hostname
-    // can't be an IP, so skip IP-Ranger's parse (which throws internally).
-    if (typeof host === 'string' && !/^[0-9.]+$/.test(host) && !host.includes(':')) {
-        return false;
-    }
-
     // Ask IP-Ranger whether the host is a valid IP address before trying to
     // parse it. Hostnames that start with a digit (e.g. "2.rome.api.flipkart.com")
     // are not IP addresses; IP.isValid() catches that internally and returns false,

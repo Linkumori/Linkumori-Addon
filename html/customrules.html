@@ -1478,13 +1478,6 @@
             box-shadow: 0 0 0 2px var(--button-primary);
         }
 
-        .rule-sets-json {
-            width: 100%;
-            font-family: monospace;
-            font-size: 12px;
-            margin: 8px 0;
-        }
-
         .json-lint-list[hidden] {
             display: none;
         }
@@ -4290,10 +4283,6 @@ subdomain.example.com
                         <div id="rule-defaults-status" role="status" aria-live="polite"></div>
                         <button type="button" class="btn btn-secondary btn-sm rule-defaults-open-btn" id="open-rule-defaults-btn" data-i18n="customRulesEditor_defaultsManage"></button>
 
-                        <div class="rules-status-group-title" data-i18n="customRulesEditor_ruleSetsTitle"></div>
-                        <div id="rule-sets-status" role="status" aria-live="polite"></div>
-                        <button type="button" class="btn btn-secondary btn-sm rule-defaults-open-btn" id="open-rule-sets-btn" data-i18n="customRulesEditor_ruleSetsManage"></button>
-
                     </div>
                 </div>
                 
@@ -4490,23 +4479,6 @@ subdomain.example.com
     </div>
 
     <!-- Rule Defaults Modal -->
-    <div class="modal" id="rule-sets-modal" role="dialog" aria-modal="true" aria-labelledby="rule-sets-modal-title">
-        <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3 class="modal-title" id="rule-sets-modal-title" data-i18n="customRulesEditor_ruleSetsTitle"></h3>
-                <button type="button" class="modal-close" id="rule-sets-modal-close" data-i18n-aria="button_close" aria-label="">&times;</button>
-            </div>
-            <p class="form-help" data-i18n-html="customRulesEditor_ruleSetsIntro"></p>
-            <label class="form-label" for="rule-sets-json" data-i18n="customRulesEditor_ruleSetsJsonLabel"></label>
-            <textarea id="rule-sets-json" class="form-input rule-sets-json" rows="16" spellcheck="false" autocomplete="off"></textarea>
-            <ul class="json-lint-list" id="rule-sets-problems" hidden></ul>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="rule-sets-cancel" data-i18n="button_cancel"></button>
-                <button type="button" class="btn btn-primary" id="rule-sets-save" data-i18n="customRulesEditor_ruleSetsSave"></button>
-            </div>
-        </div>
-    </div>
-
     <div class="modal" id="rule-defaults-modal" role="dialog" aria-modal="true" aria-labelledby="rule-defaults-modal-title">
         <div class="modal-content modal-large">
             <div class="modal-header">
@@ -4693,7 +4665,6 @@ subdomain.example.com
     <script src="../core_js/modal_dialog.js"></script>
     <script src="../core_js/linkumori_rule_ids.js"></script>
     <script src="../core_js/linkumori_rule_defaults.js"></script>
-    <script src="../core_js/linkumori_rule_sets.js"></script>
     <script src="../core_js/linkumori_rule_pins.js"></script>
     <script src="../core_js/custom_rules_editor.js"></script>
     <script src="../core_js/accessibility_tools.js"></script>

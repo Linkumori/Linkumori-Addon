@@ -204,25 +204,6 @@
     // options.getScopeIds(providerName, providerData) → toggle scopes
     // options.attachActivationIds(providerName, providerData) → provider
     //   with its rules' toggle keys attached
-    // A provider's domain patterns (trimmed, without repeats), or null when it
-    // matches by urlPattern or has none.
-    function getDomainPatternList(providerData) {
-        if (typeof providerData.urlPattern === 'string' && providerData.urlPattern.trim()) return null;
-        const raw = Array.isArray(providerData.domainPatterns) ? providerData.domainPatterns
-            : (typeof providerData.domainPatterns === 'string' ? [providerData.domainPatterns] : []);
-        const list = unique(raw.filter(p => typeof p === 'string' && p.trim()).map(p => p.trim()));
-        return list.length > 0 ? list : null;
-    }
-
-    // A name for a provider split off from `baseName` that no provider uses.
-    function uniqueProviderName(baseName, providers, splits) {
-        const taken = name => Object.prototype.hasOwnProperty.call(providers, name) || splits.some(split => split.name === name);
-        let counter = 1;
-        let name = `${baseName}_${counter}`;
-        while (taken(name)) name = `${baseName}_${++counter}`;
-        return name;
-    }
-
     function applyRulePatches(rulesData, patchSets, options) {
         const results = [];
         if (!isPlainObject(rulesData) || !isPlainObject(rulesData.providers) || !Array.isArray(patchSets)) {
@@ -244,44 +225,15 @@
                     results.push({ ...base, status: 'skipped', message: 'needs the "redirect" capability, which this file has not been given' });
                     return;
                 }
-                // Providers split off for this patch, inserted after the provider
-                // they came from: { after, name, data }.
-                const splits = [];
                 Object.keys(providers).forEach(providerName => {
                     const providerData = providers[providerName];
                     if (!isPlainObject(providerData)) return;
                     if (providerName !== target.scope && !options.getScopeIds(providerName, providerData).includes(target.scope)) return;
-                    // A "domainPattern:" target names one domain. A provider that
-                    // lists several domains (identical built-in providers are kept
-                    // as one) is split, so the patch changes that domain only, as
-                    // it would if the domain had a provider of its own.
-                    const domainPatterns = getDomainPatternList(providerData);
-                    const pattern = providerName !== target.scope && target.scope.startsWith('domainPattern:')
-                        ? target.scope.slice('domainPattern:'.length) : null;
-                    if (pattern && domainPatterns && domainPatterns.length > 1 && domainPatterns.includes(pattern)) {
-                        const single = { ...providerData, domainPatterns: [pattern] };
-                        const splitName = uniqueProviderName(providerName, providers, splits);
-                        const patched = patchProvider(splitName, single, patch, target, set, options);
-                        if (!patched) return;
-                        providers[providerName] = { ...providerData, domainPatterns: domainPatterns.filter(p => p !== pattern) };
-                        splits.push({ after: providerName, name: splitName, data: patched });
-                        base.providers.push(splitName);
-                        return;
-                    }
                     const patched = patchProvider(providerName, providerData, patch, target, set, options);
                     if (!patched) return;
                     providers[providerName] = patched;
                     base.providers.push(providerName);
                 });
-                if (splits.length > 0) {
-                    const ordered = {};
-                    Object.keys(providers).forEach(name => {
-                        ordered[name] = providers[name];
-                        splits.filter(split => split.after === name).forEach(split => { ordered[split.name] = split.data; });
-                    });
-                    Object.keys(providers).forEach(name => delete providers[name]);
-                    Object.assign(providers, ordered);
-                }
                 results.push(base.providers.length > 0
                     ? { ...base, status: 'applied', message: `replaced in ${base.providers.join(', ')}` }
                     : { ...base, status: 'unmatched', message: 'no loaded rule has this provider and id' });

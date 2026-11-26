@@ -31,24 +31,6 @@ Differences from the browser page:
 
 The command exits with 1 when any case fails.
 
-## URL shortcut check
-
-`run-url-shortcut-check.cjs` checks the `$removeparam` URL token shortcut
-against `matchDomainPattern()`, the full check it stands in for. It uses the
-bundled patterns and a few thousand generated ones, with URLs bent to break
-the shortcut (words glued to letters, extra path segments, ports, case,
-user info, percent-encoding), with the Public Suffix List loaded and not
-loaded. It fails on any URL the full check matches but the shortcut would
-skip, and checks that the safety net (`linkumoriUrlShortcut`) turns the
-shortcut off when it is wrong.
-
-```sh
-node tests/run-url-shortcut-check.cjs         # a few seconds
-node tests/run-url-shortcut-check.cjs --big   # 5x the generated patterns
-```
-
-`npm test` runs both scripts.
-
 ## Run in the browser
 
 Open `html/regression.html` from the loaded add-on. It also loads each input

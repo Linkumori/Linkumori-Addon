@@ -16,7 +16,7 @@
   try { BUNDLED = JSON.parse(root.dataset.bundled || '[]'); } catch { /* none */ }
 
   // ---- CLN 1.0 vocabulary (filter-syntax.md) ----
-  const TOP_KEYS = new Set(['cln', 'metadata', 'providers', 'defaults', 'patches', 'ruleSets']);
+  const TOP_KEYS = new Set(['cln', 'metadata', 'providers', 'defaults', 'patches']);
   const LIST_KEYS = ['rules', 'referralMarketing', 'rawRules', 'exceptions', 'redirections', 'fieldRedirections'];
   const BOOL_KEYS = ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'active'];
   const PROVIDER_KEYS = new Set([...LIST_KEYS, ...BOOL_KEYS, 'domainPatterns', 'urlPattern', 'indexPattern', 'methods', 'resourceTypes']);
@@ -26,7 +26,6 @@
 
   // ---- state ----
   const state = {
-    ruleSets: {},          // the full document's shared rule sets, for search and the filtered view
     format: 'json',
     view: 'full',          // 'full' | 'filter'
     fullText: '',          // the full document while the filtered view is on screen
@@ -104,7 +103,6 @@
   }
 
   // ---- linting ----
-  const lintState = { ruleSetNames: new Set() };
   const isMap = YAML.isMap, isSeq = YAML.isSeq, isScalar = YAML.isScalar;
   function pairs(node) { return isMap(node) ? node.items : []; }
   function keyOf(pair) { return isScalar(pair.key) ? String(pair.key.value) : String(pair.key); }
@@ -157,35 +155,13 @@
 
     const top = doc.contents;
     if (!isMap(top)) { add(top, 'error', 'A rule file must be one object with a "providers" object.'); return { diagnostics: out, providers: 0 }; }
-    let providersNode = null, ruleSetsNode = null;
+    let providersNode = null;
     for (const p of pairs(top)) {
       const k = keyOf(p);
       if (!TOP_KEYS.has(k)) add(p.key, 'warning', `Unknown top-level key "${k}". Known: ${[...TOP_KEYS].join(', ')}.`);
       if (k === 'cln' && !(isScalar(p.value) && String(p.value.value) === '1.0')) add(p.value, 'error', '"cln" must be the string "1.0".');
       if (k === 'providers') providersNode = p;
-      if (k === 'ruleSets') ruleSetsNode = p;
     }
-    // Shared rule sets (expanded by the CLI, see docs/cln-yaml.md): each set
-    // is a list of ordinary entries; providers use them with { include: name }.
-    const ruleSetNames = new Set();
-    if (ruleSetsNode) {
-      if (!isMap(ruleSetsNode.value)) add(ruleSetsNode.value || ruleSetsNode.key, 'error', '"ruleSets" must be an object of named lists.');
-      for (const set of pairs(ruleSetsNode.value)) {
-        const setName = keyOf(set);
-        if (!/^[a-z0-9][a-z0-9_-]*$/.test(setName)) add(set.key, 'error', `Rule set name "${setName}" must use lowercase letters, digits, - and _.`);
-        if (!isSeq(set.value) || set.value.items.length === 0) { add(set.value || set.key, 'error', `Rule set "${setName}" must be a non-empty list.`); continue; }
-        ruleSetNames.add(setName);
-        const seenInSet = new Map();
-        for (const entry of set.value.items) {
-          if (isMap(entry) && pairs(entry).some(p => keyOf(p) === 'include')) { add(entry, 'error', `Rule set "${setName}" cannot include another set.`); continue; }
-          lintEntry(entry, `ruleSets.${setName}`, 'rules', seenInSet, add);
-        }
-      }
-    }
-    // The filtered view holds only providers: its includes name the full
-    // document's sets.
-    if (!ruleSetsNode && state.view === 'filter') for (const name of Object.keys(state.ruleSets)) ruleSetNames.add(name);
-    lintState.ruleSetNames = ruleSetNames;
     if (!providersNode) { add(top, 'error', 'Missing the "providers" object.'); return { diagnostics: out, providers: 0 }; }
     if (!isMap(providersNode.value)) { add(providersNode.value || providersNode.key, 'error', '"providers" must be an object.'); return { diagnostics: out, providers: 0 }; }
 
@@ -220,16 +196,6 @@
 
   function lintEntry(entry, name, list, seen, add) {
     let pattern = null, patternNode = entry;
-    if (isMap(entry) && pairs(entry).some(p => keyOf(p) === 'include')) {
-      // { include: <set> } stands for a shared rule set's entries.
-      const keys = pairs(entry).map(keyOf);
-      if (keys.length !== 1) add(entry, 'error', `"${name}": an include entry has only the "include" key.`);
-      const includeNode = pairs(entry).find(p => keyOf(p) === 'include').value;
-      const setName = isScalar(includeNode) ? String(includeNode.value ?? '') : '';
-      if (!setName) add(includeNode || entry, 'error', `"${name}": "include" must name a rule set.`);
-      else if (!lintState.ruleSetNames.has(setName)) add(includeNode, 'error', `"${name}": no rule set named "${setName}".`);
-      return;
-    }
     if (isScalar(entry)) {
       if (typeof entry.value !== 'string') { add(entry, 'error', `"${name}": ${list} entries must be strings or rule objects.`); return; }
       pattern = entry.value;
@@ -533,12 +499,6 @@
   function entryMatches(entry, scope, test) {
     if (typeof entry === 'string') return scope !== 'id' && test(entry);
     if (!entry || typeof entry !== 'object') return false;
-    // An { include } entry matches when one of its set's entries does.
-    if (Object.prototype.hasOwnProperty.call(entry, 'include')) {
-      const set = state.ruleSets[entry.include];
-      if (Array.isArray(set) && set.some(e => entryMatches(e, scope, test))) return true;
-      return scope === 'all' && test(JSON.stringify(entry));
-    }
     if (scope === 'id') return test(String(entry.id ?? '')) || asList(entry.aliases).some(a => test(String(a)));
     if (scope === 'match') return test(String(entry.matchPattern ?? ''));
     return test(JSON.stringify(entry));
@@ -570,7 +530,6 @@
     let data;
     try { data = parse(currentFullText(), state.format); } catch { return { test, parseError: true }; }
     const providers = (data && typeof data.providers === 'object' && data.providers) || {};
-    state.ruleSets = (data && data.ruleSets && typeof data.ruleSets === 'object' && !Array.isArray(data.ruleSets)) ? data.ruleSets : {};
     const all = Object.keys(providers);
     const keys = test ? all.filter(k => providerMatches(k, providers[k], scopeEl.value, test)) : all;
     return { test, keys, data, total: all.length };

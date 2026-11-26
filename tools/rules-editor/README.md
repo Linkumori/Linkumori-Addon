@@ -38,9 +38,6 @@ You can also open `tools/rules-editor/index.html` directly as a `file://` page. 
 - **Checks:** syntax errors with line numbers, plus CLN structure: unknown keys, wrong types,
   `domainPatterns` and `urlPattern` together or missing, a missing `matchPattern`, a rule `id` used
   twice in one provider, and regexes that don't compile.
-- **Shared rule sets:** `ruleSets` and `{ include: <name> }` entries (see *Shared rule sets* in
-  [`docs/cln-yaml.md`](../../docs/cln-yaml.md)) are checked, kept as written when you edit or apply,
-  and searched through: a provider that includes a set matches what the set's entries match.
 
 These checks are a quick first pass. Run `lint-rules` from the CLI before committing. Edit the
 YAML source, then rebuild the JSON and LZ4 with the CLI. Don't edit the generated files by hand.

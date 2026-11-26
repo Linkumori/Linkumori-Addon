@@ -63,18 +63,16 @@ script is listed earlier.
 | 12 | `core_js/linkumori_rule_ids.js` | `LinkumoriRuleIds`: generated rule ids, shared with the editor and CLI (§6.2) |
 | 13 | `core_js/linkumori_rule_pins.js` | `LinkumoriRulePins`: ids pinned for switched-off rules, shared with the editor and CLI (§6.2) |
 | 13a | `core_js/linkumori_rule_patches.js` | `LinkumoriRulePatches`: checks and applies remote rule patches, shared with the CLI (§5.3) |
-| 14 | `external_js/linkumori-ghostery-engine.js` | `LinkumoriGhosteryEngine`: Linkumori's minimal port of `NetworkFilter` and `Request` from `@ghostery/adblocker` (MPL-2.0, also distributed under LGPL-3.0-or-later); hostnames and public suffixes come from `linkumoriPsl` (`external_js/publicsuffixlist.js`, loaded earlier), not tldts |
-| 14a | `core_js/linkumori_url_patterns.js` | `LinkumoriUrlPatterns`: compiles each URL pattern once with Ghostery's `NetworkFilter`; gives `matchDomainPattern()` its answers and the `$removeparam` shortcut its tokens |
-| 15 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
-| 16 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
-| 17 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
-| 18 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
-| 19 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
-| 20 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
-| 21 | `core_js/watchdog.js` | self-test every minute (§9) |
-| 22 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
-| 23 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
-| 24 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
+| 14 | `clearurls.js` | the engine: providers, request cleaning, `start()` (§6) |
+| 15 | `core_js/linkumori_dns.js` | `LinkumoriDNS`: CNAME uncloaking (§6.5) |
+| 16 | `core_js/whitelist.js` | whitelists and the temporary tab whitelist (§8) |
+| 17 | `external_js/linkumori_lz4_block.js` | `LinkumoriLZ4`: decompresses the bundled rules |
+| 18 | `core_js/storage.js` | settings, persistence, rule loading; calls `genesis()` last (§3–§5) |
+| 19 | `core_js/content_script_manager.js` | registers the search link fix content scripts (§7.3) |
+| 20 | `core_js/watchdog.js` | self-test every minute (§9) |
+| 21 | `core_js/eTagFilter.js` | ETag header filtering (§7.4) |
+| 22 | `external_js/decode-uri-component.js` | lenient URI decoding for redirect targets |
+| 23 | `core_js/consent_config.js` | current policy and POSAR versions for the consent gate |
 
 `consent_config.js` loads last, but `genesis()` reads its values only after
 an asynchronous storage read, so they are defined by then.
@@ -342,13 +340,6 @@ rules are merged in, it gets a `custom` variant, such as `custom_rules_merged`.
    when the pattern and all four settings match (§5.2). Switching a provider
    off (step 1) uses the pattern-only key too (`isProviderSignatureDisabled`),
    so it removes every provider with that pattern.
-   A base provider that lists several domains (identical built-in providers
-   are kept as one, §6) counts as one provider per domain: a custom provider
-   for exactly one of its domains replaces it for that domain only, and
-   switching one of its domains off removes that domain only
-   (`filterProvidersByDisabledSignatures`). In overload mode a remote provider
-   for one of its domains merges with a copy of it for that domain
-   (`mergeRemoteWithBundledRules`).
 4. Other custom providers are added. A name already in use gets `_1`, `_2`, ….
 5. Every provider goes through `attachProviderActivationIds()`: each rule
    gets its activation ids (`_linkumoriActivationIds`) and, if its id
@@ -446,30 +437,6 @@ indexes providers by hostname token:
   - a `urlPattern` provider without `indexPattern` (which is why
     `lint-rules` warns about it);
   - a provider with a `/regex/` domain pattern.
-- **Cache.** `getCandidateProvidersForHost(host)` keeps each host's
-  candidate list (up to 512 hosts). It is dropped when the providers are
-  rebuilt or the Public Suffix List finishes loading.
-- **URLs without parameters.** A provider whose only actions work on query
-  or fragment parameters (no `rawRules`, redirections, `fieldRedirections`
-  or blocking; `isParamsOnly()`) can't change a URL with no `?` and no `#`,
-  so `clearUrl()` skips it for such URLs. Most subresources (scripts,
-  styles, images) have no query, so they skip almost every provider.
-- **`$removeparam` URL patterns.** `matchLinkumoriRemoveParamTarget()`
-  skips a filter whose URL pattern cannot match the URL (and, for `@@`, its
-  page URLs). The pattern is compiled once by `LinkumoriUrlPatterns`
-  (`core_js/linkumori_url_patterns.js`) with `@ghostery/adblocker`'s
-  `NetworkFilter`, and that one object gives both `matchDomainPattern()`'s
-  answer and the words every matching URL has (`getTokens()`, which Ghostery
-  indexes filters by). A word missing from the URL's words (Ghostery's
-  `Request.getTokens()`) means no match. Linkumori's own pattern rules
-  (`||host` ends at the host, `||host.*` is any public suffix, punycode
-  hosts, `/regex/`) are applied when the pattern is compiled, or as checks
-  that only narrow a match, so the words stay valid.
-  A skip is still checked against `matchDomainPattern()` sometimes: each of
-  the first 256, then one in 256 (`linkumoriUrlShortcut`). If the full check
-  matches, its answer is used, the shortcut is off until the background page
-  restarts, and a warning names the pattern. `tests/run-url-shortcut-check.cjs`
-  compares the two on the bundled patterns and generated ones.
 
 ### 6.4 Cleaning a request
 
@@ -488,11 +455,11 @@ flowchart TD
     D -- no --> Z
     D -- yes --> E{ping or beacon,<br/>ping blocking on?}
     E -- yes --> X[cancel]
-    E -- no --> G[candidates: providers indexed under<br/>the request host + global providers]
+    E -- no --> F[collect @@ $removeparam exceptions<br/>from providers matching the page]
+    F --> G[candidates: providers indexed under<br/>the request host + global providers]
     G --> H{next candidate matches<br/>method, type, URL?}
     H -- no more --> Y{CNAME uncloaking?}
-    H -- yes --> F[on first use: collect @@ $removeparam<br/>exceptions from providers matching the page]
-    F --> I[removeFieldsFormURL]
+    H -- yes --> I[removeFieldsFormURL]
     I -- redirect --> R[redirect, or navigate the tab<br/>if forceRedirection]
     I -- block --> K[main frame: siteBlockedAlert page<br/>other: redirect to javascript:void 0]
     I -- changed --> M[redirect to the cleaned URL]
@@ -577,17 +544,6 @@ can stand for that page:
 - the tab's URL, kept up to date from `tabs.onUpdated` and
   `webNavigation.onCommitted`;
 - the URLs of the frame's ancestor frames.
-
-`getContextURLs(request)` is the cached form (one list per request, kept
-until the current synchronous run ends or a tab or frame URL changes); the
-whitelist check and `clearUrl()` share it.
-
-The `@@` exceptions that come from the page (`getContextRemoveParamExceptions`)
-are collected only when a provider is about to clean the request, and are
-cached (up to 512 entries) by page URLs, request type, method and the
-referral marketing setting, since nothing else changes the answer. The cache
-is dropped when the providers are rebuilt or the Public Suffix List finishes
-loading. Providers with no `@@` entries are not checked against the page.
 
 ### 6.7 Public Suffix List
 

@@ -122,7 +122,6 @@ providers:
 | `defaults` | mapping | Optional defaults applied to rules in this file. |
 | `providers` | mapping of provider name to provider mapping | Required for bundled and ordinary custom rule files. |
 | `patches` | sequence of patch mappings | Optional; remote rule files only. See [Remote patches](#remote-patches). |
-| `ruleSets` | mapping of set name to sequence of entries | Optional; source files built with the CLI only. See [Shared rule sets](#shared-rule-sets). |
 
 Do not use the ClearURLs v2 top-level `version` field for CLN. CLN's version
 marker is `cln: "1.0"`.
@@ -378,53 +377,6 @@ patches:
 valid in that section. `target` identifies a loaded rule by provider and ID,
 or by its `domainPattern:` / `urlPattern:` key and ID. See
 [Rule patches](filter-syntax.md#rule-patches) for matching and runtime behavior.
-
-## Shared rule sets
-
-A list of entries that several providers repeat can be written once under the
-optional top-level `ruleSets` and used with an `include` entry. The CLI expands
-it when it reads the file (`lint-rules`, `yaml-to-json`, `clearurls`), so the
-JSON and LZ4 it writes are plain CLN 1.0 with every entry written out. The
-extension also accepts rule sets in remote and custom rule files and writes
-them out as soon as it reads the file; see [ruleSets](filter-syntax.md#rulesets).
-
-```yaml
-cln: "1.0"
-ruleSets:
-  affiliate-exceptions:
-    - id: field-mailinglist-removeparam-utm-i
-      matchPattern: "@@mailinglist$removeparam=/^utm_.*$/i"
-    - id: field-aff-c-removeparam-aff-id-d-i
-      matchPattern: "@@*/aff_c?$removeparam=/^aff_id\\d?=.*$/i"
-providers:
-  shop:
-    domainPatterns: ["||shop.example^"]
-    rules:
-      - "utm_source"
-      - include: affiliate-exceptions
-      - "fbclid"
-  store:
-    domainPatterns: ["||store.example^"]
-    rules:
-      - include: affiliate-exceptions
-```
-
-builds exactly the same JSON as writing the two entries out in `shop` (between
-`utm_source` and `fbclid`) and in `store`.
-
-- An `include` entry stands for the set's entries in its place and in their
-  order, so run order, ids and toggles are those of the written-out file. It
-  can appear in `rules`, `referralMarketing`, `rawRules`, `exceptions`,
-  `redirections` and `fieldRedirections`.
-- Each provider gets its own copy of the entries. Ids only need to be unique
-  within a provider, so including a set in many providers is fine; a set whose
-  ids clash with a provider's own entries fails `lint-rules` like a repeated
-  id written by hand.
-- A set name uses lowercase letters, digits, `-` and `_`. A set is a non-empty
-  list and cannot include another set. An `include` entry has no other keys.
-- `lint-rules` reports an unknown set name, an `include` without `ruleSets`
-  and these shape errors, and warns about a set no provider includes.
-  `json-to-yaml` keeps rule sets as written.
 
 ## Validate before exporting
 

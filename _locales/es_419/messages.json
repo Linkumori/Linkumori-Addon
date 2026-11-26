@@ -6486,36 +6486,6 @@
   },
   "guide_source_intro_p_3": {
     "message": "Esta página comienza con un pequeño ejemplo funcional. Para conocer cada opción compatible y su comportamiento exacto, consulta la <a href=\"../docs/filter-syntax.md\">referencia completa de la sintaxis de filtros</a>."
-  },
-  "customRulesEditor_ruleSetsTitle": {
-    "message": "Conjuntos de reglas compartidos"
-  },
-  "customRulesEditor_ruleSetsManage": {
-    "message": "Administrar conjuntos de reglas compartidos"
-  },
-  "customRulesEditor_ruleSetsCount": {
-    "message": "$1 conjunto(s) de reglas compartido(s)"
-  },
-  "customRulesEditor_ruleSetsIntro": {
-    "message": "Define aquí una sola vez listas de entradas con nombre y luego usa una en las listas de reglas de un proveedor con <code>{ \"include\": \"name\" }</code>. La extensión reemplaza cada inclusión por copias de las entradas del conjunto, en el mismo lugar y en el mismo orden, de modo que el proveedor funciona exactamente como si estuvieran escritas ahí. El nombre de un conjunto usa letras minúsculas, dígitos, <code>-</code> y <code>_</code>; un conjunto es una lista de entradas y no puede incluir otro conjunto."
-  },
-  "customRulesEditor_ruleSetsJsonLabel": {
-    "message": "Conjuntos de reglas (objeto JSON: nombre → lista de entradas)"
-  },
-  "customRulesEditor_ruleSetsSave": {
-    "message": "Guardar conjuntos de reglas"
-  },
-  "customRulesEditor_ruleSetsJsonInvalid": {
-    "message": "Los conjuntos de reglas no son JSON válido: $1"
-  },
-  "customRulesEditor_ruleSetsNotObject": {
-    "message": "Los conjuntos de reglas deben ser un objeto JSON de listas con nombre."
-  },
-  "customRulesEditor_ruleSetInvalid": {
-    "message": "Conjuntos de reglas compartidos: $1"
-  },
-  "customRulesEditor_runOrderIncludesNote": {
-    "message": "Este proveedor incluye un conjunto de reglas compartido, así que los pasos se reordenan en el conjunto, no aquí."
   }
 
 }

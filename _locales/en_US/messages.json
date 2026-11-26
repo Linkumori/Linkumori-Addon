@@ -6486,36 +6486,6 @@
   },
   "guide_source_intro_p_3": {
     "message": "This page starts with a small working example. For every supported option and its exact behavior, see the <a href=\"../docs/filter-syntax.md\">full filter syntax reference</a>."
-  },
-  "customRulesEditor_ruleSetsTitle": {
-    "message": "Shared rule sets"
-  },
-  "customRulesEditor_ruleSetsManage": {
-    "message": "Manage shared rule sets"
-  },
-  "customRulesEditor_ruleSetsCount": {
-    "message": "$1 shared rule set(s)"
-  },
-  "customRulesEditor_ruleSetsIntro": {
-    "message": "Name lists of entries here once, then use one in a provider's rule lists with <code>{ \"include\": \"name\" }</code>. The extension writes each include out as copies of the set's entries, in place and in order, so the provider works exactly as if they were written there. A set name uses lowercase letters, digits, <code>-</code> and <code>_</code>; a set is a list of entries and cannot include another set."
-  },
-  "customRulesEditor_ruleSetsJsonLabel": {
-    "message": "Rule sets (JSON object: name → list of entries)"
-  },
-  "customRulesEditor_ruleSetsSave": {
-    "message": "Save rule sets"
-  },
-  "customRulesEditor_ruleSetsJsonInvalid": {
-    "message": "The rule sets are not valid JSON: $1"
-  },
-  "customRulesEditor_ruleSetsNotObject": {
-    "message": "The rule sets must be a JSON object of named lists."
-  },
-  "customRulesEditor_ruleSetInvalid": {
-    "message": "Shared rule sets: $1"
-  },
-  "customRulesEditor_runOrderIncludesNote": {
-    "message": "This provider includes a shared rule set, so steps are rearranged in the set, not here."
   }
 
 }
