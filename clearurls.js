@@ -3665,7 +3665,10 @@ function start() {
         browser.webRequest.onErrorOccurred.addListener(forgetRequestCycleState, { urls: ["<all_urls>"] });
     } catch (e) { /* the state is also bounded by MAX_TRACKED_REQUESTS */ }
 
-    function clearUrl(request) {
+    // One cleaning cycle (CLN 1.0 §Termination): the first candidate provider
+    // that changes the URL decides it. A cycle that only cleaned the URL
+    // returns { redirectUrl, linkumoriCleanedOnly: true }.
+    function clearUrlCycle(request, cycleState) {
         if (typeof isTemporarilyPaused === 'function' && isTemporarilyPaused()) return {};
 
         if (isWhitelisted(request.url, request)) {
@@ -3690,7 +3693,6 @@ function start() {
         if (storage.globalStatus) {
             let result = { changes: false, url: "", redirect: false, cancel: false };
             // At the cap, processing stops and the URL is used as it stands.
-            const cycleState = getRequestCycleState(request);
             if (storage.unboundedCyclesEnabled !== true && cycleState.cycles >= LINKUMORI_MAX_CLEANING_CYCLES) return {};
             cycleState.cycles++;
 
@@ -3750,11 +3752,52 @@ function start() {
                     return { redirectUrl: siteBlockedAlert };
                 }
 
-                if (result.changes) return { redirectUrl: result.url };
+                if (result.changes) return { redirectUrl: result.url, linkumoriCleanedOnly: true };
             }
         }
 
         return {};
+    }
+
+    // PERF: a cycle that only cleaned the URL used to end the request with a
+    // redirect, and the next provider ran on the browser's next request for
+    // the cleaned URL. Those cycles now run here, one after another, on the
+    // same request details and the same cycle count (so the cap still
+    // applies), and only the final URL is returned: the result is the same
+    // as the browser's chain of redirects, with one redirect instead of one
+    // per cycle. A provider redirect, a block or a forced navigation ends the
+    // loop as it ended the request before. The browser still requests the
+    // final URL; that URL was already found clean, so it is not cleaned or
+    // counted again. At most LINKUMORI_MAX_CLEANING_CYCLES cycles run in one
+    // call; past that (unbounded mode), the browser's redirect starts more.
+    function clearUrl(request) {
+        const cycleState = getRequestCycleState(request);
+        if (cycleState.settledUrl !== undefined) {
+            const settled = cycleState.settledUrl;
+            cycleState.settledUrl = undefined;
+            if (settled === request.url) return {};
+        }
+        let current = request;
+        let response = clearUrlCycle(current, cycleState);
+        for (let runs = 1; response && response.linkumoriCleanedOnly && runs < LINKUMORI_MAX_CLEANING_CYCLES; runs++) {
+            const next = { ...current, url: response.redirectUrl };
+            // What the request handler does for the browser's next request.
+            if (next.tabId >= 0) {
+                if (next.type === 'main_frame') requestContextManager.setTabURL(next.tabId, next.url);
+                else if (next.type === 'sub_frame') requestContextManager.setFrameURL(next.tabId, next.frameId, next.url, next.parentFrameId);
+            }
+            const again = clearUrlCycle(next, cycleState);
+            if (!again || (again.cancel !== true && typeof again.redirectUrl !== 'string')) {
+                // Nothing more to clean: the browser's request for this URL
+                // would have found the same.
+                cycleState.settledUrl = next.url;
+                break;
+            }
+            current = next;
+            response = again;
+        }
+        if (response && response.linkumoriCleanedOnly) return { redirectUrl: response.redirectUrl };
+        return response;
     }
 
     globalThis.traceClearURLWebRequestTest = function (requestDetails) {

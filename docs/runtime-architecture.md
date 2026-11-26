@@ -492,8 +492,15 @@ flowchart TD
 ```
 
 The first provider that redirects, blocks or changes the URL decides the
-result. A redirect is a new request, so the cleaned URL goes through
-`clearUrl()` again. The browser keeps the `requestId` across redirects, so
+result of a cycle (`clearUrlCycle()`). When a cycle only cleaned the URL,
+`clearUrl()` runs the next cycle on the cleaned URL right away, with the
+same request details, and returns only the final URL: one redirect instead
+of one per cycle, with the same result (and the same statistics) as the
+browser's chain of redirects. A provider redirect, a block or a forced
+navigation ends it. The browser still requests the final URL; that request
+remembers the URL was already found clean, so it is not cleaned again. A
+redirect is a new request, so a redirected URL goes through `clearUrl()`
+again. The browser keeps the `requestId` across redirects, so
 `clearUrl()` counts the cycles of each request and stops after
 `LINKUMORI_MAX_CLEANING_CYCLES` (10), unless unbounded mode
 (`unboundedCyclesEnabled`) is on, and an entry with a `replacePattern`
