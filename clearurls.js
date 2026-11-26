@@ -1369,7 +1369,10 @@ function getLinkumoriParamIndex(rules) {
         bucket.push(i);
     }
     const { regexGroupOf, regexGroups } = buildLinkumoriRegexGroups(rules);
-    index = { length: rules.length, caseInsensitive, caseSensitive, always, regexGroupOf, regexGroups };
+    // Each rule's ||host labels (getLinkumoriRuleHostKey), or null, so a
+    // lookup can pass over rules for other sites without calling anything.
+    const hostKeys = rules.map(r => (r ? getLinkumoriRuleHostKey(r) : null));
+    index = { length: rules.length, caseInsensitive, caseSensitive, always, regexGroupOf, regexGroups, hostKeys };
     linkumoriParamIndexCache.set(rules, index);
     return index;
 }
@@ -2032,6 +2035,22 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const stateUrl = url;
         const lazyRuleList = (rules, extra, targetUrl) => {
             const eligible = new Map();
+            // PERF (uBlock Origin's per-hostname buckets): a rule whose ||host
+            // labels are not in the URL's hostname cannot be eligible (see
+            // matchLinkumoriRemoveParamTarget), so findFor() passes over it
+            // before testing its name. An "@@" rule also counts the page URLs'
+            // hostnames, as matchLinkumoriRemoveParamTarget does.
+            let targetHostKeys = null, pageHostKeys = null;
+            const hostKeyMayMatch = (key, r) => {
+                if (targetHostKeys === null) targetHostKeys = LinkumoriUrlPatterns.hostKeys(targetUrl);
+                if (targetHostKeys.has(key)) return true;
+                if (!r.isException || !request) return false;
+                if (pageHostKeys === null) {
+                    pageHostKeys = requestContextManager.getContextURLs(request)
+                        .filter(Boolean).map(u => LinkumoriUrlPatterns.hostKeys(u));
+                }
+                return pageHostKeys.some(keys => keys.has(key));
+            };
             const isEligible = r => {
                 let v = eligible.get(r);
                 if (v === undefined) { v = matchLinkumoriRemoveParamTarget(r, targetUrl, request, isHistoryUpdate); eligible.set(r, v); }
@@ -2049,9 +2068,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 findFor(fieldName, nameMatches, getPairs) {
                     const index = getLinkumoriParamIndex(rules);
                     const groupOf = index.regexGroupOf;
+                    const keys = index.hostKeys;
                     let groupState = null; // per group: undefined (not tested), true or false
                     for (const i of getLinkumoriParamCandidates(rules, fieldName)) {
                         const r = rules[i];
+                        const key = keys[i];
+                        if (key !== null && !hostKeyMayMatch(key, r)) continue;
                         const g = getPairs ? groupOf[i] : -1;
                         if (g >= 0) {
                             if (groupState === null) groupState = [];

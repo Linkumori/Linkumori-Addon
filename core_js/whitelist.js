@@ -125,53 +125,77 @@ function isIpLiteralPattern(value) {
     return result;
 }
 
+// PERF: a pattern's parsed form, by its text. Patterns are checked against
+// every request (rule $domain=/to= lists, whitelists), and parsing them
+// (lower case, trim, ||...^, hostname normalization) gave the same answer
+// each time. Null for a pattern that matches nothing.
+const whitelistPatternCache = new Map();
+
+function parseWhitelistHostnamePattern(pattern) {
+    const rawPattern = String(pattern || '').toLowerCase().trim();
+    if (!rawPattern) return null;
+    const cleanPattern = normalizeAsciiHostname(rawPattern.startsWith('||') ? rawPattern.slice(2).replace(/\^$/, '') : rawPattern);
+    if (!cleanPattern) return null;
+    // IP literal patterns (IPv4, or IPv6 in its bracketed hostname form) match
+    // by exact address only — the wildcard/PSL suffix semantics below are for
+    // domain names and don't apply to IPs.
+    if (isIpLiteralPattern(cleanPattern)) return { kind: 'ip', value: cleanPattern };
+    // PSL-aware any-TLD wildcard: example.* or *.example.*
+    if (cleanPattern.endsWith('.*')) {
+        if (cleanPattern.startsWith('*.')) {
+            const base = cleanPattern.slice(2, -2);
+            return base ? { kind: 'anyTldSubdomain', value: base } : null;
+        }
+        const base = cleanPattern.slice(0, -2);
+        return base ? { kind: 'anyTld', value: base } : null;
+    }
+    // Wildcard subdomain: *.example.com matches root + all subdomains.
+    if (cleanPattern.startsWith('*.')) {
+        const baseDomain = cleanPattern.slice(2);
+        return baseDomain ? { kind: 'domain', value: baseDomain } : null;
+    }
+    return { kind: 'domain', value: cleanPattern };
+}
+
+function getWhitelistHostnamePattern(pattern) {
+    const key = typeof pattern === 'string' ? pattern : String(pattern || '');
+    let parsed = whitelistPatternCache.get(key);
+    if (parsed === undefined) {
+        parsed = parseWhitelistHostnamePattern(key);
+        // The IP check needs IP-Ranger; without it the answer is not kept.
+        if (typeof IP !== 'undefined') {
+            if (whitelistPatternCache.size >= 5000) whitelistPatternCache.clear();
+            whitelistPatternCache.set(key, parsed);
+        }
+    }
+    return parsed;
+}
+
 function matchWhitelistHostnamePattern(hostname, pattern) {
     const normalizedHostname = normalizeAsciiHostname(hostname);
     if (!normalizedHostname) return false;
 
-    const rawPattern = String(pattern || '').toLowerCase().trim();
-    if (!rawPattern) return false;
+    const parsed = getWhitelistHostnamePattern(pattern);
+    if (!parsed) return false;
+    const value = parsed.value;
 
-    const cleanPattern = normalizeAsciiHostname(rawPattern.startsWith('||') ? rawPattern.slice(2).replace(/\^$/, '') : rawPattern);
-    if (!cleanPattern) return false;
+    if (parsed.kind === 'ip') return normalizedHostname === value;
 
-    // IP literal patterns (IPv4, or IPv6 in its bracketed hostname form) match
-    // by exact address only — the wildcard/PSL suffix semantics below are for
-    // domain names and don't apply to IPs.
-    if (isIpLiteralPattern(cleanPattern)) {
-        return normalizedHostname === cleanPattern;
-    }
+    if (parsed.kind === 'anyTld' || parsed.kind === 'anyTldSubdomain') {
+        const psl = parseHostnameWithPsl(normalizedHostname);
+        if (!psl || !psl.tld) return false;
 
-    // PSL-aware any-TLD wildcard: example.* or *.example.*
-    if (cleanPattern.endsWith('.*')) {
-        const parsed = parseHostnameWithPsl(normalizedHostname);
-        if (!parsed || !parsed.tld) return false;
-
-        const suffixToken = '.' + parsed.tld;
+        const suffixToken = '.' + psl.tld;
         if (!normalizedHostname.endsWith(suffixToken)) return false;
 
         const beforeSuffix = normalizedHostname.slice(0, -suffixToken.length);
         if (!beforeSuffix) return false;
 
-        if (cleanPattern.startsWith('*.')) {
-            const base = cleanPattern.slice(2, -2);
-            if (!base) return false;
-            return beforeSuffix.endsWith('.' + base);
-        }
-
-        const base = cleanPattern.slice(0, -2);
-        if (!base) return false;
-        return beforeSuffix === base || beforeSuffix.endsWith('.' + base);
+        if (parsed.kind === 'anyTldSubdomain') return beforeSuffix.endsWith('.' + value);
+        return beforeSuffix === value || beforeSuffix.endsWith('.' + value);
     }
 
-    // Wildcard subdomain: *.example.com matches root + all subdomains.
-    if (cleanPattern.startsWith('*.')) {
-        const baseDomain = cleanPattern.slice(2);
-        if (!baseDomain) return false;
-        return normalizedHostname === baseDomain || normalizedHostname.endsWith('.' + baseDomain);
-    }
-
-    return normalizedHostname === cleanPattern || normalizedHostname.endsWith('.' + cleanPattern);
+    return normalizedHostname === value || normalizedHostname.endsWith('.' + value);
 }
 
 // ── Persistent whitelist checks ───────────────────────────────────────────────

@@ -323,6 +323,12 @@
         return compile(pattern).hostKey;
     }
 
+    // The URL's host labels as a Set (see hostKeysOf), for callers that
+    // test many keys against one URL. Do not change it.
+    function hostKeys(url) {
+        return hostKeysOf(url);
+    }
+
     // False only when the URL's hostname lacks `key`: no pattern with that
     // hostKey() can match the URL.
     function urlHasHostKey(url, key) {
@@ -339,6 +345,7 @@
         compile,
         matches,
         hostKey,
+        hostKeys,
         urlHasHostKey,
         clearCaches,
         isReady: () => !!engine()
