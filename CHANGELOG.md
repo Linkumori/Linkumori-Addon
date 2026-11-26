@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.106.0] - 2026-11-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.105.0...linkumori-v100.106.0))
+### Changed
+- Pass over other sites' rules inside the parameter index; cache parsed domain patterns (`2026-11-26`, hash: [`6fe1488`](https://github.com/Linkumori/Linkumori-Addon/commit/6fe1488))
+
 ## [v100.105.0] - 2026-11-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.104.0...linkumori-v100.105.0))
 ### Added
 - Introduce new engine finalised (`2026-11-26`, hash: [`89d13a0`](https://github.com/Linkumori/Linkumori-Addon/commit/89d13a0))
