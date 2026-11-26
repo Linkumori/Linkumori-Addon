@@ -285,7 +285,7 @@ function coreRuleHasActivePatternForUrl(compiledRule, url) {
         if (!scope) continue;
         sawScope = true;
         if (scope.type === "domain") {
-            if (matchDomainPattern(url, [scope.pattern])) return true;
+            if (matchDomainPattern(url, scope.pattern)) return true;
         } else if (scope.type === "url") {
             const re = getCoreActivationUrlRegex(scope.pattern);
             if (re && re.test(url)) return true;
@@ -795,14 +795,25 @@ class Multimap {
 var matchDomainPatternLastUrl = null;
 
 function matchDomainPattern(url, patterns) {
-    if (typeof patterns === 'string') patterns = [patterns];
-    if (!Array.isArray(patterns) || patterns.length === 0 || typeof url !== 'string' || !url) return false;
+    const singlePattern = typeof patterns === 'string';
+    if ((!singlePattern && (!Array.isArray(patterns) || patterns.length === 0)) || typeof url !== 'string' || !url) return false;
     let last = matchDomainPatternLastUrl;
     if (!last || last.url !== url) {
         last = { url, results: new Map() };
         matchDomainPatternLastUrl = last;
     }
     const results = last.results;
+    if (singlePattern) {
+        const p = patterns.trim();
+        if (!p) return false;
+        let answer = results.get(p);
+        if (answer === undefined) {
+            try { answer = LinkumoriUrlPatterns.matches(p, url); } catch (e) { answer = false; }
+            if (results.size >= 5000) results.clear();
+            results.set(p, answer);
+        }
+        return answer;
+    }
     return patterns.some(pattern => {
         const p = String(pattern || '').trim();
         if (!p) return false;
@@ -1100,11 +1111,11 @@ function getLinkumoriRequestType(request) {
     return String(request && request.type || "main_frame").toLowerCase();
 }
 
-function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
+function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null, requestType = null) {
     const requestTypes = Array.isArray(linkumoriRule?.requestTypes) ? linkumoriRule.requestTypes : [];
     const excludeRequestTypes = Array.isArray(linkumoriRule?.excludeRequestTypes) ? linkumoriRule.excludeRequestTypes : [];
     if (requestTypes.length === 0 && excludeRequestTypes.length === 0) return true;
-    const requestType = getLinkumoriRequestType(request);
+    requestType = requestType || getLinkumoriRequestType(request);
     if (excludeRequestTypes.indexOf(requestType) !== -1) return false;
     return requestTypes.length === 0 || requestTypes.indexOf(requestType) !== -1;
 }
@@ -1148,6 +1159,63 @@ function linkumoriRemoveParamMatchesParty(linkumoriRule, targetHost, request = n
     if (linkumoriRule.firstPartyOnly && !sameSite) return false;
     if (linkumoriRule.thirdPartyOnly && sameSite) return false;
     return true;
+}
+
+var linkumoriRemoveParamUniversalCoreScopeCache = new WeakMap();
+
+function hasLinkumoriRemoveParamUniversalCoreScope(rule) {
+    if (!rule || typeof rule !== 'object') return false;
+    const activationIds = Array.isArray(rule.activationIds) ? rule.activationIds : [];
+    const cached = linkumoriRemoveParamUniversalCoreScopeCache.get(rule);
+    if (cached && cached.activationIds === activationIds && cached.snapshot.length === activationIds.length) {
+        let unchanged = true;
+        for (let i = 0; i < activationIds.length; i++) {
+            if (cached.snapshot[i] !== activationIds[i]) { unchanged = false; break; }
+        }
+        if (unchanged) return cached.value;
+    }
+    let sawScope = false;
+    let always = false;
+    for (const activationId of activationIds) {
+        const scope = getCachedCorePatternActivationScope(activationId);
+        if (!scope) continue;
+        sawScope = true;
+        if (scope.type === 'domain' && scope.pattern === '*') {
+            always = true;
+            break;
+        }
+    }
+    always = always || !sawScope;
+    linkumoriRemoveParamUniversalCoreScopeCache.set(rule, {
+        activationIds,
+        snapshot: activationIds.slice(),
+        value: always
+    });
+    return always;
+}
+
+function isLinkumoriRemoveParamAlwaysEligible(rule) {
+    if (!rule || typeof rule !== 'object') return false;
+
+    let always = !rule.isException && !rule.exceptionMatcher &&
+        (!rule.urlPattern || rule.urlPattern === '*') &&
+        !rule.firstPartyOnly && !rule.thirdPartyOnly &&
+        !rule.strictFirstPartyOnly && !rule.strictThirdPartyOnly &&
+        (!Array.isArray(rule.requestTypes) || rule.requestTypes.length === 0) &&
+        (!Array.isArray(rule.excludeRequestTypes) || rule.excludeRequestTypes.length === 0) &&
+        (!Array.isArray(rule.includeDomains) || rule.includeDomains.length === 0) &&
+        (!Array.isArray(rule.excludeDomains) || rule.excludeDomains.length === 0) &&
+        (!Array.isArray(rule.includeDomainRegexes) || rule.includeDomainRegexes.length === 0) &&
+        (!Array.isArray(rule.excludeDomainRegexes) || rule.excludeDomainRegexes.length === 0) &&
+        (!Array.isArray(rule.includeTargetDomains) || rule.includeTargetDomains.length === 0) &&
+        (!Array.isArray(rule.excludeTargetDomains) || rule.excludeTargetDomains.length === 0) &&
+        (!Array.isArray(rule.includeTargetDomainRegexes) || rule.includeTargetDomainRegexes.length === 0) &&
+        (!Array.isArray(rule.excludeTargetDomainRegexes) || rule.excludeTargetDomainRegexes.length === 0) &&
+        (!Array.isArray(rule.includeMethods) || rule.includeMethods.length === 0) &&
+        (!Array.isArray(rule.excludeMethods) || rule.excludeMethods.length === 0);
+
+    if (always) always = hasLinkumoriRemoveParamUniversalCoreScope(rule);
+    return always;
 }
 
 function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
@@ -1211,7 +1279,7 @@ function getLinkumoriRuleHostKey(rule) {
     return key;
 }
 
-function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
+function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false, targetHost = undefined, requestType = null) {
     if (!linkumoriRule || !fullUrl) return false;
     // PERF: the URL pattern check below must pass for this to be true. A
     // ||host pattern can only match a URL whose hostname has its labels, so
@@ -1227,34 +1295,55 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     }
     if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
     if (linkumoriRule.exceptionMatcher && linkumoriRule.exceptionMatcher.test(fullUrl)) return false;
-    if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
-    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
+    if (isLinkumoriRemoveParamAlwaysEligible(linkumoriRule)) {
+        const urlHost = targetHost === undefined ? getLinkumoriURLHostname(fullUrl) : targetHost;
+        return Boolean(urlHost);
+    }
+    if (!hasLinkumoriRemoveParamUniversalCoreScope(linkumoriRule) &&
+        !coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
-        if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
+        if (!matchDomainPattern(fullUrl, linkumoriRule.urlPattern)) {
             if (linkumoriRule.isException && request) {
                 const contextUrls = requestContextManager.getContextURLs(request);
-                if (!contextUrls.some(u => u && matchDomainPattern(u, [linkumoriRule.urlPattern]))) return false;
+                if (!contextUrls.some(u => u && matchDomainPattern(u, linkumoriRule.urlPattern))) return false;
             } else return false;
         }
     }
-    let urlHost = getLinkumoriURLHostname(fullUrl);
+    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request, requestType)) return false;
+    let urlHost = targetHost === undefined ? getLinkumoriURLHostname(fullUrl) : targetHost;
     if (!urlHost) return false;
-    const contextHosts = getLinkumoriRequestContextHosts(request, urlHost);
     if (!linkumoriRemoveParamMatchesParty(linkumoriRule, urlHost, request)) return false;
     if (!linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, urlHost)) return false;
+    let contextHosts = null;
+    const getContextHosts = () => {
+        if (contextHosts === null) contextHosts = getLinkumoriRequestContextHosts(request, urlHost);
+        return contextHosts;
+    };
     if (linkumoriRule.includeDomains.length > 0) {
+        const contextHosts = (linkumoriRule.isException && request)
+            ? getContextHosts()
+            : [urlHost];
         const dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (!linkumoriRule.includeDomains.some(p => dh.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
     }
     if (Array.isArray(linkumoriRule.includeDomainRegexes) && linkumoriRule.includeDomainRegexes.length > 0) {
+        const contextHosts = (linkumoriRule.isException && request)
+            ? getContextHosts()
+            : [urlHost];
         const dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (!dh.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.includeDomainRegexes))) return false;
     }
     if (linkumoriRule.excludeDomains.length > 0) {
+        const contextHosts = (linkumoriRule.isException && request)
+            ? getContextHosts()
+            : [urlHost];
         const dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (linkumoriRule.excludeDomains.some(p => dh2.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
     }
     if (Array.isArray(linkumoriRule.excludeDomainRegexes) && linkumoriRule.excludeDomainRegexes.length > 0) {
+        const contextHosts = (linkumoriRule.isException && request)
+            ? getContextHosts()
+            : [urlHost];
         const dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (dh2.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.excludeDomainRegexes))) return false;
     }
@@ -1352,14 +1441,136 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = [], 
 // can match any name (regex, removeAll, ~negated) stay in `always`. Each
 // bucket keeps list order, so the first match is the same rule as a full scan.
 var linkumoriParamIndexCache = new WeakMap();
+var linkumoriParamUrlIndexCache = new WeakMap();
+
+// An index over one ordered rule list. Bucket membership is only a necessary
+// condition. The caller still checks the rule's full URL and request scope.
+function getLinkumoriParamUrlIndex(rules) {
+    const cached = linkumoriParamUrlIndexCache.get(rules);
+    if (cached) return cached;
+
+    const hostBuckets = new Map(), urlBuckets = new Map();
+    const indexed = new Uint8Array(rules.length), fallback = [];
+    const hostCounts = new Map(), tokenCounts = new Map(), scopesByPattern = new Map();
+    const scopes = [];
+    const add = (buckets, key, i) => {
+        let bucket = buckets.get(key);
+        if (bucket === undefined) buckets.set(key, bucket = []);
+        bucket.push(i);
+        indexed[i] = 1;
+    };
+
+    for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        const pattern = rule?.urlPattern;
+        if (!pattern || pattern === '*') {
+            fallback.push(i);
+            continue;
+        }
+        let scope = scopesByPattern.get(pattern);
+        if (scope === undefined) {
+            const compiled = LinkumoriUrlPatterns.compile(pattern);
+            scope = { hostKey: compiled.hostKey, tokens: compiled.getUrlTokenCandidates?.() || [] };
+            scopesByPattern.set(pattern, scope);
+        }
+        const { hostKey, tokens } = scope;
+        if (hostKey === null && tokens.length === 0) {
+            fallback.push(i);
+            continue;
+        }
+        scopes.push({ i, hostKey, tokens });
+        if (hostKey !== null) hostCounts.set(hostKey, (hostCounts.get(hostKey) || 0) + 1);
+        for (const token of tokens) tokenCounts.set(token, (tokenCounts.get(token) || 0) + 1);
+    }
+    // As in Ghostery's ReverseIndex, select the least frequent available
+    // token. A longer token breaks ties between equally sized buckets.
+    for (const { i, hostKey, tokens } of scopes) {
+        let best = hostKey, buckets = hostBuckets;
+        let count = hostKey === null ? Infinity : hostCounts.get(hostKey);
+        for (const token of tokens) {
+            const frequency = tokenCounts.get(token);
+            if (frequency < count || (frequency === count && buckets === urlBuckets && token.length > best.length)) {
+                best = token;
+                count = frequency;
+                buckets = urlBuckets;
+            }
+        }
+        add(buckets, best, i);
+    }
+    const index = { indexed, fallback, hostBuckets, urlBuckets };
+    linkumoriParamUrlIndexCache.set(rules, index);
+    return index;
+}
+
+function addLinkumoriParamUrlCandidates(index, url, candidates) {
+    if (index.hostBuckets.size > 0) {
+        for (const key of LinkumoriUrlPatterns.hostKeys(url)) {
+            const bucket = index.hostBuckets.get(key);
+            if (bucket) for (const i of bucket) candidates.add(i);
+        }
+    }
+    if (index.urlBuckets.size > 0) {
+        for (const token of LinkumoriUrlPatterns.urlTokens(url)) {
+            const bucket = index.urlBuckets.get(token);
+            if (bucket) for (const i of bucket) candidates.add(i);
+        }
+    }
+}
+
+function createLinkumoriRegexPrefixTrie() {
+    return { children: Object.create(null), indices: [], exact: [] };
+}
+
+function addLinkumoriRegexPrefix(trie, prefix, ruleIndex) {
+    let node = trie;
+    node.indices.push(ruleIndex);
+    for (let i = 0; i < prefix.length; i++) {
+        const char = prefix.charAt(i);
+        node = node.children[char] || (node.children[char] = createLinkumoriRegexPrefixTrie());
+        node.indices.push(ruleIndex);
+    }
+    node.exact.push(ruleIndex);
+}
+
+// Return prefixed regexes that might match a parameter name. A regex's
+// extracted prefix can be either shorter or longer than the name: `^utm_`
+// may match `utm_source`, and `^utm_source` may match `utm`.
+function appendLinkumoriRegexPrefixCandidates(trie, name, candidates) {
+    let node = trie;
+    for (let i = 0; i < name.length; i++) {
+        if (i > 0 && node.exact.length > 0) candidates.push(...node.exact);
+        node = node.children[name.charAt(i)];
+        if (!node) return;
+    }
+    candidates.push(...node.indices);
+}
 
 function getLinkumoriParamIndex(rules) {
     let index = linkumoriParamIndexCache.get(rules);
     if (index && index.length === rules.length) return index;
     const caseInsensitive = new Map(), caseSensitive = new Map(), always = [];
+    const regexPrefixesInsensitive = createLinkumoriRegexPrefixTrie();
+    const regexPrefixesSensitive = createLinkumoriRegexPrefixTrie();
     for (let i = 0; i < rules.length; i++) {
         const r = rules[i];
-        if (!r || r.removeAll || r.negate || r.regexParam || typeof r.literalParam !== 'string') {
+        if (!r || r.removeAll || r.negate) {
+            always.push(i);
+            continue;
+        }
+        if (r.regexParam) {
+            const prefixInfo = getLinkumoriRegexLiteralPrefix(r.regexParam);
+            if (!prefixInfo) {
+                always.push(i);
+                continue;
+            }
+            addLinkumoriRegexPrefix(
+                prefixInfo.ci ? regexPrefixesInsensitive : regexPrefixesSensitive,
+                prefixInfo.prefix,
+                i
+            );
+            continue;
+        }
+        if (typeof r.literalParam !== 'string') {
             always.push(i);
             continue;
         }
@@ -1369,10 +1580,17 @@ function getLinkumoriParamIndex(rules) {
         bucket.push(i);
     }
     const { regexGroupOf, regexGroups } = buildLinkumoriRegexGroups(rules);
-    // Each rule's ||host labels (getLinkumoriRuleHostKey), or null, so a
-    // lookup can pass over rules for other sites without calling anything.
-    const hostKeys = rules.map(r => (r ? getLinkumoriRuleHostKey(r) : null));
-    index = { length: rules.length, caseInsensitive, caseSensitive, always, regexGroupOf, regexGroups, hostKeys };
+    index = {
+        length: rules.length,
+        caseInsensitive,
+        caseSensitive,
+        always,
+        regexPrefixesInsensitive,
+        regexPrefixesSensitive,
+        regexGroupOf,
+        regexGroups,
+        candidatesByName: new Map()
+    };
     linkumoriParamIndexCache.set(rules, index);
     return index;
 }
@@ -1425,14 +1643,23 @@ function linkumoriRegexGroupMayMatch(joined, fieldName, getPairs) {
 }
 
 // Indexes of `rules` that could match `fieldName`, in list order.
-function getLinkumoriParamCandidates(rules, fieldName) {
-    const index = getLinkumoriParamIndex(rules);
-    const a = index.caseInsensitive.get(fieldName.toLowerCase());
-    const b = index.caseSensitive.get(fieldName);
-    if (!a && !b) return index.always;
-    const merged = [];
-    for (const list of [a, b, index.always]) if (list) for (const i of list) merged.push(i);
-    return merged.sort((x, y) => x - y);
+function getLinkumoriParamCandidates(index, fieldName) {
+    const name = String(fieldName || '');
+    let candidates = index.candidatesByName.get(name);
+    if (candidates !== undefined) return candidates;
+
+    const merged = index.always.slice();
+    const insensitive = index.caseInsensitive.get(name.toLowerCase());
+    const sensitive = index.caseSensitive.get(name);
+    if (insensitive) merged.push(...insensitive);
+    if (sensitive) merged.push(...sensitive);
+    appendLinkumoriRegexPrefixCandidates(index.regexPrefixesInsensitive, name.toLowerCase(), merged);
+    appendLinkumoriRegexPrefixCandidates(index.regexPrefixesSensitive, name, merged);
+    if (merged.length > 1) merged.sort((x, y) => x - y);
+    candidates = Object.freeze(merged);
+    if (index.candidatesByName.size >= 512) index.candidatesByName.clear();
+    index.candidatesByName.set(name, candidates);
+    return candidates;
 }
 
 function findLinkumoriParamRule(list, fieldName, nameMatches, getPairs) {
@@ -2033,55 +2260,56 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         // are checked against the URL as the provider received it, before
         // its raw rules ran (CLN 1.0 §Where @@ is matched).
         const stateUrl = url;
-        const lazyRuleList = (rules, extra, targetUrl) => {
+        const lazyRuleList = (rules, extra, targetUrl, isExceptionList = false) => {
             const eligible = new Map();
-            // PERF (uBlock Origin's per-hostname buckets): a rule whose ||host
-            // labels are not in the URL's hostname cannot be eligible (see
-            // matchLinkumoriRemoveParamTarget), so findFor() passes over it
-            // before testing its name. An "@@" rule also counts the page URLs'
-            // hostnames, as matchLinkumoriRemoveParamTarget does.
-            let targetHostKeys = null, pageHostKeys = null;
-            const hostKeyMayMatch = (key, r) => {
-                if (targetHostKeys === null) targetHostKeys = LinkumoriUrlPatterns.hostKeys(targetUrl);
-                if (targetHostKeys.has(key)) return true;
-                if (!r.isException || !request) return false;
-                if (pageHostKeys === null) {
-                    pageHostKeys = requestContextManager.getContextURLs(request)
-                        .filter(Boolean).map(u => LinkumoriUrlPatterns.hostKeys(u));
+            let index, urlIndex, urlCandidates, targetHost, requestType;
+            const matchesUrlIndex = i => {
+                if (!urlIndex.indexed[i]) return true;
+                if (urlCandidates === undefined) {
+                    urlCandidates = new Set();
+                    addLinkumoriParamUrlCandidates(urlIndex, targetUrl, urlCandidates);
+                    if (isExceptionList && request) {
+                        for (const pageUrl of requestContextManager.getContextURLs(request)) {
+                            if (pageUrl && pageUrl !== targetUrl) {
+                                addLinkumoriParamUrlCandidates(urlIndex, pageUrl, urlCandidates);
+                            }
+                        }
+                    }
                 }
-                return pageHostKeys.some(keys => keys.has(key));
+                return urlCandidates.has(i);
             };
             const isEligible = r => {
                 let v = eligible.get(r);
-                if (v === undefined) { v = matchLinkumoriRemoveParamTarget(r, targetUrl, request, isHistoryUpdate); eligible.set(r, v); }
+                if (v !== undefined) return v;
+                if (targetHost === undefined) {
+                    targetHost = getLinkumoriURLHostname(targetUrl);
+                    requestType = getLinkumoriRequestType(request);
+                }
+                v = matchLinkumoriRemoveParamTarget(r, targetUrl, request, isHistoryUpdate, targetHost, requestType);
+                eligible.set(r, v);
                 return v;
             };
             return {
                 get length() { return rules.length + extra.length; },
-                find(nameMatches) {
-                    for (const r of rules) if (nameMatches(r) && isEligible(r)) return r;
-                    for (const r of extra) if (nameMatches(r)) return r;
-                    return undefined;
-                },
-                // Same result as find(), but only visits rules whose name
-                // could match (see getLinkumoriParamIndex).
                 findFor(fieldName, nameMatches, getPairs) {
-                    const index = getLinkumoriParamIndex(rules);
-                    const groupOf = index.regexGroupOf;
-                    const keys = index.hostKeys;
-                    let groupState = null; // per group: undefined (not tested), true or false
-                    for (const i of getLinkumoriParamCandidates(rules, fieldName)) {
-                        const r = rules[i];
-                        const key = keys[i];
-                        if (key !== null && !hostKeyMayMatch(key, r)) continue;
-                        const g = getPairs ? groupOf[i] : -1;
-                        if (g >= 0) {
-                            if (groupState === null) groupState = [];
-                            let may = groupState[g];
-                            if (may === undefined) may = groupState[g] = linkumoriRegexGroupMayMatch(index.regexGroups[g], fieldName, getPairs);
-                            if (!may) continue;
+                    if (rules.length > 0) {
+                        if (index === undefined) {
+                            index = getLinkumoriParamIndex(rules);
+                            urlIndex = getLinkumoriParamUrlIndex(rules);
                         }
-                        if (nameMatches(r) && isEligible(r)) return r;
+                        let groupState = null; // per group: undefined (not tested), true or false
+                        for (const i of getLinkumoriParamCandidates(index, fieldName)) {
+                            if (!matchesUrlIndex(i)) continue;
+                            const g = getPairs ? index.regexGroupOf[i] : -1;
+                            if (g >= 0) {
+                                if (groupState === null) groupState = [];
+                                let may = groupState[g];
+                                if (may === undefined) may = groupState[g] = linkumoriRegexGroupMayMatch(index.regexGroups[g], fieldName, getPairs);
+                                if (!may) continue;
+                            }
+                            const r = rules[i];
+                            if (nameMatches(r) && isEligible(r)) return r;
+                        }
                     }
                     for (const r of extra) if (nameMatches(r)) return r;
                     return undefined;
@@ -2089,7 +2317,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             };
         };
         const activeRules = lazyRuleList(linkumoriParamRules || [], [], stateUrl);
-        const activeExceptions = lazyRuleList(linkumoriParamExceptions || [], extraExceptions || [], pureUrl);
+        const activeExceptions = lazyRuleList(linkumoriParamExceptions || [], extraExceptions || [], pureUrl, true);
         const cache = new Map();
         const getDecision = (paramName, paramValues = []) => {
             // Fragment values come as a Set (URLHashParams), query values as an
@@ -3648,7 +3876,17 @@ function start() {
             if (providerExceptions.length === 0) continue;
             const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
             if (!matchesContext) continue;
-            for (const er of providerExceptions) {
+            const index = getLinkumoriParamUrlIndex(providerExceptions);
+            let candidates = index.fallback;
+            if (index.hostBuckets.size > 0 || index.urlBuckets.size > 0) {
+                const matched = new Set();
+                for (const url of contextUrls) {
+                    if (url) addLinkumoriParamUrlCandidates(index, url, matched);
+                }
+                if (matched.size > 0) candidates = [...candidates, ...matched].sort((a, b) => a - b);
+            }
+            for (const i of candidates) {
+                const er = providerExceptions[i];
                 if (linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request)) collected.push(er);
             }
         }
@@ -3732,7 +3970,8 @@ function start() {
                 if (!provider.matchMethod(request)) continue;
                 if (!provider.matchResourceType(request)) continue;
                 if (provider.matchRequestURL(request.url, request)) {
-                    result = removeFieldsFormURL(provider, request.url, false, request, null, getGlobalLinkumoriExceptions(), cycleState.rewrites);
+                    result = removeFieldsFormURL(provider, request.url, false, request, null,
+                        getGlobalLinkumoriExceptions(), cycleState.rewrites);
                 }
 
                 if (result.redirect) {

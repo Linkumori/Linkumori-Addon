@@ -89,7 +89,7 @@
     const HOST_TRAILING_DOTS = /^([a-z][a-z0-9+.-]*:\/\/(?:[^\/?#@]*@)?[^\/?#:.][^\/?#:]*?)\.+(?=[:\/?#]|$)/i;
 
     function makeUrlEntry(url) {
-        const entry = { url, request: null, requestNoDots: null, hostKeys: null };
+        const entry = { url, request: null, requestNoDots: null, hostKeys: null, urlTokens: null };
         const g = engine();
         if (!g || typeof url !== 'string' || !url) return entry;
         let host = '';
@@ -160,6 +160,43 @@
             entry.hostKeys = keys;
         }
         return entry.hostKeys;
+    }
+
+    const URL_TOKEN = /[a-z0-9]+/g;
+
+    function urlTokensOf(url) {
+        const entry = urlEntry(url);
+        if (entry.urlTokens === null) {
+            // Use the very same string that the pattern matcher sees. Include
+            // its alternate reading too when the URL has trailing host dots.
+            const tokens = new Set();
+            for (const request of [entry.request, entry.requestNoDots]) {
+                if (!request) continue;
+                for (const token of request.normalizedUrl.match(URL_TOKEN) || []) tokens.add(token);
+            }
+            entry.urlTokens = tokens;
+        }
+        return entry.urlTokens;
+    }
+
+    // Only return whole tokens that the compiled pattern must match. A word
+    // next to a wildcard or an unanchored edge can match part of a URL token
+    // (e.g. "ads*" in "ads2"). A separator (^) consumes a non-token
+    // character or reaches the end of the string. Full regexes stay unindexed.
+    function urlTokenCandidates(filter) {
+        const pattern = filter.getFilter();
+        const leftAnchored = filter.isLeftAnchor() && !filter.isHostnameAnchor();
+        const rightAnchored = filter.isRightAnchor();
+        const tokens = new Set();
+        for (const match of pattern.matchAll(URL_TOKEN)) {
+            const token = match[0];
+            const start = match.index;
+            const end = start + token.length;
+            if (start === 0 ? !leftAnchored : pattern[start - 1] === '*') continue;
+            if (end === pattern.length ? !rightAnchored : pattern[end] === '*') continue;
+            tokens.add(token);
+        }
+        return [...tokens];
     }
 
     // ---------------------------------------------------------------------
@@ -257,9 +294,13 @@
         if (!filter) return NEVER;
 
         if (anySuffixBase === null) {
+            const hostKey = hostKeyOf(filter);
             return {
                 kind: 'ghostery',
-                hostKey: hostKeyOf(filter),
+                hostKey,
+                getUrlTokenCandidates: !filter.isFullRegex()
+                    ? () => urlTokenCandidates(filter)
+                    : null,
                 match(url) {
                     const entry = urlEntry(url);
                     return !!entry.request && matchEntry(filter, entry);
@@ -282,6 +323,8 @@
         return {
             kind: 'anySuffix',
             hostKey: hostKeyOf(filter),
+            // The generic filter must match before the suffix check runs.
+            getUrlTokenCandidates: () => urlTokenCandidates(filter),
             match(url) {
                 const entry = urlEntry(url);
                 const request = entry.request;
@@ -347,6 +390,7 @@
         hostKey,
         hostKeys,
         urlHasHostKey,
+        urlTokens: urlTokensOf,
         clearCaches,
         isReady: () => !!engine()
     });

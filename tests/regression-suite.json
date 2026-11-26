@@ -3926,6 +3926,66 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "URL token bucket: query pattern uses the case-insensitive raw URL",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/landing/?CAMPAIGN-token=x&track=y&keep=1",
+      "expectedOutput": "https://example.com/landing/?CAMPAIGN-token=x&keep=1",
+      "providers": {
+        "token-buckets": {
+          "domainPatterns": ["*"],
+          "rules": ["*/?campaign-token=$removeparam=track"]
+        }
+      }
+    },
+    {
+      "id": "URL token bucket: an unbounded word can match part of a URL token",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/marketing?track=y&keep=1",
+      "expectedOutput": "https://example.com/marketing?keep=1",
+      "providers": {
+        "token-buckets": {
+          "domainPatterns": ["*"],
+          "rules": ["*/mark*$removeparam=track"]
+        }
+      }
+    },
+    {
+      "id": "URL token bucket: a page path covers a request handled by another provider",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://cdn.example.net/x.js?track=y&keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/"
+      },
+      "providers": {
+        "global": {
+          "domainPatterns": ["*"],
+          "rules": ["$removeparam=track"]
+        },
+        "page": {
+          "domainPatterns": ["||page.example^"],
+          "rules": ["@@/tools/editor/$removeparam=track"]
+        }
+      }
+    },
+    {
+      "id": "URL token bucket: provider exception can match the page path",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://cdn.example.net/x.js?track=y&keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/"
+      },
+      "providers": {
+        "token-buckets": {
+          "domainPatterns": ["||cdn.example.net^"],
+          "rules": ["$removeparam=track", "@@/tools/editor/$removeparam=track"]
+        }
+      }
     }
   ]
 }
