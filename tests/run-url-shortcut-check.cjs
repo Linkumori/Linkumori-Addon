@@ -208,6 +208,27 @@ async function main() {
     cases.push(['||example.com^foo/', 'https://example.com/xfoo/'], ['||example.com^foo^', 'https://example.com/a/xfoo/']);
 
     const failures = [];
+    // Fixed answers: a host's trailing dots name the same host. A port is
+    // not skipped (docs/filter-syntax.md), dots or not. Each case is also
+    // added to the shortcut checks below.
+    const FIXED = [
+        ['||apimeishi.meituan.com/meishi/poi', 'https://apimeishi.meituan.com./meishi/poi', true],
+        ['||apimeishi.meituan.com/meishi/poi', 'https://user:pw@m.apimeishi.meituan.com../meishi/poi?a=1', true],
+        ['||tv.apple.com^', 'https://tv.apple.com../', true],
+        ['||tv.apple.com^', 'https://tv.apple.com.:8080/', true],
+        ['||example.com/go', 'https://www.example.com.:8080/go', false],
+        ['||example.com:8080/go', 'https://example.com.:8080/go', true],
+        ['||amazon.*/gp/', 'https://amazon.co.uk./gp/x', true],
+        ['||amazon.*/gp/', 'https://amazon.evil.com./gp/x', false],
+        ['||example.com/x./', 'https://example.com/x./y', true],
+        ['||example.com/go', 'https://example.com.evil.org/go', false]
+    ];
+    for (const [p, url, expected] of FIXED) {
+        let m;
+        try { m = matches(url, [p]); } catch (_) { m = false; }
+        if (m !== expected) failures.push(`[fixed] pattern ${p}\n    url ${url}\n    expected ${expected}, got ${m}`);
+        cases.push([p, url]);
+    }
     let checked = 0, matched = 0;
     const answers = [];
     for (const psl of ['ready', 'not loaded']) {

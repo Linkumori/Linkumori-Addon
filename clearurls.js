@@ -477,6 +477,8 @@ function initPslSupport() {
             pslSupport.service = pslService;
             pslSupport.status = 'ready';
             pslSupport.error = null;
+            // ||host.* patterns answer differently now that the list is here.
+            matchDomainPatternLastUrl = null;
         } catch (e) {
             pslSupport.status = 'failed';
             pslSupport.error = e;
@@ -788,15 +790,17 @@ class Multimap {
 // PERF: many rules check the same URL against the same pattern (each rule
 // of a provider repeats its domain, and filters are copied across
 // providers), so a pattern's answer for the last URL is kept, until the
-// URL or the Public Suffix List's status changes.
+// URL changes. initPslSupport() clears it once the Public Suffix List is
+// ready, since ||host.* answers can change then. (It is not checked on each
+// call: this runs thousands of times per URL.)
 var matchDomainPatternLastUrl = null;
 
 function matchDomainPattern(url, patterns) {
     if (typeof patterns === 'string') patterns = [patterns];
     if (!Array.isArray(patterns) || patterns.length === 0 || typeof url !== 'string' || !url) return false;
     let last = matchDomainPatternLastUrl;
-    if (!last || last.url !== url || last.pslStatus !== pslSupport.status) {
-        last = { url, results: new Map(), pslStatus: pslSupport.status };
+    if (!last || last.url !== url) {
+        last = { url, results: new Map() };
         matchDomainPatternLastUrl = last;
     }
     const results = last.results;
